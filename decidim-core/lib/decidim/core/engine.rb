@@ -280,6 +280,12 @@ module Decidim
         Decidim.content_blocks.register(:homepage, :hero) do |content_block|
           content_block.cell "decidim/content_blocks/hero"
           content_block.public_name_key "decidim.content_blocks.hero.name"
+
+          content_block.settings do |settings|
+            settings.attribute :cta_button_text, type: :text, translated: true
+            settings.attribute :welcome_text, type: :text, translated: true
+            settings.attribute :cta_button_link, type: :text
+          end
         end
 
         Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
