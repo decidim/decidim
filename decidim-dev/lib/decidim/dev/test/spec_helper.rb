@@ -14,7 +14,6 @@ require "action_view/helpers/sanitize_helper"
 Dir["#{__dir__}/rspec_support/**/*.rb"].each { |f| require f }
 
 require_relative "factories"
-require_relative "screenshot_helper_ext"
 
 RSpec.configure do |config|
   config.color = true
@@ -36,5 +35,4 @@ RSpec.configure do |config|
   config.include ActionView::Helpers::SanitizeHelper
   config.include ERB::Util
   config.include Capybara::ReactSelect, type: :system
-  config.include Decidim::ScreenshotHelperExt, type: :system
 end

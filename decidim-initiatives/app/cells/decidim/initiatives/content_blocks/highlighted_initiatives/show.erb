@@ -1,0 +1,29 @@
+<section class="wrapper-home home-section">
+  <div class="row" id="highlighted-initiatives">
+    <h3 class="section-heading"><%= t("active_initiatives", scope: i18n_scope) %></h3>
+    <div class="row collapse">
+      <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3 large-up-4 card-grid">
+        <% highlighted_initiatives.each do |initiative| %>
+          <div class="column">
+            <article class="card card--initiative card--mini">
+              <%= link_to decidim_initiatives.initiative_path(initiative), class: "card__link" do %>
+              <% end %>
+              <div class="card__content">
+                <%= link_to decidim_initiatives.initiative_path(initiative), class: "card__link" do %>
+                  <h4 class="card__title"><%= translated_attribute initiative.title %></h4>
+                <% end %>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="see-all-initiatives">
+    <div class="columns small-centered small-12 smallmedium-8 medium-6 large-4">
+      <%= link_to t("see_all_initiatives", scope: i18n_scope), decidim_initiatives.initiatives_path,
+                  class: "button expanded hollow button--sc home-section__cta" %>
+    </div>
+  </div>
+</section>

@@ -85,3 +85,7 @@ Ideally, each engine should hold their own instance of `Decidim::ViewHooks`. Thi
 ## The engine I want to extend does not support view hooks, what can I do?
 
 First of all, send a PR to the engine to add the view hook you need. Expose your needs, so the developers can assess a view hook is the best solution. Sometimes a view hook can be replaced with another abstraction, or another UI. Meanwhile, you can use [`deface`](https://github.com/spree/deface) to extend a view file without replacing it. Be careful, since `deface` is *very* powerful and can be a double-edged sword. We considered adding `deface` to `decidim`, but found that it opened to a code that would be much harder to maintain.
+
+## View hooks drawbacks and alternatives
+
+View hooks allow components to extend the views of other components without coupling, but they cannot be sorted by the user, and cannot hold options. Consider checking the content blocks abstraction for a more configurable setup.

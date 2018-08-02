@@ -306,6 +306,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        homepage: Homepage
         impersonations: Impersonations
         newsletters: Newsletters
         oauth_applications: OAuth applications
@@ -499,6 +500,10 @@ en:
           homepage_highlighted_content_banner_title: Highligted content banner
           layout_appearance_title: Edit layout appearance
           omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
       participatory_space_private_users:
         create:
           error: There was an error adding a private user for this participatory space.

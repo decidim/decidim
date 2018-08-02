@@ -206,6 +206,19 @@ en:
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      hero:
+        name: Hero image
+      highlighted_content_banner:
+        name: Highlighted content banner
+      how_to_participate:
+        name: How to participate
+      stats:
+        name: Organization stats
+      sub_hero:
+        name: Sub hero banner
     core:
       actions:
         unauthorized: You are not authorized to perform this action
@@ -326,8 +339,8 @@ en:
     filters:
       linked_classes:
         all: All
-        collaborativedraft: Collaborative draft
-        dummyresource: Dummy resources
+        collaborative_draft: Collaborative draft
+        dummy_resource: Dummy resources
         meeting: Meetings
         project: Projects
         proposal: Proposals
