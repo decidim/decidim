@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Proposals
+  module Meetings
     # A GraphQL resolver to handle `count` and `metric` queries
-    class AcceptedProposalsMetricResolver < Decidim::Core::MetricResolver
+    class MeetingsMetricResolver < Decidim::Core::MetricResolver
       def initialize(organization)
         super(organization)
-        @metric_counter = Decidim::Proposals::Metrics::AcceptedProposalsMetricCount.for(@organization)
+        @metric_counter = Decidim::Meetings::Metrics::MeetingsMetricCount.for(@organization)
       end
     end
   end

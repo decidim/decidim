@@ -2,18 +2,10 @@
 
 module Decidim
   # A GraphQL resolver to handle `count` and `metric` queries
-  class UsersMetricResolver
+  class UsersMetricResolver < Decidim::Core::MetricResolver
     def initialize(organization)
-      @organization = organization
+      super(organization)
       @metric_counter = Decidim::Metrics::UsersMetricCount.for(@organization)
-    end
-
-    def metric
-      @metric_counter.metric
-    end
-
-    def count
-      @metric_counter.count
     end
   end
 end

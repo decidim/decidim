@@ -23,9 +23,7 @@ module Decidim
         end
 
         type.field :commentsMetric, Comments::CommentsMetricType, "Decidim's CommentMetric data." do
-          resolve lambda { |_obj, _args, ctx|
-            ctx[:current_organization]
-          }
+          resolve ->(_obj, _args, ctx) { Decidim::Comments::CommentsMetricResolver.new(ctx[:current_organization]) }
         end
       end
     end

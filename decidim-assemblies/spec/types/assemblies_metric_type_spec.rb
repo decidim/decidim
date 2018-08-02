@@ -12,6 +12,7 @@ module Decidim
 
       include_context "with a graphql type"
 
+      let!(:model) { Decidim::Assemblies::AssembliesMetricResolver.new(current_organization) }
       let(:today) { Time.zone.today }
       let!(:models) do
         (0..4).each do |count|

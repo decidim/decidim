@@ -4,7 +4,6 @@ require "decidim/participatory_processes/admin"
 require "decidim/participatory_processes/engine"
 require "decidim/participatory_processes/admin_engine"
 require "decidim/participatory_processes/participatory_space"
-require "decidim/participatory_processes/api"
 
 module Decidim
   # Base module for the participatory processes engine.

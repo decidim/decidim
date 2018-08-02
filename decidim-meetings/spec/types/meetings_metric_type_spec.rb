@@ -6,12 +6,9 @@ require "decidim/api/test/type_context"
 module Decidim
   module Meetings
     describe MeetingsMetricType, type: :graphql do
-      before do
-        Rails.cache.clear
-      end
-
       include_context "with a graphql type"
 
+      let(:model) { Decidim::Meetings::MeetingsMetricResolver.new(current_organization) }
       let(:today) { Time.zone.today }
       let!(:models) do
         (0..4).each do |count|
