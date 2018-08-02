@@ -6,12 +6,17 @@ module Decidim
     include CarrierWave::MiniMagick
 
     process :validate_dimensions
+    process quality: 60
 
-    version :big do
+    version :profile do
+      process resize_to_fill: [536, 640]
+    end
+
+    version :big, from_version: :profile do
       process resize_to_fit: [80, 80]
     end
 
-    version :thumb do
+    version :thumb, from_version: :big do
       process resize_to_fit: [40, 40]
     end
 
