@@ -40,8 +40,9 @@ module Decidim
           alias_method "#{attribute_name}_virtus=", "#{attribute_name}="
 
           define_method "#{attribute_name}=" do |value|
+            field = public_send(name) || {}
             new_value = send("#{attribute_name}_virtus=", value)
-            public_send("#{name}=", (public_send(name) || {}).merge(locale => new_value))
+            public_send("#{name}=", field.merge(locale => new_value))
           end
         end
       end
