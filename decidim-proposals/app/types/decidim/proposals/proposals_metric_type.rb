@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     ProposalsMetricType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Proposals::ProposalsMetricInterface }]
+      interfaces [-> { Decidim::Core::MetricInterface }]
 
       name "ProposalsMetricType"
       description "A proposals component of a participatory space."
@@ -11,9 +11,7 @@ module Decidim
 
     module ProposalsMetricTypeHelper
       def self.base_scope(organization, type = :count)
-        Rails.cache.fetch("proposals_metric/#{organization.try(:id)}/#{type}", expires_in: 24.hours) do
-          Decidim::Proposals::Metrics::ProposalsMetricCount.for(organization, counter_type: type)
-        end
+        Decidim::Proposals::Metrics::ProposalsMetricCount.for(organization, counter_type: type)
       end
     end
   end
