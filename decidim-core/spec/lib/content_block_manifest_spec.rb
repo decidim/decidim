@@ -61,10 +61,32 @@ module Decidim
         end
 
         setup.call(subject)
+
         expect(subject).to be_valid
         expect(subject.cell_name).to eq cell
         expect(subject.name).to eq name
         expect(subject.image_names).to match_array [:image_1, :image_2]
+      end
+    end
+
+    describe "when adding settings" do
+      let(:attributes) { { name: name } }
+
+      it "is valid" do
+        setup = proc do |content_block|
+          content_block.cell cell
+
+          content_block.settings do |settings|
+            settings.attribute :name, type: :text, translated: true, editor: true
+          end
+        end
+
+        setup.call(subject)
+
+        expect(subject.settings.attributes).to have_key(:name)
+        expect(subject.settings.attributes[:name].translated).to eq true
+        expect(subject.settings.attributes[:name].editor).to eq true
+        expect(subject.settings.attributes[:name].type).to eq :text
       end
     end
   end
