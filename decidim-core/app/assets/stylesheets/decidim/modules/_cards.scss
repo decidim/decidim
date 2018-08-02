@@ -50,11 +50,17 @@ $datetime-bg: $primary;
 
 .card__content{
   padding: $card-padding-small;
-  padding-bottom: $card-padding-small / 2;
+
+  &:not(:only-child){
+    padding-bottom: $card-padding-small / 2;
+  }
 
   @include breakpoint(medium){
     padding: $card-padding;
-    padding-bottom: $card-padding / 2;
+
+    &:not(:only-child){
+      padding-bottom: $card-padding / 2;
+    }
   }
 }
 

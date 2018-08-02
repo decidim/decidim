@@ -434,4 +434,12 @@ FactoryBot.define do
     content_a { Faker::Lorem.sentence }
     datetime { DateTime.current }
   end
+
+  factory :content_block, class: "Decidim::ContentBlock" do
+    organization
+    scope { :my_scope }
+    manifest_name { :my_manifest }
+    weight { 1 }
+    published_at { Time.current }
+  end
 end

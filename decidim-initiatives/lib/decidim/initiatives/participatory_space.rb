@@ -29,6 +29,14 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
     organization = Decidim::Organization.first
 
+    Decidim::ContentBlock.create(
+      organization: organization,
+      weight: 33,
+      scope: :homepage,
+      manifest_name: :highlighted_initiatives,
+      published_at: Time.current
+    )
+
     3.times do |n|
       type = Decidim::InitiativesType.create!(
         title: Decidim::Faker::Localized.sentence(5),
