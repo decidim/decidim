@@ -50,29 +50,6 @@ module Decidim
       end
     end
 
-    context "with repeated option names" do
-      it "is not valid" do
-        subject.option :my_option, :integer
-        subject.option :my_option, :text
-
-        expect(subject).not_to be_valid
-      end
-    end
-
-    context "when registering an option without a name" do
-      it "raises an error" do
-        expect { subject.option "", :integer }
-          .to raise_error(described_class::OptionNameCannotBeBlank)
-      end
-    end
-
-    context "when registering an option without a type" do
-      it "raises an error" do
-        expect { subject.option :my_option, "" }
-          .to raise_error(described_class::OptionTypeCannotBeBlank)
-      end
-    end
-
     describe "initializing via a block" do
       let(:attributes) { { name: name } }
 
