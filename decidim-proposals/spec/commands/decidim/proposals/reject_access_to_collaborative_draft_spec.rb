@@ -14,7 +14,8 @@ module Decidim
       let(:author1) { create(:user, :confirmed, organization: component.organization) }
       let(:author2) { create(:user, :confirmed, organization: component.organization) }
       let(:current_user) { author1 }
-      let(:form) { RejectAccessToCollaborativeDraftForm.from_params(form_params).with_context(current_user: current_user) }
+      let(:current_organization) { component.organization }
+      let(:form) { RejectAccessToCollaborativeDraftForm.from_params(form_params).with_context(current_user: current_user, current_organization: current_organization) }
       let(:form_params) do
         {
           state: state,
