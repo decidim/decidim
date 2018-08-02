@@ -68,6 +68,12 @@ module Decidim::Accountability
       it { is_expected.to be_valid }
     end
 
+    describe "when progress is empty" do
+      let(:progress) { nil }
+
+      it { is_expected.to be_valid }
+    end
+
     describe "when title is missing" do
       let(:title) { { en: nil } }
 
