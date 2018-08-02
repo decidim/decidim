@@ -93,6 +93,11 @@ module Decidim
                     if: allowed_to?(:read, :oauth_application)
         end
       end
+
+      initializer "decidim_admin.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Admin::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Admin::Engine.root}/app/views") # for partials
+      end
     end
   end
 end
