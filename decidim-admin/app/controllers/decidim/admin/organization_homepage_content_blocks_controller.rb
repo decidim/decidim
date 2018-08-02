@@ -10,10 +10,21 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
+        @form = form(ContentBlockForm).from_model(content_block)
       end
 
       def update
         enforce_permission_to :update, :organization, organization: current_organization
+        @form = form(ContentBlockForm).from_params(params)
+
+        UpdateContentBlock.call(@form, content_block, :homepage) do
+          on(:ok) do
+            redirect_to edit_organization_homepage_path
+          end
+          on(:invalid) do
+            byebug
+          end
+        end
       end
 
       private
