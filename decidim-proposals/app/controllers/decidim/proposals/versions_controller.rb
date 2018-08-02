@@ -6,7 +6,6 @@ module Decidim
     # has been updated through time.
     class VersionsController < Decidim::Proposals::ApplicationController
       helper Decidim::TraceabilityHelper
-      # helper Decidim::Accountability::BreadcrumbHelper
       helper_method :current_version, :item
 
       private

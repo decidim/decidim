@@ -99,7 +99,7 @@ module Decidim
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            redirect_to proposal_path(@proposal)
           end
 
           on(:invalid) do
