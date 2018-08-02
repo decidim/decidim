@@ -19,6 +19,7 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Fingerprintable
       include Decidim::DataPortability
+      include Decidim::Hashtaggable
 
       fingerprint fields: [:title, :body]
 

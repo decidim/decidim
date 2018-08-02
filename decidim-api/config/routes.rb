@@ -5,4 +5,5 @@ Decidim::Api::Engine.routes.draw do
   get "/docs", to: "documentation#show", as: :documentation
   get "/", to: redirect("/api/docs")
   post "/" => "queries#create", as: :root
+  get 'hashtags/hashtags', as: :hashtags
 end

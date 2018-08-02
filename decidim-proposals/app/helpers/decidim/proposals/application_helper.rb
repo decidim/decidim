@@ -11,6 +11,7 @@ module Decidim
       include ProposalEndorsementsHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
+      # include Decidim::HashtagsHelper
 
       # Public: The state of a proposal in a way a human can understand.
       #

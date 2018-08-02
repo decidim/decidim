@@ -3,7 +3,7 @@
     <div class="card__content">
       <div class="card__header">
         <%= link_to proposal, target: "_blank" do %>
-          <h5 class="card__title"><%= proposal.title %></h5>
+          <h5 class="card__title"><%= present(proposal).title %></h5>
         <% end %>
         <%= cell("decidim/coauthorships", proposal, has_actions: false) %>
 
@@ -15,7 +15,7 @@
 
       <%== cell("decidim/proposals/proposal_m", proposal).badge %>
 
-      <p><%= truncate(proposal.body, length: 100) %></p>
+      <p><%= truncate(present(proposal).html_body, length: 100) %></p>
       <%= cell "decidim/tags", proposal, context: {extra_classes: ["tags--proposal"]} %>
     </div>
   </article>

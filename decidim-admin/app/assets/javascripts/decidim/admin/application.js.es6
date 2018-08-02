@@ -16,6 +16,8 @@
 // = require ./field_dependent_inputs.component
 // = require ./bundle
 // = require ./draggable-list
+// = require decidim/input_tags
+// = require decidim/input_hashtags
 // = require_self
 
 window.Decidim = window.Decidim || {};

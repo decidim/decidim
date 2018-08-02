@@ -4,12 +4,12 @@
   </div>
 
   <div class="card-section">
-    <div class="row column">
-      <%= form.text_field :title %>
+    <div class="row column hashtags__container">
+      <%= form.text_field :title, class: "js-hashtags", hashtaggable: true %>
     </div>
 
-    <div class="row column">
-      <%= form.text_area :body, rows: 10 %>
+    <div class="row column hashtags__container">
+      <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true %>
     </div>
 
     <% if component_settings.geocoding_enabled? %>

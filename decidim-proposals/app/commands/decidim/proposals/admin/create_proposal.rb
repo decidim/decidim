@@ -40,17 +40,23 @@ module Decidim
         attr_reader :form, :proposal, :attachment
 
         def create_proposal
+          # parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: current_organization).rewrite
+          # parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: current_organization).rewrite
+
+          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: current_organization).rewrite
+          parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: current_organization).rewrite
+
           @proposal = Decidim.traceability.create!(
             Proposal,
             form.current_user,
-            attributes
+            attributes(parsed_title, parsed_body)
           )
         end
 
-        def attributes
+        def attributes parsed_title, parsed_body
           {
-            title: form.title,
-            body: form.body,
+            title: parsed_title,
+            body: parsed_body,
             category: form.category,
             scope: form.scope,
             component: form.component,

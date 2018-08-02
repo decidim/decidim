@@ -16,6 +16,10 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(rand(1..10))}_#{n}"
   end
 
+  sequence(:hashtag_name) do |n|
+    "#{Faker::Lorem.characters(rand(1..10))}_#{n}"
+  end
+
   sequence(:email) do |n|
     "user#{n}@example.org"
   end
@@ -433,5 +437,10 @@ FactoryBot.define do
     scope { resource.scope }
     content_a { Faker::Lorem.sentence }
     datetime { DateTime.current }
+  end
+
+  factory :hashtag, class: "Decidim::Hashtag" do
+    name { generate(:hashtag_name) }
+    organization
   end
 end

@@ -62,6 +62,9 @@ module Decidim
   autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
   autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
   autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
+  autoload :Hashtag, "decidim/hashtag"
+  autoload :Hashtagging, "decidim/hashtagging"
+  autoload :Hashtaggable, "decidim/hashtaggable"
 
   include ActiveSupport::Configurable
 
