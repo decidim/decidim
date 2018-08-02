@@ -7,6 +7,9 @@
     "decidim/progress_bar",
     progress,
     total: total,
+    # let i18n know that we are using theses keys to avoid "unused key error"
+    # i18n-tasks-use t('decidim.proposals.proposals.votes_weight.count')
+    # i18n-tasks-use t('decidim.proposals.proposals.votes_count.count')
     units_name: "decidim.proposals.proposals.#{tr_path}.count",
     element_id: "proposal-#{proposal.id}-votes-count",
     subtitle_text: subtitle_text,

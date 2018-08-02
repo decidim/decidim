@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -139,7 +140,7 @@ ca:
           random_seed: Llavor aleatòria
           selected_proposals:
             one: 1 proposta seleccionada
-            other: '%{count} propostes seleccionades'
+            other: "%{count} propostes seleccionades"
           view: Veure
         sortition_author:
           deleted: Usuari eliminat

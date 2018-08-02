@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ it:
             base:
               too_many_minutes: La durata degli articoli supera la durata della riunione di %{count} minuti
               too_many_minutes_child: La durata dell'elemento child supera la durata del genitore "%{parent_title}" dell'ordine del giorno di %{count} minuto
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
       decidim/meetings/create_meeting_event: Incontro
@@ -238,6 +243,10 @@ it:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} ha chiuso la riunione %{resource_name} sullo spazio %{space_name}"
           create: "%{user_name} ha creato la riunione %{resource_name} nello spazio %{space_name}"

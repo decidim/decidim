@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ pl:
             base:
               too_many_minutes: Czas trwania przedmiotów przekracza czas trwania spotkania o %{count} minut
               too_many_minutes_child: Czas trwania elementów potomnych przekracza czas trwania okresu rodzicielskiego "%{parent_title}" w porządku obrad o %{count} minutę
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Spotkanie zamknięte
       decidim/meetings/create_meeting_event: Spotkanie
@@ -48,19 +53,19 @@ pl:
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Spotkanie
         few: Spotkania
         many: Spotkania
+        one: Spotkanie
         other: Spotkania
       decidim/meetings/minutes:
-        one: Minuty
         few: Minuty
         many: Minuty
+        one: Minuty
         other: Minuty
       decidim/meetings/registration:
-        one: Rejestracja
         few: Rejestracje
         many: Rejestracje
+        one: Rejestracja
         other: Rejestracje
   decidim:
     admin:
@@ -236,9 +241,9 @@ pl:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invite_user: Zaproś użytkownika
             registrations_count:
-              one: Została 1 rejestracja.
               few: Rejestrowano %{count}.
               many: Zarejestrowano %{count} rejestracji.
+              one: Została 1 rejestracja.
               other: Rejestrowano %{count}.
             reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
@@ -246,6 +251,10 @@ pl:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} zamknął spotkanie %{resource_name} na przestrzeni %{space_name}"
           create: "%{user_name} utworzył spotkanie %{resource_name} na przestrzeni %{space_name}"
@@ -300,10 +309,10 @@ pl:
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           remaining_slots:
+            few: Pozostało %{count}
+            many: Pozostało %{count} gniazd
             one: Pozostało 1 gniazdo
-            few: "Pozostało %{count}"
-            many: "Pozostało %{count} gniazd"
-            other: "Pozostało %{count}"
+            other: Pozostało %{count}
           view: Widok
       models:
         meeting:

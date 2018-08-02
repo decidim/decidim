@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     models:
@@ -8,14 +9,14 @@ ru:
   activerecord:
     models:
       decidim/comments/comment:
-        one: Комментарий
         few: Комментария
         many: Комментариев
+        one: Комментарий
         other: Комментариев
       decidim/comments/comment_vote:
-        one: Голос
         few: Голоса
         many: Голосов
+        one: Голос
         other: Голосов
   decidim:
     comments:
@@ -36,8 +37,8 @@ ru:
             label: Комментировать как
         opinion:
           neutral: Безучастно
-        remaining_characters: "Осталось %{count} символов"
-        remaining_characters_1: "Остался %{count} символ"
+        remaining_characters: Осталось %{count} символов
+        remaining_characters_1: Остался %{count} символ
         title: Добавьте свой комментарий
       comment:
         alignment:
@@ -69,6 +70,8 @@ ru:
         blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"
+        title_0: Il n'y a pas encore de commentaire
+        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

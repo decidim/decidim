@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     models:
@@ -65,6 +66,8 @@ nl:
         blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar je kan de vorige berichten lezen.
         loading: Reacties laden...
         title: "%{count} reacties"
+        title_0: Er zijn nog geen opmerkingen
+        title_1: "%{count} reactie"
     events:
       comments:
         comment_by_followed_user:

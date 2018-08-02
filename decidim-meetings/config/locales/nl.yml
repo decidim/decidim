@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ nl:
             base:
               too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
               too_many_minutes_child: De duur van het item childs overschrijdt de ouder-duur van het agendapunt "%{parent_title}" met %{count} minuut
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Deze e-mail is al uitgenodigd
     models:
       decidim/meetings/close_meeting_event: Vergadering gesloten
       decidim/meetings/create_meeting_event: Vergadering
@@ -238,6 +243,10 @@ nl:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
       admin_log:
+        invite:
+          create: "%{user_name} %{attendee_name} uitgenodigd om %{resource_name} space meeting %{space_name} te vervoegen"
+          deleted: "%{user_name} ongevraagd %{attendee_name} om %{resource_name} space meeting %{space_name} te vervoegen"
+          update: "%{user_name} %{attendee_name} uitgenodigd om %{resource_name} space meeting %{space_name} te vervoegen"
         meeting:
           close: "%{user_name} sloot het %{resource_name} event in de %{space_name} ruimte"
           create: "%{user_name} heeft het %{resource_name} event gemaakt in de %{space_name} ruimte"

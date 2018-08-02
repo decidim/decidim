@@ -7,7 +7,7 @@
             "decidim/progress_bar",
             progress_bar_progress,
             total: progress_bar_total,
-            units_name: current_settings.votes_weight_enabled? ? "decidim.proposals.proposals.vote_weight.count" : "decidim.proposals.proposals.vote_weight.count",
+            units_name: current_settings.votes_weight_enabled? ? "decidim.proposals.proposals.votes_weight.count" : "decidim.proposals.proposals.votes_count.count",
             element_id: "proposal-#{model.id}-votes-count",
             subtitle_text: progress_bar_subtitle_text,
             small: true

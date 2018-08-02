@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -36,24 +37,24 @@ ru:
   activerecord:
     models:
       decidim/proposals/proposal:
-        one: Предложение
         few: Предложения
         many: Предложений
+        one: Предложение
         other: Предложений
       decidim/proposals/proposal_endorsement:
-        one: Выражение поддержки
         few: Выражения поддержки
         many: Выражений поддержки
+        one: Выражение поддержки
         other: Выражений поддержки
       decidim/proposals/proposal_note:
-        one: Примечание
         few: Примечания
         many: Примечаний
+        one: Примечание
         other: Примечаний
       decidim/proposals/proposal_vote:
-        one: Голос
         few: Голоса
         many: Голосов
+        one: Голос
         other: Голосов
   decidim:
     components:
@@ -93,7 +94,12 @@ ru:
             votes_blocked: Голосование отключено
             votes_enabled: Голосование включено
             votes_hidden: Голоса скрыты (если голосование включено, то при поставленной здесь птичке будет скрыто количество голосов)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Теперь вы можете создавать новые предложения в %{participatory_space_title}! Начните со страницы:'
@@ -288,9 +294,9 @@ ru:
           title: Завершите свое предложение
         count:
           proposals_count:
-            one: 1 предложение
             few: "%{count} предложения"
             many: "%{count} предложений"
+            one: 1 предложение
             other: "%{count} предложений"
         edit:
           back: Вернуться
@@ -334,9 +340,9 @@ ru:
           view_proposal: Просмотреть предложение
         linked_proposals:
           proposal_votes:
-            one: голосовать
             few: голоса
             many: голоса
+            one: голосовать
             other: голоса
         new:
           send: Продолжить
@@ -349,9 +355,9 @@ ru:
         preview:
           modify: Изменить предложение
           proposal_edit_before_minutes:
-            one: Вы сможете отредактировать это предложение в течение первой минуты после того, как предложение было обнародовано. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
             few: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
             many: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
+            one: Вы сможете отредактировать это предложение в течение первой минуты после того, как предложение было обнародовано. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
             other: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
           publish: Обнародовать
           title: Обнародуйте свое предложение
@@ -362,9 +368,9 @@ ru:
           edit_proposal: Редактировать предложение
           endorsements_list: Список тех, кто поддержал
           hidden_endorsers_count:
-            one: и еще 1 человек
             few: и еще %{count} человека
             many: и еще %{count} человек
+            one: и еще 1 человек
             other: и еще %{count} человек
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
@@ -386,14 +392,26 @@ ru:
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
           votes_blocked: Голосование отключено
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
-            one: ГОЛОС
             few: ГОЛОСА
             many: ГОЛОСОВ
+            one: ГОЛОС
             other: ГОЛОСА
           most_popular_proposal: Самое популярное предложение
           need_more_votes: Нужно больше голосов
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки

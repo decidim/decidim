@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -65,19 +66,19 @@ pl:
   activerecord:
     models:
       decidim/assembly:
-        one: montaż
         few: Złożenia
         many: Złożenia
+        one: montaż
         other: Złożenia
       decidim/assembly_member:
-        one: Członek zespołu
         few: Członkowie zgromadzenia
         many: Członkowie zgromadzenia
+        one: Członek zespołu
         other: Członkowie zgromadzenia
       decidim/assembly_user_role:
-        one: Zbierz rolę użytkownika
         few: Zbierz role użytkowników
         many: Zbierz role użytkowników
+        one: Zbierz rolę użytkownika
         other: Zbierz role użytkowników
   decidim:
     admin:
@@ -331,9 +332,9 @@ pl:
           promoted_assemblies: Podświetlone zespoły
         order_by_assemblies:
           assemblies:
-            one: "%{count} montaż"
             few: "%{count} złożeń"
             many: "%{count} złożeń"
+            one: "%{count} montaż"
             other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji

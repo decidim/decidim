@@ -6,9 +6,9 @@
 <% display ||= "slash" %>
 <div class="progress__bar<%= (vertical) ? " progress__bar--vertical" : "" %>">
   <div class="progress__bar__title">
-    <% if (display == 'slash') %>
+    <% if (display == "slash") %>
       <span class="progress__bar__number"><%= progress %></span>/<%= total %>
-    <% elsif (display == 'percent') %>
+    <% elsif (display == "percent") %>
       <span class="progress__bar__number"><%= percent %></span>
     <% end %>
     <span class="progress__bar__text"><%= text %></span>

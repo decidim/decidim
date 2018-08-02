@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ nl:
         one: Gebruikersgroep
         other: Gebruikersgroepen
   booleans:
-    'false': 'Nee'
-    'true': 'Ja'
+    'false': Nee
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: De afbeelding is te groot
@@ -263,12 +264,6 @@ nl:
         email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
         email_subject: Een update naar %{participatory_space_title}
         notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
-      participatory_process:
-        step_activated:
-          email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Een update naar %{participatory_space_title}
-          notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       features:
         feature_published:
           email_intro: 'Het %{resource_title}-onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
@@ -277,6 +272,11 @@ nl:
           notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.

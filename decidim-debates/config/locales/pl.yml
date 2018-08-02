@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -18,9 +19,9 @@ pl:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debata
         few: Debaty
         many: Debaty
+        one: Debata
         other: Debaty
   decidim:
     components:
@@ -71,9 +72,9 @@ pl:
       debates:
         count:
           debates_count:
-            one: "%{count} debata"
             few: "%{count} debat"
             many: "%{count} debaty"
+            one: "%{count} debata"
             other: "%{count} debat"
         create:
           invalid: Podczas tworzenia debaty wystąpił problem.
@@ -115,14 +116,12 @@ pl:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              Cześć, Nowa debata została utworzona na %{space_title} obszarze partycypacyjnym, sprawdź i pomóż:
+            email_intro: 'Cześć, Nowa debata została utworzona na %{space_title} obszarze partycypacyjnym, sprawdź i pomóż:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{space_title} przestrzeń partycypacyjną. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Nowa debata na temat %{space_title}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona na <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              Witaj, %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową debatę, sprawdź i pomóż:
+            email_intro: 'Witaj, %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową debatę, sprawdź i pomóż:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Nowa debata %{author_nickname}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.

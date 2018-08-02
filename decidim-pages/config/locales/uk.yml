@@ -1,10 +1,11 @@
+---
 uk:
   activerecord:
     models:
       decidim/pages/page:
-        one: Сторінка
         few: Сторінки
         many: Сторінок
+        one: Сторінка
         other: Сторінок
   decidim:
     admin_log:

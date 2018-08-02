@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -85,7 +86,12 @@ sv:
             votes_blocked: Röster blockerade
             votes_enabled: Röster aktiverade
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
@@ -352,7 +358,7 @@ sv:
             other: och %{count} fler personer
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
-          proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'
+          proposal_rejected_reason: Detta förslag har avslagits på grund av att
           report: Rapportera
           sign_in: Logga in
           sign_in_or_up: "%{in} eller %{up} att delta"
@@ -370,12 +376,24 @@ sv:
           no_votes_remaining: Inga röster kvar
           vote: Rösta
           votes_blocked: Röstning inaktiverad
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: RÖST
             other: RÖSTER
           most_popular_proposal: Mest populära förslaget
           need_more_votes: Behöver fler röster
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd

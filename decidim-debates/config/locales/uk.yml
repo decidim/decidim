@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -18,9 +19,9 @@ uk:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Обговорення
         few: Обговорення
         many: Обговорень
+        one: Обговорення
         other: Обговорень
   decidim:
     components:
@@ -71,9 +72,9 @@ uk:
       debates:
         count:
           debates_count:
-            one: "%{count} обговорення"
             few: "%{count} обговорення"
             many: "%{count} обговорень"
+            one: "%{count} обговорення"
             other: "%{count} обговорень"
         create:
           invalid: При спробі започаткувати обговорення сталася помилка.
@@ -122,9 +123,7 @@ uk:
             email_subject: У %{space_title} розпочалось нове обговорення
             notification_title: <a href="%{space_path}">%{space_title} </a> розпочав обговорення у <a href="%{resource_path}">%{resource_title}</a>.
           user_followers:
-            email_intro: |-
-              Доброго дня! 
-              %{author_name} %{author_nickname}, за яким ви стежите, розпочав нове обговорення. Прочитайте його та зробіть свій внесок:
+            email_intro: "Доброго дня! \n%{author_name} %{author_nickname}, за яким ви стежите, розпочав нове обговорення. Прочитайте його та зробіть свій внесок:"
             email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
             email_subject: Нове обговорення, започатковане %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> розпочав обговорення <a href="%{resource_path}">%{resource_title}</a>.

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -50,19 +51,19 @@ uk:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Рух співучасті
         few: Рухи співучасті
         many: Рухів співучасті
+        one: Рух співучасті
         other: Рухів співучасті
       decidim/participatory_process_group:
-        one: Гурт руху співучасті
         few: Гурти руху співучасті
         many: Гуртів руху співучасті
+        one: Гурт руху співучасті
         other: Гуртів руху співучасті
       decidim/participatory_process_step:
-        one: Крок
         few: Кроки
         many: Кроків
+        one: Крок
         other: Кроків
   decidim:
     admin:
@@ -335,9 +336,9 @@ uk:
           promoted_processes: Висвітлені рухи
         order_by_processes:
           processes:
-            one: "%{count} рух"
             few: "%{count} рухи"
             many: "%{count} рухів"
+            one: "%{count} рух"
             other: "%{count} рухів"
         participatory_process:
           active_step: 'Поточний крок:'
@@ -350,5 +351,5 @@ uk:
         process_menu_item: Рух
         unfold: Розгорнути
       process_header_steps:
-        step: '%{current}-й крок з %{total} кроків'
+        step: "%{current}-й крок з %{total} кроків"
         view_steps: Переглянути кроки

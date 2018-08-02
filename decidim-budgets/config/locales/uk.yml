@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -11,9 +12,9 @@ uk:
   activerecord:
     models:
       decidim/budgets/project:
-        one: Задум
         few: Задуми
         many: Задумів
+        one: Задум
         other: Задумів
   decidim:
     budgets:
@@ -81,9 +82,9 @@ uk:
           title: Ви приймаєте рішення щодо кошторису
         count:
           projects_count:
-            one: 1 задум
             few: "%{count} задуми"
             many: "%{count} задумів"
+            one: 1 задум
             other: "%{count} задумів"
         filters:
           category: Розряд
@@ -99,17 +100,17 @@ uk:
         order_selected_projects:
           remove: Видалити
           selected_projects:
-            one: обраний задум
             few: обраних задуми
             many: обраних задумів
+            one: обраний задум
             other: обраних задумів
           view: Переглянути
         project:
           add: Додати
           count:
-            one: 1 людина підтримує
             few: "%{count} людей підтримує"
             many: "%{count} людей підтримують"
+            one: 1 людина підтримує
             other: "%{count} людей підтримують"
           remove: Видалити
           view: Переглянути

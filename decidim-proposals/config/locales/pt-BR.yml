@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -85,7 +86,12 @@ pt-BR:
             votes_blocked: Votos bloqueados
             votes_enabled: Votos ativados
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Agora você pode criar novas propostas em %{participatory_space_title}! Comece a participar nesta página:'
@@ -370,12 +376,24 @@ pt-BR:
           no_votes_remaining: Não há votos restantes
           vote: Voto
           votes_blocked: Votação desativada
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: VOTO
             other: VOTOS
           most_popular_proposal: Proposta mais popular
           need_more_votes: Precisa de mais votos
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} suporta

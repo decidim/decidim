@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module EmailNotificationGeneratorExtend
   def send_email_to(recipient_id)
-    recipient = Decidim::User.where(id: recipient_id).first
+    recipient = Decidim::User.find_by(id: recipient_id)
     return unless recipient
     return unless recipient.email_on_notification?
     if @extra[:new_content]

@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -38,6 +39,10 @@ fi:
             base:
               too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuuttia
               too_many_minutes_child: Kohdan lapsen kesto ylittää esityslistan kohdan "%{parent_title}" vanhemman keston %{count} minuutilla
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Kokous päättyi
       decidim/meetings/create_meeting_event: Tapaaminen
@@ -231,13 +236,17 @@ fi:
             invite_user: Kutsu käyttäjä
             registrations_count:
               one: 1 ilmoittautuminen.
-              other: '%{count} ilmoittautumista.'
+              other: "%{count} ilmoittautumista."
             reserved_slots_help: Jätä se kohtaan 0, jos sinulla ei ole varattuja lähtöasemia
             reserved_slots_less_than: Voi olla pienempi tai yhtä suuri kuin %{count}
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} sulki %{resource_name} kokouksen %{space_name} -tilaan"
           create: "%{user_name} loi %{resource_name} kokouksen %{space_name} -tilaan"

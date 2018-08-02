@@ -7,18 +7,12 @@ module Decidim
     class InitiativeMCell < Decidim::CardMCell
       include Decidim::Initiatives::Engine.routes.url_helpers
 
-      include Decidim::Initiatives::InitiativeHelper
-
       property :state
 
       private
 
       def has_state?
         true
-      end
-
-      def badge_name
-        humanize_proposal_state state
       end
 
       def state_classes

@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -53,9 +54,6 @@ fr:
   decidim:
     admin:
       actions:
-        new_consultation: Nouvelle votation
-        new_question: Nouvelle question
-        new_response: Nouvelle réponse
         publish_results: Publier les résultats
         unpublish_results: Dépublier des résultats
       consultation_publications:
@@ -109,18 +107,18 @@ fr:
             published: Publiée
             title: Titre
           name:
-            zero: Votation
             one: Votation
             other: Votations
+            zero: Votation
         question:
           fields:
             created_at: Créée le
             published: Publiée
             title: Titre
           name:
-            zero: Question
             one: Question
             other: Questions
+            zero: Question
         response:
           fields:
             created_at: Créée le
@@ -188,9 +186,9 @@ fr:
           recent: Les plus récentes
       count:
         title:
-          zero: "%{count} votation"
           one: "%{count} votation"
           other: "%{count} votations"
+          zero: "%{count} votation"
       filters:
         active: Actives
         all: Tout

@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -316,6 +317,11 @@ pl:
         logs_list:
           no_logs_yet: Nie ma jeszcze dzienników
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Podczas promowania zarządzanego użytkownika wystąpił błąd.
           success: Zarządzany użytkownik został pomyślnie awansowany.
@@ -333,6 +339,7 @@ pl:
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
         impersonations: Podszywanie się pod inne osoby
+        navbar_links: Navbar links
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
         officializations: Oficjalizacje
@@ -370,6 +377,13 @@ pl:
             reason: Powód
             started_at: Zaczęło się od
             user: Użytkownik
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Utworzono w
@@ -424,6 +438,28 @@ pl:
             does_not_belong: Nie należy
             offensive: Ofensywa
             spam: Spam
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Podczas tworzenia biuletynu wystąpił błąd.
@@ -595,6 +631,8 @@ pl:
         dashboard: Deska rozdzielcza
         impersonatable_users: Niekodowalni użytkownicy
         impersonations: Impersonaty
+        managed_users: Managed users
+        navbar_links: Navbar links
         officializations: Oficjalizacje
         scope_types: Typy zakresów
         scopes: Zakresy

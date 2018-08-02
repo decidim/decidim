@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -35,18 +36,18 @@ ru:
         user_group_phone: Телефон организации
     models:
       decidim/user:
-        one: Участник
         few: Участника
         many: Участников
+        one: Участник
         other: Участников
       decidim/user_group:
-        one: Группа участников
         few: Группы участников
         many: Групп участников
+        one: Группа участников
         other: Групп участников
   booleans:
-    'false': 'Нет'
-    'true': 'Да'
+    'false': Нет
+    'true': Да
   carrierwave:
     errors:
       image_too_big: Изображение слишком велико
@@ -121,9 +122,9 @@ ru:
     application:
       collection:
         documents:
-          one: Документ
           few: Документа
           many: Документов
+          one: Документ
           other: Документов
       documents:
         related_documents: Сопутствующие документы
@@ -131,9 +132,9 @@ ru:
         related_photos: Сопутствующие фотографии
     author:
       comments:
-        one: комментарий
         few: комментария
         many: комментариев
+        one: комментарий
         other: комментариев
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -162,9 +163,9 @@ ru:
       started_at: 'Начато: %{timestamp}'
     collapsible_list:
       hidden_elements_count:
-        one: и еще 1
         few: и еще %{count}
         many: и еще %{count}
+        one: и еще 1
         other: и еще %{count}
       see_less: "(читать меньше)"
       see_more: "(читать подробнее)"
@@ -216,14 +217,14 @@ ru:
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       sessions:
         new:
-          are_you_new?: Вы в первый раз на этой платформе?
+          are_you_new?: Вы впервые на этой площадке?
           register: Создать учетную запись
       shared:
         newsletter_modal:
           buttons:
             check: Поставить галочку и продолжить
             uncheck: Не ставить галочку
-          notice: Привет, вы уверены, что не хотите получать рассылку новостей? Пожалуйста, еще раз подумайте насчет того, чтобы поставить галочку ниже. Для нас очень важно, чтобы вы могли иногда получать сообщения с важными объявлениями. Вы всегда сможете изменить это на странице настроек уведомлений. Если вы не отметите это поле, вы можете упустить свежие возможности участия в платформе. Если вы все же не хотите получать рассылку, мы прекрасно понимаем такое ваше решение. Спасибо, что прочитали это!
+          notice: Привет, вы уверены, что не хотите получать рассылку новостей? Пожалуйста, еще раз подумайте насчет того, чтобы поставить галочку ниже. Для нас очень важно, чтобы вы могли иногда получать сообщения с важными объявлениями. Вы всегда сможете изменить это на странице настроек уведомлений. Если вы не отметите это поле, вы можете упустить свежие возможности участия в работе площадки. Если вы все же не хотите получать рассылку, мы прекрасно понимаем такое ваше решение. Спасибо, что прочитали это!
           title: Уведомления о новостях
         omniauth_buttons:
           or: Или
@@ -265,11 +266,27 @@ ru:
           notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведена в действие составляющая %{resource_title}
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
-        email_intro: '«%{resource_title}» обновили. Вы можете посмотреть его на странице:'
+        email_intro: "«%{resource_title}» обновили. Вы можете посмотреть его на странице:"
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
+      feature_published_event:
+        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+        email_subject: An update to %{participatory_space_title}
+        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: Страница <a href="%{resource_url}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
@@ -397,7 +414,7 @@ ru:
       home:
         extended:
           debates: Обсуждения
-          debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
+          debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в интересующие вас обсуждения.
           how_to_participate: Как принять участие в движении?
           meetings: Встречи
           meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
@@ -406,7 +423,7 @@ ru:
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
           footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
-          footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
+          footer_sub_hero_headline: Добро пожаловать на площадку соучастия %{organization}!
           register: Зарегистрироваться
         hero:
           participate: Принять участие
@@ -441,14 +458,14 @@ ru:
           agreement: Я согласен с этими условиями
           legend: Согласиться с условиями участия
         refuse:
-          modal_body: Если вы откажетесь, вы не сможете использовать платформу, вы можете <a href="%{data_portability_path}">загрузить свои данные</a> и / или <a href="%{delete_path}">удалить свою учетную запись</a>.
+          modal_body: Если вы откажетесь, вы не сможете использовать площадку, вы можете <a href="%{data_portability_path}">загрузить свои данные</a> и / или <a href="%{delete_path}">удалить свою учетную запись</a>.
           modal_btn_continue: Принять условия и продолжить
           modal_btn_exit: Я просмотрю это позже
           modal_button: Отказаться от условий участия
           modal_title: Вы действительно отказываетесь от обновленных "Условий участия"?
         required_review:
           alert: Мы обновили наши "Условия участия", пожалуйста, просмотрите их.
-          body: Пожалуйста, найдите минутку, чтобы ознакомиться с обновлениями наших "Условий участия". В противном случае вы не сможете использовать платформу.
+          body: Пожалуйста, найдите минутку, чтобы ознакомиться с обновлениями наших "Условий участия". В противном случае вы не сможете использовать площадку.
           title: 'Обязательно: просмотрите обновления наших условий участия'
     participatory_space_private_users:
       not_allowed: У вас нет прав на просмотр этого содержимого
@@ -522,7 +539,7 @@ ru:
           title: Подтверждение личности еще не проведено
         unauthorized:
           explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не сходятся.
-          invalid_field: "Для %{field} недопустимо значение %{value}."
+          invalid_field: Для %{field} недопустимо значение %{value}.
           ok: Хорошо
           title: Не подтвердили свою личность
       embed_modal:
@@ -565,8 +582,7 @@ ru:
         accept: Принять приглашение
         accept_until: Срок действия этого приглашения закончится %{due_date}.
         hello: Здравствуйте, %{email}!
-        ignore: |-
-          Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой псевдоним и пароль.
+        ignore: Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой псевдоним и пароль.
         invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
         invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.

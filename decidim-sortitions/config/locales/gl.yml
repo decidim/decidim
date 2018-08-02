@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -139,7 +140,7 @@ gl:
           random_seed: Semente aleatoria
           selected_proposals:
             one: 1 proposta seleccionada
-            other: '%{count} propostas seleccionadas'
+            other: "%{count} propostas seleccionadas"
           view: Ver
         sortition_author:
           deleted: Usuario eliminado

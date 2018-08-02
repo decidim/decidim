@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -66,7 +67,7 @@ pt-BR:
         budget_excess:
           close: Fechar
           description: Este projeto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou para adicionar ou fazer seu voto com suas preferências.
-          ok: Está bem
+          ok: OK
           title: O orçamento máximo excedeu
         budget_summary:
           are_you_sure: Tem certeza de que deseja cancelar o seu voto?

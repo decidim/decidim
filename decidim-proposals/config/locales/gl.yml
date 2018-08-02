@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -85,7 +86,12 @@ gl:
             votes_blocked: Votos bloqueados
             votes_enabled: Votos habilitados
             votes_hidden: Votos ocultos (se os votos están habilitados, a comprobación ocultará o número de votos)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Agora podes crear novas propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
@@ -289,7 +295,7 @@ gl:
           title: Editar proposta
         edit_draft:
           discard: Descarta este borrador
-          discard_confirmation: '¿Estás seguro de que desexas descartar este borrador de proposta?'
+          discard_confirmation: "¿Estás seguro de que desexas descartar este borrador de proposta?"
           send: Vista previa
           title: Editar borrador de proposta
         endorsement_identities_cabin:
@@ -358,7 +364,7 @@ gl:
           sign_in_or_up: "%{in} ou %{up} para participar"
           sign_up: Rexistrarse
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
-          withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
+          withdraw_confirmation: "¿Estás seguro de retirar esta proposta?"
           withdraw_proposal: Retire a proposta
         tags:
           changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
@@ -370,12 +376,24 @@ gl:
           no_votes_remaining: Non hai votos restantes
           vote: Vota
           votes_blocked: Votación desactivada
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: VOTAR
             other: VOTOS
           most_popular_proposal: A proposta máis popular
           need_more_votes: Necesita máis votos
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular máis de %{limit} apoios

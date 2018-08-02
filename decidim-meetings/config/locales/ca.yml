@@ -39,6 +39,10 @@ ca:
             base:
               too_many_minutes: La durada dels elements supera la durada de la trobada per %{count} minuts
               too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
@@ -239,6 +243,10 @@ ca:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
       admin_log:
+        invite:
+          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"

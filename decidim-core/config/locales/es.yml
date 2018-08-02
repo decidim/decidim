@@ -190,7 +190,7 @@ es:
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
-          already_have_an_account?: '¿Ya tienes una cuenta?'
+          already_have_an_account?: "¿Ya tienes una cuenta?"
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Su identificador corto y único en %{organization}
@@ -264,12 +264,6 @@ es:
         email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: Una actualización de %{participatory_space_title}
         notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
-      participatory_process:
-        step_activated:
-          email_intro: 'La fase %{resource_title} ahora está activa para %{participatory_space_title}. Puedes verla desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Un evento ha ocurrido en %{participatory_space_title}
-          notification_title: La fase %{resource_title} ahora está activa para <a href="%{resource_path}">%{participatory_space_title}</a>
       features:
         feature_published:
           email_intro: 'Ya está activo el componente %{resource_title} para %{participatory_space_title}. Puedes verlo desde esta página:'
@@ -278,6 +272,11 @@ es:
           notification_title: Ya está activo el componente %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -377,7 +376,7 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: ¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletters:
       unsubscribe:
@@ -406,7 +405,7 @@ es:
         extended:
           debates: Debates
           debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-          how_to_participate: '¿Cómo tomo parte en un proceso?'
+          how_to_participate: "¿Cómo tomo parte en un proceso?"
           meetings: Encuentros
           meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
           more_info: Más información
@@ -444,7 +443,7 @@ es:
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
-          success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
+          success: "¡Estupendo! Has aceptado los Términos y Condiciones."
         form:
           agreement: Estoy de acuerdo con estos términos
           legend: Aceptar los Términos y Condiciones de uso
@@ -453,7 +452,7 @@ es:
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
-          modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
+          modal_title: "¿Confirmas que no aceptas los Términos y Condiciones actualizados?"
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
