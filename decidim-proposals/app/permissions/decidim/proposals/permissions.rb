@@ -130,18 +130,19 @@ module Decidim
       end
 
       def can_create_collaborative_draft?
-        toggle_allow(authorized?(:create) && current_settings&.creation_enabled?)
+        toggle_allow(authorized?(:create) && current_settings&.creation_enabled? && component_settings&.collaborative_drafts_enabled?)
       end
 
       def can_edit_collaborative_draft?
-        toggle_allow(collaborative_draft.open? && collaborative_draft.editable_by?(user))
+        toggle_allow(collaborative_draft.open? && collaborative_draft.editable_by?(user) && component_settings&.collaborative_drafts_enabled?)
       end
 
       def can_publish_collaborative_draft?
-        toggle_allow(collaborative_draft.open? && collaborative_draft.editable_by?(user))
+        toggle_allow(collaborative_draft.open? && collaborative_draft.editable_by?(user) && component_settings&.collaborative_drafts_enabled?)
       end
 
       def can_request_access_collaborative_draft?
+        return toggle_allow(false) if component_settings&.collaborative_drafts_enabled?
         return toggle_allow(false) unless collaborative_draft.open?
         return toggle_allow(false) if collaborative_draft.editable_by?(user)
         return toggle_allow(false) if collaborative_draft.requesters.include? user
