@@ -3,7 +3,7 @@
 module Decidim
   module Core
     UsersMetricType = GraphQL::ObjectType.define do
-      interfaces [-> { UsersMetricInterface }]
+      interfaces [-> { MetricInterface }]
 
       name "UserMetric"
       description "UserMetric data"

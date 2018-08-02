@@ -21,7 +21,7 @@ namespace :decidim do
     task :users_metric, [:day] => :environment do |_task, args|
       metric = Decidim::Metrics::UsersMetricManage.for(args.day)
       next unless metric.valid?
-      Decidim::Organization.all.each do |organization|
+      Decidim::Organization.find_each do |organization|
         metric.clean
         metric.with_context(organization)
         metric.query

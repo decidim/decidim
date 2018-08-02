@@ -9,10 +9,12 @@ module Decidim
     end
 
     def metric
+      raise
       @metric_counter.metric
     end
 
     def count
+      raise
       @metric_counter.count
     end
   end

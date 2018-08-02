@@ -6,10 +6,6 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe UsersMetricType, type: :graphql do
-      before do
-        Rails.cache.clear
-      end
-
       include_context "with a graphql type"
 
       let(:today) { Time.zone.today }
@@ -23,6 +19,8 @@ module Decidim
         let(:query) { "{ count }" }
 
         it "returns the User's last day cumulative count" do
+          puts ">>>>> #{Decidim::Metric.all.as_json}"
+          puts ">>>>> #{response}"
           expect(response).to include("count" => 4)
         end
       end
