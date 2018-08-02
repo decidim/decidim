@@ -5,9 +5,7 @@ module Decidim
     class ContentBlockCell < Decidim::ViewModel
       include Decidim::IconHelper
 
-      def i18n_name_key
-        model.i18n_name_key
-      end
+      delegate :i18n_name_key, :has_settings?, to: :model
 
       def manifest_name
         model.try(:manifest_name) || model.name
