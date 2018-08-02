@@ -17,11 +17,11 @@ module Decidim
         end
       end
 
-      def accept_request_btn_lbl
+      def accept_request_button_label
         t("accept_request", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests")
       end
 
-      def reject_request_btn_lbl
+      def reject_request_button_label
         t("reject_request", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests")
       end
     end
