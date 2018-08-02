@@ -252,7 +252,7 @@ module Decidim
       value = object.send(attribute)
       data = { datepicker: "" }
       data[:startdate] = I18n.localize(value, format: :decidim_short) if value.present? && value.is_a?(Date)
-      datepicker_format = I18n.t("date.formats.datepicker")
+      datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
 
       template = ""
@@ -597,6 +597,10 @@ module Decidim
       selected = [selected] unless selected.is_a?(Array)
       selected = Decidim::Scope.where(id: selected.map(&:to_i)) unless selected.first.is_a?(Decidim::Scope)
       selected
+    end
+
+    def ruby_format_to_datepicker(ruby_date_format)
+      ruby_date_format.gsub("%d", "dd").gsub("%m", "mm").gsub("%Y", "yyyy")
     end
   end
 end
