@@ -14,7 +14,7 @@ module Decidim
       # multiple locales.
       #
       # name - The attribute's name
-      # type - The attribute's Type
+      # type - The attribute's type
       #
       # Example:
       #
