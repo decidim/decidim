@@ -253,6 +253,9 @@ uk:
         others: Інші
         participatory: Співучасні
         working_group: Робочий гурт
+      content_blocks:
+        highlighted_assemblies:
+          name: Висвітлені збори
       created_by:
         city_council: Міська рада
         others: Інші
