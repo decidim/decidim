@@ -4,14 +4,13 @@ module Decidim
   # This class search for Metric registries, within some parameters, then return a
   # final counter or hashed metric data
   class MetricCount
-    def self.for(organization, metric, counter_type: :count, counter_field: :cumulative, group_by: :day)
-      new(organization, metric, counter_type: counter_type, counter_field: counter_field, group_by: group_by)
+    def self.for(organization, metric, counter_field: :cumulative, group_by: :day)
+      new(organization, metric, counter_field: counter_field, group_by: group_by)
     end
 
-    def initialize(organization, metric, counter_type: :count, counter_field: :cumulative, group_by: :day)
+    def initialize(organization, metric, counter_field: :cumulative, group_by: :day)
       @organization = organization
       @metric = metric
-      @counter_type = counter_type
       @counter_field = counter_field
       @group_by = group_by
       @query = Decidim::Metric.where(metric_type: @metric, organization: @organization)

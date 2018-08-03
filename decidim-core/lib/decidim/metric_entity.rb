@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
+  # This module retrieves current loaded metrics, users, components or
+  # participatory spaces
   module MetricEntity
     def self.metric_entities
       ["usersMetric"] |

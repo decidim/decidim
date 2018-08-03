@@ -10,7 +10,7 @@ namespace :decidim do
     task :proposals_metric, [:day] => :environment do |_task, args|
       metric = Decidim::Proposals::Metrics::ProposalsMetricManage.for(args.day)
       next unless metric.valid?
-      Decidim::Organization.all.each do |organization|
+      Decidim::Organization.find_each do |organization|
         metric.clean
         metric.with_context(organization)
         metric.query
@@ -24,7 +24,7 @@ namespace :decidim do
     task :accepted_proposals_metric, [:day] => :environment do |_task, args|
       metric = Decidim::Proposals::Metrics::AcceptedProposalsMetricManage.for(args.day)
       next unless metric.valid?
-      Decidim::Organization.all.each do |organization|
+      Decidim::Organization.find_each do |organization|
         metric.clean
         metric.with_context(organization)
         metric.query
@@ -38,7 +38,7 @@ namespace :decidim do
     task :votes_metric, [:day] => :environment do |_task, args|
       metric = Decidim::Proposals::Metrics::VotesMetricManage.for(args.day)
       next unless metric.valid?
-      Decidim::Organization.all.each do |organization|
+      Decidim::Organization.find_each do |organization|
         metric.clean
         metric.with_context(organization)
         metric.query

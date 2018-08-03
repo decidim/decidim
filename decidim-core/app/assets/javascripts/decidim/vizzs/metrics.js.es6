@@ -12,6 +12,7 @@ $(() => {
     let info = $(container).data("info");
     fetch(metric).then((response) => {
       let data = response.data[metric].metric || {};
+      if (data.length == 0) { return; }
       areachart({
         container: `#${container.id}`,
         data: data,

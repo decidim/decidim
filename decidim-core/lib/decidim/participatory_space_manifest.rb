@@ -29,7 +29,7 @@ module Decidim
     attribute :data_portable_entities, Array, default: []
 
     # An array with hashes for the classes that will have a metric logic with
-    # the metric's features. For example, { task: 'users_metric' }`
+    # the metric's features. For example, ['participatoryProcessesMetric']`
     attribute :metric_entities, Array, default: []
 
     # A String with the component's icon. The icon must be stored in the
