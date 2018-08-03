@@ -10,27 +10,37 @@ module Decidim
       end
     end
 
-    # Renders a the amendments of a amendable model that includes the
+    # Renders the emendations of a amendable resource that includes the
     # Amendable concern.
     #
-    # amendable - The model to render the amendments from.
+    # amendable - The resource that has emendations.
     #
-    # Returns nothing.
-    def amends_for(amendable)
+    # Returns Html grid of CardM.
+    def amendments_for(amendable)
       if amendable.amendable?
-        cell "decidim/amendable/amendments_list", amendable.emendations
+        cell "decidim/amendable/amendments_list", amendable.emendations, context: {current_user: current_user}
       end
     end
 
-    def emendation_announcement_for(amendable)
-      if amendable.emendation?
-        cell "decidim/amendable/announcement", amendable
+    # Renders the state of an emendation
+    #
+    # emendation - The resource that is an emendation.
+    #
+    # Returns Html callout.
+    def emendation_announcement_for(emendation)
+      if emendation.emendation?
+        cell "decidim/amendable/announcement", emendation
       end
     end
 
-    def emendation_actions_for(amendable)
-      if amendable.emendation? && amendable.authored_by?(current_user)
-        cell "decidim/amendable/emendation_actions", amendable
+    # Renders the buttons to accept/reject an emendation (for amendable authors)
+    #
+    # emendation - The resource that is an emendation.
+    #
+    # Returns Html action button card
+    def emendation_actions_for(emendation)
+      if emendation.emendation? && emendation.amendable.authored_by?(current_user)
+        cell "decidim/amendable/emendation_actions", emendation
       end
     end
   end

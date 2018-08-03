@@ -78,7 +78,7 @@
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
     <%= cell "decidim/proposals/endorsers_list", @proposal, context: { current_user: current_user } %>
-    <%= amends_for @proposal %>
+    <%= amendments_for @proposal %>
   </div>
 </div>
 <%= attachments_for @proposal %>

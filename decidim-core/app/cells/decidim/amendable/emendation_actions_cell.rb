@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 module Decidim::Amendable
-  # This cell renders the button to amend the given resource.
+  # This cell renders the action buttons for coauthors to amend the given resource.
   class EmendationActionsCell < Decidim::ViewModel
     include Decidim::LayoutHelper
 
     private
-
 
     def accept_button
       link_to "#accept", class: "button success hollow expanded button--icon button--sc" do

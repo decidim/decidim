@@ -7,15 +7,13 @@ module Decidim
     helper_method :amendable
 
     def new
-      @form = form(Decidim::CreateAmendForm).from_params(params)
-      @form.title = amendable.title
-      @form.body = amendable.body
+      @form = form(Decidim::CreateAmendForm).from_model(amendable)
+      @form.amendable_gid = params[:amendable_gid]
     end
 
     def create
       @form = form(Decidim::CreateAmendForm).from_params(params)
       enforce_permission_to :create, :amend
-
 
       Decidim::CreateAmend.call(@form) do
         on(:ok) do
@@ -23,13 +21,14 @@ module Decidim
         end
 
         on(:invalid) do
-          raise
+          redirect_to Decidim::ResourceLocatorPresenter.new(@amendable).path
           render json: { error: I18n.t("amendments.create.error", scope: "decidim") }, status: 422
         end
       end
     end
 
     def reject
+      return # to do!
       @form = form(Decidim::RejectAmendForm).from_params(params)
       enforce_permission_to :reject, :amend, amend: @form.amendable
 
@@ -45,6 +44,7 @@ module Decidim
     end
 
     def accept
+      return # to do!
       @form = form(Decidim::AcceptAmendForm).from_params(params)
       enforce_permission_to :accept, :amend, amend: @form.amendable
 
@@ -64,7 +64,6 @@ module Decidim
     end
 
     def amendable
-      # @amendable ||= @form.amendable
       @amendable ||= GlobalID::Locator.locate_signed amendable_gid
     end
   end

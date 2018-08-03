@@ -2,7 +2,7 @@
 
 module Decidim
   class Amendment < ApplicationRecord
-    #include Decidim::DataPortability
+    #include Decidim::DataPortability ??
 
     belongs_to :amendable, foreign_key: "decidim_amendable_id", foreign_type: "decidim_amendable_type", polymorphic: true
     belongs_to :amender, foreign_key: "decidim_user_id", class_name: "Decidim::User"
@@ -11,10 +11,6 @@ module Decidim
     STATES = %w(evaluating accepted rejected).freeze
 
     # validates :amender, uniqueness: { scope: [:amendable] }
-
-    # def self.user_collection(user)
-    #   where(decidim_user_id: user.id)
-    # end
 
     # def self.export_serializer
     #   Decidim::DataPortabilitySerializers::DataPortabilityAmendSerializer
