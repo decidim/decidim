@@ -11,7 +11,7 @@ module Decidim
       # resource.emendations : resources that have amend the resource
       has_many :emendations, through: :amendments, source: :emendation, source_type: self.name, inverse_of: :emendations
 
-      # resource.amenders : users that have amended the resource
+      # resource.amenders :  users that have emendations for the resource
       has_many :amenders, through: :amendments, source: :amender
 
       # resource.amended : the original resource that was amended

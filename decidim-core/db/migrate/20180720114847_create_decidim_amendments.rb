@@ -12,12 +12,10 @@ class CreateDecidimAmendments < ActiveRecord::Migration[5.2]
 
     add_index :decidim_amendments,
               [:decidim_user_id, :decidim_amendable_id, :decidim_amendable_type],
-              # unique: true,
               name: "index_on_amender_and_amendable"
 
     add_index :decidim_amendments,
               [:decidim_amendable_id, :decidim_amendable_type],
-              # unique: true,
               name: "index_on_amendable"
 
   end
