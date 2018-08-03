@@ -13,16 +13,16 @@ describe Decidim::MetricManage do
       manager = described_class.for(nil)
 
       expect(manager).to be_valid
-      expect(manager.start_date).to eq(yesterday_date.beginning_of_day)
-      expect(manager.end_date).to eq(yesterday_date.end_of_day)
+      expect(manager.start_time).to eq(yesterday_date.beginning_of_day)
+      expect(manager.end_time).to eq(yesterday_date.end_of_day)
     end
 
     it "creates a MetricManageObject with a passing date parameter" do
       manager = described_class.for(date.strftime("%Y-%m-%d"))
 
       expect(manager).to be_valid
-      expect(manager.start_date).to eq(date.beginning_of_day)
-      expect(manager.end_date).to eq(date.end_of_day)
+      expect(manager.start_time).to eq(date.beginning_of_day)
+      expect(manager.end_time).to eq(date.end_of_day)
     end
 
     it "fails with an invalid date" do
