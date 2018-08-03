@@ -1,0 +1,19 @@
+<div class="conversation">
+  <%= cell "decidim/conversation_header", form.recipient %>
+
+  <div id="messages">
+  </div>
+
+  <div class="conversation-reply conversation-reply--offset">
+    <h2 class="section-heading">
+      <%= t("decidim.messaging.conversations.start.title") %>
+    </h2>
+
+    <%= form_for form, url: decidim.conversations_path do |f| %>
+      <%= f.hidden_field :recipient_id %>
+      <%= f.text_area :body, label: false, rows: 4, required: true %>
+
+      <%= f.submit t("decidim.messaging.conversations.start.send"), data: { disable: true }, class: "button secondary light pull-right" %>
+    <% end %>
+  </div>
+</div>

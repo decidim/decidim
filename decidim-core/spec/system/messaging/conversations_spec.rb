@@ -34,20 +34,20 @@ describe "Conversations", type: :system do
     end
 
     it "shows an empty conversation page" do
-      expect(page).to have_no_selector(".card--list__item")
+      expect(page).to have_no_selector(".conversation-chat")
     end
 
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
     end
 
     it "redirects to an existing conversation if it exists already" do
       start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
 
       visit decidim.new_conversation_path(recipient_id: recipient.id)
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
 
@@ -66,9 +66,9 @@ describe "Conversations", type: :system do
       visit_inbox
 
       within ".conversations" do
-        expect(page).to have_selector(".card--list__item", text: /#{interlocutor.name}/i)
-        expect(page).to have_selector(".card--list__item", text: "who wants apples?")
-        expect(page).to have_selector(".card--list__item", text: /\d{2}:\d{2}/)
+        expect(page).to have_selector(".conversation", text: /#{interlocutor.name}/i)
+        expect(page).to have_selector(".conversation", text: "who wants apples?")
+        expect(page).to have_selector(".conversation", text: /\d{2}:\d{2}/)
       end
     end
 
@@ -91,10 +91,6 @@ describe "Conversations", type: :system do
         within ".topbar__user__logged" do
           expect(page).to have_selector("a.topbar__conversations.is-active")
         end
-      end
-
-      it "shows the number of unread messages per conversation" do
-        expect(page).to have_selector(".card--list__item .card--list__counter", text: "1")
       end
     end
 
@@ -122,25 +118,21 @@ describe "Conversations", type: :system do
       end
 
       it "appears as the last message", :slow do
-        expect(page).to have_selector(".message:last-child", text: "Please reply!")
+        expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
       end
 
       context "and interlocutor sees it" do
         before do
-          expect(page).to have_selector(".message:last-child", text: "Please reply!")
+          expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
           relogin_as interlocutor
           visit_inbox
-        end
-
-        it "appears as unread" do
-          expect(page).to have_selector(".card--list__item .card--list__counter", text: "2")
         end
 
         it "appears as read after it's seen" do
           click_link user.name
           expect(page).to have_content("Please reply!")
 
-          find("a.card--list__data__icon--back").click
+          visit_inbox
           expect(page).to have_no_selector(".card--list__item .card--list__counter")
         end
       end
