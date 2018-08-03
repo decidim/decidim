@@ -215,6 +215,11 @@ uk:
             dummy_step_attribute_1: Приклад 1 властивості кроку
             dummy_step_attribute_2: Приклад 2 властивості кроку
     contact: Зв'язатися
+    content_blocks:
+      how_to_participate:
+        name: Як взяти участь
+      stats:
+        name: Статистика організації
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
