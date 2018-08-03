@@ -2,6 +2,7 @@
 
 module Decidim
   module Metrics
+    # Metric manager for User's registries
     class UsersMetricManage < Decidim::MetricManage
       def initialize(day_string)
         super(day_string)

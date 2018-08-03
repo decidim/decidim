@@ -84,7 +84,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_proposals.query_extensions" do
+      initializer "decidim_assemblies.query_extensions" do
         Decidim::Api::QueryType.define do
           QueryExtensions.define(self)
         end

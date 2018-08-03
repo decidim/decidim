@@ -6,6 +6,7 @@ describe Decidim::MetricManage do
   let(:organization) { create(:organization) }
   let(:date) { (Time.zone.today - 1.week) }
   let(:yesterday_date) { Time.zone.today - 1.day }
+  let(:future_date) { Time.zone.today + 1.week }
 
   context "when executing a metric management" do
     it "creates a MetricManageObject" do
@@ -24,8 +25,12 @@ describe Decidim::MetricManage do
       expect(manager.end_date).to eq(date.end_of_day)
     end
 
-    it "fails with and invalid date" do
-      expect(described_class.for("123456789")).not_to be_valid
+    it "fails with an invalid date" do
+      expect { described_class.for("123456789") }.to raise_error(ArgumentError)
+    end
+
+    it "fails with a future date" do
+      expect { described_class.for(future_date.strftime("%Y-%m-%d")) }.to raise_error(ArgumentError)
     end
   end
 end

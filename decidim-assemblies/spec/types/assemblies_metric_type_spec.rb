@@ -6,10 +6,6 @@ require "decidim/api/test/type_context"
 module Decidim
   module Assemblies
     describe AssembliesMetricType, type: :graphql do
-      before do
-        Rails.cache.clear
-      end
-
       include_context "with a graphql type"
 
       let!(:model) { Decidim::Assemblies::AssembliesMetricResolver.new(current_organization) }

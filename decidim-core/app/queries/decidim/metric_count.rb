@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This query counts registered users from a collection of organizations
-  # in an optional interval of time.
-  class MetricCount < Rectify::Query
+  # This class search for Metric registries, within some parameters, then return a
+  # final counter or hashed metric data
+  class MetricCount
     def self.for(organization, metric, counter_type: :count, counter_field: :cumulative, group_by: :day)
       new(organization, metric, counter_type: counter_type, counter_field: counter_field, group_by: group_by)
     end

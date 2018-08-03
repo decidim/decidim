@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A moderation belongs to a reportable and includes many reports
+  # A Metric is a registry that holds cumulative and quantity value by day, category, participatory_space, category, an a related object
   class Metric < ApplicationRecord
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
     belongs_to :participatory_space, foreign_key: "participatory_space_id", foreign_type: "participatory_space_type", polymorphic: true, optional: true

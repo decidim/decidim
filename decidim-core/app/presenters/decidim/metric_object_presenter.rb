@@ -2,7 +2,7 @@
 
 module Decidim
   #
-  # Decorator for users
+  # Presenter for metric objects
   #
   class MetricObjectPresenter < SimpleDelegator
     def attr_int(attr, default: 0)

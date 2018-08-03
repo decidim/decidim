@@ -3,9 +3,9 @@
 module Decidim
   module Assemblies
     # This module's job is to extend the API with custom fields related to
-    # decidim-proposals.
+    # decidim-assemblies.
     module QueryExtensions
-      # Public: Extends a type with `decidim-proposals`'s fields.
+      # Public: Extends a type with `decidim-assemblies`'s fields.
       #
       # type - A GraphQL::BaseType to extend.
       #

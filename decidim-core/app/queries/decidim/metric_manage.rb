@@ -1,24 +1,16 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This query counts registered users from a collection of organizations
-  # in an optional interval of time.
-  class MetricManage < Rectify::Query
+  # This class search for objects related to Metrics, and creates a new registry within
+  # his own parameters
+  class MetricManage
     def self.for(day_string)
       new(day_string)
     end
 
     def initialize(day_string)
-      @day = nil
-      begin
-        @day = day_string.present? ? Date.parse(day_string) : Time.zone.today - 1.day
-        raise ArgumentError if @day > Time.zone.today
-      rescue ArgumentError
-        Rails.logger.error "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past"
-        Rails.logger.error "[ERROR] Exiting..."
-        return
-      end
-
+      @day = day_string.present? ? Date.parse(day_string) : Time.zone.today - 1.day
+      raise ArgumentError, "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past" if @day > Time.zone.today
       @day ||= Time.zone.today - 1.day
       @metric_name = ""
       clean

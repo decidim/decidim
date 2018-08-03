@@ -2,7 +2,7 @@
 
 module Decidim
   module Accountability
-    # A GraphQL resolver to handle `count` and `metric` queries
+    # A GraphQL resolver for Accountability's results to handle `count` and `metric` queries
     class ResultsMetricResolver < Decidim::Core::MetricResolver
       def initialize(organization)
         super(organization)

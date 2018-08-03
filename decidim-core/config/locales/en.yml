@@ -422,7 +422,7 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
-      usersMetric:
+      users_metric:
         object: users
         title: Users
     newsletter_mailer:
