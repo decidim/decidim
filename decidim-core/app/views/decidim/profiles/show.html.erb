@@ -18,7 +18,7 @@
   </div>
   <div class="row">
     <div class="columns medium-3">
-      <%= render partial: "user", locals: { user: user } %>
+      <%= cell "decidim/user_profile_sidebar", user, context: { current_user: current_user } %>
     </div>
     <div class="columns medium-9">
       <div class="tabs-content" data-tabs-content="profile-tabs">
