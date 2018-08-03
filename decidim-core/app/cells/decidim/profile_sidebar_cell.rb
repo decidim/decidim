@@ -1,28 +1,20 @@
 # frozen_string_literal: true
 
 module Decidim
-  class ProfileSidebarCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
+  class ProfileSidebarCell < Decidim::ProfileCell
+    include Decidim::Messaging::ConversationHelper
+    include Decidim::IconHelper
     include Decidim::ViewHooksHelper
-    include Decidim::Core::Engine.routes.url_helpers
 
-    helper_method :profile_user, :own_profile?, :logged_in?, :current_user
+    helper_method :profile_user, :logged_in?, :current_user
 
-    delegate :current_organization, :current_user, to: :controller
+    delegate :user_signed_in?, to: :controller
 
     def show
       render :show
     end
 
-    def user
-      model
-    end
-
     private
-
-    def own_profile?
-      current_user && current_user == user
-    end
 
     def logged_in?
       current_user.present?

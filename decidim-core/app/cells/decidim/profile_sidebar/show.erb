@@ -53,5 +53,5 @@
     <% end %>
   </div>
 <% elsif logged_in? %>
-    <%= render partial: "decidim/shared/follow_button", locals: { followable: user } %>
+  <%= cell "decidim/follow_button", user, inline: false, context: { current_user: current_user } %>
 <% end %>
