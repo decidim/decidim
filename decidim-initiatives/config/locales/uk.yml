@@ -187,6 +187,9 @@ uk:
           help_text: Ви збираєтесь подати заявку на участь у робочому гурті з просування цього почину
         spawn:
           success: Ваш запит було надіслано автору почину.
+      content_blocks:
+        highlighted_initiatives:
+          name: Висвітлені почини
       create_initiative:
         fill_data:
           back: Повернутись
