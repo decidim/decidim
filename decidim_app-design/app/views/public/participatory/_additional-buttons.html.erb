@@ -1,0 +1,31 @@
+<div class="medium-8">
+  <button class="button secondary hollow expanded button--icon button--sc">
+    <%= icon "bell" %><span>Seguir</span>
+  </button>
+  <div class="button-group button-group--collapse mb-s row collapse">
+    <button type="button" name="button" class="column medium-4 button light secondary">
+      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+      <%= Faker::Number.between(20, 150) %>
+    </button>
+    <button type="button" name="button" class="column button hollow secondary button--sc">
+      Comentar
+    </button>
+  </div>
+  <div class="button-group button-group--collapse mb-s row collapse">
+    <button type="button" name="button" class="column medium-4 button primary button--sc button--shadow">
+      <%= Faker::Number.between(20, 150) %>
+    </button>
+    <button type="button" name="button" class="column button light button--sc">
+      Apoyar
+    </button>
+  </div>
+  <div class="button-group button-group--collapse row collapse">
+    <button type="button" name="button" class="column medium-4 button secondary light button--sc button--shadow">
+      <%= icon "bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img" %>
+      <%= Faker::Number.between(20, 150) %>
+    </button>
+    <button type="button" name="button" class="column button secondary light button--sc">
+      Adherirse
+    </button>
+  </div>
+</div>
