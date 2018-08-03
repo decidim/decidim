@@ -43,6 +43,7 @@ module Decidim
     end
 
     def reject
+      return # to do!
       @form = form(Decidim::RejectAmendForm).from_params(params)
       enforce_permission_to :reject, :amend, amend: @form.amendable
 
@@ -58,6 +59,7 @@ module Decidim
     end
 
     def accept
+      return # to do!
       @form = form(Decidim::AcceptAmendForm).from_params(params)
       enforce_permission_to :accept, :amend, amend: @form.amendable
 
