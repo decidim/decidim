@@ -216,6 +216,8 @@ uk:
             dummy_step_attribute_2: Приклад 2 властивості кроку
     contact: Зв'язатися
     content_blocks:
+      highlighted_content_banner:
+        name: Банер висвітленого вмісту
       how_to_participate:
         name: Як взяти участь
       stats:
