@@ -1,14 +1,14 @@
 <div id="<%= dom_id(model, :follow) %>">
   <% if current_user %>
     <% if current_user.follows?(model) %>
-      <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? }}, data: { disable: true }, method: :delete, remote: true do %>
+      <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, method: :delete, remote: true do %>
         <%= icon "bell", icon_options %>
         <span>
           <%= t("follows.destroy.button", scope: "decidim") %>
         </span>
       <% end %>
     <% else %>
-      <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? }}, data: { disable: true }, remote: true do %>
+      <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, remote: true do %>
         <%= icon "bell", icon_options %>
         <span>
           <%= t("follows.create.button", scope: "decidim") %>
@@ -19,7 +19,7 @@
     <%= button_to(
       decidim.follow_path,
       class: button_classes,
-      params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? }},
+      params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } },
       data: { tooltip: true, disable_hover: false },
       :'aria-haspopup' => true,
       title: t("decidim.shared.follow_button.sign_in_before_follow"),
