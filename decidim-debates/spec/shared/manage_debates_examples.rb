@@ -92,12 +92,12 @@ RSpec.shared_examples "manage debates" do
       )
     end
 
-    page.execute_script("$('#datetime_field_debate_start_time').focus()")
+    page.execute_script("$('#debate_start_time').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "10:00").click
     page.find(".datepicker-dropdown .minute", text: "10:50").click
 
-    page.execute_script("$('#datetime_field_debate_end_time').focus()")
+    page.execute_script("$('#debate_end_time').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "12:00").click
     page.find(".datepicker-dropdown .minute", text: "12:50").click
