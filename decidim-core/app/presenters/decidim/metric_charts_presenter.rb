@@ -28,10 +28,10 @@ module Decidim
     private
 
     def render_metrics_data(metric, opts = {})
-      content_tag :div, "", id: "#{metric}_chart", class: "areachart metric-chart #{opts[:klass]}",
+      content_tag :div, "", id: "#{metric.underscore}_chart", class: "areachart metric-chart #{opts[:klass]}",
                             data: { chart: "areachart", metric: metric,
-                                    info: { title: I18n.t("decidim.metrics.#{metric}.title"),
-                                            object: I18n.t("decidim.metrics.#{metric}.object") } }
+                                    info: { title: I18n.t("decidim.metrics.#{metric.underscore}.title"),
+                                            object: I18n.t("decidim.metrics.#{metric.underscore}.object") } }
     end
   end
 end

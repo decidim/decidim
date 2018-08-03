@@ -23,7 +23,7 @@ module Decidim
         end
 
         def query
-          @query = @query.where("decidim_proposals_proposals.published_at <= ?", end_date).except_withdrawn
+          @query = @query.where("decidim_proposals_proposals.published_at <= ?", end_time).except_withdrawn
           @query = @query.group("decidim_categorizations.decidim_category_id", :participatory_space_type, :participatory_space_id)
         end
 
@@ -32,7 +32,7 @@ module Decidim
         end
 
         def quantity
-          @quantity ||= @query.where("decidim_proposals_proposals.published_at >= ?", start_date).count
+          @quantity ||= @query.where("decidim_proposals_proposals.published_at >= ?", start_time).count
         end
 
         def registry

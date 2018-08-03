@@ -21,7 +21,7 @@ module Decidim
         end
 
         def query
-          @query = @query.where("decidim_proposals_proposal_votes.created_at <= ?", @end_date)
+          @query = @query.where("decidim_proposals_proposal_votes.created_at <= ?", end_time)
           @query = @query.group("decidim_categorizations.id", :participatory_space_type, :participatory_space_id, :decidim_proposal_id)
         end
 
@@ -30,7 +30,7 @@ module Decidim
         end
 
         def quantity
-          @quantity ||= @query.where("decidim_proposals_proposal_votes.created_at >= ?", @start_date).count
+          @quantity ||= @query.where("decidim_proposals_proposal_votes.created_at >= ?", start_time).count
         end
 
         def registry

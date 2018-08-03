@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # A GraphQL resolver to handle `count` and `metric` queries
-    class ParticipatoryProcessesMetricResolver < Decidim::Core::MetricResolver
+    class ParticipatoryProcessesMetricResolver < Decidim::MetricResolver
       def initialize(organization)
         super(organization)
         @metric_counter = Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricCount.for(@organization)

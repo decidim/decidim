@@ -33,12 +33,12 @@ module Decidim
       @query = @query.where(organization: organization)
     end
 
-    def start_date
-      @start_date ||= @day.beginning_of_day
+    def start_time
+      @start_time ||= @day.beginning_of_day
     end
 
-    def end_date
-      @end_date ||= @day.end_of_day
+    def end_time
+      @end_time ||= @day.end_of_day
     end
 
     def query

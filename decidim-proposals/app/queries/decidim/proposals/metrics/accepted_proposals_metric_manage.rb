@@ -10,7 +10,7 @@ module Decidim
         end
 
         def query
-          @query = @query.where("decidim_proposals_proposals.published_at <= ?", @end_date).accepted
+          @query = @query.where("decidim_proposals_proposals.published_at <= ?", end_time).accepted
           @query = @query.group("decidim_categorizations.id", :participatory_space_type, :participatory_space_id)
         end
       end

@@ -25,8 +25,8 @@ module Decidim
     # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
     attribute :data_portable_entities, Array, default: []
 
-    # An array with hashes for the classes that will have a metric logic with
-    # the metric's features. For example, { task: 'users_metric' }`
+    # An array with strings for the classes that will have a metric logic with
+    # the metric's features. For example,  ['usersMetric']`
     attribute :metric_entities, Array, default: []
 
     # A path with the `scss` stylesheet this engine provides. It is used to

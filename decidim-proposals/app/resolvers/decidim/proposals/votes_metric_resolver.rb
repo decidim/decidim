@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A GraphQL resolver to handle `count` and `metric` queries
-    class VotesMetricResolver < Decidim::Core::MetricResolver
+    class VotesMetricResolver < Decidim::MetricResolver
       def initialize(organization)
         super(organization)
         @metric_counter = Decidim::Proposals::Metrics::VotesMetricCount.for(@organization)

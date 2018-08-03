@@ -15,11 +15,11 @@ module Decidim
       end
 
       def query
-        @query = @query.where("confirmed_at <= ?", end_date).not_managed.confirmed
+        @query = @query.where("confirmed_at <= ?", end_time).not_managed.confirmed
       end
 
       def quantity
-        @quantity ||= @query.where("confirmed_at >= ?", start_date).count
+        @quantity ||= @query.where("confirmed_at >= ?", start_time).count
       end
     end
   end

@@ -450,7 +450,7 @@ FactoryBot.define do
     cumulative { 2 }
     quantity { 1 }
     category { create :category }
-    participatory_space {}
-    related_object {}
+    participatory_space { create :participatory_process, organization: organization }
+    related_object { create :component, participatory_space: participatory_space }
   end
 end

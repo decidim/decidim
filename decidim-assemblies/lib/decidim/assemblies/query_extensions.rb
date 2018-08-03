@@ -2,8 +2,8 @@
 
 module Decidim
   module Assemblies
-    # This module's job is to extend the API with custom fields related to
-    # decidim-assemblies.
+    # This module is to extend the API with custom fields related to
+    # decidim-assemblies' metrics.
     module QueryExtensions
       # Public: Extends a type with `decidim-assemblies`'s fields.
       #
