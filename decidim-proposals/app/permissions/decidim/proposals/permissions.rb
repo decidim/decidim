@@ -142,8 +142,7 @@ module Decidim
       end
 
       def can_request_access_collaborative_draft?
-        return toggle_allow(false) if component_settings&.collaborative_drafts_enabled?
-        return toggle_allow(false) unless collaborative_draft.open?
+        return toggle_allow(false) unless collaborative_draft.open? && component_settings&.collaborative_drafts_enabled?
         return toggle_allow(false) if collaborative_draft.editable_by?(user)
         return toggle_allow(false) if collaborative_draft.requesters.include? user
         toggle_allow(collaborative_draft && !collaborative_draft.editable_by?(user))

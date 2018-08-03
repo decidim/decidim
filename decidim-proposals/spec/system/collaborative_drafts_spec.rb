@@ -188,7 +188,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           end
         end
 
-        it "renders a button to request acces" do
+        it "renders a button to request access" do
           within ".view-side" do
             expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "REQUEST ACCESS")
           end
