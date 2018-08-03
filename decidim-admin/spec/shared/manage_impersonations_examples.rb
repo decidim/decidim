@@ -49,7 +49,7 @@ shared_examples "manage impersonations examples" do
   end
 
   shared_examples_for "impersonating a user" do
-    it "can impersonate the user filling in the correct authorization" do
+    it "shows information about the impersonated user and session expirarion" do
       expect(page).to have_content("You are impersonating the user #{impersonated_user.name}")
       expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
     end
