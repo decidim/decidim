@@ -56,7 +56,14 @@ module Decidim
         )
         proposal_form_params[:proposal][:category_id] = @collaborative_draft.category.id if @collaborative_draft.category
         proposal_form_params[:proposal][:scope_id] = @collaborative_draft.scope.id if @collaborative_draft.scope
-        proposal_form = form(Decidim::Proposals::ProposalForm).from_params(proposal_form_params)
+        proposal_form = Decidim::Proposals::ProposalForm.from_params(
+          proposal_form_params
+        ).with_context(
+          current_user: @current_user,
+          current_organization: @current_user.organization,
+          current_component: @collaborative_draft.component,
+          current_participatory_space: @collaborative_draft.participatory_space
+        )
 
         result = CreateProposal.call(proposal_form, @current_user, @collaborative_draft.coauthorships)
         return publish_proposal(result[:ok]) if result[:ok]
