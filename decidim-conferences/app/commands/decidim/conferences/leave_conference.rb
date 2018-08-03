@@ -38,7 +38,7 @@ module Decidim
       end
 
       def meetings_registrations
-        published_meeting_components = Decidim::Component.where(participatory_space: conference).where(manifest_name: "meetings").published
+        published_meeting_components = Decidim::Component.where(participatory_space: @conference).where(manifest_name: "meetings").published
         meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components)
 
         @meetings_registrations ||= Decidim::Meetings::Registration.where(meeting: meetings, user: @user)

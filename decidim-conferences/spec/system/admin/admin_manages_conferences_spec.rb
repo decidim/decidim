@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages conferences", type: :system do
   include_context "when admin administrating a conference"
 
-  shared_examples "creating an conference" do
+  shared_examples "creating a conference" do
     let(:image1_filename) { "city.jpeg" }
     let(:image1_path) { Decidim::Dev.asset(image1_filename) }
 
@@ -64,12 +64,12 @@ describe "Admin manages conferences", type: :system do
     end
   end
 
-  shared_examples "deleting an conference" do
+  shared_examples "deleting a conference" do
     before do
       click_link translated(conference.title)
     end
 
-    it "deletes an conference" do
+    it "deletes a conference" do
       accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")

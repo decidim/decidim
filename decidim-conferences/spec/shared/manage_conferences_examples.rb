@@ -82,7 +82,7 @@ shared_examples "manage conferences" do
     end
   end
 
-  describe "publishing an conference" do
+  describe "publishing a conference" do
     let!(:conference) { create(:conference, :unpublished, organization: organization) }
 
     before do
@@ -100,7 +100,7 @@ shared_examples "manage conferences" do
     end
   end
 
-  describe "unpublishing an conference" do
+  describe "unpublishing a conference" do
     let!(:conference) { create(:conference, organization: organization) }
 
     before do
