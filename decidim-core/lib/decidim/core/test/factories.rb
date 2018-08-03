@@ -432,7 +432,7 @@ FactoryBot.define do
     locale { I18n.locale }
     scope { resource.scope }
     content_a { Faker::Lorem.sentence }
-    datetime { DateTime.current }
+    datetime { Time.current }
   end
 
   factory :content_block, class: "Decidim::ContentBlock" do

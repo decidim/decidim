@@ -46,7 +46,7 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            proposal.update(answered_at: DateTime.current, state: "rejected")
+            proposal.update(answered_at: Time.current, state: "rejected")
           end
 
           it "broadcasts invalid" do
@@ -62,7 +62,7 @@ module Decidim
       end
 
       describe "Organization endorses Proposal" do
-        let(:user_group) { create(:user_group, verified_at: DateTime.current) }
+        let(:user_group) { create(:user_group, verified_at: Time.current) }
         let(:command) { described_class.new(proposal, current_user, user_group.id) }
 
         before do
@@ -84,7 +84,7 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            proposal.update(answered_at: DateTime.current, state: "rejected")
+            proposal.update(answered_at: Time.current, state: "rejected")
           end
 
           it "Do not increase the endorsements counter by one" do

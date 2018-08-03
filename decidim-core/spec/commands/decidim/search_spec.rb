@@ -118,8 +118,8 @@ module Decidim
         let(:term) { "black" }
 
         context "when searchables are from the future" do
-          let(:datetime1) { DateTime.current + 10.seconds }
-          let(:datetime2) { DateTime.current + 20.seconds }
+          let(:datetime1) { Time.current + 10.seconds }
+          let(:datetime2) { Time.current + 20.seconds }
 
           it "returns matches sorted by date descendently" do
             described_class.call(term, current_organization) do
@@ -135,8 +135,8 @@ module Decidim
         end
 
         context "when searchables are from the past" do
-          let(:datetime1) { DateTime.current - 1.day }
-          let(:datetime2) { DateTime.current - 2.days }
+          let(:datetime1) { Time.current - 1.day }
+          let(:datetime2) { Time.current - 2.days }
 
           it "returns matches sorted by date descendently" do
             described_class.call(term, current_organization) do
@@ -151,8 +151,8 @@ module Decidim
         end
 
         context "when searchables are from the future and the past" do
-          let(:datetime1) { DateTime.current + 1.day }
-          let(:datetime2) { DateTime.current - 1.day }
+          let(:datetime1) { Time.current + 1.day }
+          let(:datetime2) { Time.current - 1.day }
 
           it "returns matches sorted by date descendently" do
             described_class.call(term, current_organization) do
