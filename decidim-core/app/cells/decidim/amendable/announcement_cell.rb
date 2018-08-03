@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim::Amendable
-  # This cell renders the button to amend the given resource.
+  # This cell renders the callout with information about the state of the emendation
   class AnnouncementCell < Decidim::ViewModel
 
     def show
@@ -18,29 +18,13 @@ module Decidim::Amendable
     end
 
     def emendation_message
-      case model.emendation_state
-      when "accepted"
-        t(:accepted,
-          scope: "decidim.amendments.emendation.announcement",
-          amendable_type: amendable_type,
-          amendable_link: amendable_link,
-          announcement_date: announcement_date
-        )
-      when "rejected"
-        t(:rejected,
-          scope: "decidim.amendments.emendation.announcement",
-          amendable_type: amendable_type,
-          amendable_link: amendable_link,
-          announcement_date: announcement_date,
-          publish_as_button: publish_as_button
-        )
-      when "evaluating"
-        t(:evaluating,
-          scope: "decidim.amendments.emendation.announcement",
-          amendable_type: amendable_type,
-          amendable_link: amendable_link
-        )
-      end
+      t(model.emendation_state,
+        scope: "decidim.amendments.emendation.announcement",
+        amendable_type: amendable_type,
+        amendable_link: amendable_link,
+        announcement_date: announcement_date,
+        publish_as_button: publish_as_button
+      )
     end
 
     def amendable_link
@@ -50,21 +34,15 @@ module Decidim::Amendable
     end
 
     def amendable_type
-      @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1).downcase
+      @amendable_type ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1).downcase
     end
 
     def announcement_date
-      case model.emendation_state
-      when "accepted"
-        Time.now
-      when "rejected"
-        Time.now
-      when "evaluating"
-        model.created_at
-      end
+      model.amendment.updated_at
     end
 
     def publish_as_button
+      return unless model.emendation_state == "rejected"
       link_to "#publish_as" do
         t("publish_as",
           scope: "decidim.amendments.emendation.announcement",

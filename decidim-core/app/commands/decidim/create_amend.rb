@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A command with all the business logic for when a user starts amending a resource.
+  # A command with all the business logic when a user starts amending a resource.
   class CreateAmend < Rectify::Command
     # Public: Initializes the command.
     #
     # form         - A form object with the params.
+    # amendable    - The resource that is being amended.
     def initialize(form)
       @form = form
       @amendable = form.amendable
@@ -23,9 +24,6 @@ module Decidim
       transaction do
         create_emendation!
         create_amend!
-
-        # link both resources
-        link_amendable_with_emendation
 
         # The proposal authors and followers are notified that an amendment has been created.
         notify_amendable_authors_and_followers
@@ -63,21 +61,16 @@ module Decidim
 
     def create_amend!
       @amendment = Decidim::Amendment.create!(
-        decidim_user_id: form.current_user.id,
-        decidim_amendable_type: form.amendable_type,
-        decidim_amendable_id: form.amendable.id,
-        decidim_emendation_type: form.amendable_type,
-        decidim_emendation_id: @emendation.id,
+        amender: form.current_user,
+        amendable: form.amendable,
+        emendation: @emendation,
+        decidim_emendation_type: form.emendation_type,
         state: "evaluating"
       )
     end
 
-    def link_amendable_with_emendation
-      # form.amendable.link_resources(@emendation, "emendation_from_amendable")
-    end
-
     def notify_amendable_authors_and_followers
-      return
+      return # not implemented - to do!
       recipients = amendable.authors + amendable.followers
       Decidim::EventsManager.publish(
         event: "decidim.events.amends.amendment_created",
