@@ -182,6 +182,9 @@ en:
           help_text: You are about to request becoming a member of the promoter committee of this initiative
         spawn:
           success: Your request has been sent to the initiative author.
+      content_blocks:
+        highlighted_initiatives:
+          name: Highlighted initiatives
       create_initiative:
         fill_data:
           back: Back
