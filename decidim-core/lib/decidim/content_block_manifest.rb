@@ -12,7 +12,7 @@ module Decidim
   #
   # Content blocks are intended to be used in the home page, for example.
   #
-  # A content block has a set of options and an associated `cell` that will
+  # A content block has a set of settings and an associated `cell` that will
   # handle the layout logic. They can also have attached images that can be used
   # as background images, for example. You must explicitly specify the number of
   # images the block will have (this means the number of attached images cannot
@@ -26,11 +26,9 @@ module Decidim
     attribute :i18n_name_key, String
     attribute :cell_name, String, writer: :private
     attribute :image_names, Array[Symbol]
-    attribute :options, Array[Hash]
 
     validates :name, :cell_name, :i18n_name_key, presence: true
     validate :image_names_are_unique
-    validate :option_names_are_unique
 
     # Public: Registers an image with a given name. Use `#images` to retrieve
     # them all.
@@ -52,27 +50,22 @@ module Decidim
       self.i18n_name_key = i18n_key
     end
 
-    # Public: Registers an option. Use `#options` to retrieve them all.
-    def option(name, type, metadata = {})
-      raise OptionNameCannotBeBlank, "Option names cannot be blank" if name.blank?
-      raise OptionTypeCannotBeBlank, "Option types cannot be blank" if type.blank?
+    def has_settings?
+      settings.attributes.any?
+    end
 
-      options << { name: name, type: type }.merge(metadata)
+    def settings(&block)
+      @settings ||= SettingsManifest.new
+      yield(@settings) if block
+      @settings
     end
 
     private
-
-    def option_names_are_unique
-      option_names = options.map { |option| option.fetch(:name) }
-      errors.add(:options, :invalid) if option_names.count != option_names.uniq.count
-    end
 
     def image_names_are_unique
       errors.add(:image_names, :invalid) if image_names.count != image_names.uniq.count
     end
 
     class ImageNameCannotBeBlank < StandardError; end
-    class OptionNameCannotBeBlank < StandardError; end
-    class OptionTypeCannotBeBlank < StandardError; end
   end
 end
