@@ -53,7 +53,7 @@ module Decidim
           )
         end
 
-        def attributes parsed_title, parsed_body
+        def attributes(parsed_title, parsed_body)
           {
             title: parsed_title,
             body: parsed_body,

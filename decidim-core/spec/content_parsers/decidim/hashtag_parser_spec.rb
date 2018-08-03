@@ -44,7 +44,7 @@ module Decidim
       let(:content) { "This text hashtagiing a non created hashtag: ##{hashtag3.name}" }
 
       it "creates the hashtag and rewrite the hashtag" do
-        expect(parser.rewrite).to include( "This text hashtagiing a non created hashtag: #{hashtag3.to_global_id}")
+        expect(parser.rewrite).to include("This text hashtagiing a non created hashtag: #{hashtag3.to_global_id}")
       end
 
       it "returns correct metadata" do

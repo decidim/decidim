@@ -60,7 +60,7 @@ module Decidim
       Result.new(parsed[:rewrite], parsed[:metadata])
     end
 
-    def self.parse_with_processor(type, content, context)
+    def self.parse_with_processor(_type, content, context)
       parsed = Decidim.content_processors.each_with_object(rewrite: content, metadata: {}) do |type, result|
         next unless type == :hashtag
         parser = parser_klass(type).constantize.new(result[:rewrite], context)

@@ -10,7 +10,6 @@ module Decidim
     #
     # @see BaseParser Examples of how to use a content parser
     class HashtagParser < BaseParser
-
       Metadata = Struct.new(:hashtags)
 
       # Replaces found hashtags matching a name of an existing
@@ -27,7 +26,7 @@ module Decidim
           end
         end
       end
-      
+
       def metadata
         Metadata.new(
           Decidim::Hashtag.where(organization: context[:current_organization], name: content.scan(Decidim::Hashtag::HASHTAG_REGEX).flatten)

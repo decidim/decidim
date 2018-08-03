@@ -3,20 +3,6 @@
 $(() => {
   const $hashtagContainer = $(".js-hashtags");
   const nodatafound = $hashtagContainer.attr("data-noresults");
-  // const sources = [];
-
-  // EXAMPLE DATA
-  // tag & name properties are mandatory
-  //
-  const sources = [{
-      "tag": "barrera",
-      "name": "Collins Franklin",
-    },
-    {
-      "tag": "woods",
-      "name": "Nadine Buck",
-    }]
-
 
   // Listener for the event triggered by quilljs
   let cursor = "";
@@ -26,11 +12,31 @@ $(() => {
     }
   });
 
+  function remoteSearch(text, cb) {
+    $.post("/api", {query: "{hashtags(name:"+text+") {name}}"})
+
+    .then((response) => {
+      let data = response.data["hashtags"] || {};
+      cb(data)
+    }).fail(function() {
+      cb([])
+    }).always(() => {
+      // This function runs Tribute every single time you type somthing
+      // So we must evalute DOM properties after each
+      const $parent = $(tribute.current.element).parent()
+      $parent.addClass("is-active")
+
+      // We need to move the container to the wrapper selected
+      const $tribute = $parent.find(".tribute-container");
+      // Remove the inline styles, relative to absolute positioning
+      $tribute.removeAttr("style");
+    })
+  }
+
   // tribute.js docs - http://github.com/zurb/tribute
   /* global Tribute*/
   let tribute = new Tribute({
     trigger: '#',
-    // values: sources,
     values: function (text, cb) {
       remoteSearch(text, hashtags => cb(hashtags));
     },
@@ -39,7 +45,6 @@ $(() => {
     fillAttr: "name",
     noMatchTemplate: () => `<li>${nodatafound}</li>`,
     lookup: (item) => item.name,
-    // lookup: (item) => item.tag + item.name,
     selectTemplate: function(item) {
       if (typeof item === "undefined") {
         return null;
@@ -49,10 +54,8 @@ $(() => {
         if ($(this.current.element).hasClass("editor-container")) {
           let quill = this.current.element.__quill;
           quill.insertText(cursor - 1, `#${item.original.name} `, Quill.sources.API);
-          // quill.insertText(cursor - 1, `#${item.original.tag} `, Quill.sources.API);
           // cursor position + nickname length + "@" sign + space
           let position = cursor + item.original.name.length + 2;
-          // let position = cursor + item.original.tag.length + 2;
 
           let next = 0;
           if (quill.getLength() > position) {
@@ -67,38 +70,28 @@ $(() => {
 
           return ""
         }
-        // return `<span contenteditable="false">#${item.original.tag}</span>`;
         return `<span contenteditable="false">#${item.original.name}</span>`;
       }
-      // return `#${item.original.tag}`;
       return `#${item.original.name}`;
     },
     menuItemTemplate: function(item) {
-      // let tpl = `<strong>${item.original.tag}</strong>&nbsp;<small>${item.original.name}</small>`;
       let tpl = `<strong>${item.original.name}</strong>`;
       return tpl;
     }
   });
 
   function remoteSearch(text, cb) {
-    var URL = '/api/hashtags/hashtags';
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function ()
-    {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-          var data = JSON.parse(xhr.responseText);
-          cb(data);
-        } else if (xhr.status === 403) {
-          cb([]);
-        }
-      }
-    };
-    xhr.open("GET", URL + '?q=' + text, true);
-    xhr.send();
-  }
+    $.post("/api", {query: "{hashtags(name:"+text+") {name}}"})
 
-  // console.log($hashtagContainer);
+    .then((response) => {
+      let data = response.data["hashtags"] || {};
+      cb(data)
+    }).fail(function() {
+      cb([])
+    }).always(() => {
+      $hashtagContainer.parent().find(".tribute-container").removeAttr("style")
+    })
+  }
 
   tribute.attach($hashtagContainer);
 
@@ -122,7 +115,6 @@ $(() => {
     if (tribute.isActive) {
       // We need to move the container to the wrapper selected
       let $tribute = $(".tribute-container");
-
       $tribute.removeAttr("style");
       $tribute.appendTo($parent);
       // Remove the inline styles, relative to absolute positioning

@@ -14,7 +14,7 @@ module Decidim
     HASHTAG_REGEX = /(^|\s)#([a-zA-Z0-9]\w*)/i
 
     def hashtaggables
-      decidim_hashtaggings.includes(:decidim_hashtaggable).collect { |h| h.decidim_hashtaggable }
+      decidim_hashtaggings.includes(:decidim_hashtaggable).collect(&:decidim_hashtaggable)
     end
 
     def hashtagged_types

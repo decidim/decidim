@@ -9,5 +9,6 @@ module Decidim
     autoload :CategorizableInterface, "decidim/api/categorizable_interface"
     autoload :ScopableInterface, "decidim/api/scopable_interface"
     autoload :AttachableInterface, "decidim/api/attachable_interface"
+    autoload :HashtagInterface, "decidim/api/hashtag_interface"
   end
 end

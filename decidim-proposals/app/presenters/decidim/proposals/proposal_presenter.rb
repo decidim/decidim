@@ -56,6 +56,5 @@ module Decidim
         renderer.render.html_safe
       end
     end
-
   end
 end

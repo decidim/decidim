@@ -10,7 +10,6 @@ module Decidim
       include Decidim::Meetings::MapHelper
       include Decidim::Meetings::MeetingsHelper
       include Decidim::Comments::CommentsHelper
-      include Decidim::HashtagsHelper
     end
   end
 end

@@ -10,8 +10,6 @@ module Decidim
       has_many :decidim_hashtags, through: :decidim_hashtaggings, class_name: "Decidim::Hashtag"
     end
 
-    def parsed_title
-      
-    end
+    def parsed_title; end
   end
 end
