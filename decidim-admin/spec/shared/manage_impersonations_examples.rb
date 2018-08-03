@@ -31,6 +31,10 @@ shared_examples "manage impersonations examples" do
       fill_in_the_impersonation_form(document_number, name: "Rigoberto")
     end
 
+    after do
+      clear_enqueued_jobs
+    end
+
     it "shows a success message" do
       expect(page).to have_content("successfully")
     end
@@ -49,7 +53,7 @@ shared_examples "manage impersonations examples" do
   end
 
   shared_examples_for "impersonating a user" do
-    it "can impersonate the user filling in the correct authorization" do
+    it "shows information about the impersonated user and session expirarion" do
       expect(page).to have_content("You are impersonating the user #{impersonated_user.name}")
       expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
     end
@@ -160,6 +164,10 @@ shared_examples "manage impersonations examples" do
 
   describe "impersonation" do
     let!(:impersonated_user) { create(:user, managed: managed, name: "Rigoberto", organization: organization) }
+
+    after do
+      clear_enqueued_jobs
+    end
 
     context "when impersonating a previously authorized user" do
       let!(:authorization) { create(:authorization, user: impersonated_user, name: "dummy_authorization_handler") }
