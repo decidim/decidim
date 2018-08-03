@@ -216,14 +216,18 @@ uk:
             dummy_step_attribute_2: Приклад 2 властивості кроку
     contact: Зв'язатися
     content_blocks:
+      footer_sub_hero:
+        name: Нижній колонтитул під-багатирського банера
       hero:
-        name: Багатирське зображення
+        name: Багатирський банер
       highlighted_content_banner:
         name: Банер висвітленого вмісту
       how_to_participate:
         name: Як взяти участь
       stats:
         name: Статистика організації
+      sub_hero:
+        name: Під-багатирський банер
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
