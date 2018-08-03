@@ -175,6 +175,9 @@ ignore_unused:
   - decidim.proposals.admin.participatory_texts.sections.*
   - decidim.gamification.badges.*
   - decidim.groups.roles.*
+  - decidim.amendments.amendable.error
+  - decidim.amendments.emendation.announcement.*
+  - decidim.amendments.accept.error
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

@@ -132,6 +132,9 @@ en:
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its title or description
         section_heading: Amendments (%{count})
+      created:
+        error: An error ocurred creating this amendment, try again later
+        success: The amendment has been created successfully
       emendation:
         actions:
           button_accept: Accept
@@ -140,7 +143,7 @@ en:
         announcement:
           accepted: |-
             This emendation for the %{amendable_type} %{amendable_link} has been
-            accepted was approved on <strong>%{announcement_date}</strong>.
+            accepted on <strong>%{announcement_date}</strong>.
           evaluating: |-
             This is an emendation for the %{amendable_type} %{amendable_link}
             is being evaluated.
@@ -151,8 +154,9 @@ en:
             You can %{publish_as_button}.
       new:
         back: Back
+        heading: Create your amendment
         help_text: You are modifying the %{model_name}
-        send: Send
+        send: Send emendation
     anonymous_user: Anonymous
     application:
       collection:
