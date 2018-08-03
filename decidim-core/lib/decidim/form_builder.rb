@@ -262,7 +262,7 @@ module Decidim
         attribute,
         options.merge(data: data)
       )
-      help_text = I18n.t("date.formats.datepicker_help_text", datepicker_format: datepicker_format)
+      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
       template += error_and_help_text(attribute, options.merge(help_text: help_text))
       template.html_safe
     end
