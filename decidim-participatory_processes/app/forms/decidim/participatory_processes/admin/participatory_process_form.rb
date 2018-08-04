@@ -23,8 +23,8 @@ module Decidim
 
         mimic :participatory_process
 
-        attribute :start_date, Date
-        attribute :end_date, Date
+        attribute :start_date, Decidim::Attributes::LocalizedDate
+        attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :slug, String
         attribute :hashtag, String
         attribute :promoted, Boolean

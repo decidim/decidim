@@ -25,7 +25,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   #
   attribute :document_number, String
   attribute :postal_code, String
-  attribute :birthday, Date
+  attribute :birthday, Decidim::Attributes::LocalizedDate
 
   # You can (and should) also define validations on each attribute:
   #

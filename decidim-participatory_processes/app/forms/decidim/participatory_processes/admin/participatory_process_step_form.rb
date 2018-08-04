@@ -14,8 +14,8 @@ module Decidim
 
         mimic :participatory_process_step
 
-        attribute :start_date, Date
-        attribute :end_date, Date
+        attribute :start_date, Decidim::Attributes::LocalizedDate
+        attribute :end_date, Decidim::Attributes::LocalizedDate
 
         validates :title, translatable_presence: true
 
