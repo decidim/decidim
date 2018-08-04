@@ -33,8 +33,7 @@ module Decidim
 
           define_method attribute_name do
             field = public_send(name) || {}
-            corrected_locale = locale.to_s.gsub("__", "-")
-            field[corrected_locale] || field[corrected_locale.to_sym]
+            field[locale.to_s] || field[locale.to_sym]
           end
 
           define_method "#{attribute_name}=" do |value|
