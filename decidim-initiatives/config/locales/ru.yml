@@ -187,6 +187,9 @@ ru:
           help_text: Вы собираетесь подать запрос на членство в рабочей группе по продвижению этого почина
         spawn:
           success: Ваш запрос отправлен автору почина.
+      content_blocks:
+        highlighted_initiatives:
+          name: Рекомендуемые почины
       create_initiative:
         fill_data:
           back: Вернуться
