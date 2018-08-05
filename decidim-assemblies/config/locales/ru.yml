@@ -253,6 +253,9 @@ ru:
         others: Другое
         participatory: Соучастное
         working_group: Рабочая группа
+      content_blocks:
+        highlighted_assemblies:
+          name: Рекомендуемые собрания
       created_by:
         city_council: Городской Совет
         others: Другие
