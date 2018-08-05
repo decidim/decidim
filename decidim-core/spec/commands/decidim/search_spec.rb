@@ -172,20 +172,20 @@ module Decidim
         let(:scope) { create(:scope, organization: current_organization) }
 
         context "with resource type" do
-          let(:rsrc_type) { "Decidim::Meetings::Meeting" }
+          let(:resource_type) { "Decidim::Meetings::Meeting" }
 
           before do
-            create(:searchable_resource, organization: current_organization, resource_type: rsrc_type, content_a: "Where's your crown king nothing?")
+            create(:searchable_resource, organization: current_organization, resource_type: resource_type, content_a: "Where's your crown king nothing?")
             create(:searchable_resource, organization: current_organization, resource_type: "Decidim::Proposals::Proposal", content_a: "Where's your crown king nothing?")
           end
 
           context "when resource_type is setted" do
             it "only return resources of the given type" do
-              described_class.call(term, current_organization, "resource_type" => rsrc_type) do
+              described_class.call(term, current_organization, "resource_type" => resource_type) do
                 on(:ok) do |results|
                   expect(results).not_to be_empty
                   expect(
-                    results.all? { |r| r.resource_type == rsrc_type }
+                    results.all? { |r| r.resource_type == resource_type }
                   ).to be true
                 end
                 on(:invalid) { raise("Should not happen") }
