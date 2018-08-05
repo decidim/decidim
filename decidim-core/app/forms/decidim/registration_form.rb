@@ -42,7 +42,7 @@ module Decidim
 
     def newsletter_at
       return nil unless newsletter?
-      Time.zone.now
+      Time.current
     end
 
     private

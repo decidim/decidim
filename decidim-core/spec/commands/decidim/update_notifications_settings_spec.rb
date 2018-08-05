@@ -10,7 +10,7 @@ module Decidim
     let(:data) do
       {
         email_on_notification: "1",
-        newsletter_notifications_at: Time.zone.now
+        newsletter_notifications_at: Time.current
       }
     end
 

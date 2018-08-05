@@ -124,7 +124,7 @@ FactoryBot.define do
     end
 
     trait :officialized do
-      officialized_at { Time.zone.now }
+      officialized_at { Time.current }
       officialized_as { Decidim::Faker::Localized.sentence(3) }
     end
   end
@@ -419,7 +419,7 @@ FactoryBot.define do
     application { build(:oauth_application) }
     token { SecureRandom.hex(32) }
     expires_in { 1.month.from_now }
-    created_at { Time.zone.now }
+    created_at { Time.current }
     scopes { "public" }
   end
 
