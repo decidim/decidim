@@ -215,6 +215,19 @@ ru:
             dummy_step_attribute_1: Пример 1 свойства шага
             dummy_step_attribute_2: Пример 2 свойства шага
     contact: Связаться
+    content_blocks:
+      footer_sub_hero:
+        name: Нижний колонтитул под-богатырского баннера
+      hero:
+        name: Богатырское изображение
+      highlighted_content_banner:
+        name: Баннер рекомендуемого содержимого
+      how_to_participate:
+        name: Как принять участие
+      stats:
+        name: Статистика организации
+      sub_hero:
+        name: Под-богатырский баннер
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
