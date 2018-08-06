@@ -75,6 +75,7 @@ module Decidim
       it "is valid" do
         setup = proc do |content_block|
           content_block.cell cell
+          content_block.settings_form_cell cell + "_form"
 
           content_block.settings do |settings|
             settings.attribute :name, type: :text, translated: true, editor: true
@@ -83,6 +84,7 @@ module Decidim
 
         setup.call(subject)
 
+        expect(subject).to be_valid
         expect(subject.settings.attributes).to have_key(:name)
         expect(subject.settings.attributes[:name].translated).to eq true
         expect(subject.settings.attributes[:name].editor).to eq true

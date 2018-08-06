@@ -23,11 +23,13 @@ module Decidim
     include Virtus.model
 
     attribute :name, Symbol
-    attribute :i18n_name_key, String
+    attribute :i18n_name_key, String, writer: :private
     attribute :cell_name, String, writer: :private
+    attribute :settings_form_cell_name, String, writer: :private
     attribute :image_names, Array[Symbol]
 
     validates :name, :cell_name, :i18n_name_key, presence: true
+    validates :settings_form_cell_name, presence: true, if: :has_settings?
     validate :image_names_are_unique
 
     # Public: Registers an image with a given name. Use `#images` to retrieve
@@ -42,6 +44,13 @@ module Decidim
     # Use `#cell_name` to retrieve it.
     def cell(cell_name)
       self.cell_name = cell_name
+    end
+
+    # Public: Registers the cell this content block will use to render the
+    # settings form in the admin section. Use `#settings_form_cell_name` to
+    # retrieve it.
+    def settings_form_cell(cell_name)
+      self.settings_form_cell_name = cell_name
     end
 
     # Public: Registers the I18n key this contnt block will use to retrieve its

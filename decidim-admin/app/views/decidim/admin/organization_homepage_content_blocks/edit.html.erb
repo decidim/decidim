@@ -1,13 +1,15 @@
-<%= decidim_form_for(@form, html: { class: "form edit_content_block" }, url: organization_homepage_content_block_path(params[:id])) do |f| %>
+<%= decidim_form_for(@form, html: { class: "form edit_content_block" }, url: organization_homepage_content_block_path(params[:id])) do |form| %>
   <div class="card">
     <div class="card-divider">
       <h2 class="card-title"><%= t content_block.i18n_name_key %></h2>
     </div>
     <div class="card-section">
-      <%= render partial: "form", object: f %>
+      <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
+        <%= cell content_block.settings_form_cell_name, settings_fields, content_block: content_block %>
+      <% end %>
     </div>
   </div>
   <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
+    <%= form.submit t(".update") %>
   </div>
 <% end %>
