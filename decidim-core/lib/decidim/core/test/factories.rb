@@ -266,7 +266,7 @@ FactoryBot.define do
   factory :scope, class: "Decidim::Scope" do
     name { Decidim::Faker::Localized.literal(generate(:scope_name)) }
     code { generate(:scope_code) }
-    scope_type
+    scope_type { create(:scope_type, organization: organization) }
     organization { parent ? parent.organization : build(:organization) }
   end
 

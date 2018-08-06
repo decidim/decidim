@@ -157,9 +157,9 @@ describe "Homepage", type: :system do
 
         static_page = static_pages.first
         click_link static_page.title["en"]
-        expect(page).to have_i18n_content(static_page.title, locale: "en")
+        expect(page).to have_i18n_content(static_page.title)
 
-        expect(page).to have_i18n_content(static_page.content, locale: "en")
+        expect(page).to have_i18n_content(static_page.content)
       end
 
       it "includes the footer sub_hero with the current organization name" do

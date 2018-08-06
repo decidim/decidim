@@ -56,7 +56,7 @@ module Decidim
             it "inserts a SearchableResource after Proposal is published" do
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
-                expect_searchable_rsrc_to_correspond_to_proposal(searchable, proposal, locale)
+                expect_searchable_resource_to_correspond_to_proposal(searchable, proposal, locale)
               end
             end
 
@@ -127,16 +127,16 @@ module Decidim
 
     private
 
-    def expect_searchable_rsrc_to_correspond_to_proposal(searchable, proposal, locale)
+    def expect_searchable_resource_to_correspond_to_proposal(searchable, proposal, locale)
       attrs = searchable.attributes.clone
       attrs.delete("id")
       attrs.delete("created_at")
       attrs.delete("updated_at")
       expect(attrs.delete("datetime").to_s(:short)).to eq(proposal.published_at.to_s(:short))
-      expect(attrs).to eq(expected_searchable_rsrc_attrs(proposal, locale))
+      expect(attrs).to eq(expected_searchable_resource_attrs(proposal, locale))
     end
 
-    def expected_searchable_rsrc_attrs(proposal, locale)
+    def expected_searchable_resource_attrs(proposal, locale)
       {
         "content_a" => proposal.title,
         "content_b" => "",
