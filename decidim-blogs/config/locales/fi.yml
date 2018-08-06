@@ -18,17 +18,17 @@ fi:
       admin:
         models:
           components:
-            body: ruumis
+            body: Leipäteksti
           post:
-            name: Lähettää
+            name: Julkaise
         posts:
           create:
-            invalid: Ongelma tämän viestin luomisessa
-            success: Lähetys onnistuneesti luotu
+            invalid: Tämän viestin luomisessa tapahtui virhe
+            success: Viesti luotu onnistuneesti
           destroy:
-            success: Viesti onnistuneesti poistettu
+            success: Viesti poistettu onnistuneesti
           edit:
-            save: Päivittää
+            save: Päivitä
           index:
             title: Viestejä
           new:
