@@ -35,9 +35,5 @@ module Decidim
     def stats
       @stats ||= HomeStatsPresenter.new(organization: current_organization)
     end
-
-    def metrics
-      @metrics ||= MetricChartsPresenter.new(organization: current_organization)
-    end
   end
 end

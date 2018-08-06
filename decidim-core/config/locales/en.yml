@@ -217,6 +217,8 @@ en:
         name: How to participate
       stats:
         name: Organization stats
+      metrics:
+        name: Organization metrics
       sub_hero:
         name: Sub hero banner
     core:

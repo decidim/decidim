@@ -6,7 +6,7 @@ module Decidim
     # for a newly-created organization.
     class CreateDefaultContentBlocks < Rectify::Command
       DEFAULT_CONTENT_BLOCKS =
-        [:hero, :sub_hero, :highlighted_content_banner, :how_to_participate, :stats, :footer_sub_hero].freeze
+        [:hero, :sub_hero, :highlighted_content_banner, :how_to_participate, :stats, :metrics, :footer_sub_hero].freeze
 
       # Public: Initializes the command.
       #

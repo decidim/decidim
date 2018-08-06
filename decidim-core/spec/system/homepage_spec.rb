@@ -24,6 +24,7 @@ describe "Homepage", type: :system do
       create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_content_banner
       create :content_block, organization: organization, scope: :homepage, manifest_name: :how_to_participate
       create :content_block, organization: organization, scope: :homepage, manifest_name: :stats
+      create :content_block, organization: organization, scope: :homepage, manifest_name: :metrics
       create :content_block, organization: organization, scope: :homepage, manifest_name: :footer_sub_hero
 
       switch_to_host(organization.host)
