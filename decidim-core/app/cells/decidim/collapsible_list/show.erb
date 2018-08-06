@@ -1,5 +1,5 @@
 <% if collapsible? %>
-  <div id="collapsible-list-<%= seed %>" class="collapsible-list is-filtered <%= list_size_class %>" data-toggler=".is-filtered">
+  <div id="collapsible-list-<%= seed %>" class="collapsible-list is-filtered <%= list_size_class %> <%= list_class %>" data-toggler=".is-filtered">
     <% list.each do |element| %>
       <% if cell_name %>
         <%= cell cell_name, element, cell_options %>
@@ -16,7 +16,7 @@
     </span>
   </div>
 <% else %>
-  <div class="collapsible-list">
+  <div class="collapsible-list <%= list_class %>">
     <% list.each do |element| %>
       <% if cell_name %>
         <%= cell cell_name, element, cell_options %>
