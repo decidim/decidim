@@ -4,11 +4,21 @@ module Decidim
   module ParticipatoryProcesses
     module ContentBlocks
       class HighlightedProcessesCell < Decidim::ViewModel
+        include Decidim::SanitizeHelper
+
         delegate :current_organization, to: :controller
         delegate :current_user, to: :controller
 
         def show
-          render if highlighted_processes.any?
+          if single_process?
+            render "single_process"
+          elsif highlighted_processes.any?
+            render
+          end
+        end
+
+        def single_process?
+          highlighted_processes.to_a.length == 1
         end
 
         def highlighted_processes
