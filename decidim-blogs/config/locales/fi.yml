@@ -41,19 +41,19 @@ fi:
         post:
           fields:
             author: Tekijä
-            body: ruumis
-            created_at: Luotu osoitteessa
+            body: Leipäteksti
+            created_at: Luotu
             title: otsikko
       posts:
         show:
-          view: näkymä
+          view: Näytä
         sidebar_blog:
           comments: kommentit
-          most_commented_posts: Eniten kommentoituja viestejä
+          most_commented_posts: Eniten kommentoidut viestit
       read_more: Lue lisää
     components:
       blogs:
-        name: blogi
+        name: Blogi
         settings:
           global:
             announcement: Ilmoitus
