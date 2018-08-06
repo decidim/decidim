@@ -55,7 +55,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can update an attachment collection" do
     within "#attachment_collections" do
-      within find("tr", text: stripped(translated(attachment_collection.name))) do
+      within find("tr", text: translated(attachment_collection.name)) do
         click_link "Edit"
       end
     end
