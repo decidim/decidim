@@ -111,6 +111,12 @@ jobs:
     steps:
       - *attach_workspace
       - checkout
+      - *restore_npm_cache
+      - *install_npm_dependencies
+      - *save_npm_cache
+      - run:
+          name: Run js lint & tests
+          command: npm run test:ci
       - *restore_ruby_cache
       - run: bundle install
       - *save_ruby_cache
@@ -213,9 +219,6 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_npm_cache
-      - *install_npm_dependencies
-      - *save_npm_cache
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
@@ -258,12 +261,6 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *restore_npm_cache
-      - *install_npm_dependencies
-      - run:
-          name: Run main folder lint & tests
-          command: npm run test:ci
-      - *save_npm_cache
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
