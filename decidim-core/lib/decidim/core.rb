@@ -147,6 +147,11 @@ module Decidim
     end
   end
 
+  # Exposes a configuration option: the first_login_authorization boolean
+  config_accessor :skip_first_login_authorization do
+    false
+  end
+
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
     "€"

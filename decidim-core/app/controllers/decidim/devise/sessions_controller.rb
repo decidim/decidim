@@ -23,6 +23,7 @@ module Decidim
       end
 
       def first_login_and_not_authorized?(user)
+        return false if Decidim.config.skip_first_login_authorization
         user.is_a?(User) && user.sign_in_count == 1 && current_organization.available_authorizations.any?
       end
 
