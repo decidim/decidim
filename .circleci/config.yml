@@ -92,11 +92,8 @@ jobs:
     steps:
       - checkout
       - *restore_ruby_cache
-      - *restore_npm_cache
       - run: bundle install
-      - *install_npm_dependencies
       - *save_ruby_cache
-      - *save_npm_cache
       - *wait_for_db
       - run:
           name: Generate test app
