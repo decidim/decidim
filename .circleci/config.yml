@@ -409,14 +409,7 @@ jobs:
       - run:
           name: Build image
           command: |
-            docker build -t registry.heroku.com/decidim-design/web -f Dockerfile.design .
-      - run:
-          name: Push deployment image
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
-              docker push registry.heroku.com/decidim-design/web
-            fi
+            docker build -f Dockerfile.design .
   upload-coverage:
     <<: *defaults
     environment:
