@@ -10,7 +10,7 @@ module Decidim
 
     # Returns the creation date in a friendly relative format.
     def friendly_created_at
-      current_datetime = Time.zone.now
+      current_datetime = Time.current
 
       if created_at > current_datetime.beginning_of_day
         I18n.l(created_at, format: :time_of_day)

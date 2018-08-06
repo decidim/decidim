@@ -70,7 +70,7 @@ describe "decidim_initiatives:notify_progress", type: :task do
 
   context "when initiative ready for second notification" do
     let(:initiative) do
-      initiative = create(:initiative, first_progress_notification_at: DateTime.current)
+      initiative = create(:initiative, first_progress_notification_at: Time.current)
 
       initiative.initiative_votes_count = initiative.scoped_type.supports_required *
                                           (Decidim::Initiatives.second_notification_percentage / 100.0) + 1
@@ -107,8 +107,8 @@ describe "decidim_initiatives:notify_progress", type: :task do
   context "when initiative with both notifications sent" do
     let(:initiative) do
       create(:initiative,
-             first_progress_notification_at: DateTime.current,
-             second_progress_notification_at: DateTime.current)
+             first_progress_notification_at: Time.current,
+             second_progress_notification_at: Time.current)
     end
 
     it "do not invokes the mailer" do

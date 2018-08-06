@@ -85,7 +85,7 @@ module Decidim
 
         context "when deleted" do
           before do
-            user.deleted_at = Time.zone.now
+            user.deleted_at = Time.current
           end
 
           it "is valid" do
@@ -102,7 +102,7 @@ module Decidim
             expect do
               create(:user, organization: user.organization,
                             nickname: user.nickname,
-                            deleted_at: Time.zone.now)
+                            deleted_at: Time.current)
             end.not_to raise_error
           end
         end

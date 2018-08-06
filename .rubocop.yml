@@ -811,7 +811,7 @@ Style/PreferredHashMethods:
   EnforcedStyle: verbose
 
 Style/DateTime:
-  Enabled: false
+  Enabled: true
 
 Style/Documentation:
   Enabled: false

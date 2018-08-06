@@ -39,7 +39,7 @@ module Decidim
     def grant!
       remove_verification_attachment!
 
-      update!(granted_at: Time.zone.now, verification_metadata: {})
+      update!(granted_at: Time.current, verification_metadata: {})
     end
 
     def granted?
@@ -57,7 +57,7 @@ module Decidim
     end
 
     def expired?
-      expires_at.present? && expires_at < Time.zone.now
+      expires_at.present? && expires_at < Time.current
     end
 
     private
