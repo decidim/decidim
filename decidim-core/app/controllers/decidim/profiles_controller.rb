@@ -8,8 +8,18 @@ module Decidim
     helper_method :user, :active_content
 
     def show
-      return redirect_to profile_notifications_path(nickname: params[:nickname]) if current_user == user && params[:active].blank?
-      return redirect_to profile_path(nickname: params[:nickname]) if current_user != user && params[:active] == "notifications"
+      return redirect_to notifications_path if current_user == user
+      @content_cell = "decidim/following"
+    end
+
+    def following
+      @content_cell = "decidim/following"
+      render :show
+    end
+
+    def followers
+      @content_cell = "decidim/followers"
+      render :show
     end
 
     private
@@ -19,11 +29,6 @@ module Decidim
         nickname: params[:nickname],
         organization: current_organization
       )
-    end
-
-    def active_content
-      return "following" if current_user != user && params[:active].blank?
-      params[:active].presence
     end
   end
 end
