@@ -282,9 +282,7 @@ module Decidim
           content_block.public_name_key "decidim.content_blocks.hero.name"
 
           content_block.settings do |settings|
-            settings.attribute :cta_button_text, type: :text, translated: true
             settings.attribute :welcome_text, type: :text, translated: true
-            settings.attribute :cta_button_link, type: :text
           end
         end
 

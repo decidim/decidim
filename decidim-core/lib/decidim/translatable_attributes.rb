@@ -62,6 +62,7 @@ module Decidim
         return "" if attribute.nil?
         return attribute unless attribute.is_a?(Hash)
 
+        attribute = attribute.dup.stringify_keys
         organization ||= try(:current_organization)
         organization_locale = organization.try(:default_locale)
 

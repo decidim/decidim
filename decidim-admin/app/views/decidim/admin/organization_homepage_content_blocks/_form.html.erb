@@ -1,5 +1,3 @@
 <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
   <%= settings_fields.translated :text_field, :welcome_text %>
-  <%= settings_fields.translated :text_field, :cta_button_text %>
-  <%= settings_fields.text_field :cta_button_link %>
 <% end %>

@@ -11,6 +11,10 @@ module Decidim
       def decidim_participatory_processes
         Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
       end
+
+      def translated_welcome_text
+        translated_attribute(model.settings.welcome_text)
+      end
     end
   end
 end
