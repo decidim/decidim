@@ -1,7 +1,7 @@
 fi:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Uusi blogiviesti
+      decidim/blogs/create_post_event: Uusi blogikirjoitus
   activerecord:
     models:
       decidim/blogs/post:
