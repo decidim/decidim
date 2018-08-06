@@ -64,7 +64,7 @@ fi:
         surveys:
           answer_option:
             answer_option: Vastausvaihtoehto
-            free_text: Ilmainen teksti
+            free_text: Vapaa teksti
             remove: Poistaa
             statement: Kysymysasettelu
           edit:
