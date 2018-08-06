@@ -1,7 +1,7 @@
 fi:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Uusi blogikirjoitus
+      decidim/blogs/create_post_event: Uusi blogiviesti
   activerecord:
     models:
       decidim/blogs/post:
@@ -11,10 +11,10 @@ fi:
     blogs:
       actions:
         confirm_destroy: Haluatko varmasti poistaa tämän viestin?
-        destroy: Poistaa
-        edit: Muokata
+        destroy: Poista
+        edit: Muokkaa
         new: Uusi viesti
-        title: Toimet
+        title: Toiminnot
       admin:
         models:
           components:
