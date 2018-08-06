@@ -19,10 +19,11 @@ $(() => {
   if (!$.isEmptyObject(metrics)) {
     fetch(Object.keys(metrics)).then((response) => {
       $.each(response.data, (metricKey, metricData) => {
+        let container = metrics[metricKey];
         if (metricData.metric.length === 0) {
+          $(container).remove();
           return;
         }
-        let container = metrics[metricKey];
         let info = $(container).data("info");
 
         areachart({

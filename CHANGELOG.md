@@ -16,6 +16,31 @@
   times unintentionally. Check
   [\#3890](https://github.com/decidim/decidim/pull/3890) for more details.
 
+**Upgrade notes (Metrics)**:
+
+Metrics calculations must be executed everyday. Some `rake task` have been added to perform it. A **crontab** line must be added to your server to maintain them updated.
+
+- To execute all metrics at once. Related to previous date from *today*
+```ruby
+bundle exec rake decidim:metrics:all
+```
+
+- To execute an specific metric. Related to previous date from *today*
+```ruby
+bundle exec rake decidim:metrics:<metric name>
+```
+
+- To execute metrics for a given date (all or an specific one)
+```ruby
+bundle exec rake decidim:metrics:all["YYYY-MM-DD"]
+```
+
+Current available metric names:
+- *users_metric*, confirmed Users
+- *proposals_metric*, available Proposals
+- *accepted_proposals_metric*, currently accepted Proposals
+- *votes_metric*, votes in Proposals
+
 **Added**:
 
 - **decidim-budgets**: Import accepted proposals to projects. [\#3873](https://github.com/decidim/decidim/pull/3873)
@@ -31,6 +56,7 @@
 - **decidim-meetings**: Allow admins to validate meeting registration codes and notify the user. [\#3833](https://github.com/decidim/decidim/pull/3833)
 - **decidim-core**: Make Users Searchable. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
+- **decidim-core**: Added metrics visualization for Users and Proposals (all, accepted and votes) [\#3603](https://github.com/decidim/decidim/pull/3603)
 
 **Changed**:
 

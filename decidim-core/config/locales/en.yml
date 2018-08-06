@@ -215,10 +215,10 @@ en:
         name: Highlighted content banner
       how_to_participate:
         name: How to participate
-      stats:
-        name: Organization stats
       metrics:
         name: Organization metrics
+      stats:
+        name: Organization stats
       sub_hero:
         name: Sub hero banner
     core:

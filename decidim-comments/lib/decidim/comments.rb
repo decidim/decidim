@@ -23,7 +23,7 @@ module Decidim
     end
 
     def self.metric_entities
-      ["comments"]
+      ["commentsMetric"]
     end
   end
 end
