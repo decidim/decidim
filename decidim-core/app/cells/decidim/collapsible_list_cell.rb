@@ -19,6 +19,8 @@ module Decidim
   #      size: 4
   #    )
   class CollapsibleListCell < Decidim::ViewModel
+    include Decidim::CardHelper
+
     private
 
     def list

@@ -1,9 +1,11 @@
 <% if collapsible? %>
   <div id="collapsible-list-<%= seed %>" class="collapsible-list is-filtered <%= list_size_class %>" data-toggler=".is-filtered">
     <% list.each do |element| %>
-      <div class="collapse">
+      <% if cell_name %>
         <%= cell cell_name, element, cell_options %>
-      </div>
+      <% else %>
+        <%= card_for element, cell_options %>
+      <% end %>
     <% end %>
     <span class="collapsible-list__see-more">
       <%= t(hidden_elements_count_i18n_key, count: hidden_elements_count) %>
@@ -16,7 +18,11 @@
 <% else %>
   <div class="collapsible-list">
     <% list.each do |element| %>
-      <%= cell cell_name, element, cell_options %>
+      <% if cell_name %>
+        <%= cell cell_name, element, cell_options %>
+      <% else %>
+        <%= card_for element, cell_options %>
+      <% end %>
     <% end %>
   </div>
 <% end %>
