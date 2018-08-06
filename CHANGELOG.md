@@ -14,7 +14,7 @@ use the following command in your rails console : `Decidim::ParticipatoryProcess
 you should update existing image if you don't want to reupload them.
 use the following command in your rails console : `Decidim::User.find_each { |user| user.avatar.recreate_versions! if user.avatar? }`
 
-
+- **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)
 
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
