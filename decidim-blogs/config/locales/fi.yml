@@ -35,12 +35,12 @@ fi:
             create: Luoda
             title: Luo viesti
           update:
-            invalid: Virhe tallentamassa viestiä on tapahtunut.
+            invalid: Viestin tallennuksessa tapahtui virheitä.
             success: Viestin tallennettu onnistuneesti
       models:
         post:
           fields:
-            author: kirjailija
+            author: Tekijä
             body: ruumis
             created_at: Luotu osoitteessa
             title: otsikko
