@@ -1,11 +1,11 @@
 fi:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Uusi blogikirja
+      decidim/blogs/create_post_event: Uusi blogiviesti
   activerecord:
     models:
       decidim/blogs/post:
-        one: Lähettää
+        one: Viesti
         other: Viestejä
   decidim:
     blogs:
