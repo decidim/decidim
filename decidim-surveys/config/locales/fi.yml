@@ -20,7 +20,7 @@ fi:
   activerecord:
     models:
       decidim/surveys/survey:
-        one: tutkimus
+        one: Kysely
         other: tutkimukset
       decidim/surveys/survey_answer:
         one: Vastaus
