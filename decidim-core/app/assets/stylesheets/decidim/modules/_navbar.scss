@@ -344,6 +344,15 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
 }
 
+.topbar__edit__link a{
+  color: $medium-gray;
+
+  &:hover{
+    background: $navbar-bg-hover;
+    color: $navbar-color-hover;
+  }
+}
+
 .usermenu-off-canvas-holder .usermenu-off-canvas{
   border-top: 1px solid;
   border-bottom: 1px solid;

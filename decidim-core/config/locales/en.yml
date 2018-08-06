@@ -676,6 +676,8 @@ en:
         description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
         link_label: here
         ok: I agree
+      edit_link:
+        edit: Edit
       footer:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
