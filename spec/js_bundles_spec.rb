@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe "Bundles sanity" do
+describe "Js bundle sanity" do
   shared_examples "a valid bundle" do
     it "is up to date" do
       previous_hash = bundle_hash
