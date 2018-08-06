@@ -22,7 +22,7 @@ module Decidim
             redirect_to edit_organization_homepage_path
           end
           on(:invalid) do
-            byebug
+            render :edit
           end
         end
       end
@@ -30,8 +30,8 @@ module Decidim
       private
 
       def content_block
-        @content_block ||= content_blocks.where(manifest_name: params[:id]).first ||
-          unused_manifests.find { |manifest| manifest.name.to_s == params[:id] }
+        @content_block ||= content_blocks.find_by(manifest_name: params[:id]) ||
+                           unused_manifests.find { |manifest| manifest.name.to_s == params[:id] }
       end
 
       def content_blocks
