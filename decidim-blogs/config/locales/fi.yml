@@ -40,7 +40,7 @@ fi:
       models:
         post:
           fields:
-            author: Tekijä
+            author: Kirjoittaja
             body: Leipäteksti
             created_at: Luotu
             title: otsikko
@@ -57,7 +57,7 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
-            comments_enabled: Kommentit ovat käytössä
+            comments_enabled: Kommentointi käytössä
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
