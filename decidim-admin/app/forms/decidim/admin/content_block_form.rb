@@ -10,6 +10,7 @@ module Decidim
       mimic :content_block
 
       attribute :settings, Object
+      attribute :images, Object
 
       def settings?
         settings.manifest.settings.any?

@@ -4,9 +4,7 @@
       <h2 class="card-title"><%= t content_block.i18n_name_key %></h2>
     </div>
     <div class="card-section">
-      <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
-        <%= cell content_block.settings_form_cell_name, settings_fields, content_block: content_block %>
-      <% end %>
+      <%= cell content_block.settings_form_cell_name, form, content_block: content_block %>
     </div>
   </div>
   <div class="button--double form-general-submit">

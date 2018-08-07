@@ -13,7 +13,7 @@ module Decidim
 
     belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
 
-    delegate :i18n_name_key, :has_settings?, :settings_form_cell_name, :cell_name, to: :manifest
+    delegate :i18n_name_key, :has_settings?, :settings_form_cell_name, :cell_name, :image_names, to: :manifest
 
     # Public: finds the published content blocks for the given scope and
     # organization. Returns them ordered by ascending weight (lowest first).
@@ -28,6 +28,30 @@ module Decidim
 
     def settings
       manifest.settings.schema.new(self[:settings])
+    end
+
+    def images
+      @images ||= ImageRegistry.new(self)
+    end
+
+    class ImageRegistry
+      include Virtus.model
+      include ActiveModel::Validations
+
+      def initialize(block)
+        @block = block
+        define_methods
+      end
+
+      attr_reader :block
+
+      def define_methods
+        block.manifest.image_names.each do |image_name|
+          self.class.define_method image_name do
+            Attachment.find_by(attached_to:@block, title: { name: image_name })
+          end
+        end
+      end
     end
   end
 end

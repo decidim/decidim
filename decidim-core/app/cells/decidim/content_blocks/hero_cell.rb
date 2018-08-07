@@ -16,6 +16,10 @@ module Decidim
       def translated_welcome_text
         translated_attribute(model.settings.welcome_text)
       end
+
+      def background_image
+        model.images.hero_background_image.try(:url) || current_organization.homepage_image.url
+      end
     end
   end
 end

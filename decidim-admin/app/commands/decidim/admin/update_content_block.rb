@@ -22,16 +22,40 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        update_content_block
+        update_content_block_settings
+        update_content_block_images
 
         broadcast(:ok)
       end
 
       private
 
-      def update_content_block
+      def update_content_block_settings
         content_block.settings = form.settings
         content_block.save!
+      end
+
+      def update_content_block_images
+        content_block.image_names.each do |image_name|
+          attachment = content_block.images.send(image_name)
+          byebug
+
+          if form.images["remove_#{image_name}".to_sym]
+            attachment.destroy!
+          elsif form.images[image_name]
+            update_image(attachment, image_name, form.images[image_name])
+          end
+
+        end
+      end
+
+      def update_image(attachment, name, file)
+        if attachment.present?
+          attachment.file = file
+          attachment.save!
+        else
+          Attachment.create!(attached_to: content_block, file: file, title: { name: image_name })
+        end
       end
     end
   end
