@@ -284,6 +284,8 @@ eu:
           highlighted_processes:
             active_processes: Prozesu aktiboak
             active_step: Urratsa aktiboa
+            more_information: Informazio gehiago
+            participate: Parte hartu
             see_all_processes: Ikusi prozesu guztiak
       participatory_process_groups:
         none: Bat bera ere ez
