@@ -65,7 +65,7 @@ fi:
       blogs:
         post_created:
           email_intro: Viesti "%{resource_title}" on julkaistu "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit lopettaa sen seuraamisen edellisestä linkistä.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Uusi viesti julkaistiin %{participatory_space_title}
           notification_title: Viesti <a href="%{resource_path}">%{resource_title}</a> on julkaistu %{participatory_space_title}
     pages:
