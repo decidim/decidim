@@ -48,7 +48,7 @@ module Decidim
       def define_methods
         block.manifest.image_names.each do |image_name|
           self.class.define_method image_name do
-            Attachment.find_by(attached_to:@block, title: { name: image_name })
+            Attachment.find_by(attached_to: @block, title: { name: image_name })
           end
         end
       end

@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe Decidim::ContentBlocks::HeroCell, type: :cell do
+  subject { cell(content_block.cell_name, content_block).call }
+
   let(:organization) { create(:organization) }
   let(:content_block) { create :content_block, organization: organization, manifest_name: :hero, scope: :homepage, settings: settings }
   let(:settings) { {} }
-
-  subject { cell(content_block.cell_name, content_block).call }
 
   controller Decidim::PagesController
 
