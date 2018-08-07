@@ -32,7 +32,7 @@ fi:
           index:
             title: Viestejä
           new:
-            create: Luoda
+            create: Luo
             title: Luo viesti
           update:
             invalid: Viestin tallennuksessa tapahtui virheitä.
