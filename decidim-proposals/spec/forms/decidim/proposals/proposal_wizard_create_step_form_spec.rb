@@ -18,8 +18,8 @@ module Decidim
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
       let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-      let(:title) { "Oriol for president!" }
-      let(:body) { "Everything would be better" }
+      let(:title) { "More sidewalks and less roads" }
+      let(:body) { "Cities need more people, not more cars" }
       let(:author) { create(:user, organization: organization) }
       let(:user_group) { create(:user_group, :verified, users: [author], organization: organization) }
 
