@@ -9,7 +9,8 @@
   "author": "Marc Riera <mrc2407@gmail.com>",
   "license": "AGPL-3.0",
   "engines": {
-    "node": "^10.5.0"
+    "node": "^10.5.0",
+    "npm": "^6.2.0"
   },
   "scripts": {
     "build": "webpack --env.dev",
@@ -251,7 +252,6 @@
     "graphql-anywhere": "^4.1.5",
     "graphql-tag": "^2.8.0",
     "jquery": "^3.2.1",
-    "npm": "^6.2.0",
     "react": "^16.0.0",
     "react-apollo": "^2.0.4",
     "react-dom": "^16.0.0",

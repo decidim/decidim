@@ -17,7 +17,7 @@ module Decidim
       end
 
       context "when valid" do
-        let(:user) { create(:user, organization: organization, newsletter_notifications_at: Time.zone.now) }
+        let(:user) { create(:user, organization: organization, newsletter_notifications_at: Time.current) }
 
         it "unsubscribes user" do
           user.newsletter_notifications_at = nil

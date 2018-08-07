@@ -73,6 +73,9 @@ module Decidim
 
           next unless assemblies.any?
 
+          # Since this is rendered inside a cell we need to access the parent context in order to render it.
+          view_context = view_context.controller.view_context
+
           view_context.render(
             partial: "decidim/assemblies/pages/user_profile/member_of",
             locals: {
@@ -85,6 +88,7 @@ module Decidim
       initializer "decidim_assemblies.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_assemblies) do |content_block|
           content_block.cell "decidim/assemblies/content_blocks/highlighted_assemblies"
+          content_block.public_name_key "decidim.assemblies.content_blocks.highlighted_assemblies.name"
         end
       end
     end

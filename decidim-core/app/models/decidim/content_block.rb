@@ -9,19 +9,25 @@ module Decidim
     # current attachments do not allow this, so we'll use the attachment `title`
     # field to identify each image.
     include HasAttachments
+    include Publicable
 
     belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
 
+    delegate :i18n_name_key, :has_settings?, to: :manifest
+
     # Public: finds the published content blocks for the given scope and
     # organization. Returns them ordered by ascending weight (lowest first).
-    def self.published_for_scope(scope, organization:)
+    def self.for_scope(scope, organization:)
       where(organization: organization, scope: scope)
-        .where.not(published_at: nil)
         .order(weight: :asc)
     end
 
     def manifest
       @manifest ||= Decidim.content_blocks.for(scope).find { |manifest| manifest.name.to_s == manifest_name }
+    end
+
+    def settings
+      manifest.settings.schema.new(self[:settings])
     end
   end
 end

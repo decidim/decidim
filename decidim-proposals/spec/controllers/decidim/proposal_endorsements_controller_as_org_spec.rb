@@ -11,7 +11,7 @@ module Decidim
       # As Organization
       #
       describe "As Organization" do
-        let(:user_group) { create(:user_group, verified_at: DateTime.current) }
+        let(:user_group) { create(:user_group, verified_at: Time.current) }
 
         before do
           create(:user_group_membership, user: user, user_group: user_group)
