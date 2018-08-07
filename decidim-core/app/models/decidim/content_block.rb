@@ -34,6 +34,13 @@ module Decidim
       @images ||= ImageRegistry.new(self)
     end
 
+    # Internal class to easily access the attachments that hold the images for
+    # the current content block.
+    #
+    # If the manifest for the current content block defines a
+    # `:background_image`, then this class allows you to do this:
+    #
+    #     content_block.images.background_image
     class ImageRegistry
       include Virtus.model
       include ActiveModel::Validations
