@@ -284,6 +284,8 @@ fr:
           highlighted_processes:
             active_processes: Concertations actives
             active_step: Étape active
+            more_information: Plus d'information
+            participate: Participer
             see_all_processes: Voir toutes les concertations
       participatory_process_groups:
         none: Aucun
