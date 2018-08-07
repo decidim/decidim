@@ -284,6 +284,8 @@ es-PY:
           highlighted_processes:
             active_processes: Procesos activos
             active_step: Paso activo
+            more_information: Más información
+            participate: Participar
             see_all_processes: Ver todos los procesos
       participatory_process_groups:
         none: Ninguna
