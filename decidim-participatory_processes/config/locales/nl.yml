@@ -284,6 +284,8 @@ nl:
           highlighted_processes:
             active_processes: Actieve thema's
             active_step: Actieve stap
+            more_information: Meer informatie
+            participate: Deelnemen
             see_all_processes: Bekijk alle thema's
       participatory_process_groups:
         none: Geen
