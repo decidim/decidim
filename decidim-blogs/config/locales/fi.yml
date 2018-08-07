@@ -20,7 +20,7 @@ fi:
           components:
             body: Leipäteksti
           post:
-            name: Julkaise
+            name: Lähetä
         posts:
           create:
             invalid: Tämän viestin luomisessa tapahtui virhe
