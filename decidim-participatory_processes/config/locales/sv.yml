@@ -284,6 +284,8 @@ sv:
           highlighted_processes:
             active_processes: Aktiva processer
             active_step: Aktivt steg
+            more_information: Mer information
+            participate: Delta
             see_all_processes: Se alla processer
       participatory_process_groups:
         none: Ingen
