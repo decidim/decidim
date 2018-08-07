@@ -60,7 +60,7 @@ fi:
             comments_enabled: Kommentointi käytössä
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi estetty
     events:
       blogs:
         post_created:
