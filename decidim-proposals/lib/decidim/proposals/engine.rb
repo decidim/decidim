@@ -131,6 +131,23 @@ module Decidim
           QueryExtensions.define(self)
         end
       end
+
+      initializer "decidim_proposals.register_metrics" do
+        Decidim.metrics_registry.register(
+          :proposals_metric,
+          "Decidim::Proposals::Metrics::ProposalsMetricManage"
+        )
+
+        Decidim.metrics_registry.register(
+          :accepted_proposals_metric,
+          "Decidim::Proposals::Metrics::AcceptedProposalsMetricManage"
+        )
+
+        Decidim.metrics_registry.register(
+          :votes_metric,
+          "Decidim::Proposals::Metrics::VotesMetricManage"
+        )
+      end
     end
   end
 end

@@ -277,6 +277,13 @@ module Decidim
         end
       end
 
+      initializer "decidim.core.register_metrics" do
+        Decidim.metrics_registry.register(
+          :users_metric,
+          "Decidim::Metrics::UsersMetricManage"
+        )
+      end
+
       initializer "decidim.core.content_blocks" do
         Decidim.content_blocks.register(:homepage, :hero) do |content_block|
           content_block.cell "decidim/content_blocks/hero"

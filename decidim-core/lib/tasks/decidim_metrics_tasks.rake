@@ -11,25 +11,31 @@ namespace :decidim do
     # today to all past dates
     desc "Execute all metrics calculation methods"
     task :all, [:day] => :environment do |_task, args|
-      Decidim::MetricEntity.metric_entities.each do |entity|
-        puts " ------------ Executing #{entity} entity"
-        Rake::Task["decidim:metrics:#{entity.underscore}"].invoke(args.day)
+      Decidim::Organization.find_each do |organization|
+        Decidim.metrics_registry.all.each do |metric_manifest|
+          call_metric_job(metric_manifest, organization, args.day)
+        end
       end
     end
 
-    # UsersMetric ------
+    # One ------
     #
-    # User's metric specific rake task
-    desc "Execute UsersMetric's calculation method"
-    task :users_metric, [:day] => :environment do |_task, args|
-      metric = Decidim::Metrics::UsersMetricManage.for(args.day)
-      next unless metric.valid?
+    # Execute metric calculations for just one metric
+    # It need a metric name and permits a date-string parameter, in a 'YYYY-MM-DD' format from
+    # today to all past dates
+    desc "Execute one metric calculation method"
+    task :one, [:metric, :day] => :environment do |_task, args|
       Decidim::Organization.find_each do |organization|
-        metric.clean
-        metric.with_context(organization)
-        metric.query
-        metric.registry!
+        metric_manifest = Decidim.metrics_registry.for(args.metric)
+        call_metric_job(metric_manifest, organization, args.day)
       end
+    end
+
+    def call_metric_job(metric_manifest, organization, day = nil)
+      Decidim::MetricJob.perform_later(
+        metric_manifest.manager_class,
+        organization.id, day
+      )
     end
   end
 end

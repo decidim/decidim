@@ -18,28 +18,38 @@
 
 **Upgrade notes (Metrics)**:
 
-Metrics calculations must be executed everyday. Some `rake task` have been added to perform it. A **crontab** line must be added to your server to maintain them updated.
+Metrics calculations must be executed everyday. Some `rake task` have been added to perform it.
 
 - To execute all metrics at once. Related to previous date from *today*
-```ruby
-bundle exec rake decidim:metrics:all
-```
+
+  ```ruby
+  bundle exec rake decidim:metrics:all
+  ```
 
 - To execute an specific metric. Related to previous date from *today*
-```ruby
-bundle exec rake decidim:metrics:<metric name>
-```
+
+  ```ruby
+  bundle exec rake decidim:metrics:one["<metric name>"]
+  ```
 
 - To execute metrics for a given date (all or an specific one)
-```ruby
-bundle exec rake decidim:metrics:all["YYYY-MM-DD"]
-```
+
+  ```ruby
+  bundle exec rake decidim:metrics:all["YYYY-MM-DD"]
+  bundle exec rake decidim:metrics:one["<metric name>","YYYY-MM-DD"]
+  ```
 
 Current available metric names:
+
 - *users_metric*, confirmed Users
 - *proposals_metric*, available Proposals
 - *accepted_proposals_metric*, currently accepted Proposals
 - *votes_metric*, votes in Proposals
+
+To configure it correctly:
+
+- A **crontab** line must be added to your server to maintain them updated daily
+- A **ActiveJob** queue, like [Sidekiq](https://github.com/mperham/sidekiq) or [DelayedJob](https://github.com/collectiveidea/delayed_job/)
 
 **Added**:
 
