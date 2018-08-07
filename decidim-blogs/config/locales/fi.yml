@@ -23,7 +23,7 @@ fi:
             name: Lähetä
         posts:
           create:
-            invalid: Tämän viestin luomisessa tapahtui virhe
+            invalid: Tämän viestin luomisessa esiintyi ongelma
             success: Viesti luotu onnistuneesti
           destroy:
             success: Viesti poistettu onnistuneesti
@@ -36,7 +36,7 @@ fi:
             title: Luo viesti
           update:
             invalid: Viestin tallennuksessa tapahtui virheitä.
-            success: Viestin tallennettu onnistuneesti
+            success: Viesti tallennettu onnistuneesti
       models:
         post:
           fields:
