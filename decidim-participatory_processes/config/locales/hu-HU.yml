@@ -284,6 +284,8 @@ hu:
           highlighted_processes:
             active_processes: Aktív folyamatok
             active_step: Aktív lépés
+            more_information: Több információ
+            participate: Részt venni
             see_all_processes: Lásd az összes folyamatot
       participatory_process_groups:
         none: Egyik sem
