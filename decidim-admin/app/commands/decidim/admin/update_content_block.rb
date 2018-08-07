@@ -2,7 +2,8 @@
 
 module Decidim
   module Admin
-    # This command gets called when a contnt block is updated from the admin panel.
+    # This command gets called when a content block is updated from the admin
+    # panel.
     class UpdateContentBlock < Rectify::Command
       attr_reader :form, :content_block, :scope
 
@@ -10,20 +11,23 @@ module Decidim
       #
       # form    - The form from which the data in this component comes from.
       # component - The component to update.
+      # scope - the scope where the content block belongs to.
       def initialize(form, content_block, scope)
         @form = form
         @content_block = content_block
         @scope = scope
       end
 
-      # Public: Creates the Component.
+      # Public: Updates the content block settings and its attachments.
       #
       # Broadcasts :ok if created, :invalid otherwise.
       def call
         return broadcast(:invalid) if form.invalid?
 
-        update_content_block_settings
-        update_content_block_images
+        transaction do
+          update_content_block_settings
+          update_content_block_images
+        end
 
         broadcast(:ok)
       end
