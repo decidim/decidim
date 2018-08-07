@@ -8,6 +8,7 @@ module Decidim
 
       delegate :current_organization, to: :controller
 
+      # Needed so that the `CtaButtonHelper` can work.
       def decidim_participatory_processes
         Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
       end
