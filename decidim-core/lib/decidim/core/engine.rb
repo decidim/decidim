@@ -278,11 +278,11 @@ module Decidim
 
       initializer "decidim.core.content_blocks" do
         Decidim.content_blocks.register(:homepage, :hero) do |content_block|
-          content_block.cell "decidim/content_blocks/hero"
-          content_block.settings_form_cell "decidim/content_blocks/hero_settings_form"
-          content_block.public_name_key "decidim.content_blocks.hero.name"
+          content_block.cell = "decidim/content_blocks/hero"
+          content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.hero.name"
 
-          content_block.image :hero_background_image
+          content_block.image_names = [:hero_background_image]
 
           content_block.settings do |settings|
             settings.attribute :welcome_text, type: :text, translated: true
@@ -290,28 +290,28 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
-          content_block.cell "decidim/content_blocks/sub_hero"
-          content_block.public_name_key "decidim.content_blocks.sub_hero.name"
+          content_block.cell = "decidim/content_blocks/sub_hero"
+          content_block.public_name_key = "decidim.content_blocks.sub_hero.name"
         end
 
         Decidim.content_blocks.register(:homepage, :highlighted_content_banner) do |content_block|
-          content_block.cell "decidim/content_blocks/highlighted_content_banner"
-          content_block.public_name_key "decidim.content_blocks.highlighted_content_banner.name"
+          content_block.cell = "decidim/content_blocks/highlighted_content_banner"
+          content_block.public_name_key = "decidim.content_blocks.highlighted_content_banner.name"
         end
 
         Decidim.content_blocks.register(:homepage, :how_to_participate) do |content_block|
-          content_block.cell "decidim/content_blocks/how_to_participate"
-          content_block.public_name_key "decidim.content_blocks.how_to_participate.name"
+          content_block.cell = "decidim/content_blocks/how_to_participate"
+          content_block.public_name_key = "decidim.content_blocks.how_to_participate.name"
         end
 
         Decidim.content_blocks.register(:homepage, :stats) do |content_block|
-          content_block.cell "decidim/content_blocks/stats"
-          content_block.public_name_key "decidim.content_blocks.stats.name"
+          content_block.cell = "decidim/content_blocks/stats"
+          content_block.public_name_key = "decidim.content_blocks.stats.name"
         end
 
         Decidim.content_blocks.register(:homepage, :footer_sub_hero) do |content_block|
-          content_block.cell "decidim/content_blocks/footer_sub_hero"
-          content_block.public_name_key "decidim.content_blocks.footer_sub_hero.name"
+          content_block.cell = "decidim/content_blocks/footer_sub_hero"
+          content_block.public_name_key = "decidim.content_blocks.footer_sub_hero.name"
         end
       end
     end

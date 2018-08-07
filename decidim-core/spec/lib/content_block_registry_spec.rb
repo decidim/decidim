@@ -39,8 +39,8 @@ module Decidim
 
     def register_block(scope, name)
       subject.register(scope, name) do |content_block|
-        content_block.cell "my/fake/cell"
-        content_block.public_name_key "my.fake.key.name"
+        content_block.cell = "my/fake/cell"
+        content_block.public_name_key = "my.fake.key.name"
       end
     end
   end

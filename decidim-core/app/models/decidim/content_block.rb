@@ -13,7 +13,7 @@ module Decidim
 
     belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
 
-    delegate :i18n_name_key, :has_settings?, :settings_form_cell_name, :cell_name, :image_names, to: :manifest
+    delegate :public_name_key, :has_settings?, :settings_form_cell, :cell, to: :manifest
 
     # Public: finds the published content blocks for the given scope and
     # organization. Returns them ordered by ascending weight (lowest first).

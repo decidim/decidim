@@ -16,8 +16,8 @@ module Decidim
     end
 
     before do
-      subject.cell cell
-      subject.public_name_key public_name_key
+      subject.cell = cell
+      subject.public_name_key = public_name_key
     end
 
     it { is_expected.to be_valid }
@@ -36,17 +36,9 @@ module Decidim
 
     context "with repeated images" do
       it "is not valid" do
-        subject.image :image
-        subject.image :image
+        subject.image_names = [:image, :image]
 
         expect(subject).not_to be_valid
-      end
-    end
-
-    context "with blank images" do
-      it "raises an error" do
-        expect { subject.image "" }
-          .to raise_error(described_class::ImageNameCannotBeBlank)
       end
     end
 
@@ -55,15 +47,14 @@ module Decidim
 
       it "is valid" do
         setup = proc do |content_block|
-          content_block.image :image_1
-          content_block.image :image_2
-          content_block.cell cell
+          content_block.image_names = [:image_1, :image_2]
+          content_block.cell = cell
         end
 
         setup.call(subject)
 
         expect(subject).to be_valid
-        expect(subject.cell_name).to eq cell
+        expect(subject.cell).to eq cell
         expect(subject.name).to eq name
         expect(subject.image_names).to match_array [:image_1, :image_2]
       end
@@ -74,8 +65,8 @@ module Decidim
 
       it "is valid" do
         setup = proc do |content_block|
-          content_block.cell cell
-          content_block.settings_form_cell cell + "_form"
+          content_block.cell = cell
+          content_block.settings_form_cell = cell + "_form"
 
           content_block.settings do |settings|
             settings.attribute :name, type: :text, translated: true, editor: true
