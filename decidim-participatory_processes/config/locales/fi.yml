@@ -284,6 +284,8 @@ fi:
           highlighted_processes:
             active_processes: Aktiiviset prosessit
             active_step: Aktiivinen vaihe
+            more_information: Lisää tietoa
+            participate: Osallistua
             see_all_processes: Näytä kaikki prosessit
       participatory_process_groups:
         none: Ei ryhmää
