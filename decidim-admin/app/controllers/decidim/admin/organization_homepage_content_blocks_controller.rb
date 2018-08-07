@@ -31,20 +31,20 @@ module Decidim
 
       def content_block
         @content_block ||= content_blocks.find_by(manifest_name: params[:id]) ||
-                           unused_manifests.find { |manifest| manifest.name.to_s == params[:id] }
+                           unused_content_block_manifests.find { |manifest| manifest.name.to_s == params[:id] }
       end
 
       def content_blocks
         @content_blocks ||= Decidim::ContentBlock.for_scope(:homepage, organization: current_organization)
       end
 
-      def used_manifests
-        @used_manifests ||= content_blocks.map(&:manifest_name)
+      def used_content_block_manifests
+        @used_content_block_manifests ||= content_blocks.map(&:manifest_name)
       end
 
-      def unused_manifests
-        @unused_manifests ||= Decidim.content_blocks.for(:homepage).reject do |manifest|
-          used_manifests.include?(manifest.name.to_s)
+      def unused_content_block_manifests
+        @unused_content_block_manifests ||= Decidim.content_blocks.for(:homepage).reject do |manifest|
+          used_content_block_manifests.include?(manifest.name.to_s)
         end
       end
     end
