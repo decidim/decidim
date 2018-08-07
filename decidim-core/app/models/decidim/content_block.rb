@@ -13,7 +13,7 @@ module Decidim
 
     belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
 
-    delegate :i18n_name_key, to: :manifest
+    delegate :i18n_name_key, :has_settings?, to: :manifest
 
     # Public: finds the published content blocks for the given scope and
     # organization. Returns them ordered by ascending weight (lowest first).
@@ -24,6 +24,10 @@ module Decidim
 
     def manifest
       @manifest ||= Decidim.content_blocks.for(scope).find { |manifest| manifest.name.to_s == manifest_name }
+    end
+
+    def settings
+      manifest.settings.schema.new(self[:settings])
     end
   end
 end

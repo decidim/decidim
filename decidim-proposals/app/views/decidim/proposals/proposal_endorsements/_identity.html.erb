@@ -1,5 +1,5 @@
 <li class="<%= selected ? "selected" : "" %>" data-method="<%= http_method.to_s.upcase %>" data-url="<%= current_endorsement_url %>">
-  <%= card_for identity, context: {extra_classes: ["author-data--small"]} %>
+  <%= card_for identity, context: { extra_classes: ["author-data--small"] } %>
 
   <%= icon("circle-check", class: "icon--big #{selected ? '' : 'invisible'}") %>
 </li>

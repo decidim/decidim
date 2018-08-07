@@ -14,7 +14,7 @@ module Decidim
 
     def newsletter_notifications_at
       return nil unless newsletter_notifications
-      Time.zone.now
+      Time.current
     end
   end
 end

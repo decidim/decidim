@@ -1,5 +1,5 @@
 <%= decidim_form_for(@form, url: meeting_copies_path(meeting), method: :post, html: { class: "form copy_meetings" }) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t("meeting_copies.new.title", scope: "decidim.admin"), select: t("meeting_copies.new.select", scope: "decidim.admin")} %>
+  <%= render partial: "form", object: f, locals: { title: t("meeting_copies.new.title", scope: "decidim.admin"), select: t("meeting_copies.new.select", scope: "decidim.admin") } %>
 
   <div class="button--double form-general-submit">
     <%= f.submit t("meeting_copies.new.copy", scope: "decidim.admin") %>

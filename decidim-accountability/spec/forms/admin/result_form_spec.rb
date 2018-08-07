@@ -50,6 +50,30 @@ module Decidim::Accountability
 
     it { is_expected.to be_valid }
 
+    describe "when progress is negative" do
+      let(:progress) { -12 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when progress is greater than 100" do
+      let(:progress) { 999 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when progress is between 0 and 100" do
+      let(:progress) { (0..100).to_a.sample }
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when progress is empty" do
+      let(:progress) { nil }
+
+      it { is_expected.to be_valid }
+    end
+
     describe "when title is missing" do
       let(:title) { { en: nil } }
 

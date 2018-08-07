@@ -1,0 +1,57 @@
+<div class="card">
+  <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger" %>
+  <div class="card__content">
+    <h5>
+      <div><strong><%= profile_user.name %></strong></div>
+      <span class="text-small"><%= profile_user.nickname %></span>
+      <% if can_contact_user? %>
+        <span class="user-contact_link">
+          <%= link_to_current_or_new_conversation_with(user) %>
+        </span>
+      <% end %>
+    </h5>
+    <p><%= profile_user.about %></p>
+    <% if profile_user.personal_url.present? %>
+      <%= link_to html_truncate(profile_user.personal_url.gsub(%r{https?\:\/\/}, ""), length: 30), profile_user.personal_url %>
+    <% end %>
+  </div>
+  <% if profile_user.badge.present? %>
+    <div class="badge-card__content">
+      <span>
+        <%= icon profile_user.badge, class: "author__verified" %>
+      </span>
+      <span>
+        <%= translated_attribute(profile_user.officialized_as).presence || t("decidim.profiles.default_officialization_text") %>
+      </span>
+    </div>
+  <% end %>
+  <%= render_hook(:user_profile_bottom) %>
+  <div class="card__footer card__footer--transparent">
+    <div class="flex--cc p-s text-center">
+      <div class="mr-s">
+        <%= link_to profile_followers_path(nickname: user.nickname) do %>
+          <%= t("decidim.profiles.show.followers") %>
+          <h1 class="heading1"><%= profile_user.followers_count %></h1>
+        <% end %>
+      </div>
+      <div class="ml-s">
+        <%= link_to profile_following_path(nickname: user.nickname) do %>
+          <%= t("decidim.profiles.show.following") %>
+          <h1 class="heading1"><%= profile_user.following_count %></h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if own_profile? %>
+  <div class="text-center">
+    <%= link_to decidim.account_path, class: "button" do %>
+      <span>
+        <%= t("decidim.profiles.user.edit_profile") %>
+      </span>
+    <% end %>
+  </div>
+<% elsif logged_in? %>
+  <%= cell "decidim/follow_button", user, inline: false, context: { current_user: current_user } %>
+<% end %>
