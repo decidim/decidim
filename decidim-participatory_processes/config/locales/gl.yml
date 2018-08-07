@@ -284,6 +284,8 @@ gl:
           highlighted_processes:
             active_processes: Procesos activos
             active_step: Paso activo
+            more_information: Máis información
+            participate: Participar
             see_all_processes: Ver todos os procesos
       participatory_process_groups:
         none: Nada
