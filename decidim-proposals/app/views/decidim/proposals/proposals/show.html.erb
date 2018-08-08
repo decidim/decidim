@@ -18,7 +18,7 @@
       <%= amend_button_for @proposal %>
     <% end %>
 
-    <%= emendation_actions_for @proposal %>
+    <%= emendation_actions_for @emendation_form if @emendation_form %>
 
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
       <div class="card">
