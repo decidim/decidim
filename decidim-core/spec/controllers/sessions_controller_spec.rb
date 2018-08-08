@@ -30,8 +30,17 @@ module Decidim
               let(:user) { build(:user, sign_in_count: 1) }
 
               context "when there are authorization handlers" do
-                context "when there is no skip first login authorization option activated" do
+                context "when there is no skip first login authorization option" do
                   before do
+                    user.organization.available_authorizations = ["dummy_authorization_handler"]
+                    user.organization.save
+                  end
+                  it { is_expected.to eq("/authorizations/first_login") }
+                end
+
+                context "when there is a skip first login authorization option activated" do
+                  before do
+                    Decidim.config.skip_first_login_authorization = false
                     user.organization.available_authorizations = ["dummy_authorization_handler"]
                     user.organization.save
                   end
