@@ -292,6 +292,8 @@ ru:
           highlighted_processes:
             active_processes: Действующие движения
             active_step: Действующий шаг
+            more_information: Дополнительные сведения
+            participate: Принять участие
             see_all_processes: Просмотреть все движения
       participatory_process_groups:
         none: Нет
