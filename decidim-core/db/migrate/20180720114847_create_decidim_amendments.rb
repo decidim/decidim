@@ -17,6 +17,5 @@ class CreateDecidimAmendments < ActiveRecord::Migration[5.2]
     add_index :decidim_amendments,
               [:decidim_amendable_id, :decidim_amendable_type],
               name: "index_on_amendable"
-
   end
 end

@@ -40,10 +40,10 @@ describe "Amend Proposal", type: :system do
       end
     end
 
-    context "when the user is logged in" do
-      before do
-        login_as user, scope: :user
-      end
-    end
+    # context "when the user is logged in" do
+    #   before do
+    #     login_as user, scope: :user
+    #   end
+    # end
   end
 end

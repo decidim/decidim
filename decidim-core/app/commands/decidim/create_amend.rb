@@ -42,20 +42,15 @@ module Decidim
         form.current_user,
         emendation_attributes
       )
-      @emendation.add_coauthor(form.current_user, user_group: nil)
+      @emendation.add_coauthor(form.current_user, user_group: form.user_group)
     end
 
     def emendation_attributes
       {
-        title: "[emendation] #{form.title}",
+        title: form.title,
         body: form.body,
         component: form.amendable.component,
         published_at: Time.current
-        # category: form.category,
-        # scope: form.scope,
-        # address: form.address,
-        # latitude: form.latitude,
-        # longitude: form.longitude,
       }
     end
 
@@ -64,20 +59,19 @@ module Decidim
         amender: form.current_user,
         amendable: form.amendable,
         emendation: @emendation,
-        decidim_emendation_type: form.emendation_type,
         state: "evaluating"
       )
     end
 
     def notify_amendable_authors_and_followers
-      return # not implemented - to do!
-      recipients = amendable.authors + amendable.followers
-      Decidim::EventsManager.publish(
-        event: "decidim.events.amends.amendment_created",
-        event_class: Decidim::AmendmentCreatedEvent,
-        resource: @form.amendable,
-        recipient_ids: recipients.pluck(:id)
-      )
+      # # not implemented - to do!
+      # recipients = amendable.authors + amendable.followers
+      # Decidim::EventsManager.publish(
+      #   event: "decidim.events.amends.amendment_created",
+      #   event_class: Decidim::AmendmentCreatedEvent,
+      #   resource: @form.amendable,
+      #   recipient_ids: recipients.pluck(:id)
+      # )
     end
   end
 end
