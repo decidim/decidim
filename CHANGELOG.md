@@ -32,6 +32,7 @@
 - **decidim-core**: Make Users Searchable. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
 - **decidim-participatory_processes**: Display a big card when there's just one process at the homepage [\#3970](https://github.com/decidim/decidim/pull/3970)
+- **decidim-core**: Add link to admin edit from public pages. [\#3978](https://github.com/decidim/decidim/pull/3978)
 
 **Changed**:
 
