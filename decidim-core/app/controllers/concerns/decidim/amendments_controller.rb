@@ -51,10 +51,8 @@ module Decidim
           render :update_button
         end
 
-        on(:invalid) do
-          render json: { error: I18n.t("amendments.reject.error", scope: "decidim") }, status: 422
-        end
-      end
+    def review
+      @form = form(Decidim::Amendable::ReviewForm).from_model(emendation)
     end
 
     def review; end
