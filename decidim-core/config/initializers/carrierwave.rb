@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module CarrierWave
   module MiniMagick
     # this method allow us to specify a quality for our image

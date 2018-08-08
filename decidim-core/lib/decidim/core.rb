@@ -158,6 +158,7 @@ module Decidim
     "€"
   end
 
+  # Exposes a configuration option: The image uploader quality.
   config_accessor :image_uploader_quality do
     80
   end
