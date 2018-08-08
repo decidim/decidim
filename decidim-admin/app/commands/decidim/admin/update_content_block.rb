@@ -56,7 +56,11 @@ module Decidim
           attachment.file = file
           attachment.save!
         else
-          Attachment.create!(attached_to: content_block, file: file, title: { name: image_name })
+          Attachment.create!(
+            attached_to: content_block,
+            file: file,
+            title: { name: image_name }
+          )
         end
       end
     end
