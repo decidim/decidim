@@ -10,7 +10,7 @@ module Decidim
     #
     # Returns an HTML.
     def card_for(model, options = {})
-      options = { context: { current_user: current_user } }.merge(options)
+      options = { context: { current_user: current_user } }.deep_merge(options)
 
       cell "decidim/card", model, options
     end
