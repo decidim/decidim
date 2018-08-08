@@ -3,7 +3,6 @@
 module Decidim::Amendable
   # This cell renders the callout with information about the state of the emendation
   class AnnouncementCell < Decidim::ViewModel
-
     def show
       cell "decidim/announcement", announcement
     end
@@ -12,8 +11,8 @@ module Decidim::Amendable
 
     def announcement
       {
-      announcement: emendation_message,
-      callout_class: state_classes
+        announcement: emendation_message,
+        callout_class: state_classes
       }
     end
 
@@ -23,13 +22,12 @@ module Decidim::Amendable
         amendable_type: amendable_type,
         amendable_link: amendable_link,
         announcement_date: announcement_date,
-        publish_as_button: publish_as_button
-      )
+        publish_as_button: publish_as_button)
     end
 
     def amendable_link
       link_to resource_locator(model.amendable).path do
-        %{<strong>#{model.amendable.title}</strong>}
+        %(<strong>#{model.amendable.title}</strong>)
       end
     end
 
@@ -46,11 +44,9 @@ module Decidim::Amendable
       link_to "#publish_as" do
         t("publish_as",
           scope: "decidim.amendments.emendation.announcement",
-          amendable_type: amendable_type
-        )
+          amendable_type: amendable_type)
       end
     end
-
 
     def state_classes
       case model.emendation_state
