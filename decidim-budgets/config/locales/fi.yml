@@ -16,12 +16,12 @@ fi:
   decidim:
     budgets:
       actions:
-        attachment_collections: kansiot
+        attachment_collections: Kansiot
         attachments: Liitteet
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo ehdotuksia hankkeisiin
+        import: Tuo ehdotuksia projekteihin
         new: Uusi projekti
         preview: Esikatsele
         title: Toiminnot
@@ -34,7 +34,7 @@ fi:
             invalid: Tämän projektin lisäyksessä tapahtui virhe
             success: Projekti lisätty onnistuneesti
           destroy:
-            success: Hanke poistettiin onnistuneesti
+            success: Projekti poistettiin onnistuneesti
           edit:
             title: Muokkaa projektia
             update: Päivitä
@@ -50,10 +50,10 @@ fi:
             success: Projekti päivitetty onnistuneesti
         proposals_imports:
           create:
-            invalid: Ongelma on tuonut ehdotukset hankkeisiin
+            invalid: Ehdotusten tuomisessa projekteihin on esiintynyt ongelma
             success: "%{number} ehdotusta on tuotu onnistuneesti projekteihin"
           new:
-            create: Tuo ehdotuksia hankkeisiin
+            create: Tuo ehdotuksia projekteihin
             no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tueksi hankkeisiin.
             select_component: Valitse komponentti
       admin_log:
