@@ -158,6 +158,10 @@ module Decidim
     "€"
   end
 
+  config_accessor :image_uploader_quality do
+    80
+  end
+
   # Exposes a configuration option: The maximum file size of an attachment.
   config_accessor :maximum_attachment_size do
     10.megabytes
