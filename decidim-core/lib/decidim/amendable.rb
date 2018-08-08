@@ -19,6 +19,9 @@ module Decidim
       has_one :amendable, through: :amended, source: :amendable, source_type: name
     end
 
+    def amendment
+      return Decidim::Amendment.find_by(emendation: id) if emendation?
+      Decidim::Amendment.find_by(amendable: id)
     end
 
     def emendation?
@@ -30,9 +33,9 @@ module Decidim
       component.settings.amendments_enabled
     end
 
-
     def emendation_state
-      Decidim::Amendment.find_by(emendation: id).state if emendation?
+      # return "widthdrawn" if withdrawn? # todo
+      amendment.state if emendation?
     end
 
     def state
