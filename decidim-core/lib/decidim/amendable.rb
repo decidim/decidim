@@ -9,14 +9,15 @@ module Decidim
       has_many :amendments, as: :amendable, foreign_key: "decidim_amendable_id", foreign_type: "decidim_amendable_type", class_name: "Decidim::Amendment"
 
       # resource.emendations : resources that have amend the resource
-      has_many :emendations, through: :amendments, source: :emendation, source_type: self.name, inverse_of: :emendations
+      has_many :emendations, through: :amendments, source: :emendation, source_type: name, inverse_of: :emendations
 
       # resource.amenders :  users that have emendations for the resource
       has_many :amenders, through: :amendments, source: :amender
 
       # resource.amended : the original resource that was amended
-      has_one :amend, as: :amendable, foreign_key: "decidim_emendation_id", foreign_type: "decidim_emendation_type", class_name: "Decidim::Amendment"
-      has_one :amendable, through: :amend, source: :amendable, source_type: self.name
+      has_one :amended, as: :amendable, foreign_key: "decidim_emendation_id", foreign_type: "decidim_emendation_type", class_name: "Decidim::Amendment"
+      has_one :amendable, through: :amended, source: :amendable, source_type: name
+    end
 
     end
 

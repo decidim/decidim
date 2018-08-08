@@ -8,6 +8,7 @@ module Decidim
     attribute :amendable_gid, String
     attribute :title, String
     attribute :body, String
+    attribute :user_group_id, Integer
 
     validates :amendable_gid, :amendable_type, :amender, presence: true
 
@@ -27,12 +28,9 @@ module Decidim
       current_user
     end
 
-    # def title
-    #   amendable.title
-    # end
-    #
-    # def body
-    #   amendable.body
-    # end
+    def user_group
+      return unless user_group_id
+      @user_group ||= Decidim::UserGroup.find_by(id: user_group_id, organization: current_organization)
+    end
   end
 end
