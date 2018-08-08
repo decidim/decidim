@@ -7,7 +7,6 @@ module Decidim
     include Decidim::ScopesHelper
     include Decidim::AmendmentsHelper
 
-
     # Truncates a given text respecting its HTML tags.
     #
     # text    - The String text to be truncated.
