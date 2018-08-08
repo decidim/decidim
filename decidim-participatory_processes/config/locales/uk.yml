@@ -292,6 +292,8 @@ uk:
           highlighted_processes:
             active_processes: Діючі рухи
             active_step: Діючий крок
+            more_information: Додаткові відомості
+            participate: Взяти участь
             see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
