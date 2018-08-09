@@ -113,7 +113,7 @@ fi:
             one: 1 kannatus
             other: "%{count} kannatusta"
           remove: Poista
-          view: näkymä
+          view: Näytä
         project_budget_button:
           add: Lisää
           added: Lisätty
