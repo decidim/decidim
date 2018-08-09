@@ -422,9 +422,13 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
+          from: Від
+          last_message_html: Останнє повідомлення <strong>%{time} тому</strong>
           no_conversations: У вас ще немає бесід
         show:
+          conversation_with_html: Бесіда з <strong>%{name}</strong>
           reply: Відповісти
+          send: Надіслати
         start:
           send: Надіслати
           title: Почати бесіду
@@ -537,6 +541,7 @@ uk:
     profiles:
       default_officialization_text: Особу цього учасника прилюдно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
+        conversations: Бесіди
         followers: Ті, хто стежить
         following: 'Стежить за:'
         notifications: Сповіщення
