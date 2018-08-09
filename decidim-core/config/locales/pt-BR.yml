@@ -417,13 +417,13 @@ pt-BR:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
+          from: A partir de
+          last_message_html: Última mensagem <strong>%{time} atrás</strong>
           no_conversations: Ainda não há conversas
-          title: Conversas
-        reply:
-          send: Enviar
-          title: Resposta
         show:
-          title: Conversa com %{usernames}
+          conversation_with_html: Conversa com <strong>%{name}</strong>
+          reply: Resposta
+          send: Enviar
         start:
           send: Enviar
           title: Comece uma conversa
@@ -536,6 +536,7 @@ pt-BR:
     profiles:
       default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
+        conversations: Conversas
         followers: Seguidores
         following: Segue
         notifications: Notificações
