@@ -3,6 +3,8 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      amend:
+        user_group_id: Amendment author
       report:
         details: Additional comments
       user:
@@ -129,6 +131,9 @@ en:
         reject: "%{user_name} rejected the %{resource_name} user group verification"
         verify: "%{user_name} verified the %{resource_name} user group"
     amendments:
+      accepted:
+        error: An error ocurred accepting the emmendation, please try again later.
+        success: This emmendation has been accepted successfully.
       amendable:
         amended_by: Amended by
         button: Amend %{model_name}
@@ -165,6 +170,12 @@ en:
         heading: Create your amendment
         help_text: You are modifying the %{model_name}
         send: Send emendation
+      review:
+        back: Back
+        coauthorship: Author
+        heading: Review the amendment
+        help_text: You are amending the %{model_name}
+        send: Accept emendation
     anonymous_user: Anonymous
     application:
       collection:

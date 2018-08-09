@@ -1,0 +1,22 @@
+<%= decidim_form_for(@form, url: accept_amend_path(emendation.amendment), method: :patch) do |form| %>
+  <%= form.hidden_field :id %>
+  <%= form.hidden_field :amendable_gid %>
+  <%= form.hidden_field :emendation_gid %>
+
+  <div class="field">
+    <%= label_tag t("coauthorship", scope: "decidim.amendments.review") %>
+    <%= cell("decidim/coauthorships", emendation) %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :body, rows: 10 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t("send", scope: "decidim.amendments.review"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+  </div>
+<% end %>
