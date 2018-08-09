@@ -123,8 +123,8 @@ fi:
     components:
       budgets:
         actions:
-          vote: Äänestys
-        name: budjetit
+          vote: Äänestä
+        name: Budjetit
         settings:
           global:
             announcement: Ilmoitus
