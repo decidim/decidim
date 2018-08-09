@@ -437,8 +437,8 @@ FactoryBot.define do
 
   factory :content_block, class: "Decidim::ContentBlock" do
     organization
-    scope { :my_scope }
-    manifest_name { :my_manifest }
+    scope { :homepage }
+    manifest_name { :hero }
     weight { 1 }
     published_at { Time.current }
   end

@@ -7,12 +7,12 @@ module Decidim::Admin
     subject { described_class.new(organization, scope, order) }
 
     let(:organization) { create :organization }
-    let(:scope) { :my_scope }
+    let(:scope) { :homepage }
     let!(:published_block1) do
       create(
         :content_block,
         scope: scope,
-        manifest_name: :manifest1,
+        manifest_name: :hero,
         organization: organization,
         weight: 1
       )
@@ -21,7 +21,7 @@ module Decidim::Admin
       create(
         :content_block,
         scope: scope,
-        manifest_name: :manifest2,
+        manifest_name: :sub_hero,
         organization: organization,
         weight: 2
       )
@@ -31,7 +31,7 @@ module Decidim::Admin
         :content_block,
         scope: scope,
         published_at: nil,
-        manifest_name: :manifest3,
+        manifest_name: :footer_sub_hero,
         organization: organization
       )
     end
@@ -84,7 +84,7 @@ module Decidim::Admin
       end
 
       context "when it adds a new content block" do
-        let(:order) { [:my_new_manifest] }
+        let(:order) { [:highlighted_content_banner] }
 
         it "is valid" do
           expect { subject.call }.to broadcast(:ok)
