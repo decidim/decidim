@@ -423,12 +423,8 @@ ru:
           error: Беседа не началась. Попробуйте позже
         index:
           no_conversations: У вас еще нет бесед
-          title: Беседы
-        reply:
-          send: Отправить
-          title: Ответить
         show:
-          title: Беседа с %{usernames}
+          reply: Ответить
         start:
           send: Отправить
           title: Начать беседу
