@@ -55,6 +55,6 @@ You can check the code we use in the homepage to render them, or use something l
 ```ruby
 <% Decidim::ContentBlock.published.for_scope(:homepage, organization: current_organization).each do |content_block| %>
   <% next unless content_block.manifest %>
-  <%= cell content_block.manifest.cell_name %>
+  <%= cell content_block.manifest.cell %>
 <% end %>
 ```
