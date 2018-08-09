@@ -423,12 +423,8 @@ uk:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
           no_conversations: У вас ще немає бесід
-          title: Бесіди
-        reply:
-          send: Надіслати
-          title: Відповісти
         show:
-          title: Бесіда з %{usernames}
+          reply: Відповісти
         start:
           send: Надіслати
           title: Почати бесіду
