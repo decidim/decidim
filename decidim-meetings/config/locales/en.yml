@@ -286,6 +286,10 @@ en:
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Upcoming meetings
+          view_all_events: View all
       mailer:
         invite_join_meeting_mailer:
           invite:

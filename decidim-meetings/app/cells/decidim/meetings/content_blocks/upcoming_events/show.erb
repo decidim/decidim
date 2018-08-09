@@ -1,0 +1,26 @@
+<section class="wrapper-home upcoming-events home-section">
+  <div class="row">
+    <h3 class="section-heading"><%= t(".upcoming_events") %></h3>
+    <div class="row">
+      <div class="columns medium-6">
+        <% upcoming_events.first(4).each do |event|  %>
+          <%= card_for event, size: :s %>
+        <% end %>
+      </div>
+      <div class="columns medium-6">
+        <% if geolocation_enabled? %>
+          <div id="google-map" class="google-map"></div>
+        <% else %>
+          <% upcoming_events.last(4).each do |event|  %>
+            <%= card_for event, size: :s %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <%= link_to t(".view_all_events"), "/upcoming-events", class: "button hollow button--sc pull-right" %>
+      </div>
+    </div>
+  </div>
+</section>

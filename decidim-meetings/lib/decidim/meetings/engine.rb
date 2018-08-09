@@ -98,6 +98,14 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/views") # for partials
       end
+
+      initializer "decidim.meetings.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :upcoming_events) do |content_block|
+          content_block.cell "decidim/meetings/content_blocks/upcoming_events"
+          content_block.public_name_key "decidim.meetings.content_blocks.upcoming_events.name"
+          content_block.default!
+        end
+      end
     end
   end
 end
