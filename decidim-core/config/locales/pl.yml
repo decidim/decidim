@@ -427,13 +427,13 @@ pl:
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
+          from: Od
+          last_message_html: Ostatnia wiadomość <strong>%{time} temu</strong>
           no_conversations: Nie masz jeszcze żadnych rozmów
-          title: Rozmowy
-        reply:
-          send: Wysłać
-          title: Odpowiadać
         show:
-          title: Rozmowa z %{usernames}
+          conversation_with_html: Rozmowa z <strong>%{name}</strong>
+          reply: Odpowiadać
+          send: Wysłać
         start:
           send: Wysłać
           title: Zacząć rozmowę
@@ -546,6 +546,7 @@ pl:
     profiles:
       default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
+        conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
         notifications: Powiadomienia
