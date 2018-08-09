@@ -380,7 +380,7 @@ ru:
             roles:
               admin: Администратор
               user_manager: Распорядитель участников
-          name: Участник
+          name: участника
         user_group:
           fields:
             actions: Действия
