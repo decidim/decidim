@@ -17,6 +17,14 @@ module Decidim
       cell "decidim/amendable/amendments_list", amendable.emendations, context: { current_user: current_user } if amendable.amendable?
     end
 
+    def amenders_for(amendable)
+      amenders = amendable.amendments.map{ |amendment| present(amendment.amender) }.uniq
+    end
+
+    def amenders_list_for(amendable)
+      cell "decidim/amendable/amenders_list", amenders_for(amendable), context: { current_user: current_user } if amendable.amendable?
+    end
+
     # Renders the state of an emendation
     #
     # emendation - The resource that is an emendation.

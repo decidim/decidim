@@ -33,6 +33,9 @@
         </div>
       </div>
     <% end %>
+
+    <%= amenders_list_for(@proposal) %>
+
     <%= resource_reference(@proposal) %>
     <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>

@@ -128,6 +128,7 @@ en:
         verify: "%{user_name} verified the %{resource_name} user group"
     amendments:
       amendable:
+        amended_by: Amended by
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its title or description
