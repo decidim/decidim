@@ -27,6 +27,7 @@ module Decidim
         transaction do
           update_content_block_settings
           update_content_block_images
+          content_block.save!
         end
 
         broadcast(:ok)
@@ -36,31 +37,17 @@ module Decidim
 
       def update_content_block_settings
         content_block.settings = form.settings
-        content_block.save!
       end
 
       def update_content_block_images
-        content_block.image_names.each do |image_name|
-          attachment = content_block.images.send(image_name)
+        content_block.manifest.images.each do |image_config|
+          image_name = image_config[:name]
 
           if form.images["remove_#{image_name}".to_sym]
-            attachment.destroy!
+            content_block.images_container.send("remove_#{image_name}=", true)
           elsif form.images[image_name]
-            update_image(attachment, image_name, form.images[image_name])
+            content_block.images_container.send("#{image_name}=", form.images[image_name])
           end
-        end
-      end
-
-      def update_image(attachment, image_name, file)
-        if attachment.present?
-          attachment.file = file
-          attachment.save!
-        else
-          Attachment.create!(
-            attached_to: content_block,
-            file: file,
-            title: { name: image_name }
-          )
         end
       end
     end

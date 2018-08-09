@@ -18,7 +18,7 @@ module Decidim
       end
 
       def background_image
-        model.images.hero_background_image.try(:url) || current_organization.homepage_image.url
+        model.images_container.background_image.big.try(:url) || current_organization.homepage_image.big.url
       end
     end
   end

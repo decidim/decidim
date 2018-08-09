@@ -34,9 +34,30 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
-    context "with repeated images" do
+    context "with repeated image names" do
       it "is not valid" do
-        subject.image_names = [:image, :image]
+        subject.images = [
+          {
+            name: :image,
+            uploader: "Decidim::ImageUploader"
+          },
+          {
+            name: :image,
+            uploader: "Decidim::ImageUploader"
+          }
+        ]
+
+        expect(subject).not_to be_valid
+      end
+    end
+
+    context "with images without an uploader" do
+      it "is not valid" do
+        subject.images = [
+          {
+            name: :image
+          }
+        ]
 
         expect(subject).not_to be_valid
       end
@@ -47,7 +68,17 @@ module Decidim
 
       it "is valid" do
         setup = proc do |content_block|
-          content_block.image_names = [:image_1, :image_2]
+          content_block.images = [
+            {
+              name: :image_1,
+              uploader: "Decidim::ImageUploader"
+            },
+            {
+              name: :image_2,
+              uploader: "Decidim::ImageUploader"
+            }
+          ]
+
           content_block.cell = cell
         end
 
@@ -56,7 +87,8 @@ module Decidim
         expect(subject).to be_valid
         expect(subject.cell).to eq cell
         expect(subject.name).to eq name
-        expect(subject.image_names).to match_array [:image_1, :image_2]
+        image_names = subject.images.map { |image| image[:name] }
+        expect(image_names).to match_array [:image_1, :image_2]
       end
     end
 

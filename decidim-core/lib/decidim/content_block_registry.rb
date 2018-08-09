@@ -25,7 +25,16 @@ module Decidim
   #       content_block.cell = "decidim/content_blocks/carousel_block"
   #       content_block.public_name_key = "decidim.content_blocks.carousel_block.name"
   #
-  #       content_block.image_names = [:image_1, :image_2, :image_3, :image_4]
+  #       content_block.images = [
+  #         {
+  #           name: :image_1,
+  #           uploader: "Decidim::ImageUploader"
+  #         },
+  #         {
+  #           name: :image_2,
+  #           uploader: "Decidim::ImageUploader"
+  #         }
+  #       ]
   #     end
   #
   # You will probably want to register your content blocks in an initializer in

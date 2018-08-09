@@ -12,6 +12,10 @@ module Decidim
       attribute :settings, Object
       attribute :images, Object
 
+      def map_model(model)
+        self.images = model.images_container
+      end
+
       def settings?
         settings.manifest.settings.any?
       end

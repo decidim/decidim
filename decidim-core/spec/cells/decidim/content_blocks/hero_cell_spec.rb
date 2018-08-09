@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::ContentBlocks::HeroCell, type: :cell do
-  subject { cell(content_block.cell_name, content_block).call }
+  subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
   let(:content_block) { create :content_block, organization: organization, manifest_name: :hero, scope: :homepage, settings: settings }
@@ -30,6 +30,24 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
     it "shows the custom welcome text" do
       expect(subject).to have_text("This is my welcome text")
+    end
+  end
+
+  context "when the content block has a background image" do
+    let(:background_image) do
+      Rack::Test::UploadedFile.new(
+        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+        "image/jpg"
+      )
+    end
+
+    before do
+      content_block.images_container.background_image = background_image
+      content_block.save
+    end
+
+    it "uses that image's big version as background" do
+      expect(subject.to_s).to include(content_block.images_container.background_image.big.url)
     end
   end
 end

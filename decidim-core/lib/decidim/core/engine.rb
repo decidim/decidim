@@ -282,7 +282,12 @@ module Decidim
           content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
           content_block.public_name_key = "decidim.content_blocks.hero.name"
 
-          content_block.image_names = [:hero_background_image]
+          content_block.images = [
+            {
+              name: :background_image,
+              uploader: "Decidim::HomepageImageUploader"
+            }
+          ]
 
           content_block.settings do |settings|
             settings.attribute :welcome_text, type: :text, translated: true

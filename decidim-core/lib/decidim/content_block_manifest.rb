@@ -26,11 +26,12 @@ module Decidim
     attribute :public_name_key, String
     attribute :cell, String
     attribute :settings_form_cell, String
-    attribute :image_names, Array[Symbol]
+    attribute :images, Array[Hash]
 
     validates :name, :cell, :public_name_key, presence: true
     validates :settings_form_cell, presence: true, if: :has_settings?
     validate :image_names_are_unique
+    validate :images_have_an_uploader
 
     def has_settings?
       settings.attributes.any?
@@ -45,7 +46,13 @@ module Decidim
     private
 
     def image_names_are_unique
-      errors.add(:image_names, :invalid) if image_names.count != image_names.uniq.count
+      image_names = images.map { |image| image[:name] }
+      errors.add(:images, "names must be unique per manifest") if image_names.count != image_names.uniq.count
+    end
+
+    def images_have_an_uploader
+      uploaders = images.map { |image| image[:uploader].presence }
+      errors.add(:images, "must have an uploader") if uploaders.compact.count != images.count
     end
   end
 end
