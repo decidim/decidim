@@ -417,13 +417,13 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
+          from: Van
+          last_message_html: Laatste bericht <strong>%{time} geleden</strong>
           no_conversations: Je hebt nog geen gesprekken
-          title: conversaties
-        reply:
-          send: Verzenden
-          title: Beantwoorden
         show:
-          title: Gesprek met %{usernames}
+          conversation_with_html: Gesprek met <strong>%{name}</strong>
+          reply: Beantwoorden
+          send: Sturen
         start:
           send: Verzenden
           title: Een gesprek beginnen
@@ -536,6 +536,7 @@ nl:
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
+        conversations: conversaties
         followers: Volgers
         following: volgt
         notifications: meldingen
