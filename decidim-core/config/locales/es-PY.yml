@@ -417,13 +417,13 @@ es-PY:
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
+          from: De
+          last_message_html: Último mensaje <strong>%{time} hace</strong>
           no_conversations: Aún no tienes conversaciones
-          title: Conversaciones
-        reply:
-          send: Enviar
-          title: Respuesta
         show:
-          title: Conversación con %{usernames}
+          conversation_with_html: Conversación con <strong>%{name}</strong>
+          reply: Respuesta
+          send: Enviar
         start:
           send: Enviar
           title: Iniciar una conversación
@@ -536,6 +536,7 @@ es-PY:
     profiles:
       default_officialization_text: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
+        conversations: Conversaciones
         followers: Seguidores
         following: Sigue
         notifications: Notificaciones
