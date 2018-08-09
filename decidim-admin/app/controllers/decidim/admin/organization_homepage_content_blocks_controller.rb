@@ -31,7 +31,11 @@ module Decidim
 
       def content_block
         @content_block ||= content_blocks.find_by(manifest_name: params[:id]) ||
-                           unused_content_block_manifests.find { |manifest| manifest.name.to_s == params[:id] }
+                           content_block_from_manifest
+      end
+
+      def content_block_manifest
+        @content_block_manifest = unused_content_block_manifests.find { |manifest| manifest.name.to_s == params[:id] }
       end
 
       def content_blocks
@@ -46,6 +50,14 @@ module Decidim
         @unused_content_block_manifests ||= Decidim.content_blocks.for(:homepage).reject do |manifest|
           used_content_block_manifests.include?(manifest.name.to_s)
         end
+      end
+
+      def content_block_from_manifest
+        Decidim::ContentBlock.create!(
+          organization: current_organization,
+          scope: :homepage,
+          manifest_name: params[:id]
+        )
       end
     end
   end
