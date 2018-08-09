@@ -380,7 +380,7 @@ uk:
             roles:
               admin: Адміністратор
               user_manager: Розпорядник учасників
-          name: Учасник
+          name: учасника
         user_group:
           fields:
             actions: Дії
