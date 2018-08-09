@@ -417,13 +417,13 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
+          from: Des de
+          last_message_html: Últim missatge <strong>%{time} ago</strong>
           no_conversations: Encara no tens converses
-          title: Converses
-        reply:
-          send: Enviar
-          title: Respon
         show:
-          title: Conversa amb %{usernames}
+          conversation_with_html: Conversa amb <strong>%{name}</strong>
+          reply: Respon
+          send: Enviar
         start:
           send: Enviar
           title: Comença una conversa
@@ -536,6 +536,7 @@ ca:
     profiles:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
+        conversations: Converses
         followers: Seguidors
         following: Segueix
         notifications: Notificacions
