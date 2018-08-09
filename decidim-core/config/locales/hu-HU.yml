@@ -416,13 +416,13 @@ hu:
         create:
           error: A beszélgetés nem indult. Próbáld újra később
         index:
+          from: Tól től
+          last_message_html: Utolsó üzenet <strong>%{time} ago</strong>
           no_conversations: Még nincsenek beszélgetések
-          title: beszélgetések
-        reply:
-          send: Elküld
-          title: Válasz
         show:
-          title: Beszélgetés %{usernames}
+          conversation_with_html: Beszélgetés <strong>%{name}</strong>
+          reply: Válasz
+          send: Elküld
         start:
           send: Elküld
           title: Beszélgetés indítása
@@ -535,6 +535,7 @@ hu:
     profiles:
       default_officialization_text: Ezt a résztvevőt nyilvánosan ellenőrzik, a nevét vagy szerepét igazolták, hogy megfeleljen valódi nevének és szerepének
       show:
+        conversations: beszélgetések
         followers: Követő
         following: következik
         notifications: értesítések
