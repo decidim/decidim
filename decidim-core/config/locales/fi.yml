@@ -417,13 +417,13 @@ fi:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
+          from: alkaen
+          last_message_html: Viimeisin viesti <strong>%{time} ago</strong>
           no_conversations: Sinulla ei vielä ole keskusteluja
-          title: Keskustelut
-        reply:
-          send: Lähetä
-          title: Vastaa
         show:
-          title: Keskustelu käyttäjän %{usernames} kanssa
+          conversation_with_html: Keskustelu <strong>%{name}</strong>
+          reply: Vastaa
+          send: Lähettää
         start:
           send: Lähetä
           title: Aloita keskustelu
@@ -536,6 +536,7 @@ fi:
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
+        conversations: keskustelut
         followers: seuraajaa
         following: seuraa
         notifications: ilmoitukset
