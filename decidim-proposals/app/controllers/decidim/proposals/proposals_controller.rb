@@ -38,6 +38,7 @@ module Decidim
 
       def show
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
+        @emendation_form = form(Decidim::Amendable::Form).from_params(id: @proposal.amendment.id) if @proposal.emendation? && @proposal.amendment.evaluating?
       end
 
       def new
