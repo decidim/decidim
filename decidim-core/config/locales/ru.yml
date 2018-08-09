@@ -422,9 +422,13 @@ ru:
         create:
           error: Беседа не началась. Попробуйте позже
         index:
+          from: От
+          last_message_html: Последнее сообщение <strong>%{time} тому</strong>
           no_conversations: У вас еще нет бесед
         show:
+          conversation_with_html: Беседа с <strong>%{name}</strong>
           reply: Ответить
+          send: Отправить
         start:
           send: Отправить
           title: Начать беседу
@@ -537,6 +541,7 @@ ru:
     profiles:
       default_officialization_text: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
       show:
+        conversations: Беседы
         followers: Читают
         following: Следит за
         notifications: Уведомления
