@@ -10,6 +10,10 @@ module Decidim
 
     STATES = %w(evaluating accepted rejected).freeze
 
+    def evaluating?
+      state == "evaluating"
+    end
+
     # validates :amender, uniqueness: { scope: [:amendable] }
 
     # def self.export_serializer
