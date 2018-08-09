@@ -31,7 +31,6 @@ module Decidim
     end
 
     def review
-      @form = form(Decidim::Amendable::ReviewForm).from_model(emendation)
     end
 
     def accept
@@ -45,12 +44,8 @@ module Decidim
       @amendable ||= GlobalID::Locator.locate_signed amendable_gid
     end
 
-    def emendation_gid
-      params[:emendation_gid]
-    end
-
     def emendation
-      @emendation ||= GlobalID::Locator.locate_signed emendation_gid
+      @emendation ||= Decidim::Amendment.find(params[:id]).emendation
     end
   end
 end
