@@ -671,6 +671,8 @@ sv:
         description_html: Denna webbplats använder cookies. Genom att fortsätta att surfa på webbplatsen godkänner du vår användning av cookies. Läs mer om det %{link}.
         link_label: här
         ok: Jag godkänner
+      edit_link:
+        edit: Redigera
       footer:
         made_with_open_source: Webbplats gjord med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
