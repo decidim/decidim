@@ -12,13 +12,6 @@ module Decidim
       end
 
       let(:header_snippets) { "<my-html />" }
-      let(:welcome_text) do
-        {
-          en: "Welcome",
-          es: "Hola",
-          ca: "Hola"
-        }
-      end
       let(:description) do
         {
           en: "Description, awesome description",
@@ -28,7 +21,6 @@ module Decidim
       end
       let(:organization) { create(:organization) }
       let(:cta_button_path) { nil }
-      let(:homepage_image_path) { Decidim::Dev.asset("city.jpeg") }
       let(:highlighted_content_banner_enabled) { false }
       let(:empty_translatable) { { en: "", es: "", ca: "" } }
       let(:highlighted_content_banner_title) { empty_translatable }
@@ -47,13 +39,9 @@ module Decidim
       let(:attributes) do
         {
           "organization" => {
-            "welcome_text_en" => welcome_text[:en],
-            "welcome_text_es" => welcome_text[:es],
-            "welcome_text_ca" => welcome_text[:ca],
             "description_en" => description[:en],
             "description_es" => description[:es],
             "description_ca" => description[:ca],
-            "homepage_image" => Rack::Test::UploadedFile.new(homepage_image_path, "image/jpeg"),
             "show_statics" => false,
             "cta_button_path" => cta_button_path,
             "header_snippets" => header_snippets,

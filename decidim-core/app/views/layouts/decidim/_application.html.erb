@@ -3,7 +3,11 @@
   title: current_organization.name,
   url: request.original_url,
   twitter_handler: current_organization.twitter_handler,
-  image_url: current_organization.homepage_image.url
+  image_url: Decidim::ContentBlock.published.find_by(
+    organization: current_organization,
+    scope: :homepage,
+    manifest_name: :hero
+  ).try(:images_container).try(:background_image).try(:url)
 }) %>
 
 <!DOCTYPE html>

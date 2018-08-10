@@ -24,7 +24,7 @@ module Decidim
     validates :reference_prefix, presence: true
     validates :default_locale, inclusion: { in: :available_locales }
 
-    mount_uploader :homepage_image, Decidim::HomepageImageUploader
+    mount_uploader :homepage_image, Decidim::HomepageImageUploader # DEPRECATED
     mount_uploader :official_img_header, Decidim::OfficialImageHeaderUploader
     mount_uploader :official_img_footer, Decidim::OfficialImageFooterUploader
     mount_uploader :logo, Decidim::OrganizationLogoUploader
@@ -44,10 +44,6 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def top_scopes
       @top_scopes ||= scopes.top_level
-    end
-
-    def homepage_big_url
-      homepage_image.big.url
     end
 
     def public_participatory_spaces
