@@ -675,6 +675,8 @@ ru:
         description_html: На этом сайте используются файлы "куки". Продолжая просматривать сайт, вы соглашаетесь на использование файлов "куки". Узнайте об этом больше %{link}.
         link_label: здесь
         ok: Я согласен
+      edit_link:
+        edit: Редактировать
       footer:
         made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
       header:
