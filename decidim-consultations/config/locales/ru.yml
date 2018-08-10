@@ -281,7 +281,7 @@ ru:
       admin:
         question:
           attachments: Прикрепленные файлы
-          categories: Разряды
+          categories: Категории
       consultation_voting_data:
         start_voting_date: Голосование начинается
       question_components:
