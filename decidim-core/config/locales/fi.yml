@@ -671,6 +671,8 @@ fi:
         description_html: Tämä sivusto käyttää evästeitä. Jatkamalla tämän sivuston käyttöä hyväksyt selaimeesi asettamamme evästeet. Lue lisää %{link}.
         link_label: täältä
         ok: Hyväksyn
+      edit_link:
+        edit: Muokata
       footer:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.
       header:
