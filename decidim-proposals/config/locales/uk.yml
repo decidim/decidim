@@ -313,6 +313,7 @@ uk:
           activity: Діяльність
           all: Усі
           category: Категорія
+          category_prompt: Оберіть категорію
           citizens: Громадяни
           evaluating: Розглядається
           except_rejected: Усі, окрім відхилених
