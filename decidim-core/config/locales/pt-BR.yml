@@ -417,7 +417,7 @@ pt-BR:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
-          from: A partir de
+          from: De
           last_message_html: Última mensagem <strong>%{time} atrás</strong>
           no_conversations: Ainda não há conversas
         show:
