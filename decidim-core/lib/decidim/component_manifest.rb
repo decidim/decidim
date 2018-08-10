@@ -25,10 +25,6 @@ module Decidim
     # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
     attribute :data_portable_entities, Array, default: []
 
-    # An array with strings for the classes that will have a metric logic with
-    # the metric's features. For example,  ['proposalsMetric']`
-    attribute :metric_entities, Array, default: []
-
     # A path with the `scss` stylesheet this engine provides. It is used to
     # mix this engine's stylesheets with the main app's stylesheets so it can
     # use the scss variables and mixins provided by Decidim::Core.

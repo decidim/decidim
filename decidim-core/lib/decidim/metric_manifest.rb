@@ -12,6 +12,7 @@ module Decidim
 
     attribute :metric_name, String
     attribute :manager_class, String
+    attribute :highlighted, String
 
     validates :metric_name, :manager_class, presence: true
   end

@@ -21,9 +21,5 @@ module Decidim
     def self.data_portable_entities
       ["Decidim::Comments::Comment", "Decidim::Comments::CommentVote"]
     end
-
-    def self.metric_entities
-      ["commentsMetric"]
-    end
   end
 end

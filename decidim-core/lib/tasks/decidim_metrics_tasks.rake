@@ -34,7 +34,8 @@ namespace :decidim do
     def call_metric_job(metric_manifest, organization, day = nil)
       Decidim::MetricJob.perform_later(
         metric_manifest.manager_class,
-        organization.id, day
+        organization.id,
+        day
       )
     end
   end

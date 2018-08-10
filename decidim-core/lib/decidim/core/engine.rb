@@ -280,7 +280,8 @@ module Decidim
       initializer "decidim.core.register_metrics" do
         Decidim.metrics_registry.register(
           :users_metric,
-          "Decidim::Metrics::UsersMetricManage"
+          "Decidim::Metrics::UsersMetricManage",
+          Decidim::MetricRegistry::HIGHLIGHTED
         )
       end
 

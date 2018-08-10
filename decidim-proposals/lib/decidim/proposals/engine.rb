@@ -135,17 +135,20 @@ module Decidim
       initializer "decidim_proposals.register_metrics" do
         Decidim.metrics_registry.register(
           :proposals_metric,
-          "Decidim::Proposals::Metrics::ProposalsMetricManage"
+          "Decidim::Proposals::Metrics::ProposalsMetricManage",
+          Decidim::MetricRegistry::HIGHLIGHTED
         )
 
         Decidim.metrics_registry.register(
           :accepted_proposals_metric,
-          "Decidim::Proposals::Metrics::AcceptedProposalsMetricManage"
+          "Decidim::Proposals::Metrics::AcceptedProposalsMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED
         )
 
         Decidim.metrics_registry.register(
           :votes_metric,
-          "Decidim::Proposals::Metrics::VotesMetricManage"
+          "Decidim::Proposals::Metrics::VotesMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED
         )
       end
     end
