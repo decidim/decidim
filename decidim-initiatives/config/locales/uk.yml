@@ -117,7 +117,7 @@ uk:
               all: Усі
               created: Створені
               discarded: Відкинуті
-              published: Оприлюднені
+              published: Оприлюднено
               rejected: Відхилені
               validating: Технічна перевірка
             filter_by: 'Відібрати за ознакою:'
@@ -178,7 +178,7 @@ uk:
         accepted: Прийняті
         created: Створені
         discarded: Відкинуті
-        published: Оприлюднені
+        published: Оприлюднено
         rejected: Відхилені
         validating: Технічна перевірка
       committee_requests:
