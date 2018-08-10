@@ -671,6 +671,8 @@ it:
         description_html: Questo sito utilizza cookies. Se continui la navigazione significa che approvi i nostri termini di utilizzo di cookies. Per saperne di più, leggi %{link}.
         link_label: qui
         ok: OK, accetto
+      edit_link:
+        edit: modificare
       footer:
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
