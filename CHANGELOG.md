@@ -18,6 +18,7 @@
 
 **Added**:
 
+- **decidim-core**:Add compression settings to image uploader [\#3984](https://github.com/decidim/decidim/pull/3984)
 - **decidim-budgets**: Import accepted proposals to projects. [\#3873](https://github.com/decidim/decidim/pull/3873)
 - **decidim-proposals**: Results from searches should show the participatory space where they belong to if any. [\#3897](https://github.com/decidim/decidim/pull/3897)
 - **decidim-docs**: Add proposal lifecycle diagram to docs. [\#3811](https://github.com/decidim/decidim/pull/3811)
