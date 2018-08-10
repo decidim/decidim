@@ -670,6 +670,8 @@ hu:
         description_html: Ez az oldal cookie-kat használ. A webhely böngészése folytatásával elfogadja a cookie-k használatát. Tudjon meg többet erről %{link}.
         link_label: itt
         ok: Egyetértek
+      edit_link:
+        edit: szerkesztése
       footer:
         made_with_open_source: Weboldal <a target="_blank" href="https://github.com/decidim/decidim">szabad szoftverrel</a>.
       header:
