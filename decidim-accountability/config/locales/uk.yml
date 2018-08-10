@@ -3,7 +3,7 @@ uk:
     attributes:
       result:
         decidim_accountability_status_id: Стан
-        decidim_category_id: Розряд
+        decidim_category_id: Категорія
         decidim_scope_id: Обсяг
         description: Опис
         end_date: Дата закінчення
@@ -147,8 +147,8 @@ uk:
           all: Усі
           scopes: Обсяги
         home:
-          categories_label: Розряди
-          subcategories_label: Підрозряди
+          categories_label: Категорії
+          subcategories_label: Підкатегорії
         home_header:
           global_status: Загальний стан виконання
         nav_breadcrumb:
@@ -187,13 +187,13 @@ uk:
         name: Звітність
         settings:
           global:
-            categories_label: Назва для "Розряди"
+            categories_label: Назва для "Категорії"
             comments_enabled: Коментарі увімкнено
             display_progress_enabled: Показувати перебіг
             heading_leaf_level_results: Назва для "Проекти"
             heading_parent_level_results: Назва для "Підсумки"
             intro: Вступ
-            subcategories_label: Назва для "Підрозряди"
+            subcategories_label: Назва для "Підкатегорії"
           step:
             comments_blocked: Коментарі вимкнено
     events:
