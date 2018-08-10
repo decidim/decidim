@@ -4,15 +4,15 @@ fi:
       decidim/comments/comment_by_followed_user_event: Kommentti
       decidim/comments/comment_created_event: Kommentti
       decidim/comments/reply_created_event: Kommentti vastaus
-      decidim/comments/user_mentioned_event: Mainita
+      decidim/comments/user_mentioned_event: Maininta
   activerecord:
     models:
       decidim/comments/comment:
         one: Kommentti
         other: Kommentit
       decidim/comments/comment_vote:
-        one: Äänestys
-        other: ääntä
+        one: Ääni
+        other: Äänet
   decidim:
     comments:
       comments: Kommentit
