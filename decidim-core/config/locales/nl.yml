@@ -671,6 +671,8 @@ nl:
         description_html: Deze website maakt gebruik van cookies. Door gebruik te blijven maken van de site gaat u hiermee akkoord. Meer informatie via %{link}.
         link_label: hier
         ok: Ik ga akkoord
+      edit_link:
+        edit: Bewerk
       footer:
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
