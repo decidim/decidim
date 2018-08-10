@@ -26,6 +26,8 @@ describe "Initiative", type: :system do
       visit decidim_initiatives.initiative_path(initiative)
     end
 
+    it_behaves_like "editable content for admins"
+
     it "shows the details of the given initiative" do
       within "main" do
         expect(page).to have_content(translated(initiative.title, locale: :en))

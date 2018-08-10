@@ -1,5 +1,13 @@
 <% add_decidim_meta_tags(title: t("assemblies.index.title", scope: "decidim")) %>
 
+<%
+edit_link(
+  decidim_admin_assemblies.assemblies_path,
+  :read,
+  :assembly_list
+)
+%>
+
 <main class="wrapper">
   <% if promoted_assemblies.any? %>
     <section id="highlighted-assemblies" class="row section">

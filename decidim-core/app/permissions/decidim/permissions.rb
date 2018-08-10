@@ -3,6 +3,8 @@
 module Decidim
   class Permissions < DefaultPermissions
     def permissions
+      return permission_action unless permission_action.scope == :public
+
       read_public_pages_action?
       locales_action?
       component_public_action?

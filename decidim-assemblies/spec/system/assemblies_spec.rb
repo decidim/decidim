@@ -73,6 +73,8 @@ describe "Assemblies", type: :system do
       visit decidim_assemblies.assemblies_path
     end
 
+    it_behaves_like "editable content for admins"
+
     context "and accessing from the homepage" do
       it "the menu link is shown" do
         visit decidim.root_path
@@ -125,6 +127,8 @@ describe "Assemblies", type: :system do
 
       visit decidim_assemblies.assembly_path(assembly)
     end
+
+    it_behaves_like "editable content for admins"
 
     it "shows the details of the given assembly" do
       within "div.wrapper" do
