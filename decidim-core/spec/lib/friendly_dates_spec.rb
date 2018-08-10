@@ -28,7 +28,7 @@ module Decidim
       end
 
       describe "when in the same day" do
-        let(:date) { Time.zone.now.beginning_of_day + 1.minute }
+        let(:date) { Time.current.beginning_of_day + 1.minute }
 
         it "returns hour only" do
           expect(enhanced_instance.friendly_created_at).to eq("00:01")
@@ -36,7 +36,7 @@ module Decidim
       end
 
       describe "when in the same week" do
-        let(:date) { Time.zone.now.beginning_of_week + 1.minute }
+        let(:date) { Time.current.beginning_of_week + 1.minute }
 
         it "returns the day of the week" do
           expect(enhanced_instance.friendly_created_at).to eq("Mon")
@@ -44,7 +44,7 @@ module Decidim
       end
 
       describe "when in the same year" do
-        let(:date) { Time.zone.now.beginning_of_year + 1.minute }
+        let(:date) { Time.current.beginning_of_year + 1.minute }
 
         it "returns the date in short format" do
           expect(enhanced_instance.friendly_created_at).to eq("Jan 01")
@@ -52,7 +52,7 @@ module Decidim
       end
 
       describe "when in previous years" do
-        let(:date) { Time.zone.now - 1.year }
+        let(:date) { Time.current - 1.year }
 
         it "returns the full date" do
           expect(enhanced_instance.friendly_created_at).to eq("06.02.44")

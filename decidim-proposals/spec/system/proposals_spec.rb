@@ -257,6 +257,14 @@ describe "Proposals", type: :system do
       expect(page).to have_css(".card--proposal", count: 3)
     end
 
+    describe "editable content" do
+      before do
+        visit_component
+      end
+
+      it_behaves_like "editable content for admins"
+    end
+
     describe "default ordering" do
       it_behaves_like "a random proposal ordering"
     end

@@ -11,6 +11,8 @@ describe "Consultation", type: :system do
     visit decidim_consultations.consultation_path(consultation)
   end
 
+  it_behaves_like "editable content for admins"
+
   it "Shows the basic consultation data" do
     expect(page).to have_i18n_content(consultation.title)
     expect(page).to have_i18n_content(consultation.subtitle)

@@ -18,7 +18,7 @@ describe Decidim::Permissions do
 
   context "when reading public pages" do
     let(:action) do
-      { scope: :admin, action: :read, subject: :public_page }
+      { scope: :public, action: :read, subject: :public_page }
     end
 
     it { is_expected.to eq true }
@@ -26,7 +26,7 @@ describe Decidim::Permissions do
 
   context "when action is on a locale" do
     let(:action) do
-      { scope: :foo, action: :foo, subject: :locales }
+      { scope: :public, action: :foo, subject: :locales }
     end
 
     it { is_expected.to eq true }

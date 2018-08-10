@@ -20,6 +20,7 @@ module Decidim
       helper Decidim::PaginateHelper
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
+      helper Decidim::ResourceHelper
 
       def index
         enforce_permission_to :read, :consultation_list

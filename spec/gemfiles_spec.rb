@@ -2,7 +2,7 @@
 
 require "digest"
 
-describe "Bundle sanity" do
+describe "Gemfile sanity" do
   shared_examples_for "a folder with a secondary gemfile" do |folder|
     it "is up to date" do
       Dir.chdir(folder) do

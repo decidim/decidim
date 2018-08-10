@@ -1,0 +1,17 @@
+<div class="conversation-header flex--cc absolutes">
+  <div class="left center mr-s">
+    <%= link_to conversations_path, "data-tabs-target": "conversations" do %>
+      <%= icon "chevron-left", class: "card__link icon--big" %>
+    <% end %>
+  </div>
+
+  <%= link_to recipient.profile_path do %>
+    <%= image_tag recipient.avatar_url %>
+  <% end %>
+
+  <div class="ml-s">
+    <%= t("decidim.messaging.conversations.show.conversation_with_html", name: recipient.name) %>
+    <br />
+    <span class="muted"><%= recipient.nickname %></span>
+  </div>
+</div>

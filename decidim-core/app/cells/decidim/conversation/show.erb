@@ -1,0 +1,18 @@
+<div class="conversation">
+  <%= cell "decidim/conversation_header", recipient %>
+
+  <div id="messages">
+    <% conversation.messages.each do |message| %>
+      <%= cell "decidim/message", message %>
+    <% end %>
+  </div>
+
+  <div class="conversation-reply conversation-reply--offset">
+    <h2 class="section-heading"><%= t("decidim.messaging.conversations.show.reply") %></h2>
+    <%= form_for @form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
+      <%= f.text_area :body, label: false, rows: 4, required: true %>
+
+      <%= f.submit t("decidim.messaging.conversations.show.send"), data: { disable: true }, class: "button secondary light pull-right" %>
+    <% end %>
+  </div>
+</div>

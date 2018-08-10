@@ -4,6 +4,7 @@
       <ul class="tabs" id="profile-tabs">
         <% if own_profile? %>
           <%= user_profile_tab t("decidim.profiles.show.notifications"), notifications_path %>
+          <%= user_profile_tab t("decidim.profiles.show.conversations"), conversations_path %>
         <% end %>
         <%= user_profile_tab t("decidim.profiles.show.following"), profile_following_path(nickname: user.nickname) %>
         <%= user_profile_tab t("decidim.profiles.show.followers"), profile_followers_path(nickname: user.nickname) %>
@@ -17,7 +18,7 @@
     <div class="columns medium-9">
       <div class="tabs-content" data-tabs-content="profile-tabs">
         <div class="tabs-panel is-active">
-          <%= cell content_cell, user %>
+          <%= cell content_cell, user, context %>
         </div>
       </div>
     </div>
