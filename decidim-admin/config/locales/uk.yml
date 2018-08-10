@@ -200,13 +200,13 @@ uk:
           update: Оновити
         index:
           categories_title: Категорії
-          category_used: Цей розряд не можна видалити, оскільки він використовується.
+          category_used: Цю категорію не можна видалити, оскільки вона використовується.
         new:
-          create: Додати розряд
-          title: Додати розряд
+          create: Створити категорію
+          title: Додати категорію
         update:
-          error: При спробі оновити цей розряд сталася помилка.
-          success: Розряд успішно оновлено.
+          error: При спробі оновити цю категорію сталася помилка.
+          success: Категорію успішно оновлено.
       component_permissions:
         edit:
           everyone: Будь-хто
@@ -335,7 +335,7 @@ uk:
         attachment_collection:
           name: Тека
         category:
-          name: Розряд
+          name: Категорія
         impersonation_log:
           fields:
             admin: Адміністратор
