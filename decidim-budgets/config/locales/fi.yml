@@ -129,10 +129,10 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
-            projects_per_page: Hankkeet sivua kohden
+            projects_per_page: Projektit sivua kohden
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
             total_budget: Kokonaisbudjetti
-            vote_threshold_percent: Äänestä kynnysarvoa
+            vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
