@@ -84,9 +84,9 @@ fi:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiooni <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Sinut on mainittu
-          email_outro: Olet saanut tämän ilmoituksen, koska olet maininnut numerossa %{resource_title}.
-          email_subject: Olet maininnut %{resource_title}
-          notification_title: Olet maininnut <a href="%{resource_path}">%{resource_title}</a> mennessä <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_outro: Olet saanut tämän ilmoituksen, koska sinut on mainittu kohdssa %{resource_title}.
+          email_subject: Sinut on mainittu kohdassa %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: ei voi sisältää kommentteja
