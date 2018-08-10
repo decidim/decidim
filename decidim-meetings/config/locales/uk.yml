@@ -14,7 +14,7 @@ uk:
       meeting:
         address: Адреса
         available_slots: Наявні місця на цю зустріч
-        decidim_category_id: Розряд
+        decidim_category_id: Категорія
         decidim_scope_id: Обсяг
         description: Опис
         end_time: Час завершення
@@ -303,8 +303,8 @@ uk:
         not_allowed: У вас нема прав на перегляд цієї зустрічі
       meetings:
         filters:
-          category: Розряд
-          category_prompt: Оберіть розряд
+          category: Категорія
+          category_prompt: Оберіть категорію
           date: Дата
           past: Минулі
           search: Шукати
