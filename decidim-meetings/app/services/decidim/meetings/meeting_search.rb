@@ -11,7 +11,8 @@ module Decidim
       # page        - The page number to paginate the results.
       # per_page    - The number of proposals to return per page.
       def initialize(options = {})
-        super(Meeting.all, options)
+        scope = options.fetch(:scope, Meeting.all)
+        super(scope, options)
       end
 
       # Handle the search_text filter

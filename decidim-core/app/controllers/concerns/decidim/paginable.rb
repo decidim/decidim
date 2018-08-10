@@ -11,6 +11,7 @@ module Decidim
 
     included do
       helper_method :per_page
+      helper Decidim::PaginateHelper
 
       def paginate(resources)
         resources.page(params[:page]).per(per_page)

@@ -28,7 +28,10 @@ module Decidim
         end
 
         def meeting_components
-          @meeting_components ||= Decidim::Component.where(manifest_name: "meetings").published
+          @meeting_components ||= Decidim::Component
+                                  .where(manifest_name: "meetings")
+                                  .where(participatory_space: participatory_spaces)
+                                  .published
         end
 
         def participatory_spaces

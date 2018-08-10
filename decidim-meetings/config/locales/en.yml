@@ -136,6 +136,13 @@ en:
         preview: Preview
         registrations: Registrations
         title: Actions
+      directory:
+        meetings:
+          index:
+            search: Search
+            upcoming: Upcoming
+            past: Past
+            date: Date
       admin:
         agenda:
           agenda_item:
@@ -299,6 +306,8 @@ en:
             subject: Your meeting's registration has been confirmed
       meeting:
         not_allowed: You are not allowed to view this meeting
+      meetings_map:
+        view_meeting: View meeting
       meetings:
         filters:
           category: Category
@@ -312,8 +321,6 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
-        index:
-          view_meeting: View meeting
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Related Information

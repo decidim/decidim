@@ -1,0 +1,6 @@
+var $meetings = $('#meetings');
+
+$meetings.html('<%= j(render partial: "meetings").strip.html_safe %>');
+
+var $dropdownMenu = $('.dropdown.menu', $meetings);
+$dropdownMenu.foundation();
