@@ -69,7 +69,7 @@ fi:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} on jättänyt kommentin %{resource_title}. Voit lukea sen tällä sivulla:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_name}. Voit poistaa tämän käyttäjän profiilisivulta.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_name}. Voit poistaa tämän käyttäjän hänen profiilisivulta.
           email_subject: '%{author_name} : ssa on uusi kommentti %{resource_title}: ssa'
           notification_title: Uusi kommentti on <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
