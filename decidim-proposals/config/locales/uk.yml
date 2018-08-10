@@ -397,7 +397,7 @@ uk:
           need_more_votes: Потрібно більше голосів
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Кожну пропозицію можуть підтримувати більше ніж %{limit} людей
+            description: Кожну пропозицію можуть підтримувати понад %{limit} людей
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.
           threshold_per_proposal:
