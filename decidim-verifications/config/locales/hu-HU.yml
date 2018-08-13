@@ -1,0 +1,137 @@
+hu:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Dokumentum száma (betűvel)
+        document_type: A dokumentum típusa
+      id_document_upload:
+        document_number: Dokumentum száma (betűvel)
+        document_type: A dokumentum típusa
+        user: használó
+        verification_attachment: A dokumentum szkennelt példánya
+      postal_letter_address:
+        full_address: Teljes cím
+      postal_letter_confirmation:
+        verification_code: Ellenőrző kód
+      postal_letter_postage:
+        full_address: Teljes cím
+        verification_code: Ellenőrző kód
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Az ellenőrzések
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - A felhasználók kitöltik személyazonosító adataikat és feltöltik a dokumentumuk másolatát.
+            - Töltse fel a feltöltött képen megjelenő információkat.
+            - Az információnak meg kell egyeznie a felhasználó által kitöltve.
+            - Ha nem tudja egyértelműen látni az adatokat, vagy nem tudja ellenőrizni, akkor elutasíthatja a kérelmet, és a felhasználó képes lesz javítani.
+        postal_letter:
+          help:
+            - A felhasználók ellenőrző kódot kérnek a címükre.
+            - A levelet a címére küldi az ellenőrző kóddal.
+            - Ön a levelet küldöttként jelöli meg.
+            - Miután megjelölte a levelet elküldöttként, a felhasználó be tudja mutatni a kódot, és ellenőrizni tudja.
+      direct: Közvetlen
+      help: Segítség
+      id_documents:
+        explanation: Töltsd fel személyazonosító okmányodat, hogy ellenőrizzük az Ön személyazonosságát
+        name: Személyazonossági okmányok
+      multistep: Több lépéses
+      name: Név
+      postal_letter:
+        explanation: Elküldünk Önnek egy postai levelet egy kóddal, amelyet be kell írnia, hogy ellenőrizhessük a címét
+        name: Kód postai levélben
+    verifications:
+      authorizations:
+        create:
+          error: Hiba történt az engedélyezés létrehozásában.
+          success: Sikeresen engedélyezték.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Ellenőrizze az engedélykezelő másik példáját
+            dummy_authorization_handler: Ellenőrizze a példakezelési engedélyezőt
+            dummy_authorization_workflow: Ellenőrizze a példa engedélyezési munkafolyamatát
+            id_documents: A személyazonosító okmány feltöltésével ellenőrizze
+            postal_letter: Ellenőrizze az ellenőrző kódot postai levél útján
+          title: Igazolja a személyazonosságát
+          verify_with_these_options: 'Ezek a rendelkezésre álló lehetőségek az Ön személyazonosságának ellenőrzéséhez:'
+        new:
+          authorize: Elküld
+          authorize_with: Ellenőrizze a %{authorizer}
+        skip_verification: Ezt kihagyhatja most és %{link}
+        start_exploring: elkezd felfedezni
+      dummy_authorization:
+        extra_explanation:
+          one: A részvétel a %{postal_codes}as irányítószámmal rendelkező felhasználókra korlátozódik.
+          other: 'A részvétel a következő postai kódok valamelyikével rendelkező felhasználókra korlátozódik: %{postal_codes}.'
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Az ellenőrzés nem egyezik. Próbálja újra vagy utasítsa el az ellenőrzést, hogy a felhasználó módosíthassa azt
+              success: A felhasználó sikeresen ellenőrizte
+            new:
+              introduce_user_data: Adja meg az adatokat a képen
+              reject: Elutasít
+              verify: Ellenőrizze
+          pending_authorizations:
+            index:
+              title: Folyamatban lévő ellenőrzések
+              verification_number: 'Ellenőrző #%{n}'
+          rejections:
+            create:
+              success: Ellenőrzés elutasítva. A felhasználónak kérni kell a dokumentumainak módosítását
+        authorizations:
+          create:
+            error: Hiba történt a dokumentum feltöltése közben
+            success: Dokumentum sikeresen feltöltve
+          edit:
+            being_reviewed: Megvizsgáljuk a dokumentumokat. Rövidesen ellenőrizni fogják
+            rejection_clarity: Győződjön meg róla, hogy az információ jól látható a feltöltött képen
+            rejection_correctness: Győződjön meg arról, hogy a megadott adatok helyesek
+            rejection_notice: Hiba történt az ellenőrzésnél. Kérlek próbáld újra
+            send: Kérjen újra ellenőrzést
+          new:
+            send: Kérjen ellenőrzéseket
+            title: Töltsd fel személyi igazolványodat
+          update:
+            error: Probléma volt a dokumentum újratöltése
+            success: A dokumentum sikeresen újramenthető
+        dni: DNI
+        nie: NIE
+        passport: Útlevél
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Cím
+              letter_sent_at: Levél elküldve
+              mark_as_sent: Megjelölés elküldve
+              not_yet_sent: még nincs elküldve
+              title: Folyamatos ellenőrzések
+              username: Felhasználónév
+              verification_code: Ellenőrző kód
+          postages:
+            create:
+              error: Hiba a levél megjelölésként
+              success: A levél sikeresen megjelent elküldésként
+        authorizations:
+          create:
+            error: Probléma volt a kéréssel
+            success: Kösz! Ellenőrző kódot küldünk a címére
+          edit:
+            send: megerősít
+            title: Vigye be a kapott ellenőrző kódot
+            waiting_for_letter: Hamarosan levelet küldünk a címére az ellenőrző kóddal
+          new:
+            send: Küldjön nekem egy levelet
+            title: Kérjen ellenőrző kódot
+          update:
+            error: Az ellenőrző kód nem egyezik a miénk. Kérjük, ellenőrizze kétszer az Ön által küldött levelet
+            success: Gratulálok. Sikeresen ellenőrizte
+  errors:
+    messages:
+      uppercase_only_letters_numbers: minden nagybetűsnek és csak betűket és / vagy számokat kell tartalmaznia
