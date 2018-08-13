@@ -109,7 +109,7 @@ pt-BR:
           add: Adicionar
           added: Adicionado
         show:
-          budget: Despesas
+          budget: Orçamento
           view_all_projects: Ver todos os projetos
     components:
       budgets:
