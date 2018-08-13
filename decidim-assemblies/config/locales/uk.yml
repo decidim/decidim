@@ -9,7 +9,7 @@ uk:
         closing_date: Дата закриття
         closing_date_reason: Причина дати закриття
         composition: Склад
-        copy_categories: Скопіювати розряди
+        copy_categories: Скопіювати категорії
         copy_components: Копіювати складові
         copy_features: Скопіювати складові
         created_by: 'Автор:'
@@ -35,7 +35,7 @@ uk:
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Приватний простір
-        promoted: Рекламується
+        promoted: Висвітлено
         published_at: 'Оприлюднено:'
         purpose_of_action: Мета дії
         scope_id: Обсяг
@@ -160,7 +160,7 @@ uk:
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
-          categories: Розряди
+          categories: Категорії
           components: Складові
           info: Відомості
           moderations: Дії з модерації
