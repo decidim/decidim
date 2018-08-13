@@ -93,34 +93,6 @@ ru:
               must_be_ssl: URI перенаправления должен быть SSL URI
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Изображение баннера
-        description: Описание
-        developer_group: Рабочая группа по продвижению
-        domain: Домен
-        end_date: Дата окончания
-        hashtag: Хэштег
-        hero_image: Изображение главной страницы
-        local_area: Местный участок
-        meta_scope: Метаданные охвата
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
-        promoted: Рекламируется
-        scope: Охват
-        short_description: Краткое описание
-        slug: Сокращенный веб-адрес
-        start_date: Дата начала
-        subtitle: Подзаголовок
-        target: Цель
-        title: Название
-      decidim/participatory_process_group:
-        description: Описание
-        hero_image: Изображение главной страницы
-        name: Имя
-        participatory_processes: Движения соучастия
-      decidim/participatory_process_step:
-        end_date: Дата окончания
-        start_date: Дата начала
       decidim/static_page:
         content: Содержание
         slug: Сокращенный веб-адрес
@@ -218,23 +190,23 @@ ru:
         search_prompt: Введите не менее трех символов для поиска
       categories:
         create:
-          error: При попытке создать этот разряд произошла ошибка.
-          success: Разряд успешно создан.
+          error: При попытке создать эту категорию произошла ошибка.
+          success: Категория успешно создана.
         destroy:
-          error: Не удалось удалить этот разряд. Сначала удалите все подразряды, затем убедитесь, что ничто не относится к этому разряду, и повторите попытку.
-          success: Разряд успешно удален.
+          error: Не удалось удалить эту категорию. Сначала удалите все подкатегории, затем убедитесь, что ничто не относится к этой категории, и повторите попытку.
+          success: Категория успешно удалена.
         edit:
-          title: Редактировать разряд
+          title: Редактировать категорию
           update: Обновить
         index:
-          categories_title: Разряды
-          category_used: Этот разряд нельзя удалить, так как он используется.
+          categories_title: Категории
+          category_used: Эту категорию нельзя удалить, поскольку она используется.
         new:
-          create: Создать разряд
-          title: Добавить разряд
+          create: Создать категорию
+          title: Добавить категорию
         update:
-          error: При попытке обновить этот разряд произошла ошибка.
-          success: Разряд успешно обновлен.
+          error: При попытке обновить эту категорию произошла ошибка.
+          success: Категория успешно обновлена.
       component_permissions:
         edit:
           everyone: Все
@@ -333,6 +305,7 @@ ru:
         areas: Участки
         configuration: Конфигурация
         dashboard: Панель управления
+        homepage: Домашняя страница
         impersonations: Выступления в роли участника
         newsletters: Рассылки новостей
         oauth_applications: Приложения OAuth
@@ -362,7 +335,7 @@ ru:
         attachment_collection:
           name: Папка
         category:
-          name: Разряд
+          name: Категория
         impersonation_log:
           fields:
             admin: Администратор
@@ -407,7 +380,7 @@ ru:
             roles:
               admin: Администратор
               user_manager: Распорядитель участников
-          name: Участник
+          name: участника
         user_group:
           fields:
             actions: Действия
@@ -526,6 +499,10 @@ ru:
           homepage_highlighted_content_banner_title: Баннер рекомендуемого содержимого
           layout_appearance_title: Редактировать внешний вид макета
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
+      organization_homepage:
+        edit:
+          active_content_blocks: Блоки действующего содержимого
+          inactive_content_blocks: Блоки недействующего содержимого
       participatory_space_private_users:
         create:
           error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.
