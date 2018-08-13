@@ -274,8 +274,8 @@ pt:
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
         complete:
-          attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Por favor, selecione uma categoria
+          attachment_legend: "(Opcional) Adicionar um anexo"
+          select_a_category: Selecione uma categoria
           send: Enviar
           title: Complete sua proposta
         count:
