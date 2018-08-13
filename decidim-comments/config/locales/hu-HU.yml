@@ -1,0 +1,92 @@
+hu:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Megjegyzés
+      decidim/comments/comment_created_event: Megjegyzés
+      decidim/comments/reply_created_event: Hozzászólás válasz
+      decidim/comments/user_mentioned_event: Említés
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Megjegyzés
+        other: Hozzászólások
+      decidim/comments/comment_vote:
+        one: Szavazás
+        other: szavazatok
+  decidim:
+    comments:
+      comments: Hozzászólások
+      votes:
+        create:
+          error: Hiba történt a hozzászólás szavazásakor.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókjához</a> vagy <a href="%{sign_up_url}">feliratkozáshoz</a> hozzáadásához.
+        form:
+          body:
+            label: Megjegyzés
+            placeholder: Mit gondolsz erről?
+          form_error: A szöveg szükséges, és nem lehet hosszabb, mint %{length} karakter.
+          submit: Elküld
+          user_group_id:
+            label: Comment as
+        opinion:
+          neutral: Semleges
+        remaining_characters: "%{count} karakter maradt"
+        remaining_characters_1: "%{count} karakter maradt"
+        title: Add meg a megjegyzést
+      comment:
+        alignment:
+          against: Ellen
+          in_favor: Javára
+        deleted_user: Törölt felhasználó
+        reply: Válasz
+        report:
+          action: Jelentés
+          already_reported: Ezt a tartalmat már jelentették, és az adminisztrátor felülvizsgálja.
+          close: Bezárás
+          description: Ez a tartalom nem megfelelő?
+          details: További megjegyzések
+          reasons:
+            does_not_belong: Tartalmaz illegális tevékenységet, öngyilkos fenyegetéseket, személyes adatokat, vagy valami másat, amelyről úgy gondolja, hogy nem tartozik a %{organization_name}.
+            offensive: Rasszizmust, szexizmust, hazugságokat, személyes támadásokat, halálos fenyegetéseket, öngyilkossági kéréseket vagy bármilyen gyűlöletbeszédet tartalmaz.
+            spam: Tartalmaz clickbait, reklám, csalások vagy szkript botok.
+          title: Jelentem a problémát
+      comment_order_selector:
+        order:
+          best_rated: Legjobb
+          most_discussed: A legtöbbet megvitatták
+          older: régebbi
+          recent: Friss
+        title: 'Rendezés:'
+      comment_thread:
+        title: Beszélgetés %{authorName}
+      comments:
+        blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de elolvashatja az előzőeket.
+        loading: Hozzászólások betöltése ...
+        title: "%{count} megjegyzés"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} megjegyzést hagyott az %{resource_title}. Az oldalon olvasható:"
+          email_outro: Ezt az értesítést megkapta, mert %{author_name}követ. A felhasználót a profiloldaláról törölheti.
+          email_subject: Új megjegyzés van %{author_name} -ra %{resource_title}
+          notification_title: 'Van egy új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
+        comment_created:
+          email_intro: "%{resource_title} megjegyzést kapott. Elolvashatja a megjegyzést ezen az oldalon:"
+          email_outro: Ezt az értesítést azért kapta, mert a (z) "%{resource_title}" vagy annak szerzőjét követi. Leiratkozhat az előző linkről.
+          email_subject: Új megjegyzés van %{author_name} -tól %{resource_title}
+          notification_title: Van egy új megjegyzés a <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} megjegyzést fűzött a (z) %{resource_title}. Az oldalon olvasható:"
+          email_outro: Ezt az értesítést azért kapta, mert a megjegyzésedre válaszolt.
+          email_subject: "%{author_name} megjegyzést fűzött a (z) %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a hozzászólásra <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Ön említette
+          email_outro: Ezt az értesítést megkapta, mert a %{resource_title}.
+          email_subject: Már említetted a %{resource_title}
+          notification_title: Már említettük <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+  errors:
+    messages:
+      cannot_have_comments: nem tud megjegyzéseket tenni
