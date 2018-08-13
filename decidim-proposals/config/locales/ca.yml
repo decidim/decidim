@@ -10,29 +10,29 @@ ca:
         scope_id: Àmbit
         state: Estat
         title: Títol
-        user_group_id: Crear proposta
+        user_group_id: Crea una proposta com a
       proposal_answer:
-        answer: Resposta
+        answer: Respondre
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
-        origin_component_id: Component des d'on copiar les propostes
+        origin_component_id: Component des d'on importar les propostes
     errors:
       models:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Necessita tornar a pujar-se
+              needs_to_be_reattached: Necessita tornar a adjuntar-se
     models:
       decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
-      decidim/proposals/creation_enabled_event: S'ha activat la creació de la proposta
+      decidim/proposals/creation_enabled_event: S'ha activat la creació de propostes
       decidim/proposals/endorsing_enabled_event: Les propostes admeten adhesions
       decidim/proposals/evaluating_proposal_event: S'està avaluant la proposta
       decidim/proposals/proposal_endorsed_event: Proposta aprovada
       decidim/proposals/proposal_mentioned_event: Proposta esmentada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/rejected_proposal_event: S'ha rebutjat la proposta
-      decidim/proposals/voting_enabled_event: S'ha habilitat la votació de propostes
+      decidim/proposals/voting_enabled_event: Les propostes admeten suports
   activerecord:
     models:
       decidim/proposals/proposal:
@@ -45,8 +45,8 @@ ca:
         one: Nota
         other: Notes
       decidim/proposals/proposal_vote:
-        one: Vot
-        other: Vots
+        one: Donar suport
+        other: Suports
   decidim:
     components:
       proposals:
@@ -79,8 +79,8 @@ ca:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
+            endorsements_blocked: Adhesions bloquejades
+            endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Activar resposta oficial a propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
@@ -95,7 +95,7 @@ ca:
         endorsing_enabled:
           email_intro: 'Pots adherir-te a les propostes de %{participatory_space_title}. Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Ara ja et pots adherir a les propostes de %{participatory_space_title}
+          email_subject: Ara ja pots adherir-te a les propostes de %{participatory_space_title}
           notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
@@ -274,8 +274,8 @@ ca:
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
-          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
-          select_a_category: Selecciona una categoria
+          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+          select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Completa la teva proposta
         count:
@@ -382,7 +382,7 @@ ca:
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
-            description: Per ser validat, les propostes han d'arribar a %{limit} suports
+            description: Per ser validades, les propostes han d'arribar a un quòrum mínim de %{limit} suports
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
