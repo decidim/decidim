@@ -6,8 +6,8 @@ ru:
         description: Описание
         offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
-        signature_end_time: Конец периода сбора подписей
-        signature_start_time: Начало периода сбора подписей
+        signature_end_date: Конец периода сбора подписей
+        signature_start_date: Начало периода сбора подписей
         signature_type: Вид сбора подписей
         signature_type_values:
           any: Смешанный
@@ -117,7 +117,7 @@ ru:
               all: Все
               created: Созданные
               discarded: Отброшенные
-              published: Обнародованные
+              published: Обнародовано
               rejected: Отклоненные
               validating: Техническая проверка
             filter_by: 'Отобрать по признаку:'
@@ -178,7 +178,7 @@ ru:
         accepted: Принятые
         created: Созданные
         discarded: Отброшенные
-        published: Обнародованные
+        published: Обнародовано
         rejected: Отклоненные
         validating: Техническая проверка
       committee_requests:
@@ -187,6 +187,9 @@ ru:
           help_text: Вы собираетесь подать запрос на членство в рабочей группе по продвижению этого почина
         spawn:
           success: Ваш запрос отправлен автору почина.
+      content_blocks:
+        highlighted_initiatives:
+          name: Рекомендуемые почины
       create_initiative:
         fill_data:
           back: Вернуться
