@@ -215,6 +215,19 @@ pl:
             dummy_step_attribute_1: Atrybut krokowy atrapy 1
             dummy_step_attribute_2: Atrybut krokowy atrapy 2
     contact: Kontakt
+    content_blocks:
+      footer_sub_hero:
+        name: Banner podrzędny stopki
+      hero:
+        name: Obraz bohatera
+      highlighted_content_banner:
+        name: Wyróżniony baner treści
+      how_to_participate:
+        name: Jak uczestniczyć
+      stats:
+        name: Statystyki organizacji
+      sub_hero:
+        name: Banner podrzędny
     core:
       actions:
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
@@ -331,7 +344,7 @@ pl:
     filters:
       linked_classes:
         all: Wszystkie
-        dummyresource: Dummy zasobów
+        dummy_resource: Dummy zasobów
         meeting: Spotkania
         project: Projekty
         proposal: Propozycje
@@ -414,13 +427,13 @@ pl:
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
+          from: Od
+          last_message_html: Ostatnia wiadomość <strong>%{time} temu</strong>
           no_conversations: Nie masz jeszcze żadnych rozmów
-          title: Rozmowy
-        reply:
-          send: Wysłać
-          title: Odpowiadać
         show:
-          title: Rozmowa z %{usernames}
+          conversation_with_html: Rozmowa z <strong>%{name}</strong>
+          reply: Odpowiadać
+          send: Wysłać
         start:
           send: Wysłać
           title: Zacząć rozmowę
@@ -533,6 +546,7 @@ pl:
     profiles:
       default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
+        conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
         notifications: Powiadomienia
@@ -667,6 +681,8 @@ pl:
         description_html: Ta strona używa plików cookie. Kontynuując przeglądanie witryny, zgadzasz się na korzystanie z plików cookie. Dowiedz się więcej o tym %{link}.
         link_label: tutaj
         ok: zgadzam się
+      edit_link:
+        edit: Edytować
       footer:
         made_with_open_source: Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
