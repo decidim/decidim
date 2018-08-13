@@ -1,0 +1,151 @@
+hu:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Rendezési információk
+        decidim_category_id: Olyan pályázatok kategóriái, amelyekben a felhívást alkalmazni szeretné
+        decidim_proposals_component_id: Javasolt pályázatok
+        dice: A tekercs eredményei. Roll a 6-oldalas hal, vagy keressen egy másik véletlen módon számot 1-től 6-ig, és írja be ide a számot előtt néhány tanú. Ez hozzájárul az eredmény véletlenszerűségének minőségéhez és garanciáihoz
+        target_items: A kiválasztandó pályázatok száma (jelöli a javaslatok számát, amelyeket a korábban kiválasztott ajánlatok csoportjának rengeteg kiválasztásával kíván kiválasztani)
+        title: Cím
+        witnesses: Tanúk
+    models:
+      decidim/sortitions/create_sortition_event: Sorshúzás
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorshúzás
+        other: Sortitions
+  decidim:
+    components:
+      sortitions:
+        name: Sortitions
+        settings:
+          global:
+            comments_enabled: Megjegyzések engedélyezve
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: A "%{resource_title}" sorozatot hozzáadta az "%{participatory_space_title}" -hez, amelyet követ.
+          email_outro: Ezt az értesítést megkapta, mert a "%{participatory_space_title}" -t követi. Leiratkozhat az előző linkről.
+          email_subject: Új rendezés hozzáadva %{participatory_space_title}
+          notification_title: A sorrend <a href="%{resource_path}">%{resource_title}</a> lett hozzáadva a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          destroy: Törölje a rendezést
+          edit: szerkesztése
+          new: Új rendezés
+          show: Rendezés részletei
+        models:
+          sortition:
+            fields:
+              category: Kategória
+              created_at: Készítés ideje
+              decidim_proposals_component: Javaslatok összetevője
+              dice: Dobókocka
+              reference: Referencia
+              request_timestamp: Időzítés
+              seed: Mag
+              target_items: Elemek kiválasztásához
+              title: Cím
+            name:
+              one: Sorshúzás
+              other: Sortitions
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Biztosan törölni szeretné ezt a rendezést?
+            destroy: Rendezés megszüntetése
+            title: A megszüntetés megszüntetése
+          create:
+            error: Hiba történt egy új rendezés létrehozásában.
+            success: A rendezés sikeresen megtörtént
+          destroy:
+            error: Nem lehet törölni a rendezést.
+            success: A sorrend sikeresen törölve
+          edit:
+            title: Frissítse a rendezéssel kapcsolatos információkat
+            update: frissítés
+          form:
+            all_categories: Minden kategória
+            select_proposal_component: Válassza ki a beállított javaslatokat
+            title: Új rendezés a pályázatokhoz
+          index:
+            title: Sortitions
+          new:
+            confirm: A következő gomb megnyomásával a Decidim rögzíti a dátumot és az időt (másodperc pontossággal), valamint a kocka tekercseléssel együtt, ezt az információt véletlen kiválasztás létrehozására használják. A művelet visszafordíthatatlan lesz, miután a gombra kattintva megjelenik a rajz eredménye, az itt szereplő adatokkal együtt, és nem módosítható, kérjük, olvassa el figyelmesen a tartalmat.
+            create: Teremt
+            title: Új rendezés
+          show:
+            selected_proposals: A felhívásra kiválasztott pályázatok
+          update:
+            error: Hiba történt a frissítés frissítésében.
+            success: A sorrend sikeresen frissült
+      admin_log:
+        sortition:
+          create: "%{user_name} létrehozta az %{resource_name} rendezést %{space_name}"
+          delete: "%{user_name} törölte az %{resource_name} sorozatot %{space_name}"
+          update: "%{user_name} frissítette az %{resource_name} rendezést %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 javaslat
+            other: "%{count} javaslatot"
+        filters:
+          active: Aktív
+          all: Minden
+          cancelled: Törölve
+          category: Kategória
+          category_prompt: Válasszon egy kategóriát
+          search: Keresés
+          state: Állapot
+        filters_small_view:
+          close_modal: Közeli modal
+          filter: Szűrő
+          filter_by: Szűrés vlami alapján
+          unfold: kibontakozik
+        linked_sortitions:
+          selected_proposals: Kiválasztott javaslatok
+        orders:
+          label: 'Rendezés sorrendje:'
+          random: Véletlen
+          recent: Friss
+        results_count:
+          count:
+            one: kiválasztott javaslat
+            other: kiválasztott javaslatok
+        show:
+          algorithm: Sortition algoritmus kódja
+          any_category: minden kategóriából
+          cancelled: Megszakított rendezés
+          candidate_proposal_ids: Rendezési ajánlat sorrendje és azonosító adatai
+          candidate_proposals_info: 'Az összeállítás a következő javaslatok (%{category_label}) között zajlott, a következő azonosítóval (a kiválasztott ajánlatokban vastagon)  '
+          category: a %{category} kategóriából
+          dice_result: "(1) Dice eredmény"
+          introduction: 'Ez az oldal tartalmazza a %{reference}rendezés eredményeit. Ezzel a módszerrel %{target_items} számú eredményt választottak véletlenszerűen és egyenlő valószínűségi eloszlással a megjelenő ajánlatokból. Az eredményekkel együtt az ezen az oldalon megjelenő információk minden olyan információt megadnak, amely a garanciák maximalizálására és az eredmények reprodukálására szolgál. Ennek a változatosságnak a kulcsa a kettős véletlenszerűség, amelyet egy kocka (tanú által igazolt) dobása és egy sorozata pontos időpontja biztosít, amely egy véletlen kiválasztást generáló algoritmust biztosít. A válogatáshoz szükséges idő-magvak olyan pontosak (másodpercek), hogy embereket nem lehet ellenőrizni, így duplán "ellenőrizhetetlen" bemenetet biztosítanak a méltányos eredmény biztosítása érdekében.  '
+          mathematical_result: Eredmény (1) x (2)
+          proposals_selected_by_sortition: A válogatás által kiválasztott pályázatok
+          sortition_reproducibility_details: Rendezési reprodukálhatóság részleteit
+          time_seed: "(2) Időmag"
+          witnesses: Tanúk
+        sortition:
+          random_seed: Véletlenszerű mag
+          selected_proposals:
+            one: kiválasztott javaslat
+            other: kiválasztott pályázatok
+          view: Kilátás
+        sortition_author:
+          deleted: Törölt felhasználó
+        sortition_cancel_author:
+          deleted: Törölt felhasználó
+        sortitions_count:
+          count:
+            one: 1 válogatás
+            other: "%{count} sorozatok"

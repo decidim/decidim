@@ -29,11 +29,11 @@ eu:
         instagram: Instagram
         internal_organisation: Barneko antolaketa
         is_transparent: Gardena da
-        local_area: Udal-alorrak
+        local_area: Antolakuntza eremua
         meta_scope: 'Metadatuak: esparrua'
         participatory_processes_ids: Parte hartutako prozesu erlazionatuak
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
+        participatory_scope: Zer erabaki
+        participatory_structure: Nola erabakitzen da?
         private_space: Espazio pribatua
         promoted: Nabarmendua
         published_at: Argitaratu at
@@ -45,7 +45,7 @@ eu:
         slug: URL laburra
         special_features: Ezaugarri bereziak
         subtitle: Azpititulua
-        target: Nori zuzentzen zaio?
+        target: Nor parte hartzen du
         title: Prozesu partizipatiboen multzoak
         twitter: Twitter
         youtube: YouTube
@@ -247,6 +247,9 @@ eu:
         others: Beste batzuk
         participatory: partehartzailea
         working_group: Lan taldea
+      content_blocks:
+        highlighted_assemblies:
+          name: Elkarrizketa nabarmenak
       created_by:
         city_council: Udaletxea
         others: Beste batzuk
@@ -277,9 +280,9 @@ eu:
         is_transparent:
           'false': opakua
           'true': gardena
-        local_area: Udal-alorrak
-        participatory_scope: Esparru partizipatiboa
-        participatory_structure: Egitura partizipatiboa
+        local_area: Antolakuntza eremua
+        participatory_scope: Zer erabaki
+        participatory_structure: Nola erabakitzen da?
         private_space: Hau muntaia pribatua da
         purpose_of_action: Ekintza xedea
         read_less: Irakurri gutxiago
@@ -287,7 +290,7 @@ eu:
         related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
         social_networks: Sare sozialak
-        target: Nori zuzentzen zaio?
+        target: Nor parte hartzen du
       statistics:
         answers_count: Erantzunak
         assemblies_count: Biltzarrak

@@ -266,6 +266,8 @@ eu:
         endorsement_button:
           already_endorsed: abala
           endorse: gatoz
+        render_endorsements_button_card_part:
+          endorse: gatoz
       proposal_votes:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
@@ -275,8 +277,6 @@ eu:
           no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
           title: Proposamen antzekoak
         complete:
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
-          select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Zure proposamena osatzea
         count:
@@ -284,6 +284,7 @@ eu:
             one: 1 proposamen
             other: "%{count} proposamen"
         edit:
+          attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Back
           select_a_category: Hautatu kategoria bat
           send: Bidali
@@ -297,7 +298,6 @@ eu:
           endorse: gatoz
         endorsements_card_row:
           comments: Oharrak
-          endorse: gatoz
         filters:
           accepted: Onartuta
           activity: Jarduera

@@ -21,6 +21,7 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar este proxecto?
         destroy: Eliminar
         edit: Editar
+        import: Importa propostas a proxectos
         new: Novo proxecto
         preview: Vista previa
         title: Accións
@@ -47,6 +48,14 @@ gl:
           update:
             invalid: Produciuse un problema ao actualizar este proxecto
             success: Proxecto actualizado correctamente
+        proposals_imports:
+          create:
+            invalid: Produciuse un problema na importación das propostas en proxectos
+            success: "%{number} propostas importadas con éxito en proxectos"
+          new:
+            create: Importa propostas a proxectos
+            no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas en proxectos.
+            select_component: Selecciona un compoñente
       admin_log:
         project:
           create: "%{user_name} creou o proxecto %{resource_name} no espazo %{space_name}"

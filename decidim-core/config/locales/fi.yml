@@ -205,6 +205,19 @@ fi:
             dummy_step_attribute_1: Dummy Step -ominaisuus 1
             dummy_step_attribute_2: Dummy Step -ominaisuus 2
     contact: Ota yhteyttä
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub sankari banneri
+      hero:
+        name: Hero kuva
+      highlighted_content_banner:
+        name: Korostettu sisältö banneri
+      how_to_participate:
+        name: Miten osallistua
+      stats:
+        name: Organisaatiotilastot
+      sub_hero:
+        name: Sub sankari banneri
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
@@ -321,7 +334,7 @@ fi:
     filters:
       linked_classes:
         all: Kaikki
-        dummyresource: Dummy-resurssit
+        dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
         proposal: Ehdotukset
@@ -404,13 +417,13 @@ fi:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
+          from: alkaen
+          last_message_html: Viimeisin viesti <strong>%{time} ago</strong>
           no_conversations: Sinulla ei vielä ole keskusteluja
-          title: Keskustelut
-        reply:
-          send: Lähetä
-          title: Vastaa
         show:
-          title: Keskustelu käyttäjän %{usernames} kanssa
+          conversation_with_html: Keskustelu <strong>%{name}</strong>
+          reply: Vastaa
+          send: Lähettää
         start:
           send: Lähetä
           title: Aloita keskustelu
@@ -523,6 +536,7 @@ fi:
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
+        conversations: keskustelut
         followers: seuraajaa
         following: seuraa
         notifications: ilmoitukset
@@ -657,6 +671,8 @@ fi:
         description_html: Tämä sivusto käyttää evästeitä. Jatkamalla tämän sivuston käyttöä hyväksyt selaimeesi asettamamme evästeet. Lue lisää %{link}.
         link_label: täältä
         ok: Hyväksyn
+      edit_link:
+        edit: Muokata
       footer:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.
       header:

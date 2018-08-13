@@ -6,8 +6,8 @@ es-PY:
         description: Descripción
         offline_votes: Apoyo cara a cara
         scope_id: Alcance
-        signature_end_time: Fin del período de recolección de firmas
-        signature_start_time: Inicio del período de recolección de firmas
+        signature_end_date: Fin del período de recolección de firmas
+        signature_start_date: Inicio del período de recolección de firmas
         signature_type: Tipo de colección de firma
         signature_type_values:
           any: Mezclado
@@ -181,6 +181,9 @@ es-PY:
           help_text: Estás a punto de solicitar convertirte en miembro del comité promotor de esta iniciativa
         spawn:
           success: Tu solicitud ha sido enviada al autor de la iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: Volver

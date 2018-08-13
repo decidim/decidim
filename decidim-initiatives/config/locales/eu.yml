@@ -6,8 +6,8 @@ eu:
         description: deskribapena
         offline_votes: Face-to-face euskarriak
         scope_id: esparrua
-        signature_end_time: Sinadura bildumaren epea amaituta
-        signature_start_time: Sinadura bildumaren aldiaren hasiera
+        signature_end_date: Sinadura bildumaren epea amaituta
+        signature_start_date: Sinadura bildumaren aldiaren hasiera
         signature_type: Sinadura bilketa mota
         signature_type_values:
           any: mistoa
@@ -181,6 +181,9 @@ eu:
           help_text: Ekimen honen sustatzaile batzordeko kidea bihurtu nahi duzu
         spawn:
           success: Zure eskaera ekimenaren egilea da.
+      content_blocks:
+        highlighted_initiatives:
+          name: Ekimen nabarmenak
       create_initiative:
         fill_data:
           back: Back

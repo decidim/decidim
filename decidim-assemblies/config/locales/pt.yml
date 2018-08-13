@@ -29,11 +29,11 @@ pt:
         instagram: Instagram
         internal_organisation: Organização interna
         is_transparent: É transparente
-        local_area: Área Local
+        local_area: Área de organização
         meta_scope: Metadados do âmbito
         participatory_processes_ids: Processos participativos relacionados
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
         private_space: Espaço privado
         promoted: Destacado
         published_at: Publicado em
@@ -45,7 +45,7 @@ pt:
         slug: Slug de URL
         special_features: Características especiais
         subtitle: Subtítulo
-        target: Alvo
+        target: Quem participa
         title: Título
         twitter: Twitter
         youtube: Youtube
@@ -247,6 +247,9 @@ pt:
         others: Outras
         participatory: Participativo
         working_group: Grupo de trabalho
+      content_blocks:
+        highlighted_assemblies:
+          name: Assemblies destacados
       created_by:
         city_council: Câmara Municipal
         others: Outras
@@ -277,9 +280,9 @@ pt:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área Local
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
+        local_area: Área de organização
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
         private_space: Esta é uma assembléia privada
         purpose_of_action: Objetivo da ação
         read_less: Leia menos
@@ -287,7 +290,7 @@ pt:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        target: Alvo
+        target: Quem participa
       statistics:
         answers_count: Respostas
         assemblies_count: Assembléias

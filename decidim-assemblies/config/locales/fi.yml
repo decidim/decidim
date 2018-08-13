@@ -29,11 +29,11 @@ fi:
         instagram: Instagram
         internal_organisation: Sisäinen organisaatio
         is_transparent: On läpinäkyvä
-        local_area: Paikallisalue
+        local_area: Organisaatioalue
         meta_scope: Kontekstin metadata
         participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
-        participatory_scope: Osallistumiskonteksti
-        participatory_structure: Osallistumisen rakenne
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         private_space: Yksityinen tila
         promoted: Korostettu
         published_at: Julkaistu osoitteessa
@@ -45,7 +45,7 @@ fi:
         slug: URL-tunniste
         special_features: Lisäominaisuudet
         subtitle: Alaotsikko
-        target: Kohde
+        target: Kuka osallistuu
         title: Otsikko
         twitter: Viserrys
         youtube: YouTube
@@ -247,6 +247,9 @@ fi:
         others: toiset
         participatory: osallistava
         working_group: Työryhmä
+      content_blocks:
+        highlighted_assemblies:
+          name: Korostetut kokoonpanot
       created_by:
         city_council: Kaupunginvaltuusto
         others: toiset
@@ -277,9 +280,9 @@ fi:
         is_transparent:
           'false': himmeä
           'true': läpinäkyvä
-        local_area: Paikallisalue
-        participatory_scope: Osallistumiskonteksti
-        participatory_structure: Osallistumisen rakenne
+        local_area: Organisaatioalue
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen kokoonpano
         purpose_of_action: Toimen tarkoitus
         read_less: Lue vähemmän
@@ -287,7 +290,7 @@ fi:
         related_participatory_processes: Asiaan liittyvät osallistumisprosessit
         scope: Konteksti
         social_networks: Sosiaaliset verkostot
-        target: Kohde
+        target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
         assemblies_count: Kehitysryhmät

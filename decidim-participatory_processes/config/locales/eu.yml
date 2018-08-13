@@ -13,11 +13,11 @@ eu:
         end_date: Bukaera-data
         hashtag: Traola
         hero_image: Orri nagusiko irudia
-        local_area: Udal-alorrak
+        local_area: Antolakuntza eremua
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
+        participatory_scope: Zer erabaki
+        participatory_structure: Nola erabakitzen da?
         promoted: Nabarmendua
         published_at: Argitaratu at
         scope_id: Esparrua
@@ -27,7 +27,7 @@ eu:
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
-        target: Nori zuzentzen zaio?
+        target: Nor parte hartzen du
         title: Titulua
       participatory_process_group:
         description: Deskribapena
@@ -274,6 +274,9 @@ eu:
           form:
             announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio prozesuaren informazioaren azpitik.
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Prozesu nabarmenak
       index:
         title: Prozesu partizipatiboak
       pages:
@@ -281,6 +284,8 @@ eu:
           highlighted_processes:
             active_processes: Prozesu aktiboak
             active_step: Urratsa aktiboa
+            more_information: Informazio gehiago
+            participate: Parte hartu
             see_all_processes: Ikusi prozesu guztiak
       participatory_process_groups:
         none: Bat bera ere ez

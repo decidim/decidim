@@ -205,6 +205,19 @@ es-PY:
             dummy_step_attribute_1: Atributo de paso ficticio 1
             dummy_step_attribute_2: Atributo de paso ficticio 2
     contact: Contacto
+    content_blocks:
+      footer_sub_hero:
+        name: Banner de subhéroe de pie de página
+      hero:
+        name: Imagen de héroe
+      highlighted_content_banner:
+        name: Banner de contenido resaltado
+      how_to_participate:
+        name: Como participar
+      stats:
+        name: Estadísticas de la organización
+      sub_hero:
+        name: Banner de subhéroe
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -321,7 +334,7 @@ es-PY:
     filters:
       linked_classes:
         all: Todas
-        dummyresource: Recursos ficticios
+        dummy_resource: Recursos ficticios
         meeting: Encuentros
         project: Proyectos
         proposal: Propuestas
@@ -404,13 +417,13 @@ es-PY:
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
+          from: De
+          last_message_html: Último mensaje <strong>%{time} hace</strong>
           no_conversations: Aún no tienes conversaciones
-          title: Conversaciones
-        reply:
-          send: Enviar
-          title: Respuesta
         show:
-          title: Conversación con %{usernames}
+          conversation_with_html: Conversación con <strong>%{name}</strong>
+          reply: Respuesta
+          send: Enviar
         start:
           send: Enviar
           title: Iniciar una conversación
@@ -523,6 +536,7 @@ es-PY:
     profiles:
       default_officialization_text: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
+        conversations: Conversaciones
         followers: Seguidores
         following: Sigue
         notifications: Notificaciones
@@ -657,6 +671,8 @@ es-PY:
         description_html: Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia de navegación, y ofrecer contenidos y servicios de interés. Al continuar la navegación entendemos que se acepta nuestra política de cookies. Para más información consulta %{link}.
         link_label: aquí
         ok: Estoy de acuerdo
+      edit_link:
+        edit: Editar
       footer:
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
       header:

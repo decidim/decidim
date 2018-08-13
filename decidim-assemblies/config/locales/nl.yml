@@ -29,11 +29,11 @@ nl:
         instagram: Instagram
         internal_organisation: Interne organisatie
         is_transparent: Is transparant
-        local_area: Lokaal gebied
+        local_area: Organisatiegebied
         meta_scope: Omvang metadata
         participatory_processes_ids: Verwante burgerinspraken
-        participatory_scope: Participatieve scope
-        participatory_structure: Participatieve structuur
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
         private_space: Prive ruimte
         promoted: gepromoveerd
         published_at: Gepubliceerd op
@@ -45,7 +45,7 @@ nl:
         slug: URL slak
         special_features: Speciale functies
         subtitle: Ondertiteling
-        target: Doel
+        target: Wie doet mee
         title: Titel
         twitter: Twitter
         youtube: YouTube
@@ -247,6 +247,9 @@ nl:
         others: Overige
         participatory: deelnemende
         working_group: Werkgroep
+      content_blocks:
+        highlighted_assemblies:
+          name: Gemarkeerde vergaderingen
       created_by:
         city_council: Gemeenteraad
         others: Overige
@@ -277,9 +280,9 @@ nl:
         is_transparent:
           'false': ondoorzichtig
           'true': Transparant
-        local_area: Lokaal gebied
-        participatory_scope: Participatieve scope
-        participatory_structure: Participatieve structuur
+        local_area: Organisatiegebied
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
         private_space: Dit is een privé event
         purpose_of_action: Doel van actie
         read_less: Minder lezen
@@ -287,7 +290,7 @@ nl:
         related_participatory_processes: Verwante burgerinspraken
         scope: Scope
         social_networks: Sociale netwerken
-        target: Doel
+        target: Wie doet mee
       statistics:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten

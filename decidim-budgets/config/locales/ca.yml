@@ -21,6 +21,7 @@ ca:
         confirm_destroy: Segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
+        import: Importa propostes a projectes
         new: Nou projecte
         preview: Previsualitzar
         title: Accions
@@ -47,6 +48,14 @@ ca:
           update:
             invalid: Hi ha hagut un problema actualitzant aquest projecte
             success: Projecte actualitzat correctament
+        proposals_imports:
+          create:
+            invalid: Hi ha hagut un problema en importar les propostes en projectes
+            success: "S'ha importat amb èxit %{number} propostes en projectes"
+          new:
+            create: Importa propostes a projectes
+            no_components: No hi ha altres components de la proposta en aquest espai participatiu per importar les propostes en projectes.
+            select_component: Seleccioneu un component
       admin_log:
         project:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"

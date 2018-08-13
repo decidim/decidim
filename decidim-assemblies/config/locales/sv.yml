@@ -29,11 +29,11 @@ sv:
         instagram: Instagram
         internal_organisation: Intern organisation
         is_transparent: Är transparent
-        local_area: Lokalt område
+        local_area: Organisationsområde
         meta_scope: Omfattning metadata
         participatory_processes_ids: Relaterade deltagande processer
-        participatory_scope: Deltagande räckvidd
-        participatory_structure: Deltagande struktur
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur bestäms det
         private_space: Privat utrymme
         promoted: främjas
         published_at: Publicerad på
@@ -45,7 +45,7 @@ sv:
         slug: URL slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
-        target: Mål
+        target: Vem deltar
         title: Titel
         twitter: Twitter
         youtube: Youtube
@@ -247,6 +247,9 @@ sv:
         others: Övriga
         participatory: Deltagande
         working_group: Arbetsgrupp
+      content_blocks:
+        highlighted_assemblies:
+          name: Utrustade församlingar
       created_by:
         city_council: Statsråd
         others: Övriga
@@ -277,9 +280,9 @@ sv:
         is_transparent:
           'false': ogenomskinlig
           'true': transparent
-        local_area: Lokalt område
-        participatory_scope: Deltagande räckvidd
-        participatory_structure: Deltagande struktur
+        local_area: Organisationsområde
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur bestäms det
         private_space: Detta är en privat sammansättning
         purpose_of_action: Syftet med åtgärden
         read_less: Läs mindre
@@ -287,7 +290,7 @@ sv:
         related_participatory_processes: Relaterade deltagande processer
         scope: Omfattning
         social_networks: Sociala nätverk
-        target: Mål
+        target: Vem deltar
       statistics:
         answers_count: Svar
         assemblies_count: Assemblies

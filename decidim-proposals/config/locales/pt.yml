@@ -266,6 +266,8 @@ pt:
         endorsement_button:
           already_endorsed: Endossado
           endorse: Endossar
+        render_endorsements_button_card_part:
+          endorse: Endossar
       proposal_votes:
         create:
           error: Houve erros ao votar a proposta.
@@ -275,8 +277,6 @@ pt:
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
         complete:
-          attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Por favor, selecione uma categoria
           send: Enviar
           title: Complete sua proposta
         count:
@@ -284,6 +284,7 @@ pt:
             one: 1 proposta
             other: "%{count} propostas"
         edit:
+          attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
           select_a_category: Selecione uma categoria
           send: Enviar
@@ -297,7 +298,6 @@ pt:
           endorse: Endossar
         endorsements_card_row:
           comments: Comentários
-          endorse: Endossar
         filters:
           accepted: Aceitaram
           activity: Atividade

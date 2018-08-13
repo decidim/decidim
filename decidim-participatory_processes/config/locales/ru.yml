@@ -4,7 +4,7 @@ ru:
       participatory_process:
         announcement: Объявление
         banner_image: Изображение баннера
-        copy_categories: Скопировать разряды
+        copy_categories: Скопировать категории
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
@@ -13,12 +13,12 @@ ru:
         end_date: Дата окончания
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Местный участок
+        local_area: Участок организации
         meta_scope: Метаданные охвата
         participatory_process_group_id: Группа движений
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
-        promoted: Рекламируется
+        participatory_scope: Что решается
+        participatory_structure: Как это решается
+        promoted: Рекомендуется
         published_at: 'Обнародовано:'
         scope_id: Охват
         scopes_enabled: Охваты включены
@@ -27,7 +27,7 @@ ru:
         slug: Сокращенный веб-адрес
         start_date: Дата начала
         subtitle: Подзаголовок
-        target: Цель
+        target: Кто участвует
         title: Название
       participatory_process_group:
         description: Описание
@@ -88,7 +88,7 @@ ru:
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
-          categories: Разряды
+          categories: Категории
           components: Составляющие
           info: Сведения
           moderations: Действия по модерации
@@ -282,6 +282,9 @@ ru:
           form:
             announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Рекомендуемые движения
       index:
         title: Движения соучастия
       pages:
@@ -289,6 +292,8 @@ ru:
           highlighted_processes:
             active_processes: Действующие движения
             active_step: Действующий шаг
+            more_information: Дополнительные сведения
+            participate: Принять участие
             see_all_processes: Просмотреть все движения
       participatory_process_groups:
         none: Нет

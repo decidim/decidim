@@ -6,8 +6,8 @@ ca:
         description: Descripció
         offline_votes: Suports presencials
         scope_id: Abast
-        signature_end_time: Fi del període de recollida de signatures
-        signature_start_time: Inici del període de recollida de signatures
+        signature_end_date: Fi del període de recollida de signatures
+        signature_start_date: Inici del període de recollida de signatures
         signature_type: Tipus de recollida de la signatura
         signature_type_values:
           any: Mixta
@@ -181,6 +181,9 @@ ca:
           help_text: Estàs a punt de sol·licitar formar part del comitè promotor d'aquesta iniciativa
         spawn:
           success: La teva sol·licitud s'ha enviat a l'autor de la iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciatives destacades
       create_initiative:
         fill_data:
           back: Enrere

@@ -24,7 +24,7 @@ fi:
     components:
       debates:
         actions:
-          create: Luoda
+          create: Luo
         name: keskustelut
         settings:
           global:
