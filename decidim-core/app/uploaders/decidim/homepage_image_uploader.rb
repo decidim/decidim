@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This class deals with uploading hero images to ParticipatoryProcesses.
+  # This class deals with uploading hero images to organizations.
   class HomepageImageUploader < ImageUploader
     include CarrierWave::MiniMagick
 
