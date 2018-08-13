@@ -112,6 +112,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Spotkanie "%{resource_title}" zostało zaktualizowane
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zaktualizowane.
+        registration_code_validated:
+          email_intro: Twój kod rejestracyjny "%{registration_code}" został zatwierdzony.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twój kod rejestracyjny spotkania "%{resource_title}" został zatwierdzony.
+          email_subject: Twój kod rejestracyjny "%{registration_code}" został zatwierdzony
+          notification_title: Twój kod rejestracyjny "%{registration_code}" dla spotkania <a href="%{resource_path}">%{resource_title}</a> został zatwierdzony.
         registrations_enabled:
           email_intro: 'Spotkanie "%{resource_title}" umożliwiło rejestrację. Możesz zarejestrować się na swojej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
@@ -252,6 +257,8 @@ pl:
         registrations:
           edit:
             save: Zapisać
+            validate: Uprawomocnić
+            validate_registration_code: Zatwierdź kod rejestracyjny
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invites: Zaprasza
@@ -265,6 +272,9 @@ pl:
           update:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
+          validate_registration_code:
+            invalid: Ten kod rejestracyjny jest nieprawidłowy.
+            success: Kod rejestracyjny pomyślnie sprawdzony.
       admin_log:
         invite:
           create: "%{user_name} zaproszono %{attendee_name} aby dołączyć %{resource_name} spotkania na %{space_name} przestrzeni"

@@ -93,34 +93,6 @@ pt:
               must_be_ssl: O URI de redirecionamento deve ser um URI de SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imagem do banner
-        description: Descrição
-        developer_group: Grupo promotor
-        domain: Domínio
-        end_date: Data de fim
-        hashtag: Hashtag
-        hero_image: Imagem da página principal
-        local_area: Área municipal
-        meta_scope: Metadados do âmbito
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
-        promoted: Destacado
-        scope: Âmbito
-        short_description: Breve descrição
-        slug: Texto curto de URL
-        start_date: Data de início
-        subtitle: Subtítulo
-        target: Público alvo
-        title: Título
-      decidim/participatory_process_group:
-        description: Descrição
-        hero_image: Imagem inicial
-        name: Nome
-        participatory_processes: Processos participativos
-      decidim/participatory_process_step:
-        end_date: Data final
-        start_date: Data de início
       decidim/static_page:
         content: Conteúdo
         slug: Texto curto de URL
@@ -333,6 +305,7 @@ pt:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controlo
+        homepage: Pagina inicial
         impersonations: Imitações
         newsletters: Boletins informativos
         oauth_applications: Aplicações OAuth
@@ -526,6 +499,10 @@ pt:
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
           layout_appearance_title: Editar aparência do layout
           omnipresent_banner_appearance_title: Editar banner onipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativo
+          inactive_content_blocks: Blocos de conteúdo inativo
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.

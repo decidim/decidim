@@ -83,7 +83,7 @@ pt-BR:
           citizens: Cidadãos
           official: Oficial
           origin: Origem
-          search: Pesquisa
+          search: Procurar
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtro
@@ -92,12 +92,12 @@ pt-BR:
         index:
           new_debate: Novo debate
         new:
-          back: Costas
+          back: Voltar
           create: Criar
           select_a_category: Selecione uma categoria
           title: Novo debate
         share:
-          close_window: Janela fechada
+          close_window: Fechar janela
           share: Compartilhar
           share_link: Compartilhar link
       models:
