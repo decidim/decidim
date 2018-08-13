@@ -2,27 +2,27 @@ fi:
   activemodel:
     attributes:
       sortition:
-        additional_info: Lajitustiedot
+        additional_info: Satunnaistamistiedot
         decidim_category_id: Ehdotettujen ehdotusten luokat, joihin haluat tehdä vedon
         decidim_proposals_component_id: Ehdotukset asetettu
-        dice: Tulos rullasta. Suorita 6-puolinen kuolema tai etsi toinen satunnaisesti tapa luoda numero 1-6, ja kirjoita tähän tuloksena oleva luku osan todistajien edessä. Tämä edesauttaa tuloksen satunnaisuuden laatua ja takeita
-        target_items: Valittavien ehdotusten määrä (ilmoittaa valitsemiesi ehdotusten määrän tekemällä paljon aiemmin valitsemiesi ehdotusten ryhmää)
-        title: otsikko
-        witnesses: todistajat
+        dice: Noppaheiton tulos. Heitä kuusisivuista noppaa tai etsi toinen tapa luoda satunnaisesti numero 1-6, ja kirjoita tähän tuloksena saatu luku muutamien todistajien edessä. Tämä auttaa takamaan tuloksen satunnaisuuden
+        target_items: Valittavien ehdotusten määrä (ilmoittaa niiden ehdotusten lukumäärän, jotka haluat valita arpomalla kustakin aiemmin valitsemastasi ehdotusryhmästä)
+        title: Otsikko
+        witnesses: Todistajat
     models:
-      decidim/sortitions/create_sortition_event: Sortition
+      decidim/sortitions/create_sortition_event: Satunnaistaminen
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortition
+        one: Satunnaistaminen
         other: Sortitions
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Satunnaistaminen
         settings:
           global:
-            comments_enabled: Kommentit ovat käytössä
+            comments_enabled: Kommentointi sallittu
     events:
       sortitions:
         sortition_created:
