@@ -14,11 +14,23 @@ module Decidim
     #
     # Returns Html grid of CardM.
     def amendments_for(amendable)
-      cell "decidim/amendable/amendments_list", amendable.emendations, context: { current_user: current_user } if amendable.amendable?
+      content = content_tag :h2, class: "section-heading" do
+        t("section_heading", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
+      end
+
+      content += cell(
+        "decidim/collapsible_list",
+        amendable.emendations,
+        cell_options: { context: { current_user: current_user } },
+        list_class: "row small-up-1 medium-up-2 card-grid",
+        size: 4
+      ).to_s
+
+      content_tag :div, content.html_safe, class: "section"
     end
 
     def amenders_for(amendable)
-      amenders = amendable.amendments.map{ |amendment| present(amendment.amender) }.uniq
+      amendable.amendments.map { |amendment| present(amendment.amender) }.uniq
     end
 
     def amenders_list_for(amendable)
