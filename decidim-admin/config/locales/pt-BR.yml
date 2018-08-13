@@ -406,7 +406,7 @@ pt-BR:
             roles:
               admin: Admin
               user_manager: Gerente de usuário
-          name: Do utilizador
+          name: Usuário
         user_group:
           fields:
             actions: Ações
