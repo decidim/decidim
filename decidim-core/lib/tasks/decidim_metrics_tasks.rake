@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/metric_entity"
-
 namespace :decidim do
   namespace :metrics do
     # All ------
