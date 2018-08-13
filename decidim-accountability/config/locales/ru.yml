@@ -3,7 +3,7 @@ ru:
     attributes:
       result:
         decidim_accountability_status_id: Состояние
-        decidim_category_id: Разряд
+        decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
         end_date: Дата окончания
@@ -11,7 +11,7 @@ ru:
         project_ids: Включенные проекты
         proposals: Включенные предложения
         start_date: Дата начала
-        title: Название
+        title: Заголовок
         updated_at: 'Обновлено:'
       status:
         description: Описание
@@ -125,7 +125,7 @@ ru:
             progress: Продвижение
             start_date: Дата начала
             status: Состояние
-            title: Название
+            title: Заголовок
         status:
           fields:
             description: Описание
@@ -147,8 +147,8 @@ ru:
           all: Все
           scopes: Охваты
         home:
-          categories_label: Разряды
-          subcategories_label: Подразряды
+          categories_label: Категории
+          subcategories_label: Подкатегории
         home_header:
           global_status: Состояние общего исполнения
         nav_breadcrumb:
@@ -168,9 +168,9 @@ ru:
             proposals: Предложения
             show_all_versions: Показать все версии
             version_author: Автор версии
-            version_created_at: Версия, созданная на
-            version_number: Автор версии
-            version_number_out_of_total: "Шаг %{current_version} из %{total_count}"
+            version_created_at: 'Версия создана:'
+            version_number: Номер версии
+            version_number_out_of_total: "%{current_version} из %{total_count}"
             votes: Выражений поддержки
         timeline:
           title: Развитие проекта
@@ -187,13 +187,13 @@ ru:
         name: Отчетность
         settings:
           global:
-            categories_label: Название для "Разряды"
+            categories_label: Название для "Категории"
             comments_enabled: Комментарии включены
             display_progress_enabled: Показывать ход выполнения
             heading_leaf_level_results: Название для "Проекты"
             heading_parent_level_results: Название для "Итоги"
             intro: Вступление
-            subcategories_label: Название для "Подразряды"
+            subcategories_label: Название для "Подкатегории"
           step:
             comments_blocked: Комментарии отключены
     events:
