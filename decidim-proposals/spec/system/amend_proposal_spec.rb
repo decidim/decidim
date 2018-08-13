@@ -15,7 +15,7 @@ describe "Amend Proposal", type: :system do
       visit_component
 
       click_link proposal.title
-      expect(page).to have_no_button("Amend Proposal")
+      expect(page).to have_no_link("Amend Proposal")
     end
   end
 
@@ -33,7 +33,7 @@ describe "Amend Proposal", type: :system do
         click_link proposal.title
 
         within ".card__amend-button", match: :first do
-          click_button "Amend Proposal"
+          click_link "Amend Proposal"
         end
 
         expect(page).to have_css("#loginModal", visible: true)
