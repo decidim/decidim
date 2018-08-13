@@ -266,6 +266,8 @@ fi:
         endorsement_button:
           already_endorsed: Myönteinen
           endorse: hyväksyä
+        render_endorsements_button_card_part:
+          endorse: hyväksyä
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
@@ -275,8 +277,6 @@ fi:
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:
-          attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse kategoria
           send: Lähettää
           title: Suorita ehdotuksesi
         count:
@@ -284,6 +284,7 @@ fi:
             one: 1 ehdotus
             other: "%{count} ehdotusta"
         edit:
+          attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           select_a_category: Valitse kategoria
           send: Lähetä
@@ -297,7 +298,6 @@ fi:
           endorse: hyväksyä
         endorsements_card_row:
           comments: Kommentit
-          endorse: hyväksyä
         filters:
           accepted: Hyväksytty
           activity: Aktiivisuus

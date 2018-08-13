@@ -13,11 +13,11 @@ sv:
         end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Hembild
-        local_area: Lokalt område
+        local_area: Organisationsområde
         meta_scope: Omfattning metadata
         participatory_process_group_id: Processgrupp
-        participatory_scope: Deltagande räckvidd
-        participatory_structure: Deltagande struktur
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur bestäms det
         promoted: främjas
         published_at: Publicerad på
         scope_id: Omfattning
@@ -27,7 +27,7 @@ sv:
         slug: URL slug
         start_date: Startdatum
         subtitle: Underrubrik
-        target: Mål
+        target: Vem deltar
         title: Titel
       participatory_process_group:
         description: Beskrivning
@@ -274,6 +274,9 @@ sv:
           form:
             announcement_help: Texten du anger här visas för användaren precis nedanför processinformationen.
             slug_help: 'URL-slitsar används för att generera de URL-adresser som pekar på denna process. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Markerade processer
       index:
         title: Deltagande processer
       pages:
@@ -281,6 +284,8 @@ sv:
           highlighted_processes:
             active_processes: Aktiva processer
             active_step: Aktivt steg
+            more_information: Mer information
+            participate: Delta
             see_all_processes: Se alla processer
       participatory_process_groups:
         none: Ingen

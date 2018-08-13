@@ -209,11 +209,25 @@ ru:
             comments_enabled: Комментарии включены
             dummy_global_attribute_1: Пример свойства 1
             dummy_global_attribute_2: Пример свойства 2
+            resources_permissions_enabled: Разрешения ресурсов включены
           step:
             comments_blocked: Комментарии отключены
             dummy_step_attribute_1: Пример 1 свойства шага
             dummy_step_attribute_2: Пример 2 свойства шага
     contact: Связаться
+    content_blocks:
+      footer_sub_hero:
+        name: Нижний колонтитул под-богатырского баннера
+      hero:
+        name: Богатырское изображение
+      highlighted_content_banner:
+        name: Баннер рекомендуемого содержимого
+      how_to_participate:
+        name: Как принять участие
+      stats:
+        name: Статистика организации
+      sub_hero:
+        name: Под-богатырский баннер
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
@@ -237,7 +251,7 @@ ru:
       registrations:
         new:
           already_have_an_account?: У вас уже есть учетная запись?
-          newsletter: Получать время от времени рассылку с новостями
+          newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
           nickname_help: Ваш короткий, уникальный псевдоним в %{organization}
           sign_in: Войти
@@ -325,7 +339,7 @@ ru:
     filters:
       linked_classes:
         all: Все
-        dummyresource: Примеры ресурсов
+        dummy_resource: Примеры ресурсов
         meeting: Встречи
         project: Проекты
         proposal: Предложения
@@ -408,13 +422,13 @@ ru:
         create:
           error: Беседа не началась. Попробуйте позже
         index:
+          from: От
+          last_message_html: Последнее сообщение <strong>%{time} тому</strong>
           no_conversations: У вас еще нет бесед
-          title: Беседа с
-        reply:
-          send: Отправить
-          title: Ответить
         show:
-          title: Беседа с %{usernames}
+          conversation_with_html: Беседа с <strong>%{name}</strong>
+          reply: Ответить
+          send: Отправить
         start:
           send: Отправить
           title: Начать беседу
@@ -527,6 +541,7 @@ ru:
     profiles:
       default_officialization_text: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
       show:
+        conversations: Беседы
         followers: Читают
         following: Следит за
         notifications: Уведомления
@@ -609,6 +624,7 @@ ru:
       invitation_instructions:
         accept: Принять приглашение
         accept_until: Срок действия этого приглашения закончится %{due_date}.
+        decline: Отклонить приглашение
         hello: Здравствуйте, %{email}!
         ignore: |-
           Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой псевдоним и пароль.
@@ -644,7 +660,7 @@ ru:
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
       long_words: содержит слишком длинные слова
       must_start_with_caps: должно начинаться с заглавных букв
-      nesting_too_deep: не может быть внутри подразряда
+      nesting_too_deep: не может быть внутри подкатегории
       too_many_marks: содержит слишком много знаков вопроса или восклицания
       too_much_caps: содержит слишком много заглавных букв
       too_short: слишком короткое
@@ -659,6 +675,8 @@ ru:
         description_html: На этом сайте используются файлы "куки". Продолжая просматривать сайт, вы соглашаетесь на использование файлов "куки". Узнайте об этом больше %{link}.
         link_label: здесь
         ok: Я согласен
+      edit_link:
+        edit: Редактировать
       footer:
         made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
       header:
