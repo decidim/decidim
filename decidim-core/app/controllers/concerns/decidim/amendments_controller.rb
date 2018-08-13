@@ -28,14 +28,11 @@ module Decidim
       end
     end
 
-    def reject
-    end
+    def reject; end
 
-    def review
-    end
+    def review; end
 
-    def accept
-    end
+    def accept; end
 
     def amendable_gid
       params[:amendable_gid]
