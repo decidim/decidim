@@ -13,11 +13,11 @@ ca:
         end_date: Data de finalització
         hashtag: Hashtag
         hero_image: Imatge de portada
-        local_area: Àrea municipal
+        local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
         participatory_process_group_id: Grup de processos
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        participatory_scope: El que es decideix
+        participatory_structure: Com es decideix
         promoted: Destacat
         published_at: Publicat el
         scope_id: Àmbit
@@ -27,7 +27,7 @@ ca:
         slug: Nom curt d'URL
         start_date: Data d'inici
         subtitle: Subtítol
-        target: A qui va dirigit
+        target: Qui participa
         title: Títol
       participatory_process_group:
         description: Descripció
@@ -274,6 +274,9 @@ ca:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a l'usuari just a sota de la informació del procés.
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processos destacats
       index:
         title: Processos participatius
       pages:
@@ -281,6 +284,8 @@ ca:
           highlighted_processes:
             active_processes: Processos actius
             active_step: Pas actiu
+            more_information: Més informació
+            participate: Participa
             see_all_processes: Veure tots els processos
       participatory_process_groups:
         none: Cap
