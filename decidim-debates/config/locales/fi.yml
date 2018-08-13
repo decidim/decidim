@@ -14,18 +14,18 @@ fi:
     models:
       decidim/debates/create_debate_event: Keskustelu
       decidim/debates/creation_disabled_event: Keskustelut poistettu käytöstä
-      decidim/debates/creation_enabled_event: Keskustelut käytössä
+      decidim/debates/creation_enabled_event: Väittelyt käytössä
   activerecord:
     models:
       decidim/debates/debate:
-        one: Keskustelu
-        other: keskustelut
+        one: Väittely
+        other: Väittelyt
   decidim:
     components:
       debates:
         actions:
           create: Luoda
-        name: keskustelut
+        name: Väittelyt
         settings:
           global:
             announcement: Ilmoitus
