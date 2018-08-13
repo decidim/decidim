@@ -9,7 +9,7 @@ ru:
         closing_date: Дата закрытия
         closing_date_reason: Причина даты закрытия
         composition: Состав
-        copy_categories: Скопировать разряды
+        copy_categories: Скопировать категории
         copy_components: Копировать составляющие
         copy_features: Копировать составляющие
         created_by: 'Автор:'
@@ -35,7 +35,7 @@ ru:
         participatory_scope: Что решается
         participatory_structure: Как это решается
         private_space: Частное пространство
-        promoted: Рекламируется
+        promoted: Рекомендуется
         published_at: 'Обнародовано:'
         purpose_of_action: Цель действия
         scope_id: Охват
@@ -160,7 +160,7 @@ ru:
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
-          categories: Разряды
+          categories: Категории
           components: Составляющие
           info: Сведения
           moderations: Действия по модерации
