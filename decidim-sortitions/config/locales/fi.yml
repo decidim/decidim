@@ -7,8 +7,8 @@ fi:
         decidim_proposals_component_id: Ehdotukset asetettu
         dice: Noppaheiton tulos. Heitä kuusisivuista noppaa tai etsi toinen tapa luoda satunnaisesti numero 1-6, ja kirjoita tähän tuloksena saatu luku muutamien todistajien edessä. Tämä auttaa takamaan tuloksen satunnaisuuden
         target_items: Valittavien ehdotusten määrä (ilmoittaa valitsemiesi ehdotusten määrän tekemällä paljon aiemmin valitsemiesi ehdotusten ryhmää)
-        title: otsikko
-        witnesses: todistajat
+        title: Otsikko
+        witnesses: Todistajat
     models:
       decidim/sortitions/create_sortition_event: Sortition
   activerecord:
