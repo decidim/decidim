@@ -29,11 +29,11 @@ it:
         instagram: Instagram
         internal_organisation: Organizzazione interna
         is_transparent: È trasparente
-        local_area: Municipi
+        local_area: Area organizzativa
         meta_scope: Metadati di ambito
         participatory_processes_ids: Processi partecipativi correlati
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         private_space: Spazio privato
         promoted: Promosso
         published_at: Pubblicato a
@@ -45,7 +45,7 @@ it:
         slug: URL slug
         special_features: Caratteristiche speciali
         subtitle: Sottotitolo
-        target: Target
+        target: Chi partecipa
         title: Titolo
         twitter: cinguettio
         youtube: Youtube
@@ -247,6 +247,9 @@ it:
         others: Altri
         participatory: Participatory
         working_group: Gruppo di lavoro
+      content_blocks:
+        highlighted_assemblies:
+          name: Assiemi evidenziati
       created_by:
         city_council: Consiglio comunale
         others: Altri
@@ -277,9 +280,9 @@ it:
         is_transparent:
           'false': opaco
           'true': trasparente
-        local_area: Municipi
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        local_area: Area organizzativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         private_space: Questo è un assemblaggio privato
         purpose_of_action: Scopo dell'azione
         read_less: Leggi di meno
@@ -287,7 +290,7 @@ it:
         related_participatory_processes: Processi partecipativi correlati
         scope: Objetivos
         social_networks: Social networks
-        target: A chi è destinato il processo?
+        target: Chi partecipa
       statistics:
         answers_count: risposte
         assemblies_count: assemblee
