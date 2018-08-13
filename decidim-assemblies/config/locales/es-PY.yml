@@ -29,11 +29,11 @@ es-PY:
         instagram: Instagram
         internal_organisation: Organización interna
         is_transparent: Es transparente
-        local_area: Áreas municipales
+        local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_processes_ids: Procesos participativos relacionados
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         private_space: Espacio privado
         promoted: Destacado
         published_at: Publicado
@@ -45,7 +45,7 @@ es-PY:
         slug: Texto corto de URL
         special_features: Características especiales
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
+        target: Quién participa
         title: Título
         twitter: Twitter
         youtube: Youtube
@@ -247,6 +247,9 @@ es-PY:
         others: Otros
         participatory: Participativo
         working_group: Grupo de trabajo
+      content_blocks:
+        highlighted_assemblies:
+          name: Asambleas destacadas
       created_by:
         city_council: Ayuntamiento
         others: Otros
@@ -277,9 +280,9 @@ es-PY:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Áreas municipales
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        local_area: Área de organización
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         private_space: Esta es una asamblea privada
         purpose_of_action: Propósito de la acción
         read_less: Leer menos
@@ -287,7 +290,7 @@ es-PY:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        target: '¿A quién va dirigida?'
+        target: Quién participa
       statistics:
         answers_count: Respuestas
         assemblies_count: Asambleas
