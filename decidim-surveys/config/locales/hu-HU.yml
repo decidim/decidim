@@ -1,0 +1,115 @@
+hu:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Válasz
+      survey_question:
+        mandatory: Kötelező
+        max_choices: Maximális választási lehetőségek száma
+        question_type: típus
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: nem teljesek
+              too_many: túl sok
+    models:
+      decidim/surveys/closed_survey_event: A felmérés véget ért
+      decidim/surveys/opened_survey_event: Felmérés indult
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Felmérés
+        other: Felmérések
+      decidim/surveys/survey_answer:
+        one: Válasz
+        other: válaszok
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Válasz
+        name: Felmérés
+        settings:
+          global:
+            announcement: Közlemény
+          step:
+            allow_answers: Válaszok megadása
+            announcement: Közlemény
+    events:
+      surveys:
+        survey_closed:
+          email_intro: A %{resource_title} az %{participatory_space_title} végzett felmérés lezárult.
+          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+          email_subject: A felmérés befejeződött %{participatory_space_title}
+          notification_title: A felmérés <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> ben befejeződött.
+        survey_opened:
+          email_intro: 'A %{resource_title} az %{participatory_space_title} végzett felmérés most nyitva van. Ezen az oldalon részt vehet:'
+          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+          email_subject: Új felmérés %{participatory_space_title}
+          notification_title: A felmérés <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> már nyitva van.
+    forms:
+      errors:
+        survey_answer:
+          body: A test nem lehet üres
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Felmérés felhasználói válaszok
+        models:
+          components:
+            description: Leírás
+            tos: Szolgáltatás feltételei
+        surveys:
+          answer_option:
+            answer_option: Válasz opció
+            free_text: Ingyenes szöveg
+            remove: eltávolít
+            statement: Nyilatkozat
+          edit:
+            save: Mentés
+            title: Cím
+          form:
+            add_question: Kérdés hozzáadása
+            already_answered_warning: A felmérést már néhány felhasználó válaszolta, így nem változtathatja meg kérdéseit.
+          question:
+            add_answer_option: Válasz opció hozzáadása
+            any: Bármilyen
+            description: Leírás
+            down: Le
+            question: Kérdés
+            remove: eltávolít
+            statement: Nyilatkozat
+            up: Fel
+          update:
+            invalid: Hiba történt a felmérés mentésekor.
+            success: A felmérés sikeresen mentett.
+      question_types:
+        long_answer: Hosszú válasz
+        multiple_option: Több lehetőség
+        short_answer: Rövid válasz
+        single_option: Egy lehetőség
+        sorting: Válogatás
+      surveys:
+        answer:
+          invalid: Hiba történt a felmérés során.
+          success: A felmérés sikeresen felelt.
+        question:
+          max_choices: 'Max választás: %{n}'
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Jelentkezzen be fiókjához</a> vagy <a href="%{sign_up_link}">feliratkozáshoz</a> hogy válaszoljon a felmérésre.
+            title: Válaszolj a felmérésre
+          are_you_sure: Ez a művelet nem vonható vissza, és nem tudja szerkeszteni a válaszokat. biztos vagy ebben?
+          submit: beküldése
+          survey_answered:
+            body: Ön már válaszolt erre a felmérésre.
+            title: Felmérés válaszolt
+          survey_closed:
+            body: A felmérés zárva van, és nem lehet válaszolni.
+            title: A felmérés lezárult
+          survey_for_private_users:
+            body: A felmérés csak privát felhasználók számára elérhető
+            title: A felmérés lezárult
+          tos_agreement: A felmérésben való részvétellel elfogadja az Általános Szerződési Feltételeit
