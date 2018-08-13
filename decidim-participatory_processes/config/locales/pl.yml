@@ -13,11 +13,11 @@ pl:
         end_date: Data zakończenia
         hashtag: Hasztag
         hero_image: Obraz w domu
-        local_area: Okolica
+        local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
-        participatory_scope: Zakres partycypacji
-        participatory_structure: Struktura partycypacji
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
         promoted: Lansowany
         published_at: Opublikowano na
         scope_id: Zakres
@@ -27,7 +27,7 @@ pl:
         slug: Ślimak URL
         start_date: Data rozpoczęcia
         subtitle: Podtytuł
-        target: Cel
+        target: Kto uczestniczy
         title: Tytuł
       participatory_process_group:
         description: Opis
@@ -282,6 +282,9 @@ pl:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Wyróżnione procesy
       index:
         title: Procesy partycypacyjne
       pages:
@@ -289,6 +292,8 @@ pl:
           highlighted_processes:
             active_processes: Aktywne procesy
             active_step: Aktywny krok
+            more_information: Więcej informacji
+            participate: Uczestniczyć
             see_all_processes: Zobacz wszystkie procesy
       participatory_process_groups:
         none: Brak
