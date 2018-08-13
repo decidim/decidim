@@ -3,7 +3,7 @@ ru:
     attributes:
       project:
         budget: Бюджет
-        decidim_category_id: Разряд
+        decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
         proposal_ids: Подобные предложения
@@ -23,6 +23,7 @@ ru:
         confirm_destroy: Вы действительно хотите удалить этот проект?
         destroy: Удалить
         edit: Редактировать
+        import: Внести в проекты позаимствованные предложения
         new: Новый проект
         preview: Предпросмотр
         title: Действия
@@ -49,6 +50,14 @@ ru:
           update:
             invalid: При попытке обновить этот проект произошла ошибка
             success: Проект успешно обновлен
+        proposals_imports:
+          create:
+            invalid: При попытке позаимствовать эти предложения в проекты произошла ошибка
+            success: "%{number} предложений успешно позаимствованы для проектов"
+          new:
+            create: Внести в проекты позаимствованные предложения
+            no_components: В этом пространстве соучастия нет других составляющих предложений, куда можно было бы внести позаимствованные предложения.
+            select_component: Пожалуйста, выберите составляющую
       admin_log:
         project:
           create: "%{user_name} создал проект %{resource_name} в пространстве %{space_name}"
@@ -86,8 +95,8 @@ ru:
             many: "%{count} проектов"
             other: "%{count} проектов"
         filters:
-          category: Разряд
-          category_prompt: Выберите разряд
+          category: Категория
+          category_prompt: Выберите категорию
           search: Поиск
         filters_small_view:
           close_modal: Закрыть окошко
@@ -129,6 +138,7 @@ ru:
             announcement: Объявление
             comments_enabled: Комментарии включены
             projects_per_page: Проектов на страницу
+            resources_permissions_enabled: Для каждой встречи можно задать те или иные разрешения на действия
             total_budget: Общий бюджет
             vote_threshold_percent: Минимальный процент бюджета для голосования
           step:
