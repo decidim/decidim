@@ -13,11 +13,11 @@ it:
         end_date: Data di fine
         hashtag: Hashtag
         hero_image: Immagine della Home Page
-        local_area: Municipi
+        local_area: Area organizzativa
         meta_scope: Metadati di ambito
         participatory_process_group_id: Gruppo di processi
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         promoted: Promossa
         published_at: Pubblicato a
         scope_id: Objetivos
@@ -27,7 +27,7 @@ it:
         slug: URL slug
         start_date: Date di inizio
         subtitle: Sottotitolo
-        target: A chi è destinato il processo?
+        target: Chi partecipa
         title: Nome
       participatory_process_group:
         description: Descrizione
@@ -274,6 +274,9 @@ it:
           form:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processi evidenziati
       index:
         title: Processi partecipativi
       pages:
@@ -281,6 +284,8 @@ it:
           highlighted_processes:
             active_processes: Processi attivi
             active_step: Passo attivo
+            more_information: Maggiori informazioni
+            participate: Partecipare
             see_all_processes: Vedere tutti i processi
       participatory_process_groups:
         none: Nessuno
