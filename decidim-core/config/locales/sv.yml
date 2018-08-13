@@ -205,6 +205,19 @@ sv:
             dummy_step_attribute_1: Dummy Step Attribut 1
             dummy_step_attribute_2: Dummy Step Attribut 2
     contact: Kontakt
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      hero:
+        name: Hjälten bild
+      highlighted_content_banner:
+        name: Markerad innehållsbanner
+      how_to_participate:
+        name: Hur man deltar
+      stats:
+        name: Organisationsstatistik
+      sub_hero:
+        name: Underhjälte banner
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
@@ -321,7 +334,7 @@ sv:
     filters:
       linked_classes:
         all: Alla
-        dummyresource: Dummy resurser
+        dummy_resource: Dummy resurser
         meeting: Möten
         project: Projekt
         proposal: Förslag
@@ -404,13 +417,13 @@ sv:
         create:
           error: Samtalet startade inte. Försök igen senare
         index:
+          from: Från
+          last_message_html: Senast meddelande <strong>%{time} sedan</strong>
           no_conversations: Du har inga konversationer än
-          title: Konversationer
-        reply:
-          send: Skicka
-          title: Svara
         show:
-          title: Samtal med %{usernames}
+          conversation_with_html: Samtal med <strong>%{name}</strong>
+          reply: Svara
+          send: Skicka
         start:
           send: Skicka
           title: Starta en konversation
@@ -523,6 +536,7 @@ sv:
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
+        conversations: samtal
         followers: anhängare
         following: följer
         notifications: anmälningar
@@ -657,6 +671,8 @@ sv:
         description_html: Denna webbplats använder cookies. Genom att fortsätta att surfa på webbplatsen godkänner du vår användning av cookies. Läs mer om det %{link}.
         link_label: här
         ok: Jag godkänner
+      edit_link:
+        edit: Redigera
       footer:
         made_with_open_source: Webbplats gjord med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
