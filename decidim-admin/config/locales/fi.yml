@@ -93,34 +93,6 @@ fi:
               must_be_ssl: 'Uudelleenohjaus URI: n on oltava SSL-URI'
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Bannerikuva
-        description: Kuvaus
-        developer_group: Promoottoriryhmä
-        domain: Toimintaympäristö
-        end_date: Lopetusaika
-        hashtag: Hashtag
-        hero_image: Etusivun kuva
-        local_area: Paikallisalue
-        meta_scope: Kontekstin metatiedot
-        participatory_scope: Osallistumisprosessi
-        participatory_structure: Osallistumisprosessin rakenne
-        promoted: Korostettu
-        scope: Konteksti
-        short_description: Lyhyt kuvaus
-        slug: URL-tunniste
-        start_date: Aloitusaika
-        subtitle: Alaotsikko
-        target: Kohde
-        title: Otsikko
-      decidim/participatory_process_group:
-        description: Kuvaus
-        hero_image: Etusivun kuva
-        name: Nimi
-        participatory_processes: Osallistumisprosessit
-      decidim/participatory_process_step:
-        end_date: Päättymisaika
-        start_date: Aloitusaika
       decidim/static_page:
         content: Sisältö
         slug: URL-tunniste
@@ -333,6 +305,7 @@ fi:
         areas: alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
+        homepage: kotisivu
         impersonations: huumorinsa
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
@@ -526,6 +499,10 @@ fi:
           homepage_highlighted_content_banner_title: Korkeatasoinen sisältöbanneri
           layout_appearance_title: Muokkaa sivupohjan ulkoasua
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktiiviset sisältöblokit
+          inactive_content_blocks: Ei-aktiiviset sisältöblokit
       participatory_space_private_users:
         create:
           error: Yksityishenkilöä oli lisätty tähän osallistuvaan tilaan.

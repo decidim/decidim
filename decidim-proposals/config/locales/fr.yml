@@ -266,6 +266,8 @@ fr:
         endorsement_button:
           already_endorsed: Soutenue
           endorse: Soutenir
+        render_endorsements_button_card_part:
+          endorse: Endosser
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -275,8 +277,6 @@ fr:
           no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-          select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Complétez votre proposition
         count:
@@ -284,6 +284,7 @@ fr:
             one: 1 proposition
             other: "%{count} propositions"
         edit:
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
@@ -297,7 +298,6 @@ fr:
           endorse: Soutenir
         endorsements_card_row:
           comments: Commentaires
-          endorse: Soutenir
         filters:
           accepted: Retenues
           activity: Activité

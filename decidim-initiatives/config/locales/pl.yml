@@ -6,8 +6,8 @@ pl:
         description: Opis
         offline_votes: Wsparcie twarzą w twarz
         scope_id: Zakres
-        signature_end_time: Koniec okresu zbierania podpisu
-        signature_start_time: Początek okresu zbierania podpisu
+        signature_end_date: Koniec okresu zbierania podpisu
+        signature_start_date: Początek okresu zbierania podpisu
         signature_type: Typ kolekcji podpisu
         signature_type_values:
           any: Mieszany
@@ -187,6 +187,9 @@ pl:
           help_text: Zamierzasz poprosić o członkostwo w komitecie promującym tę inicjatywę
         spawn:
           success: Twoja prośba została wysłana do autora inicjatywy.
+      content_blocks:
+        highlighted_initiatives:
+          name: Wyróżnione inicjatywy
       create_initiative:
         fill_data:
           back: Plecy

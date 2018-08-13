@@ -13,11 +13,11 @@ fi:
         end_date: Päättymisaika
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        local_area: Paikallisalue
+        local_area: Organisaatioalue
         meta_scope: Kontekstin metadata
         participatory_process_group_id: Prosessiryhmä
-        participatory_scope: Osallistumisprosessin konteksti
-        participatory_structure: Osallistumisprosessin rakenne
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         promoted: Korostettu
         published_at: Julkaistu osoitteessa
         scope_id: Konteksti
@@ -27,7 +27,7 @@ fi:
         slug: URL-tunniste
         start_date: Aloitusaika
         subtitle: Alaotsikko
-        target: Kohde
+        target: Kuka osallistuu
         title: Otsikko
       participatory_process_group:
         description: Kuvaus
@@ -274,6 +274,9 @@ fi:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Korostetut prosessit
       index:
         title: Osallistumisprosessit
       pages:
@@ -281,6 +284,8 @@ fi:
           highlighted_processes:
             active_processes: Aktiiviset prosessit
             active_step: Aktiivinen vaihe
+            more_information: Lisää tietoa
+            participate: Osallistua
             see_all_processes: Näytä kaikki prosessit
       participatory_process_groups:
         none: Ei ryhmää

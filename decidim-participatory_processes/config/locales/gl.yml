@@ -13,11 +13,11 @@ gl:
         end_date: Data de finalización
         hashtag: Etiqueta
         hero_image: Imaxe na casa
-        local_area: Área local
+        local_area: Área de organización
         meta_scope: Metadatos de ámbito
         participatory_process_group_id: Grupo de procesos
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
         promoted: Promocionado
         published_at: Publicado en
         scope_id: Alcance
@@ -27,7 +27,7 @@ gl:
         slug: URL slug
         start_date: Data de inicio
         subtitle: Subtítulo
-        target: Obxectivo
+        target: Quen participa
         title: Título
       participatory_process_group:
         description: Descrición
@@ -274,6 +274,9 @@ gl:
           form:
             announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Procesos destacados
       index:
         title: Procesos participativos
       pages:
@@ -281,6 +284,8 @@ gl:
           highlighted_processes:
             active_processes: Procesos activos
             active_step: Paso activo
+            more_information: Máis información
+            participate: Participar
             see_all_processes: Ver todos os procesos
       participatory_process_groups:
         none: Nada

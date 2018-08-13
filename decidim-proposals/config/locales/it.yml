@@ -266,6 +266,8 @@ it:
         endorsement_button:
           already_endorsed: approvato
           endorse: Approvare
+        render_endorsements_button_card_part:
+          endorse: Approvare
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
@@ -275,8 +277,6 @@ it:
           no_similars_found: Molto bene! Non sono state trovate proposte simili
           title: Proposte simili
         complete:
-          attachment_legend: "(Opzionale) Aggiungi un allegato"
-          select_a_category: Si prega di selezionare una categoria
           send: Inviare
           title: Completa la tua proposta
         count:
@@ -284,6 +284,7 @@ it:
             one: 1 proposta
             other: "%{count} proposte"
         edit:
+          attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
           select_a_category: Seleziona una categoria
           send: Inviare
@@ -297,7 +298,6 @@ it:
           endorse: Approvare
         endorsements_card_row:
           comments: Commenti
-          endorse: Approvare
         filters:
           accepted: Accettata
           activity: Attività

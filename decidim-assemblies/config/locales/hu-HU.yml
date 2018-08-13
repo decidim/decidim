@@ -1,0 +1,344 @@
+hu:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Terület
+        assembly_type: Szerelési típus
+        assembly_type_other: Más típusú összeszerelés
+        banner_image: Banner kép
+        closing_date: Zárás dátuma
+        closing_date_reason: Zárás dátuma ok
+        composition: Összetétel
+        copy_categories: Másolási kategóriák
+        copy_components: Másoljon komponenseket
+        copy_features: Másolási funkciók
+        created_by: Készítette
+        created_by_other: Más által létrehozott
+        creation_date: A létrehozás dátuma
+        decidim_area_id: Terület
+        decidim_scope_id: terület
+        description: Leírás
+        developer_group: Promóciós csoport
+        domain: Domain
+        duration: tartam
+        facebook: Facebook
+        github: GitHub
+        hashtag: Kettőskereszt
+        hero_image: Kezdő kép
+        included_at: Tartalmazza a
+        instagram: Instagram
+        internal_organisation: Belső szervezet
+        is_transparent: Átlátható
+        local_area: Szervezeti terület
+        meta_scope: Hatály metaadatok
+        participatory_processes_ids: Kapcsolódó Résztvevő folyamatok
+        participatory_scope: Mi a döntés
+        participatory_structure: Hogyan döntenek?
+        private_space: Privát szféra
+        promoted: promotált
+        published_at: Megjelent a
+        purpose_of_action: A cselekvés célja
+        scope_id: terület
+        scopes_enabled: A hatókör engedélyezett
+        short_description: Rövid leírás
+        show_statistics: Statisztikák megjelenítése
+        slug: URL slug
+        special_features: Különleges képességek
+        subtitle: Felirat
+        target: Ki részt vesz
+        title: Cím
+        twitter: Twitter
+        youtube: Youtube
+      assembly_member:
+        birthday: Születésnap
+        birthplace: születési hely
+        ceased_date: Megszűnt dátum
+        designation_date: A kijelölés dátuma
+        designation_mode: Megnevezés üzemmód
+        full_name: Teljes név
+        gender: nem
+        position: Pozíció
+      assembly_user_role:
+        email: Email
+        name: Név
+        role: Szerep
+  activerecord:
+    models:
+      decidim/assembly:
+        one: gyülekezés
+        other: szerelvények
+      decidim/assembly_member:
+        one: Közgyűlés tagja
+        other: A közgyűlés tagjai
+      decidim/assembly_user_role:
+        one: Összeszerelési felhasználói szerepkör
+        other: Összeszerelési felhasználói szerepek
+  decidim:
+    admin:
+      actions:
+        new_assembly: Új összeszerelés
+      assemblies:
+        create:
+          error: Hiba történt új összeszerelés létrehozása közben.
+          success: A közgyűlés sikeresen létrehozva.
+        destroy:
+          success: A telepítés sikeresen törölve.
+        edit:
+          update: frissítés
+        form:
+          title: Általános információ
+        index:
+          not_published: Nem publikált
+          private: Magán
+          public: Nyilvános
+          published: Közzétett
+        new:
+          create: Teremt
+          title: Új összeszerelés
+        update:
+          error: Hiba történt a telepítés frissítésekor.
+          success: A közgyűlés sikeresen frissült.
+      assemblies_copies:
+        create:
+          error: Hiba történt a rendszer másolása során.
+          success: Az összeállítás sikeresen megismétlődött.
+      assembly_copies:
+        new:
+          copy: Másolat
+          select: Válassza ki, mely adatokat szeretné megismételni
+          title: Duplikált összeszerelés
+      assembly_members:
+        create:
+          error: Hiba történt a rendszer tagjainak hozzáadása céljából.
+          success: A tag sikeresen létrehozta ezt a gyülekezetet.
+        destroy:
+          success: A tag sikeresen törölve lett a rendszerhez.
+        edit:
+          title: Az összeszerelő elem frissítése.
+          update: frissítés
+        index:
+          assembly_members_title: A közgyűlés tagjai
+        new:
+          create: Teremt
+          title: Új szerelőtag.
+        update:
+          error: Hiba történt a rendszer tagjainak frissítéséhez.
+          success: Tag sikeresen frissült a gyülekezet számára.
+      assembly_publications:
+        create:
+          error: Hiba történt a közgyűlés közzétételében.
+          success: A közgyűlés sikeresen közzétett.
+        destroy:
+          error: Hiba történt az összeállítás közzétételének visszavonása nélkül.
+          success: A közgyűlés sikeresen közzétett.
+      assembly_user_roles:
+        create:
+          error: Hiba történt a rendszer felhasználói számára.
+          success: A felhasználó sikeresen felkerült a telepre.
+        destroy:
+          success: A felhasználó sikeresen eltávolításra került a rendszerből.
+        edit:
+          title: Az összeszerelő felhasználó frissítése.
+          update: frissítés
+        index:
+          assembly_admins_title: Összeszerelés felhasználók
+        new:
+          create: Teremt
+          title: Új összeszerelő felhasználó.
+        update:
+          error: Hiba történt a rendszer frissítéséhez.
+          success: A felhasználó sikeresen frissült az összeszerelésre.
+      menu:
+        assemblies: szerelvények
+        assemblies_submenu:
+          assembly_admins: Összeszerelés felhasználók
+          assembly_members: Belépés
+          attachment_collections: mappák
+          attachment_files: Files
+          attachments: Mellékletek
+          categories: Kategóriák
+          components: Alkatrészek
+          info: Info
+          moderations: moderálások
+          private_users: Magán felhasználók
+      models:
+        assembly:
+          fields:
+            created_at: 'Létrehozva:'
+            private: Magán
+            promoted: Legfontosabb
+            published: Közzétett
+            title: Cím
+          name: gyülekezés
+        assembly_member:
+          fields:
+            ceased_date: Megszűnt dátum
+            designation_date: A kijelölés dátuma
+            full_name: Név
+            position: Pozíció
+          name: Tag
+          positions:
+            other: Más
+            president: elnök
+            secretary: Titkár
+            vice_president: Alelnök
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Név
+            role: Szerep
+          name: Összeszerelési felhasználó
+          roles:
+            admin: Adminisztrátor
+            collaborator: Együttműködő
+            moderator: moderátor
+      titles:
+        assemblies: szerelvények
+    admin_log:
+      assembly:
+        create: "%{user_name} létrehozta az %{resource_name} szerelvényt"
+        publish: "%{user_name} közzétette az %{resource_name} szerelvényt"
+        unpublish: "%{user_name} nem publikált az %{resource_name} szerelvény"
+        update: "%{user_name} frissítette az %{resource_name} szerelvényt"
+      assembly_member:
+        create: "%{user_name} létrehozta az %{resource_name} tagot a %{space_name} összeállításban"
+        delete: "%{user_name} eltávolította az %{resource_name} tagot a %{space_name} szerelvényből"
+        update: "%{user_name} frissítette az %{resource_name} tagot a %{space_name} szerelvényben"
+      assembly_user_role:
+        create: "%{user_name} meghívott %{resource_name} a %{space_name} szerelvényre"
+        delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} szerelvényből"
+        update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} szerelvényben"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration_help: Ha a telepítés időtartama korlátozott, válassza ki a befejezés dátumát. Ellenkező esetben ez határozatlan marad.
+            included_at_help: Válassza ki azt a dátumot, amikor a telepítést hozzáadta a Decidimhez. Nem feltétlenül meg kell egyeznie a létrehozás időpontjával.
+            select_a_created_by: Válasszon ki egy létrehozott
+            select_an_area: Válasszon ki egy területet
+            select_an_assembly_type: Válasszon ki egy összeszerelési típust
+            slug_help: 'Az URL-csigákat használják az ezen összeszerelésre utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+            social_handlers: Társadalmi
+        assembly_copies:
+          form:
+            slug_help: 'Az URL-csigákat használják az ezen összeszerelésre utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+        assembly_members:
+          form:
+            existing_user: Létező felhasználó
+            non_user: Nem felhasználó
+            select_a_position: Válasszon ki egy pozíciót
+            select_user: Válasszon egy felhasználót
+            user_type: Felhasználó típusa
+          index:
+            filter:
+              all: Minden
+              ceased: Megszűnt
+              not_ceased: Nem szűnt meg
+            filter_by: Szűrés vlami alapján
+            search: Keresés
+      assembly_members:
+        index:
+          members: Belépés
+      assembly_types:
+        commission: Comission
+        consultative_advisory: Tanácsadó / tanácsadó
+        executive: Végrehajtó
+        government: Kormány
+        others: Egyéb
+        participatory: A részvételi
+        working_group: Munkacsoport
+      content_blocks:
+        highlighted_assemblies:
+          name: Kiemelt szerelvények
+      created_by:
+        city_council: Városi tanács
+        others: Egyéb
+        public: Nyilvános
+      index:
+        title: szerelvények
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktív szerelvények
+            see_all_assemblies: Lásd az összes szerelvényt
+        user_profile:
+          member_of:
+            member_of: Tagja valaminek
+      show:
+        area: Terület
+        assembly_type: Szerelési típus
+        children: szerelvények
+        closing_date: Zárás dátuma
+        composition: Összetétel
+        created_by: Készítette
+        creation_date: A létrehozás dátuma
+        developer_group: Promóciós csoport
+        duration: tartam
+        included_at: Tartalmazza a
+        indefinite_duration: Határozatlan
+        internal_organisation: Belső szervezet
+        is_transparent:
+          'false': áttetsző
+          'true': átlátszó
+        local_area: Szervezeti terület
+        participatory_scope: Mi a döntés
+        participatory_structure: Hogyan döntenek?
+        private_space: Ez egy magánegyesület
+        purpose_of_action: A cselekvés célja
+        read_less: Olvasson kevesebbet
+        read_more: Olvass tovább
+        related_participatory_processes: Kapcsolódó részvételi folyamatok
+        scope: terület
+        social_networks: Közösségi hálózatok
+        target: Ki részt vesz
+      statistics:
+        answers_count: válaszok
+        assemblies_count: szerelvények
+        comments_count: Hozzászólások
+        debates_count: viták
+        endorsements_count: Elismerések
+        headline: Tevékenység
+        meetings_count: találkozók
+        orders_count: szavazatok
+        pages_count: Oldalak
+        projects_count: projektek
+        proposals_count: javaslatok
+        results_count: Eredmények
+        surveys_count: Felmérések
+        users_count: résztvevők
+        votes_count: szavazatok
+    assembly_members:
+      assembly_member:
+        designated_on: Kijelölt
+      index:
+        title: Belépés
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Az összeállítás nem található az adatbázisban (ID: %{id})'
+    menu:
+      assemblies: szerelvények
+  errors:
+    messages:
+      cannot_be_blank: nem lehet üres
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Részt vesz
+        index:
+          promoted_assemblies: Kiemelt szerelvények
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} összeszerelést"
+            other: "%{count} szerelvényeket"
+        promoted_assembly:
+          more_info: Több információ
+          take_part: Részt vesz
+      assembly_header:
+        assembly_member_menu_item: Belépés
+        assembly_menu_item: Az összeszerelés
+        unfold: kibontakozik
+      assembly_widgets:
+        show:
+          take_part: Részt vesz

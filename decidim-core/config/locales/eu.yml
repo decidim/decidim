@@ -205,6 +205,19 @@ eu:
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Harremanetarako
+    content_blocks:
+      footer_sub_hero:
+        name: Oinaren azpi-heroiaren pankarta
+      hero:
+        name: Heroi irudia
+      highlighted_content_banner:
+        name: Nabarmendutako edukia banner
+      how_to_participate:
+        name: Nola parte hartu
+      stats:
+        name: Erakundearen estatistikak
+      sub_hero:
+        name: Sub heroi banner
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
@@ -321,7 +334,7 @@ eu:
     filters:
       linked_classes:
         all: Guztiak
-        dummyresource: Dummy baliabideak
+        dummy_resource: Dummy baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
         proposal: Proposamenak
@@ -404,13 +417,13 @@ eu:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
+          from: aurrera
+          last_message_html: Azken mezua <strong>%{time} ago</strong>
           no_conversations: Oraindik ez duzu elkarrizketarik
-          title: Elkarrizketak
-        reply:
-          send: Bidali
-          title: Erantzun
         show:
-          title: Elkarrizketa %{usernames} batera
+          conversation_with_html: Elkarrizketa <strong>%{name}</strong>
+          reply: Erantzun
+          send: Bidali
         start:
           send: Bidali
           title: Hasi elkarrizketa bat
@@ -523,6 +536,7 @@ eu:
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
+        conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
         notifications: jakinarazpenak
@@ -657,6 +671,8 @@ eu:
         description_html: 'Webgune honek bere cookieak eta hirugarrenenak erabiltzen ditu, nabigazioa hobetu eta intereseko edukiak eta zerbitzuak eskaintze aldera. Nabigatzen jarraituz gero, gure cookie-politika onartzen delakoan gaude. Argibide gehiago jasotzeko, kontsultatu hemen: %{link}.'
         link_label: hemen
         ok: Ados nago
+      edit_link:
+        edit: Editatu
       footer:
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
       header:

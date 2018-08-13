@@ -6,8 +6,8 @@ pt:
         description: Descrição
         offline_votes: Suporte face a face
         scope_id: Escopo
-        signature_end_time: Fim do período de coleta de assinaturas
-        signature_start_time: Início do período de coleta de assinaturas
+        signature_end_date: Fim do período de coleta de assinaturas
+        signature_start_date: Início do período de coleta de assinaturas
         signature_type: Tipo de coleta de assinatura
         signature_type_values:
           any: Misturado
@@ -181,6 +181,9 @@ pt:
           help_text: Você está prestes a pedir para se tornar membro do comitê de promotores desta iniciativa
         spawn:
           success: Sua solicitação foi enviada ao autor da iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: Costas

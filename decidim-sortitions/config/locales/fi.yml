@@ -5,7 +5,7 @@ fi:
         additional_info: Lajitustiedot
         decidim_category_id: Ehdotettujen ehdotusten luokat, joihin haluat tehdä vedon
         decidim_proposals_component_id: Ehdotukset asetettu
-        dice: Tulos rullasta. Suorita 6-puolinen kuolema tai etsi toinen satunnaisesti tapa luoda numero 1-6, ja kirjoita tähän tuloksena oleva luku osan todistajien edessä. Tämä edesauttaa tuloksen satunnaisuuden laatua ja takeita
+        dice: Noppaheiton tulos. Heitä kuusisivuista noppaa tai etsi toinen tapa luoda satunnaisesti numero 1-6, ja kirjoita tähän tuloksena saatu luku muutamien todistajien edessä. Tämä auttaa takamaan tuloksen satunnaisuuden
         target_items: Valittavien ehdotusten määrä (ilmoittaa valitsemiesi ehdotusten määrän tekemällä paljon aiemmin valitsemiesi ehdotusten ryhmää)
         title: otsikko
         witnesses: todistajat

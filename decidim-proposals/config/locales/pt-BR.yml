@@ -83,7 +83,7 @@ pt-BR:
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
-            votes_blocked: Votação bloqueada
+            votes_blocked: Votação desativada
             votes_enabled: Votação habilitada
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
     events:
@@ -260,11 +260,13 @@ pt-BR:
         create:
           error: Houve erros ao endossar a proposta.
         identities:
-          done: Feito
+          done: Concluído
           select_identity: Selecione a identidade
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Endossado
+          endorse: Endossar
+        render_endorsements_button_card_part:
           endorse: Endossar
       proposal_votes:
         create:
@@ -275,8 +277,6 @@ pt-BR:
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
         complete:
-          attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Selecione uma categoria
           send: Enviar
           title: Complete sua proposta
         count:
@@ -284,20 +284,20 @@ pt-BR:
             one: 1 proposta
             other: "%{count} propostas"
         edit:
+          attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
         edit_draft:
           discard: Descarte este rascunho
-          discard_confirmation: Tem certeza de que deseja descartar este rascunho da proposta?
+          discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
           send: Visualização
           title: Editar proposta de rascunho
         endorsement_identities_cabin:
           endorse: Endossar
         endorsements_card_row:
           comments: Comentários
-          endorse: Endossar
         filters:
           accepted: Aceitaram
           activity: Atividade
@@ -333,7 +333,7 @@ pt-BR:
         orders:
           label: 'Ordene propostas por:'
           most_voted: Mais votados
-          random: Aleatória
+          random: Aleatório
           recent: Recente
         preview:
           modify: Modificar a proposta

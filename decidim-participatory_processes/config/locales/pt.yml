@@ -13,11 +13,11 @@ pt:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área Local
+        local_area: Área de organização
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
         promoted: Destacado
         published_at: Publicado em
         scope_id: Âmbito
@@ -27,7 +27,7 @@ pt:
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
-        target: Alvo
+        target: Quem participa
         title: Título
       participatory_process_group:
         description: Descrição
@@ -274,6 +274,9 @@ pt:
           form:
             announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processos destacados
       index:
         title: Processos participativos
       pages:
@@ -281,6 +284,8 @@ pt:
           highlighted_processes:
             active_processes: Processos ativos
             active_step: Passo ativo
+            more_information: Mais Informações
+            participate: Participar
             see_all_processes: Ver todos os processos
       participatory_process_groups:
         none: Nenhum

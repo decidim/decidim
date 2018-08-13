@@ -93,34 +93,6 @@ it:
               must_be_ssl: L'URI di reindirizzamento deve essere un URI SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Immagine banner
-        description: Descrizione
-        developer_group: Gruppo promotore
-        domain: Dominio
-        end_date: Data di fine
-        hashtag: Hashtag
-        hero_image: Immagine sulla Home Page
-        local_area: Area locale
-        meta_scope: Metadati di ambito
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
-        promoted: Promossa
-        scope: Visibilità/ambito
-        short_description: Descrizione breve
-        slug: URL slug
-        start_date: Data di inizio
-        subtitle: Sottotitolo
-        target: Target
-        title: Titolo
-      decidim/participatory_process_group:
-        description: Descrizione
-        hero_image: Immagine della Home Page
-        name: Nome
-        participatory_processes: Processi partecipativi
-      decidim/participatory_process_step:
-        end_date: Data di fine
-        start_date: Date di inizio
       decidim/static_page:
         content: Contenuto
         slug: URL slug
@@ -333,6 +305,7 @@ it:
         areas: le zone
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
+        homepage: Homepage
         impersonations: impersonations
         newsletters: Newsletters
         oauth_applications: Applicazioni OAuth
@@ -526,6 +499,10 @@ it:
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
           layout_appearance_title: Modifica aspetto del layout
           omnipresent_banner_appearance_title: Modifica banner onnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocchi di contenuto attivo
+          inactive_content_blocks: Blocchi di contenuto inattivo
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
