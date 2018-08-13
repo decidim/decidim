@@ -8,6 +8,8 @@ module Decidim
       layout "decidim/admin/users"
 
       helper_method :user
+      helper Decidim::Messaging::ConversationHelper
+      helper OfficializationsHelper
 
       def index
         enforce_permission_to :read, :officialization
