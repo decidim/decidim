@@ -1,0 +1,28 @@
+hu:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: 'Létrehozva:'
+        field: A mezőm
+        start_date: Kezdő dátum
+        title: Cím
+        updated_at: 'Frissítve:'
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    pages:
+      home:
+        statistics:
+          bar: Bár
+          dummies_count_high: Dummies magas
+          dummies_count_medium: Dummies medium
+          foo: foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies magas
+        dummies_count_medium: Dummies medium
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Kapcsolódó próbabábu
