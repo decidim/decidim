@@ -1,0 +1,71 @@
+hu:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Biztosan törölni akarja?
+        destroy: Elpusztítani
+        edit: szerkesztése
+        new: Új
+        save: Mentés
+        title: Hozzászólások
+      admins:
+        create:
+          error: Hiba történt egy új rendszergazda létrehozásakor.
+          success: Az Admin létrehozva sikeresen
+        destroy:
+          success: Az adminisztrátor sikeresen megsemmisült
+        edit:
+          title: Admin szerkesztése
+          update: frissítés
+        index:
+          title: Adminok
+        new:
+          create: Teremt
+          title: Új admin
+        update:
+          error: Hiba történt az adminisztrátor frissítésekor.
+          success: A rendszergazdák frissítve sikeresen
+      default_pages:
+        placeholders:
+          content: Kérjük, adj hozzá értelmes tartalmat az adminisztrátori műszerfal %{page} statikus oldalához.
+          title: Alapértelmezett cím %{page}
+      menu:
+        admins: Adminok
+        dashboard: Irányítópult
+        organizations: szervezetek
+      models:
+        admin:
+          fields:
+            created_at: 'Létrehozva:'
+            email: Email
+          name: admin
+          validations:
+            email_uniqueness: egy másik rendszergazda már ugyanazt az e-mailt használja
+        organization:
+          actions:
+            save_and_invite: Hozzon létre szervezetet és meghívja adminisztrátort
+          fields:
+            created_at: 'Létrehozva:'
+            name: Név
+          name: Szervezet
+      organizations:
+        create:
+          error: Hiba történt egy új szervezet létrehozásakor.
+          success: A szervezet sikeresen létrejött.
+        edit:
+          secondary_hosts_hint: Írja be mindegyiküket egy új sorba
+        index:
+          title: szervezetek
+        new:
+          reference_prefix_hint: A hivatkozási előtag az egyes szervezetek erőforrásainak egyedi azonosítására szolgál
+          secondary_hosts_hint: Írja be mindegyiküket egy új sorba
+          title: Új szervezet
+        update:
+          error: Hiba történt a szervezet frissítésekor.
+          success: A szervezet sikeresen frissült.
+      shared:
+        notices:
+          no_organization_warning_html: Hozzon létre egy szervezetet az induláshoz. Mielőtt folytatná, olvassa el a %{guide} at.
+          our_getting_started_guide: Kezdeti útmutatóunk
+      titles:
+        dashboard: Irányítópult
