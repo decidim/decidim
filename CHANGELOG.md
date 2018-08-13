@@ -16,8 +16,33 @@
   times unintentionally. Check
   [\#3890](https://github.com/decidim/decidim/pull/3890) for more details.
 
+- Image compression settings :
+  The quality settings can be set in Decidim initializer with
+  `Decidim.config.image_uploader_quality = 60`
+  The quality setting is set to 80 by default because change is imperceptible.
+  My own test show that a quality between 60 and 80 is optimal.
+  You can use this feature with already uploded images,
+  it only affect newly uploaded file.
+  If you want to apply new settings to previouysly uploaded images :
+  - open `rails console`
+  - Type the following :
+
+  ```ruby
+
+  YourModel.find_each { |x| x.image.recreate_versions! if x.image? }
+
+  ```
+
+  Where YourModel is the name of your model (eg. Decidim::User) and
+  image is the name of your uploader (eg. avatar).
+  As Decidim doesn't keep original file on upload, a file cannot be
+  restored to original quality without re-uploading.
+  Be careful when playing with this feature on production.
+  Check [\#3984](https://github.com/decidim/decidim/pull/3984) for more details.
+
 **Added**:
 
+- **decidim-core**:Add compression settings to image uploader [\#3984](https://github.com/decidim/decidim/pull/3984)
 - **decidim-budgets**: Import accepted proposals to projects. [\#3873](https://github.com/decidim/decidim/pull/3873)
 - **decidim-proposals**: Results from searches should show the participatory space where they belong to if any. [\#3897](https://github.com/decidim/decidim/pull/3897)
 - **decidim-docs**: Add proposal lifecycle diagram to docs. [\#3811](https://github.com/decidim/decidim/pull/3811)
