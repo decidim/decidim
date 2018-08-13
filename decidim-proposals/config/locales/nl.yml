@@ -266,6 +266,8 @@ nl:
         endorsement_button:
           already_endorsed: Aanbevolen
           endorse: Aanbevelen
+        render_endorsements_button_card_part:
+          endorse: Onderschrijven
       proposal_votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
@@ -275,8 +277,6 @@ nl:
           no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
           title: Vergelijkbare voorstellen
         complete:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
-          select_a_category: Selecteer een categorie
           send: Sturen
           title: Maak uw voorstel af
         count:
@@ -284,6 +284,7 @@ nl:
             one: 1 voorstel
             other: "%{count} voorstellen"
         edit:
+          attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           select_a_category: Selecteer een categorie
           send: Verzenden
@@ -297,7 +298,6 @@ nl:
           endorse: Aanbevelen
         endorsements_card_row:
           comments: Comments
-          endorse: Aanbevelen
         filters:
           accepted: Aanvaard
           activity: Activiteit
