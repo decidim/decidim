@@ -345,7 +345,7 @@ it:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
           no_conversations: Non hai ancora conversazioni
-          title: Conversazioni
+          title: conversazioni
         reply:
           send: Invia
           title: Rispondi
