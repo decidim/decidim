@@ -58,9 +58,9 @@ fi:
             select_component: Valitse komponentti
       admin_log:
         project:
-          create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilaan"
-          delete: "%{user_name} poistanut %{resource_name} -projektin %{space_name} -tilassa"
-          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilaan"
+          create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilassa"
+          delete: "%{user_name} poisti %{resource_name} -projektin %{space_name} -tilassa"
+          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilassa"
       models:
         project:
           fields:
