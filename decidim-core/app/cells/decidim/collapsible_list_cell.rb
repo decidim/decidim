@@ -2,7 +2,8 @@
 
 module Decidim
   # This cell renders a collapsible list of elements. Each element from the
-  # `model` array will be rendered with the `:cell` cell.
+  # `model` array will be rendered with the `:cell_name` cell.
+  # `:cell_name` is optional, if not provided `card_for` helper is used.
   #
   # Available sizes:
   #  - any number between 1 and 12
@@ -19,6 +20,8 @@ module Decidim
   #      size: 4
   #    )
   class CollapsibleListCell < Decidim::ViewModel
+    include Decidim::CardHelper
+
     private
 
     def list
@@ -39,6 +42,10 @@ module Decidim
 
     def list_size_class
       "show-#{size}"
+    end
+
+    def list_class
+      options[:list_class]
     end
 
     def collapsible?

@@ -3,8 +3,13 @@
     <h4 class="section-heading">
       <%= t(".proposals") %>  <a href="<%= main_component_path(proposals.first.component) %>" class="text-small"><%= t(".see_all_proposals") %></a>
     </h4>
-    <div class="row small-up-1 medium-up-2 card-grid">
-      <%= render partial: "decidim/participatory_spaces/proposal", collection: proposals %>
-    </div>
+
+    <%= cell(
+      "decidim/collapsible_list",
+      proposals,
+      cell_options: { context: { current_user: current_user } },
+      list_class: "row small-up-1 medium-up-2 card-grid",
+      size: proposals.count
+      ) %>
   </section>
 <% end %>
