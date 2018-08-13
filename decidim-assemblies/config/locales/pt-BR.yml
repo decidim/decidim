@@ -156,7 +156,7 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Info
+          info: Informações
           moderations: Moderação
           private_users: Usuários privados
       models:
@@ -233,7 +233,7 @@ pt-BR:
               ceased: Cessou
               not_ceased: Não cessou
             filter_by: Filtrar por
-            search: Pesquisa
+            search: Procurar
       assembly_members:
         index:
           members: Membros
