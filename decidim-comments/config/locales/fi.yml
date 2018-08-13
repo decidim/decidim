@@ -3,7 +3,7 @@ fi:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentti
       decidim/comments/comment_created_event: Kommentti
-      decidim/comments/reply_created_event: Kommentti vastaus
+      decidim/comments/reply_created_event: Vastaus kommentiin
       decidim/comments/user_mentioned_event: Maininta
   activerecord:
     models:
@@ -70,10 +70,10 @@ fi:
         comment_by_followed_user:
           email_intro: "%{author_name} on jättänyt kommentin %{resource_title}. Voit lukea sen tällä sivulla:"
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_name}. Voit poistaa tämän käyttäjän hänen profiilisivulta.
-          email_subject: '%{author_name} : ssa on uusi kommentti %{resource_title}: ssa'
-          notification_title: Uusi kommentti on <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: '%{author_name} on jäättänyt uuden kommentin kohtaan %{resource_title}'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "%{resource_title} on kommentoinut. Voit lukea kommentin tällä sivulla:"
+          email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin tällä sivulla:"
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit purkaa sen edellisestä linkistä.
           email_subject: '%{author_name} : ssa on uusi kommentti %{resource_title}: ssa'
           notification_title: Uusi kommentti <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>
