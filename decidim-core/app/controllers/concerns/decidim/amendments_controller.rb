@@ -73,7 +73,7 @@ module Decidim
         end
 
         on(:invalid) do
-          flash[:notice] = t("accepted.error", scope: "decidim.amendments")
+          flash[:alert] = t("accepted.error", scope: "decidim.amendments")
         end
 
         redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
