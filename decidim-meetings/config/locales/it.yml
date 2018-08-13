@@ -24,6 +24,7 @@ it:
         private_meeting: Incontro privato
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
+        reserved_slots: Places réservées
         start_time: Orario inizio
         title: Titolo
         transparent: Trasparente
