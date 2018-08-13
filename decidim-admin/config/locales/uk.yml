@@ -93,34 +93,6 @@ uk:
               must_be_ssl: URI перенаправлення має бути SSL URI
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Банерне зображення
-        description: Опис
-        developer_group: Робочий гурт з просування
-        domain: Домен
-        end_date: Дата закінчення
-        hashtag: Хештег
-        hero_image: Зображення головної сторінки
-        local_area: Місцева дільниця
-        meta_scope: Метавідомості обсягу
-        participatory_scope: Обсяг співучасті
-        participatory_structure: Структура співучасті
-        promoted: Рекламується
-        scope: Обсяг
-        short_description: Стислий опис
-        slug: Скорочена веб-адреса
-        start_date: Дата початку
-        subtitle: Підзаголовок
-        target: Мета
-        title: Назва
-      decidim/participatory_process_group:
-        description: Опис
-        hero_image: Зображення головної сторінки
-        name: Назва
-        participatory_processes: Рухи співучасті
-      decidim/participatory_process_step:
-        end_date: Дата закінчення
-        start_date: Дата початку
       decidim/static_page:
         content: Вміст
         slug: Скорочена веб-адреса
@@ -218,23 +190,23 @@ uk:
         search_prompt: Введіть принаймні три символи для пошуку
       categories:
         create:
-          error: При спробі створити цей розряд сталася помилка.
-          success: Розряд успішно створено.
+          error: При спробі створити цю категорію сталася помилка.
+          success: Категорію успішно створено.
         destroy:
-          error: При спробі видалити цей розряд сталася помилка. Спочатку видаліть всі підрозряди, а потім переконайтеся, що ніщо не належить до цього розряду, і повторіть спробу.
-          success: Розряд успішно видалено.
+          error: При спробі видалити цю категорію сталася помилка. Спочатку видаліть всі підкатегорії, а потім переконайтеся, що ніщо не належить до цієї категорії, і повторіть спробу.
+          success: Категорію успішно видалено.
         edit:
-          title: Редагувати розряд
+          title: Редагувати категорію
           update: Оновити
         index:
-          categories_title: Розряди
-          category_used: Цей розряд не можна видалити, оскільки він використовується.
+          categories_title: Категорії
+          category_used: Цю категорію не можна видалити, оскільки вона використовується.
         new:
-          create: Додати розряд
-          title: Додати розряд
+          create: Створити категорію
+          title: Додати категорію
         update:
-          error: При спробі оновити цей розряд сталася помилка.
-          success: Розряд успішно оновлено.
+          error: При спробі оновити цю категорію сталася помилка.
+          success: Категорію успішно оновлено.
       component_permissions:
         edit:
           everyone: Будь-хто
@@ -333,6 +305,7 @@ uk:
         areas: Дільниці
         configuration: Конфігурація
         dashboard: Приладна дошка
+        homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
@@ -360,9 +333,9 @@ uk:
             title: Назва
           name: Вкладений файл
         attachment_collection:
-          name: Тека
+          name: теку
         category:
-          name: Розряд
+          name: Категорія
         impersonation_log:
           fields:
             admin: Адміністратор
@@ -407,7 +380,7 @@ uk:
             roles:
               admin: Адміністратор
               user_manager: Розпорядник учасників
-          name: Учасник
+          name: учасника
         user_group:
           fields:
             actions: Дії
@@ -526,6 +499,10 @@ uk:
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
+      organization_homepage:
+        edit:
+          active_content_blocks: Блоки діючого вмісту
+          inactive_content_blocks: Блоки недіючого вмісту
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
