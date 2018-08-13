@@ -17,13 +17,14 @@ module Decidim
 
       Decidim::Amendable::Create.call(@form) do
         on(:ok) do
-          redirect_to Decidim::ResourceLocatorPresenter.new(@amendable).path
+          flash[:notice] = t("created.success", scope: "decidim.amendments")
         end
 
         on(:invalid) do
-          redirect_to Decidim::ResourceLocatorPresenter.new(@amendable).path
-          render json: { error: I18n.t("amendments.create.error", scope: "decidim") }, status: 422
+          flash[:alert] = t("created.error", scope: "decidim.amendments")
         end
+
+        redirect_to Decidim::ResourceLocatorPresenter.new(@amendable).path
       end
     end
 
