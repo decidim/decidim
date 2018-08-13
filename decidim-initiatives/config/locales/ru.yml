@@ -110,7 +110,7 @@ ru:
               all: Все
               created: Созданные
               discarded: Отброшенные
-              published: Обнародованные
+              published: Обнародовано
               rejected: Отклоненные
               validating: Техническая проверка
             filter_by: 'Отобрать по признаку:'
@@ -171,7 +171,7 @@ ru:
         accepted: Принятые
         created: Созданные
         discarded: Отброшенные
-        published: Обнародованные
+        published: Обнародовано
         rejected: Отклоненные
         validating: Техническая проверка
       committee_requests:
