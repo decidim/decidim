@@ -81,7 +81,7 @@ fi:
           email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen tällä sivulla:"
           email_outro: Olet saanut tämän ilmoituksen, koska kommenttiisi vastattiin.
           email_subject: "%{author_name} on vastannut kommentiisi %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiooni <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiisi kohdassa <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Sinut on mainittu
           email_outro: Olet saanut tämän ilmoituksen, koska sinut on mainittu kohdssa %{resource_title}.
