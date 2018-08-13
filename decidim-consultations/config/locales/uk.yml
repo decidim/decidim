@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       consultation:
-        banner_image: Банер зображення
+        banner_image: Банерне зображення
         decidim_highlighted_scope_id: Виcвітлений обсяг
         description: Опис
         end_voting_date: Дата закінчення
@@ -278,7 +278,7 @@ uk:
       admin:
         question:
           attachments: Вкладені файли
-          categories: Розряди
+          categories: Категорії
       consultation_voting_data:
         start_voting_date: Голосування починається
       question_components:
