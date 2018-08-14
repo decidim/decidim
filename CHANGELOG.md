@@ -70,6 +70,7 @@
 - **decidim-core**: Updated the `CollapsibleList` cell to be able to show any number of elements from 1 to 12 [\#3810](https://github.com/decidim/decidim/pull/3810)
 - **decidim-core**: Move the homepage sections from view hooks to content blocks [\#3839](https://github.com/decidim/decidim/pull/3839)
 - **decidim-core**: Move conversations to a profile tab. [\#3960](https://github.com/decidim/decidim/pull/3960)
+- **decidim-consultations**: Removed the secondary navbar in the admin sections where it's redundant [\#4015](https://github.com/decidim/decidim/pull/4015)
 
 **Fixed**:
 
