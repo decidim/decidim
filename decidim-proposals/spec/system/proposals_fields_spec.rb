@@ -19,10 +19,7 @@ describe "Proposals", type: :system do
   let(:proposal_body) { "Cities need more people, not more cars" }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   matcher :have_author do |name|

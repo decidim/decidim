@@ -8,10 +8,7 @@ shared_examples "manage proposals" do
   let(:participatory_process_scope) { nil }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   context "when previewing proposals" do

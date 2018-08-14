@@ -16,10 +16,7 @@ describe "Proposals", type: :system do
   let(:longitude) { 2.1234 }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   matcher :have_author do |name|
