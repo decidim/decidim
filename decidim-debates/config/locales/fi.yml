@@ -64,8 +64,8 @@ fi:
             name: Keskustelu
       admin_log:
         debate:
-          create: "%{user_name} loi %{resource_name} keskustelun %{space_name} -tilasta"
-          update: "%{user_name} päivitti %{resource_name} keskustelun %{space_name} -tilasta"
+          create: "%{user_name} loi keskustelun %{resource_name} tilaan %{space_name}"
+          update: "%{user_name} päivitti keskustelun %{resource_name} tilassa %{space_name}"
       debates:
         count:
           debates_count:
@@ -112,13 +112,14 @@ fi:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hei, %{space_title} osallistuvaan tilaan on luotu uusi keskustelu, tarkista se ja osallistu:
+              Hei,
+              Uusi keskustelu on luotu osallistumistilaan %{space_title}. Tutustu ja osallistu siihen:
             email_outro: Olet saanut tämän ilmoituksen, koska noudatat %{space_title} osallistumistilaa. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
             email_subject: Uusi keskustelu kohdassa %{space_title}
             notification_title: Keskustelu aiheesta <a href="%{resource_path}">%{resource_title}</a> luotiin kohtaan <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hei, %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun, katso ja osallistu:
+              Hei, %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun, tutustu ja osallistu siihen:
             email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
             email_subject: Uusi keskustelu käyttäjältä %{author_nickname}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
