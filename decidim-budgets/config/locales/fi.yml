@@ -16,7 +16,7 @@ fi:
   decidim:
     budgets:
       actions:
-        attachment_collections: kokoelmat
+        attachment_collections: Kokoelmat
         attachments: Liitteet
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
@@ -49,9 +49,9 @@ fi:
             success: Projekti päivitetty onnistuneesti
       admin_log:
         project:
-          create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilaan"
-          delete: "%{user_name} poistanut %{resource_name} -projektin %{space_name} -tilassa"
-          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilaan"
+          create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilassa"
+          delete: "%{user_name} poisti %{resource_name} -projektin %{space_name} -tilassa"
+          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilassa"
       models:
         project:
           fields:
@@ -104,7 +104,7 @@ fi:
             one: 1 kannatus
             other: "%{count} kannatusta"
           remove: Poista
-          view: näkymä
+          view: Näytä
         project_budget_button:
           add: Lisää
           added: Lisätty
@@ -114,20 +114,20 @@ fi:
     components:
       budgets:
         actions:
-          vote: Äänestys
-        name: budjetit
+          vote: Äänestä
+        name: Budjetit
         settings:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
-            projects_per_page: Hankkeet sivua kohden
+            projects_per_page: Projektit sivua kohden
             total_budget: Kokonaisbudjetti
-            vote_threshold_percent: Äänestä kynnysarvoa
+            vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
             show_votes: Näytä äänet
-            votes_enabled: Äänet käytössä
+            votes_enabled: Äänestys käytössä
     orders:
       checkout:
         error: Äänesi käsittelyssä tapahtui virhe

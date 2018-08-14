@@ -35,8 +35,8 @@ fi:
         user_group_phone: Organisaation puhelinnumero
     models:
       decidim/user:
-        one: käyttäjä
-        other: käyttäjät
+        one: Käyttäjä
+        other: Käyttäjät
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät

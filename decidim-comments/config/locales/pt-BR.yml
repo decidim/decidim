@@ -39,7 +39,7 @@ pt-BR:
         alignment:
           against: Contra
           in_favor: A favor
-        deleted_user: Usuário deletado
+        deleted_user: Usuário excluído
         reply: Resposta
         report:
           action: Relatório
