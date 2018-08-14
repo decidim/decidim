@@ -4,7 +4,7 @@ fi:
       agenda:
         description: Kuvaus
         duration: Kesto
-        title: otsikko
+        title: Otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
