@@ -3,7 +3,7 @@ pt-BR:
     attributes:
       assembly:
         area_id: Área
-        assembly_type: Tipo de montagem
+        assembly_type: Tipo de assembleia
         assembly_type_other: Tipo de montagem outro
         banner_image: Imagem da bandeira
         closing_date: Data de encerramento
@@ -16,7 +16,7 @@ pt-BR:
         created_by_other: Criado por outro
         creation_date: Data Criada
         decidim_area_id: Área
-        decidim_scope_id: Escopo
+        decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo de desenvolvedores
         domain: Domínio
@@ -29,7 +29,7 @@ pt-BR:
         instagram: Instagram
         internal_organisation: Organização interna
         is_transparent: É transparente
-        local_area: Área Local
+        local_area: Área local
         meta_scope: Metadados do âmbito
         participatory_processes_ids: Processos participativos relacionados
         participatory_scope: Âmbito participativo
@@ -77,10 +77,10 @@ pt-BR:
     admin:
       assemblies:
         create:
-          error: Ocorreu um erro ao criar uma nova assembléia.
+          error: Ocorreu um erro ao criar uma nova assembleia.
           success: Assembleia criada com sucesso.
         destroy:
-          success: Assembleia destruída com sucesso.
+          success: Assembleia excluída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -98,65 +98,65 @@ pt-BR:
           success: Assembleia atualizada com sucesso.
       assemblies_copies:
         create:
-          error: Ocorreu um erro ao duplicar este assembly.
+          error: Ocorreu um erro ao duplicar esta assembleia.
           success: Assembleia duplicada com sucesso.
       assembly_copies:
         new:
           copy: Cópia
           select: Selecione os dados que você gostaria de duplicar
-          title: Duplicar assembléia
+          title: Duplicar assembleia
       assembly_members:
         create:
-          error: Houve um erro ao adicionar um membro para este assembly.
+          error: Ocorreu um erro ao adicionar um membro para esta assembleia.
           success: Membro criado com sucesso para este assembly.
         destroy:
-          success: Membro destruído com êxito para este assembly.
+          success: Membro excluído com êxito para este assembly.
         edit:
           title: Atualize o membro do assembly.
           update: Atualizar
         index:
-          assembly_members_title: Membros da Assembleia
+          assembly_members_title: Membros da assembleia
         new:
           create: Criar
-          title: Novo membro do assembly.
+          title: Novo membro da assembleia.
         update:
           error: Houve um erro ao atualizar o membro para este assembly.
           success: Membro atualizado com êxito para este assembly.
       assembly_publications:
         create:
-          error: Ocorreu um erro ao publicar esta assembléia.
+          error: Ocorreu um erro ao publicar esta assembleia.
           success: Assembleia publicada com sucesso.
         destroy:
-          error: Ocorreu um erro ao atualizar esta assembléia.
+          error: Ocorreu um erro ao atualizar esta assembleia.
           success: Assembleia não publicada com sucesso.
       assembly_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esta montagem.
           success: Usuário criado com sucesso para esta montagem.
         destroy:
-          success: Usuário destruído com sucesso para esta montagem.
+          success: Usuário excluído com sucesso para esta montagem.
         edit:
           title: Atualize o usuário da montagem.
           update: Atualizar
         index:
-          assembly_admins_title: Usuários da assembléia
+          assembly_admins_title: Usuários da assembleia
         new:
           create: Criar
-          title: Novo usuário de montagem.
+          title: Novo usuário da assembleia.
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
           success: Usuário atualizado com sucesso para esta montagem.
       menu:
         assemblies: Assembleias
         assemblies_submenu:
-          assembly_admins: Usuários da assembléia
+          assembly_admins: Usuários da assembleia
           assembly_members: Membros
           attachment_collections: Coleções
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Info
+          info: Informações
           moderations: Moderação
           private_users: Usuários privados
       models:
@@ -185,7 +185,7 @@ pt-BR:
             email: O email
             name: Nome
             role: Cargo
-          name: Usuário de montagem
+          name: Usuários da assembleia
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -213,13 +213,13 @@ pt-BR:
             duration_help: Se a duração desse assembly for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
             included_at_help: Selecione a data em que esta montagem foi adicionada ao Decidim. Não precisa necessariamente ser o mesmo que a data de criação.
             select_a_created_by: Selecione um criado por
-            select_an_area: Selecione uma Área
-            select_an_assembly_type: Selecione um tipo de montagem
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+            select_an_area: Selecione uma área
+            select_an_assembly_type: Selecione um tipo de assembleia
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
         assembly_copies:
           form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuário existente
@@ -233,7 +233,7 @@ pt-BR:
               ceased: Cessou
               not_ceased: Não cessou
             filter_by: Filtrar por
-            search: Pesquisa
+            search: Procurar
       assembly_members:
         index:
           members: Membros
@@ -255,13 +255,13 @@ pt-BR:
         home:
           highlighted_assemblies:
             active_assemblies: Conjuntos ativos
-            see_all_assemblies: Veja todas as assembléias
+            see_all_assemblies: Veja todas as assembleias
         user_profile:
           member_of:
             member_of: Membro de
       show:
         area: Área
-        assembly_type: Tipo de montagem
+        assembly_type: Tipo de assembleia
         children: Assembleias
         closing_date: Data de encerramento
         composition: Composição
@@ -275,10 +275,10 @@ pt-BR:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área Local
+        local_area: Áreas municipais
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
-        private_space: Esta é uma assembléia privada
+        private_space: Esta é uma assembleia privada
         purpose_of_action: Objetivo da ação
         read_less: Leia menos
         read_more: Consulte Mais informação
@@ -332,7 +332,7 @@ pt-BR:
           take_part: Participar
       assembly_header:
         assembly_member_menu_item: Membros
-        assembly_menu_item: A assembléia
+        assembly_menu_item: A assembleia
         unfold: Desdobrar
       assembly_widgets:
         show:
