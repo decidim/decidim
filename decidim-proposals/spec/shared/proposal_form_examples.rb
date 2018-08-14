@@ -100,10 +100,7 @@ shared_examples "a proposal form" do |options|
         let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
 
         before do
-          Geocoder::Lookup::Test.add_stub(
-            address,
-            [{ "latitude" => latitude, "longitude" => longitude }]
-          )
+          stub_geocoding(address, [latitude, longitude])
         end
 
         it "validates the address and store its coordinates" do
