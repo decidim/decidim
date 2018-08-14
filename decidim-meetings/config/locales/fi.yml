@@ -100,7 +100,7 @@ fi:
           email_intro: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%.
           email_outro: Olet saanut tämän ilmoituksen, koska olet kokouksen osallistumistilan ylläpitäjä.
           email_subject: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokouksessa käyttämät lähtöajat ovat yli %{percentage}%.
+          notification_title: Kokouksen <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
         meeting_updated:
           email_intro: '"%{resource_title}" -kokous päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
@@ -130,7 +130,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
-        minutes: Minuutit
+        minutes: Pöytäkirja
         new: Uusi kokous
         preview: Esikatsele
         registrations: Ilmoittautumiset
@@ -138,34 +138,34 @@ fi:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Lisää esityslistan lapsi
+            add_agenda_item_child: Lisää esityslistan alakohta
             agenda_item: Esityslistan kohta
-            agenda_item_children: Agenda Item Childs
+            agenda_item_children: Esityslistan alakohdat
             down: Alas
             remove: Poistaa
             up: ylös
           agenda_item_child:
-            agenda_item_child: Agenda Item Child
+            agenda_item_child: Esityslistan alakohta
             down: Alas
             remove: Poistaa
             up: ylös
           create:
-            invalid: Ongelmana on luoda tämä ohjelma
-            success: Esityslista on luotu
+            invalid: Tämän esityslistan luomisessa esiintyi ongelma
+            success: Esityslista luotu onnistuneesti
           edit:
             title: Muokkaa esityslistaa
             update: Päivittää
           form:
             add_agenda_item: Lisää esityslistan kohde
-            agenda_items: Esityslistan kohdat
+            agenda_items: Esityslistan kohteet
             end_date: Päättymispäivä
             start_date: Aloituspäivämäärä
           new:
             create: Luoda
             title: Uusi esityslista
           update:
-            invalid: Ongelmana on päivittää tämä esityslista
-            success: Esityslista on päivitetty
+            invalid: Tämän esityslistan päivityksessä esiintyi ongelma
+            success: Esityslista päivitetty onnistuneesti
         exports:
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
