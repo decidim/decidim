@@ -4,7 +4,7 @@ fi:
       agenda:
         description: Kuvaus
         duration: Kesto
-        title: otsikko
+        title: Otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -25,47 +25,47 @@ fi:
         registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
         title: Otsikko
-        transparent: läpinäkyvä
+        transparent: Läpinäkyvä
       minutes:
         audio_url: Audio url
         description: Kuvaus
         video_url: Video url
-        visible: Se on näkyvissä
+        visible: On näkyvissä
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuuttia
-              too_many_minutes_child: Kohdan lapsen kesto ylittää esityslistan kohdan "%{parent_title}" vanhemman keston %{count} minuutilla
+              too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuutilla
+              too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla
     models:
-      decidim/meetings/close_meeting_event: Kokous päättyi
-      decidim/meetings/create_meeting_event: Tapaaminen
-      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit ovat käytössä
-      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinti yli rajojen
+      decidim/meetings/close_meeting_event: Kokous suljettu
+      decidim/meetings/create_meeting_event: Kokous
+      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit käytössä
+      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinnit rajan yli
       decidim/meetings/upcoming_meeting_event: Tuleva kokous
-      decidim/meetings/update_meeting_event: Kokous päivitettiin
+      decidim/meetings/update_meeting_event: Kokous päivitetty
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Tapaaminen
-        other: kokoukset
+        one: Kokous
+        other: Kokoukset
       decidim/meetings/minutes:
-        one: Minuutit
-        other: Minuutit
+        one: Pöytäkirja
+        other: Pöytäkirjat
       decidim/meetings/registration:
-        one: Rekisteröinti
-        other: rekisteröinnit
+        one: Rekisteröityminen
+        other: Rekisteröitymiset
   decidim:
     admin:
       meeting_copies:
         create:
-          error: Tämän kokouksen päällekkäisyyttä ei löytynyt.
-          success: Kopioitu kokous onnistui.
+          error: Tämän kokouksen monistamisessa tapahtui virhe.
+          success: Kokouksen monistaminen onnistui.
         new:
           copy: Kopio
-          select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi kokous
+          select: Valitse, mitkä tiedot haluat monistaa
+          title: Monista kokous
     components:
       meetings:
         actions:
@@ -75,20 +75,20 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
-            default_registration_terms: Oletussäännöt
+            default_registration_terms: Rekisteröinnin oletussäännöt
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi on estetty
     events:
       meetings:
         meeting_closed:
-          email_intro: '"%{resource_title}" -kokous oli suljettu. Voit lukea johtopäätökset sivulta:'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" -kokous oli suljettu'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous oli suljettu.
+          email_intro: 'Kokous "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Kokous "%{resource_title}" suljettiin
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
-          email_intro: Kokous "%{resource_title}" on lisätty "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_intro: Kokous "%{resource_title}" on lisätty tilaan "%{participatory_space_title}", jota seuraat.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat tilaa "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Uusi kokous lisätty %{participatory_space_title}
           notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}
         meeting_registrations_over_percentage:
