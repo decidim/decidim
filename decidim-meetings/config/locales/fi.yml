@@ -95,11 +95,11 @@ fi:
           email_intro: Kokous "%{resource_title}" on lisätty kohteeseen "%{participatory_space_title}", jota seuraat.
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Uusi kokous lisätty kohteeseen %{participatory_space_title}
-          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on lisätty kohtaan %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" -kokouksen käyttämät lähtöajat ovat yli %{percentage}%.'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet hallintasi kokouksen osallistumistilasta.
-          email_subject: '"%{resource_title}" -kokouksen käytössä olevat lähtöajat ovat yli %{percentage}%'
+          email_intro: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%.
+          email_outro: Olet saanut tämän ilmoituksen, koska olet kokouksen osallistumistilan ylläpitäjä.
+          email_subject: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokouksessa käyttämät lähtöajat ovat yli %{percentage}%.
         meeting_updated:
           email_intro: '"%{resource_title}" -kokous päivitettiin. Voit lukea uuden version sivulta:'
