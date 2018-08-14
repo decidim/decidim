@@ -171,7 +171,7 @@ fi:
         invite_join_meeting_mailer:
           invite:
             decline: Hylkää kutsu
-            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapaamiseen %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan kokoukseen kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
             join: Liity tapaamiseen "%{meeting_title}"
         invites:
           create:
@@ -181,7 +181,7 @@ fi:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
             invite: Kutsu
-            invite_explanation: Käyttäjää kutsutaan mukaan myös kokoukseen ja organisaatioon.
+            invite_explanation: Käyttäjä tullaan kutsumaan mukaan kokoukseen. Käyttäjä kutsutaan myös organisaatioon.
             non_user: Ei olemassa olevaa käyttäjää
             select_user: Valitse käyttäjä
           index:
