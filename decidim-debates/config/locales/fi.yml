@@ -131,5 +131,5 @@ fi:
         creation_enabled:
           email_intro: 'Nyt voit aloittaa uusia keskusteluja %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
-          email_subject: Keskusteluja nyt saatavilla kohdassa %{participatory_space_title}
+          email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a>kohdassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
