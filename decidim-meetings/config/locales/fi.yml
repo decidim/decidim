@@ -4,7 +4,7 @@ fi:
       agenda:
         description: Kuvaus
         duration: Kesto
-        title: otsikko
+        title: Otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -25,38 +25,38 @@ fi:
         registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
         title: Otsikko
-        transparent: läpinäkyvä
+        transparent: Läpinäkyvä
       minutes:
         audio_url: Audio url
         description: Kuvaus
         video_url: Video url
-        visible: Se on näkyvissä
+        visible: On näkyvissä
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuuttia
+              too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuutilla
               too_many_minutes_child: Kohdan lapsen kesto ylittää esityslistan kohdan "%{parent_title}" vanhemman keston %{count} minuutilla
         meeting_registration_invite:
           attributes:
             email:
               already_invited: Tämä sähköposti on jo kutsuttu
     models:
-      decidim/meetings/close_meeting_event: Kokous päättyi
-      decidim/meetings/create_meeting_event: Tapaaminen
-      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit ovat käytössä
-      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinti yli rajojen
+      decidim/meetings/close_meeting_event: Kokous suljettu
+      decidim/meetings/create_meeting_event: Kokous
+      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit käytössä
+      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinnit rajan yli
       decidim/meetings/upcoming_meeting_event: Tuleva kokous
-      decidim/meetings/update_meeting_event: Kokous päivitettiin
+      decidim/meetings/update_meeting_event: Kokous päivitetty
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Tapaaminen
-        other: kokoukset
+        one: Kokous
+        other: Kokoukset
       decidim/meetings/minutes:
-        one: Minuutit
-        other: Minuutit
+        one: Pöytäkirja
+        other: Pöytäkirjat
       decidim/meetings/registration:
         one: Rekisteröinti
         other: rekisteröinnit
