@@ -87,7 +87,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es es-PY eu fi fr gl it nl pt pt-BR ru sv uk)
+    %w(en ca es es-PY eu fi fr gl hu it nl pt pt-BR ru sv uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
