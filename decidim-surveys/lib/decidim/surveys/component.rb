@@ -18,7 +18,11 @@ Decidim.register_component(:surveys) do |component|
   component.data_portable_entities = ["Decidim::Surveys::SurveyAnswer"]
 
   component.on(:before_destroy) do |instance|
-    raise "Can't destroy this component when there are surveys" if Decidim::Surveys::Survey.where(component: instance).any?
+    survey_answers_for_component = Decidim::Surveys::SurveyAnswer
+                                   .includes(:survey)
+                                   .where(decidim_surveys_surveys: { decidim_component_id: instance.id })
+
+    raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
   end
 
   component.register_stat :surveys_count do |components, start_at, end_at|
