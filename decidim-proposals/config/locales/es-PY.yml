@@ -274,7 +274,7 @@ es-PY:
           no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
+          attachment_legend: "(Opcional) Añadir un archivo adjunto"
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Completa tu propuesta
