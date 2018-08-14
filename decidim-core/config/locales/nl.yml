@@ -740,6 +740,7 @@ nl:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
