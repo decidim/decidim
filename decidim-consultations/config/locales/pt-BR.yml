@@ -3,7 +3,7 @@ pt-BR:
     attributes:
       consultation:
         banner_image: Imagem de banner
-        decidim_highlighted_scope_id: Escopo destacado
+        decidim_highlighted_scope_id: Âmbito em destaque
         description: Descrição
         end_voting_date: Data final
         introductory_image: Imagem introdutória
@@ -19,10 +19,10 @@ pt-BR:
         hashtag: Hashtag
         hero_image: Imagem inicial
         i_frame_url: URL do sistema de votação externa
-        origin_scope: Escopo
+        origin_scope: Âmbito
         origin_title: Origem
         origin_url: URL de origem
-        participatory_scope: Escopo participativo
+        participatory_scope: Âmbito participativo
         promoter_group: Grupo promotor
         question_context: Contexto
         reference: Referência
@@ -74,7 +74,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova consulta.
           success: Consulta criada com sucesso.
         destroy:
-          success: Consulta destruída com sucesso.
+          success: Consulta excluída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -135,7 +135,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova pergunta.
           success: Pergunta criada com sucesso.
         destroy:
-          success: Pergunta destruída com sucesso.
+          success: Pergunta excluída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -155,7 +155,7 @@ pt-BR:
           success: Resposta criada com sucesso.
         destroy:
           error: Houve um erro ao remover a resposta.
-          success: Resposta destruída com sucesso.
+          success: Resposta excluída com sucesso.
         edit:
           update: Atualizar
         form:
@@ -179,7 +179,7 @@ pt-BR:
       consultations:
         orders:
           label: 'Ordenar consultas por:'
-          random: Aleatória
+          random: Aleatório
           recent: Mais recente
       count:
         title:
@@ -234,11 +234,11 @@ pt-BR:
       results:
         title: Resultados
       show:
-        read_more: Consulte Mais informação
+        read_more: Ver mais
       statistics:
         assistants_count_title: Assistentes
         comments_count_title: Comentários
-        meetings_count_title: Reuniões
+        meetings_count_title: Encontros
         supports_count_title: Adesões
       technical_info:
         technical_data: Dados técnicos
