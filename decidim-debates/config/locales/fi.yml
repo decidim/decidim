@@ -114,15 +114,15 @@ fi:
             email_intro: |-
               Hei,
               Uusi keskustelu on luotu osallistumistilaan %{space_title}. Tutustu ja osallistu siihen:
-            email_outro: Olet saanut tämän ilmoituksen, koska noudatat %{space_title} osallistumistilaa. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat osallistumistilaa %{space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
             email_subject: Uusi keskustelu kohdassa %{space_title}
             notification_title: Keskustelu aiheesta <a href="%{resource_path}">%{resource_title}</a> luotiin kohtaan <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hei, %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun, tutustu ja osallistu siihen:
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
             email_subject: Uusi keskustelu käyttäjältä %{author_nickname}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            notification_title: Käyttäjä <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Keskustelujen luominen ei ole enää käytössä kohdassa %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin tämän sivun kautta:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohtaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
