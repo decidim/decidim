@@ -114,13 +114,13 @@ fi:
             email_intro: |-
               Hei, %{space_title} osallistuvaan tilaan on luotu uusi keskustelu, tarkista se ja osallistu:
             email_outro: Olet saanut tämän ilmoituksen, koska noudatat %{space_title} osallistumistilaa. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-            email_subject: Uusi keskustelu %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{space_path}">%{space_title}</a>.
+            email_subject: Uusi keskustelu kohdassa %{space_title}
+            notification_title: Keskustelu aiheesta <a href="%{resource_path}">%{resource_title}</a> luotiin kohtaan <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hei, %{author_name} %{author_nickname}, jonka seuraat, on luonut uuden keskustelun, tarkista sen ja edistä:
+              Hei, %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun, katso ja osallistu:
             email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-            email_subject: Uusi keskustelu %{author_nickname}
+            email_subject: Uusi keskustelu käyttäjältä %{author_nickname}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
           email_intro: 'Keskustelujen luominen ei ole enää käytössä %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin tällä sivulla:'
