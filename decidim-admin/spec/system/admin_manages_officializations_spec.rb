@@ -81,7 +81,7 @@ describe "Admin manages officializations", type: :system do
           :user,
           :officialized,
           officialized_as: { "en" => "Mayor of Barcelona" },
-          organization: organization
+          organization:    organization
         )
       end
 
@@ -129,6 +129,51 @@ describe "Admin manages officializations", type: :system do
       within "tr[data-user-id=\"#{user.id}\"]" do
         expect(page).to have_content("Not officialized")
       end
+    end
+  end
+
+  describe "contacting the user" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to conversation path" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link "Contact"
+      end
+      expect(page).to have_current_path "/conversations/new?recipient_id=#{user.id}"
+    end
+  end
+
+  describe "clicking on user name" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to user profile page" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link user.name.to_s
+      end
+      expect(page).to have_current_path "/profiles/#{user.nickname}"
+    end
+  end
+
+  describe "clicking on user nickname" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to user profile page" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link user.nickname.to_s
+      end
+      expect(page).to have_current_path "/profiles/#{user.nickname}"
     end
   end
 end
