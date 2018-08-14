@@ -452,22 +452,22 @@ workflows:
           filters:
             branches:
               ignore:
-                - l10n_0.12-stable
+                - /^l10n_.*/
       - build_test_app:
           filters:
             branches:
               ignore:
-                - l10n_0.12-stable
+                - /^l10n_.*/
       - main:
           filters:
             branches:
               ignore:
-                - l10n_0.12-stable
+                - /^l10n_.*/
       - generators:
           filters:
             branches:
               ignore:
-                - l10n_0.12-stable
+                - /^l10n_.*/
       - core:
           requires:
             - build_test_app
