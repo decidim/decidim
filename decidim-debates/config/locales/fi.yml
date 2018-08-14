@@ -44,7 +44,7 @@ fi:
       admin:
         debates:
           create:
-            invalid: Luotaessa keskustelua tapahtui virhe.
+            invalid: Keskustelua luotaessa tapahtui virhe.
             success: Keskustelu luotu onnistuneesti.
           destroy:
             success: Keskustelu poistettu onnistuneesti.
