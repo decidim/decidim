@@ -238,7 +238,7 @@ pt-BR:
         success: Proposta criada com sucesso. Salvo como um rascunho.
       destroy_draft:
         error: Houve erros ao excluir o rascunho da proposta.
-        success: O rascunho da proposta foi destruído com sucesso.
+        success: O rascunho da proposta foi excluído com sucesso.
       models:
         proposal:
           fields:
@@ -259,7 +259,7 @@ pt-BR:
         create:
           error: Houve erros ao endossar a proposta.
         identities:
-          done: Feito
+          done: Concluído
           select_identity: Selecione a identidade
       proposal_endorsements_helper:
         endorsement_button:
@@ -274,7 +274,7 @@ pt-BR:
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
         complete:
-          attachment_legend: "(Opcional) Adicione um anexo"
+          attachment_legend: "(Opcional) Adicionar um anexo"
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Complete sua proposta
@@ -289,7 +289,7 @@ pt-BR:
           title: Editar proposta
         edit_draft:
           discard: Descarte este rascunho
-          discard_confirmation: Tem certeza de que deseja descartar este rascunho da proposta?
+          discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
           send: Visualização
           title: Editar proposta de rascunho
         endorsement_identities_cabin:
@@ -332,7 +332,7 @@ pt-BR:
         orders:
           label: 'Ordene propostas por:'
           most_voted: Mais votados
-          random: Aleatória
+          random: Aleatório
           recent: Recente
         preview:
           modify: Modificar a proposta
