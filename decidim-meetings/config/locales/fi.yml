@@ -58,14 +58,14 @@ fi:
         one: Pöytäkirja
         other: Pöytäkirjat
       decidim/meetings/registration:
-        one: Rekisteröinti
-        other: rekisteröinnit
+        one: Rekisteröityminen
+        other: Rekisteröitymiset
   decidim:
     admin:
       meeting_copies:
         create:
-          error: Tämän kokouksen päällekkäisyyttä ei löytynyt.
-          success: Kopioitu kokous onnistui.
+          error: Tämän kokouksen monistamisessa tapahtui virhe.
+          success: Kokouksen monistaminen onnistui.
         new:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat monistaa
@@ -79,11 +79,11 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
-            default_registration_terms: Oletussäännöt
+            default_registration_terms: Rekisteröinnin oletussäännöt
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi on estetty
     events:
       meetings:
         meeting_closed:
