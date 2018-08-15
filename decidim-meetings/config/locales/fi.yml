@@ -27,9 +27,9 @@ fi:
         title: Otsikko
         transparent: Läpinäkyvä
       minutes:
-        audio_url: Audio url
+        audio_url: Äänen URL-osoite
         description: Kuvaus
-        video_url: Video url
+        video_url: Videon URL-osoite
         visible: On näkyvissä
     errors:
       models:
