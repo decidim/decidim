@@ -266,7 +266,7 @@ fi:
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
             invalid: Tämä rekisteröintikoodi on virheellinen.
-            success: Rekisteröintikoodi on vahvistettu.
+            success: Rekisteröintikoodi on vahvistettu onnistuneesti.
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
