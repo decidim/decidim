@@ -45,8 +45,8 @@ fi:
     models:
       decidim/meetings/close_meeting_event: Kokous suljettu
       decidim/meetings/create_meeting_event: Kokous
-      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit käytössä
-      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinnit rajan yli
+      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit ovat käytössä
+      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinti yli rajojen
       decidim/meetings/upcoming_meeting_event: Tuleva kokous
       decidim/meetings/update_meeting_event: Kokous päivitetty
   activerecord:
@@ -104,22 +104,22 @@ fi:
         meeting_updated:
           email_intro: '"%{resource_title}" -kokous päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" -kokous päivitettiin'
+          email_subject: Kokous "%{resource_title}" päivitettiin
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous päivitettiin.
         registration_code_validated:
           email_intro: Rekisteröintikoodisi "%{registration_code}" on vahvistettu.
-          email_outro: Olet saanut tämän ilmoituksen, koska "%{resource_title}" -kokouksen rekisteröintikoodi on vahvistettu.
+          email_outro: Olet saanut tämän ilmoituksen, koska rekisteröintikoodisi kokoukseen "%{resource_title}" on vahvistettu.
           email_subject: Rekisteröintikoodisi "%{registration_code}" on vahvistettu
           notification_title: Rekisteröintikoodisi "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> -kokoukselle on vahvistettu.
         registrations_enabled:
           email_intro: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit.'
+          email_subject: Kokous "%{resource_title}" on mahdollistanut rekisteröinnit.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous on mahdollistanut rekisteröinnit.
         upcoming_meeting:
-          email_intro: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
+          email_intro: Kokouksen "%{resource_title}" alkuun on alle 48 tuntia.
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
+          email_subject: Kokouksen "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
     meetings:
       actions:
@@ -328,7 +328,7 @@ fi:
           remaining_slots:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
-          view: näkymä
+          view: Näytä
       models:
         invite:
           fields:
