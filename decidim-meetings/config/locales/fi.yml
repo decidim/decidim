@@ -235,16 +235,16 @@ fi:
             success: Tapaaminen luotu onnistuneesti
         minutes:
           create:
-            invalid: On ollut ongelma, joka luo tämän minuutin
-            success: Pöytäkirjat luodaan onnistuneesti
+            invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
+            success: Pöytäkirja luotiin onnistuneesti
           edit:
             update: Päivittää
           new:
             create: Luoda
-            title: Luo minuutit
+            title: Luo pöytäkirja
           update:
-            invalid: On ollut ongelma päivittää tämä minuutti
-            success: Pöytäkirjat päivitettiin onnistuneesti
+            invalid: Tämän pöytäkirjan päivityksessä esiintyi ongelma
+            success: Pöytäkirja päivitettiin onnistuneesti
         models:
           meeting:
             name: Tapaaminen
@@ -255,7 +255,7 @@ fi:
             validate_registration_code: Vahvista rekisteröintikoodi
           form:
             available_slots_help: Merkitse arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
-            invites: kutsut
+            invites: Kutsut
             registrations_count:
               one: 1 ilmoittautuminen.
               other: '%{count} ilmoittautumista.'
