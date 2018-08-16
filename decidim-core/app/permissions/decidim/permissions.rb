@@ -39,7 +39,10 @@ module Decidim
       return unless permission_action.subject == :component &&
                     permission_action.action == :read
 
-      toggle_allow(component.published?)
+      return allow! if component.published?
+      return allow! if user_can_admin_component?
+      return allow! if user_can_admin_component_via_space?
+      disallow!
     end
 
     def search_scope_action?
@@ -86,6 +89,33 @@ module Decidim
 
       conversation = context.fetch(:conversation, nil)
       toggle_allow(conversation.participants.include?(user))
+    end
+
+    def user_can_admin_component?
+      new_permission_action = Decidim::PermissionAction.new(
+        action: permission_action.action,
+        scope: :admin,
+        subject: permission_action.subject
+      )
+      Decidim::Admin::Permissions.new(user, new_permission_action, context).permissions.allowed?
+    rescue Decidim::PermissionAction::PermissionNotSetError
+      nil
+    end
+
+    def user_can_admin_component_via_space?
+      Decidim.participatory_space_manifests.any? do |manifest|
+        begin
+          new_permission_action = Decidim::PermissionAction.new(
+            action: permission_action.action,
+            scope: :admin,
+            subject: permission_action.subject
+          )
+          new_context = context.merge(current_participatory_space: component.participatory_space)
+          manifest.permissions_class.new(user, new_permission_action, new_context).permissions.allowed?
+        rescue Decidim::PermissionAction::PermissionNotSetError
+          nil
+        end
+      end
     end
 
     def not_already_active?(authorization)
