@@ -74,13 +74,13 @@ fi:
           title: Vahvista ääni
         budget_excess:
           close: Sulje
-          description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä. Jos haluat, voit poistaa projektin, jonka olet jo valinnut lisättäväksi tai äänestää omien mieltymyksesi mukaisesti.
+          description: Tämä suunnitelma ylittää maksimibudjetin, minkä takia sitä ei voida lisätä. Jos haluat, voit tehdä "tilaa" budjettiin poistamalla suunnitelman, jonka olet jo valinnut lisättäväksi.
           ok: OK
           title: Maksimibudjetti ylitetty
         budget_summary:
           are_you_sure: Haluatko varmasti peruuttaa äänesi?
           assigned: 'Varattu:'
-          cancel_order: poistaa äänesi ja aloittaa alusta
+          cancel_order: poista äänesi ja aloitta alusta
           checked_out:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit %{cancel_link}.
             title: Budjetin äänestys suoritettu
