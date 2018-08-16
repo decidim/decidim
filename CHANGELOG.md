@@ -93,6 +93,7 @@
 - **decidim-consultations**: Remove unused indexes from consultations questions. [\#3840](https://github.com/decidim/decidim/pull/3840)
 - **decidim-admin**: Paginate private users. [\#3871](https://github.com/decidim/decidim/pull/3871)
 - **decidim-surveys**: Order survey answer options by date and time. [#3867](https://github.com/decidim/decidim/pull/3867)
+- **decidim-surveys**: Allow deleting surveys components when there are no answers [#4013](https://github.com/decidim/decidim/pull/4013)
 - **decidim-proposals**: Proposal creation and update fixes: [\#3744](https://github.com/decidim/decidim/pull/3744)
   - Fix `CookieOverflow` in wizard steps
   - Fix `proposal_length` validation on create_step
