@@ -54,13 +54,13 @@ fi:
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
             create: Tuo ehdotuksia projekteihin
-            no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tueksi hankkeisiin.
+            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             select_component: Valitse komponentti
       admin_log:
         project:
-          create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilassa"
-          delete: "%{user_name} poisti %{resource_name} -projektin %{space_name} -tilassa"
-          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilassa"
+          create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
+          delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name} -tilassa"
+          update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name} -tilassa"
       models:
         project:
           fields:
