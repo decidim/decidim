@@ -81,7 +81,7 @@ describe "Admin manages officializations", type: :system do
           :user,
           :officialized,
           officialized_as: { "en" => "Mayor of Barcelona" },
-          organization:    organization
+          organization: organization
         )
       end
 
