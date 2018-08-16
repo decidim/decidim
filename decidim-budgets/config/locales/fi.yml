@@ -18,11 +18,11 @@ fi:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
-        confirm_destroy: Haluatko varmasti poistaa tämän projektin?
+        confirm_destroy: Haluatko varmasti poistaa tämän suunnitelman?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo ehdotuksia projekteihin
-        new: Uusi projekti
+        import: Tuo ehdotuksia suunnitelmiin
+        new: Uusi suunnitelma
         preview: Esikatsele
         title: Toiminnot
       admin:
@@ -50,10 +50,10 @@ fi:
             success: Suunnitelma päivitetty onnistuneesti
         proposals_imports:
           create:
-            invalid: Ehdotusten tuomisessa suunnitelmaan tapahtui virhe
+            invalid: Ehdotusten tuomisessa suunnitelmiin esiintyi ongelmia
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
-            create: Tuo ehdotuksia projekteihin
+            create: Tuo ehdotuksia suunnitelmiin
             no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             select_component: Valitse komponentti
       admin_log:
@@ -84,7 +84,7 @@ fi:
           checked_out:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit %{cancel_link}.
             title: Budjetin äänestys suoritettu
-          description: Mitä projekteja varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} projekteille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
+          description: Mitä suunnitelmia varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
           title: Voit päättää budjetin
         count:
           projects_count:
@@ -119,7 +119,7 @@ fi:
           added: Lisätty
         show:
           budget: Budjetti
-          view_all_projects: Näytä kaikki projektit
+          view_all_projects: Näytä kaikki suunnitelmat
     components:
       budgets:
         actions:
