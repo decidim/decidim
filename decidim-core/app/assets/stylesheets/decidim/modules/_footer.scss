@@ -4,8 +4,7 @@ $mini-footer-bg: $dark-gray;
 
 //Common
 
-.main-footer,
-.mini-footer{
+.main-footer{
   color: $medium-gray;
 
   a{
@@ -93,6 +92,14 @@ $mini-footer-bg: $dark-gray;
 .mini-footer{
   padding: 1rem 0;
   background-color: $mini-footer-bg;
+
+  color: darken($medium-gray, 40%);
+  a{
+    color: $medium-gray;
+    &:hover{
+      color: darken($medium-gray, 20%);
+    }
+  }
 }
 
 .cc-badge{
