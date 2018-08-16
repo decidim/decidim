@@ -55,8 +55,8 @@
         <tbody>
           <% @users.each do |user| %>
             <tr data-user-id="<%= user.id %>">
-              <td><%= link_to user.name, profile_path(user) %></td>
-              <td><%= link_to user.nickname, profile_path(user) %></td>
+              <td><%= link_to user.name, decidim.profile_path(user.nickname) %></td>
+              <td><%= link_to user.nickname, decidim.profile_path(user.nickname) %></td>
               <td><%= l user.created_at, format: :short %></td>
               <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
               <td><%= translated_attribute(user.officialized_as) %></td>
