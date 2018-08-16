@@ -28,30 +28,30 @@ fi:
       admin:
         models:
           project:
-            name: Projekti
+            name: Suunnitelma
         projects:
           create:
-            invalid: Tämän projektin lisäyksessä tapahtui virhe
-            success: Projekti lisätty onnistuneesti
+            invalid: Suunnitelman luonnissa tapahtui virhe
+            success: Suunnitelma lisätty onnistuneesti
           destroy:
-            success: Projekti poistettiin onnistuneesti
+            success: Suunnitelma poistettu onnistuneesti
           edit:
-            title: Muokkaa projektia
+            title: Muokkaa suunnitelmaa
             update: Päivitä
           index:
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
-            title: Projektit
+            title: Suunnitelmat
           new:
             create: Luo
-            title: Uusi projekti
+            title: Uusi suunnitelma
           update:
-            invalid: Tämän projektin päivityksessä tapahtui virhe
-            success: Projekti päivitetty onnistuneesti
+            invalid: Tämän suunnitelman päivityksessä tapahtui virhe
+            success: Suunnitelma päivitetty onnistuneesti
         proposals_imports:
           create:
-            invalid: Ehdotusten tuomisessa projekteihin on esiintynyt ongelma
-            success: "%{number} ehdotusta on tuotu onnistuneesti projekteihin"
+            invalid: Ehdotusten tuomisessa suunnitelmaan tapahtui virhe
+            success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
             create: Tuo ehdotuksia projekteihin
             no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tueksi hankkeisiin.
@@ -70,7 +70,7 @@ fi:
           are_you_sure: Oletko samaa mieltä? Kun olet vahvistanut äänesi, et voi enää muuttaa sitä.
           cancel: Peruuta
           confirm: Vahvista
-          description: Olet valinnut nämä projektit osaksi budjettia.
+          description: Olet valinnut nämä suunnitelmat osaksi budjettia.
           title: Vahvista ääni
         budget_excess:
           close: Sulje
