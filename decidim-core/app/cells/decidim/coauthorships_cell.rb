@@ -20,7 +20,7 @@ module Decidim
 
     def show
       if authorable? || official?
-        cell "decidim/author", presenter_for_author(model), options: extra_classes, has_actions: has_actions?, from: model
+        cell "decidim/author", presenter_for_author(model), extra_classes.merge(has_actions: has_actions?, from: model)
       else
         cell(
           "decidim/collapsible_authors",

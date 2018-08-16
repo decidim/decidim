@@ -14,7 +14,7 @@ module Decidim
       delegate :user_signed_in?, to: :parent_controller
 
       def show
-        cell card_size, model, @options
+        cell card_size, model, options
       end
 
       private
