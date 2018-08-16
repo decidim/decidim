@@ -107,6 +107,7 @@
 - **decidim-core**: Make API authors optional [\#4014](https://github.com/decidim/decidim/pull/4014)
 - **decidim**: Make sure the same task on each decidim module is only loaded once. [\#3890](https://github.com/decidim/decidim/pull/3890)
 - **decidim-initiatives**: Only show initiative types fomr the current tenant [\#3887](https://github.com/decidim/decidim/pull/3887)
+- **decidim-core**: Allows users with admin access to preview unpublished components [\#4016](https://github.com/decidim/decidim/pull/4016)
 
 **Removed**:
 
