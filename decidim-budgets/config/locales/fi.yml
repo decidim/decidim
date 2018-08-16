@@ -88,8 +88,8 @@ fi:
           title: Voit päättää budjetin
         count:
           projects_count:
-            one: 1 projekti
-            other: "%{count} projektia"
+            one: 1 suunnitelma
+            other: "%{count} suunnitelmaa"
         filters:
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
@@ -104,7 +104,7 @@ fi:
         order_selected_projects:
           remove: Poista
           selected_projects:
-            one: projekti valittu
+            one: suunnitelma valittu
             other: projektia valittu
           view: Näytä
         project:
@@ -129,7 +129,7 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
-            projects_per_page: Projektit sivua kohden
+            projects_per_page: Suunnitelmat sivua kohden
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
             total_budget: Kokonaisbudjetti
             vote_threshold_percent: Äänestyksen kynnysprosentti
