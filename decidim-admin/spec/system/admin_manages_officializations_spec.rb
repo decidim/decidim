@@ -143,7 +143,7 @@ describe "Admin manages officializations", type: :system do
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link "Contact"
       end
-      expect(page).to have_current_path "/conversations/new?recipient_id=#{user.id}"
+      expect(page).to have_current_path decidim.new_conversation_path(recipient_id: user.id)
     end
   end
 
