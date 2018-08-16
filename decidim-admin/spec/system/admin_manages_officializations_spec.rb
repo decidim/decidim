@@ -158,7 +158,7 @@ describe "Admin manages officializations", type: :system do
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link user.name.to_s
       end
-      expect(page).to have_current_path "/profiles/#{user.nickname}"
+      expect(page).to have_current_path decidim.profile_path(user.nickname)
     end
   end
 
@@ -173,7 +173,7 @@ describe "Admin manages officializations", type: :system do
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link user.nickname.to_s
       end
-      expect(page).to have_current_path "/profiles/#{user.nickname}"
+      expect(page).to have_current_path decidim.profile_path(user.nickname)
     end
   end
 end
