@@ -156,7 +156,7 @@ describe "Admin manages officializations", type: :system do
 
     it "redirect to user profile page" do
       within "tr[data-user-id=\"#{user.id}\"]" do
-        click_link user.name.to_s
+        click_link user.name
       end
       expect(page).to have_current_path decidim.profile_path(user.nickname)
     end
@@ -171,7 +171,7 @@ describe "Admin manages officializations", type: :system do
 
     it "redirect to user profile page" do
       within "tr[data-user-id=\"#{user.id}\"]" do
-        click_link user.nickname.to_s
+        click_link user.nickname
       end
       expect(page).to have_current_path decidim.profile_path(user.nickname)
     end
