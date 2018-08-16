@@ -106,6 +106,7 @@
 - **decidim-core**: Consider only users in profile follow counters. [\#3887](https://github.com/decidim/decidim/pull/3887)
 - **decidim-core**: Make API authors optional [\#4014](https://github.com/decidim/decidim/pull/4014)
 - **decidim**: Make sure the same task on each decidim module is only loaded once. [\#3890](https://github.com/decidim/decidim/pull/3890)
+- **decidim**: Correctly pass cells options to sized card cells [\#4017](https://github.com/decidim/decidim/pull/4017)
 - **decidim-initiatives**: Only show initiative types fomr the current tenant [\#3887](https://github.com/decidim/decidim/pull/3887)
 
 **Removed**:
