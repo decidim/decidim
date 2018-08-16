@@ -356,13 +356,13 @@ fi:
       registrations:
         create:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
-          success: Olet liittynyt tapahtumaan onnistuneesti.
+          success: Olet liittynyt tapaamiseen onnistuneesti.
         decline_invitation:
           invalid: Ongelma on hylätty.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
-          invalid: Tapahtuman ilmoittautumisen perumisessa on tapahtunut virhe.
-          success: Olet perunut ilmoittautumisesi tapahtumaan onnistuneesti.
+          invalid: Tapaamisesta poistumisessa on tapahtunut virhe.
+          success: Olet poistunut tapaamisesta onnistuneesti.
       types:
         private_meeting: Yksityinen kokous
         transparent: läpinäkyvä
@@ -370,7 +370,7 @@ fi:
       participatory_process_groups:
         highlighted_meetings:
           past_meetings: Aiemmat tapaamiset
-          upcoming_meetings: Tulevat kokoukset
+          upcoming_meetings: Tulevat tapaamiset
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapaamiset
