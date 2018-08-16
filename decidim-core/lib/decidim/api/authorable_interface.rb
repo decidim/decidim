@@ -7,7 +7,7 @@ module Decidim
       name "AuthorableInterface"
       description "An interface that can be used in authorable objects."
 
-      field :author, !Decidim::Core::AuthorInterface, "The comment's author" do
+      field :author, Decidim::Core::AuthorInterface, "The resource author" do
         # can be an Authorable or a Coauthorable
         resolve ->(authorable, _, _) {
           if authorable.respond_to?(:normalized_author)

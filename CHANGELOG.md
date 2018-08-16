@@ -103,6 +103,7 @@
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-comments**: Users should never be notified about their own comments. [\#3888](https://github.com/decidim/decidim/pull/3888)
 - **decidim-core**: Consider only users in profile follow counters. [\#3887](https://github.com/decidim/decidim/pull/3887)
+- **decidim-core**: Make API authors optional [\#4014](https://github.com/decidim/decidim/pull/4014)
 - **decidim**: Make sure the same task on each decidim module is only loaded once. [\#3890](https://github.com/decidim/decidim/pull/3890)
 - **decidim-initiatives**: Only show initiative types fomr the current tenant [\#3887](https://github.com/decidim/decidim/pull/3887)
 
