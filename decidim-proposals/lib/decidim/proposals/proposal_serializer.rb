@@ -26,7 +26,7 @@ module Decidim
           },
           title: @proposal.title,
           body: @proposal.body,
-          votes: @proposal.proposal_votes_count,
+          supports: @proposal.proposal_votes_count,
           comments: @proposal.comments.count,
           published_at: @proposal.published_at,
           url: url,
