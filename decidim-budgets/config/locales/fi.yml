@@ -6,13 +6,13 @@ fi:
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
-        proposal_ids: Liittyvät esitykset
+        proposal_ids: Liittyvät ehdotukset
         title: Otsikko
   activerecord:
     models:
       decidim/budgets/project:
-        one: projekti
-        other: projektit
+        one: Suunnitelma
+        other: Suunnitelmat
   decidim:
     budgets:
       actions:
