@@ -24,6 +24,7 @@ fi:
         private_meeting: Yksityinen kokous
         registration_terms: Ilmoittautumisehdot
         registrations_enabled: Ilmoittautumiset ovat käytössä
+        reserved_slots: Places réservées
         start_time: Aloitusaika
         title: Otsikko
         transparent: läpinäkyvä

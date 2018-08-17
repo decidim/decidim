@@ -9,10 +9,11 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.participatory_process.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.participatory_process.fields.created_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.participatory_process.fields.private", scope: "decidim.admin") %></th>
-            <th class="table-list__actions"><%= t("models.participatory_process.fields.published", scope: "decidim.admin") %></th>
+            <th><%= sort_link(query, :title, t("models.participatory_process.fields.title", scope: "decidim.admin")) %></th>
+            <th><%= sort_link(query, :promoted, t("models.participatory_process.fields.promoted", scope: "decidim.admin")) %></th>
+            <th><%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin")) %></th>
+            <th><%= sort_link(query, :private, t("models.participatory_process.fields.private", scope: "decidim.admin")) %></th>
+            <th class="table-list__actions"><%= sort_link(query, :published, t("models.participatory_process.fields.published", scope: "decidim.admin")) %></th>
             <th></th>
           </tr>
         </thead>
@@ -34,6 +35,9 @@
                 <% else %>
                   <%= translated_attribute(process.title) %>
                 <% end %>
+              </td>
+              <td>
+                <%= process.promoted? ? t("participatory_processes.index.promoted.true") : t("participatory_processes.index.promoted.false") %>
               </td>
               <td>
                 <%= l process.created_at, format: :short %>

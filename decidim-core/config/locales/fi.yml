@@ -648,6 +648,11 @@ fi:
         see_more: Näytä lisää
   locale:
     name: Suomi
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban

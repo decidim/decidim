@@ -656,6 +656,11 @@ uk:
         see_more: Читати далі
   locale:
     name: Українська
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban

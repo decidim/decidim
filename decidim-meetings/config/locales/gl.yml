@@ -24,6 +24,7 @@ gl:
         private_meeting: Encontro privado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
+        reserved_slots: Places réservées
         start_time: Hora de inicio
         title: Título
         transparent: Transparente

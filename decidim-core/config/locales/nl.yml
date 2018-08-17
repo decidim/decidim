@@ -648,6 +648,11 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Heerlijk
     douban: Douban
