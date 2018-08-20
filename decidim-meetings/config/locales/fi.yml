@@ -299,12 +299,12 @@ fi:
           category_prompt: Valitse aihepiiri
           date: Päivämäärä
           past: Menneet
-          search: Etsi
+          search: Hae
           upcoming: Tulevat
         filters_small_view:
           close_modal: Sulje ikkuna
-          filter: Suodata
-          filter_by: Suodata
+          filter: Rajaa
+          filter_by: Rajaa hakua
           unfold: Avaa
         index:
           view_meeting: Näytä tapahtuma
