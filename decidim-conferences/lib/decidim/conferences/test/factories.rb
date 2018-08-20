@@ -20,16 +20,16 @@ FactoryBot.define do
     published_at { Time.current }
     location { Faker::Lorem.sentence(3) }
     organization
-    show_statistics true
+    show_statistics { true }
     start_date { 1.month.ago }
     end_date { 1.month.ago + 3.days }
 
     trait :promoted do
-      promoted true
+      promoted { true }
     end
 
     trait :unpublished do
-      published_at nil
+      published_at { nil }
     end
 
     trait :published do
@@ -40,7 +40,7 @@ FactoryBot.define do
   factory :conference_user_role, class: "Decidim::ConferenceUserRole" do
     user
     conference { create :conference, organization: user.organization }
-    role "admin"
+    role { "admin" }
   end
 
   factory :conference_admin, parent: :user, class: "Decidim::User" do
@@ -112,8 +112,8 @@ FactoryBot.define do
     conference
     user
     sent_at { Time.current - 1.day }
-    accepted_at nil
-    rejected_at nil
+    accepted_at { nil }
+    rejected_at { nil }
 
     trait :accepted do
       accepted_at { Time.current }
