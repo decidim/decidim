@@ -151,7 +151,7 @@ fi:
             up: ylös
           create:
             invalid: Tämän esityslistan luomisessa esiintyi ongelma
-            success: Esityslista luotu onnistuneesti
+            success: Esityslista luotiin onnistuneesti
           edit:
             title: Muokkaa esityslistaa
             update: Päivittää
@@ -165,14 +165,14 @@ fi:
             title: Uusi esityslista
           update:
             invalid: Tämän esityslistan päivityksessä esiintyi ongelma
-            success: Esityslista päivitetty onnistuneesti
+            success: Esityslista päivitettiin onnistuneesti
         exports:
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
           invite:
             decline: Hylkää kutsu
-            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan kokoukseen kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
-            join: Liity tapaamiseen "%{meeting_title}"
+            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapahtumaan kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
+            join: Liity tapahtumaan "%{meeting_title}"
         invites:
           create:
             error: Käyttäjän kutsumisessa tapahtumaan tapahtui virhe.
