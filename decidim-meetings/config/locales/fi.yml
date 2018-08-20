@@ -114,12 +114,12 @@ fi:
         registrations_enabled:
           email_intro: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: Kokous "%{resource_title}" on mahdollistanut rekisteröinnit.
+          email_subject: Tapahtuma "%{resource_title}" on mahdollistanut ilmoittautumiset.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous on mahdollistanut rekisteröinnit.
         upcoming_meeting:
-          email_intro: Kokouksen "%{resource_title}" alkuun on alle 48 tuntia.
+          email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: Kokouksen "%{resource_title}" alkuun on alle 48 tuntia.
+          email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
     meetings:
       actions:
@@ -127,7 +127,7 @@ fi:
         attachment_collections: kansiot
         attachments: Liitteet
         close: Sulje
-        confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
+        confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
         destroy: Poista
         edit: Muokkaa
         minutes: Pöytäkirja
@@ -252,9 +252,9 @@ fi:
           edit:
             save: Tallenna
             validate: vahvistaa
-            validate_registration_code: Vahvista rekisteröintikoodi
+            validate_registration_code: Vahvista ilmoittautumiskoodi
           form:
-            available_slots_help: Merkitse arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
+            available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
             registrations_count:
               one: 1 ilmoittautuminen.
@@ -265,8 +265,8 @@ fi:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
-            invalid: Tämä rekisteröintikoodi on virheellinen.
-            success: Rekisteröintikoodi on vahvistettu onnistuneesti.
+            invalid: Tämä ilmoittautumiskoodi on virheellinen.
+            success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
@@ -287,7 +287,7 @@ fi:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Kutsu tapaamiseen
+            subject: Kutsu liittyä tapahtumaan
         registration_mailer:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
