@@ -204,22 +204,22 @@ fi:
             select_organizer: Valitse järjestäjä
         meetings:
           close:
-            invalid: Tapaamisen lopettamisessa tapahtui virhe
-            success: Tapaaminen onnistuneesti lopetettu
+            invalid: Tapahtuman sulkemisessa tapahtui virhe
+            success: Tapahtuma onnistuneesti suljettu
           create:
-            invalid: Tapaamisen luonnissa tapahtui virhe
-            success: Tapaaminen onnistuneesti luotu
+            invalid: Tapahtuman luonnissa esiintyi ongelma
+            success: Tapahtuma onnistuneesti luotu
           destroy:
-            success: Tapaaminen onnistuneesti poistettu
+            success: Tapahtuma onnistuneesti luotu
           edit:
             update: Päivitä
           form:
             select_organizer: Valitse järjestäjä
           index:
-            title: Tapaamiset
+            title: Tapahtumat
           new:
             create: Luo
-            title: Luo tapaaminen
+            title: Luo tapahtuma
           service:
             description: Kuvaus
             down: Alas
@@ -231,8 +231,8 @@ fi:
             add_service: Lisää palvelua
             services: Palvelut
           update:
-            invalid: Tapaamisen luonnissa tapahtui virhe
-            success: Tapaaminen luotu onnistuneesti
+            invalid: Tämän tapahtuman päivittämisessa esiintyi ongelma
+            success: Tapaaminen luotiin onnistuneesti
         minutes:
           create:
             invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
