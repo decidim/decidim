@@ -322,9 +322,9 @@ fi:
           contributions: Kontribuutioiden määrä
           going: Osallistumassa
           join: Liity tapahtumaan
-          meeting_report: Tapaamisraportti
+          meeting_report: Tapahtumaraportti
           no_slots_available: Ei paikkoja vapaana
-          organizations: Osallistuneet organisaatiot
+          organizations: Osallistuvat järjestöt
           remaining_slots:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
@@ -356,12 +356,12 @@ fi:
       registrations:
         create:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
-          success: Olet liittynyt tapaamiseen onnistuneesti.
+          success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
           invalid: Ongelma on hylätty.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
-          invalid: Tapaamisesta poistumisessa on tapahtunut virhe.
+          invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
         private_meeting: Yksityinen kokous
