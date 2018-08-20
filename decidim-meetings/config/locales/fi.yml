@@ -362,18 +362,18 @@ fi:
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
           invalid: Tapaamisesta poistumisessa on tapahtunut virhe.
-          success: Olet poistunut tapaamisesta onnistuneesti.
+          success: Olet poistunut tapahtumasta onnistuneesti.
       types:
         private_meeting: Yksityinen kokous
         transparent: läpinäkyvä
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Aiemmat tapaamiset
-          upcoming_meetings: Tulevat tapaamiset
+          past_meetings: Aiemmat tapahtumat
+          upcoming_meetings: Tulevat tapahtumat
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Aiemmat tapaamiset
+        past_meetings: Aiemmat tapahtumat
         see_all_meetings: Katso kaikki kokoukset
         upcoming_meetings: Tulevat kokoukset
       upcoming_meeting_for_card:
@@ -388,4 +388,4 @@ fi:
   devise:
     mailer:
       join_meeting:
-        subject: Kutsu tapaamiseen
+        subject: Kutsu tapahtumaan
