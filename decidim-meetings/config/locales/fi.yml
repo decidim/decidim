@@ -192,13 +192,13 @@ fi:
               sent: Lähetetyt
             filter_by: Suodata
             invite_attendee: Kutsu osallistuja
-            invites: kutsut
-            registrations_disabled: Et voi kutsua osallistujaa, koska rekisteröinnit on poistettu käytöstä.
+            invites: Kutsut
+            registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
             search: Hae
         meeting_closes:
           edit:
-            close: Lopeta
-            title: Lopeta tapaaminen
+            close: Sulje
+            title: Sulje tapahtuma
         meeting_copies:
           form:
             select_organizer: Valitse järjestäjä
