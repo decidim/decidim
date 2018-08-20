@@ -175,14 +175,14 @@ fi:
             join: Liity tapahtumaan "%{meeting_title}"
         invites:
           create:
-            error: Käyttäjän kutsumisessa tapahtumaan tapahtui virhe.
-            success: Käyttäjä kutsuttu tapahtumaan onnistuneesti.
+            error: Käyttäjän kutsumisessa tapahtumaan esiintyi ongelma.
+            success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
           form:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
             invite: Kutsu
-            invite_explanation: Käyttäjä tullaan kutsumaan mukaan kokoukseen. Käyttäjä kutsutaan myös organisaatioon.
-            non_user: Ei olemassa olevaa käyttäjää
+            invite_explanation: Käyttäjä tullaan kutsumaan mukaan tapahtumaan. Käyttäjä kutsutaan myös järjestöön.
+            non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
             filter:
