@@ -307,13 +307,13 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         index:
-          view_meeting: Näytä tapaaminen
+          view_meeting: Näytä tapahtuma
         meeting_minutes:
           meeting_minutes: Kokouspöytäkirjat
           related_information: Liittyviä tietoja
         meetings:
-          no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole määritelty
-          upcoming_meetings_warning: Tällä hetkellä tapaamisia ei ole määritelty, mutta täältä löydät kaikki aikaisemmat tapaamiset.
+          no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
+          upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
