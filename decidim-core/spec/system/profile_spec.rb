@@ -104,7 +104,7 @@ describe "Profile", type: :system do
     before do
       allow(Decidim.view_hooks)
         .to receive(:render)
-        .with(a_kind_of(Symbol), a_kind_of(ActionView::Base))
+        .with(a_kind_of(Symbol), a_kind_of(Decidim::ProfileSidebarCell))
         .and_return("Rendered from #{view_hook} view hook")
 
       visit decidim.profile_path(user.nickname)
@@ -114,7 +114,7 @@ describe "Profile", type: :system do
       let(:view_hook) { :user_profile_bottom }
 
       it "renders the view hook" do
-        expect(Decidim.view_hooks).to have_received(:render).with(:user_profile_bottom, a_kind_of(ActionView::Base))
+        expect(Decidim.view_hooks).to have_received(:render).with(:user_profile_bottom, a_kind_of(Decidim::ProfileSidebarCell))
         expect(page).to have_content("Rendered from user_profile_bottom view hook")
       end
     end

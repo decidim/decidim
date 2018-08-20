@@ -25,7 +25,7 @@ module Decidim
         it "inserts a SearchableResource after Meeting creation" do
           organization.available_locales.each do |locale|
             searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
-            expect_searchable_rsrc_to_correspond_to_meeting(searchable, meeting, locale)
+            expect_searchable_resource_to_correspond_to_meeting(searchable, meeting, locale)
           end
         end
 
@@ -82,17 +82,17 @@ module Decidim
 
     private
 
-    def expect_searchable_rsrc_to_correspond_to_meeting(searchable, meeting, locale)
+    def expect_searchable_resource_to_correspond_to_meeting(searchable, meeting, locale)
       attrs = searchable.attributes
       attrs.delete("id")
       attrs.delete("created_at")
       attrs.delete("updated_at")
       expect(attrs["datetime"].to_s).to eq(meeting.start_time.to_s)
       attrs.delete("datetime")
-      expect(attrs).to eq(expected_searchable_rsrc_attrs(meeting, locale))
+      expect(attrs).to eq(expected_searchable_resource_attrs(meeting, locale))
     end
 
-    def expected_searchable_rsrc_attrs(meeting, locale)
+    def expected_searchable_resource_attrs(meeting, locale)
       {
         "content_a" => meeting.title[locale],
         "content_b" => "",

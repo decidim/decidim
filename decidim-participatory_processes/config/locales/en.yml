@@ -285,6 +285,8 @@ en:
           highlighted_processes:
             active_processes: Active processes
             active_step: Active step
+            more_information: More information
+            participate: Participate
             see_all_processes: See all processes
       participatory_process_groups:
         none: None

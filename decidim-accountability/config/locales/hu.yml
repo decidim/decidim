@@ -1,0 +1,214 @@
+hu:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Állapot
+        decidim_category_id: Kategória
+        decidim_scope_id: terület
+        description: Leírás
+        end_date: Befejezés dátuma
+        progress: Előrehalad
+        project_ids: Mellékelt projektek
+        proposals: A javasolt javaslatok
+        start_date: Kezdő dátum
+        title: Cím
+        updated_at: 'Frissítve:'
+      status:
+        description: Leírás
+        key: Kulcs
+        name: Név
+        progress: Előrehalad
+      timeline_entry:
+        description: Leírás
+        entry_date: Dátum
+    models:
+      decidim/accountability/proposal_linked_event: A javaslat tartalmazza az eredményt
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Eredmény
+        other: Eredmények
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Biztosan törölni szeretné ezt a %{name}?
+        destroy: Töröl
+        edit: szerkesztése
+        new: Új %{name}
+        preview: Előnézet
+        timeline_entries: A projekt fejlődése
+        title: Hozzászólások
+      admin:
+        exports:
+          results: Eredmények
+        models:
+          result:
+            name: Eredmény
+          status:
+            name: Állapot
+          timeline_entry:
+            name: Idővonal bejegyzés
+        results:
+          create:
+            invalid: Probléma történt az eredmény létrehozásában
+            success: Eredmény sikeresen létrehozva
+          destroy:
+            success: Eredmény sikeresen törölve
+          edit:
+            title: Eredmény szerkesztése
+            update: Frissítse az eredményt
+          form:
+            add_proposal: Javaslat hozzáadása
+          index:
+            title: Eredmények
+          new:
+            create: Eredmény létrehozása
+            title: Új eredmény
+          proposals:
+            close: Bezárás
+            current_selection: Jelenlegi választás
+            select: választ
+          update:
+            invalid: Probléma történt az eredmény frissítésével
+            success: Eredmény sikeresen frissítve
+        shared:
+          subnav:
+            statuses: Állapotok
+        statuses:
+          create:
+            invalid: Probléma történt az állapot létrehozásában
+            success: Az állapot sikeresen létrehozva
+          destroy:
+            success: Az állapot sikeresen törölve
+          edit:
+            title: Státusz szerkesztése
+            update: Állapot frissítése
+          index:
+            title: Állapotok
+          new:
+            create: Státusz létrehozása
+            title: Új állapot
+          update:
+            invalid: Probléma történt az állapot frissítésével
+            success: Az állapot sikeresen frissült
+        timeline_entries:
+          create:
+            invalid: Hiba történt a bejegyzés létrehozásában
+            success: A bejegyzés sikeresen létrehozva
+          destroy:
+            success: A bejegyzés sikeresen törölve
+          edit:
+            title: Bejegyzés szerkesztése
+            update: A bejegyzés frissítése
+          index:
+            title: A projekt idővonalbeli bejegyzései
+          new:
+            create: Bejegyzés létrehozása
+            title: Új bejegyzés
+          update:
+            invalid: Probléma történt a bejegyzés frissítésével
+            success: A bejegyzés sikeresen frissült
+      admin_log:
+        result:
+          create: "%{user_name} létrehozott eredmény %{resource_name} %{space_name}"
+          delete: "%{user_name} törölte az %{resource_name} eredményt %{space_name}"
+          update: "%{user_name} frissített eredmény %{resource_name} a %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'A szülő nem található az adatbázisban (ID: %{id})'
+      models:
+        result:
+          fields:
+            end_date: Befejezés dátuma
+            progress: Előrehalad
+            start_date: Kezdő dátum
+            status: Állapot
+            title: Cím
+        status:
+          fields:
+            description: Leírás
+            key: Kulcs
+            name: Név
+            progress: Előrehalad
+        timeline_entry:
+          fields:
+            description: Leírás
+            entry_date: Dátum
+      results:
+        count:
+          results_count:
+            one: 1 eredmény
+            other: "%{count} találat"
+        filters:
+          all: Minden
+          scopes: Célzók
+        home:
+          categories_label: Kategóriák
+          subcategories_label: Alkategóriák
+        home_header:
+          global_status: Globális végrehajtási állapot
+        nav_breadcrumb:
+          global: Globális végrehajtás
+        search:
+          search: Műveletek keresése
+        show:
+          stats:
+            attendees: résztvevők
+            back_to_result: Menj vissza az eredményre
+            comments: Hozzászólások
+            contributions: hozzájárulások
+            last_edited_by: Utoljára szerkesztette
+            last_updated_at: 'Utoljára frissítve:'
+            meetings: találkozók
+            number_of_versions: változatok
+            proposals: javaslatok
+            show_all_versions: Az összes verzió megjelenítése
+            version_author: Verzió szerző
+            version_created_at: 'Verzió létrehozva a következő helyen:'
+            version_number: Verziószám
+            version_number_out_of_total: "%{current_version} az %{total_count}"
+            votes: támaszok
+        timeline:
+          title: A projekt fejlődése
+      versions:
+        index:
+          changes_at_title: Változások a "%{title}"
+          title: változatok
+        show:
+          changes_at_title: Változások a "%{title}"
+        version:
+          version_index: '%{index}verzió'
+    components:
+      accountability:
+        name: felelősségre vonhatóság
+        settings:
+          global:
+            categories_label: A "Kategóriák" neve
+            comments_enabled: Megjegyzések engedélyezve
+            display_progress_enabled: Az előrehaladás megjelenítése
+            heading_leaf_level_results: A "Projektek"
+            heading_parent_level_results: Az "Eredmények" neve
+            intro: Intro
+            subcategories_label: Az "alkategóriák" neve
+          step:
+            comments_blocked: Megjegyzések letiltva
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A "%{proposal_title}" javaslat szerepel az eredményben. Láthatja ezt az oldalról:'
+          email_outro: Ezt az értesítést megkapta, mert a "%{proposal_title}" -t követi. Leállíthatja az értesítések fogadását az előző link után.
+          email_subject: Frissítés %{proposal_title}
+          notification_title: A <a href="%{proposal_path}">%{proposal_title}</a> javaslat szerepel a <a href="%{resource_path}">%{resource_title}</a> eredményben.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Eredmények
+    participatory_spaces:
+      highlighted_results:
+        results: Eredmények
+        see_all_results: Az összes találat megtekintése
+    resource_links:
+      included_projects:
+        result_project: Ebben az eredményben szereplő projektek
+      included_proposals:
+        result_proposal: Az eredménybe foglalt javaslatok

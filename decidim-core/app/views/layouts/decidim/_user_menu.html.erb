@@ -1,8 +1,8 @@
 <li><%= link_to t(".profile"), decidim.account_path %></li>
 <% unless current_user.managed? %>
-  <li><%= link_to t(".public_profile"), decidim.profile_path(current_user.nickname) %></li>
+  <li><%= link_to t(".public_profile"), decidim.profile_following_path(current_user.nickname) %></li>
 <% end %>
-<li><%= link_to t(".notifications"), decidim.profile_notifications_path(current_user.nickname) %></li>
+<li><%= link_to t(".notifications"), decidim.notifications_path %></li>
 <li><%= link_to t(".conversations"), decidim.conversations_path %></li>
 <li><%= link_to t(".invite_friends"), decidim.account_invitations_path %></li>
 <% if allowed_to? :read, :admin_dashboard %>

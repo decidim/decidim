@@ -16,10 +16,7 @@ describe "Proposals", type: :system do
   let(:longitude) { 2.1234 }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   matcher :have_author do |name|
@@ -122,20 +119,20 @@ describe "Proposals", type: :system do
 
     context "when a proposal has been linked in a result" do
       let(:proposal) { create(:proposal, component: component) }
-      let(:dummy_component) do
-        create(:component, manifest_name: :dummy, participatory_space: proposal.component.participatory_space)
+      let(:accountability_component) do
+        create(:component, manifest_name: :accountability, participatory_space: proposal.component.participatory_space)
       end
-      let(:dummy_resource) { create(:dummy_resource, component: dummy_component) }
+      let(:result) { create(:result, component: accountability_component) }
 
       before do
-        dummy_resource.link_resources([proposal], "included_proposals")
+        result.link_resources([proposal], "included_proposals")
       end
 
       it "shows related resources" do
         visit_component
         click_link proposal.title
 
-        expect(page).to have_i18n_content(dummy_resource.title)
+        expect(page).to have_i18n_content(result.title)
       end
     end
 
@@ -255,6 +252,14 @@ describe "Proposals", type: :system do
 
       visit_component
       expect(page).to have_css(".card--proposal", count: 3)
+    end
+
+    describe "editable content" do
+      before do
+        visit_component
+      end
+
+      it_behaves_like "editable content for admins"
     end
 
     describe "default ordering" do

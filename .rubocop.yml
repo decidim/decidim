@@ -811,7 +811,7 @@ Style/PreferredHashMethods:
   EnforcedStyle: verbose
 
 Style/DateTime:
-  Enabled: false
+  Enabled: true
 
 Style/Documentation:
   Enabled: false
@@ -1213,10 +1213,9 @@ RSpec/ContextWording:
 
 RSpec/DescribeClass:
   Exclude:
-    - spec/bundle_spec.rb
+    - spec/gemfiles_spec.rb
+    - spec/js_bundles_spec.rb
     - spec/i18n_spec.rb
-    - decidim-admin/spec/bundles_spec.rb
-    - decidim-comments/spec/bundle_spec.rb
     - decidim-core/spec/lib/global_engines_spec.rb
     - "**/tasks/**/*"
 

@@ -11,12 +11,12 @@ describe "Proposal", type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
-  let(:latitude) { 40.1234 }
-  let(:longitude) { 2.1234 }
+  let(:address) { "Plaça Santa Jaume, 1, 08002 Barcelona" }
+  let(:latitude) { 41.3825 }
+  let(:longitude) { 2.1772 }
 
-  let(:proposal_title) { "Oriol for president" }
-  let(:proposal_body) { "He will solve everything" }
+  let(:proposal_title) { "More sidewalks and less roads" }
+  let(:proposal_body) { "Cities need more people, not more cars" }
 
   let!(:component) do
     create(:proposal_component,
@@ -53,8 +53,8 @@ describe "Proposal", type: :system do
     context "when in step_2: Compare" do
       context "with similar results" do
         before do
-          create(:proposal, title: "Agusti for president", body: "He will solve everything", component: component)
-          create(:proposal, title: "Homer for president", body: "He will not solve everything", component: component)
+          create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component: component)
+          create(:proposal, title: "More sidewalks and less roadways", body: "Green is always better", component: component)
           visit_component
           click_link "New proposal"
           within ".new_proposal" do
@@ -74,7 +74,7 @@ describe "Proposal", type: :system do
         end
 
         it "shows similar proposals" do
-          expect(page).to have_css(".card--proposal", text: "Agusti for president")
+          expect(page).to have_css(".card--proposal", text: "More sidewalks and less roads")
           expect(page).to have_css(".card--proposal", count: 2)
         end
 

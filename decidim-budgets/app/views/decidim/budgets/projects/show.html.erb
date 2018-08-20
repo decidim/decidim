@@ -3,6 +3,15 @@
   description: translated_attribute(project.description)
 ) %>
 
+<%
+edit_link(
+  resource_locator(project).edit,
+  :update,
+  :project,
+  project: project
+)
+%>
+
 <div class="row column view-header">
   <% if current_user.present? && current_settings.votes_enabled? && current_participatory_space.can_participate?(current_user) %>
     <%= render partial: "budget_summary", locals: { include_heading: false } %>

@@ -16,11 +16,12 @@ fi:
   decidim:
     budgets:
       actions:
-        attachment_collections: kansiot
+        attachment_collections: Kansiot
         attachments: Liitteet
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
+        import: Tuo ehdotuksia projekteihin
         new: Uusi projekti
         preview: Esikatsele
         title: Toiminnot
@@ -33,7 +34,7 @@ fi:
             invalid: Tämän projektin lisäyksessä tapahtui virhe
             success: Projekti lisätty onnistuneesti
           destroy:
-            success: Hanke poistettiin onnistuneesti
+            success: Projekti poistettiin onnistuneesti
           edit:
             title: Muokkaa projektia
             update: Päivitä
@@ -47,11 +48,19 @@ fi:
           update:
             invalid: Tämän projektin päivityksessä tapahtui virhe
             success: Projekti päivitetty onnistuneesti
+        proposals_imports:
+          create:
+            invalid: Ehdotusten tuomisessa projekteihin on esiintynyt ongelma
+            success: "%{number} ehdotusta on tuotu onnistuneesti projekteihin"
+          new:
+            create: Tuo ehdotuksia projekteihin
+            no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tueksi hankkeisiin.
+            select_component: Valitse komponentti
       admin_log:
         project:
-          create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilaan"
-          delete: "%{user_name} poistanut %{resource_name} -projektin %{space_name} -tilassa"
-          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilaan"
+          create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilassa"
+          delete: "%{user_name} poisti %{resource_name} -projektin %{space_name} -tilassa"
+          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilassa"
       models:
         project:
           fields:
@@ -104,7 +113,7 @@ fi:
             one: 1 kannatus
             other: "%{count} kannatusta"
           remove: Poista
-          view: näkymä
+          view: Näytä
         project_budget_button:
           add: Lisää
           added: Lisätty
@@ -114,16 +123,16 @@ fi:
     components:
       budgets:
         actions:
-          vote: Äänestys
-        name: budjetit
+          vote: Äänestä
+        name: Budjetit
         settings:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
-            projects_per_page: Hankkeet sivua kohden
+            projects_per_page: Projektit sivua kohden
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
             total_budget: Kokonaisbudjetti
-            vote_threshold_percent: Äänestä kynnysarvoa
+            vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty

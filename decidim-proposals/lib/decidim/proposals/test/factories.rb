@@ -238,7 +238,7 @@ FactoryBot.define do
   factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
-    user_group { create(:user_group, verified_at: Time.zone.now, organization: proposal.organization, users: [author]) }
+    user_group { create(:user_group, verified_at: Time.current, organization: proposal.organization, users: [author]) }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do

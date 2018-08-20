@@ -2,8 +2,8 @@ ru:
   activemodel:
     attributes:
       debate:
-        category_id: Разряд
-        decidim_category_id: Разряд
+        category_id: Категория
+        decidim_category_id: Категория
         description: Описание
         end_time: 'Заканчивается:'
         information_updates: Обновления сведений
@@ -82,8 +82,8 @@ ru:
           participate: Принять участие
         filters:
           all: Все
-          category: Разряд
-          category_prompt: Выберите разряд
+          category: Категория
+          category_prompt: Выберите категорию
           citizens: Граждане
           official: Служебные
           origin: Источник
@@ -98,7 +98,7 @@ ru:
         new:
           back: Вернуться
           create: Создать
-          select_a_category: Пожалуйста, выберите разряд
+          select_a_category: Пожалуйста, выберите категорию
           title: Начать новое обсуждение
         share:
           close_window: Закрыть окно

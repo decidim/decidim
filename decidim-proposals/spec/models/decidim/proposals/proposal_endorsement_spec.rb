@@ -11,7 +11,7 @@ module Decidim
       let!(:component) { create(:component, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
-      let!(:user_group) { create(:user_group, verified_at: DateTime.current, organization: organization, users: [author]) }
+      let!(:user_group) { create(:user_group, verified_at: Time.current, organization: organization, users: [author]) }
       let!(:proposal) { create(:proposal, component: component, users: [author]) }
       let!(:proposal_endorsement) do
         build(:proposal_endorsement, proposal: proposal, author: author,
@@ -83,7 +83,7 @@ module Decidim
           proposal_endorsement.save!
         end
 
-        let!(:other_user_group) { create(:user_group, verified_at: DateTime.current, organization: author.organization, users: [author]) }
+        let!(:other_user_group) { create(:user_group, verified_at: Time.current, organization: author.organization, users: [author]) }
         let!(:other_proposal_endorsement_1) do
           create(:proposal_endorsement, proposal: proposal, author: author)
         end

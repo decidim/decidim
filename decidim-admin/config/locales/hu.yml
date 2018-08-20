@@ -1,0 +1,659 @@
+hu:
+  activemodel:
+    attributes:
+      area:
+        area_type: Terület típus
+        name: Név
+        organization: Szervezet
+      area_type:
+        name: Név
+        organization: Szervezet
+        plural: Többes szám
+      attachment:
+        attachment_collection_id: Folder
+        description: Leírás
+        file: fájl
+        title: Cím
+      attachment_collection:
+        description: Leírás
+        name: Név
+      category:
+        description: Leírás
+        name: Név
+        parent_id: Szülő
+      component:
+        name: Név
+        published_at: Megjelent a
+        weight: Súly
+      id: ID
+      newsletter:
+        body: Test
+        subject: Tantárgy
+      oauth_application:
+        name: Név
+        organization_logo: Szervezeti logo (négyzet)
+        organization_name: Szervezet neve
+        organization_url: Szervezeti URL
+        redirect_uri: Átirányítási URI
+      organization:
+        cta_button_path: Hívás művelet gomb nyomvonal
+        cta_button_text: Hívás művelet gomb szövege
+        default_locale: Alapértelmezett hely
+        description: Leírás
+        enable_omnipresent_banner: Mutassa az összes többi banneret
+        facebook_handler: Facebook kezelő
+        favicon: Ikon
+        github_handler: GitHub kezelő
+        header_snippets: Fejléc-részletek
+        highlighted_content_banner_action_subtitle: Művelet gomb felirat
+        highlighted_content_banner_action_title: Művelet gomb címe
+        highlighted_content_banner_action_url: Művelet gomb URL
+        highlighted_content_banner_enabled: A kiemelt tartalmi banner megjelenítése
+        highlighted_content_banner_image: Kép
+        highlighted_content_banner_short_description: Rövid leírás
+        highlighted_content_banner_title: Cím
+        homepage_image: Kezdőlap kép
+        instagram_handler: Instagram kezelő
+        logo: logo
+        name: Név
+        official_img_footer: Hivatalos logó lábléc
+        official_img_header: Hivatalos logó fejléc
+        official_url: Hivatalos szervezeti URL
+        omnipresent_banner_short_description: Rövid leírás
+        omnipresent_banner_title: Cím
+        omnipresent_banner_url: URL
+        reference_prefix: Hivatkozási előtag
+        show_statistics: Statisztikák megjelenítése
+        tos_version: Használati feltételek
+        twitter_handler: Twitter kezelő
+        welcome_text: Üdvözlő szöveg
+        youtube_handler: YouTube kezelő
+      scope:
+        code: Kód
+        name: Név
+        organization: Szervezet
+        parent_id: Szülő
+        scope_type: Alkalmazási típus
+        scope_type_id: Alkalmazási típus
+      scope_type:
+        name: Név
+        organization: Szervezet
+        plural: Többes szám
+      static_page:
+        changed_notably: Jelentős változások történtek.
+        content: Tartalom
+        organization: Szervezet
+        slug: URL slug
+        title: Cím
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Az átirányítási URI-nak SSL URI-nak kell lennie
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Tartalom
+        slug: URL slug
+        title: Cím
+      doorkeeper/application:
+        authorize_url: URL engedélyezése
+        client_id: Ügyfélazonosító
+        client_secret: Ügyfél titka
+        organization_name: Szervezet neve
+        organization_url: Szervezeti URL
+        redirect_uri: Átirányítási URI
+        site: Weboldal
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
+  decidim:
+    admin:
+      actions:
+        add: hozzáad
+        browse: Böngésszen
+        export: Export
+        manage: kezel
+        new: Új %{name}
+        permissions: Engedélyek
+        reject: Elutasít
+        verify: Ellenőrizze
+      area_types:
+        create:
+          error: Hiba történt új területtípus létrehozásában.
+          success: A területtípus sikeresen létrehozva.
+        destroy:
+          success: A területtípus sikeresen megsemmisült
+        edit:
+          title: A terület típusának szerkesztése
+          update: frissítés
+        new:
+          create: Terület típus létrehozása
+          title: Új terület típus
+        update:
+          error: Hiba történt a terület típusának frissítésekor.
+          success: A területtípus sikeresen frissült
+      areas:
+        create:
+          error: Hiba történt új terület létrehozásakor.
+          success: A terület sikeresen létrehozva.
+        destroy:
+          success: A terület sikeresen megsemmisült
+        edit:
+          title: Szerkesztés terület
+          update: frissítés
+        new:
+          create: Terület létrehozása
+          title: Új terület
+        no_areas: Nincsenek területek
+        update:
+          error: Hiba történt a terület frissítésekor.
+          success: A terület sikeresen frissült
+      attachment_collections:
+        create:
+          error: Hiba történt új mappa létrehozása közben.
+          success: A mappa sikeresen létrehozva.
+        destroy:
+          success: A mappa sikeresen megsemmisült.
+        edit:
+          title: Mappa szerkesztése
+          update: frissítés
+        index:
+          attachment_collection_used: Ezt a mappát nem lehet eltávolítani, mert használatban van.
+          attachment_collections_title: Melléklet mappák
+        new:
+          create: Teremt
+          title: Új mappa
+        update:
+          error: Hiba történt a mappa frissítésekor.
+          success: A mappa sikeresen frissült.
+      attachments:
+        create:
+          error: Hiba történt új melléklet létrehozása közben.
+          success: A csatolás sikeresen megtörtént.
+        destroy:
+          success: A csatolás sikeresen megsemmisült.
+        edit:
+          title: Melléklet szerkesztése
+          update: frissítés
+        index:
+          attachments_title: Mellékletek
+        new:
+          create: Hozz létre mellékletet
+          title: Új csatolás
+        update:
+          error: Hiba történt a melléklet frissítésekor.
+          success: A csatolás sikeresen frissült.
+      autocomplete:
+        no_results: Nincs találat
+        search_prompt: Írjon be legalább három karaktert a kereséshez
+      categories:
+        create:
+          error: Hiba történt a kategória létrehozásában.
+          success: Kategória sikeresen létrehozva.
+        destroy:
+          error: Hiba történt a kategória törlésekor. Kérjük, törölje az összes alkategóriát először, győződjön meg róla, hogy más kategória nem tartozik ebbe a kategóriába, és próbálkozzon újra.
+          success: A kategória sikeresen törölve.
+        edit:
+          title: Kategória szerkesztése
+          update: frissítés
+        index:
+          categories_title: Kategóriák
+          category_used: Ez a kategória nem távolítható el, mert használatban van.
+        new:
+          create: Kategória létrehozása
+          title: Új kategória
+        update:
+          error: Hiba történt a kategória frissítésénél.
+          success: A kategória sikeresen frissült.
+      component_permissions:
+        edit:
+          everyone: Mindenki
+          submit: Engedélyek mentése
+          title: Engedélyek szerkesztése
+        update:
+          success: Engedélyek sikeresen frissítve.
+      components:
+        create:
+          error: Hiba történt az összetevő létrehozásában.
+          success: Az összetevő sikeresen létrehozva.
+        destroy:
+          error: Hiba történt az összetevő megsemmisítése közben.
+          success: Az összetevő sikeresen törölve.
+        edit:
+          title: A komponens szerkesztése
+          update: frissítés
+        form:
+          default_step_settings: Alapértelmezett lépés beállítások
+          global_settings: Általános beállítások
+          step_settings: Lépésbeállítások
+        index:
+          add: Add hozzá az összetevőt
+          headers:
+            actions: Hozzászólások
+            name: A komponens neve
+            type: Komponens típus
+        new:
+          add: Add hozzá az összetevőt
+          title: 'Elem hozzáadása: %{name}'
+        publish:
+          success: Az összetevő sikeres volt.
+        title: Alkatrészek
+        unpublish:
+          success: Az összetevő sikeresen közzétételre került.
+        update:
+          error: Hiba történt az összetevő frissítésével.
+          success: Az összetevő sikeresen frissült.
+      dashboard:
+        show:
+          view_more_logs: További naplók megtekintése
+          welcome: Üdvözöljük a Decidim Admin Panelben.
+      exports:
+        export_as: "%{name} mint %{export_format}"
+        notice: Az export jelenleg folyamatban van. E-mailt fog kapni, ha teljes.
+      impersonatable_users:
+        index:
+          filter:
+            all: Minden
+            managed: Irányított
+            not_managed: Nem sikerült
+          filter_by: Szűrés vlami alapján
+          impersonate: megszemélyesít
+          impersonate_new_managed_user: Új kezelt felhasználó szerepeltetése
+          managed: Irányított
+          name: Név
+          needs_authorization_warning: Ehhez legalább egy, a szervezet számára engedélyezett engedély szükséges.
+          not_managed: Nem sikerült
+          promote: Népszerűsít
+          search: Keresés
+          status: Állapot
+          view_logs: Naplók megtekintése
+      impersonations:
+        close_session:
+          error: Hiba történt az aktuális megszemélyesítő munkamenet lezárásával.
+          success: A jelenlegi megszemélyesítő munkamenet sikeresen befejeződött.
+        create:
+          error: Hiba történt a felhasználót illetően.
+          success: A kezelt felhasználó sikeresen létrejött.
+        form:
+          authorization_method: Engedélyezési módszer
+          name: Név
+          reason: Ok
+        new:
+          impersonate: megszemélyesít
+          impersonate_existing_managed_user: Kezelt felhasználó "%{name}"
+          impersonate_existing_user: Felhasználó "%{name}"
+          impersonate_new_managed_user: Új kezelt felhasználó szerepeltetése
+      logs:
+        logs_list:
+          no_logs_yet: Még nincs napló
+      managed_users:
+        promotion:
+          error: Hiba történt a kezelt felhasználó előmozdításában.
+          success: A kezelt felhasználót sikeresen támogatták.
+        promotions:
+          new:
+            explanation: A felügyelt felhasználókat elő lehet mozdítani a szokásos felhasználóknak. Ez azt jelenti, hogy meghívást kapnak az alkalmazásra, és nem leszel képes újraéleszteni őket. A meghívott felhasználó e-mailt kap a meghívás elfogadásához.
+            new_managed_user_promotion: Új kezelt felhasználó promóció
+            promote: Népszerűsít
+      menu:
+        admin_log: Adminisztrátori tevékenységnapló
+        admins: Adminok
+        appearance: Kinézet
+        area_types: Területfajták
+        areas: területek
+        configuration: Configuration
+        dashboard: Irányítópult
+        homepage: Homepage
+        impersonations: alakítások
+        newsletters: hírlevelek
+        oauth_applications: OAuth alkalmazások
+        officializations: Officializations
+        scope_types: Hatálytípusok
+        scopes: Célzók
+        settings: Beállítások
+        static_pages: Oldalak
+        user_groups: Felhasználói csoportok
+        users: felhasználók
+      models:
+        area:
+          fields:
+            area_type: Terület típus
+            name: Név
+        area_type:
+          fields:
+            name: Név
+            plural: Többes szám
+        attachment:
+          fields:
+            collection: Folder
+            content_type: típus
+            file_size: Méret
+            title: Cím
+          name: Attachment
+        attachment_collection:
+          name: Folder
+        category:
+          name: Kategória
+        impersonation_log:
+          fields:
+            admin: admin
+            ended_at: Véget ért
+            expired_at: Lejárt
+            reason: Ok
+            started_at: Kezdetben
+            user: használó
+        newsletter:
+          fields:
+            created_at: 'Létrehozva:'
+            progress: Előrehalad
+            sent_at: Elküldve
+            subject: Tantárgy
+          name: Hírlevél
+        oauth_application:
+          fields:
+            created_at: 'Létrehozva:'
+            name: Név
+          name: OAuth alkalmazás
+        participatory_space_private_user:
+          name: Résztvevős privát felhasználó
+        scope:
+          fields:
+            name: Név
+            scope_type: Alkalmazási típus
+        scope_type:
+          fields:
+            name: Név
+            plural: Többes szám
+        static_page:
+          fields:
+            created_at: 'Létrehozva:'
+            title: Cím
+        user:
+          fields:
+            created_at: Készítés ideje
+            email: Email
+            last_sign_in_at: Utolsó bejelentkezési dátum
+            name: Név
+            role: Szerep
+            roles:
+              admin: admin
+              user_manager: Felhasználói menedzser
+          name: használó
+        user_group:
+          fields:
+            actions: Hozzászólások
+            created_at: 'Létrehozva:'
+            document_number: Dokumentum szám
+            name: Név
+            phone: Telefon
+            state: Állapot
+            users_count: A felhasználók számítanak
+      moderations:
+        index:
+          title: moderálások
+        report:
+          reasons:
+            does_not_belong: Nem tartozik hozzá
+            offensive: Támadó
+            spam: Levélszemét
+      newsletters:
+        create:
+          error: Hiba történt a hírlevél létrehozásában.
+          success: A hírlevél sikeresen létrehozva. Kérjük, ellenőrizze, mielőtt elküldte.
+        deliver:
+          error: Hiba történt ezzel a hírlevelvel.
+          success: A hírlevél sikeresen elküldve.
+        destroy:
+          error_already_sent: 'Nem lehet megsemmisíteni hírlevél: már elküldte.'
+          success: A hírlevél sikeresen megsemmisült
+        edit:
+          save_and_preview: Mentés és előnézet
+          title: Hírlevél szerkesztése
+        form:
+          interpolations_hint: 'Tipp: A "%{name}" -ot bárhol a szervezetben vagy tárgyban használhatja, és a címzett neve helyett.'
+        index:
+          confirm_delete: Biztosan törölni szeretné ezt a hírlevelet?
+          title: hírlevelek
+        new:
+          save: Mentés
+          title: Új hírlevél
+        show:
+          confirm_deliver: Biztos benne, hogy ezt a hírlevelet szeretné elküldeni? Ez a művelet nem visszavonható.
+          deliver: Hírlevél küldése
+          preview: Előnézet
+          subject: Tantárgy
+        update:
+          error: Hiba történt a hírlevelet frissítve.
+          success: A hírlevél sikeresen frissült. Kérjük, hogy küldés előtt ellenőrizze.
+      oauth_applications:
+        create:
+          error: Hiba történt az alkalmazás létrehozásában.
+          success: Az alkalmazás sikeresen létrehozva.
+        destroy:
+          error: Hiba történt az alkalmazás megsemmisítése közben.
+          success: Az alkalmazás sikeresen megsemmisült.
+        edit:
+          save: Mentés
+          title: Alkalmazás szerkesztése
+        index:
+          confirm_delete: Biztosan törölni szeretné ezt az alkalmazást?
+          title: OAuth alkalmazások
+        new:
+          save: Mentés
+          title: Új alkalmazás
+        update:
+          error: Hiba történt az alkalmazás frissítésekor.
+          success: Az alkalmazás sikeresen frissült.
+      officializations:
+        create:
+          success: A felhasználó sikeresen hivatalossá vált
+        destroy:
+          success: A felhasználó sikertelenül sikerült
+        index:
+          actions: Hozzászólások
+          badge: Jelvény
+          created_at: Létrehozva
+          filter:
+            all: Minden
+            not_officialized: Nem hivatalos
+            officialized: Officialized
+          filter_by: Szűrés vlami alapján
+          name: Név
+          nickname: Becenév
+          not_officialized: Nem hivatalos
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          search: Keresés
+          status: Állapot
+          unofficialize: Unofficialize
+        new:
+          badge: Hivatalos jelölés
+          officialize: Officialize
+          title: Hivatalos felhasználó "%{name}"
+      organization:
+        edit:
+          title: Szervezet szerkesztése
+          update: frissítés
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Társadalmi
+          twitter: Twitter
+          url: url
+          youtube: Youtube
+        update:
+          error: Hiba történt a szervezet frissítésekor.
+          success: A szervezet sikeresen frissült.
+      organization_appearance:
+        edit:
+          update: frissítés
+        form:
+          cta_button_path_help: 'Felülírhatja, hogy a kezdőlapon a Csevegési művelet gombra kattint. Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és vágások fogadhatók el, és betűvel kell kezdődniük. A Hívás kezdeményezés gomb megjelenik a honlapon az üdvözlő szöveg és a leírás között. Példa: %{url}'
+          cta_button_text_help: Felülírhatjuk a "Hívás művelethez" gomb szövegét a honlapon minden egyes rendelkezésre álló nyelv számára a szervezetben. Ha nincs beállítva, akkor az alapértelmezett érték lesz használva. A Hívás kezdeményezés gomb megjelenik a honlapon az üdvözlő szöveg és a leírás között.
+          header_snippets_help: Ezzel a mezővel hozzá lehet adni a dolgokat a HTML fejhez. A leggyakoribb használat olyan külső szolgáltatások integrálása, amelyekhez extra JavaScript vagy CSS szükséges. Ezenkívül további metacímkéket adhat hozzá a HTML-hez. Ne feledje, hogy ez csak nyilvános oldalakon fog megjelenni, nem az adminisztrációs oldalon.
+          homepage_appearance_title: A honlap megjelenésének szerkesztése
+          homepage_highlighted_content_banner_title: Magas szintű tartalom banner
+          layout_appearance_title: Elrendezés megjelenése
+          omnipresent_banner_appearance_title: Szerkesszen mindenütt megjelenő banneret
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktív tartalomblokkok
+          inactive_content_blocks: Inaktív tartalomblokkok
+      participatory_space_private_users:
+        create:
+          error: Hiba történt egy privát felhasználó hozzáadása ehhez a részvételi helyhez.
+          success: A részvételi hely privát felhasználói hozzáférése sikeresen létrejött.
+        destroy:
+          success: A részvételi hely privát felhasználói hozzáférése sikeresen megsemmisült.
+        index:
+          title: Résztvevős privát felhasználó
+        new:
+          create: Teremt
+          title: Új részvételi hely magánfelhasználó.
+      scope_types:
+        create:
+          error: Hiba történt egy új alkalmazástípus létrehozásában.
+          success: A hatókör típusát sikeresen létrehoztuk.
+        destroy:
+          success: A hatókör típusa sikeresen megsemmisült
+        edit:
+          title: Szótípus szerkesztése
+          update: frissítés
+        new:
+          create: Kötegtípus létrehozása
+          title: Új hatókör
+        update:
+          error: Hiba történt az eszköz típusának frissítésekor.
+          success: A hatókör típusa sikeresen frissült
+      scopes:
+        create:
+          error: Hiba történt új kört létrehozva.
+          success: Hatály sikeresen létrehozva.
+        destroy:
+          success: A hatókör sikeresen megsemmisült
+        edit:
+          title: Szóköz szerkesztése
+          update: frissítés
+        new:
+          create: Terület létrehozása
+          title: Új hatókör
+        no_scopes: Ezen a szinten nincsenek hatókörök.
+        update:
+          error: Hiba történt az alkalmazási terület frissítésekor.
+          success: A hatókör sikeresen frissült
+      static_pages:
+        actions:
+          view: Nyilvános oldal megtekintése
+        create:
+          error: Hiba történt új oldal létrehozása közben.
+          success: Az oldal sikeresen létrehozva.
+        destroy:
+          success: Az oldal sikeresen megsemmisült
+        edit:
+          changed_notably_help: Ha be van jelölve, a felhasználók értesítést kapnak az új feltételek elfogadásáról.
+          title: Oldal szerkesztése
+          update: frissítés
+        index:
+          last_notable_change: Utolsó figyelemre méltó változás
+        new:
+          create: Teremt
+          title: Új oldal
+        update:
+          error: Hiba történt az oldal frissítésekor.
+          success: Az oldal sikeresen frissült
+      titles:
+        admin_log: Adminisztrátori napló
+        area_types: Területfajták
+        areas: területek
+        authorization_workflows: Ellenőrzési módszerek
+        dashboard: Irányítópult
+        impersonatable_users: Felszólalhatatlan felhasználók
+        impersonations: alakítások
+        officializations: Officializations
+        scope_types: Hatálytípusok
+        scopes: Célzók
+        static_pages: Oldalak
+        user_groups: Felhasználói csoportok
+        users: felhasználók
+      user_group:
+        reject:
+          invalid: Hiba történt a felhasználói csoport elutasításakor.
+          success: A felhasználói csoport sikeresen elutasítva
+        verify:
+          invalid: Hiba történt a felhasználócsoport ellenőrzésekor.
+          success: A felhasználói csoport sikeresen ellenőrzött
+      user_groups:
+        index:
+          filter:
+            all: Minden
+            pending: Függőben levő
+            rejected: Elutasítva
+            verified: ellenőrzött
+          filter_by: Szűrés vlami alapján
+          search: Keresés
+          state:
+            pending: Függőben levő
+            rejected: Elutasítva
+            verified: ellenőrzött
+      users:
+        create:
+          error: Hiba történt a felhasználó meghívása során.
+          success: A felhasználó sikeresen meghívott.
+        destroy:
+          error: Hiba történt a felhasználó törlése során.
+          success: A felhasználó már nem rendszergazda.
+        form:
+          email: Email
+          name: Név
+          role: Szerep
+        new:
+          create: Meghívás
+          title: Felhasználó meghívása rendszergazdaként
+    forms:
+      errors:
+        impersonate_user:
+          reason: Indokoltnak kell lennie egy nem kezelt felhasználó megszemélyesítése esetén
+    moderations:
+      actions:
+        hidden: Rejtett
+        hide: Elrejt
+        not_hidden: Nem rejtett
+        title: Hozzászólások
+        unreport: Unreport
+      admin:
+        reportable:
+          hide:
+            invalid: Probléma merült fel az erőforrás elrejtésére.
+            success: Az erőforrás sikeresen elrejtve.
+          unreport:
+            invalid: Probléma jelentette az erőforrás bejelentésének figyelmen kívül hagyását.
+            success: Az erőforrás sikeresen be nem jelentett.
+      models:
+        moderation:
+          fields:
+            hidden_at: Rejtett itt
+            report_count: Számol
+            reportable: Kimutatható
+            reported_content_url: Jelentett tartalom URL
+            reports: jelentések
+            visit_url: Látogassa meg az URL-t
+  errors:
+    messages:
+      invalid_json: Érvénytelen JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: hírlevelek
+        settings:
+          title: Beállítások
+        users:
+          title: felhasználók
+  time:
+    formats:
+      datepicker: "%m/%d/%Y"
+      timepicker: "%m/%d/%Y %H:%M"

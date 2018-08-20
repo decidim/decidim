@@ -95,7 +95,7 @@ shared_examples "manage attachments examples" do
 
     it "can remove an attachment from a collection" do
       within "#attachments" do
-        within find("tr", text: stripped(translated(attachment.title))) do
+        within find("tr", text: translated(attachment.title)) do
           expect(page).to have_text(translated(attachment_collection.name, locale: :en))
           click_link "Edit"
         end
@@ -108,14 +108,14 @@ shared_examples "manage attachments examples" do
       end
 
       within "#attachments" do
-        within find("tr", text: stripped(translated(attachment.title))) do
+        within find("tr", text: translated(attachment.title)) do
           expect(page).to have_no_text(translated(attachment_collection.name, locale: :en))
         end
       end
     end
 
     it "can delete an attachment from a process" do
-      within find("tr", text: stripped(translated(attachment.title))) do
+      within find("tr", text: translated(attachment.title)) do
         accept_confirm { click_link "Delete" }
       end
 
@@ -126,7 +126,7 @@ shared_examples "manage attachments examples" do
 
     it "can update an attachment" do
       within "#attachments" do
-        within find("tr", text: stripped(translated(attachment.title))) do
+        within find("tr", text: translated(attachment.title)) do
           click_link "Edit"
         end
       end

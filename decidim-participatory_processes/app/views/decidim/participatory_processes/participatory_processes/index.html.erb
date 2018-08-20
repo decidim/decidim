@@ -1,5 +1,13 @@
 <% add_decidim_meta_tags(title: t("participatory_processes.index.title", scope: "decidim")) %>
 
+<%
+edit_link(
+  decidim_admin_participatory_processes.participatory_processes_path,
+  :read,
+  :process_list
+)
+%>
+
 <main class="wrapper">
   <% if promoted_participatory_processes.any? %>
     <section id="highlighted-processes" class="row section">
