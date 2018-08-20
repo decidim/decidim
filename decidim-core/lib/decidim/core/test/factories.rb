@@ -128,7 +128,7 @@ FactoryBot.define do
     end
 
     trait :officialized do
-      officialized_at { Time.zone.now }
+      officialized_at { Time.current }
       officialized_as { Decidim::Faker::Localized.sentence(3) }
     end
   end
@@ -270,7 +270,7 @@ FactoryBot.define do
   factory :scope, class: "Decidim::Scope" do
     name { Decidim::Faker::Localized.literal(generate(:scope_name)) }
     code { generate(:scope_code) }
-    scope_type
+    scope_type { create(:scope_type, organization: organization) }
     organization { parent ? parent.organization : build(:organization) }
   end
 
@@ -423,7 +423,7 @@ FactoryBot.define do
     application { build(:oauth_application) }
     token { SecureRandom.hex(32) }
     expires_in { 1.month.from_now }
-    created_at { Time.zone.now }
+    created_at { Time.current }
     scopes { "public" }
   end
 
@@ -436,7 +436,7 @@ FactoryBot.define do
     locale { I18n.locale }
     scope { resource.scope }
     content_a { Faker::Lorem.sentence }
-    datetime { DateTime.current }
+    datetime { Time.current }
   end
 
   factory :content_block, class: "Decidim::ContentBlock" do

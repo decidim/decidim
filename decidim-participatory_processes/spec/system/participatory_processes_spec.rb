@@ -75,6 +75,8 @@ describe "Participatory Processes", type: :system do
       visit decidim_participatory_processes.participatory_processes_path
     end
 
+    it_behaves_like "editable content for admins"
+
     context "and accessing from the homepage" do
       it "the menu link is not shown" do
         visit decidim.root_path
@@ -213,6 +215,8 @@ describe "Participatory Processes", type: :system do
 
       visit decidim_participatory_processes.participatory_process_path(participatory_process)
     end
+
+    it_behaves_like "editable content for admins"
 
     it "shows the details of the given process" do
       within "div.wrapper" do

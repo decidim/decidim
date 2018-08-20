@@ -18,7 +18,7 @@ module Decidim
     describe "GET /search" do
       context "when having resources with the term 'Great' in their content" do
         let!(:results) do
-          now = DateTime.current
+          now = Time.current
           [create(:searchable_resource, organization: organization, content_a: "Great proposal of mine", datetime: now + 1.second),
            create(:searchable_resource, organization: organization, content_a: "The great-est place of the world", datetime: now)]
         end

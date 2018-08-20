@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages newsletters", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization: organization) }
-  let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.zone.now, organization: organization) }
+  let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
 
   before do
     switch_to_host(organization.host)

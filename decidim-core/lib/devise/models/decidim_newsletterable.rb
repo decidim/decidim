@@ -46,7 +46,7 @@ module Devise
       # Fill Opt-in value with current time &
       # removes any token involved
       def set_newsletter_opt_in
-        self.newsletter_notifications_at = Time.zone.now
+        self.newsletter_notifications_at = Time.current
         self.newsletter_token = ""
       end
 

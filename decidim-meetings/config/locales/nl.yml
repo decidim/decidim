@@ -106,6 +106,11 @@ nl:
           email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande ink.
           email_subject: Het event "%{resource_title}" is bijgewerkt
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
+        registration_code_validated:
+          email_intro: Uw registratiecode "%{registration_code}" is gevalideerd.
+          email_outro: U hebt deze melding ontvangen omdat uw registratiecode voor de "%{resource_title}" -vergadering is gevalideerd.
+          email_subject: Uw registratiecode "%{registration_code}" is gevalideerd
+          notification_title: Uw registratiecode "%{registration_code}" voor de <a href="%{resource_path}">%{resource_title}</a> vergadering is gevalideerd.
         registrations_enabled:
           email_intro: 'Het event ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
@@ -246,6 +251,8 @@ nl:
         registrations:
           edit:
             save: Opslaan
+            validate: bevestigen
+            validate_registration_code: Valideer de registratiecode
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invites: Uitnodigingen
@@ -257,6 +264,9 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
+          validate_registration_code:
+            invalid: Deze registratiecode is ongeldig.
+            success: Registratiecode succesvol gevalideerd.
       admin_log:
         invite:
           create: "%{user_name} heeft %{attendee_name} uitgenodigd om deel te nemen aan %{resource_name} bijeenkomsten op de %{space_name} ruimte"

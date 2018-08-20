@@ -131,4 +131,49 @@ describe "Admin manages officializations", type: :system do
       end
     end
   end
+
+  describe "contacting the user" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to conversation path" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link "Contact"
+      end
+      expect(page).to have_current_path decidim.new_conversation_path(recipient_id: user.id)
+    end
+  end
+
+  describe "clicking on user name" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to user profile page" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link user.name
+      end
+      expect(page).to have_current_path decidim.profile_path(user.nickname)
+    end
+  end
+
+  describe "clicking on user nickname" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to user profile page" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link user.nickname
+      end
+      expect(page).to have_current_path decidim.profile_path(user.nickname)
+    end
+  end
 end

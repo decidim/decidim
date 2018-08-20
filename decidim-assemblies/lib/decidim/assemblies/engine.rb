@@ -73,6 +73,9 @@ module Decidim
 
           next unless assemblies.any?
 
+          # Since this is rendered inside a cell we need to access the parent context in order to render it.
+          view_context = view_context.controller.view_context
+
           view_context.render(
             partial: "decidim/assemblies/pages/user_profile/member_of",
             locals: {

@@ -15,7 +15,7 @@ module Decidim
         it "inserts a SearchableResource after User creation" do
           organization.available_locales.each do |locale|
             searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
-            expect_searchable_rsrc_to_correspond_to_user(searchable, user, locale)
+            expect_searchable_resource_to_correspond_to_user(searchable, user, locale)
           end
         end
 
@@ -58,17 +58,17 @@ module Decidim
 
     private
 
-    def expect_searchable_rsrc_to_correspond_to_user(searchable, user, locale)
+    def expect_searchable_resource_to_correspond_to_user(searchable, user, locale)
       attrs = searchable.attributes
       attrs.delete("id")
       attrs.delete("created_at")
       attrs.delete("updated_at")
       expect(attrs["datetime"].to_s).to eq(user.created_at.to_s)
       attrs.delete("datetime")
-      expect(attrs).to eq(expected_searchable_rsrc_attrs(user, locale))
+      expect(attrs).to eq(expected_searchable_resource_attrs(user, locale))
     end
 
-    def expected_searchable_rsrc_attrs(resource, locale)
+    def expected_searchable_resource_attrs(resource, locale)
       {
         "content_a" => resource.name,
         "content_b" => "",

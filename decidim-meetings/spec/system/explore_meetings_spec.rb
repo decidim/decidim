@@ -216,21 +216,21 @@ describe "Explore meetings", type: :system do
       end
     end
 
-    context "with linked resources" do
-      let(:dummy_component) do
-        create(:component, manifest_name: :dummy, participatory_space: meeting.component.participatory_space)
+    context "with linked results" do
+      let(:accountability_component) do
+        create(:component, manifest_name: :accountability, participatory_space: meeting.component.participatory_space)
       end
-      let(:dummy_resources) { create_list(:dummy_resource, 3, component: dummy_component) }
+      let(:results) { create_list(:result, 3, component: accountability_component) }
 
       before do
-        meeting.link_resources(dummy_resources, "meetings_through_dummy_resources")
+        meeting.link_resources(results, "meetings_through_proposals")
       end
 
       it "shows related resources" do
         visit_component
         click_link translated(meeting.title)
-        dummy_resources.each do |dummy_resource|
-          expect(page).to have_i18n_content(dummy_resource.title)
+        results.each do |result|
+          expect(page).to have_i18n_content(result.title)
         end
       end
     end

@@ -82,7 +82,7 @@ module Decidim
         let(:query) { "{ publishedAt }" }
 
         it "returns when was this query published at" do
-          expect(response["publishedAt"]).to eq(model.published_at.to_datetime.iso8601)
+          expect(response["publishedAt"]).to eq(model.published_at.to_time.iso8601)
         end
       end
 

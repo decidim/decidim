@@ -30,6 +30,8 @@ describe "Homepage", type: :system do
       visit decidim.root_path
     end
 
+    it_behaves_like "editable content for admins"
+
     it "includes the official organization links and images" do
       expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
       expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
@@ -156,9 +158,9 @@ describe "Homepage", type: :system do
 
         static_page = static_pages.first
         click_link static_page.title["en"]
-        expect(page).to have_i18n_content(static_page.title, locale: "en")
+        expect(page).to have_i18n_content(static_page.title)
 
-        expect(page).to have_i18n_content(static_page.content, locale: "en")
+        expect(page).to have_i18n_content(static_page.content)
       end
 
       it "includes the footer sub_hero with the current organization name" do
