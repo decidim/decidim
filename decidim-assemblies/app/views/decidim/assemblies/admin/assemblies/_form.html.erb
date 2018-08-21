@@ -1,6 +1,6 @@
 <%= javascript_include_tag "decidim/slug_form" %>
 
-<%= form.hidden_field :parent_id, value: @form.parent_id %>
+<%#= form.hidden_field :parent_id, value: @form.parent_id %>
 
 <div class="card">
   <div class="card-divider">
@@ -14,6 +14,10 @@
 
     <div class="row column">
       <%= form.translated :text_field, :subtitle %>
+    </div>
+
+    <div class="row column">
+      <%= form.select :parent_id, options_from_collection_for_select(@all_assemblies, :id, :translated_title, selected: current_assembly.try(:parent_id)), include_blank: t(".select_parent_assembly") %>
     </div>
 
     <div class="row">
