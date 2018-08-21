@@ -271,11 +271,11 @@ fi:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
           deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} tilassa %{space_name}"
-          update: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
+          update: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilaan %{space_name}"
         meeting:
-          close: "%{user_name} sulki %{resource_name} kokouksen %{space_name} -tilaan"
-          create: "%{user_name} loi %{resource_name} kokouksen %{space_name} -tilaan"
-          delete: "%{user_name} poistanut %{resource_name} kokouksen %{space_name} -tilasta"
+          close: "%{user_name} sulki tapahtuman %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi tapahtuman %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti tapahtuman %{resource_name} tilassa %{space_name}"
           export_registrations: "%{user_name} vietti %{resource_name} kokouksen rekisteröinnit %{space_name} -tilaan"
           update: "%{user_name} päivitti %{resource_name} kokouksen %{space_name} -tilaan"
           value_types:
