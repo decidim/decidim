@@ -46,7 +46,7 @@ fi:
       decidim/meetings/close_meeting_event: Kokous suljettu
       decidim/meetings/create_meeting_event: Kokous
       decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit ovat käytössä
-      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinti yli rajojen
+      decidim/meetings/meeting_registrations_over_percentage_event: Ilmoittautumiset ylittävät rajan
       decidim/meetings/upcoming_meeting_event: Tuleva kokous
       decidim/meetings/update_meeting_event: Kokous päivitetty
   activerecord:
@@ -100,27 +100,27 @@ fi:
           email_intro: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%.
           email_outro: Olet saanut tämän ilmoituksen, koska olet kokouksen osallistumistilan ylläpitäjä.
           email_subject: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%
-          notification_title: Kokouksen <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
+          notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
         meeting_updated:
-          email_intro: '"%{resource_title}" -kokous päivitettiin. Voit lukea uuden version sivulta:'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Kokous "%{resource_title}" päivitettiin
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous päivitettiin.
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
         registration_code_validated:
           email_intro: Rekisteröintikoodisi "%{registration_code}" on vahvistettu.
           email_outro: Olet saanut tämän ilmoituksen, koska rekisteröintikoodisi kokoukseen "%{resource_title}" on vahvistettu.
           email_subject: Rekisteröintikoodisi "%{registration_code}" on vahvistettu
-          notification_title: Rekisteröintikoodisi "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> -kokoukselle on vahvistettu.
+          notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
         registrations_enabled:
-          email_intro: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Tapahtuma "%{resource_title}" on mahdollistanut ilmoittautumiset.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous on mahdollistanut rekisteröinnit.
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on avannut rekisteröinnin.
         upcoming_meeting:
           email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
     meetings:
       actions:
         agenda: esityslista
@@ -190,7 +190,7 @@ fi:
               all: Kaikki
               rejected: hylätty
               sent: Lähetetyt
-            filter_by: Suodata
+            filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
@@ -259,8 +259,8 @@ fi:
             registrations_count:
               one: 1 ilmoittautuminen.
               other: '%{count} ilmoittautumista.'
-            reserved_slots_help: Jätä se kohtaan 0, jos sinulla ei ole varattuja lähtöasemia
-            reserved_slots_less_than: Voi olla pienempi tai yhtä suuri kuin %{count}
+            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
+            reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
@@ -269,21 +269,21 @@ fi:
             success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
       admin_log:
         invite:
-          create: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
-          deleted: "%{user_name} kutsunut %{attendee_name} liittymään %{resource_name} kokoukseen %{space_name} tilassa"
-          update: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
+          create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
+          deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilaan %{space_name}"
         meeting:
-          close: "%{user_name} sulki %{resource_name} kokouksen %{space_name} -tilaan"
-          create: "%{user_name} loi %{resource_name} kokouksen %{space_name} -tilaan"
-          delete: "%{user_name} poistanut %{resource_name} kokouksen %{space_name} -tilasta"
-          export_registrations: "%{user_name} vietti %{resource_name} kokouksen rekisteröinnit %{space_name} -tilaan"
-          update: "%{user_name} päivitti %{resource_name} kokouksen %{space_name} -tilaan"
+          close: "%{user_name} sulki tapahtuman %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi tapahtuman %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti tapahtuman %{resource_name} tilassa %{space_name}"
+          export_registrations: "%{user_name} vei tapahtuman %{resource_name} ilmoittautumiset tilaan %{space_name}"
+          update: "%{user_name} päivitti tapahtuman %{resource_name} tilassa %{space_name}"
           value_types:
             organizer_presenter:
-              not_found: 'Järjestäjää ei löydy tietokannasta (ID: %{id})'
+              not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
         minutes:
-          create: "%{user_name} luotiin kokouspöytäkirjat %{resource_name} %{space_name} -tilassa"
-          update: "%{user_name} päivitti kokouksen pöytäkirjan %{resource_name} %{space_name} -tilaan"
+          create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -292,7 +292,7 @@ fi:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
       meeting:
-        not_allowed: Et voi katsoa tätä kokousta
+        not_allowed: Sinulla ei ole lupaa tarkastella tätä tapahtumaa
       meetings:
         filters:
           category: Aihepiiri
@@ -309,7 +309,7 @@ fi:
         index:
           view_meeting: Näytä tapahtuma
         meeting_minutes:
-          meeting_minutes: Kokouspöytäkirjat
+          meeting_minutes: Tapahtumapöytäkirja
           related_information: Liittyviä tietoja
         meetings:
           no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
@@ -334,7 +334,7 @@ fi:
           fields:
             email: Sähköposti
             name: Nimi
-            sent_at: Lähetetty osoitteessa
+            sent_at: Lähetetty
             status: Status
           status:
             accepted: Hyväksytty (%{at})
@@ -358,13 +358,13 @@ fi:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
           success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
-          invalid: Ongelma on hylätty.
+          invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
           invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
-        private_meeting: Yksityinen kokous
+        private_meeting: Yksityinen tapahtuma
         transparent: läpinäkyvä
     participatory_processes:
       participatory_process_groups:
@@ -374,10 +374,10 @@ fi:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
-        see_all_meetings: Katso kaikki kokoukset
-        upcoming_meetings: Tulevat kokoukset
+        see_all_meetings: Katso kaikki tapahtumat
+        upcoming_meetings: Tulevat tapahtumat
       upcoming_meeting_for_card:
-        upcoming_meeting: Tuleva kokous
+        upcoming_meeting: Tuleva tapahtuma
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Liittyvät tulokset:'
