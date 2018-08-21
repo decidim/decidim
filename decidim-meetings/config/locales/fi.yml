@@ -100,7 +100,7 @@ fi:
           email_intro: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%.
           email_outro: Olet saanut tämän ilmoituksen, koska olet kokouksen osallistumistilan ylläpitäjä.
           email_subject: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%
-          notification_title: Kokouksen <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
+          notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
         meeting_updated:
           email_intro: '"%{resource_title}" -kokous päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
