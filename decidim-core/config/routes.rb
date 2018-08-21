@@ -64,6 +64,7 @@ Decidim::Core::Engine.routes.draw do
   scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^\/]+} } do
     get "following", to: "profiles#following", as: "profile_following"
     get "followers", to: "profiles#followers", as: "profile_followers"
+    get "badges", to: "profiles#badges", as: "profile_badges"
   end
 
   resources :pages, only: [:index, :show], format: false

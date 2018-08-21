@@ -22,6 +22,11 @@ module Decidim
       render :show
     end
 
+    def badges
+      @content_cell = "decidim/badges"
+      render :show
+    end
+
     private
 
     def user
