@@ -115,12 +115,12 @@ fi:
           email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Tapahtuma "%{resource_title}" on mahdollistanut ilmoittautumiset.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous on mahdollistanut rekisteröinnit.
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on avannut rekisteröinnin.
         upcoming_meeting:
           email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
     meetings:
       actions:
         agenda: esityslista
@@ -259,8 +259,8 @@ fi:
             registrations_count:
               one: 1 ilmoittautuminen.
               other: '%{count} ilmoittautumista.'
-            reserved_slots_help: Jätä se kohtaan 0, jos sinulla ei ole varattuja lähtöasemia
-            reserved_slots_less_than: Voi olla pienempi tai yhtä suuri kuin %{count}
+            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
+            reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
@@ -269,7 +269,7 @@ fi:
             success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
       admin_log:
         invite:
-          create: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
+          create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
           deleted: "%{user_name} kutsunut %{attendee_name} liittymään %{resource_name} kokoukseen %{space_name} tilassa"
           update: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
         meeting:
