@@ -190,7 +190,7 @@ fi:
               all: Kaikki
               rejected: hylätty
               sent: Lähetetyt
-            filter_by: Suodata
+            filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
@@ -358,13 +358,13 @@ fi:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
           success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
-          invalid: Ongelma on hylätty.
+          invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
           invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
-        private_meeting: Yksityinen kokous
+        private_meeting: Yksityinen tapahtuma
         transparent: läpinäkyvä
     participatory_processes:
       participatory_process_groups:
@@ -374,8 +374,8 @@ fi:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
-        see_all_meetings: Katso kaikki kokoukset
-        upcoming_meetings: Tulevat kokoukset
+        see_all_meetings: Katso kaikki tapahtumat
+        upcoming_meetings: Tulevat tapahtumat
       upcoming_meeting_for_card:
         upcoming_meeting: Tuleva tapahtuma
     resource_links:
