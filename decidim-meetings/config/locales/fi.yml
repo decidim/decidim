@@ -270,7 +270,7 @@ fi:
       admin_log:
         invite:
           create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
-          deleted: "%{user_name} kutsunut %{attendee_name} liittymään %{resource_name} kokoukseen %{space_name} tilassa"
+          deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} tilassa %{space_name}"
           update: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
         meeting:
           close: "%{user_name} sulki %{resource_name} kokouksen %{space_name} -tilaan"
