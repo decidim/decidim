@@ -105,14 +105,14 @@ fi:
           email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Kokous "%{resource_title}" päivitettiin
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous päivitettiin.
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
         registration_code_validated:
           email_intro: Rekisteröintikoodisi "%{registration_code}" on vahvistettu.
           email_outro: Olet saanut tämän ilmoituksen, koska rekisteröintikoodisi kokoukseen "%{resource_title}" on vahvistettu.
           email_subject: Rekisteröintikoodisi "%{registration_code}" on vahvistettu
-          notification_title: Rekisteröintikoodisi "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> -kokoukselle on vahvistettu.
+          notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
         registrations_enabled:
-          email_intro: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
+          email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
           email_subject: Tapahtuma "%{resource_title}" on mahdollistanut ilmoittautumiset.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous on mahdollistanut rekisteröinnit.
