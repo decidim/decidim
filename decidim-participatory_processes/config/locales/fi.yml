@@ -195,7 +195,7 @@ fi:
           error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
           success: Osallistumisprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         destroy:
-          success: Osallistumisprosessi poistettiin onnistuneesti.
+          success: Osallisuusprosessi poistettiin onnistuneesti.
         edit:
           update: Päivitä
         form:
