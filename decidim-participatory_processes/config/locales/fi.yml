@@ -228,8 +228,8 @@ fi:
           success: Kutsu uudelleen onnistuneesti.
     admin_log:
       participatory_process:
-        create: "%{user_name} luonut %{resource_name} osallistuva prosessi"
-        publish: "%{user_name} julkaisi %{resource_name} osallistuva prosessi"
+        create: "%{user_name} loi osallisuusprosessin %{resource_name}"
+        publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
         unpublish: "%{user_name} julkaisematon %{resource_name} osallistuva prosessi"
         update: "%{user_name} päivitti %{resource_name} osallistuvan prosessin"
       participatory_process_step:
