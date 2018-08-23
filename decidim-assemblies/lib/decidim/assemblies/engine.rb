@@ -5,8 +5,6 @@ require "active_support/all"
 
 require "decidim/core"
 
-require "decidim/assemblies/query_extensions"
-
 module Decidim
   module Assemblies
     # Decidim's Assemblies Rails Engine.

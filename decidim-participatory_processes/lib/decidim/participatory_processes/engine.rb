@@ -5,8 +5,6 @@ require "active_support/all"
 
 require "decidim/core"
 
-require "decidim/participatory_processes/query_extensions"
-
 module Decidim
   module ParticipatoryProcesses
     # Decidim's Participatory Processes Rails Engine.

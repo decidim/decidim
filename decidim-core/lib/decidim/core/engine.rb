@@ -92,7 +92,6 @@ module Decidim
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
         Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
-        Decidim::Api.add_orphan_type Decidim::Core::UsersMetricType
       end
 
       initializer "decidim.i18n_exceptions" do
@@ -279,7 +278,7 @@ module Decidim
 
       initializer "decidim.core.register_metrics" do
         Decidim.metrics_registry.register(
-          :users_metric,
+          :users,
           "Decidim::Metrics::UsersMetricManage",
           Decidim::MetricRegistry::HIGHLIGHTED
         )

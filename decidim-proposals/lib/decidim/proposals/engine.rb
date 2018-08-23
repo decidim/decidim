@@ -7,8 +7,6 @@ require "cells/rails"
 require "cells-erb"
 require "cell/partial"
 
-require "decidim/proposals/query_extensions"
-
 module Decidim
   module Proposals
     # This is the engine that runs on the public interface of `decidim-proposals`.
@@ -134,19 +132,19 @@ module Decidim
 
       initializer "decidim_proposals.register_metrics" do
         Decidim.metrics_registry.register(
-          :proposals_metric,
+          :proposals,
           "Decidim::Proposals::Metrics::ProposalsMetricManage",
           Decidim::MetricRegistry::HIGHLIGHTED
         )
 
         Decidim.metrics_registry.register(
-          :accepted_proposals_metric,
+          :accepted_proposals,
           "Decidim::Proposals::Metrics::AcceptedProposalsMetricManage",
           Decidim::MetricRegistry::NOT_HIGHLIGHTED
         )
 
         Decidim.metrics_registry.register(
-          :votes_metric,
+          :votes,
           "Decidim::Proposals::Metrics::VotesMetricManage",
           Decidim::MetricRegistry::NOT_HIGHLIGHTED
         )

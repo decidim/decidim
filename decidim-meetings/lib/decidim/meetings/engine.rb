@@ -8,8 +8,6 @@ require "cells/rails"
 require "cells-erb"
 require "cell/partial"
 
-require "decidim/meetings/query_extensions"
-
 module Decidim
   module Meetings
     # This is the engine that runs on the public interface of `decidim-meetings`.

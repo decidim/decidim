@@ -66,8 +66,23 @@ module Decidim
         resolve ->(_obj, _args, ctx) { ctx[:current_organization] }
       end
 
-      type.field :usersMetric, Core::UsersMetricType, "Decidim's UserMetric data." do
-        resolve ->(_obj, _args, ctx) { Decidim::UsersMetricResolver.new(ctx[:current_organization]) }
+      type.field :metrics do
+        type types[Decidim::Core::MetricType]
+        argument :names, types[types.String], "The names of the metrics you want to retrieve"
+
+        resolve lambda { |_, args, ctx|
+                  manifests = if args[:names].blank?
+                                Decidim.metrics_registry.all
+                              else
+                                Decidim.metrics_registry.all.select do |manifest|
+                                  args[:names].include?(manifest.metric_name.to_s)
+                                end
+                              end
+
+                  manifests.map do |manifest|
+                    Decidim::Core::MetricResolver.new(manifest.metric_name, ctx[:current_organization])
+                  end
+                }
       end
     end
   end
