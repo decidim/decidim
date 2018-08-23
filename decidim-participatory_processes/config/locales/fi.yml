@@ -8,7 +8,7 @@ fi:
         copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet
         description: Kuvaus
-        developer_group: Promoottoriryhmä
+        developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
         end_date: Päättymisaika
         hashtag: Hashtag
@@ -53,11 +53,11 @@ fi:
         one: Osallistumisprosessi
         other: Osallistumisprosessit
       decidim/participatory_process_group:
-        one: Osallistuva prosessiryhmä
-        other: Osallistuvat prosessiryhmät
+        one: Osallistumisprosessiryhmä
+        other: Osallistumisprosessiryhmät
       decidim/participatory_process_step:
         one: Vaihe
-        other: Askeleet
+        other: Vaiheet
   decidim:
     admin:
       actions:
@@ -83,7 +83,7 @@ fi:
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
-          components: komponentit
+          components: Komponentit
           info: Tiedot
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
@@ -113,7 +113,7 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Osallistuva prosessikäyttäjä
+          name: Osallistumisprosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
             collaborator: Kollaboraattori
@@ -129,7 +129,7 @@ fi:
           title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
-          success: Osallistuva prosessiryhmä poistettiin onnistuneesti.
+          success: Osallistumisprosessiryhmä poistettiin onnistuneesti.
         edit:
           title: Muokkaa prosessiryhmää
           update: Päivitä
@@ -159,7 +159,7 @@ fi:
           error:
             active_step: Aktiivista vaihetta ei voi poistaa.
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
-          success: Osallistuvan prosessin vaihe poistettiin onnistuneesti.
+          success: Osallistumisprosessin vaihe poistettiin onnistuneesti.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
@@ -176,7 +176,7 @@ fi:
       participatory_process_user_roles:
         create:
           error: Tapahtui virhe lisätessä käyttäjää osallistumisprosessiin.
-          success: Käyttäjä lisäsi menestyksekkäästi tähän osallistuvaan prosessiin.
+          success: Käyttäjä lisättiin onnistuneesti tähän osallistumisprosesssiin.
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallistumisprosessista.
         edit:
@@ -230,8 +230,8 @@ fi:
       participatory_process:
         create: "%{user_name} loi osallisuusprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
-        unpublish: "%{user_name} julkaisematon %{resource_name} osallistuva prosessi"
-        update: "%{user_name} päivitti %{resource_name} osallistuvan prosessin"
+        unpublish: "%{user_name} muutti osallstumisprosessin %{resource_name} julkaisemattomaksi"
+        update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
         create: "%{user_name} loi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
@@ -297,13 +297,13 @@ fi:
               other: "%{count} käytössä olevaa prosessia"
             all:
               one: 1 prosessi
-              other: "%{count} prosesseja"
+              other: "%{count} prosessia"
             past:
               one: 1 aikaisempi prosessi
               other: "%{count} menneitä prosesseja"
             upcoming:
               one: 1 tuleva prosessi
-              other: "%{count} tulevia prosesseja"
+              other: "%{count} tulevaa prosessia"
           explanations:
             no_active: Ei aktiivisia prosesseja
             no_active_nor_upcoming: Ei käytössä olevia tai tulevia prosesseja
@@ -317,7 +317,7 @@ fi:
         index:
           loading: Ladataan tulokset...
       show:
-        developer_group: Promoottoriryhmä
+        developer_group: Kehittäjäryhmä
         end_date: Päättymisaika
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
