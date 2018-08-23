@@ -53,8 +53,8 @@ fi:
         actions:
           create: Luo
           endorse: Suosittele
-          vote: Äänestys
-          withdraw: Peruuttaa
+          vote: Äänestä
+          withdraw: Peru
         name: Ehdotukset
         settings:
           global:
