@@ -39,23 +39,23 @@ fi:
         one: Ehdotus
         other: ehdotukset
       decidim/proposals/proposal_endorsement:
-        one: merkintä
-        other: merkintöjen
+        one: Suositus
+        other: Suositukset
       decidim/proposals/proposal_note:
         one: Huomautus
         other: Huomautuksia
       decidim/proposals/proposal_vote:
-        one: Äänestys
-        other: ääntä
+        one: Ääni
+        other: Äänet
   decidim:
     components:
       proposals:
         actions:
-          create: Luoda
-          endorse: hyväksyä
+          create: Luo
+          endorse: Suosittele
           vote: Äänestys
           withdraw: Peruuttaa
-        name: ehdotukset
+        name: Ehdotukset
         settings:
           global:
             announcement: Ilmoitus
@@ -83,8 +83,8 @@ fi:
             endorsements_blocked: Hyväksynnät estetty
             endorsements_enabled: Hyväksynnät käytössä
             proposal_answering_enabled: Ehdotuksen vastaus on käytössä
-            votes_blocked: Äänestäminen on estetty
-            votes_enabled: Äänestys on käytössä
+            votes_blocked: Äänestys estetty
+            votes_enabled: Äänestys käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tarkistamalla tämä piilottaa äänimäärän)
     events:
       proposals:
