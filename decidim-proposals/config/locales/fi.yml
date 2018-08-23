@@ -24,15 +24,15 @@ fi:
               needs_to_be_reattached: Liitettävä uudelleen
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
-      decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muuttui
-      decidim/proposals/creation_enabled_event: Ehdotuksen luominen käyttöön
-      decidim/proposals/endorsing_enabled_event: Ehdotuksen hyväksyminen käytössä
-      decidim/proposals/evaluating_proposal_event: Ehdotus arvioidaan
-      decidim/proposals/proposal_endorsed_event: Ehdotus hyväksyttiin
-      decidim/proposals/proposal_mentioned_event: Mainittu ehdotus
-      decidim/proposals/publish_proposal_event: Ehdotus julkaistaan
+      decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muutettu
+      decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
+      decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
+      decidim/proposals/evaluating_proposal_event: Ehdotus on arvioitavana
+      decidim/proposals/proposal_endorsed_event: Ehdotusta suositeltiin
+      decidim/proposals/proposal_mentioned_event: Ehdotus mainittiin
+      decidim/proposals/publish_proposal_event: Ehdotus julkaistiin
       decidim/proposals/rejected_proposal_event: Ehdotus hylättiin
-      decidim/proposals/voting_enabled_event: Ehdotus äänestys sallittu
+      decidim/proposals/voting_enabled_event: Ehdotuksen äänestys käytössä
   activerecord:
     models:
       decidim/proposals/proposal:
