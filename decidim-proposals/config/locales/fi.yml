@@ -21,7 +21,7 @@ fi:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Tarvitaan uudelleen
+              needs_to_be_reattached: Liitettävä uudelleen
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytään
       decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muuttui
@@ -412,7 +412,7 @@ fi:
       copied_from_component:
         proposal_proposal: Vastaavat ehdotukset
       included_projects:
-        project_result: 'Tässä projektissa näkyvät tulokset:'
+        project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
       included_proposals:
-        proposal_project: 'Ehdotus esiintyy näissä projekteissa:'
+        proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
         proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'
