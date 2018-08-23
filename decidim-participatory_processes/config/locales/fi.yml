@@ -250,16 +250,16 @@ fi:
           notification_title: '%{resource_title} vaihe on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
         step_changed:
           email_intro: '%{resource_title} vaiheen %{participatory_space_title} päivämäärät on päivitetty. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Päivitys tilaan %{participatory_space_title}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> vaihe <a href="%{participatory_space_url}">%{participatory_space_title}</a> päivämäärät on päivitetty.
+          notification_title: Päivämäärät vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päivitetty.
     menu:
       processes: Prosessit
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 prosessit %{group}
-          other: "%{count} prosesseja %{group}"
+          one: 1 prosessi ryhmälle %{group}
+          other: "%{count} prosessia ryhmälle %{group}"
         title: Osallistumisprosessiryhmät
     participatory_process_steps:
       index:
