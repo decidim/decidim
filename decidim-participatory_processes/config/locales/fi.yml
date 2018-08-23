@@ -247,9 +247,9 @@ fi:
           email_intro: 'Vaihe %{resource_title} on nyt käytössä tilassa %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Päivitys tilaan %{participatory_space_title}
-          notification_title: '%{resource_title} vaihe on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: Vaihe %{resource_title} on nyt käytössä kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: '%{resource_title} vaiheen %{participatory_space_title} päivämäärät on päivitetty. Voit nähdä sen tällä sivulla:'
+          email_intro: 'Vaiheen %{resource_title} päivämäärät kohteessa %{participatory_space_title} on päivitetty. Voit nähdä sen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Päivitys tilaan %{participatory_space_title}
           notification_title: Päivämäärät vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päivitetty.
@@ -331,7 +331,7 @@ fi:
         answers_count: Vastaukset
         comments_count: Kommentit
         debates_count: Keskustelut
-        endorsements_count: merkintöjen
+        endorsements_count: Suositukset
         headline: Tilastot
         meetings_count: Tapahtumat
         orders_count: Äänet
