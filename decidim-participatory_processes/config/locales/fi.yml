@@ -195,7 +195,7 @@ fi:
           error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
           success: Osallistumisprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         destroy:
-          success: Osallisuusprosessi poistettiin onnistuneesti.
+          success: Osallistumisprosessi poistettiin onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -333,7 +333,7 @@ fi:
         debates_count: Keskustelut
         endorsements_count: merkintöjen
         headline: Tilastot
-        meetings_count: Tapaamiset
+        meetings_count: Tapahtumat
         orders_count: Äänet
         pages_count: Sivut
         processes_count: Prosessit
