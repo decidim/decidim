@@ -307,7 +307,7 @@ fi:
           explanations:
             no_active: Ei aktiivisia prosesseja
             no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
-            no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
+            no_active_nor_upcoming_callout: Aktiivisia tai tulevia prosesseja ei ole tiedossa. Tässä on luettelo menneistä prosesseista.
           names:
             active: Aktivoi
             all: Kaikki
