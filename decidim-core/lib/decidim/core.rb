@@ -96,7 +96,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es es-PY eu fi fr gl it nl pt pt-BR ru sv uk)
+    %w(en ca es es-PY eu fi fr gl hu it nl pt pt-BR ru sv uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -158,6 +158,11 @@ module Decidim
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
     "€"
+  end
+
+  # Exposes a configuration option: The image uploader quality.
+  config_accessor :image_uploader_quality do
+    80
   end
 
   # Exposes a configuration option: The maximum file size of an attachment.

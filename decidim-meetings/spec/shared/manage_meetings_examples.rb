@@ -9,10 +9,7 @@ shared_examples "manage meetings" do
   let(:service_titles) { ["This is the first service", "This is the second service"] }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   it "updates a meeting" do

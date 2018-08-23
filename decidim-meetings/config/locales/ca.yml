@@ -80,7 +80,7 @@ ca:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
             default_registration_terms: Termes de registre per defecte
-            resources_permissions_enabled: Es poden establir permisos d'accions per a cada reunió
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
           step:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
@@ -106,6 +106,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: La trobada "%{resource_title}" s'ha actualitzat
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
+        registration_code_validated:
+          email_intro: S'ha validat el teu codi de registre "%{registration_code}".
+          email_outro: Has rebut aquesta notificació perquè s'ha validat el teu codi de registre per a la trobada "%{resource_title}".
+          email_subject: S'ha validat el vostre codi de registre "%{registration_code}"
+          notification_title: S'ha validat el vostre codi de registre "%{registration_code}" per a la reunió <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
           email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
@@ -246,6 +251,8 @@ ca:
         registrations:
           edit:
             save: Desa
+            validate: Validar
+            validate_registration_code: Valideu el codi de registre
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
             invites: Invitacions
@@ -257,6 +264,9 @@ ca:
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
+          validate_registration_code:
+            invalid: Aquest codi de registre no és vàlid.
+            success: El codi de registre s'ha validat amb èxit.
       admin_log:
         invite:
           create: "%{user_name} ha convidat %{attendee_name} a unir-se a la trobada %{resource_name} dins l'espai %{space_name}"

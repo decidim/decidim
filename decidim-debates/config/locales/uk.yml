@@ -2,8 +2,8 @@ uk:
   activemodel:
     attributes:
       debate:
-        category_id: Розряд
-        decidim_category_id: Розряд
+        category_id: Категорія
+        decidim_category_id: Категорія
         description: Опис
         end_time: 'Закінчується:'
         information_updates: Оновлення відомостей
@@ -82,8 +82,8 @@ uk:
           participate: Взяти участь
         filters:
           all: Усі
-          category: Розряд
-          category_prompt: Оберіть розряд
+          category: Категорія
+          category_prompt: Оберіть категорію
           citizens: Громадяни
           official: Службове
           origin: Джерело
@@ -98,7 +98,7 @@ uk:
         new:
           back: Повернутись
           create: Започаткувати
-          select_a_category: Будь ласка, оберіть розряд
+          select_a_category: Будь ласка, виберіть категорію
           title: Додати обговорення
         share:
           close_window: Закрити вікно

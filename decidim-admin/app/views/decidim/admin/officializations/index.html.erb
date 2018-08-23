@@ -55,13 +55,14 @@
         <tbody>
           <% @users.each do |user| %>
             <tr data-user-id="<%= user.id %>">
-              <td><%= user.name %></td>
-              <td><%= user.nickname %></td>
+              <td><%= link_to user.name, decidim.profile_path(user.nickname) %></td>
+              <td><%= link_to user.nickname, decidim.profile_path(user.nickname) %></td>
               <td><%= l user.created_at, format: :short %></td>
               <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
               <td><%= translated_attribute(user.officialized_as) %></td>
 
               <td class="table-list__actions">
+                <%=  icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
                 <% if user.officialized? %>
                   <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
                   <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>

@@ -266,6 +266,8 @@ gl:
         endorsement_button:
           already_endorsed: Aprobado
           endorse: Endosar
+        render_endorsements_button_card_part:
+          endorse: Endosar
       proposal_votes:
         create:
           error: Houbo erros ao votar a proposta.
@@ -275,8 +277,6 @@ gl:
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
         complete:
-          attachment_legend: "(Opcional) Engada un anexo"
-          select_a_category: Selecciona unha categoría
           send: Enviar
           title: Completa a túa proposta
         count:
@@ -284,6 +284,7 @@ gl:
             one: 1 proposta
             other: "%{count} propostas"
         edit:
+          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
           select_a_category: Selecciona unha categoría
           send: Enviar
@@ -297,7 +298,6 @@ gl:
           endorse: Endosar
         endorsements_card_row:
           comments: Comentarios
-          endorse: Endosar
         filters:
           accepted: Aceptada
           activity: Actividade
