@@ -239,8 +239,8 @@ fi:
         update: "%{user_name} päivitti %{resource_name} vaiheen %{space_name} osallistumisprosessissa"
       participatory_process_user_role:
         create: "%{user_name} kutsui käyttäjän %{resource_name} %{space_name} osallistumisprosessiin"
-        delete: "%{user_name} poistanut käyttäjän %{resource_name} alkaen %{space_name} osallistuva prosessi"
-        update: "%{user_name} muutti käyttäjän %{resource_name} roolia %{space_name} osallistumisprosessissa"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} osallistumisprosessista %{space_name}"
+        update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallistumisprosessissa %{space_name}"
     events:
       participatory_process:
         step_activated:
