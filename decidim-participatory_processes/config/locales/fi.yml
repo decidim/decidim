@@ -233,12 +233,12 @@ fi:
         unpublish: "%{user_name} julkaisematon %{resource_name} osallistuva prosessi"
         update: "%{user_name} päivitti %{resource_name} osallistuvan prosessin"
       participatory_process_step:
-        activate: "%{user_name} aktivoi %{resource_name} vaiheen %{space_name} osallistumisprosessissa"
-        create: "%{user_name} loi %{resource_name} vaihe %{space_name} osallistumisprosessissa"
-        delete: "%{user_name} poistanut %{resource_name} vaihe %{space_name} osallistuvan prosessin"
-        update: "%{user_name} päivitti %{resource_name} vaiheen %{space_name} osallistumisprosessissa"
+        activate: "%{user_name} aktivoi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        create: "%{user_name} loi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        delete: "%{user_name} poisti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        update: "%{user_name} päivitti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} kutsui käyttäjän %{resource_name} %{space_name} osallistumisprosessiin"
+        create: "%{user_name} kutsui käyttäjän %{resource_name} osallistumisprosessiin %{space_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} osallistumisprosessista %{space_name}"
         update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallistumisprosessissa %{space_name}"
     events:
