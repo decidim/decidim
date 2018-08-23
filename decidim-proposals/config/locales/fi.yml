@@ -14,7 +14,7 @@ fi:
       proposal_answer:
         answer: Vastaa
       proposals_copy:
-        copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen ja että tätä toimintaa ei voi peruuttaa.
+        copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
         origin_component_id: Komponentti kopioida ehdotukset osoitteesta
     errors:
       models:
@@ -23,7 +23,7 @@ fi:
             attachment:
               needs_to_be_reattached: Liitettävä uudelleen
     models:
-      decidim/proposals/accepted_proposal_event: Ehdotus hyväksytään
+      decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
       decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muuttui
       decidim/proposals/creation_enabled_event: Ehdotuksen luominen käyttöön
       decidim/proposals/endorsing_enabled_event: Ehdotuksen hyväksyminen käytössä
