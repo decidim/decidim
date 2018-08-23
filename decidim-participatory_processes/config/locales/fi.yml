@@ -284,8 +284,8 @@ fi:
           highlighted_processes:
             active_processes: Aktiiviset prosessit
             active_step: Aktiivinen vaihe
-            more_information: Lisää tietoa
-            participate: Osallistua
+            more_information: Lisätietoja
+            participate: Osallistu
             see_all_processes: Näytä kaikki prosessit
       participatory_process_groups:
         none: Ei ryhmää
@@ -302,7 +302,7 @@ fi:
               one: 1 aikaisempi prosessi
               other: "%{count} menneitä prosesseja"
             upcoming:
-              one: 1 tulevaa prosessia
+              one: 1 tuleva prosessi
               other: "%{count} tulevia prosesseja"
           explanations:
             no_active: Ei aktiivisia prosesseja
@@ -313,7 +313,7 @@ fi:
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
-          see: nähdä
+          see: Katso
         index:
           loading: Ladataan tulokset...
       show:
@@ -330,7 +330,7 @@ fi:
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
-        debates_count: keskustelut
+        debates_count: Keskustelut
         endorsements_count: merkintöjen
         headline: Tilastot
         meetings_count: Tapaamiset
