@@ -19,6 +19,49 @@ module Decidim
       has_one :amendable, through: :amended, source: :amendable, source_type: name
     end
 
+    class_methods do
+      attr_reader :amendable_options
+      # Public: Configures amendable for this model.
+      #
+      # fields  - An `Array` of `symbols` specifying the fields that can be
+      #           amended.
+      # ignore  - An `Array` of `symbols` specifying the fields to be
+      #           ignored from amendable when creating the related emendation,
+      #           the :id is allways ignored.
+      # reset   - The counters that should be reseted on the creation of the emmendation
+      # form    - The form used for the validation and creation of the emmendation
+      #
+      # Returns nothing.
+      def amendable(fields: nil, ignore: [], reset: nil, form: nil)
+        @amendable_options = {}
+        raise "You must provide a set of fields to amend" unless fields
+        raise "You must provide a form class of the amendable" unless form
+        @amendable_options[:fields] = fields
+        @amendable_options[:ignore_fields] = ignore + [:id, :created_at, :updated_at]
+        @amendable_options[:reset] = reset
+        @amendable_options[:form] = form
+      end
+    end
+
+    def fields
+      self.class.amendable_options[:fields]
+    end
+
+    def ignore_fields
+      self.class.amendable_options[:ignore_fields]
+    end
+
+    def reset_counters
+      return unless self.class.amendable_options[:reset]
+      self.class.amendable_options[:reset].each do |counter|
+        resource_manifest.model_class_name.constantize.reset_counters(id, counter)
+      end
+    end
+
+    def form
+      self.class.amendable_options[:form].constantize
+    end
+
     def amendment
       return Decidim::Amendment.find_by(emendation: id) if emendation?
       Decidim::Amendment.find_by(amendable: id)

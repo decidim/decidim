@@ -18,6 +18,17 @@ module Decidim
         decidim.new_amend_path(amendable_gid: model.to_sgid.to_s)
       end
 
+      def new_amend_button_label
+        t("button", scope: "decidim.amendments.amendable", model_name: model_name)
+      end
+
+      def new_amend_help_text
+        t("help_text",
+          scope: "decidim.amendments.amendable",
+          model_name: model_name.downcase,
+          amendable_fields: model.fields.to_sentence)
+      end
+
       def decidim
         Decidim::Core::Engine.routes.url_helpers
       end

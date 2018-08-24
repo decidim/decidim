@@ -24,12 +24,11 @@ module Decidim
 
         transaction do
           create_emendation!
-          create_amend!
+          create_amendment!
 
           # The proposal authors and followers are notified that an amendment has been created.
           notify_amendable_authors_and_followers
         end
-
         broadcast(:ok)
       end
 
@@ -43,19 +42,19 @@ module Decidim
           form.current_user,
           emendation_attributes
         )
-        @emendation.add_coauthor(form.current_user, user_group: form.user_group)
+
+        @emendation.reset_counters
+        @emendation.add_coauthor(form.current_user, user_group: form.user_group) if @emendation.is_a?(Decidim::Coauthorable)
       end
 
       def emendation_attributes
-        {
-          title: form.title,
-          body: form.body,
-          component: form.amendable.component,
-          published_at: Time.current
-        }
+        fields = form[:emendation_fields].as_json
+        fields[:component] = form.amendable.component
+        fields[:published_at] = Time.current if form.emendation_type == "Decidim::Proposals::Proposal"
+        fields
       end
 
-      def create_amend!
+      def create_amendment!
         @amendment = Decidim::Amendment.create!(
           amender: form.current_user,
           amendable: form.amendable,
@@ -64,15 +63,28 @@ module Decidim
         )
       end
 
+      def recipients
+        recipients = begin
+          if @amendable.is_a?(Decidim::Coauthorable)
+            @amendable.authors
+          else
+            [@amendable.author]
+          end
+        end
+        recipients += @amendable.followers
+        recipients.pluck(:id).uniq
+      end
+
       def notify_amendable_authors_and_followers
-        # # not implemented - to do!
-        # recipients = amendable.authors + amendable.followers
-        # Decidim::EventsManager.publish(
-        #   event: "decidim.events.amends.amendment_created",
-        #   event_class: Decidim::AmendmentCreatedEvent,
-        #   resource: @form.amendable,
-        #   recipient_ids: recipients.pluck(:id)
-        # )
+        Decidim::EventsManager.publish(
+          event: "decidim.events.amendments.amendment_created",
+          event_class: Decidim::Amendable::AmendmentCreatedEvent,
+          resource: @amendable,
+          recipient_ids: recipients,
+          extra: {
+            amendment_id: @amendment.id
+          }
+        )
       end
     end
   end
