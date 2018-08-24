@@ -44,7 +44,7 @@ fi:
       admin:
         debates:
           create:
-            invalid: Luotaessa keskustelua tapahtui virhe.
+            invalid: Keskustelua luotaessa tapahtui virhe.
             success: Keskustelu luotu onnistuneesti.
           destroy:
             success: Keskustelu poistettu onnistuneesti.
@@ -64,8 +64,8 @@ fi:
             name: Keskustelu
       admin_log:
         debate:
-          create: "%{user_name} loi %{resource_name} keskustelun %{space_name} -tilasta"
-          update: "%{user_name} päivitti %{resource_name} keskustelun %{space_name} -tilasta"
+          create: "%{user_name} loi keskustelun %{resource_name} tilaan %{space_name}"
+          update: "%{user_name} päivitti keskustelun %{resource_name} tilassa %{space_name}"
       debates:
         count:
           debates_count:
@@ -112,23 +112,24 @@ fi:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hei, %{space_title} osallistuvaan tilaan on luotu uusi keskustelu, tarkista se ja osallistu:
-            email_outro: Olet saanut tämän ilmoituksen, koska noudatat %{space_title} osallistumistilaa. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-            email_subject: Uusi keskustelu %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{space_path}">%{space_title}</a>.
+              Hei,
+              Uusi keskustelu on luotu osallistumistilaan %{space_title}. Tutustu ja osallistu siihen:
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat osallistumistilaa %{space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+            email_subject: Uusi keskustelu kohdassa %{space_title}
+            notification_title: Keskustelu aiheesta <a href="%{resource_path}">%{resource_title}</a> luotiin kohtaan <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hei, %{author_name} %{author_nickname}, jonka seuraat, on luonut uuden keskustelun, tarkista sen ja edistä:
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-            email_subject: Uusi keskustelu %{author_nickname}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+              Hei, %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun, tutustu ja osallistu siihen:
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+            email_subject: Uusi keskustelu käyttäjältä %{author_nickname}
+            notification_title: Käyttäjä <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'Keskustelujen luominen ei ole enää käytössä %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Keskustelujen luominen on poistettu käytöstä %{participatory_space_title}
-          notification_title: Keskustelujen luominen on nyt poistettu käytöstä <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Keskustelujen luominen ei ole enää käytössä kohdassa %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin tämän sivun kautta:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohtaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Keskustelujen luominen on poistettu käytöstä kohdassa %{participatory_space_title}
+          notification_title: Keskustelujen luominen on nyt poistettu käytöstä kohdassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Nyt voit aloittaa uusia keskusteluja %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Keskustelut ovat nyt saatavilla %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uutta keskustelua</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Nyt voit aloittaa uusia keskusteluja kohdassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a>kohdassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
