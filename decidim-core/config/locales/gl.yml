@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ gl:
         one: Grupo de usuarios
         other: Grupos de usuarios
   booleans:
-    'false': 'Non'
-    'true': 'Si'
+    'false': Non
+    'true': Si
   carrierwave:
     errors:
       image_too_big: A imaxe é demasiado grande
@@ -100,7 +101,7 @@ gl:
       organization:
         update: "%{user_name} actualizou a configuración da organización"
       scope:
-        create: "O %{user_name} creou o alcance %{resource_name}"
+        create: O %{user_name} creou o alcance %{resource_name}
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
         delete: "%{user_name} eliminou o alcance %{resource_name}"
         delete_with_parent: "%{user_name} eliminou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -179,7 +180,7 @@ gl:
           title: A autorización aínda está en progreso
         unauthorized:
           explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
-          invalid_field: "O %{field} valor %{value} non é válido."
+          invalid_field: O %{field} valor %{value} non é válido.
           ok: Ok
           title: Non autorizado
     collapsible_list:
@@ -475,7 +476,7 @@ gl:
         extended:
           debates: Debates
           debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
-          how_to_participate: '¿Como participo nun proceso?'
+          how_to_participate: "¿Como participo nun proceso?"
           meetings: Reunións
           meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
           more_info: Máis información
@@ -523,7 +524,7 @@ gl:
           modal_btn_exit: Vou revisalo máis tarde
           modal_button: Rexeitar os termos
           modal_close: Pechar modal
-          modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
+          modal_title: "¿Realmente rexeita os Termos e condicións actualizados?"
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
           body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
@@ -742,7 +743,7 @@ gl:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
+      decidim_day_of_year: 123_2_0_321 %B 123_2_2_321 |
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ fi:
         dashboard: Hallintapaneeli
         homepage: kotisivu
         impersonations: huumorinsa
+        navbar_links: Navbar links
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         officializations: Virallistamiset
@@ -344,6 +346,11 @@ fi:
             reason: Syy
             started_at: Aloitettu
             user: Käyttäjä
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Luonnin ajankohta
@@ -398,6 +405,28 @@ fi:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
@@ -573,6 +602,7 @@ fi:
         dashboard: Hallintapaneeli
         impersonatable_users: Epäilyttävät käyttäjät
         impersonations: Esiintymiset käyttäjinä
+        navbar_links: Navbar links
         officializations: Virallistamiset
         scope_types: Kontekstityypit
         scopes: Kontekstit

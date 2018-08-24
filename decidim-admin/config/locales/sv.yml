@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ sv:
         dashboard: Kontrollpanel
         homepage: Hemsida
         impersonations: impersonations
+        navbar_links: Navbar links
         newsletters: Nyhetsbrev
         oauth_applications: OAuth applikationer
         officializations: Officializations
@@ -344,6 +346,11 @@ sv:
             reason: Anledning
             started_at: Börjat vid
             user: Användare
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Skapad vid
@@ -398,6 +405,28 @@ sv:
             does_not_belong: Hör inte hemma
             offensive: Offensiv
             spam: Spam
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: Det har varit ett fel att skapa detta nyhetsbrev.
@@ -573,6 +602,7 @@ sv:
         dashboard: Kontrollpanel
         impersonatable_users: Impersonatable användare
         impersonations: impersonations
+        navbar_links: Navbar links
         officializations: Officializations
         scope_types: Omfattningstyper
         scopes: Omfattningar

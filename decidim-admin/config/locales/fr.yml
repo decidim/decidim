@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ fr:
         dashboard: Tableau de bord
         homepage: Homepage
         impersonations: Utilisateurs représentés
+        navbar_links: Navbar links
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
         officializations: Validation d'utilisateurs
@@ -344,6 +346,11 @@ fr:
             reason: Raison
             started_at: Commencé le
             user: Utilisateur
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Créée le
@@ -398,6 +405,28 @@ fr:
             does_not_belong: N'appartient pas
             offensive: Agressif
             spam: Spam
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
@@ -406,7 +435,7 @@ fr:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
-          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
+          error_already_sent: Suppression impossible car la newsletter a déjà été envoyée.
           success: Newsletter supprimée avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser
@@ -573,6 +602,7 @@ fr:
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs représentés
         impersonations: Représentations d'utilisateurs
+        navbar_links: Navbar links
         officializations: Validation d'utilisateurs
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application

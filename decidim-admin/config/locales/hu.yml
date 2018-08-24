@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ hu:
         dashboard: Irányítópult
         homepage: Homepage
         impersonations: alakítások
+        navbar_links: Navbar links
         newsletters: hírlevelek
         oauth_applications: OAuth alkalmazások
         officializations: Officializations
@@ -344,6 +346,11 @@ hu:
             reason: Ok
             started_at: Kezdetben
             user: használó
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: 'Létrehozva:'
@@ -398,6 +405,28 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Támadó
             spam: Levélszemét
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozásában.
@@ -573,6 +602,7 @@ hu:
         dashboard: Irányítópult
         impersonatable_users: Felszólalhatatlan felhasználók
         impersonations: alakítások
+        navbar_links: Navbar links
         officializations: Officializations
         scope_types: Hatálytípusok
         scopes: Célzók

@@ -308,6 +308,7 @@ en:
         dashboard: Dashboard
         homepage: Homepage
         impersonations: Impersonations
+        navbar_links: Navbar links
         newsletters: Newsletters
         oauth_applications: OAuth applications
         officializations: Officializations
@@ -345,6 +346,11 @@ en:
             reason: Reason
             started_at: Started at
             user: User
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Created at
@@ -399,6 +405,28 @@ en:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: There's been an error creating this newsletter.
@@ -574,6 +602,7 @@ en:
         dashboard: Dashboard
         impersonatable_users: Impersonatable users
         impersonations: Impersonations
+        navbar_links: Navbar links
         officializations: Officializations
         scope_types: Scope types
         scopes: Scopes

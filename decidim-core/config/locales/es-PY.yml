@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -42,7 +43,7 @@ es-PY:
         other: Grupos de usuarios
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
       image_too_big: La imagen es demasiado grande
@@ -62,7 +63,7 @@ es-PY:
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
-          question: '¿Seguro que quieres eliminar tu cuenta?'
+          question: "¿Seguro que quieres eliminar tu cuenta?"
           title: Eliminar mi cuenta
         explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
       destroy:
@@ -240,7 +241,7 @@ es-PY:
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
-          already_have_an_account?: '¿Ya tienes una cuenta?'
+          already_have_an_account?: "¿Ya tienes una cuenta?"
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Su identificador corto y único en %{organization}
@@ -257,7 +258,7 @@ es-PY:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
+          are_you_new?: "¿Eres nuevo en la plataforma?"
           register: Créate una cuenta
       shared:
         newsletter_modal:
@@ -369,12 +370,12 @@ es-PY:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
         error_empty_form: Por favor introduce algunas direcciones de correo electrónico.
-        success: '¡Hemos enviado las invitaciones a tus amigos!'
+        success: "¡Hemos enviado las invitaciones a tus amigos!"
       index:
         customize_message: Personaliza el mensaje de invitación
         friend_email: 'Correo del amigo #%{index}'
         invitations_subtitle: Haz saber a tus amigos sobre este sitio.
-        invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
+        invitations_title: "¿Crees que se deberían escuchar más voces en %{organization_name}?"
         invite: Invitación
         visit_your_profile: Visita tu perfil
     log:
@@ -406,12 +407,12 @@ es-PY:
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
-          outro: '¡Disfruta de decidim!'
+          outro: "¡Disfruta de decidim!"
           subject: "%{sender} ha iniciado una conversación contigo"
         new_message:
-          greeting: '¡Hola, %{recipient}!'
+          greeting: "¡Hola, %{recipient}!"
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
-          outro: '¡Disfruta de decidim!'
+          outro: "¡Disfruta de decidim!"
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
         create:
@@ -432,7 +433,7 @@ es-PY:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: ¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletters:
       unsubscribe:
@@ -449,12 +450,12 @@ es-PY:
     newsletters_opt_in_mailer:
       notify:
         body_1: El procesamiento de datos personales y su protección es cada vez más importante para todos nosotros. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mejor control sobre sus datos personales. Por este motivo, necesitamos tu "OK" para seguir enviando información relevante sobre las actividades del %{organization_name}.
-        body_2: '¿Cómo puedes darnos tu consentimiento? Simplemente haz clic en el siguiente botón:'
+        body_2: "¿Cómo puedes darnos tu consentimiento? Simplemente haz clic en el siguiente botón:"
         body_3: Con este consentimiento, podrá continuar recibiendo información sobre los servicios de la plataforma. Si, por el contrario, no recibimos una confirmación positiva de su parte, dejaremos de enviarle nuestros mensajes. Si confirma que desea mantenerse informado, siempre tendrá la opción de cancelar en cualquier momento.
         button: Sí, deseo continuar recibiendo información relevante
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
-        subject: '¿Desea seguir recibiendo información relevante sobre %{organization_name}?'
+        subject: "¿Desea seguir recibiendo información relevante sobre %{organization_name}?"
     notifications:
       no_notifications: No hay notificaciones aún.
     notifications_settings:
@@ -475,7 +476,7 @@ es-PY:
         extended:
           debates: Debates
           debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-          how_to_participate: '¿Cómo tomo parte en un proceso?'
+          how_to_participate: "¿Cómo tomo parte en un proceso?"
           meetings: Encuentros
           meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
           more_info: Más información
@@ -513,7 +514,7 @@ es-PY:
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
-          success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
+          success: "¡Estupendo! Has aceptado los Términos y Condiciones."
         form:
           agreement: Estoy de acuerdo con estos términos
           legend: Aceptar los Términos y Condiciones de uso
@@ -523,7 +524,7 @@ es-PY:
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
           modal_close: Cerrar modal
-          modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
+          modal_title: "¿Confirmas que no aceptas los Términos y Condiciones actualizados?"
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
@@ -643,7 +644,7 @@ es-PY:
       organization_admin_invitation_instructions:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
-        greeting: '¡Hola %{recipient}!'
+        greeting: "¡Hola %{recipient}!"
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
   doorkeeper:

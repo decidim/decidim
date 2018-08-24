@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ uk:
         dashboard: Приладна дошка
         homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
+        navbar_links: Navbar links
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
         officializations: Надання службового статусу
@@ -344,6 +346,11 @@ uk:
             reason: Причина
             started_at: Започатковано о
             user: Учасник
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: 'Створено:'
@@ -398,6 +405,28 @@ uk:
             does_not_belong: Неприйнятно
             offensive: Образливе
             spam: Спам
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: При спробі створити це розсилання новин сталася помилка.
@@ -573,6 +602,7 @@ uk:
         dashboard: Приладна дошка
         impersonatable_users: Учасники, в ролі яких можна виступати
         impersonations: Виступи в ролі учасника
+        navbar_links: Navbar links
         officializations: Надання службового статусу
         scope_types: Різновиди обсягу
         scopes: Обсяги

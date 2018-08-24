@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ pt-BR:
         one: Grupo de usuários
         other: Grupos de usuários
   booleans:
-    'false': 'Não'
-    'true': 'Sim'
+    'false': Não
+    'true': Sim
   carrierwave:
     errors:
       image_too_big: A imagem é muito grande
@@ -372,7 +373,7 @@ pt-BR:
         success: Nós enviamos os convites para seus amigos!
       index:
         customize_message: Personalizar a mensagem de convite
-        friend_email: 'E-mail do amigo nº%{index}'
+        friend_email: E-mail do amigo nº%{index}
         invitations_subtitle: Deixe seus amigos saberem sobre este site
         invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
         invite: Convite

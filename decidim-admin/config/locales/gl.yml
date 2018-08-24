@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ gl:
         dashboard: Taboleiro de instrumentos
         homepage: Páxina de inicio
         impersonations: Impersonacións
+        navbar_links: Navbar links
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
         officializations: Oficinas
@@ -344,6 +346,11 @@ gl:
             reason: Motivo
             started_at: Comezou en
             user: Usuario
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Creado en
@@ -398,6 +405,28 @@ gl:
             does_not_belong: Non pertence
             offensive: Ofensivo
             spam: Correo non desexado
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
@@ -414,13 +443,13 @@ gl:
         form:
           interpolations_hint: 'Consello: podes usar "%{name}" en calquera parte do corpo ou asunto e será substituído polo nome do destinatario.'
         index:
-          confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
+          confirm_delete: "¿Estás seguro de que queres eliminar este boletín informativo?"
           title: Boletíns informativos
         new:
           save: Gardar
           title: Novo boletín informativo
         show:
-          confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
+          confirm_deliver: "¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción."
           deliver: Enviar boletín informativo
           preview: Vista previa
           subject: Asunto
@@ -573,6 +602,7 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios privilexiados
         impersonations: Impersonacións
+        navbar_links: Navbar links
         officializations: Oficinas
         scope_types: Tipos de alcance
         scopes: Ámbitos

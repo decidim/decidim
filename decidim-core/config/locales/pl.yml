@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -35,18 +36,18 @@ pl:
         user_group_phone: Telefon organizacyjny
     models:
       decidim/user:
-        one: Użytkownik
         few: Użytkownicy
         many: Użytkownicy
+        one: Użytkownik
         other: Użytkownicy
       decidim/user_group:
-        one: Grupa użytkowników
         few: Grupy użytkowników
         many: Grupy użytkowników
+        one: Grupa użytkowników
         other: Grupy użytkowników
   booleans:
-    'false': 'Nie'
-    'true': 'Tak'
+    'false': Nie
+    'true': Tak
   carrierwave:
     errors:
       image_too_big: Obraz jest zbyt duży
@@ -126,9 +127,9 @@ pl:
     application:
       collection:
         documents:
-          one: Dokument
           few: Dokumenty
           many: Dokumenty
+          one: Dokument
           other: Dokumenty
       documents:
         related_documents: Powiązane dokumenty
@@ -136,9 +137,9 @@ pl:
         related_photos: Powiązane zdjęcia
     author:
       comments:
-        one: komentarz
         few: komentarze
         many: komentarze
+        one: komentarz
         other: komentarze
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -192,9 +193,9 @@ pl:
           title: Nieautoryzowany
     collapsible_list:
       hidden_elements_count:
-        one: i 1 więcej
         few: i %{count} więcej
         many: i %{count} więcej
+        one: i 1 więcej
         other: i %{count} więcej
       see_less: "(patrz mniej)"
       see_more: "(Zobacz więcej)"

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ nl:
         dashboard: Dashboard
         homepage: Startpagina
         impersonations: Zich voordoen als
+        navbar_links: Navbar links
         newsletters: Nieuwsbrieven
         oauth_applications: OAuth-toepassingen
         officializations: Bevestigde gebruikers
@@ -344,6 +346,11 @@ nl:
             reason: Reden
             started_at: Gestart op
             user: Gebruiker
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Aangemaakt op
@@ -398,6 +405,28 @@ nl:
             does_not_belong: Hoort niet
             offensive: Aanvallend
             spam: Spam
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
@@ -463,7 +492,9 @@ nl:
           name: Naam
           nickname: Gebruikersnaam
           not_officialized: Niet gevalideerd
-          officialize: "Valideren\n"
+          officialize: 'Valideren
+
+'
           officialized: Gevalideerd
           reofficialize: Hervalideren
           search: Zoeken
@@ -573,6 +604,7 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Niet-personaliseerbare gebruikers
         impersonations: Nabootsingingen
+        navbar_links: Navbar links
         officializations: Bevestigen gebruikers
         scope_types: Scope types
         scopes: Scopes

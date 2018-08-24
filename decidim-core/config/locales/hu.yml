@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ hu:
         one: Felhasználói csoport
         other: Felhasználói csoportok
   booleans:
-    'false': 'Nem'
-    'true': 'Igen'
+    'false': Nem
+    'true': Igen
   carrierwave:
     errors:
       image_too_big: A kép túl nagy
@@ -148,14 +149,15 @@ hu:
         name: Dummy engedélyezési munkafolyamat
       errors:
         duplicate_authorization: A felhasználó ugyanazokkal az adatokkal már engedélyezett.
-      expired_at: '%{timestamp}kor lejárt'
+      expired_at: "%{timestamp}kor lejárt"
+      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
           bar: Bár
           foo: foo
         name: Foo engedély
       granted_at: Megadva %{timestamp}
-      started_at: '%{timestamp}nál kezdődött'
+      started_at: "%{timestamp}nál kezdődött"
     authorization_modals:
       show:
         expired:

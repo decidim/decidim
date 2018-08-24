@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ ru:
         dashboard: Панель управления
         homepage: Домашняя страница
         impersonations: Выступления в роли участника
+        navbar_links: Navbar links
         newsletters: Рассылки новостей
         oauth_applications: Приложения OAuth
         officializations: Предоставления служебного статуса
@@ -344,6 +346,11 @@ ru:
             reason: Причина
             started_at: 'Начато:'
             user: Участник
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: 'Создано:'
@@ -398,6 +405,28 @@ ru:
             does_not_belong: Неприемлемо
             offensive: Оскорбительно
             spam: Спам
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: При попытке создать эту рассылку новостей произошла ошибка.
@@ -573,6 +602,7 @@ ru:
         dashboard: Панель управления
         impersonatable_users: Участники, в роли которых можно выступить
         impersonations: Выступления в роли участника
+        navbar_links: Navbar links
         officializations: Предоставления служебного статуса
         scope_types: Виды охвата
         scopes: Охваты

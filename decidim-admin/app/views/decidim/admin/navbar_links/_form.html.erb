@@ -1,0 +1,17 @@
+<div class="row column">
+  <%= form.translated :text_field, :title, label: t(".title") %>
+</div>
+
+<div class="row">
+  <div class="columns xlarge-6">
+    <%= form.text_field :link, value: navbar_link.link || "http://", label: t(".link") %>
+  </div>
+  <div class="columns xlarge-6">
+    <%= form.number_field :weight, value: navbar_link.weight, label: t(".weight") %>
+  </div>
+  <div class="columns xlarge-6">
+    <%= form.radio_button :target, "blank", label: t(".new_tab") %>
+    <%= form.radio_button :target, "", label: t(".same_tab") %>
+  </div>
+  <%= form.hidden_field :organization_id, value: current_organization.id %>
+</div>

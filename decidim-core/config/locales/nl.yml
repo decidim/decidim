@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ nl:
         one: Gebruikersgroep
         other: Gebruikersgroepen
   booleans:
-    'false': 'Nee'
-    'true': 'Ja'
+    'false': Nee
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: De afbeelding is te groot

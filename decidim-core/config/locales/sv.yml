@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ sv:
         one: Användargrupp
         other: Användargrupper
   booleans:
-    'false': 'Nej'
-    'true': 'Ja'
+    'false': Nej
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: Bilden är för stor

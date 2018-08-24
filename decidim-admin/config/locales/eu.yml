@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -115,7 +116,7 @@ eu:
         browse: Arakatu
         export: Esportatu
         manage: Kudeatu
-        new: '%{name}berria'
+        new: "%{name}berria"
         permissions: Baimenak
         reject: Ukatu
         verify: Egiaztatu
@@ -307,6 +308,7 @@ eu:
         dashboard: Kontrol-panela
         homepage: Hasiera
         impersonations: impersonations
+        navbar_links: Navbar links
         newsletters: Buletinak
         oauth_applications: OAuth aplikazioak
         officializations: Officializations
@@ -344,11 +346,16 @@ eu:
             reason: Arrazoia
             started_at: 'Hasiera-ordua:'
             user: Erabiltzailea
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Sortze-data
-            progress: ' Aurrerapena '
-            sent_at: ' Bidalketa-data: '
+            progress: " Aurrerapena "
+            sent_at: " Bidalketa-data: "
             subject: Gaia
           name: Buletina
         oauth_application:
@@ -392,15 +399,37 @@ eu:
             users_count: Erabiltzaile kopurua
       moderations:
         index:
-          title: ' Salaketak'
+          title: " Salaketak"
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
             offensive: Iraingarria
             spam: Spam
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
-          error: ' Errorea gertatu da buletin hau sortzean.'
+          error: " Errorea gertatu da buletin hau sortzean."
           success: Buletina ongi sortu da. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Errorea gertatu da buletin hau entregatzean.
@@ -573,6 +602,7 @@ eu:
         dashboard: Kontrol-panela
         impersonatable_users: Erabiltzaile ustekabekoak
         impersonations: Ordezteak
+        navbar_links: Navbar links
         officializations: Officializations
         scope_types: Esparru motak
         scopes: Esparruak
@@ -619,7 +649,7 @@ eu:
           reason: Arrazoi bat eman behar duzu erabiltzaile ez kudeatzaile bat ordezkatuz
     moderations:
       actions:
-        hidden: ' Ezkutatuta'
+        hidden: " Ezkutatuta"
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
         title: Ekintzak

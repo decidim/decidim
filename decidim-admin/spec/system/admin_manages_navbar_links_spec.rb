@@ -33,7 +33,7 @@ describe "Navbar Links", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Success")
       within "table" do
         expect(page).to have_content("My title")
       end
@@ -72,7 +72,7 @@ describe "Navbar Links", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Success")
 
         within "table" do
           expect(page).to have_content("Another title")
@@ -81,11 +81,11 @@ describe "Navbar Links", type: :system do
 
       it "can delete them" do
         within find("#navbar_link_#{navbar_link.id}", text: translated(navbar_link.title)) do
-          accept_confirm { click_link "Destroy" }
+          accept_confirm { click_link "Delete" }
         end
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("Success")
         within ".card-section" do
-          expect(page).to have_content("No links created")
+          expect(page).to have_content("No links")
         end
       end
     end

@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -42,7 +43,7 @@ it:
         other: Gruppi di utenti
   booleans:
     'false': 'No'
-    'true': 'Si'
+    'true': Si
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
@@ -372,7 +373,7 @@ it:
         success: Abbiamo inviato gli inviti ai tuoi amici!
       index:
         customize_message: Personalizza il messaggio di invito
-        friend_email: 'Email amico numero%{index}'
+        friend_email: Email amico numero%{index}
         invitations_subtitle: Fai sapere ai tuoi amici di questo sito
         invitations_title: Pensi che più voci dovrebbero essere ascoltate in %{organization_name}?
         invite: Invitare

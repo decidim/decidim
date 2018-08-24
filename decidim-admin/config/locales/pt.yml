@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ pt:
         dashboard: Painel de controlo
         homepage: Pagina inicial
         impersonations: Imitações
+        navbar_links: Navbar links
         newsletters: Boletins informativos
         oauth_applications: Aplicações OAuth
         officializations: Oficializações
@@ -344,6 +346,11 @@ pt:
             reason: Razão
             started_at: Começou em
             user: Do utilizador
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Criado em
@@ -398,6 +405,28 @@ pt:
             does_not_belong: Não pertence
             offensive: Ofensiva
             spam: Spam
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
@@ -573,6 +602,7 @@ pt:
         dashboard: painel de controle
         impersonatable_users: Usuários impersonáveis
         impersonations: Personagens
+        navbar_links: Navbar links
         officializations: Oficializações
         scope_types: Tipos de âmbito
         scopes: Âmbitos

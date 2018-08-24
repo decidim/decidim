@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -307,6 +308,7 @@ pl:
         dashboard: Deska rozdzielcza
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
+        navbar_links: Navbar links
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
         officializations: Oficjalizacje
@@ -344,6 +346,11 @@ pl:
             reason: Powód
             started_at: Zaczęło się od
             user: Użytkownik
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Utworzono w
@@ -398,6 +405,28 @@ pl:
             does_not_belong: Nie należy
             offensive: Ofensywa
             spam: Spam
+      navbar_links:
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        form:
+          link: Link
+          new_tab: New tab
+          same_tab: Same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: Title
+        no_links: No links
+        update:
+          error: Error
+          success: Success
       newsletters:
         create:
           error: Podczas tworzenia biuletynu wystąpił błąd.
@@ -573,6 +602,7 @@ pl:
         dashboard: Deska rozdzielcza
         impersonatable_users: Niekodowalni użytkownicy
         impersonations: Impersonaty
+        navbar_links: Navbar links
         officializations: Oficjalizacje
         scope_types: Typy zakresów
         scopes: Zakresy

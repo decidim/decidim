@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -42,7 +43,7 @@ ca:
         other: Grups d'usuaris
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
       image_too_big: La imatge és massa gran
@@ -179,7 +180,7 @@ ca:
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
+          invalid_field: El valor %{field} %{value} no és vàlid.
           ok: D'acord
           title: Acció no autoritzada
     collapsible_list:
@@ -322,7 +323,7 @@ ca:
         profile_updated:
           email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
           email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
+          email_subject: En/na %{nickname} ha actualitzat el seu perfil
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
@@ -668,7 +669,9 @@ ca:
   layouts:
     decidim:
       cookie_warning:
-        description_html: "Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.\nEn continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}."
+        description_html: |-
+          Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.
+          En continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}.
         link_label: aquí
         ok: Hi estic d'acord
       edit_link:
