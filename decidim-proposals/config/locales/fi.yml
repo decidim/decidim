@@ -63,10 +63,10 @@ fi:
             can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
             comments_enabled: Kommentit ovat käytössä
             geocoding_enabled: Geokoodaus on käytössä
-            new_proposal_help_text: Uusi ehdotusohje teksti
-            official_proposals_enabled: Viralliset ehdotukset ovat mahdollisia
-            proposal_answering_enabled: Ehdotuksen vastaus on käytössä
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen tämän monen minuutin kuluttua
+            new_proposal_help_text: Uuden ehdotuksen ohjeteksti
+            official_proposals_enabled: Viralliset ehdotukset käytössä
+            proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä
             proposal_length: Suurin ehdotuksen pituus
             proposal_limit: Ehdotuksen raja käyttäjää kohden
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
