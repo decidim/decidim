@@ -71,10 +71,10 @@ fi:
             proposal_limit: Ehdotuksen raja käyttäjää kohden
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ohjattu ohjattu "Täydellinen" vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ohjattu ohjattu "Valmis" vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle ehdotukselle
-            threshold_per_proposal: Kynnys per ehdotus
+            threshold_per_proposal: Kynnys ehdotusta kohden
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
