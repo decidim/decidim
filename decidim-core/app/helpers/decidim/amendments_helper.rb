@@ -64,5 +64,10 @@ module Decidim
         include_blank: current_user.name
       )
     end
+
+    def emendation_ignored_field_value(key)
+      0 if @form.emendation_type.constantize.columns_hash[key.to_s].type == :integer
+      nil if key == :id
+    end
   end
 end
