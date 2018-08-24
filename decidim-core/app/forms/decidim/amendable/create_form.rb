@@ -7,9 +7,8 @@ module Decidim
       mimic :amend
 
       attribute :amendable_gid, String
-      attribute :title, String
-      attribute :body, String
       attribute :user_group_id, Integer
+      attribute :emendation_fields, Object
 
       validates :amendable_gid, :amendable_type, :amender, presence: true
 
@@ -18,6 +17,7 @@ module Decidim
       end
 
       def amendable_type
+        return unless amendable
         amendable.resource_manifest.model_class_name
       end
 

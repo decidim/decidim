@@ -9,7 +9,7 @@
       </div>
       <div class="section">
         <p>
-          <%= t("help_text", scope: "decidim.amendments.new", model_name: amendable.model_name.human) %>
+          <%= t("help_text", scope: "decidim.amendments.new", model_name: amendable.model_name.human.downcase ) %>
           <strong>
             <%= amendable.title %>
           </strong>

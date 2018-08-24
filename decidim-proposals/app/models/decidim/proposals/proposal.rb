@@ -25,6 +25,13 @@ module Decidim
 
       fingerprint fields: [:title, :body]
 
+      amendable(
+        fields: [:title, :body],
+        ignore: [:published_at, :reference, :state, :answered_at, :answer],
+        reset:  [:proposal_endorsements_count, :proposal_votes_count, :proposal_notes_count],
+        form:   "Decidim::Proposals::ProposalForm"
+      )
+
       component_manifest_name "proposals"
 
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"

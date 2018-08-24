@@ -496,4 +496,15 @@ FactoryBot.define do
     participatory_space { create :participatory_process, organization: organization }
     related_object { create :component, participatory_space: participatory_space }
   end
+
+  factory :amendment, class: "Decidim::Amendment" do
+    amender do
+      build(
+        :user,
+        organization: amendable.try(:organization) || build(:organization)
+      )
+    end
+    amendable { build(:dummy_resource) }
+    emendation { build(:dummy_resource) }
+  end
 end

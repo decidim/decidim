@@ -7,8 +7,19 @@ module Decidim
     helper_method :amendable, :emendation
 
     def new
-      @form = form(Decidim::Amendable::CreateForm).from_model(amendable)
-      @form.amendable_gid = params[:amendable_gid]
+      form_context = {
+        current_user: current_user,
+        current_participatory_space: amendable.participatory_space,
+        participatory_space: amendable.participatory_space,
+        component: amendable.component
+      }
+
+      emendation_fields_form = amendable.form.from_model(amendable).with_context(form_context)
+
+      @form = Decidim::Amendable::CreateForm.from_params(
+        amendable_gid: params[:amendable_gid],
+        emendation_fields: emendation_fields_form
+      ).with_context(form_context)
     end
 
     def create
