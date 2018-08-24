@@ -6,10 +6,15 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_many :decidim_hashtaggings, as: :decidim_hashtaggable, dependent: :destroy, class_name: "Decidim::Hashtagging"
-      has_many :decidim_hashtags, through: :decidim_hashtaggings, class_name: "Decidim::Hashtag"
-    end
+      def search_title
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(title)
+        renderer.render_without_link.html_safe
+      end
 
-    def parsed_title; end
+      def search_body
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(body)
+        renderer.render_without_link.html_safe
+      end
+    end
   end
 end

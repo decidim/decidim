@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= link_to "#{t ".proposals"} > ", proposals_path %>
-      <%= content_title_renderer(proposal.title) %>
+      <%= Decidim::Proposals::ProposalPresenter.new(proposal).title %>
     </h2>
   </div>
 

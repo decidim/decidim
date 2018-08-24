@@ -12,7 +12,7 @@ module Decidim
       let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}" }
 
       it "renders the hashtagging" do
-        expect(renderer.render).to eq(%(This text contains a valid Decidim::Hashtag Global ID: <a target="_blank" class="hashtag-mention" href="/hashtags/#{hashtag.name}">##{hashtag.name}</a>))
+        expect(renderer.render).to eq(%(This text contains a valid Decidim::Hashtag Global ID: <a target="_blank" class="hashtag-mention" href="/search?term=%23#{hashtag.name}">##{hashtag.name}</a>))
       end
     end
 

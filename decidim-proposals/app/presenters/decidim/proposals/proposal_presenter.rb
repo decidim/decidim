@@ -34,7 +34,6 @@ module Decidim
         link_to title, proposal_path
       end
 
-      # This methods return the plain title
       def title
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.title)
         renderer.render_without_link.html_safe
@@ -45,7 +44,6 @@ module Decidim
         renderer.render.html_safe
       end
 
-      # This methods return the plain title
       def body
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.body)
         renderer.render_without_link.html_safe

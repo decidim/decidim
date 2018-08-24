@@ -28,20 +28,13 @@ module Decidim
         private
 
         def create_meeting!
-          # parser_title = Decidim::ContentProcessor.parse(form.title)
-          # parser = Decidim::ContentProcessor.parse(form.body)
-          #
-          parser = Decidim::ContentProcessor
-
           @meeting = Decidim.traceability.create!(
             Meeting,
             @form.current_user,
             scope: @form.scope,
             category: @form.category,
-            # title: @form.title,
-            title: parser.parse(@form.title),
-            # description: @form.description,
-            description: parser.parse(@form.description),
+            title: @form.title,
+            description: @form.description,
             services: @form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
             end_time: @form.end_time,
             start_time: @form.start_time,

@@ -7,9 +7,7 @@ module Decidim
       name "HashtagType"
       description "hashtags list"
 
-      interfaces [
-        -> { Decidim::Core::HashtagInterface }
-      ]
+      field :name, !types.String, "The hashtag's name"
     end
   end
 end

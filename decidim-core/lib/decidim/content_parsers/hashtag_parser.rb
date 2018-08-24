@@ -16,10 +16,9 @@ module Decidim
       # hashtag with a global id.
       #
       # @return [String] the content with the hashtags replaced by a global id
-
       def rewrite
         content.gsub(Decidim::Hashtag::HASHTAG_REGEX) do |match|
-          if (hashtag = Decidim::Hashtag.find_or_create_by(organization: context[:current_organization], name: Regexp.last_match[2]))
+          if (hashtag = Decidim::Hashtag.find_or_create_by(organization: context[:current_organization], name: Regexp.last_match[2].downcase))
             Regexp.last_match[1] + hashtag.to_global_id.to_s
           else
             match

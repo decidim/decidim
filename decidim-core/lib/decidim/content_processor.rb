@@ -71,23 +71,6 @@ module Decidim
       Result.new(parsed[:rewrite], parsed[:metadata])
     end
 
-    # def self.parse(content, context)
-    #   result_entity= Result.new(content, {})
-    #   parsed = Decidim.content_processors.each_with_object(result_entity) do |type, result|
-    #     parse_with_processor(type, context, result: result)
-    #   end
-    #
-    #   result_entity
-    #   # Result.new(parsed[:rewrite], parsed[:metadata])
-    # end
-    #
-    # def self.parse_with_processor(type, content, context, result:nil)
-    #   result ||= Result.new(content, {})
-    #   parser = parser_klass(type).constantize.new(result.rewrite, context)
-    #   result.rewrite = parser.rewrite
-    #   result.metadata[type] = parser.metadata
-    # end
-
     # This calls all registered processors one after the other and returns
     # the processed content ready to display.
     #

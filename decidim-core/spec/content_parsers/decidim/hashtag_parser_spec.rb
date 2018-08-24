@@ -38,19 +38,5 @@ module Decidim
         expect(parser.metadata.hashtags).to eq([hashtag, hashtag2])
       end
     end
-
-    context "when hashtagging a non created hashtag" do
-      let(:hashtag3) { create(:hashtag, organization: organization) }
-      let(:content) { "This text hashtagiing a non created hashtag: ##{hashtag3.name}" }
-
-      it "creates the hashtag and rewrite the hashtag" do
-        expect(parser.rewrite).to include("This text hashtagiing a non created hashtag: #{hashtag3.to_global_id}")
-      end
-
-      it "returns correct metadata" do
-        expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)
-        expect(parser.metadata.hashtags).to eq([hashtag3])
-      end
-    end
   end
 end
