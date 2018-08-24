@@ -6,11 +6,8 @@ module Decidim
   describe ContentParsers::HashtagParser do
     let(:organization) { create(:organization) }
     let(:hashtag) { create(:hashtag, organization: organization) }
-    let(:parser) { described_class.new(content) }
-
-    before do
-      Thread.current[:organization] = organization
-    end
+    let(:context) { { current_organization: organization } }
+    let(:parser) { described_class.new(content, context) }
 
     context "when hashtagging a hashtag present" do
       let(:content) { "This text contains a hashtag present on DB: ##{hashtag.name}" }
