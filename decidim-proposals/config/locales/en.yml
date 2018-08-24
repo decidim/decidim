@@ -144,13 +144,13 @@ en:
           email_subject: Proposals voting has started for %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     metrics:
-      accepted_proposals_metric:
+      accepted_proposals:
         object: proposal
         title: Accepted Proposals
-      proposals_metric:
+      proposals:
         object: proposal
         title: Proposals
-      votes_metric:
+      votes:
         object: votes
         title: Votes
     participatory_processes:

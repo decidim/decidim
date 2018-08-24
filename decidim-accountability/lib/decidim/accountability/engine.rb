@@ -56,12 +56,6 @@ module Decidim
           end
         end
       end
-
-      initializer "decidim_accountability.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
-      end
     end
   end
 end

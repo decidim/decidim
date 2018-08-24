@@ -2,10 +2,8 @@
 
 $(() => {
   const query = (metrics) => {
-    let arr = $.map(metrics, (metric) => {
-      return ` ${metric} { metric { key value } }`;
-    });
-    return {query: `{ ${arr.join(" ")} }`};
+    let metricsQuery = `metrics(names: [${metrics.join(" ")}]) { name history { key value } }`;
+    return {query: `{ ${metricsQuery} }`};
   }
 
   const fetch = (metrics) => $.post("api", query(metrics))
@@ -18,9 +16,9 @@ $(() => {
 
   if (!$.isEmptyObject(metrics)) {
     fetch(Object.keys(metrics)).then((response) => {
-      $.each(response.data, (metricKey, metricData) => {
-        let container = metrics[metricKey];
-        if (metricData.metric.length === 0) {
+      $.each(response.data.metrics, (_index, metricData) => {
+        let container = metrics[metricData.name];
+        if (metricData.history.length === 0) {
           $(container).remove();
           return;
         }
@@ -28,7 +26,7 @@ $(() => {
 
         areachart({
           container: `#${container.id}`,
-          data: metricData.metric,
+          data: metricData.history,
           title: info.title,
           objectName: info.object
         });

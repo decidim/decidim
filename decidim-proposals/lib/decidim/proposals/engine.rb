@@ -124,12 +124,6 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
       end
 
-      initializer "decidim_proposals.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
-      end
-
       initializer "decidim_proposals.register_metrics" do
         Decidim.metrics_registry.register(
           :proposals,

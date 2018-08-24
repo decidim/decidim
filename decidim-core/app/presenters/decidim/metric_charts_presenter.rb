@@ -29,7 +29,7 @@ module Decidim
 
     def render_metrics_data(metric_name, opts = {})
       content_tag :div, "", id: "#{metric_name}_chart", class: "areachart metric-chart #{opts[:klass]}",
-                            data: { chart: "areachart", metric: metric_name.camelize(:lower),
+                            data: { chart: "areachart", metric: metric_name,
                                     info: { title: I18n.t("decidim.metrics.#{metric_name}.title"),
                                             object: I18n.t("decidim.metrics.#{metric_name}.object") } }
     end

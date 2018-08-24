@@ -41,10 +41,10 @@ Metrics calculations must be executed everyday. Some `rake task` have been added
 
 Current available metric names:
 
-- *users_metric*, confirmed Users
-- *proposals_metric*, available Proposals
-- *accepted_proposals_metric*, currently accepted Proposals
-- *votes_metric*, votes in Proposals
+- *users*, confirmed Users
+- *proposals*, available Proposals
+- *accepted_proposals*, currently accepted Proposals
+- *votes*, votes in Proposals
 
 To configure it correctly:
 

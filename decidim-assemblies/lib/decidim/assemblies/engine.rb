@@ -85,12 +85,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
-      end
-
       initializer "decidim_assemblies.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_assemblies) do |content_block|
           content_block.cell "decidim/assemblies/content_blocks/highlighted_assemblies"
