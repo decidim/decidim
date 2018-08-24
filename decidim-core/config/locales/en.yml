@@ -131,7 +131,7 @@ en:
         amended_by: Amended by
         button: Amend %{model_name}
         error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its title or description
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
         section_heading: Amendments (%{count})
       created:
         error: An error ocurred creating this amendment, try again later
@@ -244,6 +244,7 @@ en:
         name: Dummy Component
         settings:
           global:
+            amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
@@ -362,6 +363,12 @@ en:
         content_doesnt_exist: This address is incorrect or has been removed.
         title: The page you're looking for can't be found
     events:
+      amendments:
+        amendment_created:
+          email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are an author or following %{amendable_title}. You can stop receiving notifications following the previous link.
+          email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+          notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
