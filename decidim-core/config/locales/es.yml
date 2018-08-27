@@ -347,7 +347,7 @@ es:
     filters:
       linked_classes:
         all: Todas
-        collaborative_draft: Proyecto de colaboración
+        collaborative_draft: Borrador colaborativo
         dummy_resource: Recursos ficticios
         meeting: Encuentros
         project: Proyectos
