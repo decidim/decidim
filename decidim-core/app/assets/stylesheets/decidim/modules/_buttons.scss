@@ -51,6 +51,11 @@
   @include modifiers(color, (success: $white, secondary: $white));
 }
 
+.button.light.hollow{
+  border-color: $white;
+  color: $white;
+}
+
 // Button groups
 .button-group--collapse{
   text-align: left;

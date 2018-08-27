@@ -13,6 +13,16 @@ en:
       admin:
         exports:
           dummies: Dummies
+    gamification:
+      badges:
+        test:
+          description_another: This user has created %{score} tests.
+          description_own: You have created %{score} tests.
+          explanation: Users get this badge by creating tests.
+          name: Tests
+          next_level_in: Create %{score} more tests to reach the next level!
+          unearned_another: This user hasn't created any tests yet.
+          unearned_own: You have created no tests yet.
     pages:
       home:
         statistics:
