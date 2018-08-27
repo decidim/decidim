@@ -21,7 +21,7 @@ es:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
       decidim/gamification/badge_earned_event: Insignia obtenida
-      decidim/gamification/level_up_event: Has nivelado
+      decidim/gamification/level_up_event: Has subido de nivel
       decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
@@ -209,9 +209,9 @@ es:
     contact: Contacto
     content_blocks:
       footer_sub_hero:
-        name: Banner de subhéroe de pie de página
+        name: Banner de sub-hero de pie de página
       hero:
-        name: Imagen de héroe
+        name: Imagen de hero
       highlighted_content_banner:
         name: Banner de contenido resaltado
       how_to_participate:
@@ -219,7 +219,7 @@ es:
       stats:
         name: Estadísticas de la organización
       sub_hero:
-        name: Banner de subhéroe
+        name: Banner de sub-hero
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -320,12 +320,12 @@ es:
         email_subject: Una actualización de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: '¡Gran trabajo! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
+          email_intro: '¡Enhorabuena! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
           email_outro: Recibió esta notificación porque realizó actividad en nuestro sitio web.
           email_subject: 'Te has ganado una nueva insignia: %{badge_name}!'
-          notification_title: '¡Gran trabajo! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
+          notification_title: '¡Enhorabuena! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
         level_up:
-          email_intro: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en el <a href="%{resource_path}">%{badge_name} insignia</a>!'
+          email_intro: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en el <a href="%{resource_path}">%{badge_name} insignia</a>!'
           email_outro: Recibió esta notificación porque realizó actividad en nuestro sitio web.
           email_subject: '¡Has alcanzado el nivel %{current_level} en la insignia %{badge_name}!'
           notification_title: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en el <a href="%{resource_path}">%{badge_name} insignia</a>!'
@@ -436,7 +436,7 @@ es:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
           from: De
-          last_message_html: Último mensaje <strong>%{time} hace</strong>
+          last_message_html: Último mensaje <strong>hace %{time}</strong>
           no_conversations: Aún no tienes conversaciones
         show:
           conversation_with_html: Conversación con <strong>%{name}</strong>
