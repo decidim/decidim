@@ -347,6 +347,7 @@ ca:
     filters:
       linked_classes:
         all: Tots
+        collaborative_draft: Esborrany de col·laboració
         dummy_resource: Recursos de prova
         meeting: Trobades
         project: Projectes
