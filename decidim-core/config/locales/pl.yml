@@ -357,6 +357,7 @@ pl:
     filters:
       linked_classes:
         all: Wszystkie
+        collaborative_draft: Wspólny projekt
         dummy_resource: Dummy zasobów
         meeting: Spotkania
         project: Projekty
