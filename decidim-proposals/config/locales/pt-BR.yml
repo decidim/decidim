@@ -142,6 +142,16 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: As propostas de votação começaram para %{participatory_space_title}
           notification_title: Agora você pode iniciar <a href="%{resource_path}">propostas de votação</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          description_another: Este usuário criou %{score} propostas.
+          description_own: Você criou %{score} propostas.
+          explanation: Os usuários recebem esse selo criando propostas.
+          name: Propostas
+          next_level_in: Crie mais %{score} propostas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não criou nenhuma proposta.
+          unearned_own: Você não criou nenhuma proposta ainda.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
