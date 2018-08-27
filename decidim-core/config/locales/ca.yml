@@ -21,7 +21,7 @@ ca:
       decidim/attachment_created_event: Adjunt
       decidim/component_published_event: Component actiu
       decidim/gamification/badge_earned_event: Insígnia obtinguda
-      decidim/gamification/level_up_event: Has anivellat
+      decidim/gamification/level_up_event: Has pujat de nivell
       decidim/profile_updated_event: Perfil actualitzat
   activerecord:
     attributes:
@@ -209,9 +209,9 @@ ca:
     contact: Contacte
     content_blocks:
       footer_sub_hero:
-        name: Peu de pàgina sub-heroi
+        name: Peu de pàgina sub-hero
       hero:
-        name: Imatge de l'heroi
+        name: Imatge del hero
       highlighted_content_banner:
         name: Bàner de contingut destacat
       how_to_participate:
