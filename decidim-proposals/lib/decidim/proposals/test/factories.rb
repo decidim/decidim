@@ -132,9 +132,13 @@ FactoryBot.define do
     end
 
     trait :with_threshold_per_proposal do
+      transient do
+        threshold_per_proposal 1
+      end
+
       settings do
         {
-          threshold_per_proposal: 1
+          threshold_per_proposal: threshold_per_proposal
         }
       end
     end

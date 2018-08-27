@@ -30,6 +30,7 @@ module Decidim
             current_user
           ) do
             initiative.publish!
+            increment_score
             initiative
           end
           broadcast(:ok, initiative)
@@ -38,6 +39,10 @@ module Decidim
         private
 
         attr_reader :initiative, :current_user
+
+        def increment_score
+          Decidim::Gamification.increment_score(initiative.author, :initiatives)
+        end
       end
     end
   end

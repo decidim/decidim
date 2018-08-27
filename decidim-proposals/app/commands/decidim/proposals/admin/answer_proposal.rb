@@ -25,6 +25,7 @@ module Decidim
 
           answer_proposal
           notify_followers
+          increment_score
 
           broadcast(:ok)
         end
@@ -75,6 +76,14 @@ module Decidim
             resource: proposal,
             recipient_ids: proposal.followers.pluck(:id)
           )
+        end
+
+        def increment_score
+          return unless proposal.accepted?
+
+          proposal.authors.find_each do |author|
+            Decidim::Gamification.increment_score(author, :accepted_proposals)
+          end
         end
       end
     end

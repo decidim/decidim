@@ -385,6 +385,15 @@ en:
         error: There's an error in this field.
       remove_this_file: Remove this file
     gamification:
+      badges:
+        invitations:
+          description_another: This user has invited %{score} users.
+          description_own: You have invited %{score} users.
+          explanation: Users get this badge by inviting other users.
+          name: Invitations
+          next_level_in: Invite %{score} more users to reach the next level!
+          unearned_another: This user hasn't invited any user yet.
+          unearned_own: You have invited no users yet.
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
