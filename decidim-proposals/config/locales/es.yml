@@ -348,7 +348,7 @@ es:
           new_collaborative_draft: Nuevo borrador colaborativo
         orders:
           label: 'Ordenar borradores por:'
-          most_contributed: La mayoría contribuyó
+          most_contributed: Con más contribuciones
           random: Aleatorio
           recent: Reciente
         requests:
@@ -390,15 +390,15 @@ es:
           withdrawn: Retirado
         update:
           error: Ha habido errores al guardar el borrador colaborativo.
-          success: Proyecto colaborativo actualizado con éxito.
+          success: Borrador colaborativo actualizado con éxito.
         wizard_aside:
-          back: Espalda
-          info: Está creando un borrador de colaboración <strong></strong>.
+          back: Volver
+          info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_steps:
-          see_steps: ver los pasos
+          see_steps: ver las fases
           step_1: Crea tu borrador colaborativo
           step_2: Comparar con borradores colaborativos
-          step_3: Completa tu borrador de colaboración
+          step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
       create:
         error: Ha habido errores al guardar la propuesta.
@@ -515,7 +515,7 @@ es:
           publish: Publicar
           title: Publica tu propuesta
         proposal:
-          creation_date: 'Creación: %{date}'
+          creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
@@ -523,15 +523,15 @@ es:
           hidden_endorsers_count:
             one: y 1 persona más
             other: y %{count} persona/s más
-          link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador de colaboración. Revisa la historia
+          link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
           link_to_collaborative_draft_text: Ver el borrador colaborativo
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
-          sign_in: Registrarse
+          sign_in: Iniciar sesión
           sign_in_or_up: "%{in} o %{up} para participar"
-          sign_up: Regístrate
+          sign_up: regístrarse
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
@@ -549,7 +549,7 @@ es:
           count:
             one: APOYO
             other: APOYOS
-          most_popular_proposal: La propuesta más popular
+          most_popular_proposal: Propuestas más populares
           need_more_votes: Necesita más apoyos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
@@ -568,10 +568,10 @@ es:
           info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           see_steps: ver los pasos
-          step_1: Crea tu propuesta
+          step_1: Crear tu propuesta
           step_2: Comparar
           step_3: Completar
-          step_4: Publica tu propuesta
+          step_4: Publicar tu propuesta
           step_of: Paso %{current_step_num} de %{total_steps}
       publish:
         error: Ha habido errores al publicar la propuesta.
