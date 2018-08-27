@@ -347,6 +347,7 @@ nl:
     filters:
       linked_classes:
         all: Alle
+        collaborative_draft: Samenwerkingsconcept
         dummy_resource: Dummy middelen
         meeting: Vergaderingen
         project: Projecten
