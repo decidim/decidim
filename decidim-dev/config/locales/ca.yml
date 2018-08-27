@@ -17,11 +17,11 @@ ca:
         test:
           description_another: Aquest usuari ha creat %{score} proves.
           description_own: Heu creat %{score} proves.
-          explanation: Els usuaris obtenen aquesta distinció creant proves.
+          explanation: Els usuaris obtenen aquesta insígnia creant proves.
           name: Proves
-          next_level_in: Crea %{score} proves més per arribar al següent nivell!
+          next_level_in: Crea %{score} més proves per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha creat cap prova.
-          unearned_own: Encara no heu creat cap prova.
+          unearned_own: Encara no has creat cap prova.
     pages:
       home:
         statistics:
