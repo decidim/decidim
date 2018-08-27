@@ -1,6 +1,14 @@
 es:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Cuerpo
+        category_id: Categoría
+        decidim_scope_id: Alcance
+        has_address: Tiene dirección
+        state: Estado
+        title: Título
+        user_group_id: Crear borrador colaborativo como
       proposal:
         answer: Respuesta
         answered_at: Respondido en
@@ -35,6 +43,9 @@ es:
       decidim/proposals/voting_enabled_event: Apoyo de propuestas habilitado
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Proyecto de colaboración
+        other: Borradores colaborativos
       decidim/proposals/proposal:
         one: Propuesta
         other: Propuestas
@@ -61,6 +72,7 @@ es:
             announcement: "Aviso\n"
             attachments_allowed: Permitir archivos adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
+            collaborative_drafts_enabled: Borradores colaborativos habilitados
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
             new_proposal_help_text: Texto de ayuda al crear una propuesta
@@ -88,6 +100,36 @@ es:
             votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} ha sido aceptado para acceder como colaborador del borrador de colaboración de <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} ha sido aceptado para acceder como contribuidor de %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido aceptado <strong>para acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} ha sido rechazado para acceder como colaborador del borrador de colaboración de <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} ha sido rechazado para acceder como colaborador del %{resource_title} borrador colaborativo."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido rechazado <strong>para acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} solicitó acceso como colaborador. Puede <strong>aceptar o rechazar la solicitud</strong> de la página de borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} solicitó acceso para contribuir a %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitó acceso para contribuir al borrador de colaboración <a href="%{resource_path}">%{resource_title}</a> . Por favor <strong>aceptar o rechazar la solicitud</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Usted ha sido aceptado para acceder como colaborador del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Recibió esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Usted ha sido aceptado como colaborador de %{resource_title}.
+          notification_title: Ha aceptado <strong>acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Ha sido rechazado para acceder como colaborador del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Recibió esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Has sido rechazado como colaborador de %{resource_title}.
+          notification_title: Ha sido <strong>rechazado para acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiró el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} retiró el borrador de %{resource_title} colaboraciones."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirado</strong> el borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -244,6 +286,10 @@ es:
         not_answered: No contestada
         rejected: Rechazada
         withdrawn: Retirada
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Ha habido errores al publicar el borrador colaborativo.
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
