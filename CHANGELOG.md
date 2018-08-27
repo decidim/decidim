@@ -77,6 +77,7 @@
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#4024](https://github.com/decidim/decidim/pull/4024)
 - **decidim-core**: Fix day date translation on profile notifications. [\#3994](https://github.com/decidim/decidim/pull/3994)
 - **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)
 - **decidim-initiatives**: Fix initiative edition when state is not published. [\#3930](https://github.com/decidim/decidim/pull/3930)

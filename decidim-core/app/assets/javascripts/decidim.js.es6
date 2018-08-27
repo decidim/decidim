@@ -18,6 +18,7 @@
 // = require decidim/input_tags
 // = require decidim/input_hashtags
 // = require decidim/ajax_modals
+// = require decidim/conferences
 // = require_tree ./decidim/vizzs
 
 /* globals svg4everybody */
