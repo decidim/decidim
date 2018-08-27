@@ -142,6 +142,16 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Äänestys ehdotuksista on alkanut %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">äänestyssuosituksen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
+          description_own: Olet luonut %{score} ehdotusta.
+          explanation: Käyttäjät saavat tämän tunnuksen luomalla ehdotuksia.
+          name: ehdotukset
+          next_level_in: Luo vielä %{score} ehdotusta seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä luonut ehdotuksia.
+          unearned_own: Et ole vielä luonut ehdotuksia.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
