@@ -1,6 +1,14 @@
 pl:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Ciało
+        category_id: Kategoria
+        decidim_scope_id: Zakres
+        has_address: Ma adres
+        state: Stan
+        title: Tytuł
+        user_group_id: Utwórz roboczą wersję roboczą jako
       proposal:
         answer: Odpowiedź
         answered_at: Odpowiedziałem na
@@ -35,6 +43,11 @@ pl:
       decidim/proposals/voting_enabled_event: Włączenie głosowania w ramach propozycji
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Wspólny projekt
+        few: Wersje robocze współpracy
+        many: Wersje robocze współpracy
+        other: Wersje robocze współpracy
       decidim/proposals/proposal:
         one: Wniosek
         few: Propozycje
@@ -69,6 +82,7 @@ pl:
             announcement: Ogłoszenie
             attachments_allowed: Zezwalaj na załączniki
             can_accumulate_supports_beyond_threshold: Może gromadzić podpory przekraczające próg
+            collaborative_drafts_enabled: Wersje robocze z obsługą współpracy są włączone
             comments_enabled: Komentarze włączone
             geocoding_enabled: Włączono geokodowanie
             new_proposal_help_text: Nowy tekst pomocy dla wniosku
@@ -96,6 +110,35 @@ pl:
             votes_hidden: Głosy są ukryte (jeśli głosy są włączone, zaznaczenie tego ukryje liczbę głosów)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} zostało zaakceptowane, aby uzyskać dostęp jako współtwórca wspólnego projektu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współpracownikiem <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} zostało zaakceptowane, aby uzyskać dostęp jako współtwórca %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> został <strong>zaakceptowany, aby uzyskać dostęp jako uczestnik</strong> do <a href="%{resource_path}">%{resource_title}</a> wspólnych projektów.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} zostało odrzucone, aby uzyskać dostęp jako współtwórca wspólnego projektu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współpracownikiem <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} zostało odrzucone, aby uzyskać dostęp jako współautor %{resource_title} wspólnego projektu."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> został <strong>odrzucony jako uczestnik</strong> z <a href="%{resource_path}">%{resource_title}</a> wspólnych projektów.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} żądany dostęp jako współtwórca. Możesz <strong>zaakceptować lub odrzucić żądanie</strong> z <a href="%{resource_path}">%{resource_title}</a> wspólnej wersji roboczej strony.'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współpracownikiem <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} wniosek o dostęp do udziału w %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wniosek o dostęp do udziału w <a href="%{resource_path}">%{resource_title}</a> wspólnych projektach. Proszę <strong>przyjąć lub odrzucić wniosek</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Zostałeś zaakceptowany, aby uzyskać dostęp jako współautor projektu współpracy <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ poprosiłeś o współpracę z <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Zostałeś przyjęty jako współautor %{resource_title}.
+          notification_title: Otrzymałeś <strong>zgodę na dostęp jako współtwórca</strong> projektu współpracy <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Zostałeś odrzucony, aby uzyskać dostęp jako współautor projektu współpracy <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ poprosiłeś o współpracę z <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Zostałeś odrzucony jako współtwórca %{resource_title}.
+          notification_title: Zostałeś <strong>odrzucony, aby uzyskać dostęp jako współautor</strong> do wersji roboczej <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wycofało wspólny projekt <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współpracownikiem <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} wycofało %{resource_title} wspólne projekty."
         creation_enabled:
           email_intro: 'Możesz teraz tworzyć nowe propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
