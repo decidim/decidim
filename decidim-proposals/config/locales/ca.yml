@@ -127,9 +127,9 @@ ca:
           notification_title: Has estat rebutjat <strong>per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha retirat l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Heu rebut aquesta notificació perquè sou un col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} retirar el %{resource_title} esborrany de col·laboració."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirat</strong> el <a href="%{resource_path}">%{resource_title}</a> esborrany de col·laboració.
+          email_outro: Has rebut aquesta notificació perquè ets un contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} ha retirat l'esborrany col·laboratiu %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirat</strong> l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -188,12 +188,12 @@ ca:
       badges:
         proposals:
           description_another: Aquest usuari ha creat %{score} propostes.
-          description_own: Heu creat %{score} propostes.
-          explanation: Els usuaris obtenen aquesta distinció creant propostes.
+          description_own: Has creat %{score} propostes.
+          explanation: Els usuaris obtenen aquesta insígnia creant propostes.
           name: Propostes
-          next_level_in: Crea %{score} propostes més per arribar al següent nivell!
+          next_level_in: Crea %{score} més propostes per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha creat cap proposta.
-          unearned_own: Encara no heu creat cap proposta.
+          unearned_own: Encara no has creat cap proposta.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -289,24 +289,24 @@ ca:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Hi ha hagut errors en publicar el projecte de col·laboració.
+            error: Hi ha hagut errors en publicar l'esborrany col·laboratiu.
             irreversible_action_modal:
-              body: Després de publicar l'esborrany com a proposta, l'esborrany ja no serà editable. La proposta no acceptarà nous autors ni contribucions.
-              cancel: Cancel · lar
+              body: Després de publicar l'esborrany com a proposta, deixarà de ser editable. La proposta no acceptarà nous autors ni contribucions.
+              cancel: Cancel·lar
               ok: Publica com a proposta
               title: La següent acció és irreversible
-            success: Esborrany de col·laboració s'ha publicat amb èxit com a proposta.
-          view_collaborative_draft: Vegeu Draft cooperatiu
+            success: L'esborrany col·laboratiu s'ha publicat amb èxit com a proposta.
+          view_collaborative_draft: Ves l'esborrany col·laboratiu
           withdraw:
-            error: S'ha produït un error en tancar el projecte de col·laboració.
+            error: S'ha produït un error en tancar l'esborrany col·laboratiu.
             irreversible_action_modal:
-              body: Després de tancar l'esborrany, el projecte ja no es podrà editar. El projecte no acceptarà nous autors ni contribucions.
-              cancel: Cancel · lar
-              ok: Retireu el projecte de col·laboració
+              body: Després de tancar l'esborrany, ja no serà editable. L'esborrany no acceptarà nous autors ni contribucions.
+              cancel: Cancel·lar
+              ok: Retira el projecte de col·laboració
               title: La següent acció és irreversible
-            success: Esborrat col·laboratiu s'ha retirat amb èxit.
+            success: L'esborrany col·laboratiu s'ha retirat amb èxit.
         compare:
-          mine_is_different: El meu esborrany de col·laboració és diferent
+          mine_is_different: El meu esborrany col·laboratiu és diferent
           no_similars_found: Ben fet! No s'han trobat esborranys col·laboratius semblants
           title: Esborranys col·laboratius similars
         complete:
