@@ -10,8 +10,20 @@ module Decidim
         return Decidim::Proposals::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
-        return permission_action if permission_action.subject != :proposal
+        if permission_action.subject == :proposal
+          apply_proposal_permissions(permission_action)
+        elsif permission_action.subject == :collaborative_draft
+          apply_collaborative_draft_permissions(permission_action)
+        else
+          permission_action
+        end
 
+        permission_action
+      end
+
+      private
+
+      def apply_proposal_permissions(permission_action)
         case permission_action.action
         when :create
           can_create_proposal?
@@ -30,11 +42,7 @@ module Decidim
         when :report
           true
         end
-
-        permission_action
       end
-
-      private
 
       def proposal
         @proposal ||= context.fetch(:proposal, nil)
@@ -102,6 +110,42 @@ module Decidim
                      voting_enabled?
 
         toggle_allow(is_allowed)
+      end
+
+      def apply_collaborative_draft_permissions(permission_action)
+        case permission_action.action
+        when :create
+          can_create_collaborative_draft?
+        when :edit
+          can_edit_collaborative_draft?
+        when :publish
+          can_publish_collaborative_draft?
+        when :request_access
+          can_request_access_collaborative_draft?
+        end
+      end
+
+      def collaborative_draft
+        @collaborative_draft ||= context.fetch(:collaborative_draft, nil)
+      end
+
+      def can_create_collaborative_draft?
+        toggle_allow(authorized?(:create) && current_settings&.creation_enabled? && component_settings&.collaborative_drafts_enabled?)
+      end
+
+      def can_edit_collaborative_draft?
+        toggle_allow(collaborative_draft.open? && collaborative_draft.editable_by?(user) && component_settings&.collaborative_drafts_enabled?)
+      end
+
+      def can_publish_collaborative_draft?
+        toggle_allow(collaborative_draft.open? && collaborative_draft.editable_by?(user) && component_settings&.collaborative_drafts_enabled?)
+      end
+
+      def can_request_access_collaborative_draft?
+        return toggle_allow(false) unless collaborative_draft.open? && component_settings&.collaborative_drafts_enabled?
+        return toggle_allow(false) if collaborative_draft.editable_by?(user)
+        return toggle_allow(false) if collaborative_draft.requesters.include? user
+        toggle_allow(collaborative_draft && !collaborative_draft.editable_by?(user))
       end
     end
   end
