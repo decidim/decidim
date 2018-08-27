@@ -139,6 +139,7 @@ pl:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wycofało wspólny projekt <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współpracownikiem <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} wycofało %{resource_title} wspólne projekty."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>wycofano</strong> <a href="%{resource_path}">%{resource_title}</a> wspólnych projektów.
         creation_enabled:
           email_intro: 'Możesz teraz tworzyć nowe propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -295,6 +296,124 @@ pl:
         not_answered: Bez odpowiedzi
         rejected: Odrzucone
         withdrawn: Wycofane
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Wystąpiły błędy podczas publikowania wersji roboczej.
+            irreversible_action_modal:
+              body: Po opublikowaniu projektu jako propozycji, wersja robocza nie będzie już edytowalna. Wniosek nie przyjmuje nowych autorów ani wkładów.
+              cancel: Anuluj
+              ok: Opublikuj jako propozycję
+              title: Poniższe działanie jest nieodwracalne
+            success: Wersja robocza opublikowana z powodzeniem jako propozycja.
+          view_collaborative_draft: Zobacz Collaborative Draft
+          withdraw:
+            error: Podczas zamykania wersji roboczej wystąpiły błędy.
+            irreversible_action_modal:
+              body: Po zamknięciu wersji roboczej wersja robocza nie będzie już edytowalna. Projekt nie zaakceptuje nowych autorów ani wkładów.
+              cancel: Anuluj
+              ok: Wycofaj wspólny projekt
+              title: Poniższe działanie jest nieodwracalne
+            success: Wersja robocza wycofana pomyślnie.
+        compare:
+          mine_is_different: Mój projekt współpracy jest inny
+          no_similars_found: Dobra robota! Nie znaleziono podobnych projektów współpracy
+          title: Podobne wersje robocze
+        complete:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+          select_a_category: Proszę wybierz kategorie
+          send: Wysłać
+          title: Uzupełnij swój wspólny projekt
+        count:
+          drafts_count:
+            one: 1 wspólny projekt
+            few: "%{count} wspólnych projektów"
+            many: "%{count} wspólnych projektów"
+            other: "%{count} wspólnych projektów"
+        create:
+          error: Podczas tworzenia tych roboczych wersji roboczych wystąpił problem
+          success: Z powodzeniem utworzono wspólny projekt.
+        edit:
+          back: Plecy
+          select_a_category: Proszę wybierz kategorie
+          send: Wysłać
+          title: Edytuj wersję roboczą
+        filters:
+          all: Wszystko
+          category: Kategoria
+          category_prompt: Monit kategorii
+          open: otwarty
+          published: Opublikowany
+          related_to: Związany z
+          search: Szukaj
+          state: Stan
+          withdrawn: Wycofane
+        filters_small_view:
+          close_modal: Zamknij modalne
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwijać się
+        new:
+          send: dalej
+          title: Utwórz swój wspólny projekt
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nowa wersja robocza współpracy
+        orders:
+          label: 'Zamów wersje robocze według:'
+          most_contributed: Większość wnoszona
+          random: Losowy
+          recent: Niedawny
+        requests:
+          accepted_request:
+            error: Nie można zaakceptować jako współpracownika, spróbuj ponownie później.
+            success: "@%{user} zostało zaakceptowane jako współpracownik"
+          access_requested:
+            error: Twoje żądanie nie może zostać zakończone, spróbuj ponownie później.
+            success: Twoja prośba o współpracę została wysłana pomyślnie
+          collaboration_requests:
+            accept_request: Zaakceptować
+            reject_request: Odrzucać
+            title: Żądania współpracy
+          rejected_request:
+            error: Nie można odrzucić jako współpracownika, spróbuj ponownie później.
+            success: "@%{user} zostało odrzucone jako współpracownik"
+        show:
+          back: Plecy
+          edit: Edytuj wersję roboczą
+          final_proposal: ostateczna propozycja
+          final_proposal_help_text: Ten projekt jest gotowy. Możesz zobaczyć końcową gotową propozycję
+          hidden_authors_count:
+            one: i jeszcze 1 osoba
+            few: i %{count} więcej osób
+            many: i %{count} więcej osób
+            other: i %{count} więcej osób
+          info-message: Jest to <strong>wspólny projekt</strong> dla wniosku. Oznacza to, że możesz pomóc swoim autorom w kształtowaniu propozycji za pomocą poniższej sekcji komentarza lub poprawić ją bezpośrednio, żądając dostępu, aby ją edytować. Gdy autorzy przyznają Ci dostęp, będziesz mógł wprowadzać zmiany w tej wersji roboczej.
+          of_versions: "(z %{number})"
+          publish: Publikować
+          publish_info: Opublikuj tę wersję wersji roboczej lub
+          published_proposal: opublikowana propozycja
+          request_access: Poproś o dostęp
+          requested_access: Wymagany dostęp
+          see_other_versions: zobacz inne wersje
+          version: Wersja %{number}
+          version_history: zobacz historię wersji tej propozycji
+          withdraw: wycofaj projekt
+        states:
+          open: otwarty
+          published: Opublikowany
+          withdrawn: Wycofane
+        update:
+          error: Wystąpiły błędy podczas zapisywania wspólnego projektu.
+          success: Wersja robocza została zaktualizowana pomyślnie.
+        wizard_aside:
+          back: Plecy
+          info: Tworzysz <strong>współpracy projekt</strong>.
+        wizard_steps:
+          see_steps: zobacz kroki
+          step_1: Utwórz swój wspólny projekt
+          step_2: Porównaj ze wspólnymi wersjami roboczymi
+          step_3: Uzupełnij swój wspólny projekt
+          step_of: Krok %{current_step_num} z %{total_steps}
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Propozycja została utworzona pomyślnie. Zapisany jako wersja robocza.
@@ -302,6 +421,11 @@ pl:
         error: Wystąpiły błędy podczas usuwania wersji roboczej propozycji.
         success: Projekt propozycji został pomyślnie usunięty.
       models:
+        collaborative_draft:
+          fields:
+            authors: Autorski
+            comments: Komentarze
+            contributions: Składki
         proposal:
           fields:
             category: Kategoria
@@ -383,6 +507,7 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwijać się
         index:
+          collaborative_drafts_list: Uzyskaj dostęp do wspólnych wersji roboczych
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
           view_proposal: Wyświetl propozycję
@@ -420,6 +545,8 @@ pl:
             few: i %{count} więcej osób
             many: i %{count} więcej osób
             other: i %{count} więcej osób
+          link_to_collaborative_draft_help_text: Ta propozycja jest wynikiem wspólnego projektu. Przejrzyj historię
+          link_to_collaborative_draft_text: Zobacz wersję roboczą
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
@@ -479,6 +606,20 @@ pl:
       update_draft:
         error: Wystąpiły błędy podczas zapisywania wersji roboczej propozycji.
         success: Projekt propozycji został pomyślnie zaktualizowany.
+      versions:
+        changes_at_title: Zmiany w "%{title}"
+        index:
+          title: Wersje
+        stats:
+          back_to_collaborative_draft: Wróć do wersji roboczej
+          number_of_versions: Wersje
+          show_all_versions: Pokaż wszystkie wersje
+          version_author: Autor wersji
+          version_created_at: Wersja utworzona w
+          version_number: Numer wersji
+          version_number_out_of_total: "%{current_version} z %{total_count}"
+        version:
+          version_index: Wersja %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Powiązane propozycje
