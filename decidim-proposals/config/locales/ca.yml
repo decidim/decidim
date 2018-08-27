@@ -4,7 +4,7 @@ ca:
       collaborative_draft:
         body: Cos
         category_id: Categoria
-        decidim_scope_id: Abast
+        decidim_scope_id: Àmbit
         has_address: Té adreça
         state: Estat
         title: Títol
@@ -290,6 +290,116 @@ ca:
         collaborative_draft:
           publish:
             error: Hi ha hagut errors en publicar el projecte de col·laboració.
+            irreversible_action_modal:
+              body: Després de publicar l'esborrany com a proposta, l'esborrany ja no serà editable. La proposta no acceptarà nous autors ni contribucions.
+              cancel: Cancel · lar
+              ok: Publica com a proposta
+              title: La següent acció és irreversible
+            success: Esborrany de col·laboració s'ha publicat amb èxit com a proposta.
+          view_collaborative_draft: Vegeu Draft cooperatiu
+          withdraw:
+            error: S'ha produït un error en tancar el projecte de col·laboració.
+            irreversible_action_modal:
+              body: Després de tancar l'esborrany, el projecte ja no es podrà editar. El projecte no acceptarà nous autors ni contribucions.
+              cancel: Cancel · lar
+              ok: Retireu el projecte de col·laboració
+              title: La següent acció és irreversible
+            success: Esborrat col·laboratiu s'ha retirat amb èxit.
+        compare:
+          mine_is_different: El meu esborrany de col·laboració és diferent
+          no_similars_found: Ben fet! No s'han trobat esborranys col·laboratius semblants
+          title: Esborranys col·laboratius similars
+        complete:
+          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+          select_a_category: Seleccioneu una categoria
+          send: Enviar
+          title: Completeu el vostre esborrany de col·laboració
+        count:
+          drafts_count:
+            one: 1 esborrany de col·laboració
+            other: "%{count} esborranys col·laboratius"
+        create:
+          error: Hi ha hagut un problema en crear aquests esborranys de col·laboració
+          success: S'ha creat un esborrany col·laboratiu.
+        edit:
+          back: esquena
+          select_a_category: Seleccioneu una categoria
+          send: Enviar
+          title: Edita el projecte de col·laboració
+        filters:
+          all: Tots
+          category: Categoria
+          category_prompt: Indicació de categoria
+          open: Obert
+          published: Publicat
+          related_to: Relacionat amb
+          search: Cerca
+          state: Estat
+          withdrawn: Retirat
+        filters_small_view:
+          close_modal: Tanca el modal
+          filter: Filtre
+          filter_by: Filtra per
+          unfold: Desplegar
+        new:
+          send: Continua
+          title: Crea el teu esborrany de col·laboració
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nou projecte de col·laboració
+        orders:
+          label: 'Ordenar esborranys per:'
+          most_contributed: La majoria ha contribuït
+          random: Aleatori
+          recent: Recent
+        requests:
+          accepted_request:
+            error: No es pot acceptar com a col·laborador, torneu-ho a provar més tard.
+            success: "S'ha acceptat @%{user} com a col·laborador amb èxit"
+          access_requested:
+            error: No s'ha pogut completar la vostra sol·licitud, torneu-ho a provar més tard.
+            success: La vostra sol·licitud de col·laboració s'ha enviat correctament
+          collaboration_requests:
+            accept_request: Accepta
+            reject_request: Rebutjar
+            title: Sol·licituds de col·laboració
+          rejected_request:
+            error: No es pot rebutjar com a col·laborador, torneu-ho a provar més tard.
+            success: "@%{user} s'ha rebutjat correctament com a col·laborador"
+        show:
+          back: esquena
+          edit: Edita el projecte de col·laboració
+          final_proposal: proposta final
+          final_proposal_help_text: Aquest projecte està acabat. Podeu veure la proposta final finalitzada
+          hidden_authors_count:
+            one: i 1 persona més
+            other: i %{count} persones més
+          info-message: Es tracta d'un <strong>projecte de col·laboració</strong> per a una proposta. Això significa que podeu ajudar els seus autors a modelar la proposta utilitzant la secció de comentaris a continuació o a millorar-la directament demanant accés per editar-la. Un cop els autors us concedeixin accés, podreu fer canvis en aquest esborrany.
+          of_versions: "(de %{number})"
+          publish: Publica
+          publish_info: Publica aquesta versió del projecte o
+          published_proposal: proposta publicada
+          request_access: Sol·licitud d'accés
+          requested_access: S'ha sol·licitat l'accés
+          see_other_versions: veure altres versions
+          version: Versió %{number}
+          version_history: vegeu l'historial de versions d'aquesta proposta
+          withdraw: retirar el projecte
+        states:
+          open: Obert
+          published: Publicat
+          withdrawn: Retirat
+        update:
+          error: Hi ha hagut errors en desar el projecte de col·laboració.
+          success: El projecte de col·laboració s'ha actualitzat correctament.
+        wizard_aside:
+          back: esquena
+          info: Esteu creant un <strong>esborrany de col·laboració</strong>.
+        wizard_steps:
+          see_steps: vegeu els passos
+          step_1: Crea el teu esborrany de col·laboració
+          step_2: Comparar amb esborranys col·laboratius
+          step_3: Completeu el vostre esborrany de col·laboració
+          step_of: Pas %{current_step_num} de %{total_steps}
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
@@ -297,6 +407,11 @@ ca:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat amb èxit.
       models:
+        collaborative_draft:
+          fields:
+            authors: Autors
+            comments: Comentaris
+            contributions: Aportacions
         proposal:
           fields:
             category: Categoria
@@ -376,6 +491,7 @@ ca:
           filter_by: Filtrar per
           unfold: Desplegar
         index:
+          collaborative_drafts_list: Accedeix a esborranys col·laboratius
           new_proposal: Nova proposta
           see_all_withdrawn: Veure totes les propostes retirades
           view_proposal: Veure proposta
@@ -407,6 +523,8 @@ ca:
           hidden_endorsers_count:
             one: i 1 persona més
             other: i %{count} persones més
+          link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany de col·laboració. Reviseu l'historial
+          link_to_collaborative_draft_text: Vegeu el projecte de col·laboració
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
@@ -464,6 +582,20 @@ ca:
       update_draft:
         error: Hi ha hagut errors en desar l'esborrany de la proposta.
         success: El projecte de proposta s'ha actualitzat correctament.
+      versions:
+        changes_at_title: Canvis a "%{title}"
+        index:
+          title: Versions
+        stats:
+          back_to_collaborative_draft: Torna al projecte de col·laboració
+          number_of_versions: Versions
+          show_all_versions: Mostra totes les versions
+          version_author: Autor de la versió
+          version_created_at: Versió creada a
+          version_number: Número de versió
+          version_number_out_of_total: "%{current_version} de %{total_count}"
+        version:
+          version_index: Versió %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Propostes relacionades
