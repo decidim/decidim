@@ -12,6 +12,11 @@ hu:
       admin:
         exports:
           dummies: Dummies
+    gamification:
+      badges:
+        test:
+          description_another: Ez a felhasználó %{score} tesztet hozott létre.
+          description_own: '%{score} tesztet hozott létre.'
     pages:
       home:
         statistics:
