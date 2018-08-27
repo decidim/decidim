@@ -117,7 +117,7 @@ es:
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitó acceso para contribuir al borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>. Por favor <strong>aceptar o rechazar la solicitud</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Usted ha sido aceptado para acceder como colaborador del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Recibió esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Has sido aceptado como colaborador de %{resource_title}.
           notification_title: Ha aceptado <strong>acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
