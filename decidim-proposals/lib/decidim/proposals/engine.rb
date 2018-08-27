@@ -33,6 +33,18 @@ module Decidim
           resource :proposal_vote, only: [:create, :destroy]
           resource :proposal_widget, only: :show, path: "embed"
         end
+        resources :collaborative_drafts, except: [:destroy] do
+          get :compare, on: :collection
+          get :complete, on: :collection
+          member do
+            post :request_access, controller: "collaborative_draft_collaborator_requests"
+            post :request_accept, controller: "collaborative_draft_collaborator_requests"
+            post :request_reject, controller: "collaborative_draft_collaborator_requests"
+            post :withdraw
+            post :publish
+          end
+          resources :versions, only: [:show, :index]
+        end
         root to: "proposals#index"
       end
 
@@ -122,6 +134,19 @@ module Decidim
       initializer "decidim_proposals.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
+      end
+
+      initializer "decidim_proposals.add_badges" do
+        Decidim::Gamification.register_badge(:proposals) do |badge|
+          badge.levels = [1, 5, 10, 30, 60]
+
+          badge.reset = lambda { |user|
+            Decidim::Coauthorship.where(
+              coauthorable_type: "Decidim::Proposals::Proposal",
+              author: user
+            ).count
+          }
+        end
       end
     end
   end

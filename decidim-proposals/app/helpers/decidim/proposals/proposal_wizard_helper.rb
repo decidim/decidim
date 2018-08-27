@@ -32,7 +32,7 @@ module Decidim
       #
       # step - A symbol of the target step
       def proposal_wizard_step_name(step)
-        t(:"decidim.proposals.proposals.wizard_steps.#{step}")
+        t("decidim.proposals.#{type_of}.wizard_steps.#{step}")
       end
 
       # Returns the page title of the given step, translated
@@ -48,7 +48,7 @@ module Decidim
                        action_name
                      end
 
-        t("decidim.proposals.proposals.#{step_title}.title")
+        t("decidim.proposals.#{type_of}.#{step_title}.title")
       end
 
       # Returns the list item of the given step, in html
@@ -56,6 +56,7 @@ module Decidim
       # step - A symbol of the target step
       # current_step - A symbol of the current step
       def proposal_wizard_stepper_step(step, current_step)
+        return if step == :step_4 && type_of == :collaborative_drafts
         content_tag(:li, proposal_wizard_step_name(step), class: proposal_wizard_step_classes(step, current_step).to_s)
       end
 
@@ -79,7 +80,7 @@ module Decidim
       def proposal_wizard_current_step_of(step)
         current_step_num = proposal_wizard_step_number(step)
         content_tag :span, class: "text-small" do
-          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: 3)
+          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: total_steps)
           concat " ("
           concat content_tag :a, t(:"decidim.proposals.proposals.wizard_steps.see_steps"), "data-toggle": "steps"
           concat ")"
@@ -106,6 +107,47 @@ module Decidim
           selected: selected,
           include_blank: current_user.name
         )
+      end
+
+      private
+
+      def total_steps
+        case type_of
+        when :collaborative_drafts
+          3
+        when :proposals
+          4
+        else
+          4
+        end
+      end
+
+      def wizard_aside_info_text
+        case type_of
+        when :collaborative_drafts
+          t("info", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
+        else
+          t("info", scope: "decidim.proposals.proposals.wizard_aside").html_safe
+        end
+      end
+
+      def wizard_aside_back_text
+        case type_of
+        when :collaborative_drafts
+          t("back", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
+        else
+          t("back", scope: "decidim.proposals.proposals.wizard_aside").html_safe
+        end
+      end
+
+      def type_of
+        if ["Decidim::Proposals::CollaborativeDraftForm"].include? @form.class.name
+          :collaborative_drafts
+        elsif @collaborative_draft.present?
+          :collaborative_drafts
+        else
+          :proposals
+        end
       end
     end
   end

@@ -2,9 +2,9 @@ fi:
   activemodel:
     attributes:
       project:
-        budget: Budjetti
+        budget: Määräraha
         decidim_category_id: Aihepiiri
-        decidim_scope_id: Konteksti
+        decidim_scope_id: Soveltamisala
         description: Kuvaus
         proposal_ids: Liittyvät ehdotukset
         title: Otsikko

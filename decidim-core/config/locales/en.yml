@@ -21,6 +21,8 @@ en:
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
+      decidim/gamification/badge_earned_event: Badge earned
+      decidim/gamification/level_up_event: You've leveled up
       decidim/profile_updated_event: Profile updated
   activerecord:
     attributes:
@@ -321,6 +323,17 @@ en:
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
         email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
         email_subject: An update to %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: 'You''ve earned a new badge: %{badge_name}!'
+          notification_title: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+        level_up:
+          email_intro: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -339,6 +352,7 @@ en:
     filters:
       linked_classes:
         all: All
+        collaborative_draft: Collaborative draft
         dummy_resource: Dummy resources
         meeting: Meetings
         project: Projects
@@ -370,6 +384,10 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
+    gamification:
+      description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
+      level: Level %{level}
+      reached_top: You've reached the top level for this badge.
     invitations:
       create:
         error: There were some problems while inviting your friends
@@ -542,6 +560,7 @@ en:
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
+        badges: Badges
         conversations: Conversations
         followers: Followers
         following: Follows

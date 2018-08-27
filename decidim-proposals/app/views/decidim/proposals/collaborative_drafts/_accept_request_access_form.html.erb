@@ -1,0 +1,8 @@
+<% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+  <%= decidim_form_for(@accept_request_form, url: request_accept_collaborative_draft_path(@collaborative_draft)) do |form| %>
+    <%= form.hidden_field :id, value: @collaborative_draft.id %>
+    <%= form.hidden_field :state, value: @collaborative_draft.state %>
+    <%= form.hidden_field :requester_user_id, value: requester.id %>
+    <%= form.submit accept_request_button_label, class: "button hollow secondary small", data: { disable: true } %>
+  <% end %>
+<% end %>

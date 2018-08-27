@@ -141,7 +141,7 @@ FactoryBot.define do
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
-    name { Faker::Educator.unique.course }
+    sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
     document_number { Faker::Number.number(8) + "X" }
     phone { Faker::PhoneNumber.phone_number }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }

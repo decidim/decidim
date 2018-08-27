@@ -1,0 +1,14 @@
+<section class="section">
+  <ul class="conference-nav">
+    <li <%= "class=is-active" if @activesection == "home" %>><%= link_to "Información", page_path("conferences/conference-view") %></li>
+    <li <%= "class=is-active" if @activesection == "speakers" %>><%= link_to "Ponentes", page_path("conferences/conference-view-speakers") %></li>
+    <li <%= "class=is-active" if @activesection == "programme" %>><%= link_to "Programa", page_path("conferences/conference-view-programme") %></li>
+    <li><a href="#section-3">Colaboradores</a></li>
+    <li><a href="#section-4">Ubicaciones</a></li>
+    <li><a href="#section-5">Noticias</a></li>
+  </ul>
+</section>
+<hr class="reset mt-none mb-m" />
+<section class="section">
+  <a href="" class="button button--sc expanded mb-m">Registrate</a>
+</section>
