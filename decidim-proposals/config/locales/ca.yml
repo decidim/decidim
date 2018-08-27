@@ -109,24 +109,24 @@ ca:
           email_intro: 'S''ha rebutjat %{requester_name} per accedir com a contribuidor de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè ets un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "S'ha rebutjat %{requester_name} per accedir com a col·laborador de l'esborrany col·lanoratiu %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat rebutjat <strong>per accedir com a contribuent</strong> del projecte de col·laboració de <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a><strong> ha estat rebutjat per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} sol·licitar l''accés com a col·laborador. Pot <strong>acceptar o rebutjar la sol·licitud</strong> de la <a href="%{resource_path}">%{resource_title}</a> esborrany de la pàgina de col·laboració.'
-          email_outro: Heu rebut aquesta notificació perquè sou un col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} demanar l'accés per contribuir a %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> sol·licitat accés per contribuir al projecte de col·laboració de <a href="%{resource_path}">%{resource_title}</a> . <strong>accepteu o rebutgeu la sol·licitud</strong>.
+          email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdor. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has rebut aquesta notificació perquè ets un contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} ha demanat accés per contribuir a %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sol·licitat accés per contribuir a l'esborrany col·laboratiu de <a href="%{resource_path}">%{resource_title}</a>. Si us plau, <strong>accepta o rebutja la sol·licitud</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: S'ha acceptat accedir com a col·laborador del projecte de col·laboració <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Heu rebut aquesta notificació perquè heu sol·licitat ser col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Has estat acceptat com a col·laborador de %{resource_title}.
-          notification_title: Has estat acceptat <strong>per accedir com a col·laborador</strong> del <a href="%{resource_path}">%{resource_title}</a> projectes de col·laboració.
+          email_intro: Has estat acceptat com a contribuïdor de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Has estat acceptat com a contribuïdor de %{resource_title}.
+          notification_title: Has estat acceptat <strong>per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Has estat rebutjat per accedir com a col·laborador del projecte de col·laboració <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Heu rebut aquesta notificació perquè heu sol·licitat ser col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Heu rebutjat com a col·laborador de %{resource_title}.
-          notification_title: S'ha rebutjat <strong>per accedir com a col·laborador</strong> del <a href="%{resource_path}">%{resource_title}</a> esborrany de col·laboració.
+          email_intro: Has estat rebutjat per accedir com a contribuïdor de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Has estat rebutjat com a contribuïdor de %{resource_title}.
+          notification_title: Has estat rebutjat <strong>per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retirar el projecte de col·laboració <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha retirat l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Heu rebut aquesta notificació perquè sou un col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} retirar el %{resource_title} esborrany de col·laboració."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirat</strong> el <a href="%{resource_path}">%{resource_title}</a> esborrany de col·laboració.
