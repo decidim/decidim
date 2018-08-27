@@ -12,6 +12,7 @@ module Decidim
       isolate_namespace Decidim::ParticipatoryProcesses::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :participatory_process_groups

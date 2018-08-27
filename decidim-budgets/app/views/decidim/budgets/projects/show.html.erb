@@ -3,6 +3,15 @@
   description: translated_attribute(project.description)
 ) %>
 
+<%
+edit_link(
+  resource_locator(project).edit,
+  :update,
+  :project,
+  project: project
+)
+%>
+
 <div class="row column view-header">
   <% if current_user.present? && current_settings.votes_enabled? && current_participatory_space.can_participate?(current_user) %>
     <%= render partial: "budget_summary", locals: { include_heading: false } %>
@@ -38,7 +47,7 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <%= decidim_sanitize translated_attribute project.description %>
-      <%= cell "decidim/tags", project, context: {extra_classes: ["tags--project"]} %>
+      <%= cell "decidim/tags", project, context: { extra_classes: ["tags--project"] } %>
     </div>
     <%= linked_resources_for project, :proposals, "included_proposals" %>
     <%= linked_resources_for project, :results, "included_projects" %>

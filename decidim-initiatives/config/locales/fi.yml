@@ -6,8 +6,8 @@ fi:
         description: Kuvaus
         offline_votes: Face-to-face -tukit
         scope_id: laajuus
-        signature_end_time: Allekirjoitusajan päättyminen
-        signature_start_time: Allekirjoituskeruun alkamisajankohta
+        signature_end_date: Allekirjoitusajan päättyminen
+        signature_start_date: Allekirjoituskeruun alkamisajankohta
         signature_type: Allekirjoitus kokoelma tyyppi
         signature_type_values:
           any: sekoitettu
@@ -181,6 +181,9 @@ fi:
           help_text: Oletko pyytämässä jäseneksi tämän aloitteentekijän komiteaa
         spawn:
           success: Pyyntösi on lähetetty aloitteen tekijälle.
+      content_blocks:
+        highlighted_initiatives:
+          name: Korostetut aloitteet
       create_initiative:
         fill_data:
           back: Takaisin

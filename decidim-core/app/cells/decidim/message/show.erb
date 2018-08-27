@@ -1,0 +1,15 @@
+<div class="conversation-chat<%= " conversation-chat--offset" if own_message? %>">
+  <%= link_to sender.profile_path do %>
+    <%= image_tag sender.avatar_url %>
+  <% end %>
+  <div>
+    <article class="card">
+      <div class="p-s">
+        <%= simple_format(message.body) %>
+      </div>
+    </article>
+    <time datetime="<%= message.created_at.utc %>" class="text-small<%= " pull-right" if own_message? %>">
+      <%= message.friendly_created_at %>
+    </time>
+  </div>
+</div>

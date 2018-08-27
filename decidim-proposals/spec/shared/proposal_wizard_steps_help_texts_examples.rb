@@ -47,13 +47,13 @@ shared_examples "manage proposal wizard steps help texts" do
 
     click_button "Update"
 
-    create(:proposal, title: "Agusti for president", body: "He will solve everything", component: component)
-    create(:proposal, title: "Homer for president", body: "He will not solve everything", component: component)
+    create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component: component)
+    create(:proposal, title: "More trees and parks", body: "Green is always better", component: component)
     visit_component
     click_link "New proposal"
     within ".new_proposal" do
-      fill_in :proposal_title, with: "Jordi for president"
-      fill_in :proposal_body, with: "He will solve everything"
+      fill_in :proposal_title, with: "More sidewalks and less roads"
+      fill_in :proposal_body, with: "Cities need more people, not more cars"
 
       find("*[type=submit]").click
     end
@@ -79,8 +79,8 @@ shared_examples "manage proposal wizard steps help texts" do
     visit_component
     click_link "New proposal"
     within ".new_proposal" do
-      fill_in :proposal_title, with: "Agusti for president"
-      fill_in :proposal_body, with: "He will solve everything"
+      fill_in :proposal_title, with: "More sidewalks and less roads"
+      fill_in :proposal_body, with: "Cities need more people, not more cars"
 
       find("*[type=submit]").click
     end

@@ -14,3 +14,41 @@
     }
   }
 }
+
+.help-tooltip{
+  @include flex;
+  @include flex-align(center, middle);
+
+  border: .25rem solid lighten($secondary, 25%);
+  border-radius: 50%;
+  background-color: $secondary;
+  color: $light-gray;
+  padding: .25rem;
+  cursor: pointer;
+}
+
+// Extend Foundation defaults
+.tooltip{
+  &.light{
+    background-color: $body-background;
+    color: $body-font-color;
+    box-shadow: $prototype-box-shadow;
+    border-radius: $global-radius;
+
+    &.top::before{
+      border-color: $body-background transparent transparent;
+    }
+
+    &.bottom::before{
+      border-color: transparent transparent $body-background;
+    }
+
+    &.left::before{
+      border-color: transparent transparent transparent $body-background;
+    }
+
+    &.right::before{
+      border-color: transparent $body-background transparent transparent;
+    }
+  }
+}

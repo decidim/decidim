@@ -81,8 +81,8 @@ module Decidim
         build(:initiative,
               state: "validating",
               published_at: nil,
-              signature_start_time: nil,
-              signature_end_time: nil)
+              signature_start_date: nil,
+              signature_end_date: nil)
       end
 
       it "is valid" do

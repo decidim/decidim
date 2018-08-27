@@ -27,14 +27,8 @@ module Decidim
           return broadcast(:invalid)
         end
 
-        if process_attachments?
-          build_attachment
-          return broadcast(:invalid) if attachment_invalid?
-        end
-
         transaction do
           create_proposal
-          create_attachment if process_attachments?
         end
 
         broadcast(:ok, proposal)
@@ -48,46 +42,9 @@ module Decidim
         @proposal = Proposal.create!(
           title: form.title,
           body: form.body,
-          category: form.category,
-          scope: form.scope,
-          component: form.component,
-          address: form.address,
-          latitude: form.latitude,
-          longitude: form.longitude
+          component: form.component
         )
-        proposal.add_coauthor(@current_user, decidim_user_group_id: form.user_group_id)
-      end
-
-      def build_attachment
-        @attachment = Attachment.new(
-          title: form.attachment.title,
-          file: form.attachment.file,
-          attached_to: @proposal
-        )
-      end
-
-      def attachment_invalid?
-        if attachment.invalid? && attachment.errors.has_key?(:file)
-          form.attachment.errors.add :file, attachment.errors[:file]
-          true
-        end
-      end
-
-      def attachment_present?
-        form.attachment.file.present?
-      end
-
-      def create_attachment
-        attachment.attached_to = proposal
-        attachment.save!
-      end
-
-      def attachments_allowed?
-        form.current_component.settings.attachments_allowed?
-      end
-
-      def process_attachments?
-        attachments_allowed? && attachment_present?
+        proposal.add_coauthor(@current_user, user_group: user_group)
       end
 
       def proposal_limit_reached?

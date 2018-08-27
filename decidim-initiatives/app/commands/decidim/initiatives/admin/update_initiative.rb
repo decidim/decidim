@@ -50,15 +50,17 @@ module Decidim
             answer_url: form.answer_url
           }
 
-          attrs[:answered_at] = DateTime.current if form.answer.present?
+          attrs[:answered_at] = Time.current if form.answer.present?
 
           if current_user.admin?
-            attrs[:signature_start_time] = form.signature_start_time
-            attrs[:signature_end_time] = form.signature_end_time
+            attrs[:signature_start_date] = form.signature_start_date
+            attrs[:signature_end_date] = form.signature_end_date
             attrs[:offline_votes] = form.offline_votes
 
-            @notify_extended = true if form.signature_end_time != initiative.signature_end_time &&
-                                       form.signature_end_time > initiative.signature_end_time
+            if initiative.published?
+              @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
+                                         form.signature_end_date > initiative.signature_end_date
+            end
           end
 
           attrs

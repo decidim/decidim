@@ -1,9 +1,11 @@
-/* global renderAreaCharts */
-$(() => {
-  // init
-  renderAreaCharts()
-  // only for pattern-library
-  $(document).on("change.zf.tabs", () => {
-    renderAreaCharts()
-  });
-});
+((exports) => {
+  const RenderChart = (chart) => {
+    chart()
+    $(document).on("change.zf.tabs", () => {
+      chart()
+    });
+  }
+
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.Visualizations = RenderChart;
+})(window)

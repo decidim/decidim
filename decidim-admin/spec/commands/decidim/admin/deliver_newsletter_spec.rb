@@ -14,14 +14,14 @@ module Decidim::Admin
       let(:delivering_user) { create :user, :admin, :confirmed, organization: organization }
 
       let!(:deliverable_users) do
-        create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.zone.now)
+        create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications_at: Time.current)
       end
 
       let!(:not_deliverable_users) do
         create_list(:user, 3, organization: organization, newsletter_notifications_at: nil)
       end
       let!(:unconfirmed_users) do
-        create_list(:user, 3, organization: organization, newsletter_notifications_at: Time.zone.now)
+        create_list(:user, 3, organization: organization, newsletter_notifications_at: Time.current)
       end
 
       let(:command) { described_class.new(newsletter, delivering_user) }

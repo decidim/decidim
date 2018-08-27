@@ -20,7 +20,6 @@ module Decidim
     # and cannot be deleted.
     DEFAULT_PAGES = %w(faq terms-and-conditions accessibility).freeze
 
-    after_create :update_organization_tos_version
     before_destroy :can_be_destroyed?
     before_update :can_update_slug?
 
@@ -57,14 +56,6 @@ module Decidim
     end
 
     private
-
-    # When creating a terms-and-conditions page
-    # set the organization tos_version
-
-    def update_organization_tos_version
-      return unless slug == "terms-and-conditions"
-      organization.update!(tos_version: created_at)
-    end
 
     def can_be_destroyed?
       throw(:abort) if default?

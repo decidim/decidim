@@ -3,9 +3,7 @@
 require "spec_helper"
 require "support/tasks"
 
-# rubocop:disable RSpec/DescribeClass
 describe "rake decidim:right_to_be_forgotten", type: :task do
-  # rubocop:enable RSpec/DescribeClass
   let(:file_path) { Rails.root.join("tmp", "forgotten_users.csv") }
   let!(:original_stdout) { $stdout }
 

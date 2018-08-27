@@ -1,0 +1,14 @@
+<section class="extended home-section" id="statistics">
+  <div class="wrapper-home">
+    <div class="row column text-center">
+      <h3 class="heading2"><%= t("decidim.pages.home.statistics.headline", organization: current_organization.name) %></h3>
+    </div>
+    <div class="row">
+      <div class="columns small-centered mediumlarge-10 large-8">
+        <div class="home-pam">
+          <%= stats.highlighted %>
+          <%= stats.not_highlighted %>
+        </div>
+      </div>
+    </div>
+  </section>

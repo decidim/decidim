@@ -19,6 +19,8 @@ describe "Content pages", type: :system do
       visit decidim.pages_path
     end
 
+    it_behaves_like "editable content for admins"
+
     it "shows the list of all the pages" do
       decidim_pages.each do |decidim_page|
         expect(page).to have_css(

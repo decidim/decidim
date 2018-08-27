@@ -1,17 +1,13 @@
-<%= render partial: "decidim/pages/home/hero" %>
+<%
+  edit_link(
+    decidim_admin.edit_organization_path,
+    :update,
+    :organization,
+    organization: current_organization
+  )
+%>
 
-<% if !translated_attribute(current_organization.description).blank? %>
-  <%= render partial: "decidim/pages/home/sub_hero" %>
+<% Decidim::ContentBlock.published.for_scope(:homepage, organization: current_organization).each do |content_block| %>
+  <% next unless content_block.manifest %>
+  <%= cell content_block.manifest.cell_name %>
 <% end %>
-
-<%= render partial: "decidim/pages/home/highlighted_content_banner" %>
-
-<%= render partial: "decidim/pages/home/highlighted_processes" %>
-
-<%= render partial: "decidim/pages/home/extended" %>
-
-<% if current_organization.show_statistics? %>
-  <%= render partial: "decidim/pages/home/statistics" %>
-<% end %>
-
-<%= render partial: "decidim/pages/home/footer_sub_hero" %>

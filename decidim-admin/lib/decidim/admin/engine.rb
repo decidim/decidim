@@ -69,6 +69,7 @@ module Decidim
                       %w(
                         decidim/admin/organization
                         decidim/admin/organization_appearance
+                        decidim/admin/organization_homepage
                         decidim/admin/scopes
                         decidim/admin/scope_types
                         decidim/admin/areas decidim/admin/area_types

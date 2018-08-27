@@ -1,0 +1,58 @@
+<div class="grid-container full">
+  <div class="grid-x grid-margin-x card-grid">
+    <div class="cell small-6">
+      <div class="card">
+        <div class="card-section">
+          <p class="mb-m"><%= t(".active_content_blocks") %></p>
+          <ul class="draggable-list js-connect js-list-actives" data-sort-url="<%= decidim_admin.organization_homepage_path %>">
+            <% active_blocks.each do |content_block| %>
+            <li draggable="true" data-content-block-manifest-name="<%= content_block.manifest_name %>">
+              <div class="draggable-content">
+                <%= t(content_block.i18n_name_key) %>
+                <div>
+                  <%= icon "menu" %>
+                </div>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="cell small-6">
+      <div class="card">
+        <div class="card-section">
+          <p class="mb-m"><%= t(".inactive_content_blocks") %></p>
+          <ul class="draggable-list js-connect js-list-availables">
+            <% inactive_blocks.each do |content_block_or_manifest| %>
+            <% manifest_name = content_block_or_manifest.try(:manifest_name) || content_block_or_manifest.name %>
+            <li draggable="true" data-content-block-manifest-name="<%= manifest_name %>">
+              <div class="draggable-content">
+                <%= t(content_block_or_manifest.i18n_name_key) %>
+                <div>
+                  <%= icon "menu" %>
+                </div>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("dragend", function (event) {
+    var activeBlocks = Array.prototype.slice.call(document.querySelectorAll(".js-list-actives li"));
+    var activeBlocksManifestName = activeBlocks.map(block => block.dataset.contentBlockManifestName);
+    var sortUrl = document.querySelector(".js-list-actives").dataset.sortUrl;
+
+    $.ajax({
+      method: "PUT",
+      url: sortUrl,
+      contentType: "application/json",
+      data: JSON.stringify({ manifests: activeBlocksManifestName })
+    });
+  })
+</script>

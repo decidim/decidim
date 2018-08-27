@@ -19,9 +19,18 @@ describe "Homepage", type: :system do
     let(:organization) { create(:organization, official_url: official_url) }
 
     before do
+      create :content_block, organization: organization, scope: :homepage, manifest_name: :hero
+      create :content_block, organization: organization, scope: :homepage, manifest_name: :sub_hero
+      create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_content_banner
+      create :content_block, organization: organization, scope: :homepage, manifest_name: :how_to_participate
+      create :content_block, organization: organization, scope: :homepage, manifest_name: :stats
+      create :content_block, organization: organization, scope: :homepage, manifest_name: :footer_sub_hero
+
       switch_to_host(organization.host)
       visit decidim.root_path
     end
+
+    it_behaves_like "editable content for admins"
 
     it "includes the official organization links and images" do
       expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
@@ -149,9 +158,9 @@ describe "Homepage", type: :system do
 
         static_page = static_pages.first
         click_link static_page.title["en"]
-        expect(page).to have_i18n_content(static_page.title, locale: "en")
+        expect(page).to have_i18n_content(static_page.title)
 
-        expect(page).to have_i18n_content(static_page.content, locale: "en")
+        expect(page).to have_i18n_content(static_page.content)
       end
 
       it "includes the footer sub_hero with the current organization name" do
@@ -159,44 +168,6 @@ describe "Homepage", type: :system do
 
         within ".footer__subhero" do
           expect(page).to have_content(organization.name)
-        end
-      end
-    end
-
-    describe "includes participatory processes ending soon" do
-      context "when there are more than 8 participatory processes" do
-        let!(:participatory_process) do
-          create_list(
-            :participatory_process,
-            10,
-            :published,
-            organization: organization,
-            description: { en: "Description", ca: "Descripció", es: "Descripción" },
-            short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
-          )
-        end
-
-        it "shows a maximum of 8" do
-          visit current_path
-          expect(page).to have_selector("article.card", count: 8)
-        end
-      end
-
-      context "when lists the participatory processes" do
-        let!(:participatory_process_1) { create(:participatory_process, :with_steps, promoted: true, organization: organization) }
-        let!(:participatory_process_2) { create(:participatory_process, :with_steps, promoted: false, organization: organization) }
-        let!(:participatory_process_3) { create(:participatory_process, :with_steps, promoted: true, organization: organization) }
-
-        it "shows promoted first and ordered by active step end_date" do
-          processes = [participatory_process_3, participatory_process_1, participatory_process_2]
-          participatory_process_1.active_step.update!(end_date: 5.days.from_now)
-          participatory_process_2.active_step.update!(end_date: 3.days.from_now)
-          participatory_process_3.active_step.update!(end_date: 2.days.from_now)
-
-          visit current_path
-          all("article.card .card__title").each_with_index do |node, index|
-            expect(node.text).to eq(processes[index].title[I18n.locale.to_s])
-          end
         end
       end
     end

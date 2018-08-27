@@ -16,7 +16,7 @@ module Decidim
       #
       # period_length - Maximum time in validating state
       def initialize(period_length)
-        @period_length = DateTime.current - period_length
+        @period_length = Time.current - period_length
       end
 
       # Retrieves the available initiative types for the given organization.

@@ -248,6 +248,9 @@ en:
         others: Others
         participatory: Participatory
         working_group: Working group
+      content_blocks:
+        highlighted_assemblies:
+          name: Highlighted assemblies
       created_by:
         city_council: City Council
         others: Others

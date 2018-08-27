@@ -4,12 +4,21 @@
   url: debate_url(debate.id)
 }) %>
 
+<%
+edit_link(
+  resource_locator(debate).edit,
+  :update,
+  :debate,
+  debate: debate
+)
+%>
+
 <div class="row column view-header">
   <h2 class="heading2">
     <%== translated_attribute debate.title %>
   </h2>
 
-  <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, context: {extra_classes: ["author-data--small"]} %>
+  <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, context: { extra_classes: ["author-data--small"] } %>
 
 </div>
 <div class="row">

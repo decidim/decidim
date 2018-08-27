@@ -67,7 +67,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when the dates are updated" do
-        let(:start_date) { Time.zone.now }
+        let(:start_date) { Date.current }
         let(:end_date) { 1.week.from_now }
 
         it "notifies the process followers" do

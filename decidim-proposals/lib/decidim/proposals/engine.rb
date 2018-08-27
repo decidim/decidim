@@ -20,9 +20,9 @@ module Decidim
           resource :proposal_endorsement, only: [:create, :destroy] do
             get :identities, on: :collection
           end
-          get :compare, on: :collection
-          get :complete, on: :collection
           member do
+            get :compare
+            get :complete
             get :edit_draft
             patch :update_draft
             get :preview

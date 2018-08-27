@@ -206,6 +206,19 @@ en:
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      hero:
+        name: Hero image
+      highlighted_content_banner:
+        name: Highlighted content banner
+      how_to_participate:
+        name: How to participate
+      stats:
+        name: Organization stats
+      sub_hero:
+        name: Sub hero banner
     core:
       actions:
         unauthorized: You are not authorized to perform this action
@@ -326,7 +339,7 @@ en:
     filters:
       linked_classes:
         all: All
-        dummyresource: Dummy resources
+        dummy_resource: Dummy resources
         meeting: Meetings
         project: Projects
         proposal: Proposals
@@ -409,13 +422,13 @@ en:
         create:
           error: Conversation not started. Try again later
         index:
+          from: From
+          last_message_html: Last message <strong>%{time} ago</strong>
           no_conversations: You have no conversations yet
-          title: Conversations
-        reply:
-          send: Send
-          title: Reply
         show:
-          title: Conversation with %{usernames}
+          conversation_with_html: Conversation with <strong>%{name}</strong>
+          reply: Reply
+          send: Send
         start:
           send: Send
           title: Start a conversation
@@ -528,6 +541,7 @@ en:
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
+        conversations: Conversations
         followers: Followers
         following: Follows
         notifications: Notifications
@@ -662,6 +676,8 @@ en:
         description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
         link_label: here
         ok: I agree
+      edit_link:
+        edit: Edit
       footer:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
@@ -729,6 +745,7 @@ en:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"

@@ -62,6 +62,34 @@
   @include flex-align($x: justify, $y: bottom);
 }
 
+// flex--sc:
+// justify-content: flex-start;
+// align-items: center;
+.flex--fsc{
+  @include flex;
+  @include flex-align($x: left, $y: middle);
+}
+
+// flex--fsb:
+// justify-content: flex-start;
+// align-items: baseline;
+.flex--fsb{
+  @include flex;
+  @include flex-align($x: left, $y: null);
+
+  align-items: baseline;
+}
+
+// flex--fsb:
+// justify-content: center;
+// align-items: baseline;
+.flex--cb{
+  @include flex;
+  @include flex-align($x: center, $y: null);
+
+  align-items: baseline;
+}
+
 .scroll{
   max-height: 50vh;
   overflow-y: scroll;

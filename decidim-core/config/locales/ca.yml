@@ -205,6 +205,19 @@ ca:
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
     contact: Contacte
+    content_blocks:
+      footer_sub_hero:
+        name: Peu de pàgina sub-heroi
+      hero:
+        name: Imatge de l'heroi
+      highlighted_content_banner:
+        name: Bàner de contingut destacat
+      how_to_participate:
+        name: Com participar
+      stats:
+        name: Estadístiques de l'organització
+      sub_hero:
+        name: Bàner de sub herois
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
@@ -321,7 +334,7 @@ ca:
     filters:
       linked_classes:
         all: Tots
-        dummyresource: Recursos de prova
+        dummy_resource: Recursos de prova
         meeting: Trobades
         project: Projectes
         proposal: propostes
@@ -404,13 +417,13 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
+          from: Des de
+          last_message_html: Últim missatge <strong>%{time} ago</strong>
           no_conversations: Encara no tens converses
-          title: Converses
-        reply:
-          send: Enviar
-          title: Respon
         show:
-          title: Conversa amb %{usernames}
+          conversation_with_html: Conversa amb <strong>%{name}</strong>
+          reply: Respon
+          send: Enviar
         start:
           send: Enviar
           title: Comença una conversa
@@ -523,6 +536,7 @@ ca:
     profiles:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
+        conversations: Converses
         followers: Seguidors
         following: Segueix
         notifications: Notificacions
@@ -657,6 +671,8 @@ ca:
         description_html: "Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.\nEn continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}."
         link_label: aquí
         ok: Hi estic d'acord
+      edit_link:
+        edit: Edita
       footer:
         made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
@@ -724,6 +740,7 @@ ca:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"

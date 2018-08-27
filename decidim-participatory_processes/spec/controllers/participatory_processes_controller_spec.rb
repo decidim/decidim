@@ -44,18 +44,18 @@ module Decidim
             :with_steps,
             :published,
             organization: organization,
-            end_date: Time.current.advance(days: 10)
+            end_date: Date.current.advance(days: 10)
           )
-          first.active_step.update!(end_date: Time.current.advance(days: 2))
+          first.active_step.update!(end_date: Date.current.advance(days: 2))
 
           second = create(
             :participatory_process,
             :with_steps,
             :published,
             organization: organization,
-            end_date: Time.current.advance(days: 20)
+            end_date: Date.current.advance(days: 20)
           )
-          second.active_step.update!(end_date: Time.current.advance(days: 4))
+          second.active_step.update!(end_date: Date.current.advance(days: 4))
 
           expect(controller.helpers.participatory_processes.count).to eq(3)
           expect(controller.helpers.participatory_processes).not_to include(unpublished)

@@ -275,6 +275,9 @@ en:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Highlighted processes
       index:
         title: Participatory processes
       pages:
@@ -282,6 +285,8 @@ en:
           highlighted_processes:
             active_processes: Active processes
             active_step: Active step
+            more_information: More information
+            participate: Participate
             see_all_processes: See all processes
       participatory_process_groups:
         none: None

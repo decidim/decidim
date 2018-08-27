@@ -7,8 +7,8 @@ en:
         description: Description
         offline_votes: Face-to-face supports
         scope_id: Scope
-        signature_end_time: End of signature collection period
-        signature_start_time: Start of signature collection period
+        signature_end_date: End of signature collection period
+        signature_start_date: Start of signature collection period
         signature_type: Signature collection type
         signature_type_values:
           any: Mixed
@@ -182,6 +182,9 @@ en:
           help_text: You are about to request becoming a member of the promoter committee of this initiative
         spawn:
           success: Your request has been sent to the initiative author.
+      content_blocks:
+        highlighted_initiatives:
+          name: Highlighted initiatives
       create_initiative:
         fill_data:
           back: Back

@@ -1,0 +1,29 @@
+.hover-section{
+  &:hover{
+    background-color: $white;
+    border: $border;
+    box-shadow: 0 0 20px 0 rgba($black, .2);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    // transform: translate(-$global-padding, -$global-padding);
+    cursor: pointer;
+
+    > :first-child{
+      border-right: $border;
+    }
+
+    .hidden-section{
+      display: block;
+      align-self: center;
+    }
+  }
+
+  a{
+    color: inherit;
+  }
+
+  .hidden-section{
+    display: none;
+  }
+}

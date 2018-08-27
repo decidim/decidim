@@ -13,7 +13,7 @@ module Decidim
         attribute :attending_organizations, String
         attribute :proposal_ids, Array[Integer]
         attribute :proposals
-        attribute :closed_at, DateTime, default: ->(_form, _attribute) { Time.current }
+        attribute :closed_at, Decidim::Attributes::TimeWithZone, default: ->(_form, _attribute) { Time.current }
 
         validates :closing_report, translatable_presence: true
         validates :attendees_count, presence: true, numericality: { greater_than_or_equal_to: 0 }

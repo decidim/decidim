@@ -1,0 +1,7 @@
+<div class="card__top">
+  <% if render_space? %>
+    <div class="card__content text-small">
+      <span class="muted"><%= searchable_resource_human_name(model.participatory_space.class) %>:</span>&nbsp;<%= link_to translated_attribute(model.participatory_space.title), Decidim::ResourceLocatorPresenter.new(model.participatory_space).path %>
+    </div>
+  <% end %>
+</div>

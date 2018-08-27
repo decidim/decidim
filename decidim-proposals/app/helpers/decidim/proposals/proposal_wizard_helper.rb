@@ -99,7 +99,13 @@ module Decidim
       #
       # Returns nothing.
       def user_group_select_field(form, name)
-        form.select(name, current_user.user_groups.verified.map { |g| [g.name, g.id] }, prompt: current_user.name)
+        selected = @form.user_group_id.presence
+        form.select(
+          name,
+          current_user.user_groups.verified.map { |g| [g.name, g.id] },
+          selected: selected,
+          include_blank: current_user.name
+        )
       end
     end
   end

@@ -14,48 +14,48 @@ fi:
       proposal_answer:
         answer: Vastaa
       proposals_copy:
-        copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen ja että tätä toimintaa ei voi peruuttaa.
+        copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
         origin_component_id: Komponentti kopioida ehdotukset osoitteesta
     errors:
       models:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Tarvitaan uudelleen
+              needs_to_be_reattached: Liitettävä uudelleen
     models:
-      decidim/proposals/accepted_proposal_event: Ehdotus hyväksytään
-      decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muuttui
-      decidim/proposals/creation_enabled_event: Ehdotuksen luominen käyttöön
-      decidim/proposals/endorsing_enabled_event: Ehdotuksen hyväksyminen käytössä
-      decidim/proposals/evaluating_proposal_event: Ehdotus arvioidaan
-      decidim/proposals/proposal_endorsed_event: Ehdotus hyväksyttiin
-      decidim/proposals/proposal_mentioned_event: Mainittu ehdotus
-      decidim/proposals/publish_proposal_event: Ehdotus julkaistaan
+      decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
+      decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muutettu
+      decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
+      decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
+      decidim/proposals/evaluating_proposal_event: Ehdotus on arvioitavana
+      decidim/proposals/proposal_endorsed_event: Ehdotusta suositeltiin
+      decidim/proposals/proposal_mentioned_event: Ehdotus mainittiin
+      decidim/proposals/publish_proposal_event: Ehdotus julkaistiin
       decidim/proposals/rejected_proposal_event: Ehdotus hylättiin
-      decidim/proposals/voting_enabled_event: Ehdotus äänestys sallittu
+      decidim/proposals/voting_enabled_event: Ehdotuksen äänestys käytössä
   activerecord:
     models:
       decidim/proposals/proposal:
         one: Ehdotus
         other: ehdotukset
       decidim/proposals/proposal_endorsement:
-        one: merkintä
-        other: merkintöjen
+        one: Suositus
+        other: Suositukset
       decidim/proposals/proposal_note:
         one: Huomautus
         other: Huomautuksia
       decidim/proposals/proposal_vote:
-        one: Äänestys
-        other: ääntä
+        one: Ääni
+        other: Äänet
   decidim:
     components:
       proposals:
         actions:
-          create: Luoda
-          endorse: hyväksyä
-          vote: Äänestys
-          withdraw: Peruuttaa
-        name: ehdotukset
+          create: Luo
+          endorse: Suosittele
+          vote: Äänestä
+          withdraw: Peru
+        name: Ehdotukset
         settings:
           global:
             announcement: Ilmoitus
@@ -63,18 +63,18 @@ fi:
             can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
             comments_enabled: Kommentit ovat käytössä
             geocoding_enabled: Geokoodaus on käytössä
-            new_proposal_help_text: Uusi ehdotusohje teksti
-            official_proposals_enabled: Viralliset ehdotukset ovat mahdollisia
-            proposal_answering_enabled: Ehdotuksen vastaus on käytössä
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen tämän monen minuutin kuluttua
+            new_proposal_help_text: Uuden ehdotuksen ohjeteksti
+            official_proposals_enabled: Viralliset ehdotukset käytössä
+            proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä
             proposal_length: Suurin ehdotuksen pituus
             proposal_limit: Ehdotuksen raja käyttäjää kohden
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ohjattu ohjattu "Täydellinen" vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ohjattu ohjattu "Valmis" vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle ehdotukselle
-            threshold_per_proposal: Kynnys per ehdotus
+            threshold_per_proposal: Kynnys ehdotusta kohden
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
@@ -83,8 +83,8 @@ fi:
             endorsements_blocked: Hyväksynnät estetty
             endorsements_enabled: Hyväksynnät käytössä
             proposal_answering_enabled: Ehdotuksen vastaus on käytössä
-            votes_blocked: Äänestäminen on estetty
-            votes_enabled: Äänestys on käytössä
+            votes_blocked: Äänestys estetty
+            votes_enabled: Äänestys käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tarkistamalla tämä piilottaa äänimäärän)
     events:
       proposals:
@@ -266,6 +266,8 @@ fi:
         endorsement_button:
           already_endorsed: Myönteinen
           endorse: hyväksyä
+        render_endorsements_button_card_part:
+          endorse: hyväksyä
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
@@ -275,8 +277,6 @@ fi:
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:
-          attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse kategoria
           send: Lähettää
           title: Suorita ehdotuksesi
         count:
@@ -284,6 +284,7 @@ fi:
             one: 1 ehdotus
             other: "%{count} ehdotusta"
         edit:
+          attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           select_a_category: Valitse kategoria
           send: Lähetä
@@ -297,7 +298,6 @@ fi:
           endorse: hyväksyä
         endorsements_card_row:
           comments: Kommentit
-          endorse: hyväksyä
         filters:
           accepted: Hyväksytty
           activity: Aktiivisuus
@@ -412,7 +412,7 @@ fi:
       copied_from_component:
         proposal_proposal: Vastaavat ehdotukset
       included_projects:
-        project_result: 'Tässä projektissa näkyvät tulokset:'
+        project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
       included_proposals:
-        proposal_project: 'Ehdotus esiintyy näissä projekteissa:'
+        proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
         proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'

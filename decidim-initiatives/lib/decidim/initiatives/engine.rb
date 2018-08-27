@@ -61,18 +61,10 @@ module Decidim
         )
       end
 
-      initializer "decidim_initiatives.view_hooks" do
-        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          highlighted_initiatives = OrganizationPrioritizedInitiatives.new(view_context.current_organization)
-
-          next unless highlighted_initiatives.any?
-
-          view_context.render(
-            partial: "decidim/initiatives/pages/home/highlighted_initiatives",
-            locals: {
-              highlighted_initiatives: highlighted_initiatives
-            }
-          )
+      initializer "decidim_initiatives.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
+          content_block.cell "decidim/initiatives/content_blocks/highlighted_initiatives"
+          content_block.public_name_key "decidim.initiatives.content_blocks.highlighted_initiatives.name"
         end
       end
 

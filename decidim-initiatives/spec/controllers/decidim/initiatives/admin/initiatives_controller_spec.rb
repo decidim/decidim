@@ -383,8 +383,8 @@ module Decidim
               initiative.reload
               expect(initiative).to be_published
               expect(initiative.published_at).not_to be_nil
-              expect(initiative.signature_start_time).not_to be_nil
-              expect(initiative.signature_end_time).not_to be_nil
+              expect(initiative.signature_start_date).not_to be_nil
+              expect(initiative.signature_end_date).not_to be_nil
             end
           end
         end

@@ -2,18 +2,20 @@
   <%= render partial: "wizard_aside" %>
 
   <div class="columns large-6">
-    <%= render partial: "wizard_header", locals: {callout_step_help_text_class: "warning"} %>
+    <%= render partial: "wizard_header", locals: { callout_step_help_text_class: "warning" } %>
 
     <% if @similar_proposals.presence %>
       <div class="row small-up-1 card-grid">
         <% @similar_proposals.each do |proposal| %>
-          <%= render partial: "proposal_similar", locals: {proposal: proposal} %>
+          <%= render partial: "proposal_similar", locals: { proposal: proposal } %>
         <% end %>
       </div>
     <% end %>
+
     <div class="row column text-center">
-      <%= link_to t(".mine_is_different"), complete_proposals_path(proposal: {title: @form.title, body: @form.body}), class: "button small" %>
+      <%= link_to t(".mine_is_different"), complete_proposal_path(@proposal), class: "button small" %>
     </div>
   </div>
+
   <div class="columns large-3"></div>
 </div>

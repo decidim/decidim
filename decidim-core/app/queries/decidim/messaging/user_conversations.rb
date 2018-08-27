@@ -17,7 +17,7 @@ module Decidim
 
       def query
         Conversation
-          .joins(:participations)
+          .includes(:participations)
           .where(decidim_messaging_participations: { decidim_participant_id: user.id })
       end
 

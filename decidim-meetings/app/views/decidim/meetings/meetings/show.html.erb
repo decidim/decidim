@@ -6,6 +6,15 @@
   url: meeting_url(meeting.id)
 }) %>
 
+<%
+edit_link(
+  resource_locator(meeting).edit,
+  :update,
+  :meeting,
+  meeting: meeting
+)
+%>
+
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
   <% if meeting.organizer.present? %>

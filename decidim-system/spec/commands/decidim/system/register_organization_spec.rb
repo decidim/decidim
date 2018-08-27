@@ -62,6 +62,12 @@ module Decidim
             organization = Organization.last
             expect(organization.static_pages.count).to eq(Decidim::StaticPage::DEFAULT_PAGES.length)
           end
+
+          it "creates the default content blocks" do
+            command.call
+            organization = Organization.last
+            expect(Decidim::ContentBlock.where(organization: organization)).to be_any
+          end
         end
 
         context "when the form is invalid" do

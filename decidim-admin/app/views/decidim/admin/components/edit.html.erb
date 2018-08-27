@@ -1,5 +1,5 @@
 <%= decidim_form_for([current_participatory_space, @form], url: component_path(current_participatory_space, @component), method: "put", html: { class: "form edit_component" }) do |form| %>
-  <%= render partial: "form", object: form, locals: { component: @component, title: t(".title", name: t("#{@component.manifest.name}.name", scope: "decidim.components"))} %>
+  <%= render partial: "form", object: form, locals: { component: @component, title: t(".title", name: t("#{@component.manifest.name}.name", scope: "decidim.components")) } %>
 
   <div class="button--double form-general-submit">
     <%= form.submit t(".update") %>

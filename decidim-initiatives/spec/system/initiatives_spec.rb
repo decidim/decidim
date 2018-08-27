@@ -22,6 +22,8 @@ describe "Initiatives", type: :system do
       visit decidim_initiatives.initiatives_path
     end
 
+    it_behaves_like "editable content for admins"
+
     context "when accessing from the homepage" do
       it "the menu link is shown" do
         visit decidim.root_path

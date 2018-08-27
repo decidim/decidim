@@ -29,6 +29,14 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
+    Decidim::ContentBlock.create(
+      organization: organization,
+      weight: 32,
+      scope: :homepage,
+      manifest_name: :highlighted_assemblies,
+      published_at: Time.current
+    )
+
     2.times do |n|
       assembly = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(5),

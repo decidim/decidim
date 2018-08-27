@@ -87,6 +87,10 @@ module Decidim
       def endorsers_for(proposal)
         proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
       end
+
+      def form_has_address?
+        @form.address.present? || @form.has_address
+      end
     end
   end
 end

@@ -6,7 +6,7 @@ shared_examples "a proposal form" do |options|
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:title) { "Oriol for president!" }
+  let(:title) { "More sidewalks and less roads!" }
   let(:body) { "Everything would be better" }
   let(:author) { create(:user, organization: organization) }
   let(:user_group) { create(:user_group, :verified, users: [author], organization: organization) }
@@ -100,10 +100,7 @@ shared_examples "a proposal form" do |options|
         let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
 
         before do
-          Geocoder::Lookup::Test.add_stub(
-            address,
-            [{ "latitude" => latitude, "longitude" => longitude }]
-          )
+          stub_geocoding(address, [latitude, longitude])
         end
 
         it "validates the address and store its coordinates" do

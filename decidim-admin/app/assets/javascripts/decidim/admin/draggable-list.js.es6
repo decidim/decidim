@@ -17,6 +17,14 @@
       draggablesClassNames = [...draggablesClassNames, `.${elem.className.split(" ").filter((name) => (/js-list.*/).test(name))[0]}`]
     })
 
+    document.addEventListener("drag", function (event) {
+      $draggables.not(event.target.parentElement).addClass("dragging")
+    })
+
+    document.addEventListener("dragend", function() {
+      $draggables.removeClass("dragging")
+    })
+
     createSortableList(draggablesClassNames.join(", "))
   })
 })(window)

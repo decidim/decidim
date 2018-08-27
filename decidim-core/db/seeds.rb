@@ -153,4 +153,6 @@ if !Rails.env.production? || ENV["SEED"]
     scopes: "public",
     organization: organization
   )
+
+  Decidim::System::CreateDefaultContentBlocks.call(organization)
 end

@@ -12,7 +12,7 @@ module Decidim
           .includes(:scoped_type)
           .where(state: "published")
           .where(signature_type: "online")
-          .where("signature_end_time < ?", DateTime.current)
+          .where("signature_end_date < ?", Date.current)
       end
     end
   end

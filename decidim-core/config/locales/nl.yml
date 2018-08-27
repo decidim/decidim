@@ -205,6 +205,19 @@ nl:
             dummy_step_attribute_1: Voorbeeld-kenmerk 1
             dummy_step_attribute_2: Voorbeeld-kenmerk 2
     contact: Contact
+    content_blocks:
+      footer_sub_hero:
+        name: Voettekst sub hero banner
+      hero:
+        name: Held afbeelding
+      highlighted_content_banner:
+        name: Gemarkeerde inhoudsbanner
+      how_to_participate:
+        name: Hoe deel te nemen
+      stats:
+        name: Organisatie statistieken
+      sub_hero:
+        name: Sub held banner
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
@@ -321,7 +334,7 @@ nl:
     filters:
       linked_classes:
         all: Alle
-        dummyresource: Dummy middelen
+        dummy_resource: Dummy middelen
         meeting: Vergaderingen
         project: Projecten
         proposal: Voorstellen
@@ -404,13 +417,13 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
+          from: Van
+          last_message_html: Laatste bericht <strong>%{time} geleden</strong>
           no_conversations: Je hebt nog geen gesprekken
-          title: conversaties
-        reply:
-          send: Verzenden
-          title: Beantwoorden
         show:
-          title: Gesprek met %{usernames}
+          conversation_with_html: Gesprek met <strong>%{name}</strong>
+          reply: Beantwoorden
+          send: Sturen
         start:
           send: Verzenden
           title: Een gesprek beginnen
@@ -523,6 +536,7 @@ nl:
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
+        conversations: conversaties
         followers: Volgers
         following: volgt
         notifications: meldingen
@@ -657,6 +671,8 @@ nl:
         description_html: Deze website maakt gebruik van cookies. Door gebruik te blijven maken van de site gaat u hiermee akkoord. Meer informatie via %{link}.
         link_label: hier
         ok: Ik ga akkoord
+      edit_link:
+        edit: Bewerk
       footer:
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
@@ -724,6 +740,7 @@ nl:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
