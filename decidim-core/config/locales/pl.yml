@@ -20,6 +20,8 @@ pl:
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny składnik
+      decidim/gamification/badge_earned_event: Zdobyta odznaka
+      decidim/gamification/level_up_event: Wyrównałeś
       decidim/profile_updated_event: Profil zaktualizowany
   activerecord:
     attributes:
@@ -326,6 +328,17 @@ pl:
         email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
         email_outro: Otrzymałeś powiadomienie, ponieważ są po "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
         email_subject: Aktualizacja %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
+          email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
+          email_subject: 'Otrzymałeś nową odznakę: %{badge_name}!'
+          notification_title: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
+        level_up:
+          email_intro: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
+          email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
+          email_subject: Osiągnąłeś poziom %{current_level} na %{badge_name} odznace!
+          notification_title: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -375,6 +388,10 @@ pl:
       errors:
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
+    gamification:
+      description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
+      level: Poziom %{level}
+      reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     invitations:
       create:
         error: Podczas zapraszania znajomych pojawiły się pewne problemy
@@ -546,6 +563,7 @@ pl:
     profiles:
       default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
+        badges: Odznaki
         conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
