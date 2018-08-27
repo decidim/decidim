@@ -347,6 +347,7 @@ sv:
     filters:
       linked_classes:
         all: Alla
+        collaborative_draft: Samarbetsförslag
         dummy_resource: Dummy resurser
         meeting: Möten
         project: Projekt
