@@ -1,6 +1,14 @@
 eu:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Gorputzeko
+        category_id: Kategoria
+        decidim_scope_id: esparrua
+        has_address: Helbidea du
+        state: Estatu
+        title: Izenburua
+        user_group_id: Lankidetza zirriborroa sortu
       proposal:
         answer: Erantzuna
         answered_at: Erantzuna at
@@ -35,6 +43,9 @@ eu:
       decidim/proposals/voting_enabled_event: Proposamenaren botoa gaituta
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Zirriborro kolaboratzailea
+        other: Lankidetza zirriborroak
       decidim/proposals/proposal:
         one: Proposamen
         other: proposamenak
@@ -61,6 +72,7 @@ eu:
             announcement: Anuntzio
             attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Atalasetik haratago doazen euskarriak pilatu ditzakezu
+            collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geokodifikazioa gaituta dago
             new_proposal_help_text: Proposamen berriaren laguntza testu
@@ -88,6 +100,36 @@ eu:
             votes_hidden: Botoiak ezkutatuta (botoak gaituta badago, hau egiaztatuz boto kopurua ezkutatuko da)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} onartu da <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuaren laguntzaile gisa sartzeko.'
+          email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} izan da onartu %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> izan da <strong>sarbidea onartu kolaboratzaile gisa</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} baztertu egin da <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuaren laguntzaile gisa sartzeko.'
+          email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} ez da onartu du kolaboratzaile gisa sartzeko %{resource_title} elkarlanerako zirriborroa."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> izan da <strong>baztertutako <a href="%{resource_path}">%{resource_title}</a> lankidetza zirriborroaren</strong> laguntzaile gisa sartzeko.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} eskatutako sarbidea laguntzaile gisa. Ezin duzu <strong>onartzeko edo eskaera ukatzeko</strong> -tik <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa orria.'
+          email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} eskatutako sarbidea izateko %{resource_title}laguntzera."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> eskatutako sarbidea <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuari laguntzea. <strong>Onartu edo ezetsi eskaera</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: <a href="%{resource_path}">%{resource_title}</a> lankidetza zirriborroaren laguntzaile gisa sartzeko onartu duzu.
+          email_outro: Jakinarazpen hau jaso duzu, <a href="%{resource_path}">%{resource_title}</a>laguntzaile izateko eskatu zenuen.
+          email_subject: '%{resource_title}laguntzaile gisa onartzen duzu.'
+          notification_title: Izan zara <strong>onartu laguntzaile gisa sartzeko</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Baztertu egin zaituzte <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuaren laguntzaile gisa sartzeko.
+          email_outro: Jakinarazpen hau jaso duzu, <a href="%{resource_path}">%{resource_title}</a>laguntzaile izateko eskatu zenuen.
+          email_subject: Baztertu zara %{resource_title}laguntzaile gisa.
+          notification_title: Izan zara <strong>baztertu laguntzaile gisa sartzeko</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> lankidetza-zirriborroa kenduta.
+          email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} %{resource_title} lankidetza-zirriborroa kendu."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>erretiratu</strong> <a href="%{resource_path}">%{resource_title}</a> lankidetza zirriborroa.
         creation_enabled:
           email_intro: 'Orain %{participatory_space_title}proposamen berriak sor ditzakezu! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -244,6 +286,12 @@ eu:
         not_answered: Erantzun gabe
         rejected: Ukatua
         withdrawn: kendu
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Arazoak izan dira lankidetza zirriborroa argitaratzean.
+            irreversible_action_modal:
+              body: Proiektua proposamen gisa argitaratu ondoren, zirriborroa ezin izango da berriro editatu. Proposamena ez da egile edo ekarpen berririk onartuko.
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Onartutako proposamena. Zirriborro gisa gorde da.
