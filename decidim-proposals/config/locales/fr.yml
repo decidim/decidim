@@ -286,6 +286,120 @@ fr:
         not_answered: En attente de réponse
         rejected: Non retenue
         withdrawn: Retirée
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Il y a eu des erreurs lors de la publication du brouillon collaboratif.
+            irreversible_action_modal:
+              body: Après avoir publié le projet en tant que proposition, le projet ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
+              cancel: Annuler
+              ok: Publier en tant que proposition
+              title: L'action suivante est irréversible
+            success: Projet collaboratif publié avec succès en tant que proposition.
+          view_collaborative_draft: Afficher le brouillon collaboratif
+          withdraw:
+            error: Il y a eu des erreurs en fermant le projet de collaboration.
+            irreversible_action_modal:
+              body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
+              cancel: Annuler
+              ok: Retirer le projet collaboratif
+              title: L'action suivante est irréversible
+            success: Projet de collaboration retiré avec succès.
+        compare:
+          mine_is_different: Mon projet de collaboration est différent
+          no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
+          title: Projets collaboratifs similaires
+        complete:
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Complétez votre projet collaboratif
+        count:
+          drafts_count:
+            one: 1 projet collaboratif
+            other: "%{count} brouillons collaboratifs"
+        create:
+          error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
+          success: Projet collaboratif créé avec succès.
+        edit:
+          back: Arrière
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Modifier un brouillon collaboratif
+        filters:
+          all: Tout
+          category: Catégorie
+          category_prompt: Invite de catégorie
+          open: Ouvrir
+          published: Publié
+          related_to: Relatif à
+          search: Chercher
+          state: Etat
+          withdrawn: Retiré
+        filters_small_view:
+          close_modal: Fermer modal
+          filter: Filtre
+          filter_by: Filtrer par
+          unfold: Se dérouler
+        new:
+          send: Continuer
+          title: Créez votre projet collaboratif
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nouveau projet de collaboration
+        orders:
+          label: 'Ordre des brouillons par:'
+          most_contributed: La plupart ont contribué
+          random: au hasard
+          recent: Récent
+        requests:
+          accepted_request:
+            error: Ne peut être accepté en tant que collaborateur, réessayez plus tard.
+            success: "@%{user} a été accepté comme collaborateur avec succès"
+          access_requested:
+            error: Votre demande n'a pas pu être complétée, réessayez plus tard.
+            success: Votre demande de collaboration a été envoyée avec succès
+          collaboration_requests:
+            accept_request: Acceptez
+            reject_request: Rejeter
+            title: Demandes de collaboration
+          rejected_request:
+            error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
+            success: "@%{user} a été rejeté en tant que collaborateur avec succès"
+        show:
+          back: Arrière
+          edit: Modifier un brouillon collaboratif
+          final_proposal: proposition finale
+          final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
+          hidden_authors_count:
+            one: et 1 personne de plus
+            other: et %{count} plus de personnes
+          info-message: Ceci est un <strong>projet collaboratif</strong> pour une proposition. Cela signifie que vous pouvez aider leurs auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
+          of_versions: "(de %{number})"
+          publish: Publier
+          publish_info: Publiez cette version du brouillon ou
+          published_proposal: proposition publiée
+          request_access: Demande d'accès
+          requested_access: Accès demandé
+          see_other_versions: voir d'autres versions
+          version: Version %{number}
+          version_history: voir l'historique des versions de cette proposition
+          withdraw: retirer le projet
+        states:
+          open: Ouvrir
+          published: Publié
+          withdrawn: Retiré
+        update:
+          error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
+          success: Projet de collaboration mis à jour avec succès.
+        wizard_aside:
+          back: Arrière
+          info: Vous créez un <strong>projet collaboratif</strong>.
+        wizard_steps:
+          see_steps: voir les étapes
+          step_1: Créez votre projet collaboratif
+          step_2: Comparer avec les projets collaboratifs
+          step_3: Complétez votre projet collaboratif
+          step_of: Etape %{current_step_num} sur %{total_steps}
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
@@ -293,6 +407,11 @@ fr:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
       models:
+        collaborative_draft:
+          fields:
+            authors: Auteurs
+            comments: commentaires
+            contributions: Contributions
         proposal:
           fields:
             category: Catégorie
@@ -372,6 +491,7 @@ fr:
           filter_by: Filtrer par
           unfold: Voir plus
         index:
+          collaborative_drafts_list: Accéder aux brouillons collaboratifs
           new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
           view_proposal: Voir la proposition
@@ -403,6 +523,8 @@ fr:
           hidden_endorsers_count:
             one: et 1 autre personne
             other: et %{count} autres personnes
+          link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
+          link_to_collaborative_draft_text: Voir le brouillon collaboratif
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
@@ -460,6 +582,20 @@ fr:
       update_draft:
         error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
         success: Le brouillon de proposition a été mis à jour.
+      versions:
+        changes_at_title: Changements à "%{title}"
+        index:
+          title: Des versions
+        stats:
+          back_to_collaborative_draft: Revenir au brouillon collaboratif
+          number_of_versions: Des versions
+          show_all_versions: Afficher toutes les versions
+          version_author: Auteur de la version
+          version_created_at: Version créée à
+          version_number: Numéro de version
+          version_number_out_of_total: "%{current_version} sur %{total_count}"
+        version:
+          version_index: Version %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées
