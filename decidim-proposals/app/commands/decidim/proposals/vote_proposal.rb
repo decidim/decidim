@@ -27,7 +27,7 @@ module Decidim
 
         vote.save!
 
-        Decidim::Gamification.increment_score(@current_user, :proposal_votes) if proposal.votes.where(author: @current_user).count == 1
+        Decidim::Gamification.increment_score(@current_user, :proposal_votes) if @proposal.votes.where(author: @current_user).count == 1
 
         broadcast(:ok, vote)
       end

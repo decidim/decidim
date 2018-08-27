@@ -165,7 +165,7 @@ module Decidim
           badge.levels = [5, 15, 50, 100, 500]
 
           badge.reset = lambda { |user|
-            Decidim::Proposals::ProposalVote.where(author: user).select(:proposal_id).distinct.count
+            Decidim::Proposals::ProposalVote.where(author: user).select(:decidim_proposal_id).distinct.count
           }
         end
       end

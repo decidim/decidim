@@ -363,7 +363,7 @@ describe "Vote Proposal", type: :system do
         login_as user, scope: :user
       end
 
-      it "doesn't give score when a proposal has already been voted by you" do
+      it "gives a point after voting" do
         visit_component
 
         proposal_element = page.find("article", text: proposal.title)
