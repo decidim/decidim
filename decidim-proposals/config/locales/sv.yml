@@ -142,6 +142,16 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Förslagets röstning har börjat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          description_another: Den här användaren har skapat %{score} förslag.
+          description_own: Du har skapat %{score} förslag.
+          explanation: Användare får detta märke genom att skapa förslag.
+          name: förslag
+          next_level_in: Skapa %{score} fler förslag för att nå nästa nivå!
+          unearned_another: Den här användaren har inte skapat några förslag ännu.
+          unearned_own: Du har inte skapat några förslag än.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
