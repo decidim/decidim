@@ -353,30 +353,30 @@ es:
           recent: Reciente
         requests:
           accepted_request:
-            error: No se pudo aceptar como colaborador. Inténtalo de nuevo más tarde.
-            success: "@%{user} ha sido aceptado como colaborador con éxito"
+            error: No se pudo aceptar como contribuidor. Inténtalo de nuevo más tarde.
+            success: "@%{user} ha sido aceptado como contribuidor con éxito"
           access_requested:
-            error: Su solicitud no pudo ser completada, intente de nuevo más tarde.
-            success: Su solicitud para colaborar ha sido enviada con éxito
+            error: Tu solicitud no pudo ser completada, intenta de nuevo más tarde.
+            success: Tu solicitud para colaborar ha sido enviada con éxito
           collaboration_requests:
             accept_request: Aceptar
             reject_request: Rechazar
-            title: Solicitudes de colaboración
+            title: Solicitudes de contribuciones
           rejected_request:
             error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
-            success: "@%{user} ha sido rechazado como colaborador con éxito"
+            success: "@%{user} ha sido rechazado como contribuidor con éxito"
         show:
-          back: Espalda
+          back: Volver
           edit: Editar borrador colaborativo
           final_proposal: propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
             one: y 1 persona más
             other: y %{count} personas más
-          info-message: Se trata de un <strong>proyecto de colaboración</strong> para una propuesta. Esto significa que puede ayudar a sus autores a dar forma a la propuesta usando la sección de comentarios a continuación o mejorarla directamente solicitando acceso para editarla. Una vez que los autores le otorguen acceso, podrá realizar cambios en este borrador.
+          info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puede ayudar a sus autores a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que los autores le otorguen acceso, podrá realizar cambios en este borrador.
           of_versions: "(de %{number})"
           publish: Publicar
-          publish_info: Publique esta versión del borrador o
+          publish_info: Publicar esta versión del borrador o
           published_proposal: propuesta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
