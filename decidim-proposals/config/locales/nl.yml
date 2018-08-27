@@ -1,6 +1,14 @@
 nl:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Lichaam
+        category_id: Categorie
+        decidim_scope_id: strekking
+        has_address: Heeft adres
+        state: Staat
+        title: Titel
+        user_group_id: Creëer samenwerkingsconcept als
       proposal:
         answer: Antwoord
         answered_at: Beantwoord op
@@ -35,6 +43,9 @@ nl:
       decidim/proposals/voting_enabled_event: Voorstel stemmen ingeschakeld
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Samenwerkingsconcept
+        other: Samenwerkingsconcepten
       decidim/proposals/proposal:
         one: Voorstel
         other: voorstellen
@@ -61,6 +72,7 @@ nl:
             announcement: Aankondiging
             attachments_allowed: Bijlagen toestaan
             can_accumulate_supports_beyond_threshold: Kan stemmen verzamelen die de limiet overschrijden
+            collaborative_drafts_enabled: Samenwerkingsconcepten ingeschakeld
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geolocatie ingeschakeld
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
@@ -88,6 +100,34 @@ nl:
             votes_hidden: Stemmen verborgen (als stemmen is ingeschakeld, zal dit controleren het aantal stemmen verbergen)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} is geaccepteerd om toegang te krijgen als bijdrager voor de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke conceptversie.'
+          email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen als een bijdrager van de %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong>geaccepteerd om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking toegang te krijgen.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} is afgewezen om toegang te krijgen als een bijdrager van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking.'
+          email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} is afgewezen om toegang te krijgen als bijdrager van de %{resource_title} gezamenlijke conceptversie."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} gevraagde toegang als een bijdrager. U kunt <strong>verzoek</strong> van de <a href="%{resource_path}">%{resource_title}</a> pagina met samenwerkingsontwerp accepteren of weigeren.'
+          email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} gevraagde toegang om bij te dragen aan %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> verzocht om toegang om bij te dragen aan de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking. Gelieve <strong>accepteren of het verzoek af te wijzen</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: U bent geaccepteerd om toegang te krijgen als bijdrager voor de gezamenlijke trekking <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: U hebt deze melding ontvangen omdat u heeft verzocht om een ​​medewerker van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Je bent geaccepteerd als een bijdrager van %{resource_title}.
+          notification_title: U bent <strong>geaccepteerd om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking toegang te krijgen.
+        collaborative_draft_access_requester_rejected:
+          email_intro: U bent afgewezen om toegang te krijgen als bijdrager voor de gezamenlijke trekking <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: U hebt deze melding ontvangen omdat u heeft verzocht om een ​​medewerker van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Je bent afgewezen als een bijdrager van %{resource_title}.
+          notification_title: U bent <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> de gezamenlijke trekking <a href="%{resource_path}">%{resource_title}</a> ingetrokken.
+          email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze link:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
