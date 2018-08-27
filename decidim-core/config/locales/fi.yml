@@ -347,6 +347,7 @@ fi:
     filters:
       linked_classes:
         all: Kaikki
+        collaborative_draft: Yhteistyöluonnos
         dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
