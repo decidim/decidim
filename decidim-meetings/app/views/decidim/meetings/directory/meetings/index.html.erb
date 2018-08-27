@@ -21,8 +21,7 @@
           </div>
 
           <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
-
-          <%= form.collection_radio_buttons :date, [search.results.map{|meeting| meeting.component.participatory_space.class}.uniq.inject({}) {|all, klass| [klass.model_name.name.underscore, klass.model_name.human]}], :first, :last, legend_title: "Space" %>
+          <%= form.collection_radio_buttons :space, @meeting_spaces, :first, :last, legend_title: "Space" %>
         <% end %>
       </div>
     </div>

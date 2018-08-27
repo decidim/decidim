@@ -31,6 +31,12 @@ module Decidim
         end
       end
 
+      def search_space
+        return query if options[:space].blank? || options[:space] == "all"
+
+        query.joins(:component).where(decidim_components: { participatory_space_type: options[:space].classify })
+      end
+
       private
 
       # Internal: builds the needed query to search for a text in the organization's

@@ -21,6 +21,10 @@ module Decidim
           Decidim.geocoder.present?
         end
 
+        def meetings_directory_path
+          Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path
+        end
+
         private
 
         def limit

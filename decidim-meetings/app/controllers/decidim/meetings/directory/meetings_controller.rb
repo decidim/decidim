@@ -15,7 +15,13 @@ module Decidim
 
         helper_method :meetings, :search
 
-        def index; end
+        def index
+          @meeting_spaces = search.results.map do |meeting|
+            klass = meeting.component.participatory_space.class
+            [klass.model_name.name.underscore, klass.model_name.human]
+          end.uniq
+          @meeting_spaces << ["all", "All translated"]
+        end
 
         private
 
@@ -31,7 +37,8 @@ module Decidim
           {
             date: "upcoming",
             search_text: "",
-            scope_id: ""
+            scope_id: "",
+            space: "all"
           }
         end
 
