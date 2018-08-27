@@ -20,6 +20,8 @@ es:
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
+      decidim/gamification/badge_earned_event: Insignia obtenida
+      decidim/gamification/level_up_event: Has nivelado
       decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
@@ -316,6 +318,17 @@ es:
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
         email_subject: Una actualización de %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: '¡Gran trabajo! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
+          email_outro: Recibió esta notificación porque realizó actividad en nuestro sitio web.
+          email_subject: 'Te has ganado una nueva insignia: %{badge_name}!'
+          notification_title: '¡Gran trabajo! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
+        level_up:
+          email_intro: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en el <a href="%{resource_path}">%{badge_name} insignia</a>!'
+          email_outro: Recibió esta notificación porque realizó actividad en nuestro sitio web.
+          email_subject: '¡Has alcanzado el nivel %{current_level} en la insignia %{badge_name}!'
+          notification_title: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en el <a href="%{resource_path}">%{badge_name} insignia</a>!'
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -365,6 +378,10 @@ es:
       errors:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
+    gamification:
+      description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
+      level: Nivel %{level}
+      reached_top: Has alcanzado el nivel superior para esta insignia.
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -536,6 +553,7 @@ es:
     profiles:
       default_officialization_text: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
+        badges: Insignias
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
