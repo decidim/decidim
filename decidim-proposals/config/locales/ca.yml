@@ -373,7 +373,7 @@ ca:
           hidden_authors_count:
             one: i 1 persona més
             other: i %{count} persones més
-          info-message: Es tracta d'un <strong>projecte de col·laboració</strong> per a una proposta. Això significa que podeu ajudar els seus autors a modelar la proposta utilitzant la secció de comentaris a continuació o a millorar-la directament demanant accés per editar-la. Un cop els autors us concedeixin accés, podreu fer canvis en aquest esborrany.
+          info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar els seus autors a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un cop els autors et donin accés, podràs fer canvis en aquest esborrany.
           of_versions: "(de %{number})"
           publish: Publica
           publish_info: Publica aquesta versió de l'esborrany o
@@ -382,23 +382,23 @@ ca:
           requested_access: S'ha sol·licitat l'accés
           see_other_versions: veure altres versions
           version: Versió %{number}
-          version_history: vegeu l'historial de versions d'aquesta proposta
-          withdraw: retirar el projecte
+          version_history: vés l'historial de versions d'aquesta proposta
+          withdraw: retira l'esborrany
         states:
           open: Obert
           published: Publicat
           withdrawn: Retirat
         update:
-          error: Hi ha hagut errors en desar el projecte de col·laboració.
-          success: El projecte de col·laboració s'ha actualitzat correctament.
+          error: Hi ha hagut errors en desar l'esborrany col·laboratiu.
+          success: L'esborrany col·laboratiu s'ha actualitzat correctament.
         wizard_aside:
-          back: esquena
-          info: Esteu creant un <strong>esborrany de col·laboració</strong>.
+          back: Tornar
+          info: Estàs creant un <strong>esborrany col·laboratiu</strong>.
         wizard_steps:
-          see_steps: vegeu els passos
-          step_1: Crea el teu esborrany de col·laboració
+          see_steps: veure els passos
+          step_1: Crea el teu esborrany col·laboratiu
           step_2: Comparar amb esborranys col·laboratius
-          step_3: Completeu el vostre esborrany de col·laboració
+          step_3: Completa el teu esborrany col·laboratiu
           step_of: Pas %{current_step_num} de %{total_steps}
       create:
         error: Hi ha hagut errors en desar la proposta.
@@ -523,8 +523,8 @@ ca:
           hidden_endorsers_count:
             one: i 1 persona més
             other: i %{count} persones més
-          link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany de col·laboració. Reviseu l'historial
-          link_to_collaborative_draft_text: Vegeu el projecte de col·laboració
+          link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
+          link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
@@ -587,7 +587,7 @@ ca:
         index:
           title: Versions
         stats:
-          back_to_collaborative_draft: Torna al projecte de col·laboració
+          back_to_collaborative_draft: Torna a l'esborrany col·laboratiu
           number_of_versions: Versions
           show_all_versions: Mostra totes les versions
           version_author: Autor de la versió
