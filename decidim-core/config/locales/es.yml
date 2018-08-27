@@ -201,7 +201,7 @@ es:
             comments_enabled: Comentarios habilitados
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
-            resources_permissions_enabled: Permisos de recursos habilitados
+            resources_permissions_enabled: Habilitar permisos de recursos
           step:
             comments_blocked: Comentarios bloqueados
             dummy_step_attribute_1: Dummy Step Attribute 1
@@ -321,14 +321,14 @@ es:
       gamification:
         badge_earned:
           email_intro: '¡Enhorabuena! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
-          email_outro: Recibió esta notificación porque realizó actividad en nuestro sitio web.
-          email_subject: 'Te has ganado una nueva insignia: %{badge_name}!'
-          notification_title: '¡Enhorabuena! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
+          email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
+          email_subject: '¡Has ganado una nueva insignia: %{badge_name}!'
+          notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
-          email_intro: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en el <a href="%{resource_path}">%{badge_name} insignia</a>!'
-          email_outro: Recibió esta notificación porque realizó actividad en nuestro sitio web.
-          email_subject: '¡Has alcanzado el nivel %{current_level} en la insignia %{badge_name}!'
-          notification_title: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en el <a href="%{resource_path}">%{badge_name} insignia</a>!'
+          email_intro: '¡Enhorabuena! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+          email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
+          email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
+          notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
