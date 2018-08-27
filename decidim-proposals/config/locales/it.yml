@@ -1,6 +1,14 @@
 it:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Corpo
+        category_id: Categoria
+        decidim_scope_id: Scopo
+        has_address: Ha un indirizzo
+        state: Stato
+        title: Titolo
+        user_group_id: Crea una bozza collaborativa come
       proposal:
         answer: Risposta
         answered_at: Risposto a
@@ -35,6 +43,9 @@ it:
       decidim/proposals/voting_enabled_event: Voto della proposta abilitato
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Bozza collaborativa
+        other: Bozze collaborative
       decidim/proposals/proposal:
         one: Proposta
         other: proposte
@@ -61,6 +72,7 @@ it:
             announcement: Annuncio
             attachments_allowed: Consenti allegati
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
+            collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
@@ -88,6 +100,35 @@ it:
             votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} è stato accettato per accedere come collaboratore al progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato accettato <strong>come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} è stato rifiutato per accedere come contributore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} è stato rifiutato per accedere come contributore della %{resource_title} bozza collaborativa."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato rifiutato <strong>per accedere come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} accesso richiesto come contributore. È possibile <strong>accettare o rifiutare la richiesta</strong> dalla bozza di pagina collaborativa <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} accesso richiesto per contribuire a %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> richiesto accesso per contribuire alla stesura di collaborazione <a href="%{resource_path}">%{resource_title}</a> . Si prega di <strong>accettare o rifiutare la richiesta</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Sei stato accettato per accedere come collaboratore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché hai richiesto di diventare un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sei stato accettato come contributore di %{resource_title}.
+          notification_title: Sei stato accettato a <strong>come collaboratore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Sei stato rifiutato di accedere come collaboratore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché hai richiesto di diventare un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sei stato rifiutato come contributore di %{resource_title}.
+          notification_title: Sei stato <strong>respinto per accedere come contributore</strong> alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ritirato il progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} ritirato il %{resource_title} progetto di collaborazione."
         creation_enabled:
           email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
