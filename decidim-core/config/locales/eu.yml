@@ -347,6 +347,7 @@ eu:
     filters:
       linked_classes:
         all: Guztiak
+        collaborative_draft: Zirriborro kolaboratzailea
         dummy_resource: Dummy baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
