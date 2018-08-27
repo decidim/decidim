@@ -346,6 +346,7 @@ hu:
     filters:
       linked_classes:
         all: Minden
+        collaborative_draft: Együttműködési tervezet
         dummy_resource: Dummy források
         meeting: találkozók
         project: projektek
