@@ -293,6 +293,113 @@ pt-BR:
             irreversible_action_modal:
               body: Depois de publicar o rascunho como uma proposta, o rascunho não será mais editável. A proposta não aceita novos autores ou contribuições.
               cancel: Cancelar
+              ok: Publicar como uma proposta
+              title: A ação a seguir é irreversível
+            success: Esboço colaborativo publicado com sucesso como uma proposta.
+          view_collaborative_draft: Ver rascunho colaborativo
+          withdraw:
+            error: Houve erros ao fechar o rascunho colaborativo.
+            irreversible_action_modal:
+              body: Depois de fechar o rascunho, o rascunho não será mais editável. O rascunho não aceita novos autores ou contribuições.
+              cancel: Cancelar
+              ok: Retirar o rascunho colaborativo
+              title: A ação a seguir é irreversível
+            success: Esboço colaborativo retirado com sucesso.
+        compare:
+          mine_is_different: Meu rascunho colaborativo é diferente
+          no_similars_found: Bem feito! Nenhum rascunho colaborativo semelhante encontrado
+          title: Rascunhos colaborativos semelhantes
+        complete:
+          attachment_legend: "(Opcional) Adicione um anexo"
+          select_a_category: Por favor, selecione uma categoria
+          send: Enviar
+          title: Complete seu rascunho colaborativo
+        count:
+          drafts_count:
+            one: 1 rascunho colaborativo
+            other: "%{count} rascunhos colaborativos"
+        create:
+          error: Houve um problema ao criar esses rascunhos colaborativos
+          success: Rascunho colaborativo criado com sucesso.
+        edit:
+          back: Costas
+          select_a_category: Por favor, selecione uma categoria
+          send: Enviar
+          title: Editar rascunho colaborativo
+        filters:
+          all: Todos
+          category: Categoria
+          category_prompt: Prompt de categoria
+          open: Aberto
+          published: Publicados
+          related_to: Relacionado a
+          search: Pesquisa
+          state: Estado
+          withdrawn: Retirado
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        new:
+          send: Continuar
+          title: Crie seu rascunho colaborativo
+        new_collaborative_draft_button:
+          new_collaborative_draft: Novo rascunho colaborativo
+        orders:
+          label: 'Encomenda de rascunhos por:'
+          most_contributed: A maioria contribuiu
+          random: Aleatória
+          recent: Recente
+        requests:
+          accepted_request:
+            error: Não foi possível aceitar como colaborador. Tente novamente mais tarde.
+            success: "@%{user} foi aceito como colaborador com sucesso"
+          access_requested:
+            error: Sua solicitação não pôde ser concluída. Tente novamente mais tarde.
+            success: Sua solicitação para colaborar foi enviada com sucesso
+          collaboration_requests:
+            accept_request: Aceitar
+            reject_request: Rejeitar
+            title: Pedidos de colaboração
+          rejected_request:
+            error: Não foi possível rejeitá-lo como colaborador. Tente novamente mais tarde.
+            success: "@%{user} foi rejeitado como colaborador com sucesso"
+        show:
+          back: Costas
+          edit: Editar rascunho colaborativo
+          final_proposal: proposta final
+          final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
+          hidden_authors_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
+          info-message: Este é um <strong>projecto colaborativo</strong> para uma proposta. Isso significa que você pode ajudar seus autores a moldar a proposta usando a seção de comentários abaixo ou melhorá-la diretamente solicitando acesso para editá-la. Depois que os autores lhe concederem acesso, você poderá fazer alterações neste rascunho.
+          of_versions: "(de %{number})"
+          publish: Publicar
+          publish_info: Publicar esta versão do rascunho ou
+          published_proposal: proposta publicada
+          request_access: Solicitar acesso
+          requested_access: Acesso solicitado
+          see_other_versions: veja outras versões
+          version: Versão %{number}
+          version_history: ver o histórico de versões desta proposta
+          withdraw: retirar o rascunho
+        states:
+          open: Aberto
+          published: Publicados
+          withdrawn: Retirado
+        update:
+          error: Houve erros ao salvar o rascunho colaborativo.
+          success: Rascunho colaborativo atualizado com sucesso.
+        wizard_aside:
+          back: Costas
+          info: Você está criando um <strong>projecto de colaboração</strong>.
+        wizard_steps:
+          see_steps: ver passos
+          step_1: Crie seu rascunho colaborativo
+          step_2: Comparar com rascunhos colaborativos
+          step_3: Complete seu rascunho colaborativo
+          step_of: Etapa %{current_step_num} de %{total_steps}
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso. Salvo como um rascunho.
@@ -300,6 +407,11 @@ pt-BR:
         error: Houve erros ao excluir o rascunho da proposta.
         success: O rascunho da proposta foi excluído com sucesso.
       models:
+        collaborative_draft:
+          fields:
+            authors: Autores
+            comments: Comentários
+            contributions: Contribuições
         proposal:
           fields:
             category: Categoria
@@ -379,6 +491,7 @@ pt-BR:
           filter_by: Filtrar por
           unfold: Desdobrar
         index:
+          collaborative_drafts_list: Acesse rascunhos colaborativos
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
           view_proposal: Ver proposta
@@ -410,6 +523,8 @@ pt-BR:
           hidden_endorsers_count:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
+          link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Revise o histórico
+          link_to_collaborative_draft_text: Veja o rascunho colaborativo
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
@@ -467,6 +582,20 @@ pt-BR:
       update_draft:
         error: Houve erros ao salvar o rascunho da proposta.
         success: Rascunho da proposta atualizado com sucesso.
+      versions:
+        changes_at_title: Mudanças em "%{title}"
+        index:
+          title: Versões
+        stats:
+          back_to_collaborative_draft: Volte para o rascunho colaborativo
+          number_of_versions: Versões
+          show_all_versions: Mostrar todas as versões
+          version_author: Autor da versão
+          version_created_at: Versão criada em
+          version_number: Número da versão
+          version_number_out_of_total: "%{current_version} de %{total_count}"
+        version:
+          version_index: Versão %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas
