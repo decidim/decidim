@@ -1,6 +1,14 @@
 es-PY:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Cuerpo
+        category_id: Categoría
+        decidim_scope_id: Alcance
+        has_address: Tiene dirección
+        state: Estado
+        title: Título
+        user_group_id: Crear borrador colaborativo como
       proposal:
         answer: Respuesta
         answered_at: Respondido
