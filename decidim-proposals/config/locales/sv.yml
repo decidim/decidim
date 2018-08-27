@@ -1,6 +1,14 @@
 sv:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Kropp
+        category_id: Kategori
+        decidim_scope_id: Omfattning
+        has_address: Har adress
+        state: stat
+        title: Titel
+        user_group_id: Skapa samarbetsförslag som
       proposal:
         answer: Svara
         answered_at: Besvaras vid
@@ -35,6 +43,9 @@ sv:
       decidim/proposals/voting_enabled_event: Förslag till omröstning aktiverat
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Samarbetsförslag
+        other: Samarbetsförslag
       decidim/proposals/proposal:
         one: Förslag
         other: förslag
@@ -61,6 +72,7 @@ sv:
             announcement: Meddelande
             attachments_allowed: Tillåt bifogade filer
             can_accumulate_supports_beyond_threshold: Kan ackumulera stöd över gränsen
+            collaborative_drafts_enabled: Samarbeta utkast aktiverat
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geocoding aktiverad
             new_proposal_help_text: Nytt förslag till hjälptext
@@ -88,6 +100,36 @@ sv:
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} har accepterats för att få tillgång till som bidragsgivare till <a href="%{resource_path}">%{resource_title}</a> samarbetsutkastet.'
+          email_outro: Du har fått den här meddelandet eftersom du är en samarbetspartner på <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} har accepterat att använda som en bidragsgivare i %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>godkänts för att få tillgång till som bidragsgivare</strong> av samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} har avslagits för att få tillgång till som bidragsgivare till <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.'
+          email_outro: Du har fått den här meddelandet eftersom du är en samarbetspartner på <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} har avslagits för att få tillgång till som bidragsgivare till det %{resource_title} samlade utkastet."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blivit <strong>avvisad för att få tillgång till som bidragsgivare</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} begärd tillgång som bidragsgivare. Du kan <strong>acceptera eller avvisa begäran</strong> från <a href="%{resource_path}">%{resource_title}</a> samarbetsutkastssidan.'
+          email_outro: Du har fått den här meddelandet eftersom du är en samarbetspartner på <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} begärd tillgång att bidra till %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> begärde att bidra till <a href="%{resource_path}">%{resource_title}</a> samarbetsutkastet. Vänligen <strong>acceptera eller avslå begäran</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Du har accepterats för att få tillgång till som bidragsgivare till <a href="%{resource_path}">%{resource_title}</a> samarbetet.
+          email_outro: Du har fått den här meddelandet eftersom du bad om att bli en samarbetspartner av <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Du har accepterats som bidragsyter av %{resource_title}.
+          notification_title: Du har blivit <strong>accepterad för att få tillgång till som bidragsgivare</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Du har blivit avvisad för att få tillgång till som bidragsyter till <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
+          email_outro: Du har fått den här meddelandet eftersom du bad om att bli en samarbetspartner av <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Du har blivit avvisad som bidragsyter av %{resource_title}.
+          notification_title: Du har blivit <strong>avvisad för att få tillgång till som bidragsgivare</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> återtog <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
+          email_outro: Du har fått den här meddelandet eftersom du är en samarbetspartner på <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} återkallade de %{resource_title} samlade utkasten."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>återtagna</strong> <a href="%{resource_path}">%{resource_title}</a> samarbetet utkast.
         creation_enabled:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
@@ -244,6 +286,13 @@ sv:
         not_answered: Inte besvarad
         rejected: avvisade
         withdrawn: kallas
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Det har varit fel vid publicering av samarbetsförslaget.
+            irreversible_action_modal:
+              body: Efter att förslaget har publicerats som ett förslag kommer utkastet inte att redigeras längre. Förslaget accepterar inte nya författare eller bidrag.
+              cancel: Annullera
       create:
         error: Det har varit fel när du lagrade förslaget.
         success: Förslaget skapades framgångsrikt. Sparat som ett formulär.
