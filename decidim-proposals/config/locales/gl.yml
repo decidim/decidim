@@ -1,6 +1,14 @@
 gl:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Corpo
+        category_id: Categoría
+        decidim_scope_id: Alcance
+        has_address: Ten enderezo
+        state: Estado
+        title: Título
+        user_group_id: Crear un borrador colaborativo como
       proposal:
         answer: Resposta
         answered_at: Respondeu en
@@ -35,6 +43,9 @@ gl:
       decidim/proposals/voting_enabled_event: A votación da proposta habilitada
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Proxecto colaborativo
+        other: Borradores colaborativos
       decidim/proposals/proposal:
         one: Proposta
         other: Propostas
@@ -61,6 +72,7 @@ gl:
             announcement: Anuncio
             attachments_allowed: Permitir anexos
             can_accumulate_supports_beyond_threshold: Pode acumular soportes máis aló do limiar
+            collaborative_drafts_enabled: Esquemas colaborativos habilitados
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocoding habilitado
             new_proposal_help_text: Nova proposta de axuda de texto
@@ -88,6 +100,35 @@ gl:
             votes_hidden: Votos ocultos (se os votos están habilitados, a comprobación ocultará o número de votos)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} foi aceptado para acceder como colaborador do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Recibiches esta notificación porque es colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} foi aceptado para acceder como colaborador do %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceptado <strong>para acceder como contribuínte</strong> do borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} foi rexeitado para acceder como colaborador do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Recibiches esta notificación porque es colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} foi rexeitado para acceder como colaborador do %{resource_title} borrador colaborativo."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi rexeitado <strong>para acceder como contribuínte</strong> do borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} solicitou acceso como colaborador. Pode <strong>aceptar ou rexeitar a solicitude</strong> da páxina de <a href="%{resource_path}">%{resource_title}</a> colaborativo.'
+          email_outro: Recibiches esta notificación porque es colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} solicitou acceso para contribuír a %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitou acceso para contribuír ao proxecto colaborativo de <a href="%{resource_path}">%{resource_title}</a> . <strong>acepta ou rexeita a solicitude</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Recibiches acceso como colaborador do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Recibiches esta notificación porque solicitou ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Recibiches como colaborador de %{resource_title}.
+          notification_title: Recibiches <strong>para acceder como colaborador</strong> do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Foi rexeitado a acceder como colaborador do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Recibiches esta notificación porque solicitou ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Foi rexeitado como colaborador de %{resource_title}.
+          notification_title: Quedaches <strong>rexeitado a acceder como colaborador</strong> do borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retirou o proxecto de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Recibiches esta notificación porque es colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} retirouse o %{resource_title} borrador colaborativo."
         creation_enabled:
           email_intro: 'Agora podes crear novas propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
