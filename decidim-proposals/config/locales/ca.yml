@@ -307,25 +307,25 @@ ca:
             success: L'esborrany col·laboratiu s'ha retirat amb èxit.
         compare:
           mine_is_different: El meu esborrany col·laboratiu és diferent
-          no_similars_found: Ben fet! No s'han trobat esborranys col·laboratius semblants
+          no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
           title: Esborranys col·laboratius similars
         complete:
-          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-          select_a_category: Seleccioneu una categoria
+          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
+          select_a_category: Selecciona una categoria
           send: Enviar
-          title: Completeu el vostre esborrany de col·laboració
+          title: Completa el teu esborrany col·laboratiu
         count:
           drafts_count:
-            one: 1 esborrany de col·laboració
+            one: 1 esborrany col·laboratiu
             other: "%{count} esborranys col·laboratius"
         create:
-          error: Hi ha hagut un problema en crear aquests esborranys de col·laboració
+          error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
           success: S'ha creat un esborrany col·laboratiu.
         edit:
-          back: esquena
-          select_a_category: Seleccioneu una categoria
+          back: Tornar
+          select_a_category: Selecciona una categoria
           send: Enviar
-          title: Edita el projecte de col·laboració
+          title: Edita l'esborrany col·laboratiu
         filters:
           all: Tots
           category: Categoria
@@ -337,7 +337,7 @@ ca:
           state: Estat
           withdrawn: Retirat
         filters_small_view:
-          close_modal: Tanca el modal
+          close_modal: Tanca la finestra
           filter: Filtre
           filter_by: Filtra per
           unfold: Desplegar
