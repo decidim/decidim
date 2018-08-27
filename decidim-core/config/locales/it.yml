@@ -347,6 +347,7 @@ it:
     filters:
       linked_classes:
         all: Tutto
+        collaborative_draft: Bozza collaborativa
         dummy_resource: Risorse fittizie
         meeting: Incontri
         project: Progetti
