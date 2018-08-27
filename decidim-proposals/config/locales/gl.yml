@@ -129,6 +129,7 @@ gl:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retirou o proxecto de colaboración <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Recibiches esta notificación porque es colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} retirouse o %{resource_title} borrador colaborativo."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirado</strong> o <a href="%{resource_path}">%{resource_title}</a> borrador de colaboración.
         creation_enabled:
           email_intro: 'Agora podes crear novas propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -285,6 +286,120 @@ gl:
         not_answered: Non respondeu
         rejected: Rexeitado
         withdrawn: Retirada
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Produciuse un erro ao publicar o borrador colaborativo.
+            irreversible_action_modal:
+              body: Despois de publicar o proxecto como proposta, o borrador non será editable máis. A proposta non aceptará novos autores ou contribucións.
+              cancel: Cancelar
+              ok: Publicar como proposta
+              title: A seguinte acción é irreversible
+            success: Proxecto colaborativo publicado con éxito como proposta.
+          view_collaborative_draft: Ver borrador colaborativo
+          withdraw:
+            error: Houbo erros ao pechar o borrador colaborativo.
+            irreversible_action_modal:
+              body: Despois de pechar o borrador, o borrador non será editable máis. O borrador non aceptará novos autores ou contribucións.
+              cancel: Cancelar
+              ok: Retire o borrador colaborativo
+              title: A seguinte acción é irreversible
+            success: Proxecto colaborativo retirado con éxito.
+        compare:
+          mine_is_different: O meu proxecto de colaboración é diferente
+          no_similars_found: Ben feito! Non se atoparon borradores colaborativos similares
+          title: Borradores colaborativos similares
+        complete:
+          attachment_legend: "(Opcional) Engada un anexo"
+          select_a_category: Selecciona unha categoría
+          send: Enviar
+          title: Completa o teu borrador colaborativo
+        count:
+          drafts_count:
+            one: 1 borrador colaborativo
+            other: "%{count} borradores colaborativos"
+        create:
+          error: Produciuse un problema creando estes borradores colaborativos
+          success: Creouse un borrador colaborativo.
+        edit:
+          back: De volta
+          select_a_category: Selecciona unha categoría
+          send: Enviar
+          title: Editar borrador colaborativo
+        filters:
+          all: Todo
+          category: Categoría
+          category_prompt: Aviso de categoría
+          open: Aberto
+          published: Publicado
+          related_to: Relacionado con
+          search: Busca
+          state: Estado
+          withdrawn: Retirada
+        filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Despregar
+        new:
+          send: Continuar
+          title: Crea o teu borrador colaborativo
+        new_collaborative_draft_button:
+          new_collaborative_draft: Novo borrador colaborativo
+        orders:
+          label: 'Ordenar borradores por:'
+          most_contributed: A maioría contribuíu
+          random: Aleatorio
+          recent: Recentes
+        requests:
+          accepted_request:
+            error: Non se puido aceptar como colaborador, téntao de novo máis tarde.
+            success: "@%{user} foi aceptado como colaborador con éxito"
+          access_requested:
+            error: Non se puido completar a túa solicitude, téntao de novo máis tarde.
+            success: A túa solicitude de colaboración foi enviada con éxito
+          collaboration_requests:
+            accept_request: Aceptar
+            reject_request: Rexeitar
+            title: Solicitudes de colaboración
+          rejected_request:
+            error: Non se puido rexeitar como colaborador, téntao de novo máis tarde.
+            success: "O @%{user} foi rexeitado correctamente como colaborador"
+        show:
+          back: De volta
+          edit: Editar borrador colaborativo
+          final_proposal: proposta final
+          final_proposal_help_text: Este borrador está rematado. Podes ver a proposta final rematada
+          hidden_authors_count:
+            one: e 1 persoa máis
+            other: e %{count} persoas máis
+          info-message: Este é un <strong>proxecto colaborativo</strong> a proposta. Isto significa que pode axudar aos seus autores a configurar a proposta usando a sección de comentarios a continuación ou mellorala directamente solicitando o acceso para editala. Unha vez que os autores te outorgan acceso, podes realizar cambios neste borrador.
+          of_versions: "(de %{number})"
+          publish: Publicar
+          publish_info: Publica esta versión do borrador ou
+          published_proposal: proposta publicada
+          request_access: Solicitar acceso
+          requested_access: Acceso solicitado
+          see_other_versions: ver outras versións
+          version: Versión %{number}
+          version_history: Consulte o historial de versións para esta proposta
+          withdraw: retirar o borrador
+        states:
+          open: Aberto
+          published: Publicado
+          withdrawn: Retirada
+        update:
+          error: Produciuse un erro ao gardar o borrador colaborativo.
+          success: Proxecto colaborativo actualizado correctamente.
+        wizard_aside:
+          back: De volta
+          info: Está creando un <strong>proxecto de colaboración</strong>.
+        wizard_steps:
+          see_steps: ver pasos
+          step_1: Crea o teu borrador colaborativo
+          step_2: Comparar con borradores colaborativos
+          step_3: Completa o teu borrador colaborativo
+          step_of: Paso %{current_step_num} de %{total_steps}
       create:
         error: Produciuse un erro ao gardar a proposta.
         success: Proposta creada con éxito. Gardado como borrador.
@@ -292,6 +407,11 @@ gl:
         error: Produciuse un erro ao eliminar o borrador da proposta.
         success: O borrador da proposta eliminouse con éxito.
       models:
+        collaborative_draft:
+          fields:
+            authors: Autores
+            comments: Comentarios
+            contributions: Contribucións
         proposal:
           fields:
             category: Categoría
@@ -371,6 +491,7 @@ gl:
           filter_by: Filtrar por
           unfold: Despregar
         index:
+          collaborative_drafts_list: Acceda a borradores colaborativos
           new_proposal: Nova proposta
           see_all_withdrawn: Ver todas as propostas retiradas
           view_proposal: Ver proposta
@@ -402,6 +523,8 @@ gl:
           hidden_endorsers_count:
             one: e 1 persoa máis
             other: e %{count} persoas máis
+          link_to_collaborative_draft_help_text: Esta proposta é o resultado dun borrador colaborativo. Repasa o historial
+          link_to_collaborative_draft_text: Vexa o borrador colaborativo
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
@@ -459,6 +582,20 @@ gl:
       update_draft:
         error: Produciuse un erro ao gardar o borrador da proposta.
         success: O proxecto de proposta actualizouse con éxito.
+      versions:
+        changes_at_title: Cambios en "%{title}"
+        index:
+          title: Versións
+        stats:
+          back_to_collaborative_draft: Volve ao borrador colaborativo
+          number_of_versions: Versións
+          show_all_versions: Mostrar todas as versións
+          version_author: Autor da versión
+          version_created_at: Versión creada en
+          version_number: Número de versión
+          version_number_out_of_total: "%{current_version} de %{total_count}"
+        version:
+          version_index: Versión %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas
