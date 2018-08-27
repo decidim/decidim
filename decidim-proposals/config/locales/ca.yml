@@ -1,6 +1,14 @@
 ca:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Cos
+        category_id: Categoria
+        decidim_scope_id: Abast
+        has_address: Té adreça
+        state: Estat
+        title: Títol
+        user_group_id: Crea un esborrany de col·laboració com a
       proposal:
         answer: Resposta
         answered_at: Respost el
@@ -35,6 +43,9 @@ ca:
       decidim/proposals/voting_enabled_event: Les propostes admeten suports
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Esborrany de col·laboració
+        other: Esborranys col·laboratius
       decidim/proposals/proposal:
         one: Proposta
         other: Propostes
@@ -61,6 +72,7 @@ ca:
             announcement: Anunci
             attachments_allowed: Permetre arxius adjunts
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
+            collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
@@ -88,6 +100,36 @@ ca:
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: 'S''ha acceptat %{requester_name} per accedir com a col·laborador del projecte de col·laboració <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Heu rebut aquesta notificació perquè sou un col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "S'ha acceptat %{requester_name} per accedir com a col·laborador de l' %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat <strong>acceptats per a accés com a contribuent</strong> de la <a href="%{resource_path}">%{resource_title}</a> projecte de col·laboració.
+        collaborative_draft_access_rejected:
+          email_intro: 'S''ha rebutjat %{requester_name} per accedir com a col·laborador del projecte de col·laboració <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Heu rebut aquesta notificació perquè sou un col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "S'ha rebutjat %{requester_name} per accedir com a col·laborador del %{resource_title} projecte de col·laboració."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat rebutjat <strong>per accedir com a contribuent</strong> del projecte de col·laboració de <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} sol·licitar l''accés com a col·laborador. Pot <strong>acceptar o rebutjar la sol·licitud</strong> de la <a href="%{resource_path}">%{resource_title}</a> esborrany de la pàgina de col·laboració.'
+          email_outro: Heu rebut aquesta notificació perquè sou un col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} demanar l'accés per contribuir a %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> sol·licitat accés per contribuir al projecte de col·laboració de <a href="%{resource_path}">%{resource_title}</a> . <strong>accepteu o rebutgeu la sol·licitud</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: S'ha acceptat accedir com a col·laborador del projecte de col·laboració <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Heu rebut aquesta notificació perquè heu sol·licitat ser col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Has estat acceptat com a col·laborador de %{resource_title}.
+          notification_title: Has estat acceptat <strong>per accedir com a col·laborador</strong> del <a href="%{resource_path}">%{resource_title}</a> projectes de col·laboració.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Has estat rebutjat per accedir com a col·laborador del projecte de col·laboració <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Heu rebut aquesta notificació perquè heu sol·licitat ser col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Heu rebutjat com a col·laborador de %{resource_title}.
+          notification_title: S'ha rebutjat <strong>per accedir com a col·laborador</strong> del <a href="%{resource_path}">%{resource_title}</a> esborrany de col·laboració.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retirar el projecte de col·laboració <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Heu rebut aquesta notificació perquè sou un col·laborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} retirar el %{resource_title} esborrany de col·laboració."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirat</strong> el <a href="%{resource_path}">%{resource_title}</a> esborrany de col·laboració.
         creation_enabled:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -244,6 +286,10 @@ ca:
         not_answered: No resposta
         rejected: Rebutjada
         withdrawn: Retirada
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Hi ha hagut errors en publicar el projecte de col·laboració.
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
