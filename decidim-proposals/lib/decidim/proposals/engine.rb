@@ -33,6 +33,18 @@ module Decidim
           resource :proposal_vote, only: [:create, :destroy]
           resource :proposal_widget, only: :show, path: "embed"
         end
+        resources :collaborative_drafts, except: [:destroy] do
+          get :compare, on: :collection
+          get :complete, on: :collection
+          member do
+            post :request_access, controller: "collaborative_draft_collaborator_requests"
+            post :request_accept, controller: "collaborative_draft_collaborator_requests"
+            post :request_reject, controller: "collaborative_draft_collaborator_requests"
+            post :withdraw
+            post :publish
+          end
+          resources :versions, only: [:show, :index]
+        end
         root to: "proposals#index"
       end
 

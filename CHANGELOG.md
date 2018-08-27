@@ -57,6 +57,11 @@
 - **decidim-meetings**: Allow admins to validate meeting registration codes and notify the user. [\#3833](https://github.com/decidim/decidim/pull/3833)
 - **decidim-core**: Make Users Searchable. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
+- **decidim-proposals**: Add Collaborative drafts: [\#3109](https://github.com/decidim/decidim/pull/3109)
+  - Admin can en/disable this feature from the component configuration
+  - Filtrable list of Collaborative drafts in public views
+  - Collaborative drafts are: traceable, commentable, coauthorable, reportable
+  - Publish collaborative draft as Proposal
 - **decidim-participatory_processes**: Display a big card when there's just one process at the homepage [\#3970](https://github.com/decidim/decidim/pull/3970)
 - **decidim-core**: Adds support for earning badges. [\#3975](https://github.com/decidim/decidim/pull/3975)
 - **decidim-proposals**: Adds the *proposal* badge. [\#3975](https://github.com/decidim/decidim/pull/3975)
