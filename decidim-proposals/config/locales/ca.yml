@@ -343,40 +343,40 @@ ca:
           unfold: Desplegar
         new:
           send: Continua
-          title: Crea el teu esborrany de col·laboració
+          title: Crea el teu esborrany col·laboratiu
         new_collaborative_draft_button:
-          new_collaborative_draft: Nou projecte de col·laboració
+          new_collaborative_draft: Nou esborrany col·laboratiu
         orders:
           label: 'Ordenar esborranys per:'
-          most_contributed: La majoria ha contribuït
+          most_contributed: Amb més contribucions
           random: Aleatori
           recent: Recent
         requests:
           accepted_request:
-            error: No es pot acceptar com a col·laborador, torneu-ho a provar més tard.
-            success: "S'ha acceptat @%{user} com a col·laborador amb èxit"
+            error: No s'ha pogut acceptar com a contribuïdor, torna-ho a provar més tard.
+            success: "S'ha acceptat amb èxit @%{user} com a contribuïdor"
           access_requested:
-            error: No s'ha pogut completar la vostra sol·licitud, torneu-ho a provar més tard.
-            success: La vostra sol·licitud de col·laboració s'ha enviat correctament
+            error: No s'ha pogut completar la teva sol·licitud, torna-ho a provar més tard.
+            success: La teva sol·licitud de contribució s'ha enviat correctament
           collaboration_requests:
             accept_request: Accepta
-            reject_request: Rebutjar
+            reject_request: Rebutja
             title: Sol·licituds de col·laboració
           rejected_request:
-            error: No es pot rebutjar com a col·laborador, torneu-ho a provar més tard.
-            success: "@%{user} s'ha rebutjat correctament com a col·laborador"
+            error: No s'ha pogut rebutjar aquest contribuïdor, tornau-ho a provar més tard.
+            success: "@%{user} s'ha rebutjat correctament com a contribuïdor"
         show:
-          back: esquena
-          edit: Edita el projecte de col·laboració
+          back: Tornar
+          edit: Edita l'esborrany col·laboratiu
           final_proposal: proposta final
-          final_proposal_help_text: Aquest projecte està acabat. Podeu veure la proposta final finalitzada
+          final_proposal_help_text: Aquest esborrany està finalitzat. Pots veure la proposta final
           hidden_authors_count:
             one: i 1 persona més
             other: i %{count} persones més
           info-message: Es tracta d'un <strong>projecte de col·laboració</strong> per a una proposta. Això significa que podeu ajudar els seus autors a modelar la proposta utilitzant la secció de comentaris a continuació o a millorar-la directament demanant accés per editar-la. Un cop els autors us concedeixin accés, podreu fer canvis en aquest esborrany.
           of_versions: "(de %{number})"
           publish: Publica
-          publish_info: Publica aquesta versió del projecte o
+          publish_info: Publica aquesta versió de l'esborrany o
           published_proposal: proposta publicada
           request_access: Sol·licitud d'accés
           requested_access: S'ha sol·licitat l'accés
