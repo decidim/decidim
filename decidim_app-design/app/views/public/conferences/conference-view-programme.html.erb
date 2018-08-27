@@ -1,0 +1,70 @@
+<% @activesection = "programme" %>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "conferences_hero" %>
+  <section class="wrapper-home">
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 large-3">
+        <%= partial "conferences_nav" %>
+      </div>
+      <div class="columns mediumlarge-8">
+        <h1 class="section-heading">Programa</h1>
+        <div class="conference-programme">
+          <div class="row collapse programme-selector">
+            <div class="column medium-2">
+              Día
+            </div>
+            <div class="column medium-10">
+              <ul class="tabs" id="conference-day-tabs"
+                data-deep-link="true"
+                data-update-history="true"
+                data-deep-link-smudge="true"
+                data-deep-link-smudge-delay="500"
+                data-tabs>
+                <li class="tabs-title">
+                  <!-- Wrap button in an anchor to make foundation tabs work -->
+                  <a href="#conference-day-tab0">
+                    <button class="button button--nomargin button--sc secondary light">
+                      Mércores 28 oct 2018
+                    </button>
+                  </a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#conference-day-tab1">
+                    <button class="button button--nomargin button--sc secondary light">
+                      Xoves 29 oct 2018
+                    </button>
+                  </a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#conference-day-tab2">
+                    <button class="button button--nomargin button--sc secondary light">
+                      Venres 30 oct 2018
+                    </button>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tabs-content" data-tabs-content="conference-day-tabs">
+            <% 3.times do |i| %>
+            <div class="programme-day tabs-panel<%= " is-active" if i == 0 %>" id="conference-day-tab<%= i %>">
+              <% time = Time.new(2018, 1, 1, 9, 0, 0) %>
+              <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { s: time.advance(minutes: 30), e: time.advance(hours: 2) } %>
+              <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { timebreak: true, s: time.advance(hours: 2), e: time.advance(hours: 2, minutes: 30) } %>
+              <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { s: time.advance(hours: 2, minutes: 30), e: time.advance(hours: 4, minutes: 30) } %>
+              <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { timebreak: true, s: time.advance(hours: 4, minutes: 30), e: time.advance(hours: 5, minutes: 30) } %>
+              <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { s: time.advance(hours: 5, minutes: 30), e: time.advance(hours: 7) } %>
+              <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { s: time.advance(hours: 7), e: time.advance(hours: 8, minutes: 30) } %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%= partial "template_bottom" %>
