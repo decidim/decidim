@@ -20,6 +20,8 @@ ca:
     models:
       decidim/attachment_created_event: Adjunt
       decidim/component_published_event: Component actiu
+      decidim/gamification/badge_earned_event: Insígnia obtinguda
+      decidim/gamification/level_up_event: Has anivellat
       decidim/profile_updated_event: Perfil actualitzat
   activerecord:
     attributes:
@@ -316,6 +318,17 @@ ca:
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
         email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
         email_subject: Una actualització a %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Bona feina! S'ha guanyat el <a href="%{resource_path}">%{badge_name} insígnia</a> (nivell %{current_level}).
+          email_outro: Heu rebut aquesta notificació perquè heu fet activitat al nostre lloc web.
+          email_subject: 'Has guanyat una nova insígnia: %{badge_name}.'
+          notification_title: Bona feina! S'ha guanyat el <a href="%{resource_path}">%{badge_name} insígnia</a> (nivell %{current_level}).
+        level_up:
+          email_intro: Bona feina! Has arribat al nivell %{current_level} a la insígnia</a><a href="%{resource_path}">%{badge_name}!
+          email_outro: Heu rebut aquesta notificació perquè heu fet activitat al nostre lloc web.
+          email_subject: Has arribat al nivell %{current_level} a la insígnia %{badge_name}.
+          notification_title: Bona feina! Has arribat al nivell %{current_level} a la insígnia</a><a href="%{resource_path}">%{badge_name}!
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -365,6 +378,10 @@ ca:
       errors:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
+    gamification:
+      description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comença a descobrir, participar i interactuar a la plataforma, obtindrà diferents distintius.
+      level: Nivell %{level}
+      reached_top: Has arribat al nivell superior d'aquesta insígnia.
     invitations:
       create:
         error: Hi ha hagut alguns problemes mentre es convidava els teus amics
@@ -536,6 +553,7 @@ ca:
     profiles:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
+        badges: Insígnies
         conversations: Converses
         followers: Seguidors
         following: Segueix
