@@ -7,7 +7,7 @@ require "decidim/participatory_processes/test/factories"
 FactoryBot.define do
   factory :sortition_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :sortitions).i18n_name }
-    manifest_name :sortitions
+    manifest_name { :sortitions }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
   end
 

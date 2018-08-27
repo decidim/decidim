@@ -24,8 +24,8 @@ FactoryBot.define do
     target { Decidim::Faker::Localized.sentence(3) }
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
-    show_statistics true
-    private_space false
+    show_statistics { true }
+    private_space { false }
     purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     composition { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     assembly_type { "others" }
@@ -38,7 +38,7 @@ FactoryBot.define do
     closing_date { 2.months.from_now.at_midnight }
     closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    is_transparent true
+    is_transparent { true }
     special_features { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     twitter_handler { "others" }
     facebook_handler { "others" }
@@ -47,11 +47,11 @@ FactoryBot.define do
     github_handler { "others" }
 
     trait :promoted do
-      promoted true
+      promoted { true }
     end
 
     trait :unpublished do
-      published_at nil
+      published_at { nil }
     end
 
     trait :published do
@@ -66,7 +66,7 @@ FactoryBot.define do
   factory :assembly_user_role, class: "Decidim::AssemblyUserRole" do
     user
     assembly { create :assembly, organization: user.organization }
-    role "admin"
+    role { "admin" }
   end
 
   factory :assembly_admin, parent: :user, class: "Decidim::User" do
