@@ -118,13 +118,13 @@ es:
         collaborative_draft_access_requester_accepted:
           email_intro: Usted ha sido aceptado para acceder como colaborador del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Recibió esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Usted ha sido aceptado como colaborador de %{resource_title}.
+          email_subject: Has sido aceptado como colaborador de %{resource_title}.
           notification_title: Ha aceptado <strong>acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_intro: Ha sido rechazado para acceder como colaborador del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Recibió esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Has sido rechazado como colaborador de %{resource_title}.
-          notification_title: Ha sido <strong>rechazado para acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Has sido <strong>rechazado para acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiró el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
