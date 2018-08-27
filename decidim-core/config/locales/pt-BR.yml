@@ -347,6 +347,7 @@ pt-BR:
     filters:
       linked_classes:
         all: Todos
+        collaborative_draft: Rascunho colaborativo
         dummy_resource: Recursos falsos
         meeting: Encontros
         project: Projetos
