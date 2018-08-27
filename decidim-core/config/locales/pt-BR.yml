@@ -20,6 +20,8 @@ pt-BR:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
+      decidim/gamification/badge_earned_event: Distintivo ganho
+      decidim/gamification/level_up_event: Você subiu de nível
       decidim/profile_updated_event: Perfil atualizado
   activerecord:
     attributes:
@@ -316,6 +318,17 @@ pt-BR:
         email_intro: 'Houve uma atualização para "%{resource_title}". Você pode vê-lo a partir desta página:'
         email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
         email_subject: Uma atualização para %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
+          email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
+          email_subject: 'Você ganhou um novo selo: %{badge_name}!'
+          notification_title: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
+        level_up:
+          email_intro: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
+          email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
+          email_subject: Você atingiu o nível %{current_level} no %{badge_name} crachá!
+          notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -365,6 +378,10 @@ pt-BR:
       errors:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
+    gamification:
+      description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
+      level: Nível %{level}
+      reached_top: Você atingiu o nível superior para este selo.
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -536,6 +553,7 @@ pt-BR:
     profiles:
       default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
+        badges: Distintivos
         conversations: Conversas
         followers: Seguidores
         following: Segue
