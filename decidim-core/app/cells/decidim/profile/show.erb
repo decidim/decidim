@@ -8,6 +8,7 @@
         <% end %>
         <%= user_profile_tab t("decidim.profiles.show.following"), profile_following_path(nickname: user.nickname) %>
         <%= user_profile_tab t("decidim.profiles.show.followers"), profile_followers_path(nickname: user.nickname) %>
+        <%= user_profile_tab t("decidim.profiles.show.badges"), profile_badges_path(nickname: user.nickname) %>
       </ul>
     </div>
   </div>
