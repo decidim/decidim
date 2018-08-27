@@ -57,6 +57,11 @@
 - **decidim-meetings**: Allow admins to validate meeting registration codes and notify the user. [\#3833](https://github.com/decidim/decidim/pull/3833)
 - **decidim-core**: Make Users Searchable. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
+- **decidim-proposals**: Add Collaborative drafts: [\#3109](https://github.com/decidim/decidim/pull/3109)
+  - Admin can en/disable this feature from the component configuration
+  - Filtrable list of Collaborative drafts in public views
+  - Collaborative drafts are: traceable, commentable, coauthorable, reportable
+  - Publish collaborative draft as Proposal
 - **decidim-participatory_processes**: Display a big card when there's just one process at the homepage [\#3970](https://github.com/decidim/decidim/pull/3970)
 - **decidim-core**: Adds support for earning badges. [\#3975](https://github.com/decidim/decidim/pull/3975)
 - **decidim-proposals**: Adds the *proposal* badge. [\#3975](https://github.com/decidim/decidim/pull/3975)
@@ -77,6 +82,7 @@
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#4024](https://github.com/decidim/decidim/pull/4024)
 - **decidim-core**: Fix day date translation on profile notifications. [\#3994](https://github.com/decidim/decidim/pull/3994)
 - **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)
 - **decidim-initiatives**: Fix initiative edition when state is not published. [\#3930](https://github.com/decidim/decidim/pull/3930)

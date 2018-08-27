@@ -38,6 +38,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_3_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_4_help_text, type: :text, translated: true, editor: true
+    settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -57,6 +58,11 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
     resource.actions = %w(endorse vote)
+  end
+
+  component.register_resource(:collaborative_draft) do |resource|
+    resource.model_class_name = "Decidim::Proposals::CollaborativeDraft"
+    resource.card = "decidim/proposals/collaborative_draft"
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
@@ -116,7 +122,8 @@ Decidim.register_component(:proposals) do |component|
       published_at: Time.current,
       participatory_space: participatory_space,
       settings: {
-        vote_limit: 0
+        vote_limit: 0,
+        collaborative_drafts_enabled: true
       },
       step_settings: step_settings
     )
@@ -219,6 +226,59 @@ Decidim.register_component(:proposals) do |component|
       end
 
       Decidim::Comments::Seed.comments_for(proposal)
+
+      #
+      # Collaborative drafts
+      #
+      state = if n > 3
+                "published"
+              elsif n > 2
+                "withdrawn"
+              else
+                "open"
+              end
+      author = Decidim::User.where(organization: component.organization).all.sample
+
+      draft = Decidim.traceability.create!(
+        Decidim::Proposals::CollaborativeDraft,
+        author,
+        component: component,
+        category: participatory_space.categories.sample,
+        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
+        title: Faker::Lorem.sentence(2),
+        body: Faker::Lorem.paragraphs(2).join("\n"),
+        state: state,
+        published_at: Time.current
+      )
+      Decidim::Coauthorship.create(coauthorable: draft, author: author)
+
+      if n == 2
+        author2 = Decidim::User.where(organization: component.organization).all.sample
+        Decidim::Coauthorship.create(coauthorable: draft, author: author2)
+        author3 = Decidim::User.where(organization: component.organization).all.sample
+        Decidim::Coauthorship.create(coauthorable: draft, author: author3)
+        author4 = Decidim::User.where(organization: component.organization).all.sample
+        Decidim::Coauthorship.create(coauthorable: draft, author: author4)
+        author5 = Decidim::User.where(organization: component.organization).all.sample
+        Decidim::Coauthorship.create(coauthorable: draft, author: author5)
+        author6 = Decidim::User.where(organization: component.organization).all.sample
+        Decidim::Coauthorship.create(coauthorable: draft, author: author6)
+      elsif n == 3
+        author2 = Decidim::User.where(organization: component.organization).all.sample
+        Decidim::Coauthorship.create(coauthorable: draft, author: author2)
+      end
+
+      Decidim::Comments::Seed.comments_for(draft)
     end
+
+    Decidim.traceability.update!(
+      Decidim::Proposals::CollaborativeDraft.all.sample,
+      Decidim::User.where(organization: component.organization).all.sample,
+      component: component,
+      category: participatory_space.categories.sample,
+      scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
+      title: Faker::Lorem.sentence(2),
+      body: Faker::Lorem.paragraphs(2).join("\n")
+    )
   end
 end
