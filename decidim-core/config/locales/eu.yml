@@ -20,6 +20,8 @@ eu:
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai aktiboa
+      decidim/gamification/badge_earned_event: Badge irabazi
+      decidim/gamification/level_up_event: Berdindu duzu
       decidim/profile_updated_event: Profila eguneratu da
   activerecord:
     attributes:
@@ -316,6 +318,17 @@ eu:
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
         email_subject: '%{resource_title} eguneratzea'
+      gamification:
+        badge_earned:
+          email_intro: Lan handia! <a href="%{resource_path}">%{badge_name} txapela irabazi duzu</a> ( %{current_level}maila).
+          email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
+          email_subject: 'Idatzi berri bat irabazi duzu: %{badge_name}!'
+          notification_title: Lan handia! <a href="%{resource_path}">%{badge_name} txapela irabazi duzu</a> ( %{current_level}maila).
+        level_up:
+          email_intro: Lan handia! Maila %{current_level} lortu duzu <a href="%{resource_path}">%{badge_name} badge</a>!
+          email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
+          email_subject: Nik iritsi zara mailan %{current_level} on the %{badge_name} plaka!
+          notification_title: Lan handia! Maila %{current_level} lortu duzu <a href="%{resource_path}">%{badge_name} badge</a>!
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -365,6 +378,10 @@ eu:
       errors:
         error: Errorea bat dago eremu honetan.
       remove_this_file: Ezabatu artxibo hau
+    gamification:
+      description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
+      level: '%{level}maila'
+      reached_top: Idatzi honen goialdean iritsi zara.
     invitations:
       create:
         error: Arazo batzuk egon dira zure lagunak gonbidatuz
@@ -536,6 +553,7 @@ eu:
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
+        badges: Badges
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
