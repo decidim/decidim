@@ -5,6 +5,7 @@ require "spec_helper"
 describe "Participatory Processes", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
+  let(:hashtag) { true }
   let(:base_process) do
     create(
       :participatory_process,
@@ -74,6 +75,8 @@ describe "Participatory Processes", type: :system do
     before do
       visit decidim_participatory_processes.participatory_processes_path
     end
+
+    it_behaves_like "editable content for admins"
 
     context "and accessing from the homepage" do
       it "the menu link is not shown" do
@@ -214,6 +217,8 @@ describe "Participatory Processes", type: :system do
       visit decidim_participatory_processes.participatory_process_path(participatory_process)
     end
 
+    it_behaves_like "editable content for admins"
+
     it "shows the details of the given process" do
       within "div.wrapper" do
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
@@ -260,6 +265,14 @@ describe "Participatory Processes", type: :system do
 
         it "the stats for those components are not visible" do
           expect(page).to have_no_content("3 PROPOSALS")
+        end
+      end
+
+      context "and the process doesn't have hashtag" do
+        let(:hashtag) { false }
+
+        it "the stats for those components are not visible" do
+          expect(page).to have_no_content("#")
         end
       end
     end

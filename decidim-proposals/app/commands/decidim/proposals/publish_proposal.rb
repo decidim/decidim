@@ -24,6 +24,7 @@ module Decidim
 
         transaction do
           @proposal.update published_at: Time.current
+          increment_scores
           send_notification
           send_notification_to_participatory_space
         end
@@ -62,6 +63,12 @@ module Decidim
           followers_ids += author.followers.pluck(:id)
         end
         followers_ids
+      end
+
+      def increment_scores
+        @proposal.authors.each do |author|
+          Decidim::Gamification.increment_score(author, :proposals)
+        end
       end
     end
   end

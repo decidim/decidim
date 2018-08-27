@@ -274,6 +274,8 @@ pl:
         endorsement_button:
           already_endorsed: Zatwierdzony
           endorse: Podpisać się
+        render_endorsements_button_card_part:
+          endorse: Podpisać się
       proposal_votes:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
@@ -283,8 +285,6 @@ pl:
           no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
           title: Podobne propozycje
         complete:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
-          select_a_category: Proszę wybierz kategorie
           send: Wysłać
           title: Uzupełnij swoją propozycję
         count:
@@ -294,6 +294,7 @@ pl:
             many: "%{count} propozycje"
             other: "%{count} propozycje"
         edit:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
@@ -307,7 +308,6 @@ pl:
           endorse: Podpisać się
         endorsements_card_row:
           comments: Komentarze
-          endorse: Podpisać się
         filters:
           accepted: Przyjęty
           activity: Czynność

@@ -21,6 +21,7 @@ sv:
         confirm_destroy: Är du säker på att du vill radera detta projekt?
         destroy: Radera
         edit: Redigera
+        import: Importera förslag till projekt
         new: Nytt projekt
         preview: Förhandsvisa
         title: Handlingar
@@ -47,6 +48,14 @@ sv:
           update:
             invalid: Det har varit ett problem att uppdatera projektet
             success: Projektet har blivit uppdaterat
+        proposals_imports:
+          create:
+            invalid: Det har varit ett problem att importera förslagen till projekt
+            success: "%{number} förslag framgångsrikt importerade till projekt"
+          new:
+            create: Importera förslag till projekt
+            no_components: Det finns inga andra förslagskomponenter i detta deltagande utrymme för att importera förslagen till projekt.
+            select_component: Var god välj en komponent
       admin_log:
         project:
           create: "%{user_name} skapade projektet %{resource_name} i %{space_name} -utrymmet"

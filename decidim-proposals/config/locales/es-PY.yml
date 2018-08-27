@@ -266,6 +266,8 @@ es-PY:
         endorsement_button:
           already_endorsed: Adherido
           endorse: Adherirse
+        render_endorsements_button_card_part:
+          endorse: Adherirse
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
@@ -275,8 +277,6 @@ es-PY:
           no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
           title: Propuestas similares
         complete:
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
-          select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Completa tu propuesta
         count:
@@ -284,6 +284,7 @@ es-PY:
             one: 1 propuesta
             other: "%{count} propuestas"
         edit:
+          attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
@@ -297,7 +298,6 @@ es-PY:
           endorse: Adherirse
         endorsements_card_row:
           comments: Comentarios
-          endorse: Adherirse
         filters:
           accepted: Aceptadas
           activity: Actividad

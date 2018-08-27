@@ -26,10 +26,6 @@ references:
     run:
       name: Install ruby dependencies
       command: cd decidim-$CIRCLE_JOB && bundle install
-  install_npm_dependencies: &install_npm_dependencies
-    run:
-      name: Install npm dependencies
-      command: npm ci --verbose
   save_ruby_cache: &save_ruby_cache
     save_cache:
       key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
@@ -84,7 +80,6 @@ jobs:
       - checkout
       - *restore_ruby_cache
       - run: bundle install
-      - *install_npm_dependencies
       - *save_ruby_cache
       - *wait_for_db
       - run:
@@ -100,6 +95,19 @@ jobs:
     steps:
       - *attach_workspace
       - checkout
+      - restore_cache:
+          keys:
+            - npm-dependencies-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install npm dependencies
+          command: npm ci --verbose
+      - save_cache:
+          key: npm-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - /root/.npm
+      - run:
+          name: Run js lint & tests
+          command: npm run test:ci
       - *restore_ruby_cache
       - run: bundle install
       - *save_ruby_cache
@@ -202,7 +210,6 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *install_npm_dependencies
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
@@ -245,10 +252,6 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *install_npm_dependencies
-      - run:
-          name: Run main folder lint & tests
-          command: npm run test:ci
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
@@ -409,14 +412,7 @@ jobs:
       - run:
           name: Build image
           command: |
-            docker build -t registry.heroku.com/decidim-design/web -f Dockerfile.design .
-      - run:
-          name: Push deployment image
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
-              docker push registry.heroku.com/decidim-design/web
-            fi
+            docker build -f Dockerfile.design .
   upload-coverage:
     <<: *defaults
     environment:

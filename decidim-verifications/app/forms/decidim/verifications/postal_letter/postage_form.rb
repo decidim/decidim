@@ -25,7 +25,7 @@ module Decidim
           {
             address: full_address,
             verification_code: verification_code,
-            letter_sent_at: Time.zone.now
+            letter_sent_at: Time.current
           }
         end
       end

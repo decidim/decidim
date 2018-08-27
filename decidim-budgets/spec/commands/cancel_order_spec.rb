@@ -18,7 +18,7 @@ module Decidim::Budgets
     let(:order) do
       order = create(:order, user: user, component: component)
       order.projects << project
-      order.checked_out_at = Time.zone.now
+      order.checked_out_at = Time.current
       order.save!
       order
     end

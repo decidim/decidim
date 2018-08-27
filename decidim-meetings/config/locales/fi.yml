@@ -4,7 +4,7 @@ fi:
       agenda:
         description: Kuvaus
         duration: Kesto
-        title: otsikko
+        title: Otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -25,51 +25,51 @@ fi:
         registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
         title: Otsikko
-        transparent: läpinäkyvä
+        transparent: Läpinäkyvä
       minutes:
-        audio_url: Audio url
+        audio_url: Äänen URL-osoite
         description: Kuvaus
-        video_url: Video url
-        visible: Se on näkyvissä
+        video_url: Videon URL-osoite
+        visible: On näkyvissä
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuuttia
-              too_many_minutes_child: Kohdan lapsen kesto ylittää esityslistan kohdan "%{parent_title}" vanhemman keston %{count} minuutilla
+              too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuutilla
+              too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla
         meeting_registration_invite:
           attributes:
             email:
               already_invited: Tämä sähköposti on jo kutsuttu
     models:
-      decidim/meetings/close_meeting_event: Kokous päättyi
-      decidim/meetings/create_meeting_event: Tapaaminen
+      decidim/meetings/close_meeting_event: Kokous suljettu
+      decidim/meetings/create_meeting_event: Kokous
       decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit ovat käytössä
-      decidim/meetings/meeting_registrations_over_percentage_event: Rekisteröinti yli rajojen
+      decidim/meetings/meeting_registrations_over_percentage_event: Ilmoittautumiset ylittävät rajan
       decidim/meetings/upcoming_meeting_event: Tuleva kokous
-      decidim/meetings/update_meeting_event: Kokous päivitettiin
+      decidim/meetings/update_meeting_event: Kokous päivitetty
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Tapaaminen
-        other: kokoukset
+        one: Kokous
+        other: Kokoukset
       decidim/meetings/minutes:
-        one: Minuutit
-        other: Minuutit
+        one: Pöytäkirja
+        other: Pöytäkirjat
       decidim/meetings/registration:
-        one: Rekisteröinti
-        other: rekisteröinnit
+        one: Rekisteröityminen
+        other: Rekisteröitymiset
   decidim:
     admin:
       meeting_copies:
         create:
-          error: Tämän kokouksen päällekkäisyyttä ei löytynyt.
-          success: Kopioitu kokous onnistui.
+          error: Tämän kokouksen monistamisessa tapahtui virhe.
+          success: Kokouksen monistaminen onnistui.
         new:
           copy: Kopio
-          select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi kokous
+          select: Valitse, mitkä tiedot haluat monistaa
+          title: Monista kokous
     components:
       meetings:
         actions:
@@ -79,53 +79,58 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
-            default_registration_terms: Oletussäännöt
+            default_registration_terms: Rekisteröinnin oletussäännöt
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi on estetty
     events:
       meetings:
         meeting_closed:
-          email_intro: '"%{resource_title}" -kokous oli suljettu. Voit lukea johtopäätökset sivulta:'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" -kokous oli suljettu'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous oli suljettu.
+          email_intro: 'Kokous "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Kokous "%{resource_title}" suljettiin
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
-          email_intro: Kokous "%{resource_title}" on lisätty "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Uusi kokous lisätty %{participatory_space_title}
-          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}
+          email_intro: Kokous "%{resource_title}" on lisätty kohteeseen "%{participatory_space_title}", jota seuraat.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Uusi kokous lisätty kohteeseen %{participatory_space_title}
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on lisätty kohtaan %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" -kokouksen käyttämät lähtöajat ovat yli %{percentage}%.'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet hallintasi kokouksen osallistumistilasta.
-          email_subject: '"%{resource_title}" -kokouksen käytössä olevat lähtöajat ovat yli %{percentage}%'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokouksessa käyttämät lähtöajat ovat yli %{percentage}%.
+          email_intro: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%.
+          email_outro: Olet saanut tämän ilmoituksen, koska olet kokouksen osallistumistilan ylläpitäjä.
+          email_subject: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%
+          notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
         meeting_updated:
-          email_intro: '"%{resource_title}" -kokous päivitettiin. Voit lukea uuden version sivulta:'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" -kokous päivitettiin'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous päivitettiin.
+          email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Kokous "%{resource_title}" päivitettiin
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
+        registration_code_validated:
+          email_intro: Rekisteröintikoodisi "%{registration_code}" on vahvistettu.
+          email_outro: Olet saanut tämän ilmoituksen, koska rekisteröintikoodisi kokoukseen "%{resource_title}" on vahvistettu.
+          email_subject: Rekisteröintikoodisi "%{registration_code}" on vahvistettu
+          notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
         registrations_enabled:
-          email_intro: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous on mahdollistanut rekisteröinnit.
+          email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Tapahtuma "%{resource_title}" on mahdollistanut ilmoittautumiset.
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on avannut rekisteröinnin.
         upcoming_meeting:
-          email_intro: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
-          email_subject: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
+          email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
+          notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
     meetings:
       actions:
         agenda: esityslista
         attachment_collections: kansiot
         attachments: Liitteet
         close: Sulje
-        confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
+        confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
         destroy: Poista
         edit: Muokkaa
-        minutes: Minuutit
+        minutes: Pöytäkirja
         new: Uusi kokous
         preview: Esikatsele
         registrations: Ilmoittautumiset
@@ -133,51 +138,51 @@ fi:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Lisää esityslistan lapsi
+            add_agenda_item_child: Lisää esityslistan alakohta
             agenda_item: Esityslistan kohta
-            agenda_item_children: Agenda Item Childs
+            agenda_item_children: Esityslistan alakohdat
             down: Alas
             remove: Poistaa
             up: ylös
           agenda_item_child:
-            agenda_item_child: Agenda Item Child
+            agenda_item_child: Esityslistan alakohta
             down: Alas
             remove: Poistaa
             up: ylös
           create:
-            invalid: Ongelmana on luoda tämä ohjelma
-            success: Esityslista on luotu
+            invalid: Tämän esityslistan luomisessa esiintyi ongelma
+            success: Esityslista luotiin onnistuneesti
           edit:
             title: Muokkaa esityslistaa
             update: Päivittää
           form:
             add_agenda_item: Lisää esityslistan kohde
-            agenda_items: Esityslistan kohdat
+            agenda_items: Esityslistan kohteet
             end_date: Päättymispäivä
             start_date: Aloituspäivämäärä
           new:
             create: Luoda
             title: Uusi esityslista
           update:
-            invalid: Ongelmana on päivittää tämä esityslista
-            success: Esityslista on päivitetty
+            invalid: Tämän esityslistan päivityksessä esiintyi ongelma
+            success: Esityslista päivitettiin onnistuneesti
         exports:
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
           invite:
             decline: Hylkää kutsu
-            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapaamiseen %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-            join: Liity tapaamiseen "%{meeting_title}"
+            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapahtumaan kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
+            join: Liity tapahtumaan "%{meeting_title}"
         invites:
           create:
-            error: Käyttäjän kutsumisessa tapahtumaan tapahtui virhe.
-            success: Käyttäjä kutsuttu tapahtumaan onnistuneesti.
+            error: Käyttäjän kutsumisessa tapahtumaan esiintyi ongelma.
+            success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
           form:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
             invite: Kutsu
-            invite_explanation: Käyttäjää kutsutaan mukaan myös kokoukseen ja organisaatioon.
-            non_user: Ei olemassa olevaa käyttäjää
+            invite_explanation: Käyttäjä tullaan kutsumaan mukaan tapahtumaan. Käyttäjä kutsutaan myös järjestöön.
+            non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
             filter:
@@ -185,36 +190,36 @@ fi:
               all: Kaikki
               rejected: hylätty
               sent: Lähetetyt
-            filter_by: Suodata
+            filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
-            invites: kutsut
-            registrations_disabled: Et voi kutsua osallistujaa, koska rekisteröinnit on poistettu käytöstä.
+            invites: Kutsut
+            registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
             search: Hae
         meeting_closes:
           edit:
-            close: Lopeta
-            title: Lopeta tapaaminen
+            close: Sulje
+            title: Sulje tapahtuma
         meeting_copies:
           form:
             select_organizer: Valitse järjestäjä
         meetings:
           close:
-            invalid: Tapaamisen lopettamisessa tapahtui virhe
-            success: Tapaaminen onnistuneesti lopetettu
+            invalid: Tapahtuman sulkemisessa tapahtui virhe
+            success: Tapahtuma onnistuneesti suljettu
           create:
-            invalid: Tapaamisen luonnissa tapahtui virhe
-            success: Tapaaminen onnistuneesti luotu
+            invalid: Tapahtuman luonnissa esiintyi ongelma
+            success: Tapahtuma onnistuneesti luotu
           destroy:
-            success: Tapaaminen onnistuneesti poistettu
+            success: Tapahtuma onnistuneesti luotu
           edit:
             update: Päivitä
           form:
             select_organizer: Valitse järjestäjä
           index:
-            title: Tapaamiset
+            title: Tapahtumat
           new:
             create: Luo
-            title: Luo tapaaminen
+            title: Luo tapahtuma
           service:
             description: Kuvaus
             down: Alas
@@ -226,84 +231,89 @@ fi:
             add_service: Lisää palvelua
             services: Palvelut
           update:
-            invalid: Tapaamisen luonnissa tapahtui virhe
-            success: Tapaaminen luotu onnistuneesti
+            invalid: Tämän tapahtuman päivittämisessa esiintyi ongelma
+            success: Tapaaminen luotiin onnistuneesti
         minutes:
           create:
-            invalid: On ollut ongelma, joka luo tämän minuutin
-            success: Pöytäkirjat luodaan onnistuneesti
+            invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
+            success: Pöytäkirja luotiin onnistuneesti
           edit:
             update: Päivittää
           new:
             create: Luoda
-            title: Luo minuutit
+            title: Luo pöytäkirja
           update:
-            invalid: On ollut ongelma päivittää tämä minuutti
-            success: Pöytäkirjat päivitettiin onnistuneesti
+            invalid: Tämän pöytäkirjan päivityksessä esiintyi ongelma
+            success: Pöytäkirja päivitettiin onnistuneesti
         models:
           meeting:
             name: Tapaaminen
         registrations:
           edit:
             save: Tallenna
+            validate: vahvistaa
+            validate_registration_code: Vahvista ilmoittautumiskoodi
           form:
-            available_slots_help: Merkitse arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
-            invites: kutsut
+            available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
+            invites: Kutsut
             registrations_count:
               one: 1 ilmoittautuminen.
               other: '%{count} ilmoittautumista.'
-            reserved_slots_help: Jätä se kohtaan 0, jos sinulla ei ole varattuja lähtöasemia
-            reserved_slots_less_than: Voi olla pienempi tai yhtä suuri kuin %{count}
+            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
+            reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
+          validate_registration_code:
+            invalid: Tämä ilmoittautumiskoodi on virheellinen.
+            success: Ilmoittautumiskoodi on vahvistettu onnistuneesti.
       admin_log:
         invite:
-          create: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
-          deleted: "%{user_name} kutsunut %{attendee_name} liittymään %{resource_name} kokoukseen %{space_name} tilassa"
-          update: "%{user_name} kutsui %{attendee_name} osallistumaan %{resource_name} kokoukseen %{space_name} tilaan"
+          create: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilassa %{space_name}"
+          deleted: "%{user_name} perui kutsun osallistujalle %{attendee_name} tapahtumaan %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} kutsui %{attendee_name} osallistumaan tapahtumaan %{resource_name} tilaan %{space_name}"
         meeting:
-          close: "%{user_name} sulki %{resource_name} kokouksen %{space_name} -tilaan"
-          create: "%{user_name} loi %{resource_name} kokouksen %{space_name} -tilaan"
-          delete: "%{user_name} poistanut %{resource_name} kokouksen %{space_name} -tilasta"
-          export_registrations: "%{user_name} vietti %{resource_name} kokouksen rekisteröinnit %{space_name} -tilaan"
-          update: "%{user_name} päivitti %{resource_name} kokouksen %{space_name} -tilaan"
+          close: "%{user_name} sulki tapahtuman %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi tapahtuman %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti tapahtuman %{resource_name} tilassa %{space_name}"
+          export_registrations: "%{user_name} vei tapahtuman %{resource_name} ilmoittautumiset tilaan %{space_name}"
+          update: "%{user_name} päivitti tapahtuman %{resource_name} tilassa %{space_name}"
           value_types:
             organizer_presenter:
-              not_found: 'Järjestäjää ei löydy tietokannasta (ID: %{id})'
+              not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
         minutes:
-          create: "%{user_name} luotiin kokouspöytäkirjat %{resource_name} %{space_name} -tilassa"
-          update: "%{user_name} päivitti kokouksen pöytäkirjan %{resource_name} %{space_name} -tilaan"
+          create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Kutsu tapaamiseen
+            subject: Kutsu liittyä tapahtumaan
         registration_mailer:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
       meeting:
-        not_allowed: Et voi katsoa tätä kokousta
+        not_allowed: Sinulla ei ole lupaa tarkastella tätä tapahtumaa
       meetings:
         filters:
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
           date: Päivämäärä
           past: Menneet
-          search: Etsi
+          search: Hae
           upcoming: Tulevat
         filters_small_view:
           close_modal: Sulje ikkuna
-          filter: Suodata
-          filter_by: Suodata
+          filter: Rajaa
+          filter_by: Rajaa hakua
           unfold: Avaa
         index:
-          view_meeting: Näytä tapaaminen
+          view_meeting: Näytä tapahtuma
         meeting_minutes:
-          meeting_minutes: Kokouspöytäkirjat
+          meeting_minutes: Tapahtumapöytäkirja
           related_information: Liittyviä tietoja
         meetings:
-          no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole määritelty
-          upcoming_meetings_warning: Tällä hetkellä tapaamisia ei ole määritelty, mutta täältä löydät kaikki aikaisemmat tapaamiset.
+          no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
+          upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
@@ -312,19 +322,19 @@ fi:
           contributions: Kontribuutioiden määrä
           going: Osallistumassa
           join: Liity tapahtumaan
-          meeting_report: Tapaamisraportti
+          meeting_report: Tapahtumaraportti
           no_slots_available: Ei paikkoja vapaana
-          organizations: Osallistuneet organisaatiot
+          organizations: Osallistuvat järjestöt
           remaining_slots:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
-          view: näkymä
+          view: Näytä
       models:
         invite:
           fields:
             email: Sähköposti
             name: Nimi
-            sent_at: Lähetetty osoitteessa
+            sent_at: Lähetetty
             status: Status
           status:
             accepted: Hyväksytty (%{at})
@@ -348,26 +358,26 @@ fi:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
           success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
-          invalid: Ongelma on hylätty.
+          invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
-          invalid: Tapahtuman ilmoittautumisen perumisessa on tapahtunut virhe.
-          success: Olet perunut ilmoittautumisesi tapahtumaan onnistuneesti.
+          invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
+          success: Olet poistunut tapahtumasta onnistuneesti.
       types:
-        private_meeting: Yksityinen kokous
+        private_meeting: Yksityinen tapahtuma
         transparent: läpinäkyvä
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Aiemmat kokoukset
-          upcoming_meetings: Tulevat kokoukset
+          past_meetings: Aiemmat tapahtumat
+          upcoming_meetings: Tulevat tapahtumat
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Aiemmat kokoukset
-        see_all_meetings: Katso kaikki kokoukset
-        upcoming_meetings: Tulevat kokoukset
+        past_meetings: Aiemmat tapahtumat
+        see_all_meetings: Katso kaikki tapahtumat
+        upcoming_meetings: Tulevat tapahtumat
       upcoming_meeting_for_card:
-        upcoming_meeting: Tuleva kokous
+        upcoming_meeting: Tuleva tapahtuma
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Liittyvät tulokset:'
@@ -378,4 +388,4 @@ fi:
   devise:
     mailer:
       join_meeting:
-        subject: Kutsu tapaamiseen
+        subject: Kutsu tapahtumaan

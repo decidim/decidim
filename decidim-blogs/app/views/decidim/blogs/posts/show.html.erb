@@ -5,6 +5,15 @@
   description: translated_attribute(post.body),
   url: post_url(post.id)
 }) %>
+
+<%
+  edit_link(
+    resource_locator(post).edit,
+    :update,
+    :blogpost,
+    blogpost: post
+  )
+%>
 <div class="row">
   <div class="columns medium-7 mediumlarge-8">
     <div class="row column view-header">

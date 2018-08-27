@@ -13,11 +13,11 @@ nl:
         end_date: Einddatum
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        local_area: Lokaal gebied
+        local_area: Organisatiegebied
         meta_scope: Omvang metadata
         participatory_process_group_id: Groep thema's
-        participatory_scope: Participatief toepassingsgebied
-        participatory_structure: Participatieve structuur
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Scope
@@ -27,7 +27,7 @@ nl:
         slug: URL slak
         start_date: Startdatum
         subtitle: Ondertiteling
-        target: Doel
+        target: Wie doet mee
         title: Titel
       participatory_process_group:
         description: Beschrijving
@@ -274,6 +274,9 @@ nl:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Gemarkeerde processen
       index:
         title: Burgerinspraak
       pages:
@@ -281,6 +284,8 @@ nl:
           highlighted_processes:
             active_processes: Actieve thema's
             active_step: Actieve stap
+            more_information: Meer informatie
+            participate: Deelnemen
             see_all_processes: Bekijk alle thema's
       participatory_process_groups:
         none: Geen
