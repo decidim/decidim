@@ -7,38 +7,39 @@ $(() => {
   // Listener for the event triggered by quilljs
   let cursor = "";
   $hashtagContainer.on("quill-position", function(event) {
-    if (event.detail != null){
+    if (event.detail !== null) {
       cursor = event.detail.index;
     }
   });
 
-  function remoteSearch(text, cb) {
-    $.post("/api", {query: "{hashtags(name:"+text+") {name}}"})
+  /* eslint no-use-before-define: ["error", { "variables": false }]*/
+  let remoteSearch = function(text, cb) {
+    $.post("/api", {query: `{hashtags(name:${text}) {name}}`}).
 
-    .then((response) => {
-      let data = response.data["hashtags"] || {};
-      cb(data)
-    }).fail(function() {
-      cb([])
-    }).always(() => {
+      then((response) => {
+        let data = response.data.hashtags || {};
+        cb(data)
+      }).fail(function() {
+        cb([])
+      }).always(() => {
       // This function runs Tribute every single time you type something
       // So we must evalute DOM properties after each
-      const $parent = $(tribute.current.element).parent()
-      $parent.addClass("is-active")
+        const $parent = $(tribute.current.element).parent()
+        $parent.addClass("is-active")
 
-      // We need to move the container to the wrapper selected
-      const $tribute = $parent.find(".tribute-container");
-      // Remove the inline styles, relative to absolute positioning
-      $tribute.removeAttr("style");
-    })
-  }
+        // We need to move the container to the wrapper selected
+        const $tribute = $parent.find(".tribute-container");
+        // Remove the inline styles, relative to absolute positioning
+        $tribute.removeAttr("style");
+      })
+  };
 
   // tribute.js docs - http://github.com/zurb/tribute
   /* global Tribute*/
   let tribute = new Tribute({
-    trigger: '#',
+    trigger: "#",
     values: function (text, cb) {
-      remoteSearch(text, hashtags => cb(hashtags));
+      remoteSearch(text, (hashtags) => cb(hashtags));
     },
     positionMenu: true,
     menuContainer: null,
