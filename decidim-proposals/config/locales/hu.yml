@@ -1,6 +1,14 @@
 hu:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Test
+        category_id: Kategória
+        decidim_scope_id: terület
+        has_address: Van címe
+        state: Állapot
+        title: Cím
+        user_group_id: Hozzon létre együttműködési tervet
       proposal:
         answer: Válasz
         answered_at: Felolvasva
@@ -35,6 +43,9 @@ hu:
       decidim/proposals/voting_enabled_event: Javasolt szavazás engedélyezve
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Együttműködési tervezet
+        other: Együttműködési tervezetek
       decidim/proposals/proposal:
         one: Javaslat
         other: javaslatok
@@ -61,6 +72,7 @@ hu:
             announcement: Közlemény
             attachments_allowed: A mellékletek engedélyezése
             can_accumulate_supports_beyond_threshold: A küszöböt meghaladó támogatást képes felhalmozni
+            collaborative_drafts_enabled: Együttműködési tervezetek engedélyezettek
             comments_enabled: Megjegyzések engedélyezve
             geocoding_enabled: Geokódolás engedélyezve
             new_proposal_help_text: Új javaslat súgószöveg
