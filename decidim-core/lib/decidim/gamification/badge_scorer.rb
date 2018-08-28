@@ -17,15 +17,39 @@ module Decidim
 
       # Public: Increments the score for the user and badge.
       #
-      # amount - Amount to increase. Defaults to 1.
+      # amount - Amount to increment. Defaults to 1.
       #
       # Returns a `BadgeScore`.
       def increment(amount = 1)
+        raise InvalidAmountException unless amount.positive?
+
         with_level_tracking do
           BadgeScore.find_or_create_by(
             user: @user,
             badge_name: @badge.name
           ).increment(:value, amount).save!
+        end
+      end
+
+      # Public: Decrements the score for the user and badge.
+      #
+      # amount - Amount to decrement. Defaults to 1.
+      #
+      # Returns a `BadgeScore`.
+      def decrement(amount = 1)
+        raise InvalidAmountException unless amount.positive?
+
+        with_level_tracking do
+          badge_score = BadgeScore.find_by(
+            user: @user,
+            badge_name: @badge.name
+          )
+
+          next if badge_score.blank?
+
+          badge_score.decrement(:value, amount)
+          badge_score.value = 0 if badge_score.value < 0
+          badge_score.save!
         end
       end
 
@@ -35,6 +59,8 @@ module Decidim
       #
       # Returns a `BadgeScore`.
       def set(score)
+        raise NegativeScoreException if score.negative?
+
         with_level_tracking do
           BadgeScore.find_or_create_by(
             user_id: @user.id,
@@ -44,6 +70,9 @@ module Decidim
       end
 
       private
+
+      class NegativeScoreException < StandardError; end
+      class InvalidAmountException < StandardError; end
 
       def with_level_tracking
         previous_level = BadgeStatus.new(@user, @badge).level
