@@ -380,6 +380,15 @@ fr:
         error: Ce champ contient une erreur.
       remove_this_file: Supprimer ce fichier
     gamification:
+      badges:
+        invitations:
+          description_another: Cet utilisateur a invité %{score} utilisateurs.
+          description_own: Vous avez invité %{score} utilisateurs.
+          explanation: Les utilisateurs obtiennent ce badge en invitant d'autres utilisateurs.
+          name: Des invitations
+          next_level_in: Inviter %{score} utilisateurs supplémentaires à atteindre le niveau suivant!
+          unearned_another: Cet utilisateur n'a encore invité aucun utilisateur.
+          unearned_own: Vous n'avez encore invité aucun utilisateur.
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plate-forme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plate-forme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le niveau supérieur pour ce badge.
