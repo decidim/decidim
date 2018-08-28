@@ -8,6 +8,10 @@ module Decidim
 
         delegate :current_organization, to: :controller
 
+        def show
+          return if upcoming_events.blank?
+        end
+
         def upcoming_events
           @upcoming_events ||= Decidim::Meetings::Meeting
                                .includes(component: :participatory_space)
