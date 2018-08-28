@@ -93,34 +93,6 @@ pl:
               must_be_ssl: Identyfikator URI przekierowania musi być identyfikatorem URI protokołu SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Obraz baneru
-        description: Opis
-        developer_group: Grupa promotorów
-        domain: Domena
-        end_date: Data końcowa
-        hashtag: Hasztag
-        hero_image: Obraz w domu
-        local_area: Obszar lokalny
-        meta_scope: Zakres metadanych
-        participatory_scope: Zakres współuczestnictwa
-        participatory_structure: Struktura uczestnictwa
-        promoted: Lansowany
-        scope: Zakres
-        short_description: Krótki opis
-        slug: Ślimak URL
-        start_date: Data rozpoczęcia
-        subtitle: Podtytuł
-        target: Cel
-        title: Tytuł
-      decidim/participatory_process_group:
-        description: Opis
-        hero_image: Obraz w domu
-        name: Nazwa
-        participatory_processes: Procesy partycypacyjne
-      decidim/participatory_process_step:
-        end_date: Data końcowa
-        start_date: Data rozpoczęcia
       decidim/static_page:
         content: Zadowolony
         slug: Ślimak URL
@@ -333,6 +305,7 @@ pl:
         areas: Obszary
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
+        homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         newsletters: Biuletyny
         oauth_applications: Aplikacje OAuth
@@ -526,6 +499,10 @@ pl:
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
           omnipresent_banner_appearance_title: Edytuj wszechobecny baner
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktywne bloki treści
+          inactive_content_blocks: Bloki nieaktywnych treści
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.

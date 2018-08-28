@@ -1,0 +1,36 @@
+<div class="column">
+  <article class="card card--badge absolutes badge-<%= badge.name %>">
+    <div class="right badge-tip">
+      <div data-tooltip data-position="top" title="<%= tooltip %>" aria-describedby="<%= badge.name %>-tooltip" data-yeti-box="<%= badge.name %>-tooltip" data-toggle="<%= badge.name %>-tooltip" data-resize="<%= badge.name %>-tooltip" class="has-tip" data-t="<%= badge.name %>-t">
+        <%= icon "info" %>
+      </div>
+    </div>
+    <div class="card__content">
+      <div class="card__header">
+        <div class="badge-container">
+          <%= image_tag badge.image, class: "badge__logo" %>
+        </div>
+      </div>
+      <div class="card__text text-center">
+        <strong><%= badge_name %></strong>
+      </div>
+      <div class="card__text text-center">
+        <%= description %>
+      </div>
+    </div>
+    <div class="card__footer card__footer--transparent">
+        <div class="p-xs">
+          <div class="flex--sbc">
+            <strong class="text-uppercase muted">
+              <%= t "decidim.gamification.level", level: status.level %>
+            </strong>
+            <div class="badge-level">
+              <% badge.levels.each_with_index do |_threshold, level| %>
+                <div class="<%= "is-achieved" if status.level >= (level + 1) %>"></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </article>
+</div>

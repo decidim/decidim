@@ -20,6 +20,8 @@ nl:
     models:
       decidim/attachment_created_event: gehechtheid
       decidim/component_published_event: Actieve component
+      decidim/gamification/badge_earned_event: Badge verdiend
+      decidim/gamification/level_up_event: Je bent genivelleerd
       decidim/profile_updated_event: Profiel geüpdatet
   activerecord:
     attributes:
@@ -205,6 +207,19 @@ nl:
             dummy_step_attribute_1: Voorbeeld-kenmerk 1
             dummy_step_attribute_2: Voorbeeld-kenmerk 2
     contact: Contact
+    content_blocks:
+      footer_sub_hero:
+        name: Voettekst sub hero banner
+      hero:
+        name: Held afbeelding
+      highlighted_content_banner:
+        name: Gemarkeerde inhoudsbanner
+      how_to_participate:
+        name: Hoe deel te nemen
+      stats:
+        name: Organisatie statistieken
+      sub_hero:
+        name: Sub held banner
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
@@ -303,6 +318,17 @@ nl:
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
         email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. Je kan dit ontvolgen door te klikken . op de voorgaande link.
         email_subject: Een update voor %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
+          email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
+          email_subject: 'U heeft een nieuwe badge verdiend: %{badge_name}!'
+          notification_title: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
+        level_up:
+          email_intro: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
+          email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
+          email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
+          notification_title: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -321,7 +347,8 @@ nl:
     filters:
       linked_classes:
         all: Alle
-        dummyresource: Dummy middelen
+        collaborative_draft: Samenwerkingsconcept
+        dummy_resource: Dummy middelen
         meeting: Vergaderingen
         project: Projecten
         proposal: Voorstellen
@@ -352,6 +379,19 @@ nl:
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
+    gamification:
+      badges:
+        invitations:
+          description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
+          description_own: Je hebt %{score} gebruikers uitgenodigd.
+          explanation: Gebruikers krijgen deze badge door andere gebruikers uit te nodigen.
+          name: Uitnodigingen
+          next_level_in: Nodig nog %{score} gebruikers uit om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen gebruiker uitgenodigd.
+          unearned_own: Je hebt nog geen gebruikers uitgenodigd.
+      description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
+      level: Niveau %{level}
+      reached_top: U hebt het hoogste niveau bereikt voor deze badge.
     invitations:
       create:
         error: Er waren enkele problemen terwijl je je vrienden uitnodigde
@@ -404,13 +444,13 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
+          from: Van
+          last_message_html: Laatste bericht <strong>%{time} geleden</strong>
           no_conversations: Je hebt nog geen gesprekken
-          title: conversaties
-        reply:
-          send: Verzenden
-          title: Beantwoorden
         show:
-          title: Gesprek met %{usernames}
+          conversation_with_html: Gesprek met <strong>%{name}</strong>
+          reply: Beantwoorden
+          send: Sturen
         start:
           send: Verzenden
           title: Een gesprek beginnen
@@ -523,6 +563,8 @@ nl:
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
+        badges: badges
+        conversations: conversaties
         followers: Volgers
         following: volgt
         notifications: meldingen
@@ -657,6 +699,8 @@ nl:
         description_html: Deze website maakt gebruik van cookies. Door gebruik te blijven maken van de site gaat u hiermee akkoord. Meer informatie via %{link}.
         link_label: hier
         ok: Ik ga akkoord
+      edit_link:
+        edit: Bewerk
       footer:
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
@@ -724,6 +768,7 @@ nl:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"

@@ -10,7 +10,8 @@
   background-color: $primary;
 }
 
-.proposal-status{
+.proposal-status,
+.collaborative-draft-status{
   float: left;
   margin-right: .5rem;
 }

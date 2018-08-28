@@ -1,3 +1,10 @@
+<%
+edit_link(
+  decidim_admin_consultations.consultations_path,
+  :read,
+  :consultation
+)
+%>
 <% provide :meta_title, t("consultations.index.title", scope: "decidim") %>
 <main class="wrapper">
   <div class="row columns">

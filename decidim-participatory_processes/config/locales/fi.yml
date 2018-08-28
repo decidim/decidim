@@ -8,18 +8,18 @@ fi:
         copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet
         description: Kuvaus
-        developer_group: Promoottoriryhmä
+        developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
         end_date: Päättymisaika
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        local_area: Paikallisalue
+        local_area: Järjestöalue
         meta_scope: Kontekstin metadata
         participatory_process_group_id: Prosessiryhmä
-        participatory_scope: Osallistumisprosessin konteksti
-        participatory_structure: Osallistumisprosessin rakenne
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         promoted: Korostettu
-        published_at: Julkaistu osoitteessa
+        published_at: Julkaistu
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
@@ -27,7 +27,7 @@ fi:
         slug: URL-tunniste
         start_date: Aloitusaika
         subtitle: Alaotsikko
-        target: Kohde
+        target: Kuka osallistuu
         title: Otsikko
       participatory_process_group:
         description: Kuvaus
@@ -46,30 +46,30 @@ fi:
         role: Rooli
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
-      decidim/participatory_process_step_changed_event: Vaihe muuttui
+      decidim/participatory_process_step_changed_event: Vaihe muutettu
   activerecord:
     models:
       decidim/participatory_process:
         one: Osallistumisprosessi
         other: Osallistumisprosessit
       decidim/participatory_process_group:
-        one: Osallistuva prosessiryhmä
-        other: Osallistuvat prosessiryhmät
+        one: Osallistumisprosessiryhmä
+        other: Osallistumisprosessiryhmät
       decidim/participatory_process_step:
-        one: vaihe
-        other: Askeleet
+        one: Vaihe
+        other: Vaiheet
   decidim:
     admin:
       actions:
         activate: Aktivoi
         configure: Asetukset
         confirm_destroy: Vahvista poistaminen
-        destroy: Poistaa
+        destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
-        new_process_step: Uusi askel
+        new_process_step: Uusi vaihe
         new_process_user_role: Uusi prosessikäyttäjä
         preview: Esikatsele
         publish: Julkaise
@@ -79,11 +79,11 @@ fi:
         participatory_process_groups: Prosessiryhmät
         participatory_processes: Prosessit
         participatory_processes_submenu:
-          attachment_collections: kansiot
+          attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
-          components: komponentit
+          components: Komponentit
           info: Tiedot
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
@@ -93,7 +93,7 @@ fi:
         participatory_process:
           fields:
             created_at: Luonnin ajankohta
-            private: yksityinen
+            private: Yksityinen
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
@@ -113,7 +113,7 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Osallistuva prosessikäyttäjä
+          name: Osallistumisprosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
             collaborator: Kollaboraattori
@@ -129,7 +129,7 @@ fi:
           title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
-          success: Osallistuva prosessiryhmä poistettiin onnistuneesti.
+          success: Osallistumisprosessiryhmä poistettiin onnistuneesti.
         edit:
           title: Muokkaa prosessiryhmää
           update: Päivitä
@@ -159,7 +159,7 @@ fi:
           error:
             active_step: Aktiivista vaihetta ei voi poistaa.
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
-          success: Osallistuvan prosessin vaihe poistettiin onnistuneesti.
+          success: Osallistumisprosessin vaihe poistettiin onnistuneesti.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
@@ -176,7 +176,7 @@ fi:
       participatory_process_user_roles:
         create:
           error: Tapahtui virhe lisätessä käyttäjää osallistumisprosessiin.
-          success: Käyttäjä lisäsi menestyksekkäästi tähän osallistuvaan prosessiin.
+          success: Käyttäjä lisättiin onnistuneesti tähän osallistumisprosesssiin.
         destroy:
           success: Käyttäjä poistettiin onnistuneesti tästä osallistumisprosessista.
         edit:
@@ -202,7 +202,7 @@ fi:
           title: Yleistä tietoa
         index:
           not_published: Ei julkaistu
-          private: yksityinen
+          private: Yksityinen
           public: Julkinen
           published: Julkaistu
         new:
@@ -228,38 +228,38 @@ fi:
           success: Kutsu uudelleen onnistuneesti.
     admin_log:
       participatory_process:
-        create: "%{user_name} luonut %{resource_name} osallistuva prosessi"
-        publish: "%{user_name} julkaisi %{resource_name} osallistuva prosessi"
-        unpublish: "%{user_name} julkaisematon %{resource_name} osallistuva prosessi"
-        update: "%{user_name} päivitti %{resource_name} osallistuvan prosessin"
+        create: "%{user_name} loi osallisuusprosessin %{resource_name}"
+        publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
+        unpublish: "%{user_name} muutti osallstumisprosessin %{resource_name} julkaisemattomaksi"
+        update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} aktivoi %{resource_name} vaiheen %{space_name} osallistumisprosessissa"
-        create: "%{user_name} loi %{resource_name} vaihe %{space_name} osallistumisprosessissa"
-        delete: "%{user_name} poistanut %{resource_name} vaihe %{space_name} osallistuvan prosessin"
-        update: "%{user_name} päivitti %{resource_name} vaiheen %{space_name} osallistumisprosessissa"
+        activate: "%{user_name} aktivoi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        create: "%{user_name} loi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        delete: "%{user_name} poisti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        update: "%{user_name} päivitti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} kutsui käyttäjän %{resource_name} %{space_name} osallistumisprosessiin"
-        delete: "%{user_name} poistanut käyttäjän %{resource_name} alkaen %{space_name} osallistuva prosessi"
-        update: "%{user_name} muutti käyttäjän %{resource_name} roolia %{space_name} osallistumisprosessissa"
+        create: "%{user_name} kutsui käyttäjän %{resource_name} osallistumisprosessiin %{space_name}"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} osallistumisprosessista %{space_name}"
+        update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallistumisprosessissa %{space_name}"
     events:
       participatory_process:
         step_activated:
-          email_intro: '%{resource_title} vaihe on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Päivitys %{participatory_space_title}
-          notification_title: '%{resource_title} vaihe on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
+          email_intro: 'Vaihe %{resource_title} on nyt käytössä tilassa %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Päivitys tilaan %{participatory_space_title}
+          notification_title: Vaihe %{resource_title} on nyt käytössä kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: '%{resource_title} vaiheen %{participatory_space_title} päivämäärät on päivitetty. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Päivitys %{participatory_space_title}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> vaihe <a href="%{participatory_space_url}">%{participatory_space_title}</a> päivämäärät on päivitetty.
+          email_intro: 'Vaiheen %{resource_title} päivämäärät kohteessa %{participatory_space_title} on päivitetty. Voit nähdä sen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Päivitys tilaan %{participatory_space_title}
+          notification_title: Päivämäärät vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päivitetty.
     menu:
       processes: Prosessit
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 prosessit %{group}
-          other: "%{count} prosesseja %{group}"
+          one: 1 prosessi ryhmälle %{group}
+          other: "%{count} prosessia ryhmälle %{group}"
         title: Osallistumisprosessiryhmät
     participatory_process_steps:
       index:
@@ -274,6 +274,9 @@ fi:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Korostetut prosessit
       index:
         title: Osallistumisprosessit
       pages:
@@ -281,6 +284,8 @@ fi:
           highlighted_processes:
             active_processes: Aktiiviset prosessit
             active_step: Aktiivinen vaihe
+            more_information: Lisätietoja
+            participate: Osallistu
             see_all_processes: Näytä kaikki prosessit
       participatory_process_groups:
         none: Ei ryhmää
@@ -288,31 +293,31 @@ fi:
         filters:
           counters:
             active:
-              one: 1 aktiivinen prosessi
-              other: "%{count} aktiivista prosessia"
+              one: 1 käytössä oleva prosessi
+              other: "%{count} käytössä olevaa prosessia"
             all:
               one: 1 prosessi
-              other: "%{count} prosesseja"
+              other: "%{count} prosessia"
             past:
               one: 1 aikaisempi prosessi
               other: "%{count} menneitä prosesseja"
             upcoming:
-              one: 1 tulevaa prosessia
-              other: "%{count} tulevia prosesseja"
+              one: 1 tuleva prosessi
+              other: "%{count} tulevaa prosessia"
           explanations:
             no_active: Ei aktiivisia prosesseja
-            no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
-            no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
+            no_active_nor_upcoming: Ei käytössä olevia tai tulevia prosesseja
+            no_active_nor_upcoming_callout: Käytössä olevia tai tulevia prosesseja ei ole tiedossa. Tässä on luettelo menneistä prosesseista.
           names:
             active: Aktivoi
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
-          see: nähdä
+          see: Katso
         index:
           loading: Ladataan tulokset...
       show:
-        developer_group: Promoottoriryhmä
+        developer_group: Kehittäjäryhmä
         end_date: Päättymisaika
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
@@ -325,10 +330,10 @@ fi:
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
-        debates_count: keskustelut
-        endorsements_count: merkintöjen
+        debates_count: Keskustelut
+        endorsements_count: Suositukset
         headline: Tilastot
-        meetings_count: Tapaamiset
+        meetings_count: Tapahtumat
         orders_count: Äänet
         pages_count: Sivut
         processes_count: Prosessit

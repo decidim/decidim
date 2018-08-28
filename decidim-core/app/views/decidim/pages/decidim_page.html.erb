@@ -3,6 +3,15 @@
   description: translated_attribute(page.content)
 ) %>
 
+<%
+edit_link(
+  decidim_admin.edit_static_page_path(page),
+  :update,
+  :static_page,
+  static_page: page
+)
+%>
+
 <main class="wrapper">
   <%= cell "decidim/tos_page", :announcement %>
 

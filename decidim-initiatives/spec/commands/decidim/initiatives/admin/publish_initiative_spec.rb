@@ -34,6 +34,10 @@ module Decidim
             action_log = Decidim::ActionLog.last
             expect(action_log.version).to be_present
           end
+
+          it "increments the author's score" do
+            expect { subject.call }.to change { Decidim::Gamification.status_for(initiative.author, :initiatives).score }.by(1)
+          end
         end
       end
     end

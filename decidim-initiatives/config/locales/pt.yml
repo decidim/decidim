@@ -6,8 +6,8 @@ pt:
         description: Descrição
         offline_votes: Suporte face a face
         scope_id: Escopo
-        signature_end_time: Fim do período de coleta de assinaturas
-        signature_start_time: Início do período de coleta de assinaturas
+        signature_end_date: Fim do período de coleta de assinaturas
+        signature_start_date: Início do período de coleta de assinaturas
         signature_type: Tipo de coleta de assinatura
         signature_type_values:
           any: Misturado
@@ -82,6 +82,14 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Novo marco concluído!
           notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Este usuário obteve %{score} iniciativas publicadas.
+          description_own: Você tem %{score} iniciativas publicadas.
+          explanation: Os usuários recebem esse selo ao publicar suas iniciativas.
+          name: Iniciativas publicadas
+          next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
     initiatives:
       admin:
         committee_requests:
@@ -181,6 +189,9 @@ pt:
           help_text: Você está prestes a pedir para se tornar membro do comitê de promotores desta iniciativa
         spawn:
           success: Sua solicitação foi enviada ao autor da iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: Costas

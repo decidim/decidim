@@ -20,6 +20,8 @@ fi:
     models:
       decidim/attachment_created_event: liite
       decidim/component_published_event: Aktiivinen komponentti
+      decidim/gamification/badge_earned_event: Ansiomerkki
+      decidim/gamification/level_up_event: Olet tasoittunut
       decidim/profile_updated_event: profiili päivitetty
   activerecord:
     attributes:
@@ -205,6 +207,19 @@ fi:
             dummy_step_attribute_1: Dummy Step -ominaisuus 1
             dummy_step_attribute_2: Dummy Step -ominaisuus 2
     contact: Ota yhteyttä
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub sankari banneri
+      hero:
+        name: Hero kuva
+      highlighted_content_banner:
+        name: Korostettu sisältö banneri
+      how_to_participate:
+        name: Miten osallistua
+      stats:
+        name: Organisaatiotilastot
+      sub_hero:
+        name: Sub sankari banneri
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
@@ -303,6 +318,17 @@ fi:
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
+      gamification:
+        badge_earned:
+          email_intro: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
+          email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
+          email_subject: 'Olet ansainnut uuden merkin: %{badge_name}!'
+          notification_title: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
+        level_up:
+          email_intro: Hyvää työtä! Olet saavuttanut tasolle %{current_level} <a href="%{resource_path}">%{badge_name} -merkillä</a>!
+          email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
+          email_subject: Olet saavuttanut tasolle %{current_level} %{badge_name} merkkillä!
+          notification_title: Hyvää työtä! Olet saavuttanut tasolle %{current_level} <a href="%{resource_path}">%{badge_name} -merkillä</a>!
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -321,7 +347,8 @@ fi:
     filters:
       linked_classes:
         all: Kaikki
-        dummyresource: Dummy-resurssit
+        collaborative_draft: Yhteistyöluonnos
+        dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
         proposal: Ehdotukset
@@ -352,6 +379,19 @@ fi:
       errors:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
+    gamification:
+      badges:
+        invitations:
+          description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
+          description_own: Olet kutsunut %{score} käyttäjää.
+          explanation: Käyttäjät saavat tämän tunnuksen kutsumalla muita käyttäjiä.
+          name: kutsut
+          next_level_in: Kutsu %{score} käyttäjää päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä kutsunut käyttäjää.
+          unearned_own: Et ole vielä kutsunut käyttäjiä.
+      description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä.
+      level: Taso %{level}
+      reached_top: Olet saavuttanut tämän tunnuksen korkeimman tason.
     invitations:
       create:
         error: Ongelmia ongelmia haettaessa ystäviäsi
@@ -404,13 +444,13 @@ fi:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
+          from: alkaen
+          last_message_html: Viimeisin viesti <strong>%{time} ago</strong>
           no_conversations: Sinulla ei vielä ole keskusteluja
-          title: Keskustelut
-        reply:
-          send: Lähetä
-          title: Vastaa
         show:
-          title: Keskustelu käyttäjän %{usernames} kanssa
+          conversation_with_html: Keskustelu <strong>%{name}</strong>
+          reply: Vastaa
+          send: Lähettää
         start:
           send: Lähetä
           title: Aloita keskustelu
@@ -523,6 +563,8 @@ fi:
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
+        badges: Merkit
+        conversations: keskustelut
         followers: seuraajaa
         following: seuraa
         notifications: ilmoitukset
@@ -657,6 +699,8 @@ fi:
         description_html: Tämä sivusto käyttää evästeitä. Jatkamalla tämän sivuston käyttöä hyväksyt selaimeesi asettamamme evästeet. Lue lisää %{link}.
         link_label: täältä
         ok: Hyväksyn
+      edit_link:
+        edit: Muokata
       footer:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.
       header:
@@ -724,6 +768,7 @@ fi:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d.%m.%Y %H:%M"

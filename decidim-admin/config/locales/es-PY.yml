@@ -93,34 +93,6 @@ es-PY:
               must_be_ssl: El URI de redirección debe ser un URI SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imagen de banner
-        description: Descripción
-        developer_group: Grupo promotor
-        domain: Dominio
-        end_date: Fecha de finalización
-        hashtag: Hashtag
-        hero_image: Imagen de portada
-        local_area: Áreas municipales
-        meta_scope: 'Metadatos: ámbito'
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
-        promoted: Destacado
-        scope: Ámbito
-        short_description: Descripción breve
-        slug: Texto corto de URL
-        start_date: Fecha de inicio
-        subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
-        title: Título
-      decidim/participatory_process_group:
-        description: Descripción
-        hero_image: Imagen de portada
-        name: Nombre
-        participatory_processes: Procesos participativos
-      decidim/participatory_process_step:
-        end_date: Fecha de finalización
-        start_date: Fecha de inicio
       decidim/static_page:
         content: Contenido
         slug: Texto corto de URL
@@ -333,6 +305,7 @@ es-PY:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
+        homepage: Página principal
         impersonations: Impersonaciones
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
@@ -526,6 +499,10 @@ es-PY:
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
           layout_appearance_title: Editar apariencia de diseño global
           omnipresent_banner_appearance_title: Editar banner omnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloques de contenido activos
+          inactive_content_blocks: Bloques de contenido inactivos
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.

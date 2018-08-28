@@ -93,34 +93,6 @@ nl:
               must_be_ssl: De omleidings-URI moet een SSL-URI zijn
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Banner afbeelding
-        description: Beschrijving
-        developer_group: Promotergroep
-        domain: Domein
-        end_date: Einddatum
-        hashtag: Hashtag
-        hero_image: Afbeelding van de startpagina
-        local_area: Lokale buurt
-        meta_scope: Omvang metadata
-        participatory_scope: Participatief toepassingsgebied
-        participatory_structure: Participatieve structuur
-        promoted: Bevorderd
-        scope: Reikwijdte
-        short_description: Korte beschrijving
-        slug: URL slak
-        start_date: Startdatum
-        subtitle: Ondertiteling
-        target: Doel
-        title: Titel
-      decidim/participatory_process_group:
-        description: Beschrijving
-        hero_image: Afbeelding van de startpagina
-        name: Naam
-        participatory_processes: Participatieve thema's
-      decidim/participatory_process_step:
-        end_date: Einddatum
-        start_date: Startdatum
       decidim/static_page:
         content: Inhoud
         slug: URL slug
@@ -333,6 +305,7 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
+        homepage: Startpagina
         impersonations: Zich voordoen als
         newsletters: Nieuwsbrieven
         oauth_applications: OAuth-toepassingen
@@ -526,6 +499,10 @@ nl:
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
           omnipresent_banner_appearance_title: Bewerk de alomtegenwoordige banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Actieve inhoudsblokken
+          inactive_content_blocks: Inactieve inhoudsblokken
       participatory_space_private_users:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.

@@ -6,8 +6,8 @@ it:
         description: Descrizione
         offline_votes: Supporti faccia a faccia
         scope_id: Scopo
-        signature_end_time: Fine del periodo di raccolta della firma
-        signature_start_time: Inizio del periodo di raccolta della firma
+        signature_end_date: Fine del periodo di raccolta della firma
+        signature_start_date: Inizio del periodo di raccolta della firma
         signature_type: Tipo di raccolta della firma
         signature_type_values:
           any: Misto
@@ -82,6 +82,14 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Nuova pietra miliare completata!
           notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Questo utente ha ottenuto %{score} iniziative pubblicate.
+          description_own: Hai pubblicato %{score} iniziative.
+          explanation: Gli utenti ottengono questo badge pubblicando le loro iniziative.
+          name: Iniziative pubblicate
+          next_level_in: Ricevi altre %{score} iniziative pubblicate per raggiungere il livello successivo!
     initiatives:
       admin:
         committee_requests:
@@ -181,6 +189,9 @@ it:
           help_text: Stai per chiedere di diventare un membro del comitato promotore di questa iniziativa
         spawn:
           success: La tua richiesta è stata inviata all'autore dell'iniziativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniziative evidenziate
       create_initiative:
         fill_data:
           back: Indietro

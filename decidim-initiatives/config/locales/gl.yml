@@ -6,8 +6,8 @@ gl:
         description: Descrición
         offline_votes: Soportes cara a cara
         scope_id: Alcance
-        signature_end_time: Fin do período de recadación de sinaturas
-        signature_start_time: Inicio do período de recollida de sinaturas
+        signature_end_date: Fin do período de recadación de sinaturas
+        signature_start_date: Inicio do período de recollida de sinaturas
         signature_type: Tipo de recadación de sinatura
         signature_type_values:
           any: Mesturado
@@ -82,6 +82,16 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Novo fito rematado!
           notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Este usuario obtivo %{score} iniciativas publicadas.
+          description_own: Tes publicado %{score} iniciativas.
+          explanation: Os usuarios obtén esta insignia ao publicar as súas iniciativas.
+          name: Iniciativas publicadas
+          next_level_in: Recibe %{score} iniciativas máis publicadas para alcanzar o seguinte nivel!
+          unearned_another: Este usuario aínda non recibiu ningunha iniciativa publicada.
+          unearned_own: Aínda non recibiu ningunha iniciativa publicada.
     initiatives:
       admin:
         committee_requests:
@@ -181,6 +191,9 @@ gl:
           help_text: Está a piques de solicitar ser membro do comité promotor desta iniciativa
         spawn:
           success: Enviouse a solicitude ao autor da iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: De volta

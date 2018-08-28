@@ -6,8 +6,8 @@ eu:
         description: deskribapena
         offline_votes: Face-to-face euskarriak
         scope_id: esparrua
-        signature_end_time: Sinadura bildumaren epea amaituta
-        signature_start_time: Sinadura bildumaren aldiaren hasiera
+        signature_end_date: Sinadura bildumaren epea amaituta
+        signature_start_date: Sinadura bildumaren aldiaren hasiera
         signature_type: Sinadura bilketa mota
         signature_type_values:
           any: mistoa
@@ -82,6 +82,16 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Mugarri berria osatu da!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
+          description_own: Argitaratutako %{score} ekimen dituzu.
+          explanation: Erabiltzaileek txapela lortzen dute beren ekimenak argitaratuz.
+          name: Argitaratutako ekimenak
+          next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek oraindik ez du argitaratutako ekimenik lortu.
+          unearned_own: Ez duzu oraindik argitaratutako ekimenik.
     initiatives:
       admin:
         committee_requests:
@@ -181,6 +191,9 @@ eu:
           help_text: Ekimen honen sustatzaile batzordeko kidea bihurtu nahi duzu
         spawn:
           success: Zure eskaera ekimenaren egilea da.
+      content_blocks:
+        highlighted_initiatives:
+          name: Ekimen nabarmenak
       create_initiative:
         fill_data:
           back: Back

@@ -313,6 +313,13 @@ module Decidim
           content_block.public_name_key "decidim.content_blocks.footer_sub_hero.name"
         end
       end
+
+      initializer "decidim.core.add_badges" do
+        Decidim::Gamification.register_badge(:invitations) do |badge|
+          badge.levels = [1, 5, 10, 30, 50]
+          badge.reset = ->(user) { Decidim::User.where(invited_by: user.id).count }
+        end
+      end
     end
   end
 end

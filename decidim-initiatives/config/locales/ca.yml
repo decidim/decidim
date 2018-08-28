@@ -6,8 +6,8 @@ ca:
         description: Descripció
         offline_votes: Suports presencials
         scope_id: Abast
-        signature_end_time: Fi del període de recollida de signatures
-        signature_start_time: Inici del període de recollida de signatures
+        signature_end_date: Fi del període de recollida de signatures
+        signature_start_date: Inici del període de recollida de signatures
         signature_type: Tipus de recollida de la signatura
         signature_type_values:
           any: Mixta
@@ -82,6 +82,16 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha completat una nova fita!
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Aquest usuari ha obtingut %{score} iniciatives publicades.
+          description_own: Tens %{score} iniciatives publicades.
+          explanation: Els usuaris obtenen aquesta distinció mitjançant la publicació de les seves iniciatives.
+          name: Iniciatives publicades
+          next_level_in: Obteniu %{score} iniciatives més publicades per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha aconseguit cap iniciativa publicada.
+          unearned_own: Encara no has iniciat cap publicació.
     initiatives:
       admin:
         committee_requests:
@@ -181,6 +191,9 @@ ca:
           help_text: Estàs a punt de sol·licitar formar part del comitè promotor d'aquesta iniciativa
         spawn:
           success: La teva sol·licitud s'ha enviat a l'autor de la iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciatives destacades
       create_initiative:
         fill_data:
           back: Enrere

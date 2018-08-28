@@ -16,10 +16,7 @@ describe "Proposals", type: :system do
   let(:longitude) { 2.1234 }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   matcher :have_author do |name|
@@ -255,6 +252,14 @@ describe "Proposals", type: :system do
 
       visit_component
       expect(page).to have_css(".card--proposal", count: 3)
+    end
+
+    describe "editable content" do
+      before do
+        visit_component
+      end
+
+      it_behaves_like "editable content for admins"
     end
 
     describe "default ordering" do

@@ -20,6 +20,8 @@ gl:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Compoñente activo
+      decidim/gamification/badge_earned_event: Insignia obtida
+      decidim/gamification/level_up_event: Has nivelado
       decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
@@ -205,6 +207,19 @@ gl:
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contacto
+    content_blocks:
+      footer_sub_hero:
+        name: Banner de sub-heroes de pés
+      hero:
+        name: Imaxe de heroe
+      highlighted_content_banner:
+        name: Banner de contido destacado
+      how_to_participate:
+        name: Como participar
+      stats:
+        name: Estatísticas da organización
+      sub_hero:
+        name: Banner sub-heroe
     core:
       actions:
         unauthorized: Non estás autorizado para realizar esta acción
@@ -303,6 +318,17 @@ gl:
         email_intro: 'Houbo unha actualización a "%{resource_title}". Podes velo desde esta páxina:'
         email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
         email_subject: Unha actualización a %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Gran traballo! Gañaches o <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).
+          email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
+          email_subject: 'Xa obtivo unha insignia nova: %{badge_name}.'
+          notification_title: Gran traballo! Gañaches o <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).
+        level_up:
+          email_intro: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
+          email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
+          email_subject: Chegou ao nivel %{current_level} na insignia %{badge_name}.
+          notification_title: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -321,7 +347,8 @@ gl:
     filters:
       linked_classes:
         all: Todo
-        dummyresource: Recursos maniquís
+        collaborative_draft: Proxecto colaborativo
+        dummy_resource: Recursos maniquís
         meeting: Reunións
         project: Proxectos
         proposal: Propostas
@@ -352,6 +379,19 @@ gl:
       errors:
         error: Hai un erro neste campo.
       remove_this_file: Elimina este ficheiro
+    gamification:
+      badges:
+        invitations:
+          description_another: Este usuario invitou a %{score} usuarios.
+          description_own: Invitaches %{score} usuarios.
+          explanation: Os usuarios obtén esta badge invitando a outros usuarios.
+          name: Invitacións
+          next_level_in: Invita %{score} usuarios máis para chegar ao seguinte nivel!
+          unearned_another: Este usuario aínda non invitou ningún usuario.
+          unearned_own: Aínda non invitaches usuarios.
+      description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
+      level: Nivel %{level}
+      reached_top: Alcanzou o nivel superior desta placa.
     invitations:
       create:
         error: Houbo algúns problemas ao invitar aos teus amigos
@@ -404,13 +444,13 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
+          from: Desde
+          last_message_html: Última mensaxe <strong>%{time} ago</strong>
           no_conversations: Aínda non tes conversas
-          title: Conversas
-        reply:
-          send: Enviar
-          title: Responder
         show:
-          title: Conversa con %{usernames}
+          conversation_with_html: Conversa con <strong>%{name}</strong>
+          reply: Responder
+          send: Enviar
         start:
           send: Enviar
           title: Comezar unha conversa
@@ -523,6 +563,8 @@ gl:
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
+        badges: Insignias
+        conversations: Conversas
         followers: Seguidores
         following: Segue
         notifications: Notificacións
@@ -657,6 +699,8 @@ gl:
         description_html: Este sitio usa cookies. Ao continuar navegando polo sitio, acepta o noso uso das cookies. Máis información %{link}.
         link_label: aquí
         ok: Estou de acordo
+      edit_link:
+        edit: Editar
       footer:
         made_with_open_source: Sitio web feito con <a target="_blank" href="https://github.com/decidim/decidim"> software libre</a>.
       header:
@@ -724,6 +768,7 @@ gl:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
       decidim_short: "%d/%m/%Y %H:%M"

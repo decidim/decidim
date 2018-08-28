@@ -21,7 +21,7 @@
         <li class="card-data__item">
           <div class="card__link text-center">
             <%= resource_icon notification.resource, class: "icon--large" %>
-            <span class="text-medium mt-xs"><%= notification.created_at.strftime("%a %e") %></span>
+            <span class="text-medium mt-xs"><%= l notification.created_at, format: :day_of_week_long %></span>
           </div>
         </li>
         <li class="card-data__item card-data__item--expand absolutes">

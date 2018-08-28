@@ -20,6 +20,8 @@ it:
     models:
       decidim/attachment_created_event: attaccamento
       decidim/component_published_event: Componente attivo
+      decidim/gamification/badge_earned_event: Badge guadagnato
+      decidim/gamification/level_up_event: Ti sei alzato di livello
       decidim/profile_updated_event: profilo aggiornato
   activerecord:
     attributes:
@@ -205,6 +207,19 @@ it:
             dummy_step_attribute_1: Attributo Dummy Step 1
             dummy_step_attribute_2: Attributo Dummy Step 2
     contact: Contatto
+    content_blocks:
+      footer_sub_hero:
+        name: Banner di sub eroe di piè di pagina
+      hero:
+        name: Immagine dell'eroe
+      highlighted_content_banner:
+        name: Banner dei contenuti evidenziati
+      how_to_participate:
+        name: Come partecipare
+      stats:
+        name: Statistiche dell'organizzazione
+      sub_hero:
+        name: Banner di sub eroe
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
@@ -303,6 +318,17 @@ it:
         email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
         email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
         email_subject: Un aggiornamento per %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Ottimo lavoro! Hai ottenuto il badge <a href="%{resource_path}">%{badge_name}</a> (livello %{current_level}).
+          email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
+          email_subject: 'Hai guadagnato un nuovo badge: %{badge_name}!'
+          notification_title: Ottimo lavoro! Hai ottenuto il badge <a href="%{resource_path}">%{badge_name}</a> (livello %{current_level}).
+        level_up:
+          email_intro: Ottimo lavoro! Hai raggiunto il livello %{current_level} sul badge <a href="%{resource_path}">%{badge_name}</a>!
+          email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
+          email_subject: Hai raggiunto il livello %{current_level} sul %{badge_name} badge!
+          notification_title: Ottimo lavoro! Hai raggiunto il livello %{current_level} sul badge <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -321,7 +347,8 @@ it:
     filters:
       linked_classes:
         all: Tutto
-        dummyresource: Risorse fittizie
+        collaborative_draft: Bozza collaborativa
+        dummy_resource: Risorse fittizie
         meeting: Incontri
         project: Progetti
         proposal: Proposte
@@ -352,6 +379,19 @@ it:
       errors:
         error: Si è verificato un errore in questo campo.
       remove_this_file: Rimuovere questo file
+    gamification:
+      badges:
+        invitations:
+          description_another: Questo utente ha invitato %{score} utenti.
+          description_own: Hai invitato %{score} utenti.
+          explanation: Gli utenti ottengono questo badge invitando altri utenti.
+          name: inviti
+          next_level_in: Invita altri %{score} utenti a raggiungere il livello successivo!
+          unearned_another: Questo utente non ha ancora invitato alcun utente.
+          unearned_own: Non hai ancora invitato nessun utente.
+      description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
+      level: Livello %{level}
+      reached_top: Hai raggiunto il livello più alto per questo badge.
     invitations:
       create:
         error: Ci sono stati alcuni problemi durante l'invito ai tuoi amici
@@ -404,13 +444,13 @@ it:
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
+          from: A partire dal
+          last_message_html: Ultimo messaggio <strong>%{time} fa</strong>
           no_conversations: Non hai ancora conversazioni
-          title: Conversazioni
-        reply:
-          send: Invia
-          title: Rispondi
         show:
-          title: Conversazione con %{usernames}
+          conversation_with_html: Conversazione con <strong>%{name}</strong>
+          reply: Rispondi
+          send: Inviare
         start:
           send: Invia
           title: Inizia una conversazione
@@ -523,6 +563,8 @@ it:
     profiles:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
+        badges: badge
+        conversations: conversazioni
         followers: Seguaci
         following: segue
         notifications: notifiche
@@ -657,6 +699,8 @@ it:
         description_html: Questo sito utilizza cookies. Se continui la navigazione significa che approvi i nostri termini di utilizzo di cookies. Per saperne di più, leggi %{link}.
         link_label: qui
         ok: OK, accetto
+      edit_link:
+        edit: modificare
       footer:
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
@@ -724,6 +768,7 @@ it:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"

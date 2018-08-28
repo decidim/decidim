@@ -6,8 +6,8 @@ pt-BR:
         description: Descrição
         offline_votes: Suporte face a face
         scope_id: Escopo
-        signature_end_time: Fim do período de coleta de assinaturas
-        signature_start_time: Início do período de coleta de assinaturas
+        signature_end_date: Fim do período de coleta de assinaturas
+        signature_start_date: Início do período de coleta de assinaturas
         signature_type: Tipo de coleta de assinatura
         signature_type_values:
           any: Misturado
@@ -82,6 +82,15 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Novo marco concluído!
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Este usuário obteve %{score} iniciativas publicadas.
+          description_own: Você tem %{score} iniciativas publicadas.
+          explanation: Os usuários recebem esse selo ao publicar suas iniciativas.
+          name: Iniciativas publicadas
+          next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não publicou nenhuma iniciativa.
     initiatives:
       admin:
         committee_requests:
@@ -126,22 +135,22 @@ pt-BR:
         initiatives_type_scopes:
           create:
             error: ocorreu um erro
-            success: Um novo escopo para o tipo de iniciativa determinado foi criado
+            success: Um novo âmbito para o tipo de iniciativa determinado foi criado
           destroy:
-            success: O escopo foi removido com sucesso
+            success: O âmbito foi removido com sucesso
           edit:
             back: Costas
             confirm_destroy: Você tem certeza?
             destroy: Excluir
-            title: Editar o escopo do tipo de iniciativa
+            title: Editar o âmbito do tipo de iniciativa
             update: Atualizar
           new:
             back: Costas
             create: Criar
-            title: Criar escopo de tipo de iniciativa
+            title: Criar âmbito de tipo de iniciativa
           update:
             error: ocorreu um erro
-            success: O escopo foi atualizado com sucesso
+            success: O âmbito foi atualizado com sucesso
         initiatives_types:
           create:
             error: ocorreu um erro
@@ -181,6 +190,9 @@ pt-BR:
           help_text: Você está prestes a pedir para se tornar membro do comitê de promotores desta iniciativa
         spawn:
           success: Sua solicitação foi enviada ao autor da iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: Costas
@@ -188,7 +200,7 @@ pt-BR:
           fill_data_help: "<ul> <li>Revise o conteúdo da sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa? Distrito da cidade?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
-          select_scope: Selecione um escopo
+          select_scope: Selecione um âmbito
         finish:
           back: Costas
           back_to_initiatives: De volta às iniciativas
