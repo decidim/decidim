@@ -196,6 +196,22 @@ pl:
           notification_title: Możesz teraz uruchomić <a href="%{resource_path}">propozycji głosowania</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Ten użytkownik otrzymał %{score} propozycji zaakceptowanych.
+          description_own: Przyjęto %{score} propozycji.
+          explanation: Użytkownicy otrzymują tę odznakę, przyjmując propozycje zaakceptowane.
+          name: Zaakceptowane propozycje
+          next_level_in: Uzyskaj %{score} dodatkowych propozycji zaakceptowanych, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych propozycji.
+          unearned_own: Nie otrzymałeś jeszcze żadnych propozycji.
+        proposal_votes:
+          description_another: Ten użytkownik udzielił wsparcia %{score} propozycji.
+          description_own: Udzieliłeś wsparcia %{score} propozycji.
+          explanation: Użytkownicy otrzymują tę odznakę, udzielając wsparcia propozycjom.
+          name: Propozycja wspiera
+          next_level_in: Poprzyj %{score} innych propozycji, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie wspierał jeszcze żadnych propozycji.
+          unearned_own: Nie udzielałeś już wsparcia żadnym wnioskom.
         proposals:
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.
