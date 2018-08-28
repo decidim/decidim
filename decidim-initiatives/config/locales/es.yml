@@ -89,9 +89,9 @@ es:
           description_own: Tienes %{score} iniciativas publicadas.
           explanation: Los usuarios obtienen esta insignia al publicar sus iniciativas.
           name: Iniciativas publicadas
-          next_level_in: Obtenga %{score} iniciativas más publicadas para llegar al siguiente nivel.
+          next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
           unearned_another: Este usuario aún no ha publicado ninguna iniciativa.
-          unearned_own: Aún no hay iniciativas publicadas.
+          unearned_own: Aún no tienes ninguna iniciativa publicada.
     initiatives:
       admin:
         committee_requests:
