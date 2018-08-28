@@ -186,6 +186,22 @@ es:
           notification_title: Ya puedes empezar a <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Este usuario ha recibido %{score} propuestas aceptadas.
+          description_own: Tienes %{score} propuestas aceptadas.
+          explanation: Los usuarios obtienen esta insignia al hacer que se acepten sus propuestas.
+          name: Propuestas aceptadas
+          next_level_in: Obtenga %{score} propuestas más aceptadas para alcanzar el siguiente nivel.
+          unearned_another: Este usuario aún no ha recibido ninguna propuesta.
+          unearned_own: Aún no hay propuestas aceptadas.
+        proposal_votes:
+          description_another: Este usuario ha dado soporte a %{score} propuestas.
+          description_own: Usted ha dado soporte a %{score} propuestas.
+          explanation: Los usuarios obtienen esta insignia dando soporte a las propuestas.
+          name: La propuesta apoya
+          next_level_in: '¡Apoya a %{score} propuestas más para alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha dado soporte a ninguna propuesta.
+          unearned_own: Usted no ha dado soporte a ninguna propuesta todavía.
         proposals:
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
