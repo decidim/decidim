@@ -186,6 +186,22 @@ ca:
           notification_title: Ja pots començar a <a href="%{resource_path}">donar suports a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Aquest usuari ha obtingut %{score} propostes acceptades.
+          description_own: Has rebut %{score} propostes acceptades.
+          explanation: Els usuaris obtenen aquesta distinció acceptant les seves propostes.
+          name: Propostes acceptades
+          next_level_in: Aconsegueix %{score} propostes més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha acceptat cap proposta acceptada.
+          unearned_own: Encara no heu acceptat cap proposta.
+        proposal_votes:
+          description_another: Aquest usuari ha donat suport a %{score} propostes.
+          description_own: Heu donat suport a %{score} propostes.
+          explanation: Els usuaris obtenen aquesta distinció donant suport a les propostes.
+          name: Suport de la proposta
+          next_level_in: Donar suport a %{score} propostes més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha donat suport a cap proposta.
+          unearned_own: Has donat suport a cap proposta encara.
         proposals:
           description_another: Aquest usuari ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
