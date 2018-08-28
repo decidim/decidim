@@ -380,6 +380,15 @@ pt-BR:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
     gamification:
+      badges:
+        invitations:
+          description_another: Este usuário convidou %{score} usuários.
+          description_own: Você convidou %{score} usuários.
+          explanation: Os usuários recebem esse selo convidando outros usuários.
+          name: Convites
+          next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não convidou nenhum usuário.
+          unearned_own: Você não convidou nenhum usuário ainda.
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
