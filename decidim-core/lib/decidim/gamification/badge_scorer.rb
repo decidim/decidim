@@ -48,7 +48,7 @@ module Decidim
           next if badge_score.blank?
 
           badge_score.decrement(:value, amount)
-          badge_score.value = 0 if badge_score.value < 0
+          badge_score.value = 0 if badge_score.value.negative?
           badge_score.save!
         end
       end
