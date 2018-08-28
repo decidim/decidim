@@ -28,6 +28,17 @@ module Decidim
       BadgeScorer.new(user, find_badge(badge_name)).increment(amount)
     end
 
+    # Public: Decrement the score of a user for a badge.
+    #
+    # user       - A User for whom to increase the score.
+    # badge_name - The name of the badge for which to increase the score.
+    # amount     - (Optional) The amount to decrease. Defaults to 1.
+    #
+    # Returns nothing.
+    def self.decrement_score(user, badge_name, amount = 1)
+      BadgeScorer.new(user, find_badge(badge_name)).decrement(amount)
+    end
+
     # Public: Sets the score of a user for a badge.
     #
     # user       - A User for whom to set the score.
