@@ -78,7 +78,7 @@ fi:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
-            creation_enabled: Ehdotuksen luominen käyttöön
+            creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Hyväksynnät estetty
             endorsements_enabled: Hyväksynnät käytössä
             proposal_answering_enabled: Ehdotuksen vastaus on käytössä
