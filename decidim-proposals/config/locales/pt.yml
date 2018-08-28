@@ -186,6 +186,22 @@ pt:
           notification_title: Agora você pode iniciar <a href="%{resource_path}">propostas de votação</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Este utilizador obteve %{score} propostas aceites.
+          description_own: Você tem %{score} propostas aceitas.
+          explanation: Os usuários recebem esse selo ao aceitar suas propostas.
+          name: Propostas aceitas
+          next_level_in: Receba mais %{score} propostas aceitas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não recebeu nenhuma proposta aceita.
+          unearned_own: Você não recebeu nenhuma proposta aceita ainda.
+        proposal_votes:
+          description_another: Este usuário deu suporte a %{score} propostas.
+          description_own: Você deu suporte a %{score} propostas.
+          explanation: Os usuários recebem esse selo dando suporte a propostas.
+          name: Apoios proposta
+          next_level_in: Dê suporte a mais %{score} propostas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não deu suporte a nenhuma proposta.
+          unearned_own: Você deu suporte a nenhuma proposta ainda.
         proposals:
           description_another: Este usuário criou %{score} propostas.
           description_own: Você criou %{score} propostas.

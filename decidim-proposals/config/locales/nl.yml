@@ -186,6 +186,22 @@ nl:
           notification_title: Je kan nu beginnen met <a href="%{resource_path}">stemmen op</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Deze gebruiker heeft %{score} voorstellen geaccepteerd gekregen.
+          description_own: Je hebt %{score} voorstellen geaccepteerd.
+          explanation: Gebruikers krijgen deze badge door hun voorstellen te laten accepteren.
+          name: Geaccepteerde voorstellen
+          next_level_in: Ontvang nog %{score} voorstellen die worden geaccepteerd om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen voorstellen geaccepteerd.
+          unearned_own: Je hebt nog geen voorstellen geaccepteerd.
+        proposal_votes:
+          description_another: Deze gebruiker heeft %{score} voorstellen ondersteund.
+          description_own: U hebt %{score} voorstellen ondersteund.
+          explanation: Gebruikers krijgen deze badge door voorstellen te ondersteunen.
+          name: Voorstel ondersteunt
+          next_level_in: Geef %{score} extra voorstellen om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen ondersteuning gegeven aan eventuele voorstellen.
+          unearned_own: Je hebt nog geen steun gegeven aan nog geen voorstellen.
         proposals:
           description_another: Deze gebruiker heeft %{score} voorstellen gemaakt.
           description_own: U hebt %{score} voorstellen gemaakt.

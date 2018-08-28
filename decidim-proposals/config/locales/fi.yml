@@ -4,10 +4,10 @@ fi:
       collaborative_draft:
         body: ruumis
         category_id: Kategoria
-        decidim_scope_id: laajuus
+        decidim_scope_id: Laajuus
         has_address: Onko osoite
         state: Osavaltio
-        title: otsikko
+        title: Otsikko
         user_group_id: Luo yhteistoiminnallinen luonnos nimellä
       proposal:
         answer: Vastaus
@@ -91,7 +91,7 @@ fi:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
-            creation_enabled: Ehdotuksen luominen käyttöön
+            creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Hyväksynnät estetty
             endorsements_enabled: Hyväksynnät käytössä
             proposal_answering_enabled: Ehdotuksen vastaus on käytössä
@@ -186,6 +186,22 @@ fi:
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">äänestyssuosituksen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksyttyä.
+          description_own: Sinulla on %{score} ehdotusta hyväksytty.
+          explanation: Käyttäjät saavat tämän tunnuksen hankkimalla ehdotuksensa.
+          name: Hyväksytyt ehdotukset
+          next_level_in: Hanki vielä %{score} ehdotusta, jotka hyväksyttiin seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole saanut vielä hyväksyttyjä ehdotuksia.
+          unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
+        proposal_votes:
+          description_another: Tämä käyttäjä on tukenut %{score} ehdotusta.
+          description_own: Olet antanut tukea %{score} ehdotukselle.
+          explanation: Käyttäjät saavat tämän tunnuksen tukemalla ehdotuksia.
+          name: Ehdotus tukee
+          next_level_in: Anna tukea vielä %{score} ehdotukselle seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä antanut tukea mihinkään ehdotukseen.
+          unearned_own: Et ole vielä antanut tukea ehdotuksille.
         proposals:
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.

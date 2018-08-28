@@ -379,6 +379,15 @@ hu:
         error: Hiba történt ebben a mezőben.
       remove_this_file: Távolítsa el ezt a fájlt
     gamification:
+      badges:
+        invitations:
+          description_another: Ez a felhasználó %{score} felhasználót meghívott.
+          description_own: Meghívott %{score} felhasználót.
+          explanation: A felhasználók megkapják ezt a jelvényt a többi felhasználó meghívásával.
+          name: meghívók
+          next_level_in: Hívjon még %{score} további felhasználót a következő szint eléréséhez!
+          unearned_another: Ez a felhasználó még nem hívott meg egyetlen felhasználót sem.
+          unearned_own: Még nem hívott meg felhasználókat.
       description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz.
       level: '%{level}szint'
       reached_top: Ön elérte a jelvény legmagasabb szintjét.

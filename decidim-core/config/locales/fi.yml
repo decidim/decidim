@@ -380,6 +380,15 @@ fi:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
+      badges:
+        invitations:
+          description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
+          description_own: Olet kutsunut %{score} käyttäjää.
+          explanation: Käyttäjät saavat tämän tunnuksen kutsumalla muita käyttäjiä.
+          name: kutsut
+          next_level_in: Kutsu %{score} käyttäjää päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä kutsunut käyttäjää.
+          unearned_own: Et ole vielä kutsunut käyttäjiä.
       description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä.
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän tunnuksen korkeimman tason.

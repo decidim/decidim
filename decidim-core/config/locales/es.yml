@@ -380,6 +380,15 @@ es:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
+      badges:
+        invitations:
+          description_another: Este usuario ha invitado a %{score} usuarios.
+          description_own: Has invitado a %{score} usuarios.
+          explanation: Los usuarios obtienen esta insignia invitando a otros usuarios.
+          name: Invitaciones
+          next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha invitado a ningún usuario.
+          unearned_own: No has invitado aún a ningún usuario.
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.

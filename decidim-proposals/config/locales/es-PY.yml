@@ -4,7 +4,7 @@ es-PY:
       collaborative_draft:
         body: Cuerpo
         category_id: Categoría
-        decidim_scope_id: Alcance
+        decidim_scope_id: Ámbito
         has_address: Tiene dirección
         state: Estado
         title: Título
@@ -44,7 +44,7 @@ es-PY:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Proyecto de colaboración
+        one: Borrador colaborativo
         other: Borradores colaborativos
       decidim/proposals/proposal:
         one: Propuesta
@@ -72,7 +72,7 @@ es-PY:
             announcement: Anuncio
             attachments_allowed: Permitir archivos adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
-            collaborative_drafts_enabled: Borradores colaborativos habilitados
+            collaborative_drafts_enabled: Habilitar borradores colaborativos
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
             new_proposal_help_text: Nuevo texto de ayuda de propuesta
@@ -101,35 +101,35 @@ es-PY:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} ha sido aceptado para acceder como colaborador del borrador de colaboración de <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} ha sido aceptado para acceder como contribuidor del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} ha sido aceptado para acceder como contribuidor de %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido aceptado <strong>para acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptado para acceder como colaborador</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} ha sido rechazado para acceder como colaborador del borrador de colaboración de <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} ha sido rechazado para acceder como colaborador del %{resource_title} borrador colaborativo."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido rechazado <strong>para acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} ha sido rechazado para acceder como contribuidor del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} ha sido rechazado para acceder como contribuidor del borrador colaborativo %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>rechazado para acceder como contribuidor</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} solicitó acceso como colaborador. Puede <strong>aceptar o rechazar la solicitud</strong> de la página de borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} ha solicitado acceso como colaborador. Puede <strong>aceptar o rechazar la solicitud</strong> de la página de borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} solicitó acceso para contribuir a %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitó acceso para contribuir al borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>. Por favor <strong>aceptar o rechazar la solicitud</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Usted ha sido aceptado para acceder como colaborador del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Recibió esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Usted ha sido aceptado como colaborador de %{resource_title}.
-          notification_title: Ha aceptado <strong>acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Has sido aceptado para acceder como contribuidor del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has sido aceptado para acceder como contribuidor del borrador colaboraivo <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Has sido aceptado como contribuidor de %{resource_title}.
+          notification_title: Ha aceptado <strong>acceder como contribuidor</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Ha sido rechazado para acceder como colaborador del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Recibió esta notificación porque solicitó ser colaborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Has sido rechazado como colaborador de %{resource_title}.
-          notification_title: Ha sido <strong>rechazado para acceder como colaborador</strong> del borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Ha sido rechazado para acceder como contribuidor del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has solicitado ser contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Has sido rechazado como contribuidor de %{resource_title}.
+          notification_title: Has sido <strong>rechazado para acceder como contribuidor</strong> al borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiró el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha retirado el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Has recibido esta notificación porque eres un colaborador de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} retiró el borrador de %{resource_title} colaboraciones."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirado</strong> el borrador de colaboración <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} ha retirado el borrador colaborativo %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirado</strong> el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -291,39 +291,39 @@ es-PY:
           publish:
             error: Ha habido errores al publicar el borrador colaborativo.
             irreversible_action_modal:
-              body: Después de publicar el borrador como una propuesta, el borrador ya no será editable. La propuesta no aceptará nuevos autores o contribuciones.
+              body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevos autores o contribuciones.
               cancel: Cancelar
               ok: Publicar como una propuesta
               title: La siguiente acción es irreversible
-            success: Borrador de colaboración publicado con éxito como una propuesta.
+            success: Borrador de colaborativo publicado con éxito como una propuesta.
           view_collaborative_draft: Ver borrador colaborativo
           withdraw:
-            error: Ha habido errores al cerrar el borrador de colaboración.
+            error: Ha habido errores al cerrar el borrador colaborativo.
             irreversible_action_modal:
-              body: Después de cerrar el borrador, el borrador ya no será editable. El borrador no aceptará nuevos autores o contribuciones.
+              body: Después de cerrar el borrador, dejara de ser editable. El borrador no aceptará nuevos autores o contribuciones.
               cancel: Cancelar
-              ok: Retirar el borrador de colaboración
+              ok: Retirar el borrador colaborativo
               title: La siguiente acción es irreversible
-            success: Borrador de colaboración retirado con éxito.
+            success: Borrador colaborativo retirado con éxito.
         compare:
-          mine_is_different: Mi borrador de colaboración es diferente
-          no_similars_found: '¡Bien hecho! No se encontraron borradores de colaboración similares'
-          title: Borradores de colaboración similares
+          mine_is_different: Mi borrador colaborativo es diferente
+          no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
+          title: Borradores colaborativos similares
         complete:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
-          select_a_category: Porfavor seleccione una categoría
+          select_a_category: Por favor selecciona una categoría
           send: Enviar
-          title: Completa tu borrador de colaboración
+          title: Completa tu borrador colaborativo
         count:
           drafts_count:
-            one: 1 proyecto de colaboración
+            one: 1 borrador colaborativo
             other: "%{count} borradores colaborativos"
         create:
-          error: Ha habido un problema al crear estos borradores de colaboración
-          success: Proyecto colaborativo creado con éxito.
+          error: Ha habido un problema al crear este borradores colaborativo
+          success: Borrador colaborativo creado con éxito.
         edit:
-          back: Espalda
-          select_a_category: Porfavor seleccione una categoría
+          back: Volver
+          select_a_category: Por favor seleccione una categoría
           send: Enviar
           title: Editar borrador colaborativo
         filters:
@@ -337,7 +337,7 @@ es-PY:
           state: Estado
           withdrawn: Retirado
         filters_small_view:
-          close_modal: Cierre modal
+          close_modal: Cerrar modal
           filter: Filtrar
           filter_by: Filtrado por
           unfold: Desplegar
@@ -348,35 +348,35 @@ es-PY:
           new_collaborative_draft: Nuevo borrador colaborativo
         orders:
           label: 'Ordenar borradores por:'
-          most_contributed: La mayoría contribuyó
+          most_contributed: Con más contribuciones
           random: Aleatorio
           recent: Reciente
         requests:
           accepted_request:
-            error: No se pudo aceptar como colaborador. Inténtalo de nuevo más tarde.
-            success: "@%{user} ha sido aceptado como colaborador con éxito"
+            error: No se pudo aceptar como contribuidor. Inténtalo de nuevo más tarde.
+            success: "@%{user} ha sido aceptado como contribuidor con éxito"
           access_requested:
-            error: Su solicitud no pudo ser completada, intente de nuevo más tarde.
-            success: Su solicitud para colaborar ha sido enviada con éxito
+            error: Tu solicitud no pudo ser completada, intenta de nuevo más tarde.
+            success: Tu solicitud para colaborar ha sido enviada con éxito
           collaboration_requests:
             accept_request: Aceptar
             reject_request: Rechazar
-            title: Solicitudes de colaboración
+            title: Solicitudes de contribuciones
           rejected_request:
             error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
-            success: "@%{user} ha sido rechazado como colaborador con éxito"
+            success: "@%{user} ha sido rechazado como contribuidor con éxito"
         show:
-          back: Espalda
+          back: Volver
           edit: Editar borrador colaborativo
           final_proposal: propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
             one: y 1 persona más
             other: y %{count} personas más
-          info-message: Se trata de un <strong>proyecto de colaboración</strong> para una propuesta. Esto significa que puede ayudar a sus autores a dar forma a la propuesta usando la sección de comentarios a continuación o mejorarla directamente solicitando acceso para editarla. Una vez que los autores le otorguen acceso, podrá realizar cambios en este borrador.
+          info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puede ayudar a sus autores a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que los autores le otorguen acceso, podrá realizar cambios en este borrador.
           of_versions: "(de %{number})"
           publish: Publicar
-          publish_info: Publique esta versión del borrador o
+          publish_info: Publicar esta versión del borrador o
           published_proposal: propuesta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
@@ -390,15 +390,15 @@ es-PY:
           withdrawn: Retirado
         update:
           error: Ha habido errores al guardar el borrador colaborativo.
-          success: Proyecto colaborativo actualizado con éxito.
+          success: Borrador colaborativo actualizado con éxito.
         wizard_aside:
-          back: Espalda
-          info: Está creando un borrador de colaboración <strong></strong>.
+          back: Volver
+          info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_steps:
-          see_steps: ver los pasos
+          see_steps: ver las fases
           step_1: Crea tu borrador colaborativo
           step_2: Comparar con borradores colaborativos
-          step_3: Completa tu borrador de colaboración
+          step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
       create:
         error: Ha habido errores al guardar la propuesta.
@@ -523,7 +523,7 @@ es-PY:
           hidden_endorsers_count:
             one: y 1 persona más
             other: y %{count} personas más
-          link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador de colaboración. Revisa la historia
+          link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
           link_to_collaborative_draft_text: Ver el borrador colaborativo
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada

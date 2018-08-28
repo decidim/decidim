@@ -380,6 +380,15 @@ nl:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
     gamification:
+      badges:
+        invitations:
+          description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
+          description_own: Je hebt %{score} gebruikers uitgenodigd.
+          explanation: Gebruikers krijgen deze badge door andere gebruikers uit te nodigen.
+          name: Uitnodigingen
+          next_level_in: Nodig nog %{score} gebruikers uit om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen gebruiker uitgenodigd.
+          unearned_own: Je hebt nog geen gebruikers uitgenodigd.
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.

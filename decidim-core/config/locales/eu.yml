@@ -380,6 +380,15 @@ eu:
         error: Errorea bat dago eremu honetan.
       remove_this_file: Ezabatu artxibo hau
     gamification:
+      badges:
+        invitations:
+          description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
+          description_own: '%{score} erabiltzaile gonbidatu dituzu.'
+          explanation: Erabiltzaileek badute beste erabiltzaile batzuek gonbidatuta.
+          name: Gonbidapenak
+          next_level_in: Gonbidatu %{score} erabiltzaile gehiago hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek ez du oraindik gonbidatu erabiltzaileak.
+          unearned_own: Erabiltzaile ez da gonbidatu oraindik.
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.

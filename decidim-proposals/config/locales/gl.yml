@@ -186,6 +186,22 @@ gl:
           notification_title: Agora podes comezar <a href="%{resource_path}">propostas de voto</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Este usuario obtivo %{score} propostas aceptadas.
+          description_own: Recibiches %{score} propostas.
+          explanation: Os usuarios obtén esta insignia ao aceptar as súas propostas.
+          name: Propostas aceptadas
+          next_level_in: Obtén %{score} propostas máis aceptadas para alcanzar o seguinte nivel!
+          unearned_another: Este usuario aínda non recibiu ningunha proposta aceptada.
+          unearned_own: Aínda non recibiu propostas.
+        proposal_votes:
+          description_another: Este usuario deu soporte a %{score} propostas.
+          description_own: Vostede deu apoio a %{score} propostas.
+          explanation: Os usuarios obtén esta insignia dándolle soporte ás propostas.
+          name: A proposta é compatible
+          next_level_in: Dea soporte a máis de %{score} propostas para alcanzar o seguinte nivel!
+          unearned_another: Este usuario aínda non deu soporte a ningunha proposta.
+          unearned_own: Xa deu soporte a ningunha proposta aínda.
         proposals:
           description_another: Este usuario creou %{score} propostas.
           description_own: Creaches %{score} propostas.
