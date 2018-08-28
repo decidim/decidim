@@ -186,6 +186,22 @@ hu:
           notification_title: Most <a href="%{resource_path}">szavazási javaslatot kezdhet</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Ez a felhasználó %{score} ajánlatot fogadott el.
+          description_own: '%{score} ajánlatot fogadott el.'
+          explanation: A felhasználók megkapják ezt a jelvényt, ha elfogadják a javaslataikat.
+          name: Elfogadott javaslatok
+          next_level_in: Szerezzen be további %{score} ajánlatot, hogy eljuss a következő szintre!
+          unearned_another: Ez a felhasználó még nem kapott elfogadott javaslatokat.
+          unearned_own: Még nem fogadott el javaslatokat.
+        proposal_votes:
+          description_another: Ez a felhasználó támogatta a %{score} javaslatot.
+          description_own: '%{score} pályázat támogatást nyújtott.'
+          explanation: A felhasználók megkapják ezt a jelvényt a javaslatok támogatásával.
+          name: A javaslat támogatja
+          next_level_in: Támogatja a %{score} további javaslatot a következő szint eléréséhez!
+          unearned_another: Ez a felhasználó még nem nyújtott támogatást semmilyen javaslathoz.
+          unearned_own: Ön még nem nyújtott támogatást.
         proposals:
           description_another: Ez a felhasználó %{score} javaslatot hozott létre.
           description_own: '%{score} pályázatot hozott létre.'

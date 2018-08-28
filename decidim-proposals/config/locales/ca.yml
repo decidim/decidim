@@ -201,7 +201,7 @@ ca:
           name: Suports a propostes
           next_level_in: Dona suport a %{score} propostes més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha donat suport a cap proposta.
-          unearned_own: Has donat suport a cap proposta encara.
+          unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           description_another: Aquest usuari ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
