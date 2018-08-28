@@ -9,7 +9,7 @@
       </div>
       <div class="columns medium-6">
         <% if geolocation_enabled? %>
-          <div id="google-map" class="google-map"></div>
+          <%= cell "decidim/meetings/meetings_map", upcoming_events %>
         <% else %>
           <% upcoming_events.last(4).each do |event| %>
             <%= card_for event, size: :s %>
