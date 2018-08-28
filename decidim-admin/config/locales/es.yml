@@ -501,8 +501,8 @@ es:
           omnipresent_banner_appearance_title: Editar banner omnipresente
       organization_homepage:
         edit:
-          active_content_blocks: Bloques de contenido activo
-          inactive_content_blocks: Bloques de contenido inactivo
+          active_content_blocks: Bloques de contenido activos
+          inactive_content_blocks: Bloques de contenido inactivos
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.

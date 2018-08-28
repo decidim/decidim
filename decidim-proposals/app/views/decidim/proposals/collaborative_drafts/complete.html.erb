@@ -1,0 +1,70 @@
+<div class="row">
+  <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
+
+  <div class="columns large-6">
+    <%= render partial: "decidim/proposals/proposals/wizard_header" %>
+
+    <div class="card">
+      <div class="card__content">
+        <%= decidim_form_for(@form) do |form| %>
+          <div class="field">
+            <%= form.text_field :title %>
+          </div>
+
+          <div class="field">
+            <%= form.text_area :body, rows: 10 %>
+          </div>
+
+          <% if component_settings.geocoding_enabled? %>
+            <div class="field">
+              <%= form.check_box :has_address, class: "has_address" %>
+            </div>
+            <div class="field" id="address_input">
+              <%= form.text_field :address %>
+            </div>
+          <% end %>
+
+          <% if @form.categories&.any? %>
+            <div class="field">
+              <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
+            </div>
+          <% end %>
+
+          <% if current_participatory_space.has_subscopes? %>
+            <div class="field">
+              <%= scopes_picker_field form, :scope_id %>
+            </div>
+          <% end %>
+
+          <% if current_user.user_groups.verified.any? %>
+            <div class="field">
+              <%= user_group_select_field form, :user_group_id %>
+            </div>
+          <% end %>
+
+          <% if component_settings.attachments_allowed? %>
+            <fieldset>
+              <legend><%= t(".attachment_legend") %></legend>
+              <%= form.fields_for :attachment, @form.attachment do |form| %>
+                <div class="field">
+                  <%= form.text_field :title %>
+                </div>
+
+                <div class="field">
+                  <%= form.upload :file, optional: false %>
+                </div>
+              <% end %>
+            </fieldset>
+          <% end %>
+
+          <div class="actions">
+            <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="columns large-3"></div>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/add_proposal" %>

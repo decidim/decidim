@@ -3,7 +3,6 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
-
 # Decidim configuration.
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
@@ -66,9 +65,9 @@ module Decidim
   autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
   autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
   autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
+  autoload :Gamification, "decidim/gamification"
 
   include ActiveSupport::Configurable
-
   # Loads seeds from all engines.
   def self.seed!
     # Faker needs to have the `:en` locale in order to work properly, so we
@@ -82,7 +81,17 @@ module Decidim
       railtie.load_seed
     end
 
-    Decidim.participatory_space_manifests.each(&:seed!)
+    participatory_space_manifests.each(&:seed!)
+    Gamification.badges.each do |badge|
+      puts "Setting random values for the \"#{badge.name}\" badge..."
+      User.all.find_each do |user|
+        Gamification::BadgeScore.find_or_create_by!(
+          user: user,
+          badge_name: badge.name,
+          value: Random.rand(0...20)
+        )
+      end
+    end
 
     I18n.available_locales = original_locale
   end

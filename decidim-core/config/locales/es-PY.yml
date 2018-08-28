@@ -20,6 +20,8 @@ es-PY:
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
+      decidim/gamification/badge_earned_event: Insignia obtenida
+      decidim/gamification/level_up_event: Has subido de nivel
       decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
@@ -207,9 +209,9 @@ es-PY:
     contact: Contacto
     content_blocks:
       footer_sub_hero:
-        name: Banner de subhéroe de pie de página
+        name: Banner de sub-hero de pie de página
       hero:
-        name: Imagen de héroe
+        name: Imagen de hero
       highlighted_content_banner:
         name: Banner de contenido resaltado
       how_to_participate:
@@ -217,7 +219,7 @@ es-PY:
       stats:
         name: Estadísticas de la organización
       sub_hero:
-        name: Banner de subhéroe
+        name: Banner de sub-hero
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -316,6 +318,17 @@ es-PY:
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
         email_subject: Una actualización de %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: '¡Enhorabuena! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
+          email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
+          email_subject: '¡Has ganado una nueva insignia: %{badge_name}!'
+          notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
+        level_up:
+          email_intro: '¡Enhorabuena! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+          email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
+          email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
+          notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -334,6 +347,7 @@ es-PY:
     filters:
       linked_classes:
         all: Todas
+        collaborative_draft: Borrador colaborativo
         dummy_resource: Recursos ficticios
         meeting: Encuentros
         project: Proyectos
@@ -365,6 +379,19 @@ es-PY:
       errors:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
+    gamification:
+      badges:
+        invitations:
+          description_another: Este usuario ha invitado a %{score} usuarios.
+          description_own: Has invitado a %{score} usuarios.
+          explanation: Los usuarios obtienen esta insignia invitando a otros usuarios.
+          name: Invitaciones
+          next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha invitado a ningún usuario.
+          unearned_own: No has invitado aún a ningún usuario.
+      description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
+      level: Nivel %{level}
+      reached_top: Has alcanzado el nivel superior para esta insignia.
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -418,7 +445,7 @@ es-PY:
           error: Conversación no iniciada. Inténtalo más tarde
         index:
           from: De
-          last_message_html: Último mensaje <strong>%{time} hace</strong>
+          last_message_html: Último mensaje <strong>hace %{time}</strong>
           no_conversations: Aún no tienes conversaciones
         show:
           conversation_with_html: Conversación con <strong>%{name}</strong>
@@ -536,6 +563,7 @@ es-PY:
     profiles:
       default_officialization_text: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
+        badges: Insignias
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue

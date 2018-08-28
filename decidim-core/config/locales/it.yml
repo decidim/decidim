@@ -20,6 +20,8 @@ it:
     models:
       decidim/attachment_created_event: attaccamento
       decidim/component_published_event: Componente attivo
+      decidim/gamification/badge_earned_event: Badge guadagnato
+      decidim/gamification/level_up_event: Ti sei alzato di livello
       decidim/profile_updated_event: profilo aggiornato
   activerecord:
     attributes:
@@ -316,6 +318,17 @@ it:
         email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
         email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
         email_subject: Un aggiornamento per %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Ottimo lavoro! Hai ottenuto il badge <a href="%{resource_path}">%{badge_name}</a> (livello %{current_level}).
+          email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
+          email_subject: 'Hai guadagnato un nuovo badge: %{badge_name}!'
+          notification_title: Ottimo lavoro! Hai ottenuto il badge <a href="%{resource_path}">%{badge_name}</a> (livello %{current_level}).
+        level_up:
+          email_intro: Ottimo lavoro! Hai raggiunto il livello %{current_level} sul badge <a href="%{resource_path}">%{badge_name}</a>!
+          email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
+          email_subject: Hai raggiunto il livello %{current_level} sul %{badge_name} badge!
+          notification_title: Ottimo lavoro! Hai raggiunto il livello %{current_level} sul badge <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -334,6 +347,7 @@ it:
     filters:
       linked_classes:
         all: Tutto
+        collaborative_draft: Bozza collaborativa
         dummy_resource: Risorse fittizie
         meeting: Incontri
         project: Progetti
@@ -365,6 +379,19 @@ it:
       errors:
         error: Si è verificato un errore in questo campo.
       remove_this_file: Rimuovere questo file
+    gamification:
+      badges:
+        invitations:
+          description_another: Questo utente ha invitato %{score} utenti.
+          description_own: Hai invitato %{score} utenti.
+          explanation: Gli utenti ottengono questo badge invitando altri utenti.
+          name: inviti
+          next_level_in: Invita altri %{score} utenti a raggiungere il livello successivo!
+          unearned_another: Questo utente non ha ancora invitato alcun utente.
+          unearned_own: Non hai ancora invitato nessun utente.
+      description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
+      level: Livello %{level}
+      reached_top: Hai raggiunto il livello più alto per questo badge.
     invitations:
       create:
         error: Ci sono stati alcuni problemi durante l'invito ai tuoi amici
@@ -536,6 +563,7 @@ it:
     profiles:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
+        badges: badge
         conversations: conversazioni
         followers: Seguaci
         following: segue

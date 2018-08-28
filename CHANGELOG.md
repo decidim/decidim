@@ -74,6 +74,14 @@ To configure it correctly:
   Be careful when playing with this feature on production.
   Check [\#3984](https://github.com/decidim/decidim/pull/3984) for more details.
 
+- **Badges**: Badges are introduced in the `0.14` as a way to add gamification and
+  increase the amount of user interaction. In order to generate the scores of all
+  the badges, please run an IRB session via `rails console` and execute:
+
+  ```ruby
+  Decidim::Gamification.reset_badges
+  ```
+
 **Added**:
 
 - **decidim-admin**:Add link to user profile and link to conversation from admin space. [\#3995](https://github.com/decidim/decidim/pull/3995)
@@ -92,7 +100,18 @@ To configure it correctly:
 - **decidim-core**: Make Users Searchable. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
 - **decidim-core**: Added metrics visualization for Users and Proposals (all, accepted and votes) [\#3603](https://github.com/decidim/decidim/pull/3603)
+- **decidim-proposals**: Add Collaborative drafts: [\#3109](https://github.com/decidim/decidim/pull/3109)
+  - Admin can en/disable this feature from the component configuration
+  - Filtrable list of Collaborative drafts in public views
+  - Collaborative drafts are: traceable, commentable, coauthorable, reportable
+  - Publish collaborative draft as Proposal
 - **decidim-participatory_processes**: Display a big card when there's just one process at the homepage [\#3970](https://github.com/decidim/decidim/pull/3970)
+- **decidim-core**: Adds support for earning badges. [\#3975](https://github.com/decidim/decidim/pull/3975)
+- **decidim-proposals**: Adds the *proposal* badge. [\#3975](https://github.com/decidim/decidim/pull/3975)
+- **decidim-proposals**: Adds the *proposal supports* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
+- **decidim-proposals**: Adds the *accepted proposals* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
+- **decidim-core**: Adds the *invitations* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
+- **decidim-initiatives**: Adds the *published initiatives* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
 - **decidim-core**: Add link to admin edit from public pages. [\#3978](https://github.com/decidim/decidim/pull/3978)
 
 **Changed**:
@@ -110,6 +129,7 @@ To configure it correctly:
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#4024](https://github.com/decidim/decidim/pull/4024)
 - **decidim-core**: Fix day date translation on profile notifications. [\#3994](https://github.com/decidim/decidim/pull/3994)
 - **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)
 - **decidim-initiatives**: Fix initiative edition when state is not published. [\#3930](https://github.com/decidim/decidim/pull/3930)
