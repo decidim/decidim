@@ -78,6 +78,7 @@
 - **decidim-core**: Adds the *invitations* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
 - **decidim-initiatives**: Adds the *published initiatives* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
 - **decidim-core**: Add link to admin edit from public pages. [\#3978](https://github.com/decidim/decidim/pull/3978)
+- **decidim-assemblies**: Add organizational chart to assemblies home. [\#4045](https://github.com/decidim/decidim/pull/4045)
 
 **Changed**:
 
