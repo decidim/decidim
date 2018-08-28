@@ -388,7 +388,7 @@ ca:
           name: Invitacions
           next_level_in: Convida a %{score} usuaris més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha convidat cap usuari.
-          unearned_own: Encara no heu convidat cap usuari.
+          unearned_own: Encara no has convidat cap usuari.
       description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, obtindràs diferents distintius.
       level: Nivell %{level}
       reached_top: Has arribat al nivell superior d'aquesta insígnia.
