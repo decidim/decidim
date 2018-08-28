@@ -40,6 +40,14 @@
   Be careful when playing with this feature on production.
   Check [\#3984](https://github.com/decidim/decidim/pull/3984) for more details.
 
+- **Badges**: Badges are introduced in the `0.14` as a way to add gamification and
+  increase the amount of user interaction. In order to generate the scores of all
+  the badges, please run an IRB session via `rails console` and execute:
+
+  ```ruby
+  Decidim::Gamification.reset_badges
+  ```
+
 **Added**:
 
 - **decidim-admin**:Add link to user profile and link to conversation from admin space. [\#3995](https://github.com/decidim/decidim/pull/3995)
