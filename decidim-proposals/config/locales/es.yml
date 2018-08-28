@@ -28,7 +28,7 @@ es:
       decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
       decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
       decidim/proposals/evaluating_proposal_event: La propuesta está siendo evaluada
-      decidim/proposals/proposal_endorsed_event: Adherido/a
+      decidim/proposals/proposal_endorsed_event: Propuesta adherida
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
       decidim/proposals/publish_proposal_event: Propuesta publicada
       decidim/proposals/rejected_proposal_event: Propuesta rechazada
@@ -184,7 +184,7 @@ es:
         proposals:
           answer:
             invalid: Ha habido un problema al responder a esta propuesta
-            success: Propuesta respuesta con éxito
+            success: Propuesta respondida con éxito
           create:
             invalid: Ha habido un problema al crear esta propuesta
             success: Propuesta creada correctamente
@@ -342,7 +342,7 @@ es:
           publish: Publicar
           title: Publica tu propuesta
         proposal:
-          creation_date: 'Creación: %{date}'
+          creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
@@ -354,9 +354,9 @@ es:
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
-          sign_in: Registrarse
+          sign_in: Iniciar sesión
           sign_in_or_up: "%{in} o %{up} para participar"
-          sign_up: Regístrate
+          sign_up: regístrarse
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
@@ -374,7 +374,7 @@ es:
           count:
             one: APOYO
             other: APOYOS
-          most_popular_proposal: La propuesta más popular
+          most_popular_proposal: Propuestas más populares
           need_more_votes: Necesita más apoyos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
@@ -393,10 +393,10 @@ es:
           info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           see_steps: ver los pasos
-          step_1: Crea tu propuesta
+          step_1: Crear tu propuesta
           step_2: Comparar
           step_3: Completar
-          step_4: Publica tu propuesta
+          step_4: Publicar tu propuesta
           step_of: Paso %{current_step_num} de %{total_steps}
       publish:
         error: Ha habido errores al publicar la propuesta.
