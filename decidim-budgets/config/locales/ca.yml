@@ -54,8 +54,8 @@ ca:
             success: "S'ha importat amb èxit %{number} propostes en projectes"
           new:
             create: Importa propostes a projectes
-            no_components: No hi ha altres components de la proposta en aquest espai participatiu per importar les propostes en projectes.
-            select_component: Seleccioneu un component
+            no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
+            select_component: Selecciona un component
       admin_log:
         project:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
@@ -130,7 +130,7 @@ ca:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
             projects_per_page: Projectes per pàgina
-            resources_permissions_enabled: Es poden establir permisos d'accions per a cada reunió
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             total_budget: Pressupost total
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:

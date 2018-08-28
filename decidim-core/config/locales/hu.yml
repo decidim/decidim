@@ -20,6 +20,8 @@ hu:
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Aktív komponens
+      decidim/gamification/badge_earned_event: Megszerzett jelvény
+      decidim/gamification/level_up_event: Kiegyenlítettél
       decidim/profile_updated_event: profil frissítve
   activerecord:
     attributes:
@@ -315,6 +317,17 @@ hu:
         email_intro: 'Frissítés történt "%{resource_title}" -ra. Láthatja ezt az oldalról:'
         email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" -t követi. Leiratkozhat az előző linkről.
         email_subject: Frissítés %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Nagyszerű munka! Ön megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> ( %{current_level}szint).
+          email_outro: Ezt az értesítést azért kapta, mert aktivitást tett a weboldalunkon.
+          email_subject: 'Új jelvényt szerzett: %{badge_name}!'
+          notification_title: Nagyszerű munka! Ön megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> ( %{current_level}szint).
+        level_up:
+          email_intro: Nagyszerű munka! Ön elérte a %{current_level} szintet az <a href="%{resource_path}">%{badge_name} jelvényen</a>!
+          email_outro: Ezt az értesítést azért kapta, mert aktivitást tett a weboldalunkon.
+          email_subject: Ön elérte a %{current_level} szintet az %{badge_name} jelvényen!
+          notification_title: Nagyszerű munka! Ön elérte a %{current_level} szintet az <a href="%{resource_path}">%{badge_name} jelvényen</a>!
       notification_event:
         notification_title: Egy esemény <a href="%{resource_path}">%{resource_title}</a>-re esett.
       users:
@@ -333,6 +346,7 @@ hu:
     filters:
       linked_classes:
         all: Minden
+        collaborative_draft: Együttműködési tervezet
         dummy_resource: Dummy források
         meeting: találkozók
         project: projektek
@@ -364,6 +378,10 @@ hu:
       errors:
         error: Hiba történt ebben a mezőben.
       remove_this_file: Távolítsa el ezt a fájlt
+    gamification:
+      description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz.
+      level: '%{level}szint'
+      reached_top: Ön elérte a jelvény legmagasabb szintjét.
     invitations:
       create:
         error: Volt problémák a barátok meghívása közben
@@ -535,6 +553,7 @@ hu:
     profiles:
       default_officialization_text: Ezt a résztvevőt nyilvánosan ellenőrzik, a nevét vagy szerepét igazolták, hogy megfeleljen valódi nevének és szerepének
       show:
+        badges: Kitűzők
         conversations: beszélgetések
         followers: Követő
         following: következik

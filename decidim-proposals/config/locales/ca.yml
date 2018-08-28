@@ -1,6 +1,14 @@
 ca:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Cos
+        category_id: Categoria
+        decidim_scope_id: Àmbit
+        has_address: Té adreça
+        state: Estat
+        title: Títol
+        user_group_id: Crea un esborrany de col·laboració com a
       proposal:
         answer: Resposta
         answered_at: Respost el
@@ -35,6 +43,9 @@ ca:
       decidim/proposals/voting_enabled_event: Les propostes admeten suports
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Esborrany col·laboratiu
+        other: Esborranys col·laboratius
       decidim/proposals/proposal:
         one: Proposta
         other: Propostes
@@ -61,6 +72,7 @@ ca:
             announcement: Anunci
             attachments_allowed: Permetre arxius adjunts
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
+            collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
@@ -88,6 +100,36 @@ ca:
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidor de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has rebut aquesta notificació perquè ets un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "S'ha acceptat %{requester_name} per accedir com a contribuidor del %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat <strong>acceptat per accedir com a contribuidor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: 'S''ha rebutjat %{requester_name} per accedir com a contribuidor de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has rebut aquesta notificació perquè ets un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "S'ha rebutjat %{requester_name} per accedir com a col·laborador de l'esborrany col·lanoratiu %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a><strong> ha estat rebutjat per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdor. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Has rebut aquesta notificació perquè ets un contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} ha demanat accés per contribuir a %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sol·licitat accés per contribuir a l'esborrany col·laboratiu de <a href="%{resource_path}">%{resource_title}</a>. Si us plau, <strong>accepta o rebutja la sol·licitud</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Has estat acceptat com a contribuïdor de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Has estat acceptat com a contribuïdor de %{resource_title}.
+          notification_title: Has estat acceptat <strong>per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Has estat rebutjat per accedir com a contribuïdor de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Has estat rebutjat com a contribuïdor de %{resource_title}.
+          notification_title: Has estat rebutjat <strong>per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha retirat l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Has rebut aquesta notificació perquè ets un contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} ha retirat l'esborrany col·laboratiu %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirat</strong> l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -142,6 +184,16 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           notification_title: Ja pots començar a <a href="%{resource_path}">donar suports a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          description_another: Aquest usuari ha creat %{score} propostes.
+          description_own: Has creat %{score} propostes.
+          explanation: Els usuaris obtenen aquesta insígnia creant propostes.
+          name: Propostes
+          next_level_in: Crea %{score} més propostes per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha creat cap proposta.
+          unearned_own: Encara no has creat cap proposta.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -234,6 +286,120 @@ ca:
         not_answered: No resposta
         rejected: Rebutjada
         withdrawn: Retirada
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Hi ha hagut errors en publicar l'esborrany col·laboratiu.
+            irreversible_action_modal:
+              body: Després de publicar l'esborrany com a proposta, deixarà de ser editable. La proposta no acceptarà nous autors ni contribucions.
+              cancel: Cancel·lar
+              ok: Publica com a proposta
+              title: La següent acció és irreversible
+            success: L'esborrany col·laboratiu s'ha publicat amb èxit com a proposta.
+          view_collaborative_draft: Ves l'esborrany col·laboratiu
+          withdraw:
+            error: S'ha produït un error en tancar l'esborrany col·laboratiu.
+            irreversible_action_modal:
+              body: Després de tancar l'esborrany, ja no serà editable. L'esborrany no acceptarà nous autors ni contribucions.
+              cancel: Cancel·lar
+              ok: Retira el projecte de col·laboració
+              title: La següent acció és irreversible
+            success: L'esborrany col·laboratiu s'ha retirat amb èxit.
+        compare:
+          mine_is_different: El meu esborrany col·laboratiu és diferent
+          no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
+          title: Esborranys col·laboratius similars
+        complete:
+          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
+          select_a_category: Selecciona una categoria
+          send: Enviar
+          title: Completa el teu esborrany col·laboratiu
+        count:
+          drafts_count:
+            one: 1 esborrany col·laboratiu
+            other: "%{count} esborranys col·laboratius"
+        create:
+          error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
+          success: S'ha creat un esborrany col·laboratiu.
+        edit:
+          back: Tornar
+          select_a_category: Selecciona una categoria
+          send: Enviar
+          title: Edita l'esborrany col·laboratiu
+        filters:
+          all: Tots
+          category: Categoria
+          category_prompt: Indicació de categoria
+          open: Obert
+          published: Publicat
+          related_to: Relacionat amb
+          search: Cerca
+          state: Estat
+          withdrawn: Retirat
+        filters_small_view:
+          close_modal: Tanca la finestra
+          filter: Filtre
+          filter_by: Filtra per
+          unfold: Desplegar
+        new:
+          send: Continua
+          title: Crea el teu esborrany col·laboratiu
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nou esborrany col·laboratiu
+        orders:
+          label: 'Ordenar esborranys per:'
+          most_contributed: Amb més contribucions
+          random: Aleatori
+          recent: Recent
+        requests:
+          accepted_request:
+            error: No s'ha pogut acceptar com a contribuïdor, torna-ho a provar més tard.
+            success: "S'ha acceptat amb èxit @%{user} com a contribuïdor"
+          access_requested:
+            error: No s'ha pogut completar la teva sol·licitud, torna-ho a provar més tard.
+            success: La teva sol·licitud de contribució s'ha enviat correctament
+          collaboration_requests:
+            accept_request: Accepta
+            reject_request: Rebutja
+            title: Sol·licituds de col·laboració
+          rejected_request:
+            error: No s'ha pogut rebutjar aquest contribuïdor, tornau-ho a provar més tard.
+            success: "@%{user} s'ha rebutjat correctament com a contribuïdor"
+        show:
+          back: Tornar
+          edit: Edita l'esborrany col·laboratiu
+          final_proposal: proposta final
+          final_proposal_help_text: Aquest esborrany està finalitzat. Pots veure la proposta final
+          hidden_authors_count:
+            one: i 1 persona més
+            other: i %{count} persones més
+          info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar els seus autors a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un cop els autors et donin accés, podràs fer canvis en aquest esborrany.
+          of_versions: "(de %{number})"
+          publish: Publica
+          publish_info: Publica aquesta versió de l'esborrany o
+          published_proposal: proposta publicada
+          request_access: Sol·licitud d'accés
+          requested_access: S'ha sol·licitat l'accés
+          see_other_versions: veure altres versions
+          version: Versió %{number}
+          version_history: vés l'historial de versions d'aquesta proposta
+          withdraw: retira l'esborrany
+        states:
+          open: Obert
+          published: Publicat
+          withdrawn: Retirat
+        update:
+          error: Hi ha hagut errors en desar l'esborrany col·laboratiu.
+          success: L'esborrany col·laboratiu s'ha actualitzat correctament.
+        wizard_aside:
+          back: Tornar
+          info: Estàs creant un <strong>esborrany col·laboratiu</strong>.
+        wizard_steps:
+          see_steps: veure els passos
+          step_1: Crea el teu esborrany col·laboratiu
+          step_2: Comparar amb esborranys col·laboratius
+          step_3: Completa el teu esborrany col·laboratiu
+          step_of: Pas %{current_step_num} de %{total_steps}
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
@@ -241,6 +407,11 @@ ca:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat amb èxit.
       models:
+        collaborative_draft:
+          fields:
+            authors: Autors
+            comments: Comentaris
+            contributions: Aportacions
         proposal:
           fields:
             category: Categoria
@@ -320,6 +491,7 @@ ca:
           filter_by: Filtrar per
           unfold: Desplegar
         index:
+          collaborative_drafts_list: Accedeix a esborranys col·laboratius
           new_proposal: Nova proposta
           see_all_withdrawn: Veure totes les propostes retirades
           view_proposal: Veure proposta
@@ -351,6 +523,8 @@ ca:
           hidden_endorsers_count:
             one: i 1 persona més
             other: i %{count} persones més
+          link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
+          link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
@@ -408,6 +582,20 @@ ca:
       update_draft:
         error: Hi ha hagut errors en desar l'esborrany de la proposta.
         success: El projecte de proposta s'ha actualitzat correctament.
+      versions:
+        changes_at_title: Canvis a "%{title}"
+        index:
+          title: Versions
+        stats:
+          back_to_collaborative_draft: Torna a l'esborrany col·laboratiu
+          number_of_versions: Versions
+          show_all_versions: Mostra totes les versions
+          version_author: Autor de la versió
+          version_created_at: Versió creada a
+          version_number: Número de versió
+          version_number_out_of_total: "%{current_version} de %{total_count}"
+        version:
+          version_index: Versió %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Propostes relacionades

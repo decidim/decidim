@@ -1,6 +1,14 @@
 fr:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Corps
+        category_id: Catégorie
+        decidim_scope_id: Portée
+        has_address: A l'adresse
+        state: Etat
+        title: Titre
+        user_group_id: Créez un brouillon collaboratif comme
       proposal:
         answer: Répondre
         answered_at: Répondu à
@@ -35,6 +43,9 @@ fr:
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Projet de collaboration
+        other: Brouillons collaboratifs
       decidim/proposals/proposal:
         one: Proposition
         other: Propositions
@@ -61,6 +72,7 @@ fr:
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
+            collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
@@ -88,6 +100,36 @@ fr:
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} a été accepté en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a été accepté pour accéder en tant que contributeur du %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>admis à l' accès en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} a été refusé d''accès en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a été rejetée pour accéder en tant que contributeur du %{resource_title} projet de collaboration."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} demandé l''accès en tant que contributeur. Vous pouvez <strong>accepter ou rejeter la demande</strong> de la page de brouillon collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} demandé un accès pour contribuer à %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> demandé un accès pour contribuer au projet de collaboration <a href="%{resource_path}">%{resource_title}</a> . S'il vous plaît <strong>accepter ou rejeter la demande</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Vous avez été accepté pour accéder en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Vous avez été accepté comme contributeur de %{resource_title}.
+          notification_title: Vous avez été <strong>accepté d'accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Vous avez été refusé à accéder en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Vous avez été rejeté en tant que contributeur de %{resource_title}.
+          notification_title: Vous avez été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiré le projet de collaboration <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} retiré le %{resource_title} projet de collaboration."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> le <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
@@ -142,6 +184,16 @@ fr:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Vous pouvez désormais voter les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          description_another: Cet utilisateur a créé %{score} propositions.
+          description_own: Vous avez créé %{score} propositions.
+          explanation: Les utilisateurs obtiennent ce badge en créant des propositions.
+          name: Les propositions
+          next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant!
+          unearned_another: Cet utilisateur n'a pas encore créé de proposition.
+          unearned_own: Vous n'avez créé aucune proposition pour le moment.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -234,6 +286,120 @@ fr:
         not_answered: En attente de réponse
         rejected: Non retenue
         withdrawn: Retirée
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Il y a eu des erreurs lors de la publication du brouillon collaboratif.
+            irreversible_action_modal:
+              body: Après avoir publié le projet en tant que proposition, le projet ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
+              cancel: Annuler
+              ok: Publier en tant que proposition
+              title: L'action suivante est irréversible
+            success: Projet collaboratif publié avec succès en tant que proposition.
+          view_collaborative_draft: Afficher le brouillon collaboratif
+          withdraw:
+            error: Il y a eu des erreurs en fermant le projet de collaboration.
+            irreversible_action_modal:
+              body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
+              cancel: Annuler
+              ok: Retirer le projet collaboratif
+              title: L'action suivante est irréversible
+            success: Projet de collaboration retiré avec succès.
+        compare:
+          mine_is_different: Mon projet de collaboration est différent
+          no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
+          title: Projets collaboratifs similaires
+        complete:
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Complétez votre projet collaboratif
+        count:
+          drafts_count:
+            one: 1 projet collaboratif
+            other: "%{count} brouillons collaboratifs"
+        create:
+          error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
+          success: Projet collaboratif créé avec succès.
+        edit:
+          back: Arrière
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Modifier un brouillon collaboratif
+        filters:
+          all: Tout
+          category: Catégorie
+          category_prompt: Invite de catégorie
+          open: Ouvrir
+          published: Publié
+          related_to: Relatif à
+          search: Chercher
+          state: Etat
+          withdrawn: Retiré
+        filters_small_view:
+          close_modal: Fermer modal
+          filter: Filtre
+          filter_by: Filtrer par
+          unfold: Se dérouler
+        new:
+          send: Continuer
+          title: Créez votre projet collaboratif
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nouveau projet de collaboration
+        orders:
+          label: 'Ordre des brouillons par:'
+          most_contributed: La plupart ont contribué
+          random: au hasard
+          recent: Récent
+        requests:
+          accepted_request:
+            error: Ne peut être accepté en tant que collaborateur, réessayez plus tard.
+            success: "@%{user} a été accepté comme collaborateur avec succès"
+          access_requested:
+            error: Votre demande n'a pas pu être complétée, réessayez plus tard.
+            success: Votre demande de collaboration a été envoyée avec succès
+          collaboration_requests:
+            accept_request: Acceptez
+            reject_request: Rejeter
+            title: Demandes de collaboration
+          rejected_request:
+            error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
+            success: "@%{user} a été rejeté en tant que collaborateur avec succès"
+        show:
+          back: Arrière
+          edit: Modifier un brouillon collaboratif
+          final_proposal: proposition finale
+          final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
+          hidden_authors_count:
+            one: et 1 personne de plus
+            other: et %{count} plus de personnes
+          info-message: Ceci est un <strong>projet collaboratif</strong> pour une proposition. Cela signifie que vous pouvez aider leurs auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
+          of_versions: "(de %{number})"
+          publish: Publier
+          publish_info: Publiez cette version du brouillon ou
+          published_proposal: proposition publiée
+          request_access: Demande d'accès
+          requested_access: Accès demandé
+          see_other_versions: voir d'autres versions
+          version: Version %{number}
+          version_history: voir l'historique des versions de cette proposition
+          withdraw: retirer le projet
+        states:
+          open: Ouvrir
+          published: Publié
+          withdrawn: Retiré
+        update:
+          error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
+          success: Projet de collaboration mis à jour avec succès.
+        wizard_aside:
+          back: Arrière
+          info: Vous créez un <strong>projet collaboratif</strong>.
+        wizard_steps:
+          see_steps: voir les étapes
+          step_1: Créez votre projet collaboratif
+          step_2: Comparer avec les projets collaboratifs
+          step_3: Complétez votre projet collaboratif
+          step_of: Etape %{current_step_num} sur %{total_steps}
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
@@ -241,6 +407,11 @@ fr:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
       models:
+        collaborative_draft:
+          fields:
+            authors: Auteurs
+            comments: commentaires
+            contributions: Contributions
         proposal:
           fields:
             category: Catégorie
@@ -320,6 +491,7 @@ fr:
           filter_by: Filtrer par
           unfold: Voir plus
         index:
+          collaborative_drafts_list: Accéder aux brouillons collaboratifs
           new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
           view_proposal: Voir la proposition
@@ -351,6 +523,8 @@ fr:
           hidden_endorsers_count:
             one: et 1 autre personne
             other: et %{count} autres personnes
+          link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
+          link_to_collaborative_draft_text: Voir le brouillon collaboratif
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
@@ -408,6 +582,20 @@ fr:
       update_draft:
         error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
         success: Le brouillon de proposition a été mis à jour.
+      versions:
+        changes_at_title: Changements à "%{title}"
+        index:
+          title: Des versions
+        stats:
+          back_to_collaborative_draft: Revenir au brouillon collaboratif
+          number_of_versions: Des versions
+          show_all_versions: Afficher toutes les versions
+          version_author: Auteur de la version
+          version_created_at: Version créée à
+          version_number: Numéro de version
+          version_number_out_of_total: "%{current_version} sur %{total_count}"
+        version:
+          version_index: Version %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées

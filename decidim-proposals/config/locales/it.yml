@@ -1,6 +1,14 @@
 it:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Corpo
+        category_id: Categoria
+        decidim_scope_id: Scopo
+        has_address: Ha un indirizzo
+        state: Stato
+        title: Titolo
+        user_group_id: Crea una bozza collaborativa come
       proposal:
         answer: Risposta
         answered_at: Risposto a
@@ -35,6 +43,9 @@ it:
       decidim/proposals/voting_enabled_event: Voto della proposta abilitato
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Bozza collaborativa
+        other: Bozze collaborative
       decidim/proposals/proposal:
         one: Proposta
         other: proposte
@@ -61,6 +72,7 @@ it:
             announcement: Annuncio
             attachments_allowed: Consenti allegati
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
+            collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
@@ -88,6 +100,36 @@ it:
             votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} è stato accettato per accedere come collaboratore al progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato accettato <strong>come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} è stato rifiutato per accedere come contributore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} è stato rifiutato per accedere come contributore della %{resource_title} bozza collaborativa."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato rifiutato <strong>per accedere come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} accesso richiesto come contributore. È possibile <strong>accettare o rifiutare la richiesta</strong> dalla bozza di pagina collaborativa <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} accesso richiesto per contribuire a %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> richiesto accesso per contribuire alla stesura di collaborazione <a href="%{resource_path}">%{resource_title}</a> . Si prega di <strong>accettare o rifiutare la richiesta</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Sei stato accettato per accedere come collaboratore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché hai richiesto di diventare un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sei stato accettato come contributore di %{resource_title}.
+          notification_title: Sei stato accettato a <strong>come collaboratore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Sei stato rifiutato di accedere come collaboratore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché hai richiesto di diventare un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sei stato rifiutato come contributore di %{resource_title}.
+          notification_title: Sei stato <strong>respinto per accedere come contributore</strong> alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ritirato il progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} ritirato il %{resource_title} progetto di collaborazione."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ritirato</strong> il <a href="%{resource_path}">%{resource_title}</a> progetto collaborativo.
         creation_enabled:
           email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
@@ -142,6 +184,16 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Il voto delle proposte è iniziato per %{participatory_space_title}
           notification_title: Ora puoi iniziare <a href="%{resource_path}">proposte di voto</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          description_another: Questo utente ha creato %{score} proposte.
+          description_own: Hai creato %{score} proposte.
+          explanation: Gli utenti ottengono questo badge creando proposte.
+          name: proposte
+          next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
+          unearned_another: Questo utente non ha ancora creato alcuna proposta.
+          unearned_own: Non hai ancora creato alcuna proposta.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -234,6 +286,120 @@ it:
         not_answered: Non risposto
         rejected: Rifiutata
         withdrawn: Ritirato
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Si sono verificati errori durante la pubblicazione della bozza collaborativa.
+            irreversible_action_modal:
+              body: Dopo aver pubblicato la bozza come proposta, la bozza non sarà più modificabile. La proposta non accetterà nuovi autori o contributi.
+              cancel: Annulla
+              ok: Pubblica come proposta
+              title: La seguente azione è irreversibile
+            success: Bozza collaborativa pubblicata con successo come proposta.
+          view_collaborative_draft: Visualizza bozza collaborativa
+          withdraw:
+            error: Ci sono stati errori nel chiudere la bozza collaborativa.
+            irreversible_action_modal:
+              body: Dopo aver chiuso la bozza, la bozza non sarà più modificabile. La bozza non accetterà nuovi autori o contributi.
+              cancel: Annulla
+              ok: Ritirare la bozza collaborativa
+              title: La seguente azione è irreversibile
+            success: Bozza collaborativa ritirata con successo.
+        compare:
+          mine_is_different: La mia bozza di collaborazione è diversa
+          no_similars_found: Molto bene! Nessuna bozza collaborativa simile trovata
+          title: Bozze collaborative simili
+        complete:
+          attachment_legend: "(Opzionale) Aggiungi un allegato"
+          select_a_category: Si prega di selezionare una categoria
+          send: Inviare
+          title: Completa la tua bozza collaborativa
+        count:
+          drafts_count:
+            one: 1 progetto collaborativo
+            other: "%{count} bozze collaborative"
+        create:
+          error: Si è verificato un problema durante la creazione di queste bozze collaborative
+          success: Bozza collaborativa creata con successo.
+        edit:
+          back: Indietro
+          select_a_category: Si prega di selezionare una categoria
+          send: Inviare
+          title: Modifica bozza collaborativa
+        filters:
+          all: Tutti
+          category: Categoria
+          category_prompt: Prompt di categoria
+          open: Aperto
+          published: Pubblicato
+          related_to: Relativo a
+          search: Ricerca
+          state: Stato
+          withdrawn: Ritirato
+        filters_small_view:
+          close_modal: Chiudi modale
+          filter: Filtro
+          filter_by: Filtra per
+          unfold: spiegare
+        new:
+          send: Continua
+          title: Crea la tua bozza collaborativa
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nuova bozza collaborativa
+        orders:
+          label: 'Ordina le bozze di:'
+          most_contributed: La maggior parte ha contribuito
+          random: Casuale
+          recent: Recente
+        requests:
+          accepted_request:
+            error: Non può essere accettato come collaboratore, riprova più tardi.
+            success: "@%{user} è stato accettato con successo come collaboratore"
+          access_requested:
+            error: La tua richiesta non può essere completata, riprova più tardi.
+            success: La tua richiesta di collaborazione è stata inviata con successo
+          collaboration_requests:
+            accept_request: Accettare
+            reject_request: Rifiutare
+            title: Richieste di collaborazione
+          rejected_request:
+            error: Non può essere rifiutato come collaboratore, riprova più tardi.
+            success: "@%{user} è stato rifiutato come collaboratore con successo"
+        show:
+          back: Indietro
+          edit: Modifica bozza collaborativa
+          final_proposal: proposta finale
+          final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
+          hidden_authors_count:
+            one: e 1 altra persona
+            other: e altre %{count} persone
+          info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
+          of_versions: "(di %{number})"
+          publish: Pubblicare
+          publish_info: Pubblica questa versione della bozza o
+          published_proposal: proposta pubblicata
+          request_access: Richiesta di accesso
+          requested_access: Accesso richiesto
+          see_other_versions: vedi altre versioni
+          version: Versione %{number}
+          version_history: vedere la cronologia delle versioni per questa proposta
+          withdraw: ritirare la bozza
+        states:
+          open: Aperto
+          published: Pubblicato
+          withdrawn: Ritirato
+        update:
+          error: Si sono verificati errori durante il salvataggio della bozza collaborativa.
+          success: Bozza collaborativa aggiornata correttamente.
+        wizard_aside:
+          back: Indietro
+          info: Stai creando una bozza collaborativa <strong></strong>.
+        wizard_steps:
+          see_steps: vedere i passaggi
+          step_1: Crea la tua bozza collaborativa
+          step_2: Confronta con bozze collaborative
+          step_3: Completa la tua bozza collaborativa
+          step_of: Passaggio %{current_step_num} di %{total_steps}
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
@@ -241,6 +407,11 @@ it:
         error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
         success: La bozza della proposta è stata cancellata con successo.
       models:
+        collaborative_draft:
+          fields:
+            authors: autori
+            comments: Commenti
+            contributions: contributi
         proposal:
           fields:
             category: Categoria
@@ -320,6 +491,7 @@ it:
           filter_by: Filtra per
           unfold: Espandi
         index:
+          collaborative_drafts_list: Accedi alle bozze di collaborazione
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
           view_proposal: Visualizza proposta
@@ -351,6 +523,8 @@ it:
           hidden_endorsers_count:
             one: e 1 altra persona
             other: e altre %{count} persone
+          link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
+          link_to_collaborative_draft_text: Vedi la bozza collaborativa
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
@@ -408,6 +582,20 @@ it:
       update_draft:
         error: Si sono verificati errori durante il salvataggio della bozza della proposta.
         success: Bozza proposta aggiornata correttamente.
+      versions:
+        changes_at_title: Cambiamenti a "%{title}"
+        index:
+          title: versioni
+        stats:
+          back_to_collaborative_draft: Torna alla bozza collaborativa
+          number_of_versions: versioni
+          show_all_versions: Mostra tutte le versioni
+          version_author: Autore della versione
+          version_created_at: Versione creata a
+          version_number: Numero della versione
+          version_number_out_of_total: "%{current_version} su %{total_count}"
+        version:
+          version_index: Versione %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Proposte correlate

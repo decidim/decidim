@@ -20,6 +20,8 @@ gl:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Compoñente activo
+      decidim/gamification/badge_earned_event: Insignia obtida
+      decidim/gamification/level_up_event: Has nivelado
       decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
@@ -316,6 +318,17 @@ gl:
         email_intro: 'Houbo unha actualización a "%{resource_title}". Podes velo desde esta páxina:'
         email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
         email_subject: Unha actualización a %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Gran traballo! Gañaches o <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).
+          email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
+          email_subject: 'Xa obtivo unha insignia nova: %{badge_name}.'
+          notification_title: Gran traballo! Gañaches o <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).
+        level_up:
+          email_intro: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
+          email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
+          email_subject: Chegou ao nivel %{current_level} na insignia %{badge_name}.
+          notification_title: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -334,6 +347,7 @@ gl:
     filters:
       linked_classes:
         all: Todo
+        collaborative_draft: Proxecto colaborativo
         dummy_resource: Recursos maniquís
         meeting: Reunións
         project: Proxectos
@@ -365,6 +379,10 @@ gl:
       errors:
         error: Hai un erro neste campo.
       remove_this_file: Elimina este ficheiro
+    gamification:
+      description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
+      level: Nivel %{level}
+      reached_top: Alcanzou o nivel superior desta placa.
     invitations:
       create:
         error: Houbo algúns problemas ao invitar aos teus amigos
@@ -536,6 +554,7 @@ gl:
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
+        badges: Insignias
         conversations: Conversas
         followers: Seguidores
         following: Segue

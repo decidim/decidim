@@ -20,6 +20,8 @@ ca:
     models:
       decidim/attachment_created_event: Adjunt
       decidim/component_published_event: Component actiu
+      decidim/gamification/badge_earned_event: Insígnia obtinguda
+      decidim/gamification/level_up_event: Has pujat de nivell
       decidim/profile_updated_event: Perfil actualitzat
   activerecord:
     attributes:
@@ -207,9 +209,9 @@ ca:
     contact: Contacte
     content_blocks:
       footer_sub_hero:
-        name: Peu de pàgina sub-heroi
+        name: Peu de pàgina sub-hero
       hero:
-        name: Imatge de l'heroi
+        name: Imatge del hero
       highlighted_content_banner:
         name: Bàner de contingut destacat
       how_to_participate:
@@ -217,7 +219,7 @@ ca:
       stats:
         name: Estadístiques de l'organització
       sub_hero:
-        name: Bàner de sub herois
+        name: Bàner de sub-heros
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
@@ -316,6 +318,17 @@ ca:
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
         email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
         email_subject: Una actualització a %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Enhorabona! Has aconseguit la <a href="%{resource_path}">%{badge_name} insígnia</a> (nivell %{current_level}).
+          email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
+          email_subject: 'Has aconseguit una nova insígnia: %{badge_name}!'
+          notification_title: Enhorabona! Has aconseguit la <a href="%{resource_path}">%{badge_name} insígnia</a> (nivell %{current_level}).
+        level_up:
+          email_intro: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
+          email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
+          email_subject: Has arribat al nivell %{current_level} de la insígnia %{badge_name}!
+          notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -334,6 +347,7 @@ ca:
     filters:
       linked_classes:
         all: Tots
+        collaborative_draft: Esborrany de col·laboració
         dummy_resource: Recursos de prova
         meeting: Trobades
         project: Projectes
@@ -365,6 +379,10 @@ ca:
       errors:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
+    gamification:
+      description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, obtindràs diferents distintius.
+      level: Nivell %{level}
+      reached_top: Has arribat al nivell superior d'aquesta insígnia.
     invitations:
       create:
         error: Hi ha hagut alguns problemes mentre es convidava els teus amics
@@ -418,7 +436,7 @@ ca:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
           from: Des de
-          last_message_html: Últim missatge <strong>%{time} ago</strong>
+          last_message_html: Últim missatge <strong>fa %{time}</strong>
           no_conversations: Encara no tens converses
         show:
           conversation_with_html: Conversa amb <strong>%{name}</strong>
@@ -536,6 +554,7 @@ ca:
     profiles:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
+        badges: Insígnies
         conversations: Converses
         followers: Seguidors
         following: Segueix

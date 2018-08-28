@@ -1,6 +1,14 @@
 hu:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Test
+        category_id: Kategória
+        decidim_scope_id: terület
+        has_address: Van címe
+        state: Állapot
+        title: Cím
+        user_group_id: Hozzon létre együttműködési tervet
       proposal:
         answer: Válasz
         answered_at: Felolvasva
@@ -35,6 +43,9 @@ hu:
       decidim/proposals/voting_enabled_event: Javasolt szavazás engedélyezve
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Együttműködési tervezet
+        other: Együttműködési tervezetek
       decidim/proposals/proposal:
         one: Javaslat
         other: javaslatok
@@ -61,6 +72,7 @@ hu:
             announcement: Közlemény
             attachments_allowed: A mellékletek engedélyezése
             can_accumulate_supports_beyond_threshold: A küszöböt meghaladó támogatást képes felhalmozni
+            collaborative_drafts_enabled: Együttműködési tervezetek engedélyezettek
             comments_enabled: Megjegyzések engedélyezve
             geocoding_enabled: Geokódolás engedélyezve
             new_proposal_help_text: Új javaslat súgószöveg
@@ -88,6 +100,36 @@ hu:
             votes_hidden: Rejtett szavazatok (ha a szavazatok engedélyezve vannak, ellenőrizve ez elrejti a szavazatok számát)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} -ot elfogadták az <a href="%{resource_path}">%{resource_title}</a> együttműködési terv hozzájárulásához.'
+          email_outro: Ezt az értesítést megkapta, mert <a href="%{resource_path}">%{resource_title}</a>munkatársak.
+          email_subject: "%{requester_name} elfogadásra került az %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> már <strong>elfogadott, hogy hozzáférést, mint a közreműködő</strong> a <a href="%{resource_path}">%{resource_title}</a> együttműködő tervezetet.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} -at elutasították az <a href="%{resource_path}">%{resource_title}</a> együttműködési terv hozzájárulásához.'
+          email_outro: Ezt az értesítést megkapta, mert <a href="%{resource_path}">%{resource_title}</a>munkatársak.
+          email_subject: "%{requester_name} -at elutasították az %{resource_title} együttmûködési terv hozzájárulásához."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>elutasított a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv</strong> hozzájárulójához való hozzáféréshez.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} hozzáférést kért hozzá. Akkor <strong>elfogadja vagy elutasítja a kérést</strong> a <a href="%{resource_path}">%{resource_title}</a> együttműködési tervezet oldalon.'
+          email_outro: Ezt az értesítést megkapta, mert <a href="%{resource_path}">%{resource_title}</a>munkatársak.
+          email_subject: "%{requester_name} hozzáférést kért hozzá %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> igényelt hozzáférést a <a href="%{resource_path}">%{resource_title}</a> együttműködési tervhez való hozzájáruláshoz. Kérem, <strong>fogadja el vagy utasítsa el a kérelmet</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Ön elfogadta a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv hozzájárulását.
+          email_outro: Ezt az értesítést megkaptuk, mert kérted, hogy <a href="%{resource_path}">%{resource_title}</a>együttműködővé váljon.
+          email_subject: Ön a %{resource_title}as hozzájárulásként lett elfogadva.
+          notification_title: <strong>fogadtál el a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv</strong> hozzájárulásaként.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Elutasították a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv hozzájárulását.
+          email_outro: Ezt az értesítést megkaptuk, mert kérted, hogy <a href="%{resource_path}">%{resource_title}</a>együttműködővé váljon.
+          email_subject: Önt elutasították %{resource_title}as hozzájárulásként.
+          notification_title: <strong>elutasítottak a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv</strong> hozzájárulásához való hozzáféréshez.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> visszavonta a <a href="%{resource_path}">%{resource_title}</a> együttműködési tervezetet.
+          email_outro: Ezt az értesítést megkapta, mert <a href="%{resource_path}">%{resource_title}</a>munkatársak.
+          email_subject: "%{author_name} %{author_nickname} visszavonta a %{resource_title} együttműködési tervezetet."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>visszavonva</strong> a <a href="%{resource_path}">%{resource_title}</a> együttműködési tervezet.
         creation_enabled:
           email_intro: 'Most új javaslatokat készíthet %{participatory_space_title}! Kezdje el részt venni ezen az oldalon:'
           email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
@@ -142,6 +184,16 @@ hu:
           email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
           email_subject: A szavazásról szóló javaslatok %{participatory_space_title}indultak
           notification_title: Most <a href="%{resource_path}">szavazási javaslatot kezdhet</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          description_another: Ez a felhasználó %{score} javaslatot hozott létre.
+          description_own: '%{score} pályázatot hozott létre.'
+          explanation: A felhasználók ezt a jelvényt javaslatok létrehozásával kapják meg.
+          name: javaslatok
+          next_level_in: Hozzon létre még %{score} javaslatot a következő szint eléréséhez!
+          unearned_another: Ez a felhasználó még nem hozott létre javaslatokat.
+          unearned_own: Még nem hozott javaslatot.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -234,6 +286,120 @@ hu:
         not_answered: Nem válaszolt
         rejected: Elutasítva
         withdrawn: Visszavont
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Hiba történt az együttműködési terv közzétételekor.
+            irreversible_action_modal:
+              body: Miután közzétette a tervezetet javaslattételként, a tervezet már nem szerkeszthető. A javaslat nem fogad el új szerzőket vagy hozzájárulásokat.
+              cancel: Megszünteti
+              ok: Közzététel javaslatként
+              title: A következő művelet visszafordíthatatlan
+            success: Együttműködési tervezet sikeresen jelent meg javaslatként.
+          view_collaborative_draft: Együttműködési terv megtekintése
+          withdraw:
+            error: Hiányzott a hiba az együttműködésen alapuló tervezetben.
+            irreversible_action_modal:
+              body: A tervezet bezárása után a tervezet már nem szerkeszthető. A tervezet nem fogad el új szerzőket vagy hozzájárulásokat.
+              cancel: Megszünteti
+              ok: Vegye ki az együttműködési tervezetet
+              title: A következő művelet visszafordíthatatlan
+            success: Együttműködési tervezet sikeresen visszavonva.
+        compare:
+          mine_is_different: Együttműködési tervem más
+          no_similars_found: Szép munka! Nincs hasonló együttműködési tervezet
+          title: Hasonló együttműködési tervezetek
+        complete:
+          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
+          select_a_category: Kérjük, válasszon egy kategóriát
+          send: Elküld
+          title: Töltse ki együttműködési terveit
+        count:
+          drafts_count:
+            one: 1 együttműködési terv
+            other: "%{count} együttműködési tervezet"
+        create:
+          error: Probléma történt az együttműködési tervek létrehozásában
+          success: Együttműködő tervezet sikeresen létrehozva.
+        edit:
+          back: Hát
+          select_a_category: Kérjük, válasszon egy kategóriát
+          send: Elküld
+          title: Összehangolt tervezet szerkesztése
+        filters:
+          all: Minden
+          category: Kategória
+          category_prompt: Kategória prompt
+          open: Nyisd ki
+          published: Közzétett
+          related_to: Kapcsolatos
+          search: Keresés
+          state: Állapot
+          withdrawn: Visszavont
+        filters_small_view:
+          close_modal: Közeli modal
+          filter: Szűrő
+          filter_by: Szűrés vlami alapján
+          unfold: kibontakozik
+        new:
+          send: Folytatni
+          title: Hozzon létre együttműködési tervezetet
+        new_collaborative_draft_button:
+          new_collaborative_draft: Új együttműködési terv
+        orders:
+          label: 'Vázlatok tervezése:'
+          most_contributed: Legtöbben járultak hozzá
+          random: Véletlen
+          recent: Friss
+        requests:
+          accepted_request:
+            error: Nem fogadható el együttműködő partnerként, próbálkozzon újra később.
+            success: "A @%{user} sikeresen együttműködött sikeresen"
+          access_requested:
+            error: Nem sikerült befejezni kérését, próbálkozzon újra később.
+            success: Az együttműködés iránti kérelmét sikeresen elküldtük
+          collaboration_requests:
+            accept_request: Elfogad
+            reject_request: Elutasít
+            title: Együttműködési kérelmek
+          rejected_request:
+            error: Nem lehet elutasítani együttműködő partnerként, próbálkozzon később.
+            success: "@%{user} sikeresen elutasították, mint sikeres munkatárs"
+        show:
+          back: Hát
+          edit: Összehangolt tervezet szerkesztése
+          final_proposal: végleges javaslat
+          final_proposal_help_text: Ez a terv kész. Láthatja az utolsó kész pályázatot
+          hidden_authors_count:
+            one: és további 1 személy
+            other: és még %{count} ember
+          info-message: Ez egy <strong>együttműködési</strong> tervezet egy javaslatra. Ez azt jelenti, hogy segítséget nyújthat a szerzőknek, hogy alakítsák ki a javaslatot az alábbi megjegyzésszakasz használatával, vagy közvetlenül javítsák ki a hozzáférést a szerkesztéshez. Ha a szerzők hozzáférést biztosítanak neked, akkor módosíthatja a tervezetet.
+          of_versions: "( %{number})"
+          publish: közzétesz
+          publish_info: A tervezet ezen verziójának közzététele vagy
+          published_proposal: közzétett javaslat
+          request_access: Hozzáférés kérése
+          requested_access: Kért hozzáférés
+          see_other_versions: lásd a többi verziót
+          version: '%{number}verzió'
+          version_history: olvassa el a jelen javaslat verziótörténetét
+          withdraw: vonja vissza a tervezetet
+        states:
+          open: Nyisd ki
+          published: Közzétett
+          withdrawn: Visszavont
+        update:
+          error: Az együttműködési terv mentésekor hibák történtek.
+          success: Az együttműködő tervezet sikeresen frissült.
+        wizard_aside:
+          back: Hát
+          info: Ön egy <strong>együttműködési tervezetet hoz létre</strong>.
+        wizard_steps:
+          see_steps: Lásd a lépéseket
+          step_1: Hozzon létre együttműködési tervezetet
+          step_2: Összehasonlítás az együttműködésen alapuló tervezetekkel
+          step_3: Töltse ki együttműködési terveit
+          step_of: Lépés %{current_step_num} Az %{total_steps}
       create:
         error: A javaslat mentésekor hiba történt.
         success: A javaslat sikeresen létrehozva. Mentett mint vázlat.
@@ -241,6 +407,11 @@ hu:
         error: Hiba történt a javaslat tervezetének törlésével.
         success: A javaslat tervezetét sikeresen törölték.
       models:
+        collaborative_draft:
+          fields:
+            authors: Szerzői
+            comments: Hozzászólások
+            contributions: hozzájárulások
         proposal:
           fields:
             category: Kategória
@@ -320,6 +491,7 @@ hu:
           filter_by: Szűrés vlami alapján
           unfold: kibontakozik
         index:
+          collaborative_drafts_list: Hozzáférés az együttműködési tervekhez
           new_proposal: Új javaslat
           see_all_withdrawn: Tekintse meg az összes visszavont javaslatot
           view_proposal: A javaslat megtekintése
@@ -351,6 +523,8 @@ hu:
           hidden_endorsers_count:
             one: és további 1 személy
             other: és még %{count} ember
+          link_to_collaborative_draft_help_text: Ez a javaslat együttes tervezet eredménye. Tekintse át a történetet
+          link_to_collaborative_draft_text: Lásd az együttműködési tervezetet
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Ezt a javaslatot értékelik
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
@@ -408,6 +582,20 @@ hu:
       update_draft:
         error: Hiba történt a tervjavaslat mentésekor.
         success: A javaslattervezés sikeresen frissült.
+      versions:
+        changes_at_title: Változások a "%{title}"
+        index:
+          title: változatok
+        stats:
+          back_to_collaborative_draft: Menj vissza az együttműködési tervezetre
+          number_of_versions: változatok
+          show_all_versions: Az összes verzió megjelenítése
+          version_author: Verzió szerző
+          version_created_at: 'Verzió létrehozva a következő helyen:'
+          version_number: Verziószám
+          version_number_out_of_total: "%{current_version} az %{total_count}"
+        version:
+          version_index: '%{index}verzió'
     resource_links:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok
