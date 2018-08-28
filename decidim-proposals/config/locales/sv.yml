@@ -186,6 +186,22 @@ sv:
           notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Den här användaren har fått %{score} förslag accepterade.
+          description_own: Du har accepterat %{score} förslag.
+          explanation: Användare får detta märke genom att få sina förslag godkända.
+          name: Godkända förslag
+          next_level_in: Få %{score} fler förslag accepterade för att nå nästa nivå!
+          unearned_another: Den här användaren har inte fått några förslag accepterade än.
+          unearned_own: Du har inga förslag accepterade än.
+        proposal_votes:
+          description_another: Denna användare har gett stöd till %{score} förslag.
+          description_own: Du har gett stöd till %{score} förslag.
+          explanation: Användare får detta märke genom att ge stöd till förslag.
+          name: Förslagstjänster
+          next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
+          unearned_another: Den här användaren har inte stött på några förslag än.
+          unearned_own: Du har inte stött på några förslag ännu.
         proposals:
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
