@@ -383,7 +383,7 @@ es-PY:
       badges:
         invitations:
           description_another: Este usuario ha invitado a %{score} usuarios.
-          description_own: Usted ha invitado a %{score} usuarios.
+          description_own: Has invitado a %{score} usuarios.
           explanation: Los usuarios obtienen esta insignia invitando a otros usuarios.
           name: Invitaciones
           next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
