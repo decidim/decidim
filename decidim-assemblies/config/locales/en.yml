@@ -328,7 +328,9 @@ en:
         assembly:
           take_part: Take part
         index:
+          organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
+          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} assembly"

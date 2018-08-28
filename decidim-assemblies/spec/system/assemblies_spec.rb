@@ -114,6 +114,18 @@ describe "Assemblies", type: :system do
 
       expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
     end
+
+    it "shows the organizational chart" do
+      within "#assemblies-chart" do
+        within ".js-orgchart" do
+          expect(page).to have_selector(".svg-chart-container")
+
+          within ".svg-chart-container" do
+            expect(page).to have_selector("g.node", count: 2)
+          end
+        end
+      end
+    end
   end
 
   describe "when going to the assembly page" do

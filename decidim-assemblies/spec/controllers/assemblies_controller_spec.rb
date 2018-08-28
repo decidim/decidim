@@ -44,6 +44,35 @@ module Decidim
         end
       end
 
+      describe "GET assemblies in json format" do
+        let!(:first_level) { create(:assembly, :published, :with_parent, parent: published, organization: organization) }
+        let!(:second_level) { create(:assembly, :published, :with_parent, parent: first_level, organization: organization) }
+        let!(:third_level) { create(:assembly, :published, :with_parent, parent: second_level, organization: organization) }
+
+        let(:parsed_response) { JSON.parse(response.body, symbolize_names: true) }
+
+        it "includes only published assemblies with their children (two levels)" do
+          get :index, format: :json
+          expect(parsed_response).to match_array(
+            [
+              {
+                name: translated(promoted.title),
+                children: []
+              },
+              {
+                name: translated(published.title),
+                children: [
+                  {
+                    name: translated(first_level.title),
+                    children: [{ name: translated(second_level.title) }]
+                  }
+                ]
+              }
+            ]
+          )
+        end
+      end
+
       describe "promoted_assemblies" do
         it "includes only promoted" do
           expect(controller.helpers.promoted_assemblies).to contain_exactly(promoted)

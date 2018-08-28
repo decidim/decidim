@@ -17,9 +17,29 @@ module Decidim
       helper_method :collection, :promoted_assemblies, :assemblies, :stats, :assembly_participatory_processes
 
       def index
-        redirect_to "/404" if published_assemblies.none?
-
         enforce_permission_to :list, :assembly
+
+        respond_to do |format|
+          format.html do
+            redirect_to "/404" if published_assemblies.none?
+
+            render "index"
+          end
+
+          format.json do
+            render json: collection.query.includes(:children).where(parent: nil).collect { |a|
+              {
+                name: a.title[I18n.locale.to_s],
+                children: a.children.collect do |c|
+                  {
+                    name: c.title[I18n.locale.to_s],
+                    children: c.children.collect { |sc| { name: sc.title[I18n.locale.to_s] } }
+                  }
+                end
+              }
+            }
+          end
+        end
       end
 
       def show
