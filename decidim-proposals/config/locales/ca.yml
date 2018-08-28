@@ -187,19 +187,19 @@ ca:
     gamification:
       badges:
         accepted_proposals:
-          description_another: Aquest usuari ha obtingut %{score} propostes acceptades.
-          description_own: Has rebut %{score} propostes acceptades.
-          explanation: Els usuaris obtenen aquesta distinció acceptant les seves propostes.
+          description_another: Aquest usuari ha aconseguit tenir %{score} propostes acceptades.
+          description_own: Has aconseguit que s'acceptin %{score} de les teves propostes.
+          explanation: Els usuaris obtenen aquesta distinció aconseguint que s'acceptin les seves propostes.
           name: Propostes acceptades
-          next_level_in: Aconsegueix %{score} propostes més per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha acceptat cap proposta acceptada.
-          unearned_own: Encara no heu acceptat cap proposta.
+          next_level_in: Aconsegueix que s'acceptin %{score} propostes més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha aconseguit que s'accepti cap de les seves propostes.
+          unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
           description_another: Aquest usuari ha donat suport a %{score} propostes.
-          description_own: Heu donat suport a %{score} propostes.
+          description_own: Has donat suport a %{score} propostes.
           explanation: Els usuaris obtenen aquesta distinció donant suport a les propostes.
-          name: Suport de la proposta
-          next_level_in: Donar suport a %{score} propostes més per arribar al següent nivell!
+          name: Suports a propostes
+          next_level_in: Dona suport a %{score} propostes més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha donat suport a cap proposta.
           unearned_own: Has donat suport a cap proposta encara.
         proposals:
