@@ -390,6 +390,15 @@ pl:
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
     gamification:
+      badges:
+        invitations:
+          description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
+          description_own: Zaprosiłeś %{score} użytkowników.
+          explanation: Użytkownicy otrzymują tę plakietkę, zapraszając innych użytkowników.
+          name: Zaproszenia
+          next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie zaprosił jeszcze żadnego użytkownika.
+          unearned_own: Nie zaprosiłeś jeszcze żadnych użytkowników.
       description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
