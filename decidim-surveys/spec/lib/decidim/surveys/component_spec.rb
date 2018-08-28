@@ -9,6 +9,10 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
 
   describe "before_destroy hooks" do
     context "when there are no answers" do
+      before do
+        create :survey, component: component
+      end
+
       it "does not raise any error" do
         expect { subject.manifest.run_hooks(:before_destroy, subject) }.not_to raise_error
       end
@@ -17,7 +21,7 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
     context "with answers" do
       before do
         survey = create :survey, component: component
-        create :survey_answer, survey: survey
+        create :answer, questionnaire: survey.questionnaire
       end
 
       it "raises an error" do
