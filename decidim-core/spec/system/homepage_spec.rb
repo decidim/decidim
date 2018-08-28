@@ -221,6 +221,70 @@ describe "Homepage", type: :system do
       end
     end
 
+    describe "includes metrics" do
+      context "when organization show_statistics attribute is false" do
+        let(:organization) { create(:organization, show_statistics: false) }
+
+        it "does not show the statistics block" do
+          expect(page).to have_no_content("Decidim in numbers")
+        end
+      end
+
+      context "when organization show_statistics attribute is true" do
+        let(:organization) { create(:organization, show_statistics: true) }
+        let(:metrics) do
+          Decidim.metrics_registry.all.each do |metric_registry|
+            create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today, organization: organization, cumulative: 5, quantity: 2)
+          end
+        end
+
+        context "and have metric records" do
+          before do
+            metrics
+            visit current_path
+          end
+
+          it "shows the metrics block" do
+            within "#metrics" do
+              expect(page).to have_content("Decidim in numbers")
+              within ".metric-charts:first-child" do
+                Decidim.metrics_registry.highlighted.each do |metric_registry|
+                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
+                end
+              end
+              within ".metric-charts.small-charts" do
+                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
+                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
+                end
+              end
+            end
+          end
+        end
+
+        context "and not have metric records" do
+          before do
+            visit current_path
+          end
+
+          it "shows the metrics block empty" do
+            within "#metrics" do
+              expect(page).to have_content("Decidim in numbers")
+              within ".metric-charts:first-child" do
+                Decidim.metrics_registry.highlighted.each do |metric_registry|
+                  expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
+                end
+              end
+              within ".metric-charts.small-charts" do
+                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
+                  expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
     describe "social links" do
       before do
         organization.update(

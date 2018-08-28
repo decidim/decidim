@@ -23,6 +23,7 @@ namespace :decidim do
     # today to all past dates
     desc "Execute one metric calculation method"
     task :one, [:metric, :day] => :environment do |_task, args|
+      next if args.metric.blank?
       Decidim::Organization.find_each do |organization|
         metric_manifest = Decidim.metrics_registry.for(args.metric)
         call_metric_job(metric_manifest, organization, args.day)

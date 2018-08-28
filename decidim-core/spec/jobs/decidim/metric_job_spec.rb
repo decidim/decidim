@@ -1,0 +1,41 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+describe Decidim::MetricJob do
+  subject { described_class }
+
+  let(:manager_class) { Decidim::Metrics::UsersMetricManage }
+  let(:organization) { create(:organization) }
+  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:day) { Time.zone.today.strftime("%Y/%m/%d") }
+
+  describe "queue" do
+    it "is queued to events" do
+      expect(subject.queue_name).to eq "metrics"
+    end
+  end
+
+  describe "perform" do
+    let(:manager_object) { double :manager_object }
+
+    it "executes manager actions" do
+      expect(manager_class)
+        .to receive(:for)
+        .with(day)
+        .and_return(manager_object)
+
+      expect(manager_object)
+        .to receive(:with_context)
+        .with(organization)
+
+      expect(manager_object)
+        .to receive(:query)
+
+      expect(manager_object)
+        .to receive(:registry!)
+
+      subject.perform_now(manager_class.name, organization.id, day)
+    end
+  end
+end
