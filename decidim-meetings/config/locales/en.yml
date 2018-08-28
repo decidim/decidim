@@ -293,9 +293,12 @@ en:
       directory:
         meetings:
           index:
+            all: All
             date: Date
+            meetings: Meetings
             past: Past
             search: Search
+            space_type: Participatory space
             upcoming: Upcoming
       mailer:
         invite_join_meeting_mailer:

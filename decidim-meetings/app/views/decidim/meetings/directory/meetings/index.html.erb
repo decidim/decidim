@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="row">
-    <h1 class="section-heading">Meetings TRANSLATE THIS</h1>
+    <h1 class="section-heading"><%= t(".meetings") %></h1>
 
     <%= cell "decidim/meetings/meetings_map", search.results %>
 
@@ -21,7 +21,7 @@
           </div>
 
           <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
-          <%= form.collection_radio_buttons :space, @meeting_spaces, :first, :last, legend_title: "Space" %>
+          <%= form.collection_radio_buttons :space, @meeting_spaces, :first, :last, legend_title: t(".space_type") %>
         <% end %>
       </div>
     </div>
