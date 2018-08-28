@@ -31,7 +31,11 @@ module Decidim
 
     # Caches a DiffRenderer instance for the `current_version`.
     def diff_renderer
-      @diff_renderer ||= Decidim::Accountability::DiffRenderer.new(current_version)
+      @diff_renderer ||= if current_version.item_type.include? "Decidim::Proposals"
+                           Decidim::Proposals::DiffRenderer.new(current_version)
+                         elsif current_version.item_type.include? "Decidim::Accountability"
+                           Decidim::Accountability::DiffRenderer.new(current_version)
+                         end
     end
 
     # Renders the diff between `:old_data` and `:new_data` keys in the `data` param.

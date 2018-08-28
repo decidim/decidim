@@ -4,13 +4,16 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Rectify::Command
+      include AttachmentMethods
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
       # current_user - The current user.
-      def initialize(form, current_user)
+      # coauthorships - The coauthorships of the proposal.
+      def initialize(form, current_user, coauthorships = nil)
         @form = form
         @current_user = current_user
+        @coauthorships = coauthorships
       end
 
       # Executes the command. Broadcasts these events:
@@ -51,6 +54,8 @@ module Decidim
       end
 
       def proposal_limit_reached?
+        return false if @coauthorships.present?
+
         proposal_limit = form.current_component.settings.proposal_limit
 
         return false if proposal_limit.zero?
