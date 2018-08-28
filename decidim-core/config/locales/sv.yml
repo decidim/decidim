@@ -380,6 +380,15 @@ sv:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
     gamification:
+      badges:
+        invitations:
+          description_another: Den här användaren har bjudit in %{score} användare.
+          description_own: Du har bjudit in %{score} användare.
+          explanation: Användare får detta märke genom att bjuda in andra användare.
+          name: Inbjudningar
+          next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
+          unearned_another: Den här användaren har inte bjudit in någon användare än.
+          unearned_own: Du har inte bjudit in några användare än.
       description: Badges är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika märken.
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta märke.
