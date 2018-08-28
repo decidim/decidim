@@ -186,6 +186,22 @@ eu:
           notification_title: <a href="%{resource_path}">boto-proposamen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>-n has dezakezu orain
     gamification:
       badges:
+        accepted_proposals:
+          description_another: Erabiltzaile honek %{score} proposamen jaso ditu.
+          description_own: '%{score} proposamen onartu dituzu.'
+          explanation: Erabiltzaileek txapela lortzen dute proposamenak onartuz.
+          name: Onartutako proposamenak
+          next_level_in: Talde %{score} proposamen gehiago hurrengo mailara iristeko onartu!
+          unearned_another: Erabiltzaile honek oraindik ez ditu onartutako proposamenik.
+          unearned_own: Oraindik ez duzu onartutako proposamenik.
+        proposal_votes:
+          description_another: Erabiltzaile honek %{score} proposamen onartzen ditu.
+          description_own: '%{score} proposamenei laguntza eman diezu.'
+          explanation: Erabiltzaileek txapela lortzen dute proposamenei laguntzeko.
+          name: Proposamenak onartzen ditu
+          next_level_in: Eman laguntza %{score} proposamen gehiago hurrengo mailara iristea!
+          unearned_another: Erabiltzaile honek oraindik ez du proposamenik onartzen.
+          unearned_own: Ez duzu proposamenik onartzen oraindik.
         proposals:
           description_another: Erabiltzaile honek %{score} proposamen sortu ditu.
           description_own: '%{score} proposamen sortu dituzu.'
