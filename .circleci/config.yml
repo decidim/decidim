@@ -416,7 +416,7 @@ jobs:
   upload-coverage:
     <<: *defaults
     environment:
-      - CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
+      CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
     steps:
       - *attach_workspace
       - run:
