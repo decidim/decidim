@@ -31,6 +31,7 @@ fi:
         is_transparent: On läpinäkyvä
         local_area: Organisaatioalue
         meta_scope: Kontekstin metadata
+        parent_id: Vanhempien kokoonpano
         participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
@@ -217,6 +218,7 @@ fi:
             select_a_created_by: Valitse luoma
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse kokoonpanotyyppi
+            select_parent_assembly: Valitse vanhemman kokoonpano
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: sosiaalinen
         assembly_copies:
