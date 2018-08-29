@@ -20,6 +20,8 @@ sv:
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
+      decidim/gamification/badge_earned_event: Badge tjänat
+      decidim/gamification/level_up_event: Du har nivellerat
       decidim/profile_updated_event: Profil uppdaterad
   activerecord:
     attributes:
@@ -316,6 +318,17 @@ sv:
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
         email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
         email_subject: En uppdatering till %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Bra jobbat! Du har tjänat <a href="%{resource_path}">%{badge_name} märket</a> (nivå %{current_level}).
+          email_outro: Du har fått den här meddelandet eftersom du gjorde aktivitet på vår hemsida.
+          email_subject: 'Du har fått ett nytt märke: %{badge_name}!'
+          notification_title: Bra jobbat! Du har tjänat <a href="%{resource_path}">%{badge_name} märket</a> (nivå %{current_level}).
+        level_up:
+          email_intro: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} märket</a>!
+          email_outro: Du har fått den här meddelandet eftersom du gjorde aktivitet på vår hemsida.
+          email_subject: Du har nått nivån %{current_level} på %{badge_name} märke!
+          notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} märket</a>!
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -334,6 +347,7 @@ sv:
     filters:
       linked_classes:
         all: Alla
+        collaborative_draft: Samarbetsförslag
         dummy_resource: Dummy resurser
         meeting: Möten
         project: Projekt
@@ -365,6 +379,19 @@ sv:
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
+    gamification:
+      badges:
+        invitations:
+          description_another: Den här användaren har bjudit in %{score} användare.
+          description_own: Du har bjudit in %{score} användare.
+          explanation: Användare får detta märke genom att bjuda in andra användare.
+          name: Inbjudningar
+          next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
+          unearned_another: Den här användaren har inte bjudit in någon användare än.
+          unearned_own: Du har inte bjudit in några användare än.
+      description: Badges är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika märken.
+      level: Nivå %{level}
+      reached_top: Du har nått den översta nivån för detta märke.
     invitations:
       create:
         error: Det fanns några problem när du inbjöd dina vänner
@@ -536,6 +563,7 @@ sv:
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
+        badges: Emblem
         conversations: samtal
         followers: anhängare
         following: följer

@@ -12,6 +12,16 @@ gl:
       admin:
         exports:
           dummies: Dummies
+    gamification:
+      badges:
+        test:
+          description_another: Este usuario creou %{score} probas.
+          description_own: Creaches %{score} probas.
+          explanation: Os usuarios obtén esta insignia creando probas.
+          name: Probas
+          next_level_in: Crea %{score} probas máis para chegar ao seguinte nivel!
+          unearned_another: Este usuario aínda non creou ningunha proba.
+          unearned_own: Non creaches probas aínda.
     pages:
       home:
         statistics:

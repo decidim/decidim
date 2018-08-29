@@ -130,7 +130,7 @@ es:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             projects_per_page: Proyectos por página
-            resources_permissions_enabled: Permisos de acciones se pueden establecer para cada reunión
+            resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
             total_budget: Presupuesto total
             vote_threshold_percent: Porcentaje de votos
           step:

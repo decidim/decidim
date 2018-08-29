@@ -249,7 +249,7 @@ ca:
         working_group: Grup de treball
       content_blocks:
         highlighted_assemblies:
-          name: Asamblees destacades
+          name: Asemblees destacades
       created_by:
         city_council: Ajuntament
         others: Altres

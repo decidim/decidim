@@ -12,6 +12,16 @@ fi:
       admin:
         exports:
           dummies: Esimerkkitiedot
+    gamification:
+      badges:
+        test:
+          description_another: Tämä käyttäjä on luonut %{score} testia.
+          description_own: Olet luonut %{score} testia.
+          explanation: Käyttäjät saavat tämän tunnuksen luomalla testejä.
+          name: testit
+          next_level_in: Luo vielä %{score} testia seuraavan tason saavuttamiseksi!
+          unearned_another: Tämä käyttäjä ei ole vielä luonut testejä.
+          unearned_own: Et ole vielä luonut testejä.
     pages:
       home:
         statistics:

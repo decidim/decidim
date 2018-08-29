@@ -20,6 +20,8 @@ nl:
     models:
       decidim/attachment_created_event: gehechtheid
       decidim/component_published_event: Actieve component
+      decidim/gamification/badge_earned_event: Badge verdiend
+      decidim/gamification/level_up_event: Je bent genivelleerd
       decidim/profile_updated_event: Profiel geüpdatet
   activerecord:
     attributes:
@@ -316,6 +318,17 @@ nl:
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
         email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. Je kan dit ontvolgen door te klikken . op de voorgaande link.
         email_subject: Een update voor %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
+          email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
+          email_subject: 'U heeft een nieuwe badge verdiend: %{badge_name}!'
+          notification_title: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
+        level_up:
+          email_intro: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
+          email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
+          email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
+          notification_title: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -334,6 +347,7 @@ nl:
     filters:
       linked_classes:
         all: Alle
+        collaborative_draft: Samenwerkingsconcept
         dummy_resource: Dummy middelen
         meeting: Vergaderingen
         project: Projecten
@@ -365,6 +379,19 @@ nl:
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
+    gamification:
+      badges:
+        invitations:
+          description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
+          description_own: Je hebt %{score} gebruikers uitgenodigd.
+          explanation: Gebruikers krijgen deze badge door andere gebruikers uit te nodigen.
+          name: Uitnodigingen
+          next_level_in: Nodig nog %{score} gebruikers uit om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen gebruiker uitgenodigd.
+          unearned_own: Je hebt nog geen gebruikers uitgenodigd.
+      description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
+      level: Niveau %{level}
+      reached_top: U hebt het hoogste niveau bereikt voor deze badge.
     invitations:
       create:
         error: Er waren enkele problemen terwijl je je vrienden uitnodigde
@@ -536,6 +563,7 @@ nl:
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
+        badges: badges
         conversations: conversaties
         followers: Volgers
         following: volgt

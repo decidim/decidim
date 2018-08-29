@@ -82,6 +82,16 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Novo marco concluído!
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Este usuário obteve %{score} iniciativas publicadas.
+          description_own: Você tem %{score} iniciativas publicadas.
+          explanation: Os usuários recebem esse selo ao publicar suas iniciativas.
+          name: Iniciativas publicadas
+          next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não publicou nenhuma iniciativa.
+          unearned_own: Você não tem iniciativas publicadas ainda.
     initiatives:
       admin:
         committee_requests:
