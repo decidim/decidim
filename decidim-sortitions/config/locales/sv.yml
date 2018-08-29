@@ -126,10 +126,10 @@ sv:
           any_category: från alla kategorier
           cancelled: Annullerad sortering
           candidate_proposal_ids: Sorteringsförslag beställer och ID
-          candidate_proposals_info: 'Sorteringen gjordes bland följande förslag (%{category_label}), med följande ID (i fetstil de valda förslagen)  '
+          candidate_proposals_info: 'Sorteringen gjordes bland följande förslag (%{category_label}), med följande ID (i fetstil de valda förslagen) '
           category: från kategorin %{category}
           dice_result: "(1) Tärningsresultat"
-          introduction: 'Den här sidan innehåller resultaten från sorteringen %{reference}. Med hjälp av denna sortering har %{target_items} antal resultat valts slumpmässigt och med en lika stor sannolikhetsfördelning från uppsättningen förslag som visas nedan. Tillsammans med resultaten, innehåller informationen som visas på denna sida all information som krävs för att maximera garantier och reproducera resultaten. Nyckeln till kvaliteten på denna sortition är den dubbla slumpen som tillhandahålls av en tärning av en tärning (verifierad av vittnen) och den exakta tiden för sorteringen som ger inmatning för en algoritm som genererar ett slumpmässigt urval. Tidsåtgången för sorteringen är så exakt (sekunder) att det är omöjligt att kontrollera av människor, vilket ger en dubbel "okontrollerad" ingång för att garantera ett rättvist resultat.  '
+          introduction: 'Den här sidan innehåller resultaten från sorteringen %{reference}. Med hjälp av denna sortering har %{target_items} antal resultat valts slumpmässigt och med en lika stor sannolikhetsfördelning från uppsättningen förslag som visas nedan. Tillsammans med resultaten, innehåller informationen som visas på denna sida all information som krävs för att maximera garantier och reproducera resultaten. Nyckeln till kvaliteten på denna sortition är den dubbla slumpen som tillhandahålls av en tärning av en tärning (verifierad av vittnen) och den exakta tiden för sorteringen som ger inmatning för en algoritm som genererar ett slumpmässigt urval. Tidsåtgången för sorteringen är så exakt (sekunder) att det är omöjligt att kontrollera av människor, vilket ger en dubbel "okontrollerad" ingång för att garantera ett rättvist resultat. '
           mathematical_result: Resultat (1) x (2)
           proposals_selected_by_sortition: Förslag valda genom sortering
           sortition_reproducibility_details: Sorteringsreproducerbarhetsinformation

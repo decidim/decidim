@@ -4,7 +4,7 @@ pt-BR:
       participatory_process:
         announcement: Anúncio
         banner_image: Imagem da bandeira
-        copy_categories: Cópiar categorias
+        copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_steps: Copie etapas
         description: Descrição
@@ -13,7 +13,7 @@ pt-BR:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área Local
+        local_area: Áreas municipais
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
         participatory_scope: Âmbito participativo
@@ -22,8 +22,8 @@ pt-BR:
         published_at: Publicado em
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
-        short_description: Pequena descrição
-        show_statistics: Mostre estatisticas
+        short_description: Descrição curta
+        show_statistics: Mostrar estatísticas
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
@@ -63,7 +63,7 @@ pt-BR:
       actions:
         activate: Ativar
         configure: Configurar
-        confirm_destroy: Confirme a exclusão
+        confirm_destroy: Confirmar exclusão
         destroy: Excluir
         duplicate: Duplicar
         edit: Editar
@@ -110,7 +110,7 @@ pt-BR:
           name: Etapa do processo participativo
         participatory_process_user_role:
           fields:
-            email: O email
+            email: Endereço de e-mail
             name: Nome
             role: Cargo
           name: Usuário do processo participativo
@@ -321,7 +321,7 @@ pt-BR:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Squeaky toy
+          browse: Navegar
           processes_count: 'Processos:'
       participatory_process_widgets:
         show:

@@ -101,17 +101,17 @@ ru:
         end_date: Дата окончания
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Местный участок
+        local_area: Участок организации
         meta_scope: Метаданные охвата
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
-        promoted: Рекламируется
+        participatory_scope: Что решается
+        participatory_structure: Как это решается
+        promoted: Рекомендуется
         scope: Охват
         short_description: Краткое описание
         slug: Сокращенный веб-адрес
         start_date: Дата начала
         subtitle: Подзаголовок
-        target: Цель
+        target: Кто участвует
         title: Название
       decidim/participatory_process_group:
         description: Описание
@@ -218,23 +218,23 @@ ru:
         search_prompt: Введите не менее трех символов для поиска
       categories:
         create:
-          error: При попытке создать этот разряд произошла ошибка.
-          success: Разряд успешно создан.
+          error: При попытке создать эту категорию произошла ошибка.
+          success: Категория успешно создана.
         destroy:
-          error: Не удалось удалить этот разряд. Сначала удалите все подразряды, затем убедитесь, что ничто не относится к этому разряду, и повторите попытку.
-          success: Разряд успешно удален.
+          error: Не удалось удалить эту категорию. Сначала удалите все подкатегории, затем убедитесь, что ничто не относится к этой категории, и повторите попытку.
+          success: Категория успешно удалена.
         edit:
-          title: Редактировать разряд
+          title: Редактировать категорию
           update: Обновить
         index:
-          categories_title: Разряды
-          category_used: Этот разряд нельзя удалить, так как он используется.
+          categories_title: Категории
+          category_used: Эту категорию нельзя удалить, поскольку она используется.
         new:
-          create: Создать разряд
-          title: Добавить разряд
+          create: Создать категорию
+          title: Добавить категорию
         update:
-          error: При попытке обновить этот разряд произошла ошибка.
-          success: Разряд успешно обновлен.
+          error: При попытке обновить эту категорию произошла ошибка.
+          success: Категория успешно обновлена.
       component_permissions:
         edit:
           everyone: Все
@@ -362,7 +362,7 @@ ru:
         attachment_collection:
           name: Папка
         category:
-          name: Разряд
+          name: Категория
         impersonation_log:
           fields:
             admin: Администратор
@@ -407,7 +407,7 @@ ru:
             roles:
               admin: Администратор
               user_manager: Распорядитель участников
-          name: Участник
+          name: участника
         user_group:
           fields:
             actions: Действия
