@@ -128,17 +128,17 @@ fi:
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> peruttu <a href="%{resource_path}">%{resource_title}</a> yhteistyöhankkeesta.
           email_outro: Olet saanut tämän ilmoituksen, koska olet yhteistyökumppani <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} vetäytyi %{resource_title} yhteistyöhanketta."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>peruttu</strong> <a href="%{resource_path}">%{resource_title}</a> yhteistyöprofiilia.
+          email_subject: "%{author_name} %{author_nickname} perunut yhteistyöluonnoksen %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>perunut</strong>yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: 'Voit nyt luoda uusia ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_intro: 'Voit nyt luoda uusia ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Ehdotukset nyt saatavilla tilassa %{participatory_space_title}
           notification_title: Voit nyt esittää <a href="%{resource_path}">uutta ehdotusta</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Voit hyväksyä ehdotukset %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Ehdotusten hyväksyminen on alkanut %{participatory_space_title}
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Ehdotusten kannattaminen on alkanut tilalle %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">hyväksyntäehdotukset</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
