@@ -430,31 +430,9 @@ workflows:
   build_and_test:
     jobs:
       - build_design_app:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
           requires:
             - main
-      - build_test_app:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
-      - main:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
       - generators:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
           requires:
             - main
       - core:
