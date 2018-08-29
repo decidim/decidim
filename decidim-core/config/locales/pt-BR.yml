@@ -2,18 +2,18 @@ pt-BR:
   activemodel:
     attributes:
       account:
-        delete_reason: Razão para cancelar a sua conta
+        delete_reason: Motivo para excluir sua conta
       report:
         details: Comentários adicionais
       user:
         about: Sobre
         email: O seu email
         name: Seu nome
-        nickname: Seu identificador curto e exclusivo
+        nickname: O seu identificador curto e único
         password: Senha
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
-        remove_avatar: Remover avatar
+        remove_avatar: Excluir avatar
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
@@ -25,11 +25,11 @@ pt-BR:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: Email
+        email: E-mail
         name: Nome de usuário
         password: Senha
         password_confirmation: Confirmação de senha
-        remember_me: Recorde-me
+        remember_me: Lembrar-me
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
@@ -45,7 +45,7 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
-      image_too_big: A imagem é demasiado grande
+      image_too_big: A imagem é muito grande
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -53,7 +53,7 @@ pt-BR:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Arquivo não existe
+        file_no_exists: O arquivo não existe
         invalid_token: O token fornecido é inválido.
         no_token: Nenhum token fornecido
         notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
@@ -61,13 +61,13 @@ pt-BR:
         alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
-          ok: Sim, eu quero cancelar a minha conta
-          question: Tem certeza de que deseja cancelar a sua conta?
+          ok: Sim, eu quero excluir minha conta
+          question: Deseja mesmo excluir a sua conta?
           title: Excluir minha conta
         explanation: Por favor, preencha o motivo pelo qual deseja cancelar a sua conta (opcional).
       destroy:
         error: Ocorreu um erro ao cancelar a sua conta.
-        success: Sua conta foi cancelada com sucesso.
+        success: Sua conta foi excluída.
       show:
         change_password: Mudar senha
         update_account: Atualizar conta
@@ -100,12 +100,12 @@ pt-BR:
       organization:
         update: "%{user_name} atualizou as configurações da organização"
       scope:
-        create: "%{user_name} criou o escopo %{resource_name}"
-        create_with_parent: "%{user_name} criou o escopo %{resource_name} dentro do escopo %{parent_scope}"
-        delete: "%{user_name} excluiu o escopo %{resource_name}"
-        delete_with_parent: "%{user_name} excluiu o escopo %{resource_name} dentro do escopo %{parent_scope}"
-        update: "%{user_name} atualizou o escopo %{resource_name}"
-        update_with_parent: "%{user_name} atualizou o escopo %{resource_name} dentro do escopo %{parent_scope}"
+        create: "%{user_name} criou o âmbito %{resource_name}"
+        create_with_parent: "%{user_name} criou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
+        delete: "%{user_name} excluiu o âmbito %{resource_name}"
+        delete_with_parent: "%{user_name} excluiu o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
+        update: "%{user_name} atualizou o âmbito %{resource_name}"
+        update_with_parent: "%{user_name} atualizou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
       static_page:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
@@ -136,7 +136,7 @@ pt-BR:
       another_dummy_authorization_handler:
         explanation: Seja verificado introduzindo um número de passaporte começando com "A"
         fields:
-          passport_number: Número do passaporte
+          passport_number: Número de passaporte
         name: Outro exemplo de autorização
       dummy_authorization_handler:
         explanation: Seja verificado através da introdução de um número de documento que termina com "X"
@@ -201,7 +201,7 @@ pt-BR:
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       registrations:
         new:
-          already_have_an_account?: Já tem uma conta?
+          already_have_an_account?: Você já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
           nickname_help: Seu identificador curto e exclusivo em %{organization}
@@ -214,7 +214,7 @@ pt-BR:
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
           tos_agreement: Ao se inscrever, aceita %{link}.
-          tos_title: Termos de Serviço
+          tos_title: Termos de serviço
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
@@ -257,7 +257,7 @@ pt-BR:
         try_later: Por favor, tente novamente mais tarde.
       not_found:
         back_home: Voltar ao início
-        content_doesnt_exist: Este endereço está incorreto ou foi apagado.
+        content_doesnt_exist: Este endereço está incorreto ou foi excluído.
         title: A página que você procura não pode ser encontrada
     events:
       attachments:
@@ -354,9 +354,9 @@ pt-BR:
         area_type_presenter:
           not_found: 'O tipo de área não foi encontrado no banco de dados (ID: %{id})'
         scope_presenter:
-          not_found: 'O escopo não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'O âmbito não foi encontrado no banco de dados (ID: %{id})'
         scope_type_presenter:
-          not_found: 'O tipo de escopo não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'O tipo de âmbito não foi encontrado no banco de dados (ID: %{id})'
     managed_users:
       expired_session: A sessão de representação atual expirou.
     menu:
@@ -521,10 +521,10 @@ pt-BR:
       global: Âmbito global
       picker:
         cancel: Cancelar
-        choose: Selecione
+        choose: Selecionar
         title: Selecione %{field}
-      prompt: Selecione um escopo
-      scopes: Escopos
+      prompt: Selecione um âmbito
+      scopes: Âmbitos
     search:
       filter:
         all: Todos
@@ -588,10 +588,10 @@ pt-BR:
         label: 'Resultados por página:'
       share_modal:
         close_window: Fechar janela
-        share: Partilhar
+        share: Compartilhar
         share_link: Partilhar link
       version_author:
-        deleted: Usuário deletado
+        deleted: Usuário excluído
   devise:
     invitations:
       edit:
@@ -678,7 +678,7 @@ pt-BR:
       user_profile:
         account: Conta
         authorizations: Autorizações
-        delete_my_account: Deletar minha conta
+        delete_my_account: Excluir minha conta
         my_data: Meus dados
         notifications_settings: Configurações de notificações
         title: Configurações do usuário
