@@ -133,7 +133,7 @@ fi:
         creation_enabled:
           email_intro: 'Voit nyt luoda uusia ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Ehdotukset nyt saatavilla %{participatory_space_title}
+          email_subject: Ehdotukset nyt saatavilla tilassa %{participatory_space_title}
           notification_title: Voit nyt esittää <a href="%{resource_path}">uutta ehdotusta</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Voit hyväksyä ehdotukset %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
@@ -142,8 +142,8 @@ fi:
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">hyväksyntäehdotukset</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Seuraava ehdotus on hyväksytty
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisestä linkistä.
+          email_subject: Seuraamasi ehdotus on hyväksytty
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksytty.
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistuta:"
