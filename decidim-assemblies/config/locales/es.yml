@@ -31,6 +31,7 @@ es:
         is_transparent: Es transparente
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
+        parent_id: Asamblea principal
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
@@ -217,6 +218,7 @@ es:
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de asamblea
+            select_parent_assembly: Seleccionar ensamblaje principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
         assembly_copies:
