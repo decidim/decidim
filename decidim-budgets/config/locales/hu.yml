@@ -1,0 +1,143 @@
+hu:
+  activemodel:
+    attributes:
+      project:
+        budget: Költségvetés
+        decidim_category_id: Kategória
+        decidim_scope_id: terület
+        description: Leírás
+        proposal_ids: Kapcsolódó javaslatok
+        title: Cím
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: program
+        other: projektek
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: mappák
+        attachments: Mellékletek
+        confirm_destroy: Biztosan törölni szeretné ezt a projektet?
+        destroy: Töröl
+        edit: szerkesztése
+        new: Új projekt
+        preview: Előnézet
+        title: Hozzászólások
+      admin:
+        models:
+          project:
+            name: program
+        projects:
+          create:
+            invalid: Probléma történt a projekt létrehozásában
+            success: A projekt sikeresen létrejött
+          destroy:
+            success: A projekt sikeresen törölve
+          edit:
+            title: Projekt szerkesztése
+            update: frissítés
+          index:
+            finished_orders: Kész szavazások
+            pending_orders: Függőben lévő szavazatok
+            title: projektek
+          new:
+            create: Teremt
+            title: Új projekt
+          update:
+            invalid: Probléma történt a projekt frissítésével
+            success: A projekt sikeresen frissült
+      admin_log:
+        project:
+          create: "%{user_name} létrehozta az %{resource_name} projektet a %{space_name} térben"
+          delete: "%{user_name} törölte az %{resource_name} projektet a %{space_name} mezőben"
+          update: "%{user_name} frissítette az %{resource_name} projektet a %{space_name} mezőben"
+      models:
+        project:
+          fields:
+            title: Cím
+      projects:
+        budget_confirm:
+          are_you_sure: Egyetértesz? Miután megerősítette szavazatát, nem változtathatja meg.
+          cancel: Megszünteti
+          confirm: megerősít
+          description: Ezek azok a projektek, amelyeket a költségvetés részét képez.
+          title: A szavazás megerősítése
+        budget_excess:
+          close: Bezárás
+          description: Ez a projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölheti a már kiválasztott projektet, amelyet hozzá szeretne adni, vagy szavazataikat a kívánt beállításokkal.
+          ok: rendben
+          title: A maximális költségkeret meghaladta
+        budget_summary:
+          are_you_sure: Biztosan törölni szeretné szavazatát?
+          assigned: 'Kijelölt:'
+          cancel_order: törölje szavazatát és kezdje újra
+          checked_out:
+            description: Ön már szavazott a költségvetésre. Ha megváltoztattad az elmédet, akkor %{cancel_link}lehet.
+            title: A költségvetés szavazata befejeződött
+          description: Milyen projektekre gondolsz, hogy a költségvetést ki kellene osztanunk? Hozzárendel legalább %{minimum_budget} t a kívánt projektekhez, és szavazzon a preferenciákkal a költségkeret meghatározásához.
+          title: Ön határozza meg a költségvetést
+        count:
+          projects_count:
+            one: 1 projekt
+            other: "%{count} projekt"
+        filters:
+          category: Kategória
+          category_prompt: Válasszon egy kategóriát
+          search: Keresés
+        filters_small_view:
+          close_modal: Közeli modal
+          filter: Szűrő
+          filter_by: Szűrés vlami alapján
+          unfold: kibontakozik
+        order_progress:
+          vote: Szavazás
+        order_selected_projects:
+          remove: eltávolít
+          selected_projects:
+            one: kiválasztott projekt
+            other: kiválasztott projektek
+          view: Kilátás
+        project:
+          add: hozzáad
+          count:
+            one: 1 támogatást
+            other: "%{count} támogatja"
+          remove: eltávolít
+          view: Kilátás
+        project_budget_button:
+          add: hozzáad
+          added: Hozzáadott
+        show:
+          budget: Költségvetés
+          view_all_projects: Az összes projekt megtekintése
+    components:
+      budgets:
+        actions:
+          vote: Szavazás
+        name: Költségvetési
+        settings:
+          global:
+            announcement: Közlemény
+            comments_enabled: Megjegyzések engedélyezve
+            projects_per_page: Projektek oldalanként
+            total_budget: Teljes költségvetés
+            vote_threshold_percent: Szavazás küszöb százalék
+          step:
+            announcement: Közlemény
+            comments_blocked: Megjegyzések letiltva
+            show_votes: Szavazatok megjelenítése
+            votes_enabled: A szavazás engedélyezett
+    orders:
+      checkout:
+        error: Hiba történt a szavazás feldolgozása során
+        success: Az Ön szavazata sikeresen elfogadott
+      destroy:
+        error: Hiba történt a szavazás törlése közben
+        success: Az Ön szavazata sikeresen megszűnt
+    resource_links:
+      included_proposals:
+        project_proposal: 'A projektben szereplő javaslatok:'
+  index:
+    confirmed_orders_count: A szavazatok száma
+  total_budget: Teljes költségvetés
