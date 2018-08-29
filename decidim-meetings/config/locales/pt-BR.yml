@@ -117,7 +117,7 @@ pt-BR:
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
-        confirm_destroy: Tem certeza de que deseja excluir esta reunião?
+        confirm_destroy: Deseja mesmo excluir este encontro?
         destroy: Excluir
         edit: Editar
         minutes: Minutos
@@ -169,7 +169,7 @@ pt-BR:
           new:
             explanation: O usuário será convidado a participar de uma reunião. Se o e-mail não estiver registrado, eles também serão convidados para a organização.
             invite: Convite
-            new_invite: Convidar Usuário
+            new_invite: Convidar usuário
         meeting_closes:
           edit:
             close: Fechar
@@ -185,7 +185,7 @@ pt-BR:
             invalid: Tem havido um problema ao criar esta reunião
             success: Reunião criada com sucesso
           destroy:
-            success: Reunião excluída com êxito
+            success: Reunião excluída com sucesso
           edit:
             update: Atualizar
           form:
@@ -225,10 +225,10 @@ pt-BR:
             name: encontro
         registrations:
           edit:
-            save: Salve 
+            save: Salvar
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
-            invite_user: Convidar Usuário
+            invite_user: Convidar usuário
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} registos.
@@ -263,7 +263,7 @@ pt-BR:
         filters:
           category: Categoria
           category_prompt: Selecione uma categoria
-          date: Encontro
+          date: Data
           past: Passado
           search: Pesquisa
           upcoming: próximos
