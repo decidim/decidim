@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       collaborative_draft:
-        body: ruumis
+        body: Leipäteksti
         category_id: Kategoria
         decidim_scope_id: Laajuus
         has_address: Onko osoite
