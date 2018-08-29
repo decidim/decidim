@@ -24,6 +24,7 @@ ca:
         private_meeting: Trobada privada
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
+        reserved_slots: Places réservées
         start_time: Hora d'inici
         title: Títol
         transparent: Transparent

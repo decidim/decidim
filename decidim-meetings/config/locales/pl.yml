@@ -24,6 +24,7 @@ pl:
         private_meeting: Prywatne spotkanie
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracje włączone
+        reserved_slots: Places réservées
         start_time: Czas rozpoczęcia
         title: Tytuł
         transparent: Przezroczysty

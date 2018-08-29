@@ -13,7 +13,6 @@ fr:
         contributions_count: Nombre de contributions
         proposal_ids: Propositions élaborées lors de la rencontre
       meeting:
-        reserved_slots: Places réservées
         address: Adresse
         available_slots: Places disponibles pour cette rencontre
         decidim_category_id: Catégorie
@@ -25,6 +24,7 @@ fr:
         private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions ouvertes
+        reserved_slots: Places réservées
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres

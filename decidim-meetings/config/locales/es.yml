@@ -24,6 +24,7 @@ es:
         private_meeting: Encuentro privado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
+        reserved_slots: Places réservées
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
