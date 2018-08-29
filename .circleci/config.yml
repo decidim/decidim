@@ -1,5 +1,9 @@
 version: 2
 
+notify:
+  webhooks:
+  - url: https://osp.rocket.chat/hooks/CWDekWnPrND2Ep9n5/2ZSkKzCSxofmY29qW3yufe8tcpBDHECZsnYaga73h7RR9WHR
+
 defaults: &defaults
   docker:
     # This is the sha of the latest `decidim/decidim:latest-test` docker image. You can retrieve the
