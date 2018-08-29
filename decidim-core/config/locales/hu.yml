@@ -319,12 +319,12 @@ hu:
         email_subject: Frissítés %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Nagyszerű munka! Ön megszerezte a <a href="%{resource_url}">%{badge_name} jelvényt</a> ( %{current_level}szint).
+          email_intro: Nagyszerű munka! Ön megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> ( %{current_level}szint).
           email_outro: Ezt az értesítést azért kapta, mert aktivitást tett a weboldalunkon.
           email_subject: 'Új jelvényt szerzett: %{badge_name}!'
           notification_title: Nagyszerű munka! Ön megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> ( %{current_level}szint).
         level_up:
-          email_intro: Nagyszerű munka! Ön elérte a %{current_level} szintet az <a href="%{resource_url}">%{badge_name} jelvényen</a>!
+          email_intro: Nagyszerű munka! Ön elérte a %{current_level} szintet az <a href="%{resource_path}">%{badge_name} jelvényen</a>!
           email_outro: Ezt az értesítést azért kapta, mert aktivitást tett a weboldalunkon.
           email_subject: Ön elérte a %{current_level} szintet az %{badge_name} jelvényen!
           notification_title: Nagyszerű munka! Ön elérte a %{current_level} szintet az <a href="%{resource_path}">%{badge_name} jelvényen</a>!
