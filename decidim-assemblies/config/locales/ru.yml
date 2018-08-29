@@ -9,7 +9,7 @@ ru:
         closing_date: Дата закрытия
         closing_date_reason: Причина даты закрытия
         composition: Состав
-        copy_categories: Скопировать разряды
+        copy_categories: Скопировать категории
         copy_components: Копировать составляющие
         copy_features: Копировать составляющие
         created_by: 'Автор:'
@@ -29,13 +29,13 @@ ru:
         instagram: Инстаграм
         internal_organisation: Внутренняя организация
         is_transparent: Прозрачное
-        local_area: Местный участок
+        local_area: Участок организации
         meta_scope: Метаданные охвата
         participatory_processes_ids: Сопутствующие движения соучастия
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
+        participatory_scope: Что решается
+        participatory_structure: Как это решается
         private_space: Частное пространство
-        promoted: Рекламируется
+        promoted: Рекомендуется
         published_at: 'Обнародовано:'
         purpose_of_action: Цель действия
         scope_id: Охват
@@ -45,7 +45,7 @@ ru:
         slug: Сокращенный веб-адрес
         special_features: Особенности
         subtitle: Подзаголовок
-        target: Цель
+        target: Кто участвует
         title: Название
         twitter: Твиттер
         youtube: ЮТуб
@@ -162,7 +162,7 @@ ru:
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
-          categories: Разряды
+          categories: Категории
           components: Составляющие
           info: Сведения
           moderations: Действия по модерации
@@ -283,9 +283,9 @@ ru:
         is_transparent:
           'false': непрозрачное
           'true': прозрачное
-        local_area: Местный участок
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
+        local_area: Участок организации
+        participatory_scope: Что решается
+        participatory_structure: Как это решается
         private_space: Это частное собрание
         purpose_of_action: Цель действия
         read_less: Читать меньше
@@ -293,7 +293,7 @@ ru:
         related_participatory_processes: Сопутствующие движения соучастия
         scope: Охват
         social_networks: Социальные сети
-        target: Цель
+        target: Кто участвует
       statistics:
         answers_count: Ответов
         assemblies_count: Собраний
