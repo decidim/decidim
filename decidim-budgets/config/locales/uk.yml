@@ -2,8 +2,8 @@ uk:
   activemodel:
     attributes:
       project:
-        budget: Кошторис
-        decidim_category_id: Розряд
+        budget: Бюджет
+        decidim_category_id: Категорія
         decidim_scope_id: Обсяг
         description: Опис
         proposal_ids: Супутні пропозиції
@@ -11,49 +11,49 @@ uk:
   activerecord:
     models:
       decidim/budgets/project:
-        one: Задум
-        few: Задуми
-        many: Задумів
-        other: Задумів
+        one: Проект
+        few: Проекти
+        many: Проектів
+        other: Проектів
   decidim:
     budgets:
       actions:
         attachment_collections: Теки
         attachments: Вкладені файли
-        confirm_destroy: Ви дійсно бажаєте видалити цей задум?
+        confirm_destroy: Ви дійсно бажаєте видалити цей проект?
         destroy: Видалити
         edit: Редагувати
-        new: Додати новий задум
+        new: Додати новий проект
         preview: Попередній перегляд
         title: Дії
       admin:
         models:
           project:
-            name: Задум
+            name: Проект
         projects:
           create:
-            invalid: При спробі додати цей задум сталася помилка
-            success: Задум успішно додано
+            invalid: При спробі додати цей проект сталася помилка
+            success: Проект успішно додано
           destroy:
-            success: Задум успішно видалено
+            success: Проект успішно видалено
           edit:
-            title: Редагувати задум
+            title: Редагувати проект
             update: Оновити
           index:
             finished_orders: Завершені голосування
             pending_orders: Голосування, що зараз тривають
-            title: Задуми
+            title: Проекти
           new:
             create: Додати
-            title: Додати новий задум
+            title: Додати новий проект
           update:
-            invalid: При спробі оновити цей задум сталася помилка
-            success: Задум успішно оновлено
+            invalid: При спробі оновити цей проект сталася помилка
+            success: Проект успішно оновлено
       admin_log:
         project:
-          create: "%{user_name} додав задум %{resource_name} у просторі %{space_name}"
-          delete: "%{user_name} видалив задум %{resource_name} у просторі %{space_name}"
-          update: "%{user_name} оновив задум %{resource_name} у просторі %{space_name}"
+          create: "%{user_name} додав проект %{resource_name} у просторі %{space_name}"
+          delete: "%{user_name} видалив проект %{resource_name} у просторі %{space_name}"
+          update: "%{user_name} оновив проект %{resource_name} у просторі %{space_name}"
       models:
         project:
           fields:
@@ -63,31 +63,31 @@ uk:
           are_you_sure: Чи ви згодні? Підтвердивши свій голос, ви не зможете його потім змінити.
           cancel: Скасувати
           confirm: Підтвердити
-          description: Ось задуми, які ви обрали складовими кошторису.
+          description: Ось проекти, які ви обрали складовими бюджету.
           title: Підтвердьте голос
         budget_excess:
           close: Закрити
-          description: Додання цього задуму перевищить граничний кошторис, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих задумів, що ви раніше вибрали для додання, або проголосувати за той розподіл, який ви вже зробили.
+          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
           ok: Гаразд
-          title: Перевищено граничний кошторис
+          title: Перевищено граничний бюджет
         budget_summary:
           are_you_sure: Ви дійсно бажаєте скасувати ваш голос?
           assigned: 'Надано:'
           cancel_order: видалити ваш голос і почати все спочатку
           checked_out:
-            description: Ви вже проголосували за кошторис. Якщо ви змінили свою думку, ви можете %{cancel_link}.
-            title: Голосування щодо кошторису завершено
-          description: На які задуми, на вашу думку, ми маємо виділити кошти? Надавайте принаймні %{minimum_budget} бажаним для вас задумам та голосуйте згідно своїх уподобань, щоб визначити кошторис.
-          title: Ви приймаєте рішення щодо кошторису
+            description: Ви вже проголосували за бюджет. Якщо ви змінили свою думку, ви можете %{cancel_link}.
+            title: Голосування щодо бюджету завершено
+          description: На які проекти, на вашу думку, ми маємо виділити кошти? Надавайте принаймні %{minimum_budget} бажаним для вас проектам та голосуйте згідно своїх уподобань, щоб визначити бюджет.
+          title: Ви визначаєте бюджет
         count:
           projects_count:
-            one: 1 задум
-            few: "%{count} задуми"
-            many: "%{count} задумів"
-            other: "%{count} задумів"
+            one: 1 проект
+            few: "%{count} проекти"
+            many: "%{count} проектів"
+            other: "%{count} проектів"
         filters:
-          category: Розряд
-          category_prompt: Оберіть розряд
+          category: Категорія
+          category_prompt: Оберіть категорію
           search: Шукати
         filters_small_view:
           close_modal: Закрити віконце
@@ -99,10 +99,10 @@ uk:
         order_selected_projects:
           remove: Видалити
           selected_projects:
-            one: обраний задум
-            few: обраних задуми
-            many: обраних задумів
-            other: обраних задумів
+            one: обраний проект
+            few: обраних проекти
+            many: обраних проектів
+            other: обраних проектів
           view: Переглянути
         project:
           add: Додати
@@ -117,19 +117,19 @@ uk:
           add: Додати
           added: Додано
         show:
-          budget: Кошторис
-          view_all_projects: Переглянути всi задуми
+          budget: Бюджет
+          view_all_projects: Переглянути всi проекти
     components:
       budgets:
         actions:
           vote: Проголосувати
-        name: Кошториси
+        name: Бюджети
         settings:
           global:
             announcement: Оголошення
             comments_enabled: Коментарі увімкнено
-            projects_per_page: Задумів на сторінку
-            total_budget: Загальний кошторис
+            projects_per_page: Проектів на сторінку
+            total_budget: Загальний бюджет
             vote_threshold_percent: Мінімальний відсоток бюджету для голосування
           step:
             announcement: Оголошення
@@ -145,7 +145,7 @@ uk:
         success: Ваш голос було успішно скасовано
     resource_links:
       included_proposals:
-        project_proposal: 'Пропозиції, включені до цього задуму:'
+        project_proposal: 'Пропозиції, включені до цього проекту:'
   index:
     confirmed_orders_count: Кількість голосів
-  total_budget: Загальний кошторис
+  total_budget: Загальний бюджет
