@@ -9,7 +9,7 @@ uk:
         closing_date: Дата закриття
         closing_date_reason: Причина дати закриття
         composition: Склад
-        copy_categories: Скопіювати розряди
+        copy_categories: Скопіювати категорії
         copy_components: Копіювати складові
         copy_features: Скопіювати складові
         created_by: 'Автор:'
@@ -29,13 +29,13 @@ uk:
         instagram: Інстаграм
         internal_organisation: Внутрішня організація
         is_transparent: Є прозорими
-        local_area: Місцева дільниця
+        local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
         participatory_processes_ids: Пов'язані рухи співучасті
-        participatory_scope: Обсяг співучасті
-        participatory_structure: Структура співучасті
+        participatory_scope: Що вирішується
+        participatory_structure: Як це вирішується
         private_space: Приватний простір
-        promoted: Рекламується
+        promoted: Висвітлено
         published_at: 'Оприлюднено:'
         purpose_of_action: Мета дії
         scope_id: Обсяг
@@ -45,7 +45,7 @@ uk:
         slug: Скорочена веб-адреса
         special_features: Особливості
         subtitle: Підзаголовок
-        target: Мета
+        target: Хто бере участь
         title: Назва
         twitter: Твіттер
         youtube: ЮТуб
@@ -162,7 +162,7 @@ uk:
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
-          categories: Розряди
+          categories: Категорії
           components: Складові
           info: Відомості
           moderations: Дії з модерації
@@ -283,9 +283,9 @@ uk:
         is_transparent:
           'false': непрозорі
           'true': прозорі
-        local_area: Місцева дільниця
-        participatory_scope: Обсяг співучасті
-        participatory_structure: Структура співучасті
+        local_area: Дільниця організації
+        participatory_scope: Що вирішується
+        participatory_structure: Як це вирішується
         private_space: Це приватні збори
         purpose_of_action: Мета дії
         read_less: Читати менше
@@ -293,7 +293,7 @@ uk:
         related_participatory_processes: Пов'язані рухи співучасті
         scope: Обсяг
         social_networks: Соціальні мережі
-        target: Мета
+        target: Хто бере участь
       statistics:
         answers_count: Відповідей
         assemblies_count: Зборів
@@ -304,7 +304,7 @@ uk:
         meetings_count: Зустрічей
         orders_count: Голосів
         pages_count: Сторінок
-        projects_count: Задумів
+        projects_count: Проектів
         proposals_count: Пропозицій
         results_count: Підсумків
         surveys_count: Опитувань
