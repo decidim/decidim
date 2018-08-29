@@ -31,6 +31,7 @@ nl:
         is_transparent: Is transparant
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
+        parent_id: Montage van de ouders
         participatory_processes_ids: Verwante burgerinspraken
         participatory_scope: Wat wordt besloten
         participatory_structure: Hoe is het besloten
@@ -217,6 +218,7 @@ nl:
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een vergadering type
+            select_parent_assembly: Selecteer de ouderassemblage
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: sociaal
         assembly_copies:
