@@ -5,7 +5,7 @@ uk:
         answer: Відповісти
         answered_at: 'Отримано відповідь:'
         body: Основний текст
-        category_id: Розряд
+        category_id: Категорія
         has_address: Має адресу
         scope_id: Обсяг
         state: Стан
@@ -24,7 +24,7 @@ uk:
               needs_to_be_reattached: Необхідно повторно вкласти
     models:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята
-      decidim/proposals/admin/update_proposal_category_event: Розряд пропозиції змінено
+      decidim/proposals/admin/update_proposal_category_event: Категорію пропозиції змінено
       decidim/proposals/creation_enabled_event: Внесення пропозицій увімкнено
       decidim/proposals/endorsing_enabled_event: Увімкнене надання підтримки пропозиціям
       decidim/proposals/evaluating_proposal_event: Пропозиція розглядається
@@ -140,10 +140,10 @@ uk:
           email_subject: Пропозиція, за якою ви стежите, була відхилена
           notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
-          email_intro: 'Адміністратор оновив розряд вашої пропозиції "%{resource_title}", перевірте його:'
+          email_intro: 'Адміністратор оновив категорію вашої пропозиції "%{resource_title}", перевірте її:'
           email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
-          email_subject: Розряд пропозиції %{resource_title} було оновлено
-          notification_title: Адміністратор оновив розряд пропозиції <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Категорію пропозиції %{resource_title} було оновлено
+          notification_title: Адміністратор оновив категорію пропозиції <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -198,11 +198,11 @@ uk:
             success: Пропозицію успішно внесено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
-            select_a_category: Оберіть розряд
+            select_a_category: Оберіть категорію
           index:
             actions: Дії
             cancel: Скасувати
-            change_category: Змінити розряд
+            change_category: Змінити категорію
             selected: обрані
             title: Пропозиції
             update: Оновити
@@ -210,10 +210,10 @@ uk:
             create: Внести
             title: Створити пропозицію
           update_category:
-            invalid: 'Ці пропозиції вже відносились до розряду %{category}: %{proposals}.'
-            select_a_category: Будь ласка, оберіть розряд
+            invalid: 'Ці пропозиції вже відносились до категорії %{category}: %{proposals}.'
+            select_a_category: Будь ласка, виберіть категорію
             select_a_proposal: Будь ласка, оберіть пропозицію
-            success: 'Пропозиції успішно перенесені до розряду %{category}: %{proposals}.'
+            success: 'Пропозиції успішно перенесені до категорії %{category}: %{proposals}.'
         proposals_imports:
           create:
             invalid: При запозиченні цих пропозицій сталася помилка
@@ -250,7 +250,7 @@ uk:
       models:
         proposal:
           fields:
-            category: Розряд
+            category: Категорія
             comments: Коментарі
             endorsements: Прояви підтримки
             id: Псевдонім
@@ -283,7 +283,7 @@ uk:
           title: Подібні пропозиції
         complete:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
-          select_a_category: Будь ласка, оберіть розряд
+          select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
           title: Завершіть свою пропозицію
         count:
@@ -294,7 +294,7 @@ uk:
             other: "%{count} пропозицій"
         edit:
           back: Повернутись
-          select_a_category: Будь ласка, оберіть розряд
+          select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
           title: Редагувати пропозицію
         edit_draft:
@@ -311,8 +311,8 @@ uk:
           accepted: Прийнято
           activity: Діяльність
           all: Усі
-          category: Розряд
-          category_prompt: Оберіть розряд
+          category: Категорія
+          category_prompt: Оберіть категорію
           citizens: Громадяни
           evaluating: Розглядається
           except_rejected: Усі, окрім відхилених
@@ -334,10 +334,10 @@ uk:
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
-            one: голосувати
+            one: голос
             few: голоси
-            many: голоси
-            other: голоси
+            many: голосів
+            other: голосів
         new:
           send: Продовжити
           title: Внесіть свою пропозицію
@@ -347,7 +347,7 @@ uk:
           random: Довільно
           recent: Нещодавні
         preview:
-          modify: Внеасти зміни в пропозицію
+          modify: Внести зміни в пропозицію
           proposal_edit_before_minutes:
             one: Ви зможете редагувати цю пропозицію протягом першої хвилини після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             few: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
@@ -396,7 +396,7 @@ uk:
           need_more_votes: Потрібно більше голосів
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Кожну пропозицію можуть підтримувати більше ніж %{limit} людей
+            description: Кожну пропозицію можуть підтримувати понад %{limit} людей
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.
           threshold_per_proposal:
@@ -429,7 +429,7 @@ uk:
       copied_from_component:
         proposal_proposal: Супутні пропозиції
       included_projects:
-        project_result: 'Підсумки цього задуму:'
+        project_result: 'Підсумки, згадані у цьому проекті:'
       included_proposals:
-        proposal_project: 'Пропозиція є в таких задумах:'
+        proposal_project: 'Пропозиція згадується в таких проектах:'
         proposal_result: 'Пропозиція є в таких підсумках:'
