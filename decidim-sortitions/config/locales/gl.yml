@@ -126,7 +126,7 @@ gl:
           any_category: de todas as categorías
           cancelled: Cancelada sortition
           candidate_proposal_ids: Orde de propostas de clasificación e ID
-          candidate_proposals_info: 'O sortition levouse a cabo entre as seguintes propostas (%{category_label}), coas seguintes ID (en negra as propostas seleccionadas)  '
+          candidate_proposals_info: 'O sortition levouse a cabo entre as seguintes propostas (%{category_label}), coas seguintes ID (en negra as propostas seleccionadas) '
           category: da categoría %{category}
           dice_result: "(1) resultado de dados"
           introduction: 'Esta páxina contén os resultados da clasificación %{reference}. Mediante esta clasificación, %{target_items} número de resultados foron seleccionados aleatoriamente e cunha distribución de probabilidade igual ao conxunto de propostas que se amosan debaixo. Xunto cos resultados, a información que se mostra nesta páxina proporciona toda a información necesaria para maximizar as garantías e reproducir os resultados. A clave para a calidade desta xeración é a aleatoriedade dobre proporcionada por un rolo dun dado (verificado por testemuñas) eo tempo preciso da xeración que proporciona entrada para un algoritmo que xera unha selección aleatoria. A semente de tempo para a xeración é tan precisa (segundos) que é imposible de controlar por parte dos seres humanos proporcionando así unha entrada dobre "incontrolable" para garantir un resultado xusto.  '
