@@ -320,12 +320,12 @@ es:
         email_subject: Una actualización de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: '¡Enhorabuena! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
+          email_intro: '¡Gran trabajo! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
           email_subject: '¡Has ganado una nueva insignia: %{badge_name}!'
           notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
-          email_intro: '¡Enhorabuena! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+          email_intro: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
           email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
           notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
