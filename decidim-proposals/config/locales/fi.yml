@@ -72,7 +72,7 @@ fi:
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
             can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
-            collaborative_drafts_enabled: Yhteistoiminnalliset luonnokset ovat käytössä
+            collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit ovat käytössä
             geocoding_enabled: Geokoodaus on käytössä
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
