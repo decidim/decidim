@@ -82,6 +82,16 @@ hu:
           email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
           email_subject: Új mérföldkő elkészült!
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezés elérte az aláírások %{percentage}% -át.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Ez a felhasználó %{score} kezdeményezést kapott.
+          description_own: Megjelent %{score} kezdeményezés.
+          explanation: A felhasználók megkapják ezt a jelvényt a kezdeményezések közzétételével.
+          name: Megjelent kezdeményezések
+          next_level_in: Szerezzen még %{score} kezdeményezést a következő szint eléréséhez!
+          unearned_another: Ez a felhasználó még nem kapott semmilyen kezdeményezést.
+          unearned_own: Nincs még kezdeményezésed közzé.
     initiatives:
       admin:
         committee_requests:

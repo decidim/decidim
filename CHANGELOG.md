@@ -14,7 +14,7 @@
   engine, you probably want to add `paths["lib/tasks"] = nil` to all engines but
   the main one, otherwise the tasks you define are probably running multiple
   times unintentionally. Check
-  [\#3890](https://github.com/decidim/decidim/pull/3890) for more details.
+  [\#3892](https://github.com/decidim/decidim/pull/3892) for more details.
 
 - Image compression settings :
   The quality settings can be set in Decidim initializer with
@@ -40,9 +40,18 @@
   Be careful when playing with this feature on production.
   Check [\#3984](https://github.com/decidim/decidim/pull/3984) for more details.
 
+- **Badges**: Badges are introduced in the `0.14` as a way to add gamification and
+  increase the amount of user interaction. In order to generate the scores of all
+  the badges, please run an IRB session via `rails console` and execute:
+
+  ```ruby
+  Decidim::Gamification.reset_badges
+  ```
+
 **Added**:
 
 - **decidim-conferences**: Added Conferences as a Participatory Space. This module is a configurator and generator of Conference pages, understood as a collection of Meeting. [\#3781](https://github.com/decidim/decidim/pull/3781)
+- **decidim-assemblies**: Add the posibility to select the parent assembly when the assembly is created or edited [\#4022](https://github.com/decidim/decidim/pull/4022)
 - **decidim-admin**:Add link to user profile and link to conversation from admin space. [\#3995](https://github.com/decidim/decidim/pull/3995)
 - **decidim-core**:Add compression settings to image uploader [\#3984](https://github.com/decidim/decidim/pull/3984)
 - **decidim-budgets**: Import accepted proposals to projects. [\#3873](https://github.com/decidim/decidim/pull/3873)
@@ -66,6 +75,10 @@
 - **decidim-participatory_processes**: Display a big card when there's just one process at the homepage [\#3970](https://github.com/decidim/decidim/pull/3970)
 - **decidim-core**: Adds support for earning badges. [\#3975](https://github.com/decidim/decidim/pull/3975)
 - **decidim-proposals**: Adds the *proposal* badge. [\#3975](https://github.com/decidim/decidim/pull/3975)
+- **decidim-proposals**: Adds the *proposal supports* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
+- **decidim-proposals**: Adds the *accepted proposals* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
+- **decidim-core**: Adds the *invitations* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
+- **decidim-initiatives**: Adds the *published initiatives* badge. [\#4033](https://github.com/decidim/decidim/pull/4033)
 - **decidim-core**: Add link to admin edit from public pages. [\#3978](https://github.com/decidim/decidim/pull/3978)
 
 **Changed**:

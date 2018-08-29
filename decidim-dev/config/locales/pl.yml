@@ -12,6 +12,16 @@ pl:
       admin:
         exports:
           dummies: Manekiny
+    gamification:
+      badges:
+        test:
+          description_another: Ten użytkownik utworzył %{score} testów.
+          description_own: Stworzyłeś %{score} testów.
+          explanation: Użytkownicy otrzymują tę odznakę, tworząc testy.
+          name: Testy
+          next_level_in: Stwórz %{score} dodatkowych testów, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie utworzył jeszcze żadnych testów.
+          unearned_own: Nie stworzyłeś jeszcze żadnych testów.
     pages:
       home:
         statistics:

@@ -82,6 +82,16 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Novo fito rematado!
           notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Este usuario obtivo %{score} iniciativas publicadas.
+          description_own: Tes publicado %{score} iniciativas.
+          explanation: Os usuarios obtén esta insignia ao publicar as súas iniciativas.
+          name: Iniciativas publicadas
+          next_level_in: Recibe %{score} iniciativas máis publicadas para alcanzar o seguinte nivel!
+          unearned_another: Este usuario aínda non recibiu ningunha iniciativa publicada.
+          unearned_own: Aínda non recibiu ningunha iniciativa publicada.
     initiatives:
       admin:
         committee_requests:

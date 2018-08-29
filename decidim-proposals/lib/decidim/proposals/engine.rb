@@ -147,6 +147,27 @@ module Decidim
             ).count
           }
         end
+
+        Decidim::Gamification.register_badge(:accepted_proposals) do |badge|
+          badge.levels = [1, 5, 15, 30, 50]
+
+          badge.reset = lambda { |user|
+            proposal_ids = Decidim::Coauthorship.where(
+              coauthorable_type: "Decidim::Proposals::Proposal",
+              author: user
+            ).select(:coauthorable_id)
+
+            Decidim::Proposals::Proposal.where(id: proposal_ids).accepted.count
+          }
+        end
+
+        Decidim::Gamification.register_badge(:proposal_votes) do |badge|
+          badge.levels = [5, 15, 50, 100, 500]
+
+          badge.reset = lambda { |user|
+            Decidim::Proposals::ProposalVote.where(author: user).select(:decidim_proposal_id).distinct.count
+          }
+        end
       end
     end
   end
