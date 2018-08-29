@@ -14,7 +14,7 @@
   engine, you probably want to add `paths["lib/tasks"] = nil` to all engines but
   the main one, otherwise the tasks you define are probably running multiple
   times unintentionally. Check
-  [\#3890](https://github.com/decidim/decidim/pull/3890) for more details.
+  [\#3892](https://github.com/decidim/decidim/pull/3892) for more details.
 
 - Image compression settings :
   The quality settings can be set in Decidim initializer with
