@@ -29,7 +29,7 @@ nl:
         settings:
           global:
             announcement: Aankondiging
-            comments_enabled: Reacties ingeschakeld
+            comments_enabled: Reacties geactiveerd
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd

@@ -29,10 +29,10 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
           step:
             announcement: Annonce
-            comments_blocked: Commentaires désactivés
+            comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Création de débats par les utilisateurs activés
     debates:
       actions:

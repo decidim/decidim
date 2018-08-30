@@ -170,7 +170,7 @@ pt-BR:
           explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
           invalid_field: "%{field}"
           reauthorize: Reautorizar
-          title: Reautorize
+          title: Por favor reautorize
         missing:
           authorize: Autorizar com "%{authorization}"
           explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
