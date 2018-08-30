@@ -42,6 +42,17 @@ module Decidim
         it "includes only published, with promoted listed first" do
           expect(controller.helpers.assemblies).to match_array([promoted, published])
         end
+
+        context "when there are no assemblies" do
+          before do
+            published.unpublish!
+            promoted.unpublish!
+          end
+
+          it "redirects to 404" do
+            expect { get :index }.to raise_error(ActionController::RoutingError)
+          end
+        end
       end
 
       describe "GET assemblies in json format" do

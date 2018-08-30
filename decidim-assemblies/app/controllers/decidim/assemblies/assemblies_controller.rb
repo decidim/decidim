@@ -21,7 +21,7 @@ module Decidim
 
         respond_to do |format|
           format.html do
-            redirect_to "/404" if published_assemblies.none?
+            raise ActionController::RoutingError, "Not Found" if published_assemblies.none?
 
             render "index"
           end
