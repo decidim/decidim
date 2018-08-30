@@ -616,7 +616,6 @@ fi:
       copied_from_component:
         proposal_proposal: Vastaavat ehdotukset
       included_projects:
-        project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
+        project_result: 'Tässä projektissa näkyvät tulokset:'
       included_proposals:
-        proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
         proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'
