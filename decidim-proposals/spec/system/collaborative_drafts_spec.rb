@@ -153,15 +153,15 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
             click_button "Publish"
           end
 
+          after do
+            click_button "Publish as a Proposal"
+          end
+
           it "shows the a modal" do
             within "#publish-irreversible-action-modal" do
               expect(page).to have_css("h3", text: "The following action is irreversible")
               expect(page).to have_css("button", text: "Publish as a Proposal")
             end
-          end
-
-          after do
-            click_button "Publish as a Proposal"
           end
         end
       end

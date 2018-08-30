@@ -31,6 +31,7 @@ hu:
         is_transparent: Átlátható
         local_area: Szervezeti terület
         meta_scope: Hatály metaadatok
+        parent_id: Szülői összeállítás
         participatory_processes_ids: Kapcsolódó Résztvevő folyamatok
         participatory_scope: Mi a döntés
         participatory_structure: Hogyan döntenek?
@@ -217,6 +218,7 @@ hu:
             select_a_created_by: Válasszon ki egy létrehozott
             select_an_area: Válasszon ki egy területet
             select_an_assembly_type: Válasszon ki egy összeszerelési típust
+            select_parent_assembly: Szülői összeállítás kiválasztása
             slug_help: 'Az URL-csigákat használják az ezen összeszerelésre utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
             social_handlers: Társadalmi
         assembly_copies:

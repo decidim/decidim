@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 defaults: &defaults
   docker:
@@ -416,7 +416,7 @@ jobs:
   upload-coverage:
     <<: *defaults
     environment:
-      - CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
+      CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
     steps:
       - *attach_workspace
       - run:
@@ -429,32 +429,12 @@ workflows:
   version: 2
   build_and_test:
     jobs:
+      - build_test_app
+      - main
       - build_design_app:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
           requires:
             - main
-      - build_test_app:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
-      - main:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
       - generators:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
           requires:
             - main
       - core:

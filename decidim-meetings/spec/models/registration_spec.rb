@@ -31,7 +31,7 @@ module Decidim::Meetings
         it "is invalid" do
           registration.code = code
 
-          is_expected.not_to be_valid
+          expect(subject).not_to be_valid
         end
       end
 
@@ -43,7 +43,7 @@ module Decidim::Meetings
         it "is invalid" do
           registration.code = code
 
-          is_expected.to be_valid
+          expect(subject).to be_valid
         end
       end
     end

@@ -63,8 +63,8 @@ module Decidim
 
       initializer "decidim_initiatives.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
-          content_block.cell "decidim/initiatives/content_blocks/highlighted_initiatives"
-          content_block.public_name_key "decidim.initiatives.content_blocks.highlighted_initiatives.name"
+          content_block.cell = "decidim/initiatives/content_blocks/highlighted_initiatives"
+          content_block.public_name_key = "decidim.initiatives.content_blocks.highlighted_initiatives.name"
         end
       end
 

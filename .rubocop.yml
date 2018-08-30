@@ -1197,9 +1197,6 @@ Performance/RedundantMerge:
 Metrics/BlockLength:
   Enabled: false
 
-FactoryBot/StaticAttributeDefinedDynamically:
-  Enabled: false
-
 RSpec/BeforeAfterAll:
   Enabled: true
 

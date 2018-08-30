@@ -60,8 +60,8 @@ module Decidim
 
       initializer "decidim_participatory_processes.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_processes) do |content_block|
-          content_block.cell "decidim/participatory_processes/content_blocks/highlighted_processes"
-          content_block.public_name_key "decidim.participatory_processes.content_blocks.highlighted_processes.name"
+          content_block.cell = "decidim/participatory_processes/content_blocks/highlighted_processes"
+          content_block.public_name_key = "decidim.participatory_processes.content_blocks.highlighted_processes.name"
         end
       end
 

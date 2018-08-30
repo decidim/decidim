@@ -66,7 +66,8 @@ module Decidim
   autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
   autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
   autoload :Gamification, "decidim/gamification"
-
+  autoload :Hashtag, "decidim/hashtag"
+  autoload :Hashtaggable, "decidim/hashtaggable"
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!

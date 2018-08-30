@@ -16,11 +16,11 @@ FactoryBot.define do
     weight { [-1, 1].sample }
 
     trait :up_vote do
-      weight 1
+      weight { 1 }
     end
 
     trait :down_vote do
-      weight(-1)
+      weight { -1 }
     end
   end
 end

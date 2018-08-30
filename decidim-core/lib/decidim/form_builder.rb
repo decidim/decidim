@@ -71,7 +71,13 @@ module Decidim
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
-            send(type, name_with_locale(name, locale), options.merge(label: false))
+            if options[:hashtaggable]
+              content_tag(:div, class: "hashtags__container") do
+                send(type, name_with_locale(name, locale), options.merge(label: false))
+              end
+            else
+              send(type, name_with_locale(name, locale), options.merge(label: false))
+            end
           end
         end
       end
@@ -137,11 +143,11 @@ module Decidim
       options[:lines] ||= 10
       options[:disabled] ||= false
 
-      content_tag(:div, class: "editor") do
+      content_tag(:div, class: "editor #{"hashtags__container" if options[:hashtaggable]}") do
         template = ""
         template += label(name, options[:label].to_s || name) if options[:label] != false
         template += hidden_field(name, options)
-        template += content_tag(:div, nil, class: "editor-container", data: {
+        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if options[:hashtaggable]}", data: {
                                   toolbar: options[:toolbar],
                                   disabled: options[:disabled]
                                 }, style: "height: #{options[:lines]}rem")

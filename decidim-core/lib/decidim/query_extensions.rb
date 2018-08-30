@@ -66,6 +66,16 @@ module Decidim
         resolve ->(_obj, _args, ctx) { ctx[:current_organization] }
       end
 
+      type.field :hashtags do
+        type types[Core::HashtagType]
+        description "The hashtags for current organization"
+        argument :name, types.String, "The name of the hashtag"
+
+        resolve lambda { |_obj, args, ctx|
+          Decidim::HashtagsResolver.new(ctx[:current_organization], args[:name]).hashtags
+        }
+      end
+      
       type.field :metrics do
         type types[Decidim::Core::MetricType]
         argument :names, types[types.String], "The names of the metrics you want to retrieve"
