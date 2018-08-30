@@ -15,15 +15,24 @@ module Decidim
           expect(controller).to receive(:current_organization).and_return(organization)
         end
 
-        context "when rendering" do
+        context "with events" do
           let(:organization) { meeting.organization }
           let(:meeting) { create(:meeting, start_time: 1.week.from_now) }
-          let!(:past_meeting) do
-            create(:meeting, start_time: 1.week.ago, component: meeting.component)
-          end
 
           it "renders the events" do
             expect(html).to have_css("article.card", count: 1)
+          end
+
+          describe "upcoming events" do
+            subject { cell.upcoming_events }
+
+            let(:cell) { described_class.new(nil, context: { controller: controller }) }
+            let!(:past_meeting) do
+              create(:meeting, start_time: 1.week.ago, component: meeting.component)
+            end
+
+            it { is_expected.not_to include(past_meeting) }
+            it { is_expected.to include(meeting) }
           end
         end
 
