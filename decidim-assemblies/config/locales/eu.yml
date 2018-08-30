@@ -31,6 +31,7 @@ eu:
         is_transparent: Gardena da
         local_area: Antolakuntza eremua
         meta_scope: 'Metadatuak: esparrua'
+        parent_id: Gurasoen muntaia
         participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         participatory_scope: Zer erabaki
         participatory_structure: Nola erabakitzen da?
@@ -217,6 +218,7 @@ eu:
             select_a_created_by: Aukeratu egilea by egilea
             select_an_area: Hautatu eremu bat
             select_an_assembly_type: Hautatu muntatze mota bat
+            select_parent_assembly: Hautatu gurasoaren muntaia
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
             social_handlers: Gizarte
         assembly_copies:

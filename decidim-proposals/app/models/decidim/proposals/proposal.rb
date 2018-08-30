@@ -19,6 +19,7 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Fingerprintable
       include Decidim::DataPortability
+      include Decidim::Hashtaggable
 
       fingerprint fields: [:title, :body]
 
@@ -43,8 +44,8 @@ module Decidim
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: { component: :participatory_space },
-                          A: :title,
-                          D: :body,
+                          D: :search_body,
+                          A: :search_title,
                           datetime: :published_at
                         },
                         index_on_create: false,

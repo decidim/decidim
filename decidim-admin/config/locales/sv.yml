@@ -52,7 +52,6 @@ sv:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
-        homepage_image: Hemsida bild
         instagram_handler: Instagram-hanterare
         logo: Logo
         name: Namn
@@ -66,7 +65,6 @@ sv:
         show_statistics: Visa statistik
         tos_version: Användarvillkor version
         twitter_handler: Twitter-hanterare
-        welcome_text: Välkomsttext
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -503,6 +501,9 @@ sv:
         edit:
           active_content_blocks: Aktiva innehållsblock
           inactive_content_blocks: Inaktiva innehållsblock
+      organization_homepage_content_blocks:
+        edit:
+          update: Uppdatering
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.

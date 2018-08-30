@@ -22,12 +22,12 @@ FactoryBot.define do
     published_at { Time.current }
     start_voting_date { Time.zone.today }
     end_voting_date { Time.zone.today + 1.month }
-    introductory_video_url "https://www.youtube.com/embed/zhMMW0TENNA"
+    introductory_video_url { "https://www.youtube.com/embed/zhMMW0TENNA" }
     decidim_highlighted_scope_id { create(:scope, organization: organization).id }
-    results_published_at nil
+    results_published_at { nil }
 
     trait :unpublished do
-      published_at nil
+      published_at { nil }
     end
 
     trait :published do
@@ -35,7 +35,7 @@ FactoryBot.define do
     end
 
     trait :unpublished_results do
-      results_published_at nil
+      results_published_at { nil }
     end
 
     trait :published_results do
@@ -72,13 +72,13 @@ FactoryBot.define do
     published_at { Time.current }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
-    external_voting false
+    external_voting { false }
     sequence :order do |n|
       n
     end
 
     trait :unpublished do
-      published_at nil
+      published_at { nil }
     end
 
     trait :published do
@@ -86,8 +86,8 @@ FactoryBot.define do
     end
 
     trait :external_voting do
-      external_voting true
-      i_frame_url "http://example.org"
+      external_voting { true }
+      i_frame_url { "http://example.org" }
     end
   end
 
