@@ -26,20 +26,20 @@ module Decidim
           let(:authorized) { false }
 
           it "renders a widget toggling the authorization modal" do
-            is_expected.not_to include(path)
-            is_expected.to include('data-open="authorizationModal"')
-            is_expected.to include("data-open-url=\"/authorization_modals/#{action}/f/#{component.id}\"")
-            is_expected.to include(*params[:widget_parts])
+            expect(subject).not_to include(path)
+            expect(subject).to include('data-open="authorizationModal"')
+            expect(subject).to include("data-open-url=\"/authorization_modals/#{action}/f/#{component.id}\"")
+            expect(subject).to include(*params[:widget_parts])
           end
 
           context "when called with a resource" do
             let(:resource) { create(:dummy_resource, component: component) }
 
             it "renders a widget toggling the authorization modal" do
-              is_expected.not_to include(path)
-              is_expected.to include('data-open="authorizationModal"')
-              is_expected.to include("data-open-url=\"/authorization_modals/#{action}/f/#{component.id}/#{resource.resource_manifest.name}/#{resource.id}\"")
-              is_expected.to include(*params[:widget_parts])
+              expect(subject).not_to include(path)
+              expect(subject).to include('data-open="authorizationModal"')
+              expect(subject).to include("data-open-url=\"/authorization_modals/#{action}/f/#{component.id}/#{resource.resource_manifest.name}/#{resource.id}\"")
+              expect(subject).to include(*params[:widget_parts])
             end
           end
         end
@@ -50,9 +50,9 @@ module Decidim
 
       context "when #{params[:has_action] ? "the action is authorized" : "the user is logged"}" do
         it "renders a regular widget" do
-          is_expected.not_to include("data-open")
-          is_expected.to include(path)
-          is_expected.to include(*params[:widget_parts])
+          expect(subject).not_to include("data-open")
+          expect(subject).to include(path)
+          expect(subject).to include(*params[:widget_parts])
         end
       end
 
@@ -60,9 +60,9 @@ module Decidim
         let(:user) { nil }
 
         it "renders a widget toggling the login modal" do
-          is_expected.not_to include(path)
-          is_expected.to include('data-open="loginModal"')
-          is_expected.to include(*params[:widget_parts])
+          expect(subject).not_to include(path)
+          expect(subject).to include('data-open="loginModal"')
+          expect(subject).to include(*params[:widget_parts])
         end
       end
     end
