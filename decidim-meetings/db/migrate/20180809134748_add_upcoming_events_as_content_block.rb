@@ -11,11 +11,13 @@ class AddUpcomingEventsAsContentBlock < ActiveRecord::Migration[5.2]
 
   def change
     Organization.find_each do |organization|
-      next if organization.content_blocks.where(manifest_name: "upcoming_events").exists?
+      next if ContentBlock.where(decidim_organization_id: organization.id).where(manifest_name: "upcoming_events").exists?
 
-      ContentBlock.create(
+      last_weight = ContentBlock.where(decidim_organization_id: organization.id).order("weight DESC").limit(1).pluck(:weight).last.to_i
+
+      ContentBlock.create!(
         decidim_organization_id: organization.id,
-        weight: organization.content_blocks.last.try(:weight).to_i + 10,
+        weight: last_weight,
         scope: :homepage,
         manifest_name: :upcoming_events,
         published_at: Time.current
