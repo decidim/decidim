@@ -126,10 +126,10 @@ hu:
           any_category: minden kategóriából
           cancelled: Megszakított rendezés
           candidate_proposal_ids: Rendezési ajánlat sorrendje és azonosító adatai
-          candidate_proposals_info: 'Az összeállítás a következő javaslatok (%{category_label}) között zajlott, a következő azonosítóval (a kiválasztott ajánlatokban vastagon)  '
+          candidate_proposals_info: 'Az összeállítás a következő javaslatok (%{category_label}) között zajlott, a következő azonosítóval (a kiválasztott ajánlatokban vastagon) '
           category: a %{category} kategóriából
           dice_result: "(1) Dice eredmény"
-          introduction: 'Ez az oldal tartalmazza a %{reference}rendezés eredményeit. Ezzel a módszerrel %{target_items} számú eredményt választottak véletlenszerűen és egyenlő valószínűségi eloszlással a megjelenő ajánlatokból. Az eredményekkel együtt az ezen az oldalon megjelenő információk minden olyan információt megadnak, amely a garanciák maximalizálására és az eredmények reprodukálására szolgál. Ennek a változatosságnak a kulcsa a kettős véletlenszerűség, amelyet egy kocka (tanú által igazolt) dobása és egy sorozata pontos időpontja biztosít, amely egy véletlen kiválasztást generáló algoritmust biztosít. A válogatáshoz szükséges idő-magvak olyan pontosak (másodpercek), hogy embereket nem lehet ellenőrizni, így duplán "ellenőrizhetetlen" bemenetet biztosítanak a méltányos eredmény biztosítása érdekében.  '
+          introduction: 'Ez az oldal tartalmazza a %{reference}rendezés eredményeit. Ezzel a módszerrel %{target_items} számú eredményt választottak véletlenszerűen és egyenlő valószínűségi eloszlással a megjelenő ajánlatokból. Az eredményekkel együtt az ezen az oldalon megjelenő információk minden olyan információt megadnak, amely a garanciák maximalizálására és az eredmények reprodukálására szolgál. Ennek a változatosságnak a kulcsa a kettős véletlenszerűség, amelyet egy kocka (tanú által igazolt) dobása és egy sorozata pontos időpontja biztosít, amely egy véletlen kiválasztást generáló algoritmust biztosít. A válogatáshoz szükséges idő-magvak olyan pontosak (másodpercek), hogy embereket nem lehet ellenőrizni, így duplán "ellenőrizhetetlen" bemenetet biztosítanak a méltányos eredmény biztosítása érdekében. '
           mathematical_result: Eredmény (1) x (2)
           proposals_selected_by_sortition: A válogatás által kiválasztott pályázatok
           sortition_reproducibility_details: Rendezési reprodukálhatóság részleteit
