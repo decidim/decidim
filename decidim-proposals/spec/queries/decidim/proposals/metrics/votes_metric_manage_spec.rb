@@ -2,12 +2,13 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::Metrics::ProposalsMetricManage do
+describe Decidim::Proposals::Metrics::VotesMetricManage do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, :published, participatory_space: participatory_space) }
+  let(:proposal) { create(:proposal, component: component) }
   let(:day) { Time.zone.today - 1.day }
-  let!(:proposals) { create_list(:proposal, 5, published_at: day, component: component) }
+  let!(:votes) { create_list(:proposal_vote, 5, proposal: proposal, created_at: day) }
 
   context "when executing" do
     it "creates new metric records" do
@@ -26,8 +27,9 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "proposals", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space)
+      create(:metric, metric_type: "votes", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space, related_object: proposal)
       registry = generate_metric_registry
+      puts Decidim::Metric.all.as_json
 
       expect(Decidim::Metric.count).to eq(1)
       expect(registry.collect(&:cumulative)).to eq([5])

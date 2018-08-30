@@ -11,7 +11,7 @@ describe Decidim::MetricJob do
   let(:day) { Time.zone.today.strftime("%Y/%m/%d") }
 
   describe "queue" do
-    it "is queued to events" do
+    it "is queued to metrics" do
       expect(subject.queue_name).to eq "metrics"
     end
   end
@@ -22,15 +22,12 @@ describe Decidim::MetricJob do
     it "executes manager actions" do
       expect(manager_class)
         .to receive(:for)
-        .with(day)
+        .with(day, organization)
         .and_return(manager_object)
 
       expect(manager_object)
-        .to receive(:with_context)
-        .with(organization)
-
-      expect(manager_object)
-        .to receive(:query)
+        .to receive(:valid?)
+        .and_return(true)
 
       expect(manager_object)
         .to receive(:registry!)

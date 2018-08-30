@@ -5,10 +5,10 @@ module Decidim
     queue_as :metrics
 
     def perform(manager_class, organization_id, day = nil)
-      metric = manager_class.constantize.for(day)
-      metric.with_context(Decidim::Organization.find_by(id: organization_id))
-      metric.query
-      metric.registry!
+      organization = Decidim::Organization.find_by(id: organization_id)
+      return unless organization
+      metric = manager_class.constantize.for(day, organization)
+      metric.registry! if metric.valid?
     end
   end
 end

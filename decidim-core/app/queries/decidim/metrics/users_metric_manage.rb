@@ -4,15 +4,13 @@ module Decidim
   module Metrics
     # Metric manager for User's registries
     class UsersMetricManage < Decidim::MetricManage
-      def initialize(day_string)
-        super(day_string)
+      def initialize(day_string, organization)
+        super(day_string, organization)
         @metric_name = "users"
+        @query = Decidim::User
       end
 
-      def with_context(organization)
-        @query = Decidim::User
-        super(organization)
-      end
+      private
 
       def query
         @query = @query.where("confirmed_at <= ?", end_time).not_managed.confirmed

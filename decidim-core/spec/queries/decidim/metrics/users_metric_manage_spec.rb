@@ -35,9 +35,7 @@ describe Decidim::Metrics::UsersMetricManage do
 end
 
 def generate_metric_registry(date = nil)
-  metric = described_class.for(date)
-  metric.with_context(organization)
-  metric.query
+  metric = described_class.for(date, organization)
   metric.registry!
   metric.registry
 end
