@@ -75,7 +75,7 @@ module Decidim
           Decidim::HashtagsResolver.new(ctx[:current_organization], args[:name]).hashtags
         }
       end
-      
+
       type.field :metrics do
         type types[Decidim::Core::MetricType]
         argument :names, types[types.String], "The names of the metrics you want to retrieve"

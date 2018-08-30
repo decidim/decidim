@@ -449,7 +449,7 @@ FactoryBot.define do
     name { generate(:hashtag_name) }
     organization
   end
-  
+
   factory :metric, class: "Decidim::Metric" do
     organization
     day { Time.zone.today }
