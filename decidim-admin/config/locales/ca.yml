@@ -503,7 +503,7 @@ ca:
           inactive_content_blocks: Blocs de contingut inactiu
       organization_homepage_content_blocks:
         edit:
-          update: Actualització
+          update: Actualitza
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
