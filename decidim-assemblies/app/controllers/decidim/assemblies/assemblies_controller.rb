@@ -27,13 +27,13 @@ module Decidim
           end
 
           format.json do
-            render json: collection.query.includes(:children).where(parent: nil).collect { |a|
+            render json: published_assemblies.query.includes(:children).where(parent: nil).collect { |assembly|
               {
-                name: a.title[I18n.locale.to_s],
-                children: a.children.collect do |c|
+                name: assembly.title[I18n.locale.to_s],
+                children: assembly.children.collect do |child|
                   {
-                    name: c.title[I18n.locale.to_s],
-                    children: c.children.collect { |sc| { name: sc.title[I18n.locale.to_s] } }
+                    name: child.title[I18n.locale.to_s],
+                    children: child.children.collect { |child_of_child| { name: child_of_child.title[I18n.locale.to_s] } }
                   }
                 end
               }
