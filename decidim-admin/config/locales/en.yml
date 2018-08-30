@@ -53,7 +53,6 @@ en:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Short description
         highlighted_content_banner_title: Title
-        homepage_image: Homepage image
         instagram_handler: Instagram handler
         logo: Logo
         name: Name
@@ -67,7 +66,6 @@ en:
         show_statistics: Show statistics
         tos_version: Terms of service version
         twitter_handler: Twitter handler
-        welcome_text: Welcome text
         youtube_handler: YouTube handler
       scope:
         code: Code
@@ -504,6 +502,9 @@ en:
         edit:
           active_content_blocks: Active content blocks
           inactive_content_blocks: Inactive content blocks
+      organization_homepage_content_blocks:
+        edit:
+          update: Update
       participatory_space_private_users:
         create:
           error: There was an error adding a private user for this participatory space.

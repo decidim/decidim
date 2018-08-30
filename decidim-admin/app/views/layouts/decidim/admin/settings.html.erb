@@ -10,7 +10,7 @@
       <li <% if is_active_link?(decidim_admin.edit_organization_appearance_path) %> class="is-active" <% end %>>
         <%= link_to t("menu.appearance", scope: "decidim.admin"), decidim_admin.edit_organization_appearance_path %>
       </li>
-      <li <% if is_active_link?(decidim_admin.edit_organization_homepage_path) %> class="is-active" <% end %>>
+      <li <% if is_active_link?(decidim_admin.edit_organization_homepage_path, /^\/admin\/organization\/homepage/) %> class="is-active" <% end %>>
         <%= link_to t("menu.homepage", scope: "decidim.admin"), decidim_admin.edit_organization_homepage_path %>
       </li>
       <li <% if is_active_link?(decidim_admin.scopes_path) %> class="is-active" <% end %>>

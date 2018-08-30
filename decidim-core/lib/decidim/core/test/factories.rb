@@ -63,8 +63,6 @@ FactoryBot.define do
     github_handler { Faker::Hipster.word }
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    homepage_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
     default_locale { Decidim.default_locale }
     available_locales { Decidim.available_locales }
@@ -441,8 +439,8 @@ FactoryBot.define do
 
   factory :content_block, class: "Decidim::ContentBlock" do
     organization
-    scope { :my_scope }
-    manifest_name { :my_manifest }
+    scope { :homepage }
+    manifest_name { :hero }
     weight { 1 }
     published_at { Time.current }
   end
