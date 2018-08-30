@@ -51,6 +51,8 @@
 **Added**:
 
 - **decidim-conferences**: Added Conferences as a Participatory Space. This module is a configurator and generator of Conference pages, understood as a collection of Meeting. [\#3781](https://github.com/decidim/decidim/pull/3781)
+- **decidim-proposals**: Apply hashtags to Proposals. [\#3959](https://github.com/decidim/decidim/pull/3959)
+- **decidim-core**: Add the functionality of hashtags. [\#3959](https://github.com/decidim/decidim/pull/3959)
 - **decidim-assemblies**: Add the posibility to select the parent assembly when the assembly is created or edited [\#4022](https://github.com/decidim/decidim/pull/4022)
 - **decidim-admin**:Add link to user profile and link to conversation from admin space. [\#3995](https://github.com/decidim/decidim/pull/3995)
 - **decidim-core**:Add compression settings to image uploader [\#3984](https://github.com/decidim/decidim/pull/3984)
@@ -127,6 +129,7 @@
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-comments**: Users should never be notified about their own comments. [\#3888](https://github.com/decidim/decidim/pull/3888)
 - **decidim-core**: Consider only users in profile follow counters. [\#3887](https://github.com/decidim/decidim/pull/3887)
+- **decidim-accountability**: Fix results string in the home [\#3537](https://github.com/decidim/decidim/pull/3537)
 - **decidim-core**: Make API authors optional [\#4014](https://github.com/decidim/decidim/pull/4014)
 - **decidim**: Make sure the same task on each decidim module is only loaded once. [\#3890](https://github.com/decidim/decidim/pull/3890)
 - **decidim**: Correctly pass cells options to sized card cells [\#4017](https://github.com/decidim/decidim/pull/4017)

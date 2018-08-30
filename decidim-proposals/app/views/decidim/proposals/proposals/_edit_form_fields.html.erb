@@ -1,9 +1,9 @@
-<div class="field">
-  <%= form.text_field :title %>
+<div class="field hashtags__container">
+  <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: present(@proposal).title %>
 </div>
 
-<div class="field">
-  <%= form.text_area :body, rows: 10 %>
+<div class="field hashtags__container">
+  <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: present(@proposal).body  %>
 </div>
 
 <% if component_settings.geocoding_enabled? %>

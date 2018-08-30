@@ -9,7 +9,7 @@ require "decidim/participatory_processes/test/factories"
 FactoryBot.define do
   factory :accountability_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name }
-    manifest_name :accountability
+    manifest_name { :accountability }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
     settings do
       {

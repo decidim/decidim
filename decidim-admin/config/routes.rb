@@ -4,7 +4,9 @@ Decidim::Admin::Engine.routes.draw do
   constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
     resource :organization, only: [:edit, :update], controller: "organization" do
       resource :appearance, only: [:edit, :update], controller: "organization_appearance"
-      resource :homepage, only: [:edit, :update], controller: "organization_homepage"
+      resource :homepage, only: [:edit, :update], controller: "organization_homepage" do
+        resources :content_blocks, only: [:edit, :update], controller: "organization_homepage_content_blocks"
+      end
 
       member do
         get :users

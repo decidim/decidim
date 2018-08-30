@@ -7,8 +7,9 @@ module Decidim
   # In order to register a content block, you can follow this example:
   #
   #     Decidim.content_blocks.register(:homepage, :global_stats) do |content_block|
-  #       content_block.cell "decidim/content_blocks/stats_block"
-  #       content_block.public_name_key "decidim.content_blocks.stats_block.name"
+  #       content_block.cell = "decidim/content_blocks/stats_block"
+  #       content_block.public_name_key = "decidim.content_blocks.stats_block.name"
+  #       content_block.settings_form_cell = "decidim/content_blocks/stats_block_settings_form"
   #
   #       content_block.settings do |settings|
   #         settings.attribute :minimum_priority_level,
@@ -21,13 +22,19 @@ module Decidim
   # content block with 4 attached images:
   #
   #     Decidim.content_blocks.register(:homepage, :carousel) do |content_block|
-  #       content_block.cell "decidim/content_blocks/carousel_block"
-  #       content_block.public_name_key "decidim.content_blocks.carousel_block.name"
+  #       content_block.cell = "decidim/content_blocks/carousel_block"
+  #       content_block.public_name_key = "decidim.content_blocks.carousel_block.name"
   #
-  #       content_block.image :image_1
-  #       content_block.image :image_2
-  #       content_block.image :image_3
-  #       content_block.image :image_4
+  #       content_block.images = [
+  #         {
+  #           name: :image_1,
+  #           uploader: "Decidim::ImageUploader"
+  #         },
+  #         {
+  #           name: :image_2,
+  #           uploader: "Decidim::ImageUploader"
+  #         }
+  #       ]
   #     end
   #
   # You will probably want to register your content blocks in an initializer in
