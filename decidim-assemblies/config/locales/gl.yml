@@ -31,6 +31,7 @@ gl:
         is_transparent: É transparente
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
+        parent_id: Asemblea primaria
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: O que se decide
         participatory_structure: Como se decide
@@ -217,6 +218,7 @@ gl:
             select_a_created_by: Seleccione un creado por
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto
+            select_parent_assembly: Seleccione o conxunto primario
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             social_handlers: Social
         assembly_copies:
