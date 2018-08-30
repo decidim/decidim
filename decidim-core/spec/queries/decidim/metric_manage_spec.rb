@@ -10,27 +10,23 @@ describe Decidim::MetricManage do
 
   context "when executing a metric management" do
     it "creates a MetricManageObject" do
-      manager = described_class.for(nil)
+      manager = described_class.for(nil, organization)
 
       expect(manager).to be_valid
-      expect(manager.start_time).to eq(yesterday_date.beginning_of_day)
-      expect(manager.end_time).to eq(yesterday_date.end_of_day)
     end
 
     it "creates a MetricManageObject with a passing date parameter" do
-      manager = described_class.for(date.strftime("%Y-%m-%d"))
+      manager = described_class.for(date.strftime("%Y-%m-%d"), organization)
 
       expect(manager).to be_valid
-      expect(manager.start_time).to eq(date.beginning_of_day)
-      expect(manager.end_time).to eq(date.end_of_day)
     end
 
     it "fails with an invalid date" do
-      expect { described_class.for("123456789") }.to raise_error(ArgumentError)
+      expect { described_class.for("123456789", organization) }.to raise_error(ArgumentError)
     end
 
     it "fails with a future date" do
-      expect { described_class.for(future_date.strftime("%Y-%m-%d")) }.to raise_error(ArgumentError)
+      expect { described_class.for(future_date.strftime("%Y-%m-%d"), organization) }.to raise_error(ArgumentError)
     end
   end
 end

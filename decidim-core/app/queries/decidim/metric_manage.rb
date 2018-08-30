@@ -14,11 +14,9 @@ module Decidim
       @day ||= Time.zone.today - 1.day
       @organization = organization
       @metric_name = ""
-      # clean
     end
 
     def clean
-      # @organization = nil
       @query = nil
       @cumulative = nil
       @quantity = nil
@@ -43,11 +41,6 @@ module Decidim
     end
 
     private
-
-    # def with_context(organization)
-    #   # @organization = organization
-    #   # @query = @query.where(organization: organization)
-    # end
 
     def start_time
       @start_time ||= @day.beginning_of_day
