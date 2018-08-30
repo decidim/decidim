@@ -33,7 +33,7 @@ FactoryBot.define do
 
   factory :debates_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :debates).i18n_name }
-    manifest_name :debates
+    manifest_name { :debates }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
     settings do
       {

@@ -17,8 +17,8 @@ module Decidim
 
         def diff_fields_mapping
           {
-            title: :string,
-            body: :string,
+            title: "Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter",
+            body: "Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter",
             state: "Decidim::Proposals::AdminLog::ValueTypes::ProposalStatePresenter",
             answered_at: :date,
             answer: :i18n

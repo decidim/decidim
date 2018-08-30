@@ -14,6 +14,14 @@ module Decidim
 
       private
 
+      def title
+        present(model).title
+      end
+
+      def body
+        present(model).body
+      end
+
       def has_state?
         model.published?
       end
@@ -27,7 +35,7 @@ module Decidim
       end
 
       def description
-        truncate(model.body, length: 100)
+        truncate(present(model).html_body, length: 100)
       end
 
       def badge_classes

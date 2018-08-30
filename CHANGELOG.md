@@ -50,6 +50,8 @@
 
 **Added**:
 
+- **decidim-proposals**: Apply hashtags to Proposals. [\#3959](https://github.com/decidim/decidim/pull/3959)
+- **decidim-core**: Add the functionality of hashtags. [\#3959](https://github.com/decidim/decidim/pull/3959)
 - **decidim-assemblies**: Add the posibility to select the parent assembly when the assembly is created or edited [\#4022](https://github.com/decidim/decidim/pull/4022)
 - **decidim-admin**:Add link to user profile and link to conversation from admin space. [\#3995](https://github.com/decidim/decidim/pull/3995)
 - **decidim-core**:Add compression settings to image uploader [\#3984](https://github.com/decidim/decidim/pull/3984)
