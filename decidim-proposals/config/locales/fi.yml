@@ -196,27 +196,27 @@ fi:
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
           description_another: Tämä käyttäjä on tukenut %{score} ehdotusta.
-          description_own: Olet antanut tukea %{score} ehdotukselle.
-          explanation: Käyttäjät saavat tämän tunnuksen tukemalla ehdotuksia.
-          name: Ehdotus tukee
-          next_level_in: Anna tukea vielä %{score} ehdotukselle seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole vielä antanut tukea mihinkään ehdotukseen.
-          unearned_own: Et ole vielä antanut tukea ehdotuksille.
+          description_own: Olet tukenut %{score} ehdotusta.
+          explanation: Käyttäjät saavat tämän merkin tukemalla ehdotuksia.
+          name: Ehdotustuki
+          next_level_in: Tue %{score} ehdotusta noustaksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä tukenyt yhtään ehdotusta.
+          unearned_own: Et ole vielä tukenut ehdotuksia.
         proposals:
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.
-          explanation: Käyttäjät saavat tämän tunnuksen luomalla ehdotuksia.
-          name: ehdotukset
-          next_level_in: Luo vielä %{score} ehdotusta seuraavalle tasolle!
+          explanation: Käyttäjät saavat tämän merkin luomalla ehdotuksia.
+          name: Ehdotukset
+          next_level_in: Luo %{score} ehdotusta noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä luonut ehdotuksia.
           unearned_own: Et ole vielä luonut ehdotuksia.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
-          proposals: ehdotukset
+          proposals: Ehdotukset
     participatory_spaces:
       highlighted_proposals:
-        proposals: ehdotukset
+        proposals: Ehdotukset
         see_all_proposals: Katso kaikki ehdotukset
     proposals:
       actions:
@@ -243,8 +243,8 @@ fi:
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
           create:
-            error: On tullut ongelma tämän ehdotusviestin luomisesta
-            success: Ehdotusviesti onnistuneesti luotu
+            error: Tämän ehdotusviestin luomisessa esiintyi ongelma
+            success: Ehdotusviesti luotu onnistuneesti
           form:
             note: Huomautus
             submit: Lähetä
@@ -261,8 +261,8 @@ fi:
             attachment_legend: "(Valinnainen) Lisää liite"
             select_a_category: Valitse aihepiiri
           index:
-            actions: Toimet
-            cancel: Peruuttaa
+            actions: Toiminnot
+            cancel: Peruuta
             change_category: Vaihda luokka
             selected: valittu
             title: Ehdotukset
@@ -271,19 +271,19 @@ fi:
             create: Luo
             title: Luo ehdotus
           update_category:
-            invalid: 'Näissä ehdotuksissa oli jo %{category} -luokka: %{proposals}.'
+            invalid: 'Näissä ehdotuksissa oli jo luokka %{category}: %{proposals}.'
             select_a_category: Valitse luokka
             select_a_proposal: Valitse ehdotus
-            success: 'Ehdotukset päivitettiin onnistuneesti %{category} luokkaan: %{proposals}.'
+            success: 'Ehdotukset päivitettiin onnistuneesti luokkaan %{category}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Ehdotuksia tuodaan ongelmana
-            success: "%{number} ehdotukset tuodaan onnistuneesti"
+            invalid: Ehdotuksien tuomisessa esiintyi ongelma
+            success: "%{number} ehdotusta tuotu onnistuneesti"
           new:
             create: Tuo ehdotuksia
-            no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
+            no_components: Tässä osallistutilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
-            select_states: Tarkista tuontiehdotusten tilat
+            select_states: Tarkista tuotavien ehdotusten tilat
         shared:
           info_proposal:
             body: Tekstin runko
