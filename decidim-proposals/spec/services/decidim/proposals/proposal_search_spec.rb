@@ -103,7 +103,19 @@ module Decidim
             end
           end
 
-          context "when filtering accpeted proposals" do
+          context "when filtering :except_rejected proposals" do
+            let(:state) { "except_rejected" }
+
+            it "hides withdrawn and rejected proposals" do
+              create(:proposal, :withdrawn, component: component)
+              create(:proposal, :rejected, component: component)
+              accepted_proposal = create(:proposal, :accepted, component: component)
+              expect(subject.size).to eq(2)
+              expect(subject).to match_array([accepted_proposal, proposal])
+            end
+          end
+
+          context "when filtering accepted proposals" do
             let(:state) { "accepted" }
 
             it "returns only accepted proposals" do
