@@ -266,15 +266,15 @@ fi:
             change_category: Vaihda luokka
             selected: valittu
             title: Ehdotukset
-            update: Päivittää
+            update: Päivitä
           new:
             create: Luo
             title: Luo ehdotus
           update_category:
             invalid: 'Näissä ehdotuksissa oli jo %{category} -luokka: %{proposals}.'
-            select_a_category: Valitse kategoria
+            select_a_category: Valitse luokka
             select_a_proposal: Valitse ehdotus
-            success: 'Ehdotukset päivitettiin %{category} -luokkaan: %{proposals}.'
+            success: 'Ehdotukset päivitettiin onnistuneesti %{category} luokkaan: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ehdotuksia tuodaan ongelmana
