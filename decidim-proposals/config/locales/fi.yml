@@ -361,12 +361,12 @@ fi:
           send: Jatkaa
           title: Luo yhteistoiminnallinen luonnos
         new_collaborative_draft_button:
-          new_collaborative_draft: Uusi yhteistyöprofiili
+          new_collaborative_draft: Uusi yhteistyöluonnos
         orders:
-          label: 'Tilaa luonnokset:'
+          label: 'Järjestä luonnokset:'
           most_contributed: Eniten osallistui
-          random: satunnainen
-          recent: viimeaikainen
+          random: Satunnainen
+          recent: Viimeisimmät
         requests:
           accepted_request:
             error: Yhteistyökumppania ei voi hyväksyä, yritä myöhemmin uudelleen.
@@ -375,8 +375,8 @@ fi:
             error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
             success: Yhteistyöpyyntösi on lähetetty onnistuneesti
           collaboration_requests:
-            accept_request: Hyväksyä
-            reject_request: Hylätä
+            accept_request: Hyväksy
+            reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
             error: Ei voida hylätä yhteistyökumppanina, yritä myöhemmin uudelleen.
@@ -385,35 +385,35 @@ fi:
           back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
           final_proposal: lopullinen ehdotus
-          final_proposal_help_text: Tämä luonnos on valmis. Näet lopullisen lopullisen ehdotuksen
+          final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
           hidden_authors_count:
             one: ja vielä yksi henkilö
-            other: ja %{count} muuta ihmistä
-          info-message: Tämä on <strong>yhteistyössä luonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitään muokkaamaan ehdotusta alla olevan kommenttikohdan avulla tai parantamaan sitä suoraan pyytämällä käyttöoikeutta muokkaamaan sitä. Kun kirjoittajat antavat sinulle pääsyn, voit tehdä muutoksia tähän luonnokseen.
-          of_versions: "( %{number})"
-          publish: Julkaista
-          publish_info: Julkaise tämän luonnoksen versio tai
+            other: ja %{count} muuta henkilöä
+          info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitä muodostamaan ehdotuksen alla olevan kommenttikohdan avulla tai parantaa sitä suoraan pyytämällä käyttöoikeutta sen muokkaamiseksi. Kun tekijät antavat sinulle käyttöoikeuden, voit tehdä muutoksia tähän luonnokseen.
+          of_versions: "( %{number}:sta)"
+          publish: Julkaise
+          publish_info: Julkaise tämän luonnosversio tai
           published_proposal: julkaistu ehdotus
-          request_access: Pyydä pääsyä
-          requested_access: Pyydetty pääsy
+          request_access: Pyydä käyttöoikeutta
+          requested_access: Käyttöoikeutta pyydetty
           see_other_versions: katso muita versioita
           version: Versio %{number}
           version_history: katso tämän ehdotuksen versiohistoria
-          withdraw: peruuttaa luonnoksen
+          withdraw: peruuttaa luonnos
         states:
-          open: Avata
+          open: Avaa
           published: Julkaistu
-          withdrawn: peruutettu
+          withdrawn: Peruutettu
         update:
-          error: Yhteistyösuunnitelman tallentamisessa on tapahtunut virheitä.
+          error: Yhteistyöluonnoksen tallentamisessa on tapahtunut virheitä.
           success: Yhteistyöluonnos on päivitetty onnistuneesti.
         wizard_aside:
           back: Takaisin
-          info: Luot <strong>yhteistyöprofiilia</strong>.
+          info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
         wizard_steps:
           see_steps: katso vaiheet
-          step_1: Luo yhteistyöprofiili
-          step_2: Vertaa yhteistyöhankkeisiin
+          step_1: Luo yhteistyöluonnoksesi
+          step_2: Vertaa yhteistyöluonnoksiin
           step_3: Suorita yhteistyöhankkeesi
           step_of: Vaihe %{current_step_num} %{total_steps}
       create:
@@ -528,7 +528,7 @@ fi:
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
             other: 'Voit muokata tätä ehdotusta ensimmäisen %{count}: n aikana minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.'
-          publish: Julkaista
+          publish: Julkaise
           title: Julkaise ehdotuksesi
         proposal:
           creation_date: 'Luontiaika: %{date}'
@@ -538,7 +538,7 @@ fi:
           endorsements_list: Luettelo hyväksynnästä
           hidden_endorsers_count:
             one: ja vielä yksi henkilö
-            other: ja %{count} muuta ihmistä
+            other: ja %{count} muuta henkilöä
           link_to_collaborative_draft_help_text: Tämä ehdotus on tulosta yhteistyöhankkeesta. Tarkastele historiaa
           link_to_collaborative_draft_text: Katso yhteistyöhanketta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
