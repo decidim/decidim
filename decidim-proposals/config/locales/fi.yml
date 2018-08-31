@@ -383,7 +383,7 @@ fi:
             success: "@%{user} on hylätty yhteistyökumppanina onnistuneesti"
         show:
           back: Takaisin
-          edit: Muokkaa yhteistä luonnosta
+          edit: Muokkaa yhteistyöluonnosta
           final_proposal: lopullinen ehdotus
           final_proposal_help_text: Tämä luonnos on valmis. Näet lopullisen lopullisen ehdotuksen
           hidden_authors_count:
