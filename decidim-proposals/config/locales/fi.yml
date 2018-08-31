@@ -414,7 +414,7 @@ fi:
           see_steps: katso vaiheet
           step_1: Luo yhteistyöluonnoksesi
           step_2: Vertaa yhteistyöluonnoksiin
-          step_3: Suorita yhteistyöhankkeesi
+          step_3: Tee yhteistyöluonnoksesi valmiiksi
           step_of: Vaihe %{current_step_num} %{total_steps}
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
@@ -432,11 +432,11 @@ fi:
           fields:
             category: Aihepiiri
             comments: Kommentit
-            endorsements: merkintöjen
+            endorsements: Suositukset
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
-            published_at: Julkaistu osoitteessa
+            published_at: Julkaistu
             scope: Konteksti
             state: Tila
             title: Otsikko
@@ -445,16 +445,16 @@ fi:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
       proposal_endorsements:
         create:
-          error: Ehdotuksen hyväksymisessä on ollut virheitä.
+          error: Ehdotuksen suosittelemisessa on esiintynyt virheitä.
         identities:
-          done: Tehty
+          done: Valmis
           select_identity: Valitse henkilöllisyys
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Myönteinen
-          endorse: hyväksyä
+          already_endorsed: Suositeltu
+          endorse: Suosittele
         render_endorsements_button_card_part:
-          endorse: hyväksyä
+          endorse: Suosittele
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
@@ -464,7 +464,7 @@ fi:
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:
-          send: Lähettää
+          send: Lähetä
           title: Suorita ehdotuksesi
         count:
           proposals_count:
@@ -479,10 +479,10 @@ fi:
         edit_draft:
           discard: Hylkää tämä luonnos
           discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
-          send: esikatselu
-          title: Muokkaa ehdotusluonnos
+          send: Esikatselu
+          title: Muokkaa ehdotusluonnosta
         endorsement_identities_cabin:
-          endorse: hyväksyä
+          endorse: Suosittele
         endorsements_card_row:
           comments: Kommentit
         filters:
@@ -493,7 +493,7 @@ fi:
           category_prompt: Valitse aihepiiri
           citizens: Kansalaiset
           evaluating: Arvioitavana
-          except_rejected: Kaikki paitsi hylätty
+          except_rejected: Kaikki paitsi hylätyt
           official: Virallinen
           origin: Alkuperä
           rejected: Hylätty
@@ -516,7 +516,7 @@ fi:
             one: ääni
             other: ääntä
         new:
-          send: Jatkaa
+          send: Jatka
           title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
@@ -546,14 +546,14 @@ fi:
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           report: Ilmoita
           sign_in: Kirjaudu sisään
-          sign_in_or_up: "%{in} tai %{up} osallistumiseen"
-          sign_up: Kirjaudu
+          sign_in_or_up: "%{in} tai %{up} osallistuaksesi"
+          sign_up: rekisteröidy
           withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi, kunhan et ole saanut tukea. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
         tags:
           changed_from: "(muutettu ylläpitäjältä <u>%{previous_category}</u>)"
-          filed_as: Filed as
+          filed_as: Merkitty
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
@@ -566,7 +566,7 @@ fi:
             one: ÄÄNI
             other: ÄÄNTÄ
           most_popular_proposal: Suosituin ehdotus
-          need_more_votes: Tarvitset enemmän ääniä
+          need_more_votes: Tarvitsee enemmän ääniä
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} tukee
@@ -581,14 +581,14 @@ fi:
             votes: Ääntä
         wizard_aside:
           back: Takaisin
-          info: Luo <strong>ehdotuksen</strong>.
+          info: Olet luomassa <strong>ehdotusta</strong>.
         wizard_steps:
           see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
-          step_2: Vertailla
+          step_2: Vertaile
           step_3: Saattaa loppuun
           step_4: Julkaise ehdotuksesi
-          step_of: Vaihe %{current_step_num} %{total_steps}
+          step_of: Vaihe %{current_step_num} / %{total_steps}
       publish:
         error: Ehdotuksen julkaisemisessa on tapahtunut virheitä.
         success: Ehdotus julkaistiin onnistuneesti.
@@ -596,20 +596,20 @@ fi:
         error: Ehdotuksen tallentamisessa tapahtui virheitä.
         success: Ehdotus on päivitetty onnistuneesti.
       update_draft:
-        error: Ehdotushuutos tallennettaessa on ollut virheitä.
-        success: Ehdotusluonnos on päivitetty onnistuneesti.
+        error: Ehdotusluonnoksen tallentamisessa tapahtui virheitä.
+        success: Ehdotusluonnos päivitetty onnistuneesti.
       versions:
-        changes_at_title: Muutokset "%{title}"
+        changes_at_title: Muutokset kohdassa "%{title}"
         index:
-          title: versiot
+          title: Versiot
         stats:
-          back_to_collaborative_draft: Palatkaa yhteistyöhankkeeseen
+          back_to_collaborative_draft: Palaa yhteistyöluonnokseen
           number_of_versions: versiot
           show_all_versions: Näytä kaikki versiot
-          version_author: Versio kirjoittaja
-          version_created_at: Versio luotu osoitteessa
-          version_number: Versiomäärä
-          version_number_out_of_total: "%{current_version} out of %{total_count}"
+          version_author: Version tekijä
+          version_created_at: Versio luotu
+          version_number: Versionumero
+          version_number_out_of_total: "%{current_version} osuus %{total_count}:sta"
         version:
           version_index: Versio %{index}
     resource_links:
