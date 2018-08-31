@@ -31,6 +31,7 @@ sv:
         is_transparent: Är transparent
         local_area: Organisationsområde
         meta_scope: Omfattning metadata
+        parent_id: Föräldraförsamling
         participatory_processes_ids: Relaterade deltagande processer
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
@@ -217,6 +218,7 @@ sv:
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
             select_an_assembly_type: Välj en monterings typ
+            select_parent_assembly: Välj föräldrasamling
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
             social_handlers: Social
         assembly_copies:

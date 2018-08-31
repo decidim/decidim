@@ -12,6 +12,16 @@ hu:
       admin:
         exports:
           dummies: Dummies
+    gamification:
+      badges:
+        test:
+          description_another: Ez a felhasználó %{score} tesztet hozott létre.
+          description_own: '%{score} tesztet hozott létre.'
+          explanation: A felhasználók megkapják ezt a jelvényt tesztek létrehozásával.
+          name: vizsgálatok
+          next_level_in: Hozzon létre még %{score} tesztet a következő szint eléréséhez!
+          unearned_another: Ez a felhasználó még nem hozott létre teszteket.
+          unearned_own: Még nem hozott teszteket.
     pages:
       home:
         statistics:

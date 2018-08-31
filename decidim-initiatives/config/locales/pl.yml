@@ -88,6 +88,16 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowy kamień milowy zakończony!
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Ten użytkownik otrzymał %{score} opublikowanych inicjatyw.
+          description_own: Masz opublikowanych %{score} inicjatyw.
+          explanation: Użytkownicy otrzymują tę odznakę, publikując swoje inicjatywy.
+          name: Opublikowane inicjatywy
+          next_level_in: Uzyskaj %{score} dodatkowych inicjatyw opublikowanych, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych inicjatyw.
+          unearned_own: Nie opublikowano jeszcze żadnych inicjatyw.
     initiatives:
       admin:
         committee_requests:

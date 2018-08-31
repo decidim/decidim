@@ -82,6 +82,16 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{resource_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Nieuwe mijlpaal voltooid!
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
+          description_own: Je hebt %{score} initiatieven gepubliceerd.
+          explanation: Gebruikers krijgen deze badge door hun initiatieven gepubliceerd te krijgen.
+          name: Gepubliceerde initiatieven
+          next_level_in: Ontvang nog %{score} initiatieven die zijn gepubliceerd om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen initiatieven gepubliceerd.
+          unearned_own: Je hebt nog geen initiatieven gepubliceerd.
     initiatives:
       admin:
         committee_requests:

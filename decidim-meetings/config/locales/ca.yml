@@ -109,8 +109,8 @@ ca:
         registration_code_validated:
           email_intro: S'ha validat el teu codi de registre "%{registration_code}".
           email_outro: Has rebut aquesta notificació perquè s'ha validat el teu codi de registre per a la trobada "%{resource_title}".
-          email_subject: S'ha validat el vostre codi de registre "%{registration_code}"
-          notification_title: S'ha validat el vostre codi de registre "%{registration_code}" per a la reunió <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: S'ha validat el teu codi de registre "%{registration_code}"
+          notification_title: S'ha validat el teu codi de registre "%{registration_code}" per a la trobada <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
           email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
@@ -181,9 +181,9 @@ ca:
             attendee_type: Tipus d'assistent
             existing_user: Usuari existent
             invite: Convidar
-            invite_explanation: L'usuari també serà convidat a participar a la reunió ia l'organització.
+            invite_explanation: L'usuari serà convidat a participar a la trobada i també a l'organització.
             non_user: Usuari no existent
-            select_user: Seleccioneu l'usuari
+            select_user: Selecciona l'usuari
           index:
             filter:
               accepted: Acceptades
@@ -193,7 +193,7 @@ ca:
             filter_by: Filtra per
             invite_attendee: Convida l'assistent
             invites: Invitacions
-            registrations_disabled: No podeu convidar un assistent perquè les inscripcions estan inhabilitades.
+            registrations_disabled: No pots convidar un assistent perquè les inscripcions estan inhabilitades.
             search: Cerca
         meeting_closes:
           edit:
@@ -252,7 +252,7 @@ ca:
           edit:
             save: Desa
             validate: Validar
-            validate_registration_code: Valideu el codi de registre
+            validate_registration_code: Valida el codi de registre
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
             invites: Invitacions

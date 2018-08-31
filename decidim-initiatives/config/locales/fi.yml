@@ -82,6 +82,16 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Uusi virstanpylväs valmis!
           notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% allekirjoituksista.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Tämä käyttäjä on saanut %{score} aloitetta julkaistu.
+          description_own: Sinulla on julkaistu %{score} aloitetta.
+          explanation: Käyttäjät saavat tämän tunnuksen hankkimalla aloitteensa.
+          name: Julkaistu aloitteita
+          next_level_in: Hanki %{score} uutta aloitetta julkaistaksesi seuraavalle tasolle!
+          unearned_another: Tällä käyttäjällä ei ole vielä julkaistu aloitteita.
+          unearned_own: Sinulla ei ole vielä julkaistu aloitteita.
     initiatives:
       admin:
         committee_requests:

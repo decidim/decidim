@@ -8,15 +8,14 @@ $(() => {
   // EXAMPLE DATA
   // tag & name properties are mandatory
   //
-  // sources = [{
+  // const sources = [{
   //     "tag": "barrera",
   //     "name": "Collins Franklin",
   //   },
   //   {
   //     "tag": "woods",
   //     "name": "Nadine Buck",
-  //   },
-  //   ...]
+  //   }]
 
   // Listener for the event triggered by quilljs
   let cursor = "";

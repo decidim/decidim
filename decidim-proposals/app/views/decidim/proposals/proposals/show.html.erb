@@ -1,12 +1,12 @@
 <% add_decidim_meta_tags({
-  description: @proposal.body,
-  title: @proposal.title,
+  description: present(@proposal).body,
+  title: present(@proposal).title,
   url: proposal_url(@proposal.id)
 }) %>
 
 <%= render partial: "voting_rules" %>
 <div class="row column view-header">
-  <h2 class="heading2"><%= @proposal.title %></h2>
+  <h2 class="heading2"><%= present(@proposal).html_title %></h2>
   <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3) %>
 </div>
 <div class="row">
@@ -36,7 +36,7 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
-      <%= simple_format @proposal.body %>
+      <%= simple_format present(@proposal).html_body %>
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
       <% end %>

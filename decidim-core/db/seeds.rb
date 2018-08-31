@@ -15,11 +15,9 @@ if !Rails.env.production? || ENV["SEED"]
     youtube_handler: Faker::Hipster.word,
     github_handler: Faker::Hipster.word,
     host: ENV["DECIDIM_HOST"] || "localhost",
-    welcome_text: Decidim::Faker::Localized.sentence(5),
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(15)
     end,
-    homepage_image: File.new(File.join(seeds_root, "homepage_image.jpg")),
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix,
@@ -155,4 +153,12 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   Decidim::System::CreateDefaultContentBlocks.call(organization)
+
+  hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope: :homepage)
+  hero_content_block.images_container.background_image = File.new(File.join(seeds_root, "homepage_image.jpg"))
+  settings = {}
+  welcome_text = Decidim::Faker::Localized.sentence(5)
+  settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
+  hero_content_block.settings = settings
+  hero_content_block.save!
 end
