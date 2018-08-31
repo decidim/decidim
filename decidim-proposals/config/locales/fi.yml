@@ -111,14 +111,14 @@ fi:
           email_subject: "%{requester_name} on hylätty, jotta hän voi osallistua %{resource_title} yhteistyöhankkeeseen."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hylätty pääsyksesi avustajaksi</strong> <a href="%{resource_path}">%{resource_title}</a> yhteisestä ehdotuksesta.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} pyysi pääsyä avustajaksi. Voit <strong>hyväksyä tai hylätä pyynnön</strong> alkaen <a href="%{resource_path}">%{resource_title}</a> yhteistyössä luonnos sivulle.'
+          email_intro: '%{requester_name} pyysi pääsyä osallistujaksi. Voit <strong>hyväksyä tai hylätä pyynnön</strong> yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a> sivulta.'
           email_outro: Olet vastanottanut tämän ilmoituksen, koska olet yhteistyökumppani kohteessa <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} pyysi osallistumisoikeutta kohteeseen %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pyysi saada osallistua <a href="%{resource_path}">%{resource_title}</a> yhteistyöhankkeeseen. Pyydä <strong>hyväksymään tai hylkäämään pyynnön</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Sinut on hyväksytty osallistumaan <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.
           email_outro: Olet saanut tämän ilmoituksen, koska olet pyytänyt tulla yhteistyökumppaniksi <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Sinut on hyväksytty osallistujaksi %{resource_title}.
+          email_subject: Sinut on hyväksytty osallistujaksi kohtaan %{resource_title}.
           notification_title: Olette olleet <strong>hyväksyneet päästä myötävaikuttamassa</strong> ja <a href="%{resource_path}">%{resource_title}</a> yhteistyöhön luonnosta.
         collaborative_draft_access_requester_rejected:
           email_intro: Sinut on hylätty pääsyksesi <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaan.
@@ -192,7 +192,7 @@ fi:
           explanation: Käyttäjät saavat tämän tunnuksen hankkimalla ehdotuksensa.
           name: Hyväksytyt ehdotukset
           next_level_in: Hanki vielä %{score} ehdotusta, jotka hyväksyttiin seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole saanut vielä hyväksyttyjä ehdotuksia.
+          unearned_another: Tämä käyttäjä ei ole saanut vielä ehdotuksia hyväksytyksi.
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
           description_another: Tämä käyttäjä on tukenut %{score} ehdotusta.
@@ -292,7 +292,7 @@ fi:
             proposals: Ehdotukset
       admin_log:
         proposal:
-          answer: "%{user_name} vastasi %{resource_name} -ehdotusta %{space_name} -tilaan"
+          answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
           create: "%{user_name} loi %{resource_name} ehdotuksen %{space_name} tilaa viralliseksi ehdotukseksi"
         proposal_note:
           create: "%{user_name} jätti yksityisen huomautuksen %{resource_name} ehdotuksesta %{space_name} -tilaan"
