@@ -19,9 +19,10 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 - **skip first login authorization** : Add an initializer otion to skip first login authorization [\#176](https://github.com/OpenSourcePolitics/decidim/pull/176)
 
-**Fixed**:
+**Added**:
 
 - **decidim-core**: Add shinier signature. [#186](https://github.com/OpenSourcePolitics/decidim/pull/186)
+- **decidim-admin**:Add link to user profile and link to conversation from admin space. [\#208](https://github.com/OpenSourcePolitics/decidim/pull/208)
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
 
