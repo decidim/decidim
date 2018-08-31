@@ -93,24 +93,24 @@ hu:
             success: Állapot frissítése sikeres
         timeline_entries:
           create:
-            invalid: Hiba történt a bejegyzés létrehozásában
-            success: A bejegyzés sikeresen létrehozva
+            invalid: Probléma történt a bejegyzés létrehozásakor
+            success: Bejegyzés létrehozása sikeres
           destroy:
-            success: A bejegyzés sikeresen törölve
+            success: Bejegyzés eltávolítása sikeres
           edit:
             title: Bejegyzés szerkesztése
-            update: A bejegyzés frissítése
+            update: Bejegyzés frissítése
           index:
-            title: A projekt idővonalbeli bejegyzései
+            title: Projekt ütemtervének bejegyzései
           new:
             create: Bejegyzés létrehozása
             title: Új bejegyzés
           update:
-            invalid: Probléma történt a bejegyzés frissítésével
-            success: A bejegyzés sikeresen frissült
+            invalid: Probléma történt a bejegyzés frissítésekor
+            success: Bejegyzés frissítése sikeres
       admin_log:
         result:
-          create: "%{user_name} létrehozott eredmény %{resource_name} %{space_name}"
+          create: "%{user_name} által létrehozott eredmény: %{resource_name} (itt: %{space_name})"
           delete: "%{user_name} törölte az %{resource_name} eredményt %{space_name}"
           update: "%{user_name} frissített eredmény %{resource_name} a %{space_name}"
         value_types:
