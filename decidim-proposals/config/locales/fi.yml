@@ -116,10 +116,10 @@ fi:
           email_subject: "%{requester_name} pyysi osallistumisoikeutta kohteeseen %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pyysi saada osallistua <a href="%{resource_path}">%{resource_title}</a> yhteistyöhankkeeseen. Pyydä <strong>hyväksymään tai hylkäämään pyynnön</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Sinut on hyväksytty osallistumaan <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet pyytänyt tulla yhteistyökumppaniksi <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Sinut on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Olet saanut tämän ilmoituksen, koska olet hakenut yhteistyökumppaniksi kohtaan <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Sinut on hyväksytty osallistujaksi kohtaan %{resource_title}.
-          notification_title: Olette olleet <strong>hyväksyneet päästä myötävaikuttamassa</strong> ja <a href="%{resource_path}">%{resource_title}</a> yhteistyöhön luonnosta.
+          notification_title: Sinut on <strong>hyväksytty osallistujaksi </strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_intro: Sinut on hylätty pääsyksesi <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaan.
           email_outro: Olet saanut tämän ilmoituksen, koska olet pyytänyt tulla yhteistyökumppaniksi <a href="%{resource_path}">%{resource_title}</a>.
@@ -181,14 +181,14 @@ fi:
           notification_title: Järjestelmänvalvoja on päivittänyt <a href="%{resource_path}">%{resource_title}</a> ehdotusluokan.
         voting_enabled:
           email_intro: 'Voit äänestää ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Äänestys ehdotuksista on alkanut %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">äänestyssuosituksen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
-          description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksyttyä.
-          description_own: Sinulla on %{score} ehdotusta hyväksytty.
+          description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
+          description_own: Sinulla sait %{score} ehdotusta hyväksyksi.
           explanation: Käyttäjät saavat tämän tunnuksen hankkimalla ehdotuksensa.
           name: Hyväksytyt ehdotukset
           next_level_in: Hanki vielä %{score} ehdotusta, jotka hyväksyttiin seuraavalle tasolle!
@@ -293,9 +293,9 @@ fi:
       admin_log:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
-          create: "%{user_name} loi %{resource_name} ehdotuksen %{space_name} tilaa viralliseksi ehdotukseksi"
+          create: "%{user_name} loi ehdotuksen %{resource_name} tilaan %{space_name} virallisena ehdotuksena"
         proposal_note:
-          create: "%{user_name} jätti yksityisen huomautuksen %{resource_name} ehdotuksesta %{space_name} -tilaan"
+          create: "%{user_name} jätti yksityisen viestin ehdotuksesta %{resource_name} tilaan %{space_name}"
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
