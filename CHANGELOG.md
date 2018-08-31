@@ -19,6 +19,10 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 - **skip first login authorization** : Add an initializer otion to skip first login authorization [\#176](https://github.com/OpenSourcePolitics/decidim/pull/176)
 
+**Backported**:
+
+- **decidim-surveys**: Allow deleting surveys components when there are no answers [#211](https://github.com/OpenSourcePolitics/decidim/pull/211)
+
 **Fixed**:
 
 - **decidim-core**: Add shinier signature. [#186](https://github.com/OpenSourcePolitics/decidim/pull/186)
