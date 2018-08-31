@@ -1,5 +1,7 @@
 # frozen_string_literal: true
+
 require "spec_helper"
+
 describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
   subject { component }
 
@@ -18,9 +20,9 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
       end
       it "raises an error" do
         expect { subject.manifest.run_hooks(:before_destroy, subject) }.to raise_error(
-                                                                             RuntimeError,
-                                                                             "Can't destroy this component when there are survey answers"
-                                                                           )
+          RuntimeError,
+          "Can't destroy this component when there are survey answers"
+        )
       end
     end
   end
