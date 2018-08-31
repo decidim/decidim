@@ -249,6 +249,9 @@ en:
       conference_speakers:
         index:
           speakers: Speakers
+      content_blocks:
+        highlighted_conferences:
+          name: Highlighted conferences
       index:
         title: Conferences
       mailer:
