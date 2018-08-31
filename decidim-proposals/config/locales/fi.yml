@@ -101,10 +101,10 @@ fi:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} on hyväksytty osallistujaksi yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} on annettu käyttöoikeus yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a> osallistujana.'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet osallistuja yhteistyöluonnoksessa <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hyväksytty osallistujaksi kohtaan %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksynyt pääsyä myötävaikuttamassa</strong> ja <a href="%{resource_path}">%{resource_title}</a> yhteistyössä luonnos.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksytty osallistujaksi</strong> yheistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} on hylätty pääsyksesi <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.'
           email_outro: Olet saanut tämän ilmoituksen, koska olet yhteistyökumppani <a href="%{resource_path}">%{resource_title}</a>.
