@@ -308,68 +308,68 @@ fi:
             error: Yhteistyöluonnoksen julkaisemisessa on tapahtunut virheitä.
             irreversible_action_modal:
               body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Ehdotus ei hyväksy uusia kirjoittajia tai maksuja.
-              cancel: Peruuttaa
+              cancel: Peruuta
               ok: Julkaise ehdotuksena
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos julkaistiin onnistuneesti ehdotuksena.
-          view_collaborative_draft: Katso Yhteistyöluonnos
+          view_collaborative_draft: Katso yhteistyöluonnosta
           withdraw:
-            error: Yhteistyöluonnoksen sulkeminen on johtanut virheisiin.
+            error: Yhteistyöluonnoksen sulkemisessa on tapahtunut virheitä.
             irreversible_action_modal:
               body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai maksuja.
-              cancel: Peruuttaa
-              ok: Vedä yhteinen luonnos
+              cancel: Peruuta
+              ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos peruutettiin onnistuneesti.
         compare:
           mine_is_different: Yhteistyöehdotukseni on erilainen
-          no_similars_found: Hyvin tehty! Ei vastaavanlaisia ​​yhteistyöhankkeita
-          title: Vastaavat yhteistyöhankkeet
+          no_similars_found: Hyvin tehty! Vastaavanlaisia ​​yhteistyöluonnoksia ei löytynyt
+          title: Vastaavia yhteistyöluonnoksia
         complete:
           attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse kategoria
-          send: Lähettää
-          title: Suorita yhteistyöhankkeesi
+          select_a_category: Valitse aihepiiri
+          send: Lähetä
+          title: Viimeistele yhteistyöluonnoksesi
         count:
           drafts_count:
-            one: 1 yhteinen luonnos
-            other: "%{count} yhteistyöhanketta"
+            one: 1 yhteistyöluonnos
+            other: "%{count} yhteistyöluonnosta"
         create:
-          error: On tullut ongelma tämän yhteistyön tekemisen luonnoksista
-          success: Yhteistyöluonnos onnistuneesti luotu.
+          error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
+          success: Yhteistyöluonnos luotu onnistuneesti.
         edit:
           back: Takaisin
-          select_a_category: Valitse kategoria
-          send: Lähettää
-          title: Muokkaa yhteistä luonnosta
+          select_a_category: Valitse aihepiiri
+          send: Lähetä
+          title: Muokkaa yhteistyöluonnosta
         filters:
           all: Kaikki
-          category: Kategoria
-          category_prompt: Luokka-kysely
-          open: Avata
+          category: Aihepiiri
+          category_prompt: Aihepiiri-ilmoitus
+          open: Avaa
           published: Julkaistu
-          related_to: Liittyen
+          related_to: Liittyy
           search: Hae
-          state: Osavaltio
-          withdrawn: peruutettu
+          state: Tila
+          withdrawn: Peruttu
         filters_small_view:
-          close_modal: Sulje modeemi
-          filter: Suodattaa
-          filter_by: Suodata
+          close_modal: Sulje modaalinen
+          filter: Rajaa
+          filter_by: Rajaa hakua
           unfold: avautua
         new:
-          send: Jatkaa
-          title: Luo yhteistoiminnallinen luonnos
+          send: Jatka
+          title: Luo yhteistyöluonnoksesi
         new_collaborative_draft_button:
           new_collaborative_draft: Uusi yhteistyöluonnos
         orders:
           label: 'Järjestä luonnokset:'
-          most_contributed: Eniten osallistui
+          most_contributed: Eniten osallistumisia
           random: Satunnainen
           recent: Viimeisimmät
         requests:
           accepted_request:
-            error: Yhteistyökumppania ei voi hyväksyä, yritä myöhemmin uudelleen.
+            error: Yhteistyökumppania ei voitu hyväksyä, yritä myöhemmin uudelleen.
             success: "@%{user} on hyväksytty yhteistyökumppaniksi onnistuneesti"
           access_requested:
             error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
@@ -379,7 +379,7 @@ fi:
             reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
-            error: Ei voida hylätä yhteistyökumppanina, yritä myöhemmin uudelleen.
+            error: Ei voitu hylätä yhteistyökumppanina, yritä myöhemmin uudelleen.
             success: "@%{user} on hylätty yhteistyökumppanina onnistuneesti"
         show:
           back: Takaisin
@@ -527,7 +527,7 @@ fi:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
-            other: 'Voit muokata tätä ehdotusta ensimmäisen %{count}: n aikana minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.'
+            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutien aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
         proposal:
@@ -539,7 +539,7 @@ fi:
           hidden_endorsers_count:
             one: ja vielä yksi henkilö
             other: ja %{count} muuta henkilöä
-          link_to_collaborative_draft_help_text: Tämä ehdotus on tulosta yhteistyöhankkeesta. Tarkastele historiaa
+          link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
           link_to_collaborative_draft_text: Katso yhteistyöluonnosta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
