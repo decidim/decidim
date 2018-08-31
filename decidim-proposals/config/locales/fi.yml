@@ -5,10 +5,10 @@ fi:
         body: Leipäteksti
         category_id: Kategoria
         decidim_scope_id: Laajuus
-        has_address: Onko osoite
-        state: Osavaltio
+        has_address: On osoite
+        state: Tila
         title: Otsikko
-        user_group_id: Luo yhteistoiminnallinen luonnos nimellä
+        user_group_id: Luo yhteistyöluonnos nimellä
       proposal:
         answer: Vastaus
         answered_at: Vastattu osoitteessa
@@ -16,14 +16,14 @@ fi:
         category_id: Aihepiiri
         has_address: Ehdotuksella on osoite
         scope_id: Konteksti
-        state: Osavaltio
+        state: Tila
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
-        origin_component_id: Komponentti kopioida ehdotukset osoitteesta
+        origin_component_id: Osio josta ehdotukset kopioidaan
     errors:
       models:
         proposal:
@@ -71,7 +71,7 @@ fi:
           global:
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
-            can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
+            can_accumulate_supports_beyond_threshold: Voi kerätä tukea yli kynnysarvon
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit ovat käytössä
             geocoding_enabled: Geokoodaus on käytössä
@@ -101,9 +101,9 @@ fi:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} on hyväksytty osallistumaan <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet yhteistyökumppani <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} on hyväksytty päästä osalliseksi %{resource_title}."
+          email_intro: '%{requester_name} on hyväksytty osallistujaksi yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet osallistuja yhteistyöluonnoksessa <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} on hyväksytty osallistujaksi kohtaan %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksynyt pääsyä myötävaikuttamassa</strong> ja <a href="%{resource_path}">%{resource_title}</a> yhteistyössä luonnos.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} on hylätty pääsyksesi <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.'
