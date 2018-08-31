@@ -162,17 +162,17 @@ fi:
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, jonka olet seurannut, on julkaissut uuden ehdotuksen, tarkistamalla sen ja osallistumalla:"
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Uusi ehdotus %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaisi <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_subject: Uusi ehdotus tekijältä %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaistiin tekijän <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta.
         proposal_published_for_space:
           email_intro: Ehdotus "%{resource_title}" on lisätty "%{participatory_space_title}", jota seuraat.
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: 'Uusi ehdotus lisätty %{participatory_space_title}: ään'
+          email_subject: Uusi ehdotus lisätty tilaan %{participatory_space_title}
           notification_title: 'Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}: ään'
         proposal_rejected:
           email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Seuraava ehdotus on hylätty
+          email_subject: Seuraamasi ehdotus on hylätty
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hylätty.
         proposal_update_category:
           email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi luokkaan "%{resource_title}", tarkista se:'
