@@ -4,25 +4,25 @@ hu:
       result:
         decidim_accountability_status_id: Állapot
         decidim_category_id: Kategória
-        decidim_scope_id: terület
+        decidim_scope_id: Hatáskör
         description: Leírás
         end_date: Befejezés dátuma
-        progress: Előrehalad
+        progress: Folyamat
         project_ids: Mellékelt projektek
-        proposals: A javasolt javaslatok
+        proposals: Mellékelt javaslatok
         start_date: Kezdő dátum
         title: Cím
-        updated_at: 'Frissítve:'
+        updated_at: Frissítve
       status:
         description: Leírás
         key: Kulcs
         name: Név
-        progress: Előrehalad
+        progress: Folyamat
       timeline_entry:
         description: Leírás
         entry_date: Dátum
     models:
-      decidim/accountability/proposal_linked_event: A javaslat tartalmazza az eredményt
+      decidim/accountability/proposal_linked_event: Az eredményhez kapcsolódó javaslat
   activerecord:
     models:
       decidim/accountability/result:
@@ -31,13 +31,13 @@ hu:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Biztosan törölni szeretné ezt a %{name}?
-        destroy: Töröl
-        edit: szerkesztése
+        confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
+        destroy: Törlés
+        edit: Szerkesztés
         new: Új %{name}
         preview: Előnézet
-        timeline_entries: A projekt fejlődése
-        title: Hozzászólások
+        timeline_entries: Projekt alakulása
+        title: Műveletek
       admin:
         exports:
           results: Eredmények
@@ -50,13 +50,13 @@ hu:
             name: Idővonal bejegyzés
         results:
           create:
-            invalid: Probléma történt az eredmény létrehozásában
+            invalid: Probléma történt az eredmény létrehozásakor
             success: Eredmény sikeresen létrehozva
           destroy:
             success: Eredmény sikeresen törölve
           edit:
             title: Eredmény szerkesztése
-            update: Frissítse az eredményt
+            update: Eredmény frissítése
           form:
             add_proposal: Javaslat hozzáadása
           index:
@@ -66,22 +66,22 @@ hu:
             title: Új eredmény
           proposals:
             close: Bezárás
-            current_selection: Jelenlegi választás
-            select: választ
+            current_selection: Aktuális kijelölés
+            select: Választ
           update:
-            invalid: Probléma történt az eredmény frissítésével
+            invalid: Probléma történt az eredmény frissítésekor
             success: Eredmény sikeresen frissítve
         shared:
           subnav:
             statuses: Állapotok
         statuses:
           create:
-            invalid: Probléma történt az állapot létrehozásában
-            success: Az állapot sikeresen létrehozva
+            invalid: Probléma történt az állapot létrehozásakor
+            success: Állapot létrehozása sikeres
           destroy:
-            success: Az állapot sikeresen törölve
+            success: Állapot eltávolítása sikeres
           edit:
-            title: Státusz szerkesztése
+            title: Állapot szerkesztése
             update: Állapot frissítése
           index:
             title: Állapotok
@@ -89,8 +89,8 @@ hu:
             create: Státusz létrehozása
             title: Új állapot
           update:
-            invalid: Probléma történt az állapot frissítésével
-            success: Az állapot sikeresen frissült
+            invalid: Probléma történt az állapot frissítésekor
+            success: Állapot frissítése sikeres
         timeline_entries:
           create:
             invalid: Hiba történt a bejegyzés létrehozásában
