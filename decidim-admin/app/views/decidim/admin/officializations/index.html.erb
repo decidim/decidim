@@ -2,21 +2,21 @@
   <div class="column medium-3">
     <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
     <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
-        <li class="is-dropdown-submenu-parent">
-          <a href="#">
+      <li class="is-dropdown-submenu-parent">
+        <a href="#">
           <% if @state.present? %>
             <%= t(".filter.#{@state}") %>
           <% else %>
             <%= t(".filter.all") %>
           <% end %>
-          </a>
-          <ul class="menu is-dropdown-submenu">
-            <li><%= link_to t(".filter.officialized"), url_for(state: "officialized", q: @query) %></li>
-            <li><%= link_to t(".filter.not_officialized"), url_for(state: "not_officialized", q: @query) %></li>
-            <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
-          </ul>
-        </li>
-      </ul>
+        </a>
+        <ul class="menu is-dropdown-submenu">
+          <li><%= link_to t(".filter.officialized"), url_for(state: "officialized", q: @query) %></li>
+          <li><%= link_to t(".filter.not_officialized"), url_for(state: "not_officialized", q: @query) %></li>
+          <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
+        </ul>
+      </li>
+    </ul>
   </div>
   <div class="column medium-4">
     <%= form_tag "", method: :get do %>
@@ -43,37 +43,38 @@
     <div class="table-scroll">
       <table class="table-list">
         <thead>
-          <tr>
-            <th><%= t(".name") %></th>
-            <th><%= t(".nickname") %></th>
-            <th><%= t(".created_at") %></th>
-            <th><%= t(".status") %></th>
-            <th><%= t(".badge") %></th>
-            <th><%= t(".actions") %></th>
-          </tr>
+        <tr>
+          <th><%= t(".name") %></th>
+          <th><%= t(".nickname") %></th>
+          <th><%= t(".created_at") %></th>
+          <th><%= t(".status") %></th>
+          <th><%= t(".badge") %></th>
+          <th><%= t(".actions") %></th>
+        </tr>
         </thead>
         <tbody>
-          <% @users.each do |user| %>
-            <tr data-user-id="<%= user.id %>">
-              <td><%= user.name %></td>
-              <td><%= user.nickname %></td>
-              <td><%= l user.created_at, format: :short %></td>
-              <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
-              <td><%= translated_attribute(user.officialized_as) %></td>
+        <% @users.each do |user| %>
+          <tr data-user-id="<%= user.id %>">
+            <td><%= link_to user.name, decidim.profile_path(user.nickname) %></td>
+            <td><%= link_to user.nickname, decidim.profile_path(user.nickname) %></td>
+            <td><%= l user.created_at, format: :short %></td>
+            <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
+            <td><%= translated_attribute(user.officialized_as) %></td>
 
-              <td class="table-list__actions">
-                <% if user.officialized? %>
-                  <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
-                  <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
-                  <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
-                <% else %>
-                  <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled" %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled" %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
+            <td class="table-list__actions">
+              <%=  icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
+              <% if user.officialized? %>
+                <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
+                <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
+                <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
+              <% else %>
+                <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
+                <%= icon "pencil", class: "action-icon action-icon--disabled" %>
+                <%= icon "circle-x", class: "action-icon action-icon--disabled" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
       <%= paginate @users, theme: "decidim" %>
