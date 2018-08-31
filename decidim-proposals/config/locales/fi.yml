@@ -112,8 +112,8 @@ fi:
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hylätty pääsyksesi avustajaksi</strong> <a href="%{resource_path}">%{resource_title}</a> yhteisestä ehdotuksesta.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} pyysi pääsyä avustajaksi. Voit <strong>hyväksyä tai hylätä pyynnön</strong> alkaen <a href="%{resource_path}">%{resource_title}</a> yhteistyössä luonnos sivulle.'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet yhteistyökumppani <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} pyysi saada osallistua %{resource_title}."
+          email_outro: Olet vastanottanut tämän ilmoituksen, koska olet yhteistyökumppani kohteessa <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} pyysi osallistumisoikeutta kohteeseen %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pyysi saada osallistua <a href="%{resource_path}">%{resource_title}</a> yhteistyöhankkeeseen. Pyydä <strong>hyväksymään tai hylkäämään pyynnön</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Sinut on hyväksytty osallistumaan <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.
@@ -415,12 +415,12 @@ fi:
           step_1: Luo yhteistyöluonnoksesi
           step_2: Vertaa yhteistyöluonnoksiin
           step_3: Tee yhteistyöluonnoksesi valmiiksi
-          step_of: Vaihe %{current_step_num} %{total_steps}
+          step_of: Vaihe %{current_step_num} / %{total_steps}
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
-        success: Ehdotus luotiin onnistuneesti. Tallennetaan luonnoksena.
+        success: Ehdotus luotiin onnistuneesti. Tallennettu luonnoksena.
       destroy_draft:
-        error: Ehdotusluonnoksen poistaminen virheistä on poistettu.
+        error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.
       models:
         collaborative_draft:
@@ -465,7 +465,7 @@ fi:
           title: Vastaavat ehdotukset
         complete:
           send: Lähetä
-          title: Suorita ehdotuksesi
+          title: Viimeistele ehdotuksesi
         count:
           proposals_count:
             one: 1 ehdotus
@@ -507,7 +507,7 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         index:
-          collaborative_drafts_list: Yhteistyöluonnokset
+          collaborative_drafts_list: Mene yhteistyöluonnoksiin
           new_proposal: Uusi ehdotus
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
           view_proposal: Näytä ehdotus
@@ -526,7 +526,7 @@ fi:
         preview:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
-            one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
+            one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
             other: 'Voit muokata tätä ehdotusta ensimmäisen %{count}: n aikana minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.'
           publish: Julkaise
           title: Julkaise ehdotuksesi
@@ -540,7 +540,7 @@ fi:
             one: ja vielä yksi henkilö
             other: ja %{count} muuta henkilöä
           link_to_collaborative_draft_help_text: Tämä ehdotus on tulosta yhteistyöhankkeesta. Tarkastele historiaa
-          link_to_collaborative_draft_text: Katso yhteistyöhanketta
+          link_to_collaborative_draft_text: Katso yhteistyöluonnosta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
@@ -548,11 +548,11 @@ fi:
           sign_in: Kirjaudu sisään
           sign_in_or_up: "%{in} tai %{up} osallistuaksesi"
           sign_up: rekisteröidy
-          withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi, kunhan et ole saanut tukea. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
+          withdraw_btn_hint: Voit perua ehdotuksesi, jos muutat mieltäsi, jos et ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
         tags:
-          changed_from: "(muutettu ylläpitäjältä <u>%{previous_category}</u>)"
+          changed_from: "(muutettu ryhmästä <u>%{previous_category}</u> ylläpitäjä toimesta)"
           filed_as: Merkitty
         vote_button:
           already_voted: Jo äänestetty
@@ -569,11 +569,11 @@ fi:
           need_more_votes: Tarvitsee enemmän ääniä
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Jokainen ehdotus voi kerätä yli %{limit} tukee
+            description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:
-            description: Jotta ehdotukset hyväksytään, niiden on saavutettava %{limit} tukee
+            description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} kannatusta
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
@@ -586,7 +586,7 @@ fi:
           see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertaile
-          step_3: Saattaa loppuun
+          step_3: Valmis
           step_4: Julkaise ehdotuksesi
           step_of: Vaihe %{current_step_num} / %{total_steps}
       publish:
