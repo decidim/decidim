@@ -506,54 +506,54 @@ hu:
           update: Frissítés
       participatory_space_private_users:
         create:
-          error: Hiba történt egy privát felhasználó hozzáadása ehhez a részvételi helyhez.
-          success: A részvételi hely privát felhasználói hozzáférése sikeresen létrejött.
+          error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
+          success: Privát felhasználó részvételi helyhez való hozzáférése biztosítva.
         destroy:
-          success: A részvételi hely privát felhasználói hozzáférése sikeresen megsemmisült.
+          success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
-          title: Résztvevős privát felhasználó
+          title: Részvételi tér privát felhasználója
         new:
-          create: Teremt
-          title: Új részvételi hely magánfelhasználó.
+          create: Létrehozás
+          title: Új privát felhasználó a részvételi térben.
       scope_types:
         create:
-          error: Hiba történt egy új alkalmazástípus létrehozásában.
-          success: A hatókör típusát sikeresen létrehoztuk.
+          error: Hiba történt az új hatáskör-típus létrehozásakor.
+          success: Hatáskör típus létrehozása sikeres.
         destroy:
-          success: A hatókör típusa sikeresen megsemmisült
+          success: Hatáskör típus eltávolítása sikeres
         edit:
-          title: Szótípus szerkesztése
-          update: frissítés
+          title: Hatáskör típus szerkesztése
+          update: Frissítés
         new:
-          create: Kötegtípus létrehozása
-          title: Új hatókör
+          create: Hatáskör típus létrehozása
+          title: Új hatáskor
         update:
-          error: Hiba történt az eszköz típusának frissítésekor.
-          success: A hatókör típusa sikeresen frissült
+          error: Hiba történt a hatáskör típus frissítése során.
+          success: Hatáskör típus frissítése sikeres
       scopes:
         create:
-          error: Hiba történt új kört létrehozva.
-          success: Hatály sikeresen létrehozva.
+          error: Hiba történt az új hatáskör létrehozásakor.
+          success: Hatáskor létrehozása sikeres.
         destroy:
-          success: A hatókör sikeresen megsemmisült
+          success: A hatáskör törlése sikeres
         edit:
-          title: Szóköz szerkesztése
-          update: frissítés
+          title: Hatáskör szerkesztése
+          update: Frissítés
         new:
-          create: Terület létrehozása
-          title: Új hatókör
-        no_scopes: Ezen a szinten nincsenek hatókörök.
+          create: Hatáskör létrehozása
+          title: Új hatáskör
+        no_scopes: Ezen a szinten nincsenek hatáskörök.
         update:
-          error: Hiba történt az alkalmazási terület frissítésekor.
-          success: A hatókör sikeresen frissült
+          error: Hiba történt a hatáskör frissítése során.
+          success: Hatáskör frissítése sikeres
       static_pages:
         actions:
           view: Nyilvános oldal megtekintése
         create:
-          error: Hiba történt új oldal létrehozása közben.
-          success: Az oldal sikeresen létrehozva.
+          error: Hiba történt az új oldal létrehozásakor.
+          success: Oldal létrehozása sikeres.
         destroy:
-          success: Az oldal sikeresen megsemmisült
+          success: Oldal törlése sikeres
         edit:
           changed_notably_help: Ha be van jelölve, a felhasználók értesítést kapnak az új feltételek elfogadásáról.
           title: Oldal szerkesztése
