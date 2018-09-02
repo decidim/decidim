@@ -2,17 +2,17 @@ hu:
   activemodel:
     attributes:
       area:
-        area_type: Terület típus
+        area_type: Terület típusa
         name: Név
         organization: Szervezet
       area_type:
         name: Név
         organization: Szervezet
-        plural: Többes szám
+        plural: Plurális
       attachment:
-        attachment_collection_id: Folder
+        attachment_collection_id: Mappa
         description: Leírás
-        file: fájl
+        file: Fájl
         title: Cím
       attachment_collection:
         description: Leírás
@@ -20,24 +20,24 @@ hu:
       category:
         description: Leírás
         name: Név
-        parent_id: Szülő
+        parent_id: Parent
       component:
         name: Név
-        published_at: Megjelent a
+        published_at: Publikálva
         weight: Súly
       id: ID
       newsletter:
-        body: Test
-        subject: Tantárgy
+        body: Szöveg
+        subject: Tárgy
       oauth_application:
         name: Név
-        organization_logo: Szervezeti logo (négyzet)
+        organization_logo: Szervezet logója (négyzet)
         organization_name: Szervezet neve
-        organization_url: Szervezeti URL
-        redirect_uri: Átirányítási URI
+        organization_url: Szervezet URL
+        redirect_uri: Redirect URI
       organization:
-        cta_button_path: Hívás művelet gomb nyomvonal
-        cta_button_text: Hívás művelet gomb szövege
+        cta_button_path: Felhívás gomb elérési útvonala
+        cta_button_text: Felhívás gomb szövege
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mutassa az összes többi banneret
@@ -257,11 +257,11 @@ hu:
             managed: Irányított
             not_managed: Nem sikerült
           filter_by: Szűrés vlami alapján
-          impersonate: megszemélyesít
+          impersonate: Megszemélyesítés
           impersonate_new_managed_user: Új kezelt felhasználó szerepeltetése
           managed: Irányított
           name: Név
-          needs_authorization_warning: Ehhez legalább egy, a szervezet számára engedélyezett engedély szükséges.
+          needs_authorization_warning: Ennek a szervezetnek legalább egy engedélyre lesz szüksége.
           not_managed: Nem sikerült
           promote: Népszerűsít
           search: Keresés
@@ -269,17 +269,17 @@ hu:
           view_logs: Naplók megtekintése
       impersonations:
         close_session:
-          error: Hiba történt az aktuális megszemélyesítő munkamenet lezárásával.
-          success: A jelenlegi megszemélyesítő munkamenet sikeresen befejeződött.
+          error: Hiba történt a megszemélyesítő munkamenet lezárása közben.
+          success: A megszemélyesítő munkamenet sikeresen lezárult.
         create:
           error: Hiba történt a felhasználót illetően.
-          success: A kezelt felhasználó sikeresen létrejött.
+          success: A felhasználó sikeresen létrehozva.
         form:
           authorization_method: Engedélyezési módszer
           name: Név
           reason: Ok
         new:
-          impersonate: megszemélyesít
+          impersonate: Megszemélyesítés
           impersonate_existing_managed_user: Kezelt felhasználó "%{name}"
           impersonate_existing_user: Felhasználó "%{name}"
           impersonate_new_managed_user: Új kezelt felhasználó szerepeltetése
