@@ -254,16 +254,16 @@ hu:
         index:
           filter:
             all: Összes
-            managed: Kezelt
-            not_managed: Nem kezelt
+            managed: Felügyelt
+            not_managed: Nem felügyelt
           filter_by: 'Szűrés ez alapján:'
           impersonate: Megszemélyesítés
-          impersonate_new_managed_user: Új kezelt felhasználó megszemélyesítése
-          managed: Kezelt
+          impersonate_new_managed_user: Új felügyelt felhasználó megszemélyesítése
+          managed: Felügyelt
           name: Név
           needs_authorization_warning: Ennek a szervezetnek legalább egy engedélyre lesz szüksége.
-          not_managed: Nem kezelt
-          promote: Promotálás
+          not_managed: Nem felügyelt
+          promote: Előléptetés
           search: Keresés
           status: Állapot
           view_logs: Naplók megtekintése
@@ -280,32 +280,32 @@ hu:
           reason: Indok
         new:
           impersonate: Megszemélyesítés
-          impersonate_existing_managed_user: '"%{name}" kezelt felhasználó megszemélyesítése'
+          impersonate_existing_managed_user: '"%{name}" felügyelt felhasználó megszemélyesítése'
           impersonate_existing_user: '"%{name}" felhasználó megszemélyesítése'
-          impersonate_new_managed_user: Új kezelt felhasználó megszemélyesítése
+          impersonate_new_managed_user: Új felügyelt felhasználó megszemélyesítése
       logs:
         logs_list:
           no_logs_yet: Még nincsenek naplók
       managed_users:
         promotion:
-          error: Hiba történt a kezelt felhasználó előléptetése során.
-          success: A kezelt felhasználó előléptetése sikeres.
+          error: Hiba történt a felügyelt felhasználó előléptetése során.
+          success: A felügyelt felhasználó előléptetése sikeres.
         promotions:
           new:
-            explanation: A felügyelt felhasználókat elő lehet mozdítani a szokásos felhasználóknak. Ez azt jelenti, hogy meghívást kapnak az alkalmazásra, és nem leszel képes újraéleszteni őket. A meghívott felhasználó e-mailt kap a meghívás elfogadásához.
-            new_managed_user_promotion: Új kezelt felhasználó promóció
-            promote: Népszerűsít
+            explanation: A felügyelt felhasználók egyszerű felhasználóvá alakíthatóak. Ez azt jelenti, hogy meghívást kapnak az alkalmazáshoz és nem lehet őket újra megszemélyesíteni. Erről emailben kapnak értesítést.
+            new_managed_user_promotion: Új felügyelt felhasználó előléptetése
+            promote: Előléptetés
       menu:
-        admin_log: Adminisztrátori tevékenységnapló
+        admin_log: Admin tevékenységnapló
         admins: Adminok
-        appearance: Kinézet
-        area_types: Területfajták
-        areas: területek
-        configuration: Configuration
-        dashboard: Irányítópult
+        appearance: Megjelenés
+        area_types: Terület típusok
+        areas: Területek
+        configuration: Beállítások
+        dashboard: Vezérlőpult
         homepage: Homepage
-        impersonations: alakítások
-        newsletters: hírlevelek
+        impersonations: Megszemélyesítések
+        newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
         officializations: Officializations
         scope_types: Hatálytípusok
