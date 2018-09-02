@@ -38,7 +38,7 @@ sv:
         private_space: Privat utrymme
         promoted: Främjad
         published_at: Publicerad på
-        purpose_of_action: Syftet med åtgärden
+        purpose_of_action: Syfte med åtgärden
         scope_id: Omfattning
         scopes_enabled: Omfattningar aktiverade
         short_description: Kort beskrivning
@@ -49,14 +49,14 @@ sv:
         target: Vem deltar
         title: Titel
         twitter: Twitter
-        youtube: Youtube
+        youtube: YouTube
       assembly_member:
         birthday: Födelsedag
         birthplace: Födelseort
-        ceased_date: Upphämtat datum
-        designation_date: Beteckning datum
-        designation_mode: Beteckningsläge
-        full_name: Fullständiga namn
+        ceased_date: Upphört datum
+        designation_date: Utnämningsdatum
+        designation_mode: Utnämningsläge
+        full_name: Fullständigt namn
         gender: Kön
         position: Placera
       assembly_user_role:
@@ -142,15 +142,15 @@ sv:
           title: Uppdatera monteringsanvändaren.
           update: Uppdatera
         index:
-          assembly_admins_title: Monteringsanvändare
+          assembly_admins_title: Sammanskomstanvändare
         new:
           create: Skapa
-          title: Ny monteringsanvändare.
+          title: Ny sammankomstsanvändare.
         update:
-          error: Det uppstod ett fel som uppdaterade en användare för den här enheten.
-          success: Användaren uppdaterades framgångsrikt för denna montering.
+          error: Det uppstod ett fel vid uppdatering av en användare för den här sammankomsten.
+          success: Användaren uppdaterades framgångsrikt för denna sammankomst.
       menu:
-        assemblies: Assemblies
+        assemblies: Sammankomst
         assemblies_submenu:
           assembly_admins: Monteringsanvändare
           assembly_members: medlemmar
