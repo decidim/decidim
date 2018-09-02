@@ -19,7 +19,7 @@ sv:
   decidim:
     admin:
       menu:
-        authorization_workflows: kontroller
+        authorization_workflows: Verifieringar
     authorization_handlers:
       admin:
         id_documents:
