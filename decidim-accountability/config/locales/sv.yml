@@ -9,10 +9,10 @@ sv:
         end_date: Slutdatum
         progress: Framsteg
         project_ids: Inkluderade projekt
-        proposals: Ingår förslag
+        proposals: Inkluderade förslag
         start_date: Startdatum
         title: Titel
-        updated_at: Uppdaterad på
+        updated_at: Uppdaterad vid
       status:
         description: Beskrivning
         key: Nyckel
@@ -31,7 +31,7 @@ sv:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Är du säker på att du vill radera den här %{name}?
+        confirm_destroy: Är du säker på att du vill radera detta %{name}?
         destroy: Radera
         edit: Redigera
         new: Ny %{name}
@@ -51,7 +51,7 @@ sv:
         results:
           create:
             invalid: Det här har uppstått ett problem
-            success: Resultat som har skapats framgångsrikt
+            success: Resultat har skapats framgångsrikt
           destroy:
             success: Resultatet har tagits bort
           edit:
@@ -69,14 +69,14 @@ sv:
             current_selection: Aktuellt urval
             select: Välj
           update:
-            invalid: Det har varit ett problem att uppdatera resultatet
-            success: Resultatet uppdaterades med framgång
+            invalid: Det har blivit ett problem med att uppdatera resultatet
+            success: Resultatet uppdaterades framgångsrikt
         shared:
           subnav:
             statuses: Statusar
         statuses:
           create:
-            invalid: Det har varit ett problem att skapa denna status
+            invalid: Det har blivit ett problem med att skapa denna status
             success: Status skapad
           destroy:
             success: Statusen har tagits bort
@@ -89,24 +89,24 @@ sv:
             create: Skapa status
             title: Ny status
           update:
-            invalid: Det har varit ett problem att uppdatera den här statusen
+            invalid: Det blivit ett problem med att uppdatera denna status
             success: Status uppdaterad
         timeline_entries:
           create:
-            invalid: Det här har uppstått ett problem med att skapa den här posten
-            success: Entry skapades med framgång
+            invalid: Det har uppstått ett problem med att skapa den här posten
+            success: Inmatningen skapades med framgång
           destroy:
-            success: Inlägget har tagits bort
+            success: Inmatningen har tagits bort
           edit:
             title: Redigera posten
             update: Uppdatera posten
           index:
-            title: Projekt tidslinje poster
+            title: Visa tidslinje med poster
           new:
             create: Skapa post
-            title: Ny ingång
+            title: Ny inmatning
           update:
-            invalid: Det har varit ett problem att uppdatera den här posten
+            invalid: Det har uppstått ett problem med att uppdatera den här posten
             success: Inmatning uppdaterad
       admin_log:
         result:
