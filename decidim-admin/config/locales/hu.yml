@@ -40,45 +40,45 @@ hu:
         cta_button_text: Felhívás gomb szövege
         default_locale: Alapértelmezett hely
         description: Leírás
-        enable_omnipresent_banner: Mutassa az összes többi banneret
-        facebook_handler: Facebook kezelő
+        enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
+        facebook_handler: Facebook handler
         favicon: Ikon
-        github_handler: GitHub kezelő
-        header_snippets: Fejléc-részletek
-        highlighted_content_banner_action_subtitle: Művelet gomb felirat
-        highlighted_content_banner_action_title: Művelet gomb címe
-        highlighted_content_banner_action_url: Művelet gomb URL
-        highlighted_content_banner_enabled: A kiemelt tartalmi banner megjelenítése
+        github_handler: GitHub handler
+        header_snippets: Fejléc részletek
+        highlighted_content_banner_action_subtitle: Felhívás gomb alcíme
+        highlighted_content_banner_action_title: Felhívás gomb szövege
+        highlighted_content_banner_action_url: Felhívás gomb URL
+        highlighted_content_banner_enabled: Kiemelt banner megjelenítése
         highlighted_content_banner_image: Kép
         highlighted_content_banner_short_description: Rövid leírás
         highlighted_content_banner_title: Cím
-        instagram_handler: Instagram kezelő
-        logo: logo
+        instagram_handler: Instagram handler
+        logo: Logó
         name: Név
         official_img_footer: Hivatalos logó lábléc
         official_img_header: Hivatalos logó fejléc
-        official_url: Hivatalos szervezeti URL
+        official_url: Szervezet hivatalos URL-je
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
         omnipresent_banner_url: URL
         reference_prefix: Hivatkozási előtag
         show_statistics: Statisztikák megjelenítése
         tos_version: Használati feltételek
-        twitter_handler: Twitter kezelő
-        youtube_handler: YouTube kezelő
+        twitter_handler: Twitter handler
+        youtube_handler: YouTube handler
       scope:
         code: Kód
         name: Név
         organization: Szervezet
-        parent_id: Szülő
-        scope_type: Alkalmazási típus
-        scope_type_id: Alkalmazási típus
+        parent_id: Parent
+        scope_type: Hatáskör típusa
+        scope_type_id: Hatáskör típusa
       scope_type:
         name: Név
         organization: Szervezet
-        plural: Többes szám
+        plural: Plurális
       static_page:
-        changed_notably: Jelentős változások történtek.
+        changed_notably: Észrevehető változások történtek.
         content: Tartalom
         organization: Szervezet
         slug: URL slug
@@ -98,53 +98,53 @@ hu:
       doorkeeper/application:
         authorize_url: URL engedélyezése
         client_id: Ügyfélazonosító
-        client_secret: Ügyfél titka
+        client_secret: Client Secret
         organization_name: Szervezet neve
-        organization_url: Szervezeti URL
-        redirect_uri: Átirányítási URI
+        organization_url: Szervezet URL
+        redirect_uri: Redirect URI
         site: Weboldal
   date:
     formats:
-      datepicker: "%m/%d/%Y"
+      datepicker: "%hó/%nap/%év"
   decidim:
     admin:
       actions:
-        add: hozzáad
-        browse: Böngésszen
-        export: Export
-        manage: kezel
+        add: Hozzáad
+        browse: Böngészés
+        export: Exportálás
+        manage: Kezelés
         new: Új %{name}
         permissions: Engedélyek
         reject: Elutasít
-        verify: Ellenőrizze
+        verify: Ellenőrzés
       area_types:
         create:
-          error: Hiba történt új területtípus létrehozásában.
-          success: A területtípus sikeresen létrehozva.
+          error: Hiba történt az új területtípus létrehozásakor.
+          success: Területtípus létrehozása sikeres.
         destroy:
-          success: A területtípus sikeresen megsemmisült
+          success: Területtípus eltávolítása sikeres
         edit:
-          title: A terület típusának szerkesztése
-          update: frissítés
+          title: Területtípus szerkesztése
+          update: Frissítés
         new:
-          create: Terület típus létrehozása
-          title: Új terület típus
+          create: Területtípus létrehozása
+          title: Új területtípus
         update:
-          error: Hiba történt a terület típusának frissítésekor.
-          success: A területtípus sikeresen frissült
+          error: Hiba történt a területtípus frissítése során.
+          success: Területtípus frissítése sikeres
       areas:
         create:
-          error: Hiba történt új terület létrehozásakor.
-          success: A terület sikeresen létrehozva.
+          error: Hiba történt az új terület létrehozásakor.
+          success: Terület létrehozása sikeres.
         destroy:
-          success: A terület sikeresen megsemmisült
+          success: Terület eltávolítása sikeres
         edit:
-          title: Szerkesztés terület
-          update: frissítés
+          title: Terület szerkesztése
+          update: Frissítés
         new:
           create: Terület létrehozása
           title: Új terület
-        no_areas: Nincsenek területek
+        no_areas: Nincs terület
         update:
           error: Hiba történt a terület frissítésekor.
           success: A terület sikeresen frissült
