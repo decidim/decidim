@@ -583,7 +583,7 @@ sv:
         subject: En resurs har rapporterats
     reports:
       create:
-        error: Ett fel uppstod när rapporten skapades. Snälla, försök igen.
+        error: Ett fel uppstod när rapporten skapades. Vänligen försök igen.
         success: Rapporten har skapats framgångsrikt och den kommer att granskas av en administratör.
     scopes:
       global: Global omfattning
@@ -650,7 +650,7 @@ sv:
         decline: Avböj inbjudan
         hello: Hej %{email},
         ignore: |-
-          Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />
+          Om du inte vill acceptera inbjudan, ignorerar du detta e-postmeddelande.<br />
           Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt smeknamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
         invited_you_as_friend: "%{invited_by} har bjudit in dig till %{application}."
@@ -667,7 +667,7 @@ sv:
         friend_custom_text: 'De lämnade det här meddelandet för dig:'
         subject: Du har blivit inbjuden till %{organization}
       invite_private_user:
-        subject: Du har blivit inbjuden till en privat deltagande process på %{organization}
+        subject: Du har blivit inbjuden till en privat deltagandeprocess på %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
@@ -680,16 +680,16 @@ sv:
   errors:
     messages:
       content_type_whitelist_error: filtypen är inte giltig
-      cycle_detected: Omfattarens förälder kan inte vara en av sina efterkommande
+      cycle_detected: en omfattnings förälder kan inte vara en av sina efterkommande
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
       long_words: innehåller ord som är för långa
-      must_start_with_caps: måste börja med kepsar
+      must_start_with_caps: måste börja med versaler
       nesting_too_deep: kan inte vara inuti en underkategori
       too_many_marks: använder för många märken
-      too_much_caps: använder för mycket kepsar
+      too_much_caps: använder för många versaler
       too_short: är för kort
   forms:
-    required: Nödvändig
+    required: Krävs
   invisible_captcha:
     sentence_for_humans: Om du är mänsklig, ignorera det här fältet
     timestamp_error_message: Tyvärr, det var för snabbt! Vänligen skicka in igen.
@@ -710,23 +710,23 @@ sv:
         sign_up: Registrera
       impersonation_warning:
         close_session: Stäng session
-        description_html: Du utmärker användaren <b>%{user_name}</b>.
-        expire_time_html: Din session löper ut i <b><span class="minutes">%{minutes}</span> minuter</b>.
+        description_html: Du framställer dig som användaren <b>%{user_name}</b>.
+        expire_time_html: Din session kommer löpa ut om <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
         mark_all_as_read: Markera alla som lästa
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
-        invite_friends: Bjuda in vänner
+        invite_friends: Bjud in vänner
         notifications: Notiser
         profile: Mitt konto
         public_profile: Min offentliga profil
         sign_out: Logga ut
       user_profile:
         account: Konto
-        authorizations: Tillstånd
+        authorizations: Auktoriseringar
         delete_my_account: Ta bort mitt konto
-        my_data: Min data
+        my_data: Mitt data
         notifications_settings: Notisinställningar
         title: Användarinställningar
         user_groups: Organisationer
@@ -735,10 +735,10 @@ sv:
   locale:
     name: Svenska
   password_validator:
-    domain_included_in_password: är för lik detta domännamn
-    email_included_in_password: är för lik din email
+    domain_included_in_password: är för likt detta domännamn
+    email_included_in_password: är för lik din e-post
     fallback: är inte giltigt
-    name_included_in_password: är för lik ditt namn
+    name_included_in_password: är för likt ditt namn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
     password_not_allowed: är ej tillåtet
     password_too_common: är för vanligt
