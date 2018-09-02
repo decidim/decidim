@@ -192,26 +192,26 @@ hu:
           success: Kategória létrehozása sikeres.
         destroy:
           error: Hiba történt a kategória törlésekor. Először töröld az alkategóriákat, majd győződj meg róla, hogy más entitás nem tartozik ehhez a kategóriához, majd próbáld újra.
-          success: A kategória sikeresen törölve.
+          success: Kategória eltávolítása sikeres.
         edit:
           title: Kategória szerkesztése
-          update: frissítés
+          update: Frissítés
         index:
           categories_title: Kategóriák
-          category_used: Ez a kategória nem távolítható el, mert használatban van.
+          category_used: Kategória nem távolítható el, mert használatban van.
         new:
           create: Kategória létrehozása
           title: Új kategória
         update:
-          error: Hiba történt a kategória frissítésénél.
-          success: A kategória sikeresen frissült.
+          error: Hiba történt a kategória frissítése során.
+          success: Kategória frissítése sikeres.
       component_permissions:
         edit:
           everyone: Mindenki
           submit: Engedélyek mentése
           title: Engedélyek szerkesztése
         update:
-          success: Engedélyek sikeresen frissítve.
+          success: Engedélyek frissítése sikeres.
       components:
         create:
           error: Hiba történt az összetevő létrehozásában.
