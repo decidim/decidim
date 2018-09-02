@@ -308,24 +308,24 @@ hu:
         newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
         officializations: Officializations
-        scope_types: Hatálytípusok
-        scopes: Célzók
+        scope_types: Hatáskör típusok
+        scopes: Hatáskörök
         settings: Beállítások
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
-        users: felhasználók
+        users: Felhasználók
       models:
         area:
           fields:
-            area_type: Terület típus
+            area_type: Terület típusa
             name: Név
         area_type:
           fields:
             name: Név
-            plural: Többes szám
+            plural: Plurális
         attachment:
           fields:
-            collection: Folder
+            collection: Mappa
             content_type: típus
             file_size: Méret
             title: Cím
