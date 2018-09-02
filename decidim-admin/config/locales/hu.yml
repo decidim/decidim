@@ -436,37 +436,37 @@ hu:
           save: Mentés
           title: Alkalmazás szerkesztése
         index:
-          confirm_delete: Biztosan törölni szeretné ezt az alkalmazást?
+          confirm_delete: Biztosan törölni szeretnéd ezt az alkalmazást?
           title: OAuth alkalmazások
         new:
           save: Mentés
           title: Új alkalmazás
         update:
-          error: Hiba történt az alkalmazás frissítésekor.
-          success: Az alkalmazás sikeresen frissült.
+          error: Hiba történt az alkalmazás frissítése során.
+          success: Alkalmazás frissítse sikeres.
       officializations:
         create:
-          success: A felhasználó sikeresen hivatalossá vált
+          success: A felhasználó hivatalos lett
         destroy:
-          success: A felhasználó sikertelenül sikerült
+          success: Felhasználó hivatalos státusza visszavonva
         index:
-          actions: Hozzászólások
+          actions: Műveletek
           badge: Jelvény
-          created_at: Létrehozva
+          created_at: 'Létrehozva:'
           filter:
-            all: Minden
+            all: Összes
             not_officialized: Nem hivatalos
-            officialized: Officialized
-          filter_by: Szűrés vlami alapján
+            officialized: Hivatalos
+          filter_by: 'Szűrés ez alapján:'
           name: Név
           nickname: Becenév
           not_officialized: Nem hivatalos
-          officialize: Officialize
-          officialized: Officialized
-          reofficialize: Reofficialize
+          officialize: Hivatalossá tétel
+          officialized: Hivatalos
+          reofficialize: Újbóli hivatalossá tétel
           search: Keresés
           status: Állapot
-          unofficialize: Unofficialize
+          unofficialize: Hivatalossá tétel visszavonása
         new:
           badge: Hivatalos jelölés
           officialize: Officialize
