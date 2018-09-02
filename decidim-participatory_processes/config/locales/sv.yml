@@ -169,9 +169,9 @@ sv:
           create: Skapa
           title: Nytt steg i deltagandeprocessen
         ordering:
-          error: Ett fel uppstod vid omarrangering av dessa processer för deltagande.
+          error: Ett fel uppstod med att omarrangera stegen för denna deltagandeprocess.
         update:
-          error: Ett fel uppstod vid uppdatering av detta deltagande processsteg.
+          error: Ett fel uppstod vid uppdatering av detta steg i deltagandeprocessen.
           success: Steget i deltagandeprocessen uppdaterades framgångsrikt.
       participatory_process_user_roles:
         create:
@@ -183,19 +183,19 @@ sv:
           title: Uppdatera användare i deltagandeprocess.
           update: Uppdatera
         index:
-          process_admins_title: Deltagande processanvändare
+          process_admins_title: Användare i deltagandeprocess
         new:
           create: Skapa
-          title: Ny deltagande processanvändare.
+          title: Ny användare i deltagandeprocess.
         update:
-          error: Det uppstod ett fel som uppdaterade en användare för den här deltagande processen.
-          success: Användaren uppdaterades framgångsrikt för denna deltagande process.
+          error: Det uppstod ett fel som uppdaterade en användare för den här deltagandeprocessen.
+          success: Användaren uppdaterades framgångsrikt för denna deltagandeprocess.
       participatory_processes:
         create:
-          error: Det uppstod ett fel vid att skapa en ny deltagande process.
-          success: Deltagande processen skapades framgångsrikt. Konfigurera nu sina steg.
+          error: Det uppstod ett fel vid att skapa en ny deltagandeprocess.
+          success: Deltagandeprocessen skapades framgångsrikt. Konfigurera nu dess steg.
         destroy:
-          success: Deltagande processen raderas framgångsrikt.
+          success: Deltagandeprocessen raderades framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -209,43 +209,43 @@ sv:
           create: Skapa
           title: Ny deltagande process
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här deltagande processen.
-          success: Deltagande processen uppdaterades framgångsrikt.
+          error: Det uppstod ett fel vid uppdateringen av den här deltagandeprocessen.
+          success: Deltagandeprocessen uppdaterades framgångsrikt.
       participatory_processes_copies:
         create:
-          error: Det uppstod ett fel vid duplicering av denna deltagande process.
-          success: Deltagande processen dupliceras framgångsrikt.
+          error: Det uppstod ett fel vid duplicering av denna deltagandeprocess.
+          success: Deltagandeprocessen duplicerades framgångsrikt.
       participatory_processes_group:
         create:
-          error: Det uppstod ett fel vid att skapa en ny deltagande processgrupp.
-          success: Deltagande processgrupp skapades framgångsrikt.
+          error: Det uppstod ett fel vid att skapa en ny grupp för deltagandeprocess.
+          success: Grupp för deltagandeprocess skapades framgångsrikt.
       titles:
-        participatory_process_groups: Deltagande processgrupper
+        participatory_process_groups: Grupper för deltagandeprocess
         participatory_processes: Deltagande processer
       users:
         resend_invitation:
           error: Det uppstod ett fel när du skickade inbjudan igen.
-          success: Inbjudan misslyckas framgångsrikt.
+          success: Inbjudan skickades om framgångsrikt.
     admin_log:
       participatory_process:
-        create: "%{user_name} skapade %{resource_name} deltagande process"
-        publish: "%{user_name} publicerade %{resource_name} deltagande process"
-        unpublish: "%{user_name} opublicerade %{resource_name} deltagande process"
+        create: "%{user_name} skapade deltagandeprocess %{resource_name}"
+        publish: "%{user_name} publicerade deltagandeprocess %{resource_name}"
+        unpublish: "%{user_name} avpublicerade deltagandeprocess %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} aktiverade %{resource_name} -steget i deltagarprocessen %{space_name}"
+        activate: "%{user_name} aktiverade steget %{resource_name} i deltagarprocessen %{space_name}"
         create: "%{user_name} skapade steget %{resource_name} i deltagande processen %{space_name}"
-        delete: "%{user_name} raderade %{resource_name} -steget i den deltagande processen %{space_name}"
-        update: "%{user_name} uppdaterade %{resource_name} -steget i den deltagande processen %{space_name}"
+        delete: "%{user_name} raderade steget %{resource_name} i den deltagandeprocessen %{space_name}"
+        update: "%{user_name} uppdaterade steget %{resource_name} i den deltagandeprocessen %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} bjudit in användaren %{resource_name} till %{space_name} deltagande process"
-        delete: "%{user_name} tagit bort användaren %{resource_name} från %{space_name} deltagande process"
-        update: "%{user_name} ändrade användarens roll %{resource_name} i %{space_name} deltagande process"
+        create: "%{user_name} bjudit in användaren %{resource_name} till deltagandeprocess %{space_name}"
+        delete: "%{user_name} tagit bort användaren %{resource_name} från deltagandeprocess %{space_name}"
+        update: "%{user_name} ändrade användarens roll %{resource_name} i deltagandeprocess %{space_name}"
     events:
       participatory_process:
         step_activated:
-          email_intro: '%{resource_title} -steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_intro: 'Steget %{resource_title} är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden om du följer föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: '%{resource_title} -steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
         step_changed:
