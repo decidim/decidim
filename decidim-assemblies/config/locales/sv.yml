@@ -3,11 +3,11 @@ sv:
     attributes:
       assembly:
         area_id: Område
-        assembly_type: Monteringstyp
-        assembly_type_other: Monteringstyp annat
+        assembly_type: Sammankomststyp
+        assembly_type_other: Sammankomsttyp annat
         banner_image: Bannerbild
-        closing_date: Slutdatum
-        closing_date_reason: Slutdatum årsskäl
+        closing_date: Stängningsdatum
+        closing_date_reason: Stängningsdatum orsak
         composition: Sammansättning
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
@@ -18,25 +18,25 @@ sv:
         decidim_area_id: Område
         decidim_scope_id: Omfattning
         description: Beskrivning
-        developer_group: Promotorgrupp
+        developer_group: Främjandegrupp
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Hembild
-        included_at: Ingår på
+        included_at: Inkluderad vid
         instagram: Instagram
         internal_organisation: Intern organisation
         is_transparent: Är transparent
         local_area: Organisationsområde
         meta_scope: Omfattning metadata
-        parent_id: Föräldraförsamling
-        participatory_processes_ids: Relaterade deltagande processer
+        parent_id: Föräldrasammankomst
+        participatory_processes_ids: Relaterade deltagandeprocesser
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
         private_space: Privat utrymme
-        promoted: främjas
+        promoted: Främjad
         published_at: Publicerad på
         purpose_of_action: Syftet med åtgärden
         scope_id: Omfattning
