@@ -32,13 +32,13 @@ sv:
       oauth_application:
         name: Namn
         organization_logo: Organisationslogotypen (kvadrat)
-        organization_name: Organisations namn
-        organization_url: Organisationsadress
-        redirect_uri: Omdirigera URI
+        organization_name: Organisationsnamn
+        organization_url: Organisationens hemsida
+        redirect_uri: Omdirigerings-URI
       organization:
         cta_button_path: Call to Action-knappsökväg
         cta_button_text: Ring till handlingsknapptext
-        default_locale: Standard locale
+        default_locale: Standardspråk
         description: Beskrivning
         enable_omnipresent_banner: Visa omnipresent banner
         facebook_handler: Facebook-hanterare
