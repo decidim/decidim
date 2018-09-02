@@ -326,28 +326,28 @@ hu:
         attachment:
           fields:
             collection: Mappa
-            content_type: típus
+            content_type: Típus
             file_size: Méret
             title: Cím
-          name: Attachment
+          name: Melléklet
         attachment_collection:
-          name: Folder
+          name: Mappa
         category:
           name: Kategória
         impersonation_log:
           fields:
-            admin: admin
-            ended_at: Véget ért
-            expired_at: Lejárt
-            reason: Ok
-            started_at: Kezdetben
-            user: használó
+            admin: Admin
+            ended_at: 'Befejeződik:'
+            expired_at: 'Lejár:'
+            reason: Indok
+            started_at: 'Kezdődik:'
+            user: Felhasználó
         newsletter:
           fields:
             created_at: 'Létrehozva:'
-            progress: Előrehalad
-            sent_at: Elküldve
-            subject: Tantárgy
+            progress: Folyamat
+            sent_at: 'Elküldve:'
+            subject: Tárgy
           name: Hírlevél
         oauth_application:
           fields:
@@ -355,83 +355,83 @@ hu:
             name: Név
           name: OAuth alkalmazás
         participatory_space_private_user:
-          name: Résztvevős privát felhasználó
+          name: Részvételi tér privát felhasználó
         scope:
           fields:
             name: Név
-            scope_type: Alkalmazási típus
+            scope_type: Hatáskör típusa
         scope_type:
           fields:
             name: Név
-            plural: Többes szám
+            plural: Plurális
         static_page:
           fields:
             created_at: 'Létrehozva:'
             title: Cím
         user:
           fields:
-            created_at: Készítés ideje
+            created_at: Létrehozás dátuma
             email: Email
-            last_sign_in_at: Utolsó bejelentkezési dátum
+            last_sign_in_at: Utolsó bejelentkezés dátuma
             name: Név
-            role: Szerep
+            role: Szerepkör
             roles:
-              admin: admin
+              admin: Admin
               user_manager: Felhasználói menedzser
-          name: használó
+          name: Felhasználó
         user_group:
           fields:
-            actions: Hozzászólások
+            actions: Műveletek
             created_at: 'Létrehozva:'
-            document_number: Dokumentum szám
+            document_number: Dokumentum száma
             name: Név
             phone: Telefon
             state: Állapot
-            users_count: A felhasználók számítanak
+            users_count: Felhasználók száma
       moderations:
         index:
-          title: moderálások
+          title: Moderálás
         report:
           reasons:
             does_not_belong: Nem tartozik hozzá
-            offensive: Támadó
-            spam: Levélszemét
+            offensive: Offenzív
+            spam: Spam
       newsletters:
         create:
-          error: Hiba történt a hírlevél létrehozásában.
-          success: A hírlevél sikeresen létrehozva. Kérjük, ellenőrizze, mielőtt elküldte.
+          error: Hiba történt a hírlevél létrehozása során.
+          success: Hírlevél létrehozása sikeres. Ellenőrizd le, mielőtt elküldenéd.
         deliver:
-          error: Hiba történt ezzel a hírlevelvel.
-          success: A hírlevél sikeresen elküldve.
+          error: Hiba történt a hírlevél kézbesítése során.
+          success: Hírlevél kézbesítése sikeres.
         destroy:
-          error_already_sent: 'Nem lehet megsemmisíteni hírlevél: már elküldte.'
-          success: A hírlevél sikeresen megsemmisült
+          error_already_sent: 'Nem lehet törölni a hírlevelet: már elküldve.'
+          success: Hírlevél törlése sikeres.
         edit:
           save_and_preview: Mentés és előnézet
           title: Hírlevél szerkesztése
         form:
-          interpolations_hint: 'Tipp: A "%{name}" -ot bárhol a szervezetben vagy tárgyban használhatja, és a címzett neve helyett.'
+          interpolations_hint: 'Tipp: a(z) "%{name}" nevet a tárgyban és a szövegben is használhatod, az helyettesítve lesz a címzett nevével.'
         index:
-          confirm_delete: Biztosan törölni szeretné ezt a hírlevelet?
-          title: hírlevelek
+          confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
+          title: Hírlevelek
         new:
           save: Mentés
           title: Új hírlevél
         show:
-          confirm_deliver: Biztos benne, hogy ezt a hírlevelet szeretné elküldeni? Ez a művelet nem visszavonható.
+          confirm_deliver: Biztos, hogy szeretnéd elküldeni ezt a hírlevelet? A művelet nem visszavonható.
           deliver: Hírlevél küldése
           preview: Előnézet
-          subject: Tantárgy
+          subject: Tárgy
         update:
-          error: Hiba történt a hírlevelet frissítve.
-          success: A hírlevél sikeresen frissült. Kérjük, hogy küldés előtt ellenőrizze.
+          error: Hiba történt a hírlevél frissítése során.
+          success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
       oauth_applications:
         create:
-          error: Hiba történt az alkalmazás létrehozásában.
-          success: Az alkalmazás sikeresen létrehozva.
+          error: Hiba történt az alkalmazás létrehozása során.
+          success: Alkalmazás létrehozása sikeres.
         destroy:
-          error: Hiba történt az alkalmazás megsemmisítése közben.
-          success: Az alkalmazás sikeresen megsemmisült.
+          error: Hiba történt az alkalmazás eltávolítása során.
+          success: Alkalmazás eltávolítása sikeres.
         edit:
           save: Mentés
           title: Alkalmazás szerkesztése
