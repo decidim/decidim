@@ -213,8 +213,8 @@ sv:
       admin:
         assemblies:
           form:
-            duration_help: Om varaktigheten för denna montering är begränsad, välj slutdatum. Annars kommer det att visas som obestämt.
-            included_at_help: Välj datum då denna montering lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som skapningsdatumet.
+            duration_help: Om varaktigheten för detta möte är begränsat, välj slutdatum. Annars kommer det att visas som obestämt.
+            included_at_help: Välj datum då denna möte lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
             select_an_assembly_type: Välj en mötestyp
@@ -253,7 +253,7 @@ sv:
         highlighted_assemblies:
           name: Markerade möten
       created_by:
-        city_council: Statsråd
+        city_council: Stadsfullmäktige
         others: Övriga
         public: Offentligt
       index:
@@ -311,35 +311,35 @@ sv:
         votes_count: Röster
     assembly_members:
       assembly_member:
-        designated_on: Anges den
+        designated_on: Betecknad den
       index:
-        title: medlemmar
+        title: Medlemmar
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Samlingen hittades inte i databasen (ID: %{id})'
+          not_found: 'Mötet hittades inte i databasen (ID: %{id})'
     menu:
-      assemblies: Assemblies
+      assemblies: Möten
   errors:
     messages:
-      cannot_be_blank: kan inte vara tom
+      cannot_be_blank: kan inte vara tomt
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Delta
         index:
-          promoted_assemblies: Utrustade församlingar
+          promoted_assemblies: Markerade möten
         order_by_assemblies:
           assemblies:
-            one: "%{count} montering"
-            other: "%{count} sammansättningar"
+            one: "%{count} möte"
+            other: "%{count} möten"
         promoted_assembly:
           more_info: Mer information
           take_part: Delta
       assembly_header:
-        assembly_member_menu_item: medlemmar
-        assembly_menu_item: Sammansättningen
+        assembly_member_menu_item: Medlemmar
+        assembly_menu_item: Mötet
         unfold: Veckla ut
       assembly_widgets:
         show:
