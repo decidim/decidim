@@ -79,18 +79,18 @@ sv:
               verify: Kontrollera
           pending_authorizations:
             index:
-              title: Väntar på kontroller
+              title: Pågående verifieringar
               verification_number: 'Verifiering #%{n}'
           rejections:
             create:
-              success: Verifikationen avvisades. Användaren kommer att uppmanas att ändra sina dokument
+              success: Verifieringen avvisades. Användaren kommer att uppmanas att ändra sina dokument
         authorizations:
           create:
             error: Det gick inte att ladda upp dokumentet
-            success: Dokumentet laddades upp framgångsrikt
+            success: Dokumentet har laddats upp
           edit:
             being_reviewed: Vi granskar dina dokument. Du kommer att verifieras inom kort
-            rejection_clarity: Se till att informationen är tydlig synlig i den uppladdade bilden
+            rejection_clarity: Se till att informationen syns tydligt i den uppladdade bilden
             rejection_correctness: Se till att informationen som angivits är korrekt
             rejection_notice: Det uppstod ett problem med din verifiering. Var god försök igen
             send: Begär verifiering igen
@@ -117,7 +117,7 @@ sv:
           postages:
             create:
               error: Felmarkeringsbrev som skickat
-              success: Brev framgångsrikt märkt som skickat
+              success: Brevet har markerats som skickat
         authorizations:
           create:
             error: Det uppstod ett problem med din förfrågan
