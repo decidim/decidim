@@ -98,8 +98,8 @@ sv:
             send: Begär verifiering
             title: Ladda upp ditt identitetsdokument
           update:
-            error: Ett problem uppstod vid uppladdning av dokumentet
-            success: Dokumentet uppladdades framgångsrikt
+            error: Ett problem uppstod när dokumentet skulle laddas upp igen
+            success: Dokumentet laddades framgångsrikt upp
         dni: ID-kort
         nie: Personnummer
         passport: Pass
@@ -116,7 +116,7 @@ sv:
               verification_code: Verifieringskod
           postages:
             create:
-              error: Felmarkeringsbrev som skickat
+              error: Fel uppstod när brev skulle markeras som skickat
               success: Brevet har markerats som skickat
         authorizations:
           create:
