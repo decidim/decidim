@@ -173,42 +173,42 @@ sv:
           name: Möte
         assembly_member:
           fields:
-            ceased_date: Möte
-            designation_date: Beteckning datum
+            ceased_date: Upphört datum
+            designation_date: Utnämningsdatum
             full_name: Namn
-            position: Placera
+            position: Position
           name: Medlem
           positions:
             other: Andra
-            president: President
+            president: Ordförande
             secretary: Sekreterare
-            vice_president: Vice President
+            vice_president: Vice ordförande
         assembly_user_role:
           fields:
             email: E-post
             name: Namn
             role: Roll
-          name: Monteringsanvändare
+          name: Mötesanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
       titles:
-        assemblies: Assemblies
+        assemblies: Möten
     admin_log:
       assembly:
-        create: "%{user_name} skapade %{resource_name} -enheten"
-        publish: "%{user_name} publicerade %{resource_name} -enheten"
-        unpublish: "%{user_name} upublicerade %{resource_name} -enheten"
-        update: "%{user_name} uppdaterade %{resource_name} -enheten"
+        create: "%{user_name} skapade mötet %{resource_name}"
+        publish: "%{user_name} publicerade mötet %{resource_name}"
+        unpublish: "%{user_name} avpublicerade mötet %{resource_name}"
+        update: "%{user_name} uppdaterade mötet %{resource_name}"
       assembly_member:
-        create: "%{user_name} skapade %{resource_name} medlem i %{space_name} enheten"
-        delete: "%{user_name} bort %{resource_name} medlem från %{space_name} enheten"
-        update: "%{user_name} uppdaterade %{resource_name} medlem i %{space_name} enheten"
+        create: "%{user_name} skapade %{resource_name} medlem i mötet %{space_name}"
+        delete: "%{user_name} bort %{resource_name} medlem från mötet %{space_name}"
+        update: "%{user_name} uppdaterade %{resource_name} medlem i mötet %{space_name}"
       assembly_user_role:
-        create: "%{user_name} inbjudna %{resource_name} till sammansättningen %{space_name}"
-        delete: "%{user_name} tog bort användaren %{resource_name} från enheten %{space_name}"
-        update: "%{user_name} ändrade rollen som %{resource_name} i sammansättningen %{space_name}"
+        create: "%{user_name} inbjudna %{resource_name} till mötet %{space_name}"
+        delete: "%{user_name} tog bort användaren %{resource_name} från mötet %{space_name}"
+        update: "%{user_name} ändrade rollen som %{resource_name} i mötet %{space_name}"
     assemblies:
       admin:
         assemblies:
@@ -217,13 +217,13 @@ sv:
             included_at_help: Välj datum då denna montering lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som skapningsdatumet.
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
-            select_an_assembly_type: Välj en monterings typ
-            select_parent_assembly: Välj föräldrasamling
-            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            select_an_assembly_type: Välj en mötestyp
+            select_parent_assembly: Välj överordnat möte
+            slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Social
         assembly_copies:
           form:
-            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med ett bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Existerande användare
@@ -240,7 +240,7 @@ sv:
             search: Sök
       assembly_members:
         index:
-          members: medlemmar
+          members: Medlemmar
       assembly_types:
         commission: Kommission
         consultative_advisory: Rådgivande / rådgivande
