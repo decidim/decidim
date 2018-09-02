@@ -106,8 +106,8 @@ sv:
             create: Skapa post
             title: Ny inmatning
           update:
-            invalid: Det har uppstått ett problem med att uppdatera den här posten
-            success: Inmatning uppdaterad
+            invalid: Det har uppstått ett problem med att uppdatera denna inmatning
+            success: Inmatning framgångsrikt uppdaterad
       admin_log:
         result:
           create: "%{user_name} skapat resultat %{resource_name} i %{space_name}"
