@@ -146,9 +146,9 @@ hu:
           categories_label: Kategóriák
           subcategories_label: Alkategóriák
         home_header:
-          global_status: Globális végrehajtási állapot
+          global_status: Globális alkalmazás állapota
         nav_breadcrumb:
-          global: Globális végrehajtás
+          global: Globális alkalmazás
         search:
           search: Műveletek keresése
         show:
@@ -157,7 +157,7 @@ hu:
             back_to_result: Vissza az eredményekhez
             comments: Hozzászólások
             contributions: Közreműködők
-            last_edited_by: Utoljára szerkesztve
+            last_edited_by: 'Utoljára szerkesztette:'
             last_updated_at: Utoljára frissítve
             meetings: Találkozók
             number_of_versions: Verziók
@@ -167,20 +167,20 @@ hu:
             version_created_at: 'Verzió létrehozva itt: '
             version_number: Verziószám
             version_number_out_of_total: "%{current_version} az %{total_count}"
-            votes: támaszok
+            votes: Támogatás
         timeline:
-          title: A projekt fejlődése
+          title: Projekt alakulása
       versions:
         index:
-          changes_at_title: Változások a "%{title}"
-          title: változatok
+          changes_at_title: 'Változások itt: "%{title}"'
+          title: Verziók
         show:
-          changes_at_title: Változások a "%{title}"
+          changes_at_title: 'Változások itt: "%{title}"'
         version:
-          version_index: '%{index}verzió'
+          version_index: '%{index} verzió'
     components:
       accountability:
-        name: felelősségre vonhatóság
+        name: Elszámoltathatóság
         settings:
           global:
             categories_label: A "Kategóriák" neve
