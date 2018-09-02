@@ -326,8 +326,8 @@ sv:
           notification_title: Bra jobbat! Du har intjänat <a href="%{resource_path}">%{badge_name} emblemet</a> (nivå %{current_level}).
         level_up:
           email_intro: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_url}">%{badge_name} emblemet</a>!
-          email_outro: Du har fått den här meddelandet eftersom du gjorde aktivitet på vår hemsida.
-          email_subject: Du har nått nivån %{current_level} på %{badge_name} märke!
+          email_outro: Du har fått den här meddelandet eftersom du hade aktivitet på vår hemsida.
+          email_subject: Du har nått nivån %{current_level} på %{badge_name} emblemet!
           notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} emblemet</a>!
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
@@ -357,14 +357,14 @@ sv:
       check: Kontrollera fingeravtryck
       explanation: Textstycket nedan är en förkortad, sammanfattad representation av detta innehåll. Det är användbart att se till att innehållet inte har manipulerats, eftersom en enda ändring skulle resultera i ett helt annat värde.
       online_calculator_name: MD5 onlinekalkylator
-      replicate_help: Detta fingeravtryck beräknas med en SHA256 hash-algoritm. För att replikera det själv kan du använda en %{online_calculator_link} och kopiera klistra in källdata.
+      replicate_help: Detta fingeravtryck beräknas med en SHA256 hash-algoritm. För att replikera det själv kan du använda en %{online_calculator_link} och kopiera och klistra in källdata.
       source: Källa
       title: Fingeravtryck
       value: Värde
     followers:
       no_followers: Inga följare än.
     following:
-      no_followings: Följ inte någon eller något än.
+      no_followings: Följer inte någon eller något än.
     follows:
       create:
         button: Följ
@@ -406,14 +406,14 @@ sv:
         visit_your_profile: Besök din profil
     log:
       base_presenter:
-        create: "%{user_name} skapad %{resource_name}"
-        create_with_space: "%{user_name} skapad %{resource_name} i %{space_name}"
-        delete: "%{user_name} borttagen %{resource_name}"
-        delete_with_space: "%{user_name} borttagen %{resource_name} i %{space_name}"
-        unknown_action: "%{user_name} utfört en viss åtgärd på %{resource_name}"
-        unknown_action_with_space: "%{user_name} utfört en viss åtgärd på %{resource_name} i %{space_name}"
-        update: "%{user_name} uppdaterad %{resource_name}"
-        update_with_space: "%{user_name} uppdaterad %{resource_name} i %{space_name}"
+        create: "%{user_name} skapade %{resource_name}"
+        create_with_space: "%{user_name} skapade %{resource_name} i %{space_name}"
+        delete: "%{user_name} raderade %{resource_name}"
+        delete_with_space: "%{user_name} raderade %{resource_name} i %{space_name}"
+        unknown_action: "%{user_name} utförde en viss åtgärd på %{resource_name}"
+        unknown_action_with_space: "%{user_name} utförde en viss åtgärd på %{resource_name} i %{space_name}"
+        update: "%{user_name} uppdaterade %{resource_name}"
+        update_with_space: "%{user_name} uppdaterade %{resource_name} i %{space_name}"
       value_types:
         area_presenter:
           not_found: 'Området hittades inte i databasen (ID: %{id})'
@@ -458,7 +458,7 @@ sv:
           error: Meddelandet har inte skickats. Försök igen senare
     newsletter_mailer:
       newsletter:
-        note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev på %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">anmälningssidan</a>.
+        note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">notissidan</a>.
         see_on_website: Kan du inte se det här e-postmeddelandet korrekt? Visa den på <a href="%{link}" target="_blank">webbplatsen</a>.
         unsubscribe: För att välja bort den här typen av e-post, <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a>.
     newsletters:
@@ -522,13 +522,13 @@ sv:
           debates_count: Debatter
           endorsements_count: Påskrifter
           headline: Aktuellt läge för %{organization}
-          meetings_count: möten
+          meetings_count: Möten
           orders_count: Röster
           pages_count: Sidor
           processes_count: Processer
-          projects_count: projekt
+          projects_count: Projekt
           proposals_accepted: Godkända Förslag
-          proposals_count: förslag
+          proposals_count: Förslag
           results_count: Resultat
           surveys_count: Undersökningar
           users_count: Deltagare
@@ -539,7 +539,7 @@ sv:
         title: Mer information
       terms_and_conditions:
         accept:
-          error: Det har funnits ett fel när du accepterar villkoren.
+          error: Det har blivit ett fel när du accepterade villkoren.
           success: Bra! Du har accepterat villkoren.
         form:
           agreement: Jag håller med om dessa villkor
@@ -556,7 +556,7 @@ sv:
           body: Var snäll och granska uppdateringar av våra användarvillkor. Annars kommer du inte kunna använda plattformen.
           title: 'Obligatorisk: Granska uppdateringar av våra användarvillkor'
     participatory_space_private_users:
-      not_allowed: Du får inte se det här innehållet
+      not_allowed: Du har inte rätt att se det här innehållet
     profile:
       deleted: Ta bort användare
       view: Se
@@ -564,10 +564,10 @@ sv:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         badges: Emblem
-        conversations: samtal
-        followers: anhängare
-        following: följer
-        notifications: anmälningar
+        conversations: Samtal
+        followers: Anhängare
+        following: Följer
+        notifications: Notiser
       user:
         edit_profile: Redigera profil
     reported_mailer:
@@ -617,7 +617,7 @@ sv:
         close: Stäng
         description: Är detta innehåll olämpligt?
         does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
-        offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hattal.
+        offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
         report: Rapportera
         spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
         title: Rapportera ett problem
@@ -639,15 +639,15 @@ sv:
   devise:
     invitations:
       edit:
-        header: Slutför att skapa ditt konto
+        header: Slutför skapandet av ditt konto
         nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
-        subtitle: Om du accepterar inbjudan, ange ditt smeknamn och lösenord.
+        subtitle: Om du accepterar inbjudan, vänligen välj ditt användarnamn och lösenord.
     mailer:
       invitation_instructions:
         accept: Acceptera inbjudan
-        accept_until: Denna inbjudan beror på %{due_date}.
-        decline: Avvisa inbjudan
+        accept_until: Denna inbjudan kommer att förfalla %{due_date}.
+        decline: Avböj inbjudan
         hello: Hej %{email},
         ignore: |-
           Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />
