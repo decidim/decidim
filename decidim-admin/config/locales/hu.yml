@@ -214,56 +214,56 @@ hu:
           success: Engedélyek frissítése sikeres.
       components:
         create:
-          error: Hiba történt az összetevő létrehozásában.
-          success: Az összetevő sikeresen létrehozva.
+          error: Hiba történt a komponens létrehozása során.
+          success: Elem létrehozása sikeres.
         destroy:
-          error: Hiba történt az összetevő megsemmisítése közben.
-          success: Az összetevő sikeresen törölve.
+          error: Hiba történt az elem eltávolítása során.
+          success: Elem eltávolítása sikeres.
         edit:
-          title: A komponens szerkesztése
-          update: frissítés
+          title: Elem szerkesztése
+          update: Frissítés
         form:
-          default_step_settings: Alapértelmezett lépés beállítások
-          global_settings: Általános beállítások
+          default_step_settings: Alapértelmezett lépés-beállítások
+          global_settings: Globális beállítások
           step_settings: Lépésbeállítások
         index:
-          add: Add hozzá az összetevőt
+          add: Elem hozzáadása
           headers:
-            actions: Hozzászólások
-            name: A komponens neve
-            type: Komponens típus
+            actions: Műveletek
+            name: Elem neve
+            type: Elem típusa
         new:
-          add: Add hozzá az összetevőt
-          title: 'Elem hozzáadása: %{name}'
+          add: Elem hozzáadása
+          title: '%{name} nevű elem hozzáadása'
         publish:
-          success: Az összetevő sikeres volt.
-        title: Alkatrészek
+          success: Az elem közzététele sikeres volt.
+        title: Elemek
         unpublish:
-          success: Az összetevő sikeresen közzétételre került.
+          success: Az elem közzétételének visszavonása sikeres volt.
         update:
-          error: Hiba történt az összetevő frissítésével.
-          success: Az összetevő sikeresen frissült.
+          error: Hiba történt az elem frissítése során.
+          success: Az elem frissítése sikeres volt.
       dashboard:
         show:
           view_more_logs: További naplók megtekintése
           welcome: Üdvözöljük a Decidim Admin Panelben.
       exports:
         export_as: "%{name} mint %{export_format}"
-        notice: Az export jelenleg folyamatban van. E-mailt fog kapni, ha teljes.
+        notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
       impersonatable_users:
         index:
           filter:
-            all: Minden
-            managed: Irányított
-            not_managed: Nem sikerült
-          filter_by: Szűrés vlami alapján
+            all: Összes
+            managed: Kezelt
+            not_managed: Nem kezelt
+          filter_by: 'Szűrés ez alapján:'
           impersonate: Megszemélyesítés
-          impersonate_new_managed_user: Új kezelt felhasználó szerepeltetése
-          managed: Irányított
+          impersonate_new_managed_user: Új kezelt felhasználó megszemélyesítése
+          managed: Kezelt
           name: Név
           needs_authorization_warning: Ennek a szervezetnek legalább egy engedélyre lesz szüksége.
-          not_managed: Nem sikerült
-          promote: Népszerűsít
+          not_managed: Nem kezelt
+          promote: Promotálás
           search: Keresés
           status: Állapot
           view_logs: Naplók megtekintése
@@ -272,24 +272,24 @@ hu:
           error: Hiba történt a megszemélyesítő munkamenet lezárása közben.
           success: A megszemélyesítő munkamenet sikeresen lezárult.
         create:
-          error: Hiba történt a felhasználót illetően.
+          error: Hiba történt a felhasználó megszemélyesítése során.
           success: A felhasználó sikeresen létrehozva.
         form:
-          authorization_method: Engedélyezési módszer
+          authorization_method: Hitelesítési módszer
           name: Név
-          reason: Ok
+          reason: Indok
         new:
           impersonate: Megszemélyesítés
-          impersonate_existing_managed_user: Kezelt felhasználó "%{name}"
-          impersonate_existing_user: Felhasználó "%{name}"
-          impersonate_new_managed_user: Új kezelt felhasználó szerepeltetése
+          impersonate_existing_managed_user: '"%{name}" kezelt felhasználó megszemélyesítése'
+          impersonate_existing_user: '"%{name}" felhasználó megszemélyesítése'
+          impersonate_new_managed_user: Új kezelt felhasználó megszemélyesítése
       logs:
         logs_list:
-          no_logs_yet: Még nincs napló
+          no_logs_yet: Még nincsenek naplók
       managed_users:
         promotion:
-          error: Hiba történt a kezelt felhasználó előmozdításában.
-          success: A kezelt felhasználót sikeresen támogatták.
+          error: Hiba történt a kezelt felhasználó előléptetése során.
+          success: A kezelt felhasználó előléptetése sikeres.
         promotions:
           new:
             explanation: A felügyelt felhasználókat elő lehet mozdítani a szokásos felhasználóknak. Ez azt jelenti, hogy meghívást kapnak az alkalmazásra, és nem leszel képes újraéleszteni őket. A meghívott felhasználó e-mailt kap a meghívás elfogadásához.
