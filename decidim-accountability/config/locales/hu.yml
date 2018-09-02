@@ -183,22 +183,22 @@ hu:
         name: Elszámoltathatóság
         settings:
           global:
-            categories_label: A "Kategóriák" neve
+            categories_label: '"Kategóriák" neve'
             comments_enabled: Megjegyzések engedélyezve
-            display_progress_enabled: Az előrehaladás megjelenítése
-            heading_leaf_level_results: A "Projektek"
-            heading_parent_level_results: Az "Eredmények" neve
+            display_progress_enabled: Állapot megjelenítése
+            heading_leaf_level_results: '"Projektek" neve'
+            heading_parent_level_results: '"Eredmények" neve'
             intro: Intro
-            subcategories_label: Az "alkategóriák" neve
+            subcategories_label: '"Alkategóriák" neve'
           step:
             comments_blocked: Megjegyzések letiltva
     events:
       accountability:
         proposal_linked:
-          email_intro: 'A "%{proposal_title}" javaslat szerepel az eredményben. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést megkapta, mert a "%{proposal_title}" -t követi. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Frissítés %{proposal_title}
-          notification_title: A <a href="%{proposal_path}">%{proposal_title}</a> javaslat szerepel a <a href="%{resource_path}">%{resource_title}</a> eredményben.
+          email_intro: 'A "%{proposal_title}" nevű javaslat szerepel az eredményben. Erről az oldalról érhető el:'
+          email_outro: Ezt az értesítést azért kaptad, mert követed a(z) "%{proposal_title}" nevű ajánlást. Az értesítéseket a következő linkre kattintva kapcsolhatod ki.
+          email_subject: A %{proposal_title} frissítve lett
+          notification_title: 'A(z) <a href="%{proposal_path}">%{proposal_title}</a> javaslat szerepel ebben a(z) eredményben: <a href="%{resource_path}">%{resource_title}</a>.'
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
@@ -206,7 +206,7 @@ hu:
     participatory_spaces:
       highlighted_results:
         results: Eredmények
-        see_all_results: Az összes találat megtekintése
+        see_all_results: Minden eredmény megtekintése
     resource_links:
       included_projects:
         result_project: Ebben az eredményben szereplő projektek
