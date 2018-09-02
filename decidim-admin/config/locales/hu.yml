@@ -146,52 +146,52 @@ hu:
           title: Új terület
         no_areas: Nincs terület
         update:
-          error: Hiba történt a terület frissítésekor.
-          success: A terület sikeresen frissült
+          error: Hiba történt ezen terület frissítése során.
+          success: Terület frissítése sikeres
       attachment_collections:
         create:
-          error: Hiba történt új mappa létrehozása közben.
-          success: A mappa sikeresen létrehozva.
+          error: Hiba történt az új mappa létrehozása során.
+          success: Mappa létrehozása sikeres.
         destroy:
-          success: A mappa sikeresen megsemmisült.
+          success: Mappa eltávolítása sikeres.
         edit:
           title: Mappa szerkesztése
-          update: frissítés
+          update: Frissítés
         index:
-          attachment_collection_used: Ezt a mappát nem lehet eltávolítani, mert használatban van.
+          attachment_collection_used: A mappát nem lehet eltávolítani, mert használatban van.
           attachment_collections_title: Melléklet mappák
         new:
-          create: Teremt
+          create: Létrehozás
           title: Új mappa
         update:
-          error: Hiba történt a mappa frissítésekor.
-          success: A mappa sikeresen frissült.
+          error: Hiba történt a mappa frissítése során.
+          success: Mappa frissítése sikeres.
       attachments:
         create:
-          error: Hiba történt új melléklet létrehozása közben.
-          success: A csatolás sikeresen megtörtént.
+          error: Hiba történt az új melléklet létrehozása során.
+          success: Melléklet létrehozása sikeres.
         destroy:
-          success: A csatolás sikeresen megsemmisült.
+          success: Melléklet eltávolítása sikeres.
         edit:
           title: Melléklet szerkesztése
-          update: frissítés
+          update: Frissítés
         index:
           attachments_title: Mellékletek
         new:
-          create: Hozz létre mellékletet
-          title: Új csatolás
+          create: Melléklet létrehozása
+          title: Új melléklet
         update:
-          error: Hiba történt a melléklet frissítésekor.
-          success: A csatolás sikeresen frissült.
+          error: Hiba történt a melléklet frissítése során.
+          success: Melléklet frissítése sikeres.
       autocomplete:
         no_results: Nincs találat
-        search_prompt: Írjon be legalább három karaktert a kereséshez
+        search_prompt: Legalább három karakter szükséges a kereséshez
       categories:
         create:
-          error: Hiba történt a kategória létrehozásában.
-          success: Kategória sikeresen létrehozva.
+          error: Hiba történt a kategória létrehozása során.
+          success: Kategória létrehozása sikeres.
         destroy:
-          error: Hiba történt a kategória törlésekor. Kérjük, törölje az összes alkategóriát először, győződjön meg róla, hogy más kategória nem tartozik ebbe a kategóriába, és próbálkozzon újra.
+          error: Hiba történt a kategória törlésekor. Először töröld az alkategóriákat, majd győződj meg róla, hogy más entitás nem tartozik ehhez a kategóriához, majd próbáld újra.
           success: A kategória sikeresen törölve.
         edit:
           title: Kategória szerkesztése
