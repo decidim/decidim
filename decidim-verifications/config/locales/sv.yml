@@ -24,10 +24,10 @@ sv:
       admin:
         id_documents:
           help:
-            - Användare fyller i sin identitetsinformation och laddar upp en kopia av dokumentet.
+            - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
             - Du fyller i informationen som finns i den uppladdade bilden.
             - Informationen ska matcha vad användaren fyllt i.
-            - Om du inte klart kan se informationen eller du inte kan verifiera den, kan du avvisa förfrågan och användaren kommer att kunna åtgärda den.
+            - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
         postal_letter:
           help:
             - Användare begär en verifieringskod som ska skickas till deras adress.
@@ -39,7 +39,7 @@ sv:
       id_documents:
         explanation: Ladda upp dina identitetshandlingar så att vi kan kontrollera din identitet
         name: Identitetsdokument
-      multistep: Flerstegs
+      multistep: Flersteg
       name: Namn
       postal_letter:
         explanation: Vi skickar dig ett brev med en kod som du måste ange så vi kan verifiera din adress
