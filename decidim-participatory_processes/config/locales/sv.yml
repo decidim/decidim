@@ -141,46 +141,46 @@ sv:
           success: Deltagande processgrupp uppdaterades framgångsrikt.
       participatory_process_publications:
         create:
-          error: Det uppstod ett fel vid publicering av denna deltagande process.
-          success: Deltagande processen publiceras framgångsrikt.
+          error: Det uppstod ett fel vid publicering av denna deltagandeprocess.
+          success: Deltagandeprocessen publiceras framgångsrikt.
         destroy:
-          error: Ett fel uppstod vid publicering av denna deltagande process.
-          success: Deltagande processen publicerades framgångsrikt.
+          error: Ett fel uppstod vid publicering av denna deltagandeprocess.
+          success: Deltagandeprocessen publicerades framgångsrikt.
       participatory_process_step_activations:
         create:
-          error: Det gick inte att aktivera det här deltagande processsteget.
-          success: Deltagande processsteg aktiveras framgångsrikt.
+          error: Det gick inte att aktivera det här steget i deltagandeprocessen.
+          success: Steget i deltagandeprocessen aktiverades framgångsrikt.
       participatory_process_steps:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt deltagande processsteg.
-          success: Deltagande processsteg skapades framgångsrikt.
+          error: Det uppstod ett fel vid skapandet av ett nytt steg i deltagandeprocess.
+          success: Steget i deltagandeprocessen skapades framgångsrikt.
         default_title: Introduktion
         destroy:
           error:
             active_step: Det aktiva steget kan inte raderas.
-            last_step: Det går inte att ta bort det sista steget i en process.
-          success: Deltagande processsteg raderas framgångsrikt.
+            last_step: Kan inte ta bort det sista steget i en process.
+          success: Steget i deltagandeprocessen raderades framgångsrikt.
         edit:
-          title: Redigera deltagande processsteg
+          title: Redigera steget i deltagandeprocessen
           update: Uppdatera
         index:
           steps_title: Steg
         new:
           create: Skapa
-          title: Nytt deltagande processsteg
+          title: Nytt steg i deltagandeprocessen
         ordering:
           error: Ett fel uppstod vid omarrangering av dessa processer för deltagande.
         update:
           error: Ett fel uppstod vid uppdatering av detta deltagande processsteg.
-          success: Deltagande processsteg uppdateras framgångsrikt.
+          success: Steget i deltagandeprocessen uppdaterades framgångsrikt.
       participatory_process_user_roles:
         create:
-          error: Det gick inte att lägga till en användare för den här deltagande processen.
-          success: Användaren har lyckats med den här deltagandeprocessen.
+          error: Det gick inte att lägga till en användare för den här deltagandeprocessen.
+          success: Användaren lades framgångsrikt till den här deltagandeprocessen.
         destroy:
-          success: Användaren avlägsnades framgångsrikt från den här deltagande processen.
+          success: Användaren avlägsnades framgångsrikt från den här deltagandeprocessen.
         edit:
-          title: Uppdatera deltagande processanvändare.
+          title: Uppdatera användare i deltagandeprocess.
           update: Uppdatera
         index:
           process_admins_title: Deltagande processanvändare
