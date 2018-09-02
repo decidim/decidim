@@ -46,12 +46,12 @@ sv:
         role: Roll
     models:
       decidim/participatory_process_step_activated_event: Steg aktiverat
-      decidim/participatory_process_step_changed_event: Steget ändrats
+      decidim/participatory_process_step_changed_event: Steget har ändrats
   activerecord:
     models:
       decidim/participatory_process:
-        one: Deltagande process
-        other: Deltagande processer
+        one: Deltagandeprocess
+        other: Deltagandeprocesser
       decidim/participatory_process_group:
         one: Deltagande processgrupp
         other: Deltagande processgrupper
@@ -79,7 +79,7 @@ sv:
         participatory_process_groups: Processgrupper
         participatory_processes: Processer
         participatory_processes_submenu:
-          attachment_collections: mappar
+          attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bifogade filer
           categories: Kategorier
@@ -107,7 +107,7 @@ sv:
             end_date: Slutdatum
             start_date: Startdatum
             title: Titel
-          name: Deltagande processsteg
+          name: Deltagande steg av process
         participatory_process_user_role:
           fields:
             email: E-post
@@ -125,11 +125,11 @@ sv:
       participatory_process_copies:
         new:
           copy: Kopiera
-          select: Välj vilken data du vill duplicera
-          title: Duplikera deltagande process
+          select: Välj vilken data du skulle vilja duplicera
+          title: Duplicera deltagandeprocess
       participatory_process_groups:
         destroy:
-          success: Deltagande processgrupp raderas framgångsrikt.
+          success: Deltagande processgrupp raderades framgångsrikt.
         edit:
           title: Redigera processgrupp
           update: Uppdatera
@@ -137,7 +137,7 @@ sv:
           create: Skapa
           title: Ny processgrupp
         update:
-          error: Det uppstod ett fel vid uppdatering av denna deltagande processgrupp.
+          error: Det uppstod ett fel vid uppdaterandet av denna deltagande processgrupp.
           success: Deltagande processgrupp uppdaterades framgångsrikt.
       participatory_process_publications:
         create:
@@ -176,7 +176,7 @@ sv:
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en användare för den här deltagande processen.
-          success: Användaren har lyckats med den här deltagande processen.
+          success: Användaren har lyckats med den här deltagandeprocessen.
         destroy:
           success: Användaren avlägsnades framgångsrikt från den här deltagande processen.
         edit:
