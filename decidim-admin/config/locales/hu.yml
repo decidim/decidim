@@ -490,20 +490,20 @@ hu:
         edit:
           update: Frissítés
         form:
-          cta_button_path_help: 'Felülírhatja, hogy a kezdőlapon a Csevegési művelet gombra kattint. Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és vágások fogadhatók el, és betűvel kell kezdődniük. A Hívás kezdeményezés gomb megjelenik a honlapon az üdvözlő szöveg és a leírás között. Példa: %{url}'
-          cta_button_text_help: Felülírhatjuk a "Hívás művelethez" gomb szövegét a honlapon minden egyes rendelkezésre álló nyelv számára a szervezetben. Ha nincs beállítva, akkor az alapértelmezett érték lesz használva. A Hívás kezdeményezés gomb megjelenik a honlapon az üdvözlő szöveg és a leírás között.
-          header_snippets_help: Ezzel a mezővel hozzá lehet adni a dolgokat a HTML fejhez. A leggyakoribb használat olyan külső szolgáltatások integrálása, amelyekhez extra JavaScript vagy CSS szükséges. Ezenkívül további metacímkéket adhat hozzá a HTML-hez. Ne feledje, hogy ez csak nyilvános oldalakon fog megjelenni, nem az adminisztrációs oldalon.
-          homepage_appearance_title: A honlap megjelenésének szerkesztése
-          homepage_highlighted_content_banner_title: Magas szintű tartalom banner
-          layout_appearance_title: Elrendezés megjelenése
-          omnipresent_banner_appearance_title: Szerkesszen mindenütt megjelenő banneret
+          cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
+          cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
+          header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
+          homepage_appearance_title: Honlap megjelenésének szerkesztése
+          homepage_highlighted_content_banner_title: Kiemelt banner
+          layout_appearance_title: Elrendezés szerkesztése
+          omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
       organization_homepage:
         edit:
           active_content_blocks: Aktív tartalomblokkok
           inactive_content_blocks: Inaktív tartalomblokkok
       organization_homepage_content_blocks:
         edit:
-          update: frissítés
+          update: Frissítés
       participatory_space_private_users:
         create:
           error: Hiba történt egy privát felhasználó hozzáadása ehhez a részvételi helyhez.
