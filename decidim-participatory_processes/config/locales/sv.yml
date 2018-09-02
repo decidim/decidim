@@ -2,13 +2,13 @@ sv:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Meddelande
+        announcement: Notis
         banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
         description: Beskrivning
-        developer_group: Promotorgrupp
+        developer_group: Främjandegrupp
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
@@ -16,10 +16,10 @@ sv:
         local_area: Organisationsområde
         meta_scope: Omfattning metadata
         participatory_process_group_id: Processgrupp
-        participatory_scope: Vad bestäms
-        participatory_structure: Hur bestäms det
-        promoted: främjas
-        published_at: Publicerad på
+        participatory_scope: Vad som bestäms
+        participatory_structure: Hur det bestäms
+        promoted: Främjad
+        published_at: Publicerad vid
         scope_id: Omfattning
         scopes_enabled: Omfattningar aktiverade
         short_description: Kort beskrivning
@@ -27,7 +27,7 @@ sv:
         slug: URL slug
         start_date: Startdatum
         subtitle: Underrubrik
-        target: Vem deltar
+        target: Vem som deltar
         title: Titel
       participatory_process_group:
         description: Beskrivning
