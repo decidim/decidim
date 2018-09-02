@@ -119,7 +119,7 @@ sv:
         unofficialize: "%{user_name} gjorde användaren %{resource_name} inofficiell"
       user_group:
         reject: "%{user_name} avvisade användargruppverifiering för %{resource_name}"
-        verify: "%{user_name} verifierade %{resource_name} användargrupp"
+        verify: "%{user_name} verifierade användargruppen %{resource_name}"
     anonymous_user: Anonym
     application:
       collection:
@@ -136,18 +136,18 @@ sv:
         other: kommentarer
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Få verifierad genom att införa ett passnummer som börjar med "A"
+        explanation: Bli verifierad genom att införa ett passnummer som börjar med "A"
         fields:
           passport_number: Passnummer
-        name: Ett annat exempel godkännande
+        name: Ett annat exempel på auktorisering
       dummy_authorization_handler:
-        explanation: Få verifierad genom att införa ett dokumentnummer som slutar med "X"
+        explanation: Bli verifierad genom att införa ett dokumentnummer som slutar med "X"
         fields:
           document_number: Dokumentnummer
           postal_code: Postnummer
         name: Exempel godkännande
       dummy_authorization_workflow:
-        name: Dummy godkännande arbetsflöde
+        name: Arbetsflöde för dummy-auktorisering
       errors:
         duplicate_authorization: En användare är redan behörig med samma data.
       expired_at: Förfallit vid %{timestamp}
@@ -201,7 +201,7 @@ sv:
             comments_enabled: Kommentarer aktiverade
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
-            resources_permissions_enabled: Resurser behörigheter aktiverade
+            resources_permissions_enabled: Resursbehörigheter aktiverade
           step:
             comments_blocked: Kommentarer blockerade
             dummy_step_attribute_1: Dummy Step Attribut 1
@@ -209,13 +209,13 @@ sv:
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
-        name: Footer sub hero banner
+        name: Sidfot sub hero banner
       hero:
-        name: Hjälten bild
+        name: Hjältebild
       highlighted_content_banner:
         name: Markerad innehållsbanner
       how_to_participate:
-        name: Hur man deltar
+        name: Hur du deltar
       stats:
         name: Organisationsstatistik
       sub_hero:
@@ -227,7 +227,7 @@ sv:
       export:
         ready: Redo
       show:
-        download_data: Ladda ner data
+        download_data: Ladda ner datat
         download_data_description: En fil med all information som är kopplad till kontot skickas till <strong>%{user_email}</strong>
         request_data: Begär data
     devise:
@@ -235,16 +235,16 @@ sv:
         create:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
-          complete_profile: Komplettera profil
+          complete_profile: Färdigställ profil
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
-          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
+          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara vilket namn som helst.
       registrations:
         new:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få ett tillfälligt nyhetsbrev med relevant information
-          newsletter_title: Kontakt tillstånd
+          newsletter_title: Kontakttillstånd
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
           sign_up: Registrera
@@ -256,7 +256,7 @@ sv:
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du till %{link}.
           tos_title: Användarvillkor
-          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
+          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
       sessions:
         new:
           are_you_new?: Ny på plattformen?
@@ -266,7 +266,7 @@ sv:
           buttons:
             check: Kontrollera och fortsätt
             close_modal: Stäng modal
-            uncheck: Håll avmarkeringen
+            uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få ett nyhetsbrev?<br>
             Tänk på att markera kryssrutan nyhetsbrev nedan.<br>
@@ -274,13 +274,13 @@ sv:
             <p>Om du inte markerar rutan kanske du saknar relevant information om nya deltagande möjligheter inom plattformen.<br>
             Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt.</p>
             <p>Tack för att du läste detta!</p>
-          title: Nyhetsbrev anmälningar
+          title: Notiser till nyhetsbrev
         omniauth_buttons:
           or: Eller
     doorkeeper:
       authorizations:
         new:
-          authorize: Godkänn ansökan
+          authorize: Auktorisera ansökan
           by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
           connect_your_account_html: Anslut ditt konto genom att logga in på <strong>%{organization}</strong>
@@ -304,7 +304,7 @@ sv:
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{resource_title}
           notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
       components:
@@ -371,7 +371,7 @@ sv:
         error: Det har inträffat ett fel efter denna resurs.
       destroy:
         button: Sluta följa
-        error: Det har inträffat ett fel som följde bort denna resurs.
+        error: Det har inträffat ett fel vid avföljandet av denna resurs.
     forms:
       current_file: Nuvarande fil
       current_image: Nuvarande bild
@@ -384,17 +384,17 @@ sv:
         invitations:
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
-          explanation: Användare får detta märke genom att bjuda in andra användare.
+          explanation: Användare får detta emblem genom att bjuda in andra användare.
           name: Inbjudningar
           next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
           unearned_another: Den här användaren har inte bjudit in någon användare än.
           unearned_own: Du har inte bjudit in några användare än.
-      description: Badges är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika märken.
+      description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
       level: Nivå %{level}
-      reached_top: Du har nått den översta nivån för detta märke.
+      reached_top: Du har nått den översta nivån för detta emblem.
     invitations:
       create:
-        error: Det fanns några problem när du inbjöd dina vänner
+        error: Det blev några problem när du bjöd in dina vänner
         error_empty_form: Vänligen ange några e-postadresser
         success: Vi har skickat inbjudningarna till dina vänner!
       index:
