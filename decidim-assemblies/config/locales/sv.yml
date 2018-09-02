@@ -170,12 +170,12 @@ sv:
             promoted: Markerad
             published: Publicerad
             title: Titel
-          name: hopsättning
+          name: Möte
         assembly_member:
           fields:
-            ceased_date: Upphämtat datum
+            ceased_date: Möte
             designation_date: Beteckning datum
-            full_name: namn
+            full_name: Namn
             position: Placera
           name: Medlem
           positions:
@@ -234,7 +234,7 @@ sv:
           index:
             filter:
               all: Allt
-              ceased: upphörde
+              ceased: Upphört
               not_ceased: Inte upphört
             filter_by: Filtrera efter
             search: Sök
@@ -242,7 +242,7 @@ sv:
         index:
           members: medlemmar
       assembly_types:
-        commission: Comission
+        commission: Kommission
         consultative_advisory: Rådgivande / rådgivande
         executive: Verkställande
         government: Regering
