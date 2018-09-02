@@ -251,32 +251,32 @@ sv:
         working_group: Arbetsgrupp
       content_blocks:
         highlighted_assemblies:
-          name: Utrustade församlingar
+          name: Markerade möten
       created_by:
         city_council: Statsråd
         others: Övriga
-        public: offentlig
+        public: Offentligt
       index:
-        title: Assemblies
+        title: Möten
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiva aggregat
-            see_all_assemblies: Se alla församlingar
+            active_assemblies: Aktiva möten
+            see_all_assemblies: Se alla möten
         user_profile:
           member_of:
-            member_of: Medlem i
+            member_of: Medlem av
       show:
         area: Område
-        assembly_type: Monteringstyp
-        children: Assemblies
-        closing_date: Slutdatum
+        assembly_type: Mötestyp
+        children: Möten
+        closing_date: Stängningsdatum
         composition: Sammansättning
         created_by: Skapad av
         creation_date: Skapat datum
-        developer_group: Promotorgrupp
+        developer_group: Främjandegrupp
         duration: Varaktighet
-        included_at: Ingår på
+        included_at: Ingår vid
         indefinite_duration: Obestämd
         internal_organisation: Intern organisation
         is_transparent:
@@ -284,21 +284,21 @@ sv:
           'true': transparent
         local_area: Organisationsområde
         participatory_scope: Vad bestäms
-        participatory_structure: Hur bestäms det
-        private_space: Detta är en privat sammansättning
+        participatory_structure: Hur det bestäms
+        private_space: Detta är ett privat möte
         purpose_of_action: Syftet med åtgärden
         read_less: Läs mindre
         read_more: Läs mer
-        related_participatory_processes: Relaterade deltagande processer
+        related_participatory_processes: Relaterade deltagandeprocesser
         scope: Omfattning
         social_networks: Sociala nätverk
         target: Vem deltar
       statistics:
         answers_count: Svar
-        assemblies_count: Assemblies
+        assemblies_count: Möten
         comments_count: Kommentarer
         debates_count: Debatter
-        endorsements_count: påskrifter
+        endorsements_count: Påskrifter
         headline: Aktivitet
         meetings_count: Möten
         orders_count: Röster
