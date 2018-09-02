@@ -95,49 +95,49 @@ sv:
           published: Publicerad
         new:
           create: Skapa
-          title: Ny sammansättning
+          title: Nytt möte
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här enheten.
-          success: Församlingen uppdaterades framgångsrikt.
+          error: Det uppstod ett fel vid uppdateringen av detta möte.
+          success: Mötet uppdaterades framgångsrikt.
       assemblies_copies:
         create:
-          error: Det uppstod ett fel vid duplicering av den här enheten.
-          success: Sammansättning dupliceras framgångsrikt.
+          error: Det uppstod ett fel vid dupliceringen av detta möte.
+          success: Mötet duplicerades framgångsrikt.
       assembly_copies:
         new:
           copy: Kopiera
-          select: Välj vilken data du vill duplicera
-          title: Duplikat montering
+          select: Välj vilken data du skulle vilja duplicera
+          title: Duplicera möte
       assembly_members:
         create:
-          error: Det gick inte att lägga till en medlem för den här enheten.
-          success: Medlem skapades framgångsrikt för denna församling.
+          error: Det gick inte att lägga till en medlem för detta möte.
+          success: Medlem skapades framgångsrikt för detta möte.
         destroy:
-          success: Medlemmen har tagits bort framgångsrikt för denna sammansättning.
+          success: Medlem skapades framgångsrikt för detta möte.
         edit:
-          title: Uppdatera monteringsmedlem.
-          update: Uppdatering
+          title: Uppdatera mötesmedlem.
+          update: Uppdatera
         index:
-          assembly_members_title: Församlingsmedlemmar
+          assembly_members_title: Mötesmedlemmar
         new:
           create: Skapa
-          title: Ny monteringsdel.
+          title: Ny mötesmedlem.
         update:
-          error: Det uppstod ett fel vid uppdatering av medlemmen för den här enheten.
-          success: Medlem uppdaterad framgångsrikt för denna samling.
+          error: Det uppstod ett fel vid uppdatering av medlemmen för detta möte.
+          success: Medlem uppdaterad framgångsrikt för detta möte.
       assembly_publications:
         create:
-          error: Det uppstod ett fel vid publicering av denna montering.
-          success: Församling publiceras framgångsrikt.
+          error: Det uppstod ett fel vid publicering av detta möte.
+          success: Mötet publicerades framgångsrikt.
         destroy:
-          error: Ett fel uppstod vid publicering av denna montering.
-          success: Sammansättningen avpubliceras framgångsrikt.
+          error: Ett fel uppstod vid publicering av detta möte.
+          success: Mötet avpublicerades framgångsrikt.
       assembly_user_roles:
         create:
-          error: Det gick inte att lägga till en användare för den här enheten.
-          success: Användaren har tillagts med framgång till den här enheten.
+          error: Ett fel uppstod när en användare skulle läggas till detta möte.
+          success: Användaren har lagts till med framgång till detta möte.
         destroy:
-          success: Användaren avlägsnades framgångsrikt från den här enheten.
+          success: Användaren avlägsnades framgångsrikt från detta möte.
         edit:
           title: Uppdatera mötesanvändaren.
           update: Uppdatera
