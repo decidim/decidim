@@ -20,8 +20,8 @@ sv:
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
-      decidim/gamification/badge_earned_event: Badge tjänat
-      decidim/gamification/level_up_event: Du har nivellerat
+      decidim/gamification/badge_earned_event: Emblem intjänad
+      decidim/gamification/level_up_event: Du har gått upp i nivå
       decidim/profile_updated_event: Profil uppdaterad
   activerecord:
     attributes:
@@ -58,9 +58,9 @@ sv:
         file_no_exists: Fil existerar inte
         invalid_token: Den angivna token är ogiltig.
         no_token: Ingen token tillhandahålls
-        notice: Dina uppgifter är pågående. Du får ett mail när det är klart.
+        notice: Dina uppgifter behandlas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
-        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kan du inte logga in.
+        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte kunna logga in.
         confirm:
           close: Stäng fönstret
           ok: Ja, jag vill ta bort mitt konto
@@ -68,7 +68,7 @@ sv:
           title: Ta bort mitt konto
         explanation: Var god fyll i anledningen till att du vill radera ditt konto (valfritt).
       destroy:
-        error: Det har varit ett fel att radera ditt konto.
+        error: Det har blivit ett fel vid radering av ditt konto.
         success: Ditt konto har tagits bort.
       show:
         change_password: Ändra lösenord
@@ -85,16 +85,16 @@ sv:
       component:
         create: "%{user_name} lade till %{resource_name} komponenten till %{space_name}-utrymmet"
         delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
-        publish: "%{user_name} publicerade %{resource_name} -komponenten i %{space_name} -utrymmet"
-        unpublish: "%{user_name} opublicerade %{resource_name} -komponenten från %{space_name} -utrymmet"
+        publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
+        unpublish: "%{user_name} opublicerade komponenten %{resource_name} från utrymmet %{space_name}"
       moderation:
-        hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name} rymden"
-        unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name} rymden"
+        hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name}"
+        unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name}"
       newsletter:
-        create: "%{user_name} skapade %{resource_name} nyhetsbrev"
-        delete: "%{user_name} raderade %{resource_name} nyhetsbrev"
-        deliver: "%{user_name} levererade %{resource_name} nyhetsbrev"
-        update: "%{user_name} uppdaterade %{resource_name} nyhetsbrev"
+        create: "%{user_name} skapade nyhetsbrevet %{resource_name}"
+        delete: "%{user_name} raderade nyhetsbrevet %{resource_name}"
+        deliver: "%{user_name} levererade nyhetsbrevet %{resource_name}"
+        update: "%{user_name} uppdaterade nyhetsbrevet %{resource_name}"
       oauth_application:
         create: "%{user_name} skapade OAuth-applikationen %{resource_name}"
         delete: "%{user_name} raderade OAuth-applikationen %{resource_name}"
@@ -102,23 +102,23 @@ sv:
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       scope:
-        create: "%{user_name} skapade området %{resource_name}"
+        create: "%{user_name} skapade omfattningen %{resource_name}"
         create_with_parent: "%{user_name} skapade området %{resource_name} inom ramen för %{parent_scope}"
         delete: "%{user_name} raderade området %{resource_name}"
         delete_with_parent: "%{user_name} raderade området %{resource_name} inom ramen för %{parent_scope}"
-        update: "%{user_name} uppdaterade %{resource_name} -räckvidden"
+        update: "%{user_name} uppdaterade området %{resource_name}"
         update_with_parent: "%{user_name} uppdaterade området %{resource_name} inom ramen för %{parent_scope}"
       static_page:
-        create: "%{user_name} skapade %{resource_name} statisk sida"
-        delete: "%{user_name} raderade %{resource_name} statisk sida"
-        update: "%{user_name} uppdaterade %{resource_name} statisk sida"
+        create: "%{user_name} skapade statisk sida för %{resource_name}"
+        delete: "%{user_name} raderade statisk sida för %{resource_name}"
+        update: "%{user_name} uppdaterade statisk sida för %{resource_name}"
       user:
-        invite: "%{user_name} bjudit in användaren %{resource_name} med roll: %{role}"
+        invite: "%{user_name} bjudit in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} publicerade användaren %{resource_name}"
-        remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med roll: %{role}"
-        unofficialize: "%{user_name} oofficiserad användaren %{resource_name}"
+        remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med rollen: %{role}"
+        unofficialize: "%{user_name} gjorde användaren %{resource_name} inofficiell"
       user_group:
-        reject: "%{user_name} avvisade %{resource_name} användargruppverifiering"
+        reject: "%{user_name} avvisade användargruppverifiering för %{resource_name}"
         verify: "%{user_name} verifierade %{resource_name} användargrupp"
     anonymous_user: Anonym
     application:
@@ -162,25 +162,25 @@ sv:
     authorization_modals:
       show:
         expired:
-          authorize: Reauthorize med "%{authorization}"
+          authorize: Återauktorisera med "%{authorization}"
           explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
-          title: Godkännandet har löpt ut
+          title: Auktoriseringen har löpt ut
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att återauktorisera eftersom vi saknar följande data:'
           invalid_field: "%{field}"
-          reauthorize: reauthorize
-          title: Vänligen reauthorize
+          reauthorize: Omauktorisera
+          title: Vänligen omauktorisera
         missing:
           authorize: Godkänn med "%{authorization}"
           explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
           title: Godkännande krävs
         pending:
-          explanation: För att kunna utföra denna åtgärd måste du godkännas med "%{authorization}", men din auktorisation är fortfarande på gång
-          resume: Kolla din "%{authorization}" tillståndsframsteg
+          explanation: För att kunna utföra denna åtgärd måste du auktoriseras med "%{authorization}", men din auktorisering är fortfarande på gång
+          resume: Kolla din "%{authorization}" auktoriseringsprocess
           title: Godkännandet är fortfarande på gång
         unauthorized:
-          explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
+          explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
           invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Okej
           title: Inte behörig
@@ -501,15 +501,15 @@ sv:
       home:
         extended:
           debates: Debatter
-          debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
+          debates_explanation: Debattera och diskutera, dela dina åsikter och berika relevanta ämnen.
           how_to_participate: Hur deltar jag i en process?
           meetings: möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information
           proposals: förslag
-          proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
+          proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
+          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och bestäm.
           footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
           register: Registrera
         hero:
@@ -517,17 +517,17 @@ sv:
           welcome: Välkommen till %{organization}!
         statistics:
           answers_count: Avslutade Undersökningar
-          assemblies_count: Assemblies
+          assemblies_count: Församlingar
           comments_count: Kommentarer
           debates_count: Debatter
-          endorsements_count: påskrifter
-          headline: Aktuellt tillstånd %{organization}
+          endorsements_count: Påskrifter
+          headline: Aktuellt läge för %{organization}
           meetings_count: möten
           orders_count: Röster
           pages_count: Sidor
           processes_count: Processer
           projects_count: projekt
-          proposals_accepted: Godkända förslag
+          proposals_accepted: Godkända Förslag
           proposals_count: förslag
           results_count: Resultat
           surveys_count: Undersökningar
