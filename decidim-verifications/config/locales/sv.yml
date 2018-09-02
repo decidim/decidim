@@ -47,8 +47,8 @@ sv:
     verifications:
       authorizations:
         create:
-          error: Det uppstod ett fel vid att skapa behörigheten.
-          success: Du har godkänts.
+          error: Ett fel uppstod när auktoriseringen skulle skapas.
+          success: Du har framgångsrikt auktoriserats.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiera mot ett annat exempel på behörighetshanteraren
