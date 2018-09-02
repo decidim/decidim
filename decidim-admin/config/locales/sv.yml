@@ -20,17 +20,17 @@ sv:
       category:
         description: Beskrivning
         name: Namn
-        parent_id: Förälder
+        parent_id: Överordnad
       component:
         name: Namn
-        published_at: Publicerad på
+        published_at: Publicerad vid
         weight: Vikt
       id: ID
       newsletter:
         body: Innehåll
         subject: Ämne
       oauth_application:
-        name: namn
+        name: Namn
         organization_logo: Organisationslogotypen (kvadrat)
         organization_name: Organisations namn
         organization_url: Organisationsadress
@@ -257,11 +257,11 @@ sv:
             managed: Managed
             not_managed: Inte hanterad
           filter_by: Filtrera efter
-          impersonate: Imitera
+          impersonate: Uppträd som
           impersonate_new_managed_user: Impersonera ny hanterad användare
           managed: Managed
           name: namn
-          needs_authorization_warning: Du behöver minst en behörighet aktiverad för den här organisationen.
+          needs_authorization_warning: Du behöver minst en auktorisering aktiverad för den här organisationen.
           not_managed: Inte hanterad
           promote: Främja
           search: Sök
@@ -269,8 +269,8 @@ sv:
           view_logs: Visa loggar
       impersonations:
         close_session:
-          error: Det har uppstått ett fel att stänga den aktuella efterföljande sessionen.
-          success: Den nuvarande ombildningsperioden har avslutats.
+          error: Det har uppstått ett fel vid stängningen av den aktuella uppträdande sessionen.
+          success: Den nuvarande ombildningsperioden har framgångsrikt avslutats.
         create:
           error: Det har inträffat ett fel för att ersätta användaren.
           success: Den hanterade användaren har skapats.
@@ -279,7 +279,7 @@ sv:
           name: namn
           reason: Anledning
         new:
-          impersonate: Imitera
+          impersonate: Uppträd som
           impersonate_existing_managed_user: Impersonera hanterad användare "%{name}"
           impersonate_existing_user: Impersonera användaren "%{name}"
           impersonate_new_managed_user: Impersonera ny hanterad användare
