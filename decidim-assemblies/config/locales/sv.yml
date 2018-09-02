@@ -58,7 +58,7 @@ sv:
         designation_mode: Utnämningsläge
         full_name: Fullständigt namn
         gender: Kön
-        position: Placera
+        position: Position
       assembly_user_role:
         email: E-post
         name: Namn
@@ -66,24 +66,24 @@ sv:
   activerecord:
     models:
       decidim/assembly:
-        one: hopsättning
-        other: Assemblies
+        one: Möte
+        other: Möten
       decidim/assembly_member:
-        one: Församlingsmedlem
-        other: Församlingsmedlemmar
+        one: Mötesmedlem
+        other: Mötesmedlemmar
       decidim/assembly_user_role:
-        one: Montering användarroll
-        other: Montera användarroller
+        one: Mötesanvändarroll
+        other: Mötesanvändarroller
   decidim:
     admin:
       actions:
-        new_assembly: Ny sammansättning
+        new_assembly: Nytt möte
       assemblies:
         create:
-          error: Det uppstod ett fel vid att skapa en ny enhet.
-          success: Församlingen skapades framgångsrikt.
+          error: Det uppstod ett fel när ett nytt möte skulle skapas.
+          success: Mötet skapades framgångsrikt.
         destroy:
-          success: Sammansättning raderas framgångsrikt.
+          success: Mötes raderades framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -139,7 +139,7 @@ sv:
         destroy:
           success: Användaren avlägsnades framgångsrikt från den här enheten.
         edit:
-          title: Uppdatera monteringsanvändaren.
+          title: Uppdatera mötesanvändaren.
           update: Uppdatera
         index:
           assembly_admins_title: Sammanskomstanvändare
@@ -152,9 +152,9 @@ sv:
       menu:
         assemblies: Sammankomst
         assemblies_submenu:
-          assembly_admins: Monteringsanvändare
-          assembly_members: medlemmar
-          attachment_collections: mappar
+          assembly_admins: Mötesanvändare
+          assembly_members: Medlemmar
+          attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bifogade filer
           categories: Kategorier
