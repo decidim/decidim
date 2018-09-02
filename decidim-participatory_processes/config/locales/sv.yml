@@ -245,12 +245,12 @@ sv:
       participatory_process:
         step_activated:
           email_intro: 'Steget %{resource_title} är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden om du följer föregående länk.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
-          notification_title: '%{resource_title} -steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: Steget %{resource_title} är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Dagen för %{resource_title} -steget vid %{participatory_space_title} har uppdaterats. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_intro: 'Dagen för steget %{resource_title} vid %{participatory_space_title} har uppdaterats. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: Dagen för <a href="%{resource_path}">%{resource_title}</a> steg vid <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
     menu:
@@ -258,22 +258,22 @@ sv:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 processer för %{group}
+          one: 1 process för %{group}
           other: "%{count} processer för %{group}"
-        title: Deltagande processgrupper
+        title: Grupper vid deltagandeprocesser
     participatory_process_steps:
       index:
         process_steps: Processsteg
-        title: Deltagande processsteg
+        title: Steg vid deltagandeprocesser
     participatory_processes:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'URL-slitsar används för att generera de URL-adresser som pekar på denna process. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            slug_help: 'Rena URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
         participatory_processes:
           form:
             announcement_help: Texten du anger här visas för användaren precis nedanför processinformationen.
-            slug_help: 'URL-slitsar används för att generera de URL-adresser som pekar på denna process. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            slug_help: 'URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
       content_blocks:
         highlighted_processes:
           name: Markerade processer
@@ -317,10 +317,10 @@ sv:
         index:
           loading: Laddar resultat...
       show:
-        developer_group: Promotorgrupp
+        developer_group: Främjandegrupp
         end_date: Slutdatum
         local_area: Organisationsområde
-        participatory_scope: Vad bestäms
+        participatory_scope: Vad som bestäms
         participatory_structure: Hur bestäms det
         private_space: Detta är en privat process
         scope: Omfattning
@@ -331,7 +331,7 @@ sv:
         answers_count: Svar
         comments_count: Kommentarer
         debates_count: Debatter
-        endorsements_count: påskrifter
+        endorsements_count: Påskrivet
         headline: Aktivitet
         meetings_count: Möten
         orders_count: Röster
@@ -348,7 +348,7 @@ sv:
       participatory_process_groups:
         participatory_process_group:
           browse: Bläddra
-          processes_count: 'processer:'
+          processes_count: 'Processer:'
       participatory_process_widgets:
         show:
           active_step: Aktivt steg
