@@ -179,8 +179,8 @@ hu:
             position: Pozíció
           name: Tag
           positions:
-            other: Más
-            president: elnök
+            other: Egyéb
+            president: Elnök
             secretary: Titkár
             vice_president: Alelnök
         assembly_user_role:
