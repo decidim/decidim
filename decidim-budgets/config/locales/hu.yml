@@ -78,12 +78,12 @@ hu:
           ok: OK
           title: A maximális költségkeret meghaladta
         budget_summary:
-          are_you_sure: Biztosan törölni szeretné szavazatát?
-          assigned: 'Kijelölt:'
-          cancel_order: törölje szavazatát és kezdje újra
+          are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
+          assigned: 'Hozzárendelve:'
+          cancel_order: töröld a szavazatod és kezdd újra
           checked_out:
-            description: Ön már szavazott a költségvetésre. Ha megváltoztattad az elmédet, akkor %{cancel_link}lehet.
-            title: A költségvetés szavazata befejeződött
+            description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
+            title: Költségvetési szavazás befejeződött
           description: Milyen projektekre gondolsz, hogy a költségvetést ki kellene osztanunk? Hozzárendel legalább %{minimum_budget} t a kívánt projektekhez, és szavazzon a preferenciákkal a költségkeret meghatározásához.
           title: Ön határozza meg a költségvetést
         count:
