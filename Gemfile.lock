@@ -57,9 +57,12 @@ PATH
     decidim-comments (0.15.0.dev)
       decidim-core (= 0.15.0.dev)
       jquery-rails (~> 4.0)
+<<<<<<< HEAD
     decidim-conferences (0.15.0.dev)
       decidim-core (~> 0.15.a)
       decidim-meetings (~> 0.15.a)
+=======
+>>>>>>> master
     decidim-consultations (0.15.0.dev)
       decidim-admin (= 0.15.0.dev)
       decidim-comments (= 0.15.0.dev)
