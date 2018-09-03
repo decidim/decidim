@@ -180,18 +180,18 @@ fi:
           email_subject: Ehdotusluokka %{resource_title} on päivitetty
           notification_title: Järjestelmänvalvoja on päivittänyt ehdotusluokan <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
-          email_intro: 'Voit äänestää ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
+          email_intro: 'Voit äänestää ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Äänestys ehdotuksista on alkanut %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">äänestyssuosituksen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten äänestämisen</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
           description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
           description_own: Sinulla sait %{score} ehdotusta hyväksyksi.
-          explanation: Käyttäjät saavat tämän tunnuksen hankkimalla ehdotuksensa.
+          explanation: Käyttäjät saavat tämän tunnuksen saamalla ehdotuksensa hyväksytyksi.
           name: Hyväksytyt ehdotukset
-          next_level_in: Hanki vielä %{score} ehdotusta, jotka hyväksyttiin seuraavalle tasolle!
+          next_level_in: Saa vielä %{score} ehdotusta hyväksytyksi noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole saanut vielä ehdotuksia hyväksytyksi.
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
@@ -307,7 +307,7 @@ fi:
           publish:
             error: Yhteistyöluonnoksen julkaisemisessa on tapahtunut virheitä.
             irreversible_action_modal:
-              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Ehdotus ei hyväksy uusia kirjoittajia tai maksuja.
+              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Ehdotus ei hyväksy uusia tekijöitä tai osallistumisia.
               cancel: Peruuta
               ok: Julkaise ehdotuksena
               title: Seuraavat toimenpiteet ovat peruuttamattomia
@@ -316,7 +316,7 @@ fi:
           withdraw:
             error: Yhteistyöluonnoksen sulkemisessa on tapahtunut virheitä.
             irreversible_action_modal:
-              body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai maksuja.
+              body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai osallistumisia.
               cancel: Peruuta
               ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
@@ -356,7 +356,7 @@ fi:
           close_modal: Sulje modaalinen
           filter: Rajaa
           filter_by: Rajaa hakua
-          unfold: avautua
+          unfold: Avaa
         new:
           send: Jatka
           title: Luo yhteistyöluonnoksesi
