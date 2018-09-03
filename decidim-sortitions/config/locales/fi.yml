@@ -65,8 +65,8 @@ fi:
             destroy: Peruuta satunnaistaminen
             title: Satunnaistamisen peruuttaminen
           create:
-            error: Virhe aiheutti uuden lajittelun.
-            success: Lajittelu onnistui
+            error: Uuden satunnaisvalinnan luomisessa tapahtui virhe.
+            success: Satunnaisvalinta onnistuneesti luotu
           destroy:
             error: Satunnaisvalintaa ei voi peruuttaa.
             success: Satunnaisvalinta onnistuneesti peruutettu
@@ -76,11 +76,11 @@ fi:
           form:
             all_categories: Kaikki luokat
             select_proposal_component: Valitse asetetut ehdotukset
-            title: Uusi lajittelu ehdotuksiin
+            title: Uusi satunnaisvalinta ehdotuksille
           index:
             title: Satunnaisvalinnat
           new:
-            confirm: Painamalla seuraavalla painikkeella Decidim tallentaa päivämäärän ja kellonajan (sekuntien tarkkuudella) ja yhdessä noputusvalssin kanssa näitä tietoja käytetään satunnaisvalinnan luomiseen. Toimenpide on peruuttamaton, kun painike napsautetaan tuloksen tulosta julkaistaan ​​yhdessä tämän lomakkeen tietojen kanssa eikä sitä voi muuttaa, tarkista sisältö huolellisesti.
+            confirm: Painamalla seuraavaa painiketta Decidim tallentaa päivämäärän ja kellonajan (sekuntien tarkkuudella) ja yhdessä nopan heiton kanssa näitä tietoja käytetään satunnaisvalinnan luomiseen. Toimenpide on peruuttamaton, kun painiketta painetaan valinnan tulos julkaistaan ​​yhdessä tämän lomakkeen tietojen kanssa eikä sitä voi muuttaa, tarkista sisältö huolellisesti
             create: Luo
             title: Uusi satunnaisvalinta
           show:
@@ -107,7 +107,7 @@ fi:
           search: Hae
           state: Tila
         filters_small_view:
-          close_modal: Sulje modeemi
+          close_modal: Sulje ikkuna
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
