@@ -219,107 +219,107 @@ hu:
             select_an_area: Válassz területet
             select_an_assembly_type: Válassz gyűlés típust
             select_parent_assembly: Szülői összeállítás kiválasztása
-            slug_help: 'Az URL-csigákat használják az ezen összeszerelésre utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
-            social_handlers: Társadalmi
+            slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
-            slug_help: 'Az URL-csigákat használják az ezen összeszerelésre utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+            slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
         assembly_members:
           form:
             existing_user: Létező felhasználó
             non_user: Nem felhasználó
-            select_a_position: Válasszon ki egy pozíciót
-            select_user: Válasszon egy felhasználót
+            select_a_position: Válassz pozíciót
+            select_user: Válassz felhasználót
             user_type: Felhasználó típusa
           index:
             filter:
-              all: Minden
+              all: Összes
               ceased: Megszűnt
               not_ceased: Nem szűnt meg
-            filter_by: Szűrés vlami alapján
+            filter_by: 'Szűrés ez alapján:'
             search: Keresés
       assembly_members:
         index:
-          members: Belépés
+          members: Tagok
       assembly_types:
-        commission: Comission
-        consultative_advisory: Tanácsadó / tanácsadó
+        commission: Bizottság
+        consultative_advisory: Konzulens/tanácsadó
         executive: Végrehajtó
         government: Kormány
         others: Egyéb
-        participatory: A részvételi
+        participatory: Részvételi
         working_group: Munkacsoport
       content_blocks:
         highlighted_assemblies:
-          name: Kiemelt szerelvények
+          name: Kiemelt gyűlések
       created_by:
-        city_council: Városi tanács
+        city_council: Városi közgyűlés
         others: Egyéb
         public: Nyilvános
       index:
-        title: szerelvények
+        title: Gyűlések
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktív szerelvények
-            see_all_assemblies: Lásd az összes szerelvényt
+            active_assemblies: Aktív gyűlések
+            see_all_assemblies: Összes gyűlés
         user_profile:
           member_of:
-            member_of: Tagja valaminek
+            member_of: 'Tagja következőnek:'
       show:
         area: Terület
-        assembly_type: Szerelési típus
-        children: szerelvények
-        closing_date: Zárás dátuma
+        assembly_type: Gyűlés típusa
+        children: Gyűlések
+        closing_date: Határidő
         composition: Összetétel
         created_by: Készítette
-        creation_date: A létrehozás dátuma
+        creation_date: Létrehozás dátuma
         developer_group: Promóciós csoport
-        duration: tartam
-        included_at: Tartalmazza a
+        duration: Időtartam
+        included_at: 'Tartalmazza:'
         indefinite_duration: Határozatlan
         internal_organisation: Belső szervezet
         is_transparent:
           'false': áttetsző
           'true': átlátszó
-        local_area: Szervezeti terület
+        local_area: Szervezet területe
         participatory_scope: Mi a döntés
-        participatory_structure: Hogyan döntenek?
-        private_space: Ez egy magánegyesület
-        purpose_of_action: A cselekvés célja
-        read_less: Olvasson kevesebbet
-        read_more: Olvass tovább
+        participatory_structure: Hogyan döntenek
+        private_space: Ez egy privát gyűlés
+        purpose_of_action: Fellépés célja
+        read_less: Kevesebb
+        read_more: Bővebben
         related_participatory_processes: Kapcsolódó részvételi folyamatok
-        scope: terület
-        social_networks: Közösségi hálózatok
-        target: Ki részt vesz
+        scope: Hatáskör
+        social_networks: Közösségi háló
+        target: Ki vesz részt benne
       statistics:
-        answers_count: válaszok
-        assemblies_count: szerelvények
+        answers_count: Válaszok
+        assemblies_count: Gyűlések
         comments_count: Hozzászólások
-        debates_count: viták
-        endorsements_count: Elismerések
+        debates_count: Viták
+        endorsements_count: Jóváhagyások
         headline: Tevékenység
-        meetings_count: találkozók
-        orders_count: szavazatok
+        meetings_count: Találkozók
+        orders_count: Szavazatok
         pages_count: Oldalak
-        projects_count: projektek
-        proposals_count: javaslatok
+        projects_count: Projektek
+        proposals_count: Javaslatok
         results_count: Eredmények
         surveys_count: Felmérések
-        users_count: résztvevők
-        votes_count: szavazatok
+        users_count: Résztvevők
+        votes_count: Szavazatok
     assembly_members:
       assembly_member:
         designated_on: Kijelölt
       index:
-        title: Belépés
+        title: Tagok
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Az összeállítás nem található az adatbázisban (ID: %{id})'
+          not_found: 'A gyűlés nem található az adatbázisban (ID: %{id})'
     menu:
-      assemblies: szerelvények
+      assemblies: Gyűlések
   errors:
     messages:
       cannot_be_blank: nem lehet üres
@@ -327,20 +327,20 @@ hu:
     decidim:
       assemblies:
         assembly:
-          take_part: Részt vesz
+          take_part: Vegyél részt
         index:
-          promoted_assemblies: Kiemelt szerelvények
+          promoted_assemblies: Kiemelt gyűlések
         order_by_assemblies:
           assemblies:
-            one: "%{count} összeszerelést"
-            other: "%{count} szerelvényeket"
+            one: "%{count} gyűlés"
+            other: "%{count} gyűlés"
         promoted_assembly:
-          more_info: Több információ
-          take_part: Részt vesz
+          more_info: További információ
+          take_part: Vegyél részt
       assembly_header:
-        assembly_member_menu_item: Belépés
-        assembly_menu_item: Az összeszerelés
-        unfold: kibontakozik
+        assembly_member_menu_item: Tagok
+        assembly_menu_item: A gyűlés
+        unfold: Kibont
       assembly_widgets:
         show:
-          take_part: Részt vesz
+          take_part: Vegyél részt
