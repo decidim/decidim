@@ -7,16 +7,16 @@ fi:
         assembly_type_other: Muu kehitysryhmän tyyppi
         banner_image: Bannerikuva
         closing_date: Sulkeutumispäivä
-        closing_date_reason: Sulkemispäivämäärä
-        composition: Sävellys
+        closing_date_reason: Perustelu sulkemiselle
+        composition: Kokoonpano
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_features: Kopioi ominaisuudet
         created_by: Luonut
-        created_by_other: Luotu muilta
-        creation_date: Päivämäärä luotu
+        created_by_other: Luotu muualta
+        creation_date: Luontipäivämäärä
         decidim_area_id: alue
-        decidim_scope_id: laajuus
+        decidim_scope_id: Teema
         description: Kuvaus
         developer_group: Promoottoriryhmä
         domain: Toimintaympäristö
@@ -32,13 +32,13 @@ fi:
         local_area: Organisaatioalue
         meta_scope: Kontekstin metadata
         parent_id: Vanhempien kokoonpano
-        participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
+        participatory_processes_ids: Liittyvät osallistumisprosessit
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Yksityinen tila
         promoted: Korostettu
         published_at: Julkaistu osoitteessa
-        purpose_of_action: Toimen tarkoitus
+        purpose_of_action: Toiminnan tarkoitus
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
@@ -48,7 +48,7 @@ fi:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
-        twitter: Viserrys
+        twitter: Twitter
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
@@ -57,8 +57,8 @@ fi:
         designation_date: Nimityspäivä
         designation_mode: Nimitystila
         full_name: Koko nimi
-        gender: sukupuoli
-        position: asento
+        gender: Sukupuoli
+        position: Asema
       assembly_user_role:
         email: Sähköposti
         name: Nimi
@@ -66,7 +66,7 @@ fi:
   activerecord:
     models:
       decidim/assembly:
-        one: kokoonpano
+        one: Kehitysryhmä
         other: osat
       decidim/assembly_member:
         one: Edustaja
