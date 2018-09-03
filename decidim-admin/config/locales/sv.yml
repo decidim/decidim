@@ -131,7 +131,7 @@ sv:
           title: Ny typ av område
         update:
           error: Det uppstod ett fel vid uppdatering av denna typ av område.
-          success: Områdetypen uppdateras framgångsrikt
+          success: Områdestypen uppdaterades framgångsrikt
       areas:
         create:
           error: Det uppstod ett fel vid skapandet av ett nytt område.
