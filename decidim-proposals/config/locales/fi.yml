@@ -124,7 +124,7 @@ fi:
           email_intro: Sinut on hylätty pääsyksesi <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaan.
           email_outro: Olet saanut tämän ilmoituksen, koska olet pyytänyt tulla yhteistyökumppaniksi <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Sinut on hylätty avustajanaan %{resource_title}.
-          notification_title: Sinut on hylätty <strong>jotta pääsisit osallistumaan</strong> <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksesta.
+          notification_title: Sinulta on evätty <strong>osallistuminen</strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> peruttu <a href="%{resource_path}">%{resource_title}</a> yhteistyöhankkeesta.
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet yhteistyökumppani kohteessa<a href="%{resource_path}">%{resource_title}</a>.
