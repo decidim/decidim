@@ -56,9 +56,9 @@ fi:
     account:
       data_portability_export:
         file_no_exists: Tiedostoa ei ole olemassa
-        invalid_token: Varattu token on virheellinen.
-        no_token: Ei merkintää
-        notice: Tietosi on parhaillaan käynnissä. Saat sähköpostiviestin, kun se on valmis.
+        invalid_token: Varmennustunniste ei kelpaa.
+        no_token: Varmennustunniste puuttuu
+        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
         confirm:
@@ -79,11 +79,11 @@ fi:
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
     admin_log:
       area:
-        create: "%{user_name} luonut %{resource_name} -alueen"
-        delete: "%{user_name} poistanut %{resource_name} -alueen"
+        create: "%{user_name} loi %{resource_name} alueen"
+        delete: "%{user_name} poisti %{resource_name} -alueen"
         update: "%{user_name} päivitti %{resource_name} -alueen"
       component:
-        create: "%{user_name} lisäsi %{resource_name} -osion %{space_name} -tilaan"
+        create: "%{user_name} lisäsi %{resource_name} -komponentin %{space_name} -tilaan"
         delete: "%{user_name} poistanut %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
         unpublish: "%{user_name} julkaisematon %{resource_name} -komponentti %{space_name} -tilasta"
