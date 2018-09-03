@@ -113,18 +113,18 @@ fi:
           error: Jäsenen lisääminen kehitysryhmään ei onnistunut.
           success: Jäsen lisättiin onnistuneesti kehitysryhmään.
         destroy:
-          success: Jäsen poistettiin onnistuneesti kokoonpanoa varten.
+          success: Jäsen poistettiin onnistuneesti kehitysryhmästä.
         edit:
-          title: Päivitä kokoonpanoryhmä.
+          title: Päivitä kehitysryhmän jäsenen tietoja.
           update: Päivittää
         index:
           assembly_members_title: Edustajat
         new:
           create: Luoda
-          title: Uusi kokoonpanoryhmä.
+          title: Uusi kehitysryhmän jäsen.
         update:
-          error: Virhe päivitti jäsenen kokoonpanoa varten.
-          success: Jäsen päivitettiin onnistuneesti kokoonpanolla.
+          error: Kehitysryhmän jäsenen päivityksessä tapahtui virhe.
+          success: Kehitysryhmän jäsenen tiedot päivitettiin onnistuneesti.
       assembly_publications:
         create:
           error: Kehitysryhmän julkaisussa tapahtui virhe.
@@ -135,9 +135,9 @@ fi:
       assembly_user_roles:
         create:
           error: Virhe lisätessä käyttäjää tälle kehitysryhmälle.
-          success: Käyttäjä lisättiin onnistuneesti tähän kokoonpanoon.
+          success: Käyttäjä lisätty onnistuneesti kehitysryhmään.
         destroy:
-          success: Käyttäjä poistettiin onnistuneesti tästä kokoonpanosta.
+          success: Käyttäjä poistettiin onnistuneesti kehitysryhmästä.
         edit:
           title: Päivitä kehitysryhmän käyttäjän tietoja.
           update: Päivitä
@@ -154,11 +154,11 @@ fi:
         assemblies_submenu:
           assembly_admins: Kehitysryhmän käyttäjät
           assembly_members: Jäsenet
-          attachment_collections: kansiot
+          attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
-          components: komponentit
+          components: Komponentit
           info: Tiedot
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
@@ -166,23 +166,23 @@ fi:
         assembly:
           fields:
             created_at: Luonnin ajankohta
-            private: yksityinen
+            private: Yksityinen
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
           name: Kehitysryhmä
         assembly_member:
           fields:
-            ceased_date: Viivästynyt päivämäärä
+            ceased_date: Päättymispäivä
             designation_date: Nimityspäivä
             full_name: Nimi
-            position: asento
+            position: Asema
           name: Jäsen
           positions:
             other: muut
-            president: Presidentti
+            president: Puhemies
             secretary: Sihteeri
-            vice_president: Varapresidentti
+            vice_president: Varapuheenjohtaja
         assembly_user_role:
           fields:
             email: Sähköposti
@@ -197,13 +197,13 @@ fi:
         assemblies: Kehitysryhmät
     admin_log:
       assembly:
-        create: "%{user_name} loi %{resource_name} kokoonpanon"
-        publish: "%{user_name} julkaisi %{resource_name} kokoonpanon"
-        unpublish: "%{user_name} julkaisematon %{resource_name} kokoonpano"
-        update: "%{user_name} päivitti %{resource_name} kokoonpanon"
+        create: "%{user_name} loi %{resource_name} kehitysryhmän"
+        publish: "%{user_name} julkaisi %{resource_name} kehitysryhmän"
+        unpublish: "%{user_name} lopetti %{resource_name} kehitysryhmän julkaisemisen"
+        update: "%{user_name} päivitti %{resource_name} kehitysryhmän"
       assembly_member:
-        create: "%{user_name} loi %{resource_name} jäsenen %{space_name} kokoonpanosta"
-        delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} kokoonpanosta"
+        create: "%{user_name} loi %{resource_name} jäsenen %{space_name} kehitysryhmässä"
+        delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} kehitysryhmästä"
         update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} kokoonpanon"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} kokoonpanoon"
