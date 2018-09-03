@@ -527,7 +527,7 @@ en:
           participate: Participate
           welcome: Welcome to %{organization}!
         metrics:
-          headline: Decidim in numbers
+          headline: Participation in figures
         statistics:
           answers_count: Completed Surveys
           assemblies_count: Assemblies

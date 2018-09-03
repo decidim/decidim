@@ -226,7 +226,7 @@ describe "Homepage", type: :system do
         let(:organization) { create(:organization, show_statistics: false) }
 
         it "does not show the statistics block" do
-          expect(page).to have_no_content("Decidim in numbers")
+          expect(page).to have_no_content("Participation in figures")
         end
       end
 
@@ -246,7 +246,7 @@ describe "Homepage", type: :system do
 
           it "shows the metrics block" do
             within "#metrics" do
-              expect(page).to have_content("Decidim in numbers")
+              expect(page).to have_content("Participation in figures")
               within ".metric-charts:first-child" do
                 Decidim.metrics_registry.highlighted.each do |metric_registry|
                   expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
@@ -268,7 +268,7 @@ describe "Homepage", type: :system do
 
           it "shows the metrics block empty" do
             within "#metrics" do
-              expect(page).to have_content("Decidim in numbers")
+              expect(page).to have_content("Participation in figures")
               within ".metric-charts:first-child" do
                 Decidim.metrics_registry.highlighted.each do |metric_registry|
                   expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
