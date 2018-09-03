@@ -158,27 +158,27 @@ fi:
         proposal_mentioned:
           email_intro: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
           email_subject: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu
-          notification_title: Ehdotuksesi%{mentioned_proposal_title}on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
+          notification_title: Ehdotuksesi%{mentioned_proposal_title} on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, jonka olet seurannut, on julkaissut uuden ehdotuksen, tarkistamalla sen ja osallistumalla:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_intro: "%{author_name} %{author_nickname}, jota seuraat, on julkaissut uuden ehdotuksen, tarkista se ja osallistu:"
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Uusi ehdotus tekijältä %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaistiin tekijän <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta.
         proposal_published_for_space:
-          email_intro: Ehdotus "%{resource_title}" on lisätty "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_intro: Ehdotus "%{resource_title}" on lisätty tilaan "%{participatory_space_title}", jota seuraat.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Uusi ehdotus lisätty tilaan %{participatory_space_title}
-          notification_title: 'Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}: ään'
+          notification_title: 'Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty tilaan %{participatory_space_title}: ään'
         proposal_rejected:
           email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisen linkin kautta.
           email_subject: Seuraamasi ehdotus on hylätty
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hylätty.
+          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
         proposal_update_category:
           email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi luokkaan "%{resource_title}", tarkista se:'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet ehdotuksen tekijä.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet ehdotuksen tekijä.
           email_subject: Ehdotusluokka %{resource_title} on päivitetty
-          notification_title: Järjestelmänvalvoja on päivittänyt <a href="%{resource_path}">%{resource_title}</a> ehdotusluokan.
+          notification_title: Järjestelmänvalvoja on päivittänyt ehdotusluokan <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'Voit äänestää ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
