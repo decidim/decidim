@@ -3,61 +3,61 @@ hu:
     attributes:
       assembly:
         area_id: Terület
-        assembly_type: Szerelési típus
-        assembly_type_other: Más típusú összeszerelés
+        assembly_type: Gyűlés típusa
+        assembly_type_other: Más típusú gyűlés
         banner_image: Banner kép
-        closing_date: Zárás dátuma
-        closing_date_reason: Zárás dátuma ok
+        closing_date: Határidő
+        closing_date_reason: Határidő indoklás
         composition: Összetétel
-        copy_categories: Másolási kategóriák
-        copy_components: Másoljon komponenseket
+        copy_categories: Kategóriák másolása
+        copy_components: Elemek másolása
         copy_features: Másolási funkciók
         created_by: Készítette
         created_by_other: Más által létrehozott
-        creation_date: A létrehozás dátuma
+        creation_date: Létrehozás dátuma
         decidim_area_id: Terület
-        decidim_scope_id: terület
+        decidim_scope_id: Hatáskör
         description: Leírás
         developer_group: Promóciós csoport
         domain: Domain
-        duration: tartam
+        duration: Időtartam
         facebook: Facebook
         github: GitHub
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
-        included_at: Tartalmazza a
+        included_at: 'Tartalmazza:'
         instagram: Instagram
         internal_organisation: Belső szervezet
         is_transparent: Átlátható
-        local_area: Szervezeti terület
-        meta_scope: Hatály metaadatok
-        parent_id: Szülői összeállítás
-        participatory_processes_ids: Kapcsolódó Résztvevő folyamatok
+        local_area: Szervezet területe
+        meta_scope: Hatókör-metaadatok
+        parent_id: Parent gyűlés
+        participatory_processes_ids: Társuló részvételi folyamatok
         participatory_scope: Mi a döntés
-        participatory_structure: Hogyan döntenek?
-        private_space: Privát szféra
-        promoted: promotált
-        published_at: Megjelent a
-        purpose_of_action: A cselekvés célja
-        scope_id: terület
-        scopes_enabled: A hatókör engedélyezett
+        participatory_structure: Hogyan döntenek
+        private_space: Privát tér
+        promoted: Promotált
+        published_at: Publikálva
+        purpose_of_action: A fellépés célja
+        scope_id: Hatáskör
+        scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
         show_statistics: Statisztikák megjelenítése
         slug: URL slug
-        special_features: Különleges képességek
+        special_features: Speciális funkciók
         subtitle: Felirat
-        target: Ki részt vesz
+        target: Ki részt vesz benne
         title: Cím
         twitter: Twitter
         youtube: Youtube
       assembly_member:
         birthday: Születésnap
-        birthplace: születési hely
-        ceased_date: Megszűnt dátum
-        designation_date: A kijelölés dátuma
-        designation_mode: Megnevezés üzemmód
+        birthplace: Születési hely
+        ceased_date: Megszűnés dátuma
+        designation_date: Kijelölés dátuma
+        designation_mode: Kijelölés módszere
         full_name: Teljes név
-        gender: nem
+        gender: Neme
         position: Pozíció
       assembly_user_role:
         email: Email
@@ -66,46 +66,46 @@ hu:
   activerecord:
     models:
       decidim/assembly:
-        one: gyülekezés
-        other: szerelvények
+        one: Gyűlés
+        other: Gyűlések
       decidim/assembly_member:
-        one: Közgyűlés tagja
-        other: A közgyűlés tagjai
+        one: Gyűlés tagja
+        other: Gyűlés tagjai
       decidim/assembly_user_role:
-        one: Összeszerelési felhasználói szerepkör
-        other: Összeszerelési felhasználói szerepek
+        one: Gyűlés felhasználójának szerepe
+        other: Gyűlés felhasználóinak szerepe
   decidim:
     admin:
       actions:
-        new_assembly: Új összeszerelés
+        new_assembly: Új gyűlés
       assemblies:
         create:
-          error: Hiba történt új összeszerelés létrehozása közben.
-          success: A közgyűlés sikeresen létrehozva.
+          error: Hiba történt az új gyűlés létrehozása során.
+          success: Gyűlés létrehozása sikeres.
         destroy:
-          success: A telepítés sikeresen törölve.
+          success: Gyűlés törlése sikeres.
         edit:
-          update: frissítés
+          update: Frissítés
         form:
           title: Általános információ
         index:
           not_published: Nem publikált
-          private: Magán
+          private: Privát
           public: Nyilvános
-          published: Közzétett
+          published: Publikált
         new:
-          create: Teremt
-          title: Új összeszerelés
+          create: Létrehozás
+          title: Új gyűlés
         update:
-          error: Hiba történt a telepítés frissítésekor.
-          success: A közgyűlés sikeresen frissült.
+          error: Hiba történt a gyűlés frissítése során.
+          success: Gyűlés frissítése sikeres.
       assemblies_copies:
         create:
-          error: Hiba történt a rendszer másolása során.
-          success: Az összeállítás sikeresen megismétlődött.
+          error: Hiba történt a gyűlés duplikációja során.
+          success: Gyűlés duplikációja sikeres.
       assembly_copies:
         new:
-          copy: Másolat
+          copy: Másolás
           select: Válassza ki, mely adatokat szeretné megismételni
           title: Duplikált összeszerelés
       assembly_members:
