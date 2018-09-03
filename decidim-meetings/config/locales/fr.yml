@@ -171,7 +171,7 @@ fr:
         invite_join_meeting_mailer:
           invite:
             decline: Refuser l'invitation
-            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre à %{application}. Vous pouvez confirmer votre présence par le lien ci-dessous."
+            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre à %{application}. Vous pouvez confirmer votre présence en cliquant sur le lien ci-dessous."
             join: Rejoignez la rencontre '%{meeting_title}'
         invites:
           create:
