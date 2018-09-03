@@ -3,10 +3,10 @@ fi:
     attributes:
       assembly:
         area_id: alue
-        assembly_type: Asennustyyppi
-        assembly_type_other: Kokoonpanotyyppi muu
+        assembly_type: Kehitysryhmän tyyppi
+        assembly_type_other: Muu kehitysryhmän tyyppi
         banner_image: Bannerikuva
-        closing_date: Sulkemispäivä
+        closing_date: Sulkeutumispäivä
         closing_date_reason: Sulkemispäivämäärä
         composition: Sävellys
         copy_categories: Kopioi aihepiirit
