@@ -54,28 +54,28 @@ hu:
             success: "%{number} javaslat sikeresen importálva a projektekbe"
           new:
             create: Javaslatok importálása projektekbe
-            no_components: Ebben a részvételi térben nincs más javaslatösszetevő a jelentések projektbe történő importálásához.
-            select_component: Kérjük, válasszon egy összetevőt
+            no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
+            select_component: Válassz ki egy elemet
       admin_log:
         project:
-          create: "%{user_name} létrehozta az %{resource_name} projektet a %{space_name} térben"
-          delete: "%{user_name} törölte az %{resource_name} projektet a %{space_name} mezőben"
-          update: "%{user_name} frissítette az %{resource_name} projektet a %{space_name} mezőben"
+          create: "%{user_name} létrehozta a(z) %{resource_name} nevű projektet itt: %{space_name}"
+          delete: "%{user_name} eltávolította a(z) %{resource_name} nevű projektet itt: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} nevű projektet itt: %{space_name}"
       models:
         project:
           fields:
             title: Cím
       projects:
         budget_confirm:
-          are_you_sure: Egyetértesz? Miután megerősítette szavazatát, nem változtathatja meg.
-          cancel: Megszünteti
-          confirm: megerősít
-          description: Ezek azok a projektek, amelyeket a költségvetés részét képez.
-          title: A szavazás megerősítése
+          are_you_sure: Egyetértesz? Ha megerősítetted a szavazatod, már nem változtathatod meg.
+          cancel: Mégse
+          confirm: Megerősítés
+          description: Ezek azok a projektek, amelyek a költségvetés részét képezik.
+          title: Szavazás megerősítése
         budget_excess:
           close: Bezárás
-          description: Ez a projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölheti a már kiválasztott projektet, amelyet hozzá szeretne adni, vagy szavazataikat a kívánt beállításokkal.
-          ok: rendben
+          description: Ez a projekt meghaladja a költségvetés maximumát és nem adható hozzá. Ha szeretnéd, törölheted az egyszer már kiválasztott projektet, vagy kedved szerint szavazhatsz róluk.
+          ok: OK
           title: A maximális költségkeret meghaladta
         budget_summary:
           are_you_sure: Biztosan törölni szeretné szavazatát?
