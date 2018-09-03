@@ -9,20 +9,20 @@ fi:
         about: Noin
         email: Sähköpostiosoitteesi
         name: Nimesi
-        nickname: Lyhyt, ainutkertainen tunniste
+        nickname: Oma yksilöllinen käyttäjätunnuksesi
         password: Salasana
-        password_confirmation: Vahvista salasana
+        password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         user_group_document_number: Organisaation asiakirjanumero
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
     models:
-      decidim/attachment_created_event: liite
+      decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
       decidim/gamification/badge_earned_event: Ansiomerkki
-      decidim/gamification/level_up_event: Olet tasoittunut
-      decidim/profile_updated_event: profiili päivitetty
+      decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
+      decidim/profile_updated_event: Profiili päivitetty
   activerecord:
     attributes:
       decidim/user:
@@ -37,8 +37,8 @@ fi:
         user_group_phone: Organisaation puhelinnumero
     models:
       decidim/user:
-        one: käyttäjä
-        other: käyttäjät
+        one: Käyttäjä
+        other: Käyttäjä
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
@@ -55,7 +55,7 @@ fi:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Tiedostoa ei ole
+        file_no_exists: Tiedostoa ei ole olemassa
         invalid_token: Varattu token on virheellinen.
         no_token: Ei merkintää
         notice: Tietosi on parhaillaan käynnissä. Saat sähköpostiviestin, kun se on valmis.
