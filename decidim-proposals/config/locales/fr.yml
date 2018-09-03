@@ -5,8 +5,8 @@ fr:
         body: Corps
         category_id: Catégorie
         decidim_scope_id: Portée
-        has_address: A l'adresse
-        state: Etat
+        has_address: Renseigner une adresse
+        state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
       proposal:
