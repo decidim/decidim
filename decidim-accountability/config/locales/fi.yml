@@ -110,9 +110,9 @@ fi:
             success: Merkinnän päivitys onnistui
       admin_log:
         result:
-          create: "%{user_name} luotu tulos %{resource_name} vuonna %{space_name}"
-          delete: "%{user_name} poistanut %{resource_name} tuloksen %{space_name}"
-          update: "%{user_name} päivitetty tulos %{resource_name} vuonna %{space_name}"
+          create: "%{user_name} loi tuloksen %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti tuloksen %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} päivitti tuloksen %{resource_name} tilassa %{space_name}"
         value_types:
           parent_presenter:
             not_found: 'Vanhempaa ei löytynyt tietokannasta (ID: %{id})'
