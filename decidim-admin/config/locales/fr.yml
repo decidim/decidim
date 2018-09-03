@@ -303,7 +303,7 @@ fr:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
-        homepage: Homepage
+        homepage: Page d'accueil
         impersonations: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
@@ -499,8 +499,8 @@ fr:
           omnipresent_banner_appearance_title: Modifier la bannière permanente
       organization_homepage:
         edit:
-          active_content_blocks: Blocs de contenu actifs
-          inactive_content_blocks: Blocs de contenu inactifs
+          active_content_blocks: Blocs de contenu actif
+          inactive_content_blocks: Blocs de contenu inactif
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour

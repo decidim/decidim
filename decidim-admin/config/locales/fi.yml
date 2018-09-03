@@ -8,7 +8,7 @@ fi:
       area_type:
         name: Nimi
         organization: organisaatio
-        plural: monikko
+        plural: Monikko
       attachment:
         attachment_collection_id: Kansio
         description: Kuvaus
@@ -24,7 +24,7 @@ fi:
       component:
         name: Nimi
         published_at: Julkaistu osoitteessa
-        weight: Paino
+        weight: Painoarvo
       id: ID
       newsletter:
         body: Runko

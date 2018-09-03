@@ -5,25 +5,25 @@ fi:
         body: Leipäteksti
         category_id: Kategoria
         decidim_scope_id: Laajuus
-        has_address: Onko osoite
-        state: Osavaltio
+        has_address: On osoite
+        state: Tila
         title: Otsikko
-        user_group_id: Luo yhteistoiminnallinen luonnos nimellä
+        user_group_id: Luo yhteistyöluonnos nimellä
       proposal:
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        body: Runko
+        body: Leipäteksti
         category_id: Aihepiiri
         has_address: Ehdotuksella on osoite
-        scope_id: Konteksti
-        state: Osavaltio
+        scope_id: Teema
+        state: Tila
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
-        origin_component_id: Komponentti kopioida ehdotukset osoitteesta
+        origin_component_id: Osio josta ehdotukset kopioidaan
     errors:
       models:
         proposal:
@@ -71,7 +71,7 @@ fi:
           global:
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
-            can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
+            can_accumulate_supports_beyond_threshold: Voi kerätä tukea yli kynnysarvon
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit ovat käytössä
             geocoding_enabled: Geokoodaus on käytössä
@@ -101,32 +101,32 @@ fi:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} on hyväksytty osallistumaan <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet yhteistyökumppani <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} on hyväksytty päästä osalliseksi %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksynyt pääsyä myötävaikuttamassa</strong> ja <a href="%{resource_path}">%{resource_title}</a> yhteistyössä luonnos.
+          email_intro: '%{requester_name} on annettu käyttöoikeus yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a> osallistujana.'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet osallistuja yhteistyöluonnoksessa <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} on hyväksytty osallistujaksi kohtaan %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksytty osallistujaksi</strong> yheistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} on hylätty pääsyksesi <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet yhteistyökumppani <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Käyttäjän %{requester_name} osallistuminen kohteeseen <a href="%{resource_path}">%{resource_title} </a>on estetty.'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet osallistuja kohteessa <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hylätty, jotta hän voi osallistua %{resource_title} yhteistyöhankkeeseen."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hylätty pääsyksesi avustajaksi</strong> <a href="%{resource_path}">%{resource_title}</a> yhteisestä ehdotuksesta.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} pyysi pääsyä avustajaksi. Voit <strong>hyväksyä tai hylätä pyynnön</strong> alkaen <a href="%{resource_path}">%{resource_title}</a> yhteistyössä luonnos sivulle.'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet yhteistyökumppani <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} pyysi saada osallistua %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pyysi saada osallistua <a href="%{resource_path}">%{resource_title}</a> yhteistyöhankkeeseen. Pyydä <strong>hyväksymään tai hylkäämään pyynnön</strong>.
+          email_intro: '%{requester_name} pyysi pääsyä osallistujaksi. Voit <strong>hyväksyä tai hylätä pyynnön</strong> yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a> sivulta.'
+          email_outro: Olet vastanottanut tämän ilmoituksen, koska olet yhteistyökumppani kohteessa <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} pyysi osallistumisoikeutta kohteeseen %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pyysi saada osallistua yhteistyöluonnokseen<a href="%{resource_path}">%{resource_title}</a>. <strong>Hyväksy tai hylkää pyyntö</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Sinut on hyväksytty osallistumaan <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaksi.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet pyytänyt tulla yhteistyökumppaniksi <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Sinut on hyväksytty osallistujaksi %{resource_title}.
-          notification_title: Olette olleet <strong>hyväksyneet päästä myötävaikuttamassa</strong> ja <a href="%{resource_path}">%{resource_title}</a> yhteistyöhön luonnosta.
+          email_intro: Sinut on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Olet saanut tämän ilmoituksen, koska olet hakenut yhteistyökumppaniksi kohtaan <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sinut on hyväksytty osallistujaksi kohtaan %{resource_title}.
+          notification_title: Sinut on <strong>hyväksytty osallistujaksi </strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Sinut on hylätty pääsyksesi <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksen avustajaan.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet pyytänyt tulla yhteistyökumppaniksi <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Sinut on hylätty avustajanaan %{resource_title}.
-          notification_title: Sinut on hylätty <strong>jotta pääsisit osallistumaan</strong> <a href="%{resource_path}">%{resource_title}</a> -yhteistyöluonnoksesta.
+          email_intro: Sinua ei ole hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet pyytänyt pääsyä yhteistyökumppaniksi kohtaan <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sinua ei ole hyväksytty osallistujaksi kohtaan %{resource_title}.
+          notification_title: Sinua <strong>ei ole hyväksytty osallistujaksi</strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> peruttu <a href="%{resource_path}">%{resource_title}</a> yhteistyöhankkeesta.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on perunut yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet yhteistyökumppani kohteessa<a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} perunut yhteistyöluonnoksen %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>perunut</strong>yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
@@ -134,89 +134,89 @@ fi:
           email_intro: 'Voit nyt luoda uusia ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Ehdotukset nyt saatavilla tilassa %{participatory_space_title}
-          notification_title: Voit nyt esittää <a href="%{resource_path}">uutta ehdotusta</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Voit hyväksyä ehdotukset %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
+          email_intro: 'Voit tukea ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Ehdotusten kannattaminen on alkanut tilalle %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">hyväksyntäehdotukset</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten tukemisen</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisestä linkistä.
           email_subject: Seuraamasi ehdotus on hyväksytty
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksytty.
+          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistuta:"
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seurannut %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: "%{endorser_nickname} on hyväksynyt uuden ehdotuksen"
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksynyt <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+          email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistu:"
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet seuraat %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: "%{endorser_nickname} on tukenut uutta ehdotusta"
+          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on tukenut ehdotusta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
-          email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Seuraava ehdotus arvioidaan
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotusta arvioidaan.
+          email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tältä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Seuraamasi ehdotus on arvioitavana
+          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on arvioitavana.
         proposal_mentioned:
-          email_intro: Ehdotuksesi%{mentioned_proposal_title}on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
+          email_intro: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
           email_subject: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu
-          notification_title: Ehdotuksesi%{mentioned_proposal_title}on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
+          notification_title: Ehdotuksesi%{mentioned_proposal_title} on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, jonka olet seurannut, on julkaissut uuden ehdotuksen, tarkistamalla sen ja osallistumalla:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Uusi ehdotus %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaisi <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, jota seuraat, on julkaissut uuden ehdotuksen, tarkista se ja osallistu:"
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Uusi ehdotus tekijältä %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaistiin tekijän <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta.
         proposal_published_for_space:
-          email_intro: Ehdotus "%{resource_title}" on lisätty "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: 'Uusi ehdotus lisätty %{participatory_space_title}: ään'
-          notification_title: 'Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}: ään'
+          email_intro: Ehdotus "%{resource_title}" on lisätty tilaan "%{participatory_space_title}", jota seuraat.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Uusi ehdotus lisätty tilaan %{participatory_space_title}
+          notification_title: 'Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty tilaan %{participatory_space_title}: ään'
         proposal_rejected:
           email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Seuraava ehdotus on hylätty
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hylätty.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisen linkin kautta.
+          email_subject: Seuraamasi ehdotus on hylätty
+          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
         proposal_update_category:
           email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi luokkaan "%{resource_title}", tarkista se:'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet ehdotuksen tekijä.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet ehdotuksen tekijä.
           email_subject: Ehdotusluokka %{resource_title} on päivitetty
-          notification_title: Järjestelmänvalvoja on päivittänyt <a href="%{resource_path}">%{resource_title}</a> ehdotusluokan.
+          notification_title: Järjestelmänvalvoja on päivittänyt ehdotusluokan <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
-          email_intro: 'Voit äänestää ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_intro: 'Voit äänestää ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Äänestys ehdotuksista on alkanut %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">äänestyssuosituksen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten äänestämisen</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
-          description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksyttyä.
-          description_own: Sinulla on %{score} ehdotusta hyväksytty.
-          explanation: Käyttäjät saavat tämän tunnuksen hankkimalla ehdotuksensa.
+          description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
+          description_own: Sinulla sait %{score} ehdotusta hyväksyksi.
+          explanation: Käyttäjät saavat tämän tunnuksen saamalla ehdotuksensa hyväksytyksi.
           name: Hyväksytyt ehdotukset
-          next_level_in: Hanki vielä %{score} ehdotusta, jotka hyväksyttiin seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole saanut vielä hyväksyttyjä ehdotuksia.
+          next_level_in: Saa vielä %{score} ehdotusta hyväksytyksi noustaksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole saanut vielä ehdotuksia hyväksytyksi.
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
           description_another: Tämä käyttäjä on tukenut %{score} ehdotusta.
-          description_own: Olet antanut tukea %{score} ehdotukselle.
-          explanation: Käyttäjät saavat tämän tunnuksen tukemalla ehdotuksia.
-          name: Ehdotus tukee
-          next_level_in: Anna tukea vielä %{score} ehdotukselle seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole vielä antanut tukea mihinkään ehdotukseen.
-          unearned_own: Et ole vielä antanut tukea ehdotuksille.
+          description_own: Olet tukenut %{score} ehdotusta.
+          explanation: Käyttäjät saavat tämän merkin tukemalla ehdotuksia.
+          name: Ehdotustuki
+          next_level_in: Tue %{score} ehdotusta noustaksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä tukenyt yhtään ehdotusta.
+          unearned_own: Et ole vielä tukenut ehdotuksia.
         proposals:
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.
-          explanation: Käyttäjät saavat tämän tunnuksen luomalla ehdotuksia.
-          name: ehdotukset
-          next_level_in: Luo vielä %{score} ehdotusta seuraavalle tasolle!
+          explanation: Käyttäjät saavat tämän merkin luomalla ehdotuksia.
+          name: Ehdotukset
+          next_level_in: Luo %{score} ehdotusta noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä luonut ehdotuksia.
           unearned_own: Et ole vielä luonut ehdotuksia.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
-          proposals: ehdotukset
+          proposals: Ehdotukset
     participatory_spaces:
       highlighted_proposals:
-        proposals: ehdotukset
+        proposals: Ehdotukset
         see_all_proposals: Katso kaikki ehdotukset
     proposals:
       actions:
@@ -243,8 +243,8 @@ fi:
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
           create:
-            error: On tullut ongelma tämän ehdotusviestin luomisesta
-            success: Ehdotusviesti onnistuneesti luotu
+            error: Tämän ehdotusviestin luomisessa esiintyi ongelma
+            success: Ehdotusviesti luotu onnistuneesti
           form:
             note: Huomautus
             submit: Lähetä
@@ -261,29 +261,29 @@ fi:
             attachment_legend: "(Valinnainen) Lisää liite"
             select_a_category: Valitse aihepiiri
           index:
-            actions: Toimet
-            cancel: Peruuttaa
+            actions: Toiminnot
+            cancel: Peruuta
             change_category: Vaihda luokka
             selected: valittu
             title: Ehdotukset
-            update: Päivittää
+            update: Päivitä
           new:
             create: Luo
             title: Luo ehdotus
           update_category:
-            invalid: 'Näissä ehdotuksissa oli jo %{category} -luokka: %{proposals}.'
-            select_a_category: Valitse kategoria
+            invalid: 'Näissä ehdotuksissa oli jo luokka %{category}: %{proposals}.'
+            select_a_category: Valitse luokka
             select_a_proposal: Valitse ehdotus
-            success: 'Ehdotukset päivitettiin %{category} -luokkaan: %{proposals}.'
+            success: 'Ehdotukset päivitettiin onnistuneesti luokkaan %{category}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Ehdotuksia tuodaan ongelmana
-            success: "%{number} ehdotukset tuodaan onnistuneesti"
+            invalid: Ehdotuksien tuomisessa esiintyi ongelma
+            success: "%{number} ehdotusta tuotu onnistuneesti"
           new:
             create: Tuo ehdotuksia
-            no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
+            no_components: Tässä osallistutilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
-            select_states: Tarkista tuontiehdotusten tilat
+            select_states: Tarkista tuotavien ehdotusten tilat
         shared:
           info_proposal:
             body: Tekstin runko
@@ -292,10 +292,10 @@ fi:
             proposals: Ehdotukset
       admin_log:
         proposal:
-          answer: "%{user_name} vastasi %{resource_name} -ehdotusta %{space_name} -tilaan"
-          create: "%{user_name} loi %{resource_name} ehdotuksen %{space_name} tilaa viralliseksi ehdotukseksi"
+          answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi ehdotuksen %{resource_name} tilaan %{space_name} virallisena ehdotuksena"
         proposal_note:
-          create: "%{user_name} jätti yksityisen huomautuksen %{resource_name} ehdotuksesta %{space_name} -tilaan"
+          create: "%{user_name} jätti yksityisen viestin ehdotuksesta %{resource_name} tilaan %{space_name}"
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
@@ -307,120 +307,120 @@ fi:
           publish:
             error: Yhteistyöluonnoksen julkaisemisessa on tapahtunut virheitä.
             irreversible_action_modal:
-              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Ehdotus ei hyväksy uusia kirjoittajia tai maksuja.
-              cancel: Peruuttaa
+              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Ehdotus ei hyväksy uusia tekijöitä tai osallistumisia.
+              cancel: Peruuta
               ok: Julkaise ehdotuksena
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos julkaistiin onnistuneesti ehdotuksena.
-          view_collaborative_draft: Katso Yhteistyöluonnos
+          view_collaborative_draft: Katso yhteistyöluonnosta
           withdraw:
-            error: Yhteistyöluonnoksen sulkeminen on johtanut virheisiin.
+            error: Yhteistyöluonnoksen sulkemisessa on tapahtunut virheitä.
             irreversible_action_modal:
-              body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai maksuja.
-              cancel: Peruuttaa
-              ok: Vedä yhteinen luonnos
+              body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai osallistumisia.
+              cancel: Peruuta
+              ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos peruutettiin onnistuneesti.
         compare:
           mine_is_different: Yhteistyöehdotukseni on erilainen
-          no_similars_found: Hyvin tehty! Ei vastaavanlaisia ​​yhteistyöhankkeita
-          title: Vastaavat yhteistyöhankkeet
+          no_similars_found: Hyvin tehty! Vastaavanlaisia ​​yhteistyöluonnoksia ei löytynyt
+          title: Vastaavia yhteistyöluonnoksia
         complete:
           attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse kategoria
-          send: Lähettää
-          title: Suorita yhteistyöhankkeesi
+          select_a_category: Valitse aihepiiri
+          send: Lähetä
+          title: Viimeistele yhteistyöluonnoksesi
         count:
           drafts_count:
-            one: 1 yhteinen luonnos
-            other: "%{count} yhteistyöhanketta"
+            one: 1 yhteistyöluonnos
+            other: "%{count} yhteistyöluonnosta"
         create:
-          error: On tullut ongelma tämän yhteistyön tekemisen luonnoksista
-          success: Yhteistyöluonnos onnistuneesti luotu.
+          error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
+          success: Yhteistyöluonnos luotu onnistuneesti.
         edit:
           back: Takaisin
-          select_a_category: Valitse kategoria
-          send: Lähettää
-          title: Muokkaa yhteistä luonnosta
+          select_a_category: Valitse aihepiiri
+          send: Lähetä
+          title: Muokkaa yhteistyöluonnosta
         filters:
           all: Kaikki
-          category: Kategoria
-          category_prompt: Luokka-kysely
-          open: Avata
+          category: Aihepiiri
+          category_prompt: Aihepiiri-ilmoitus
+          open: Avaa
           published: Julkaistu
-          related_to: Liittyen
+          related_to: Liittyy
           search: Hae
-          state: Osavaltio
-          withdrawn: peruutettu
+          state: Tila
+          withdrawn: Peruttu
         filters_small_view:
-          close_modal: Sulje modeemi
-          filter: Suodattaa
-          filter_by: Suodata
-          unfold: avautua
+          close_modal: Sulje modaalinen
+          filter: Rajaa
+          filter_by: Rajaa hakua
+          unfold: Avaa
         new:
-          send: Jatkaa
-          title: Luo yhteistoiminnallinen luonnos
+          send: Jatka
+          title: Luo yhteistyöluonnoksesi
         new_collaborative_draft_button:
-          new_collaborative_draft: Uusi yhteistyöprofiili
+          new_collaborative_draft: Uusi yhteistyöluonnos
         orders:
-          label: 'Tilaa luonnokset:'
-          most_contributed: Eniten osallistui
-          random: satunnainen
-          recent: viimeaikainen
+          label: 'Järjestä luonnokset:'
+          most_contributed: Eniten osallistumisia
+          random: Satunnainen
+          recent: Viimeisimmät
         requests:
           accepted_request:
-            error: Yhteistyökumppania ei voi hyväksyä, yritä myöhemmin uudelleen.
+            error: Yhteistyökumppania ei voitu hyväksyä, yritä myöhemmin uudelleen.
             success: "@%{user} on hyväksytty yhteistyökumppaniksi onnistuneesti"
           access_requested:
             error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
             success: Yhteistyöpyyntösi on lähetetty onnistuneesti
           collaboration_requests:
-            accept_request: Hyväksyä
-            reject_request: Hylätä
+            accept_request: Hyväksy
+            reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
-            error: Ei voida hylätä yhteistyökumppanina, yritä myöhemmin uudelleen.
+            error: Ei voitu hylätä yhteistyökumppanina, yritä myöhemmin uudelleen.
             success: "@%{user} on hylätty yhteistyökumppanina onnistuneesti"
         show:
           back: Takaisin
-          edit: Muokkaa yhteistä luonnosta
+          edit: Muokkaa yhteistyöluonnosta
           final_proposal: lopullinen ehdotus
-          final_proposal_help_text: Tämä luonnos on valmis. Näet lopullisen lopullisen ehdotuksen
+          final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
           hidden_authors_count:
             one: ja vielä yksi henkilö
-            other: ja %{count} muuta ihmistä
-          info-message: Tämä on <strong>yhteistyössä luonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitään muokkaamaan ehdotusta alla olevan kommenttikohdan avulla tai parantamaan sitä suoraan pyytämällä käyttöoikeutta muokkaamaan sitä. Kun kirjoittajat antavat sinulle pääsyn, voit tehdä muutoksia tähän luonnokseen.
-          of_versions: "( %{number})"
-          publish: Julkaista
-          publish_info: Julkaise tämän luonnoksen versio tai
+            other: ja %{count} muuta henkilöä
+          info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitä muodostamaan ehdotuksen alla olevan kommenttikohdan avulla tai parantaa sitä suoraan pyytämällä käyttöoikeutta sen muokkaamiseksi. Kun tekijät antavat sinulle käyttöoikeuden, voit tehdä muutoksia tähän luonnokseen.
+          of_versions: "( %{number}:sta)"
+          publish: Julkaise
+          publish_info: Julkaise tämän luonnosversio tai
           published_proposal: julkaistu ehdotus
-          request_access: Pyydä pääsyä
-          requested_access: Pyydetty pääsy
+          request_access: Pyydä käyttöoikeutta
+          requested_access: Käyttöoikeutta pyydetty
           see_other_versions: katso muita versioita
           version: Versio %{number}
           version_history: katso tämän ehdotuksen versiohistoria
-          withdraw: peruuttaa luonnoksen
+          withdraw: peruuttaa luonnos
         states:
-          open: Avata
+          open: Avaa
           published: Julkaistu
-          withdrawn: peruutettu
+          withdrawn: Peruutettu
         update:
-          error: Yhteistyösuunnitelman tallentamisessa on tapahtunut virheitä.
+          error: Yhteistyöluonnoksen tallentamisessa on tapahtunut virheitä.
           success: Yhteistyöluonnos on päivitetty onnistuneesti.
         wizard_aside:
           back: Takaisin
-          info: Luot <strong>yhteistyöprofiilia</strong>.
+          info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
         wizard_steps:
           see_steps: katso vaiheet
-          step_1: Luo yhteistyöprofiili
-          step_2: Vertaa yhteistyöhankkeisiin
-          step_3: Suorita yhteistyöhankkeesi
-          step_of: Vaihe %{current_step_num} %{total_steps}
+          step_1: Luo yhteistyöluonnoksesi
+          step_2: Vertaa yhteistyöluonnoksiin
+          step_3: Tee yhteistyöluonnoksesi valmiiksi
+          step_of: Vaihe %{current_step_num} / %{total_steps}
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
-        success: Ehdotus luotiin onnistuneesti. Tallennetaan luonnoksena.
+        success: Ehdotus luotiin onnistuneesti. Tallennettu luonnoksena.
       destroy_draft:
-        error: Ehdotusluonnoksen poistaminen virheistä on poistettu.
+        error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.
       models:
         collaborative_draft:
@@ -432,11 +432,11 @@ fi:
           fields:
             category: Aihepiiri
             comments: Kommentit
-            endorsements: merkintöjen
+            endorsements: Suositukset
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
-            published_at: Julkaistu osoitteessa
+            published_at: Julkaistu
             scope: Konteksti
             state: Tila
             title: Otsikko
@@ -445,16 +445,16 @@ fi:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
       proposal_endorsements:
         create:
-          error: Ehdotuksen hyväksymisessä on ollut virheitä.
+          error: Ehdotuksen suosittelemisessa on esiintynyt virheitä.
         identities:
-          done: Tehty
+          done: Valmis
           select_identity: Valitse henkilöllisyys
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Myönteinen
-          endorse: hyväksyä
+          already_endorsed: Suositeltu
+          endorse: Suosittele
         render_endorsements_button_card_part:
-          endorse: hyväksyä
+          endorse: Suosittele
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
@@ -464,8 +464,8 @@ fi:
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:
-          send: Lähettää
-          title: Suorita ehdotuksesi
+          send: Lähetä
+          title: Viimeistele ehdotuksesi
         count:
           proposals_count:
             one: 1 ehdotus
@@ -479,10 +479,10 @@ fi:
         edit_draft:
           discard: Hylkää tämä luonnos
           discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
-          send: esikatselu
-          title: Muokkaa ehdotusluonnos
+          send: Esikatselu
+          title: Muokkaa ehdotusluonnosta
         endorsement_identities_cabin:
-          endorse: hyväksyä
+          endorse: Suosittele
         endorsements_card_row:
           comments: Kommentit
         filters:
@@ -493,7 +493,7 @@ fi:
           category_prompt: Valitse aihepiiri
           citizens: Kansalaiset
           evaluating: Arvioitavana
-          except_rejected: Kaikki paitsi hylätty
+          except_rejected: Kaikki paitsi hylätyt
           official: Virallinen
           origin: Alkuperä
           rejected: Hylätty
@@ -507,7 +507,7 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         index:
-          collaborative_drafts_list: Yhteistyöluonnokset
+          collaborative_drafts_list: Mene yhteistyöluonnoksiin
           new_proposal: Uusi ehdotus
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
           view_proposal: Näytä ehdotus
@@ -516,7 +516,7 @@ fi:
             one: ääni
             other: ääntä
         new:
-          send: Jatkaa
+          send: Jatka
           title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
@@ -526,9 +526,9 @@ fi:
         preview:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
-            one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
-            other: 'Voit muokata tätä ehdotusta ensimmäisen %{count}: n aikana minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.'
-          publish: Julkaista
+            one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
+            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutien aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
+          publish: Julkaise
           title: Julkaise ehdotuksesi
         proposal:
           creation_date: 'Luontiaika: %{date}'
@@ -538,22 +538,22 @@ fi:
           endorsements_list: Luettelo hyväksynnästä
           hidden_endorsers_count:
             one: ja vielä yksi henkilö
-            other: ja %{count} muuta ihmistä
-          link_to_collaborative_draft_help_text: Tämä ehdotus on tulosta yhteistyöhankkeesta. Tarkastele historiaa
-          link_to_collaborative_draft_text: Katso yhteistyöhanketta
+            other: ja %{count} muuta henkilöä
+          link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
+          link_to_collaborative_draft_text: Katso yhteistyöluonnosta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           report: Ilmoita
           sign_in: Kirjaudu sisään
-          sign_in_or_up: "%{in} tai %{up} osallistumiseen"
-          sign_up: Kirjaudu
-          withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi, kunhan et ole saanut tukea. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
+          sign_in_or_up: "%{in} tai %{up} osallistuaksesi"
+          sign_up: rekisteröidy
+          withdraw_btn_hint: Voit perua ehdotuksesi, jos muutat mieltäsi, jos et ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
         tags:
-          changed_from: "(muutettu ylläpitäjältä <u>%{previous_category}</u>)"
-          filed_as: Filed as
+          changed_from: "(muutettu ryhmästä <u>%{previous_category}</u> ylläpitäjä toimesta)"
+          filed_as: Merkitty
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
@@ -566,14 +566,14 @@ fi:
             one: ÄÄNI
             other: ÄÄNTÄ
           most_popular_proposal: Suosituin ehdotus
-          need_more_votes: Tarvitset enemmän ääniä
+          need_more_votes: Tarvitsee enemmän ääniä
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Jokainen ehdotus voi kerätä yli %{limit} tukee
+            description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:
-            description: Jotta ehdotukset hyväksytään, niiden on saavutettava %{limit} tukee
+            description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} kannatusta
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
@@ -581,14 +581,14 @@ fi:
             votes: Ääntä
         wizard_aside:
           back: Takaisin
-          info: Luo <strong>ehdotuksen</strong>.
+          info: Olet luomassa <strong>ehdotusta</strong>.
         wizard_steps:
           see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
-          step_2: Vertailla
-          step_3: Saattaa loppuun
+          step_2: Vertaile
+          step_3: Valmis
           step_4: Julkaise ehdotuksesi
-          step_of: Vaihe %{current_step_num} %{total_steps}
+          step_of: Vaihe %{current_step_num} / %{total_steps}
       publish:
         error: Ehdotuksen julkaisemisessa on tapahtunut virheitä.
         success: Ehdotus julkaistiin onnistuneesti.
@@ -596,20 +596,20 @@ fi:
         error: Ehdotuksen tallentamisessa tapahtui virheitä.
         success: Ehdotus on päivitetty onnistuneesti.
       update_draft:
-        error: Ehdotushuutos tallennettaessa on ollut virheitä.
-        success: Ehdotusluonnos on päivitetty onnistuneesti.
+        error: Ehdotusluonnoksen tallentamisessa tapahtui virheitä.
+        success: Ehdotusluonnos päivitetty onnistuneesti.
       versions:
-        changes_at_title: Muutokset "%{title}"
+        changes_at_title: Muutokset kohdassa "%{title}"
         index:
-          title: versiot
+          title: Versiot
         stats:
-          back_to_collaborative_draft: Palatkaa yhteistyöhankkeeseen
+          back_to_collaborative_draft: Palaa yhteistyöluonnokseen
           number_of_versions: versiot
           show_all_versions: Näytä kaikki versiot
-          version_author: Versio kirjoittaja
-          version_created_at: Versio luotu osoitteessa
-          version_number: Versiomäärä
-          version_number_out_of_total: "%{current_version} out of %{total_count}"
+          version_author: Version tekijä
+          version_created_at: Versio luotu
+          version_number: Versionumero
+          version_number_out_of_total: "%{current_version} osuus %{total_count}:sta"
         version:
           version_index: Versio %{index}
     resource_links:

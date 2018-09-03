@@ -28,12 +28,12 @@ sv:
         name: debatter
         settings:
           global:
-            announcement: Meddelande
+            announcement: Notis
             comments_enabled: Kommentarer aktiverade
           step:
-            announcement: Meddelande
+            announcement: Notis
             comments_blocked: Kommentarer blockerade
-            creation_enabled: Debatt skapande av användare aktiverat
+            creation_enabled: Skapande av debatter av användare aktiverat
     debates:
       actions:
         confirm_destroy: Är du säker?
