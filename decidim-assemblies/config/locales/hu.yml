@@ -106,75 +106,75 @@ hu:
       assembly_copies:
         new:
           copy: Másolás
-          select: Válassza ki, mely adatokat szeretné megismételni
-          title: Duplikált összeszerelés
+          select: Válaszd ki, mely adatokat szeretnéd duplikálni
+          title: Gyűlés duplikálása
       assembly_members:
         create:
-          error: Hiba történt a rendszer tagjainak hozzáadása céljából.
-          success: A tag sikeresen létrehozta ezt a gyülekezetet.
+          error: Hiba történt a tag gyűléshez való hozzáadása során.
+          success: A tag létrehozása a gyűléshez sikeres volt.
         destroy:
-          success: A tag sikeresen törölve lett a rendszerhez.
+          success: A tag eltávolítása a gyűlésből sikeres volt.
         edit:
-          title: Az összeszerelő elem frissítése.
-          update: frissítés
+          title: Gyűlés tagjának frissítése.
+          update: Frissítés
         index:
-          assembly_members_title: A közgyűlés tagjai
+          assembly_members_title: Gyűlés tagjai
         new:
-          create: Teremt
-          title: Új szerelőtag.
+          create: Létrehozás
+          title: Új gyűlés tag.
         update:
-          error: Hiba történt a rendszer tagjainak frissítéséhez.
-          success: Tag sikeresen frissült a gyülekezet számára.
+          error: Hiba történt a gyűlés tagjának frissítése során.
+          success: Gyűlés tagjának frissítése sikeres.
       assembly_publications:
         create:
-          error: Hiba történt a közgyűlés közzétételében.
-          success: A közgyűlés sikeresen közzétett.
+          error: Hiba történt a gyűlés publikációja során.
+          success: Gyűlés publikációja sikeres.
         destroy:
-          error: Hiba történt az összeállítás közzétételének visszavonása nélkül.
-          success: A közgyűlés sikeresen közzétett.
+          error: Hiba történt a gyűlés publikációjának visszavonásakor.
+          success: Gyűlés publikációjának visszavonása sikeres.
       assembly_user_roles:
         create:
-          error: Hiba történt a rendszer felhasználói számára.
-          success: A felhasználó sikeresen felkerült a telepre.
+          error: Hiba történt a felhasználó gyűléshez való hozzáadása során.
+          success: Felhasználó hozzáadása a gyűléshez sikeres.
         destroy:
-          success: A felhasználó sikeresen eltávolításra került a rendszerből.
+          success: Felhasználó eltávolítása a gyűlésből sikeres.
         edit:
-          title: Az összeszerelő felhasználó frissítése.
-          update: frissítés
+          title: Gyűlés felhasználójának frissítése.
+          update: Frissítés
         index:
-          assembly_admins_title: Összeszerelés felhasználók
+          assembly_admins_title: Gyűlés felhasználói
         new:
-          create: Teremt
-          title: Új összeszerelő felhasználó.
+          create: Létrehozás
+          title: Új gyűlés felhasználó.
         update:
-          error: Hiba történt a rendszer frissítéséhez.
-          success: A felhasználó sikeresen frissült az összeszerelésre.
+          error: Hiba történt a gyűlés felhasználójának frissítése során.
+          success: Gyűlés felhasználójának frissítése sikeres.
       menu:
-        assemblies: szerelvények
+        assemblies: Gyűlések
         assemblies_submenu:
-          assembly_admins: Összeszerelés felhasználók
-          assembly_members: Belépés
-          attachment_collections: mappák
-          attachment_files: Files
+          assembly_admins: Gyűlés felhasználói
+          assembly_members: Tagok
+          attachment_collections: Mappák
+          attachment_files: Fájlok
           attachments: Mellékletek
           categories: Kategóriák
-          components: Alkatrészek
+          components: Elemek
           info: Info
-          moderations: moderálások
-          private_users: Magán felhasználók
+          moderations: Moderálás
+          private_users: Privát felhasználók
       models:
         assembly:
           fields:
             created_at: 'Létrehozva:'
-            private: Magán
-            promoted: Legfontosabb
-            published: Közzétett
+            private: Privát
+            promoted: Kiemelt
+            published: Publikált
             title: Cím
-          name: gyülekezés
+          name: Gyűlés
         assembly_member:
           fields:
-            ceased_date: Megszűnt dátum
-            designation_date: A kijelölés dátuma
+            ceased_date: Megszűnés dátuma
+            designation_date: Kijelölés dátuma
             full_name: Név
             position: Pozíció
           name: Tag
