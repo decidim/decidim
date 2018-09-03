@@ -57,7 +57,7 @@ module Decidim
         when "withdrawn"
           query.withdrawn
         when "except_rejected"
-          query.except_rejected
+          query.except_rejected.except_withdrawn
         else # Assume 'not_withdrawn'
           query.except_withdrawn
         end
