@@ -81,18 +81,18 @@ fi:
             title: Sortitions
           new:
             confirm: Painamalla seuraavalla painikkeella Decidim tallentaa päivämäärän ja kellonajan (sekuntien tarkkuudella) ja yhdessä noputusvalssin kanssa näitä tietoja käytetään satunnaisvalinnan luomiseen. Toimenpide on peruuttamaton, kun painike napsautetaan tuloksen tulosta julkaistaan ​​yhdessä tämän lomakkeen tietojen kanssa eikä sitä voi muuttaa, tarkista sisältö huolellisesti.
-            create: Luoda
-            title: Uusi lajittelu
+            create: Luo
+            title: Uusi satunnaisvalinta
           show:
-            selected_proposals: Piirtämiseen valitut ehdotukset
+            selected_proposals: Valintaan valitut ehdotukset
           update:
-            error: Virhe tapahtuman päivittämisessä.
-            success: Lajittelu onnistui
+            error: Satunnaisvalinnan päivittämisessä tapahtui virhe.
+            success: Satunnaisvalinta onnistuneesti päivitetty
       admin_log:
         sortition:
-          create: "%{user_name} loi %{resource_name} lajittelun %{space_name}"
-          delete: "%{user_name} peruutti %{resource_name} lajittelun %{space_name}: ssä"
-          update: "%{user_name} päivitti %{resource_name} lajittelun %{space_name}"
+          create: "%{user_name} loi satunnaisvalinnan %{resource_name} kohtaan %{space_name}"
+          delete: "%{user_name} peruutti satunnaisvalinnan %{resource_name} kohdassa %{space_name}"
+          update: "%{user_name} päivitti satunnaisvalinnan %{resource_name} kohdassa %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -122,12 +122,12 @@ fi:
             one: valittu ehdotus
             other: valitut ehdotukset
         show:
-          algorithm: Sortitionin algoritmikoodi
-          any_category: kaikista luokista
-          cancelled: Peruttu lajittelu
-          candidate_proposal_ids: Lajitteluehdotus ja tunnukset
-          candidate_proposals_info: 'Selvitys tehtiin seuraavien ehdotusten (%{category_label}) alla, ja seuraavat tunnukset (lihavoituna valitut ehdotukset)  '
-          category: '%{category} -luokasta'
+          algorithm: Satunnaisvalinnan algoritmikoodi
+          any_category: kaikista aihepiireistä
+          cancelled: Peruttu satunnaisvalinta
+          candidate_proposal_ids: Satunnaisvalintaehdotusten järjestys ja tunnukset
+          candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (lihavoituna valitut ehdotukset)  '
+          category: aihepiiristä %{category}
           dice_result: "(1) Noppatulos"
           introduction: 'Tämä sivu sisältää satunnaisvalinnan tulokset %{reference}. Tämän satunnaisvalinnan avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtäläisellä todennäköisyysjakaumalla alla esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten toisintamiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppan heitto (todistajien todistama) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-jako on niin tarkka (sekuntia), että ihmisten on mahdotonta hallita sitä, jolloin saadaan kaksinkertainen "hallitsematon" syöte oikeudenmukaisen tuloksen takaamiseksi.  '
           mathematical_result: Tulos (1) x (2)
