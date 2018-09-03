@@ -4,56 +4,56 @@ hu:
       project:
         budget: Költségvetés
         decidim_category_id: Kategória
-        decidim_scope_id: terület
+        decidim_scope_id: Hatáskör
         description: Leírás
         proposal_ids: Kapcsolódó javaslatok
         title: Cím
   activerecord:
     models:
       decidim/budgets/project:
-        one: program
-        other: projektek
+        one: Projekt
+        other: Projektek
   decidim:
     budgets:
       actions:
-        attachment_collections: mappák
+        attachment_collections: Mappák
         attachments: Mellékletek
-        confirm_destroy: Biztosan törölni szeretné ezt a projektet?
-        destroy: Töröl
-        edit: szerkesztése
-        import: Import projektekre vonatkozó javaslatok
+        confirm_destroy: Biztosan törölni szeretnéd ezt a projektet?
+        destroy: Törlés
+        edit: Szerkesztés
+        import: Javaslatok importálása projektekhez
         new: Új projekt
         preview: Előnézet
-        title: Hozzászólások
+        title: Műveletek
       admin:
         models:
           project:
-            name: program
+            name: Projekt
         projects:
           create:
-            invalid: Probléma történt a projekt létrehozásában
-            success: A projekt sikeresen létrejött
+            invalid: Probléma történt a projekt létrehozása során
+            success: Projekt létrehozása sikeres
           destroy:
-            success: A projekt sikeresen törölve
+            success: Projekt törlése sikeres
           edit:
             title: Projekt szerkesztése
-            update: frissítés
+            update: Frissítés
           index:
-            finished_orders: Kész szavazások
-            pending_orders: Függőben lévő szavazatok
-            title: projektek
+            finished_orders: Befejezett szavazások
+            pending_orders: Függőben lévő szavazások
+            title: Projektek
           new:
-            create: Teremt
+            create: Létrehozás
             title: Új projekt
           update:
-            invalid: Probléma történt a projekt frissítésével
-            success: A projekt sikeresen frissült
+            invalid: Probléma történt a projekt frissítése során
+            success: Projekt frissítése sikeres
         proposals_imports:
           create:
-            invalid: Probléma merült fel a javaslatok projektekben történő importálásában
-            success: "%{number} pályázat sikeresen behozott projektekbe"
+            invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor
+            success: "%{number} javaslat sikeresen importálva a projektekbe"
           new:
-            create: Import projektekre vonatkozó javaslatok
+            create: Javaslatok importálása projektekbe
             no_components: Ebben a részvételi térben nincs más javaslatösszetevő a jelentések projektbe történő importálásához.
             select_component: Kérjük, válasszon egy összetevőt
       admin_log:
@@ -147,7 +147,7 @@ hu:
         success: Az Ön szavazata sikeresen megszűnt
     resource_links:
       included_proposals:
-        project_proposal: 'A projektben szereplő javaslatok:'
+        project_proposal: 'A projekthez kapcsolódó javaslatok:'
   index:
     confirmed_orders_count: A szavazatok száma
   total_budget: Teljes költségvetés
