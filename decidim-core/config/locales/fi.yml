@@ -84,11 +84,11 @@ fi:
         update: "%{user_name} päivitti %{resource_name} -alueen"
       component:
         create: "%{user_name} lisäsi %{resource_name} -komponentin %{space_name} -tilaan"
-        delete: "%{user_name} poistanut %{resource_name} -komponentin %{space_name} -tilasta"
+        delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
-        unpublish: "%{user_name} julkaisematon %{resource_name} -komponentti %{space_name} -tilasta"
+        unpublish: "%{user_name} lopetti %{resource_name} -komponentin julkaisemisen %{space_name} -tilassa"
       moderation:
-        hide: "%{user_name} kätki tyypin %{resource_type} resurssin %{space_name} -tilaan"
+        hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin %{space_name} -tilaan"
         unreport: "%{user_name} ilmoitti tyypin %{resource_type} resurssin %{space_name} tilassa"
       newsletter:
         create: "%{user_name} luonut %{resource_name} tiedote"
@@ -125,7 +125,7 @@ fi:
       collection:
         documents:
           one: Asiakirja
-          other: asiakirjat
+          other: Asiakirjat
       documents:
         related_documents: Liittyvät dokumentit
       photos:
