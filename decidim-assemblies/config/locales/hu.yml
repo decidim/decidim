@@ -37,7 +37,7 @@ hu:
         participatory_structure: Hogyan döntenek
         private_space: Privát tér
         promoted: Promotált
-        published_at: Publikálva
+        published_at: Közzétéve
         purpose_of_action: A fellépés célja
         scope_id: Hatáskör
         scopes_enabled: Hatáskörök engedélyezve
@@ -89,10 +89,10 @@ hu:
         form:
           title: Általános információ
         index:
-          not_published: Nem publikált
+          not_published: Nincs közzétéve
           private: Privát
           public: Nyilvános
-          published: Publikált
+          published: Közzétéve
         new:
           create: Létrehozás
           title: Új gyűlés
@@ -127,11 +127,11 @@ hu:
           success: Gyűlés tagjának frissítése sikeres.
       assembly_publications:
         create:
-          error: Hiba történt a gyűlés publikációja során.
-          success: Gyűlés publikációja sikeres.
+          error: Hiba történt a gyűlés közzététele során.
+          success: Gyűlés közzététele sikeres.
         destroy:
-          error: Hiba történt a gyűlés publikációjának visszavonásakor.
-          success: Gyűlés publikációjának visszavonása sikeres.
+          error: Hiba történt a gyűlés közzétételének visszavonásakor.
+          success: Gyűlés közzétételének visszavonása sikeres.
       assembly_user_roles:
         create:
           error: Hiba történt a felhasználó gyűléshez való hozzáadása során.
@@ -168,7 +168,7 @@ hu:
             created_at: 'Létrehozva:'
             private: Privát
             promoted: Kiemelt
-            published: Publikált
+            published: Közzétéve
             title: Cím
           name: Gyűlés
         assembly_member:
@@ -188,36 +188,36 @@ hu:
             email: Email
             name: Név
             role: Szerep
-          name: Összeszerelési felhasználó
+          name: Gyűlés felhasználói
           roles:
             admin: Adminisztrátor
-            collaborator: Együttműködő
-            moderator: moderátor
+            collaborator: Közreműködő
+            moderator: Moderátor
       titles:
-        assemblies: szerelvények
+        assemblies: Gyűlések
     admin_log:
       assembly:
-        create: "%{user_name} létrehozta az %{resource_name} szerelvényt"
-        publish: "%{user_name} közzétette az %{resource_name} szerelvényt"
-        unpublish: "%{user_name} nem publikált az %{resource_name} szerelvény"
-        update: "%{user_name} frissítette az %{resource_name} szerelvényt"
+        create: "%{user_name} létrehozta a(z) %{resource_name} gyűlést"
+        publish: "%{user_name} közzétette a(z) %{resource_name} gyűlést"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés közzétételét"
+        update: "%{user_name} frissítette a(z) %{resource_name} gyűlést"
       assembly_member:
-        create: "%{user_name} létrehozta az %{resource_name} tagot a %{space_name} összeállításban"
-        delete: "%{user_name} eltávolította az %{resource_name} tagot a %{space_name} szerelvényből"
-        update: "%{user_name} frissítette az %{resource_name} tagot a %{space_name} szerelvényben"
+        create: "%{user_name} létrehozta a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
+        delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésből"
+        update: "%{user_name} frissítette a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
       assembly_user_role:
-        create: "%{user_name} meghívott %{resource_name} a %{space_name} szerelvényre"
-        delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} szerelvényből"
-        update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} szerelvényben"
+        create: "%{user_name} meghívta a(z) %{resource_name} nevű tagot ide: %{space_name}"
+        delete: "%{user_name} eltávolította a(z) %{resource_name} nevű felhasználót innen: %{space_name}"
+        update: "%{user_name} megváltoztatta a(z) %{resource_name} nevű felhasználó szerepét itt: %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Ha a telepítés időtartama korlátozott, válassza ki a befejezés dátumát. Ellenkező esetben ez határozatlan marad.
-            included_at_help: Válassza ki azt a dátumot, amikor a telepítést hozzáadta a Decidimhez. Nem feltétlenül meg kell egyeznie a létrehozás időpontjával.
-            select_a_created_by: Válasszon ki egy létrehozott
-            select_an_area: Válasszon ki egy területet
-            select_an_assembly_type: Válasszon ki egy összeszerelési típust
+            duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
+            included_at_help: Válaszd ki a dátumot, amikor a gyűlést hozzáadtad a Decidimhez. Nem feltétlenül kell megegyeznie a létrehozás időpontjával.
+            select_a_created_by: Válassz alapítót
+            select_an_area: Válassz területet
+            select_an_assembly_type: Válassz gyűlés típust
             select_parent_assembly: Szülői összeállítás kiválasztása
             slug_help: 'Az URL-csigákat használják az ezen összeszerelésre utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
             social_handlers: Társadalmi
