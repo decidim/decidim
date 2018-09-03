@@ -15,11 +15,11 @@ fi:
     models:
       decidim/sortitions/sortition:
         one: Satunnaistaminen
-        other: Sortitions
+        other: Satunnaistamiset
   decidim:
     components:
       sortitions:
-        name: Satunnaistaminen
+        name: Satunnaistamiset
         settings:
           global:
             comments_enabled: Kommentointi sallittu
@@ -50,12 +50,12 @@ fi:
               category: Kategoria
               created_at: Luomispäivä
               decidim_proposals_component: Ehdotusten osa
-              dice: noppa
+              dice: Noppa
               reference: Viite
               request_timestamp: Vedä aikaa
-              seed: siemen
-              target_items: Valitse kohteet
-              title: otsikko
+              seed: Jako
+              target_items: Valittavat kohteet
+              title: Otsikko
             name:
               one: Sortition
               other: Sortitions
