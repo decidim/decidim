@@ -28,8 +28,8 @@ fi:
         sortition_created:
           email_intro: Satunnaisvalinta "%{resource_title}" on lisätty tilaan "%{participatory_space_title}" jota sinä seuraat.
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
-          email_subject: 'Uusi lajittelu lisättiin %{participatory_space_title}: ään'
-          notification_title: 'Versio <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}: ään'
+          email_subject: Uusi satunnaistaminen lisättiin kohtaan %{participatory_space_title}
+          notification_title: Satunnaistaminen <a href="%{resource_path}">%{resource_title}</a> on lisätty kohtaan %{participatory_space_title}
     pages:
       home:
         statistics:
@@ -47,23 +47,23 @@ fi:
         models:
           sortition:
             fields:
-              category: Kategoria
+              category: Aihepiiri
               created_at: Luomispäivä
               decidim_proposals_component: Ehdotusten osa
               dice: Noppa
               reference: Viite
-              request_timestamp: Vedä aikaa
+              request_timestamp: Satunnaistamisen aika
               seed: Jako
               target_items: Valittavat kohteet
               title: Otsikko
             name:
-              one: Sortition
-              other: Sortitions
+              one: Satunnaistaminen
+              other: Satunnaistamiset
         sortitions:
           confirm_destroy:
-            confirm_destroy: Haluatko varmasti peruuttaa tämän lajittelun?
-            destroy: Peruuta lajittelu
-            title: Peruutuksen peruuttaminen
+            confirm_destroy: Haluatko varmasti peruuttaa tämän satunnaistamisen?
+            destroy: Peruuta satunnaistaminen
+            title: Satunnaistamisen peruuttaminen
           create:
             error: Virhe aiheutti uuden lajittelun.
             success: Lajittelu onnistui
@@ -72,7 +72,7 @@ fi:
             success: Lajittelu onnistuneesti peruutettu
           edit:
             title: Päivitä järjestelyn tiedot
-            update: Päivittää
+            update: Päivitä
           form:
             all_categories: Kaikki kategoriat
             select_proposal_component: Valitse asetetut ehdotukset
@@ -110,7 +110,7 @@ fi:
           close_modal: Sulje modeemi
           filter: Rajaa
           filter_by: Rajaa hakua
-          unfold: avautua
+          unfold: Avaa
         linked_sortitions:
           selected_proposals: Valitut ehdotukset
         orders:
