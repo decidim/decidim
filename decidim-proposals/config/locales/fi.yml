@@ -12,10 +12,10 @@ fi:
       proposal:
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        body: Runko
+        body: Leipäteksti
         category_id: Aihepiiri
         has_address: Ehdotuksella on osoite
-        scope_id: Konteksti
+        scope_id: Teema
         state: Tila
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
