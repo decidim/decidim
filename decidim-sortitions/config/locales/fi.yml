@@ -128,15 +128,15 @@ fi:
           candidate_proposal_ids: Lajitteluehdotus ja tunnukset
           candidate_proposals_info: 'Selvitys tehtiin seuraavien ehdotusten (%{category_label}) alla, ja seuraavat tunnukset (lihavoituna valitut ehdotukset)  '
           category: '%{category} -luokasta'
-          dice_result: "(1) Nopatulos"
+          dice_result: "(1) Noppatulos"
           introduction: 'Tämä sivu sisältää järjestelyn tulokset %{reference}. Tämän järjestelyn avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtä todennäköinen jakauma nähtynä esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten kopioimiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppa (todistajat todistavat) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-siemenet ovat niin tarkkoja (sekuntia), että ihmisten on mahdotonta hallita, jolloin saadaan kaksinkertainen "hallitsematon" panos taatakseen oikeudenmukaisen tuloksen.  '
           mathematical_result: Tulos (1) x (2)
-          proposals_selected_by_sortition: Ehdotukset, jotka on valittu lajittelusta
-          sortition_reproducibility_details: Lajittelun uusittavuustiedot
-          time_seed: "(2) Aikasementti"
+          proposals_selected_by_sortition: Ehdotukset, jotka on valittu satunnaisvalinnassa
+          sortition_reproducibility_details: Satunnaisvalinnan toisinnettavuustiedot
+          time_seed: "(2) Aikajako"
           witnesses: Todistajat
         sortition:
-          random_seed: Satunnainen siemen
+          random_seed: Satunnainen jako
           selected_proposals:
             one: ehdotus valittu
             other: '%{count} ehdotusta valittu'
@@ -147,5 +147,5 @@ fi:
           deleted: Poistettu käyttäjä
         sortitions_count:
           count:
-            one: 1 lajittelu
-            other: "%{count} lajittelut"
+            one: 1 satunnaisvalinta
+            other: "%{count} satunnaisvalintaa"
