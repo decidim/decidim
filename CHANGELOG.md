@@ -27,6 +27,10 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 - **decidim-core**: Add shinier signature. [#186](https://github.com/OpenSourcePolitics/decidim/pull/186)
 
+**Backported**:
+
+- **decidim-core**: Allows users with admin access to preview unpublished components [\#209](https://github.com/OpenSourcePolitics/decidim/pull/209)
+
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
 
 **Upgrade notes**:
