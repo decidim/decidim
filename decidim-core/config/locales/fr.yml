@@ -21,7 +21,7 @@ fr:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
       decidim/gamification/badge_earned_event: Badge gagné
-      decidim/gamification/level_up_event: Vous avez nivelé
+      decidim/gamification/level_up_event: Vous avez progressé d'un niveau
       decidim/profile_updated_event: Profil mis à jour
   activerecord:
     attributes:
@@ -213,7 +213,7 @@ fr:
       hero:
         name: Image de héros
       highlighted_content_banner:
-        name: Bannière de contenu mise en évidence
+        name: Bannière de contenu mis en valeur
       how_to_participate:
         name: Comment participer
       stats:
@@ -320,9 +320,9 @@ fr:
         email_subject: Mise à jour de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Bon travail! Vous avez gagné le badge <a href="%{resource_path}">%{badge_name}</a> (niveau %{current_level}).
+          email_intro: Bravo ! Vous avez gagné le badge <a href="%{resource_url}">%{badge_name}</a> (niveau %{current_level}).
           email_outro: Vous avez reçu cette notification car vous avez effectué des activités sur notre site Web.
-          email_subject: 'Vous avez gagné un nouveau badge: %{badge_name}!'
+          email_subject: 'Vous avez gagné un nouveau badge : %{badge_name}!'
           notification_title: Bon travail! Vous avez gagné le badge <a href="%{resource_path}">%{badge_name}</a> (niveau %{current_level}).
         level_up:
           email_intro: Bon travail! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_path}">%{badge_name}</a>!
