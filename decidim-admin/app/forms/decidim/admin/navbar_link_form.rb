@@ -13,9 +13,14 @@ module Decidim
       attribute :target, String
 
       validates :link, format: { with: URI.regexp(%w(http https)) }, presence: true
-      validates :title, translatable_presence: true, presence: true
-      validates :weight, presence: true
-      validates :organization_id, :link, presence: true
+      validates :title, translatable_presence: true
+      validates :weight, :organization_id, presence: true
+
+      def link_error
+        return if link.nil?
+
+        errors.add(:link, "LINK ERROR")
+      end
     end
   end
 end
