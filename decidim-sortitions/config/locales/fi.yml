@@ -3,7 +3,7 @@ fi:
     attributes:
       sortition:
         additional_info: Satunnaistamistiedot
-        decidim_category_id: Ehdotettujen ehdotusten luokat, joihin haluat tehdä vedon
+        decidim_category_id: Ehdotettujen ehdotusten luokat, joissa haluat tehdä satunnaisvalinnan
         decidim_proposals_component_id: Ehdotukset asetettu
         dice: Noppaheiton tulos. Heitä kuusisivuista noppaa tai etsi toinen tapa luoda satunnaisesti numero 1-6, ja kirjoita tähän tuloksena saatu luku muutamien todistajien edessä. Tämä auttaa takamaan tuloksen satunnaisuuden
         target_items: Valittavien ehdotusten määrä (ilmoittaa niiden ehdotusten lukumäärän, jotka haluat valita arpomalla kustakin aiemmin valitsemastasi ehdotusryhmästä)
@@ -26,24 +26,24 @@ fi:
     events:
       sortitions:
         sortition_created:
-          email_intro: Seuraavaksi on lisätty "%{resource_title}" kokoonpano "%{participatory_space_title}".
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_intro: Satunnaisvalinta "%{resource_title}" on lisätty tilaan "%{participatory_space_title}" jota sinä seuraat.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: 'Uusi lajittelu lisättiin %{participatory_space_title}: ään'
           notification_title: 'Versio <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}: ään'
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Satunnaistamiset
     participatory_processes:
       statistics:
         sortitions_count: Sortitions
     sortitions:
       admin:
         actions:
-          destroy: Peruuta järjestely
-          edit: Muokata
-          new: Uusi lajittelu
-          show: Järjestelytiedot
+          destroy: Peruuta satunnaistaminen
+          edit: Muokkaa
+          new: Uusi satunnaistaminen
+          show: Satunnaistamisen yksityiskohdat
         models:
           sortition:
             fields:
@@ -129,7 +129,7 @@ fi:
           candidate_proposals_info: 'Selvitys tehtiin seuraavien ehdotusten (%{category_label}) alla, ja seuraavat tunnukset (lihavoituna valitut ehdotukset)  '
           category: '%{category} -luokasta'
           dice_result: "(1) Noppatulos"
-          introduction: 'Tämä sivu sisältää järjestelyn tulokset %{reference}. Tämän järjestelyn avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtä todennäköinen jakauma nähtynä esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten kopioimiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppa (todistajat todistavat) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-siemenet ovat niin tarkkoja (sekuntia), että ihmisten on mahdotonta hallita, jolloin saadaan kaksinkertainen "hallitsematon" panos taatakseen oikeudenmukaisen tuloksen.  '
+          introduction: 'Tämä sivu sisältää satunnaisvalinnan tulokset %{reference}. Tämän satunnaisvalinnan avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtäläisellä todennäköisyysjakaumalla alla esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten toisintamiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppan heitto (todistajien todistama) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-jako on niin tarkka (sekuntia), että ihmisten on mahdotonta hallita sitä, jolloin saadaan kaksinkertainen "hallitsematon" syöte oikeudenmukaisen tuloksen takaamiseksi.  '
           mathematical_result: Tulos (1) x (2)
           proposals_selected_by_sortition: Ehdotukset, jotka on valittu satunnaisvalinnassa
           sortition_reproducibility_details: Satunnaisvalinnan toisinnettavuustiedot
