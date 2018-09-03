@@ -97,26 +97,26 @@ fi:
         count:
           proposals_count:
             one: 1 ehdotus
-            other: "%{count} ehdotukset"
+            other: "%{count} ehdotusta"
         filters:
-          active: aktiivinen
+          active: Aktiivinen
           all: Kaikki
-          cancelled: peruttu
-          category: Kategoria
-          category_prompt: Valitse kategoria
+          cancelled: Peruttu
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
           search: Hae
-          state: Osavaltio
+          state: Tila
         filters_small_view:
           close_modal: Sulje modeemi
-          filter: Suodattaa
-          filter_by: Suodata
+          filter: Rajaa
+          filter_by: Rajaa hakua
           unfold: avautua
         linked_sortitions:
           selected_proposals: Valitut ehdotukset
         orders:
           label: 'Tilaa järjestykset:'
-          random: satunnainen
-          recent: viimeaikainen
+          random: Satunnainen
+          recent: Viimeisimmät
         results_count:
           count:
             one: valittu ehdotus
@@ -134,13 +134,13 @@ fi:
           proposals_selected_by_sortition: Ehdotukset, jotka on valittu lajittelusta
           sortition_reproducibility_details: Lajittelun uusittavuustiedot
           time_seed: "(2) Aikasementti"
-          witnesses: todistajat
+          witnesses: Todistajat
         sortition:
           random_seed: Satunnainen siemen
           selected_proposals:
-            one: 1 ehdotus valittu
-            other: '%{count} valitut ehdotukset'
-          view: näkymä
+            one: ehdotus valittu
+            other: '%{count} ehdotusta valittu'
+          view: Näytä
         sortition_author:
           deleted: Poistettu käyttäjä
         sortition_cancel_author:
