@@ -139,16 +139,16 @@ fi:
           email_intro: 'Voit tukea ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Ehdotusten kannattaminen on alkanut tilalle %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">hyväksyntäehdotukset</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten tukemisen</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisestä linkistä.
           email_subject: Seuraamasi ehdotus on hyväksytty
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksytty.
+          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistuta:"
-          email_outro: Olet saanut tämän ilmoituksen, koska olet seurannut %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: "%{endorser_nickname} on hyväksynyt uuden ehdotuksen"
+          email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistu:"
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet seuraat %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: "%{endorser_nickname} on tukenut uutta ehdotusta"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksynyt <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tällä sivulla:'
