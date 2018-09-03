@@ -114,7 +114,7 @@ fi:
         linked_sortitions:
           selected_proposals: Valitut ehdotukset
         orders:
-          label: 'Tilaa järjestykset:'
+          label: 'Järjestä satunnaisvalinnat:'
           random: Satunnainen
           recent: Viimeisimmät
         results_count:
