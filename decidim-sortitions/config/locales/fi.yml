@@ -47,7 +47,7 @@ fi:
         models:
           sortition:
             fields:
-              category: Aihepiiri
+              category: Luokka
               created_at: Luomispäivä
               decidim_proposals_component: Ehdotusten osa
               dice: Noppa
@@ -68,17 +68,17 @@ fi:
             error: Virhe aiheutti uuden lajittelun.
             success: Lajittelu onnistui
           destroy:
-            error: Mitään ei voi peruuttaa.
-            success: Lajittelu onnistuneesti peruutettu
+            error: Satunnaisvalintaa ei voi peruuttaa.
+            success: Satunnaisvalinta onnistuneesti peruutettu
           edit:
-            title: Päivitä järjestelyn tiedot
+            title: Päivitä satunnaisvalinnan tiedot
             update: Päivitä
           form:
-            all_categories: Kaikki kategoriat
+            all_categories: Kaikki luokat
             select_proposal_component: Valitse asetetut ehdotukset
             title: Uusi lajittelu ehdotuksiin
           index:
-            title: Sortitions
+            title: Satunnaisvalinnat
           new:
             confirm: Painamalla seuraavalla painikkeella Decidim tallentaa päivämäärän ja kellonajan (sekuntien tarkkuudella) ja yhdessä noputusvalssin kanssa näitä tietoja käytetään satunnaisvalinnan luomiseen. Toimenpide on peruuttamaton, kun painike napsautetaan tuloksen tulosta julkaistaan ​​yhdessä tämän lomakkeen tietojen kanssa eikä sitä voi muuttaa, tarkista sisältö huolellisesti.
             create: Luo
