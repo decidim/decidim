@@ -204,7 +204,7 @@ fi:
       assembly_member:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} kehitysryhmässä"
         delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} kehitysryhmästä"
-        update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} kokoonpanon"
+        update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} kehitysryhmän"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} kokoonpanoon"
         delete: "%{user_name} poistanut käyttäjän %{resource_name} %{space_name} kokoonpanosta"
@@ -220,7 +220,7 @@ fi:
             select_an_assembly_type: Valitse kokoonpanotyyppi
             select_parent_assembly: Valitse vanhemman kokoonpano
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
-            social_handlers: sosiaalinen
+            social_handlers: Sosiaalinen media
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -285,20 +285,20 @@ fi:
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
-        private_space: Tämä on yksityinen kokoonpano
-        purpose_of_action: Toimen tarkoitus
-        read_less: Lue vähemmän
+        private_space: Tämä on yksityinen kehitysryhmä
+        purpose_of_action: Toiminnan tarkoitus
+        read_less: Vähennä tekstiä
         read_more: Lue lisää
-        related_participatory_processes: Asiaan liittyvät osallistumisprosessit
+        related_participatory_processes: Liittyvät osallistumisprosessit
         scope: Konteksti
-        social_networks: Sosiaaliset verkostot
+        social_networks: Sosiaalinen media
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
         assemblies_count: Kehitysryhmät
         comments_count: Kommentit
-        debates_count: keskustelut
-        endorsements_count: merkintöjen
+        debates_count: Keskustelut
+        endorsements_count: Suositukset
         headline: Tilastot
         meetings_count: Tapaamiset
         orders_count: Äänet
@@ -317,7 +317,7 @@ fi:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Kokoonpanoa ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Kehitysryhmää ei löytynyt tietokannasta (ID: %{id})'
     menu:
       assemblies: Kehitysryhmät
   errors:
