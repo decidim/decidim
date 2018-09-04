@@ -287,25 +287,25 @@ sv:
         shared:
           info_proposal:
             body: Innehåll
-            created_at: Skapelsedagen
+            created_at: Skapandedatum
             proposal_votes_count: Antal röster
             proposals: Förslag
       admin_log:
         proposal:
-          answer: "%{user_name} svarade på %{resource_name} -förslaget på %{space_name} -utrymmet"
-          create: "%{user_name} skapade förslaget %{resource_name} på %{space_name} -utrymmet som ett officiellt förslag"
+          answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
+          create: "%{user_name} skapade förslaget %{resource_name} på utrymmet %{space_name} som ett officiellt förslag"
         proposal_note:
-          create: "%{user_name} lämnade en privat anteckning på %{resource_name} -förslaget på %{space_name} -platsen"
+          create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på platsen %{space_name}"
       answers:
         accepted: Accepterad
-        evaluating: utvärdera
+        evaluating: Utvärderas
         not_answered: Inte besvarad
-        rejected: avvisade
-        withdrawn: kallas
+        rejected: Avvisade
+        withdrawn: Tillbakadragen
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Det har varit fel vid publicering av samarbetsförslaget.
+            error: Det har uppstått ett fel vid publicering av samarbetsförslaget.
             irreversible_action_modal:
               body: Efter att förslaget har publicerats som ett förslag kommer utkastet inte att redigeras längre. Förslaget accepterar inte nya författare eller bidrag.
               cancel: Annullera
