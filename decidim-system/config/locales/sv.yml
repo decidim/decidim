@@ -7,13 +7,13 @@ sv:
         edit: Redigera
         new: Ny
         save: Spara
-        title: Handlingar
+        title: Åtgärder
       admins:
         create:
           error: Det uppstod ett fel vid skapandet av en ny admin.
           success: Admin skapades framgångsrikt
         destroy:
-          success: Admin har tagits bort
+          success: Admin har raderats
         edit:
           title: Redigera admin
           update: Uppdatera
