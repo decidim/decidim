@@ -9,16 +9,16 @@ hu:
     models:
       decidim/comments/comment:
         one: Megjegyzés
-        other: Hozzászólások
+        other: Megjegyzések
       decidim/comments/comment_vote:
-        one: Szavazás
-        other: szavazatok
+        one: Szavazat
+        other: Szavazatok
   decidim:
     comments:
-      comments: Hozzászólások
+      comments: Megjegyzések
       votes:
         create:
-          error: Hiba történt a hozzászólás szavazásakor.
+          error: Hiba történt a megjegyzésre való szavazáskor.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókjához</a> vagy <a href="%{sign_up_url}">feliratkozáshoz</a> hozzáadásához.
