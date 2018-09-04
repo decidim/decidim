@@ -154,26 +154,26 @@ sv:
           email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
           email_outro: Du har fått den här notifikationen eftersom du följer "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Ett förslag som du följer utvärderas
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget utvärderas.
+          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
           email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
           email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, vem du följer har publicerat ett nytt förslag, kolla in det och bidra med:"
+          email_intro: "%{author_name} %{author_nickname}, som du följer har publicerat ett nytt förslag, kolla in det och bidra:"
           email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Nytt förslag från %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget publicerades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
-          email_subject: Nytt förslag läggs till %{participatory_space_title}
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta följa det från föregående länken.
+          email_subject: Nytt förslag lades till %{participatory_space_title}
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: Ett förslag som du följer är avvisat
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har avslagits.
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länken.
+          email_subject: Ett förslag som du följer har avvisats
+          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin av ditt förslag "%{resource_title}", kolla in det:'
           email_outro: Du har fått den här meddelandet eftersom du är författaren till förslaget.
@@ -200,13 +200,13 @@ sv:
           explanation: Användare får detta märke genom att ge stöd till förslag.
           name: Förslagstjänster
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
-          unearned_another: Den här användaren har inte stött på några förslag än.
-          unearned_own: Du har inte stött på några förslag ännu.
+          unearned_another: Den här användaren har inte stöttat några förslag än.
+          unearned_own: Du har inte stöttat några förslag än.
         proposals:
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
           explanation: Användare får detta märke genom att skapa förslag.
-          name: förslag
+          name: Förslag
           next_level_in: Skapa %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här användaren har inte skapat några förslag ännu.
           unearned_own: Du har inte skapat några förslag än.
@@ -224,7 +224,7 @@ sv:
         import: Importera från en annan komponent
         new: Nytt förslag
         private_notes: Privata anteckningar
-        title: Handlingar
+        title: Åtgärder
       admin:
         actions:
           preview: Förhandsvisa
