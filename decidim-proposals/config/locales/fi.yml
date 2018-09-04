@@ -4,7 +4,7 @@ fi:
       collaborative_draft:
         body: Leipäteksti
         category_id: Kategoria
-        decidim_scope_id: Laajuus
+        decidim_scope_id: Teema
         has_address: On osoite
         state: Tila
         title: Otsikko
