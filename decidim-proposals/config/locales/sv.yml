@@ -307,51 +307,51 @@ sv:
           publish:
             error: Det har uppstått ett fel vid publicering av samarbetsförslaget.
             irreversible_action_modal:
-              body: Efter att förslaget har publicerats som ett förslag kommer utkastet inte att redigeras längre. Förslaget accepterar inte nya författare eller bidrag.
+              body: Efter att förslaget har publicerats som ett förslag kommer utkastet inte att längre kunna redigeras. Förslaget kommer inte acceptera nya författare eller bidrag.
               cancel: Annullera
-              ok: Publicera som ett förslag
-              title: Följande åtgärd är irreversibel
-            success: Sammanfattande utkast publiceras framgångsrikt som ett förslag.
-          view_collaborative_draft: Visa sammandragsförslag
+              ok: Publicera som ett Förslag
+              title: Följande åtgärd är oåterkallelig
+            success: Sammanfattande utkast publicerades som ett förslag.
+          view_collaborative_draft: Visa samarbetsutkast
           withdraw:
-            error: Det har funnits fel att stänga samarbetsförslaget.
+            error: Det har uppstått fel vid stängningen av samarbetsutkastet.
             irreversible_action_modal:
               body: Efter avslutandet av utkastet kommer utkastet inte att redigeras längre. Utkastet accepterar inte nya författare eller bidrag.
-              cancel: Annullera
-              ok: Dra ut sammandragsförslaget
-              title: Följande åtgärd är irreversibel
-            success: Samarbetet utkast togs tillbaka med framgång.
+              cancel: Avbryt
+              ok: Dra tillbaka ut samarbetsutkastet
+              title: Följande åtgärd är oåterkallelig
+            success: Samarbetsutkast återkallades.
         compare:
-          mine_is_different: Mitt samlade utkast är annorlunda
-          no_similars_found: Bra gjort! Inga liknande samarbetsförslag hittades
+          mine_is_different: Mitt samarbetsutkast är annorlunda
+          no_similars_found: Bra gjort! Inga liknande samarbetsutkast hittades
           title: Liknande samarbetsförslag
         complete:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           select_a_category: Var god välj en kategori
           send: Skicka
-          title: Fyll i ditt samarbetsförslag
+          title: Färdigställ i ditt samarbetsutkast
         count:
           drafts_count:
-            one: 1 samverkande utkast
-            other: "%{count} samarbetsförslag"
+            one: 1 samarbetsutkast
+            other: "%{count} samarbetsutkast"
         create:
-          error: Det har varit ett problem att skapa dessa samarbetsförslag
-          success: Samarbetsförslag utarbetat med framgång.
+          error: Det uppstod ett problem med att skapa dessa samarbetsutkast
+          success: Samarbetsutkast framgångsrikt utarbetat.
         edit:
           back: Tillbaka
           select_a_category: Var god välj en kategori
           send: Skicka
-          title: Redigera sammandragsförslag
+          title: Redigera samarbetsutkast
         filters:
           all: Allt
           category: Kategori
-          category_prompt: Kategori Fråga
+          category_prompt: Kategorifråga
           open: Öppen
           published: Publicerad
           related_to: Relaterat till
           search: Sök
-          state: stat
-          withdrawn: kallas
+          state: Status
+          withdrawn: Tillbakadraget
         filters_small_view:
           close_modal: Stäng modal
           filter: Filtrera
@@ -380,21 +380,21 @@ sv:
             title: Samarbetsförfrågningar
           rejected_request:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
-            success: "@%{user} har avvisats som samarbetspartner med framgång"
+            success: "@%{user} har avvisats som samarbetspartner"
         show:
           back: Tillbaka
           edit: Redigera sammandragsförslag
           final_proposal: sista förslaget
-          final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga färdiga förslaget
+          final_proposal_help_text: Detta utkast är färdigt. Du kan se det slutgiltiga förslaget
           hidden_authors_count:
-            one: och ytterligare 1 person
+            one: och 1 till person
             other: och %{count} fler personer
           info-message: Detta är ett <strong>samlingsförslag</strong> för ett förslag. Det innebär att du kan hjälpa sina författare att forma förslaget med hjälp av kommentarsektionen nedan eller förbättra det direkt genom att begära åtkomst för att redigera det. När författarna ger dig tillgång, kan du göra ändringar i detta utkast.
           of_versions: "(av %{number})"
           publish: Publicera
           publish_info: Publicera den här versionen av utkastet eller
           published_proposal: publicerat förslag
-          request_access: Begära tillgång
+          request_access: Begär tillgång
           requested_access: Tillgång begärd
           see_other_versions: se andra versioner
           version: Version %{number}
@@ -403,13 +403,13 @@ sv:
         states:
           open: Öppen
           published: Publicerad
-          withdrawn: kallas
+          withdrawn: Tillbakadragen
         update:
           error: Det har funnits fel när du lagrade samarbetsförslaget.
-          success: Samarbetet utkast uppdateras framgångsrikt.
+          success: Samarbetsutkastet uppdaterat.
         wizard_aside:
           back: Tillbaka
-          info: Du skapar ett <strong>gemensamt utkast</strong>.
+          info: Du skapar ett <strong>samarbetsutkast</strong>.
         wizard_steps:
           see_steps: se steg
           step_1: Skapa ditt samarbetsförslag
