@@ -130,24 +130,24 @@ hu:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
             projects_per_page: Projektek oldalanként
-            resources_permissions_enabled: Minden egyes találkozóra beállíthatja az akciók engedélyeit
+            resources_permissions_enabled: A műveletek engedélyei a találkozókra szabhatóak
             total_budget: Teljes költségvetés
-            vote_threshold_percent: Szavazás küszöb százalék
+            vote_threshold_percent: Szavazati küszöb százalékban
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             show_votes: Szavazatok megjelenítése
-            votes_enabled: A szavazás engedélyezett
+            votes_enabled: Szavazás engedélyezve
     orders:
       checkout:
-        error: Hiba történt a szavazás feldolgozása során
-        success: Az Ön szavazata sikeresen elfogadott
+        error: Hiba történt a szavazatod feldolgozása során
+        success: A szavazatod elfogadása sikeres volt
       destroy:
-        error: Hiba történt a szavazás törlése közben
-        success: Az Ön szavazata sikeresen megszűnt
+        error: Hiba történt a szavazatod törlése során
+        success: A szavazatod visszavonása sikeres volt
     resource_links:
       included_proposals:
         project_proposal: 'A projekthez kapcsolódó javaslatok:'
   index:
-    confirmed_orders_count: A szavazatok száma
+    confirmed_orders_count: Szavazatok száma
   total_budget: Teljes költségvetés
