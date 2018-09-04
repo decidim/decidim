@@ -112,25 +112,25 @@ sv:
           email_subject: Din registreringskod "%{registration_code}" har validerats
           notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registrations_enabled:
-          email_intro: '"%{resource_title}" mötet har aktiverat registreringar. Du kan registrera dig själv på sin sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: '"%{resource_title}" mötet har aktiverat registreringar.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet har aktiverat registreringar.
+          email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
+          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
+          email_subject: Mötet "%{resource_title}" har aktiverat registreringar.
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
         upcoming_meeting:
-          email_intro: '"%{resource_title}" -mötet börjar på mindre än 48 timmar.'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: '"%{resource_title}" -mötet börjar på mindre än 48 timmar.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet startar inom mindre än 48 timmar.
+          email_intro: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
+          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
+          email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
     meetings:
       actions:
         agenda: Dagordning
-        attachment_collections: mappar
+        attachment_collections: Mappar
         attachments: Bifogade filer
         close: Stäng
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
-        minutes: Minuter
+        minutes: Anteckningar
         new: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
@@ -138,14 +138,14 @@ sv:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Lägg till dagordning objekt barn
-            agenda_item: Dagordningspost
-            agenda_item_children: Agenda Item Childs
-            down: Ner
-            remove: Avlägsna
+            add_agenda_item_child: Lägg till dagordning för underordnat objekt
+            agenda_item: Dagordningspunkt
+            agenda_item_children: Underordnade dagordningspunkter
+            down: Ned
+            remove: Ta bort
             up: Upp
           agenda_item_child:
-            agenda_item_child: Agenda Item Child
+            agenda_item_child: Underordnade dagordningspunkter
             down: Ner
             remove: Avlägsna
             up: Upp
