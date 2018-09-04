@@ -65,7 +65,7 @@ sv:
       meeting_copies:
         create:
           error: Ett fel uppstod när det här mötet skulle dupliceras.
-          success: Duplicerat möte framgångsrikt.
+          success: Mötet duplicerat.
         new:
           copy: Kopiera
           select: Välj vilken data du vill duplicera
@@ -79,18 +79,18 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
-            default_registration_terms: Standardregistreringsvillkor
-            resources_permissions_enabled: Åtgärdstillstånd kan ställas in för varje möte
+            default_registration_terms: Villkor för standardregistrering
+            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
     events:
       meetings:
         meeting_closed:
-          email_intro: '"%{resource_title}" mötet stängdes. Du kan läsa slutsatserna från sidan:'
+          email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: '"%{resource_title}" mötet stängdes'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet stängdes.
+          email_subject: Mötet "%{resource_title}" stängdes
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
         meeting_created:
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
@@ -99,11 +99,11 @@ sv:
         meeting_registrations_over_percentage:
           email_intro: De upptagna platserna "%{resource_title}" är över %{percentage}%.
           email_outro: Du har fått den här meddelandet eftersom du är en administratör för mötes deltagande utrymme.
-          email_subject: De upptagna platserna "%{resource_title}" är över %{percentage}%
+          email_subject: De upptagna platserna för "%{resource_title}" är över %{percentage}%
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötesplatserna är över %{percentage}%.
         meeting_updated:
           email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan avfölja det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
