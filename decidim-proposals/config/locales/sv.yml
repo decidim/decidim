@@ -161,9 +161,9 @@ sv:
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, som du följer har publicerat ett nytt förslag, kolla in det och bidra:"
-          email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_outro: Du har fått den här notifikationen eftersom du följer %{author_nickname}. Du kan sluta ta emot notifikationer från föregående länken.
           email_subject: Nytt förslag från %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget publicerades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> publicerades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta följa det från föregående länken.
@@ -238,13 +238,13 @@ sv:
           edit:
             accepted: Accepterad
             answer_proposal: Svara
-            evaluating: utvärdera
-            rejected: avvisade
+            evaluating: Utvärderas
+            rejected: Avslaget
             title: Svar för förslag %{title}
         proposal_notes:
           create:
-            error: Det har varit ett problem att skapa denna förslagsnotering
-            success: Förslagsmeddelande med framgång skapad
+            error: Det uppstod ett problem med att skapa denna förslagsnotering
+            success: Förslagsanteckning skapades
           form:
             note: Annteckning
             submit: Skicka in
@@ -252,16 +252,16 @@ sv:
           title: Privata anteckningar
         proposals:
           answer:
-            invalid: Det har varit ett problem att svara på detta förslag
-            success: Förslaget godkändes framgångsrikt
+            invalid: Det uppstod ett problem med att svara på detta förslag
+            success: Förslaget godkändes
           create:
-            invalid: Det här har uppstått ett problem med att skapa detta förslag
-            success: Förslag skapat med framgång
+            invalid: Det har uppstått ett problem med att skapa detta förslag
+            success: Förslaget skapades
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             select_a_category: Välj en kategori
           index:
-            actions: Handlingar
+            actions: Åtgärder
             cancel: Avbryt
             change_category: Ändra kategori
             selected: vald
@@ -271,17 +271,17 @@ sv:
             create: Skapa
             title: Skapa förslag
           update_category:
-            invalid: 'Dessa förslag hade redan %{category} kategorin: %{proposals}.'
+            invalid: 'Dessa förslag hade redan kategorin: %{category} %{proposals}.'
             select_a_category: Välj en kategori
             select_a_proposal: Vänligen välj ett förslag
-            success: 'Förslag som har uppdaterats till %{category} kategorin: %{proposals}.'
+            success: 'Förslag som har uppdaterats till kategorin: %{category} %{proposals}.'
         proposals_imports:
           create:
-            invalid: Det har varit ett problem att importera förslagen
-            success: "%{number} Förslag som framgångsrikt importerats"
+            invalid: Det uppstod ett problem med att importera förslagen
+            success: "%{number} Förslag som importerats"
           new:
             create: Importera förslag
-            no_components: Det finns inga andra förslagskomponenter i detta deltagande utrymme för att importera förslagen från.
+            no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme att importera förslagen från.
             select_component: Välj en komponent
             select_states: Kontrollera tillstånden för de förslag som ska importeras
         shared:
