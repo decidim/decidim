@@ -129,7 +129,7 @@ sv:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> återtog samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Du har fått den här notifikationen eftersom du är en medskapare till <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} återkallade de %{resource_title} samlade utkasten."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>återtagna</strong> <a href="%{resource_path}">%{resource_title}</a> samarbetet utkast.
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>tillbakadragna</strong> <a href="%{resource_path}">%{resource_title}</a> samarbetsutkast.
         creation_enabled:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått den här notifikationen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notifikationer vid föregående länk.
@@ -316,7 +316,7 @@ sv:
           withdraw:
             error: Det har uppstått fel vid stängningen av samarbetsutkastet.
             irreversible_action_modal:
-              body: Efter avslutandet av utkastet kommer utkastet inte att redigeras längre. Utkastet accepterar inte nya författare eller bidrag.
+              body: Efter avslutandet av utkastet kommer utkastet inte längre att kunna redigeras. Utkastet accepterar inte nya författare eller medskapare.
               cancel: Avbryt
               ok: Dra tillbaka ut samarbetsutkastet
               title: Följande åtgärd är oåterkallelig
@@ -358,13 +358,13 @@ sv:
           filter_by: Filtrera efter
           unfold: Veckla ut
         new:
-          send: Fortsätta
-          title: Skapa ditt samarbetsförslag
+          send: Fortsätt
+          title: Skapa ditt samarbetsutkast
         new_collaborative_draft_button:
-          new_collaborative_draft: Nytt samarbetsförslag
+          new_collaborative_draft: Nytt samarbetsutkast
         orders:
-          label: 'Beställ utkast av:'
-          most_contributed: Mest bidragit
+          label: 'Sortera utkast efter:'
+          most_contributed: Mest bidrag
           random: Slumpmässig
           recent: Nyligen
         requests:
@@ -436,7 +436,7 @@ sv:
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
-            published_at: Publicerad på
+            published_at: Publicerad vid
             scope: Omfattning
             state: Status
             title: Titel
@@ -445,7 +445,7 @@ sv:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       proposal_endorsements:
         create:
-          error: Det har varit fel när man godkände förslaget.
+          error: Det har blivit fel när man godkände förslaget.
         identities:
           done: Klar
           select_identity: Välj identitet
@@ -454,10 +454,10 @@ sv:
           already_endorsed: Stött
           endorse: Stödja
         render_endorsements_button_card_part:
-          endorse: Stödja
+          endorse: Stöd
       proposal_votes:
         create:
-          error: Det har varit fel när man röstade förslaget.
+          error: Det har uppstått fel när man röstade om förslaget.
       proposals:
         compare:
           mine_is_different: Mitt förslag är annorlunda
@@ -465,7 +465,7 @@ sv:
           title: Liknande förslag
         complete:
           send: Skicka
-          title: Fyll i ditt förslag
+          title: Färdigställ ditt förslag
         count:
           proposals_count:
             one: 1 förslag
@@ -478,13 +478,13 @@ sv:
           title: Redigera förslag
         edit_draft:
           discard: Kassera detta utkast
-          discard_confirmation: Är du säker på att du vill kassera förslaget till förslag?
+          discard_confirmation: Är du säker på att du vill kassera detta förslagsutkast?
           send: Förhandsvisa
-          title: Redigera förslagskoncept
+          title: Redigera förslagsutkast
         endorsement_identities_cabin:
           endorse: Stödja
         endorsements_card_row:
-          comments: kommentarer
+          comments: Kommentarer
         filters:
           accepted: Accepterad
           activity: Aktivitet
@@ -492,11 +492,11 @@ sv:
           category: Kategori
           category_prompt: Välj en kategori
           citizens: Medborgare
-          evaluating: utvärdera
-          except_rejected: Alla utom avvisas
+          evaluating: Utvärderas
+          except_rejected: Alla förutom avvisade
           official: Officiell
           origin: Ursprung
-          rejected: avvisade
+          rejected: Avvisade
           related_to: Relaterad till
           search: Sök
           state: Status
@@ -507,9 +507,9 @@ sv:
           filter_by: Filtrera efter
           unfold: Veckla ut
         index:
-          collaborative_drafts_list: Få tillgång till samarbetsförslag
+          collaborative_drafts_list: Se samarbetsutkast
           new_proposal: Nytt förslag
-          see_all_withdrawn: Se alla återtagna förslag
+          see_all_withdrawn: Se alla tillbakadragna förslag
           view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:
