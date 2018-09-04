@@ -21,6 +21,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Backported**:
 
+- **decidim-surveys**: Allow deleting surveys components when there are no answers [#211](https://github.com/OpenSourcePolitics/decidim/pull/211)
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 
 **Fixed**:
