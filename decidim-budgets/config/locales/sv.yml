@@ -132,7 +132,7 @@ sv:
             projects_per_page: Projekt per sida
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
             total_budget: Total budget
-            vote_threshold_percent: Rösta tröskel procent
+            vote_threshold_percent: Tröskel för röster i procent
           step:
             announcement: Notis
             comments_blocked: Kommentarer blockerade
@@ -140,11 +140,11 @@ sv:
             votes_enabled: Röstning aktiverad
     orders:
       checkout:
-        error: Ett fel uppstod när du behandlade din röst
-        success: Din röst har godkänts framgångsrikt
+        error: Ett fel uppstod när din röst behandlades
+        success: Din röst har accepterats
       destroy:
         error: Ett fel uppstod när du avbröt din röst
-        success: Din röst har avbrutits framgångsrikt
+        success: Din röst har avbrutits
     resource_links:
       included_proposals:
         project_proposal: 'Förslag som ingår i detta projekt:'
