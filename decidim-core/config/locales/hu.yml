@@ -113,13 +113,13 @@ hu:
         delete: "%{user_name} törölte a(z) %{resource_name} statikus oldalt"
         update: "%{user_name} frissítette a(z) %{resource_name} statikus oldalt"
       user:
-        invite: "%{user_name} meghívta a felhasználót %{resource_name} szereppel: %{role}"
-        officialize: "%{user_name} hivatalossá tette a felhasználót %{resource_name}"
-        remove_from_admin: "%{user_name} eltávolította az %{resource_name} felhasználó szerepét: %{role}"
-        unofficialize: "%{user_name} a felhasználó nem hivatalos azonosítója %{resource_name}"
+        invite: "%{user_name} meghívta %{resource_name} felhasználót (szerep: %{role})"
+        officialize: "%{user_name} hivatalossá tette %{resource_name} felhasználót"
+        remove_from_admin: "%{user_name} eltávolította %{resource_name} felhasználót, %{role} szereppel"
+        unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
-        reject: "%{user_name} elutasította az %{resource_name} felhasználói csoport ellenőrzését"
-        verify: "%{user_name} ellenőrizte az %{resource_name} felhasználói csoportot"
+        reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
+        verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
     anonymous_user: Névtelen
     application:
       collection:
@@ -133,7 +133,7 @@ hu:
     author:
       comments:
         one: megjegyzés
-        other: Hozzászólások
+        other: megjegyzések
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Ellenőrizze az útlevelek számát az "A"
