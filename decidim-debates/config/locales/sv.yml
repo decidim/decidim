@@ -7,7 +7,7 @@ sv:
         description: Beskrivning
         end_time: Slutar vid
         information_updates: Informationsuppdateringar
-        instructions: Anvisningar att delta
+        instructions: Instruktioner för att delta
         start_time: Börjar vid
         title: Titel
         user_group_id: Skapa debatt som
@@ -19,13 +19,13 @@ sv:
     models:
       decidim/debates/debate:
         one: Debatt
-        other: debatter
+        other: Debatter
   decidim:
     components:
       debates:
         actions:
           create: Skapa
-        name: debatter
+        name: Debatter
         settings:
           global:
             announcement: Notis
@@ -44,10 +44,10 @@ sv:
       admin:
         debates:
           create:
-            invalid: Det har varit ett problem under debatten.
-            success: Debatt skapades framgångsrikt.
+            invalid: Det blev ett problem med skapandet av debatten.
+            success: Debatten skapades.
           destroy:
-            success: Debatten raderas framgångsrikt.
+            success: Debatten raderades.
           edit:
             title: Redigera debatt
             update: Uppdatera debatt
@@ -57,15 +57,15 @@ sv:
             create: Skapa debatt
             title: Ny debatt
           update:
-            invalid: Det har varit ett problem under uppdateringen av denna debatt.
-            success: Debatten uppdateras framgångsrikt.
+            invalid: Det har blivit ett problem under uppdateringen av denna debatt.
+            success: Debatten uppdaterades.
         models:
           debate:
             name: Debatt
       admin_log:
         debate:
-          create: "%{user_name} skapade debatten %{resource_name} på %{space_name} -platsen"
-          update: "%{user_name} uppdaterade debatten %{resource_name} på %{space_name} -platsen"
+          create: "%{user_name} skapade debatten %{resource_name} på platsen %{space_name}"
+          update: "%{user_name} uppdaterade debatten %{resource_name} på platsen %{space_name}"
       debates:
         count:
           debates_count:
