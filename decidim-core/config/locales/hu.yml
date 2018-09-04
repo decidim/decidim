@@ -283,43 +283,43 @@ hu:
           by_organization_link_html: <small class="heading-small">, %{link}</small>
           cancel: Mégse
           connect_your_account_html: 'Ha bejelentkezel, csatlakoztatni tudod fiókódat ehhez: <strong>%{organization}</strong>'
-          publish_content: Tegye közzé tartalmat az Ön számára
-          see_email: Lásd az e-mail címedet
-          see_name: Nézd meg a neved
-          see_username: Nézze meg felhasználónevét
-          this_application_will_be_able_to: 'Ez az alkalmazás képes lesz:'
-          this_application_will_not_be_able_to: 'Ez az alkalmazás nem lesz képes:'
-          update_profile: Frissítse profilját
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni fiókját"
+          publish_content: Tartalom közzététele neked
+          see_email: Email cím megjelenítése
+          see_name: Neved megjelenítése
+          see_username: Felhasználóneved megjelenítése
+          this_application_will_be_able_to: 'Ez az alkalmazás képes erre:'
+          this_application_will_not_be_able_to: 'Ez az alkalmazás nem képes erre:'
+          update_profile: Frissítsd a profilod
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni a fiókod"
     errors:
       internal_server_error:
-        title: Probléma volt a szerverünknél
-        try_later: Kérlek, próbáld újra később.
+        title: Valami probléma volt a szerverrel
+        try_later: Próbáld meg később.
       not_found:
-        back_home: Haza
-        content_doesnt_exist: A cím helytelen vagy eltávolítva.
+        back_home: Vissza a főoldalra
+        content_doesnt_exist: A cím helytelen vagy el lett távolítva.
         title: A keresett oldal nem található
     events:
       attachments:
         attachment_created:
-          email_intro: 'Új dokumentumot adtak hozzá %{resource_title}. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Frissítés %{resource_title}
-          notification_title: Egy <a href="%{resource_path}">új dokumentumot</a> adtak hozzá a <a href="%{attached_to_url}">%{resource_title}</a>
+          email_intro: 'Új dokumentumot adtak hozzá a következőhöz: %{resource_title}. Innen érheted el:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Frissítés ehhez: %{resource_title}'
+          notification_title: Egy <a href="%{resource_path}">új dokumentumot</a>adtak hozzá ehhez:<a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'A %{resource_title} elem most %{participatory_space_title}aktív. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Frissítés %{participatory_space_title}
-          notification_title: A %{resource_title} elem most <a href="%{resource_path}">%{participatory_space_title}</a>aktív
+          email_intro: 'A(z) %{resource_title} nevű elem már aktív a következőhöz: %{participatory_space_title}. Innen érheted el:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Frissítés ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) %{resource_title} elem már aktív a következőhöz: <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
-        email_greeting: Hello %{user_name},
-        email_intro: 'Frissítés történt "%{resource_title}" -ra. Láthatja ezt az oldalról:'
-        email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" -t követi. Leiratkozhat az előző linkről.
-        email_subject: Frissítés %{resource_title}
+        email_greeting: Hello %{user_name}!
+        email_intro: 'Frissítés ehhez "%{resource_title}". Innen érheted el:'
+        email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+        email_subject: 'Frissítés ehhez: %{resource_title}'
       gamification:
         badge_earned:
-          email_intro: Nagyszerű munka! Ön megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> ( %{current_level}szint).
+          email_intro: 'Szép munka! Megszerezte a(z) <a href="%{resource_url}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
           email_outro: Ezt az értesítést azért kapta, mert aktivitást tett a weboldalunkon.
           email_subject: 'Új jelvényt szerzett: %{badge_name}!'
           notification_title: Nagyszerű munka! Ön megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> ( %{current_level}szint).
