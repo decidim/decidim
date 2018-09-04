@@ -3,22 +3,22 @@ sv:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
-      decidim/comments/reply_created_event: Kommentar svar
-      decidim/comments/user_mentioned_event: Nämna
+      decidim/comments/reply_created_event: Svarskommentar
+      decidim/comments/user_mentioned_event: Nämn
   activerecord:
     models:
       decidim/comments/comment:
         one: Kommentar
-        other: kommentarer
+        other: Kommentarer
       decidim/comments/comment_vote:
-        one: Rösta
-        other: röster
+        one: Röst
+        other: Röster
   decidim:
     comments:
-      comments: kommentarer
+      comments: Kommentarer
       votes:
         create:
-          error: Det har varit fel när du röstar kommentaren.
+          error: Det har blivit fel när du röstar om kommentaren.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera</a> för att lägga till din kommentar.
@@ -83,7 +83,7 @@ sv:
           email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din kommentar i <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
-          email_intro: Du har nämnts
+          email_intro: Du har blivit omnämnd
           email_outro: Du har fått den här meddelandet eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
