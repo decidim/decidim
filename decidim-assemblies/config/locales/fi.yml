@@ -18,7 +18,7 @@ fi:
         decidim_area_id: alue
         decidim_scope_id: Teema
         description: Kuvaus
-        developer_group: Kehittäjäryhmä
+        developer_group: Perustajaryhmä
         domain: Toimintaympäristö
         duration: Kesto
         facebook: Facebook
@@ -204,10 +204,10 @@ fi:
       assembly_member:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} kehitysryhmässä"
         delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} kehitysryhmästä"
-        update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} kehitysryhmän"
+        update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
       assembly_user_role:
-        create: "%{user_name} kutsui %{resource_name} %{space_name} kokoonpanoon"
-        delete: "%{user_name} poistanut käyttäjän %{resource_name} %{space_name} kokoonpanosta"
+        create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} %{space_name} ryhmästä"
         update: "%{user_name} muutti %{resource_name} : n roolia %{space_name} kokoonpanossa"
     assemblies:
       admin:
