@@ -239,41 +239,40 @@ hu:
           nickname_help: 'Rövid, egyedi azonosítód ehhez: %{organization}'
           sign_up: Töltsd ki a hiányzó adatokat
           subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
-          username_help: A bejegyzésekben megjelenő nyilvános név. Az anonimitás garantálása érdekében bármilyen név lehet.
+          username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
       registrations:
         new:
-          already_have_an_account?: Már van fiókja?
-          newsletter: Szerezzen alkalmi hírlevelet a megfelelő információkkal
-          newsletter_title: Kapcsolat engedélye
-          nickname_help: A rövid, egyedi azonosítója a %{organization}
+          already_have_an_account?: Már van egy fiókod?
+          newsletter: Hírlevél fogadása a legfontosabb információkkal
+          newsletter_title: Kapcsolatfelvételi engedély
+          nickname_help: 'Rövid, egyedi azonosítód ehhez: %{organization}'
           sign_in: Belépés
-          sign_up: Regisztrálj
+          sign_up: Regisztráció
           sign_up_as:
-            legend: Jelentkezzen be
-            user: Egyedi
-            user_group: Szervezet / Collective
-          subtitle: Jelentkezzen be a megbeszélésekbe és támogatási javaslatokba.
-          terms: a használat feltételeit
-          tos_agreement: Feliratkozással elfogadja a %{link}.
-          tos_title: Szolgáltatás feltételei
-          username_help: A bejegyzésekben megjelenő nyilvános név. Az anonimitás garantálása érdekében bármilyen név lehet.
+            legend: Regisztrálj mint
+            user: Magánszemély
+            user_group: Szervezet/Egyesület
+          subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
+          terms: a használati feltételek
+          tos_agreement: A feliratkozással elfogadod a %{link}.
+          tos_title: ÁSZF
+          username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
       sessions:
         new:
-          are_you_new?: Új a platformhoz?
-          register: Hozzon létre egy fiókot
+          are_you_new?: Új vagy az oldalon?
+          register: Hozz létre egy fiókot
       shared:
         newsletter_modal:
           buttons:
-            check: Ellenőrizze és folytassa
-            close_modal: Közeli modal
-            uncheck: Tartsa nyomva a jelölést
+            check: Ellenőrzés és folytatás
+            close_modal: Modal bezárása
+            uncheck: Nincs megjelölve
           notice: |-
-            <p>Hé, biztos vagy benne, hogy nem szeretne hírlevelet kapni?<br>
-            Kérjük, fontolja meg újból a hírlevél jelölőnégyzetét.<br>
-            Nagyon fontos számunkra, hogy alkalmi e-maileket kaphat fontos bejelentések készítéséhez, ezt bármikor módosíthatja az értesítési beállítások oldalán.</p>
-            <p>Ha nem jelölte be a jelölőnégyzetet, előfordulhat, hogy hiányzik a releváns információk a platformon belüli új részvételi lehetőségekről.<br>
-            Ha továbbra is szeretné elkerülni a hírlevelek fogadását, tökéletesen értjük a döntését.</p>
-            <p>Köszönöm, hogy ezt olvastam!</p>
+            <p>Biztos vagy benne, hogy nem szeretnél hírlevelet kapni?<br>
+            Gondold át mégegyszer a döntést.<br>
+            Számunkra ugyanis nagyon fontos, hogy a leglényeges bejelentésekről emailen keresztül mindenkit értesítsünk. A beállításokat ráadásul bármikor módosíthatód az értesítések menüpontban.</p>
+            <p>Amennyiben nem jelölöd be a négyzetet, előfordulhat, hogy lemaradsz a platformon elérhető új lehetőségekről. Ha továbbra sem szeretnél hírleveleket kapni, döntésedet tiszteletben tartjuk.</p>
+            <p>Köszönjük, hogy elolvastad az üzenetet!</p>
           title: Hírlevél értesítések
         omniauth_buttons:
           or: Vagy
@@ -282,8 +281,8 @@ hu:
         new:
           authorize: Engedélyezési kérelem
           by_organization_link_html: <small class="heading-small">, %{link}</small>
-          cancel: Megszünteti
-          connect_your_account_html: Csatlakozzon a fiókjához, ha bejelentkezik a <strong>%{organization}</strong>
+          cancel: Mégse
+          connect_your_account_html: 'Ha bejelentkezel, csatlakoztatni tudod fiókódat ehhez: <strong>%{organization}</strong>'
           publish_content: Tegye közzé tartalmat az Ön számára
           see_email: Lásd az e-mail címedet
           see_name: Nézd meg a neved
