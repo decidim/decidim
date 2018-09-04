@@ -188,11 +188,11 @@ sv:
             filter:
               accepted: Accepterad
               all: Allt
-              rejected: avvisade
-              sent: sände
+              rejected: Avvisade
+              sent: Skickat
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
-            invites: Inbjudningskort
+            invites: Inbjudningar
             registrations_disabled: Du kan inte bjuda in en deltagare eftersom registreringarna är inaktiverade.
             search: Sök
         meeting_closes:
@@ -204,11 +204,11 @@ sv:
             select_organizer: Välj arrangören
         meetings:
           close:
-            invalid: Det här problemet har avslutats
-            success: Mötet avslutades med framgång
+            invalid: Det uppstod ett problem med att stänga detta möte
+            success: Mötet avslutades
           create:
-            invalid: Det här har uppstått ett problem med att skapa detta möte
-            success: Möte med framgång
+            invalid: Det har uppstått ett problem med att skapa detta möte
+            success: Möte skapades
           destroy:
             success: Mötet har tagits bort
           edit:
