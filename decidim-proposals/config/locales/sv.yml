@@ -116,18 +116,18 @@ sv:
           email_subject: "%{requester_name} begärde tillgång att bidra till %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> begärde tillgång för att få bidra till samarbetsutkastet <a href="%{resource_path}">%{resource_title}</a>. Vänligen <strong>acceptera eller avslå begäran</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Du har accepterats för att få tillgång till som bidragsgivare till <a href="%{resource_path}">%{resource_title}</a> samarbetet.
-          email_outro: Du har fått den här meddelandet eftersom du bad om att bli en samarbetspartner av <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Du har accepterats som bidragsyter av %{resource_title}.
-          notification_title: Du har blivit <strong>accepterad för att få tillgång till som bidragsgivare</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
+          email_intro: Du har accepterats för att få tillgång till som medskapare till samarbetet <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Du har fått den här meddelandet eftersom du bad om att bli en medskapare av <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Du har accepterats som medskapare av %{resource_title}.
+          notification_title: Du har blivit <strong>accepterad för att få tillgång till som medskapare</strong> av samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Du har blivit avvisad för att få tillgång till som bidragsyter till <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
-          email_outro: Du har fått den här meddelandet eftersom du bad om att bli en samarbetspartner av <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Du har blivit avvisad som bidragsyter av %{resource_title}.
-          notification_title: Du har blivit <strong>avvisad för att få tillgång till som bidragsgivare</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
+          email_intro: Du har blivit avvisad för att få tillgång till som medskapare till samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Du har fått den här notifikationen eftersom du bad om att bli en medskapare av <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Du har blivit avvisad som medskapare av %{resource_title}.
+          notification_title: Du har blivit <strong>avvisad för att få tillgång till som medskapare</strong> av samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> återtog <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.
-          email_outro: Du har fått den här meddelandet eftersom du är en samarbetspartner på <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> återtog samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Du har fått den här notifikationen eftersom du är en medskapare till <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} återkallade de %{resource_title} samlade utkasten."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>återtagna</strong> <a href="%{resource_path}">%{resource_title}</a> samarbetet utkast.
         creation_enabled:
@@ -147,12 +147,12 @@ sv:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts.
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, vem du följer har just godkänt ett förslag som kan vara intressant för dig, kolla in det och bidra med:"
-          email_outro: Du har fått den här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_outro: Du har fått den här notifikationen eftersom du följer %{endorser_nickname}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: "%{endorser_nickname} har godkänt ett nytt förslag"
           notification_title: '| <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
         proposal_evaluating:
           email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+          email_outro: Du har fått den här notifikationen eftersom du följer "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Ett förslag som du följer utvärderas
           notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget utvärderas.
         proposal_mentioned:
