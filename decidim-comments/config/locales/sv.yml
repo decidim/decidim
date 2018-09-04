@@ -48,8 +48,8 @@ sv:
           description: Är detta innehåll olämpligt?
           details: Ytterligare kommentarer
           reasons:
-            does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
-            offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hattal.
+            does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
+            offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera ett problem
       comment_order_selector:
@@ -69,22 +69,22 @@ sv:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
-          email_outro: Du har fått den här meddelandet eftersom du följer %{author_name}. Du kan följa bort den här användaren från deras profilsida.
+          email_outro: Du har fått den här notisen eftersom du följer %{author_name}. Du kan avfölja den här användaren från deras profilsida.
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} har kommenterats. Du kan läsa kommentaren på den här sidan:"
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan följa det från föregående länk.
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan avfölja det från föregående länk.
           email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
           email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
-          email_outro: Du har fått den här meddelandet eftersom din kommentar var svarad.
+          email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
           email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din kommentar i <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
-          email_intro: Du har blivit omnämnd
-          email_outro: Du har fått den här meddelandet eftersom du har nämnts i %{resource_title}.
+          email_intro: Du har nämnts
+          email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
