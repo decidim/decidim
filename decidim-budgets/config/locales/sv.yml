@@ -31,16 +31,16 @@ sv:
             name: Projekt
         projects:
           create:
-            invalid: Det här har uppstått ett problem
-            success: Projekt skapades med framgång
+            invalid: Det här har uppstått ett problem med att skapa detta projekt
+            success: Projekt skapades framgångsrikt
           destroy:
-            success: Projektet har tagits bort
+            success: Projektet togs framgångsrikt bort
           edit:
             title: Redigera projekt
             update: Uppdatera
           index:
             finished_orders: Avslutade röster
-            pending_orders: Avventer röster
+            pending_orders: Pågående röster
             title: Projekt
           new:
             create: Skapa
