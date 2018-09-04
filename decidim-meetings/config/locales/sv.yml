@@ -222,29 +222,29 @@ sv:
             title: Skapa möte
           service:
             description: Beskrivning
-            down: Ner
-            remove: Avlägsna
+            down: Ned
+            remove: Ta bort
             service: Service
             title: Titel
             up: Upp
           services:
             add_service: Lägg till service
-            services: tjänster
+            services: Tjänster
           update:
-            invalid: Det har varit ett problem att uppdatera det här mötet
-            success: Mötet har blivit uppdaterat
+            invalid: Det uppstod ett problem med att uppdatera det här mötet
+            success: Mötet har uppdaterats
         minutes:
           create:
-            invalid: Det har varit ett problem att skapa det här protokollet
-            success: Protokoll skapades framgångsrikt
+            invalid: Det uppstod ett problem med att skapa det här protokollet
+            success: Protokollet skapades
           edit:
             update: Uppdatering
           new:
             create: Skapa
-            title: Skapa minuter
+            title: Skapa protokoll
           update:
-            invalid: Det har varit ett problem att uppdatera det här protokollet
-            success: Protokoll uppdaterades
+            invalid: Det har uppstått problem med att uppdatera det här protokollet
+            success: Protokollet uppdaterades
         models:
           meeting:
             name: Möte
@@ -254,30 +254,30 @@ sv:
             validate: Bekräfta
             validate_registration_code: Bekräfta registreringskod
           form:
-            available_slots_help: Lämna det till 0 om du har obegränsade kortplatser.
-            invites: Inbjudningskort
+            available_slots_help: Lämna det till 0 om du har obegränsade platser.
+            invites: Inbjudningar
             registrations_count:
               one: Det har gjorts 1 registrering.
-              other: Det har registrerats %{count}.
-            reserved_slots_help: Lämna det till 0 om du inte har reserverade kortplatser
+              other: Det har gjorts %{count} registreringar.
+            reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
           update:
-            invalid: Det har varit ett problem att spara registreringsinställningarna.
+            invalid: Det uppstod ett problem med att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.
           validate_registration_code:
             invalid: Denna registreringskod är ogiltig.
-            success: Registreringskoden framgångsrikt validerad.
+            success: Registreringskoden validerades.
       admin_log:
         invite:
-          create: "%{user_name} uppmanade %{attendee_name} att gå med %{resource_name} möte på %{space_name} platsen"
-          deleted: "%{user_name} objudna %{attendee_name} från att gå med %{resource_name} möte på %{space_name} platsen"
-          update: "%{user_name} uppmanade %{attendee_name} att gå med %{resource_name} möte på %{space_name} platsen"
+          create: "%{user_name} uppmanade %{attendee_name} att gå med mötet %{resource_name} på platsen %{space_name}"
+          deleted: "%{user_name} objudna %{attendee_name} från att gå med möte %{resource_name} på platsen %{space_name}"
+          update: "%{user_name} uppmanade %{attendee_name} att gå med möte %{resource_name} på platsen %{space_name}"
         meeting:
-          close: "%{user_name} stängde %{resource_name} mötet på %{space_name} -platsen"
-          create: "%{user_name} skapade %{resource_name} mötet på %{space_name} -platsen"
-          delete: "%{user_name} raderade mötet %{resource_name} på %{space_name} -platsen"
-          export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på %{space_name} -platsen"
-          update: "%{user_name} uppdaterade mötet %{resource_name} på %{space_name} -platsen"
+          close: "%{user_name} stängde %{resource_name} mötet på platsen %{space_name}"
+          create: "%{user_name} skapade %{resource_name} mötet på platsen %{space_name}"
+          delete: "%{user_name} raderade mötet %{resource_name} på platsen %{space_name}"
+          export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på platsen %{space_name}"
+          update: "%{user_name} uppdaterade mötet %{resource_name} på platsen %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'Arrangören hittades inte i databasen (ID: %{id})'
@@ -287,7 +287,7 @@ sv:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Inbjudan att delta i ett möte
+            subject: Inbjudan för att delta i ett möte
         registration_mailer:
           confirmation:
             subject: Ditt mötesregistrering har bekräftats
