@@ -320,40 +320,40 @@ hu:
       gamification:
         badge_earned:
           email_intro: 'Szép munka! Megszerezte a(z) <a href="%{resource_url}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
-          email_outro: Ezt az értesítést azért kapta, mert aktivitást tett a weboldalunkon.
-          email_subject: 'Új jelvényt szerzett: %{badge_name}!'
-          notification_title: Nagyszerű munka! Ön megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> ( %{current_level}szint).
+          email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
+          email_subject: 'Új jelvényed: %{badge_name}!'
+          notification_title: 'Szép munka! Megszerezted a(z) <a href="%{resource_path}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
         level_up:
-          email_intro: Nagyszerű munka! Ön elérte a %{current_level} szintet az <a href="%{resource_path}">%{badge_name} jelvényen</a>!
-          email_outro: Ezt az értesítést azért kapta, mert aktivitást tett a weboldalunkon.
-          email_subject: Ön elérte a %{current_level} szintet az %{badge_name} jelvényen!
-          notification_title: Nagyszerű munka! Ön elérte a %{current_level} szintet az <a href="%{resource_path}">%{badge_name} jelvényen</a>!
+          email_intro: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_url}">%{badge_name} jelvényhez</a>!
+          email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
+          email_subject: Elérted a(z) %{current_level} szintet a %{badge_name} jelvényhez!
+          notification_title: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_path}">%{badge_name} jelvényhez</a>!
       notification_event:
-        notification_title: Egy esemény <a href="%{resource_path}">%{resource_title}</a>-re esett.
+        notification_title: 'Esemény történt itt: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
         profile_updated:
-          email_intro: A <a href="%{resource_url}">profil oldal</a> a %{name} (%{nickname}), aki akkor a következő, frissült.
-          email_outro: Ezt az értesítést megkapta, mert %{nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
+          email_intro: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
+          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
-          notification_title: A <a href="%{resource_path}">profil oldal</a> a %{name} (%{nickname}), aki akkor a következő, frissült.
+          notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
     export_mailer:
       data_portability_export:
-        click_button: Kattintson a következő gombra az adatok letöltéséhez. <br/> A fájl elérhető lesz %{date}ig.
+        click_button: 'Kattints a következő gombra az adatok letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.'
         download: Letöltés
       export:
-        ready: Kérjük, csatolja a kivitelt zipzárva.
-      subject: A "%{name}" exportja készen áll
+        ready: Mellékelve találod az exportálás tömörített változatát.
+      subject: A(z) "%{name}" exportálás kész
     filters:
       linked_classes:
-        all: Minden
-        collaborative_draft: Együttműködési tervezet
+        all: Összes
+        collaborative_draft: Közös vázlat
         dummy_resource: Dummy források
-        meeting: találkozók
-        project: projektek
-        proposal: javaslatok
+        meeting: Találkozók
+        project: Projektek
+        proposal: Javaslatok
         result: Eredmények
     fingerprint:
-      check: Az ujjlenyomat ellenőrzése
+      check: Ujjlenyomat ellenőrzése
       explanation: Az alábbi szövegrész a tartalom rövidített, megkülönböztetett ábrázolása. Hasznos lehet annak biztosítása, hogy a tartalom nem lett megváltoztatva, mivel egyetlen módosítás teljesen eltérő értéket eredményezne.
       online_calculator_name: MD5 számológép online
       replicate_help: Ezt az ujjlenyomatot SHA256 hasítási algoritmussal kell kiszámítani. Ha saját magát szeretné replikálni, használhat egy %{online_calculator_link} -at és másolhatja be a forrásadatokat.
