@@ -29,9 +29,14 @@ module Decidim
             context "when it is the first time to log in" do
               let(:user) { build(:user, sign_in_count: 1) }
 
+              # the first test would fail if tested in a non linear order, this corrects this problem.
+              # TODO : Find a more elegant solution
+              initial_value = Decidim.config.skip_first_login_authorization
+
               context "when there are authorization handlers" do
                 context "when there is no skip first login authorization option" do
                   before do
+                    Decidim.config.skip_first_login_authorization = initial_value
                     user.organization.available_authorizations = ["dummy_authorization_handler"]
                     user.organization.save
                   end
