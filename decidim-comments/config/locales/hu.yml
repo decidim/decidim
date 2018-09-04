@@ -21,55 +21,55 @@ hu:
           error: Hiba történt a megjegyzésre való szavazáskor.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókjához</a> vagy <a href="%{sign_up_url}">feliratkozáshoz</a> hozzáadásához.
+        account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókodba</a> vagy <a href="%{sign_up_url}">iratkozz fel</a> megjegyzés küldéséhez.
         form:
           body:
             label: Megjegyzés
             placeholder: Mit gondolsz erről?
-          form_error: A szöveg szükséges, és nem lehet hosszabb, mint %{length} karakter.
-          submit: Elküld
+          form_error: Kötelező kitölteni, és nem lehet hosszabb, mint %{length} karakter.
+          submit: Küldés
           user_group_id:
-            label: Comment as
+            label: 'Megjegyzés mint:'
         opinion:
           neutral: Semleges
         remaining_characters: "%{count} karakter maradt"
         remaining_characters_1: "%{count} karakter maradt"
-        title: Add meg a megjegyzést
+        title: Szólj hozzá
       comment:
         alignment:
-          against: Ellen
-          in_favor: Javára
+          against: Ellenzem
+          in_favor: Támogatom
         deleted_user: Törölt felhasználó
         reply: Válasz
         report:
           action: Jelentés
-          already_reported: Ezt a tartalmat már jelentették, és az adminisztrátor felülvizsgálja.
+          already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
           close: Bezárás
-          description: Ez a tartalom nem megfelelő?
+          description: Sértő a tartalom?
           details: További megjegyzések
           reasons:
-            does_not_belong: Tartalmaz illegális tevékenységet, öngyilkos fenyegetéseket, személyes adatokat, vagy valami másat, amelyről úgy gondolja, hogy nem tartozik a %{organization_name}.
-            offensive: Rasszizmust, szexizmust, hazugságokat, személyes támadásokat, halálos fenyegetéseket, öngyilkossági kéréseket vagy bármilyen gyűlöletbeszédet tartalmaz.
-            spam: Tartalmaz clickbait, reklám, csalások vagy szkript botok.
+            does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
+            offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
+            spam: Klikkvadászat, reklám, átverés vagy script bot.
           title: Jelentem a problémát
       comment_order_selector:
         order:
-          best_rated: Legjobb
-          most_discussed: A legtöbbet megvitatták
-          older: régebbi
-          recent: Friss
+          best_rated: Legjobbra értékelt
+          most_discussed: Leginkább vitatott
+          older: Korábbi
+          recent: Legutóbbi
         title: 'Rendezés:'
       comment_thread:
-        title: Beszélgetés %{authorName}
+        title: 'Beszélgetés vele: %{authorName}'
       comments:
-        blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de elolvashatja az előzőeket.
+        blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
         loading: Hozzászólások betöltése ...
         title: "%{count} megjegyzés"
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} megjegyzést hagyott az %{resource_title}. Az oldalon olvasható:"
-          email_outro: Ezt az értesítést megkapta, mert %{author_name}követ. A felhasználót a profiloldaláról törölheti.
+          email_intro: "%{author_name} megjegyzést hagyott itt: %{resource_title}. Ezen az oldalon megtalálod:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{author_name}". Leiratkozás az előző link segítségével.'
           email_subject: Új megjegyzés van %{author_name} -ra %{resource_title}
           notification_title: 'Van egy új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
