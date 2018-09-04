@@ -146,26 +146,26 @@ sv:
             up: Upp
           agenda_item_child:
             agenda_item_child: Underordnade dagordningspunkter
-            down: Ner
-            remove: Avlägsna
+            down: Ned
+            remove: Ta bort
             up: Upp
           create:
-            invalid: Det har varit ett problem att skapa denna dagordning
-            success: Agenda skapades framgångsrikt
+            invalid: Det blev ett problem med att skapa denna dagordning
+            success: Dagordning skapades
           edit:
             title: Redigera dagordning
             update: Uppdatering
           form:
-            add_agenda_item: Lägg till agendapost
-            agenda_items: Dagordningsposter
+            add_agenda_item: Lägg till punkt på dagordning
+            agenda_items: Dagordningspunkter
             end_date: Slutdatum
-            start_date: Start datum
+            start_date: Startdatum
           new:
             create: Skapa
             title: Ny dagordning
           update:
-            invalid: Det har varit ett problem att uppdatera den här agendan
-            success: Agenda uppdaterad
+            invalid: Det har blivit ett problem med att uppdatera den här dagordningen
+            success: Dagordning uppdaterad
         exports:
           registrations: Registreringar
         invite_join_meeting_mailer:
@@ -175,14 +175,14 @@ sv:
             join: Gå med i mötet "%{meeting_title}"
         invites:
           create:
-            error: Det har varit ett problem när du uppmanar användaren att gå med i mötet.
-            success: Användaren framgångsrikt inbjuden att delta i mötet.
+            error: Det har uppstått ett problem när du bjöd in användaren att gå med i mötet.
+            success: Användaren bjöds inbjuden att delta i mötet.
           form:
-            attendee_type: Deltagare typ
+            attendee_type: Deltagartyp
             existing_user: Existerande användare
             invite: Bjud in
-            invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen också.
-            non_user: Icke befintlig användare
+            invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
+            non_user: Icke-existerande användare
             select_user: Välj användare
           index:
             filter:
