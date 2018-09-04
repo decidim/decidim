@@ -149,16 +149,16 @@ hu:
       dummy_authorization_workflow:
         name: Dummy engedélyezési folyamat
       errors:
-        duplicate_authorization: A felhasználó ugyanazokkal az adatokkal már engedélyezett.
-      expired_at: '%{timestamp}kor lejárt'
+        duplicate_authorization: Egy felhasználó ugyanilyen adatokkal engedélyezve.
+      expired_at: 'Lejárat: %{timestamp}'
       expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:
         fields:
-          bar: Bár
-          foo: foo
-        name: Foo engedély
+          bar: Oszlop
+          foo: Foo
+        name: Foo engedélyezés
       granted_at: Megadva %{timestamp}
-      started_at: '%{timestamp}nál kezdődött'
+      started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       show:
         expired:
@@ -166,7 +166,7 @@ hu:
           explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
           title: Az engedélyed lejárt
         incomplete:
-          cancel: Megszünteti
+          cancel: Mégse
           explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
           invalid_field: "%{field}"
           reauthorize: Újraengedélyezés
@@ -188,57 +188,57 @@ hu:
       hidden_elements_count:
         one: és még egy
         other: és még %{count}
-      see_less: "(lásd kevesebbet)"
-      see_more: "(többet látni)"
+      see_less: "(kevesebb)"
+      see_more: "(tovább)"
     components:
       dummy:
         actions:
-          bar: Bár
-          foo: foo
-        name: Dummy komponens
+          bar: Oszlop
+          foo: Foo
+        name: Dummy elem
         settings:
           global:
             comments_enabled: Megjegyzések engedélyezve
-            dummy_global_attribute_1: Dummy attribútum 1
+            dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
-            resources_permissions_enabled: Engedélyezett erőforrás engedélyek
+            resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
             comments_blocked: Megjegyzések letiltva
-            dummy_step_attribute_1: Dummy Step Képesség 1
-            dummy_step_attribute_2: Dummy Step Képesség 2
-    contact: Kapcsolatba lépni
+            dummy_step_attribute_1: Dummy Step tulajdonság 1
+            dummy_step_attribute_2: Dummy Step tulajdonság 2
+    contact: Kapcsolat
     content_blocks:
       footer_sub_hero:
-        name: Footer sub hős banner
+        name: Lábléc sub hero banner
       hero:
         name: Hero kép
       highlighted_content_banner:
-        name: Kiemelt tartalom banner
+        name: Kiemelt banner
       how_to_participate:
-        name: Hogyan vehet részt?
+        name: Így vehetsz részt
       stats:
         name: Szervezeti statisztikák
       sub_hero:
-        name: Sub hős banner
+        name: Sub hero banner
     core:
       actions:
-        unauthorized: Ön nem jogosult a művelet végrehajtására
+        unauthorized: Nem vagy jogosult a művelet végrehajtására
     data_portability:
       export:
         ready: Kész
       show:
-        download_data: Töltse le az adatokat
-        download_data_description: A fiókhoz tartozó összes információt tartalmazó fájlt <strong>%{user_email}</strong>küldi
-        request_data: Adatok kérése
+        download_data: Töltsd le az adatokat
+        download_data_description: 'A fiókhoz tartozó összes információt a következő email címre: <strong>%{user_email}</strong>'
+        request_data: Adatkérés
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Egy másik fiók ugyanazt az e-mail címet használja
+          email_already_exists: Egy másik fiók ugyanezt az email címet használja
         new:
-          complete_profile: Teljes profil
-          nickname_help: A rövid, egyedi azonosítója a %{organization}
-          sign_up: Kérjük, töltse ki profilját
-          subtitle: Kérjük, töltse ki a következő űrlapot a regisztráció befejezéséhez
+          complete_profile: Profil kiegészítése
+          nickname_help: 'Rövid, egyedi azonosítód ehhez: %{organization}'
+          sign_up: Töltsd ki a hiányzó adatokat
+          subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
           username_help: A bejegyzésekben megjelenő nyilvános név. Az anonimitás garantálása érdekében bármilyen név lehet.
       registrations:
         new:
