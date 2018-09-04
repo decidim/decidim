@@ -79,24 +79,24 @@ sv:
             official_proposals_enabled: Officiella förslag möjliga
             proposal_answering_enabled: Svar tlll förslag aktiverat
             proposal_edit_before_minutes: Förslag kan redigeras av författare innan så här många minuter passerar
-            proposal_length: Maximal förslag kroppslängd
+            proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per användare
-            proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
-            proposal_wizard_step_2_help_text: Förslagsguiden "Jämför" steg hjälptext
-            proposal_wizard_step_3_help_text: Förslagsguiden "Komplett" steg hjälptext
+            proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
+            proposal_wizard_step_2_help_text: Hjälptext till steget "Jämför" i förslagsguiden
+            proposal_wizard_step_3_help_text: Hjälptext till steget "Komplett" i förslagsguiden
             proposal_wizard_step_4_help_text: Förslagsguiden "Publicera" steg hjälptext
-            resources_permissions_enabled: Åtgärdstillstånd kan ställas in för varje förslag
+            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
             threshold_per_proposal: Tröskel per förslag
-            vote_limit: Rösta per användare
+            vote_limit: Röstningsgräns per användare
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
-            creation_enabled: Förslagstillverkning möjliggjorde
-            endorsements_blocked: Anmärkningar blockerade
-            endorsements_enabled: Anmärkningar aktiverade
-            proposal_answering_enabled: Förslagsvarning aktiverat
-            votes_blocked: Röstning blockerad
-            votes_enabled: Röstning aktiverad
+            creation_enabled: Skapande av förslag aktiverat
+            endorsements_blocked: Stöd blockerade
+            endorsements_enabled: Stöd aktiverade
+            proposal_answering_enabled: Svar på förslag aktiverat
+            votes_blocked: Röstande blockerat
+            votes_enabled: Röstning aktiverat
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
     events:
       proposals:
