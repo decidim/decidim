@@ -5,7 +5,7 @@ sv:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Posta
+        one: Inlägg
         other: inlägg
   decidim:
     blogs:
@@ -14,11 +14,11 @@ sv:
         destroy: Radera
         edit: Redigera
         new: Nytt brev
-        title: Handlingar
+        title: Åtgärder
       admin:
         models:
           components:
-            body: Kropp
+            body: Innehåll
           post:
             name: Posta
         posts:
