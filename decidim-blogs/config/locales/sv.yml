@@ -41,7 +41,7 @@ sv:
         post:
           fields:
             author: Författare
-            body: Kropp
+            body: Innehåll
             created_at: Skapad vid
             title: titel
       posts:
@@ -53,19 +53,19 @@ sv:
       read_more: Läs mer
     components:
       blogs:
-        name: blogg
+        name: Blogg
         settings:
           global:
-            announcement: Meddelande
+            announcement: Notis
             comments_enabled: Kommentarer aktiverade
           step:
-            announcement: Meddelande
-            comments_blocked: Kommentarer blockerad
+            announcement: Notis
+            comments_blocked: Kommentarer blockerade
     events:
       blogs:
         post_created:
           email_intro: Posten "%{resource_title}" har publicerats i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det från föregående länken.
           email_subject: Nytt inlägg publicerat i %{participatory_space_title}
           notification_title: Posten <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
     pages:
