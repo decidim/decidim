@@ -70,23 +70,23 @@ hu:
         comment_by_followed_user:
           email_intro: "%{author_name} megjegyzést hagyott itt: %{resource_title}. Ezen az oldalon megtalálod:"
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{author_name}". Leiratkozás az előző link segítségével.'
-          email_subject: Új megjegyzés van %{author_name} -ra %{resource_title}
-          notification_title: 'Van egy új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
+          notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
-          email_intro: "%{resource_title} megjegyzést kapott. Elolvashatja a megjegyzést ezen az oldalon:"
-          email_outro: Ezt az értesítést azért kapta, mert a (z) "%{resource_title}" vagy annak szerzőjét követi. Leiratkozhat az előző linkről.
-          email_subject: Új megjegyzés van %{author_name} -tól %{resource_title}
-          notification_title: Van egy új megjegyzés a <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "A \"%{resource_title}\" témához megjegyzést fűzött valaki. Itt tudod elolvasni:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt (vagy ennek szerzőjét) követed: "%{resource_title}". Ha szeretnél, a link segítségével leiratkozhatsz.'
+          email_subject: 'Új megjegyzés érkezett ehhez: %{resource_title}, tőle: %{author_name}'
+          notification_title: 'Új megjegyzés tőle: <a href="%{author_path}">%{author_name} %{author_nickname}</a>, ehhez: <a href="%{resource_path}">%{resource_title}</a>'
         reply_created:
-          email_intro: "%{author_name} megjegyzést fűzött a (z) %{resource_title}. Az oldalon olvasható:"
-          email_outro: Ezt az értesítést azért kapta, mert a megjegyzésedre válaszolt.
-          email_subject: "%{author_name} megjegyzést fűzött a (z) %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a hozzászólásra <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{author_name} megjegyzést fűzött ehhez: %{resource_title}. Ezen az oldalon megtalálod:"
+          email_outro: Ezt az értesítést azért kaptad, mert valaki választolt a mejegyzésedre.
+          email_subject: "%{author_name} megjegyzést tett a kommentedhez itt: %{resource_title}"
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a megjegyzésedre itt: <a href="%{resource_path}">%{resource_title}</a>'
         user_mentioned:
-          email_intro: Ön említette
-          email_outro: Ezt az értesítést megkapta, mert a %{resource_title}.
-          email_subject: Már említetted a %{resource_title}
-          notification_title: Már említettük <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_intro: Valaki említette a neved
+          email_outro: Ezt az értesítést azért kaptad, mert korábban megemlítettek a(z) "%{resource_title}" témában.
+          email_subject: Megemlítettek a(z) %{resource_title} témában
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített itt: <a href="%{resource_path}">%{resource_title}</a>'
   errors:
     messages:
-      cannot_have_comments: nem tud megjegyzéseket tenni
+      cannot_have_comments: nem tudsz megjegyzéseket tenni
