@@ -3,30 +3,30 @@ hu:
     attributes:
       consultation:
         banner_image: Banner kép
-        decidim_highlighted_scope_id: Kiemelt hatókör
+        decidim_highlighted_scope_id: Kiemelt hatáskör
         description: Leírás
-        end_voting_date: A szavazás véget ér
+        end_voting_date: Szavazás vége
         introductory_image: Bevezető kép
         introductory_video_url: Bevezető videó URL
         questions: Kérdések
         slug: URL slug
-        start_voting_date: A szavazás megkezdődik
+        start_voting_date: Szavazás kezdése
         subtitle: Felirat
         title: Cím
       question:
         banner_image: Banner kép
-        decidim_scope_id: Városi terület
+        decidim_scope_id: Helyhatósági terület
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
         i_frame_url: Külső szavazási rendszer URL
-        origin_scope: terület
-        origin_title: Eredet
-        origin_url: A származási URL
-        participatory_scope: Részvételi kör
+        origin_scope: Hatáskör
+        origin_title: Kiindulópont
+        origin_url: Kiindulópont URL
+        participatory_scope: Részvétel hatásköre
         promoter_group: Promóciós csoport
         question_context: Kontextus
-        reference: Referencia
-        scope: Városi terület
+        reference: Hivatkozás
+        scope: Helyhatósági terület
         slug: URL slug
         subtitle: Felirat
         title: Cím
@@ -35,39 +35,39 @@ hu:
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: A válasz nem található.
+          not_found: Válasz nem található.
   activerecord:
     models:
       decidim/consultations:
         one: Konzultáció
-        other: konzultációk
+        other: Konzultációk
       decidim/consultations/question:
         one: Kérdés
         other: Kérdések
       decidim/consultations/response:
         one: Válasz
-        other: válaszok
+        other: Válaszok
       decidim/consultations/vote:
-        one: Szavazás
-        other: szavazatok
+        one: Szavazat
+        other: Szavazatok
   decidim:
     admin:
       actions:
         new_consultation: Új konzultáció
         new_question: Új kérdés
         new_response: Új válasz
-        publish_results: Az eredmények közzététele
-        unpublish_results: Az eredmények visszavonása
+        publish_results: Eredmények közzététele
+        unpublish_results: Eredmények visszavonása
       consultation_publications:
         create:
-          error: Hiba történt a konzultáció közzétételében.
-          success: A konzultáció sikeresen jelent meg.
+          error: Hiba történt a konzultáció közzététele során.
+          success: Konzultáció sikeresen közzétéve.
         destroy:
-          error: Hiba történt a konzultáció közzétételének visszavonása nélkül.
-          success: A konzultáció sikeresen be nem jelentett.
+          error: Hiba történt a konzultáció közzétételének visszavonásakor.
+          success: Konzultáció közzététele sikeresen visszavonva.
       consultation_results_publications:
         create:
-          error: Hiba történt a konzultáció eredményeinek közzétételéhez.
+          error: Hiba történt a konzultáció eredményeinek közzététele során.
           success: A konzultáció eredményei sikeresen megjelentek.
         destroy:
           error: Hiba történt a konzultáció eredményeinek közzétételéhez.
