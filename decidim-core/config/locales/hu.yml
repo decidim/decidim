@@ -136,15 +136,15 @@ hu:
         other: megjegyzések
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Ellenőrizze az útlevelek számát az "A"
+        explanation: Ellenőriztesd magad egy "A" betűvel kezdődő útlevél számmal
         fields:
-          passport_number: Útlevél száma
+          passport_number: Útlevélszám
         name: Egy másik példa engedélyezés
       dummy_authorization_handler:
-        explanation: Ellenőrizze az "X" -el végződő dokumentumszám bevezetésével
+        explanation: Ellenőriztesd magad egy "A" betűvel kezdődő dokumentum azonosítóval
         fields:
           document_number: Dokumentum szám
-          postal_code: irányítószám
+          postal_code: Irányítószám
         name: Példa engedélyezésre
       dummy_authorization_workflow:
         name: Dummy engedélyezési munkafolyamat
