@@ -11,7 +11,7 @@ sv:
         user_group_id: Skapa samarbetsförslag som
       proposal:
         answer: Svara
-        answered_at: Besvaras vid
+        answered_at: Besvarad vid
         body: Innehåll
         category_id: Kategori
         has_address: Har adress
@@ -22,42 +22,42 @@ sv:
       proposal_answer:
         answer: Svara
       proposals_copy:
-        copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan reverseras.
-        origin_component_id: Komponent för att kopiera förslagen från
+        copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
+        origin_component_id: Komponent att kopiera förslagen från
     errors:
       models:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Behöver återmonteras
+              needs_to_be_reattached: Behöver återbifogas
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
-      decidim/proposals/creation_enabled_event: Förslagstillverkning möjliggjorde
-      decidim/proposals/endorsing_enabled_event: Förslag godkännande aktiverat
+      decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
+      decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/evaluating_proposal_event: Förslaget utvärderas
-      decidim/proposals/proposal_endorsed_event: Förslag godkänd
-      decidim/proposals/proposal_mentioned_event: Förslag som nämns
+      decidim/proposals/proposal_endorsed_event: Förslaget stöttat
+      decidim/proposals/proposal_mentioned_event: Förslag nämnt
       decidim/proposals/publish_proposal_event: Förslag publicerat
-      decidim/proposals/rejected_proposal_event: Förkastat förslag
-      decidim/proposals/voting_enabled_event: Förslag till omröstning aktiverat
+      decidim/proposals/rejected_proposal_event: Förslag avvisat
+      decidim/proposals/voting_enabled_event: Omröstningar om förslag aktiverat
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
         one: Samarbetsförslag
-        other: Samarbetsförslag
+        other: Samarbetsförslagen
       decidim/proposals/proposal:
         one: Förslag
-        other: förslag
+        other: Förslagen
       decidim/proposals/proposal_endorsement:
-        one: Godkännande
-        other: påskrifter
+        one: Stöd
+        other: Stöd
       decidim/proposals/proposal_note:
-        one: Notera
-        other: anteckningar
+        one: Anteckning
+        other: Anteckningar
       decidim/proposals/proposal_vote:
-        one: Rösta
-        other: röster
+        one: Röst
+        other: Röster
   decidim:
     components:
       proposals:
@@ -69,16 +69,16 @@ sv:
         name: Förslag
         settings:
           global:
-            announcement: Meddelande
+            announcement: Notis
             attachments_allowed: Tillåt bifogade filer
-            can_accumulate_supports_beyond_threshold: Kan ackumulera stöd över gränsen
-            collaborative_drafts_enabled: Samarbeta utkast aktiverat
+            can_accumulate_supports_beyond_threshold: Kan ackumulera stöd bortom tröskeln
+            collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geocoding aktiverad
             new_proposal_help_text: Nytt förslag till hjälptext
             official_proposals_enabled: Officiella förslag möjliga
-            proposal_answering_enabled: Förslagsvarning aktiverat
-            proposal_edit_before_minutes: Förslag kan redigeras av författare innan detta många minuter passerar
+            proposal_answering_enabled: Svar tlll förslag aktiverat
+            proposal_edit_before_minutes: Förslag kan redigeras av författare innan så här många minuter passerar
             proposal_length: Maximal förslag kroppslängd
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
