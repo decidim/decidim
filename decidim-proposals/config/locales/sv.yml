@@ -370,7 +370,7 @@ sv:
         requests:
           accepted_request:
             error: Kunde inte accepteras som samarbetspartner, försök igen senare.
-            success: "@%{user} har godkänts som samarbetspartner med framgång"
+            success: "@%{user} har godkänts som samarbetspartner"
           access_requested:
             error: Din förfrågan kunde inte slutföras, försök igen senare.
             success: Din begäran om samarbete är skickad
@@ -383,13 +383,13 @@ sv:
             success: "@%{user} har avvisats som samarbetspartner"
         show:
           back: Tillbaka
-          edit: Redigera sammandragsförslag
+          edit: Redigera samarbetsutkastet
           final_proposal: sista förslaget
           final_proposal_help_text: Detta utkast är färdigt. Du kan se det slutgiltiga förslaget
           hidden_authors_count:
             one: och 1 till person
             other: och %{count} fler personer
-          info-message: Detta är ett <strong>samlingsförslag</strong> för ett förslag. Det innebär att du kan hjälpa sina författare att forma förslaget med hjälp av kommentarsektionen nedan eller förbättra det direkt genom att begära åtkomst för att redigera det. När författarna ger dig tillgång, kan du göra ändringar i detta utkast.
+          info-message: Detta är ett <strong>samlingsförslag</strong> för ett förslag. Det innebär att du kan hjälpa deras författare att forma förslaget med hjälp av kommentarsektionen nedan eller förbättra det direkt genom att begära åtkomst för att redigera det. När författarna ger dig tillgång, kan du göra ändringar i detta utkast.
           of_versions: "(av %{number})"
           publish: Publicera
           publish_info: Publicera den här versionen av utkastet eller
@@ -405,34 +405,34 @@ sv:
           published: Publicerad
           withdrawn: Tillbakadragen
         update:
-          error: Det har funnits fel när du lagrade samarbetsförslaget.
+          error: Det har uppstått fel när du sparade samarbetsutkastet.
           success: Samarbetsutkastet uppdaterat.
         wizard_aside:
           back: Tillbaka
           info: Du skapar ett <strong>samarbetsutkast</strong>.
         wizard_steps:
           see_steps: se steg
-          step_1: Skapa ditt samarbetsförslag
-          step_2: Jämför med samarbetsförslag
-          step_3: Fyll i ditt samarbetsförslag
+          step_1: Skapa ditt samarbetsutkast
+          step_2: Jämför med samarbetsutkast
+          step_3: Färdigställ ditt samarbetsutkast
           step_of: Steg %{current_step_num} av %{total_steps}
       create:
-        error: Det har varit fel när du lagrade förslaget.
-        success: Förslaget skapades framgångsrikt. Sparat som ett formulär.
+        error: Det uppstått fel när du sparade förslaget.
+        success: Förslaget skapades. Sparat som ett Utkast.
       destroy_draft:
-        error: Det har funnits fel att radera förslaget.
-        success: Förslagsförslaget har tagits bort.
+        error: Det har uppstått fel vid radering av förslagsutkastet.
+        success: Förslagsutkastet har tagits bort.
       models:
         collaborative_draft:
           fields:
             authors: Författare
-            comments: kommentarer
+            comments: Kommentarer
             contributions: Bidrag
         proposal:
           fields:
             category: Kategori
             comments: Kommentarer
-            endorsements: påskrifter
+            endorsements: Påskrifter
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
@@ -526,12 +526,12 @@ sv:
         preview:
           modify: Ändra förslaget
           proposal_edit_before_minutes:
-            one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
-            other: Du kommer att kunna redigera detta förslag under den första %{count} minuter efter att förslaget har publicerats. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
+            one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera förslaget.
+            other: Du kommer att kunna redigera detta förslag under de första %{count} minuter efter att förslaget har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
         proposal:
-          creation_date: 'Skapelse: %{date}'
+          creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
         show:
           edit_proposal: Redigera förslag
@@ -540,24 +540,24 @@ sv:
             one: och ytterligare 1 person
             other: och %{count} fler personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett samlat förslag. Granska historiken
-          link_to_collaborative_draft_text: Se sammandragsförslaget
+          link_to_collaborative_draft_text: Se samarbetsutkastet
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
-          proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'
+          proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
           report: Rapportera
           sign_in: Logga in
-          sign_in_or_up: "%{in} eller %{up} att delta"
+          sign_in_or_up: "%{in} eller %{up} för att delta"
           sign_up: registrera
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
-          withdraw_proposal: Dra ut förslaget
+          withdraw_proposal: Dra tillbaka förslaget
         tags:
           changed_from: "(ändrad från <u>%{previous_category}</u> av en administratör)"
-          filed_as: Filed as
+          filed_as: Arkiverat som
         vote_button:
           already_voted: Redan röstat
           already_voted_hover: Ta bort sin röst
-          maximum_votes_reached: Rösta gränsen uppnådd
+          maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
           vote: Rösta
           votes_blocked: Röstning inaktiverad
@@ -586,28 +586,28 @@ sv:
           see_steps: se steg
           step_1: Skapa ditt förslag
           step_2: Jämföra
-          step_3: Komplett
+          step_3: Slutförd
           step_4: Publicera ditt förslag
           step_of: Steg %{current_step_num} av %{total_steps}
       publish:
-        error: Det har varit fel vid publicering av förslaget.
-        success: Förslag publicerat framgångsrikt.
+        error: Det har uppstått fel vid publicering av förslaget.
+        success: Förslag publicerat.
       update:
-        error: Det har varit fel när du lagrade förslaget.
-        success: Förslaget uppdateras framgångsrikt.
+        error: Det har uppstått fel när du sparade förslaget.
+        success: Förslaget uppdaterades.
       update_draft:
-        error: Det har varit fel när du lagrade förslaget.
-        success: Förslagsförslaget uppdateras framgångsrikt.
+        error: Det har uppstått fel när du sparade förslaget.
+        success: Förslagsutkastet uppdaterades.
       versions:
         changes_at_title: Ändringar vid "%{title}"
         index:
-          title: versioner
+          title: Versioner
         stats:
-          back_to_collaborative_draft: Gå tillbaka till samarbetsförslag
-          number_of_versions: versioner
+          back_to_collaborative_draft: Gå tillbaka till samarbetsutkast
+          number_of_versions: Versioner
           show_all_versions: Visa alla versioner
-          version_author: Version författare
-          version_created_at: Version skapad på
+          version_author: Versionsförfattare
+          version_created_at: Version skapad vid
           version_number: Versionsnummer
           version_number_out_of_total: "%{current_version} av %{total_count}"
         version:
