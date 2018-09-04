@@ -54,13 +54,13 @@ sv:
             success: "%{number} förslag importerades till projekt"
           new:
             create: Importera förslag till projekt
-            no_components: Det finns inga andra förslagskomponenter i detta deltagande utrymme för att importera förslagen till projekt.
+            no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme för att importera förslagen till projekt.
             select_component: Var god välj en komponent
       admin_log:
         project:
-          create: "%{user_name} skapade projektet %{resource_name} i %{space_name} -utrymmet"
-          delete: "%{user_name} raderade projektet %{resource_name} i %{space_name} -utrymmet"
-          update: "%{user_name} uppdaterade projektet %{resource_name} i %{space_name} -utrymmet"
+          create: "%{user_name} skapade projektet %{resource_name} i utrymmet %{space_name}"
+          delete: "%{user_name} raderade projektet %{resource_name} i utrymmet %{space_name}"
+          update: "%{user_name} uppdaterade projektet %{resource_name} i utrymmet %{space_name}"
       models:
         project:
           fields:
@@ -70,8 +70,8 @@ sv:
           are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra den.
           cancel: Avbryt
           confirm: Bekräfta
-          description: Det här är de projekt du valt att vara en del av budgeten.
-          title: Bekräfta omröstning
+          description: Det här är de projekt du har valt att vara del av budgeten.
+          title: Bekräfta röst
         budget_excess:
           close: Stäng
           description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har valt för att lägga till eller göra din röst med dina önskemål.
