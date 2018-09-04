@@ -46,12 +46,12 @@ sv:
             create: Skapa
             title: Nytt projekt
           update:
-            invalid: Det har varit ett problem att uppdatera projektet
-            success: Projektet har blivit uppdaterat
+            invalid: Det har blivit ett problem med att uppdatera detta projekt
+            success: Projektet har uppdaterats
         proposals_imports:
           create:
-            invalid: Det har varit ett problem att importera förslagen till projekt
-            success: "%{number} förslag framgångsrikt importerade till projekt"
+            invalid: Det har blivit ett problem med att importera förslagen till projekt
+            success: "%{number} förslag importerades till projekt"
           new:
             create: Importera förslag till projekt
             no_components: Det finns inga andra förslagskomponenter i detta deltagande utrymme för att importera förslagen till projekt.
