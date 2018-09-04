@@ -53,6 +53,13 @@ module Decidim
         admins_query.for(self)
       end
 
+      # Public: Returns an ActiveRecord::Relation of all the users that can
+      # moderate the space. This is used when notifying of flagged/hidden
+      # content.
+      def moderators
+        admins
+      end
+
       def allows_steps?
         respond_to?(:steps)
       end
