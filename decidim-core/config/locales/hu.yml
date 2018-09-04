@@ -147,7 +147,7 @@ hu:
           postal_code: Irányítószám
         name: Példa engedélyezésre
       dummy_authorization_workflow:
-        name: Dummy engedélyezési munkafolyamat
+        name: Dummy engedélyezési folyamat
       errors:
         duplicate_authorization: A felhasználó ugyanazokkal az adatokkal már engedélyezett.
       expired_at: '%{timestamp}kor lejárt'
