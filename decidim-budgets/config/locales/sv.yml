@@ -12,11 +12,11 @@ sv:
     models:
       decidim/budgets/project:
         one: Projekt
-        other: projekt
+        other: Projekt
   decidim:
     budgets:
       actions:
-        attachment_collections: mappar
+        attachment_collections: Mappar
         attachments: Bifogade filer
         confirm_destroy: Är du säker på att du vill radera detta projekt?
         destroy: Radera
@@ -24,7 +24,7 @@ sv:
         import: Importera förslag till projekt
         new: Nytt projekt
         preview: Förhandsvisa
-        title: Handlingar
+        title: Åtgärder
       admin:
         models:
           project:
