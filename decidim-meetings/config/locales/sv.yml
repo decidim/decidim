@@ -88,18 +88,18 @@ sv:
       meetings:
         meeting_closed:
           email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
+          email_outro: Du har fått den här notifikationen eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från den föregående länken.
           email_subject: Mötet "%{resource_title}" stängdes
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
         meeting_created:
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
-          email_subject: Nytt möte läggs till %{participatory_space_title}
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
+          email_subject: Nytt möte har lagts till i %{participatory_space_title}
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: De upptagna platserna "%{resource_title}" är över %{percentage}%.
-          email_outro: Du har fått den här meddelandet eftersom du är en administratör för mötes deltagande utrymme.
-          email_subject: De upptagna platserna för "%{resource_title}" är över %{percentage}%
+          email_intro: De upptagna platserna vid "%{resource_title}" är över %{percentage}%.
+          email_outro: Du har fått den här notifikationen eftersom du är en administratör för mötets deltagandeutrymme.
+          email_subject: De upptagna platserna vid "%{resource_title}" är över %{percentage}%
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötesplatserna är över %{percentage}%.
         meeting_updated:
           email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
