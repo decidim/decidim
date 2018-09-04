@@ -290,7 +290,7 @@ sv:
             subject: Inbjudan för att delta i ett möte
         registration_mailer:
           confirmation:
-            subject: Ditt mötesregistrering har bekräftats
+            subject: Din mötesregistrering har bekräftats
       meeting:
         not_allowed: Du får inte se det här mötet
       meetings:
@@ -309,7 +309,7 @@ sv:
         index:
           view_meeting: Visa möte
         meeting_minutes:
-          meeting_minutes: Möte protokoll
+          meeting_minutes: Mötesprotokoll
           related_information: Relaterad information
         meetings:
           no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
@@ -328,18 +328,18 @@ sv:
           remaining_slots:
             one: 1 plats kvar
             other: "%{count} platser kvar"
-          view: Se
+          view: Visa
       models:
         invite:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             sent_at: Skickat på
             status: Status
           status:
             accepted: Accepterad (%{at})
             rejected: Avvisad (%{at})
-            sent: sände
+            sent: Skickat
         meeting:
           fields:
             closed: Stängd
@@ -355,14 +355,14 @@ sv:
           registration_code: Din registreringskod är %{code}.
       registrations:
         create:
-          invalid: Det har varit ett problem att gå med i det här mötet.
-          success: Du har gått med på mötet framgångsrikt.
+          invalid: Det har uppstått ett problem med att gå med i det här mötet.
+          success: Du har gått med på mötet.
         decline_invitation:
-          invalid: Det har varit ett problem att minska inbjudan.
-          success: Du har avböjt inbjudan framgångsrikt.
+          invalid: Det uppstod ett problem med att avböja inbjudan.
+          success: Du har avböjt inbjudan.
         destroy:
-          invalid: Det har varit ett problem att lämna detta möte.
-          success: Du har lämnat mötet framgångsrikt.
+          invalid: Det uppstod ett problem med att lämna detta möte.
+          success: Du har lämnat mötet.
       types:
         private_meeting: Privat möte
         transparent: Transparent
