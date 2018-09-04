@@ -2,7 +2,7 @@
   <article class="card card--meeting">
     <div class="card__content">
       <%= link_to resource_locator(meeting).path, class: "card__link" do %>
-        <h5 class="card__title"><%= translated_attribute meeting.title %></h5>
+        <h5 class="card__title"><%= Decidim::Meetings::MeetingPresenter.new(meeting).title %></h5>
       <% end %>
       <%= render partial: "decidim/meetings/meetings/datetime", locals: { meeting: meeting } %>
     </div>

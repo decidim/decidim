@@ -137,7 +137,7 @@ shared_examples "manage meetings" do
 
   describe "duplicating a meeting" do
     it "creates a new meeting", :slow do
-      within find("tr", text: translated(meeting.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Duplicate"
       end
 
@@ -204,14 +204,14 @@ shared_examples "manage meetings" do
     end
 
     it "deletes a meeting" do
-      within find("tr", text: translated(meeting2.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(meeting2.title))
+        expect(page).to have_no_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
       end
     end
   end
@@ -222,7 +222,7 @@ shared_examples "manage meetings" do
     end
 
     it "updates a meeting" do
-      within find("tr", text: translated(meeting.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Edit"
       end
 
@@ -313,7 +313,7 @@ shared_examples "manage meetings" do
     let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
     it "closes a meeting with a report" do
-      within find("tr", text: translated(meeting.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         page.click_link "Close"
       end
 
@@ -334,7 +334,7 @@ shared_examples "manage meetings" do
 
       expect(page).to have_admin_callout("Meeting successfully closed")
 
-      within find("tr", text: translated(meeting.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         expect(page).to have_content("Yes")
       end
     end
@@ -343,7 +343,7 @@ shared_examples "manage meetings" do
       let!(:meeting) { create(:meeting, :closed, component: current_component) }
 
       it "can update the information" do
-        within find("tr", text: translated(meeting.title)) do
+        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
           page.click_link "Close"
         end
 

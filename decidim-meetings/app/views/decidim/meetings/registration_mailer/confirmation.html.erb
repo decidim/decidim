@@ -1,4 +1,4 @@
-<p><%= t(".confirmed_html", title: translated_attribute(@meeting.title), url: @locator.url) %></p>
+<p><%= t(".confirmed_html", title: Decidim::Meetings::MeetingPresenter.new(@meeting).title, url: @locator.url) %></p>
 
 <p><%= t(".registration_code", code: @registration.code) %></p>
 

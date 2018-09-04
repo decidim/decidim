@@ -24,6 +24,10 @@ module Decidim
         end
       end
 
+      def title
+        Decidim::Meetings::MeetingPresenter.new(model).title
+      end
+
       def resource_icon
         icon "meetings", remove_icon_class: true, width: 40, height: 70
       end

@@ -25,7 +25,7 @@
           <% meetings.each do |meeting| %>
             <tr data-id="<%= meeting.id %>">
               <td>
-                <%= translated_attribute(meeting.title) %><br />
+                <%= Decidim::Meetings::MeetingPresenter.new(meeting).title %><br />
               </td>
               <td>
                 <% if meeting.start_time %>
