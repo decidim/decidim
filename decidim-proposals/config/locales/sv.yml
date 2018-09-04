@@ -132,21 +132,21 @@ sv:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>återtagna</strong> <a href="%{resource_path}">%{resource_title}</a> samarbetet utkast.
         creation_enabled:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_outro: Du har fått den här notifikationen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notifikationer vid föregående länk.
           email_subject: Förslag som nu finns tillgängliga på %{participatory_space_title}
           notification_title: Nu kan du lägga fram <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Du kan godkänna förslag på %{participatory_space_title}! Börja delta på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_outro: Du har fått den här notifikationen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notifikationen efter föregående länk.
           email_subject: Förslag till godkännande har startat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">godkänna förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Förslaget "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
           email_subject: Ett förslag som du följer är godkänt
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts.
+          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har godkänts.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, vem du följer har just godkänt ett förslag som kan vara intressant för dig, kolla in det och bidra med:"
+          email_intro: "%{endorser_name} %{endorser_nickname}, som du följer har just godkänt ett förslag som kan vara intressant för dig, kolla in det och bidra:"
           email_outro: Du har fått den här notifikationen eftersom du följer %{endorser_nickname}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: "%{endorser_nickname} har godkänt ett nytt förslag"
           notification_title: '| <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
@@ -181,8 +181,8 @@ sv:
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         voting_enabled:
           email_intro: 'Du kan rösta på förslag på %{participatory_space_title}! Börja delta på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: Förslagets röstning har börjat för %{participatory_space_title}
+          email_outro: Du har fått den här notifikationen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notifikationer vid föregående länk.
+          email_subject: Omröstningar för förslag har börjat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
