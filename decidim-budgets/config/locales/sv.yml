@@ -76,14 +76,14 @@ sv:
           close: Stäng
           description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har valt för att lägga till eller göra din röst med dina önskemål.
           ok: OK
-          title: Maximal budget överskridits
+          title: Maximal budget överskreds
         budget_summary:
           are_you_sure: Är du säker på att du vill avbryta din röst?
-          assigned: 'Tilldelat:'
+          assigned: 'Tilldelad:'
           cancel_order: ta bort din röst och börja om
           checked_out:
             description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
-            title: Budgetröstning slutförd
+            title: Budgetomröstning slutförd
           description: Vilka projekt tycker du att vi borde avsätta budget för? Tilldela minst %{minimum_budget} till de projekt du vill ha och rösta med dina preferenser för att definiera budgeten.
           title: Du bestämmer budgeten
         count:
@@ -104,7 +104,7 @@ sv:
         order_selected_projects:
           remove: Avlägsna
           selected_projects:
-            one: projekt valt
+            one: valt projekt
             other: utvalda projekt
           view: Visa
         project:
@@ -113,7 +113,7 @@ sv:
             one: 1 stöd
             other: "%{count} stöder"
           remove: Avlägsna
-          view: Se
+          view: Visa
         project_budget_button:
           add: Lägg till
           added: Tillagd
@@ -127,14 +127,14 @@ sv:
         name: Budgetar
         settings:
           global:
-            announcement: Meddelande
+            announcement: Notis
             comments_enabled: Kommentarer aktiverade
             projects_per_page: Projekt per sida
-            resources_permissions_enabled: Åtgärdstillstånd kan ställas in för varje möte
+            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
             total_budget: Total budget
             vote_threshold_percent: Rösta tröskel procent
           step:
-            announcement: Meddelande
+            announcement: Notis
             comments_blocked: Kommentarer blockerade
             show_votes: Visa röster
             votes_enabled: Röstning aktiverad
