@@ -13,7 +13,7 @@ sv:
         proposal_ids: Förslag som skapats i mötet
       meeting:
         address: Adress
-        available_slots: Tillgängliga slots för detta möte
+        available_slots: Tillgängliga platser för detta möte
         decidim_category_id: Kategori
         decidim_scope_id: Omfattning
         description: Beskrivning
@@ -27,9 +27,9 @@ sv:
         title: Titel
         transparent: Transparent
       minutes:
-        audio_url: Ljudadress
+        audio_url: Ljud-URL
         description: Beskrivning
-        video_url: Video-url
+        video_url: Video-URL
         visible: Är synlig
     errors:
       models:
@@ -53,18 +53,18 @@ sv:
     models:
       decidim/meetings/meeting:
         one: Möte
-        other: möten
+        other: Möten
       decidim/meetings/minutes:
-        one: Minuter
-        other: Minuter
+        one: Anteckning
+        other: Anteckningar
       decidim/meetings/registration:
         one: Registrering
-        other: registreringar
+        other: Registreringar
   decidim:
     admin:
       meeting_copies:
         create:
-          error: Det gick inte att duplicera det här mötet.
+          error: Ett fel uppstod när det här mötet skulle dupliceras.
           success: Duplicerat möte framgångsrikt.
         new:
           copy: Kopiera
