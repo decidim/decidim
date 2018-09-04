@@ -36,12 +36,12 @@ sv:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Varaktigheten av objekten överstiger mötesperioden med %{count} minuter
-              too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendan "%{parent_title}" med %{count} minut
+              too_many_minutes: Varaktigheten av objekten överstiger mötestiden med %{count} minuter
+              too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendaobjektet "%{parent_title}" med %{count} minuter
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Det här mailet har redan blivit inbjudet
+              already_invited: Det här e-postadressen har redan blivit inbjuden
     models:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
@@ -102,10 +102,10 @@ sv:
           email_subject: De upptagna platserna "%{resource_title}" är över %{percentage}%
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötesplatserna är över %{percentage}%.
         meeting_updated:
-          email_intro: '"%{resource_title}" mötet uppdaterades. Du kan läsa den nya versionen från sin sida:'
+          email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: '"%{resource_title}" mötet uppdaterades'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet uppdaterades.
+          email_subject: Mötet "%{resource_title}" uppdaterades
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
           email_intro: Din registreringskod "%{registration_code}" har validerats.
           email_outro: Du har fått den här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
