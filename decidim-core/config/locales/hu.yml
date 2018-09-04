@@ -64,54 +64,54 @@ hu:
         confirm:
           close: Ablak bezárása
           ok: Igen, törölni szeretném a fiókomat
-          question: Biztosan törölni szeretné fiókját?
-          title: A fiókom törlése
-        explanation: Kérjük, töltse ki az okot, amellyel törölni szeretné fiókját (nem kötelező).
+          question: Biztosan törölni szeretnéd a fiókodat?
+          title: Fiók törlése
+        explanation: Nevezd meg az okot, amiért törölni szeretnéd a fiókod (nem kötelező).
       destroy:
-        error: Hiba történt a fiók törlésével.
-        success: Fiókja sikeresen törölve.
+        error: Hiba történt a fiók törlése során.
+        success: Fiók törlése sikeres.
       show:
         change_password: Jelszó módosítása
         update_account: Fiók frissítése
       update:
-        error: Hiba történt a fiók frissítésében.
+        error: Hiba történt a fiók frissítése során.
         success: A fiók sikeresen frissült.
-        success_with_email_confirmation: A fiók sikeresen frissült. E-mailt fog kapni az új e-mail cím megerősítéséhez.
+        success_with_email_confirmation: A fiók frissítése sikeres. Az új email cím megerősítéséhez az email címedre küldtünk egy levelet.
     admin_log:
       area:
-        create: "%{user_name} létrehozta az %{resource_name} területet"
-        delete: "%{user_name} törölte az %{resource_name} területet"
-        update: "%{user_name} frissítette az %{resource_name} területet"
+        create: "%{user_name} létrehozta a(z) %{resource_name} területet"
+        delete: "%{user_name} törölte a(z) %{resource_name} területet"
+        update: "%{user_name} frissítette a(z) %{resource_name} területet"
       component:
-        create: "%{user_name} hozzáadta az %{resource_name} komponenst a %{space_name} helyhez"
-        delete: "%{user_name} eltávolította az %{resource_name} komponenst a %{space_name} helyről"
-        publish: "%{user_name} közzétette az %{resource_name} komponenst a %{space_name} térben"
-        unpublish: "%{user_name} nem publikált %{resource_name} komponenst a %{space_name} helyről"
+        create: "%{user_name} hozzáadta a(z) %{resource_name} elemet ehhez: %{space_name}"
+        delete: "%{user_name} eltávolította a(z) %{resource_name} elemet innen: %{space_name}"
+        publish: "%{user_name} közzétette a(z) %{resource_name} elemet itt: %{space_name}"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} elem közzétetelét innen: %{space_name}"
       moderation:
-        hide: "%{user_name} elrejtette az %{resource_type} -es típusú erőforrást a %{space_name} mezőben"
-        unreport: "%{user_name} nem bejelentett egy %{resource_type} -es típusú erőforrást a %{space_name} térben"
+        hide: "%{user_name} elrejtette a(z) %{resource_type} típusú erőforrást itt: %{space_name}"
+        unreport: "%{user_name} visszavonta a(z) %{resource_type} típusú erőforrás bejelentését itt: %{space_name}"
       newsletter:
-        create: "%{user_name} létrehozta az %{resource_name} hírlevelet"
-        delete: "%{user_name} törölte az %{resource_name} hírlevelet"
-        deliver: "%{user_name} szállított az %{resource_name} hírlevelet"
-        update: "%{user_name} frissítette az %{resource_name} hírlevelet"
+        create: "%{user_name} létrehozta a(z) %{resource_name} hírlevelet"
+        delete: "%{user_name} törölte a(z) %{resource_name} hírlevelet"
+        deliver: "%{user_name} kiküldte a(z) %{resource_name} hírlevelet"
+        update: "%{user_name} frissítette a(z) %{resource_name} hírlevelet"
       oauth_application:
-        create: "%{user_name} létrehozta az %{resource_name} OAuth alkalmazást"
-        delete: "%{user_name} törölte az %{resource_name} OAuth alkalmazást"
-        update: "%{user_name} frissítette az %{resource_name} OAuth alkalmazást"
+        create: "%{user_name} létrehozta a(z) %{resource_name} OAuth alkalmazást"
+        delete: "%{user_name} törölte a(z) %{resource_name} OAuth alkalmazást"
+        update: "%{user_name} frissítette a(z) %{resource_name} OAuth alkalmazást"
       organization:
         update: "%{user_name} frissítette a szervezet beállításait"
       scope:
-        create: "%{user_name} létrehozta az %{resource_name} hatókört"
-        create_with_parent: "%{user_name} létrehozta az %{resource_name} kört a %{parent_scope} körön belül"
-        delete: "%{user_name} törölte az %{resource_name} hatókört"
-        delete_with_parent: "%{user_name} törölte az %{resource_name} kört a %{parent_scope} körön belül"
-        update: "%{user_name} frissítette az %{resource_name} kört"
-        update_with_parent: "%{user_name} frissítette az %{resource_name} kört a %{parent_scope} körön belül"
+        create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
+        create_with_parent: "%{user_name} létrehozta a(z) %{resource_name} hatáskört ezen belül: %{parent_scope}"
+        delete: "%{user_name} törölte a(z) %{resource_name} hatáskört"
+        delete_with_parent: "%{user_name} törölte a(z) %{resource_name} hatáskört ebből: %{parent_scope}"
+        update: "%{user_name} frissítette a(z) %{resource_name} hatáskört"
+        update_with_parent: "%{user_name} frissítette a(z) %{resource_name} hatáskört ezen belül: %{parent_scope}"
       static_page:
-        create: "%{user_name} létrehozta az %{resource_name} statikus oldalt"
-        delete: "%{user_name} törölte az %{resource_name} statikus oldalt"
-        update: "%{user_name} frissítette az %{resource_name} statikus oldalt"
+        create: "%{user_name} létrehozta a(z) %{resource_name} statikus oldalt"
+        delete: "%{user_name} törölte a(z) %{resource_name} statikus oldalt"
+        update: "%{user_name} frissítette a(z) %{resource_name} statikus oldalt"
       user:
         invite: "%{user_name} meghívta a felhasználót %{resource_name} szereppel: %{role}"
         officialize: "%{user_name} hivatalossá tette a felhasználót %{resource_name}"
