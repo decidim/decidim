@@ -3,18 +3,18 @@ pt-BR:
   decidim:
     system:
       actions:
-        confirm_destroy: Tem certeza de que deseja excluir isso?
+        confirm_destroy: Deseja mesmo excluir isso?
         destroy: Destruir
         edit: Editar
         new: Novo
-        save: Salve 
+        save: Salvar
         title: Ações
       admins:
         create:
           error: Ocorreu um erro ao criar um novo administrador.
           success: Admin criado com sucesso
         destroy:
-          success: Admin destruído com sucesso
+          success: Admin excluído com sucesso
         edit:
           title: Edit admin
           update: Atualizar
@@ -38,7 +38,7 @@ pt-BR:
         admin:
           fields:
             created_at: Criado em
-            email: O email
+            email: E-mail
           name: Administrador
           validations:
             email_uniqueness: outro administrador com o mesmo e-mail já existe

@@ -281,7 +281,7 @@ sv:
           title: Liknande förslag
         complete:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
-          select_a_category: Var god välj en kategori
+          select_a_category: Välj en kategori
           send: Skicka
           title: Fyll i ditt förslag
         count:

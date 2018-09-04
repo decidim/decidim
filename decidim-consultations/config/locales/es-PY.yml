@@ -10,7 +10,7 @@ es-PY:
         introductory_image: Imagen introductoria
         introductory_video_url: URL de vídeo introductoria
         questions: Preguntas
-        slug: URL slug
+        slug: Texto corto de URL
         start_voting_date: Fecha de inicio
         subtitle: Subtitular
         title: Título
@@ -28,7 +28,7 @@ es-PY:
         question_context: Contexto
         reference: Referencia
         scope: Área municipal
-        slug: URL slug
+        slug: Texto corto de URL
         subtitle: Subtitular
         title: Título
         vote: Sistema de votación externa

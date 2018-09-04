@@ -15,7 +15,7 @@ ru:
       meeting:
         address: Адрес
         available_slots: Доступные места на эту встречу
-        decidim_category_id: Разряд
+        decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
         end_time: Время окончания
@@ -279,8 +279,8 @@ ru:
         not_allowed: У вас нет прав на просмотр этой встречи
       meetings:
         filters:
-          category: Разряд
-          category_prompt: Выберите разряд
+          category: Категория
+          category_prompt: Выберите категорию
           date: Дата
           past: Прошедшие
           search: Поиск
@@ -304,7 +304,7 @@ ru:
         show:
           attendees: Количество участников
           contributions: Количество внесенных предложений
-          going: Собирается посетить
+          going: Собираетесь посетить
           join: Присоединиться к встрече
           meeting_report: Отчет о встрече
           no_slots_available: Не осталось мест

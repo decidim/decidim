@@ -66,9 +66,9 @@ fi:
             create: Luo tulos
             title: Uusi tulos
           proposals:
-            close: kiinni
+            close: Sulje
             current_selection: Nykyinen valinta
-            select: valita
+            select: Valitse
           update:
             invalid: Tuloksen päivityksessä tapahtui virhe
             success: Tulos päivitetty onnistuneesti
@@ -181,18 +181,18 @@ fi:
           version_index: Versio %{index}
     components:
       accountability:
-        name: vastuullisuutta
+        name: Vastuullisuus
         settings:
           global:
             categories_label: Nimi "Luokat"
-            comments_enabled: Kommentit ovat käytössä
+            comments_enabled: Kommentointi käytössä
             display_progress_enabled: Näytä edistyminen
             heading_leaf_level_results: Nimi "Projektit"
             heading_parent_level_results: Nimi "Tulokset"
-            intro: intro
+            intro: Esittelyteksti
             subcategories_label: Nimi "Alaluokat"
           step:
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi estetty
     events:
       accountability:
         proposal_linked:

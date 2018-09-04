@@ -116,7 +116,7 @@ pt-BR:
             filter_by: Filtrar por
             preview: Visualizar
             print: Impressão
-            search: Pesquisa
+            search: Busca
           show:
             print: Impressão
           update:
@@ -125,22 +125,22 @@ pt-BR:
         initiatives_type_scopes:
           create:
             error: ocorreu um erro
-            success: Um novo escopo para o tipo de iniciativa determinado foi criado
+            success: Um novo âmbito para o tipo de iniciativa determinado foi criado
           destroy:
-            success: O escopo foi removido com sucesso
+            success: O âmbito foi removido com sucesso
           edit:
             back: Costas
             confirm_destroy: Você tem certeza?
             destroy: Destruir
-            title: Editar o escopo do tipo de iniciativa
+            title: Editar o âmbito do tipo de iniciativa
             update: Atualizar
           new:
             back: Costas
             create: Criar
-            title: Criar escopo de tipo de iniciativa
+            title: Criar âmbito de tipo de iniciativa
           update:
             error: ocorreu um erro
-            success: O escopo foi atualizado com sucesso
+            success: O âmbito foi atualizado com sucesso
         initiatives_types:
           create:
             error: ocorreu um erro
@@ -187,7 +187,7 @@ pt-BR:
           fill_data_help: "<ul> <li>Revise o conteúdo da sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa? Distrito da cidade?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
-          select_scope: Selecione um escopo
+          select_scope: Selecione um âmbito
         finish:
           back: Costas
           back_to_initiatives: De volta às iniciativas

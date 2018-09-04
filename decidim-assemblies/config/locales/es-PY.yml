@@ -60,7 +60,7 @@ es-PY:
         gender: Género
         position: Posición
       assembly_user_role:
-        email: Email
+        email: Correo electrónico
         name: Nombre
         role: Rol de usuario
   activerecord:

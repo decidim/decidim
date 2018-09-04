@@ -3,7 +3,7 @@ pt-BR:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Estado
+        decidim_accountability_status_id: Status
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
         description: Descrição
@@ -32,7 +32,7 @@ pt-BR:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Tem certeza de que deseja excluir este %{name}?
+        confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
         new: Novo %{name}
@@ -77,15 +77,15 @@ pt-BR:
             statuses: Statuses
         statuses:
           create:
-            invalid: Tem havido um problema ao criar esse status
+            invalid: Houve um problema ao criar este status
             success: Status criado com sucesso
           destroy:
             success: Status excluído com êxito
           edit:
             title: Editar status
-            update: Atualizar o status
+            update: Atualizar status
           index:
-            title: Status
+            title: Statuses
           new:
             create: Criar status
             title: Novo status

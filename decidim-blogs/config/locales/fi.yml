@@ -2,59 +2,59 @@
 fi:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Uusi blogikirja
+      decidim/blogs/create_post_event: Uusi blogiviesti
   activerecord:
     models:
       decidim/blogs/post:
-        one: Lähettää
+        one: Viesti
         other: Viestejä
   decidim:
     blogs:
       actions:
         confirm_destroy: Haluatko varmasti poistaa tämän viestin?
-        destroy: Poistaa
-        edit: Muokata
+        destroy: Poista
+        edit: Muokkaa
         new: Uusi
-        title: Toimet
+        title: Toiminnot
       admin:
         models:
           components:
-            body: ruumis
+            body: Leipäteksti
           post:
-            name: Lähettää
+            name: Lähetä
         posts:
           create:
-            invalid: Ongelma tämän viestin luomisessa
-            success: Lähetys onnistuneesti luotu
+            invalid: Tämän viestin luomisessa esiintyi ongelma
+            success: Viesti luotu onnistuneesti
           destroy:
-            success: Viesti onnistuneesti poistettu
+            success: Viesti poistettu onnistuneesti
           edit:
-            save: Päivittää
+            save: Päivitä
           index:
             title: Viestejä
           new:
-            create: Luoda
+            create: Luo
             title: Luo viesti
           update:
-            invalid: Virhe tallentamassa viestiä on tapahtunut.
-            success: Viestin tallennettu onnistuneesti
+            invalid: Viestin tallennuksessa tapahtui virheitä.
+            success: Viesti tallennettu onnistuneesti
       models:
         post:
           fields:
-            author: kirjailija
-            body: ruumis
-            created_at: Luotu osoitteessa
+            author: Kirjoittaja
+            body: Leipäteksti
+            created_at: Luotu
             title: otsikko
       posts:
         show:
-          view: näkymä
+          view: Näytä
         sidebar_blog:
           comments: kommentit
-          most_commented_posts: Eniten kommentoituja viestejä
+          most_commented_posts: Eniten kommentoidut viestit
       read_more: Lue lisää
     components:
       blogs:
-        name: blogi
+        name: Blogi
         settings:
           global:
             announcement: Ilmoitus
@@ -65,8 +65,8 @@ fi:
     events:
       blogs:
         post_created:
-          email_intro: Viesti "%{resource_title}" on julkaistu kohdassa "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_intro: Viesti "%{resource_title}" on julkaistu "%{participatory_space_title}", jota seuraat.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Uusi viesti julkaistiin %{participatory_space_title}
           notification_title: Viesti <a href="%{resource_path}">%{resource_title}</a> on julkaistu %{participatory_space_title}
     pages:

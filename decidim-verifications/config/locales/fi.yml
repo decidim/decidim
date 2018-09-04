@@ -52,7 +52,7 @@ fi:
           success: Tilisi on onnistuneesti vahvistettu.
         first_login:
           actions:
-            another_dummy_authorization_handler: Varmista toinen esimerkki valtuutuksen käsittelijästä
+            another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
             dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
             dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
             id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi

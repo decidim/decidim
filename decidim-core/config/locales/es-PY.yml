@@ -173,7 +173,7 @@ es-PY:
           step:
             comments_blocked: Comentarios bloqueados
             dummy_step_attribute_1: Atributo de paso ficticio 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_2: Atributo de paso ficticio 2
     contact: Contacto
     core:
       actions:
@@ -649,11 +649,11 @@ es-PY:
   locale:
     name: Castellano
   social_share_button:
-    delicious: Delicious
+    delicious: Delicioso
     douban: Douban
     email: Correo electrónico
     facebook: Facebook
-    google_bookmark: Google Bookmark
+    google_bookmark: Marcadores de Google
     google_plus: Google+
     hacker_news: Hacker News
     linkedin: LinkedIn
