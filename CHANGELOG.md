@@ -4,28 +4,33 @@
 ## 0.12.2 - OSP specific changes:
 
 **Upgrade notes**:
-- **Image uploader**: Now have a quality setting which can be used by adding `process quality:%%` where %% is  your desired percentage of quality
 
-- **Banner**: banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
+- **Banner uploader**: banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
 you should update existing image if you don't want to reupload them.
 use the following command in your rails console : `Decidim::ParticipatoryProcess.find_each { |process| process.banner_image.recreate_versions! if process.banner_image? }`
-
-- **Avatar**: Avater uploader has been changed in [\#147](https://github.com/OpenSourcePolitics/decidim/pull/147)
+- **Avater uploader**: Avater uploader has been changed in [\#147](https://github.com/OpenSourcePolitics/decidim/pull/147)
 you should update existing image if you don't want to reupload them.
 use the following command in your rails console : `Decidim::User.find_each { |user| user.avatar.recreate_versions! if user.avatar? }`
 
-- **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)
-- **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#200](https://github.com/OpenSourcePolitics/decidim/pull/200)
-
-- **skip first login authorization** : Add an initializer otion to skip first login authorization [\#176](https://github.com/OpenSourcePolitics/decidim/pull/176)
-
 **Added**:
+
+- **decidim-core**: banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
+- **decidim-core**: Avater uploader has been changed in [\#147](https://github.com/OpenSourcePolitics/decidim/pull/147)
+- **decidim-core**: Now have a quality setting which can be used by adding `process quality:%%` where %% is  your desired percentage of quality
+- **decidim-core** : Add an initializer otion to skip first login authorization [\#176](https://github.com/OpenSourcePolitics/decidim/pull/176)
 - **decidim-admin**:Add link to user profile and link to conversation from admin space. [\#208](https://github.com/OpenSourcePolitics/decidim/pull/208)
 
 **Fixed**:
+
+- **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)
+- **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#200](https://github.com/OpenSourcePolitics/decidim/pull/200)
+- **decidim-core**: Fix test consistency [#222](https://github.com/OpenSourcePolitics/decidim/pull/222)
 - **decidim-core**: Add shinier signature. [#186](https://github.com/OpenSourcePolitics/decidim/pull/186)
 
 **Backported**:
+
+- **decidim-surveys**: Allow deleting surveys components when there are no answers [#211](https://github.com/OpenSourcePolitics/decidim/pull/211)
+- **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-core**: Allows users with admin access to preview unpublished components [\#209](https://github.com/OpenSourcePolitics/decidim/pull/209)
 

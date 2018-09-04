@@ -21,7 +21,6 @@ module Decidim
       def create
         enforce_permission_to :new, :navbar_link
         @form = form(NavbarLinkForm).from_params(params)
-
         CreateNavbarLink.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("navbar_links.create.success", scope: "decidim.admin")
@@ -37,7 +36,7 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :navbar_link
-        @form = form(NavbarLinkForm).from_model(navbar_link)
+        @form = form(NavbarLinkForm).from_model(:navbar_link)
       end
 
       def update
