@@ -68,53 +68,53 @@ hu:
       consultation_results_publications:
         create:
           error: Hiba történt a konzultáció eredményeinek közzététele során.
-          success: A konzultáció eredményei sikeresen megjelentek.
+          success: Konzultáció eredményei sikeresen közzétéve.
         destroy:
-          error: Hiba történt a konzultáció eredményeinek közzétételéhez.
-          success: A konzultáció eredményei nem publikáltak sikeresen.
+          error: Hiba történt a konzultáció eredményeinek közzététele során.
+          success: Konzultáció eredményeinek közzététele visszavonva.
       consultations:
         create:
-          error: Hiba történt új konzultáció létrehozása közben.
-          success: A konzultáció sikeresen létrejött.
+          error: Hiba történt az új konzultáció létrehozása során.
+          success: Konzultáció létrehozása sikeres.
         destroy:
-          success: A konzultáció sikeresen törölve.
+          success: Konzultáció törlése sikeres.
         edit:
-          update: frissítés
+          update: Frissítés
         form:
-          slug_help: 'Az URL-címkék az e konzultációra utaló URL-ek előállításához használhatók. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
-          title: Általános információ
+          slug_help: 'Az URL slugok a konzultáció linkjének generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdődnie. Példa: %{url}'
+          title: Általános információk
         index:
-          not_published: Nem publikált
-          published: Közzétett
+          not_published: Nincs közzétéve
+          published: Közzétéve
         new:
-          create: Teremt
+          create: Létrehozás
           title: Új konzultáció
         update:
-          error: Hiba történt a konzultáció frissítésekor.
-          success: A konzultáció sikeresen frissült.
+          error: Hiba történt a konzultáció frissítése során.
+          success: A konzultáció frissítése sikeres.
       menu:
-        consultations: konzultációk
+        consultations: Konzultációk
         consultations_submenu:
           info: Információ
           questions: Kérdések
         questions_submenu:
-          components: Alkatrészek
+          components: Elemek
           consultation: Konzultáció
           info: Információ
-          responses: válaszok
+          responses: Válaszok
       models:
         consultation:
           fields:
             created_at: 'Létrehozva:'
-            published: Közzétett
+            published: Közzétéve
             title: Cím
           name:
             one: Konzultáció
-            other: konzultációk
+            other: Konzultációk
         question:
           fields:
             created_at: 'Létrehozva:'
-            published: Közzétett
+            published: Közzétéve
             title: Cím
           name:
             one: Kérdés
@@ -125,87 +125,87 @@ hu:
             title: Cím
           name:
             one: Válasz
-            other: válaszok
+            other: Válaszok
       question_publications:
         create:
-          error: Hiba történt a kérdés közzétételénél.
-          success: A kérdés sikeresen közzétett.
+          error: Hiba történt a kérdés közzététele során.
+          success: Kérdés sikeresen közzétéve.
         destroy:
-          error: Hiba történt a kérdés közzétételének visszavonása nélkül.
-          success: A kérdés nem sikerült közzétenni.
+          error: Hiba történt a kérdés közzétételének visszavonásakor.
+          success: Kérdés közzététele visszavonva.
       questions:
         create:
-          error: Hiba történt új kérdés létrehozása közben.
-          success: A kérdés sikeresen létrehozva.
+          error: Hiba történt az új kérdés létrehozása során.
+          success: Kérdés létrehozása sikeres.
         destroy:
-          success: A kérdés sikeresen törölve.
+          success: Kérdés törlése sikeres.
         edit:
-          update: frissítés
+          update: Frissítés
         form:
-          title: Általános információ
+          title: Általános információk
         index:
-          not_published: Nem publikált
-          published: Közzétett
+          not_published: Nincs közzétéve
+          published: Közzétéve
         new:
-          create: Teremt
+          create: Létrehozás
           title: Új kérdés
         update:
           error: Hiba történt a kérdés frissítése során.
-          success: A kérdés sikeresen frissült.
+          success: Kérdés frissítése sikeres.
       responses:
         create:
-          error: Hiba történt új válasz létrehozása közben.
-          success: A válasz sikeresen létrehozva.
+          error: Hiba történt az új válasz létrehozása során.
+          success: Válasz létrehozása sikeres.
         destroy:
-          error: Hiba történt a válasz eltávolításakor.
-          success: A válasz sikeresen törölve.
+          error: Hiba történt a válasz eltávolítása során.
+          success: Válasz törlése sikeres.
         edit:
-          update: frissítés
+          update: Frissítés
         form:
-          title: Általános információ
+          title: Általános információk
         new:
-          create: Teremt
+          create: Létrehozás
           title: Új válasz
         update:
-          error: Hiba történt a válasz frissítésekor.
-          success: A válasz sikeresen frissült.
+          error: Hiba történt a válasz frissítése során.
+          success: Válasz frissítése sikeres.
       titles:
-        consultations: konzultációk
+        consultations: Konzultációk
         questions: Kérdések
-        responses: válaszok
+        responses: Válaszok
     consultations:
       consultation:
-        start_voting_date: A szavazás megkezdődik
+        start_voting_date: Szavazás kezdése
         view_results: Eredmények megtekintése
       consultation_card:
         view_results: Eredmények megtekintése
       consultations:
         orders:
           label: 'Konzultációk rendezése:'
-          random: Véletlen
-          recent: Legfrissebb
+          random: Véletlenszerű
+          recent: Legutóbbi
       count:
         title:
           one: "%{count} konzultáció"
           other: "%{count} konzultáció"
       filters:
         active: Aktív
-        all: Minden
+        all: Összes
         finished: Befejezett
         search: Keresés
         state: Állapot
-        upcoming: közelgő
+        upcoming: Közelgő
       filters_small_view:
-        close_modal: Zárja be az ablakot
-        filter: Szűrő
-        filter_by: Szűrés vlami alapján
-        unfold: kibontakozik
+        close_modal: Ablak bezárása
+        filter: Szűrés
+        filter_by: 'Szűrés ez alapján:'
+        unfold: Kibont
       highlighted_questions:
-        title: Kérdések %{scope_name}
+        title: '%{scope_name} kérdések'
       index:
-        title: konzultációk
+        title: Konzultációk
       question:
-        take_part: Részt vesz
+        take_part: Vegyél részt
         view_results: Eredmények megtekintése
         votes_out_of:
           one: szavazz ki
