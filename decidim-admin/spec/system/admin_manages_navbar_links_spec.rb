@@ -51,7 +51,6 @@ describe "Navbar Links", type: :system do
           expect(page).to have_content(translated(navbar_link.title, locale: :en))
           expect(page).to have_content(navbar_link.link)
           expect(page).to have_content(navbar_link.weight)
-          expect(find_link(navbar_link.link)[:target]).to eq(navbar_link.target)
         end
       end
 
