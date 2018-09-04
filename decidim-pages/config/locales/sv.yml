@@ -3,7 +3,7 @@ sv:
     models:
       decidim/pages/page:
         one: Sida
-        other: sidor
+        other: Sidor
   decidim:
     admin_log:
       page:
@@ -26,5 +26,5 @@ sv:
             save: Uppdatera
             title: Redigera sida
           update:
-            invalid: Det har varit fel när du sparar sidan.
+            invalid: Det har blivit fel när du sparar sidan.
             success: Sidan sparades framgångsrikt.
