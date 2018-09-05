@@ -325,39 +325,39 @@ hu:
         promotal_committee_help: Ne feledd, hogy legalább %{member_count} embert kell meghívnod a támogató bizottságba. Ezt a linket küldd el azoknak, akiket szeretnél meghívni
         status_change_body_for: 'A(z) %{title} kezdeményezés megváltozott állapota: %{state}'
         status_change_for: A(z) %{title} kezdeményezés állapota változott
-        technical_validation_body_for: A %{title} kezdeményezés technikai validálását kérte.
-        technical_validation_for: A %{title} kezdeményezés technikai validálását kérte.
+        technical_validation_body_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
+        technical_validation_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
       pages:
         home:
           highlighted_initiatives:
             active_initiatives: Aktív kezdeményezések
-            see_all_initiatives: Lássuk az összes kezdeményezést
+            see_all_initiatives: Összes kezdeményezés
       states:
-        accepted: Elfogadott
+        accepted: Elfogadva
         expired: Lejárt
     menu:
-      initiatives: kezdeményezések
+      initiatives: Kezdeményezések
   layouts:
     decidim:
       admin:
         initiative:
           attachments: Mellékletek
-          committee_members: bizottsági tagok
-          components: Alkatrészek
+          committee_members: Bizottsági tagok
+          components: Elemek
           information: Információ
       initiative_creation_header:
-        fill_data: Teremt
-        finish: Befejez
-        previous_form: Rajt
-        promotal_committee: Promóciós bizottság
-        select_initiative_type: Választ
+        fill_data: Létrehozás
+        finish: Befejezés
+        previous_form: Kezdés
+        promotal_committee: Kezdeményező bizottság
+        select_initiative_type: Válassz
         show_similar_initiatives: Összehasonlítás
       initiative_header:
         initiative_menu_item: Kezdeményezés
-        unfold: kibontakozik
+        unfold: Kibont
       initiatives:
         initiative:
           check: Nézd meg
-          check_and_support: Nézze meg és írja alá
+          check_and_support: Nézd meg és írjd alá
         no_initiatives_yet:
           no_initiatives_yet: Még nincs kezdeményezés!
