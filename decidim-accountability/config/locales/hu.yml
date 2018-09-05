@@ -4,25 +4,25 @@ hu:
       result:
         decidim_accountability_status_id: Állapot
         decidim_category_id: Kategória
-        decidim_scope_id: terület
+        decidim_scope_id: Hatáskör
         description: Leírás
         end_date: Befejezés dátuma
-        progress: Előrehalad
+        progress: Folyamat
         project_ids: Mellékelt projektek
-        proposals: A javasolt javaslatok
+        proposals: Mellékelt javaslatok
         start_date: Kezdő dátum
         title: Cím
-        updated_at: 'Frissítve:'
+        updated_at: Frissítve
       status:
         description: Leírás
         key: Kulcs
         name: Név
-        progress: Előrehalad
+        progress: Folyamat
       timeline_entry:
         description: Leírás
         entry_date: Dátum
     models:
-      decidim/accountability/proposal_linked_event: A javaslat tartalmazza az eredményt
+      decidim/accountability/proposal_linked_event: Az eredményhez kapcsolódó javaslat
   activerecord:
     models:
       decidim/accountability/result:
@@ -31,13 +31,13 @@ hu:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Biztosan törölni szeretné ezt a %{name}?
-        destroy: Töröl
-        edit: szerkesztése
+        confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
+        destroy: Törlés
+        edit: Szerkesztés
         new: Új %{name}
         preview: Előnézet
-        timeline_entries: A projekt fejlődése
-        title: Hozzászólások
+        timeline_entries: Projekt alakulása
+        title: Műveletek
       admin:
         exports:
           results: Eredmények
@@ -50,13 +50,13 @@ hu:
             name: Idővonal bejegyzés
         results:
           create:
-            invalid: Probléma történt az eredmény létrehozásában
+            invalid: Probléma történt az eredmény létrehozásakor
             success: Eredmény sikeresen létrehozva
           destroy:
             success: Eredmény sikeresen törölve
           edit:
             title: Eredmény szerkesztése
-            update: Frissítse az eredményt
+            update: Eredmény frissítése
           form:
             add_proposal: Javaslat hozzáadása
           index:
@@ -66,22 +66,22 @@ hu:
             title: Új eredmény
           proposals:
             close: Bezárás
-            current_selection: Jelenlegi választás
-            select: választ
+            current_selection: Aktuális kijelölés
+            select: Választ
           update:
-            invalid: Probléma történt az eredmény frissítésével
+            invalid: Probléma történt az eredmény frissítésekor
             success: Eredmény sikeresen frissítve
         shared:
           subnav:
             statuses: Állapotok
         statuses:
           create:
-            invalid: Probléma történt az állapot létrehozásában
-            success: Az állapot sikeresen létrehozva
+            invalid: Probléma történt az állapot létrehozásakor
+            success: Állapot létrehozása sikeres
           destroy:
-            success: Az állapot sikeresen törölve
+            success: Állapot eltávolítása sikeres
           edit:
-            title: Státusz szerkesztése
+            title: Állapot szerkesztése
             update: Állapot frissítése
           index:
             title: Állapotok
@@ -89,38 +89,38 @@ hu:
             create: Státusz létrehozása
             title: Új állapot
           update:
-            invalid: Probléma történt az állapot frissítésével
-            success: Az állapot sikeresen frissült
+            invalid: Probléma történt az állapot frissítésekor
+            success: Állapot frissítése sikeres
         timeline_entries:
           create:
-            invalid: Hiba történt a bejegyzés létrehozásában
-            success: A bejegyzés sikeresen létrehozva
+            invalid: Probléma történt a bejegyzés létrehozásakor
+            success: Bejegyzés létrehozása sikeres
           destroy:
-            success: A bejegyzés sikeresen törölve
+            success: Bejegyzés eltávolítása sikeres
           edit:
             title: Bejegyzés szerkesztése
-            update: A bejegyzés frissítése
+            update: Bejegyzés frissítése
           index:
-            title: A projekt idővonalbeli bejegyzései
+            title: Projekt ütemtervének bejegyzései
           new:
             create: Bejegyzés létrehozása
             title: Új bejegyzés
           update:
-            invalid: Probléma történt a bejegyzés frissítésével
-            success: A bejegyzés sikeresen frissült
+            invalid: Probléma történt a bejegyzés frissítésekor
+            success: Bejegyzés frissítése sikeres
       admin_log:
         result:
-          create: "%{user_name} létrehozott eredmény %{resource_name} %{space_name}"
-          delete: "%{user_name} törölte az %{resource_name} eredményt %{space_name}"
-          update: "%{user_name} frissített eredmény %{resource_name} a %{space_name}"
+          create: "%{user_name} által létrehozott eredmény: %{resource_name} (itt: %{space_name})"
+          delete: "%{user_name} törölte a(z) %{resource_name} eredményt innen: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} eredmény itt: %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'A szülő nem található az adatbázisban (ID: %{id})'
+            not_found: 'Nem található az adatbázisban (ID: %{id})'
       models:
         result:
           fields:
             end_date: Befejezés dátuma
-            progress: Előrehalad
+            progress: Folyamat
             start_date: Kezdő dátum
             status: Állapot
             title: Cím
@@ -129,7 +129,7 @@ hu:
             description: Leírás
             key: Kulcs
             name: Név
-            progress: Előrehalad
+            progress: Folyamat
         timeline_entry:
           fields:
             description: Leírás
@@ -137,68 +137,68 @@ hu:
       results:
         count:
           results_count:
-            one: 1 eredmény
+            one: 1 találat
             other: "%{count} találat"
         filters:
-          all: Minden
-          scopes: Célzók
+          all: Összes
+          scopes: Hatáskörök
         home:
           categories_label: Kategóriák
           subcategories_label: Alkategóriák
         home_header:
-          global_status: Globális végrehajtási állapot
+          global_status: Globális alkalmazás állapota
         nav_breadcrumb:
-          global: Globális végrehajtás
+          global: Globális alkalmazás
         search:
           search: Műveletek keresése
         show:
           stats:
-            attendees: résztvevők
-            back_to_result: Menj vissza az eredményre
+            attendees: Résztvevők
+            back_to_result: Vissza az eredményekhez
             comments: Hozzászólások
-            contributions: hozzájárulások
-            last_edited_by: Utoljára szerkesztette
-            last_updated_at: 'Utoljára frissítve:'
-            meetings: találkozók
-            number_of_versions: változatok
-            proposals: javaslatok
-            show_all_versions: Az összes verzió megjelenítése
-            version_author: Verzió szerző
-            version_created_at: 'Verzió létrehozva a következő helyen:'
+            contributions: Közreműködők
+            last_edited_by: 'Utoljára szerkesztette:'
+            last_updated_at: Utoljára frissítve
+            meetings: Találkozók
+            number_of_versions: Verziók
+            proposals: Javaslatok
+            show_all_versions: Összes verzió megjelenítése
+            version_author: Verzió szerzője
+            version_created_at: 'Verzió létrehozva itt: '
             version_number: Verziószám
             version_number_out_of_total: "%{current_version} az %{total_count}"
-            votes: támaszok
+            votes: Támogatás
         timeline:
-          title: A projekt fejlődése
+          title: Projekt alakulása
       versions:
         index:
-          changes_at_title: Változások a "%{title}"
-          title: változatok
+          changes_at_title: 'Változások itt: "%{title}"'
+          title: Verziók
         show:
-          changes_at_title: Változások a "%{title}"
+          changes_at_title: 'Változások itt: "%{title}"'
         version:
-          version_index: '%{index}verzió'
+          version_index: '%{index} verzió'
     components:
       accountability:
-        name: felelősségre vonhatóság
+        name: Elszámoltathatóság
         settings:
           global:
-            categories_label: A "Kategóriák" neve
+            categories_label: '"Kategóriák" neve'
             comments_enabled: Megjegyzések engedélyezve
-            display_progress_enabled: Az előrehaladás megjelenítése
-            heading_leaf_level_results: A "Projektek"
-            heading_parent_level_results: Az "Eredmények" neve
+            display_progress_enabled: Állapot megjelenítése
+            heading_leaf_level_results: '"Projektek" neve'
+            heading_parent_level_results: '"Eredmények" neve'
             intro: Intro
-            subcategories_label: Az "alkategóriák" neve
+            subcategories_label: '"Alkategóriák" neve'
           step:
             comments_blocked: Megjegyzések letiltva
     events:
       accountability:
         proposal_linked:
-          email_intro: 'A "%{proposal_title}" javaslat szerepel az eredményben. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést megkapta, mert a "%{proposal_title}" -t követi. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Frissítés %{proposal_title}
-          notification_title: A <a href="%{proposal_path}">%{proposal_title}</a> javaslat szerepel a <a href="%{resource_path}">%{resource_title}</a> eredményben.
+          email_intro: 'A "%{proposal_title}" nevű javaslat szerepel az eredményben. Erről az oldalról érhető el:'
+          email_outro: Ezt az értesítést azért kaptad, mert követed a(z) "%{proposal_title}" nevű ajánlást. Az értesítéseket a következő linkre kattintva kapcsolhatod ki.
+          email_subject: A %{proposal_title} frissítve lett
+          notification_title: 'A(z) <a href="%{proposal_path}">%{proposal_title}</a> javaslat szerepel ebben a(z) eredményben: <a href="%{resource_path}">%{resource_title}</a>.'
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
@@ -206,7 +206,7 @@ hu:
     participatory_spaces:
       highlighted_results:
         results: Eredmények
-        see_all_results: Az összes találat megtekintése
+        see_all_results: Minden eredmény megtekintése
     resource_links:
       included_projects:
         result_project: Ebben az eredményben szereplő projektek
