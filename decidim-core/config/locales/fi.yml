@@ -9,18 +9,20 @@ fi:
         about: Noin
         email: Sähköpostiosoitteesi
         name: Nimesi
-        nickname: Lyhyt, ainutkertainen tunniste
+        nickname: Oma yksilöllinen käyttäjätunnuksesi
         password: Salasana
-        password_confirmation: Vahvista salasana
+        password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         user_group_document_number: Organisaation asiakirjanumero
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
     models:
-      decidim/attachment_created_event: liite
+      decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
-      decidim/profile_updated_event: profiili päivitetty
+      decidim/gamification/badge_earned_event: Ansiomerkki
+      decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
+      decidim/profile_updated_event: Profiili päivitetty
   activerecord:
     attributes:
       decidim/user:
@@ -35,8 +37,8 @@ fi:
         user_group_phone: Organisaation puhelinnumero
     models:
       decidim/user:
-        one: käyttäjä
-        other: käyttäjät
+        one: Käyttäjä
+        other: Käyttäjä
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
@@ -53,10 +55,10 @@ fi:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Tiedostoa ei ole
-        invalid_token: Varattu token on virheellinen.
-        no_token: Ei merkintää
-        notice: Tietosi on parhaillaan käynnissä. Saat sähköpostiviestin, kun se on valmis.
+        file_no_exists: Tiedostoa ei ole olemassa
+        invalid_token: Varmennustunniste ei kelpaa.
+        no_token: Varmennustunniste puuttuu
+        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
         confirm:
@@ -77,16 +79,16 @@ fi:
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
     admin_log:
       area:
-        create: "%{user_name} luonut %{resource_name} -alueen"
-        delete: "%{user_name} poistanut %{resource_name} -alueen"
+        create: "%{user_name} loi %{resource_name} alueen"
+        delete: "%{user_name} poisti %{resource_name} -alueen"
         update: "%{user_name} päivitti %{resource_name} -alueen"
       component:
-        create: "%{user_name} lisäsi %{resource_name} -osion %{space_name} -tilaan"
-        delete: "%{user_name} poistanut %{resource_name} -komponentin %{space_name} -tilasta"
+        create: "%{user_name} lisäsi %{resource_name} -komponentin %{space_name} -tilaan"
+        delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
-        unpublish: "%{user_name} julkaisematon %{resource_name} -komponentti %{space_name} -tilasta"
+        unpublish: "%{user_name} lopetti %{resource_name} -komponentin julkaisemisen %{space_name} -tilassa"
       moderation:
-        hide: "%{user_name} kätki tyypin %{resource_type} resurssin %{space_name} -tilaan"
+        hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin %{space_name} -tilaan"
         unreport: "%{user_name} ilmoitti tyypin %{resource_type} resurssin %{space_name} tilassa"
       newsletter:
         create: "%{user_name} luonut %{resource_name} tiedote"
@@ -123,7 +125,7 @@ fi:
       collection:
         documents:
           one: Asiakirja
-          other: asiakirjat
+          other: Asiakirjat
       documents:
         related_documents: Liittyvät dokumentit
       photos:
@@ -316,6 +318,17 @@ fi:
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
+      gamification:
+        badge_earned:
+          email_intro: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
+          email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
+          email_subject: 'Olet ansainnut uuden merkin: %{badge_name}!'
+          notification_title: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
+        level_up:
+          email_intro: Hyvää työtä! Olet saavuttanut tasolle %{current_level} <a href="%{resource_path}">%{badge_name} -merkillä</a>!
+          email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
+          email_subject: Olet saavuttanut tasolle %{current_level} %{badge_name} merkkillä!
+          notification_title: Hyvää työtä! Olet saavuttanut tasolle %{current_level} <a href="%{resource_path}">%{badge_name} -merkillä</a>!
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -334,6 +347,7 @@ fi:
     filters:
       linked_classes:
         all: Kaikki
+        collaborative_draft: Yhteistyöluonnos
         dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
@@ -365,6 +379,19 @@ fi:
       errors:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
+    gamification:
+      badges:
+        invitations:
+          description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
+          description_own: Olet kutsunut %{score} käyttäjää.
+          explanation: Käyttäjät saavat tämän tunnuksen kutsumalla muita käyttäjiä.
+          name: kutsut
+          next_level_in: Kutsu %{score} käyttäjää päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä kutsunut käyttäjää.
+          unearned_own: Et ole vielä kutsunut käyttäjiä.
+      description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä.
+      level: Taso %{level}
+      reached_top: Olet saavuttanut tämän tunnuksen korkeimman tason.
     invitations:
       create:
         error: Ongelmia ongelmia haettaessa ystäviäsi
@@ -536,6 +563,7 @@ fi:
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
+        badges: Merkit
         conversations: keskustelut
         followers: seuraajaa
         following: seuraa

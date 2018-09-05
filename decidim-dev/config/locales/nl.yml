@@ -12,6 +12,16 @@ nl:
       admin:
         exports:
           dummies: Dummies
+    gamification:
+      badges:
+        test:
+          description_another: Deze gebruiker heeft %{score} tests gemaakt.
+          description_own: U hebt %{score} tests gemaakt.
+          explanation: Gebruikers krijgen deze badge door tests te maken.
+          name: Tests
+          next_level_in: Maak %{score} extra tests om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen tests gemaakt.
+          unearned_own: U hebt nog geen tests gemaakt.
     pages:
       home:
         statistics:

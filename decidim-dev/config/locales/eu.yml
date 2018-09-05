@@ -12,6 +12,16 @@ eu:
       admin:
         exports:
           dummies: Manikiak
+    gamification:
+      badges:
+        test:
+          description_another: Erabiltzaile honek %{score} proba egin ditu.
+          description_own: '%{score} proba sortu dituzu.'
+          explanation: Erabiltzaileek plaka hau lortzen dute probak sortzeko.
+          name: probak
+          next_level_in: Sortu %{score} proba gehiago hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek ez du proba oraindik sortu.
+          unearned_own: Oraindik ez duzu probak sortu.
     pages:
       home:
         statistics:

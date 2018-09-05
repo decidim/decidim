@@ -63,8 +63,8 @@ module Decidim
 
       initializer "decidim_initiatives.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
-          content_block.cell "decidim/initiatives/content_blocks/highlighted_initiatives"
-          content_block.public_name_key "decidim.initiatives.content_blocks.highlighted_initiatives.name"
+          content_block.cell = "decidim/initiatives/content_blocks/highlighted_initiatives"
+          content_block.public_name_key = "decidim.initiatives.content_blocks.highlighted_initiatives.name"
         end
       end
 
@@ -79,6 +79,18 @@ module Decidim
                     decidim_initiatives.initiatives_path,
                     position: 2.6,
                     active: :inclusive
+        end
+      end
+
+      initializer "decidim_initiatives.badges" do
+        Decidim::Gamification.register_badge(:initiatives) do |badge|
+          badge.levels = [1, 5, 15, 30, 50]
+
+          badge.reset = lambda { |user|
+            Decidim::Initiative.where(
+              author: user
+            ).published.count
+          }
         end
       end
     end

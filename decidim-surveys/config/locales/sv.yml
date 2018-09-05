@@ -15,48 +15,48 @@ sv:
               missing: är inte fullständiga
               too_many: är för många
     models:
-      decidim/surveys/closed_survey_event: Undersökningen slutade
-      decidim/surveys/opened_survey_event: Undersökningen startade
+      decidim/surveys/closed_survey_event: Enkäten avslutades
+      decidim/surveys/opened_survey_event: Enkäten startades
   activerecord:
     models:
       decidim/surveys/survey:
-        one: Undersökning
-        other: Undersökningar
+        one: Enkät
+        other: Enkäter
       decidim/surveys/survey_answer:
         one: Svar
-        other: svar
+        other: Svar
   decidim:
     components:
       surveys:
         actions:
           answer: Svara
-        name: Undersökning
+        name: Enkät
         settings:
           global:
-            announcement: Meddelande
+            announcement: Notis
           step:
             allow_answers: Tillåta svar
-            announcement: Meddelande
+            announcement: Notis
     events:
       surveys:
         survey_closed:
-          email_intro: Undersökningen %{resource_title} i %{participatory_space_title} har stängts.
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: En undersökning har slutförts på %{participatory_space_title}
-          notification_title: Undersökningen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> har slutförts.
+          email_intro: Enkäten %{resource_title} i %{participatory_space_title} har stängts.
+          email_outro: Du har fått den här notisen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser på föregående länk.
+          email_subject: En enkät har slutförts på %{participatory_space_title}
+          notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> har slutförts.
         survey_opened:
-          email_intro: 'Undersökningen %{resource_title} i %{participatory_space_title} är nu öppen. Du kan delta i det från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: En ny undersökning i %{participatory_space_title}
-          notification_title: Undersökningen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
+          email_intro: 'Enkäten %{resource_title} i %{participatory_space_title} är nu öppen. Du kan delta i det från den här sidan:'
+          email_outro: Du har fått den här notis eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser vid föregående länk.
+          email_subject: En ny enkät i %{participatory_space_title}
+          notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
     forms:
       errors:
         survey_answer:
-          body: Kroppen kan inte vara tomt
+          body: Innehåll kan inte vara tomt
     surveys:
       admin:
         exports:
-          survey_user_answers: Survey användarens svar
+          survey_user_answers: Enkäten användarsvar
         models:
           components:
             description: Beskrivning
@@ -64,52 +64,52 @@ sv:
         surveys:
           answer_option:
             answer_option: Svaralternativ
-            free_text: Fri text
+            free_text: Fritext
             remove: Avlägsna
-            statement: Påstående
+            statement: Utlåtande
           edit:
             save: Spara
             title: Titel
           form:
             add_question: Lägg till fråga
-            already_answered_warning: Undersökningen är redan besvarad av vissa användare så att du inte kan ändra sina frågor.
+            already_answered_warning: Enkäten är redan besvarad av vissa användare så att du inte kan ändra dess frågor.
           question:
             add_answer_option: Lägg till svaralternativ
-            any: Några
+            any: Vilken som helst
             description: Beskrivning
             down: Ner
             question: Fråga
             remove: Avlägsna
-            statement: Påstående
+            statement: Utlåtande
             up: Upp
           update:
-            invalid: Det har varit fel när du sparat undersökningen.
-            success: Undersökningen sparades framgångsrikt.
+            invalid: Det har blivit fel när du sparat enkäten.
+            success: Enkäten sparades.
       question_types:
         long_answer: Långt svar
         multiple_option: Flera alternativ
         short_answer: Kort svar
-        single_option: Enkelt alternativ
+        single_option: Ett alternativ
         sorting: Sortering
       surveys:
         answer:
-          invalid: Det har förekommit fel vid besvarandet av undersökningen.
-          success: Undersökningen svarades framgångsrikt.
+          invalid: Det har blivit fel vid besvarandet av enkäten.
+          success: Enkäten besvarades.
         question:
           max_choices: 'Max val: %{n}'
         show:
           answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}"> Logga in med ditt konto</a> eller <a href="%{sign_up_link}">sign up</a> för att svara på enkäten.
+            anonymous_user_message: <a href="%{sign_in_link}"> Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> för att svara på enkäten.
             title: Besvara undersökningen
           are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
           submit: Skicka in
           survey_answered:
             body: Du har redan besvarat denna enkät.
-            title: Undersökningen svarade
+            title: Enkät besvarad
           survey_closed:
-            body: Undersökningen är stängd och kan inte besvaras.
+            body: Enkäten är stängd och kan inte besvaras.
             title: Undersökningen stängd
           survey_for_private_users:
-            body: Undersökningen är endast tillgänglig för privata användare
-            title: Undersökningen stängd
-          tos_agreement: Genom att delta i denna undersökning accepterar du användarvillkoren
+            body: Enkäten är endast tillgänglig för privata användare
+            title: Enkät stängd
+          tos_agreement: Genom att delta i denna enkät accepterar du användarvillkoren

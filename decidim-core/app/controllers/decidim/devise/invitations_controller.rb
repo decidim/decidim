@@ -28,6 +28,7 @@ module Decidim
         resource.update!(newsletter_notifications_at: Time.current) if update_resource_params[:newsletter_notifications]
         resource.update!(managed: false) if resource.managed?
         resource.update!(accepted_tos_version: resource.organization.tos_version)
+        Decidim::Gamification.increment_score(resource.invited_by, :invitations) if resource.invited_by
         resource
       end
 

@@ -187,6 +187,22 @@ en:
           notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: This user has gotten %{score} proposals accepted.
+          description_own: You got %{score} proposals accepted.
+          explanation: Users get this badge by getting their proposals accepted.
+          name: Accepted proposals
+          next_level_in: Get %{score} more proposals accepted to reach the next level!
+          unearned_another: This user hasn't gotten any proposals accepted yet.
+          unearned_own: You got no proposals accepted yet.
+        proposal_votes:
+          description_another: This user has given support to %{score} proposals.
+          description_own: You have given support to %{score} proposals.
+          explanation: Users get this badge by giving support to proposals.
+          name: Proposal supports
+          next_level_in: Give support to %{score} more proposals to reach the next level!
+          unearned_another: This user hasn't given support to any proposals yet.
+          unearned_own: You have given support to no proposals yet.
         proposals:
           description_another: This user has created %{score} proposals.
           description_own: You have created %{score} proposals.

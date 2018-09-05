@@ -26,17 +26,17 @@ FactoryBot.define do
     target { Decidim::Faker::Localized.sentence(3) }
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
-    show_statistics true
-    private_space false
+    show_statistics { true }
+    private_space { false }
     start_date { Date.current }
     end_date { 2.months.from_now }
 
     trait :promoted do
-      promoted true
+      promoted { true }
     end
 
     trait :unpublished do
-      published_at nil
+      published_at { nil }
     end
 
     trait :published do
@@ -44,7 +44,7 @@ FactoryBot.define do
     end
 
     trait :with_steps do
-      transient { current_step_ends 1.month.from_now }
+      transient { current_step_ends { 1.month.from_now } }
 
       after(:create) do |participatory_process, evaluator|
         create(:participatory_process_step,
@@ -85,7 +85,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_date { 1.month.ago }
     end_date { 2.months.from_now }
-    position nil
+    position { nil }
     participatory_process
 
     after(:create) do |step, _evaluator|
@@ -94,7 +94,7 @@ FactoryBot.define do
     end
 
     trait :active do
-      active true
+      active { true }
     end
   end
 
@@ -146,6 +146,6 @@ FactoryBot.define do
   factory :participatory_process_user_role, class: "Decidim::ParticipatoryProcessUserRole" do
     user
     participatory_process { create :participatory_process, organization: user.organization }
-    role "admin"
+    role { "admin" }
   end
 end
