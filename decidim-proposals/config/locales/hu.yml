@@ -72,7 +72,7 @@ hu:
             proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" lépés súgószöveg
             proposal_wizard_step_2_help_text: Javaslatvarázsló "Hasonlítsa össze" a lépéses súgó szöveget
             proposal_wizard_step_3_help_text: Javaslat varázsló "Teljes" lépés súgószöveg
-            proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" lépés súgószöveg
+            proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" gomb súgójának szövege
             threshold_per_proposal: Küszöbérték javaslatonként
             vote_limit: Szavazási korlátozás felhasználónként
           step:
@@ -82,7 +82,7 @@ hu:
             endorsements_blocked: A jóváhagyások blokkolva vannak
             endorsements_enabled: Engedélyek engedélyezve
             proposal_answering_enabled: A válaszbejelentés engedélyezve van
-            votes_blocked: Szavazások blokkolva
+            votes_blocked: Szavazások letiltva
             votes_enabled: Szavazások engedélyezve
             votes_hidden: Rejtett szavazatok (ha a szavazatok engedélyezve vannak, ellenőrizve ez elrejti a szavazatok számát)
     events:
@@ -91,7 +91,7 @@ hu:
           email_intro: 'Most új javaslatokat készíthet %{participatory_space_title}! Kezdje el részt venni ezen az oldalon:'
           email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
           email_subject: A pályázók mostantól elérhetők %{participatory_space_title}
-          notification_title: Most <a href="%{resource_path}">új ajánlatot kezdhet</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Tegyél új <a href="%{resource_path}">javaslatokat ehhez kapcsolódva:</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'A javaslatokat %{participatory_space_title}adhatja meg! Kezdje el részt venni ezen az oldalon:'
           email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
@@ -238,13 +238,13 @@ hu:
         success: A javaslat sikeresen létrehozva. Mentett mint vázlat.
       destroy_draft:
         error: Hiba történt a javaslat tervezetének törlésével.
-        success: A javaslat tervezetét sikeresen megsemmisítették.
+        success: A javaslat tervezetének törlése sikeres volt.
       models:
         proposal:
           fields:
             category: Kategória
             comments: Hozzászólások
-            created_at: 'Létrehozva:'
+            created_at: Létrehozva
             endorsements: Elismerések
             id: ID
             notes: Megjegyzések
@@ -346,7 +346,7 @@ hu:
           view_proposal: A javaslat megtekintése
         show:
           edit_proposal: Javaslat szerkesztése
-          endorsements_list: A jóváhagyások listája
+          endorsements_list: Jóváhagyások listája
           hidden_endorsers_count:
             one: és további 1 személy
             other: és még %{count} ember
@@ -411,7 +411,7 @@ hu:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok
       included_projects:
-        project_result: 'A projektben megjelenő eredmények:'
+        project_result: 'Projektben megjelenő eredmények:'
       included_proposals:
-        proposal_project: 'E projektekben megjelenő javaslat:'
-        proposal_result: 'Az eredmények az alábbi eredmények között jelennek meg:'
+        proposal_project: 'Ezen projektekben megjelenő javaslat:'
+        proposal_result: 'Az eredményekben megjelenő javaslat:'
