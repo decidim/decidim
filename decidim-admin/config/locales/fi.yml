@@ -122,50 +122,50 @@ fi:
           error: Uuden aluetyypin luomisessa tapahtui virhe.
           success: Aluetyyppi luotu onnistuneesti.
         destroy:
-          success: Alueen tyyppi onnistuneesti tuhoutunut
+          success: Aluetyyppi tuhottu onnistuneesti
         edit:
           title: Muokkaa aluetyyppiä
-          update: Päivittää
+          update: Päivitä
         new:
           create: Luo aluetyyppi
-          title: Uusi alue tyyppi
+          title: Uusi aluetyyppi
         update:
-          error: Alueen tyyppiä päivitettäessä tapahtui virhe.
-          success: Alueen tyyppi on päivitetty onnistuneesti
+          error: Aluetyyppiä päivitettäessä tapahtui virhe.
+          success: Aluetyyppi päivitetty onnistuneesti
       areas:
         create:
-          error: Virhe aiheutti uuden alueen luomisen.
-          success: Alue luotiin onnistuneesti.
+          error: Uuden alueen luomisessa tapahtui virhe.
+          success: Alue luotu onnistuneesti.
         destroy:
-          success: Alue onnistuneesti tuhoutui
+          success: Alue tuhottu onnistuneesti
         edit:
           title: Muokkaa aluetta
-          update: Päivittää
+          update: Päivitä
         new:
           create: Luo alue
           title: Uusi alue
         no_areas: Ei alueita
         update:
           error: Virhe päivitettäessä tätä aluetta.
-          success: Alue päivitettiin onnistuneesti
+          success: Alue päivitetty onnistuneesti
       attachment_collections:
         create:
           error: Uuden kansion luomisessa tapahtui virhe.
           success: Kansio luotu onnistuneesti.
         destroy:
-          success: Kansio tuhoutui onnistuneesti.
+          success: Kansio tuhottu onnistuneesti.
         edit:
           title: Muokkaa kansiota
-          update: Päivittää
+          update: Päivitä
         index:
           attachment_collection_used: Tätä kansiota ei voi poistaa, koska se on käytössä.
-          attachment_collections_title: Liitetiedostot
+          attachment_collections_title: Liitetiedostojen kansiot
         new:
-          create: Luoda
+          create: Luo
           title: Uusi kansio
         update:
           error: Tämän kansion päivittämisessä tapahtui virhe.
-          success: Kansio on päivitetty onnistuneesti.
+          success: Kansio päivitetty onnistuneesti.
       attachments:
         create:
           error: Uuden liitteen luonnissa tapahtui virhe.
@@ -185,7 +185,7 @@ fi:
           success: Liite luotu onnistuneesti.
       autocomplete:
         no_results: Ei tuloksia
-        search_prompt: Kirjoita vähintään kolme merkkiä etsimään
+        search_prompt: Kirjoita vähintään kolme merkkiä hakuun
       categories:
         create:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
@@ -207,45 +207,45 @@ fi:
           success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
         edit:
-          everyone: jokainen
+          everyone: Jokainen
           submit: Tallenna käyttöoikeudet
           title: Muokkaa käyttöoikeuksia
         update:
-          success: Käyttöoikeudet päivitettiin onnistuneesti.
+          success: Käyttöoikeudet päivitetty onnistuneesti.
       components:
         create:
           error: Tämän komponentin luomisessa tapahtui virhe.
-          success: Komponentti on luotu onnistuneesti.
+          success: Komponentti luotu onnistuneesti.
         destroy:
-          error: Tämän komponentin tuhoaminen on tapahtunut.
-          success: Komponentti poistettiin onnistuneesti.
+          error: Tämän komponentin tuhoamisessa tapahtui virhe.
+          success: Komponentti poistettu onnistuneesti.
         edit:
           title: Muokkaa komponenttia
-          update: Päivittää
+          update: Päivitä
         form:
-          default_step_settings: Oletusasetusasetukset
+          default_step_settings: Vaiheen oletusasetukset
           global_settings: Yleiset asetukset
-          step_settings: Vaiheasetukset
+          step_settings: Vaiheen asetukset
         index:
-          add: Lisää osa
+          add: Lisää komponentti
           headers:
-            actions: Toimet
+            actions: Toiminnot
             name: Komponentin nimi
-            type: Osien tyyppi
+            type: Komponentin tyyppi
         new:
-          add: Lisää osa
-          title: 'Lisää osa: %{name}'
+          add: Lisää komponentti
+          title: 'Lisää komponentti: %{name}'
         publish:
-          success: Komponentti on julkaistu onnistuneesti.
-        title: komponentit
+          success: Komponentti julkaistu onnistuneesti.
+        title: Komponentit
         unpublish:
-          success: Komponentti on julkaistu onnistuneesti.
+          success: Komponentti julkaistu onnistuneesti.
         update:
           error: Tämän komponentin päivittämisessä tapahtui virhe.
-          success: Komponentti päivitettiin onnistuneesti.
+          success: Komponentti päivitetty onnistuneesti.
       dashboard:
         show:
-          view_more_logs: Näytä lisää lokeja
+          view_more_logs: Näytä lisää lokitietoja
           welcome: Tervetuloa Decidimin hallintapaneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
@@ -254,15 +254,15 @@ fi:
         index:
           filter:
             all: Kaikki
-            managed: Ylläpito
-            not_managed: Ei onnistunut
+            managed: Hallittu
+            not_managed: Ei hallittu
           filter_by: Suodata
           impersonate: Esiinny käyttäjänä
-          impersonate_new_managed_user: Käyttäkää uutta hallinnoitavaa käyttäjää
-          managed: Ylläpito
+          impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
+          managed: Hallittu
           name: Nimi
           needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
-          not_managed: Ei onnistunut
+          not_managed: Ei hallittu
           promote: Edistää
           search: Hae
           status: Status
