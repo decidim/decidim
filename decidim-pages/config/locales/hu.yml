@@ -10,7 +10,7 @@ hu:
         update: "%{user_name} frissítette az %{resource_name} oldalt a %{space_name}"
     components:
       pages:
-        name: oldal
+        name: Oldal
         settings:
           global:
             announcement: Közlemény
