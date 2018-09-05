@@ -44,35 +44,35 @@ fi:
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
         github_handler: GitHub-käsittelijä
-        header_snippets: Yläotsikot
-        highlighted_content_banner_action_subtitle: Toiminnon painikkeen tekstitys
-        highlighted_content_banner_action_title: Toiminnon painikkeen otsikko
-        highlighted_content_banner_action_url: Toimintonäppäimen URL-osoite
+        header_snippets: Yläosion koodipätkät
+        highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
+        highlighted_content_banner_action_title: Toimintapainikkeen otsikko
+        highlighted_content_banner_action_url: Toimintapainikkeen URL-osoite
         highlighted_content_banner_enabled: Näytä korostettu sisältöbanneri
         highlighted_content_banner_image: Kuva
         highlighted_content_banner_short_description: Lyhyt kuvaus
-        highlighted_content_banner_title: otsikko
+        highlighted_content_banner_title: Otsikko
         instagram_handler: Instagram-käsittelijä
         logo: Logo
         name: Nimi
-        official_img_footer: Virallinen logo-alatunniste
-        official_img_header: Virallinen logo header
-        official_url: Virallinen organisaation URL-osoite
+        official_img_footer: Virallinen logo alapalkissa
+        official_img_header: Virallinen logo yläpalkissa
+        official_url: Organisaation virallinen URL-osoite
         omnipresent_banner_short_description: Lyhyt kuvaus
-        omnipresent_banner_title: otsikko
-        omnipresent_banner_url: URL-
+        omnipresent_banner_title: Otsikko
+        omnipresent_banner_url: URL
         reference_prefix: Viitteen etuliite
         show_statistics: Näytä tilastot
-        tos_version: Käyttöehdot versio
-        twitter_handler: Twitter käsittelijä
+        tos_version: Käyttöehtojen versio
+        twitter_handler: Twitter-käsittelijä
         youtube_handler: YouTube-käsittelijä
       scope:
         code: Koodi
         name: Nimi
         organization: Organisaatio
-        parent_id: vanhempi
+        parent_id: Vanhempi
         scope_type: Kontekstin tyyppi
-        scope_type_id: Laajuuden tyyppi
+        scope_type_id: Teeman tyyppi
       scope_type:
         name: Nimi
         organization: Organisaatio
@@ -88,7 +88,7 @@ fi:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: 'Uudelleenohjaus URI: n on oltava SSL-URI'
+              must_be_ssl: Uudelleenohjausosoitteen (URI) on oltava SSL-protokollaa käyttävä URI
   activerecord:
     attributes:
       decidim/static_page:
@@ -96,12 +96,12 @@ fi:
         slug: URL-tunniste
         title: Otsikko
       doorkeeper/application:
-        authorize_url: Hyväksy URL-osoite
-        client_id: Asiakastunnus
-        client_secret: Client Secret
+        authorize_url: Varmenna URL-osoite
+        client_id: Asiakkaan tunniste (ID)
+        client_secret: Asiakkaan salausavain (secret)
         organization_name: Organisaation nimi
         organization_url: Organisaation URL-osoite
-        redirect_uri: Uudelleenohjata URI
+        redirect_uri: Uudelleenohjausosoite (URI)
         site: Verkkosivusto
   date:
     formats:
