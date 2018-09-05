@@ -6,6 +6,8 @@
 
 **Added**:
 
+- **decidim-assemblies**: Add organizational chart to assemblies home. [\#4045](https://github.com/decidim/decidim/pull/4045)
+
 **Changed**:
 
 **Fixed**:
