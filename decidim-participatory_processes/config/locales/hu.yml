@@ -13,10 +13,10 @@ hu:
         end_date: Befejezés dátuma
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
-        local_area: Helyi
+        local_area: Helyi szint
         meta_scope: Hatály metaadatok
         participatory_process_group_id: Folyamatok csoportja
-        participatory_scope: Részvételi kör
+        participatory_scope: Részvétel hatásköre
         participatory_structure: Részvételi struktúra
         promoted: promotált
         published_at: Megjelent a
@@ -257,7 +257,7 @@ hu:
       processes: Eljárások
     participatory_process_groups:
       show:
-        group_participatory_processes: Folyamat a %{group}
+        group_participatory_processes: '%{group} folyamatai'
         title: Résztvevői folyamatcsoportok
     participatory_process_steps:
       index:
@@ -276,9 +276,9 @@ hu:
         title: Részvételi folyamatok
       order_by_processes:
         active: Aktív
-        all: Minden
-        past: Múlt
-        upcoming: közelgő
+        all: Összes
+        past: Előzmények
+        upcoming: Közelgő
       pages:
         home:
           highlighted_processes:
@@ -333,7 +333,7 @@ hu:
         order_by_processes:
           processes:
             one: "%{count} folyamat"
-            other: "%{count} folyamatokat"
+            other: "%{count} folyamatok"
         participatory_process:
           active_step: 'Aktuális lépés:'
           take_part: Részt vesz
