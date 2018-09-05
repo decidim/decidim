@@ -139,24 +139,24 @@ hu:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő útlevél számmal
         fields:
           passport_number: Útlevélszám
-        name: Egy másik példa engedélyezés
+        name: Egy másik példa feljogosításra
       dummy_authorization_handler:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő dokumentum azonosítóval
         fields:
-          document_number: Dokumentum szám
+          document_number: Dokumentum száma
           postal_code: Irányítószám
-        name: Példa engedélyezésre
+        name: Példa feljogosításra
       dummy_authorization_workflow:
-        name: Dummy engedélyezési folyamat
+        name: Dummy feljogosítási folyamat
       errors:
-        duplicate_authorization: Egy felhasználó ugyanilyen adatokkal engedélyezve.
+        duplicate_authorization: Egy felhasználó ezekkel az adatokkal már feljogosítva.
       expired_at: 'Lejárat: %{timestamp}'
       expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:
         fields:
           bar: Oszlop
           foo: Foo
-        name: Foo engedélyezés
+        name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
@@ -204,8 +204,8 @@ hu:
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
             comments_blocked: Megjegyzések letiltva
-            dummy_step_attribute_1: Dummy Step tulajdonság 1
-            dummy_step_attribute_2: Dummy Step tulajdonság 2
+            dummy_step_attribute_1: Dummy Lépés tulajdonság 1
+            dummy_step_attribute_2: Dummy Lépés tulajdonság 2
     contact: Kapcsolat
     content_blocks:
       footer_sub_hero:
@@ -294,7 +294,7 @@ hu:
     errors:
       internal_server_error:
         title: Valami probléma volt a szerverrel
-        try_later: Próbáld meg később.
+        try_later: Próbáld újra később.
       not_found:
         back_home: Vissza a főoldalra
         content_doesnt_exist: A cím helytelen vagy el lett távolítva.
@@ -329,10 +329,10 @@ hu:
           email_subject: Elérted a(z) %{current_level} szintet a %{badge_name} jelvényhez!
           notification_title: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_path}">%{badge_name} jelvényhez</a>!
       notification_event:
-        notification_title: 'Esemény történt itt: <a href="%{resource_path}">%{resource_title}</a>.'
+        notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
         profile_updated:
-          email_intro: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
+          email_intro: '%{name} (%{nickname}) (akit követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
@@ -354,8 +354,8 @@ hu:
         result: Eredmények
     fingerprint:
       check: Ujjlenyomat ellenőrzése
-      explanation: Az alábbi szövegrész a tartalom rövidített, megkülönböztetett ábrázolása. Hasznos lehet annak biztosítása, hogy a tartalom nem lett megváltoztatva, mivel egyetlen módosítás teljesen eltérő értéket eredményezne.
-      online_calculator_name: MD5 számológép online
+      explanation: Az alábbi szövegrész a tartalom rövidített, kettőskeresztekkel kibővített változata. Fontos ellenőrizned, hogy a szöveg érintetlen-e, hiszen egyetlen apró eltérés is teljesen más értéket eredményezhet.
+      online_calculator_name: MD5 online számológép
       replicate_help: Ezt az ujjlenyomatot SHA256 hasítási algoritmussal kell kiszámítani. Ha saját magát szeretné replikálni, használhat egy %{online_calculator_link} -at és másolhatja be a forrásadatokat.
       source: Forrás
       title: Ujjlenyomat
