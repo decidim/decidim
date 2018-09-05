@@ -281,16 +281,16 @@ fi:
       authorizations:
         new:
           authorize: Hyväksyn tietojeni käytön
-          by_organization_link_html: <small class="heading-small">mennessä %{link}</small>
-          cancel: Peruuttaa
-          connect_your_account_html: Liitä tili kirjautumalla sisään <strong>%{organization}</strong>
-          publish_content: Julkaise sisältöä sinulle
-          see_email: Katso sähköpostiosoitteesi
-          see_name: Katso nimesi
-          see_username: Näe käyttäjätunnuksesi
-          this_application_will_be_able_to: 'Tämä sovellus pystyy:'
-          this_application_will_not_be_able_to: 'Tämä sovellus ei pysty'
-          update_profile: Päivitä profiili
+          by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
+          cancel: Peruuta
+          connect_your_account_html: Yhdistä tilisi kirjautumalla sisään organisaatioon <strong>%{organization}</strong>
+          publish_content: Julkaista sisältöä puolestasi
+          see_email: Nähdä sähköpostiosoitteesi
+          see_name: Nähdä nimesi
+          see_username: Nähdä käyttäjätunnuksesi
+          this_application_will_be_able_to: 'Tämä sovellus voi:'
+          this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
+          update_profile: Päivittää profiiliasi
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     errors:
       internal_server_error:
@@ -309,10 +309,10 @@ fi:
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Päivitys %{participatory_space_title}
-          notification_title: '%{resource_title} -komponentti on nyt käytössä <a href="%{resource_path}">%{participatory_space_title}</a>'
+          email_intro: '%{resource_title} -komponentti on nyt käytössä paikassa %{participatory_space_title}. Näet sen tältä sivulta:'
+          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä mainitun linkin kautta.
+          email_subject: Päivitys kohteessa %{participatory_space_title}
+          notification_title: '%{resource_title} -komponentti on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Hei %{user_name},
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
@@ -320,7 +320,7 @@ fi:
         email_subject: Kohteen %{resource_title} päivitys
       gamification:
         badge_earned:
-          email_intro: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
+          email_intro: Hyvää työtä! Olet ansainnut <a href="%{resource_url}">%{badge_name} -kunniamerkin</a> (taso %{current_level}).
           email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
           email_subject: 'Olet ansainnut uuden merkin: %{badge_name}!'
           notification_title: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
