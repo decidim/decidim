@@ -7,13 +7,13 @@ sv:
         edit: Redigera
         new: Ny
         save: Spara
-        title: Handlingar
+        title: Åtgärder
       admins:
         create:
           error: Det uppstod ett fel vid skapandet av en ny admin.
           success: Admin skapades framgångsrikt
         destroy:
-          success: Admin lyckades förstöras
+          success: Admin förstördes framgångsrikt
         edit:
           title: Redigera admin
           update: Uppdatera
@@ -23,8 +23,8 @@ sv:
           create: Skapa
           title: Ny admin
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här administratören.
-          success: Admin uppdaterad framgångsrikt
+          error: Det uppstod ett fel vid uppdateringen av denna admin.
+          success: Admin uppdaterad
       default_pages:
         placeholders:
           content: Lägg till meningsfullt innehåll på den statiska sidan %{page} på adminpanelen.
@@ -50,19 +50,19 @@ sv:
           name: Organisation
       organizations:
         create:
-          error: Det uppstod ett fel vid skapandet av en ny organisation.
-          success: Organisationen skapades framgångsrikt.
+          error: Det uppstod ett fel vid skapandet av ny organisation.
+          success: Organisationen skapades.
         edit:
-          secondary_hosts_hint: Ange var och en av dem i en ny rad
+          secondary_hosts_hint: Ange var och en av dem på en ny rad
         index:
           title: Organisationer
         new:
           reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
-          secondary_hosts_hint: Ange var och en av dem i en ny rad
+          secondary_hosts_hint: Ange var och en av dem på en ny rad
           title: Ny organisation
         update:
           error: Det uppstod ett fel vid uppdateringen av den här organisationen.
-          success: Organisationen uppdateras framgångsrikt.
+          success: Organisationen uppdaterades.
       shared:
         notices:
           no_organization_warning_html: Du måste skapa en organisation för att komma igång. Se till att du läser %{guide} innan du fortsätter.
