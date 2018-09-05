@@ -481,7 +481,7 @@ fi:
         button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
-        subject: Haluatko saada jatkuvasti tietoja %{organization_name}?
+        subject: Haluatko jatkaa olennaisen tiedon vastaanottamista koskien %{organization_name} -palvelua?
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
@@ -503,10 +503,10 @@ fi:
           debates: Väittelyt
           debates_explanation: Väittele, keskustele ja jaa näkemyksesi rikastuttaaksesi sinua koskettavia aiheita.
           how_to_participate: Kuinka osallistun prosessiin?
-          meetings: kokoukset
+          meetings: Tapahtumat
           meetings_explanation: Selvitä missä ja milloin voit osallistua julkisiin tapahtumiin.
           more_info: Lisätietoja
-          proposals: ehdotukset
+          proposals: Ehdotukset
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
           footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
@@ -522,7 +522,7 @@ fi:
           debates_count: Väittelyt
           endorsements_count: merkintöjen
           headline: Tämänhetkinen tila organisaatiolle %{organization}
-          meetings_count: kokoukset
+          meetings_count: Tapahtumat
           orders_count: Äänet
           pages_count: Sivut
           processes_count: Prosessit
