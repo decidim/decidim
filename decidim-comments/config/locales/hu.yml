@@ -9,84 +9,84 @@ hu:
     models:
       decidim/comments/comment:
         one: Megjegyzés
-        other: Hozzászólások
+        other: Megjegyzések
       decidim/comments/comment_vote:
-        one: Szavazás
-        other: szavazatok
+        one: Szavazat
+        other: Szavazatok
   decidim:
     comments:
-      comments: Hozzászólások
+      comments: Megjegyzések
       votes:
         create:
-          error: Hiba történt a hozzászólás szavazásakor.
+          error: Hiba történt a megjegyzésre való szavazáskor.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókjához</a> vagy <a href="%{sign_up_url}">feliratkozáshoz</a> hozzáadásához.
+        account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókodba</a> vagy <a href="%{sign_up_url}">iratkozz fel</a> megjegyzés küldéséhez.
         form:
           body:
             label: Megjegyzés
             placeholder: Mit gondolsz erről?
-          form_error: A szöveg szükséges, és nem lehet hosszabb, mint %{length} karakter.
-          submit: Elküld
+          form_error: Kötelező kitölteni, és nem lehet hosszabb, mint %{length} karakter.
+          submit: Küldés
           user_group_id:
-            label: Comment as
+            label: 'Megjegyzés mint:'
         opinion:
           neutral: Semleges
         remaining_characters: "%{count} karakter maradt"
         remaining_characters_1: "%{count} karakter maradt"
-        title: Add meg a megjegyzést
+        title: Szólj hozzá
       comment:
         alignment:
-          against: Ellen
-          in_favor: Javára
+          against: Ellenzem
+          in_favor: Támogatom
         deleted_user: Törölt felhasználó
         reply: Válasz
         report:
           action: Jelentés
-          already_reported: Ezt a tartalmat már jelentették, és az adminisztrátor felülvizsgálja.
+          already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
           close: Bezárás
-          description: Ez a tartalom nem megfelelő?
+          description: Sértő a tartalom?
           details: További megjegyzések
           reasons:
-            does_not_belong: Tartalmaz illegális tevékenységet, öngyilkos fenyegetéseket, személyes adatokat, vagy valami másat, amelyről úgy gondolja, hogy nem tartozik a %{organization_name}.
-            offensive: Rasszizmust, szexizmust, hazugságokat, személyes támadásokat, halálos fenyegetéseket, öngyilkossági kéréseket vagy bármilyen gyűlöletbeszédet tartalmaz.
-            spam: Tartalmaz clickbait, reklám, csalások vagy szkript botok.
+            does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
+            offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
+            spam: Klikkvadászat, reklám, átverés vagy script bot.
           title: Jelentem a problémát
       comment_order_selector:
         order:
-          best_rated: Legjobb
-          most_discussed: A legtöbbet megvitatták
-          older: régebbi
-          recent: Friss
+          best_rated: Legjobbra értékelt
+          most_discussed: Leginkább vitatott
+          older: Korábbi
+          recent: Legutóbbi
         title: 'Rendezés:'
       comment_thread:
-        title: Beszélgetés %{authorName}
+        title: 'Beszélgetés vele: %{authorName}'
       comments:
-        blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de elolvashatja az előzőeket.
+        blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
         loading: Hozzászólások betöltése ...
         title: "%{count} megjegyzés"
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} megjegyzést hagyott az %{resource_title}. Az oldalon olvasható:"
-          email_outro: Ezt az értesítést megkapta, mert %{author_name}követ. A felhasználót a profiloldaláról törölheti.
-          email_subject: Új megjegyzés van %{author_name} -ra %{resource_title}
-          notification_title: 'Van egy új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: "%{author_name} megjegyzést hagyott itt: %{resource_title}. Ezen az oldalon megtalálod:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{author_name}". Leiratkozás az előző link segítségével.'
+          email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
+          notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
-          email_intro: "%{resource_title} megjegyzést kapott. Elolvashatja a megjegyzést ezen az oldalon:"
-          email_outro: Ezt az értesítést azért kapta, mert a (z) "%{resource_title}" vagy annak szerzőjét követi. Leiratkozhat az előző linkről.
-          email_subject: Új megjegyzés van %{author_name} -tól %{resource_title}
-          notification_title: Van egy új megjegyzés a <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "A \"%{resource_title}\" témához megjegyzést fűzött valaki. Itt tudod elolvasni:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt (vagy ennek szerzőjét) követed: "%{resource_title}". Ha szeretnél, a link segítségével leiratkozhatsz.'
+          email_subject: 'Új megjegyzés érkezett ehhez: %{resource_title}, tőle: %{author_name}'
+          notification_title: 'Új megjegyzés tőle: <a href="%{author_path}">%{author_name} %{author_nickname}</a>, ehhez: <a href="%{resource_path}">%{resource_title}</a>'
         reply_created:
-          email_intro: "%{author_name} megjegyzést fűzött a (z) %{resource_title}. Az oldalon olvasható:"
-          email_outro: Ezt az értesítést azért kapta, mert a megjegyzésedre válaszolt.
-          email_subject: "%{author_name} megjegyzést fűzött a (z) %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a hozzászólásra <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "%{author_name} megjegyzést fűzött ehhez: %{resource_title}. Ezen az oldalon megtalálod:"
+          email_outro: Ezt az értesítést azért kaptad, mert valaki választolt a mejegyzésedre.
+          email_subject: "%{author_name} megjegyzést tett a kommentedhez itt: %{resource_title}"
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a megjegyzésedre itt: <a href="%{resource_path}">%{resource_title}</a>'
         user_mentioned:
-          email_intro: Ön említette
-          email_outro: Ezt az értesítést megkapta, mert a %{resource_title}.
-          email_subject: Már említetted a %{resource_title}
-          notification_title: Már említettük <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_intro: Valaki említette a neved
+          email_outro: Ezt az értesítést azért kaptad, mert korábban megemlítettek a(z) "%{resource_title}" témában.
+          email_subject: Megemlítettek a(z) %{resource_title} témában
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített itt: <a href="%{resource_path}">%{resource_title}</a>'
   errors:
     messages:
-      cannot_have_comments: nem tud megjegyzéseket tenni
+      cannot_have_comments: nem tudsz megjegyzéseket tenni
