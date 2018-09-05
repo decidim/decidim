@@ -50,8 +50,8 @@ fi:
       image_too_big: Kuva on liian suuri
   date:
     formats:
-      decidim_short: "%d/%m/%Y"
-      decidim_with_month_name: "%d %B %Y"
+      decidim_short: "%d.%m.%Y"
+      decidim_with_month_name: "%B %d. %Y"
   decidim:
     account:
       data_portability_export:
@@ -89,25 +89,25 @@ fi:
         unpublish: "%{user_name} lopetti %{resource_name} -komponentin julkaisemisen %{space_name} -tilassa"
       moderation:
         hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin %{space_name} -tilaan"
-        unreport: "%{user_name} ilmoitti tyypin %{resource_type} resurssin %{space_name} tilassa"
+        unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen %{space_name} tilassa"
       newsletter:
-        create: "%{user_name} luonut %{resource_name} tiedote"
-        delete: "%{user_name} poistettu %{resource_name} tiedote"
-        deliver: "%{user_name} toimitti %{resource_name} tiedote"
-        update: "%{user_name} päivitti %{resource_name} tiedote"
+        create: "%{user_name} loi %{resource_name} uutiskirjeen"
+        delete: "%{user_name} poisti %{resource_name} uutiskirjeen"
+        deliver: "%{user_name} toimitti %{resource_name} uutiskirjeen"
+        update: "%{user_name} päivitti %{resource_name} uutiskirjeen"
       oauth_application:
         create: "%{user_name} loi %{resource_name} OAuth-sovelluksen"
-        delete: "%{user_name} poistanut %{resource_name} OAuth-sovelluksen"
-        update: "%{user_name} päivitti %{resource_name} OAuth-sovelluksen"
+        delete: "%{user_name} poisti %{resource_name} OAuth-sovelluksen"
+        update: "%{user_name} päivitti %{resource_name} OAuth-sovellusta"
       organization:
-        update: "%{user_name} päivitti organisaation asetukset"
+        update: "%{user_name} päivitti organisaation asetuksia"
       scope:
-        create: "%{user_name} loi %{resource_name} soveltamisalaa"
-        create_with_parent: "%{user_name} loi %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
-        delete: "%{user_name} poistanut %{resource_name} soveltamisalaa"
-        delete_with_parent: "%{user_name} poistanut %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
-        update: "%{user_name} päivitti %{resource_name} soveltamisalaa"
-        update_with_parent: "%{user_name} päivitti %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
+        create: "%{user_name} loi %{resource_name} teeman"
+        create_with_parent: "%{user_name} loi %{resource_name} teeman %{parent_scope} teeman alle"
+        delete: "%{user_name} poisti %{resource_name} teeman"
+        delete_with_parent: "%{user_name} poisti %{resource_name} teeman %{parent_scope} teeman alta"
+        update: "%{user_name} päivitti %{resource_name} teemaa"
+        update_with_parent: "%{user_name} päivitti %{resource_name} teemaa %{parent_scope} teeman alla"
       static_page:
         create: "%{user_name} luonut %{resource_name} staattinen sivu"
         delete: "%{user_name} poistettu %{resource_name} staattinen sivu"
