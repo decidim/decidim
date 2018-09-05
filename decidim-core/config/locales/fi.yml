@@ -321,33 +321,33 @@ fi:
       gamification:
         badge_earned:
           email_intro: Hyvää työtä! Olet ansainnut <a href="%{resource_url}">%{badge_name} -kunniamerkin</a> (taso %{current_level}).
-          email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
-          email_subject: 'Olet ansainnut uuden merkin: %{badge_name}!'
-          notification_title: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
+          email_outro: Saat tämän ilmoituksen, koska olet osallistunut toimintaan verkkosivustollamme.
+          email_subject: 'Olet ansainnut uuden kunniamerkin: %{badge_name}!'
+          notification_title: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} -kunniamerkin</a> (taso %{current_level}).
         level_up:
-          email_intro: Hyvää työtä! Olet saavuttanut tasolle %{current_level} <a href="%{resource_path}">%{badge_name} -merkillä</a>!
-          email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
-          email_subject: Olet saavuttanut tasolle %{current_level} %{badge_name} merkkillä!
-          notification_title: Hyvää työtä! Olet saavuttanut tasolle %{current_level} <a href="%{resource_path}">%{badge_name} -merkillä</a>!
+          email_intro: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_url}">%{badge_name} -kunniamerkille</a>!
+          email_outro: Saat tämän ilmoituksen, koska olet osallistunut toimintaan verkkosivustollamme.
+          email_subject: Olet saavuttanut tason %{current_level} %{badge_name} -kunniamerkkille!
+          notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
         profile_updated:
-          email_intro: <a href="%{resource_url}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: "%{nickname} päivitti profiilinsa"
-          notification_title: <a href="%{resource_path}">profile sivu</a> %{name} (%{nickname}), jota seuraat, on päivitetty.
+          email_intro: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_url}">profiilisivua</a> on päivitetty.
+          email_outro: Saat tämän ilmoituksen, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: "%{nickname} päivitti profiiliaan"
+          notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
     export_mailer:
       data_portability_export:
-        click_button: Napsauta seuraavaa painiketta, jos haluat ladata tietosi. <br/> Tiedosto on käytettävissä %{date}.
-        download: ladata
+        click_button: Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.
+        download: Lataa
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
       subject: Tietojen vienti "%{name}" on valmis
     filters:
       linked_classes:
         all: Kaikki
-        collaborative_draft: Yhteistyöluonnos
+        collaborative_draft: Yhdessä koostettu luonnos
         dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
