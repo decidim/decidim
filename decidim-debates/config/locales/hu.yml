@@ -5,27 +5,27 @@ hu:
         category_id: Kategória
         decidim_category_id: Kategória
         description: Leírás
-        end_time: Ends at
+        end_time: Lejár ekkor
         information_updates: Információ frissítések
-        instructions: A részvételre vonatkozó utasítások
+        instructions: Útmutató a részvételhez
         start_time: Kezdődik
         title: Cím
         user_group_id: Vita létrehozása
     models:
       decidim/debates/create_debate_event: Vita
-      decidim/debates/creation_disabled_event: A viták le vannak tiltva
-      decidim/debates/creation_enabled_event: A viták engedélyezettek
+      decidim/debates/creation_disabled_event: Viták letiltva
+      decidim/debates/creation_enabled_event: Viták engedélyezve
   activerecord:
     models:
       decidim/debates/debate:
         one: Vita
-        other: viták
+        other: Viták
   decidim:
     components:
       debates:
         actions:
-          create: Teremt
-        name: viták
+          create: Létrehozás
+        name: Viták
         settings:
           global:
             announcement: Közlemény
@@ -36,23 +36,23 @@ hu:
             creation_enabled: Felhasználók általi viták létrehozása engedélyezve
     debates:
       actions:
-        confirm_destroy: biztos vagy ebben?
-        destroy: Töröl
-        edit: szerkesztése
+        confirm_destroy: Biztos vagy benne?
+        destroy: Törlés
+        edit: Szerkesztés
         new: Új %{name}
-        title: Hozzászólások
+        title: Műveletek
       admin:
         debates:
           create:
             invalid: Probléma merült fel a vita létrehozása során.
-            success: A vita sikeresen megtörtént.
+            success: Vita létrehozása sikeres.
           destroy:
-            success: A vita sikeresen törölve.
+            success: Vita törlése sikeres.
           edit:
             title: Vita szerkesztése
-            update: Frissítse a vitát
+            update: Vita frissítése
           index:
-            title: viták
+            title: Viták
           new:
             create: Vita létrehozása
             title: Új vita
