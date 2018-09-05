@@ -329,7 +329,9 @@ fi:
         assembly:
           take_part: Osallistu
         index:
+          organizational_chart: Organisaatiokaavio
           promoted_assemblies: Korostetut kehitysryhmät
+          reset_chart: asettaa uudelleen
         order_by_assemblies:
           assemblies:
             one: "%{count} kehitysryhmä"
