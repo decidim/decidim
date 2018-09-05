@@ -553,21 +553,21 @@ fi:
           modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
         required_review:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
-          body: Odota hetki tarkistaa Palveluehtojen päivitykset. Muuten et voi käyttää alustaa.
-          title: 'Pakollinen: Tarkista päivitykset käyttöehdoissamme'
+          body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi alustan käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
+          title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
     profile:
       deleted: Poistettu käyttäjä
-      view: näkymä
+      view: Näytä
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
-        badges: Merkit
-        conversations: keskustelut
-        followers: seuraajaa
-        following: seuraa
-        notifications: ilmoitukset
+        badges: Kunniamerkit
+        conversations: Keskustelut
+        followers: Seuraajat
+        following: Seuraa
+        notifications: Ilmoitukset
       user:
         edit_profile: Muokkaa profiilia
     reported_mailer:
@@ -596,17 +596,17 @@ fi:
     search:
       filter:
         all: Kaikki
-        component: komponentti
-      results_found_for_term: '%{count} Tulokset haulle: "%{term}"'
+        component: Komponentti
+      results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
       filters:
         search: Hae
       filters_small_view:
-        close_modal: Sulje modeemi
-        filter: Suodattaa
+        close_modal: Sulje ikkuna
+        filter: Suodata
         filter_by: Suodata
-        unfold: avautua
+        unfold: Avaa
     shared:
       embed_modal:
         close_window: Sulje ikkuna
