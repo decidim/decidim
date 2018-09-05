@@ -444,38 +444,38 @@ hu:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
           from: Feladó
-          last_message_html: Utolsó üzenet <strong>%{time} ago</strong>
+          last_message_html: Utolsó üzenet <strong>%{time}-ja</strong>
           no_conversations: Még nincsenek beszélgetések
         show:
-          conversation_with_html: Beszélgetés <strong>%{name}</strong>
+          conversation_with_html: 'Beszélgetés vele: <strong>%{name}</strong>'
           reply: Válasz
-          send: Elküld
+          send: Küldés
         start:
-          send: Elküld
+          send: Küldés
           title: Beszélgetés indítása
         update:
-          error: Az üzenet nem küldött. Próbáld újra később
+          error: Üzenet elküldése sikertelen. Próbáld újra később
     newsletter_mailer:
       newsletter:
-        note: Ezt az e-mailt azért kapta meg, mert feliratkozott a %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítő</a>oldalán.
-        see_on_website: Nem látja ezt az e-mailt helyesen? Tekintse meg a <a href="%{link}" target="_blank">weboldalon</a>.
-        unsubscribe: Az ilyen típusú e-mailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
+        note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
+        see_on_website: Nem jelenik meg rendesen? Nézd meg a <a href="%{link}" target="_blank">honlapunkon</a>.
+        unsubscribe: Az ilyen emailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Ha meg szeretné változtatni a beállításokat, ezt a <a href="%{link}" target="_blank">konfigurációs oldalon</a>
-        error: Hiba történt a feliratkozásnál
-        success: Leiratkozás sikeresen le van állítva.
-        token_error: A kapcsolat lejárt.
+        check_subscription: Ha szeretnéd módosítani a beállításokat, akkor a <a href="%{link}" target="_blank">konfigurációs oldalon</a> teheted meg
+        error: Hiba történt a leiratkozás során
+        success: A leiratkozásod sikeres volt.
+        token_error: A link sajnos lejárt.
         unsubscribe: Leiratkozás
     newsletters_opt_in:
-      unathorized: Sajnáljuk, ez a link már nem elérhető
+      unathorized: Sajnos ez a link már nem elérhető
       update:
-        error: Valami baj történt
-        success: A hírlevél beállításai sikeresen frissültek
+        error: Valami hiba történt
+        success: Hírlevél beállításainak frissítése sikeres
     newsletters_opt_in_mailer:
       notify:
-        body_1: A személyes adatok feldolgozása és védelme egyre fontosabbá válik mindannyiunk számára. A 2018. május 25-én kiadott új általános adatvédelmi rendelet (GDPR) révén az egyének jobban ellenőrizhetik személyes adataikat. Emiatt szükségünk van az Ön "OK" - jára, hogy továbbra is a %{organization_name}.
-        body_2: 'Hogyan adhatod nekünk beleegyezését? Csak kattintson a következő gombra:'
+        body_1: A személyes adatok védelme és feldolgozása egyre fontosabbá válik mindannyiunk számára. A 2018. május 25-én kiadott új általános adatvédelmi rendelet (GDPR) lehetővé teszi, hogy személyes adatainkat jobban ellenőrizhessük. Emiatt van szükségünk a jóváhagyásodra a %{organization_name} nevű szervezettel kapcsolatban.
+        body_2: 'Hogyan tudsz beleegyezni? Egyszerűen kattints erre a gombra:'
         body_3: Ezzel a beleegyezéssel Ön továbbra is képes információt kapni a platform szolgáltatásairól. Ha éppen ellenkezőleg, nem kapunk pozitív visszaigazolást az Ön részéről, akkor nem küldjük el üzenetünket. Ha megerősíti, hogy szeretne folyamatosan tájékoztatni, bármikor bármikor törölheti a lehetőséget.
         button: Igen, továbbra is releváns információkat szeretnék kapni
         greetings: Üdvözlet,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
