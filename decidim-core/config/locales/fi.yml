@@ -264,23 +264,23 @@ fi:
       shared:
         newsletter_modal:
           buttons:
-            check: Tarkista ja jatka
-            close_modal: Sulje modeemi
-            uncheck: Poista valinta
+            check: Hyväksy yhteydenotto ja jatka
+            close_modal: Sulje ikkuna
+            uncheck: En halua uutiskirjeitä
           notice: |-
             <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
-            Ole hyvä ja harkitse uudelleen ruutua uutiskirjeen valintaruutu alla.<br>
-            Meille on erittäin tärkeää, että voit vastaanottaa satunnaisia ​​sähköposteja tärkeiden ilmoitusten tekemiseen. Voit aina muuttaa ilmoituksesi asetussivulla.</p>
-            <p>Jos et rasti laatikosta, saatat puuttua asiaan liittyvistä uusista osallistumismahdollisuuksista alustalla.<br>
-            Jos haluat edelleen välttää uutiskirjeitä, ymmärrämme täysin päätöksesi.</p>
-            <p>Kiitos lukemisesta!</p>
-          title: Ilmoitusten ilmoitukset
+            Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
+            Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta alustan uusista osallistumismahdollisuuksista.<br>
+            Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
+            <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
+          title: Uutiskirjeitä koskeva ilmoitus
         omniauth_buttons:
           or: Tai
     doorkeeper:
       authorizations:
         new:
-          authorize: Hyväksy hakemus
+          authorize: Hyväksyn tietojeni käytön
           by_organization_link_html: <small class="heading-small">mennessä %{link}</small>
           cancel: Peruuttaa
           connect_your_account_html: Liitä tili kirjautumalla sisään <strong>%{organization}</strong>
