@@ -55,7 +55,7 @@ sv:
         instagram_handler: Instagram-hanterare
         logo: Logo
         name: Namn
-        official_img_footer: Officiell logo footer
+        official_img_footer: Officiell logo sidfot
         official_img_header: Officiell logotyphuvud
         official_url: Officiell URL
         omnipresent_banner_short_description: Kort beskrivning
@@ -63,14 +63,14 @@ sv:
         omnipresent_banner_url: URL
         reference_prefix: Referensprefix
         show_statistics: Visa statistik
-        tos_version: Användarvillkor version
+        tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
         name: Namn
         organization: Organisation
-        parent_id: Förälder
+        parent_id: Överordnad
         scope_type: Omfattningstyp
         scope_type_id: Omfattningstyp
       scope_type:
