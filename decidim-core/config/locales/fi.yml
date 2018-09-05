@@ -639,10 +639,10 @@ fi:
   devise:
     invitations:
       edit:
-        header: Lopeta tilisi luominen
-        nickname_help: Ainutlaatuinen tunniste %{organization}.
+        header: Viimeistele tilisi
+        nickname_help: Yksilöllinen käyttäjänimesi organisaatiossa %{organization}.
         submit_button: Tallenna
-        subtitle: Jos hyväksyt kutsun, aseta lempinimi ja salasana.
+        subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
     mailer:
       invitation_instructions:
         accept: Hyväksy kutsu
@@ -650,24 +650,24 @@ fi:
         decline: Hylkää kutsu
         hello: Hei %{email},
         ignore: |-
-          Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
-          Tilisi ei ole luotu, ennen kuin käytät yllä olevaa linkkiä ja määrität lempinimen ja salasanasi.
+          Jos et halua hyväksyä kutsua, jätä tämä viesti huomioimatta.<br />
+          Sinulle ei luoda tiliä ennen kuin seuraat yllä olevaa linkkiä ja asetat käyttäjänimen sekä salasanan.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-        invited_you_as_friend: "%{invited_by} on kutsunut sinut %{application}."
-        invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+        invited_you_as_friend: "%{invited_by} on kutsunut sinut %{application} -nimiseen palveluun."
+        invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
-        someone_invited_you_as_private_user: Joku on kutsunut sinut %{application}-palveluntarjoajaksi, voit hyväksyä sen alla olevan linkin kautta.
+        someone_invited_you_as_private_user: Joku on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta.
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
       invite_friend:
-        accept_invitation: 'Voit hyväksyä kutsun seuraavalla linkillä:'
-        friend_custom_text: 'He jättivät tämän viestin sinulle:'
-        subject: Sinut on kutsuttu %{organization}
+        accept_invitation: 'Voit hyväksyä kutsun seuraavan linkin kautta:'
+        friend_custom_text: 'Sinulle lähetettiin seuraavan viesti kutsun yhteydessä:'
+        subject: Sinut on kutsuttu organisaatioon %{organization}
       invite_private_user:
-        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin %{organization}
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin organisaatiossa %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
@@ -676,17 +676,17 @@ fi:
         subject: Salasana vaihdettu
   doorkeeper:
     scopes:
-      public: Julkiset tiedot.
+      public: Julkiset tietosi.
   errors:
     messages:
-      content_type_whitelist_error: tiedostotyyppi ei ole kelvollinen
+      content_type_whitelist_error: tiedostotyyppi ei kelpaa
       cycle_detected: kontekstin isäntä ei voi olla sen jälkeläinen
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
-      long_words: sisältää liian pitkät sanat
-      must_start_with_caps: täytyy alkaa korkilla
+      long_words: sisältää liian pitkiä sanoja
+      must_start_with_caps: täytyy alkaa isoilla kirjaimilla
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
-      too_many_marks: käyttää liian monia merkkejä
-      too_much_caps: käyttää liikaa korkkeja
+      too_many_marks: sisältää liian monta merkkiä
+      too_much_caps: käyttää liikaa isoja kirjaimia
       too_short: on liian lyhyt
   forms:
     required: Vaadittu
@@ -700,7 +700,7 @@ fi:
         link_label: täältä
         ok: Hyväksyn
       edit_link:
-        edit: Muokata
+        edit: Muokkaa
       footer:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.
       header:
@@ -717,7 +717,7 @@ fi:
       user_menu:
         admin_dashboard: Hallintapaneeli
         conversations: Keskustelut
-        invite_friends: Kutsua ystäviä
+        invite_friends: Kutsu ystäviä
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
