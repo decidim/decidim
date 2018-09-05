@@ -208,17 +208,17 @@ fi:
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
         delete: "%{user_name} poisti käyttäjän %{resource_name} %{space_name} ryhmästä"
-        update: "%{user_name} muutti %{resource_name} : n roolia %{space_name} kokoonpanossa"
+        update: "%{user_name} muutti %{resource_name}: n roolia %{space_name} ryhmässä"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Jos kokoonpanon kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
-            included_at_help: Valitse päivämäärä, jolloin kokoonpano lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
-            select_a_created_by: Valitse luoma
+            duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            included_at_help: Valitse päivämäärä, jolloin ryhmä lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
+            select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
-            select_an_assembly_type: Valitse kokoonpanotyyppi
-            select_parent_assembly: Valitse vanhemman kokoonpano
+            select_an_assembly_type: Valitse ryhmän tyyppi
+            select_parent_assembly: Valitse pääryhmä
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
         assembly_copies:
@@ -228,30 +228,30 @@ fi:
           form:
             existing_user: Olemassa oleva käyttäjä
             non_user: Ei käyttäjä
-            select_a_position: Valitse paikka
+            select_a_position: Valitse asema
             select_user: Valitse käyttäjä
             user_type: Käyttäjätyyppi
           index:
             filter:
               all: Kaikki
-              ceased: lakkasi
-              not_ceased: Ei lopeta
+              ceased: Lakkautettu
+              not_ceased: Ei lakkautettu
             filter_by: Suodata
             search: Hae
       assembly_members:
         index:
           members: Jäsenet
       assembly_types:
-        commission: poisjättäminen
-        consultative_advisory: Neuvoa / Advisory
+        commission: Komissio
+        consultative_advisory: Neuvoa-antava
         executive: Johtaja
         government: Hallitus
-        others: toiset
-        participatory: osallistava
+        others: Muut
+        participatory: Osallistuva
         working_group: Työryhmä
       content_blocks:
         highlighted_assemblies:
-          name: Korostetut kokoonpanot
+          name: Korostetut ryhmät
       created_by:
         city_council: Kaupunginvaltuusto
         others: toiset
