@@ -5,7 +5,7 @@ sv:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Posta
+        one: Inlägg
         other: inlägg
   decidim:
     blogs:
@@ -14,19 +14,19 @@ sv:
         destroy: Radera
         edit: Redigera
         new: Ny
-        title: Handlingar
+        title: Åtgärder
       admin:
         models:
           components:
-            body: Kropp
+            body: Innehåll
           post:
             name: Posta
         posts:
           create:
-            invalid: Det har varit ett problem att skapa det här inlägget
-            success: Post med framgång skapad
+            invalid: Det har blivit ett problem att skapa det här inlägget
+            success: Inlägg skapades framgångsrikt
           destroy:
-            success: Posten har tagits bort
+            success: Inlägget har tagits bort
           edit:
             save: Uppdatering
           index:
@@ -35,13 +35,13 @@ sv:
             create: Skapa
             title: Skapa inlägg
           update:
-            invalid: Det har varit fel när du sparar inlägget.
-            success: Inlägg sparas framgångsrikt
+            invalid: Det har blivit fel när du sparar inlägget.
+            success: Inlägget sparades framgångsrikt
       models:
         post:
           fields:
             author: Författare
-            body: Kropp
+            body: Innehåll
             created_at: Skapad vid
             title: titel
       posts:
@@ -53,21 +53,21 @@ sv:
       read_more: Läs mer
     components:
       blogs:
-        name: blogg
+        name: Blogg
         settings:
           global:
-            announcement: Meddelande
+            announcement: Notis
             comments_enabled: Kommentarer aktiverad
           step:
-            announcement: Meddelande
+            announcement: Notis
             comments_blocked: Kommentarer Blockerad
     events:
       blogs:
         post_created:
           email_intro: Posten "%{resource_title}" har publicerats i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det från föregående länken.
           email_subject: Nytt inlägg publicerat i %{participatory_space_title}
-          notification_title: Posten <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
+          notification_title: Inlägget <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
     pages:
       home:
         statistics:
