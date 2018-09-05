@@ -476,36 +476,36 @@ hu:
       notify:
         body_1: A személyes adatok védelme és feldolgozása egyre fontosabbá válik mindannyiunk számára. A 2018. május 25-én kiadott új általános adatvédelmi rendelet (GDPR) lehetővé teszi, hogy személyes adatainkat jobban ellenőrizhessük. Emiatt van szükségünk a jóváhagyásodra a %{organization_name} nevű szervezettel kapcsolatban.
         body_2: 'Hogyan tudsz beleegyezni? Egyszerűen kattints erre a gombra:'
-        body_3: Ezzel a beleegyezéssel Ön továbbra is képes információt kapni a platform szolgáltatásairól. Ha éppen ellenkezőleg, nem kapunk pozitív visszaigazolást az Ön részéről, akkor nem küldjük el üzenetünket. Ha megerősíti, hogy szeretne folyamatosan tájékoztatni, bármikor bármikor törölheti a lehetőséget.
-        button: Igen, továbbra is releváns információkat szeretnék kapni
-        greetings: Üdvözlet,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Helló,
-        subject: Szeretné, ha továbbra is releváns információkat kapna a %{organization_name}?
+        body_3: Amennyiben beleegyezel, akkor továbbra is elküldjük neked a platform szolgáltatásaival kapcsolatos fontos információkat. Ha nem értesz egyet, akkor többé nem küldünk ilyen üzeneteket. Jóllehet, miután megerősítetted a szándékod, hogy továbbra is szeretnél tájékoztatást kapni, bármikor visszavonhatod a döntésed.
+        button: Igen, továbbra is szeretnék fontos információkat kapni
+        greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Helló!
+        subject: 'Szeretnél továbbra is fontos információkat kapni róluk: a %{organization_name}?'
     notifications:
       no_notifications: Még nincs értesítés.
     notifications_settings:
       show:
-        email_on_notification: Minden alkalommal, amikor értesítést kapok, e-mailt kapok.
-        newsletter_notifications: Hírleveleket szeretnék kapni
-        update_notifications_settings: Változtatások mentése
+        email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
+        newsletter_notifications: Szeretnék hírleveleket kapni
+        update_notifications_settings: Változások mentése
       update:
-        error: Hiba történt az értesítési beállítások frissítésekor.
-        success: Az értesítési beállítások sikeresen frissültek.
+        error: Hiba történt az értesítési beállítások frissítése során.
+        success: Az értesítési beállításaid frissítése sikeres volt.
     own_user_groups:
       index:
-        pending: Függőben levő
+        pending: Függőben
         rejected: Elutasítva
-        verified: ellenőrzött
+        verified: Megerősítve
     pages:
       home:
         extended:
           debates: Viták
           debates_explanation: Vitasd meg, véleményezd és tegyél hozzá Te is a releváns témákhoz.
           how_to_participate: Hogyan vehetek részt egy folyamatban?
-          meetings: találkozók
+          meetings: Találkozók
           meetings_explanation: Tudd meg, hol és mikor vehetsz részt a nyilvános találkozókon.
           more_info: Több információ
-          proposals: javaslatok
+          proposals: Javaslatok
           proposals_explanation: Tegyél javaslatot, támogasd a már meglévőket, legyél Te a változás motorja.
         footer_sub_hero:
           footer_sub_hero_body: Egy nyitottabb, átláthatóbb és együttműködőbb társadalomért.<br /> Csatlakozz, szervezz és dönts.
@@ -521,13 +521,13 @@ hu:
           debates_count: Viták
           endorsements_count: Jóváhagyások
           headline: A %{organization} jelenlegi állapota
-          meetings_count: találkozók
+          meetings_count: Találkozók
           orders_count: Szavazatok
           pages_count: Oldalak
           processes_count: Folyamatok
-          projects_count: projektek
+          projects_count: Projektek
           proposals_accepted: Elfogadott javaslatok
-          proposals_count: javaslatok
+          proposals_count: Javaslatok
           results_count: Eredmények
           surveys_count: Felmérések
           users_count: Résztvevők
@@ -535,13 +535,13 @@ hu:
         sub_hero:
           register: Regisztráció
       index:
-        title: Több információ
+        title: További információk
       terms_and_conditions:
         accept:
-          error: Hiba történt a feltételek elfogadásakor.
-          success: Nagy! Elfogadta a feltételeket.
+          error: Hiba történt az általános szerződési feltételek elfogadása során.
+          success: Remek! Elfogadtad a feltételeket.
         form:
-          agreement: Elfogadom ezeket a feltételeket
+          agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
           modal_body: Ha elutasítja, akkor nem lesz képes használni a platform, akkor <a href="%{data_portability_path}">az adatokat letöltheti</a> és / vagy <a href="%{delete_path}">törölheti fiókját</a>.
