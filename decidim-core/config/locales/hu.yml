@@ -544,14 +544,14 @@ hu:
           agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
-          modal_body: Ha elutasítja, akkor nem lesz képes használni a platform, akkor <a href="%{data_portability_path}">az adatokat letöltheti</a> és / vagy <a href="%{delete_path}">törölheti fiókját</a>.
-          modal_btn_continue: Fogadja a feltételeket és folytassa
-          modal_btn_exit: Később megnézem
-          modal_button: Utasítsa el a feltételeket
-          modal_close: Közeli modal
-          modal_title: Tényleg tagadja meg a frissített Általános Szerződési Feltételeket?
+          modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{data_portability_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
+          modal_btn_continue: Elfogadom és tovább lépek
+          modal_btn_exit: Később átnézem
+          modal_button: Elutasítom a feltételeket
+          modal_close: Modal bezárása
+          modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
-          alert: Frissítettük Általános Szerződési Feltételeinket, kérjük, tekintse át őket.
+          alert: Frissítettük az ÁSZF szövegét. Kérlek, nézd át ezeket.
           body: Kérjük, szánjon egy pillanatot a Szolgáltatási feltételek frissítéseinek felülvizsgálatára. Ellenkező esetben nem fogja tudni használni a platformot.
           title: 'Szükséges: ellenőrizze a szolgáltatási feltételeink frissítéseit'
     participatory_space_private_users:
