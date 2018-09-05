@@ -388,62 +388,62 @@ hu:
           next_level_in: Hívj meg több %{score} felhasználót a következő szint eléréséhez!
           unearned_another: Ez a felhasználó még nem hívott meg senkit.
           unearned_own: Még nem hívtál meg felhasználókat.
-      description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz.
-      level: '%{level}szint'
-      reached_top: Ön elérte a jelvény legmagasabb szintjét.
+      description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
+      level: '%{level} szint'
+      reached_top: Elérted a jelvény legmagasabb szintjét.
     invitations:
       create:
-        error: Volt problémák a barátok meghívása közben
-        error_empty_form: Adjon meg néhány e-mail címet
-        success: Megküldtük a meghívókat barátainak!
+        error: Problémák adódtak a barátok meghívása közben
+        error_empty_form: Adj meg néhány email címet
+        success: Elküldtük a meghívókat a barátaidnak!
       index:
-        customize_message: A meghívó üzenet testreszabása
-        friend_email: 'Friend #%{index} email'
-        invitations_subtitle: Hagyja, hogy a barátaid tudjanak erről az oldalról
-        invitations_title: Szerinted több hangot kell hallani a %{organization_name}?
+        customize_message: Meghívó üzenet testreszabása
+        friend_email: 'Barát #%{index} email'
+        invitations_subtitle: Szólj barátaidnak az oldal létezéséről
+        invitations_title: Szerinted többet kelleni hallani a %{organization_name} szervezetről?
         invite: Meghívás
-        visit_your_profile: Látogasson el a profilodra
+        visit_your_profile: Profil oldalad
     log:
       base_presenter:
-        create: "%{user_name} létrehozva %{resource_name}"
-        create_with_space: "%{user_name} létrehozva %{resource_name} %{space_name}"
-        delete: "%{user_name} törölve %{resource_name}"
-        delete_with_space: "%{user_name} törölve %{resource_name} %{space_name}"
-        unknown_action: "%{user_name} végrehajtott egy lépést %{resource_name}én"
-        unknown_action_with_space: "%{user_name} valamilyen műveletet hajtott végre %{resource_name} -nél %{space_name}"
-        update: "%{user_name} frissítve %{resource_name}"
-        update_with_space: "%{user_name} frissítve %{resource_name} a %{space_name}"
+        create: "%{user_name} létrehozta ezt: %{resource_name}"
+        create_with_space: "%{user_name} létrehozta ezt: %{resource_name} %{space_name}"
+        delete: "%{user_name} törölte ezt: %{resource_name}"
+        delete_with_space: "%{user_name} törölte ezt: %{resource_name} %{space_name}"
+        unknown_action: "%{user_name} módosította ezt: %{resource_name}"
+        unknown_action_with_space: "%{user_name} valamilyen műveletet hajtott végre itt: %{resource_name} %{space_name}"
+        update: "%{user_name} frissítette ezt: %{resource_name}"
+        update_with_space: "%{user_name} frissítette ezt: %{resource_name} a %{space_name}"
       value_types:
         area_presenter:
           not_found: 'A terület nem található az adatbázisban (ID: %{id})'
         area_type_presenter:
-          not_found: 'A terület típusa nem található az adatbázisban (ID: %{id})'
+          not_found: 'A terület típus nem található az adatbázisban (ID: %{id})'
         scope_presenter:
-          not_found: 'Az alkalmazási kör nem található az adatbázisban (ID: %{id})'
+          not_found: 'A hatáskör nem található az adatbázisban (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Az alkalmazási típus nem található az adatbázisban (ID: %{id})'
+          not_found: 'A hatáskör típus nem található az adatbázisban (ID: %{id})'
     managed_users:
       expired_session: A jelenlegi megszemélyesítő munkamenet lejárt.
     menu:
-      home: itthon
-      more_information: Több információ
+      home: Kezdőlap
+      more_information: További információk
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Szia, %{recipient}!
-          intro: "%{sender} új beszélgetést indított veled. Ide kattintva megtekintheti:"
-          outro: Élvezze a decidim!
-          subject: "%{sender} beszélgetést indított veled"
+          greeting: Szia %{recipient}!
+          intro: "%{sender} új beszélgetést kezdett veled. Ide kattintva elolvashatod:"
+          outro: Üdvözlünk a Decidimen!
+          subject: "%{sender} beszélgetést kezdett veled"
         new_message:
-          greeting: Szia, %{recipient}!
-          intro: "%{sender} új üzeneteket írt a beszélgetésbe. Ide kattintva megtekintheti őket:"
-          outro: Élvezze a decidim!
-          subject: Új üzenetek vannak %{sender}
+          greeting: Szia %{recipient}!
+          intro: "%{sender} új üzeneteket küldött neked. Ide kattintva megtekintheted őket:"
+          outro: Üdvözlünk a Decidimen!
+          subject: 'Új üzenetek érkeztek tőle: %{sender}'
       conversations:
         create:
-          error: A beszélgetés nem indult. Próbáld újra később
+          error: A beszélgetés megakadt. Próbáld újra később
         index:
-          from: Tól től
+          from: Feladó
           last_message_html: Utolsó üzenet <strong>%{time} ago</strong>
           no_conversations: Még nincsenek beszélgetések
         show:
