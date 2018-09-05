@@ -38,7 +38,7 @@ fi:
     models:
       decidim/user:
         one: Käyttäjä
-        other: Käyttäjä
+        other: Käyttäjät
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
@@ -141,13 +141,13 @@ fi:
           passport_number: Passin numero
         name: Toinen esimerkkivarmennustapa
       dummy_authorization_handler:
-        explanation: Varmenna itsesi esittämällä asiakirjan numero, joka päättyy merkkiin "X"
+        explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
           document_number: Asiakirjan numero
           postal_code: Postinumero
-        name: Esimerkkivaltuutus
+        name: Esimerkkivarmennus
       dummy_authorization_workflow:
-        name: Dummy-valtuutuksen työnkulku
+        name: Dummy-varmennuksen työnkulku
       errors:
         duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
       expired_at: Umpeutuu %{timestamp}
@@ -156,7 +156,7 @@ fi:
         fields:
           bar: Bar
           foo: Foo
-        name: Foo-tunnistautuminen
+        name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
       started_at: Aloitettu %{timestamp}
     authorization_modals:
@@ -222,7 +222,7 @@ fi:
         name: Hero-kuvan alabanneri
     core:
       actions:
-        unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
+        unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
     data_portability:
       export:
         ready: Valmis
@@ -735,13 +735,13 @@ fi:
   locale:
     name: Suomi
   password_validator:
-    domain_included_in_password: on liian samankaltainen kuin tämä verkkotunnus
-    email_included_in_password: on liian samankaltainen kuin sähköpostisi
-    fallback: ei ole voimassa
-    name_included_in_password: on liian samankaltainen kuin nimesi
-    not_enough_unique_characters: ei ole tarpeeksi ainutlaatuisia merkkejä
+    domain_included_in_password: on liian samankaltainen palvelun verkko-osoitteen kanssa
+    email_included_in_password: on liian samankaltainen sähköpostisi kanssa
+    fallback: ei ole hyväksytyn muotoinen
+    name_included_in_password: on liian samankaltainen nimesi kanssa
+    not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
     password_not_allowed: ei ole sallittu
-    password_too_common: on liian yleistä
+    password_too_common: on liian yleinen
     password_too_long: on liian pitkä
     password_too_short: on liian lyhyt
   social_share_button:
@@ -768,9 +768,9 @@ fi:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
-      day_of_week_long: "%a %e"
+      day_of_week_long: "%a %e."
       day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "%d %B %Y"
+      decidim_day_of_year: "%B %d. %Y"
       decidim_short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
   views:
