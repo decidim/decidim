@@ -331,7 +331,7 @@ sv:
         index:
           organizational_chart: Organisationsschema
           promoted_assemblies: Markerade möten
-          reset_chart: Återställa
+          reset_chart: Återställ
         order_by_assemblies:
           assemblies:
             one: "%{count} möte"
