@@ -109,17 +109,17 @@ fi:
         update: "%{user_name} päivitti %{resource_name} teemaa"
         update_with_parent: "%{user_name} päivitti %{resource_name} teemaa %{parent_scope} teeman alla"
       static_page:
-        create: "%{user_name} luonut %{resource_name} staattinen sivu"
-        delete: "%{user_name} poistettu %{resource_name} staattinen sivu"
-        update: "%{user_name} päivitti %{resource_name} staattinen sivu"
+        create: "%{user_name} loi staattisen sivun %{resource_name}"
+        delete: "%{user_name} poisti staattisen sivun %{resource_name}"
+        update: "%{user_name} päivitti staattista sivua %{resource_name}"
       user:
-        invite: "%{user_name} kutsui käyttäjää %{resource_name} roolilla: %{role}"
-        officialize: "%{user_name} virallistettu käyttäjä %{resource_name}"
-        remove_from_admin: "%{user_name} poistanut käyttäjän %{resource_name} roolilla: %{role}"
-        unofficialize: "%{user_name} epävirallinen käyttäjä %{resource_name}"
+        invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
+        officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
+        remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
+        unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
-        reject: "%{user_name} hylkäsi %{resource_name} käyttäjäryhmän vahvistaminen"
-        verify: "%{user_name} vahvistanut %{resource_name} käyttäjäryhmä"
+        reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
+        verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
     anonymous_user: Anonyymi
     application:
       collection:
@@ -136,10 +136,10 @@ fi:
         other: kommentit
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Vahvista avaamalla passi numerosta "A"
+        explanation: Vahvista tilisi syöttämällä passin numero, joka alkaa kirjaimella "A"
         fields:
           passport_number: Passin numero
-        name: Toinen esimerkki valtuutuksesta
+        name: Toinen esimerkkivarmennustapa
       dummy_authorization_handler:
         explanation: Varmenna itsesi esittämällä asiakirjan numero, joka päättyy merkkiin "X"
         fields:
@@ -186,21 +186,21 @@ fi:
           title: Ei varmennettu
     collapsible_list:
       hidden_elements_count:
-        one: ja vielä 1
-        other: ja vielä %{count}
-      see_less: "(katso vähemmän)"
-      see_more: "(Katso lisää)"
+        one: ja 1 lisää
+        other: ja %{count} lisää
+      see_less: "(näytä vähemmän)"
+      see_more: "(näytä enemmän)"
     components:
       dummy:
         actions:
-          bar: Baari
-          foo: foo
-        name: Dummy komponentti
+          bar: Bar
+          foo: Foo
+        name: Esimerkkikomponentti
         settings:
           global:
-            comments_enabled: Kommentit ovat käytössä
-            dummy_global_attribute_1: Dummy-ominaisuus 1
-            dummy_global_attribute_2: Dummy-ominaisuus 2
+            comments_enabled: Kommentit käytössä
+            dummy_global_attribute_1: Esimerkkitietue 1
+            dummy_global_attribute_2: Esimerkkitietue 2
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
           step:
             comments_blocked: Kommentit on estetty
