@@ -3,8 +3,8 @@ fi:
     attributes:
       assembly:
         area_id: alue
-        assembly_type: Kehitysryhmän tyyppi
-        assembly_type_other: Muu kehitysryhmän tyyppi
+        assembly_type: Ryhmän tyyppi
+        assembly_type_other: Muu ryhmän tyyppi
         banner_image: Bannerikuva
         closing_date: Sulkeutumispäivä
         closing_date_reason: Perustelu sulkemiselle
@@ -254,7 +254,7 @@ fi:
           name: Korostetut ryhmät
       created_by:
         city_council: Kaupunginvaltuusto
-        others: toiset
+        others: Muut
         public: Julkinen
       index:
         title: Kehitysryhmät
@@ -265,22 +265,22 @@ fi:
             see_all_assemblies: Näytä kaikki kehitysryhmät
         user_profile:
           member_of:
-            member_of: Jonkin jäsen
+            member_of: Jäsen ryhmässä
       show:
         area: alue
-        assembly_type: Asennustyyppi
-        children: osat
+        assembly_type: Ryhmän tyyppi
+        children: Ryhmät
         closing_date: Sulkemispäivä
-        composition: Sävellys
+        composition: Kokoonpano
         created_by: Luonut
-        creation_date: Päivämäärä luotu
-        developer_group: Promoottoriryhmä
+        creation_date: Luontipäivämäärä
+        developer_group: Perustajaryhmä
         duration: Kesto
         included_at: Mukana osoitteessa
-        indefinite_duration: epämääräinen
+        indefinite_duration: Määrittelemätön
         internal_organisation: Sisäinen organisaatio
         is_transparent:
-          'false': himmeä
+          'false': läpinäkymätön
           'true': läpinäkyvä
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
@@ -331,7 +331,7 @@ fi:
         index:
           organizational_chart: Organisaatiokaavio
           promoted_assemblies: Korostetut kehitysryhmät
-          reset_chart: asettaa uudelleen
+          reset_chart: Palauta
         order_by_assemblies:
           assemblies:
             one: "%{count} kehitysryhmä"
