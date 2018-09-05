@@ -64,8 +64,8 @@ hu:
             name: Vita
       admin_log:
         debate:
-          create: "%{user_name} létrehozta az %{resource_name} vitát a %{space_name} téren"
-          update: "%{user_name} frissítette az %{resource_name} vitát a %{space_name} helyről"
+          create: "%{user_name} létrehozta a(z) %{resource_name} vitát itt: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} vitát itt: %{space_name}"
       debates:
         count:
           debates_count:
@@ -73,28 +73,28 @@ hu:
             other: "%{count} vita"
         create:
           invalid: Probléma merült fel a vita létrehozása során.
-          success: A vita sikeresen megtörtént.
+          success: Vita létrehozása sikeres.
         debate:
-          participate: Részt venni
+          participate: Részvétel
         filters:
-          all: Minden
+          all: Összes
           category: Kategória
-          category_prompt: Válasszon egy kategóriát
+          category_prompt: Válassz kategóriát
           citizens: Állampolgárok
           official: Hivatalos
-          origin: Eredet
+          origin: Kiindulópont
           search: Keresés
         filters_small_view:
-          close_modal: Közeli modal
+          close_modal: Modal bezárása
           filter: Szűrő
-          filter_by: Szűrés vlami alapján
-          unfold: kibontakozik
+          filter_by: 'Szűrés ez alapján:'
+          unfold: Kibont
         index:
           new_debate: Új vita
         new:
-          back: Hát
-          create: Teremt
-          select_a_category: Kérjük, válasszon egy kategóriát
+          back: Vissza
+          create: Létrehozás
+          select_a_category: Válassz kategóriát
           title: Új vita
         share:
           close_window: Zárja be az ablakot
