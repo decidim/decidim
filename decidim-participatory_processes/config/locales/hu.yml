@@ -13,10 +13,10 @@ hu:
         end_date: Befejezés dátuma
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
-        local_area: Helyi
+        local_area: Helyi szint
         meta_scope: Hatály metaadatok
         participatory_process_group_id: Folyamatok csoportja
-        participatory_scope: Részvételi kör
+        participatory_scope: Részvétel hatásköre
         participatory_structure: Részvételi struktúra
         promoted: promotált
         published_at: Megjelent a
@@ -63,8 +63,8 @@ hu:
       actions:
         activate: Aktiválja
         configure: Beállítás
-        confirm_destroy: Erősítse meg megsemmisíteni
-        destroy: Elpusztítani
+        confirm_destroy: Eltávolítás megerősítése
+        destroy: Eltávolítás
         duplicate: Másolat
         edit: szerkesztése
         new: Új
@@ -110,7 +110,7 @@ hu:
             email: Email
             name: Név
             role: Szerep
-          name: Résztvevő folyamat felhasználó
+          name: Részvételi Folyamat Felhasználó
           roles:
             admin: Adminisztrátor
             collaborator: Együttműködő
@@ -126,7 +126,7 @@ hu:
           title: Ismétlődő részvételi folyamat
       participatory_process_groups:
         destroy:
-          success: A résztvevő folyamatcsoport sikeresen megsemmisült.
+          success: Részvételi folyamat munkacsoport törlése sikeres.
         edit:
           title: A folyamatcsoport szerkesztése
           update: frissítés
@@ -156,7 +156,7 @@ hu:
           error:
             active_step: Az aktív lépést nem lehet törölni.
             last_step: Nem lehet törölni egy folyamat utolsó lépését.
-          success: A részvételi folyamat sikeresen megsemmisült.
+          success: A részvételi folyamat lépésének eltávolítása sikeres.
         edit:
           title: A részvételi folyamat lépés szerkesztése
           update: frissítés
@@ -173,9 +173,9 @@ hu:
       participatory_process_user_roles:
         create:
           error: Hiba történt a felhasználó részvételéhez a részvételi folyamat során.
-          success: A felhasználó sikeresen létrehozta ezt a részvételi folyamatot.
+          success: A felhasználó létrehozása a részvételi folyamathoz sikeres.
         destroy:
-          success: A felhasználó sikeresen megsemmisült ebben a részvételi folyamatban.
+          success: A felhasználó eltávolítása a részvételi folyamatból sikeres.
         edit:
           title: A részvételi folyamat felhasználójának frissítése.
           update: frissítés
@@ -192,7 +192,7 @@ hu:
           error: Hiba történt egy új részvételi folyamat létrehozásakor.
           success: A részvételi folyamat sikeresen megtörtént. Állítsa be most a lépéseit.
         destroy:
-          success: A részvételi folyamat sikeresen megsemmisült.
+          success: A Részvételi folyamat törlése sikeres volt.
         edit:
           update: frissítés
         form:
@@ -254,7 +254,7 @@ hu:
       processes: Eljárások
     participatory_process_groups:
       show:
-        group_participatory_processes: Folyamat a %{group}
+        group_participatory_processes: '%{group} folyamatai'
         title: Résztvevői folyamatcsoportok
     participatory_process_steps:
       index:
@@ -273,9 +273,9 @@ hu:
         title: Részvételi folyamatok
       order_by_processes:
         active: Aktív
-        all: Minden
-        past: Múlt
-        upcoming: közelgő
+        all: Összes
+        past: Előzmények
+        upcoming: Közelgő
       pages:
         home:
           highlighted_processes:
@@ -330,7 +330,7 @@ hu:
         order_by_processes:
           processes:
             one: "%{count} folyamat"
-            other: "%{count} folyamatokat"
+            other: "%{count} folyamatok"
         participatory_process:
           active_step: 'Aktuális lépés:'
           take_part: Részt vesz
