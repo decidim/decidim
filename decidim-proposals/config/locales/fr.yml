@@ -5,8 +5,8 @@ fr:
         body: Corps
         category_id: Catégorie
         decidim_scope_id: Portée
-        has_address: A l'adresse
-        state: Etat
+        has_address: Renseigner une adresse
+        state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
       proposal:
@@ -200,14 +200,14 @@ fr:
           explanation: Les utilisateurs obtiennent ce badge en soutenant les propositions.
           name: Supports de proposition
           next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a encore apporté son soutien à aucune proposition.
+          unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
           description_another: Cet utilisateur a créé %{score} propositions.
           description_own: Vous avez créé %{score} propositions.
           explanation: Les utilisateurs obtiennent ce badge en créant des propositions.
-          name: Les propositions
-          next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant!
+          name: Propositions
+          next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
     participatory_processes:
@@ -338,7 +338,7 @@ fr:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
           success: Projet collaboratif créé avec succès.
         edit:
-          back: Arrière
+          back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier un brouillon collaboratif
@@ -350,10 +350,10 @@ fr:
           published: Publié
           related_to: Relatif à
           search: Chercher
-          state: Etat
+          state: État
           withdrawn: Retiré
         filters_small_view:
-          close_modal: Fermer modal
+          close_modal: Fermer la fenêtre
           filter: Filtre
           filter_by: Filtrer par
           unfold: Se dérouler
