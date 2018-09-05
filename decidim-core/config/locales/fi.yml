@@ -422,7 +422,7 @@ fi:
         scope_presenter:
           not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Soveltamis tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     menu:
@@ -444,13 +444,13 @@ fi:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
-          from: alkaen
-          last_message_html: Viimeisin viesti <strong>%{time} ago</strong>
+          from: Lähettäjä
+          last_message_html: Viimeisin viesti <strong>%{time} sitten</strong>
           no_conversations: Sinulla ei vielä ole keskusteluja
         show:
-          conversation_with_html: Keskustelu <strong>%{name}</strong>
+          conversation_with_html: Keskustelu käyttäjän <strong>%{name}</strong> kanssa
           reply: Vastaa
-          send: Lähettää
+          send: Lähetä
         start:
           send: Lähetä
           title: Aloita keskustelu
@@ -471,14 +471,14 @@ fi:
     newsletters_opt_in:
       unathorized: Valitettavasti tämä linkki ei ole enää käytettävissä
       update:
-        error: Jotain vikaa tapahtui
-        success: Uutisten asetukset päivitettiin onnistuneesti
+        error: Jotain meni vikaan
+        success: Uutiskirjeiden asetukset päivitetty onnistuneesti
     newsletters_opt_in_mailer:
       notify:
-        body_1: Henkilötietojen käsittely ja sen suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuojasäännöstön (GDPR) 25.5.2018 henkilöillä on paremmat mahdollisuudet valvoa henkilötietojaan. Tästä syystä tarvitsemme "OK" jatkaaksesi lähettämistä %{organization_name}.
-        body_2: 'Miten voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
-        body_3: Tämän suostumuksen avulla voit edelleen saada tietoja alustan palveluista. Jos päinvastoin emme saa sinulle positiivista vahvistusta, emme lopeta viestiesi lähettämistä. Jos vahvistat, että haluat jatkaa ilmoittamista, sinulla on aina mahdollisuus peruuttaa milloin tahansa.
-        button: Kyllä, haluan jatkaa asiaankuuluvien tietojen saamista
+        body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
+        body_2: 'Kuinka voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
+        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja alustan palveluista. Jos päinvastoin emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
+        button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
         subject: Haluatko saada jatkuvasti tietoja %{organization_name}?
