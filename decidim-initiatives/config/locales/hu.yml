@@ -218,31 +218,31 @@ hu:
         previous_form:
           back: Vissza
           continue: Tovább
-          help: Mit tartalmaz a kezdeményezés? Írja le a címet és a leírást. Javasoljuk a rövid és tömör címet, valamint a javasolt megoldásra összpontosító leírást.
-          more_information: "(Több információ)"
+          help: Miről szól a kezdeményezés? Válassz címet és a ismertetőt. Lehetőleg rövid és tömör címet adj neki, az ismertetőben pedig törekedj a legjobb megoldás leírására.
+          more_information: "(További információk)"
         promotal_committee:
-          back: Hát
-          individual_help_text: A polgári kezdeményezésekhez legalább három emberből álló tanúsító bizottságra van szükség (tanúsítvánnyal). A következő linket meg kell osztania a kezdeményezés részét képező többi emberrel. Amikor a kapcsolattartók megkapják ezt a kapcsolatot, akkor a megadott lépéseket követniük kell.
-          more_information: "(Több információ)"
+          back: Vissza
+          individual_help_text: A polgári kezdeményezésekhez egy legalább három emberből álló (tanúsítvánnyal rendelkező) Támogató Bizottságra lesz szükség. A résztvevőkkel a következő linket kell megosztanod. A hivatkozás minden szükséges lépést tartalmaz majd.
+          more_information: "(További információk)"
         select_initiative_type:
-          back: Hát
-          more_information: "(Több információ)"
-          select: Választ
-          select_initiative_type_help: A polgári kezdeményezések egy olyan eszköz, amellyel az állampolgárság beavatkozhat, hogy a városi tanács megtehesse az önkormányzati hatáskörébe tartozó közérdek védelmét. Milyen kezdeményezést szeretne elindítani?
+          back: Vissza
+          more_information: "(További információk)"
+          select: Válassz
+          select_initiative_type_help: A polgári kezdeményezés egy olyan eszköz, amellyel az állampolgárok beavatkozhatnak a képviselőtestület munkájába és kiharcolhatják az önkormányzat hatáskörébe tartozó célok elérését. Milyen kezdeményezést szeretnél indítani?
         share_committee_link:
-          continue: Folytatni
-          invite_to_committee_help: Link a meghívni az embereket, akik a promóciós bizottság részét képezik
+          continue: Tovább
+          invite_to_committee_help: Link azok meghívásához, akik részt vesznek a támogató bizottságban
         show_similar_initiatives:
-          back: Hát
-          compare_help: Ha az alábbi kezdeményezések valamelyike ​​hasonló az Önéhez, azt javasoljuk, támogassa. A javaslatnak több lehetősége lesz rá.
-          continue: A kezdeményezésem más
-          more_information: "(Több információ)"
+          back: Vissza
+          compare_help: Ha az alábbi kezdeményezések valamelyike ​​hasonló a tiedhez, inkább azt támogasd. Így a te ügyednek is több esélye van a megvalósításra.
+          continue: Más jellegű kezdeményezés
+          more_information: "(További információk)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, aki követi, új kezdeményezést hozott létre, ellenőrizze és járuljon hozzá:"
-          email_outro: Ezt az értesítést megkapta, mert %{author_nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: 'Új kezdeményezés: %{author_nickname}'
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezést <a href="%{author_path}">%{author_name} %{author_nickname}</a>hozta létre.
+          email_intro: "%{author_name} %{author_nickname} (akit követsz) új kezdeményezést hozott létre, nézd meg és tegyél hozzá valamit:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: '%{author_nickname} új kezdeményezést indított'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>kezdeményezés létrejött itt, általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, aki követi, támogatta a következő kezdeményezést, talán hozzá kíván járulni a beszélgetéshez:"
           email_outro: Ezt az értesítést megkapta, mert %{author_nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
