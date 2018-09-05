@@ -79,9 +79,9 @@ hu:
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés aláírásának határidejét kitolták.
         milestone_completed:
           email_intro: A(z) %{resource_title} kezdeményezést már %{percentage}% aláírta!
-          email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Új mérföldkő elkészült!
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezés elérte az aláírások %{percentage}% -át.
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: Új mérföldkő kész áll!
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést már %{percentage}% aláírta.
     gamification:
       badges:
         initiatives:
