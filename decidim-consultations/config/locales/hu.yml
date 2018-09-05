@@ -248,7 +248,7 @@ hu:
         starting_from: '%{date} óta'
         vote: Szavazás
       vote_modal:
-        contextual_help: Válassz egy opciót.
+        contextual_help: Válassz az opciók közül.
         title: 'Konzultáció: kérdés-támogatás'
       vote_modal_confirm:
         change: Módosítás
