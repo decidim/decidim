@@ -356,38 +356,38 @@ hu:
       check: Ujjlenyomat ellenőrzése
       explanation: Az alábbi szövegrész a tartalom rövidített, kettőskeresztekkel kibővített változata. Fontos ellenőrizned, hogy a szöveg érintetlen-e, hiszen egyetlen apró eltérés is teljesen más értéket eredményezhet.
       online_calculator_name: MD5 online számológép
-      replicate_help: Ezt az ujjlenyomatot SHA256 hasítási algoritmussal kell kiszámítani. Ha saját magát szeretné replikálni, használhat egy %{online_calculator_link} -at és másolhatja be a forrásadatokat.
+      replicate_help: 'Ezt az ujjlenyomat SHA256 technológiával készült. Ha szeretnéd egyet magadnak, akkor használd a következő linket: %{online_calculator_link} és másold be a forrásadatokat.'
       source: Forrás
       title: Ujjlenyomat
       value: Érték
     followers:
-      no_followers: Még senki nem követ.
+      no_followers: Még nincs követőd.
     following:
-      no_followings: Nem követi senkit vagy bármit.
+      no_followings: Még nem követi senkit és semmit.
     follows:
       create:
-        button: Kövesse
-        error: Hiba történt az erőforrás követése után.
+        button: Követés
+        error: Hiba történt az erőforrás követése során.
       destroy:
-        button: Állj le
-        error: Hiba történt az erőforrás lebontása után.
+        button: Követés törlése
+        error: Hiba történt az erőforrás követésének visszavonásakor.
     forms:
-      current_file: Aktuális fájl
-      current_image: Aktuális kép
+      current_file: Jelenlegi fájl
+      current_image: Jelenlegi kép
       default_image: Alapértelmezett kép
       errors:
-        error: Hiba történt ebben a mezőben.
-      remove_this_file: Távolítsa el ezt a fájlt
+        error: Hiba van ebben a mezőben.
+      remove_this_file: Töröld ezt a fájlt
     gamification:
       badges:
         invitations:
-          description_another: Ez a felhasználó %{score} felhasználót meghívott.
-          description_own: Meghívott %{score} felhasználót.
-          explanation: A felhasználók megkapják ezt a jelvényt a többi felhasználó meghívásával.
-          name: meghívók
-          next_level_in: Hívjon még %{score} további felhasználót a következő szint eléréséhez!
-          unearned_another: Ez a felhasználó még nem hívott meg egyetlen felhasználót sem.
-          unearned_own: Még nem hívott meg felhasználókat.
+          description_another: Felhasználó meghívott %{score} felhasználókat.
+          description_own: Meghívtál %{score} felhasználótkat.
+          explanation: A felhasználók mások meghívásával szerezhetnek jelvényt.
+          name: Meghívók
+          next_level_in: Hívj meg több %{score} felhasználót a következő szint eléréséhez!
+          unearned_another: Ez a felhasználó még nem hívott meg senkit.
+          unearned_own: Még nem hívtál meg felhasználókat.
       description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz.
       level: '%{level}szint'
       reached_top: Ön elérte a jelvény legmagasabb szintjét.
