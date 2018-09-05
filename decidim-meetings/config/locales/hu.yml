@@ -160,14 +160,14 @@ hu:
           registrations: regisztrációk
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} meghívta Önt, hogy csatlakozzon egy találkozóhoz %{application}kor. Az alábbi linken keresztül fogadhatja el."
+            invited_you_to_join_a_meeting: "%{invited_by} meghívott, hogy csatlakozz ehhez a találkozóhoz: %{application}. Jelezz vissza az alábbi linken."
             join: Csatlakozzon a "%{meeting_title}"
         invites:
           create:
             error: Probléma merült fel, amikor felhívta a felhasználót, hogy csatlakozzon az értekezlethez.
             success: A felhasználó sikeresen meghívta a találkozót.
           new:
-            explanation: A felhasználó meghívást kap egy találkozóra. Ha az e-mail nincs regisztrálva, akkor a szervezet is meghívást kap.
+            explanation: A felhasználó meghívást kap egy találkozóra. Ha nincs regisztrált email címe, akkor a szervezet is kap meghívót.
             invite: Meghívás
             new_invite: Felhasználó meghívása
         meeting_closes:
@@ -333,10 +333,10 @@ hu:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Kapcsolódó eredmények:'
-        result_meeting: 'Kapcsolódó értekezletek:'
+        result_meeting: 'Kapcsolódó találkozók:'
       proposals_from_meeting:
         meeting_proposal: 'Kapcsolódó javaslatok:'
-        proposal_meeting: 'Kapcsolódó értekezletek:'
+        proposal_meeting: 'Kapcsolódó találkozók:'
   devise:
     mailer:
       join_meeting:
