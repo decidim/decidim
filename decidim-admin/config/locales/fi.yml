@@ -568,11 +568,11 @@ fi:
           success: Sivu päivitetty onnistuneesti
       titles:
         admin_log: Hallintatoimintojen lokitiedot
-        area_types: Alueen tyypit
-        areas: alueet
+        area_types: Aluetyypit
+        areas: Alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
-        impersonatable_users: Epäilyttävät käyttäjät
+        impersonatable_users: Toisena käyttäjänä esitettävät käyttäjät
         impersonations: Esiintymiset käyttäjinä
         officializations: Virallistamiset
         scope_types: Kontekstityypit
@@ -617,7 +617,7 @@ fi:
     forms:
       errors:
         impersonate_user:
-          reason: Sinun on annettava syy epäonnistuneelle käyttäjälle
+          reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
     moderations:
       actions:
         hidden: Piilotettu
