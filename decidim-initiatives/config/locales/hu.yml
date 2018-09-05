@@ -86,28 +86,28 @@ hu:
       badges:
         initiatives:
           description_another: Ez a felhasználó %{score} kezdeményezést kapott.
-          description_own: Megjelent %{score} kezdeményezés.
-          explanation: A felhasználók megkapják ezt a jelvényt a kezdeményezések közzétételével.
-          name: Megjelent kezdeményezések
-          next_level_in: Szerezzen még %{score} kezdeményezést a következő szint eléréséhez!
-          unearned_another: Ez a felhasználó még nem kapott semmilyen kezdeményezést.
-          unearned_own: Nincs még kezdeményezésed közzé.
+          description_own: '%{score} kezdeményezéseid közzétéve.'
+          explanation: A jelvényt kezdeményezések közzétételével szerezheted meg.
+          name: Közzétett kezdeményezések
+          next_level_in: Szerezz még %{score} kezdeményezéseket a következő szint eléréséhez!
+          unearned_another: A felhasználó még nem tett közzé kezdeményezéseket.
+          unearned_own: Még nem tettél közzé kezdeményezéseket.
     initiatives:
       admin:
         committee_requests:
           index:
             approve: Jóváhagy
-            confirm_revoke: biztos vagy ebben?
-            invite_to_committee_help: Ossza meg ezt a linket, hogy meghívjon más felhasználókat a promóciós bizottságra
-            no_members_yet: A promóciós bizottságban nincs tag
-            revoke: visszavon
-            title: bizottsági tagok
+            confirm_revoke: Biztos vagy benne?
+            invite_to_committee_help: Oszd meg a linket felhasználók meghívásához a promóciós bizottságba
+            no_members_yet: A promóciós bizottságban nincsenek tagok
+            revoke: Visszavonás
+            title: Bizottsági tagok
         initiatives:
           edit:
-            accept: Fogadja el a kezdeményezést
-            confirm: biztos vagy ebben?
-            discard: Elutasítja a kezdeményezést
-            export_votes: Export támogatja
+            accept: Kezdeményezés elfogadása
+            confirm: Biztos vagy benne?
+            discard: Kezdeményezés elutasítása
+            export_votes: Exportálás támogatása
             reject: Elutasítja a kezdeményezést
             send_to_technical_validation: Küldés technikai érvényesítésre
             success: A kezdeményezést a technikai érvényesítéshez továbbították
