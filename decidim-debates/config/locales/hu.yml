@@ -132,4 +132,4 @@ hu:
           email_intro: 'Indíts új vitákat itt: %{participatory_space_title}! Te is részt vehetsz bennük ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Viták létrehozása lehetséges itt: %{participatory_space_title}'
-          notification_title: Most <a href="%{resource_path}">új vitát kezdhetsz</a> ben <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: a href="%{resource_path}">Kezd új vitát</a> a(z) <a href="%{participatory_space_url}">%{participatory_space_title}</a> helyen
