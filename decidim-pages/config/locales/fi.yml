@@ -3,11 +3,11 @@ fi:
     models:
       decidim/pages/page:
         one: Sivu
-        other: sivut
+        other: Sivut
   decidim:
     admin_log:
       page:
-        update: "%{user_name} päivitti %{resource_name} -sivun %{space_name}"
+        update: "%{user_name} päivitti %{resource_name} sivun kohdassa %{space_name}"
     components:
       pages:
         name: Sivu
@@ -20,11 +20,11 @@ fi:
       admin:
         models:
           components:
-            body: Runko
+            body: Leipäteksti
         pages:
           edit:
             save: Päivitä
             title: Muokkaa sivua
           update:
-            invalid: Sivun tallennuksessa oli virheitä.
+            invalid: Sivun tallennuksessa tapahtui virheitä.
             success: Sivu tallennettu onnistuneesti.
