@@ -4,24 +4,24 @@ hu:
       initiative:
         decidim_user_group_id: Szerző
         description: Leírás
-        offline_votes: Homlok-szalagok
-        scope_id: terület
+        offline_votes: Támogatás szemtől szembe
+        scope_id: Hatáskör
         signature_end_date: Az aláírásgyűjtési időszak vége
         signature_start_date: Az aláírásgyűjtési időszak kezdete
-        signature_type: Aláírási gyűjtemény típusa
+        signature_type: Aláírásgyűjtés típusa
         signature_type_values:
           any: Vegyes
-          offline: Szemtől szemben
+          offline: Szemtől szembe
           online: Online
         title: Cím
       initiative_author:
-        address: Cím
-        city: Város
-        id_document: DNI / NIE
-        name: Vezetéknév, keresztnév
+        address: Lakcím
+        city: Település
+        id_document: Szig. szám
+        name: Kereszt és családnév
         phone_number: Telefonszám
         post_code: Irányítószám
-        province: Tartomány
+        province: Megye
       initiatives_committee_member:
         user: Bizottsági tag
       initiatives_type:
@@ -29,56 +29,56 @@ hu:
         description: Leírás
         title: Cím
       organization_data:
-        address: Cím
-        id_document: Azonosító dokumentum
+        address: Lakcím
+        id_document: Személyigazolvány
         name: Teljes név
   activerecord:
     models:
       decidim/initiative:
-        one: újszerű kezdeményezés
-        other: kezdeményezésekre
+        one: Kezdeményezés
+        other: Kezdeményezések
       decidim/initiative_comittee:
-        one: BIZOTTSÁGÁNAK
-        other: Comittees
+        one: Bizottság
+        other: Bizottságok
       decidim/initiative_vote:
         one: Aláírás
-        other: aláírások
+        other: Aláírások
   decidim:
     admin:
       actions:
-        new_initiative_type: Új kezdeményezéstípus
+        new_initiative_type: Új kezdeményezés típusa
       menu:
-        initiatives: kezdeményezések
-        initiatives_types: Kezdeményezési típusok
+        initiatives: Kezdeményezések
+        initiatives_types: Kezdeményezések típusa
       models:
         initiatives:
           fields:
             created_at: 'Létrehozva:'
             state: Állapot
-            supports_count: támaszok
-            title: kezdeményezések
+            supports_count: Támogatás
+            title: Kezdeményezések
         initiatives_type_scope:
           fields:
-            scope: terület
+            scope: Hatáskör
             supports_required: Támogatás szükséges
-          name: Kezdeményezés típus hatóköre
+          name: Kezdeményezés típusának hatásköre
         initiatives_types:
           fields:
             created_at: 'Létrehozva:'
-            title: Kezdeményezési típusok
+            title: Kezdeményezés típusai
           name: Kezdeményezés típusa
       titles:
-        initiatives: kezdeményezések
-        initiatives_types: Kezdeményezési típusok
+        initiatives: Kezdeményezések
+        initiatives_types: Kezdeményezési típusai
     events:
       initiatives:
         initiative_extended:
-          email_intro: A %{resource_title} kezdeményezés aláírásának befejező dátumát meghosszabbították!
-          email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: A kezdeményezés aláírása befejeződött.
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezés aláírásának befejező dátumát meghosszabbították.
+          email_intro: A(z) %{resource_title} kezdeményezés aláírásának határideje kitolódott!
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: Kezdeményezés aláírásának határideje kitolva!
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés aláírásának határidejét kitolták.
         milestone_completed:
-          email_intro: A %{resource_title} kezdeményezés elérte az aláírások %{percentage}% -át!
+          email_intro: A(z) %{resource_title} kezdeményezést már %{percentage}% aláírta!
           email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
           email_subject: Új mérföldkő elkészült!
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezés elérte az aláírások %{percentage}% -át.
