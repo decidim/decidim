@@ -578,89 +578,89 @@ hu:
       report:
         hello: Hello %{name}!
         manage_moderations: Moderálódások kezelése
-        report_html: <p>A következő <a href="%{url}">tartalom</a> jelentették.</p>
-        subject: Jelentést tett egy erőforrásról
+        report_html: <p>A következő <a href="%{url}">tartalmat</a>korábban jelentették.</p>
+        subject: Egy erőforrást jelentettek
     reports:
       create:
         error: Hiba történt a jelentés létrehozásakor. Kérlek, próbáld újra.
-        success: A jelentést sikeresen hozták létre, és egy adminisztrátora felülvizsgálja.
+        success: A jelentést létrehozása sikeres, de még egy adminisztrátora felülvizsgálja.
     scopes:
-      global: Globális hatókör
+      global: Globális hatáskör
       picker:
-        cancel: Megszünteti
-        choose: választ
-        title: Válassza a %{field}
-      prompt: Válasszon egy kört
-      scopes: Célzók
+        cancel: Mégse
+        choose: Kijelölés
+        title: '%{field} kijelölése'
+      prompt: Válassz hatáskört
+      scopes: Hatáskörök
     search:
       filter:
-        all: Minden
-        component: Összetevő
-      results_found_for_term: '%{count} Keresési eredmények: "%{term}"'
+        all: Összes
+        component: Elem
+      results_found_for_term: '%{count} találat erre a szóra: "%{term}"'
       term_input_placeholder: Keresés
     searches:
       filters:
         search: Keresés
       filters_small_view:
-        close_modal: Közeli modal
-        filter: Szűrő
-        filter_by: Szűrés vlami alapján
-        unfold: kibontakozik
+        close_modal: Modal bezárása
+        filter: Szűrés
+        filter_by: 'Szűrés ez alapján:'
+        unfold: Kibont
     shared:
       embed_modal:
-        close_window: Zárja be az ablakot
-        embed: Kérjük, illessze be ezt a kódot az oldaladba
+        close_window: Ablak bezárása
+        embed: Illeszd be ezt a kódot az oldaladba
         embed_link: Beágyaz
       flag_modal:
-        already_reported: Ezt a tartalmat már jelentették, és az adminisztrátor felülvizsgálja.
+        already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         close: Bezárás
-        description: Ez a tartalom nem megfelelő?
-        does_not_belong: Tartalmaz illegális tevékenységet, öngyilkos fenyegetéseket, személyes adatokat, vagy valami másat, amelyről úgy gondolja, hogy nem tartozik a %{organization_name}.
-        offensive: Rasszizmust, szexizmust, hazugságokat, személyes támadásokat, halálos fenyegetéseket, öngyilkossági kéréseket vagy bármilyen gyűlöletbeszédet tartalmaz.
+        description: Sértő a tartalom?
+        does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
+        offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
         report: Jelentés
-        spam: Tartalmaz clickbait, reklám, csalások vagy szkript botok.
-        title: Jelentem a problémát
+        spam: Klikkvadászat, reklám, átverés vagy script bot.
+        title: Hibabejelentés
       follow_button:
-        sign_in_before_follow: Kérjük, jelentkezzen be mielőtt elvégezné ezt a műveletet
+        sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
-        please_sign_in: kérem jelentkezzen be
+        please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
       reference:
-        reference: 'Referencia: %{reference}'
+        reference: 'Hivatkozás: %{reference}'
       results_per_page:
         label: 'Találatok száma oldalanként:'
       share_modal:
-        close_window: Zárja be az ablakot
-        share: Ossza meg
+        close_window: Ablak bezárása
+        share: Megosztás
         share_link: Hivatkozás megosztása
       version_author:
         deleted: Törölt felhasználó
   devise:
     invitations:
       edit:
-        header: Készítse el a fiók létrehozását
-        nickname_help: Az Ön egyedi azonosítója %{organization}.
+        header: Profil létrehozásának befejezése
+        nickname_help: 'Egyedi azonosítód ehhez: %{organization}.'
         submit_button: Mentés
-        subtitle: Ha elfogadja a meghívást, kérjük, állítsa be becenevét és jelszavát.
+        subtitle: Ha elfogadod a meghívást, állítsd be a beceneved és a jelszavad.
     mailer:
       invitation_instructions:
-        accept: Elfogadom a meghívót
-        accept_until: Ez a meghívás %{due_date}esedékes.
-        decline: Csökkentse a meghívást
-        hello: Hello %{email},
+        accept: Meghívó elfogadása
+        accept_until: 'Ez a meghívás eddig érvényes: %{due_date}.'
+        decline: Meghívó visszautasítása
+        hello: Helló %{email}!
         ignore: |-
-          Ha nem akarja elfogadni a meghívást, kérjük, figyelmen kívül hagyja ezt az e-mailt.<br />
-          A fiókot nem hozza létre, amíg nem érné meg a fenti linket, és nem adja meg becenevét és jelszavát.
-        invited_you_as_admin: "%{invited_by} meghívott téged adminisztrátorként %{application}. Az alábbi linken keresztül fogadhatja el."
-        invited_you_as_friend: "%{invited_by} meghívott %{application}."
-        invited_you_as_private_user: "%{invited_by} meghívta Önt az %{application}privát felhasználónak. Az alábbi linken keresztül fogadhatja el."
-        someone_invited_you: Valaki felhívta Önt %{application}. Az alábbi linken keresztül fogadhatja el.
-        someone_invited_you_as_admin: Valaki meghívott téged adminisztrátorként %{application}, az alábbi linken keresztül fogadhatja el.
-        someone_invited_you_as_private_user: Valaki meghívott téged a %{application}privát felhasználónévvel, az alábbi linken keresztül fogadhatja el.
+          Ha nem akarod elfogadni a meghívást, hagyd figyelmen kívül ezt az e-mailt.<br />
+          A fiók addig nem jön létre, amíg meg nem nyitod a fenti linket és állítasz be jelszót.
+        invited_you_as_admin: "%{invited_by} meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
+        invited_you_as_friend: "%{invited_by} meghívott ide: %{application}."
+        invited_you_as_private_user: "%{invited_by} meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
+        someone_invited_you: 'Valaki meghívott, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
+        someone_invited_you_as_admin: 'Valaki meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
+        someone_invited_you_as_private_user: 'Valaki meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
       invite_admin:
-        subject: Felkérték, hogy kezelje a %{organization}
+        subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
       invite_collaborator:
-        subject: Ötödször meghívtak a %{organization}
+        subject: 'Meghívás együttműködésre ebben: %{organization}'
       invite_friend:
         accept_invitation: 'A meghívást az alábbi linken keresztül fogadhatja el:'
         friend_custom_text: 'Ezt az üzenetet hagyta neked:'
