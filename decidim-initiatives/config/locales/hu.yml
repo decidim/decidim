@@ -106,25 +106,25 @@ hu:
           edit:
             accept: Kezdeményezés elfogadása
             confirm: Biztos vagy benne?
-            discard: Kezdeményezés elutasítása
+            discard: Kezdeményezés félrerakása
             export_votes: Exportálás támogatása
-            reject: Elutasítja a kezdeményezést
-            send_to_technical_validation: Küldés technikai érvényesítésre
-            success: A kezdeményezést a technikai érvényesítéshez továbbították
-            update: frissítés
+            reject: Kezdeményezés elutasítása
+            send_to_technical_validation: Elküldés technikai ellenőrzésre
+            success: A kezdeményezést technikai érvényesítésre továbbítottuk
+            update: Frissítés
           form:
             title: Általános információ
           index:
-            actions_title: Akció
+            actions_title: Művelet
             filter:
-              accepted: Elfogadott
-              all: Minden
-              created: Alkotó
-              discarded: kiselejtezett
+              accepted: Elfogadva
+              all: Összes
+              created: Létrehozva
+              discarded: Elvetve
               published: Közzétett
-              rejected: Elutasítva
-              validating: Műszaki érvényesítés
-            filter_by: Szűrés vlami alapján
+              rejected: Elutasított
+              validating: Technikai érvényesítés
+            filter_by: 'Szűrés ez alapján:'
             preview: Előnézet
             print: Nyomtatás
             search: Keresés
@@ -132,50 +132,50 @@ hu:
             print: Nyomtatás
           update:
             error: Hiba történt
-            success: Az állampolgári kezdeményezést sikeresen frissítették
+            success: Az állampolgári kezdeményezés frissítése sikeres
         initiatives_type_scopes:
           create:
             error: Hiba történt
-            success: Az adott kezdeményezéstípus új lehetőségeket teremtett
+            success: Az adott kezdeményezési típushoz új hatóáskört hoztunk létre
           destroy:
-            success: A kört sikeresen eltávolították
+            success: A hatáskör eltávolítása sikeres volt
           edit:
-            back: Hát
-            confirm_destroy: biztos vagy ebben?
-            destroy: Töröl
-            title: A kezdeményezés típusának szerkesztése
-            update: frissítés
+            back: Vissza
+            confirm_destroy: Biztos vagy benne?
+            destroy: Törlés
+            title: Kezdeményezés típusának szerkesztése
+            update: Frissítés
           new:
-            back: Hát
-            create: Teremt
-            title: Hozzon létre kezdeményezéstípus hatókört
+            back: Vissza
+            create: Létrehozás
+            title: Kezdeményezési típus hatáskörének létrehozása
           update:
             error: Hiba történt
-            success: Az alkalmazási kör sikeresen frissült
+            success: A hatáskör frissítése sikeres volt
         initiatives_types:
           create:
             error: Hiba történt
-            success: Új kezdeményezést sikerült létrehozni
+            success: Új kezdeményezés létrehozása sikeres
           destroy:
-            success: A kezdeményezést sikeresen eltávolították
+            success: A kezdeményezés eltávolítása sikeres volt
           edit:
-            confirm_destroy: biztos vagy ebben?
-            destroy: Töröl
-            update: frissítés
+            confirm_destroy: Biztos vagy benne?
+            destroy: Törlés
+            update: Frissítés
           form:
-            title: Általános információ
+            title: Általános információk
           initiative_type_scopes:
-            title: A kezdeményezés típusának hatóköre
+            title: Kezdeményezés típusának hatásköre
           new:
-            create: Teremt
+            create: Létrehozás
             title: Új kezdeményezéstípus
           update:
             error: Hiba történt
-            success: A kezdeményezést sikeresen frissítettük
+            success: A kezdeményezés frissítése sikeres volt
       admin_log:
         initiative:
-          publish: "%{user_name} közzétette az %{resource_name} kezdeményezést"
-          send_to_technical_validation: "%{user_name} küldte az %{resource_name} kezdeményezést a technikai érvényesítéshez"
+          publish: "%{user_name} közzétette a(z) %{resource_name} kezdeményezést"
+          send_to_technical_validation: "%{user_name} elküldte a(z) %{resource_name} kezdeményezést technikai érvényesítésre"
           unpublish: "%{user_name} elvette az %{resource_name} kezdeményezést"
           update: "%{user_name} frissítette az %{resource_name} kezdeményezést"
       admin_states:
