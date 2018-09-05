@@ -552,31 +552,31 @@ hu:
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
           alert: Frissítettük az ÁSZF szövegét. Kérlek, nézd át ezeket.
-          body: Kérjük, szánjon egy pillanatot a Szolgáltatási feltételek frissítéseinek felülvizsgálatára. Ellenkező esetben nem fogja tudni használni a platformot.
-          title: 'Szükséges: ellenőrizze a szolgáltatási feltételeink frissítéseit'
+          body: Kérlek, nézd át a Szolgáltatási feltételek frissített szövegét. Ellenkező esetben nem tudod majd használni a platformot.
+          title: 'Fontos: ellenőrizd a szolgáltatás feltételeink frissítéseit'
     participatory_space_private_users:
-      not_allowed: Ez a tartalom nem tekinthető meg
+      not_allowed: Nincs jogosultságod a tartalom megtekintésére
     profile:
       deleted: Törölt felhasználó
-      view: Kilátás
+      view: Nézet
     profiles:
-      default_officialization_text: Ezt a résztvevőt nyilvánosan ellenőrzik, a nevét vagy szerepét igazolták, hogy megfeleljen valódi nevének és szerepének
+      default_officialization_text: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
       show:
-        badges: Kitűzők
-        conversations: beszélgetések
-        followers: Követő
-        following: következik
-        notifications: értesítések
+        badges: Jelvények
+        conversations: Beszélgetések
+        followers: Követők
+        following: Követés
+        notifications: Értesítések
       user:
         edit_profile: Profil szerkesztése
     reported_mailer:
       hide:
-        hello: Hello %{name},
+        hello: Helló %{name}!
         manage_moderations: Moderálódások kezelése
-        report_html: <p>A következő <a href="%{url}">tartalom</a> rejtve volt automatikusan.</p>
-        subject: Az erőforrás automatikusan elrejtve
+        report_html: <p>A következő <a href="%{url}">tartalom</a>automatikusan el volt rejtve.</p>
+        subject: Egy erőforrás automatikusan elrejtve
       report:
-        hello: Hello %{name},
+        hello: Hello %{name}!
         manage_moderations: Moderálódások kezelése
         report_html: <p>A következő <a href="%{url}">tartalom</a> jelentették.</p>
         subject: Jelentést tett egy erőforrásról
