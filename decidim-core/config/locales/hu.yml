@@ -663,53 +663,53 @@ hu:
         subject: 'Meghívás együttműködésre ebben: %{organization}'
       invite_friend:
         accept_invitation: 'A meghívást az alábbi linken keresztül fogadhatja el:'
-        friend_custom_text: 'Ezt az üzenetet hagyta neked:'
-        subject: Meghívást kapott %{organization}
+        friend_custom_text: 'Ezt az üzenetet hagyták neked:'
+        subject: 'Meghívást kaptál ide: %{organization}'
       invite_private_user:
-        subject: Privát részvételi folyamatot kaptál %{organization}
+        subject: Meghívtak egy privát részvételi folyamatban részvételre (%{organization})
       organization_admin_invitation_instructions:
-        subject: Felkérték, hogy kezelje a %{organization}
+        subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
       password_change:
-        greeting: Hello %{recipient}!
-        message: Kapcsolatba lépünk veled, hogy értesítsük, hogy a jelszó megváltozott.
-        subject: A jelszó megváltozott
+        greeting: Helló %{recipient}!
+        message: Azért kaptad ezt az üzenetet, mert megváltozott a jelszavad.
+        subject: Jelszó módosítva
   doorkeeper:
     scopes:
-      public: A nyilvánosság tájékoztatása.
+      public: Nyilvános információk.
   errors:
     messages:
-      content_type_whitelist_error: a fájltípus nem érvényes
-      cycle_detected: a szülő szülője nem lehet egyik leszármazottja
-      file_size_is_less_than_or_equal_to: a fájlméretnek kisebbnek vagy egyenlőnek kell lennie %{count}
-      long_words: olyan szavakat tartalmaz, amelyek túl hosszúak
-      must_start_with_caps: meg kell kezdeni sapkákkal
-      nesting_too_deep: nem lehet alkategóriában belül
-      too_many_marks: túl sok jelet használ
-      too_much_caps: túl sok sapkát használ
+      content_type_whitelist_error: érvénytelen fájltípus
+      cycle_detected: a hatáskör parentje nem lehet ahhoz kötőd elem
+      file_size_is_less_than_or_equal_to: 'fájlméret maximum ekkora lehet: %{count}'
+      long_words: túl hosszú szavakat tartalmaz
+      must_start_with_caps: csak nagybetűvel kezdődhet
+      nesting_too_deep: nem lehet alkategóriában belüli
+      too_many_marks: túl sok jelet használsz
+      too_much_caps: túl sok nagybetűt használsz
       too_short: túl rövid
   forms:
-    required: Kívánt
+    required: Kötelező
   invisible_captcha:
-    sentence_for_humans: Ha ember vagy, hagyja figyelmen kívül ezt a mezőt
-    timestamp_error_message: Sajnálom, ez túl gyors volt! Kérjük, küldje be újra.
+    sentence_for_humans: Hagyd figyelmen kívül ezt a mezőt
+    timestamp_error_message: Sajnos ez túl gyors volt! Kérlek, küldd el újra.
   layouts:
     decidim:
       cookie_warning:
-        description_html: Ez az oldal cookie-kat használ. A webhely böngészése folytatásával elfogadja a cookie-k használatát. Tudjon meg többet erről %{link}.
+        description_html: 'Ez az oldal cookie-kat használ. A böngészés folytatásával elfogadod a cookie-k használatát. Tudjon meg többet: %{link}.'
         link_label: itt
-        ok: Egyetértek
+        ok: Elfogadom
       edit_link:
-        edit: szerkesztése
+        edit: Szerkesztés
       footer:
-        made_with_open_source: Weboldal <a target="_blank" href="https://github.com/decidim/decidim">szabad szoftverrel</a>.
+        made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
       header:
-        close_menu: Zárja be a menüt
+        close_menu: Menü bezárása
         navigation: Navigáció
         sign_in: Bejelentkezés
-        sign_up: Regisztrálj
+        sign_up: Regisztráció
       impersonation_warning:
-        close_session: Zárja be a munkát
-        description_html: Ön megszemélyesíti a felhasználót <b>%{user_name}</b>.
+        close_session: Munkamenet bezárása
+        description_html: <b>%{user_name}</b> megszemélyesítése.
         expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> percben lejár</b>.
       notifications_dashboard:
         mark_all_as_read: összes megjelölése olvasottként
