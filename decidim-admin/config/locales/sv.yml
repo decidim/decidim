@@ -45,10 +45,10 @@ sv:
         favicon: Ikon
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
-        highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
-        highlighted_content_banner_action_title: Åtgärdsknappens titel
+        highlighted_content_banner_action_subtitle: Undertitel för Åtgärdsknapp
+        highlighted_content_banner_action_title: Titel för Åtgärdsknapp
         highlighted_content_banner_action_url: URL för åtgärdsknapp
-        highlighted_content_banner_enabled: Visa den markerade innehållsbanan
+        highlighted_content_banner_enabled: Visa den markerade innehållsbannern
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
