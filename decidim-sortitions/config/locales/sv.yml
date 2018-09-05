@@ -2,97 +2,97 @@ sv:
   activemodel:
     attributes:
       sortition:
-        additional_info: Sorteringsinformation
-        decidim_category_id: Kategorier av den uppsättning förslag som du vill tillämpa tecknet på
-        decidim_proposals_component_id: Föreslagna förslag
-        dice: Resultat av dödrullning. Rulla en 6-sidig dö, eller leta efter ett annat slumpmässigt sätt att generera ett tal från 1 till 6, och skriv här det resulterande numret framför vissa vittnen. Detta bidrar till kvaliteten och garantierna för slumpmässigheten av resultatet
-        target_items: Antal förslag som ska väljas (anger antalet förslag som du vill välja genom att dra mycket av gruppen av förslag du tidigare valt)
+        additional_info: Fördelningsinformation
+        decidim_category_id: Kategorier av den uppsättning förslag som du vill tillämpa dragningen på
+        decidim_proposals_component_id: Bestämda förslag
+        dice: Resultat av tärningskast. Rulla en 6-sidig tärning eller leta efter ett annat slumpmässigt sätt att generera ett tal från 1 till 6 och skriv in det resulterande numret framför några vittnen. Detta bidrar detta till kvaliteten och garantierna för slumpmässigheten av resultatet
+        target_items: Antal förslag som ska väljas (indikerar antalet förslag som du vill välja genom att dra lott från gruppen av förslag du tidigare har valt)
         title: Titel
         witnesses: Vittnen
     models:
-      decidim/sortitions/create_sortition_event: Sortition
+      decidim/sortitions/create_sortition_event: Tilldelning
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortition
-        other: Sortitions
+        one: Tilldelning
+        other: Tilldelningar
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Tilldelningar
         settings:
           global:
             comments_enabled: Kommentarer aktiverade
     events:
       sortitions:
         sortition_created:
-          email_intro: Sortering "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
-          email_subject: Ny sortering läggs till %{participatory_space_title}
-          notification_title: Sortering <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
+          email_intro: Tilldelning "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått den här notisen eftersom du följer "%{participatory_space_title}". Du kan avfölja den vid föregående länk.
+          email_subject: Ny tilldelning läggs till %{participatory_space_title}
+          notification_title: Tilldelning <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Tilldelningar
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Tilldelningar
     sortitions:
       admin:
         actions:
-          destroy: Avbryt sorteringen
+          destroy: Avbryt tilldelningen
           edit: Redigera
           new: Ny
-          show: Sorteringsuppgifter
+          show: Tilldelningsdetaljer
         models:
           sortition:
             fields:
               category: Kategori
-              created_at: Skapelsedagen
+              created_at: Datum för skapande
               decidim_proposals_component: Förslagskomponent
               dice: Tärningar
               reference: Referens
-              request_timestamp: Rita tid
-              seed: Utsäde
+              request_timestamp: Tid för dragning
+              seed: Lott
               target_items: Objekt att välja
               title: Titel
             name:
-              one: Sortition
-              other: Sortitions
+              one: Tilldelning
+              other: Tilldelningar
         sortitions:
           confirm_destroy:
-            confirm_destroy: Är du säker på att du vill avbryta denna sortition?
-            destroy: Avbryt sortering
-            title: Annullering av sortitionen
+            confirm_destroy: Är du säker på att du vill avbryta denna tilldelning?
+            destroy: Avbryt tilldelningen
+            title: Annullering av tilldelningen
           create:
-            error: Det uppstod ett fel vid skapandet av en ny sortering.
-            success: Sortering framgångsrikt skapad
+            error: Det uppstod ett fel vid skapandet av en ny tilldelning.
+            success: Tilldelning skapad
           destroy:
-            error: Kan inte avbryta sorteringen.
-            success: Sortering framgångsrikt avbruten
+            error: Kan inte avbryta tilldelningen.
+            success: Tilldelning avbruten
           edit:
-            title: Uppdatera informationen om sorteringen
+            title: Uppdatera informationen om tilldelningen
             update: Uppdatering
           form:
             all_categories: Alla kategorier
             select_proposal_component: Välj de föreslagna förslagen
-            title: Ny sortering för förslag
+            title: Ny tilldelning för förslag
           index:
-            title: Sortitions
+            title: Tilldelningar
           new:
-            confirm: Genom att trycka på nästa knapp registrerar Decidim datum och tid (med precision i sekunder) och tillsammans med tärningsrullen används denna information för att generera ett slumpmässigt urval. Åtgärden kommer att vara oåterkallelig, när knappen är klickad kommer resultatet av denna rita att publiceras, tillsammans med de uppgifter som anges i denna blankett och kan inte ändras, var god kontrollera innehållet noggrant
+            confirm: Genom att trycka på nästa knapp kommer Decidim registrera datum och tid (med precision i sekunder) och tillsammans med tärningsrullningen används denna information för att generera ett slumpmässigt urval. Åtgärden kommer att vara oåterkallelig, när knappen är klickad kommer resultatet av denna dragning att publiceras, tillsammans med de uppgifter som anges i denna blankett och kan inte ändras, var god kontrollera innehållet noggrant
             create: Skapa
-            title: Ny sortering
+            title: Ny tilldelning
           show:
-            selected_proposals: Förslag utvalda för teckning
+            selected_proposals: Förslag utvalda för dragning
           update:
-            error: Det uppstod ett fel vid uppdateringen av sorteringen.
-            success: Sortering framgångsrikt uppdaterad
+            error: Det uppstod ett fel vid uppdateringen av tilldelningen.
+            success: Tilldelning uppdaterad
       admin_log:
         sortition:
-          create: "%{user_name} skapade %{resource_name} sorteringen i %{space_name}"
-          delete: "%{user_name} avbröt %{resource_name} sorteringen i %{space_name}"
-          update: "%{user_name} uppdaterade %{resource_name} sorteringen i %{space_name}"
+          create: "%{user_name} skapade %{resource_name} tilldelningen i %{space_name}"
+          delete: "%{user_name} avbröt %{resource_name} tilldelningen i %{space_name}"
+          update: "%{user_name} uppdaterade %{resource_name} tilldelningen i %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -101,11 +101,11 @@ sv:
         filters:
           active: Aktiva
           all: Allt
-          cancelled: Avbokad
+          cancelled: Avbruten
           category: Kategori
           category_prompt: Välj en kategori
           search: Sök
-          state: stat
+          state: Tillstånd
         filters_small_view:
           close_modal: Stäng modal
           filter: Filtrera
@@ -114,7 +114,7 @@ sv:
         linked_sortitions:
           selected_proposals: Utvalda förslag
         orders:
-          label: 'Beställ sorteringar genom:'
+          label: 'Sortera tilldelning genom:'
           random: Slumpmässig
           recent: Nyligen
         results_count:
@@ -122,30 +122,30 @@ sv:
             one: valda förslaget
             other: utvalda förslag
         show:
-          algorithm: Sortitionens algoritmkod
+          algorithm: Tilldelningens algoritmkod
           any_category: från alla kategorier
-          cancelled: Annullerad sortering
-          candidate_proposal_ids: Sorteringsförslag beställer och ID
-          candidate_proposals_info: 'Sorteringen gjordes bland följande förslag (%{category_label}), med följande ID (i fetstil de valda förslagen)  '
+          cancelled: Annullerad tilldelning
+          candidate_proposal_ids: Tilldelningsförslagens ordning och ID
+          candidate_proposals_info: 'Tilldelningen gjordes bland följande förslag (%{category_label}), med följande ID (de valda förslagen fetstilta)  '
           category: från kategorin %{category}
           dice_result: "(1) Tärningsresultat"
-          introduction: 'Den här sidan innehåller resultaten från sorteringen %{reference}. Med hjälp av denna sortering har %{target_items} antal resultat valts slumpmässigt och med en lika stor sannolikhetsfördelning från uppsättningen förslag som visas nedan. Tillsammans med resultaten, innehåller informationen som visas på denna sida all information som krävs för att maximera garantier och reproducera resultaten. Nyckeln till kvaliteten på denna sortition är den dubbla slumpen som tillhandahålls av en tärning av en tärning (verifierad av vittnen) och den exakta tiden för sorteringen som ger inmatning för en algoritm som genererar ett slumpmässigt urval. Tidsåtgången för sorteringen är så exakt (sekunder) att det är omöjligt att kontrollera av människor, vilket ger en dubbel "okontrollerad" ingång för att garantera ett rättvist resultat.  '
+          introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av denna sortering har %{target_items} antal resultat valts slumpmässigt och med en lika stor sannolikhetsfördelning från uppsättningen förslag som visas nedan. Tillsammans med resultaten visas informationen på denna sida all information som krävs för att maximera garantier och återskapa resultaten. Nyckeln till kvaliteten på denna tilldelning är den dubbla slumpen som tillhandahålls av rullandet av en tärning (verifierad av vittnen) och den exakta tiden för tilldelningen som ger inmatning för en algoritm som genererar ett slumpmässigt urval. Tidsåtgången för tilldelningen är så exakt (sekunder) att det är omöjligt att kontrollera av människor, vilket ger en dubbel "okontrollerad" ingång för att garantera ett rättvist resultat.  '
           mathematical_result: Resultat (1) x (2)
-          proposals_selected_by_sortition: Förslag valda genom sortering
-          sortition_reproducibility_details: Sorteringsreproducerbarhetsinformation
-          time_seed: "(2) Tidsåtgång"
+          proposals_selected_by_sortition: Förslag valda genom tilldelning
+          sortition_reproducibility_details: Detaljer för tilldelningens reproducerbarhet
+          time_seed: "(2) Tid för lottning"
           witnesses: Vittnen
         sortition:
-          random_seed: Slumpmässigt frö
+          random_seed: Slumpmässig lottning
           selected_proposals:
-            one: 1 förslag valt
+            one: 1 valt förslag
             other: '%{count} utvalda förslag'
-          view: Se
+          view: Visa
         sortition_author:
-          deleted: Ta bort användare
+          deleted: Raderad användare
         sortition_cancel_author:
-          deleted: Ta bort användare
+          deleted: Raderad användare
         sortitions_count:
           count:
-            one: 1 sortering
-            other: "%{count} sorteringar"
+            one: 1 tilldelning
+            other: "%{count} tilldelningar"
