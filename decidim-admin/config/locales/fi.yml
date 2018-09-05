@@ -34,7 +34,7 @@ fi:
         organization_logo: Organisaation logo (neliö)
         organization_name: Organisaation nimi
         organization_url: Organisaation URL-osoite
-        redirect_uri: Uudelleenohjata URI
+        redirect_uri: Uudelleenohjauksen URI
       organization:
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
