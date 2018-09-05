@@ -3,7 +3,7 @@ hu:
     system:
       actions:
         confirm_destroy: Biztosan törölni akarja?
-        destroy: Elpusztítani
+        destroy: Törlés
         edit: szerkesztése
         new: Új
         save: Mentés
@@ -13,7 +13,7 @@ hu:
           error: Hiba történt egy új rendszergazda létrehozásakor.
           success: Az Admin létrehozva sikeresen
         destroy:
-          success: Az adminisztrátor sikeresen megsemmisült
+          success: Az admin törlése sikeres volt
         edit:
           title: Admin szerkesztése
           update: frissítés
