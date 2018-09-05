@@ -355,9 +355,9 @@ fi:
         result: Tulokset
     fingerprint:
       check: Tarkista sormenjälki
-      explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. On hyödyllistä varmistaa, että sisältöä ei ole muokattu, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
-      online_calculator_name: MD5 laskin verkossa
-      replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat kopioida sen itse, voit käyttää %{online_calculator_link} -koodia ja kopioida liittää lähdetiedot.
+      explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. Tämä on hyödyllinen varmentaaksesi, että sisältöä ei ole muokattu kenenkään toimesta, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
+      online_calculator_name: MD5-verkkolaskuri
+      replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat tuottaa sormenjäljen itse, voit käyttää %{online_calculator_link} -palvelua ja liittää lähdetiedot kyseiseen palveluun.
       source: Lähde
       title: Sormenjälki
       value: Arvo
@@ -526,10 +526,10 @@ fi:
           orders_count: Äänet
           pages_count: Sivut
           processes_count: Prosessit
-          projects_count: projektit
+          projects_count: Projektit
           proposals_accepted: Hyväksytyt ehdotukset
-          proposals_count: ehdotukset
-          results_count: tulokset
+          proposals_count: Ehdotukset
+          results_count: Tulokset
           surveys_count: Kyselyt
           users_count: Osallistujat
           votes_count: Äänet
@@ -539,20 +539,20 @@ fi:
         title: Lisätietoa
       terms_and_conditions:
         accept:
-          error: Hyväksytessämme ehtoja on tapahtunut virhe.
-          success: Loistava! Olet hyväksynyt käyttöehdot.
+          error: Ehtojen hyväksymisessä tapahtui virhe.
+          success: Hienoa! Olet hyväksynyt käyttöehdot.
         form:
-          agreement: Hyväksyn ehdot
+          agreement: Hyväksyn nämä ehdot
           legend: Hyväksy käyttöehdot
         refuse:
-          modal_body: Jos kieltäydyt, et voi käyttää alustan, voit <a href="%{data_portability_path}">ladata tiedot</a> ja / tai <a href="%{delete_path}">poistaa tilin</a>.
+          modal_body: Jos kieltäydyt, et voi käyttää alustaa. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
           modal_btn_continue: Hyväksy ehdot ja jatka
-          modal_btn_exit: Tarkastelen sitä myöhemmin
-          modal_button: Kieltää ehdot
-          modal_close: Sulje modeemi
-          modal_title: Odotatko todella päivitetyt käyttöehdot?
+          modal_btn_exit: Tarkastan ne myöhemmin
+          modal_button: Kieltäydy hyväksymästä ehtoja
+          modal_close: Sulje ikkuna
+          modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
         required_review:
-          alert: Olemme päivittäneet käyttöehtojamme ja tarkistamme ne.
+          alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Odota hetki tarkistaa Palveluehtojen päivitykset. Muuten et voi käyttää alustaa.
           title: 'Pakollinen: Tarkista päivitykset käyttöehdoissamme'
     participatory_space_private_users:
