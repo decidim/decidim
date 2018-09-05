@@ -176,19 +176,19 @@ hu:
         initiative:
           publish: "%{user_name} közzétette a(z) %{resource_name} kezdeményezést"
           send_to_technical_validation: "%{user_name} elküldte a(z) %{resource_name} kezdeményezést technikai érvényesítésre"
-          unpublish: "%{user_name} elvette az %{resource_name} kezdeményezést"
-          update: "%{user_name} frissítette az %{resource_name} kezdeményezést"
+          unpublish: "%{user_name} elvetette a(z) %{resource_name} kezdeményezést"
+          update: "%{user_name} frissítette a(z) %{resource_name} kezdeményezést"
       admin_states:
-        accepted: Elfogadott
-        created: Alkotó
-        discarded: kiselejtezett
-        published: Közzétett
+        accepted: Elfogadva
+        created: Létrehozva
+        discarded: Elvetve
+        published: Közzétéve
         rejected: Elutasítva
-        validating: Műszaki érvényesítés
+        validating: Technikai érvényesítés
       committee_requests:
         new:
-          continue: Folytatni
-          help_text: Arra kérsz, hogy csatlakozz a kezdeményezői bizottságba e kezdeményezéshez
+          continue: Tovább
+          help_text: Arra készülsz, hogy csatlakozz az úgynevezett kezdeményező bizottsághoz
         spawn:
           success: A kérelmet elküldtük a kezdeményezés szerzőjének.
       content_blocks:
@@ -196,28 +196,28 @@ hu:
           name: Kiemelt kezdeményezések
       create_initiative:
         fill_data:
-          back: Hát
-          continue: Folytatni
-          fill_data_help: "<ul> <li>A kezdeményezés tartalmának felülvizsgálata. A cím könnyű megérteni? A kezdeményezés célja egyértelmű?</li> <li>Válassza ki az aláírás típusát. Személyesen, online, vagy a kettő kombinációja</li> <li>Melyik a földrajzi kiterjedését a kezdeményezés? Város, járás?</li> </ul>"
+          back: Vissza
+          continue: Tovább
+          fill_data_help: "<ul> <li>Nézd át a kezdeményezés tartalmát. Könnyű megérteni a címét? Egyértelmű a kezdeményezés célja?</li> <li>Válaszd ki az aláírás típusát: személyesen, online, esetleg a kettő együtt</li> <li>Mi a kezdeményezés földrajzi kiterjedése? Megye, járás, város?</li> </ul>"
           initiative_type: Kezdeményezés típusa
-          more_information: "(Több információ)"
-          select_scope: Válasszon egy kört
+          more_information: "(További információk)"
+          select_scope: Válassz hatáskört
         finish:
-          back: Hát
+          back: Vissza
           back_to_initiatives: Vissza a kezdeményezésekhez
-          callout_text: Gratulálok! Az állampolgári kezdeményezést sikeresen hozták létre.
-          go_to_my_initiatives: Menj a kezdeményezéseimhez
-          more_information: "(Több információ)"
+          callout_text: Gratulálunkk! Sikeresen létrehoztad az állampolgári kezdeményezést.
+          go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
+          more_information: "(További információk)"
         finish_help:
-          access_reminder: Ne felejtse el, hogy a felhasználói menüben mindig hozzáférhet a kezdeményezéseihez.
-          help_for_organizations: Ha szövetség vagy, akkor fel kell töltenie a promóciós bizottságot alkotó szervezetek vezetőségének jegyzőkönyveit
-          help_in_person_signatures: Ha úgy döntött, hogy az aláírásokat személyesen vagy az online módon kombinálja, akkor fel kell töltenie a szükséges adatokat.
-          help_text: Ne feledje, hogy a kezdeményezés megfelelő feldolgozása érdekében hozzá kell férnie az adminisztrációs panelhez, ahol megtalálja a felhasználói menüt, feltölti a szükséges információkat, és elküldi a feldolgozáshoz.
-          initiatives_page_link: Megtekintheti az összes információt a %{link} amelyek tájékoztatják a kezdeményezéseket.
+          access_reminder: Ne felejtsd el, hogy a menüben mindig hozzáférhetsz a kezdeményezéseihez.
+          help_for_organizations: Ha egyesületként regisztrálsz, fel kell töltened az összes szerv vezetői testületének jegyzőkönyveit, amelyek megfelelnek a Támogató Bizottság feltételeinek
+          help_in_person_signatures: Ha úgy döntöttél, hogy az aláírásokat személyesen és online módon kombinálva gyűjtöd, akkor töltsd fel a szükséges adatokat.
+          help_text: Ne feledd, hogy a kezdeményezés feldolgozásához hozzá kell férned az adminisztrációs panelhez, ahol a felhasználó menü is található. Ugyanitt töltheted fel a szükséges információkat és indíthatsz eljárást.
+          initiatives_page_link: '%{link} segítségével megnézheted a kezdeményezésekre vonatkozó összes információt.'
           page: oldal
         previous_form:
-          back: Hát
-          continue: Folytatni
+          back: Vissza
+          continue: Tovább
           help: Mit tartalmaz a kezdeményezés? Írja le a címet és a leírást. Javasoljuk a rövid és tömör címet, valamint a javasolt megoldásra összpontosító leírást.
           more_information: "(Több információ)"
         promotal_committee:
