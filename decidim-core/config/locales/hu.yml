@@ -132,24 +132,24 @@ hu:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő útlevél számmal
         fields:
           passport_number: Útlevélszám
-        name: Egy másik példa engedélyezés
+        name: Egy másik példa feljogosításra
       dummy_authorization_handler:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő dokumentum azonosítóval
         fields:
-          document_number: Dokumentum szám
+          document_number: Dokumentum száma
           postal_code: Irányítószám
-        name: Példa engedélyezésre
+        name: Példa feljogosításra
       dummy_authorization_workflow:
-        name: Dummy engedélyezési folyamat
+        name: Dummy feljogosítási folyamat
       errors:
-        duplicate_authorization: Egy felhasználó ugyanilyen adatokkal engedélyezve.
+        duplicate_authorization: Egy felhasználó ezekkel az adatokkal már feljogosítva.
       expired_at: 'Lejárat: %{timestamp}'
       expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:
         fields:
           bar: Oszlop
           foo: Foo
-        name: Foo engedélyezés
+        name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
       started_at: 'Kezdés: %{timestamp}'
     collapsible_list:
@@ -171,8 +171,8 @@ hu:
             dummy_global_attribute_2: Dummy tulajdonság 2
           step:
             comments_blocked: Megjegyzések letiltva
-            dummy_step_attribute_1: Dummy Step tulajdonság 1
-            dummy_step_attribute_2: Dummy Step tulajdonság 2
+            dummy_step_attribute_1: Dummy Lépés tulajdonság 1
+            dummy_step_attribute_2: Dummy Lépés tulajdonság 2
     contact: Kapcsolat
     core:
       actions:
@@ -235,7 +235,7 @@ hu:
     errors:
       internal_server_error:
         title: Valami probléma volt a szerverrel
-        try_later: Próbáld meg később.
+        try_later: Próbáld újra később.
       not_found:
         back_home: Vissza a főoldalra
         content_doesnt_exist: A cím helytelen vagy el lett távolítva.
@@ -259,10 +259,10 @@ hu:
         email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
         email_subject: 'Frissítés ehhez: %{resource_title}'
       notification_event:
-        notification_title: 'Esemény történt itt: <a href="%{resource_path}">%{resource_title}</a>.'
+        notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
         profile_updated:
-          email_intro: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
+          email_intro: '%{name} (%{nickname}) (akit követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
@@ -280,119 +280,119 @@ hu:
         result: Eredmények
     fingerprint:
       check: Ujjlenyomat ellenőrzése
-      explanation: Az alábbi szövegrész a tartalom rövidített, megkülönböztetett ábrázolása. Hasznos lehet annak biztosítása, hogy a tartalom nem lett megváltoztatva, mivel egyetlen módosítás teljesen eltérő értéket eredményezne.
-      online_calculator_name: MD5 számológép online
-      replicate_help: Ezt az ujjlenyomatot SHA256 hasítási algoritmussal kell kiszámítani. Ha saját magát szeretné replikálni, használhat egy %{online_calculator_link} -at és másolhatja be a forrásadatokat.
+      explanation: Az alábbi szövegrész a tartalom rövidített, kettőskeresztekkel kibővített változata. Fontos ellenőrizned, hogy a szöveg érintetlen-e, hiszen egyetlen apró eltérés is teljesen más értéket eredményezhet.
+      online_calculator_name: MD5 online számológép
+      replicate_help: 'Ezt az ujjlenyomat SHA256 technológiával készült. Ha szeretnéd egyet magadnak, akkor használd a következő linket: %{online_calculator_link} és másold be a forrásadatokat.'
       source: Forrás
       title: Ujjlenyomat
       value: Érték
     followers:
-      no_followers: Még senki nem követ.
+      no_followers: Még nincs követőd.
     following:
-      no_followings: Nem követi senkit vagy bármit.
+      no_followings: Még nem követi senkit és semmit.
     follows:
       create:
-        button: Kövesse
-        error: Hiba történt az erőforrás követése után.
+        button: Követés
+        error: Hiba történt az erőforrás követése során.
       destroy:
-        button: Állj le
-        error: Hiba történt az erőforrás lebontása után.
+        button: Követés törlése
+        error: Hiba történt az erőforrás követésének visszavonásakor.
     forms:
-      current_file: Aktuális fájl
-      current_image: Aktuális kép
+      current_file: Jelenlegi fájl
+      current_image: Jelenlegi kép
       default_image: Alapértelmezett kép
       errors:
-        error: Hiba történt ebben a mezőben.
-      remove_this_file: Távolítsa el ezt a fájlt
+        error: Hiba van ebben a mezőben.
+      remove_this_file: Töröld ezt a fájlt
     log:
       base_presenter:
-        create: "%{user_name} létrehozva %{resource_name}"
-        create_with_space: "%{user_name} létrehozva %{resource_name} %{space_name}"
-        delete: "%{user_name} törölve %{resource_name}"
-        delete_with_space: "%{user_name} törölve %{resource_name} %{space_name}"
-        unknown_action: "%{user_name} végrehajtott egy lépést %{resource_name}én"
-        unknown_action_with_space: "%{user_name} valamilyen műveletet hajtott végre %{resource_name} -nél %{space_name}"
-        update: "%{user_name} frissítve %{resource_name}"
-        update_with_space: "%{user_name} frissítve %{resource_name} a %{space_name}"
+        create: "%{user_name} létrehozta ezt: %{resource_name}"
+        create_with_space: "%{user_name} létrehozta ezt: %{resource_name} %{space_name}"
+        delete: "%{user_name} törölte ezt: %{resource_name}"
+        delete_with_space: "%{user_name} törölte ezt: %{resource_name} %{space_name}"
+        unknown_action: "%{user_name} módosította ezt: %{resource_name}"
+        unknown_action_with_space: "%{user_name} valamilyen műveletet hajtott végre itt: %{resource_name} %{space_name}"
+        update: "%{user_name} frissítette ezt: %{resource_name}"
+        update_with_space: "%{user_name} frissítette ezt: %{resource_name} a %{space_name}"
       value_types:
         area_presenter:
           not_found: 'A terület nem található az adatbázisban (ID: %{id})'
         area_type_presenter:
-          not_found: 'A terület típusa nem található az adatbázisban (ID: %{id})'
+          not_found: 'A terület típus nem található az adatbázisban (ID: %{id})'
         scope_presenter:
-          not_found: 'Az alkalmazási kör nem található az adatbázisban (ID: %{id})'
+          not_found: 'A hatáskör nem található az adatbázisban (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Az alkalmazási típus nem található az adatbázisban (ID: %{id})'
+          not_found: 'A hatáskör típus nem található az adatbázisban (ID: %{id})'
     managed_users:
       expired_session: A jelenlegi megszemélyesítő munkamenet lejárt.
     menu:
-      home: itthon
-      more_information: Több információ
+      home: Kezdőlap
+      more_information: További információk
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Szia, %{recipient}!
-          intro: "%{sender} új beszélgetést indított veled. Ide kattintva megtekintheti:"
-          outro: Élvezze a decidim!
-          subject: "%{sender} beszélgetést indított veled"
+          greeting: Szia %{recipient}!
+          intro: "%{sender} új beszélgetést kezdett veled. Ide kattintva elolvashatod:"
+          outro: Üdvözlünk a Decidimen!
+          subject: "%{sender} beszélgetést kezdett veled"
         new_message:
-          greeting: Szia, %{recipient}!
-          intro: "%{sender} új üzeneteket írt a beszélgetésbe. Ide kattintva megtekintheti őket:"
-          outro: Élvezze a decidim!
-          subject: Új üzenetek vannak %{sender}
+          greeting: Szia %{recipient}!
+          intro: "%{sender} új üzeneteket küldött neked. Ide kattintva megtekintheted őket:"
+          outro: Üdvözlünk a Decidimen!
+          subject: 'Új üzenetek érkeztek tőle: %{sender}'
       conversations:
         create:
-          error: A beszélgetés nem indult. Próbáld újra később
+          error: A beszélgetés megakadt. Próbáld újra később
         index:
           no_conversations: Még nincsenek beszélgetések
           title: beszélgetések
         reply:
-          send: Elküld
+          send: Küldés
           title: Válasz
         show:
           title: 'Beszélgetés vele: %{usernames}'
         start:
-          send: Elküld
+          send: Küldés
           title: Beszélgetés indítása
         update:
-          error: Az üzenet nem küldött. Próbáld újra később
+          error: Üzenet elküldése sikertelen. Próbáld újra később
     newsletter_mailer:
       newsletter:
-        note: Ezt az e-mailt azért kapta meg, mert feliratkozott a %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítő</a>oldalán.
-        see_on_website: Nem látja ezt az e-mailt helyesen? Tekintse meg a <a href="%{link}" target="_blank">weboldalon</a>.
-        unsubscribe: Az ilyen típusú e-mailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
+        note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
+        see_on_website: Nem jelenik meg rendesen? Nézd meg a <a href="%{link}" target="_blank">honlapunkon</a>.
+        unsubscribe: Az ilyen emailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Ha meg szeretné változtatni a beállításokat, ezt a <a href="%{link}" target="_blank">konfigurációs oldalon</a>
-        error: Hiba történt a feliratkozásnál
-        success: Leiratkozás sikeresen le van állítva.
-        token_error: A kapcsolat lejárt.
+        check_subscription: Ha szeretnéd módosítani a beállításokat, akkor a <a href="%{link}" target="_blank">konfigurációs oldalon</a> teheted meg
+        error: Hiba történt a leiratkozás során
+        success: A leiratkozásod sikeres volt.
+        token_error: A link sajnos lejárt.
         unsubscribe: Leiratkozás
     notifications:
       no_notifications: Még nincs értesítés.
     notifications_settings:
       show:
-        email_on_notification: Minden alkalommal, amikor értesítést kapok, e-mailt kapok.
-        newsletter_notifications: Hírleveleket szeretnék kapni
-        update_notifications_settings: Változtatások mentése
+        email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
+        newsletter_notifications: Szeretnék hírleveleket kapni
+        update_notifications_settings: Változások mentése
       update:
-        error: Hiba történt az értesítési beállítások frissítésekor.
-        success: Az értesítési beállítások sikeresen frissültek.
+        error: Hiba történt az értesítési beállítások frissítése során.
+        success: Az értesítési beállításaid frissítése sikeres volt.
     own_user_groups:
       index:
-        pending: Függőben levő
+        pending: Függőben
         rejected: Elutasítva
-        verified: ellenőrzött
+        verified: Megerősítve
     pages:
       home:
         extended:
           debates: Viták
           debates_explanation: Vitasd meg, véleményezd és tegyél hozzá Te is a releváns témákhoz.
           how_to_participate: Hogyan vehetek részt egy folyamatban?
-          meetings: találkozók
+          meetings: Találkozók
           meetings_explanation: Tudd meg, hol és mikor vehetsz részt a nyilvános találkozókon.
           more_info: Több információ
-          proposals: javaslatok
+          proposals: Javaslatok
           proposals_explanation: Tegyél javaslatot, támogasd a már meglévőket, legyél Te a változás motorja.
         footer_sub_hero:
           footer_sub_hero_body: Egy nyitottabb, átláthatóbb és együttműködőbb társadalomért.<br /> Csatlakozz, szervezz és dönts.
@@ -408,13 +408,13 @@ hu:
           debates_count: Viták
           endorsements_count: Jóváhagyások
           headline: A %{organization} jelenlegi állapota
-          meetings_count: találkozók
+          meetings_count: Találkozók
           orders_count: Szavazatok
           pages_count: Oldalak
           processes_count: Folyamatok
-          projects_count: projektek
+          projects_count: Projektek
           proposals_accepted: Elfogadott javaslatok
-          proposals_count: javaslatok
+          proposals_count: Javaslatok
           results_count: Eredmények
           surveys_count: Felmérések
           users_count: Résztvevők
@@ -422,22 +422,22 @@ hu:
         sub_hero:
           register: Regisztráció
       index:
-        title: Több információ
+        title: További információk
       terms_and_conditions:
         accept:
-          error: Hiba történt a feltételek elfogadásakor.
-          success: Nagy! Elfogadta a feltételeket.
+          error: Hiba történt az általános szerződési feltételek elfogadása során.
+          success: Remek! Elfogadtad a feltételeket.
         form:
-          agreement: Elfogadom ezeket a feltételeket
+          agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
-          modal_body: Ha elutasítja, akkor nem lesz képes használni a platform, akkor <a href="%{data_portability_path}">az adatokat letöltheti</a> és / vagy <a href="%{delete_path}">törölheti fiókját</a>.
-          modal_btn_continue: Fogadja a feltételeket és folytassa
-          modal_btn_exit: Később megnézem
-          modal_button: Utasítsa el a feltételeket
-          modal_title: Tényleg tagadja meg a frissített Általános Szerződési Feltételeket?
+          modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{data_portability_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
+          modal_btn_continue: Elfogadom és tovább lépek
+          modal_btn_exit: Később átnézem
+          modal_button: Elutasítom a feltételeket
+          modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
-          alert: Frissítettük Általános Szerződési Feltételeinket, kérjük, tekintse át őket.
+          alert: Frissítettük az ÁSZF szövegét. Kérlek, nézd át ezeket.
           body: Kérjük, szánjon egy pillanatot a Szolgáltatási feltételek frissítéseinek felülvizsgálatára. Ellenkező esetben nem fogja tudni használni a platformot.
           title: 'Szükséges: ellenőrizze a szolgáltatási feltételeink frissítéseit'
     participatory_space_private_users:
