@@ -96,7 +96,7 @@ fi:
       decidim/participatory_process:
         banner_image: Bannerikuva
         description: Kuvaus
-        developer_group: Kehittäjäryhmä
+        developer_group: Perustajaryhmä
         domain: Toimintaympäristö
         end_date: Lopetusaika
         hashtag: Hashtag
