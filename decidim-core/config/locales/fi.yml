@@ -362,9 +362,9 @@ fi:
       title: Sormenjälki
       value: Arvo
     followers:
-      no_followers: Ei seuraajia vielä.
+      no_followers: Ei vielä seuraajia.
     following:
-      no_followings: Ei seuraa ketään tai mitään vielä.
+      no_followings: Ei vielä seuraa ketään tai mitään.
     follows:
       create:
         button: Seuraa
@@ -384,43 +384,43 @@ fi:
         invitations:
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
-          explanation: Käyttäjät saavat tämän tunnuksen kutsumalla muita käyttäjiä.
-          name: kutsut
-          next_level_in: Kutsu %{score} käyttäjää päästäksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole vielä kutsunut käyttäjää.
-          unearned_own: Et ole vielä kutsunut käyttäjiä.
-      description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä.
+          explanation: Käyttäjät saavat tämän kunniamerkin kutsumalla muita käyttäjiä.
+          name: Kutsut
+          next_level_in: Kutsu %{score} käyttäjää lisää päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä kutsunut yhtään käyttäjää.
+          unearned_own: Et ole vielä kutsunut yhtään käyttäjää.
+      description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
-      reached_top: Olet saavuttanut tämän tunnuksen korkeimman tason.
+      reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     invitations:
       create:
-        error: Ongelmia ongelmia haettaessa ystäviäsi
-        error_empty_form: Anna joitain sähköpostiosoitteita
-        success: Olemme lähettäneet kutsuja ystävillesi!
+        error: Kutsuttaessa ystäviäsi tapahtui virheitä
+        error_empty_form: Syötä sähköpostiosoitteita
+        success: Olemme lähettäneet kutsut ystävillesi!
       index:
-        customize_message: Muokkaa kutsuviesti
-        friend_email: 'Ystävä #%{index} sähköposti'
+        customize_message: Muokkaa kutsuviestiä
+        friend_email: 'Ystävän #%{index} sähköposti'
         invitations_subtitle: Kerro ystävillesi tästä sivustosta
-        invitations_title: Luuletko, että enemmän ääniä pitäisi kuulla %{organization_name}?
-        invite: kutsu
-        visit_your_profile: Käy profiilissasi
+        invitations_title: Pitäisikö sinun mielestäsi %{organization_name} -organisaatiossa kuulla enemmän ääniä?
+        invite: Kutsu
+        visit_your_profile: Siirry profiiliisi
     log:
       base_presenter:
-        create: "%{user_name} luotu %{resource_name}"
-        create_with_space: "%{user_name} luotu %{resource_name} vuonna %{space_name}"
-        delete: "%{user_name} poistettu %{resource_name}"
-        delete_with_space: "%{user_name} poistettu %{resource_name} vuonna %{space_name}"
-        unknown_action: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name}"
-        unknown_action_with_space: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name} vuonna %{space_name}"
-        update: "%{user_name} päivitetty %{resource_name}"
-        update_with_space: "%{user_name} päivitetty %{resource_name} vuonna %{space_name}"
+        create: "%{user_name} loi %{resource_name}"
+        create_with_space: "%{user_name} loi %{resource_name} tilassa %{space_name}"
+        delete: "%{user_name} poisti %{resource_name}"
+        delete_with_space: "%{user_name} poisti %{resource_name} tilassa %{space_name}"
+        unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
+        unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} tilassa %{space_name}"
+        update: "%{user_name} päivitti %{resource_name}"
+        update_with_space: "%{user_name} päivitti %{resource_name} tilassa %{space_name}"
       value_types:
         area_presenter:
           not_found: 'Aluetta ei löytynyt tietokannasta (ID: %{id})'
         area_type_presenter:
           not_found: 'Aluetyyppiä ei löytynyt tietokannasta (ID: %{id})'
         scope_presenter:
-          not_found: 'Soveltamisalaa ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
           not_found: 'Soveltamis tyyppiä ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
