@@ -10,6 +10,8 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix hero content block migration [\#4061](https://github.com/decidim/decidim/pull/4061)
+
 **Removed**:
 
 ## Previous versions
