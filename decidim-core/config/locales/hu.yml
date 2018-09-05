@@ -2,25 +2,25 @@ hu:
   activemodel:
     attributes:
       account:
-        delete_reason: A fiók törlésének oka
+        delete_reason: Fiók törlésének oka
       report:
         details: További megjegyzések
       user:
-        about: Ról ről
-        email: Az email címed
-        name: A neved
-        nickname: A rövid, egyedi azonosítója
+        about: Rólunk
+        email: Email címed
+        name: Neved
+        nickname: Rövid, egyedi azonosítód
         password: Új jelszó
         password_confirmation: Erősítsd meg az új jelszavad
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
         user_group_document_number: Szervezeti dokumentum száma
         user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefon
+        user_group_phone: Szervezet telefonszáma
     models:
-      decidim/attachment_created_event: Attachment
-      decidim/component_published_event: Aktív komponens
-      decidim/profile_updated_event: profil frissítve
+      decidim/attachment_created_event: Melléklet
+      decidim/component_published_event: Aktív elem
+      decidim/profile_updated_event: Profil frissítve
   activerecord:
     attributes:
       decidim/user:
@@ -32,11 +32,11 @@ hu:
         remember_me: Emlékezz rám
         user_group_document_number: Szervezeti dokumentum száma
         user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefon
+        user_group_phone: Szervezet telefonszáma
     models:
       decidim/user:
-        one: használó
-        other: felhasználók
+        one: Felhasználó
+        other: Felhasználók
       decidim/user_group:
         one: Felhasználói csoport
         other: Felhasználói csoportok
@@ -45,74 +45,74 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
-      image_too_big: A kép túl nagy
+      image_too_big: A kép mérete túl nagy
   date:
     formats:
-      decidim_short: "%d/%m/%Y"
+      decidim_short: "%nap/%hó/%év"
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
       delete:
-        alert: Ez a művelet nem visszavonható. Ha törli fiókját, akkor nem tud bejelentkezni.
+        alert: Ez a művelet nem visszavonható. Ha törlöd a fiókod, akkor nem tudsz bejelentkezni.
         confirm:
-          close: Zárja be az ablakot
+          close: Ablak bezárása
           ok: Igen, törölni szeretném a fiókomat
-          question: Biztosan törölni szeretné fiókját?
-          title: A fiókom törlése
-        explanation: Kérjük, töltse ki az okot, amellyel törölni szeretné fiókját (nem kötelező).
+          question: Biztosan törölni szeretnéd a fiókodat?
+          title: Fiók törlése
+        explanation: Nevezd meg az okot, amiért törölni szeretnéd a fiókod (nem kötelező).
       destroy:
-        error: Hiba történt a fiók törlésével.
-        success: Fiókja sikeresen törölve.
+        error: Hiba történt a fiók törlése során.
+        success: Fiók törlése sikeres.
       show:
         change_password: Jelszó módosítása
         update_account: Fiók frissítése
       update:
-        error: Hiba történt a fiók frissítésében.
+        error: Hiba történt a fiók frissítése során.
         success: A fiók sikeresen frissült.
-        success_with_email_confirmation: A fiók sikeresen frissült. E-mailt fog kapni az új e-mail cím megerősítéséhez.
+        success_with_email_confirmation: A fiók frissítése sikeres. Az új email cím megerősítéséhez az email címedre küldtünk egy levelet.
     admin_log:
       area:
-        create: "%{user_name} létrehozta az %{resource_name} területet"
-        delete: "%{user_name} törölte az %{resource_name} területet"
-        update: "%{user_name} frissítette az %{resource_name} területet"
+        create: "%{user_name} létrehozta a(z) %{resource_name} területet"
+        delete: "%{user_name} törölte a(z) %{resource_name} területet"
+        update: "%{user_name} frissítette a(z) %{resource_name} területet"
       component:
-        create: "%{user_name} hozzáadta az %{resource_name} komponenst a %{space_name} helyhez"
-        delete: "%{user_name} eltávolította az %{resource_name} komponenst a %{space_name} helyről"
-        publish: "%{user_name} közzétette az %{resource_name} komponenst a %{space_name} térben"
-        unpublish: "%{user_name} nem publikált %{resource_name} komponenst a %{space_name} helyről"
+        create: "%{user_name} hozzáadta a(z) %{resource_name} elemet ehhez: %{space_name}"
+        delete: "%{user_name} eltávolította a(z) %{resource_name} elemet innen: %{space_name}"
+        publish: "%{user_name} közzétette a(z) %{resource_name} elemet itt: %{space_name}"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} elem közzétetelét innen: %{space_name}"
       moderation:
-        hide: "%{user_name} elrejtette az %{resource_type} -es típusú erőforrást a %{space_name} mezőben"
-        unreport: "%{user_name} nem bejelentett egy %{resource_type} -es típusú erőforrást a %{space_name} térben"
+        hide: "%{user_name} elrejtette a(z) %{resource_type} típusú erőforrást itt: %{space_name}"
+        unreport: "%{user_name} visszavonta a(z) %{resource_type} típusú erőforrás bejelentését itt: %{space_name}"
       newsletter:
-        create: "%{user_name} létrehozta az %{resource_name} hírlevelet"
-        delete: "%{user_name} törölte az %{resource_name} hírlevelet"
-        deliver: "%{user_name} szállított az %{resource_name} hírlevelet"
-        update: "%{user_name} frissítette az %{resource_name} hírlevelet"
+        create: "%{user_name} létrehozta a(z) %{resource_name} hírlevelet"
+        delete: "%{user_name} törölte a(z) %{resource_name} hírlevelet"
+        deliver: "%{user_name} kiküldte a(z) %{resource_name} hírlevelet"
+        update: "%{user_name} frissítette a(z) %{resource_name} hírlevelet"
       oauth_application:
-        create: "%{user_name} létrehozta az %{resource_name} OAuth alkalmazást"
-        delete: "%{user_name} törölte az %{resource_name} OAuth alkalmazást"
-        update: "%{user_name} frissítette az %{resource_name} OAuth alkalmazást"
+        create: "%{user_name} létrehozta a(z) %{resource_name} OAuth alkalmazást"
+        delete: "%{user_name} törölte a(z) %{resource_name} OAuth alkalmazást"
+        update: "%{user_name} frissítette a(z) %{resource_name} OAuth alkalmazást"
       organization:
         update: "%{user_name} frissítette a szervezet beállításait"
       scope:
-        create: "%{user_name} létrehozta az %{resource_name} hatókört"
-        create_with_parent: "%{user_name} létrehozta az %{resource_name} kört a %{parent_scope} körön belül"
-        delete: "%{user_name} törölte az %{resource_name} hatókört"
-        delete_with_parent: "%{user_name} törölte az %{resource_name} kört a %{parent_scope} körön belül"
-        update: "%{user_name} frissítette az %{resource_name} kört"
-        update_with_parent: "%{user_name} frissítette az %{resource_name} kört a %{parent_scope} körön belül"
+        create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
+        create_with_parent: "%{user_name} létrehozta a(z) %{resource_name} hatáskört ezen belül: %{parent_scope}"
+        delete: "%{user_name} törölte a(z) %{resource_name} hatáskört"
+        delete_with_parent: "%{user_name} törölte a(z) %{resource_name} hatáskört ebből: %{parent_scope}"
+        update: "%{user_name} frissítette a(z) %{resource_name} hatáskört"
+        update_with_parent: "%{user_name} frissítette a(z) %{resource_name} hatáskört ezen belül: %{parent_scope}"
       static_page:
-        create: "%{user_name} létrehozta az %{resource_name} statikus oldalt"
-        delete: "%{user_name} törölte az %{resource_name} statikus oldalt"
-        update: "%{user_name} frissítette az %{resource_name} statikus oldalt"
+        create: "%{user_name} létrehozta a(z) %{resource_name} statikus oldalt"
+        delete: "%{user_name} törölte a(z) %{resource_name} statikus oldalt"
+        update: "%{user_name} frissítette a(z) %{resource_name} statikus oldalt"
       user:
-        invite: "%{user_name} meghívta a felhasználót %{resource_name} szereppel: %{role}"
-        officialize: "%{user_name} hivatalossá tette a felhasználót %{resource_name}"
-        remove_from_admin: "%{user_name} eltávolította az %{resource_name} felhasználó szerepét: %{role}"
-        unofficialize: "%{user_name} a felhasználó nem hivatalos azonosítója %{resource_name}"
+        invite: "%{user_name} meghívta %{resource_name} felhasználót (szerep: %{role})"
+        officialize: "%{user_name} hivatalossá tette %{resource_name} felhasználót"
+        remove_from_admin: "%{user_name} eltávolította %{resource_name} felhasználót, %{role} szereppel"
+        unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
-        reject: "%{user_name} elutasította az %{resource_name} felhasználói csoport ellenőrzését"
-        verify: "%{user_name} ellenőrizte az %{resource_name} felhasználói csoportot"
+        reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
+        verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
     anonymous_user: Névtelen
     application:
       collection:
@@ -126,92 +126,93 @@ hu:
     author:
       comments:
         one: megjegyzés
-        other: Hozzászólások
+        other: megjegyzések
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Ellenőrizze az útlevelek számát az "A"
+        explanation: Ellenőriztesd magad egy "A" betűvel kezdődő útlevél számmal
         fields:
-          passport_number: Útlevél száma
+          passport_number: Útlevélszám
         name: Egy másik példa engedélyezés
       dummy_authorization_handler:
-        explanation: Ellenőrizze az "X" -el végződő dokumentumszám bevezetésével
+        explanation: Ellenőriztesd magad egy "A" betűvel kezdődő dokumentum azonosítóval
         fields:
           document_number: Dokumentum szám
-          postal_code: irányítószám
+          postal_code: Irányítószám
         name: Példa engedélyezésre
       dummy_authorization_workflow:
-        name: Dummy engedélyezési munkafolyamat
+        name: Dummy engedélyezési folyamat
       errors:
-        duplicate_authorization: A felhasználó ugyanazokkal az adatokkal már engedélyezett.
-      expired_at: '%{timestamp}kor lejárt'
+        duplicate_authorization: Egy felhasználó ugyanilyen adatokkal engedélyezve.
+      expired_at: 'Lejárat: %{timestamp}'
+      expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:
         fields:
-          bar: Bár
-          foo: foo
-        name: Foo engedély
+          bar: Oszlop
+          foo: Foo
+        name: Foo engedélyezés
       granted_at: Megadva %{timestamp}
-      started_at: '%{timestamp}nál kezdődött'
+      started_at: 'Kezdés: %{timestamp}'
     collapsible_list:
       hidden_elements_count:
         one: és még egy
         other: és még %{count}
-      see_less: "(lásd kevesebbet)"
-      see_more: "(többet látni)"
+      see_less: "(kevesebb)"
+      see_more: "(tovább)"
     components:
       dummy:
         actions:
-          bar: Bár
-          foo: foo
-        name: Dummy komponens
+          bar: Oszlop
+          foo: Foo
+        name: Dummy elem
         settings:
           global:
             comments_enabled: Megjegyzések engedélyezve
-            dummy_global_attribute_1: Dummy attribútum 1
+            dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
           step:
             comments_blocked: Megjegyzések letiltva
-            dummy_step_attribute_1: Dummy Step Képesség 1
-            dummy_step_attribute_2: Dummy Step Képesség 2
-    contact: Kapcsolatba lépni
+            dummy_step_attribute_1: Dummy Step tulajdonság 1
+            dummy_step_attribute_2: Dummy Step tulajdonság 2
+    contact: Kapcsolat
     core:
       actions:
-        unauthorized: Ön nem jogosult a művelet végrehajtására
+        unauthorized: Nem vagy jogosult a művelet végrehajtására
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Egy másik fiók ugyanazt az e-mail címet használja
+          email_already_exists: Egy másik fiók ugyanezt az email címet használja
         new:
-          complete_profile: Teljes profil
-          nickname_help: A rövid, egyedi azonosítója a %{organization}
-          sign_up: Kérjük, töltse ki profilját
-          subtitle: Kérjük, töltse ki a következő űrlapot a regisztráció befejezéséhez
-          username_help: A bejegyzésekben megjelenő nyilvános név. Az anonimitás garantálása érdekében bármilyen név lehet.
+          complete_profile: Profil kiegészítése
+          nickname_help: 'Rövid, egyedi azonosítód ehhez: %{organization}'
+          sign_up: Töltsd ki a hiányzó adatokat
+          subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
+          username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
       registrations:
         new:
-          already_have_an_account?: Már van fiókja?
-          newsletter: Szerezzen alkalmi hírlevelet a megfelelő információkkal
-          newsletter_title: Kapcsolat engedélye
-          nickname_help: A rövid, egyedi azonosítója a %{organization}
+          already_have_an_account?: Már van egy fiókod?
+          newsletter: Hírlevél fogadása a legfontosabb információkkal
+          newsletter_title: Kapcsolatfelvételi engedély
+          nickname_help: 'Rövid, egyedi azonosítód ehhez: %{organization}'
           sign_in: Belépés
-          sign_up: Regisztrálj
+          sign_up: Regisztráció
           sign_up_as:
-            legend: Jelentkezzen be
-            user: Egyedi
-            user_group: Szervezet / Collective
-          subtitle: Jelentkezzen be a megbeszélésekbe és támogatási javaslatokba.
-          terms: a használat feltételeit
-          tos_agreement: Feliratkozással elfogadja a %{link}.
-          tos_title: Szolgáltatás feltételei
-          username_help: A bejegyzésekben megjelenő nyilvános név. Az anonimitás garantálása érdekében bármilyen név lehet.
+            legend: Regisztrálj mint
+            user: Magánszemély
+            user_group: Szervezet/Egyesület
+          subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
+          terms: a használati feltételek
+          tos_agreement: A feliratkozással elfogadod a %{link}.
+          tos_title: ÁSZF
+          username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
       sessions:
         new:
-          are_you_new?: Új a platformhoz?
-          register: Hozzon létre egy fiókot
+          are_you_new?: Új vagy az oldalon?
+          register: Hozz létre egy fiókot
       shared:
         newsletter_modal:
           buttons:
-            check: Ellenőrizze és folytassa
-            uncheck: Tartsa nyomva a jelölést
+            check: Ellenőrzés és folytatás
+            uncheck: Nincs megjelölve
           notice: Biztos vagy benne, hogy nem szeretnél hírlevelet kapni? Gondold át mégegyszer a döntést. Számunkra ugyanis nagyon fontos, hogy a leglényegesebb bejelentésekről emailen keresztül értesítsünk mindenkit. A beállításokat ráadásul bármikor módosíthatód az értesítések menüpontban. Amennyiben nem jelölöd be a négyzetet, előfordulhat, hogy lemaradsz a platformon elérhető új lehetőségekről. Ha továbbra sem szeretnél hírleveleket kapni, döntésedet tiszteletben tartjuk. Köszönjük, hogy elolvastad az üzenetet!
           title: Hírlevél értesítések
         omniauth_buttons:
@@ -221,64 +222,64 @@ hu:
         new:
           authorize: Engedélyezési kérelem
           by_organization_link_html: <small class="heading-small">, %{link}</small>
-          cancel: Megszünteti
-          connect_your_account_html: Csatlakozzon a fiókjához, ha bejelentkezik a <strong>%{organization}</strong>
-          publish_content: Tegye közzé tartalmat az Ön számára
-          see_email: Lásd az e-mail címedet
-          see_name: Nézd meg a neved
-          see_username: Nézze meg felhasználónevét
-          this_application_will_be_able_to: 'Ez az alkalmazás képes lesz:'
-          this_application_will_not_be_able_to: 'Ez az alkalmazás nem lesz képes:'
-          update_profile: Frissítse profilját
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni fiókját"
+          cancel: Mégse
+          connect_your_account_html: 'Ha bejelentkezel, csatlakoztatni tudod fiókódat ehhez: <strong>%{organization}</strong>'
+          publish_content: Tartalom közzététele neked
+          see_email: Email cím megjelenítése
+          see_name: Neved megjelenítése
+          see_username: Felhasználóneved megjelenítése
+          this_application_will_be_able_to: 'Ez az alkalmazás képes erre:'
+          this_application_will_not_be_able_to: 'Ez az alkalmazás nem képes erre:'
+          update_profile: Frissítsd a profilod
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni a fiókod"
     errors:
       internal_server_error:
-        title: Probléma volt a szerverünknél
-        try_later: Kérlek, próbáld újra később.
+        title: Valami probléma volt a szerverrel
+        try_later: Próbáld meg később.
       not_found:
-        back_home: Haza
-        content_doesnt_exist: A cím helytelen vagy eltávolítva.
+        back_home: Vissza a főoldalra
+        content_doesnt_exist: A cím helytelen vagy el lett távolítva.
         title: A keresett oldal nem található
     events:
       attachments:
         attachment_created:
-          email_intro: 'Új dokumentumot adtak hozzá %{resource_title}. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Frissítés %{resource_title}
-          notification_title: Egy <a href="%{resource_path}">új dokumentumot</a> adtak hozzá a <a href="%{attached_to_url}">%{resource_title}</a>
+          email_intro: 'Új dokumentumot adtak hozzá a következőhöz: %{resource_title}. Innen érheted el:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Frissítés ehhez: %{resource_title}'
+          notification_title: Egy <a href="%{resource_path}">új dokumentumot</a>adtak hozzá ehhez:<a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'A %{resource_title} elem most %{participatory_space_title}aktív. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Frissítés %{participatory_space_title}
-          notification_title: A %{resource_title} elem most <a href="%{resource_path}">%{participatory_space_title}</a>aktív
+          email_intro: 'A(z) %{resource_title} nevű elem már aktív a következőhöz: %{participatory_space_title}. Innen érheted el:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Frissítés ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) %{resource_title} elem már aktív a következőhöz: <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
-        email_greeting: Hello %{user_name},
-        email_intro: 'Frissítés történt "%{resource_title}" -ra. Láthatja ezt az oldalról:'
-        email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" -t követi. Leiratkozhat az előző linkről.
-        email_subject: Frissítés %{resource_title}
+        email_greeting: Hello %{user_name}!
+        email_intro: 'Frissítés ehhez "%{resource_title}". Innen érheted el:'
+        email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+        email_subject: 'Frissítés ehhez: %{resource_title}'
       notification_event:
-        notification_title: Egy esemény <a href="%{resource_path}">%{resource_title}</a>-re esett.
+        notification_title: 'Esemény történt itt: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
         profile_updated:
-          email_intro: A <a href="%{resource_url}">profil oldal</a> a %{name} (%{nickname}), aki akkor a következő, frissült.
-          email_outro: Ezt az értesítést megkapta, mert %{nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
+          email_intro: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_url}">profil oldala</a> frissült.'
+          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
-          notification_title: A <a href="%{resource_path}">profil oldal</a> a %{name} (%{nickname}), aki akkor a következő, frissült.
+          notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
     export_mailer:
       export:
-        ready: Kérjük, csatolja a kivitelt zipzárva.
-      subject: A "%{name}" exportja készen áll
+        ready: Mellékelve találod az exportálás tömörített változatát.
+      subject: A(z) "%{name}" exportálás kész
     filters:
       linked_classes:
-        all: Minden
+        all: Összes
         dummyresource: Dummy források
-        meeting: találkozók
-        project: projektek
-        proposal: javaslatok
+        meeting: Találkozók
+        project: Projektek
+        proposal: Javaslatok
         result: Eredmények
     fingerprint:
-      check: Az ujjlenyomat ellenőrzése
+      check: Ujjlenyomat ellenőrzése
       explanation: Az alábbi szövegrész a tartalom rövidített, megkülönböztetett ábrázolása. Hasznos lehet annak biztosítása, hogy a tartalom nem lett megváltoztatva, mivel egyetlen módosítás teljesen eltérő értéket eredményezne.
       online_calculator_name: MD5 számológép online
       replicate_help: Ezt az ujjlenyomatot SHA256 hasítási algoritmussal kell kiszámítani. Ha saját magát szeretné replikálni, használhat egy %{online_calculator_link} -at és másolhatja be a forrásadatokat.
