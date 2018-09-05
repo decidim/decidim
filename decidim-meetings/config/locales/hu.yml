@@ -381,10 +381,10 @@ hu:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Kapcsolódó eredmények:'
-        result_meeting: 'Kapcsolódó értekezletek:'
+        result_meeting: 'Kapcsolódó találkozók:'
       proposals_from_meeting:
         meeting_proposal: 'Kapcsolódó javaslatok:'
-        proposal_meeting: 'Kapcsolódó értekezletek:'
+        proposal_meeting: 'Kapcsolódó találkozók:'
   devise:
     mailer:
       join_meeting:
