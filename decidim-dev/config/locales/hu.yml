@@ -25,10 +25,10 @@ hu:
     pages:
       home:
         statistics:
-          bar: Bár
+          bar: Oszlop
           dummies_count_high: Dummies magas
           dummies_count_medium: Dummies medium
-          foo: foo
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies magas
