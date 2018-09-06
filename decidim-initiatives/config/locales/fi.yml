@@ -246,8 +246,8 @@ fi:
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on hyväksynyt seuraavan aloitteen. Ehkä haluat osallistua keskusteluun:"
           email_outro: Saat tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Aloite, jonka %{author_nickname} on hyväksynyt
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> aloite hyväksyttiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_subject: '%{author_nickname} on suositellut aloitetta'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
       index:
         title: Aloitteet
       initiative_votes:
@@ -322,7 +322,7 @@ fi:
         more_information: Tässä on lisätietoja aloitteen laatimisprosessista.
         progress_report_body_for: Aloite %{title} on saavuttanut %{percentage}% tarvittavista kannatuksista.
         progress_report_for: 'Yhteenveto aloitteesta: %{title}'
-        promotal_committee_help: Muista, että sinun täytyy kutsua vähintään %{member_count} henkilöä promoottorikomitealle. Lähetä seuraava linkki kutsumaan ihmisiä promoottorikomiteaan
+        promotal_committee_help: Muista, että sinun täytyy kutsua vähintään %{member_count} henkilöä suosittelukomiteaan. Kutsu ihmisiä suosittelukomiteaan lähettämällä heille seuraava linkki
         status_change_body_for: 'Aloitteen %{title} tila on muuttunut: %{state}'
         status_change_for: Aloitteen %{title} tila on muuttunut
         technical_validation_body_for: Aloitteelle %{title} on pyydetty teknistä validointia.
