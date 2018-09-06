@@ -3,27 +3,27 @@ hu:
     attributes:
       agenda:
         description: Leírás
-        duration: tartam
+        duration: Időtartam
         title: Cím
       close_meeting:
-        attendees_count: A résztvevők száma
-        attending_organizations: A résztvevő szervezetek listája
+        attendees_count: Résztvevők száma
+        attending_organizations: Résztvevő szervezetek listája
         closing_report: Jelentés
         contributions_count: Hozzájárulások száma
-        proposal_ids: Az ülésen létrehozott javaslatok
+        proposal_ids: A találkozón született javaslatok
       meeting:
-        address: Cím
-        available_slots: A találkozóra rendelkezésre álló résidők
+        address: Lakcím
+        available_slots: A találkozóhoz rendelkezésre álló helyek
         decidim_category_id: Kategória
-        decidim_scope_id: terület
+        decidim_scope_id: Hatáskör
         description: Leírás
-        end_time: Idő vége
-        location: Elhelyezkedés
-        location_hints: Helyi tippek
+        end_time: Záró időpont
+        location: Helye
+        location_hints: Tippek a helyre
         private_meeting: Privát találkozó
         registration_terms: Regisztrációs feltételek
-        registrations_enabled: Engedélyezés engedélyezve
-        start_time: Kezdési idő
+        registrations_enabled: Regisztráció engedélyezve
+        start_time: Kezdő időpont
         title: Cím
         transparent: Átlátszó
       minutes:
@@ -36,7 +36,7 @@ hu:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: A tételek időtartama meghaladja az ülés időtartama %{count} percet
+              too_many_minutes: A tételek időtartama meghaladja az ülés időtartamát (%{count} perc)
               too_many_minutes_child: A tantárgy időtartama meghaladja a "%{parent_title}" napirendi pontot %{count} percig
         meeting_registration_invite:
           attributes:
