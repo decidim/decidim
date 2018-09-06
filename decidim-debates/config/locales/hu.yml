@@ -33,7 +33,7 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            creation_enabled: A felhasználók általi viták létrehozása engedélyezett
+            creation_enabled: Felhasználók általi viták létrehozása engedélyezve
     debates:
       actions:
         confirm_destroy: biztos vagy ebben?

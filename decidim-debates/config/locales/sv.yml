@@ -7,7 +7,7 @@ sv:
         description: Beskrivning
         end_time: Slutar vid
         information_updates: Informationsuppdateringar
-        instructions: Anvisningar att delta
+        instructions: Instruktioner för att delta
         start_time: Börjar vid
         title: Titel
         user_group_id: Skapa debatt som
@@ -19,21 +19,21 @@ sv:
     models:
       decidim/debates/debate:
         one: Debatt
-        other: debatter
+        other: Debatter
   decidim:
     components:
       debates:
         actions:
           create: Skapa
-        name: debatter
+        name: Debatter
         settings:
           global:
-            announcement: Meddelande
+            announcement: Notis
             comments_enabled: Kommentarer aktiverade
           step:
-            announcement: Meddelande
+            announcement: Notis
             comments_blocked: Kommentarer blockerade
-            creation_enabled: Debatt skapande av användare aktiverat
+            creation_enabled: Skapande av debatter av användare aktiverat
     debates:
       actions:
         confirm_destroy: Är du säker?
@@ -44,10 +44,10 @@ sv:
       admin:
         debates:
           create:
-            invalid: Det har varit ett problem under debatten.
-            success: Debatt skapades framgångsrikt.
+            invalid: Det blev ett problem med skapandet av debatten.
+            success: Debatten skapades.
           destroy:
-            success: Debatten raderas framgångsrikt.
+            success: Debatten raderades.
           edit:
             title: Redigera debatt
             update: Uppdatera debatt
@@ -57,23 +57,23 @@ sv:
             create: Skapa debatt
             title: Ny debatt
           update:
-            invalid: Det har varit ett problem under uppdateringen av denna debatt.
-            success: Debatten uppdateras framgångsrikt.
+            invalid: Det har blivit ett problem under uppdateringen av denna debatt.
+            success: Debatten uppdaterades.
         models:
           debate:
             name: Debatt
       admin_log:
         debate:
-          create: "%{user_name} skapade debatten %{resource_name} på %{space_name} -platsen"
-          update: "%{user_name} uppdaterade debatten %{resource_name} på %{space_name} -platsen"
+          create: "%{user_name} skapade debatten %{resource_name} på platsen %{space_name}"
+          update: "%{user_name} uppdaterade debatten %{resource_name} på platsen %{space_name}"
       debates:
         count:
           debates_count:
             one: "%{count} debatt"
             other: "%{count} debatter"
         create:
-          invalid: Det har varit ett problem under debatten.
-          success: Debatt skapades framgångsrikt.
+          invalid: Det har blivit ett problem med skapandet av debatten.
+          success: Debatten skapades.
         debate:
           participate: Delta
         filters:
@@ -112,23 +112,23 @@ sv:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hej, En ny debatt har skapats på %{space_title} deltagande rymden, kolla in det och bidra:
-            email_outro: Du har fått den här meddelandet eftersom du följer %{space_title} deltagande rymden. Du kan sluta ta emot meddelanden efter föregående länk.
+              Hej, En ny debatt har skapats på deltagandeplatsen %{space_title}, kolla in det och bidra:
+            email_outro: Du har fått denna notis eftersom du följer deltagandeplatsen %{space_title}. Du kan sluta ta emot notiser på föregående länk.
             email_subject: Ny debatt om %{space_title}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades på <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hej, %{author_name} %{author_nickname}, vem du följer har skapat en ny debatt, kolla in den och bidra med:
-            email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+              Hej, %{author_name} %{author_nickname}, som du följer har skapat en ny debatt, kolla in den och bidra:
+            email_outro: Du har fått den här notisen eftersom du följer %{author_nickname}. Du kan sluta ta emot notiser vid föregående länk.
             email_subject: Ny debatt av %{author_nickname}
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
-          email_intro: 'Debatt skapande är inte längre aktiv i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: Debatt skapades inaktiverat i %{participatory_space_title}
-          notification_title: Debatt skapande är nu inaktiverad i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Debattskapandet är inte längre aktivt i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter på den här sidan:'
+          email_outro: Du har fått den här notisen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser vid föregående länk.
+          email_subject: Skapande av debatter är inaktiverat i %{participatory_space_title}
+          notification_title: Skapande av debatter är nu inaktiverat i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
           email_intro: 'Nu kan du starta nya debatter i %{participatory_space_title}! Börja delta på den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_outro: Du har fått den här notisen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser på föregående länk.
           email_subject: Debatter finns nu i %{participatory_space_title}
           notification_title: Nu kan du starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>

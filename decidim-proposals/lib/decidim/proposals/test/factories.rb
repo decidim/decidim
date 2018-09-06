@@ -133,7 +133,7 @@ FactoryBot.define do
 
     trait :with_threshold_per_proposal do
       transient do
-        threshold_per_proposal 1
+        threshold_per_proposal { 1 }
       end
 
       settings do
@@ -261,9 +261,9 @@ FactoryBot.define do
 
   factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
     transient do
-      users nil
+      users { nil }
       # user_groups correspondence to users is by sorting order
-      user_groups []
+      user_groups { [] }
     end
 
     title { Faker::Lorem.sentence }
@@ -283,16 +283,16 @@ FactoryBot.define do
     end
 
     trait :published do
-      state "published"
+      state { "published" }
       published_at { Time.current }
     end
 
     trait :open do
-      state "open"
+      state { "open" }
     end
 
     trait :withdrawn do
-      state "withdrawn"
+      state { "withdrawn" }
     end
   end
 end

@@ -2,17 +2,17 @@ fi:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Status
+        decidim_accountability_status_id: Tila
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         end_date: Päättymisaika
         progress: Edistyminen
         project_ids: Liitetyt projektit
-        proposals: Mukana olevat ehdotukset
+        proposals: Sisällytetyt ehdotukset
         start_date: Aloitusaika
         title: Otsikko
-        updated_at: Päivitetty klo
+        updated_at: Päivitetty
       status:
         description: Kuvaus
         key: Tunniste
@@ -27,7 +27,7 @@ fi:
     models:
       decidim/accountability/result:
         one: Tulos
-        other: tulokset
+        other: Tulokset
   decidim:
     accountability:
       actions:
@@ -110,12 +110,12 @@ fi:
             success: Merkinnän päivitys onnistui
       admin_log:
         result:
-          create: "%{user_name} luotu tulos %{resource_name} vuonna %{space_name}"
-          delete: "%{user_name} poistanut %{resource_name} tuloksen %{space_name}"
-          update: "%{user_name} päivitetty tulos %{resource_name} vuonna %{space_name}"
+          create: "%{user_name} loi tuloksen %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti tuloksen %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} päivitti tuloksen %{resource_name} tilassa %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'Vanhempaa ei löytynyt tietokannasta (ID: %{id})'
+            not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
       models:
         result:
           fields:
@@ -183,29 +183,29 @@ fi:
         name: Vastuullisuus
         settings:
           global:
-            categories_label: Nimi "Luokat"
+            categories_label: Nimi kohteelle "Luokat"
             comments_enabled: Kommentointi käytössä
             display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi "Projektit"
-            heading_parent_level_results: Nimi "Tulokset"
+            heading_leaf_level_results: Nimi kohteelle "Projektit"
+            heading_parent_level_results: Nimi kohteelle "Tulokset"
             intro: Esittelyteksti
-            subcategories_label: Nimi "Alaluokat"
+            subcategories_label: Nimi kohteelle "Ala-aihepiirit"
           step:
             comments_blocked: Kommentointi estetty
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Tulos on sisällytetty ehdotukseen "%{proposal_title}". Voit nähdä sen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Päivitys %{proposal_title}
-          notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty <a href="%{resource_path}">%{resource_title}</a> tulokseen.
+          email_intro: 'Ehdotus "%{proposal_title}" on sisällytetty tulokseen. Voit nähdä sen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Päivitys kohtaan %{proposal_title}
+          notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty tulokseen <a href="%{resource_path}">%{resource_title}</a>.
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
-          results: tulokset
+          results: Tulokset
     participatory_spaces:
       highlighted_results:
-        results: tulokset
+        results: Tulokset
         see_all_results: Katso kaikki tulokset
     resource_links:
       included_projects:
