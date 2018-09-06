@@ -119,32 +119,32 @@ hu:
           email_intro: 'Jóváhagyták a közreműködési kérelmedet ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: 'Ezt az értesítést kaptad, mert közreműködőként szeretnél részt venni ebben: <a href="%{resource_path}">%{resource_title}</a>.'
           email_subject: 'Jóváhagyták közreműködési kérelmedet itt: %{resource_title}.'
-          notification_title: <strong>fogadtál el a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv</strong> hozzájárulásaként.
+          notification_title: 'Közreműködési kérelmedet <strong>jóváhagyták</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requester_rejected:
-          email_intro: Elutasították a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv hozzájárulását.
-          email_outro: Ezt az értesítést megkaptuk, mert kérted, hogy <a href="%{resource_path}">%{resource_title}</a>együttműködővé váljon.
-          email_subject: Önt elutasították %{resource_title}as hozzájárulásként.
-          notification_title: <strong>elutasítottak a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv</strong> hozzájárulásához való hozzáféréshez.
+          email_intro: 'Közreműködési kérelmedet elutasították ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködőként szeretnél részt venni ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: 'Közreműködési kérelmedet elutasították itt: %{resource_title}.'
+          notification_title: 'Közreműködési kérelmedet <strong>elutasították</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> visszavonta a <a href="%{resource_path}">%{resource_title}</a> együttműködési tervezetet.
-          email_outro: Ezt az értesítést megkapta, mert <a href="%{resource_path}">%{resource_title}</a>munkatársak.
-          email_subject: "%{author_name} %{author_nickname} visszavonta a %{resource_title} együttműködési tervezetet."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>visszavonva</strong> a <a href="%{resource_path}">%{resource_title}</a> együttműködési tervezet.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> visszavonta a(z) <a href="%{resource_path}">%{resource_title}</a> közös vázlatot.
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: "%{author_name} %{author_nickname} visszavonta a(z) %{resource_title} közös vázlatot."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>visszavonta</strong> a(z) <a href="%{resource_path}">%{resource_title}</a> közös vázlatot.
         creation_enabled:
-          email_intro: 'Most új javaslatokat készíthet %{participatory_space_title}! Kezdje el részt venni ezen az oldalon:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: A pályázók mostantól elérhetők %{participatory_space_title}
-          notification_title: Mostantól <a href="%{resource_path}">új javaslatot terjeszthetsz elő</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Mostantól új javaslatokat készíthetsz itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Javaslatok elérhetőek innen: %{participatory_space_title}'
+          notification_title: 'Mostantól <a href="%{resource_path}">új javaslatokat terjeszthetsz elő</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
         endorsing_enabled:
-          email_intro: 'A javaslatokat %{participatory_space_title}adhatja meg! Kezdje el részt venni ezen az oldalon:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: A pályázatok jóváhagyása %{participatory_space_title}kezdődött
-          notification_title: Most elkezdhet <a href="%{resource_path}">jóváhagyási javaslatot</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Hagyd jóvá az új javaslatokat itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Javaslatok jóváhagyása elkezdődött itt: %{participatory_space_title}'
+          notification_title: 'Mostantól <a href="%{resource_path}">jóváhagyhatsz javaslatokat</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
         proposal_accepted:
-          email_intro: 'A "%{resource_title}" javaslat elfogadásra került. A válasz ezen az oldalon olvasható:'
-          email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" -t követi. Leiratkozhat az előző linkről.
-          email_subject: A követett javaslat elfogadásra került
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslat elfogadásra került.
+          email_intro: 'A(z) "%{resource_title}" című javaslat elfogadva. További részletek a következő oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_subject: A követett javaslatot elfogadták
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, akiket követel, épp most támogat egy olyan javaslatot, amely érdekes lehet Önnek, ellenőrizze és járuljon hozzá:"
           email_outro: Ezt az értesítést megkapta, mert %{endorser_nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
