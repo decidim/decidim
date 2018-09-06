@@ -193,37 +193,37 @@ hu:
             filter_by: 'Szűrés ez alapján:'
             invite_attendee: Résztvevő meghívása
             invites: Meghívottak
-            registrations_disabled: Nem hívhat meg résztvevőt, mert a regisztrációk le vannak tiltva.
+            registrations_disabled: Nem hívhatsz meg résztvevőt, mert a regisztráció le van tiltva.
             search: Keresés
         meeting_closes:
           edit:
             close: Bezárás
-            title: Szoros találkozó
+            title: Ttalálkozó lezárása
         meeting_copies:
           form:
-            select_organizer: Válassza ki a szervezőt
+            select_organizer: Válassz szervezőt
         meetings:
           close:
-            invalid: Probléma merült fel ezen a találkozón
-            success: A találkozó sikeresen lezárult
+            invalid: Probléma merült fel a találkozó lezárásakor
+            success: Találkozó lezárása sikeres
           create:
-            invalid: Probléma történt a találkozó létrehozásában
-            success: Találkozó sikeresen létrehozva
+            invalid: Probléma történt a találkozó létrehozása során
+            success: Találkozó létrehozása sikeres
           destroy:
-            success: A találkozó sikeresen törölve
+            success: Találkozó törlése sikeres
           edit:
-            update: frissítés
+            update: Frissítés
           form:
-            select_organizer: Válassza ki a szervezőt
+            select_organizer: Válassz szervezőt
           index:
-            title: találkozók
+            title: Találkozók
           new:
-            create: Teremt
+            create: Létrehozás
             title: Találkozó létrehozása
           service:
             description: Leírás
             down: Le
-            remove: eltávolít
+            remove: Eltávolítás
             service: Szolgáltatás
             title: Cím
             up: Fel
@@ -231,50 +231,50 @@ hu:
             add_service: Szolgáltatás hozzáadása
             services: Szolgáltatások
           update:
-            invalid: Probléma történt a találkozó frissítésével
-            success: A találkozó sikeresen frissült
+            invalid: Probléma történt a találkozó frissítése során
+            success: Találkozó frissítése sikeres
         minutes:
           create:
-            invalid: Probléma történt a percek létrehozásában
-            success: A jegyzőkönyv sikeresen létrehozva
+            invalid: Probléma történt a jegyzőkönyv létrehozásakor
+            success: Jegyzőkönyv létrehozása sikeres
           edit:
-            update: frissítés
+            update: Frissítés
           new:
-            create: Teremt
-            title: Hozz létre perceket
+            create: Létrehozás
+            title: Jegyzőkönyv létrehozása
           update:
-            invalid: Probléma történt a jegyzőkönyv frissítésével
-            success: A jegyzőkönyv sikeresen frissült
+            invalid: Probléma történt a jegyzőkönyv frissítésekor
+            success: Jegyzőkönyv frissítése sikeres
         models:
           meeting:
             name: Találkozó
         registrations:
           edit:
             save: Mentés
-            validate: Érvényesít
-            validate_registration_code: Érvényesítse a regisztrációs kódot
+            validate: Érvényesítés
+            validate_registration_code: Érvényesítsd a regisztrációs kódot
           form:
-            available_slots_help: Hagyja 0-ra, ha van korlátlan slot.
+            available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívottak
             registrations_count:
-              one: 1 regisztráció volt.
-              other: '%{count} regisztráció volt.'
-            reserved_slots_help: Hagyja 0-ra, ha nem rendelkezik foglalással
-            reserved_slots_less_than: Legalább %{count}vagy egyenlőnek kell lennie
+              one: 1 regisztráció.
+              other: '%{count} regisztráció.'
+            reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
+            reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
           update:
-            invalid: Probléma volt a regisztrációs beállítások mentése.
-            success: A regisztrációs regisztrációs beállítások sikeresen mentésre kerültek.
+            invalid: Probléma történt a regisztrációs beállítások mentésekor.
+            success: Találkozó nyilvántartási beállításainak mentése sikeres.
           validate_registration_code:
-            invalid: Ez a regisztrációs kód érvénytelen.
-            success: A regisztrációs kód sikeresen validált.
+            invalid: Érvénytelen a regisztrációs kód.
+            success: Regisztrációs kód érvényesítése sikeres.
       admin_log:
         invite:
-          create: "%{user_name} meghívott %{attendee_name} hogy csatlakozzon %{resource_name} találkozó a %{space_name} helyet"
-          deleted: "%{user_name} meghívott %{attendee_name} a %{space_name} helyről való %{resource_name} találkozóból való csatlakozáshoz"
-          update: "%{user_name} meghívott %{attendee_name} hogy csatlakozzon %{resource_name} találkozó a %{space_name} helyet"
+          create: "%{user_name} meghívta őt: %{attendee_name}, hogy csatlakozzon ehhez: %{resource_name}, itt: %{space_name}"
+          deleted: "%{user_name} visszavonta %{attendee_name} meghívását ehhez: %{resource_name}, itt: %{space_name}"
+          update: "%{user_name} meghívta őt: %{attendee_name}, hogy csatlakozzon ehhez: %{resource_name}, itt: %{space_name}"
         meeting:
-          close: "%{user_name} lezárta az %{resource_name} találkozót a %{space_name} téren"
-          create: "%{user_name} létrehozta az %{resource_name} találkozót a %{space_name} téren"
+          close: "%{user_name} lezárta a(z) %{resource_name} találkozót itt: %{space_name}"
+          create: "%{user_name} létrehozta a(z) %{resource_name} találkozót itt: %{space_name}"
           delete: "%{user_name} törölte az %{resource_name} találkozót a %{space_name} mezőben"
           export_registrations: "%{user_name} exportálta az %{resource_name} találkozó regisztrációját a %{space_name} helyre"
           update: "%{user_name} frissítette az %{resource_name} találkozót a %{space_name} téren"
