@@ -294,39 +294,39 @@ fi:
           any_vote_method: Tämä kansalaisaloite kerää kannatuksia verkossa ja alustan ulkopuolella.
           offline_method: Tämä kansalaisaloite kerää kannatuksia ainoastaan alustan ulkopuolella.
         signature_identities:
-          select_identity: Valitse käyttäjän tunniste
+          select_identity: Valitse käyttäjätunniste
         signatures_count:
           one: " allekirjoitus"
-          other: " allekirjoituksia"
+          other: " allekirjoitusta"
         statistics:
-          assistants_count_title: avustajat
+          assistants_count_title: Avustajat
           comments_count_title: Kommentit
-          meetings_count_title: kokoukset
-          supports_count_title: allekirjoitukset
+          meetings_count_title: Tapaamiset
+          supports_count_title: Allekirjoitukset
         supports:
           title: Allekirjoitusten luettelo
         vote_cabin:
-          already_voted: Jo allekirjoitettu
+          already_voted: Allekirjoitettu aikaisemmin
           supports_required: "%{total_supports} allekirjoitusta vaaditaan"
-          vote: Merkki
+          vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
           count:
             one: ALLEKIRJOITUS
-            other: ALLEKIRJOITUKSET
+            other: ALLEKIRJOITUSTA
       initiatives_mailer:
-        creation_subject: Sinun kansalaisaloitteesi "%{title}" on luotu
+        creation_subject: Kansalaisaloitteesi "%{title}" on luotu
         initiative_link:
-          check_initiative_details: Näet aloitteen yksityiskohdat
-          here: tässä
-        more_information: Täällä on lisätietoja aloitteen luomisprosessista.
-        progress_report_body_for: Aloite %{title} on saavuttanut %{percentage}% tarvittavista tuista.
-        progress_report_for: 'Aloita aloitus: %{title}'
+          check_initiative_details: Tarkasta aloitteen yksityiskohdat
+          here: tästä
+        more_information: Tässä on lisätietoja aloitteen laatimisprosessista.
+        progress_report_body_for: Aloite %{title} on saavuttanut %{percentage}% tarvittavista kannatuksista.
+        progress_report_for: 'Yhteenveto aloitteesta: %{title}'
         promotal_committee_help: Muista, että sinun täytyy kutsua vähintään %{member_count} henkilöä promoottorikomitealle. Lähetä seuraava linkki kutsumaan ihmisiä promoottorikomiteaan
-        status_change_body_for: 'Aloitus %{title} on muuttanut tilaansa: %{state}'
-        status_change_for: Aloite %{title} on muuttanut tilannettaan
-        technical_validation_body_for: Aloite %{title} on pyytänyt teknistä validointiaan.
-        technical_validation_for: Aloite %{title} on pyytänyt teknistä validointiaan.
+        status_change_body_for: 'Aloitteen %{title} tila on muuttunut: %{state}'
+        status_change_for: Aloitteen %{title} tila on muuttunut
+        technical_validation_body_for: Aloitteelle %{title} on pyydetty teknistä validointia.
+        technical_validation_for: Aloitteelle %{title} on pyydetty teknistä validointia.
       pages:
         home:
           highlighted_initiatives:
@@ -334,30 +334,30 @@ fi:
             see_all_initiatives: Katso kaikki aloitteet
       states:
         accepted: Hyväksytyt
-        expired: Vanhentunut
+        expired: Vanhentuneet
     menu:
-      initiatives: aloitteita
+      initiatives: Aloitteet
   layouts:
     decidim:
       admin:
         initiative:
           attachments: Liitteet
-          committee_members: komitean jäsenet
-          components: komponentit
+          committee_members: Komitean jäsenet
+          components: Komponentit
           information: Tiedot
       initiative_creation_header:
-        fill_data: Luoda
-        finish: Suorittaa loppuun
-        previous_form: alkaa
-        promotal_committee: Järjestäjäkomitea
-        select_initiative_type: Valita
-        show_similar_initiatives: Vertailla
+        fill_data: Luo
+        finish: Viimeistele
+        previous_form: Alku
+        promotal_committee: Kannatuskomitea
+        select_initiative_type: Valitse
+        show_similar_initiatives: Vertaile
       initiative_header:
-        initiative_menu_item: aloite
-        unfold: avautua
+        initiative_menu_item: Aloite
+        unfold: Avaa
       initiatives:
         initiative:
-          check: Tarkista se
-          check_and_support: Tarkista se ja allekirjoita
+          check: Tarkasta
+          check_and_support: Tarkista ja allekirjoita
         no_initiatives_yet:
-          no_initiatives_yet: Ei vielä aloitteita!
+          no_initiatives_yet: Ei vielä yhtään aloitetta!
