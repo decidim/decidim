@@ -36,7 +36,9 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_component)&.order(title: :asc)&.pluck(:title, :id)
+          @proposals ||= Decidim.find_resource_manifest(:proposals)
+                                .try(:resource_scope, current_component)&.order(title: :asc)
+                          &.map { |proposal| [Decidim::Proposals::ProposalPresenter.new(proposal).title, proposal.id] }
         end
 
         # Finds the Category from the decidim_category_id.
