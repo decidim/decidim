@@ -87,52 +87,52 @@ fi:
         initiatives:
           description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
           description_own: Olet julkaissut %{score} aloitetta.
-          explanation: Käyttäjät saavat tämän tunnuksen hankkimalla aloitteensa.
-          name: Julkaistu aloitteita
-          next_level_in: Hanki %{score} uutta aloitetta julkaistaksesi seuraavalle tasolle!
-          unearned_another: Tällä käyttäjällä ei ole vielä julkaistu aloitteita.
-          unearned_own: Sinulla ei ole vielä julkaistu aloitteita.
+          explanation: Käyttäjät saavat tämän kunniamerkin saamalla aloitteita julkaistua.
+          name: Julkaistut aloitteet
+          next_level_in: Julkaise %{score} uutta aloitetta saavuttaaksesi seuraavan tason!
+          unearned_another: Tämä käyttäjä ei ole vielä julkaissut yhtään aloitetta.
+          unearned_own: Sinulla ei ole vielä julkaistuja aloitteita.
     initiatives:
       admin:
         committee_requests:
           index:
-            approve: Hyväksyä
+            approve: Hyväksy
             confirm_revoke: Oletko varma?
-            invite_to_committee_help: Jaa tämä linkki ja pyydä muita käyttäjiä ylennyskomiteaan
-            no_members_yet: Järjestäjäkomiteassa ei ole jäseniä
-            revoke: Peruuttaa
-            title: komitean jäsenet
+            invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä tukikomiteaan
+            no_members_yet: Tukikomiteassa ei ole jäseniä
+            revoke: Kumoa
+            title: Komitean jäsenet
         initiatives:
           edit:
             accept: Hyväksy aloite
             confirm: Oletko varma?
             discard: Hylkää aloite
-            export_votes: Vientituki
-            reject: Hylkää aloite
+            export_votes: Lataa kannatusäänet
+            reject: Torju aloite
             send_to_technical_validation: Lähetä tekniseen validointiin
             success: Aloite on lähetetty tekniseen validointiin
-            update: Päivittää
+            update: Päivitä
           form:
             title: Yleistä tietoa
           index:
-            actions_title: Toiminta
+            actions_title: Toiminnot
             filter:
               accepted: Hyväksytyt
               all: Kaikki
-              created: Luotu
-              discarded: Käytöstä poistetut
-              published: Julkaistu
-              rejected: hylätty
-              validating: Tekninen validointi
+              created: Luodut
+              discarded: Hylätyt
+              published: Julkaistut
+              rejected: Torjutut
+              validating: Teknisessä validoinnissa
             filter_by: Suodata
-            preview: esikatselu
+            preview: Esikatsele
             print: Tulosta
             search: Hae
           show:
             print: Tulosta
           update:
             error: Tapahtui virhe
-            success: Kansalaisaloitetta on onnistuneesti päivitetty
+            success: Kansalaisaloite on onnistuneesti päivitetty
         initiatives_type_scopes:
           create:
             error: Tapahtui virhe
