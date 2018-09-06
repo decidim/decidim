@@ -81,7 +81,7 @@ fi:
         edit:
           update: Päivitä
         form:
-          slug_help: 'URL-osoittimia käytetään tuottamaan URL-osoitteita, jotka viittaavat tähän kuulemiseen. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+          slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän kuulemiseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
           title: Yleistä tietoa
         index:
           not_published: Ei julkaistu
@@ -223,51 +223,51 @@ fi:
           published_results: Tulokset julkaistu
         footer_button_text:
           debate: Keskustelu
-          view: näkymä
+          view: Näytä
           view_results: Näytä tulokset
-          vote: Äänestys
+          vote: Äänestä
         unspecified: Ei määritelty
     menu:
-      consultations: kuulemiset
+      consultations: Kuulemiset
     pages:
       home:
         statistics:
-          consultations_count: kuulemiset
+          consultations_count: Kuulemiset
     questions:
       results:
-        title: tulokset
+        title: Tulokset
       show:
         read_more: Lue lisää
       statistics:
-        assistants_count_title: avustajat
+        assistants_count_title: Avustajat
         comments_count_title: Kommentit
-        meetings_count_title: kokoukset
-        supports_count_title: tukee
+        meetings_count_title: Tapaamiset
+        supports_count_title: Kannatukset
       technical_info:
         technical_data: Tekniset tiedot
       vote_button:
-        already_voted: Jo äänestetty
-        already_voted_hover: Peruuta tuki
-        starting_from: Alk. %{date}
-        vote: Äänestys
+        already_voted: Äänestetty aikaisemmin
+        already_voted_hover: Peruuta kannatus
+        starting_from: Alkaa %{date}
+        vote: Äänestä
       vote_modal:
-        contextual_help: Ole hyvä ja valitse vaihtoehto.
-        title: 'Kuuleminen: kysymystuki'
+        contextual_help: Valitse vaihtoehto.
+        title: 'Kuuleminen: kysymyksen kannatus'
       vote_modal_confirm:
-        change: Muuttaa
-        confirm: Vahvistaa
+        change: Muuta
+        confirm: Vahvista
         contextual_help: Vahvista valittu vaihtoehto.
-        title: 'Kuuleminen: vahvista tuki'
+        title: 'Kuuleminen: vahvista kannatus'
   layouts:
     decidim:
       admin:
         question:
           attachments: Liitteet
-          categories: Luokat
+          categories: Ryhmät
       consultation_voting_data:
         start_voting_date: Äänestys alkaa
       question_components:
         question_menu_item: Kysymys
-        unfold: avautua
+        unfold: Avaa
       question_header:
-        back_to_consultation: Katso kaikki neuvottelut
+        back_to_consultation: Näytä kaikki kuulemiset
