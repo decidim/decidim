@@ -35,58 +35,58 @@ fi:
   activerecord:
     models:
       decidim/initiative:
-        one: aloitteestaan
-        other: Initatives
+        one: Aloite
+        other: Aloitteet
       decidim/initiative_comittee:
-        one: pääsihteerien
-        other: Valiokunnat
+        one: Komitea
+        other: Komiteat
       decidim/initiative_vote:
         one: Allekirjoitus
-        other: allekirjoitukset
+        other: Allekirjoitukset
   decidim:
     admin:
       actions:
-        new_initiative_type: Uusi aloite tyyppi
+        new_initiative_type: Uusi aloitetyyppi
       menu:
-        initiatives: aloitteita
-        initiatives_types: Aloitustyypit
+        initiatives: Aloitteet
+        initiatives_types: Aloitetyypit
       models:
         initiatives:
           fields:
-            created_at: Luotu osoitteessa
-            state: Osavaltio
-            supports_count: tukee
-            title: aloitteita
+            created_at: Luontiaika
+            state: Maakunta/osavaltio
+            supports_count: Kannatusten määrä
+            title: Aloitteet
         initiatives_type_scope:
           fields:
-            scope: laajuus
-            supports_required: Tukia tarvitaan
-          name: Aloitteen tyyppi soveltamisala
+            scope: Teema
+            supports_required: Kannatuksia tarvitaan
+          name: Aloitetyypin teema
         initiatives_types:
           fields:
-            created_at: Luotu osoitteessa
-            title: Aloitustyypit
-          name: Aloitteen tyyppi
+            created_at: Luontiaika
+            title: Aloitetyypit
+          name: Aloitetyyppi
       titles:
-        initiatives: aloitteita
-        initiatives_types: Aloitustyypit
+        initiatives: Aloitteet
+        initiatives_types: Aloitetyypit
     events:
       initiatives:
         initiative_extended:
-          email_intro: Aloitteen %{resource_title} allekirjoitusten päättymispäivä on pidennetty!
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Aloitteiden allekirjoitukset lopetuspäivää pidennetty!
-          notification_title: Allekirjoituksen päättymispäivä <a href="%{resource_path}">%{resource_title}</a> -aloitteen osalta on pidennetty.
+          email_intro: Aloitteen %{resource_title} allekirjoitusten keräämisen aikaa on jatkettu!
+          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Aloitteen allekirjoitusten keräämisen aikaa on jatkettu!
+          notification_title: Aloitteen <a href="%{resource_path}">%{resource_title}</a> allekirjoitusten keräämisen aikaa on jatkettu.
         milestone_completed:
-          email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% allekirjoituksista!
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Uusi virstanpylväs valmis!
-          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% allekirjoituksista.
+          email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
+          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Uusi virstanpylväs saavutettu!
+          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
     gamification:
       badges:
         initiatives:
-          description_another: Tämä käyttäjä on saanut %{score} aloitetta julkaistu.
-          description_own: Sinulla on julkaistu %{score} aloitetta.
+          description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
+          description_own: Olet julkaissut %{score} aloitetta.
           explanation: Käyttäjät saavat tämän tunnuksen hankkimalla aloitteensa.
           name: Julkaistu aloitteita
           next_level_in: Hanki %{score} uutta aloitetta julkaistaksesi seuraavalle tasolle!
