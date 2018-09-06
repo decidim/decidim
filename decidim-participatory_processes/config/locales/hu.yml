@@ -188,66 +188,66 @@ hu:
           create: Létrehozás
           title: Új részvételi folyamat felhasználó.
         update:
-          error: Hiba történt a részvételen alapuló folyamat frissítéséhez.
-          success: A felhasználó sikeresen frissítette ezt a részvételi folyamatot.
+          error: Hiba a felhasználó részvételi folyamatban történő frissítése során.
+          success: Felhasználó frissítése a részvételi folyamatban sikeres.
       participatory_processes:
         create:
-          error: Hiba történt egy új részvételi folyamat létrehozásakor.
-          success: A részvételi folyamat sikeresen megtörtént. Állítsa be most a lépéseit.
+          error: Hiba történt egy új részvételi folyamat létrehozása során.
+          success: Részvételi folyamat létrehozása sikeres. Állítsd be a lépéseit.
         destroy:
-          success: A részvételi folyamat sikeresen törölve.
+          success: Részvételi folyamat törlése sikeres.
         edit:
-          update: frissítés
+          update: Frissítés
         form:
-          title: Általános információ
+          title: Általános információk
         index:
-          not_published: Nem publikált
-          private: Magán
+          not_published: Nincs közzétéve
+          private: Privát
           public: Nyilvános
-          published: Közzétett
+          published: Közzétéve
         new:
-          create: Teremt
+          create: Létrehozás
           title: Új részvételi folyamat
         update:
-          error: Hiba történt a részvételi folyamat frissítésekor.
-          success: A részvételi folyamat sikeresen frissült.
+          error: Hiba történt a részvételi folyamat frissítése során.
+          success: Részvételi folyamat frissítése sikeres.
       participatory_processes_copies:
         create:
-          error: Hiba történt a részvételi folyamat megkettőzésénél.
-          success: A részvételi folyamat sikeresen megismétlődött.
+          error: Hiba történt a részvételi folyamat duplikációja során.
+          success: Részvételi folyamat duplikálása sikeres.
       participatory_processes_group:
         create:
-          error: Hiba történt egy új részvételi folyamatcsoport létrehozásában.
-          success: A résztvevő folyamatcsoport sikeresen létrejött.
+          error: Hiba történt egy új részvételi folyamat csoport létrehozása során.
+          success: Részvételi folyamat csoport létrehozása sikeres.
       titles:
-        participatory_process_groups: Résztvevői folyamatcsoportok
+        participatory_process_groups: Részvételi folyamat csoportok
         participatory_processes: Részvételi folyamatok
       users:
         resend_invitation:
           error: Hiba történt a meghívó újbóli elküldésénél.
-          success: A meghívás sikeresen elutasult.
+          success: Meghívó elutasítása sikeres.
     admin_log:
       participatory_process:
-        create: "%{user_name} létrehozta az %{resource_name} részvételi folyamatot"
-        publish: "%{user_name} közzétette az %{resource_name} részvételi folyamatot"
-        unpublish: "%{user_name} nem publikálta az %{resource_name} részvételi folyamatot"
-        update: "%{user_name} frissítette az %{resource_name} részvételi folyamatot"
+        create: "%{user_name} létrehozta a(z) %{resource_name} részvételi folyamatot"
+        publish: "%{user_name} közzétette a(z) %{resource_name} részvételi folyamatot"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} részvételi folyamatot közzétételét"
+        update: "%{user_name} frissítette a(z) %{resource_name} részvételi folyamatot"
       participatory_process_step:
-        activate: "%{user_name} aktiválta az %{resource_name} lépést a %{space_name} résztvevő folyamatban"
-        create: "%{user_name} létrehozta az %{resource_name} lépést a %{space_name} részvételi folyamat során"
-        delete: "%{user_name} törölte az %{resource_name} lépést a %{space_name} részvételi folyamat során"
-        update: "%{user_name} frissítette az %{resource_name} lépést a %{space_name} részvételi folyamat során"
+        activate: "%{user_name} aktiválta a(z) %{resource_name} lépést a(z) %{space_name} részvételi folyamatban"
+        create: "%{user_name} létrehozta a(z) %{resource_name} lépést a(z) %{space_name} részvételi folyamatban"
+        delete: "%{user_name} törölte a(z) %{resource_name} lépést a(z) %{space_name} részvételi folyamatból"
+        update: "%{user_name} frissítette a(z) %{resource_name} lépést a(z) %{space_name} részvételi folyamatban"
       participatory_process_user_role:
-        create: "%{user_name} meghívta a felhasználót %{resource_name} a %{space_name} részvételi folyamatba"
-        delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} részvételi folyamatból"
-        update: "%{user_name} megváltoztatta a felhasználó %{resource_name} szerepét a %{space_name} részvételi folyamat során"
+        create: "%{user_name} meghívta %{resource_name} felhasználót a(z) %{space_name} részvételi folyamatba"
+        delete: "%{user_name} törölte %{resource_name} felhasználót a(z) %{space_name} részvételi folyamatból"
+        update: "%{user_name} megváltoztatta %{resource_name} szerepét a(z) %{space_name} részvételi folyamatban"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'A %{resource_title} lépés most %{participatory_space_title}aktív. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Frissítés %{participatory_space_title}
-          notification_title: A %{resource_title} lépés most <a href="%{resource_path}">%{participatory_space_title}</a>aktív
+          email_intro: 'A(z) %{resource_title} lépés aktiválva itt: %{participatory_space_title}. További részleteket itt találsz:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Frissítés ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) %{resource_title} lépés aktiválva ehhez: <a href="%{resource_path}">%{participatory_space_title}</a>'
         step_changed:
           email_intro: 'Az időpontokat a %{resource_title} lépés %{participatory_space_title} frissítve lett. Láthatja ezt az oldalról:'
           email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
