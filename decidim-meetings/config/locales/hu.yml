@@ -275,106 +275,106 @@ hu:
         meeting:
           close: "%{user_name} lezárta a(z) %{resource_name} találkozót itt: %{space_name}"
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozót itt: %{space_name}"
-          delete: "%{user_name} törölte az %{resource_name} találkozót a %{space_name} mezőben"
-          export_registrations: "%{user_name} exportálta az %{resource_name} találkozó regisztrációját a %{space_name} helyre"
-          update: "%{user_name} frissítette az %{resource_name} találkozót a %{space_name} téren"
+          delete: "%{user_name} törölte a(z) %{resource_name} találkozót innen: %{space_name}"
+          export_registrations: "%{user_name} exportálta a(z) %{resource_name} találkozó regisztrációit innen: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} találkozót itt: %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'A szervező nem található az adatbázisban (ID: %{id})'
         minutes:
-          create: "%{user_name} létrehozta az %{resource_name} találkozó jegyzőkönyvét a %{space_name} téren"
-          update: "%{user_name} frissítette az %{resource_name} találkozó jegyzőkönyvét a %{space_name} téren"
+          create: "%{user_name} létrehozta a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Meghívás egy találkozóra
         registration_mailer:
           confirmation:
-            subject: A találkozó regisztrációját megerősítették
+            subject: A találkozód regisztrációját megerősítették
       meeting:
-        not_allowed: Nem tekintheti meg ezt a találkozót
+        not_allowed: Nincs jogosultságod a találkozó megtekintésére
       meetings:
         filters:
           category: Kategória
-          category_prompt: Válasszon egy kategóriát
+          category_prompt: Válassz kategóriát
           date: Dátum
-          past: Múlt
+          past: Előzmények
           search: Keresés
-          upcoming: közelgő
+          upcoming: Közelgő
         filters_small_view:
-          close_modal: Közeli modal
+          close_modal: Modal bezárása
           filter: Szűrő
-          filter_by: Szűrés vlami alapján
-          unfold: kibontakozik
+          filter_by: 'Szűrés ez alapján:'
+          unfold: Kibont
         index:
           view_meeting: Találkozó megtekintése
         meeting_minutes:
           meeting_minutes: Találkozó jegyzőkönyve
           related_information: Kapcsolódó információ
         meetings:
-          no_meetings_warning: Nincs olyan találkozó, amely megfelel a keresési feltételeknek, vagy nincs ütemezett találkozó.
-          upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálható az összes korábbi találkozó.
+          no_meetings_warning: Nincs, vagy nincs ütemezve olyan találkozó, amely megfelel a keresési feltételeknek.
+          upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
         registration_confirm:
-          cancel: Megszünteti
-          confirm: megerősít
+          cancel: Mégse
+          confirm: Megerősítés
         show:
-          attendees: A résztvevők számítanak
-          contributions: A hozzájárulások számítanak
-          going: Haladó
-          join: Csatlakozzon a találkozón
-          meeting_report: Találkozó jelentés
+          attendees: Résztvevők száma
+          contributions: Hozzájárulások száma
+          going: Halad
+          join: Csatlakozz a találkozóhoz
+          meeting_report: Jelentés a találkozóról
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
           remaining_slots:
-            one: 1 hely marad
-            other: "%{count} hely marad"
-          view: Kilátás
+            one: 1 hely maradt
+            other: "%{count} hely maradt"
+          view: Nézet
       models:
         invite:
           fields:
             email: Email
             name: Név
-            sent_at: Elküldve
+            sent_at: 'Elküldve:'
             status: Állapot
           status:
             accepted: Elfogadva (%{at})
             rejected: Elutasítva (%{at})
-            sent: Küldött
+            sent: Elküldve
         meeting:
           fields:
-            closed: Zárva
+            closed: Lezárt
             end_time: Befejezés dátuma
             map: Térkép
             start_time: Kezdő dátum
             title: Cím
-      read_more: "(Olvass tovább)"
+      read_more: "(bővebben)"
       registration_mailer:
         confirmation:
-          confirmed_html: A <a href="%{url}">%{title}</a> találkozó regisztrációja megerősítést nyert.
+          confirmed_html: Regisztrációd a(z) <a href="%{url}">%{title}</a> találkozóra megerősítve.
           details: A találkozó részletei megtalálhatók a mellékletben.
-          registration_code: Regisztrációs kódja %{code}.
+          registration_code: 'Regisztrációs kódod: %{code}.'
       registrations:
         create:
-          invalid: Probléma merült fel az ülésen.
-          success: Sikeresen csatlakozott az értekezlethez.
+          invalid: Probléma történt a találkozóhoz való csatlakozáskor.
+          success: Sikeresen csatlakoztál a találkozóhoz.
         decline_invitation:
-          invalid: Hiba történt a meghívás visszautasításában.
-          success: Elutasította a meghívást sikeresen.
+          invalid: Hiba történt a meghívás visszautasítása során.
+          success: Meghívás elutasítása sikeres.
         destroy:
-          invalid: Probléma merült fel az ülésen.
-          success: Sikeresen hagyta az értekezletet.
+          invalid: Probléma történt a találkozó elhagyása közben.
+          success: Sikeresen elhagytad a találkozót.
       types:
         private_meeting: Privát találkozó
         transparent: Átlátszó
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Múlt találkozók
+          past_meetings: Korábbi találkozók
           upcoming_meetings: Közelgő találkozók
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Múlt találkozók
-        see_all_meetings: Lásd az összes találkozót
+        past_meetings: Korábbi találkozók
+        see_all_meetings: Összes találkozó
         upcoming_meetings: Közelgő találkozók
       upcoming_meeting_for_card:
         upcoming_meeting: Közelgő találkozó
