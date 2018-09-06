@@ -95,9 +95,9 @@ hu:
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
             proposal_answering_enabled: Javaslat válasz engedélyezve
-            votes_blocked: A szavazás blokkolt
-            votes_enabled: A szavazás engedélyezett
-            votes_hidden: Rejtett szavazatok (ha a szavazatok engedélyezve vannak, ellenőrizve ez elrejti a szavazatok számát)
+            votes_blocked: Szavazás letiltva
+            votes_enabled: Szavazás engedélyezve
+            votes_hidden: Szavazatok elrejtése (ha a szavazás engedélyezett, ez elrejti a szavazatok számát)
     events:
       proposals:
         collaborative_draft_access_accepted:
