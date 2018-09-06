@@ -183,20 +183,20 @@ hu:
           email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Javaslatokról való szavazás kezdődött itt: %{participatory_space_title}'
-          notification_title: Most <a href="%{resource_path}">szavazási javaslatot kezdhet</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: 'Mostantól tehetsz <a href="%{resource_path}">szavazási javaslatokat</a> ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
     gamification:
       badges:
         accepted_proposals:
-          description_another: Ez a felhasználó %{score} ajánlatot fogadott el.
-          description_own: '%{score} ajánlatot fogadott el.'
-          explanation: A felhasználók megkapják ezt a jelvényt, ha elfogadják a javaslataikat.
+          description_another: A felhasználó %{score} javaslatait elfogadták.
+          description_own: '%{score} ajánlatodat fogadták el.'
+          explanation: A jelvényt elfogadott javaslatokkal szerezheted meg.
           name: Elfogadott javaslatok
-          next_level_in: Szerezzen be további %{score} ajánlatot, hogy eljuss a következő szintre!
-          unearned_another: Ez a felhasználó még nem kapott elfogadott javaslatokat.
-          unearned_own: Még nem fogadott el javaslatokat.
+          next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
+          unearned_another: A felhasználónak még nincsenek elfogadott javaslatai.
+          unearned_own: Még nincs elfogadott javaslatod.
         proposal_votes:
-          description_another: Ez a felhasználó támogatta a %{score} javaslatot.
-          description_own: '%{score} pályázat támogatást nyújtott.'
+          description_another: A felhasználó %{score} javaslatot támogatott.
+          description_own: Eddig %{score} javaslatot támogattál.
           explanation: A felhasználók megkapják ezt a jelvényt a javaslatok támogatásával.
           name: A javaslat támogatja
           next_level_in: Támogatja a %{score} további javaslatot a következő szint eléréséhez!
