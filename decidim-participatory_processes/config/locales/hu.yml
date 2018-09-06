@@ -249,31 +249,31 @@ hu:
           email_subject: 'Frissítés ehhez: %{participatory_space_title}'
           notification_title: 'A(z) %{resource_title} lépés aktiválva ehhez: <a href="%{resource_path}">%{participatory_space_title}</a>'
         step_changed:
-          email_intro: 'Az időpontokat a %{resource_title} lépés %{participatory_space_title} frissítve lett. Láthatja ezt az oldalról:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: Frissítés %{participatory_space_title}
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> lépés <a href="%{participatory_space_url}">%{participatory_space_title}</a> dátumát frissítettük.
+          email_intro: 'A(z) %{resource_title} lépés időpontjai frissítve ehhez: %{participatory_space_title}. További részleteket itt találsz:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Frissítés ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> lépés időpontjai frissítve ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     menu:
-      processes: Eljárások
+      processes: Folyamatok
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 folyamat %{group}
-          other: "%{count} folyamat %{group}"
-        title: Résztvevői folyamatcsoportok
+          one: '1 folyamat itt: %{group}'
+          other: "%{count} folyamat itt: %{group}"
+        title: Részvételi folyamat csoportok
     participatory_process_steps:
       index:
         process_steps: Folyamat lépések
-        title: Részvételi folyamatok
+        title: Részvételi folyamat lépések
     participatory_processes:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Az URL-címkék az ebbe a folyamatba mutató URL-ek előállításához használhatók. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+            slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
         participatory_processes:
           form:
-            announcement_help: Az itt megadott szöveg megjelenik a felhasználónak a folyamatinformációk alatt.
-            slug_help: 'Az URL-címkék az ebbe a folyamatba mutató URL-ek előállításához használhatók. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+            announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
+            slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
       content_blocks:
         highlighted_processes:
           name: Kiemelt folyamatok
@@ -284,9 +284,9 @@ hu:
           highlighted_processes:
             active_processes: Aktív folyamatok
             active_step: Aktív lépés
-            more_information: Több információ
-            participate: Részt venni
-            see_all_processes: Lásd az összes folyamatot
+            more_information: További információk
+            participate: Részvétel
+            see_all_processes: Összes folyamat
       participatory_process_groups:
         none: Egyik sem
       participatory_processes:
@@ -294,78 +294,78 @@ hu:
           counters:
             active:
               one: 1 aktív folyamat
-              other: "%{count} aktív folyamatok"
+              other: "%{count} aktív folyamat"
             all:
-              one: 1 folyamatot
-              other: "%{count} folyamatokat"
+              one: 1 folyamat
+              other: "%{count} folyamat"
             past:
               one: 1 korábbi folyamat
-              other: "%{count} korábbi folyamatok"
+              other: "%{count} korábbi folyamat"
             upcoming:
               one: 1 közelgő folyamat
-              other: "%{count} közelgő folyamatok"
+              other: "%{count} közelgő folyamat"
           explanations:
             no_active: Nincsenek aktív folyamatok
             no_active_nor_upcoming: Nincs aktív vagy közelgő folyamat
-            no_active_nor_upcoming_callout: Nincs aktív és nem közelgő folyamat. Itt van egy lista a múltban.
+            no_active_nor_upcoming_callout: Nincs sem aktív, sem közelgő folyamat. A korrábbiakat itt nézheted meg.
           names:
             active: Aktív
             all: Összes
             past: Előzmények
             upcoming: Közelgő
-          see: Lát
+          see: Lásd
         index:
-          loading: Eredmények betöltése ...
+          loading: Eredmények betöltése...
       show:
         developer_group: Promóciós csoport
         end_date: Befejezés dátuma
-        local_area: Szervezeti terület
+        local_area: Szervezet területe
         participatory_scope: Mi a döntés
-        participatory_structure: Hogyan döntenek?
-        private_space: Ez egy magáncélú folyamat
-        scope: terület
+        participatory_structure: Hogyan döntenek
+        private_space: Ez egy privát folyamat
+        scope: Hatáskör
         start_date: Kezdő dátum
         target: Ki részt vesz
         unspecified: Nem meghatározott
       statistics:
-        answers_count: válaszok
+        answers_count: Válaszok
         comments_count: Hozzászólások
-        debates_count: viták
-        endorsements_count: Elismerések
+        debates_count: Viták
+        endorsements_count: Jóváhagyások
         headline: Tevékenység
-        meetings_count: találkozók
-        orders_count: szavazatok
+        meetings_count: Találkozók
+        orders_count: Szavazatok
         pages_count: Oldalak
-        processes_count: Eljárások
-        projects_count: projektek
-        proposals_count: javaslatok
+        processes_count: Folyamatok
+        projects_count: Projektek
+        proposals_count: Javaslatok
         results_count: Eredmények
         surveys_count: Felmérések
-        users_count: résztvevők
-        votes_count: szavazatok
+        users_count: Résztvevők
+        votes_count: Szavazatok
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Böngésszen
-          processes_count: 'folyamatok:'
+          browse: Böngészés
+          processes_count: 'Folyamatok:'
       participatory_process_widgets:
         show:
           active_step: Aktív lépés
-          take_part: Részt vesz
+          take_part: Vegyél részt
       participatory_processes:
         index:
           promoted_processes: Kiemelt folyamatok
         participatory_process:
           active_step: 'Aktuális lépés:'
-          take_part: Részt vesz
+          take_part: Vegyél részt
         promoted_process:
           active_step: 'Aktuális lépés:'
-          more_info: Több információ
-          take_part: Részt vesz
+          more_info: További információ
+          take_part: Vegyél részt
       process_header:
         process_menu_item: A folyamat
-        unfold: kibontakozik
+        unfold: Kibont
       process_header_steps:
-        step: Lépés %{current} Az %{total}
-        view_steps: Tekintse meg a lépéseket
+        step: '%{current}. lépés ennyiből: %{total}'
+        view_steps: Lépések megtekintése
