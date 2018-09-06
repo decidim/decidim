@@ -57,29 +57,29 @@ fi:
         new_question: Uusi kysymys
         new_response: Uusi vastaus
         publish_results: Julkaise tulokset
-        unpublish_results: Poista tulosten julkistus
+        unpublish_results: Peru tulosten julkistus
       consultation_publications:
         create:
           error: Tämän kuulemisen julkaisussa tapahtui virhe.
           success: Kuuleminen julkaistu onnistuneesti.
         destroy:
-          error: Tämän kuulemisen julkaisun poistamisessa tapahtui virhe.
-          success: Kuulemisen julkaisu poistettu onnistuneesti.
+          error: Tämän kuulemisen julkaisun perumisessa tapahtui virhe.
+          success: Kuulemisen julkaisu peruttu onnistuneesti.
       consultation_results_publications:
         create:
           error: Virhe julkaistasessa tämän kuulemisen tuloksia.
           success: Kuulemisen tulokset julkaistiin onnistuneesti.
         destroy:
-          error: Virhe julkaisematta tuloksia tässä kuulemisessa.
-          success: Neuvottelutulokset julkaisemattomiksi onnistuneesti.
+          error: Virhe tämän kuulemisen tulosten julkaisun perumisessa.
+          success: Kuulemisen tulosten julkaisu peruttu onnistuneesti.
       consultations:
         create:
-          error: Virhe aiheutti uuden kuulemisen.
-          success: Kuuleminen onnistui.
+          error: Virhe uuden kuulemisen luonnissa.
+          success: Kuuleminen luotu onnistuneesti.
         destroy:
-          success: Kuuleminen poistettiin onnistuneesti.
+          success: Kuuleminen poistettu onnistuneesti.
         edit:
-          update: Päivittää
+          update: Päivitä
         form:
           slug_help: 'URL-osoittimia käytetään tuottamaan URL-osoitteita, jotka viittaavat tähän kuulemiseen. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
           title: Yleistä tietoa
@@ -87,125 +87,125 @@ fi:
           not_published: Ei julkaistu
           published: Julkaistu
         new:
-          create: Luoda
+          create: Luo
           title: Uusi kuuleminen
         update:
           error: Virhe päivitettäessä tätä kuulemista.
-          success: Kuuleminen päivitettiin onnistuneesti.
+          success: Kuuleminen päivitetty onnistuneesti.
       menu:
-        consultations: kuulemiset
+        consultations: Kuulemiset
         consultations_submenu:
           info: Tiedot
-          questions: kysymykset
+          questions: Kysymykset
         questions_submenu:
-          components: komponentit
-          consultation: kuuleminen
+          components: Komponentit
+          consultation: Kuuleminen
           info: Tiedot
           responses: Vastaukset
       models:
         consultation:
           fields:
-            created_at: Luotu osoitteessa
+            created_at: Luontiaika
             published: Julkaistu
-            title: otsikko
+            title: Otsikko
           name:
-            one: kuuleminen
-            other: kuulemiset
+            one: Kuuleminen
+            other: Kuulemiset
         question:
           fields:
-            created_at: Luotu osoitteessa
+            created_at: Luontiaika
             published: Julkaistu
-            title: otsikko
+            title: Otsikko
           name:
-            one: kysymys
-            other: kysymykset
+            one: Kysymys
+            other: Kysymykset
         response:
           fields:
-            created_at: Luotu osoitteessa
-            title: otsikko
+            created_at: Luontiaika
+            title: Otsikko
           name:
             one: Vastaus
             other: Vastaukset
       question_publications:
         create:
-          error: Virhe julkaistiin tämän kysymyksen.
-          success: Kysymys julkaistiin onnistuneesti.
+          error: Virhe julkaistaessa tätä kysymystä.
+          success: Kysymys julkaistu onnistuneesti.
         destroy:
-          error: Virhe julkaisematta tätä kysymystä.
-          success: Kysymys julkaisemattomana onnistuneesti.
+          error: Virhe tämän kysymyksen julkaisun perumisessa.
+          success: Kysymyksen julkaisu peruutettu onnistuneesti.
       questions:
         create:
           error: Uuden kysymyksen luomisessa tapahtui virhe.
-          success: Kysely onnistui.
+          success: Kysymys luotu onnistuneesti.
         destroy:
-          success: Kysely poistettiin onnistuneesti.
+          success: Kysely poistettu onnistuneesti.
         edit:
-          update: Päivittää
+          update: Päivitä
         form:
           title: Yleistä tietoa
         index:
           not_published: Ei julkaistu
           published: Julkaistu
         new:
-          create: Luoda
+          create: Luo
           title: Uusi kysymys
         update:
-          error: Päivitystyössä tapahtui virhe.
-          success: Kysymys on päivitetty onnistuneesti.
+          error: Tämän kysymyksen päivityksessä tapahtui virhe.
+          success: Kysymys päivitetty onnistuneesti.
       responses:
         create:
-          error: Uusi vaste syntyi virheestä.
-          success: Vastaus onnistuneesti luotu.
+          error: Uuden vastauksen luonnissa tapahtui virhe.
+          success: Vastaus luotu onnistuneesti.
         destroy:
-          error: Vastetta poistettaessa tapahtui virhe.
-          success: Vastaus poistettiin onnistuneesti.
+          error: Poistettaessa vastausta tapahtui virhe.
+          success: Vastaus poistettu onnistuneesti.
         edit:
-          update: Päivittää
+          update: Päivitä
         form:
           title: Yleistä tietoa
         new:
-          create: Luoda
+          create: Luo
           title: Uusi vastaus
         update:
           error: Tämän vastauksen päivittämisessä tapahtui virhe.
-          success: Vastaus päivitettiin onnistuneesti.
+          success: Vastaus päivitetty onnistuneesti.
       titles:
-        consultations: kuulemiset
-        questions: kysymykset
+        consultations: Kuulemiset
+        questions: Kysymykset
         responses: Vastaukset
     consultations:
       consultation:
-        start_voting_date: Äänestys alkaa
+        start_voting_date: Äänestyksen alkamisajankohta
         view_results: Näytä tulokset
       consultation_card:
         view_results: Näytä tulokset
       consultations:
         orders:
-          label: 'Lajittele neuvottelut:'
-          random: satunnainen
-          recent: Viimeisin
+          label: 'Lajittele kuulemiset:'
+          random: Sattumanvarainen järjestys
+          recent: Viimeisin ensin
       count:
         title:
           one: "%{count} kuuleminen"
-          other: "%{count} neuvottelut"
+          other: "%{count} kuulemista"
       filters:
-        active: aktiivinen
+        active: Aktiiviset
         all: Kaikki
         finished: Valmiit
         search: Hae
-        state: Osavaltio
-        upcoming: tuleva
+        state: Tila
+        upcoming: Tulevat
       filters_small_view:
         close_modal: Sulje ikkuna
-        filter: Suodattaa
+        filter: Suodata
         filter_by: Suodata
-        unfold: avautua
+        unfold: Avaa
       highlighted_questions:
-        title: Kysymykset %{scope_name}
+        title: Kysymykset teemasta %{scope_name}
       index:
-        title: kuulemiset
+        title: Kuulemiset
       question:
-        take_part: Ottaa osaa
+        take_part: Osallistu
         view_results: Näytä tulokset
         votes_out_of:
           one: ääni pois
