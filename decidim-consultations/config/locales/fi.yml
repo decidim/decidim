@@ -208,18 +208,18 @@ fi:
         take_part: Osallistu
         view_results: Näytä tulokset
         votes_out_of:
-          one: ääni pois
-          other: Äänestää
+          one: ääni yhteismäärästä
+          other: ääntä yhteismäärästä
       question_votes:
         create:
-          error: Kysymystä äänestäessä on ollut virheitä
+          error: Kysymystä äänestäessä tapahtui virheitä
       regular_questions:
-        title: Kysymyksiä tästä kuulemisesta
+        title: Tätä kuulemista koskevat kysymykset
       show:
         badge_name:
           finished: Valmiit
-          open: Avata
-          open_votes: Avaa ääniä
+          open: Avoimet
+          open_votes: Äänestys avoinna
           published_results: Tulokset julkaistu
         footer_button_text:
           debate: Keskustelu
