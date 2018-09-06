@@ -278,10 +278,10 @@ hu:
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok importálásakor
-            success: "%{number} pályázat importált sikeresen"
+            success: "%{number} javaslat sikeresen importálva"
           new:
-            create: Importálási javaslatok
-            no_components: Ebben a részvételi térben nincs más javaslatösszetevő a jelentések importálásához.
+            create: Javaslatok importálása
+            no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
             select_component: Kérjük, válasszon egy összetevőt
             select_states: Ellenőrizze a behozandó javaslatok állapotát
         shared:
