@@ -4,30 +4,30 @@ hu:
       participatory_process:
         announcement: Közlemény
         banner_image: Banner kép
-        copy_categories: Másolási kategóriák
-        copy_components: Másoljon komponenseket
-        copy_steps: Másolási lépések
+        copy_categories: Kategóriák másolása
+        copy_components: Elemek másolása
+        copy_steps: Lépések másolása
         description: Leírás
         developer_group: Promóciós csoport
         domain: Domain
         end_date: Befejezés dátuma
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
-        local_area: Szervezeti terület
-        meta_scope: Hatály metaadatok
-        participatory_process_group_id: Folyamatok csoportja
+        local_area: Szervezet területe
+        meta_scope: Metaadatok hatásköre
+        participatory_process_group_id: Folyamat csoport
         participatory_scope: Mi a döntés
-        participatory_structure: Hogyan döntenek?
-        promoted: promotált
-        published_at: Megjelent a
-        scope_id: terület
-        scopes_enabled: A hatókör engedélyezett
+        participatory_structure: Hogyan döntenek
+        promoted: Támogatott
+        published_at: Közzétéve
+        scope_id: Hatáskör
+        scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
         show_statistics: Statisztikák megjelenítése
         slug: URL slug
         start_date: Kezdő dátum
         subtitle: Felirat
-        target: Ki részt vesz
+        target: Ki vesz részt benne
         title: Cím
       participatory_process_group:
         description: Leírás
@@ -46,7 +46,7 @@ hu:
         role: Szerep
     models:
       decidim/participatory_process_step_activated_event: Lépés aktiválva
-      decidim/participatory_process_step_changed_event: A lépés megváltozott
+      decidim/participatory_process_step_changed_event: Lépés megváltozott
   activerecord:
     models:
       decidim/participatory_process:
