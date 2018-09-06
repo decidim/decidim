@@ -3,33 +3,33 @@ fi:
     attributes:
       consultation:
         banner_image: Bannerikuva
-        decidim_highlighted_scope_id: Korostettu soveltamisala
+        decidim_highlighted_scope_id: Korostettu teema
         description: Kuvaus
         end_voting_date: Äänestys päättyy
-        introductory_image: Alustava kuva
-        introductory_video_url: Alkuperäisen videon URL-osoite
-        questions: kysymykset
-        slug: URL-linkki
+        introductory_image: Esittelykuva
+        introductory_video_url: Esittelyvideon URL-osoite
+        questions: Kysymykset
+        slug: URL-tunniste
         start_voting_date: Äänestys alkaa
-        subtitle: alaotsikko
-        title: otsikko
+        subtitle: Alaotsikko
+        title: Otsikko
       question:
         banner_image: Bannerikuva
         decidim_scope_id: Kunnan alue
         hashtag: Hashtag
-        hero_image: Etusivukuva
+        hero_image: Etusivun kuva
         i_frame_url: Ulkopuolisen äänestysjärjestelmän URL-osoite
-        origin_scope: laajuus
-        origin_title: alkuperä
-        origin_url: Alkuperä-URL
-        participatory_scope: Osallistuminen
-        promoter_group: Promoottoriryhmä
-        question_context: konteksti
+        origin_scope: Teema
+        origin_title: Alkuperä
+        origin_url: Alkuperän URL-osoite
+        participatory_scope: Osallistumisen teema
+        promoter_group: Suositteluryhmä
+        question_context: Konteksti
         reference: Viite
         scope: Kunnan alue
-        slug: URL-linkki
-        subtitle: alaotsikko
-        title: otsikko
+        slug: URL-tunniste
+        subtitle: Alaotsikko
+        title: Otsikko
         vote: Ulkoinen äänestysjärjestelmä
         what_is_decided: Mitä päätetään
     errors:
@@ -39,36 +39,36 @@ fi:
   activerecord:
     models:
       decidim/consultations:
-        one: kuuleminen
-        other: kuulemiset
+        one: Kuuleminen
+        other: Kuulemiset
       decidim/consultations/question:
-        one: kysymys
-        other: kysymykset
+        one: Kysymys
+        other: Kysymykset
       decidim/consultations/response:
         one: Vastaus
         other: Vastaukset
       decidim/consultations/vote:
-        one: Äänestys
-        other: ääntä
+        one: Ääni
+        other: Äänet
   decidim:
     admin:
       actions:
         new_consultation: Uusi kuuleminen
         new_question: Uusi kysymys
         new_response: Uusi vastaus
-        publish_results: Julkaise tuloksia
-        unpublish_results: Julkaisematta tuloksia
+        publish_results: Julkaise tulokset
+        unpublish_results: Poista tulosten julkistus
       consultation_publications:
         create:
-          error: Tämä kuuleminen julkaistiin virheellä.
-          success: Kuuleminen julkaistiin onnistuneesti.
+          error: Tämän kuulemisen julkaisussa tapahtui virhe.
+          success: Kuuleminen julkaistu onnistuneesti.
         destroy:
-          error: Virhe julkaisematta tämän kuulemisen.
-          success: Neuvottelu ei julkaistu onnistuneesti.
+          error: Tämän kuulemisen julkaisun poistamisessa tapahtui virhe.
+          success: Kuulemisen julkaisu poistettu onnistuneesti.
       consultation_results_publications:
         create:
-          error: Virhe julkaistiin tämän kuulemisen tulokset.
-          success: Kuulemistulokset julkaistiin onnistuneesti.
+          error: Virhe julkaistasessa tämän kuulemisen tuloksia.
+          success: Kuulemisen tulokset julkaistiin onnistuneesti.
         destroy:
           error: Virhe julkaisematta tuloksia tässä kuulemisessa.
           success: Neuvottelutulokset julkaisemattomiksi onnistuneesti.
