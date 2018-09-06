@@ -49,7 +49,7 @@ module Decidim
 
     def flagable?
       return unless from_context
-      return unless proposals_controller?
+      return unless proposals_controller? || debates_controller?
       return if index_action?
       return if from_context.official?
       true
@@ -84,6 +84,10 @@ module Decidim
 
     def proposals_controller?
       context[:controller].class.to_s == "Decidim::Proposals::ProposalsController"
+    end
+
+    def debates_controller?
+      context[:controller].class.to_s == "Decidim::Debates::DebatesController"
     end
 
     def posts_controller?

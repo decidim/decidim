@@ -1,0 +1,77 @@
+hu:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Új blogbejegyzés
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: posta
+        other: Hozzászólások
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Biztos benne, hogy törli ezt a bejegyzést?
+        destroy: Töröl
+        edit: szerkesztése
+        new: Új
+        title: Hozzászólások
+      admin:
+        models:
+          components:
+            body: Test
+          post:
+            name: posta
+        posts:
+          create:
+            invalid: Probléma történt a bejegyzés létrehozásában
+            success: A bejegyzés sikeresen létrehozva
+          destroy:
+            success: A bejegyzés sikeresen törölve
+          edit:
+            save: frissítés
+          index:
+            title: Hozzászólások
+          new:
+            create: Teremt
+            title: Hozzon létre üzenetet
+          update:
+            invalid: Hiba történt a bejegyzés mentésekor.
+            success: A bejegyzés sikeresen elmentve
+      models:
+        post:
+          fields:
+            author: Szerző
+            body: Test
+            created_at: 'Létrehozva:'
+            title: cím
+      posts:
+        show:
+          view: Kilátás
+        sidebar_blog:
+          comments: Hozzászólások
+          most_commented_posts: A legtöbb hozzászólás
+      read_more: Olvass tovább
+    components:
+      blogs:
+        name: blog
+        settings:
+          global:
+            announcement: Közlemény
+            comments_enabled: Megjegyzések engedélyezve
+          step:
+            announcement: Közlemény
+            comments_blocked: Megjegyzések letiltva
+    events:
+      blogs:
+        post_created:
+          email_intro: A "%{resource_title}" bejegyzés az "%{participatory_space_title}" -ben jelent meg, amelyet követ.
+          email_outro: Ezt az értesítést megkapta, mert a "%{participatory_space_title}" -t követi. Leiratkozhat az előző linkről.
+          email_subject: 'Új hozzászólás közzétett száma: %{participatory_space_title}'
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> hozzászólást a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Hozzászólások
+    participatory_processes:
+      statistics:
+        posts_count: Hozzászólások

@@ -108,8 +108,8 @@ nl:
         participatory_structure: Participatieve structuur
         promoted: Bevorderd
         scope: Reikwijdte
-        short_description: Korte beschrijving
-        slug: URL slak
+        short_description: Korte omschrijving
+        slug: URL slug
         start_date: Startdatum
         subtitle: Ondertiteling
         target: Doel

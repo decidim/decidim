@@ -40,7 +40,7 @@ pt-BR:
       id_documents:
         explanation: Carregue seus documentos de identidade para que possamos verificar sua identidade
         name: Documentos de identidade
-      multistep: Várias Etapas
+      multistep: Múltiplas etapas
       name: Nome
       postal_letter:
         explanation: Nós lhe enviaremos uma carta postal com um código que você terá que inserir para que possamos verificar seu endereço

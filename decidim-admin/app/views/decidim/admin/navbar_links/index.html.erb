@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" id="navbar_links">
   <div class="card-divider">
     <h2 class="card-title">
         <%= t "decidim.admin.titles.navbar_links" %> <%= link_to t("actions.add", scope: "decidim.admin"), new_navbar_link_path, class: "button tiny button--title" %>
@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           <% @navbar_links.each do |navbar_link| %>
-            <tr>
+            <tr id="<%= "navbar_link_#{navbar_link.id}" %>">
               <td>
                 <%= translated_attribute(navbar_link.title) %>
               </td>

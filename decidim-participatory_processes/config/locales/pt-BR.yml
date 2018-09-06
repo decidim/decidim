@@ -5,7 +5,7 @@ pt-BR:
       participatory_process:
         announcement: Anúncio
         banner_image: Imagem da bandeira
-        copy_categories: Cópiar categorias
+        copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_steps: Copie etapas
         description: Descrição
@@ -14,7 +14,7 @@ pt-BR:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área Local
+        local_area: Áreas municipais
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
         participatory_scope: Âmbito participativo
@@ -23,8 +23,8 @@ pt-BR:
         published_at: Publicado em
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
-        short_description: Pequena descrição
-        show_statistics: Mostre estatisticas
+        short_description: Descrição curta
+        show_statistics: Mostrar estatísticas
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
@@ -82,7 +82,7 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Info
+          info: Informações
           moderations: Moderação
           private_users: Usuários privados
           process_admins: Processar usuários
@@ -108,7 +108,7 @@ pt-BR:
           name: Etapa do processo participativo
         participatory_process_user_role:
           fields:
-            email: O email
+            email: Endereço de e-mail
             name: Nome
             role: Cargo
           name: Usuário do processo participativo
@@ -127,7 +127,7 @@ pt-BR:
           title: Duplicar processo participativo
       participatory_process_groups:
         destroy:
-          success: Grupo de processo participativo destruído com sucesso.
+          success: Grupo de processo participativo excluído com sucesso.
         edit:
           title: Editar grupo de processos
           update: Atualizar
@@ -157,7 +157,7 @@ pt-BR:
           error:
             active_step: Não é possível excluir a etapa ativa.
             last_step: Não é possível excluir o último passo de um processo.
-          success: Etapa do processo participativo destruída com sucesso.
+          success: Etapa do processo participativo excluída com sucesso.
         edit:
           title: Edite o passo do processo participativo
           update: Atualizar
@@ -176,7 +176,7 @@ pt-BR:
           error: Ocorreu um erro ao adicionar um usuário para esse processo participativo.
           success: Usuário criado com sucesso para este processo participativo.
         destroy:
-          success: O usuário foi destruído com sucesso para este processo participativo.
+          success: O usuário foi excluído com sucesso para este processo participativo.
         edit:
           title: Atualize o usuário do processo participativo.
           update: Atualizar
@@ -193,7 +193,7 @@ pt-BR:
           error: Ocorreu um erro ao criar um novo processo participativo.
           success: Processo participativo criado com sucesso. Configure agora seus passos.
         destroy:
-          success: Processo participativo destruído com sucesso.
+          success: Processo participativo excluído com sucesso.
         edit:
           update: Atualizar
         form:
@@ -319,7 +319,7 @@ pt-BR:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Squeaky toy
+          browse: Navegar
           processes_count: 'Processos:'
       participatory_process_widgets:
         show:

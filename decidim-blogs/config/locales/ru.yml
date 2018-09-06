@@ -13,7 +13,7 @@ ru:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Вы действительно хотите удалить этот проект?
+        confirm_destroy: Вы действительно хотите удалить этот пост?
         destroy: Удалить
         edit: Редактировать
         new: Добавить

@@ -9,7 +9,7 @@
     <%== translated_attribute debate.title %>
   </h2>
 
-  <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, context: {extra_classes: ["author-data--small"]} %>
+  <%= cell "decidim/author", present(@debate).author, from: @debate, context: {extra_classes: ["author-data--small"]} %>
 
 </div>
 <div class="row">

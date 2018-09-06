@@ -12,6 +12,10 @@ module Decidim
 
       helper_method :debates, :debate, :paginated_debates, :report_form
 
+      def show
+        debate
+      end
+
       def new
         enforce_permission_to :create, :debate
 
@@ -44,7 +48,7 @@ module Decidim
       end
 
       def debates
-        @debates ||= search.results
+        @debates ||= search.results.not_hidden
       end
 
       def debate

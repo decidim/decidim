@@ -19,11 +19,11 @@ pt-BR:
       actions:
         attachment_collections: Coleções
         attachments: Anexos
-        confirm_destroy: Tem certeza de que deseja excluir esse projeto?
+        confirm_destroy: Deseja mesmo excluir este projeto?
         destroy: Excluir
         edit: Editar
         new: Novo
-        preview: Visualização
+        preview: Pré-visualização
         title: Ações
       admin:
         models:
@@ -34,7 +34,7 @@ pt-BR:
             invalid: Tem havido um problema ao criar este projeto
             success: Projeto criado com sucesso
           destroy:
-            success: Projeto destruído com sucesso
+            success: Projeto excluído com sucesso
           edit:
             title: Editar projeto
             update: Atualizar
@@ -46,7 +46,7 @@ pt-BR:
             create: Criar
             title: Novo resultado
           update:
-            invalid: Ocorreu um problema ao atualizar este projeto
+            invalid: Houve um problema ao atualizar este projeto
             success: Projeto atualizado com sucesso
       admin_log:
         project:
@@ -70,7 +70,7 @@ pt-BR:
           ok: OK
           title: O orçamento máximo excedeu
         budget_summary:
-          are_you_sure: Tem certeza de que deseja cancelar o seu voto?
+          are_you_sure: Deseja mesmo cancelar o seu voto?
           assigned: 'Atribuído:'
           cancel_order: exclua seu voto e comece de novo
           checked_out:
@@ -110,7 +110,7 @@ pt-BR:
           add: Adicionar
           added: Adicionado
         show:
-          budget: Despesas
+          budget: Orçamento
           view_all_projects: Ver todos os projetos
     components:
       budgets:

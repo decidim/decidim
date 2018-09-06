@@ -13,15 +13,15 @@ fi:
         survey_answer:
           attributes:
             choices:
-              missing: eivät ole täydellisiä
+              missing: ovat puutteelliset
               too_many: ovat liian monta
     models:
-      decidim/surveys/closed_survey_event: Tutkimus päättyi
-      decidim/surveys/opened_survey_event: Tutkimus alkoi
+      decidim/surveys/closed_survey_event: Kysely päättyi
+      decidim/surveys/opened_survey_event: Kysely alkoi
   activerecord:
     models:
       decidim/surveys/survey:
-        one: tutkimus
+        one: Kysely
         other: tutkimukset
       decidim/surveys/survey_answer:
         one: Vastaus
@@ -31,18 +31,18 @@ fi:
       surveys:
         actions:
           answer: Vastaus
-        name: tutkimus
+        name: Kysely
         settings:
           global:
             announcement: Ilmoitus
           step:
-            allow_answers: Anna vastauksia
+            allow_answers: Salli vastaukset
             announcement: Ilmoitus
     events:
       surveys:
         survey_closed:
           email_intro: Kysely %{resource_title} %{participatory_space_title} on suljettu.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen seuraamalla edellä olevaa linkkiä.
           email_subject: Kysely on päättynyt %{participatory_space_title}
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päättynyt.
         survey_opened:
@@ -65,7 +65,7 @@ fi:
         surveys:
           answer_option:
             answer_option: Vastausvaihtoehto
-            free_text: Ilmainen teksti
+            free_text: Vapaa teksti
             remove: Poistaa
             statement: Kysymysasettelu
           edit:

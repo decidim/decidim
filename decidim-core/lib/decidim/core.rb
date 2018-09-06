@@ -88,7 +88,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es es-PY eu fi fr gl it nl pt pt-BR ru sv uk)
+    %w(en ca es es-PY eu fi fr gl hu it nl pt pt-BR ru sv uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -145,6 +145,11 @@ module Decidim
 
       [ref, class_identifier, year_month, resource.id].join("-")
     end
+  end
+
+  # Exposes a configuration option: the first_login_authorization boolean
+  config_accessor :skip_first_login_authorization do
+    false
   end
 
   # Exposes a configuration option: the currency unit

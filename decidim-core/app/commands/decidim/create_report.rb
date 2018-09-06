@@ -29,11 +29,11 @@ module Decidim
         update_report_count!
       end
 
-      send_report_notification_to_admins
+      send_report_notification_to_moderators
 
       if hideable?
         hide!
-        send_hide_notification_to_admins
+        send_hide_notification_to_moderators
       end
 
       broadcast(:ok, report)
@@ -60,13 +60,13 @@ module Decidim
       @moderation.update!(report_count: @moderation.report_count + 1)
     end
 
-    def participatory_space_admins
-      @participatory_space_admins ||= participatory_space.admins
+    def participatory_space_moderators
+      @participatory_space_moderators ||= participatory_space.moderators
     end
 
-    def send_report_notification_to_admins
-      participatory_space_admins.each do |admin|
-        ReportedMailer.report(admin, @report).deliver_later
+    def send_report_notification_to_moderators
+      participatory_space_moderators.each do |moderator|
+        ReportedMailer.report(moderator, @report).deliver_later
       end
     end
 
@@ -78,9 +78,9 @@ module Decidim
       Decidim::Admin::HideResource.new(@reportable, @current_user).call
     end
 
-    def send_hide_notification_to_admins
-      participatory_space_admins.each do |admin|
-        ReportedMailer.hide(admin, @report).deliver_later
+    def send_hide_notification_to_moderators
+      participatory_space_moderators.each do |moderator|
+        ReportedMailer.hide(moderator, @report).deliver_later
       end
     end
 

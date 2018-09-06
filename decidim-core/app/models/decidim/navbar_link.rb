@@ -9,7 +9,7 @@ module Decidim
 
     def validate_link_regex
       link = URI.parse(self.link)
-      link.host.nil?
+      link&.host
     rescue URI::InvalidURIError
       errors.add(:link)
     end

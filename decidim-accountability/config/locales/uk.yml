@@ -4,12 +4,12 @@ uk:
     attributes:
       result:
         decidim_accountability_status_id: Стан
-        decidim_category_id: Розряд
+        decidim_category_id: Категорія
         decidim_scope_id: Обсяг
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
-        project_ids: Включені задуми
+        project_ids: Включені проекти
         proposals: Включені пропозиції
         start_date: Дата початку
         title: Назва
@@ -17,7 +17,7 @@ uk:
       status:
         description: Опис
         key: Ключ
-        name: Назва
+        name: Ім'я
         progress: Перебіг
       timeline_entry:
         description: Опис
@@ -39,7 +39,7 @@ uk:
         edit: Редагувати
         new: Додати %{name}
         preview: Попередній перегляд
-        timeline_entries: Розвиток задуму
+        timeline_entries: Розвиток проекту
         title: Дії
       admin:
         exports:
@@ -104,7 +104,7 @@ uk:
             title: Редагувати запис
             update: Оновити запис
           index:
-            title: Записи на лінії часу задуму
+            title: Записи на лінії часу проекту
           new:
             create: Створити запис
             title: Додати запис
@@ -148,8 +148,8 @@ uk:
           all: Усі
           scopes: Обсяги
         home:
-          categories_label: Розряди
-          subcategories_label: Підрозряди
+          categories_label: Категорії
+          subcategories_label: Підкатегорії
         home_header:
           global_status: Загальний стан виконання
         nav_breadcrumb:
@@ -171,10 +171,10 @@ uk:
             version_author: Автор версії
             version_created_at: 'Версію створено:'
             version_number: Номер версії
-            version_number_out_of_total: "%{current_version}-й крок з %{total_count} кроків"
+            version_number_out_of_total: "%{current_version} з %{total_count}"
             votes: Підтримує
         timeline:
-          title: Розвиток задуму
+          title: Розвиток проекту
       versions:
         index:
           changes_at_title: Зміни в "%{title}"
@@ -188,13 +188,13 @@ uk:
         name: Звітність
         settings:
           global:
-            categories_label: Назва для "Розряди"
+            categories_label: Назва для "Категорії"
             comments_enabled: Коментарі увімкнено
             display_progress_enabled: Показувати перебіг
-            heading_leaf_level_results: Назва для "Задуми"
+            heading_leaf_level_results: Назва для "Проекти"
             heading_parent_level_results: Назва для "Підсумки"
             intro: Вступ
-            subcategories_label: Назва для "Підрозряди"
+            subcategories_label: Назва для "Підкатегорії"
           step:
             comments_blocked: Коментарі вимкнено
     events:
@@ -214,6 +214,6 @@ uk:
         see_all_results: Переглянути всі підсумки
     resource_links:
       included_projects:
-        result_project: Задуми, включені до цих підсумків
+        result_project: Проекти, включені до цих підсумків
       included_proposals:
         result_proposal: Пропозиції, включені до цих підсумків

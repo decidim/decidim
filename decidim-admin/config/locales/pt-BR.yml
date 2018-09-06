@@ -35,7 +35,7 @@ pt-BR:
         organization_logo: Logotipo da organização (quadrado)
         organization_name: Nome da organização
         organization_url: URL da organização
-        redirect_uri: URI de redirecionamento
+        redirect_uri: Redirecionar URI
       organization:
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
@@ -53,7 +53,7 @@ pt-BR:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Descrição curta
         highlighted_content_banner_title: Título
-        homepage_image: Imagem do site inicial
+        homepage_image: Imagem da página inicial
         instagram_handler: Instagram handler
         logo: Logotipo
         name: Nome
@@ -65,7 +65,7 @@ pt-BR:
         omnipresent_banner_url: URL
         reference_prefix: Prefixo de referência
         show_statistics: Exibir estatisticas
-        tos_version: Termos de versão do serviço
+        tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
         welcome_text: Texto de boas-vindas
         youtube_handler: Manipulador do YouTube
@@ -75,7 +75,7 @@ pt-BR:
         organization: Organização
         parent_id: Pai
         scope_type: Tipo de âmbito
-        scope_type_id: Tipo de escopo
+        scope_type_id: Tipo de âmbito
       scope_type:
         name: Nome
         organization: Organização
@@ -99,10 +99,10 @@ pt-BR:
         description: Descrição
         developer_group: Grupo de desenvolvedores
         domain: Domínio
-        end_date: Data de fim
+        end_date: Data final
         hashtag: Hashtag
-        hero_image: Imagem da página principal
-        local_area: Área municipal
+        hero_image: Imagem inicial
+        local_area: Áreas municipais
         meta_scope: Metadados do âmbito
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
@@ -132,7 +132,7 @@ pt-BR:
         client_secret: Segredo do cliente
         organization_name: Nome da organização
         organization_url: URL da organização
-        redirect_uri: URI de redirecionamento
+        redirect_uri: Redirecionar URI
         site: Local
   date:
     formats:
@@ -145,14 +145,14 @@ pt-BR:
         export: Exportar
         manage: Gerir
         permissions: Permissões
-        reject: Rejeitar
+        reject: Negar
         verify: Verificar
       area_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de área.
           success: Tipo de área criado com sucesso.
         destroy:
-          success: Tipo de área destruído com sucesso
+          success: Tipo de área excluído com sucesso
         edit:
           title: Editar tipo de área
           update: Atualizar
@@ -167,7 +167,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
-          success: Área destruída com sucesso
+          success: Área excluída com sucesso
         edit:
           title: Editar área
           update: Atualizar
@@ -183,7 +183,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova coleção.
           success: Coleção criada com sucesso.
         destroy:
-          success: Coleção destruída com sucesso.
+          success: Coleção excluída com sucesso.
         edit:
           title: Editar coleção
           update: Atualizar
@@ -201,7 +201,7 @@ pt-BR:
           error: Ocorreu um erro ao criar um novo anexo.
           success: Anexo criado com sucesso.
         destroy:
-          success: Anexo apagado com sucesso.
+          success: Anexo excluído com sucesso.
         edit:
           title: Editar anexo
           update: Atualizar
@@ -222,13 +222,13 @@ pt-BR:
           success: Categoria criada com sucesso.
         destroy:
           error: Ocorreu um erro ao apagar esta categoria. Por favor apague qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
-          success: Categoria apagada com sucesso.
+          success: Categoria excluída com sucesso.
         edit:
           title: Editar categoria
           update: Atualizar
         index:
           categories_title: Categorias
-          category_used: Esta categoria não pode ser apagada porque está a ser usada.
+          category_used: Esta categoria não pode ser removida porque está em uso.
         new:
           create: Criar categoria
           title: Nova categoria
@@ -275,7 +275,7 @@ pt-BR:
           success: O componente foi atualizado com sucesso.
       dashboard:
         show:
-          view_more_logs: Ver mais logs
+          view_more_logs: Ver mais registros
           welcome: Bem-vindo ao Decidim Admin Panel.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -295,7 +295,7 @@ pt-BR:
           not_managed: Não gerenciado
           promote: Promover
           search: Buscar
-          status: Estado
+          status: Status
           view_logs: Ver registros
       impersonations:
         close_session:
@@ -420,7 +420,7 @@ pt-BR:
             roles:
               admin: Admin
               user_manager: Gerente de usuário
-          name: Do utilizador
+          name: Usuário
         user_group:
           fields:
             actions: Ações
@@ -469,20 +469,20 @@ pt-BR:
           success: Newsletter entregue com sucesso.
         destroy:
           error_already_sent: 'Não é possível destruir a newsletter: já foi enviada.'
-          success: Newsletter destruída com sucesso.
+          success: Newsletter excluída com sucesso.
         edit:
           save_and_preview: Salvar e visualizar
           title: Editar boletim
         form:
           interpolations_hint: 'Dica: você pode usar "%{name}" em qualquer parte do corpo ou assunto e será substituído pelo nome do destinatário.'
         index:
-          confirm_delete: Tem certeza de que deseja excluir esta newsletter?
+          confirm_delete: Deseja mesmo excluir esta newsletter?
           title: Newsletters
         new:
           save: Salvar
           title: Novo boletim informativo
         show:
-          confirm_deliver: Tem certeza de que deseja enviar este boletim informativo? Essa ação não pode ser desfeita.
+          confirm_deliver: Deseja mesmo enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
           preview: Pré-visualização
           subject: Sujeito
@@ -495,12 +495,12 @@ pt-BR:
           success: Aplicativo criado com sucesso.
         destroy:
           error: Houve um erro ao destruir este aplicativo.
-          success: Aplicativo destruído com sucesso.
+          success: Aplicativo excluído com sucesso.
         edit:
           save: Salvar
           title: Editar aplicativo
         index:
-          confirm_delete: Tem certeza de que deseja excluir este aplicativo?
+          confirm_delete: Deseja mesmo excluir este aplicativo?
           title: Aplicações OAuth
         new:
           save: Salvar
@@ -529,7 +529,7 @@ pt-BR:
           officialized: Oficializado
           reofficialize: Reorientar
           search: Pesquisa
-          status: Situação
+          status: Status
           unofficialize: Não oficializar
         new:
           badge: Emblema de oficialização
@@ -560,13 +560,13 @@ pt-BR:
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
           layout_appearance_title: Editar aparência do layout
-          omnipresent_banner_appearance_title: Editar omnipresente
+          omnipresent_banner_appearance_title: Editar banner geral
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
           success: Espaço participativo acesso de usuário privado criado com sucesso.
         destroy:
-          success: Espaço participativo acesso de usuário privado destruído com sucesso.
+          success: Espaço participativo acesso de usuário privado excluído com sucesso.
         index:
           title: Espaço participativo usuário particular
         new:
@@ -577,7 +577,7 @@ pt-BR:
           error: Ocorreu um erro ao criar um novo tipo de âmbito.
           success: Tipo de âmbito criado com sucesso.
         destroy:
-          success: Tipo de âmbito destruído com sucesso
+          success: Tipo de âmbito excluído com sucesso
         edit:
           title: Editar tipo de âmbito
           update: Atualizar
@@ -585,23 +585,23 @@ pt-BR:
           create: Criar tipo de âmbito
           title: Novo âmbito
         update:
-          error: Ocorreu um erro ao atualizar esse tipo de âmbito.
+          error: Ocorreu um erro ao atualizar este tipo de âmbito.
           success: Tipo de âmbito atualizado com sucesso
       scopes:
         create:
           error: Ocorreu um erro ao criar um novo âmbito.
           success: Âmbito criado com sucesso.
         destroy:
-          success: Âmbito destruído com sucesso
+          success: Âmbito excluído com sucesso
         edit:
-          title: Editar o âmbito
+          title: Editar âmbito
           update: Atualizar
         new:
           create: Criar âmbito
           title: Novo âmbito
         no_scopes: Nenhum âmbito neste nível.
         update:
-          error: Ocorreu um erro ao atualizar esse âmbito.
+          error: Ocorreu um erro ao atualizar este âmbito.
           success: Âmbito atualizado com sucesso
       static_pages:
         actions:
@@ -610,7 +610,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova página.
           success: Página criada com sucesso.
         destroy:
-          success: Página destruída com sucesso
+          success: Página excluída com sucesso
         edit:
           changed_notably_help: Se marcado, os usuários serão notificados para aceitar os novos termos e condições.
           title: Editar página
@@ -683,7 +683,7 @@ pt-BR:
         hide: Ocultar
         not_hidden: Não oculto
         title: Ações
-        unreport: Unreport
+        unreport: Anular denúncia
       admin:
         reportable:
           hide:
@@ -699,7 +699,7 @@ pt-BR:
             report_count: Contagem
             reportable: Reportable
             reported_content_url: URL de conteúdo relatado
-            reports: Relatórios
+            reports: Denúncias
             visit_url: URL de visita
   errors:
     messages:
@@ -708,11 +708,11 @@ pt-BR:
     decidim:
       admin:
         newsletters:
-          title: boletins informativos
+          title: Boletins informativos
         settings:
           title: Configurações
         users:
-          title: Utilizadores
+          title: Usuários
   time:
     formats:
       datepicker: "%d/%m/%Y"

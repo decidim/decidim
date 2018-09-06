@@ -238,7 +238,7 @@ fr:
         evaluating: En cours d'évaluation
         not_answered: En attente de réponse
         rejected: Non retenue
-        withdrawn: Retirée
+        withdrawn: Retirée par son auteur
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.

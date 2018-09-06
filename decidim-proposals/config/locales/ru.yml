@@ -6,11 +6,11 @@ ru:
         answer: Ответить
         answered_at: 'Получен ответ:'
         body: Основной текст
-        category_id: Разряд
+        category_id: Категория
         has_address: Имеет адрес
         scope_id: Охват
         state: Cостояние
-        title: Название
+        title: Заголовок
         user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
@@ -25,7 +25,7 @@ ru:
               needs_to_be_reattached: Необходимо заново прикрепить
     models:
       decidim/proposals/accepted_proposal_event: Предложение принято
-      decidim/proposals/admin/update_proposal_category_event: Разряд предложения изменен
+      decidim/proposals/admin/update_proposal_category_event: Категория предложения изменена
       decidim/proposals/creation_enabled_event: Включена возможность создания предложений
       decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
       decidim/proposals/evaluating_proposal_event: Предложение сейчас рассматривается
@@ -146,10 +146,10 @@ ru:
           email_subject: Предложение, за которым вы следите, было отклонено
           notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было отклонено.
         proposal_update_category:
-          email_intro: 'Администратор обновил разряд вашего предложения «%{resource_title}», проверьте его:'
+          email_intro: 'Администратор обновил категорию вашего предложения «%{resource_title}», проверьте её:'
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
-          email_subject: Обновлен разряд предложений %{resource_title}
-          notification_title: Разряд предложений <a href="%{resource_path}">%{resource_title}</a> был обновлен ​​администратором.
+          email_subject: Обновлена категория предложений %{resource_title}
+          notification_title: Категория предложений <a href="%{resource_path}">%{resource_title}</a> была обновлена ​​администратором.
         voting_enabled:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -204,11 +204,11 @@ ru:
             success: Предложение успешно создано
           form:
             attachment_legend: "(Необязательно) Прикрепить файл"
-            select_a_category: Выберите разряд
+            select_a_category: Выберите категорию
           index:
             actions: Действия
             cancel: Отменить
-            change_category: Изменить разряд
+            change_category: Изменить категорию
             selected: выбранные
             title: Предложения
             update: Обновить
@@ -216,10 +216,10 @@ ru:
             create: Внести
             title: Создать предложение
           update_category:
-            invalid: 'Эти предложения уже относились к разряду %{category}: %{proposals}.'
-            select_a_category: Пожалуйста, выберите разряд
+            invalid: 'Эти предложения уже относились к категории %{category}: %{proposals}.'
+            select_a_category: Пожалуйста, выберите категорию
             select_a_proposal: Пожалуйста, выберите предложение
-            success: 'Предложения успешно перенесены в разряд %{category}: %{proposals}.'
+            success: 'Предложения успешно перенесены в категорию %{category}: %{proposals}.'
         proposals_imports:
           create:
             invalid: При попытке позаимствовать эти предложения произошла ошибка
@@ -256,7 +256,7 @@ ru:
       models:
         proposal:
           fields:
-            category: Разряд
+            category: Категория
             comments: Комментарии
             created_at: 'Создано:'
             endorsements: Выражения поддержки
@@ -265,7 +265,7 @@ ru:
             official_proposal: Служебное предложение
             scope: Охват
             state: Cостояние
-            title: Название
+            title: Заголовок
             votes: Голоса
       new:
         limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
@@ -289,7 +289,7 @@ ru:
           title: Похожие предложения
         complete:
           attachment_legend: "(Необязательно) Прикрепить файл"
-          select_a_category: Пожалуйста, выберите разряд
+          select_a_category: Пожалуйста, выберите категорию
           send: Отправить
           title: Завершите свое предложение
         count:
@@ -300,7 +300,7 @@ ru:
             other: "%{count} предложений"
         edit:
           back: Вернуться
-          select_a_category: Пожалуйста, выберите разряд
+          select_a_category: Пожалуйста, выберите категорию
           send: Отправить
           title: Редактировать предложение
         edit_draft:
@@ -317,8 +317,8 @@ ru:
           accepted: Принято
           activity: Деятельность
           all: Все
-          category: Разряд
-          category_prompt: Выберите разряд
+          category: Категория
+          category_prompt: Выберите категорию
           citizens: Граждане
           evaluating: Рассматривается
           except_rejected: Все, кроме отклоненных

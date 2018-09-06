@@ -289,7 +289,7 @@ pl:
           title: Podobne propozycje
         complete:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
-          select_a_category: Proszę wybierz kategorie
+          select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Uzupełnij swoją propozycję
         count:
