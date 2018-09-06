@@ -181,38 +181,38 @@ fi:
       admin_states:
         accepted: Hyväksytty
         created: Luotu
-        discarded: Käytöstä poistetut
+        discarded: Hylätty
         published: Julkaistu
-        rejected: hylätty
-        validating: Tekninen validointi
+        rejected: Torjuttu
+        validating: Teknisessä validoinnissa
       committee_requests:
         new:
-          continue: Jatkaa
-          help_text: Oletko pyytämässä jäseneksi tämän aloitteentekijän komiteaa
+          continue: Jatka
+          help_text: Olet hakemassa jäsenyyttä tämän aloitteen tukikomiteasta
         spawn:
-          success: Pyyntösi on lähetetty aloitteen tekijälle.
+          success: Hakemuksesi on lähetetty aloitteen laatijalle.
       content_blocks:
         highlighted_initiatives:
           name: Korostetut aloitteet
       create_initiative:
         fill_data:
           back: Takaisin
-          continue: Jatkaa
-          fill_data_help: "<ul> <li>Tarkenna aloitteen sisältöä. Onko sinun nimesi helppo ymmärtää? Onko aloitteenne tavoite selkeä?</li> <li>Sinun on valittava allekirjoitustyyppi. Henkilökohtaisesti, verkossa tai molempien</li> <li>yhdistelmällä Mikä on aloitteen maantieteellinen laajuus? Kaupunki, piiri?</li> </ul>"
+          continue: Jatka
+          fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoite selkeä?</li> <li>Sinun on valittava allekirjoitustapa. Alustan ulkopuolella, verkossa tai molemmat</li> <li>Mikä on aloitteen maantieteellinen laajuus? Kaupunki, kunta, maakunta vai mikä?</li> </ul>"
           initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
-          select_scope: Valitse soveltamisala
+          select_scope: Valitse teema
         finish:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
-          callout_text: Onnea! Kansalaisaloitteesi on luotu onnistuneesti.
-          go_to_my_initiatives: Siirry aloitteihini
+          callout_text: Onnittelut! Kansalaisaloitteesi on luotu onnistuneesti.
+          go_to_my_initiatives: Siirry omiin aloitteisiini
           more_information: "(Lisää tietoa)"
         finish_help:
-          access_reminder: Muista, että voit aina käyttää aloitteita käyttäjän valikon kautta.
-          help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä kaikkien järjestöjen muodostamien järjestöjen johtokunnan pöytäkirjat
-          help_in_person_signatures: Jos olet halunnut kerätä allekirjoituksia henkilökohtaisesti tai yhdistää verkossa, sinun on lähetettävä tarvittavat tiedot.
-          help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintopaneelia, josta löydät käyttäjän valikon, lataa tarvittavat tiedot ja lähetä se käsittelyä varten.
+          access_reminder: Muista, että pääset tarkastelemaan omia aloitteitasi käyttäjävalikon kautta.
+          help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä johtokunnan pöytäkirjat kaikista organisaatioista, jotka liittyvät muodostettavaan kannatuskomiteaan
+          help_in_person_signatures: Jos olet valinnut allekirjoitusten keräystavaksi alustan ulkopuolisen keräyksen tai yhdistetyn keräyksen alustalla ja sen ulkopuolella, sinun on lähetettävä vaaditut tiedot ja dokumentit.
+          help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintapaneelin käyttämistä, mistä löydät käyttäjävalikon, voit ladata tarvittavat tiedot ja lähettää aloitteen käsittelyyn.
           initiatives_page_link: 'Voit etsiä kaikki nämä tiedot %{link} : stä, jotka ovat tietoisia aloitteista.'
           page: sivu
         previous_form:
