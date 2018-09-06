@@ -24,8 +24,8 @@ module Decidim
             id: @proposal.scope.try(:id),
             name: @proposal.scope.try(:name)
           },
-          title: @proposal.title,
-          body: @proposal.body,
+          title: Decidim::Proposals::ProposalPresenter.new(@proposal).title,
+          body: Decidim::Proposals::ProposalPresenter.new(@proposal).body,
           supports: @proposal.proposal_votes_count,
           comments: @proposal.comments.count,
           published_at: @proposal.published_at,

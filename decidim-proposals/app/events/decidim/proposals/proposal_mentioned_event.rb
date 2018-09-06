@@ -8,7 +8,7 @@ module Decidim
       private
 
       def mentioned_proposal_title
-        mentioned_proposal.title
+        Decidim::Proposals::ProposalPresenter.new(mentioned_proposal).title
       end
 
       def mentioned_proposal
