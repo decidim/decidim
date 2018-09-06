@@ -97,23 +97,23 @@ hu:
           email_subject: 'Új találkozó hozzáadva ehhez: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó hozzáadva ehhez: %{participatory_space_title}'
         meeting_registrations_over_percentage:
-          email_intro: A(z) "%{resource_title}" találkozó %{percentage}%-ban/ben betelt.
-          email_outro: Ezt az értesítést megkaptuk, mert Ön a találkozó részvételi helyének adminisztrátora.
-          email_subject: A "%{resource_title}" találkozó elfoglalt helyek több mint %{percentage}%
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> találkozó elfoglalt helye több mint %{percentage}%.
+          email_intro: 'A(z) "%{resource_title}" találkozó ilyen arányban telt be: %{percentage}%.'
+          email_outro: Ezt az értesítést azért kaptad, mert adminisztrátora vagy a találkozó részvételi helyének.
+          email_subject: 'A(z) "%{resource_title}" találkozó ilyen arányban telt be: %{percentage}%'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó ilyen arányban telt be: %{percentage}%.'
         meeting_updated:
-          email_intro: 'A "%{resource_title}" találkozót frissítettük. Az új verzió az oldaláról olvasható:'
-          email_outro: Ezt az értesítést azért kapta, mert a "%{resource_title}" találkozót követi. Leiratkozhat az előző linkről.
+          email_intro: 'A(z) "%{resource_title}" találkozót frissítettük. Az új verzióról ezen az oldalon olvashatsz:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A "%{resource_title}" találkozót frissítettük
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> találkozót frissítettük.
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozót frissítettük.
         registration_code_validated:
-          email_intro: A "%{registration_code}" regisztrációs kódot érvényesítjük.
-          email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" találkozó regisztrációs kódját érvényesítette.
-          email_subject: A "%{registration_code}" regisztrációs kódot érvényesítjük
-          notification_title: Az <a href="%{resource_path}">%{resource_title}</a> találkozó "%{registration_code}" regisztrációs kódja érvényesítve lett.
+          email_intro: A(z) "%{registration_code}" regisztrációs kód hitelesítése kész.
+          email_outro: Ezt az értesítést azért kaptad, mert a(z) "%{resource_title}" találkozó regisztrációs kódjának érvényesítése elkészült.
+          email_subject: A(z) "%{registration_code}" regisztrációs kódod hitelesítése kész
+          notification_title: A(z)z <a href="%{resource_path}">%{resource_title}</a> találkozó "%{registration_code}" regisztrációs kódjának érvényesítése kész.
         registrations_enabled:
-          email_intro: 'A "%{resource_title}" találkozó lehetővé tette a regisztrációt. Regisztrálhatja magát az oldalán:'
-          email_outro: Ezt az értesítést azért kapta, mert a "%{resource_title}" találkozót követi. Leiratkozhat az előző linkről.
+          email_intro: 'A(z) "%{resource_title}" találkozóra mostantól regisztrálhatsz. Tedd meg bármikor ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A "%{resource_title}" találkozó lehetővé tette a regisztrációt.
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> találkozó lehetővé tette a regisztrációt.
         upcoming_meeting:
