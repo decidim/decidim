@@ -136,50 +136,50 @@ fi:
         initiatives_type_scopes:
           create:
             error: Tapahtui virhe
-            success: Uusi aluetyyppi on luotu
+            success: Uusi teema aloitetyypille luotu
           destroy:
-            success: Soveltamisala on poistettu onnistuneesti
+            success: Teema poistettu onnistuneesti
           edit:
             back: Takaisin
             confirm_destroy: Oletko varma?
-            destroy: Poistaa
-            title: Muokkaa aloitustyypin laajuutta
-            update: Päivittää
+            destroy: Poista
+            title: Muokkaa aloitetyypin teemaa
+            update: Päivitä
           new:
             back: Takaisin
-            create: Luoda
-            title: Aloita aluetyyppi
+            create: Luo
+            title: Luo aloitetyypin teema
           update:
             error: Tapahtui virhe
-            success: Soveltamisalaa on päivitetty onnistuneesti
+            success: Teemaa päivitetty onnistuneesti
         initiatives_types:
           create:
             error: Tapahtui virhe
-            success: Uusi alustyyppi on luotu onnistuneesti
+            success: Uusi aloitetyyppi luotu onnistuneesti
           destroy:
-            success: Aloitetyyppi on poistettu onnistuneesti
+            success: Aloitetyyppi poistettu onnistuneesti
           edit:
             confirm_destroy: Oletko varma?
-            destroy: Poistaa
-            update: Päivittää
+            destroy: Poista
+            update: Päivitä
           form:
             title: Yleistä tietoa
           initiative_type_scopes:
-            title: Alatyypin laajuudet
+            title: Aloitetyypin teemat
           new:
-            create: Luoda
-            title: Uusi aloite tyyppi
+            create: Luo
+            title: Uusi aloitetyyppi
           update:
             error: Tapahtui virhe
-            success: Aloitetyyppiä on päivitetty onnistuneesti
+            success: Aloitetyyppiä päivitetty onnistuneesti
       admin_log:
         initiative:
-          publish: "%{user_name} julkaisi %{resource_name} -aloitteen"
-          send_to_technical_validation: "%{user_name} lähetti %{resource_name} -aloitteen tekniseen validointiin"
-          unpublish: "%{user_name} hylkäsi %{resource_name} -aloitteen"
-          update: "%{user_name} päivitti %{resource_name} -aloitteen"
+          publish: "%{user_name} julkaisi aloitteen %{resource_name}"
+          send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen validointiin"
+          unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
+          update: "%{user_name} päivitti aloitetta %{resource_name}"
       admin_states:
-        accepted: Hyväksytyt
+        accepted: Hyväksytty
         created: Luotu
         discarded: Käytöstä poistetut
         published: Julkaistu
