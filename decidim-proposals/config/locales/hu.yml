@@ -2,23 +2,23 @@ hu:
   activemodel:
     attributes:
       collaborative_draft:
-        body: Test
+        body: Szöveg
         category_id: Kategória
-        decidim_scope_id: terület
-        has_address: Van címe
+        decidim_scope_id: Hatáskör
+        has_address: Van lakcíme
         state: Állapot
         title: Cím
-        user_group_id: Hozzon létre együttműködési tervet
+        user_group_id: Közösen szerkesztett tervezet
       proposal:
         answer: Válasz
-        answered_at: Felolvasva
-        body: Test
+        answered_at: 'Megválaszolva:'
+        body: Szöveg
         category_id: Kategória
-        has_address: Van címe
-        scope_id: terület
+        has_address: Van lakcíme
+        scope_id: Hatáskör
         state: Állapot
         title: Cím
-        user_group_id: Javaslatot készíthet
+        user_group_id: Készíts javaslatot
       proposal_answer:
         answer: Válasz
       proposals_copy:
