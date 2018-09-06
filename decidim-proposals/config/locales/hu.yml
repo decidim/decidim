@@ -146,37 +146,37 @@ hu:
           email_subject: A követett javaslatot elfogadták
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, akiket követel, épp most támogat egy olyan javaslatot, amely érdekes lehet Önnek, ellenőrizze és járuljon hozzá:"
-          email_outro: Ezt az értesítést megkapta, mert %{endorser_nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
+          email_intro: "%{endorser_name} %{endorser_nickname} (akit követsz) épp most hagyott jóvá egy olyan javaslatot, ami számodra is érdekes lehet. Nézz rá és tegyél hozzá:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{endorser_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{endorser_nickname} támogatta az új javaslatot"
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslatot <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>jóváhagyta.
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat jóváhagyva általa: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
         proposal_evaluating:
-          email_intro: 'A "%{resource_title}" javaslat jelenleg értékelés alatt áll. Ellenőrizheti a választ ezen az oldalon:'
-          email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" -t követi. Leiratkozhat az előző linkről.
-          email_subject: Az Ön által követett javaslat értékelése folyamatban van
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslat értékelése folyamatban van.
+          email_intro: 'A(z) "%{resource_title}" című javaslatot éppen értékelik. További részletek a következő oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_subject: A követett javaslat értékelése folyamatban van
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> javaslat értékelése folyamatban.
         proposal_mentioned:
-          email_intro: Az Ön "%{mentioned_proposal_title}" javaslatát a megjegyzések ebben a</a> mezőben <a href="%{resource_path}">említette.
-          email_subject: A javaslat "%{mentioned_proposal_title}" említésre került
-          notification_title: Az Ön "%{mentioned_proposal_title}" javaslatát a megjegyzések ebben a</a> mezőben <a href="%{resource_path}">említette.
+          email_intro: '"%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_path}">egy megjegyzésben</a>.'
+          email_subject: '"%{mentioned_proposal_title}" című javaslatod említésre került'
+          notification_title: '"%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_path}">egy megjegyzésben</a>.'
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, aki követ, új javaslatot tett közzé, ellenőrizze és hozzájárul:"
-          email_outro: Ezt az értesítést megkapta, mert %{author_nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: 'Új javaslat: %{author_nickname}'
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslatot <a href="%{author_path}">%{author_name} %{author_nickname}</a>közzétette.
+          email_intro: "%{author_name} %{author_nickname}, aki követ téged, új javaslatot tett közzé. Nézd meg és tegyél hozzá te is valamit:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: '%{author_nickname} új javaslata'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat közzétéve általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         proposal_published_for_space:
-          email_intro: A "%{resource_title}" javaslatot hozzáadta az "%{participatory_space_title}" -hez, amelyet követ.
-          email_outro: Ezt az értesítést megkapta, mert a "%{participatory_space_title}" -t követi. Leiratkozhat az előző linkről.
-          email_subject: Új javaslat hozzáadva a %{participatory_space_title}
-          notification_title: A javaslat <a href="%{resource_path}">%{resource_title}</a> hozzá lett adva a %{participatory_space_title}
+          email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
+          email_subject: 'Új javaslat hozzáadva ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}'
         proposal_rejected:
-          email_intro: 'A "%{resource_title}" javaslat elutasításra került. A válasz ezen az oldalon olvasható:'
-          email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" -t követi. Leiratkozhat az előző linkről.
-          email_subject: Az Ön által követett javaslatot elutasították
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslat elutasításra került.
+          email_intro: 'A(z) "%{resource_title}" című javaslat elutasítva. További részletek a következő oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_subject: A követett javaslatot elutasították
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslatot elutasították.
         proposal_update_category:
-          email_intro: 'Az admin frissítette a "%{resource_title}" ajánlatod kategóriáját, ellenőrizze:'
-          email_outro: Ezt az értesítést megkapta, mert Ön a javaslat szerzője.
+          email_intro: 'Az admin frissítette a(z) "%{resource_title}" című javaslatod kategóriáját, ellenőrizd:'
+          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
           email_subject: A %{resource_title} pályázati kategória frissítve lett
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> ajánlat kategóriát egy adminisztrátor frissítette.
         voting_enabled:
