@@ -14,7 +14,7 @@
               <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
             </div>
           </div>
-          <%= decidim_sanitizen( Decidim::Meetings::MeetingPresenter.new(meeting).description ) %>
+          <%= decidim_sanitize( Decidim::Meetings::MeetingPresenter.new(meeting).description ) %>
         </div>
       </article>
     </div>

@@ -13,7 +13,7 @@ shared_examples "manage meetings" do
   end
 
   it "updates a meeting" do
-    within find("tr", text: translated(meeting.title)) do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
     end
 
@@ -38,7 +38,7 @@ shared_examples "manage meetings" do
   end
 
   it "adds a few services to the meeting" do
-    within find("tr", text: translated(meeting.title)) do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
     end
 
@@ -53,7 +53,7 @@ shared_examples "manage meetings" do
 
     expect(page).to have_admin_callout("successfully")
 
-    within find("tr", text: translated(meeting.title)) do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
     end
 
@@ -62,7 +62,7 @@ shared_examples "manage meetings" do
   end
 
   it "allows the user to preview the meeting" do
-    within find("tr", text: translated(meeting.title)) do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       klass = "action-icon--preview"
       href = resource_locator(meeting).path
       target = "blank"
