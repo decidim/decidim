@@ -53,55 +53,55 @@ hu:
         one: Részvételi folyamat
         other: Részvételi folyamatok
       decidim/participatory_process_group:
-        one: Részvételi folyamatcsoport
-        other: Résztvevői folyamatcsoportok
+        one: Részvételi folyamatok csoport
+        other: Részvételi folyamatok csoportjai
       decidim/participatory_process_step:
         one: Lépés
         other: Lépések
   decidim:
     admin:
       actions:
-        activate: Aktiválja
-        configure: Beállítás
-        confirm_destroy: Törlés jóváhagyása
-        destroy: Töröl
-        duplicate: Másolat
-        edit: szerkesztése
+        activate: Aktiválás
+        configure: Beállítások
+        confirm_destroy: Törlés megerősítése
+        destroy: Törlés
+        duplicate: Duplikálás
+        edit: Szerkesztés
         new_process: Új folyamat
-        new_process_group: Új folyamatcsoport
+        new_process_group: Új folyamat csoport
         new_process_step: Új lépés
-        new_process_user_role: Új folyamatfelhasználó
+        new_process_user_role: Új folyamat felhasználó
         preview: Előnézet
-        publish: közzétesz
+        publish: Közzétesz
         resend_invitation: Meghívó újraküldése
-        unpublish: közzétételének
+        unpublish: Közzététel visszavonása
       menu:
-        participatory_process_groups: Folyamatcsoportok
-        participatory_processes: Eljárások
+        participatory_process_groups: Folyamat csoportok
+        participatory_processes: Folyamatok
         participatory_processes_submenu:
-          attachment_collections: mappák
-          attachment_files: Files
+          attachment_collections: Mappák
+          attachment_files: Fájlok
           attachments: Mellékletek
           categories: Kategóriák
-          components: Alkatrészek
+          components: Elemek
           info: Info
-          moderations: moderálások
+          moderations: Moderálások
           private_users: Privát felhasználók
-          process_admins: Folyamatfelhasználók
+          process_admins: Folyamat felhasználók
           steps: Lépések
       models:
         participatory_process:
           fields:
             created_at: 'Létrehozva:'
-            private: Magán
-            promoted: Legfontosabb
-            published: Közzétett
+            private: Privát
+            promoted: Kiemelt
+            published: Közzétéve
             title: Cím
           name: Részvételi folyamat
         participatory_process_group:
           fields:
             name: Név
-          name: Folyamatcsoport
+          name: Folyamat csoport
         participatory_process_step:
           fields:
             end_date: Befejezés dátuma
@@ -113,79 +113,79 @@ hu:
             email: Email
             name: Név
             role: Szerep
-          name: Résztvevői folyamatfelhasználó
+          name: Részvételi folyamat felhasználó
           roles:
-            admin: Adminisztrátor
-            collaborator: Együttműködő
-            moderator: moderátor
+            admin: Admin
+            collaborator: Közreműködő
+            moderator: Moderátor
         user:
           fields:
             invitation_accepted_at: 'Meghívó elfogadva:'
-            invitation_sent_at: Meghívó elküldve
+            invitation_sent_at: 'Meghívó elküldve:'
       participatory_process_copies:
         new:
-          copy: Másolat
-          select: Válassza ki, mely adatokat szeretné megismételni
-          title: Ismétlődő részvételi folyamat
+          copy: Másolás
+          select: Válaszd ki, mely adatokat szeretnéd duplikálni
+          title: Részvételi folyamat duplikálása
       participatory_process_groups:
         destroy:
-          success: A részvételi folyamatcsoport sikeresen törölve.
+          success: Részvételi folyamat csoport törlése sikeres.
         edit:
-          title: A folyamatcsoport szerkesztése
-          update: frissítés
+          title: Folyamat csoport szerkesztése
+          update: Frissítés
         new:
-          create: Teremt
-          title: Új folyamatcsoport
+          create: Létrehozás
+          title: Új folyamat csoport
         update:
-          error: Hiba történt a részvételi folyamatcsoport frissítésében.
-          success: A részvételi folyamatcsoport sikeresen frissült.
+          error: Hiba történt a részvételi folyamat csoport frissítése során.
+          success: Részvételi folyamat csoport frissítése sikeres.
       participatory_process_publications:
         create:
-          error: Hiba történt a részvételi folyamat közzétételében.
-          success: A részvételi folyamat sikeresen jelent meg.
+          error: Hiba történt a részvételi folyamat közzététele során.
+          success: Részvételi folyamat közzététele sikeres volt.
         destroy:
-          error: Hiba történt a részvételi folyamat közzétételének közzétételén.
-          success: A részvételi folyamat sikeresen közzétett.
+          error: Hiba a részvételi folyamat közzétételének visszavonásakor.
+          success: Részvételi folyamat közzététele visszavonva.
       participatory_process_step_activations:
         create:
-          error: Hiba történt a részvételi folyamat lépéseinek aktiválásakor.
-          success: A részvételi folyamat lépés sikeresen aktiválódott.
+          error: Hiba történt a részvételi folyamat lépésének aktiválásakor.
+          success: Részvételi folyamat lépés aktiválása sikeres.
       participatory_process_steps:
         create:
           error: Hiba történt egy új részvételi folyamat lépés létrehozásakor.
-          success: A részvételi folyamat lépés sikeresen megtörtént.
+          success: Részvételi folyamat lépés létrehozása sikeres.
         default_title: Bevezetés
         destroy:
           error:
             active_step: Az aktív lépést nem lehet törölni.
-            last_step: Nem lehet törölni egy folyamat utolsó lépését.
-          success: A részvételi folyamat lépés sikeresen törölve.
+            last_step: Folyamat utolsó lépését nem lehet törölni.
+          success: Részvételi folyamat lépés törlése sikeres.
         edit:
-          title: A részvételi folyamat lépés szerkesztése
-          update: frissítés
+          title: Részvételi folyamat lépés szerkesztése
+          update: Frissítés
         index:
           steps_title: Lépések
         new:
-          create: Teremt
+          create: Létrehozás
           title: Új részvételi folyamat lépés
         ordering:
-          error: Hiba történt a részvételi folyamat átrendezésében.
+          error: Hiba történt a részvételi folyamat átrendezése során.
         update:
-          error: Hiba történt a részvételi folyamat lépéseinek frissítésekor.
-          success: A résztvevő folyamat lépés sikeresen frissült.
+          error: Hiba történt a részvételi folyamat lépésének frissítése során.
+          success: Részvételi folyamat lépés frissítése sikeres.
       participatory_process_user_roles:
         create:
-          error: Hiba történt a felhasználó részvételéhez a részvételi folyamat során.
-          success: A felhasználó sikeresen csatlakozott ehhez a részvételi folyamathoz.
+          error: Hiba a felhasználó részvételi folyamathoz való hozzáadásakor.
+          success: Felhasználó csatlakozása a részvételi folyamathoz sikeres.
         destroy:
-          success: A felhasználó sikeresen eltávolította ezt a részvételi folyamatot.
+          success: Felhasználó eltávolítása a részvételi folyamatból sikeres.
         edit:
-          title: A részvételi folyamat felhasználójának frissítése.
-          update: frissítés
+          title: Részvételi folyamat felhasználó frissítése.
+          update: Frissítés
         index:
-          process_admins_title: Résztvevői folyamatfelhasználók
+          process_admins_title: Részvételi folyamat felhasználók
         new:
-          create: Teremt
+          create: Létrehozás
           title: Új részvételi folyamat felhasználó.
         update:
           error: Hiba történt a részvételen alapuló folyamat frissítéséhez.
