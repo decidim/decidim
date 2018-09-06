@@ -177,12 +177,12 @@ hu:
         proposal_update_category:
           email_intro: 'Az admin frissítette a(z) "%{resource_title}" című javaslatod kategóriáját, ellenőrizd:'
           email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
-          email_subject: A %{resource_title} pályázati kategória frissítve lett
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> ajánlat kategóriát egy adminisztrátor frissítette.
+          email_subject: A(z) %{resource_title} című javaslat frissítve
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat kategóriát az admin frissítette.
         voting_enabled:
-          email_intro: 'Szavazhatsz javaslatokat %{participatory_space_title}! Kezdje el részt venni ezen az oldalon:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: A szavazásról szóló javaslatok %{participatory_space_title}indultak
+          email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Javaslatokról való szavazás kezdődött itt: %{participatory_space_title}'
           notification_title: Most <a href="%{resource_path}">szavazási javaslatot kezdhet</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
