@@ -8,7 +8,7 @@ hu:
         has_address: Van lakcíme
         state: Állapot
         title: Cím
-        user_group_id: Közösen szerkesztett tervezet
+        user_group_id: Közösen szerkesztett vázlat
       proposal:
         answer: Válasz
         answered_at: 'Megválaszolva:'
@@ -22,79 +22,79 @@ hu:
       proposal_answer:
         answer: Válasz
       proposals_copy:
-        copy_proposals: Tudomásul veszem, hogy ez a kiválasztott elem összes javaslatát a jelenlegihez importálja, és ezt a műveletet nem lehet megfordítani.
-        origin_component_id: A javaslatok másolásához szükséges összetevő
+        copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
+        origin_component_id: Javaslatok másolásához szükséges elem
     errors:
       models:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Be kell kapcsolni
+              needs_to_be_reattached: Újra kell csatolni
     models:
-      decidim/proposals/accepted_proposal_event: A javaslat elfogadva
-      decidim/proposals/admin/update_proposal_category_event: A javaslat kategória megváltozott
-      decidim/proposals/creation_enabled_event: A javaslat létrehozása engedélyezett
-      decidim/proposals/endorsing_enabled_event: Engedélyezve a Javaslat jóváhagyása
-      decidim/proposals/evaluating_proposal_event: A javaslat értékelése folyamatban van
-      decidim/proposals/proposal_endorsed_event: A javaslat elfogadta
-      decidim/proposals/proposal_mentioned_event: A javasolt javaslat
-      decidim/proposals/publish_proposal_event: A javaslat közzététele
-      decidim/proposals/rejected_proposal_event: A javaslat elutasítva
-      decidim/proposals/voting_enabled_event: Javasolt szavazás engedélyezve
+      decidim/proposals/accepted_proposal_event: Javaslat elfogadva
+      decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
+      decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
+      decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
+      decidim/proposals/evaluating_proposal_event: Javaslat értékelése folyamatban
+      decidim/proposals/proposal_endorsed_event: Javaslat jóváhagyva
+      decidim/proposals/proposal_mentioned_event: Javaslat megemlítve
+      decidim/proposals/publish_proposal_event: Javaslat közzétéve
+      decidim/proposals/rejected_proposal_event: Javaslat elutasítva
+      decidim/proposals/voting_enabled_event: Javaslatról szavazás engedélyezve
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Együttműködési tervezet
-        other: Együttműködési tervezetek
+        one: Közös vázlat
+        other: Közös vázlatok
       decidim/proposals/proposal:
         one: Javaslat
         other: javaslatok
       decidim/proposals/proposal_endorsement:
         one: Jóváhagyás
-        other: Elismerések
+        other: Jóváhagyások
       decidim/proposals/proposal_note:
-        one: jegyzet
+        one: Megjegyzés
         other: Megjegyzések
       decidim/proposals/proposal_vote:
         one: Szavazás
-        other: szavazatok
+        other: Szavazások
   decidim:
     components:
       proposals:
         actions:
-          create: Teremt
-          endorse: Támogassa
+          create: Létrehozás
+          endorse: Támogatás
           vote: Szavazás
-          withdraw: visszavonul
-        name: javaslatok
+          withdraw: Visszalépés
+        name: Javaslatok
         settings:
           global:
             announcement: Közlemény
-            attachments_allowed: A mellékletek engedélyezése
-            can_accumulate_supports_beyond_threshold: A küszöböt meghaladó támogatást képes felhalmozni
-            collaborative_drafts_enabled: Együttműködési tervezetek engedélyezettek
+            attachments_allowed: Mellékletek engedélyezése
+            can_accumulate_supports_beyond_threshold: Képes átlépni a támogatás küszöb-értékét
+            collaborative_drafts_enabled: Közös vázlatok engedélyezve
             comments_enabled: Megjegyzések engedélyezve
             geocoding_enabled: Geokódolás engedélyezve
             new_proposal_help_text: Új javaslat súgószöveg
-            official_proposals_enabled: A hivatalos javaslatok lehetővé tették
-            proposal_answering_enabled: A válaszbejelentés engedélyezve van
-            proposal_edit_before_minutes: A pályázatokat a szerzők szerkeszthetik a sok percig
-            proposal_length: A javasolt maximális testhossz
-            proposal_limit: Javaslati limit felhasználónként
-            proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" lépés súgószöveg
-            proposal_wizard_step_2_help_text: Javaslatvarázsló "Hasonlítsa össze" a lépéses súgó szöveget
-            proposal_wizard_step_3_help_text: Javaslat varázsló "Teljes" lépés súgószöveg
+            official_proposals_enabled: Hivatalos javaslatok engedélyezve
+            proposal_answering_enabled: Javaslat válasz engedélyezve
+            proposal_edit_before_minutes: A javaslatokat a szerzők az ülés lezárásáig szerkeszthetik
+            proposal_length: Javaslat szöveg maximális hossza
+            proposal_limit: Javaslat limit felhasználónként
+            proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" gomb súgójának szövege
+            proposal_wizard_step_2_help_text: Javaslat varázsló "Összehasonlítás" gomb súgójának szövege
+            proposal_wizard_step_3_help_text: Javaslat varázsló "Teljesítés" gomb súgójának szövege
             proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" gomb súgójának szövege
-            resources_permissions_enabled: Az egyes javaslatokhoz cselekvési engedélyeket lehet beállítani
+            resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
             threshold_per_proposal: Küszöbérték javaslatonként
-            vote_limit: Szavazási korlátozás felhasználónként
+            vote_limit: Szavazási limit felhasználónként
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            creation_enabled: A javaslat létrehozása engedélyezett
-            endorsements_blocked: A jóváhagyások blokkolva vannak
-            endorsements_enabled: Engedélyek engedélyezve
-            proposal_answering_enabled: A válaszbejelentés engedélyezve van
+            creation_enabled: Javaslat létrehozása engedélyezve
+            endorsements_blocked: Jóváhagyások letiltva
+            endorsements_enabled: Jóváhagyások engedélyezve
+            proposal_answering_enabled: Javaslat válasz engedélyezve
             votes_blocked: A szavazás blokkolt
             votes_enabled: A szavazás engedélyezett
             votes_hidden: Rejtett szavazatok (ha a szavazatok engedélyezve vannak, ellenőrizve ez elrejti a szavazatok számát)
