@@ -114,84 +114,84 @@ hu:
         registrations_enabled:
           email_intro: 'A(z) "%{resource_title}" találkozóra mostantól regisztrálhatsz. Tedd meg bármikor ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
-          email_subject: A "%{resource_title}" találkozó lehetővé tette a regisztrációt.
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> találkozó lehetővé tette a regisztrációt.
+          email_subject: A(z) "%{resource_title}" találkozóra mostantól regisztrálhatsz.
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozóra mostantól regisztrálhatsz.
         upcoming_meeting:
-          email_intro: A "%{resource_title}" találkozó kevesebb, mint 48 óra.
-          email_outro: Ezt az értesítést azért kapta, mert a "%{resource_title}" találkozót követi. Leiratkozhat az előző linkről.
-          email_subject: A "%{resource_title}" találkozó kevesebb, mint 48 óra.
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra.
+          email_intro: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
+          email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
     meetings:
       actions:
         agenda: Napirend
-        attachment_collections: mappák
+        attachment_collections: Mappák
         attachments: Mellékletek
         close: Bezárás
-        confirm_destroy: Biztosan törölni szeretné ezt a találkozót?
-        destroy: Töröl
-        edit: szerkesztése
-        minutes: Percek
+        confirm_destroy: Biztosan törölni szeretnéd ezt a találkozót?
+        destroy: Törlés
+        edit: Szerkesztés
+        minutes: Jegyzőkönyvek
         new: Új találkozó
         preview: Előnézet
-        registrations: regisztrációk
-        title: Hozzászólások
+        registrations: Regisztrációk
+        title: Műveletek
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Add napirendi pont gyermek
+            add_agenda_item_child: Napirendi pont hozzáadása altételekhez
             agenda_item: Napirendi pont
-            agenda_item_children: Napirendi pont Childs
+            agenda_item_children: Napirendi alpont
             down: Le
-            remove: eltávolít
+            remove: Eltávolítás
             up: Fel
           agenda_item_child:
-            agenda_item_child: Napirendi pont Gyermek
+            agenda_item_child: Napirendi alpont
             down: Le
-            remove: eltávolít
+            remove: Eltávolítás
             up: Fel
           create:
-            invalid: Probléma merült fel a napirend létrehozásában
-            success: A napirend sikeresen létrehozva
+            invalid: Probléma merült fel a napirend létrehozásakor
+            success: Napirend létrehozása sikeres
           edit:
             title: Napirend szerkesztése
-            update: frissítés
+            update: Frissítés
           form:
-            add_agenda_item: A napirendi pont hozzáadása
+            add_agenda_item: Napirendi pont hozzáadása
             agenda_items: Napirendi pontok
             end_date: Befejezés dátuma
             start_date: Kezdő dátum
           new:
-            create: Teremt
+            create: Létrehozás
             title: Új napirend
           update:
-            invalid: Probléma történt a napirend naprakésszé tételével kapcsolatban
-            success: A napirend sikeresen frissült
+            invalid: Probléma történt a napirend frissítése során
+            success: Napirend frissítése sikeres
         exports:
-          registrations: regisztrációk
+          registrations: Regisztrációk
         invite_join_meeting_mailer:
           invite:
-            decline: Csökkentse a meghívást
-            invited_you_to_join_a_meeting: "%{invited_by} meghívta Önt, hogy csatlakozzon egy találkozóhoz %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
-            join: Csatlakozzon a "%{meeting_title}"
+            decline: Meghívó visszautasítása
+            invited_you_to_join_a_meeting: "%{invited_by} meghívott, hogy csatlakozz ehhez a találkozóhoz: %{application}. Jelezz vissza az alábbi linken."
+            join: 'Csatlakozz ehhez: "%{meeting_title}"'
         invites:
           create:
-            error: Probléma merült fel, amikor felhívta a felhasználót, hogy csatlakozzon az értekezlethez.
-            success: A felhasználó sikeresen meghívta a találkozót.
+            error: Probléma merült fel a felhasználó találkozóra törénő meghívásakor.
+            success: Felhasználó meghívása a találkozóra sikeres.
           form:
-            attendee_type: A résztvevő típusa
+            attendee_type: Résztvevő típusa
             existing_user: Létező felhasználó
             invite: Meghívás
-            invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezetre is.
+            invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezethet csatlakozásra.
             non_user: Nem létező felhasználó
             select_user: Felhasználó kiválasztása
           index:
             filter:
-              accepted: Elfogadott
-              all: Minden
+              accepted: Elfogadva
+              all: Összes
               rejected: Elutasítva
-              sent: Küldött
-            filter_by: Szűrés vlami alapján
-            invite_attendee: Kérje meg a résztvevőt
+              sent: Elküldve
+            filter_by: 'Szűrés ez alapján:'
+            invite_attendee: Résztvevő meghívása
             invites: Meghívottak
             registrations_disabled: Nem hívhat meg résztvevőt, mert a regisztrációk le vannak tiltva.
             search: Keresés
