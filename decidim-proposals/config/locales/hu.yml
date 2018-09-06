@@ -189,7 +189,7 @@ hu:
         accepted_proposals:
           description_another: A felhasználó %{score} javaslatait elfogadták.
           description_own: '%{score} ajánlatodat fogadták el.'
-          explanation: A jelvényt elfogadott javaslatokkal szerezheted meg.
+          explanation: A jelvényt elfogadott javaslatokkal szerezhetik meg a felhasználók.
           name: Elfogadott javaslatok
           next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
           unearned_another: A felhasználónak még nincsenek elfogadott javaslatai.
@@ -197,87 +197,87 @@ hu:
         proposal_votes:
           description_another: A felhasználó %{score} javaslatot támogatott.
           description_own: Eddig %{score} javaslatot támogattál.
-          explanation: A felhasználók megkapják ezt a jelvényt a javaslatok támogatásával.
-          name: A javaslat támogatja
+          explanation: A felhasználók javaslatok támogatásával szerezhetik meg a jelvényt.
+          name: Javaslat támogatói
           next_level_in: Támogatja a %{score} további javaslatot a következő szint eléréséhez!
-          unearned_another: Ez a felhasználó még nem nyújtott támogatást semmilyen javaslathoz.
-          unearned_own: Ön még nem nyújtott támogatást.
+          unearned_another: A felhasználó még nem támogatott egy javaslatot sem.
+          unearned_own: Még nem támogattál egyetlen javaslatot sem.
         proposals:
-          description_another: Ez a felhasználó %{score} javaslatot hozott létre.
-          description_own: '%{score} pályázatot hozott létre.'
-          explanation: A felhasználók ezt a jelvényt javaslatok létrehozásával kapják meg.
-          name: javaslatok
-          next_level_in: Hozzon létre még %{score} javaslatot a következő szint eléréséhez!
-          unearned_another: Ez a felhasználó még nem hozott létre javaslatokat.
-          unearned_own: Még nem hozott javaslatot.
+          description_another: A felhasználó %{score} javaslatot hozott létre.
+          description_own: Eddig %{score} javaslatot hoztál létre.
+          explanation: A felhasználók javaslatok létrehozásával szerezhetik meg a jelvényt.
+          name: Javaslatok
+          next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
+          unearned_another: A felhasználó még nem hozott létre javaslatokat.
+          unearned_own: Még nem hoztál létre javaslatokat.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
-          proposals: javaslatok
+          proposals: Javaslatok
     participatory_spaces:
       highlighted_proposals:
-        proposals: javaslatok
-        see_all_proposals: Tekintse meg az összes javaslatot
+        proposals: Javaslatok
+        see_all_proposals: Összes javaslat
     proposals:
       actions:
         answer: Válasz
-        import: Importálás egy másik összetevőből
+        import: Importálás egy másik elemből
         new: Új javaslat
-        private_notes: Privát jegyzetek
-        title: Hozzászólások
+        private_notes: Privát jegyzet
+        title: Műveletek
       admin:
         actions:
           preview: Előnézet
         exports:
           comments: Hozzászólások
-          proposals: javaslatok
+          proposals: Javaslatok
         models:
           proposal:
             name: Javaslat
         proposal_answers:
           edit:
-            accepted: Elfogadott
+            accepted: Elfogadva
             answer_proposal: Válasz
-            evaluating: Értékelő
+            evaluating: Értékelés
             rejected: Elutasítva
-            title: A javaslatra adott válasz %{title}
+            title: Válasz a(z) %{title} javaslatra
         proposal_notes:
           create:
-            error: Probléma merült fel a javaslati jegyzet létrehozásával kapcsolatban
-            success: Javaslati jegyzet sikeresen létrehozva
+            error: Probléma merült fel a javaslat jegyzetének létrehozásakor
+            success: Javaslat jegyzetének létrehozása sikeres
           form:
-            note: jegyzet
-            submit: beküldése
-          leave_your_note: Hagyd a jegyzetedet
+            note: Jegyzet
+            submit: Küldés
+          leave_your_note: Jegyzet elhagyása
           title: Privát jegyzetek
         proposals:
           answer:
-            invalid: Probléma merült fel erre a javaslatra
-            success: A javaslat sikeresen felelt
+            invalid: Probléma merült fel a javaslat megválaszolásakor
+            success: Javaslat megválaszolása sikeres
           create:
-            invalid: Probléma merült fel ezzel a javaslattal
-            success: A javaslat sikeresen létrehozva
+            invalid: Probléma merült fel a javaslat létrehozásakor
+            success: Javaslat létrehozása sikeres
           form:
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
-            select_a_category: Válasszon egy kategóriát
+            select_a_category: Válassz kategóriát
           index:
-            actions: Hozzászólások
-            cancel: Megszünteti
+            actions: Műveletek
+            cancel: Mégse
             change_category: Kategória módosítása
-            selected: kiválasztott
-            title: javaslatok
-            update: frissítés
+            selected: kiválasztva
+            title: Javaslatok
+            update: Frissítés
           new:
-            create: Teremt
+            create: Létrehozás
             title: Javaslat létrehozása
           update_category:
-            invalid: 'Ezek a javaslatok már %{category} kategóriába soroltak: %{proposals}.'
-            select_a_category: Kérjük, válasszon egy kategóriát
-            select_a_proposal: Kérjük, válasszon egy javaslatot
-            success: 'A javaslatok sikeresen frissültek a %{category} kategóriába: %{proposals}.'
+            invalid: 'A javaslatok már a(z) %{category} kategóriába tartoznak: %{proposals}.'
+            select_a_category: Kérlek, válassz kategóriát
+            select_a_proposal: Kérlek, válassz javaslatot
+            success: 'A javaslatok frissítése a(z) %{category} kategóriában sikeres: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Probléma merült fel a javaslatok importálásával kapcsolatban
+            invalid: Probléma merült fel a javaslatok importálásakor
             success: "%{number} pályázat importált sikeresen"
           new:
             create: Importálási javaslatok
