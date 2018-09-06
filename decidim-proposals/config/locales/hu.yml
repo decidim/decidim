@@ -101,15 +101,15 @@ hu:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} -ot elfogadták az <a href="%{resource_path}">%{resource_title}</a> együttműködési terv hozzájárulásához.'
-          email_outro: Ezt az értesítést megkapta, mert <a href="%{resource_path}">%{resource_title}</a>munkatársak.
-          email_subject: "%{requester_name} elfogadásra került az %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> már <strong>elfogadott, hogy hozzáférést, mint a közreműködő</strong> a <a href="%{resource_path}">%{resource_title}</a> együttműködő tervezetet.
+          email_intro: '%{requester_name} jóváhagyva, mint közreműködő ebben a közösen szerkesztett vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vay ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
+          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> jóváhagyva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} -at elutasították az <a href="%{resource_path}">%{resource_title}</a> együttműködési terv hozzájárulásához.'
-          email_outro: Ezt az értesítést megkapta, mert <a href="%{resource_path}">%{resource_title}</a>munkatársak.
-          email_subject: "%{requester_name} -at elutasították az %{resource_title} együttmûködési terv hozzájárulásához."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>elutasított a <a href="%{resource_path}">%{resource_title}</a> együttműködési terv</strong> hozzájárulójához való hozzáféréshez.
+          email_intro: '%{requester_name} elutasítva, mint közreműködő ebben a közösen szerkesztett vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vay ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: "%{requester_name} elutasítva, mint közreműködő ebben a közösen szerkesztett vázlatban: %{resource_title}."
+          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> elutasítva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} hozzáférést kért hozzá. Akkor <strong>elfogadja vagy elutasítja a kérést</strong> a <a href="%{resource_path}">%{resource_title}</a> együttműködési tervezet oldalon.'
           email_outro: Ezt az értesítést megkapta, mert <a href="%{resource_path}">%{resource_title}</a>munkatársak.
