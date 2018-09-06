@@ -36,18 +36,18 @@ sv:
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
-        cta_button_path: Call to Action-knappsökväg
-        cta_button_text: Ring till handlingsknapptext
+        cta_button_path: Knappsökväg till Uppmaning till Handing
+        cta_button_text: Knapptext för Uppmaning till Handling
         default_locale: Standardspråk
         description: Beskrivning
-        enable_omnipresent_banner: Visa omnipresent banner
+        enable_omnipresent_banner: Visa allestädes närvarande banner
         facebook_handler: Facebook-hanterare
         favicon: Ikon
         github_handler: GitHub-hanterare
-        header_snippets: Rubrikrubriker
+        header_snippets: Rubriksnuttar
         highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
         highlighted_content_banner_action_title: Åtgärdsknappens titel
-        highlighted_content_banner_action_url: Åtgärdsknapp URL
+        highlighted_content_banner_action_url: URL för åtgärdsknapp
         highlighted_content_banner_enabled: Visa den markerade innehållsbanan
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning

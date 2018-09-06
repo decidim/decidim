@@ -10,11 +10,32 @@ If you want to start your own installation of Decidim, you don't need to clone t
 
 ## Creating your Decidim app
 
-### A. Using installation script [experimental]
+### A. Recommended: manual installation
+
+If you know Ruby and have already worked with Ruby on Rails, you
+need to know that decidim is a gem and a command line that generates
+an application that consumes this gem 😅.
+
+The flow is: install gem, generate a Ruby on Rails app, enjoy.
+
+```console
+gem install decidim
+decidim decidim_application
+```
+
+You can see the [official manual installation tutorial](/docs/manual-installation.md),
+and also you have [another manual installation tutorial](https://github.com/Platoniq/decidim-install)
+made by the nice people of [Platoniq](http://www.platoniq.net/).
+
+### B. Using installation script [experimental]
 
 > *Please note that this is **experimental***
 
-We've made an script for Ubuntu 16.04 LTS and macos sierra 10.2. It's a BETA and as such you should be aware that this could break your environment (if you have any). It'll install rbenv, postgresql, nodejs and install decidim on this directory. It should take 15 minutes depending on your network connection.
+We've made an script for Ubuntu 16.04 LTS and macos sierra 10.2.
+It's a BETA and as such you should be aware that this could break
+your environment (if you have any). It'll install rbenv, postgresql,
+nodejs and install decidim on this directory. It should take 15
+minutes depending on your network connection.
 
 ```console
 wget http://get.decidim.org -O install_decidim.bash
@@ -23,7 +44,7 @@ bash install_decidim.bash
 
 Read more about the [installation script](https://github.com/alabs/decidim-install).
 
-### B. Using Docker [experimental]
+### C. Using Docker [experimental]
 
 You can also use [docker] && [docker-compose] to develop decidim. You'll
 need to install those but in exchange you don't need to install any other
@@ -52,10 +73,6 @@ d/rails server
 In general, to use the docker development environment, change any instruction in
 the docs to use its equivalent docker binstub.  So for example, instead of
 running `bundle install`, you would run `d/bundle install`.
-
-### C. Step by step
-
-See our [manual installation tutorial](/docs/manual-installation.md).
 
 ## Initializing your app for local development
 

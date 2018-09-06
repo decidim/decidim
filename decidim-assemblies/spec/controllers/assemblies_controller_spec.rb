@@ -42,6 +42,46 @@ module Decidim
         it "includes only published, with promoted listed first" do
           expect(controller.helpers.assemblies).to match_array([promoted, published])
         end
+
+        context "when there are no assemblies" do
+          before do
+            published.unpublish!
+            promoted.unpublish!
+          end
+
+          it "redirects to 404" do
+            expect { get :index }.to raise_error(ActionController::RoutingError)
+          end
+        end
+      end
+
+      describe "GET assemblies in json format" do
+        let!(:first_level) { create(:assembly, :published, :with_parent, parent: published, organization: organization) }
+        let!(:second_level) { create(:assembly, :published, :with_parent, parent: first_level, organization: organization) }
+        let!(:third_level) { create(:assembly, :published, :with_parent, parent: second_level, organization: organization) }
+
+        let(:parsed_response) { JSON.parse(response.body, symbolize_names: true) }
+
+        it "includes only published assemblies with their children (two levels)" do
+          get :index, format: :json
+          expect(parsed_response).to match_array(
+            [
+              {
+                name: translated(promoted.title),
+                children: []
+              },
+              {
+                name: translated(published.title),
+                children: [
+                  {
+                    name: translated(first_level.title),
+                    children: [{ name: translated(second_level.title) }]
+                  }
+                ]
+              }
+            ]
+          )
+        end
       end
 
       describe "promoted_assemblies" do
