@@ -2,35 +2,35 @@ fi:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: kirjailija
+        decidim_user_group_id: Laatija
         description: Kuvaus
-        offline_votes: Face-to-face -tukit
-        scope_id: laajuus
+        offline_votes: Alustan ulkopuolella kerätyt kannatukset
+        scope_id: Teema
         signature_end_date: Allekirjoitusajan päättyminen
         signature_start_date: Allekirjoituskeruun alkamisajankohta
-        signature_type: Allekirjoitus kokoelma tyyppi
+        signature_type: Allekirjoituksen keräämistapa
         signature_type_values:
-          any: sekoitettu
-          offline: Kasvokkain
-          online: OnLine
-        title: otsikko
+          any: Monikanavainen
+          offline: Alustan ulkopuolella
+          online: Verkossa
+        title: Otsikko
       initiative_author:
         address: Osoite
         city: Kaupunki
-        id_document: DNI / NIE
+        id_document: HETU
         name: Nimi ja sukunimi
         phone_number: Puhelinnumero
         post_code: Postinumero
-        province: maakunta
+        province: Maakunta
       initiatives_committee_member:
-        user: komitean jäsen
+        user: Komitean jäsen
       initiatives_type:
         banner_image: Bannerikuva
         description: Kuvaus
-        title: otsikko
+        title: Otsikko
       organization_data:
         address: Osoite
-        id_document: ID-asiakirja
+        id_document: Henkilöllisyyden todistamisen asiakirja
         name: Koko nimi
   activerecord:
     models:
