@@ -245,7 +245,7 @@ fi:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on luonut aloitteen <a href="%{resource_path}">%{resource_title}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on hyväksynyt seuraavan aloitteen. Ehkä haluat osallistua keskusteluun:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_outro: Saat tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Aloite, jonka %{author_nickname} on hyväksynyt
           notification_title: <a href="%{resource_path}">%{resource_title}</a> aloite hyväksyttiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
