@@ -507,50 +507,50 @@ hu:
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
         index:
-          collaborative_drafts_list: Hozzáférés az együttműködési tervekhez
+          collaborative_drafts_list: Hozzáférés közös vázlatokhoz
           new_proposal: Új javaslat
-          see_all_withdrawn: Tekintse meg az összes visszavont javaslatot
-          view_proposal: A javaslat megtekintése
+          see_all_withdrawn: Összes visszavont javaslat
+          view_proposal: Javaslat megtekintése
         linked_proposals:
           proposal_votes:
-            one: szavazás
-            other: szavazat
+            one: szavazat
+            other: szavazatok
         new:
-          send: Folytatni
-          title: Hozzon létre javaslatot
+          send: Tovább
+          title: Hozz létre javaslatot
         orders:
-          label: 'Megrendelések megrendelése:'
-          most_voted: A legtöbb szavazatot
-          random: Véletlen
-          recent: Friss
+          label: 'Javaslatok rendezése:'
+          most_voted: Legtöbb szavazattal
+          random: Véletlenszerű
+          recent: Legutóbbi
         preview:
-          modify: Módosítsa a javaslatot
+          modify: Javaslat módosítása
           proposal_edit_before_minutes:
-            one: A javaslatot a javaslat közzétételét követő első percben szerkesztheti. Ha ez az időablak megy, akkor nem tudja szerkeszteni a javaslatot.
-            other: A javaslatot a javaslat közzétételét követő %{count} percben szerkesztheti. Ha ez az időablak megy, akkor nem tudja szerkeszteni a javaslatot.
-          publish: közzétesz
-          title: Tegye közzé javaslatát
+            one: Ezt a javaslatot a közzétételt követő első percben azonnal szerkesztheted. Miután azonban ez az ablak bezárult, többé nem fogod tudni szerkeszteni a javaslatot.
+            other: Ezt a javaslatot a közzétételt követő %{count}. percben már szerkesztheted. Miután azonban ez az ablak bezárult, többé nem fogod tudni szerkeszteni a javaslatot.
+          publish: Közzétesz
+          title: Javaslatod közzététele
         proposal:
           creation_date: 'Létrehozás: %{date}'
-          view_proposal: A javaslat megtekintése
+          view_proposal: Javaslat megtekintése
         show:
           edit_proposal: Javaslat szerkesztése
           endorsements_list: Jóváhagyások listája
           hidden_endorsers_count:
-            one: és további 1 személy
+            one: és még 1 ember
             other: és még %{count} ember
-          link_to_collaborative_draft_help_text: Ez a javaslat együttes tervezet eredménye. Tekintse át a történetet
-          link_to_collaborative_draft_text: Lásd az együttműködési tervezetet
+          link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
+          link_to_collaborative_draft_text: Közös vázlat megtekintése
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
-          proposal_in_evaluation_reason: Ezt a javaslatot értékelik
+          proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
           report: Jelentés
           sign_in: Bejelentkezés
-          sign_in_or_up: "%{in} vagy %{up} részt"
+          sign_in_or_up: "%{in} vagy %{up} a részvételhez"
           sign_up: regisztrálj
-          withdraw_btn_hint: Visszavonhatja javaslatát, ha meggondolja magát, mindaddig, amíg nem kapott támogatást. A javaslatot nem törölték, és a visszavont javaslatok listáján szerepel.
+          withdraw_btn_hint: Ha meggondoltad magad, az első támogatás megszerzéséig bármikor visszavonhatod a javaslatod. A javaslat nem törlődik automatikusan, hanem a visszavont javaslatok listájára kerül.
           withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?
-          withdraw_proposal: Vonja vissza a javaslatot
+          withdraw_proposal: Javaslat visszavonása
         tags:
           changed_from: "( <u>%{previous_category}</u> a rendszergazda megváltoztatta)"
           filed_as: Igazolt
