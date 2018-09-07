@@ -389,26 +389,26 @@ hu:
           hidden_authors_count:
             one: és még 1 ember
             other: és még %{count} ember
-          info-message: Ez egy <strong>együttműködési</strong> tervezet egy javaslatra. Ez azt jelenti, hogy segítséget nyújthat a szerzőknek, hogy alakítsák ki a javaslatot az alábbi megjegyzésszakasz használatával, vagy közvetlenül javítsák ki a hozzáférést a szerkesztéshez. Ha a szerzők hozzáférést biztosítanak neked, akkor módosíthatja a tervezetet.
-          of_versions: "( %{number})"
-          publish: közzétesz
-          publish_info: A tervezet ezen verziójának közzététele vagy
+          info-message: Ez egy javaslathoz készülő, úgynevezett <strong>közösen szerkesztett vázlat</strong>, ami azt jelenti, hogy a megjegyzések szekción keresztül, vagy közvetlen hozzáférés segítségével közösen alakíthatjátok a szöveget. Ha a szerző(k) hozzáférést biztosítanak neked, akkor módosíthatod is a vázlatot.
+          of_versions: "(ennyiből: %{number})"
+          publish: Közzétesz
+          publish_info: Vázlat jelen verziójának közzététele vagy
           published_proposal: közzétett javaslat
           request_access: Hozzáférés kérése
-          requested_access: Kért hozzáférés
-          see_other_versions: lásd a többi verziót
-          version: '%{number}verzió'
-          version_history: olvassa el a jelen javaslat verziótörténetét
-          withdraw: vonja vissza a tervezetet
+          requested_access: Hozzáférés megkérve
+          see_other_versions: más verziók
+          version: '%{number} verzió'
+          version_history: nézd meg a javaslat verziótörténetét
+          withdraw: tervezet visszavonása
         states:
-          open: Nyisd ki
-          published: Közzétett
-          withdrawn: Visszavont
+          open: Megnyitás
+          published: Közzétéve
+          withdrawn: Visszavonva
         update:
-          error: Az együttműködési terv mentésekor hibák történtek.
-          success: Az együttműködő tervezet sikeresen frissült.
+          error: Hiba történt a közösen szerkesztett vázlat mentése során.
+          success: Közös vázlat frissítése sikeres.
         wizard_aside:
-          back: Hát
+          back: Vissza
           info: Ön egy <strong>együttműködési tervezetet hoz létre</strong>.
         wizard_steps:
           see_steps: Lásd a lépéseket
