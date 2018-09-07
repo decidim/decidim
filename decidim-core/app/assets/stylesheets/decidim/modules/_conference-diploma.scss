@@ -1,0 +1,22 @@
+.conference-diploma{
+  padding: 2 * $global-padding;
+  text-align: center;
+
+  .diploma__attendance{
+    > *{
+      display: block;
+    }
+
+    text-align: center;
+  }
+
+  .diploma__name{
+    margin-top: 3 * $global-margin;
+  }
+
+  .diploma__logo{
+    border: $border;
+    margin-top: 3 * $global-margin;
+    padding: 2 * $global-padding;
+  }
+}
