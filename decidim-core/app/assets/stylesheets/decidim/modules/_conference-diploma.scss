@@ -8,10 +8,12 @@
     }
 
     text-align: center;
+    font-size: rem-calc(14);
   }
 
   .diploma__name{
     margin-top: 3 * $global-margin;
+    font-size: rem-calc(18);
   }
 
   .diploma__logo{

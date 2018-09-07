@@ -5,15 +5,15 @@
     <div class="diploma__logo small-6 small-centered">
       <%= image_tag "badge-ajuntament-footer.png" %>
     </div>
-    <div class="diploma__name">
+    <div class="diploma__name small-10 small-centered">
       <h2><strong><%= conference %></strong></h2>
       <h3>Certificate of Attendance</h3>
       <p>This is to certify that <strong><%= Faker::Name.name %></strong> has attended and taken part in the <strong><%= conference %></strong> held at the <strong><%= Faker::Address.community %></strong> on <strong><%= date %></strong></p>
     </div>
-    <hr>
+    <hr class="reset mt-m mb-m">
     <div class="diploma__attendance">
       <strong>Attendance verified by</strong>
-      <div class="mt-s mb-s">
+      <div>
         <%= image_tag "signature.png" %>
       </div>
       <%= date %>, <%= Faker::Name.name %>
