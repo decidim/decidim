@@ -552,66 +552,66 @@ hu:
           withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?
           withdraw_proposal: Javaslat visszavonása
         tags:
-          changed_from: "( <u>%{previous_category}</u> a rendszergazda megváltoztatta)"
-          filed_as: Igazolt
+          changed_from: "(<u>%{previous_category}</u> a rendszergazda megváltoztatta)"
+          filed_as: Iktatva mint
         vote_button:
-          already_voted: Már megszavazták
-          already_voted_hover: Unvote
-          maximum_votes_reached: Szavazási korlát elérte
-          no_votes_remaining: Nincs szavazat maradt
+          already_voted: Már szavazott
+          already_voted_hover: Szavazat visszavonása
+          maximum_votes_reached: Szavazási határon túl
+          no_votes_remaining: Nincs több szavazat
           vote: Szavazás
-          votes_blocked: A szavazás le van tiltva
+          votes_blocked: Szavazás letiltva
         votes_count:
           count:
-            one: SZAVAZÁS
-            other: SZAVAZÁS
+            one: SZAVAZAT
+            other: SZAVAZATOK
           most_popular_proposal: Legnépszerűbb javaslat
-          need_more_votes: Több szavazat szükséges
+          need_more_votes: Több szavazat kell
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Minden javaslat több mint %{limit} támogatást tud felhalmozni
+            description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
           proposal_limit:
-            description: Legfeljebb %{limit} pályázatot hozhat létre.
+            description: Legfeljebb %{limit} javaslatot készíthetsz.
           threshold_per_proposal:
-            description: A jóváhagyáshoz a pályázatoknak %{limit} támogatást kell elérniük
-          title: 'A szavazás a következő szabályok szerint történik:'
+            description: Javaslatok jóváhagyáshoz legalább %{limit} támogatás szükséges
+          title: 'A szavazásra ezen szabályok vonatkoznak:'
           vote_limit:
-            description: Legfeljebb %{limit} javaslatot szavazhat.
-            left: Többi
-            votes: szavazatok
+            description: Legfeljebb %{limit} javaslatról szavazhatsz.
+            left: Fennmaradó
+            votes: Szavazatok
         wizard_aside:
-          back: Hát
-          info: Ön <strong>javaslatot hoz létre</strong>.
+          back: Vissza
+          info: Épp egy <strong>javaslatot</strong> hozol létre.
         wizard_steps:
-          see_steps: Lásd a lépéseket
-          step_1: Hozzon létre javaslatot
+          see_steps: lépések
+          step_1: Hozz létre javaslatot
           step_2: Összehasonlítás
-          step_3: teljes
-          step_4: Tegye közzé javaslatát
-          step_of: Lépés %{current_step_num} Az %{total_steps}
+          step_3: Befejez
+          step_4: Javaslatod közzététele
+          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
       publish:
-        error: A javaslat közzététele során hiba történt.
-        success: A javaslat sikeresen közzétett.
+        error: Hiba történt a javaslat közzététele során.
+        success: Javaslat közzététele sikeres.
       update:
-        error: A javaslat mentésekor hiba történt.
-        success: A javaslat sikeresen frissült.
+        error: Hiba történt a javaslat mentése során.
+        success: Javaslat frissítése sikeres.
       update_draft:
-        error: Hiba történt a tervjavaslat mentésekor.
-        success: A javaslattervezés sikeresen frissült.
+        error: Hiba történt a javaslat vázlatának mentése során.
+        success: Javaslat vázlat frissítése sikeres.
       versions:
-        changes_at_title: Változások a "%{title}"
+        changes_at_title: 'Változások itt: "%{title}"'
         index:
-          title: változatok
+          title: Verziók
         stats:
-          back_to_collaborative_draft: Menj vissza az együttműködési tervezetre
-          number_of_versions: változatok
-          show_all_versions: Az összes verzió megjelenítése
-          version_author: Verzió szerző
-          version_created_at: 'Verzió létrehozva a következő helyen:'
+          back_to_collaborative_draft: Vissza a közös vázlathoz
+          number_of_versions: Verziók
+          show_all_versions: Összes verzió megjelenítése
+          version_author: Verzió szerzője
+          version_created_at: 'Verzió létrehozva itt:'
           version_number: Verziószám
-          version_number_out_of_total: "%{current_version} az %{total_count}"
+          version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
         version:
-          version_index: '%{index}verzió'
+          version_index: '%{index} verzió'
     resource_links:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok
