@@ -23,7 +23,7 @@ fr:
         location_hints: Données de localisation
         private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
-        registrations_enabled: Inscriptions ouvertes
+        registrations_enabled: Activer les inscriptions
         reserved_slots: Places réservées
         start_time: Heure de début
         title: Titre
