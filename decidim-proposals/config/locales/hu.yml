@@ -323,7 +323,7 @@ hu:
             success: Közös vázlat visszavonása sikeres.
         compare:
           mine_is_different: A közös vázlatom eltér ettől
-          no_similars_found: Szép munka! Nincs hasonló közös vázlat
+          no_similars_found: Szép munka! Nincsen hasonló közös vázlat
           title: Hasonló közös vázlatok
         complete:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
@@ -409,103 +409,103 @@ hu:
           success: Közös vázlat frissítése sikeres.
         wizard_aside:
           back: Vissza
-          info: Ön egy <strong>együttműködési tervezetet hoz létre</strong>.
+          info: Épp egy <strong>közös vázlat</strong> hozol létre.
         wizard_steps:
-          see_steps: Lásd a lépéseket
-          step_1: Hozzon létre együttműködési tervezetet
-          step_2: Összehasonlítás az együttműködésen alapuló tervezetekkel
-          step_3: Töltse ki együttműködési terveit
-          step_of: Lépés %{current_step_num} Az %{total_steps}
+          see_steps: lépések
+          step_1: Hozd létre a közös vázlatod
+          step_2: Összehasonlítás közös vázlatokkal
+          step_3: Fejezd be a közös vázlatodat
+          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
       create:
-        error: A javaslat mentésekor hiba történt.
-        success: A javaslat sikeresen létrehozva. Mentett mint vázlat.
+        error: Hiba történt a javaslat mentése során.
+        success: Javaslat létrehozása sikeres. Vázlatként mentve.
       destroy_draft:
-        error: Hiba történt a javaslat tervezetének törlésével.
-        success: A javaslat tervezetét sikeresen törölték.
+        error: Hiba történt a javaslat tervezetének törlésekor.
+        success: Javaslat vázlatának törlése sikeres volt.
       models:
         collaborative_draft:
           fields:
-            authors: Szerzői
+            authors: Szerzők
             comments: Hozzászólások
-            contributions: hozzájárulások
+            contributions: Közreműködések
         proposal:
           fields:
             category: Kategória
             comments: Hozzászólások
-            endorsements: Elismerések
+            endorsements: Jóváhagyások
             id: ID
-            notes: Megjegyzések
+            notes: Jegyzetek
             official_proposal: Hivatalos javaslat
-            published_at: Megjelent a
-            scope: terület
+            published_at: 'Közzétéve:'
+            scope: Hatáskör
             state: Állapot
             title: Cím
-            votes: szavazatok
+            votes: Szavazatok
       new:
-        limit_reached: Nem hozhat létre új javaslatokat, mivel túllépte a határértéket.
+        limit_reached: Nem hozhatsz létre új javaslatokat, mert túllépted a maximumot.
       proposal_endorsements:
         create:
-          error: Hiba történt a javaslat elfogadásakor.
+          error: Hiba történt a javaslat jóváhagyása során.
         identities:
           done: Kész
-          select_identity: Válassza ki az azonosítót
+          select_identity: Válassz azonosítót
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: jóváhagyta
-          endorse: Támogassa
+          already_endorsed: Jóváhagyva
+          endorse: Jóváhagy
         render_endorsements_button_card_part:
-          endorse: Támogassa
+          endorse: Jóváhagy
       proposal_votes:
         create:
-          error: A javaslat szavazásakor hiba történt.
+          error: Hiba történt a javaslatra való szavazás során.
       proposals:
         compare:
-          mine_is_different: A javaslatom más
-          no_similars_found: Szép munka! Nem találtak hasonló javaslatokat
+          mine_is_different: Javaslatom más jellegű
+          no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:
-          send: Elküld
-          title: Töltse ki a javaslatot
+          send: Küldés
+          title: Fejezd be a javaslatod
         count:
           proposals_count:
             one: 1 javaslat
-            other: "%{count} javaslatot"
+            other: "%{count} javaslat"
         edit:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
-          back: Hát
-          select_a_category: Kérjük, válasszon egy kategóriát
-          send: Elküld
+          back: Vissza
+          select_a_category: Válassz kategóriát
+          send: Küldés
           title: Javaslat szerkesztése
         edit_draft:
-          discard: Dobja el ezt a tervezetet
-          discard_confirmation: Biztos vagy benne, hogy elutasítod ezt a tervezetet?
+          discard: Vázlat elvetése
+          discard_confirmation: Biztos vagy benne, hogy elveted ezt a vázlatot?
           send: Előnézet
-          title: Javaslatok szerkesztése
+          title: Javaslat vázlatok szerkesztése
         endorsement_identities_cabin:
-          endorse: Támogassa
+          endorse: Jóváhagy
         endorsements_card_row:
           comments: Hozzászólások
         filters:
-          accepted: Elfogadott
+          accepted: Elfogadva
           activity: Tevékenység
-          all: Minden
+          all: Összes
           category: Kategória
-          category_prompt: Válasszon egy kategóriát
+          category_prompt: Válassz kategóriát
           citizens: Állampolgárok
-          evaluating: Értékelő
-          except_rejected: Mindent elutasítottak
+          evaluating: Értékelés
+          except_rejected: Összes elutasítva
           official: Hivatalos
-          origin: Eredet
+          origin: Kiindulópont
           rejected: Elutasítva
-          related_to: Kapcsolatos
+          related_to: Kapcsolódó
           search: Keresés
           state: Állapot
-          voted: szavazott
+          voted: Szavazott
         filters_small_view:
-          close_modal: Közeli modal
-          filter: Szűrő
-          filter_by: Szűrés vlami alapján
-          unfold: kibontakozik
+          close_modal: Modal bezárása
+          filter: Szűrés
+          filter_by: 'Szűrés ez alapján:'
+          unfold: Kibont
         index:
           collaborative_drafts_list: Hozzáférés az együttműködési tervekhez
           new_proposal: Új javaslat
