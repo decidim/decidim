@@ -20,7 +20,7 @@ fr:
         description: Description
         end_time: Heure de fin
         location: Lieu
-        location_hints: Données de localisation
+        location_hints: Précisions
         private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
         registrations_enabled: Activer les inscriptions
