@@ -345,49 +345,49 @@ hu:
         filters:
           all: Összes
           category: Kategória
-          category_prompt: Kategória prompt
-          open: Nyisd ki
-          published: Közzétett
-          related_to: Kapcsolatos
+          category_prompt: Prompt Kategória
+          open: Megnyitás
+          published: Közzétéve
+          related_to: Kapcsolódó
           search: Keresés
           state: Állapot
-          withdrawn: Visszavont
+          withdrawn: Visszavonva
         filters_small_view:
-          close_modal: Közeli modal
-          filter: Szűrő
-          filter_by: Szűrés vlami alapján
-          unfold: kibontakozik
+          close_modal: Modal bezárása
+          filter: Szűrés
+          filter_by: 'Szűrés ez alapján:'
+          unfold: Kibont
         new:
-          send: Folytatni
-          title: Hozzon létre együttműködési tervezetet
+          send: Tovább
+          title: Hozz létre közös vázlatot
         new_collaborative_draft_button:
-          new_collaborative_draft: Új együttműködési terv
+          new_collaborative_draft: Új közös vázlat
         orders:
-          label: 'Vázlatok tervezése:'
-          most_contributed: Legtöbben járultak hozzá
-          random: Véletlen
-          recent: Friss
+          label: 'Vázlatok rendezése:'
+          most_contributed: Legtöbbeket bevonó
+          random: Véletlenszerű
+          recent: Legutóbbi
         requests:
           accepted_request:
-            error: Nem fogadható el együttműködő partnerként, próbálkozzon újra később.
-            success: "A @%{user} sikeresen együttműködött sikeresen"
+            error: Nem lehet közreműködő partner, próbáld újra később.
+            success: "@%{user} elfogadva, mint közreműködő"
           access_requested:
-            error: Nem sikerült befejezni kérését, próbálkozzon újra később.
-            success: Az együttműködés iránti kérelmét sikeresen elküldtük
+            error: Nem sikerült befejezni a műveletet, próbáld újra később.
+            success: A közreműködés iránti kérelmedet sikeresen elküldtük
           collaboration_requests:
             accept_request: Elfogad
             reject_request: Elutasít
-            title: Együttműködési kérelmek
+            title: Közreműködési kérelmek
           rejected_request:
-            error: Nem lehet elutasítani együttműködő partnerként, próbálkozzon később.
-            success: "@%{user} sikeresen elutasították, mint sikeres munkatárs"
+            error: Nem lehetett elutasítani a közreműködőt, próbálkozz később.
+            success: "@%{user} elutasítva, mint közreműködő"
         show:
-          back: Hát
-          edit: Összehangolt tervezet szerkesztése
+          back: Vissza
+          edit: Közös vázlat szerkesztése
           final_proposal: végleges javaslat
-          final_proposal_help_text: Ez a terv kész. Láthatja az utolsó kész pályázatot
+          final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
           hidden_authors_count:
-            one: és további 1 személy
+            one: és még 1 ember
             other: és még %{count} ember
           info-message: Ez egy <strong>együttműködési</strong> tervezet egy javaslatra. Ez azt jelenti, hogy segítséget nyújthat a szerzőknek, hogy alakítsák ki a javaslatot az alábbi megjegyzésszakasz használatával, vagy közvetlenül javítsák ki a hozzáférést a szerkesztéshez. Ha a szerzők hozzáférést biztosítanak neked, akkor módosíthatja a tervezetet.
           of_versions: "( %{number})"
