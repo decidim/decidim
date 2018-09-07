@@ -12,7 +12,7 @@ fi:
         proposals: Sisällytetyt ehdotukset
         start_date: Aloitusaika
         title: Otsikko
-        updated_at: Päivitetty
+        updated_at: Päivitysaika
       status:
         description: Kuvaus
         key: Tunniste
