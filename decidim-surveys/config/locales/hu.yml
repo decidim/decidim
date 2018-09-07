@@ -48,59 +48,59 @@ hu:
           email_intro: 'A(z) %{resource_title} felmérés már elindult itt: %{participatory_space_title}. Ezen az oldalon vehetsz részt:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Új felmérés itt: %{participatory_space_title}'
-          notification_title: A felmérés <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> már nyitva van.
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> felmérés elindult itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     forms:
       errors:
         survey_answer:
-          body: A test nem lehet üres
+          body: Mező nem lehet üres
     surveys:
       admin:
         exports:
-          survey_user_answers: Felmérés felhasználói válaszok
+          survey_user_answers: Felhasználók válaszai
         models:
           components:
             description: Leírás
-            tos: Szolgáltatás feltételei
+            tos: Szolgáltatási feltételek
         surveys:
           answer_option:
             answer_option: Válasz opció
-            free_text: Ingyenes szöveg
-            remove: eltávolít
+            free_text: Szabad szöveg
+            remove: Eltávolítás
             statement: Nyilatkozat
           edit:
             save: Mentés
             title: Cím
           form:
             add_question: Kérdés hozzáadása
-            already_answered_warning: A felmérést már néhány felhasználó válaszolta, így nem változtathatja meg kérdéseit.
+            already_answered_warning: A felmérést már néhány felhasználó megválaszolta, így nem változtathatsz a kérdéseken.
           question:
             add_answer_option: Válasz opció hozzáadása
-            any: Bármilyen
+            any: Bármely
             description: Leírás
             down: Le
             question: Kérdés
-            remove: eltávolít
+            remove: Eltávolítás
             statement: Nyilatkozat
             up: Fel
           update:
-            invalid: Hiba történt a felmérés mentésekor.
-            success: A felmérés sikeresen mentett.
+            invalid: Hiba történt a felmérés mentése során.
+            success: Felmérés mentése sikeres.
       question_types:
         long_answer: Hosszú válasz
         multiple_option: Több lehetőség
         short_answer: Rövid válasz
         single_option: Egy lehetőség
-        sorting: Válogatás
+        sorting: Rendezés
       surveys:
         answer:
-          invalid: Hiba történt a felmérés során.
-          success: A felmérés sikeresen felelt.
+          invalid: Hiba történt a felmérés megválaszolása során.
+          success: Felmérés kitöltése sikeres.
         question:
           max_choices: 'Max választás: %{n}'
         show:
           answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}">Jelentkezzen be fiókjához</a> vagy <a href="%{sign_up_link}">feliratkozáshoz</a> hogy válaszoljon a felmérésre.
-            title: Válaszolj a felmérésre
+            anonymous_user_message: <a href="%{sign_in_link}">Jelentkezz be fiókodba</a> vagy <a href="%{sign_up_link}">regisztrálj</a> a felmérés kitöltéséhez.
+            title: Felmérés kitöltése
           are_you_sure: Ez a művelet nem vonható vissza, és nem tudja szerkeszteni a válaszokat. biztos vagy ebben?
           submit: beküldése
           survey_answered:
