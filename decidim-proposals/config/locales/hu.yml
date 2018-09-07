@@ -282,68 +282,68 @@ hu:
           new:
             create: Javaslatok importálása
             no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
-            select_component: Kérjük, válasszon egy összetevőt
-            select_states: Ellenőrizze a behozandó javaslatok állapotát
+            select_component: Válassz ki egy elemet
+            select_states: Ellenőrizd az importálandó javaslatok állapotát
         shared:
           info_proposal:
-            body: Test
-            created_at: Készítés ideje
-            proposal_votes_count: A szavazatok száma
-            proposals: javaslatok
+            body: Szöveg
+            created_at: Létrehozás dátuma
+            proposal_votes_count: Szavazatok száma
+            proposals: Javaslatok
       admin_log:
         proposal:
-          answer: "%{user_name} válaszolt az %{resource_name} javaslatra a %{space_name} helyre"
-          create: "%{user_name} létrehozta az %{resource_name} javaslatot a %{space_name} helyre, mint hivatalos javaslatot"
+          answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
+          create: "%{user_name} létrehozta a(z) %{resource_name} javaslatot (hivatalos) itt: %{space_name}"
         proposal_note:
-          create: "%{user_name} maradt egy privát megjegyzés az %{resource_name} javaslat a %{space_name} helyet"
+          create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
       answers:
-        accepted: Elfogadott
-        evaluating: Értékelő
-        not_answered: Nem válaszolt
+        accepted: Elfogadva
+        evaluating: Értékelés
+        not_answered: Nem megválaszolt
         rejected: Elutasítva
-        withdrawn: Visszavont
+        withdrawn: Visszavonva
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Hiba történt az együttműködési terv közzétételekor.
+            error: Hiba történt a közösen szerkesztett vázlat közzététele során.
             irreversible_action_modal:
-              body: Miután közzétette a tervezetet javaslattételként, a tervezet már nem szerkeszthető. A javaslat nem fogad el új szerzőket vagy hozzájárulásokat.
-              cancel: Megszünteti
+              body: Miután a vázlatot közzétetted, mint javaslatot, már nem szerkesztheted. A javaslathoz új szerzők vagy közreműködők sem adhatóak hozzá.
+              cancel: Mégse
               ok: Közzététel javaslatként
-              title: A következő művelet visszafordíthatatlan
-            success: Együttműködési tervezet sikeresen jelent meg javaslatként.
-          view_collaborative_draft: Együttműködési terv megtekintése
+              title: A következő művelet visszavonhatatlan
+            success: A közös vázlat javaslatként való közzététele sikeres volt.
+          view_collaborative_draft: Közös vázlat megtekintése
           withdraw:
-            error: Hiányzott a hiba az együttműködésen alapuló tervezetben.
+            error: Hiba történt a közösen szerkesztett vázlat lezárásakor.
             irreversible_action_modal:
-              body: A tervezet bezárása után a tervezet már nem szerkeszthető. A tervezet nem fogad el új szerzőket vagy hozzájárulásokat.
-              cancel: Megszünteti
-              ok: Vegye ki az együttműködési tervezetet
-              title: A következő művelet visszafordíthatatlan
-            success: Együttműködési tervezet sikeresen visszavonva.
+              body: A tervezet a lezárás után nem szerkeszthető. A javaslathoz új szerzők vagy közreműködők sem adhatóak hozzá.
+              cancel: Mégse
+              ok: Közös vázlat visszavonása
+              title: A következő művelet visszavonhatatlan
+            success: Közös vázlat visszavonása sikeres.
         compare:
-          mine_is_different: Együttműködési tervem más
-          no_similars_found: Szép munka! Nincs hasonló együttműködési tervezet
-          title: Hasonló együttműködési tervezetek
+          mine_is_different: A közös vázlatom eltér ettől
+          no_similars_found: Szép munka! Nincs hasonló közös vázlat
+          title: Hasonló közös vázlatok
         complete:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
-          select_a_category: Kérjük, válasszon egy kategóriát
-          send: Elküld
-          title: Töltse ki együttműködési terveit
+          select_a_category: Válassz kategóriát
+          send: Küldés
+          title: Fejezd be a közös vázlatot
         count:
           drafts_count:
-            one: 1 együttműködési terv
-            other: "%{count} együttműködési tervezet"
+            one: 1 közös vázlat
+            other: "%{count} közös vázlat"
         create:
-          error: Probléma történt az együttműködési tervek létrehozásában
-          success: Együttműködő tervezet sikeresen létrehozva.
+          error: Hiba a közösen szerkesztett vázlatok létrehozásakor
+          success: Közös vázlat létrehozása sikeres.
         edit:
-          back: Hát
-          select_a_category: Kérjük, válasszon egy kategóriát
-          send: Elküld
-          title: Összehangolt tervezet szerkesztése
+          back: Vissza
+          select_a_category: Válassz kategóriát
+          send: Küldés
+          title: Közös vázlat szerkesztése
         filters:
-          all: Minden
+          all: Összes
           category: Kategória
           category_prompt: Kategória prompt
           open: Nyisd ki
