@@ -2,9 +2,9 @@ hu:
   activemodel:
     attributes:
       sortition:
-        additional_info: Rendezési információk
-        decidim_category_id: Olyan pályázatok kategóriái, amelyekben a felhívást alkalmazni szeretné
-        decidim_proposals_component_id: Javasolt pályázatok
+        additional_info: Sorsolás információk
+        decidim_category_id: Azon javaslatok kategóriája, amelyekben a sorsolást alkalmazni kívánjuk
+        decidim_proposals_component_id: Beállított javaslatok
         dice: A tekercs eredményei. Roll a 6-oldalas hal, vagy keressen egy másik véletlen módon számot 1-től 6-ig, és írja be ide a számot előtt néhány tanú. Ez hozzájárul az eredmény véletlenszerűségének minőségéhez és garanciáihoz
         target_items: A kiválasztandó pályázatok száma (jelöli a javaslatok számát, amelyeket a korábban kiválasztott ajánlatok csoportjának rengeteg kiválasztásával kíván kiválasztani)
         title: Cím
