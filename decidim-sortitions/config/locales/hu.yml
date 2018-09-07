@@ -129,23 +129,23 @@ hu:
           candidate_proposals_info: 'Sorsolásos módszer végrehajtva a következő javaslatokon: (%{category_label}), ilyen azonosítókkal (kiválasztott javaslatok vastagon kiemelve)  '
           category: a(z) %{category} kategóriából
           dice_result: "(1) dobókocka eredmény"
-          introduction: 'Ez az oldal tartalmazza a %{reference}rendezés eredményeit. Ezzel a módszerrel %{target_items} számú eredményt választottak véletlenszerűen és egyenlő valószínűségi eloszlással a megjelenő ajánlatokból. Az eredményekkel együtt az ezen az oldalon megjelenő információk minden olyan információt megadnak, amely a garanciák maximalizálására és az eredmények reprodukálására szolgál. Ennek a változatosságnak a kulcsa a kettős véletlenszerűség, amelyet egy kocka (tanú által igazolt) dobása és egy sorozata pontos időpontja biztosít, amely egy véletlen kiválasztást generáló algoritmust biztosít. A válogatáshoz szükséges idő-magvak olyan pontosak (másodpercek), hogy embereket nem lehet ellenőrizni, így duplán "ellenőrizhetetlen" bemenetet biztosítanak a méltányos eredmény biztosítása érdekében.  '
+          introduction: 'Ez az oldal a következő sorsolás eredményeit tartalmazza: %{reference}. A módszer segítségével %{target_items} véletlenszerű eredményt kaptunk az alábbi javaslatokhoz, az egyenlő valószínűségi eloszlás elvét követve. Az oldalon található adatok - az eredményekkel együtt - minden olyan információt tartalmaznak, amelyek garantálják az eljárás megbízhatóságát és reprodukálhatóságát. Ennek a sorsolásos módszernek az egyik erőssége a kétlépcsős véletlenszerűségben rejlik, amelyet egyfelől a dobókocka feldobása, másfelől a sorsolás pontos időpontjának rögzítése biztosít. Ez utóbbiak ráadásul olyannyira pontosak, hogy azt emberek nem tudják ellenőrizni. Ez a dupla véletlenszerűség garantálja tehát a megbízható eredményeket.  '
           mathematical_result: Eredmény (1) x (2)
-          proposals_selected_by_sortition: A válogatás által kiválasztott pályázatok
-          sortition_reproducibility_details: Rendezési reprodukálhatóság részleteit
+          proposals_selected_by_sortition: Sorsolással kiválasztott javaslatok
+          sortition_reproducibility_details: Sorsolás reprodukálhatósági részletek
           time_seed: "(2) Időmag"
           witnesses: Tanúk
         sortition:
-          random_seed: Véletlenszerű mag
+          random_seed: Véletlen mag
           selected_proposals:
             one: kiválasztott javaslat
-            other: kiválasztott pályázatok
-          view: Kilátás
+            other: kiválasztott javaslatok
+          view: Megtekintés
         sortition_author:
           deleted: Törölt felhasználó
         sortition_cancel_author:
           deleted: Törölt felhasználó
         sortitions_count:
           count:
-            one: 1 válogatás
-            other: "%{count} sorozatok"
+            one: 1 sorsolás
+            other: "%{count} sorsolás"
