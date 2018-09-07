@@ -101,15 +101,15 @@ hu:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Jelentkezz be fiókodba</a> vagy <a href="%{sign_up_link}">regisztrálj</a> a felmérés kitöltéséhez.
             title: Felmérés kitöltése
-          are_you_sure: Ez a művelet nem vonható vissza, és nem tudja szerkeszteni a válaszokat. biztos vagy ebben?
-          submit: beküldése
+          are_you_sure: A művelet nem visszavonható, és nem tudod majd szerkeszteni a válaszokat. Biztos vagy benne?
+          submit: Küldés
           survey_answered:
-            body: Ön már válaszolt erre a felmérésre.
-            title: Felmérés válaszolt
+            body: Már kitöltötted ezt a felmérést.
+            title: Felmérés kitöltve
           survey_closed:
-            body: A felmérés zárva van, és nem lehet válaszolni.
-            title: A felmérés lezárult
+            body: A felmérés lezárva, nem lehet kitölteni.
+            title: Felmérés lezárva
           survey_for_private_users:
             body: A felmérés csak privát felhasználók számára elérhető
-            title: A felmérés lezárult
-          tos_agreement: A felmérésben való részvétellel elfogadja az Általános Szerződési Feltételeit
+            title: Felmérés lezárva
+          tos_agreement: A felmérésben való részvétellel elfogadod az ÁSZF feltételeit
