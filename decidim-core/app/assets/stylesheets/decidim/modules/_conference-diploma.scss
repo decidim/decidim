@@ -1,8 +1,10 @@
 .conference-diploma{
   text-align: center;
+  background: $white;
 
   .diploma__border{
     padding: $global-padding;
+    margin: 4 * $global-margin;
 
     /* Border pattern */
     $motif_frontcolor: #979797;
