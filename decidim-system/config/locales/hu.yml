@@ -2,12 +2,12 @@ hu:
   decidim:
     system:
       actions:
-        confirm_destroy: Biztosan törölni akarja?
-        destroy: Töröl
-        edit: szerkesztése
+        confirm_destroy: Biztosan törölni szeretnéd ezt?
+        destroy: Törlés
+        edit: Szerkesztés
         new: Új
         save: Mentés
-        title: Hozzászólások
+        title: Műveletek
       admins:
         create:
           error: Hiba történt egy új rendszergazda létrehozásakor.
