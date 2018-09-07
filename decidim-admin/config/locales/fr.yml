@@ -15,6 +15,7 @@ fr:
         description: Description
         file: Fichier
         title: Titre de la pièce jointe
+        weight: Rang d'affichage
       attachment_collection:
         description: Description
         name: Titre
@@ -384,7 +385,7 @@ fr:
           fields:
             link: Lien
             title: Titre
-            weight: pondération
+            weight: Rang d'affichage
         newsletter:
           fields:
             created_at: Créée le
