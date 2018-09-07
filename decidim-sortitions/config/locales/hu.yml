@@ -5,74 +5,74 @@ hu:
         additional_info: Sorsolás információk
         decidim_category_id: Azon javaslatok kategóriája, amelyekben a sorsolást alkalmazni kívánjuk
         decidim_proposals_component_id: Beállított javaslatok
-        dice: A tekercs eredményei. Roll a 6-oldalas hal, vagy keressen egy másik véletlen módon számot 1-től 6-ig, és írja be ide a számot előtt néhány tanú. Ez hozzájárul az eredmény véletlenszerűségének minőségéhez és garanciáihoz
-        target_items: A kiválasztandó pályázatok száma (jelöli a javaslatok számát, amelyeket a korábban kiválasztott ajánlatok csoportjának rengeteg kiválasztásával kíván kiválasztani)
+        dice: Dobókocka feldobása. Használj hat oldalú dobókockát vagy találj más megoldást arra, hogy egy véletlen számot produkálj 1 és 6 között. Szemtanúk előtt írd be ide a számot. Ez a módszer garantálja majd a kimenet tényleges véletlenszerűségét
+        target_items: Kijelölni kívánt javaslatok száma (azt jelzi, hogy hány javaslatot szeretnél kiválasztani a már korábban kijelölt ajánlatok csoportja alapján)
         title: Cím
         witnesses: Tanúk
     models:
-      decidim/sortitions/create_sortition_event: Sorshúzás
+      decidim/sortitions/create_sortition_event: Sorsolás
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sorshúzás
-        other: Sortitions
+        one: Sorsolás
+        other: Sorsolások
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Sorsolások
         settings:
           global:
             comments_enabled: Megjegyzések engedélyezve
     events:
       sortitions:
         sortition_created:
-          email_intro: A "%{resource_title}" sorozatot hozzáadta az "%{participatory_space_title}" -hez, amelyet követ.
-          email_outro: Ezt az értesítést megkapta, mert a "%{participatory_space_title}" -t követi. Leiratkozhat az előző linkről.
-          email_subject: Új rendezés hozzáadva %{participatory_space_title}
-          notification_title: A sorrend <a href="%{resource_path}">%{resource_title}</a> lett hozzáadva a %{participatory_space_title}
+          email_intro: 'A(z) "%{resource_title}" sorsolást hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
+          email_subject: 'Új sorsolás hozzáadva ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> sorsolás hozzáadva ehhez: %{participatory_space_title}'
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Sorsolások
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Sorsolások
     sortitions:
       admin:
         actions:
-          destroy: Törölje a rendezést
-          edit: szerkesztése
-          new: Új rendezés
-          show: Rendezés részletei
+          destroy: Sorsolás törlése
+          edit: Szerkesztés
+          new: Új sorsolás
+          show: Sorsolás részletei
         models:
           sortition:
             fields:
               category: Kategória
-              created_at: Készítés ideje
-              decidim_proposals_component: Javaslatok összetevője
+              created_at: Létrehozás dátuma
+              decidim_proposals_component: Javaslatok elem
               dice: Dobókocka
               reference: Referencia
               request_timestamp: Időzítés
-              seed: Mag
-              target_items: Elemek kiválasztásához
+              seed: Kezdőérték
+              target_items: Kijelölni kívánt elemek
               title: Cím
             name:
-              one: Sorshúzás
-              other: Sortitions
+              one: Sorsolás
+              other: Sorsolások
         sortitions:
           confirm_destroy:
-            confirm_destroy: Biztosan törölni szeretné ezt a rendezést?
-            destroy: Rendezés megszüntetése
-            title: A megszüntetés megszüntetése
+            confirm_destroy: Biztosan törölni szeretnéd ezt a sorsolást?
+            destroy: Sorsolás törlése
+            title: Sorsolás törlése
           create:
-            error: Hiba történt egy új rendezés létrehozásában.
-            success: A rendezés sikeresen megtörtént
+            error: Hiba történt egy új sorsolás létrehozásakor.
+            success: Sorsolás létrehozása sikeres
           destroy:
-            error: Nem lehet törölni a rendezést.
-            success: A sorrend sikeresen törölve
+            error: Nem lehet törölni a sorsolást.
+            success: Sorsolás törlése sikeres
           edit:
-            title: Frissítse a rendezéssel kapcsolatos információkat
-            update: frissítés
+            title: Sorsolással kapcsolatos információk frissítése
+            update: Frissítés
           form:
             all_categories: Minden kategória
             select_proposal_component: Válassza ki a beállított javaslatokat
