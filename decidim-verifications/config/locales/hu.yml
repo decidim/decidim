@@ -6,27 +6,27 @@ hu:
         document_type: A dokumentum típusa
       id_document_upload:
         document_number: Dokumentum száma (betűvel)
-        document_type: A dokumentum típusa
-        user: használó
-        verification_attachment: A dokumentum szkennelt példánya
+        document_type: Dokumentumod típusa
+        user: Felhasználó
+        verification_attachment: Dokumentumod szkennelt példánya
       postal_letter_address:
-        full_address: Teljes cím
+        full_address: Teljes lakcím
       postal_letter_confirmation:
         verification_code: Ellenőrző kód
       postal_letter_postage:
-        full_address: Teljes cím
+        full_address: Teljes lakcím
         verification_code: Ellenőrző kód
   decidim:
     admin:
       menu:
-        authorization_workflows: Az ellenőrzések
+        authorization_workflows: Ellenőrzések
     authorization_handlers:
       admin:
         id_documents:
           help:
-            - A felhasználók kitöltik személyazonosító adataikat és feltöltik a dokumentumuk másolatát.
-            - Töltse fel a feltöltött képen megjelenő információkat.
-            - Az információnak meg kell egyeznie a felhasználó által kitöltve.
+            - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
+            - Töltsd ki a feltöltött képen található információkkal.
+            - Az információknak meg kell egyeznie a kitöltött adatokkal.
             - Ha nem tudja egyértelműen látni az adatokat, vagy nem tudja ellenőrizni, akkor elutasíthatja a kérelmet, és a felhasználó képes lesz javítani.
         postal_letter:
           help:
