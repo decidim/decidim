@@ -99,39 +99,39 @@ hu:
             title: Személyi igazolvány feltöltése
           update:
             error: Probléma volt a dokumentum újbóli feltöltésekor
-            success: A dokumentum sikeresen újramenthető
-        dni: DNI
-        nie: NIE
+            success: Dokumentum újbóli feltöltése sikeres
+        dni: Szig.
+        nie: Lakcím kártya
         passport: Útlevél
       postal_letter:
         admin:
           pending_authorizations:
             index:
-              address: Cím
-              letter_sent_at: Levél elküldve
-              mark_as_sent: Megjelölés elküldve
-              not_yet_sent: még nincs elküldve
-              title: Folyamatos ellenőrzések
+              address: Lakcím
+              letter_sent_at: 'Levél elküldve:'
+              mark_as_sent: Megjelölés elküldöttként
+              not_yet_sent: Még nincs elküldve
+              title: Folyamatban lévő ellenőrzések
               username: Felhasználónév
               verification_code: Ellenőrző kód
           postages:
             create:
-              error: Hiba a levél megjelölésként
-              success: A levél sikeresen megjelent elküldésként
+              error: Hiba a levél megjelölésekor
+              success: Levél megjelölés elküldöttként sikeres
         authorizations:
           create:
-            error: Probléma volt a kéréssel
-            success: Kösz! Ellenőrző kódot küldünk a címére
+            error: Probléma történt a kérésed kapcsán
+            success: Köszönjük! Az ellenőrző kódot elküldünk a lakcímedre
           edit:
-            send: megerősít
-            title: Vigye be a kapott ellenőrző kódot
-            waiting_for_letter: Hamarosan levelet küldünk a címére az ellenőrző kóddal
+            send: Megerősítés
+            title: Írd be az ellenőrző kódot
+            waiting_for_letter: Az ellenőrző kódot tartalmazó levelet hamarosan elküldjük a címedre
           new:
-            send: Küldjön nekem egy levelet
-            title: Kérjen ellenőrző kódot
+            send: Küldjetek levelet
+            title: Kérj ellenőrző kódot magadnak
           update:
-            error: Az ellenőrző kód nem egyezik a miénk. Kérjük, ellenőrizze kétszer az Ön által küldött levelet
-            success: Gratulálok. Sikeresen ellenőrizte
+            error: Az ellenőrző kód nem egyezik a miénkkel. Kérlek, nézd át mégegyszer az elküldött levelet
+            success: Gratulálunk. Az ellenőrzésed sikeres volt
   errors:
     messages:
-      uppercase_only_letters_numbers: minden nagybetűsnek és csak betűket és / vagy számokat kell tartalmaznia
+      uppercase_only_letters_numbers: kizárólag nagybetűt és/vagy számokat használhatsz
