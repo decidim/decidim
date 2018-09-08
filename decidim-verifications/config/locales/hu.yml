@@ -27,40 +27,40 @@ hu:
             - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
             - Töltsd ki a feltöltött képen található információkkal.
             - Az információknak meg kell egyeznie a kitöltött adatokkal.
-            - Ha nem tudja egyértelműen látni az adatokat, vagy nem tudja ellenőrizni, akkor elutasíthatja a kérelmet, és a felhasználó képes lesz javítani.
+            - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
         postal_letter:
           help:
-            - A felhasználók ellenőrző kódot kérnek a címükre.
-            - A levelet a címére küldi az ellenőrző kóddal.
-            - Ön a levelet küldöttként jelöli meg.
-            - Miután megjelölte a levelet elküldöttként, a felhasználó be tudja mutatni a kódot, és ellenőrizni tudja.
+            - A felhasználók a lakcímükre kérik az ellenőrző kódot.
+            - A kódot tartalmazó levelet a lakcímükre küldöd el.
+            - Levél elküldöttként megjelölve.
+            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
       direct: Közvetlen
       help: Segítség
       id_documents:
-        explanation: Töltsd fel személyazonosító okmányodat, hogy ellenőrizzük az Ön személyazonosságát
-        name: Személyazonossági okmányok
+        explanation: Töltsd fel személyazonosító okmányaid, hogy ellenőrizzük a személyazonosságod
+        name: Személyazonosító okmányok
       multistep: Több lépéses
       name: Név
       postal_letter:
-        explanation: Elküldünk Önnek egy postai levelet egy kóddal, amelyet be kell írnia, hogy ellenőrizhessük a címét
-        name: Kód postai levélben
+        explanation: Küldünk egy levelet postán a kóddal, amelyet aztán a lakcím ellenőrzéséhez tudsz majd használni
+        name: Kód postai levéllel
     verifications:
       authorizations:
         create:
-          error: Hiba történt az engedélyezés létrehozásában.
-          success: Sikeresen engedélyezték.
+          error: Hiba történt az engedélyezés létrehozása során.
+          success: Az engedélyezésed sikeres volt.
         first_login:
           actions:
-            another_dummy_authorization_handler: Ellenőrizze az engedélykezelő másik példáját
+            another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
             dummy_authorization_handler: Ellenőrizze a példakezelési engedélyezőt
-            dummy_authorization_workflow: Ellenőrizze a példa engedélyezési munkafolyamatát
-            id_documents: A személyazonosító okmány feltöltésével ellenőrizze
-            postal_letter: Ellenőrizze az ellenőrző kódot postai levél útján
-          title: Igazolja a személyazonosságát
-          verify_with_these_options: 'Ezek a rendelkezésre álló lehetőségek az Ön személyazonosságának ellenőrzéséhez:'
+            dummy_authorization_workflow: Ellenőrizd az engedélykezelő munkafolyamatát
+            id_documents: Töltsd fel személyazonosító okmányod az ellenőrzéshez
+            postal_letter: Igazold magad egy postai levél útján elküldött kód segítségével
+          title: Igazold személyazonosságod
+          verify_with_these_options: 'Személyazonosságod ellenőrzésének különféle lehetőségei:'
         new:
-          authorize: Elküld
-          authorize_with: Ellenőrizze a %{authorizer}
+          authorize: Küldés
+          authorize_with: 'Ellenőrizd ezzel: %{authorizer}'
         skip_verification: Ezt kihagyhatja most és %{link}
         start_exploring: elkezd felfedezni
       dummy_authorization:
