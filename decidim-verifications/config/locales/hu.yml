@@ -96,9 +96,9 @@ hu:
             send: Újbóli ellenőrzés kérése
           new:
             send: Ellenőrzés kérelem
-            title: Töltsd fel személyi igazolványodat
+            title: Személyi igazolvány feltöltése
           update:
-            error: Probléma volt a dokumentum újratöltése
+            error: Probléma volt a dokumentum újbóli feltöltésekor
             success: A dokumentum sikeresen újramenthető
         dni: DNI
         nie: NIE
