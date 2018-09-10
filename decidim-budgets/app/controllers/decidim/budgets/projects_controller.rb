@@ -7,7 +7,7 @@ module Decidim
       include FilterResource
       include NeedsCurrentOrder
 
-      helper_method :projects, :random_seed, :project
+      helper_method :projects, :random_seed, :project, :geocoded_projects
 
       private
 
@@ -38,6 +38,12 @@ module Decidim
 
       def context_params
         { component: current_component, organization: current_organization }
+      end
+
+      private
+
+      def geocoded_projects
+        @geocoded_projects ||= search.results.select(&:geocoded?)
       end
     end
   end
