@@ -15,7 +15,7 @@ fi:
         address: Osoite
         available_slots: Tämän tapahtuman vapaiden paikkojen määrä
         decidim_category_id: Aihepiiri
-        decidim_scope_id: Konteksti
+        decidim_scope_id: Teema
         description: Kuvaus
         end_time: Lopetusaika
         location: Paikka
@@ -74,7 +74,7 @@ fi:
       meetings:
         actions:
           join: Liittyä seuraan
-        name: kokoukset
+        name: Tapahtumat
         settings:
           global:
             announcement: Ilmoitus

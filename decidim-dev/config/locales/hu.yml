@@ -11,28 +11,28 @@ hu:
     dummy:
       admin:
         exports:
-          dummies: Dummies
+          dummies: Dummik
     gamification:
       badges:
         test:
-          description_another: Ez a felhasználó %{score} tesztet hozott létre.
-          description_own: '%{score} tesztet hozott létre.'
-          explanation: A felhasználók megkapják ezt a jelvényt tesztek létrehozásával.
-          name: vizsgálatok
-          next_level_in: Hozzon létre még %{score} tesztet a következő szint eléréséhez!
+          description_another: '%{score} teszt létrehozva.'
+          description_own: Létrehoztad a(z) %{score} teszteket.
+          explanation: A jelvényt tesztek létrehozásával kapod meg.
+          name: Tesztek
+          next_level_in: Hozz létre még %{score} tesztet a következő szint eléréséhez!
           unearned_another: Ez a felhasználó még nem hozott létre teszteket.
-          unearned_own: Még nem hozott teszteket.
+          unearned_own: Még nem hoztál létre teszteket.
     pages:
       home:
         statistics:
           bar: Oszlop
-          dummies_count_high: Dummies magas
+          dummies_count_high: Dummies high
           dummies_count_medium: Dummies medium
           foo: Foo
     participatory_processes:
       statistics:
-        dummies_count_high: Dummies magas
+        dummies_count_high: Dummies high
         dummies_count_medium: Dummies medium
     resource_links:
       test_link:
-        dummy_resource_dummy: Kapcsolódó próbabábu
+        dummy_resource_dummy: Kapcsolódó dummy
