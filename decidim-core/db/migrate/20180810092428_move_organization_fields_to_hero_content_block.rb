@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MoveOrganizationFieldsToHeroContentBlock < ActiveRecord::Migration[5.2]
-  class ::Decidim::Organization < ApplicationRecord
+  class ::Decidim::Organization < ::Decidim::ApplicationRecord
     mount_uploader :homepage_image, ::Decidim::HomepageImageUploader
   end
 
