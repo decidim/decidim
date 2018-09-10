@@ -12,8 +12,8 @@ fi:
         survey_answer:
           attributes:
             choices:
-              missing: ovat puutteelliset
-              too_many: ovat liian monta
+              missing: puuttuvat
+              too_many: sisältää liian monta
     models:
       decidim/surveys/closed_survey_event: Kysely päättyi
       decidim/surveys/opened_survey_event: Kysely alkoi
@@ -21,10 +21,10 @@ fi:
     models:
       decidim/surveys/survey:
         one: Kysely
-        other: tutkimukset
+        other: Kyselyt
       decidim/surveys/survey_answer:
         one: Vastaus
-        other: vastaukset
+        other: Vastaukset
   decidim:
     components:
       surveys:
@@ -40,15 +40,15 @@ fi:
     events:
       surveys:
         survey_closed:
-          email_intro: Kysely %{resource_title} %{participatory_space_title} on suljettu.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen seuraamalla edellä olevaa linkkiä.
-          email_subject: Kysely on päättynyt %{participatory_space_title}
-          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päättynyt.
+          email_intro: Kysely %{resource_title} tilassa %{participatory_space_title} on suljettu.
+          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä olevan linkin kautta.
+          email_subject: Kysely on päättynyt kohteessa %{participatory_space_title}
+          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päättynyt.
         survey_opened:
-          email_intro: 'Kysely %{resource_title} %{participatory_space_title} on nyt auki. Voit osallistua siihen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: 'Uusi tutkimus %{participatory_space_title}: ssa'
-          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
+          email_intro: 'Kysely %{resource_title} kohteessa %{participatory_space_title} on nyt auki. Voit osallistua siihen tällä sivulla:'
+          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen olevan linkin kautta.
+          email_subject: Uusi kysely kohteessa %{participatory_space_title}
+          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
     forms:
       errors:
         survey_answer:
@@ -65,7 +65,7 @@ fi:
           answer_option:
             answer_option: Vastausvaihtoehto
             free_text: Vapaa teksti
-            remove: Poistaa
+            remove: Poista
             statement: Kysymysasettelu
           edit:
             save: Tallenna
@@ -79,9 +79,9 @@ fi:
             description: Kuvaus
             down: Alas
             question: Kysymys
-            remove: Poistaa
+            remove: Poista
             statement: Kysymysasettelu
-            up: ylös
+            up: Ylös
           update:
             invalid: Kyselyn tallennus epäonnistui.
             success: Kysely tallennettu onnistuneesti.
@@ -90,13 +90,13 @@ fi:
         multiple_option: Useita vaihtoehtoja
         short_answer: Lyhyt vastaus
         single_option: Yksi vaihtoehto
-        sorting: lajittelu
+        sorting: Lajittelu
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
           success: Kyselyyn vastattu onnistuneesti.
         question:
-          max_choices: 'Max valinnat: %{n}'
+          max_choices: 'Valintojen maksimimäärä: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
@@ -110,6 +110,6 @@ fi:
             body: Kysely on suljettu ja siihen ei voi vastata.
             title: Kysely suljettu
           survey_for_private_users:
-            body: Kysely on käytettävissä vain yksityisille käyttäjille
+            body: Kyselyyn osallistuminen on sallittu vain yksityisille käyttäjille
             title: Kysely on suljettu
           tos_agreement: Osallistumalla tähän kyselyyn hyväksyt sen käyttöehdot

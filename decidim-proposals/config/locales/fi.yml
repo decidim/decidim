@@ -79,8 +79,8 @@ fi:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
             creation_enabled: Ehdotuksen luominen käytössä
-            endorsements_blocked: Kannatukset estetty
-            endorsements_enabled: Kannatukset käytössä
+            endorsements_blocked: Suositukset estetty
+            endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen on käytössä
             votes_blocked: Äänet ovat tukossa
             votes_enabled: Äänet käytössä
@@ -93,7 +93,7 @@ fi:
           email_subject: Ehdotukset nyt saatavilla tilassa %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">uutta ehdotusta</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Voit tukea ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_intro: 'Voit suositella ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Ehdotusten kannattaminen on alkanut tilalle %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten tukemisen</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -105,8 +105,8 @@ fi:
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistu:"
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet seuraat %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
-          email_subject: "%{endorser_nickname} on tukenut uutta ehdotusta"
-          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on tukenut ehdotusta <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{endorser_nickname} on suositellut uutta ehdotusta"
+          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut ehdotusta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tältä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
@@ -249,7 +249,7 @@ fi:
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
-            scope: Konteksti
+            scope: Teema
             state: Tila
             title: Otsikko
             votes: Äänet

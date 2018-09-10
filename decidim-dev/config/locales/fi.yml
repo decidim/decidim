@@ -2,11 +2,11 @@ fi:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Luotu osoitteessa
+        created_at: Luontiaika
         field: Oma kenttä
         start_date: Aloituspäivämäärä
-        title: otsikko
-        updated_at: Päivitetty klo
+        title: Otsikko
+        updated_at: Päivitysaika
   decidim:
     dummy:
       admin:
@@ -16,13 +16,13 @@ fi:
       home:
         statistics:
           bar: Palkki
-          dummies_count_high: Dummies korkea
-          dummies_count_medium: Dummies medium
+          dummies_count_high: Esimerkkiluku, korkea
+          dummies_count_medium: Esimerkkiluku, keskitaso
           foo: Foo
     participatory_processes:
       statistics:
-        dummies_count_high: Esimerkkitilastojen korkein arvo
-        dummies_count_medium: Esimerkkitilastojen keskimääräinen arvo
+        dummies_count_high: Esimerkkiluku, korkea
+        dummies_count_medium: Esimerkkiluku, keskitaso
     resource_links:
       test_link:
         dummy_resource_dummy: Liittyvät esimerkkitiedot

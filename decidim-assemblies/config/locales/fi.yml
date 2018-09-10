@@ -30,7 +30,7 @@ fi:
         internal_organisation: Sisäinen organisaatio
         is_transparent: On läpinäkyvä
         local_area: Paikallisalue
-        meta_scope: Kontekstin metadata
+        meta_scope: Teeman metadata
         participatory_processes_ids: Liittyvät osallistumisprosessit
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
@@ -38,8 +38,8 @@ fi:
         promoted: Korostettu
         published_at: Julkaistu osoitteessa
         purpose_of_action: Toiminnan tarkoitus
-        scope_id: Konteksti
-        scopes_enabled: Kontekstit käytössä
+        scope_id: Teema
+        scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         slug: URL-tunniste
@@ -283,7 +283,7 @@ fi:
         read_less: Vähennä tekstiä
         read_more: Lue lisää
         related_participatory_processes: Liittyvät osallistumisprosessit
-        scope: Konteksti
+        scope: Teema
         social_networks: Sosiaalinen media
         target: Kohde
       statistics:
