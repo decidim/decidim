@@ -4,7 +4,7 @@ fi:
       result:
         decidim_accountability_status_id: Tila
         decidim_category_id: Aihepiiri
-        decidim_scope_id: Konteksti
+        decidim_scope_id: Teema
         description: Kuvaus
         end_date: Päättymisaika
         progress: Edistyminen
@@ -12,7 +12,7 @@ fi:
         proposals: Sisällytetyt ehdotukset
         start_date: Aloitusaika
         title: Otsikko
-        updated_at: Päivitetty
+        updated_at: Päivitysaika
       status:
         description: Kuvaus
         key: Tunniste
@@ -141,7 +141,7 @@ fi:
             other: "%{count} tulosta"
         filters:
           all: Kaikki
-          scopes: Konteksti
+          scopes: Teemat
         home:
           categories_label: Aihepiirit
           subcategories_label: Ala-aihepiiri
