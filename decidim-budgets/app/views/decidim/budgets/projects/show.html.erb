@@ -5,9 +5,9 @@
 
 <div class="row column view-header">
   <% if current_user.present? && current_settings.votes_enabled? && current_participatory_space.can_participate?(current_user) %>
-    <%= render partial: "budget_summary", locals: { include_heading: false } %>
+    <%= render partial: "budget_summary", locals: { include_heading: current_component.settings.vote_per_project? ? true : false } %>
   <% end %>
-  <%= link_to projects_path, class: "muted-link" do %>
+  <%= link_to projects_path, class: "button hollow small button--sc" do %>
     <%= icon "chevron-left", class: "icon--small" %>
     <%= t(".view_all_projects") %>
   <% end %>

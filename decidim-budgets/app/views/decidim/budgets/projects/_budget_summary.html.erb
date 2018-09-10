@@ -8,22 +8,30 @@
         </p>
       <% else %>
         <h3 class="heading3"><%= t(".title") %></h3>
-        <p><%= t(".description", minimum_budget: budget_to_currency(current_order&.minimum_budget)) %></p>
+        <p>
+          <% if component_settings.vote_per_project? %>
+            <%= t(".description_per_project", minimum_project: component_settings.total_projects) %>
+          <% else %>
+            <%= t(".description_per_budget", minimum_budget: budget_to_currency(current_order&.minimum_budget)) %>
+          <% end %>
+        </p>
       <% end %>
     <% end %>
 
-    <div class="budget-summary__total" data-total-budget="<%= component_settings.total_budget %>">
-      <span class="mini-title"><%= t("total_budget") %>
-        <strong class="mini-title__strong mini-title__strong--highlight">
-          <%= budget_to_currency(component_settings.total_budget) %>
-        </strong>
-      </span>
+    <div class="budget-summary__total" data-total-budget="<%= component_settings.total_budget %>" data-total-projects="<%= component_settings.total_projects %>" data_per_project= "<%=component_settings.vote_per_project%>">
+      <% unless component_settings.vote_per_project? %>
+        <span class="mini-title"><%= t("total_budget") %>
+          <strong class="mini-title__strong mini-title__strong--highlight">
+            <%= budget_to_currency(component_settings.total_budget) %>
+          </strong>
+        </span>
+      <% end %>
     </div>
 
     <%= render partial: "order_progress" %>
 
     <div>
-      <span class="mini-title">
+      <span class="mini-title <%= 'hidden' if component_settings.vote_per_project? %>">
         <%= t(".assigned") %>
         <%= render partial: "order_total_budget" %>
       </span>
@@ -33,5 +41,5 @@
   <%= render partial: "order_selected_projects" %>
 </div>
 
-<%= render partial: "budget_excess" %>
+<%= render partial: "limit_excess" %>
 <%= render partial: "budget_confirm" %>

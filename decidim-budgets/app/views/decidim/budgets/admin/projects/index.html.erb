@@ -13,6 +13,9 @@
           <tr>
             <th><%= t("models.project.fields.title", scope: "decidim.budgets") %></th>
             <th class="center"><%= t("index.confirmed_orders_count") %></th>
+            <% if component_settings.geocoding_enabled? %>
+              <th><%= t("models.project.fields.map", scope: "decidim.budgets") %></th>
+            <% end %>
             <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
           </tr>
         </thead>
@@ -25,6 +28,11 @@
               <td class='center'>
                <%= project.confirmed_orders_count %>
               </td>
+              <% if component_settings.geocoding_enabled? %>
+                <td>
+                  <%= static_map_link(project) %>
+                </td>
+              <% end %>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(project).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
 

@@ -1,0 +1,26 @@
+<div class="reveal" data-reveal id="limit-excess">
+  <div class="reveal__header">
+    <h3 class="reveal__title">
+      <% if component_settings.vote_per_project? %>
+        <%= t(".title_per_project") %>
+      <% else %>
+        <%= t(".title_per_budget") %>
+      <% end %>
+    </h3>
+    <button class="close-button" data-close aria-label="<%= t(".close") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <p>
+    <% if component_settings.vote_per_project? %>
+      <%= t(".description_per_project") %>
+    <% else %>
+      <%= t(".description_per_budget") %>
+    <% end %>
+  </p>
+  <div class="row">
+    <div class="columns medium-8 medium-offset-2">
+      <button data-close class="button expanded"><%= t(".ok") %></button>
+    </div>
+  </div>
+</div>

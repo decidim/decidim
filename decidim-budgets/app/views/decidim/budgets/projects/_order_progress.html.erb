@@ -1,5 +1,5 @@
 <div id="order-progress">
-  <div class="budget-summary__progressbox" data-current-budget="<%= current_order ? current_order.total_budget : 0 %>">
+  <div class="budget-summary__progressbox <%= 'hidden' if component_settings.vote_per_project? %>" data-current-budget="<%= current_order ? current_order.total_budget : 0 %>" data-current-projects="<%= current_order ? current_order.total_projects : 0 %>">
     <div class="progress budget-progress" role="progressbar" tabindex="0" aria-valuenow="<%= current_order_budget_percent %>" aria-valuemin="<%= component_settings.vote_threshold_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemax="100">
       <div class="progress-meter progress-meter--minimum" style="width: <%= 100 - current_order_budget_percent %>%"></div>
       <!--Change width and text dynamically.-->
@@ -16,7 +16,7 @@
     <% end %>
   </div>
 
-  <div class="progressbox-fixed-wrapper" data-progressbox-fixed>
+  <div class="progressbox-fixed-wrapper <%= 'hidden' if component_settings.vote_per_project? %>" data-progressbox-fixed>
     <div class="budget-summary__progressbox budget-summary__progressbox--fixed">
       <div class="progress budget-progress budget-progress--fixed" role="progressbar" tabindex="0" aria-valuenow="<%= current_order_budget_percent %>" aria-valuemin="<%= component_settings.vote_threshold_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemax="100">
         <div class="progress-meter progress-meter--minimum" style="width: <%= 100 - current_order_budget_percent %>%"></div>
