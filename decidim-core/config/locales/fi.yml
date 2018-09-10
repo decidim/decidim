@@ -586,13 +586,13 @@ fi:
         error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
         success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     scopes:
-      global: Yleinen konteksti
+      global: Yleinen teema
       picker:
         cancel: Peruuta
         choose: Valitse
         title: Valitse %{field}
-      prompt: Valitse konteksti
-      scopes: Kontekstit
+      prompt: Valitse teema
+      scopes: Teemat
     search:
       filter:
         all: Kaikki
@@ -680,7 +680,7 @@ fi:
   errors:
     messages:
       content_type_whitelist_error: tiedostotyyppi ei kelpaa
-      cycle_detected: kontekstin isäntä ei voi olla sen jälkeläinen
+      cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
       long_words: sisältää liian pitkiä sanoja
       must_start_with_caps: täytyy alkaa isoilla kirjaimilla
