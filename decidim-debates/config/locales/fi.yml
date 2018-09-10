@@ -132,4 +132,4 @@ fi:
           email_intro: 'Nyt voit aloittaa uusia keskusteluja kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a>kohdassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
