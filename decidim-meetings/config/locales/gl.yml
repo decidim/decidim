@@ -284,6 +284,21 @@ gl:
         minutes:
           create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
           update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Próximos eventos
+          upcoming_events: Próximas reunións
+          view_all_events: Ver todo
+      directory:
+        meetings:
+          index:
+            all: Todo
+            date: Data
+            meetings: Reunións
+            past: Pasado
+            search: Busca
+            space_type: Espazo participativo
+            upcoming: Próximos
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +321,6 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
-        index:
-          view_meeting: Ver reunión
         meeting_minutes:
           meeting_minutes: Minutos de reunión
           related_information: Información relacionada
@@ -329,6 +342,8 @@ gl:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Ver
+      meetings_map:
+        view_meeting: Ver reunión
       models:
         invite:
           fields:

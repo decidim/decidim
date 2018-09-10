@@ -292,6 +292,21 @@ pl:
         minutes:
           create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Nadchodzące wydarzenia
+          upcoming_events: Nadchodzące spotkania
+          view_all_events: Pokaż wszystkie
+      directory:
+        meetings:
+          index:
+            all: Wszystko
+            date: Data
+            meetings: Spotkania
+            past: Przeszłość
+            search: Szukaj
+            space_type: Przestrzeń uczestnicząca
+            upcoming: Nadchodzące
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -314,8 +329,6 @@ pl:
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
-        index:
-          view_meeting: Pokaż spotkanie
         meeting_minutes:
           meeting_minutes: Protokół ze spotkań
           related_information: Powiązana informacja
@@ -339,6 +352,8 @@ pl:
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count}"
           view: Widok
+      meetings_map:
+        view_meeting: Pokaż spotkanie
       models:
         invite:
           fields:

@@ -284,6 +284,21 @@ sv:
         minutes:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Uppkommande händelser
+          upcoming_events: Kommande möten
+          view_all_events: Visa alla
+      directory:
+        meetings:
+          index:
+            all: Allt
+            date: Datum
+            meetings: möten
+            past: Dåtid
+            search: Sök
+            space_type: Deltagande utrymme
+            upcoming: kommande
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +321,6 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
-        index:
-          view_meeting: Visa möte
         meeting_minutes:
           meeting_minutes: Mötesprotokoll
           related_information: Relaterad information
@@ -329,6 +342,8 @@ sv:
             one: 1 plats kvar
             other: "%{count} platser kvar"
           view: Visa
+      meetings_map:
+        view_meeting: Visa möte
       models:
         invite:
           fields:

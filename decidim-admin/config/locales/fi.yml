@@ -71,7 +71,7 @@ fi:
         name: Nimi
         organization: Organisaatio
         parent_id: Vanhempi
-        scope_type: Kontekstin tyyppi
+        scope_type: Teeman tyyppi
         scope_type_id: Teeman tyyppi
       scope_type:
         name: Nimi
@@ -308,8 +308,8 @@ fi:
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         officializations: Virallistamiset
-        scope_types: Kontekstityypit
-        scopes: Kontekstit
+        scope_types: Teematyypit
+        scopes: Teemat
         settings: Asetukset
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
@@ -359,7 +359,7 @@ fi:
         scope:
           fields:
             name: Nimi
-            scope_type: Kontekstin tyyppi
+            scope_type: Teeman tyyppi
         scope_type:
           fields:
             name: Nimi
@@ -517,35 +517,35 @@ fi:
           title: Uusi osallistuvan tilan yksityinen käyttäjä.
       scope_types:
         create:
-          error: Uuden kontekstityypin luomisessa tapahtui virhe.
-          success: Kontekstin tyyppi luotu onnistuneesti.
+          error: Uuden teematyypin luomisessa tapahtui virhe.
+          success: Teematyyppi luotu onnistuneesti.
         destroy:
-          success: Kontekstin tyyppi tuhottu onnistuneesti
+          success: Teematyyppi tuhottu onnistuneesti
         edit:
-          title: Muokkaa kontekstityyppiä
+          title: Muokkaa teematyyppiä
           update: Päivitä
         new:
-          create: Luo kontekstityyppi
-          title: Uusi konteksti
+          create: Luo teematyyppi
+          title: Uusi teema
         update:
-          error: Kontekstityypin päivityksessä tapahtui virhe.
-          success: Kontekstityyppi päivitetty onnistuneesti
+          error: Teematyypin päivityksessä tapahtui virhe.
+          success: Teematyyppi päivitetty onnistuneesti
       scopes:
         create:
-          error: Uuden kontekstin luonnissa tapahtui virhe.
-          success: Konteksti luotu onnistuneesti.
+          error: Uuden teeman luonnissa tapahtui virhe.
+          success: Teema luotu onnistuneesti.
         destroy:
-          success: Konteksti tuhottu onnistuneesti
+          success: Teema tuhottu onnistuneesti
         edit:
-          title: Muokkaa kontekstia
+          title: Muokkaa teemaa
           update: Päivitä
         new:
-          create: Luo konteksti
-          title: Uusi konteksti
-        no_scopes: Tällä tasolla ei ole konteksteja.
+          create: Luo teema
+          title: Uusi teema
+        no_scopes: Tällä tasolla ei ole teemoja.
         update:
-          error: Tämän kontekstin päivityksessä tapahtui virhe.
-          success: Konteksti päivitetty onnistuneesti
+          error: Tämän teeman päivityksessä tapahtui virhe.
+          success: Teema päivitetty onnistuneesti
       static_pages:
         actions:
           view: Näytä julkinen sivu
@@ -575,8 +575,8 @@ fi:
         impersonatable_users: Toisena käyttäjänä esitettävät käyttäjät
         impersonations: Esiintymiset käyttäjinä
         officializations: Virallistamiset
-        scope_types: Kontekstityypit
-        scopes: Kontekstit
+        scope_types: Teematyypit
+        scopes: Teemat
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
         users: Käyttäjät

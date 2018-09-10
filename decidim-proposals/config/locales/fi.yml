@@ -71,7 +71,7 @@ fi:
           global:
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
-            can_accumulate_supports_beyond_threshold: Voi kerätä tukea yli kynnysarvon
+            can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit ovat käytössä
             geocoding_enabled: Geokoodaus on käytössä
@@ -195,13 +195,13 @@ fi:
           unearned_another: Tämä käyttäjä ei ole saanut vielä ehdotuksia hyväksytyksi.
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
-          description_another: Tämä käyttäjä on tukenut %{score} ehdotusta.
-          description_own: Olet tukenut %{score} ehdotusta.
-          explanation: Käyttäjät saavat tämän merkin tukemalla ehdotuksia.
-          name: Ehdotustuki
-          next_level_in: Tue %{score} ehdotusta noustaksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole vielä tukenyt yhtään ehdotusta.
-          unearned_own: Et ole vielä tukenut ehdotuksia.
+          description_another: Tämä käyttäjä on kannattanut %{score} ehdotusta.
+          description_own: Olet kannattanut %{score} ehdotusta.
+          explanation: Käyttäjät saavat tämän merkin kannattamalla ehdotuksia.
+          name: Ehdotusten kannatukset
+          next_level_in: Kannata %{score} ehdotusta noustaksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä kannattanut yhtään ehdotusta.
+          unearned_own: Et ole vielä kannattanut ehdotuksia.
         proposals:
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.
@@ -548,7 +548,7 @@ fi:
           sign_in: Kirjaudu sisään
           sign_in_or_up: "%{in} tai %{up} osallistuaksesi"
           sign_up: rekisteröidy
-          withdraw_btn_hint: Voit perua ehdotuksesi, jos muutat mieltäsi, jos et ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
+          withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
         tags:
