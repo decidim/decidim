@@ -135,3 +135,13 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Debates now available in %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: This user has participated in %{score} debates.
+          description_own: You have participated in %{score} debates.
+          explanation: Users get this badge by participating in debates.
+          name: Debates
+          next_level_in: Participate in %{score} more debates to reach the next level!
+          unearned_another: This user hasn't participated in any debate yet.
+          unearned_own: You have participated in no debate yet.
