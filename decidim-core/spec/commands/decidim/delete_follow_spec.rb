@@ -17,7 +17,7 @@ module Decidim
       expect(user2.reload.followers).not_to include(user1)
     end
 
-    context "gamification" do
+    describe "gamification" do
       before do
         Decidim::Gamification.set_score(user1, :followers, 10)
         Decidim::Gamification.set_score(user2, :followers, 10)

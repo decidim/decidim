@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "commented debates badge" do
+describe Decidim::Debates do
   let!(:debate) { create(:debate, :open_ama) }
   let(:organization) { debate.component.organization }
   let!(:user) { create(:user, organization: organization) }
@@ -22,7 +22,7 @@ describe "commented debates badge" do
     context "when other comments by the same author already exist" do
       it "increses a user's score when a debate is commented" do
         comment = create(:comment, author: user, commentable: debate, root_commentable: debate)
-        comment2 = create(:comment, author: user, commentable: debate, root_commentable: debate)
+        create(:comment, author: user, commentable: debate, root_commentable: debate)
         Decidim::Comments::CommentCreation.publish(comment, {})
 
         expect(Decidim::Gamification.status_for(user, :commented_debates).score).to eq(0)
@@ -34,9 +34,9 @@ describe "commented debates badge" do
     it "resets to the right score" do
       debate2 = create(:debate, :open_ama, component: debate.component)
 
-      comment = create(:comment, author: user, commentable: debate, root_commentable: debate)
-      comment2 = create(:comment, author: user, commentable: debate, root_commentable: debate)
-      comment3 = create(:comment, author: user, commentable: debate2, root_commentable: debate2)
+      create(:comment, author: user, commentable: debate, root_commentable: debate)
+      create(:comment, author: user, commentable: debate, root_commentable: debate)
+      create(:comment, author: user, commentable: debate2, root_commentable: debate2)
 
       Decidim::Gamification.reset_badges(Decidim::User.where(id: user.id))
       expect(Decidim::Gamification.status_for(user, :commented_debates).score).to eq(2)

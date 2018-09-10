@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "followers badge" do
+describe Decidim::Core do
   let(:organization) { create(:organization) }
 
   describe "reset" do
