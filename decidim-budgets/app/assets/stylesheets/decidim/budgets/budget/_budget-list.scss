@@ -34,3 +34,17 @@
 .budget--list__action{
   margin-bottom: 0;
 }
+
+// TODO : BUDGET / USE PROPER BREAKPOINT
+
+@media print, screen and (min-width: 40em){
+  .budget-list__data_votes {
+    flex-basis: 21rem!important;
+  }
+}
+
+@media print, screen and (min-width: 40em){
+  .budget-list__number_votes {
+    font-size: 1.3rem!important;
+  }
+}
