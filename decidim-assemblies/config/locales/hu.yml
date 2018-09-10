@@ -329,7 +329,9 @@ hu:
         assembly:
           take_part: Vegyél részt
         index:
+          organizational_chart: Szervezési táblázat
           promoted_assemblies: Kiemelt gyűlések
+          reset_chart: Visszaállítás
         order_by_assemblies:
           assemblies:
             one: "%{count} gyűlés"

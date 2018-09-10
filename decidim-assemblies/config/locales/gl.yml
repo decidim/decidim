@@ -329,7 +329,9 @@ gl:
         assembly:
           take_part: Tomar parte en
         index:
+          organizational_chart: Organigrama
           promoted_assemblies: Asembleas destacadas
+          reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
             one: "Asemblea %{count}"

@@ -329,7 +329,9 @@ nl:
         assembly:
           take_part: Deelnemen
         index:
+          organizational_chart: Organisatieschema
           promoted_assemblies: Uitgelichte events
+          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} bijeenkomst"

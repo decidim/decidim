@@ -335,7 +335,9 @@ pl:
         assembly:
           take_part: Wziąć udział
         index:
+          organizational_chart: Schemat organizacyjny
           promoted_assemblies: Podświetlone zespoły
+          reset_chart: Nastawić
         order_by_assemblies:
           assemblies:
             one: "%{count} montaż"
