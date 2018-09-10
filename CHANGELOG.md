@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.14.0](https://github.com/decidim/decidim/tree/v0.14.0)
+## [0.14.1](https://github.com/decidim/decidim/tree/v0.14.1)
 
 **Upgrade notes**:
 
@@ -47,6 +47,45 @@
   ```ruby
   Decidim::Gamification.reset_badges
   ```
+
+- If you tried to upgrade to `0.14.0` from a previous version, the process might
+  have failed during the database migration. If you rolled back the changes and
+  have your installation at `v0.13.x` then you can upgrade to `v0.14.1` safely,
+  otherwise you'll need to locate a migration called `AddCoreContentBlocks` and
+  leave the file looking like this:
+
+  ```ruby
+  # frozen_string_literal: true
+
+  class AddCoreContentBlocks < ActiveRecord::Migration[5.2]
+    class Organization < ApplicationRecord
+      self.table_name = :decidim_organizations
+    end
+
+    class ContentBlock < ApplicationRecord
+      self.table_name = :decidim_content_blocks
+    end
+
+    def change
+      default_blocks = [:hero, :sub_hero, :highlighted_content_banner, :how_to_participate, :stats, :footer_sub_hero]
+
+      Organization.pluck(:id).each do |organization_id|
+        default_blocks.each_with_index do |manifest_name, index|
+          weight = (index + 1) * 10
+          ContentBlock.create(
+            decidim_organization_id: organization_id,
+            weight: weight,
+            scope: :homepage,
+            manifest_name: manifest_name,
+            published_at: Time.current
+          )
+        end
+      end
+    end
+  end
+  ```
+
+  After this change you'll be able to safely migrate your database.
 
 **Added**:
 
@@ -135,6 +174,8 @@
 - **decidim-initiatives**: Only show initiative types fomr the current tenant [\#3887](https://github.com/decidim/decidim/pull/3887)
 - **decidim-core**: Allows users with admin access to preview unpublished components [\#4016](https://github.com/decidim/decidim/pull/4016)
 - **decidim-proposals**: Rename "votes" column to "supports" when exporting proposals [\#4018](https://github.com/decidim/decidim/pull/4018)
+- **decidim-core**: Fix hero content block migration [\#4061](https://github.com/decidim/decidim/pull/4061)
+- **decidim-core**: Fix default content block creation migration [\#4100](https://github.com/decidim/decidim/pull/4100)
 
 **Removed**:
 
