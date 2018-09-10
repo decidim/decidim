@@ -64,11 +64,13 @@ en:
           confirm: Confirm
           description: These are the projects you have chosen to be part of the budget.
           title: Confirm vote
-        budget_excess:
+        limit_excess:
           close: Close
-          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
           ok: OK
-          title: Maximum budget exceeded
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
           assigned: 'Assigned:'
@@ -76,7 +78,9 @@ en:
           checked_out:
             description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
             title: Budget vote completed
-          description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+            description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
+            title: You decide the budget
           title: You decide the budget
         count:
           projects_count:
@@ -94,7 +98,18 @@ en:
         order_progress:
           vote: Vote
         order_selected_projects:
+          vote: Voter
+          total_projects:
+            one: projet
+            other: projets
+          choose: Choisissez encore
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
           remove: Remove
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
           selected_projects:
             one: project selected
             other: projects selected
@@ -111,7 +126,7 @@ en:
           added: Added
         show:
           budget: Budget
-          view_all_projects: View all projects
+          view_all_projects: Back to projects list
     components:
       budgets:
         actions:
@@ -122,8 +137,12 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             projects_per_page: Projects per page
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
+            total_projects: Total projects
             total_budget: Total budget
             vote_threshold_percent: Vote threshold percent
+            geocoding_enabled: Geocoding enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
