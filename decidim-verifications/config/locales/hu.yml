@@ -6,132 +6,132 @@ hu:
         document_type: A dokumentum típusa
       id_document_upload:
         document_number: Dokumentum száma (betűvel)
-        document_type: A dokumentum típusa
-        user: használó
-        verification_attachment: A dokumentum szkennelt példánya
+        document_type: Dokumentumod típusa
+        user: Felhasználó
+        verification_attachment: Dokumentumod szkennelt példánya
       postal_letter_address:
-        full_address: Teljes cím
+        full_address: Teljes lakcím
       postal_letter_confirmation:
         verification_code: Ellenőrző kód
       postal_letter_postage:
-        full_address: Teljes cím
+        full_address: Teljes lakcím
         verification_code: Ellenőrző kód
   decidim:
     admin:
       menu:
-        authorization_workflows: Az ellenőrzések
+        authorization_workflows: Ellenőrzések
     authorization_handlers:
       admin:
         id_documents:
           help:
-            - A felhasználók kitöltik személyazonosító adataikat és feltöltik a dokumentumuk másolatát.
-            - Töltse fel a feltöltött képen megjelenő információkat.
-            - Az információnak meg kell egyeznie a felhasználó által kitöltve.
-            - Ha nem tudja egyértelműen látni az adatokat, vagy nem tudja ellenőrizni, akkor elutasíthatja a kérelmet, és a felhasználó képes lesz javítani.
+            - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
+            - Töltsd ki a feltöltött képen található információkkal.
+            - Az információknak meg kell egyeznie a kitöltött adatokkal.
+            - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
         postal_letter:
           help:
-            - A felhasználók ellenőrző kódot kérnek a címükre.
-            - A levelet a címére küldi az ellenőrző kóddal.
-            - Ön a levelet küldöttként jelöli meg.
-            - Miután megjelölte a levelet elküldöttként, a felhasználó be tudja mutatni a kódot, és ellenőrizni tudja.
+            - A felhasználók a lakcímükre kérik az ellenőrző kódot.
+            - A kódot tartalmazó levelet a lakcímükre küldöd el.
+            - Levél elküldöttként megjelölve.
+            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
       direct: Közvetlen
       help: Segítség
       id_documents:
-        explanation: Töltsd fel személyazonosító okmányodat, hogy ellenőrizzük az Ön személyazonosságát
-        name: Személyazonossági okmányok
+        explanation: Töltsd fel személyazonosító okmányaid, hogy ellenőrizzük a személyazonosságod
+        name: Személyazonosító okmányok
       multistep: Több lépéses
       name: Név
       postal_letter:
-        explanation: Elküldünk Önnek egy postai levelet egy kóddal, amelyet be kell írnia, hogy ellenőrizhessük a címét
-        name: Kód postai levélben
+        explanation: Küldünk egy levelet postán a kóddal, amelyet aztán a lakcím ellenőrzéséhez tudsz majd használni
+        name: Kód postai levéllel
     verifications:
       authorizations:
         create:
-          error: Hiba történt az engedélyezés létrehozásában.
-          success: Sikeresen engedélyezték.
+          error: Hiba történt az engedélyezés létrehozása során.
+          success: Az engedélyezésed sikeres volt.
         first_login:
           actions:
-            another_dummy_authorization_handler: Ellenőrizze az engedélykezelő másik példáját
+            another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
             dummy_authorization_handler: Ellenőrizze a példakezelési engedélyezőt
-            dummy_authorization_workflow: Ellenőrizze a példa engedélyezési munkafolyamatát
-            id_documents: A személyazonosító okmány feltöltésével ellenőrizze
-            postal_letter: Ellenőrizze az ellenőrző kódot postai levél útján
-          title: Igazolja a személyazonosságát
-          verify_with_these_options: 'Ezek a rendelkezésre álló lehetőségek az Ön személyazonosságának ellenőrzéséhez:'
+            dummy_authorization_workflow: Ellenőrizd az engedélykezelő munkafolyamatát
+            id_documents: Töltsd fel személyazonosító okmányod az ellenőrzéshez
+            postal_letter: Igazold magad egy postai levél útján elküldött kód segítségével
+          title: Igazold személyazonosságod
+          verify_with_these_options: 'Személyazonosságod ellenőrzésének különféle lehetőségei:'
         new:
-          authorize: Elküld
-          authorize_with: Ellenőrizze a %{authorizer}
-        skip_verification: Ezt kihagyhatja most és %{link}
-        start_exploring: elkezd felfedezni
+          authorize: Küldés
+          authorize_with: 'Ellenőrizd ezzel: %{authorizer}'
+        skip_verification: Most hagyd ki ezt a lépést és %{link}
+        start_exploring: felfedezés indul
       dummy_authorization:
         extra_explanation:
-          one: A részvétel a %{postal_codes}as irányítószámmal rendelkező felhasználókra korlátozódik.
-          other: 'A részvétel a következő postai kódok valamelyikével rendelkező felhasználókra korlátozódik: %{postal_codes}.'
+          one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
+          other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
       id_documents:
         admin:
           confirmations:
             create:
-              error: Az ellenőrzés nem egyezik. Próbálja újra vagy utasítsa el az ellenőrzést, hogy a felhasználó módosíthassa azt
-              success: A felhasználó sikeresen ellenőrizte
+              error: Az ellenőrzés nem sikerült. Próbáld újra vagy utasítsd el az ellenőrzést, így a felhasználó kijavíthatja
+              success: Felhasználó ellenőrzése sikeres
             new:
-              introduce_user_data: Adja meg az adatokat a képen
+              introduce_user_data: Add meg a képen látható adatokat
               reject: Elutasít
-              verify: Ellenőrizze
+              verify: Ellenőrzés
           pending_authorizations:
             index:
               title: Folyamatban lévő ellenőrzések
-              verification_number: 'Ellenőrző #%{n}'
+              verification_number: 'Ellenőrzés #%{n}'
           rejections:
             create:
-              success: Ellenőrzés elutasítva. A felhasználónak kérni kell a dokumentumainak módosítását
+              success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
         authorizations:
           create:
-            error: Hiba történt a dokumentum feltöltése közben
-            success: Dokumentum sikeresen feltöltve
+            error: Hiba történt a dokumentum feltöltése során
+            success: Dokumentum feltöltése sikeres
           edit:
-            being_reviewed: Megvizsgáljuk a dokumentumokat. Rövidesen ellenőrizni fogják
-            rejection_clarity: Győződjön meg róla, hogy az információ jól látható a feltöltött képen
-            rejection_correctness: Győződjön meg arról, hogy a megadott adatok helyesek
-            rejection_notice: Hiba történt az ellenőrzésnél. Kérlek próbáld újra
-            send: Kérjen újra ellenőrzést
+            being_reviewed: Megvizsgáljuk a dokumentumokat. Hamarosan jelentkezünk
+            rejection_clarity: Győződj meg, hogy az információk jól láthatóak a feltöltött képen
+            rejection_correctness: Győződjön meg a megadott adatok helyességéről
+            rejection_notice: Hiba történt az ellenőrzés során. Kérlek próbáld újra
+            send: Újbóli ellenőrzés kérése
           new:
-            send: Kérjen ellenőrzéseket
-            title: Töltsd fel személyi igazolványodat
+            send: Ellenőrzés kérelem
+            title: Személyi igazolvány feltöltése
           update:
-            error: Probléma volt a dokumentum újratöltése
-            success: A dokumentum sikeresen újramenthető
-        dni: DNI
-        nie: NIE
+            error: Probléma volt a dokumentum újbóli feltöltésekor
+            success: Dokumentum újbóli feltöltése sikeres
+        dni: Szig.
+        nie: Lakcím kártya
         passport: Útlevél
       postal_letter:
         admin:
           pending_authorizations:
             index:
-              address: Cím
-              letter_sent_at: Levél elküldve
-              mark_as_sent: Megjelölés elküldve
-              not_yet_sent: még nincs elküldve
-              title: Folyamatos ellenőrzések
+              address: Lakcím
+              letter_sent_at: 'Levél elküldve:'
+              mark_as_sent: Megjelölés elküldöttként
+              not_yet_sent: Még nincs elküldve
+              title: Folyamatban lévő ellenőrzések
               username: Felhasználónév
               verification_code: Ellenőrző kód
           postages:
             create:
-              error: Hiba a levél megjelölésként
-              success: A levél sikeresen megjelent elküldésként
+              error: Hiba a levél megjelölésekor
+              success: Levél megjelölés elküldöttként sikeres
         authorizations:
           create:
-            error: Probléma volt a kéréssel
-            success: Kösz! Ellenőrző kódot küldünk a címére
+            error: Probléma történt a kérésed kapcsán
+            success: Köszönjük! Az ellenőrző kódot elküldünk a lakcímedre
           edit:
-            send: megerősít
-            title: Vigye be a kapott ellenőrző kódot
-            waiting_for_letter: Hamarosan levelet küldünk a címére az ellenőrző kóddal
+            send: Megerősítés
+            title: Írd be az ellenőrző kódot
+            waiting_for_letter: Az ellenőrző kódot tartalmazó levelet hamarosan elküldjük a címedre
           new:
-            send: Küldjön nekem egy levelet
-            title: Kérjen ellenőrző kódot
+            send: Küldjetek levelet
+            title: Kérj ellenőrző kódot magadnak
           update:
-            error: Az ellenőrző kód nem egyezik a miénk. Kérjük, ellenőrizze kétszer az Ön által küldött levelet
-            success: Gratulálok. Sikeresen ellenőrizte
+            error: Az ellenőrző kód nem egyezik a miénkkel. Kérlek, nézd át mégegyszer az elküldött levelet
+            success: Gratulálunk. Az ellenőrzésed sikeres volt
   errors:
     messages:
-      uppercase_only_letters_numbers: minden nagybetűsnek és csak betűket és / vagy számokat kell tartalmaznia
+      uppercase_only_letters_numbers: kizárólag nagybetűt és/vagy számokat használhatsz

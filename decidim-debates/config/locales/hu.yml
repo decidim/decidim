@@ -5,27 +5,27 @@ hu:
         category_id: Kategória
         decidim_category_id: Kategória
         description: Leírás
-        end_time: Ends at
+        end_time: Lejár ekkor
         information_updates: Információ frissítések
-        instructions: A részvételre vonatkozó utasítások
+        instructions: Útmutató a részvételhez
         start_time: Kezdődik
         title: Cím
         user_group_id: Vita létrehozása
     models:
       decidim/debates/create_debate_event: Vita
-      decidim/debates/creation_disabled_event: A viták le vannak tiltva
-      decidim/debates/creation_enabled_event: A viták engedélyezettek
+      decidim/debates/creation_disabled_event: Viták letiltva
+      decidim/debates/creation_enabled_event: Viták engedélyezve
   activerecord:
     models:
       decidim/debates/debate:
         one: Vita
-        other: viták
+        other: Viták
   decidim:
     components:
       debates:
         actions:
-          create: Teremt
-        name: viták
+          create: Létrehozás
+        name: Viták
         settings:
           global:
             announcement: Közlemény
@@ -33,26 +33,26 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            creation_enabled: A felhasználók általi viták létrehozása engedélyezett
+            creation_enabled: Felhasználók általi viták létrehozása engedélyezve
     debates:
       actions:
-        confirm_destroy: biztos vagy ebben?
-        destroy: Töröl
-        edit: szerkesztése
+        confirm_destroy: Biztos vagy benne?
+        destroy: Törlés
+        edit: Szerkesztés
         new: Új %{name}
-        title: Hozzászólások
+        title: Műveletek
       admin:
         debates:
           create:
             invalid: Probléma merült fel a vita létrehozása során.
-            success: A vita sikeresen megtörtént.
+            success: Vita létrehozása sikeres.
           destroy:
-            success: A vita sikeresen törölve.
+            success: Vita törlése sikeres.
           edit:
             title: Vita szerkesztése
-            update: Frissítse a vitát
+            update: Vita frissítése
           index:
-            title: viták
+            title: Viták
           new:
             create: Vita létrehozása
             title: Új vita
@@ -64,8 +64,8 @@ hu:
             name: Vita
       admin_log:
         debate:
-          create: "%{user_name} létrehozta az %{resource_name} vitát a %{space_name} téren"
-          update: "%{user_name} frissítette az %{resource_name} vitát a %{space_name} helyről"
+          create: "%{user_name} létrehozta a(z) %{resource_name} vitát itt: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} vitát itt: %{space_name}"
       debates:
         count:
           debates_count:
@@ -73,33 +73,33 @@ hu:
             other: "%{count} vita"
         create:
           invalid: Probléma merült fel a vita létrehozása során.
-          success: A vita sikeresen megtörtént.
+          success: Vita létrehozása sikeres.
         debate:
-          participate: Részt venni
+          participate: Részvétel
         filters:
-          all: Minden
+          all: Összes
           category: Kategória
-          category_prompt: Válasszon egy kategóriát
+          category_prompt: Válassz kategóriát
           citizens: Állampolgárok
           official: Hivatalos
-          origin: Eredet
+          origin: Kiindulópont
           search: Keresés
         filters_small_view:
-          close_modal: Közeli modal
+          close_modal: Modal bezárása
           filter: Szűrő
-          filter_by: Szűrés vlami alapján
-          unfold: kibontakozik
+          filter_by: 'Szűrés ez alapján:'
+          unfold: Kibont
         index:
           new_debate: Új vita
         new:
-          back: Hát
-          create: Teremt
-          select_a_category: Kérjük, válasszon egy kategóriát
+          back: Vissza
+          create: Létrehozás
+          select_a_category: Válassz kategóriát
           title: Új vita
         share:
-          close_window: Zárja be az ablakot
-          share: Ossza meg
-          share_link: Hivatkozás megosztása
+          close_window: Ablak bezárása
+          share: Megosztás
+          share_link: Link megosztása
       models:
         debate:
           fields:
@@ -112,24 +112,24 @@ hu:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Szia, Új vita született a %{space_title} részvételi téren, nézd meg és járuljon hozzá:
-            email_outro: Ezt az értesítést azért kapta, mert a %{space_title} részvételi helyet követi. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: Új vita a %{space_title}
-            notification_title: A <a href="%{resource_path}">%{resource_title}</a> vitát <a href="%{space_path}">%{space_title}</a>ben hozták létre.
+              Szia, új vita található itt: %{space_title}, nézd rá és tegyél hozzá te is valamit:
+            email_outro: 'Ezt az értesítést azért kaptad, mert ezt a részvételi helyet követed: "%{space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+            email_subject: 'Új vita itt: %{space_title}'
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt:<a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hi,
-              %{author_name} %{author_nickname}, kivel következő, létrehozott egy új vitát, nézd meg, és hozzájárul:
-            email_outro: Ezt az értesítést megkapta, mert %{author_nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: 'Új vita: %{author_nickname}'
-            notification_title: A <a href="%{resource_path}">%{resource_title}</a> vitát <a href="%{author_path}">%{author_name} %{author_nickname}</a>hozta létre.
+              Szia,
+              %{author_name} %{author_nickname} (akit követsz) új vitát hozott létre, nézd meg és tegyél hozzá te is valamit:
+            email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+            email_subject: '%{author_nickname} új vitát indított'
+            notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt, általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         creation_disabled:
-          email_intro: 'A viták létrehozása már nem aktív a %{participatory_space_title}. Még mindig részt vehetsz a megnyitott vitákban ezen az oldalon:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: A viták létrehozása %{participatory_space_title}letiltva
-          notification_title: A viták létrehozása most <a href="%{participatory_space_url}">%{participatory_space_title}</a>ben van tiltva
+          email_intro: 'Vita létrehozása már nem lehetséges itt: %{participatory_space_title}. A nyitott vitákban azonban továbbra is részt vehetsz itt:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Viták létrehozása letiltva itt: %{participatory_space_title}'
+          notification_title: 'Viták létrehozása letiltva itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
         creation_enabled:
-          email_intro: 'Most új vitákat indíthat %{participatory_space_title}! Kezdje el részt venni ezen az oldalon:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-          email_subject: A viták most %{participatory_space_title}állnak rendelkezésre
-          notification_title: Most <a href="%{resource_path}">új vitát kezdhetsz</a> ben <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Indíts új vitákat itt: %{participatory_space_title}! Te is részt vehetsz bennük ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Viták létrehozása lehetséges itt: %{participatory_space_title}'
+          notification_title: a href="%{resource_path}">Kezd új vitát</a> a(z) <a href="%{participatory_space_url}">%{participatory_space_title}</a> helyen

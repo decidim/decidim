@@ -329,7 +329,9 @@ sv:
         assembly:
           take_part: Delta
         index:
+          organizational_chart: Organisationsschema
           promoted_assemblies: Markerade möten
+          reset_chart: Återställ
         order_by_assemblies:
           assemblies:
             one: "%{count} möte"
