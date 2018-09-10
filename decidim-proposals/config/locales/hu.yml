@@ -72,7 +72,7 @@ hu:
             proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" lépés súgószöveg
             proposal_wizard_step_2_help_text: Javaslatvarázsló "Hasonlítsa össze" a lépéses súgó szöveget
             proposal_wizard_step_3_help_text: Javaslat varázsló "Teljes" lépés súgószöveg
-            proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" lépés súgószöveg
+            proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" gomb súgójának szövege
             threshold_per_proposal: Küszöbérték javaslatonként
             vote_limit: Szavazási korlátozás felhasználónként
           step:
@@ -346,7 +346,7 @@ hu:
           view_proposal: A javaslat megtekintése
         show:
           edit_proposal: Javaslat szerkesztése
-          endorsements_list: A jóváhagyások listája
+          endorsements_list: Jóváhagyások listája
           hidden_endorsers_count:
             one: és további 1 személy
             other: és még %{count} ember
@@ -411,7 +411,7 @@ hu:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok
       included_projects:
-        project_result: 'A projektben megjelenő eredmények:'
+        project_result: 'Projektben megjelenő eredmények:'
       included_proposals:
-        proposal_project: 'E projektekben megjelenő javaslat:'
-        proposal_result: 'Az eredmények az alábbi eredmények között jelennek meg:'
+        proposal_project: 'Ezen projektekben megjelenő javaslat:'
+        proposal_result: 'Az eredményekben megjelenő javaslat:'

@@ -19,15 +19,15 @@ sv:
   decidim:
     admin:
       menu:
-        authorization_workflows: kontroller
+        authorization_workflows: Verifieringar
     authorization_handlers:
       admin:
         id_documents:
           help:
-            - Användare fyller i sin identitetsinformation och laddar upp en kopia av dokumentet.
+            - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
             - Du fyller i informationen som finns i den uppladdade bilden.
             - Informationen ska matcha vad användaren fyllt i.
-            - Om du inte klart kan se informationen eller du inte kan verifiera den, kan du avvisa förfrågan och användaren kommer att kunna åtgärda den.
+            - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
         postal_letter:
           help:
             - Användare begär en verifieringskod som ska skickas till deras adress.
@@ -39,7 +39,7 @@ sv:
       id_documents:
         explanation: Ladda upp dina identitetshandlingar så att vi kan kontrollera din identitet
         name: Identitetsdokument
-      multistep: Flerstegs
+      multistep: Flersteg
       name: Namn
       postal_letter:
         explanation: Vi skickar dig ett brev med en kod som du måste ange så vi kan verifiera din adress
@@ -47,15 +47,15 @@ sv:
     verifications:
       authorizations:
         create:
-          error: Det uppstod ett fel vid att skapa behörigheten.
-          success: Du har godkänts.
+          error: Ett fel uppstod när auktoriseringen skulle skapas.
+          success: Du har framgångsrikt auktoriserats.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiera mot ett annat exempel på behörighetshanteraren
-            dummy_authorization_handler: Verifiera mot exemplet behörighetshanteraren
-            dummy_authorization_workflow: Verifiera mot arbetsflödet för godkännande av exempel
-            id_documents: Få verifierad genom att ladda upp ditt identitetsdokument
-            postal_letter: Få verifierad genom att ta emot en verifieringskod via postanmälan
+            dummy_authorization_handler: Verifiera mot exempel av behörighetshanterare
+            dummy_authorization_workflow: Verifiera mot exemplet på arbetsflöde för auktorisering
+            id_documents: Bli verifierad genom att ladda upp ditt identitetsdokument
+            postal_letter: Få verifierad genom att ta emot en verifieringskod via brev
           title: Verifiera din identitet
           verify_with_these_options: 'Det här är de tillgängliga alternativen för att verifiera din identitet:'
         new:
@@ -79,18 +79,18 @@ sv:
               verify: Kontrollera
           pending_authorizations:
             index:
-              title: Väntar på kontroller
+              title: Pågående verifieringar
               verification_number: 'Verifiering #%{n}'
           rejections:
             create:
-              success: Verifikationen avvisades. Användaren kommer att uppmanas att ändra sina dokument
+              success: Verifieringen avvisades. Användaren kommer att uppmanas att ändra sina dokument
         authorizations:
           create:
             error: Det gick inte att ladda upp dokumentet
-            success: Dokumentet laddades upp framgångsrikt
+            success: Dokumentet har laddats upp
           edit:
             being_reviewed: Vi granskar dina dokument. Du kommer att verifieras inom kort
-            rejection_clarity: Se till att informationen är tydlig synlig i den uppladdade bilden
+            rejection_clarity: Se till att informationen syns tydligt i den uppladdade bilden
             rejection_correctness: Se till att informationen som angivits är korrekt
             rejection_notice: Det uppstod ett problem med din verifiering. Var god försök igen
             send: Begär verifiering igen
@@ -98,8 +98,8 @@ sv:
             send: Begär verifiering
             title: Ladda upp ditt identitetsdokument
           update:
-            error: Ett problem uppstod vid uppladdning av dokumentet
-            success: Dokumentet uppladdades framgångsrikt
+            error: Ett problem uppstod när dokumentet skulle laddas upp igen
+            success: Dokumentet laddades framgångsrikt upp
         dni: ID-kort
         nie: Personnummer
         passport: Pass
@@ -116,8 +116,8 @@ sv:
               verification_code: Verifieringskod
           postages:
             create:
-              error: Felmarkeringsbrev som skickat
-              success: Brev framgångsrikt märkt som skickat
+              error: Fel uppstod när brev skulle markeras som skickat
+              success: Brevet har markerats som skickat
         authorizations:
           create:
             error: Det uppstod ett problem med din förfrågan
