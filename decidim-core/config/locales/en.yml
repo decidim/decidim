@@ -581,6 +581,10 @@ en:
         followers: Followers
         following: Follows
         notifications: Notifications
+      sidebar:
+        badges:
+          info: Badges are earned by performing specific activity in the platform.
+          title: Badges
       user:
         edit_profile: Edit profile
     reported_mailer:
