@@ -16,14 +16,9 @@ module Decidim
 
       validates :user, uniqueness: { scope: :component }
       validate :user_belongs_to_organization
-
-      validates :total_budget, numericality: {
-        greater_than_or_equal_to: :minimum_budget
-      }, if: :checked_out?
-
-      validates :total_budget, numericality: {
-        less_than_or_equal_to: :maximum_budget
-      }
+      validates :total_budget, numericality: { greater_than_or_equal_to: :minimum_budget }, if: :checked_out?
+      validates :total_budget, numericality: { less_than_or_equal_to: :maximum_budget }, unless: :per_project
+      validates :total_projects, numericality: { less_than_or_equal_to: :number_of_projects }, if: :per_project
 
       scope :finished, -> { where.not(checked_out_at: nil) }
       scope :pending, -> { where(checked_out_at: nil) }
