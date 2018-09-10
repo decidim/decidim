@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     models:
@@ -65,6 +66,8 @@ hu:
         blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de elolvashatja az előzőeket.
         loading: Hozzászólások betöltése ...
         title: "%{count} megjegyzés"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:

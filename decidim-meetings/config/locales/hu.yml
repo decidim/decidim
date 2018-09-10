@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -23,6 +24,7 @@ hu:
         private_meeting: Privát találkozó
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Engedélyezés engedélyezve
+        reserved_slots: Places réservées
         start_time: Kezdési idő
         title: Cím
         transparent: Átlátszó
@@ -38,6 +40,10 @@ hu:
             base:
               too_many_minutes: A tételek időtartama meghaladja az ülés időtartama %{count} percet
               too_many_minutes_child: A tantárgy időtartama meghaladja a "%{parent_title}" napirendi pontot %{count} percig
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
     models:
       decidim/meetings/close_meeting_event: Találkozó lezárva
       decidim/meetings/create_meeting_event: Találkozó
@@ -231,13 +237,17 @@ hu:
             invite_user: Felhasználó meghívása
             registrations_count:
               one: 1 regisztráció volt.
-              other: '%{count} regisztráció volt.'
+              other: "%{count} regisztráció volt."
             reserved_slots_help: Hagyja 0-ra, ha nem rendelkezik foglalással
             reserved_slots_less_than: Legalább %{count}vagy egyenlőnek kell lennie
           update:
             invalid: Probléma volt a regisztrációs beállítások mentése.
             success: A regisztrációs regisztrációs beállítások sikeresen mentésre kerültek.
       admin_log:
+        invite:
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
+          deleted: "%{user_name} uninvited %{expectation_name} to join %{resource_name} space meeting %{space_name}"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
         meeting:
           close: "%{user_name} lezárta az %{resource_name} találkozót a %{space_name} téren"
           create: "%{user_name} létrehozta az %{resource_name} találkozót a %{space_name} téren"

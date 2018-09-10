@@ -38,6 +38,9 @@ es-PY:
           edit:
             title: Editar proyecto
             update: Actualizar
+          form:
+            fields:
+              address: Address
           index:
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
@@ -56,6 +59,7 @@ es-PY:
       models:
         project:
           fields:
+            map: Map
             title: Título
       projects:
         budget_confirm:
@@ -76,7 +80,8 @@ es-PY:
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
-          description: "¿Qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto."
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Tú decides el presupuesto
         count:
           projects_count:
@@ -91,14 +96,34 @@ es-PY:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        index:
+          view_project: View project
+        limit_excess:
+          close: Close
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          ok: OK
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         order_progress:
           vote: Dar apoyo
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
           remove: Eliminar
           selected_projects:
             one: proyecto seleccionado
             other: proyectos seleccionados
+          total_projects:
+            one: projet
+            other: projets
           view: Ver
+          vote: Voter
         project:
           add: Añadir
           count:
@@ -121,8 +146,12 @@ es-PY:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            geocoding_enabled: Geocoding enabled
             projects_per_page: Proyectos por página
             total_budget: Presupuesto total
+            total_projects: Total projects
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
             vote_threshold_percent: Porcentaje de votos
           step:
             announcement: Anuncio

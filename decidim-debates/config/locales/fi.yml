@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -118,8 +119,7 @@ fi:
             email_subject: Uusi keskustelu kohdassa %{space_title}
             notification_title: Keskustelu aiheesta <a href="%{resource_path}">%{resource_title}</a> luotiin kohtaan <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              Hei, %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun, tutustu ja osallistu siihen:
+            email_intro: 'Hei, %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun, tutustu ja osallistu siihen:'
             email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
             email_subject: Uusi keskustelu käyttäjältä %{author_nickname}
             notification_title: Käyttäjä <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.

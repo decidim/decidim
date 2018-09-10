@@ -15,6 +15,7 @@ es:
         description: Descripción
         file: Archivo
         title: Título
+        weight: Rang d'affichage
       attachment_collection:
         description: Descripción
         name: Nombre

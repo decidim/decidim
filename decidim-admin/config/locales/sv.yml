@@ -15,6 +15,7 @@ sv:
         description: Beskrivning
         file: Fil
         title: Titel
+        weight: Rang d'affichage
       attachment_collection:
         description: Beskrivning
         name: Namn

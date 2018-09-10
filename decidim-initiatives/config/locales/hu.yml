@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -70,6 +71,11 @@ hu:
         initiatives_types: Kezdeményezési típusok
     events:
       initiatives:
+        initiative_extended:
+          email_intro: The deadline for collecting signatures for the %{title_resource} initiative has been extended!
+          email_outro: You received this notification because you are following %{title_resource}. You can stop receiving notifications from the previous link.
+          email_subject: The deadline for collecting signatures for the initiative has been extended!
+          notification_title: The signature collection end date for the initiative <a href="%{resource_path}">%{resource_title}</a> has been extended.
         milestone_completed:
           email_intro: A %{resource_title} kezdeményezés elérte az aláírások %{percentage}% -át!
           email_outro: Ezt az értesítést megkapta, mert %{resource_title}követ. Leállíthatja az értesítések fogadását az előző link után.

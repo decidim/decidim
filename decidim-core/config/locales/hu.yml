@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ hu:
         one: Felhasználói csoport
         other: Felhasználói csoportok
   booleans:
-    'false': 'Nem'
-    'true': 'Igen'
+    'false': Nem
+    'true': Igen
   carrierwave:
     errors:
       image_too_big: A kép túl nagy
@@ -143,14 +144,15 @@ hu:
         name: Dummy engedélyezési munkafolyamat
       errors:
         duplicate_authorization: A felhasználó ugyanazokkal az adatokkal már engedélyezett.
-      expired_at: '%{timestamp}kor lejárt'
+      expired_at: "%{timestamp}kor lejárt"
+      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
           bar: Bár
           foo: foo
         name: Foo engedély
       granted_at: Megadva %{timestamp}
-      started_at: '%{timestamp}nál kezdődött'
+      started_at: "%{timestamp}nál kezdődött"
     collapsible_list:
       hidden_elements_count:
         one: és még egy
@@ -257,8 +259,24 @@ hu:
         email_intro: 'Frissítés történt "%{resource_title}" -ra. Láthatja ezt az oldalról:'
         email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" -t követi. Leiratkozhat az előző linkről.
         email_subject: Frissítés %{resource_title}
+      feature_published_event:
+        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+        email_subject: An update to %{participatory_space_title}
+        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Egy esemény <a href="%{resource_path}">%{resource_title}</a>-re esett.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: A <a href="%{resource_url}">profil oldal</a> a %{name} (%{nickname}), aki akkor a következő, frissült.
@@ -654,6 +672,7 @@ hu:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"

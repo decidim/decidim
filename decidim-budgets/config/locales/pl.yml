@@ -40,6 +40,9 @@ pl:
           edit:
             title: Edytuj projekt
             update: Aktualizacja
+          form:
+            fields:
+              address: Address
           index:
             finished_orders: Ukończone głosy
             pending_orders: Głosowanie oczekujące
@@ -58,6 +61,7 @@ pl:
       models:
         project:
           fields:
+            map: Map
             title: Tytuł
       projects:
         budget_confirm:
@@ -78,7 +82,8 @@ pl:
           checked_out:
             description: Już głosowałeś na budżet. Jeśli zmieniłeś zdanie, możesz %{cancel_link}.
             title: Ukończono budżet budżetowy
-          description: Jakie projekty myślisz, powinniśmy przeznaczyć budżet? Przyznaj co najmniej %{minimum_budget} projekty, które chcesz i głosuj zgodnie z Twoimi preferencjami, aby określić budżet.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Ty decydujesz budżet
         count:
           projects_count:
@@ -95,16 +100,36 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwijać się
+        index:
+          view_project: View project
+        limit_excess:
+          close: Close
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          ok: OK
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         order_progress:
           vote: Głosować
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
           remove: Usunąć
           selected_projects:
             few: Wybranych projektów
             many: wybrane projekty
             one: Wybrany projekt
             other: Wybranych projektów
+          total_projects:
+            one: projet
+            other: projets
           view: Widok
+          vote: Voter
         project:
           add: Dodaj
           count:
@@ -129,8 +154,12 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            geocoding_enabled: Geocoding enabled
             projects_per_page: Projekty na stronę
             total_budget: Cały budżet
+            total_projects: Total projects
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
             vote_threshold_percent: Procent progu głosowania
           step:
             announcement: Ogłoszenie

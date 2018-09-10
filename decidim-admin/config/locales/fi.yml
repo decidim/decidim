@@ -15,6 +15,7 @@ fi:
         description: Kuvaus
         file: Tiedosto
         title: Otsikko
+        weight: Rang d'affichage
       attachment_collection:
         description: Kuvaus
         name: Nimi

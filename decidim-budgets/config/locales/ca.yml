@@ -38,6 +38,9 @@ ca:
           edit:
             title: Editar projecte
             update: Actualitzar
+          form:
+            fields:
+              address: Address
           index:
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
@@ -56,6 +59,7 @@ ca:
       models:
         project:
           fields:
+            map: Map
             title: Títol
       projects:
         budget_confirm:
@@ -76,7 +80,8 @@ ca:
           checked_out:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
-          description: En quins projectes creus que hem de destinar el pressupost? Has d'assignar com a mínim %{minimum_budget} als projectes que desitges i donar suport amb les teves preferències per definir el pressupost.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Tu decideixes el pressupost
         count:
           projects_count:
@@ -91,14 +96,34 @@ ca:
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar
+        index:
+          view_project: View project
+        limit_excess:
+          close: Close
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          ok: OK
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         order_progress:
           vote: Donar suport
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
           remove: Esborrar
           selected_projects:
             one: projecte seleccionat
             other: projectes seleccionats
+          total_projects:
+            one: projet
+            other: projets
           view: Veure
+          vote: Voter
         project:
           add: Afegir
           count:
@@ -121,8 +146,12 @@ ca:
           global:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
+            geocoding_enabled: Geocoding enabled
             projects_per_page: Projectes per pàgina
             total_budget: Pressupost total
+            total_projects: Total projects
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
             announcement: Anunci

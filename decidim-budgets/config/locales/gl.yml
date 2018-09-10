@@ -38,6 +38,9 @@ gl:
           edit:
             title: Editar proxecto
             update: Actualización
+          form:
+            fields:
+              address: Address
           index:
             finished_orders: Votos rematados
             pending_orders: Votos pendentes
@@ -56,6 +59,7 @@ gl:
       models:
         project:
           fields:
+            map: Map
             title: Título
       projects:
         budget_confirm:
@@ -76,7 +80,8 @@ gl:
           checked_out:
             description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
-          description: Que proxectos crees que deberiamos asignar orzamento para? Asigne polo menos %{minimum_budget} aos proxectos que desexe e vote coas súas preferencias para definir o orzamento.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Vostede decide o orzamento
         count:
           projects_count:
@@ -91,14 +96,34 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        index:
+          view_project: View project
+        limit_excess:
+          close: Close
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          ok: OK
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         order_progress:
           vote: Vota
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
           remove: Quitar
           selected_projects:
             one: proxecto seleccionado
             other: proxectos seleccionados
+          total_projects:
+            one: projet
+            other: projets
           view: Ver
+          vote: Voter
         project:
           add: Engadir
           count:
@@ -121,8 +146,12 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            geocoding_enabled: Geocoding enabled
             projects_per_page: Proxectos por páxina
             total_budget: Orzamento total
+            total_projects: Total projects
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
             vote_threshold_percent: Porcentaxe de límite de voto
           step:
             announcement: Anuncio

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -36,24 +37,24 @@ uk:
   activerecord:
     models:
       decidim/proposals/proposal:
-        one: Пропозиція
         few: Пропозиції
         many: Пропозицій
+        one: Пропозиція
         other: Пропозицій
       decidim/proposals/proposal_endorsement:
-        one: Прояв підтримки
         few: Прояви підтримки
         many: Проявів підтримки
+        one: Прояв підтримки
         other: Проявів підтримки
       decidim/proposals/proposal_note:
-        one: Примітка
         few: Примітки
         many: Приміток
+        one: Примітка
         other: Приміток
       decidim/proposals/proposal_vote:
-        one: Голос
         few: Голоси
         many: Голосів
+        one: Голос
         other: Голосів
   decidim:
     components:
@@ -93,7 +94,12 @@ uk:
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування увімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
@@ -288,9 +294,9 @@ uk:
           title: Завершіть свою пропозицію
         count:
           proposals_count:
-            one: 1 пропозиція
             few: "%{count} пропозиції"
             many: "%{count} пропозицій"
+            one: 1 пропозиція
             other: "%{count} пропозицій"
         edit:
           back: Повернутись
@@ -334,9 +340,9 @@ uk:
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
-            one: голос
             few: голоси
             many: голосів
+            one: голос
             other: голосів
         new:
           send: Продовжити
@@ -349,9 +355,9 @@ uk:
         preview:
           modify: Внести зміни в пропозицію
           proposal_edit_before_minutes:
-            one: Ви зможете редагувати цю пропозицію протягом першої хвилини після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             few: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             many: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
+            one: Ви зможете редагувати цю пропозицію протягом першої хвилини після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             other: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
           publish: Оприлюднити
           title: Оприлюднити свою пропозицію
@@ -362,9 +368,9 @@ uk:
           edit_proposal: Редагувати пропозицію
           endorsements_list: Перелік тих, хто підтримав
           hidden_endorsers_count:
-            one: і ще 1 особа
             few: і ще %{count} людей
             many: і ще %{count} людей
+            one: і ще 1 особа
             other: і ще %{count} людей
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
@@ -386,14 +392,26 @@ uk:
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати
           votes_blocked: Голосування вимкнене
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
-            one: ГОЛОС
             few: ГОЛОСИ
             many: ГОЛОСІВ
+            one: ГОЛОС
             other: ГОЛОСІВ
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати понад %{limit} людей
@@ -415,7 +433,7 @@ uk:
           step_2: Порівняти
           step_3: Завершити
           step_4: Оприлюднити свою пропозицію
-          step_of: '%{current_step_num}-й крок з %{total_steps} кроків'
+          step_of: "%{current_step_num}-й крок з %{total_steps} кроків"
       publish:
         error: При спробі оприлюднити цю пропозицію сталися помилки.
         success: Пропозицію успішно оприлюднено.

@@ -15,6 +15,7 @@ pl:
         description: Opis
         file: Plik
         title: Tytuł
+        weight: Rang d'affichage
       attachment_collection:
         description: Opis
         name: Nazwa

@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -85,7 +86,12 @@ hu:
             votes_blocked: Szavazások blokkolva
             votes_enabled: Szavazások engedélyezve
             votes_hidden: Rejtett szavazatok (ha a szavazatok engedélyezve vannak, ellenőrizve ez elrejti a szavazatok számát)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Most új javaslatokat készíthet %{participatory_space_title}! Kezdje el részt venni ezen az oldalon:'
@@ -370,12 +376,24 @@ hu:
           no_votes_remaining: Nincs szavazat maradt
           vote: Szavazás
           votes_blocked: A szavazás le van tiltva
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: SZAVAZÁS
             other: SZAVAZÁS
           most_popular_proposal: Legnépszerűbb javaslat
           need_more_votes: Több szavazat szükséges
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Minden javaslat több mint %{limit} támogatást tud felhalmozni

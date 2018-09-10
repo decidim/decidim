@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -85,7 +86,12 @@ fi:
             votes_blocked: Äänet ovat tukossa
             votes_enabled: Äänet käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Voit nyt luoda uusia ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
@@ -370,12 +376,24 @@ fi:
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
           votes_blocked: Äänestys estetty
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: ÄÄNI
             other: ÄÄNTÄ
           most_popular_proposal: Suosituin ehdotus
           need_more_votes: Tarvitset enemmän ääniä
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} tukee
@@ -413,4 +431,5 @@ fi:
       included_projects:
         project_result: 'Tässä projektissa näkyvät tulokset:'
       included_proposals:
+        proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'

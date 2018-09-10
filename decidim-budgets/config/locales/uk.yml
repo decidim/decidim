@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -11,9 +12,9 @@ uk:
   activerecord:
     models:
       decidim/budgets/project:
-        one: Проект
         few: Проекти
         many: Проектів
+        one: Проект
         other: Проектів
   decidim:
     budgets:
@@ -39,6 +40,9 @@ uk:
           edit:
             title: Редагувати проект
             update: Оновити
+          form:
+            fields:
+              address: Address
           index:
             finished_orders: Завершені голосування
             pending_orders: Голосування, що зараз тривають
@@ -57,6 +61,7 @@ uk:
       models:
         project:
           fields:
+            map: Map
             title: Назва
       projects:
         budget_confirm:
@@ -77,13 +82,14 @@ uk:
           checked_out:
             description: Ви вже проголосували за бюджет. Якщо ви змінили свою думку, ви можете %{cancel_link}.
             title: Голосування щодо бюджету завершено
-          description: На які проекти, на вашу думку, ми маємо виділити кошти? Надавайте принаймні %{minimum_budget} бажаним для вас проектам та голосуйте згідно своїх уподобань, щоб визначити бюджет.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Ви визначаєте бюджет
         count:
           projects_count:
-            one: 1 проект
             few: "%{count} проекти"
             many: "%{count} проектів"
+            one: 1 проект
             other: "%{count} проектів"
         filters:
           category: Категорія
@@ -94,22 +100,42 @@ uk:
           filter: Відібрати
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
+        index:
+          view_project: View project
+        limit_excess:
+          close: Close
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          ok: OK
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         order_progress:
           vote: Голосувати
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
           remove: Видалити
           selected_projects:
-            one: обраний проект
             few: обраних проекти
             many: обраних проектів
+            one: обраний проект
             other: обраних проектів
+          total_projects:
+            one: projet
+            other: projets
           view: Переглянути
+          vote: Voter
         project:
           add: Додати
           count:
-            one: 1 людина підтримує
             few: "%{count} людей підтримує"
             many: "%{count} людей підтримують"
+            one: 1 людина підтримує
             other: "%{count} людей підтримують"
           remove: Видалити
           view: Переглянути
@@ -128,8 +154,12 @@ uk:
           global:
             announcement: Оголошення
             comments_enabled: Коментарі увімкнено
+            geocoding_enabled: Geocoding enabled
             projects_per_page: Проектів на сторінку
             total_budget: Загальний бюджет
+            total_projects: Total projects
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
             vote_threshold_percent: Мінімальний відсоток бюджету для голосування
           step:
             announcement: Оголошення

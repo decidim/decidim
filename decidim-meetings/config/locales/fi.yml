@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -23,6 +24,7 @@ fi:
         private_meeting: Yksityinen kokous
         registration_terms: Ilmoittautumisehdot
         registrations_enabled: Ilmoittautumiset ovat käytössä
+        reserved_slots: Places réservées
         start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
@@ -38,6 +40,10 @@ fi:
             base:
               too_many_minutes: Kohteiden kesto ylittää kokouksen keston %{count} minuutilla
               too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
     models:
       decidim/meetings/close_meeting_event: Kokous suljettu
       decidim/meetings/create_meeting_event: Kokous
@@ -231,13 +237,17 @@ fi:
             invite_user: Kutsu käyttäjä
             registrations_count:
               one: 1 ilmoittautuminen.
-              other: '%{count} ilmoittautumista.'
+              other: "%{count} ilmoittautumista."
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
       admin_log:
+        invite:
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
+          deleted: "%{user_name} uninvited %{expectation_name} to join %{resource_name} space meeting %{space_name}"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
         meeting:
           close: "%{user_name} sulki tapahtuman %{resource_name} tilassa %{space_name}"
           create: "%{user_name} loi tapahtuman %{resource_name} tilassa %{space_name}"

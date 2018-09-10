@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -14,6 +15,7 @@ hu:
         description: Leírás
         file: fájl
         title: Cím
+        weight: Rang d'affichage
       attachment_collection:
         description: Leírás
         name: Név
@@ -316,6 +318,11 @@ hu:
         logs_list:
           no_logs_yet: Még nincs napló
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Hiba történt a kezelt felhasználó előmozdításában.
           success: A kezelt felhasználót sikeresen támogatták.
@@ -333,6 +340,7 @@ hu:
         configuration: Configuration
         dashboard: Irányítópult
         impersonations: alakítások
+        navbar_links: Navbar links
         newsletters: hírlevelek
         oauth_applications: OAuth alkalmazások
         officializations: Officializations
@@ -370,6 +378,13 @@ hu:
             reason: Ok
             started_at: Kezdetben
             user: használó
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: 'Létrehozva:'
@@ -424,6 +439,28 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Támadó
             spam: Levélszemét
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozásában.
@@ -595,6 +632,8 @@ hu:
         dashboard: Irányítópult
         impersonatable_users: Felszólalhatatlan felhasználók
         impersonations: alakítások
+        managed_users: Managed users
+        navbar_links: Navbar links
         officializations: Officializations
         scope_types: Hatálytípusok
         scopes: Célzók
