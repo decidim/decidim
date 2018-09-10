@@ -287,15 +287,15 @@ fi:
       content_blocks:
         upcoming_events:
           name: Tulevat tapahtumat
-          upcoming_events: Tulevat kokoukset
+          upcoming_events: Tulevat tapaamiset
           view_all_events: Näytä kaikki
       directory:
         meetings:
           index:
             all: Kaikki
-            date: Treffi
-            meetings: kokoukset
-            past: menneisyys
+            date: Päivämäärä
+            meetings: Tapaamiset
+            past: Menneet
             search: Hae
             space_type: Osallistumistilaisuus
             upcoming: tuleva
