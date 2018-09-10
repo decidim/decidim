@@ -8,7 +8,7 @@ hu:
         scope_id: terület
         signature_end_time: Az aláírásgyűjtési időszak vége
         signature_start_time: Az aláírásgyűjtési időszak kezdete
-        signature_type: Aláírási típus
+        signature_type: Aláírás típusa
         signature_type_values:
           any: Vegyes
           offline: Szemtől szemben
@@ -110,7 +110,7 @@ hu:
             filter_by: Szűrés vlami alapján
             preview: Előnézet
             print: Nyomtatás
-            search: Busca
+            search: Keresés
           show:
             print: Nyomtatás
           update:
@@ -125,7 +125,7 @@ hu:
           edit:
             back: Hát
             confirm_destroy: biztos vagy ebben?
-            destroy: Elpusztítani
+            destroy: Törlés
             title: A kezdeményezés típusának szerkesztése
             update: frissítés
           new:
@@ -143,7 +143,7 @@ hu:
             success: A kezdeményezést sikeresen eltávolították
           edit:
             confirm_destroy: biztos vagy ebben?
-            destroy: Elpusztítani
+            destroy: Törlés
             update: frissítés
           form:
             title: Általános információ
@@ -154,7 +154,7 @@ hu:
             title: Új kezdeményezéstípus
           update:
             error: Hiba történt
-            success: Az adott kezdeményezés sikeresen frissült
+            success: Az adott kezdeményezés frissítése sikeres
       admin_log:
         initiative:
           publish: "%{user_name} közzétette az %{resource_name} kezdeményezést"
@@ -171,7 +171,7 @@ hu:
       committee_requests:
         new:
           continue: Folytatni
-          help_text: Arra kérsz, hogy csatlakozz a kezdeményezői bizottsághoz e kezdeményezéshez
+          help_text: Arra készülsz, hogy csatlakozz az úgynevezett kezdeményező bizottsághoz
         spawn:
           success: A kérelmet elküldtük a kezdeményezés szerzőjének.
       create_initiative:
@@ -190,9 +190,9 @@ hu:
           more_information: "(Több információ)"
         finish_help:
           access_reminder: Ne felejtse el, hogy a felhasználói menüben mindig hozzáférhet a kezdeményezéseihez.
-          help_for_organizations: Ha Ön egy szövetség, akkor fel kell töltenie a Promóciós Bizottságnak megfelelő szervezetek összes igazgatóságának jegyzőkönyvet
+          help_for_organizations: Ha egyesületként regisztrálsz, fel kell töltened az összes szerv vezetői testületének jegyzőkönyveit, amelyek megfelelnek a Támogató Bizottság feltételeinek
           help_in_person_signatures: Ha úgy döntött, hogy az aláírásokat személyesen vagy az online módon kombinálja, akkor fel kell töltenie a szükséges adatokat.
-          help_text: Ne feledje, hogy a kezdeményezés megfelelő feldolgozása érdekében hozzá kell férnie az adminisztrációs panelhez, ahol megtalálja a felhasználói menüt, feltölti a szükséges információkat, és elküldi az eljárásnak.
+          help_text: Ne feledd, hogy a kezdeményezés feldolgozásához hozzá kell férned az adminisztrációs panelhez, ahol a felhasználó menü is található. Ugyanitt töltheted fel a szükséges információkat és indíthatsz eljárást.
           initiatives_page_link: Megtekintheti az összes információt a %{link} amelyek tájékoztatják a kezdeményezéseket.
           page: oldal
         previous_form:
@@ -211,7 +211,7 @@ hu:
           select_initiative_type_help: A polgári kezdeményezések egy olyan eszköz, amellyel az állampolgárság beavatkozhat, hogy a városi tanács megtehesse az önkormányzati hatáskörébe tartozó közérdek védelmét. Milyen kezdeményezést szeretne elindítani?
         share_committee_link:
           continue: Folytatni
-          invite_to_committee_help: Link a meghívni olyan embereket, akik részt vesznek a promote bizottságban
+          invite_to_committee_help: Link olyanok meghívásához, akik részt vesznek a kezdeményező bizottságban
         show_similar_initiatives:
           back: Hát
           compare_help: Ha az alábbi kezdeményezések valamelyike ​​hasonló az Önéhez, azt javasoljuk, támogassa. A javaslatnak több lehetősége lesz rá.
@@ -274,7 +274,7 @@ hu:
           any_vote_method: Ez az állampolgári kezdeményezés online támogatást és szemtől szembe kerül.
           offline_method: Ez az állampolgári kezdeményezés csak szemtől szemben támogatja.
         signature_identities:
-          select_identity: Válassza ki a felhasználói azonosítót
+          select_identity: Válassz felhasználói azonosítót
         signatures_count:
           one: " aláírás"
           other: " aláírások"
@@ -302,7 +302,7 @@ hu:
         more_information: Itt további információ található a kezdeményezés létrehozásának folyamatáról.
         progress_report_body_for: A %{title} kezdeményezés elérte a szükséges támogatá- sok %{percentage}% -át.
         progress_report_for: 'Folytatás a kezdeményezésről: %{title}'
-        promotal_committee_help: Ne feledje, hogy legalább %{member_count} személyt kell meghívnia a promotal bizottságnak. A következő linket továbbítsa az emberek meghívására a promotal bizottságba
+        promotal_committee_help: Ne feledd, hogy legalább %{member_count} embert kell meghívnod a kezdeményező bizottságba. Ezt a linket küldd el azoknak, akiket szeretnél meghívni
         status_change_body_for: 'A %{title} kezdeményezés megváltoztatta állapotát: %{state}'
         status_change_for: A %{title} kezdeményezés megváltoztatta állapotát
         technical_validation_body_for: A %{title} kezdeményezés technikai validálását kérte.
@@ -329,7 +329,7 @@ hu:
         fill_data: Teremt
         finish: Befejez
         previous_form: Rajt
-        promotal_committee: Promotal bizottság
+        promotal_committee: Kezdeményező bizottság
         select_initiative_type: Választ
         show_similar_initiatives: Összehasonlítás
       initiative_header:
