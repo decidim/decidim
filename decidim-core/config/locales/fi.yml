@@ -252,7 +252,7 @@ fi:
             legend: Rekisteröidy
             user: Yksityishenkilönä
             user_group: Organisaationa/yhteisönä
-          subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja tukeaksesi ehdotuksia.
+          subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
           terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
           tos_title: Käyttöehdot
