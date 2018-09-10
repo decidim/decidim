@@ -80,3 +80,86 @@
     </div>
   </div>
 </div>
+
+<% # TODO: MOVE SCRIPT TO SEPARATE FOLDER. %>
+
+<script type="text/javascript">
+  function disableClick(check1, check2, field1, field2) {
+    if (check1.is(":checked")) {
+      check2.prop("disabled", true);
+      // When the checkbox is followed by an input
+      if (field2) {
+        disableField(field2)
+      }
+    } else if (check2.is(":checked")) {
+      check1.prop("disabled", true);
+      // When the checkbox is followed by an input
+      if (field1) {
+        disableField(field1)
+      }
+    }
+  }
+
+  function switchDisabling(check1, check2, field1, field2) {
+    check1.change(function () {
+      if ($(this).is(":checked")) {
+        check2.prop("disabled", true);
+        // When the checkbox is followed by an input
+        if (field2) {
+          disableField(field2)
+        }
+      } else {
+        $(this).prop("disabled", false);
+        check2.prop("disabled", false);
+        if (field2 && field1) {
+          enableField(field2)
+          enableField(field1)
+        }
+      }
+    })
+  }
+
+  function disableOtherField(field, actionCheck) {
+    if (actionCheck.is(":checked")) {
+      disableField(field)
+    } else {
+      enableField(field)
+    }
+    actionCheck.change(function () {
+      if (actionCheck.is(":checked")) {
+        disableField(field)
+      } else {
+        enableField(field)
+      }
+    });
+  }
+
+  function disableField(field) {
+    field.prop("disabled", true);
+  }
+
+  function enableField(field) {
+    field.prop("disabled", false);
+  }
+
+  $(document).ready(function () {
+    // PROPOSAL
+    var participatory_space_id = <%= current_participatory_space.id %>;
+    var $supports = $('input[name="component[step_settings][' + participatory_space_id + '][votes_enabled]"]')
+    var $votes = $('input[name="component[step_settings][' + participatory_space_id + '][votes_weight_enabled]"]')
+    disableClick($supports, $votes, false, false)
+    switchDisabling($supports, $votes, false, false)
+    switchDisabling($votes, $supports, false, false)
+    // BUDGET
+    var $perBudget = $('input[name="component[settings][vote_per_budget]"]')
+    var $perProject = $('input[name="component[settings][vote_per_project]"]')
+    var $BudgetSumField = $('input[name="component[settings][total_budget]"]')
+    var $projectNumberField = $('input[name="component[settings][total_projects]"]')
+    var $voteTreshold = $('input[name="component[settings][vote_threshold_percent]"]')
+    switchDisabling($perBudget, $perProject, $BudgetSumField, $projectNumberField)
+    switchDisabling($perProject, $perBudget, $projectNumberField, $BudgetSumField)
+    disableClick($perBudget, $perProject, $BudgetSumField, $projectNumberField)
+    disableClick($perProject, $perBudget, $projectNumberField, $BudgetSumField)
+    disableOtherField($voteTreshold, $perProject)
+  });
+</script>
