@@ -288,6 +288,7 @@ en:
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
       content_blocks:
         upcoming_events:
+          name: Upcoming events
           upcoming_events: Upcoming meetings
           view_all_events: View all
       directory:
