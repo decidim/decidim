@@ -14,14 +14,14 @@ fi:
         hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
-        meta_scope: Kontekstin metadata
+        meta_scope: Teeman metadata
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Osallistumisprosessin konteksti
         participatory_structure: Osallistumisprosessin rakenne
         promoted: Korostettu
         published_at: Julkaistu
-        scope_id: Konteksti
-        scopes_enabled: Kontekstit käytössä
+        scope_id: Teema
+        scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         slug: URL-tunniste
@@ -297,7 +297,7 @@ fi:
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
-        scope: Konteksti
+        scope: Teema
         start_date: Aloitusaika
         target: Kuka osallistuu
         unspecified: Ei määritelty
