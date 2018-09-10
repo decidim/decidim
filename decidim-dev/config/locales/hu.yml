@@ -11,18 +11,18 @@ hu:
     dummy:
       admin:
         exports:
-          dummies: Dummies
+          dummies: Dummik
     pages:
       home:
         statistics:
           bar: Oszlop
-          dummies_count_high: Dummies magas
+          dummies_count_high: Dummies high
           dummies_count_medium: Dummies medium
           foo: Foo
     participatory_processes:
       statistics:
-        dummies_count_high: Dummies magas
+        dummies_count_high: Dummies high
         dummies_count_medium: Dummies medium
     resource_links:
       test_link:
-        dummy_resource_dummy: Kapcsolódó próbabábu
+        dummy_resource_dummy: Kapcsolódó dummy

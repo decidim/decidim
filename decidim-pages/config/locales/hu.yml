@@ -2,12 +2,12 @@ hu:
   activerecord:
     models:
       decidim/pages/page:
-        one: oldal
+        one: Oldal
         other: Oldalak
   decidim:
     admin_log:
       page:
-        update: "%{user_name} frissítette az %{resource_name} oldalt a %{space_name}"
+        update: "%{user_name} frissítette a(z) %{resource_name} oldalt itt: %{space_name}"
     components:
       pages:
         name: Oldal
@@ -20,11 +20,11 @@ hu:
       admin:
         models:
           components:
-            body: Test
+            body: Szöveg
         pages:
           edit:
-            save: frissítés
+            save: Frissítés
             title: Oldal szerkesztése
           update:
-            invalid: Az oldal mentésekor hiba történt.
-            success: Az oldal sikeresen mentve.
+            invalid: Hiba történt az oldal mentése során.
+            success: Oldal mentése sikeres.
