@@ -329,7 +329,9 @@ fr:
         assembly:
           take_part: Participer
         index:
+          organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
+          reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"

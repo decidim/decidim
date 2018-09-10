@@ -329,7 +329,9 @@ eu:
         assembly:
           take_part: Parte hartu
         index:
+          organizational_chart: Organigrama
           promoted_assemblies: Batzar nabarmenduak
+          reset_chart: Berrezarri
         order_by_assemblies:
           assemblies:
             one: "%{count} batzarra"
