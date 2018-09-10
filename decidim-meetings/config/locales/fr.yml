@@ -284,6 +284,21 @@ fr:
         minutes:
           create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Évènements à venir
+          upcoming_events: Réunions à venir
+          view_all_events: Voir tout
+      directory:
+        meetings:
+          index:
+            all: Tout
+            date: Rendez-vous amoureux
+            meetings: Réunions
+            past: Passé
+            search: Chercher
+            space_type: Espace participatif
+            upcoming: Prochain
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +321,6 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite
-        index:
-          view_meeting: Voir la rencontre
         meeting_minutes:
           meeting_minutes: Comptes rendus des rencontres
           related_information: Informations liées
@@ -329,6 +342,8 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
+      meetings_map:
+        view_meeting: Voir la rencontre
       models:
         invite:
           fields:
