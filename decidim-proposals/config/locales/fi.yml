@@ -131,15 +131,15 @@ fi:
           email_subject: "%{author_name} %{author_nickname} perunut yhteistyöluonnoksen %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>perunut</strong>yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: 'Voit nyt luoda uusia ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
-          email_subject: Ehdotukset nyt saatavilla tilassa %{participatory_space_title}
-          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Voit nyt luoda uusia ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Ehdotukset nyt käytössä kohteessa %{participatory_space_title}
+          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Voit suositella ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
-          email_subject: Ehdotusten kannattaminen on alkanut tilalle %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten tukemisen</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Voit suositella ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisestä linkistä.
@@ -165,10 +165,10 @@ fi:
           email_subject: Uusi ehdotus tekijältä %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaistiin tekijän <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta.
         proposal_published_for_space:
-          email_intro: Ehdotus "%{resource_title}" on lisätty tilaan "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_intro: Ehdotus "%{resource_title}", jota seuraat, on lisätty kohteeseen "%{participatory_space_title}".
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
           email_subject: Uusi ehdotus lisätty tilaan %{participatory_space_title}
-          notification_title: 'Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty tilaan %{participatory_space_title}: ään'
+          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisen linkin kautta.
@@ -180,10 +180,10 @@ fi:
           email_subject: Ehdotusluokka %{resource_title} on päivitetty
           notification_title: Järjestelmänvalvoja on päivittänyt ehdotusluokan <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
-          email_intro: 'Voit äänestää ehdotuksia tilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
-          email_subject: Äänestys ehdotuksista on alkanut %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten äänestämisen</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Voit äänestää ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Ehdotusten äänestäminen on alkanut kohteessa %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten äänestämisen</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -281,7 +281,7 @@ fi:
             success: "%{number} ehdotusta tuotu onnistuneesti"
           new:
             create: Tuo ehdotuksia
-            no_components: Tässä osallistutilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
+            no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
         shared:
