@@ -1,4 +1,7 @@
 module OrderExtend
+
+  include Decidim::HasClassExtends
+
   def per_project
     component.settings.vote_per_project?
   end
@@ -11,7 +14,7 @@ module OrderExtend
   def total_projects
     projects.count
   end
-  
+
   def remaining_projects
     number_of_projects - projects.count
   end
