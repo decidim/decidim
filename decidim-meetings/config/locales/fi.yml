@@ -297,7 +297,7 @@ fi:
             meetings: Tapaamiset
             past: Menneet
             search: Hae
-            space_type: Osallistumistilaisuus
+            space_type: Osallistumistila
             upcoming: tuleva
       mailer:
         invite_join_meeting_mailer:
