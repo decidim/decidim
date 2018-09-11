@@ -26,7 +26,7 @@
         </ul>
         <% unless current_order.can_checkout? %>
           <p><%= t(".choose") %>
-             <%= t(".remaining_projects", count: current_order.remaining_projects) %>
+            <%= t(".remaining_projects", count: current_order.remaining_projects) %>
           </p>
         <% end %>
         <% unless current_order_checked_out? %>
@@ -39,13 +39,13 @@
       </div>
     <% end %>
   </div>
-<% else%>
+<% else %>
   <div id="order-selected-projects">
     <% if current_order&.projects&.any? %>
       <div class="card__content budget-summary__selected">
         <button data-toggle="reveal-selected">
           <strong><%= current_order.projects.size %> </strong><%= t(".selected_projects", count: current_order.projects.size) %>
-          <%= icon("caret-bottom", class:"icon--small", aria_label: t(".view"), role: "img") %>
+          <%= icon("caret-bottom", class: "icon--small", aria_label: t(".view"), role: "img") %>
         </button>
         <div id="reveal-selected" class="hide" data-toggler=".hide">
           <ul class="budget-summary__selected-list">

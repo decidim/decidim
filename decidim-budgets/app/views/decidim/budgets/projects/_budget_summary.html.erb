@@ -18,7 +18,7 @@
       <% end %>
     <% end %>
 
-    <div class="budget-summary__total" data-total-budget="<%= component_settings.total_budget %>" data-total-projects="<%= component_settings.total_projects %>" data_per_project= "<%=component_settings.vote_per_project%>">
+    <div class="budget-summary__total" data-total-budget="<%= component_settings.total_budget %>" data-total-projects="<%= component_settings.total_projects %>" data_per_project="<%= component_settings.vote_per_project %>">
       <% unless component_settings.vote_per_project? %>
         <span class="mini-title"><%= t("total_budget") %>
           <strong class="mini-title__strong mini-title__strong--highlight">
@@ -31,7 +31,7 @@
     <%= render partial: "order_progress" %>
 
     <div>
-      <span class="mini-title <%= 'hidden' if component_settings.vote_per_project? %>">
+      <span class="mini-title <%= "hidden" if component_settings.vote_per_project? %>">
         <%= t(".assigned") %>
         <%= render partial: "order_total_budget" %>
       </span>
