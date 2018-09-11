@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Debates do
+describe "commented debates badge" do
   let!(:debate) { create(:debate, :open_ama) }
   let(:organization) { debate.component.organization }
   let!(:user) { create(:user, organization: organization) }
