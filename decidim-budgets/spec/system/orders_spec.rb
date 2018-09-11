@@ -117,7 +117,7 @@ describe "Orders", type: :system do
             page.find(".budget--list__action").click
           end
 
-          expect(page).to have_css("#budget-excess", visible: true)
+          expect(page).to have_css("#limit-excess", visible: true)
         end
       end
 
