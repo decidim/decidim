@@ -25,6 +25,9 @@ module Decidim::Budgets
       Decidim::Faker::Localized.sentence(3)
     end
     let(:budget) { Faker::Number.number(8) }
+    let(:latitude) { 40.1234 }
+    let(:longitude) { 2.1234 }
+    let(:address) { "Address" }
     let(:scope) { create :scope, organization: organization }
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
@@ -35,8 +38,16 @@ module Decidim::Budgets
         decidim_category_id: category_id,
         title_en: title[:en],
         description_en: description[:en],
-        budget: budget
+        budget: budget,
+        address: address
       }
+    end
+
+    before do
+      Geocoder::Lookup::Test.add_stub(
+        address,
+        [{ "latitude" => latitude, "longitude" => longitude }]
+      )
     end
 
     it { is_expected.to be_valid }
