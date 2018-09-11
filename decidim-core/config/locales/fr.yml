@@ -211,7 +211,7 @@ fr:
       footer_sub_hero:
         name: Bannière sous-héros footer
       hero:
-        name: Image "hero"
+        name: Image principale (hero)
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
       how_to_participate:
@@ -219,7 +219,7 @@ fr:
       stats:
         name: Statistiques de l'organisation
       sub_hero:
-        name: Bannière en dessous de l'image "hero"
+        name: Bannière en dessous de l'image principale ("hero")
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
@@ -389,7 +389,7 @@ fr:
           next_level_in: Invitez %{score} utilisateurs supplémentaires à atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a encore invité aucun utilisateur.
           unearned_own: Vous n'avez encore invité aucun utilisateur.
-      description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plate-forme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plate-forme, vous gagnez différents badges.
+      description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
     invitations:
