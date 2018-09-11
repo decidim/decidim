@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UpdateProjectExtend
   def update_project
     Decidim.traceability.update!(
@@ -14,6 +16,7 @@ module UpdateProjectExtend
     )
   end
 end
+
 Decidim::Budgets::Admin::UpdateProject.class_eval do
   prepend(UpdateProjectExtend)
 end

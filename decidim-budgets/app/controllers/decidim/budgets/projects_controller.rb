@@ -9,8 +9,6 @@ module Decidim
 
       helper_method :projects, :random_seed, :project, :geocoded_projects
 
-      private
-
       def projects
         @projects ||= search.results.page(params[:page]).per(current_component.settings.projects_per_page)
       end

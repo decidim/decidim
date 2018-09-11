@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CreateProjectExtend
   def create_project
     @project = Decidim.traceability.create!(
@@ -15,6 +17,7 @@ module CreateProjectExtend
     )
   end
 end
+
 Decidim::Budgets::Admin::CreateProject.class_eval do
   prepend(CreateProjectExtend)
 end

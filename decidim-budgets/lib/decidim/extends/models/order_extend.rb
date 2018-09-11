@@ -1,5 +1,6 @@
-module OrderExtend
+# frozen_string_literal: true
 
+module OrderExtend
   include Decidim::HasClassExtends
 
   def per_project
