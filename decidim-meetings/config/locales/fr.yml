@@ -287,18 +287,18 @@ fr:
       content_blocks:
         upcoming_events:
           name: Évènements à venir
-          upcoming_events: Réunions à venir
+          upcoming_events: Rencontres à venir
           view_all_events: Voir tout
       directory:
         meetings:
           index:
             all: Tout
             date: Rendez-vous amoureux
-            meetings: Réunions
-            past: Passé
-            search: Chercher
+            meetings: Rencontres
+            past: Passées
+            search: Rechercher
             space_type: Espace participatif
-            upcoming: Prochain
+            upcoming: À venir
       mailer:
         invite_join_meeting_mailer:
           invite:
