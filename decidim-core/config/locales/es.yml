@@ -381,6 +381,13 @@ es:
       remove_this_file: Eliminar este archivo
     gamification:
       badges:
+        followers:
+          description_another: Este usuario tiene %{score} seguidores.
+          description_own: "%{score} usuarios te están siguiendo."
+          explanation: Los usuarios obtienen esta insignia al ser seguidos por otros usuarios.
+          name: Seguidores
+          next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
+          unearned_another: Este usuario no tiene seguidores todavía.
         invitations:
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
