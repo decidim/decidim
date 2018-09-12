@@ -284,6 +284,21 @@ nl:
         minutes:
           create: "%{user_name} heeft de minuten van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
           update: "%{user_name} heeft de notulen van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
+      content_blocks:
+        upcoming_events:
+          name: Aankomende evenementen
+          upcoming_events: Komende vergaderingen
+          view_all_events: Bekijk alles
+      directory:
+        meetings:
+          index:
+            all: Alle
+            date: Datum
+            meetings: vergaderingen
+            past: Verleden
+            search: Zoeken
+            space_type: Participatieve ruimte
+            upcoming: Aankomende
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +321,6 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
-        index:
-          view_meeting: Bekijk de vergadering
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Gerelateerde informatie
@@ -329,6 +342,8 @@ nl:
             one: 1 plaats resterend
             other: "%{count} resterende plaatsen"
           view: Uitzicht
+      meetings_map:
+        view_meeting: Bekijk de vergadering
       models:
         invite:
           fields:

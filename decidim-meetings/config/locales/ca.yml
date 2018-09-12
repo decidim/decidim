@@ -284,6 +284,21 @@ ca:
         minutes:
           create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} va ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Pròxims esdeveniments
+          upcoming_events: Propers reunions
+          view_all_events: Veure tot
+      directory:
+        meetings:
+          index:
+            all: Tots
+            date: Data
+            meetings: Reunions
+            past: Passat
+            search: Cerca
+            space_type: Espai participatiu
+            upcoming: Proper
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +321,6 @@ ca:
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar
-        index:
-          view_meeting: Veure trobada
         meeting_minutes:
           meeting_minutes: Minuts de trobada
           related_information: Informació relacionada
@@ -329,6 +342,8 @@ ca:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"
           view: Veure
+      meetings_map:
+        view_meeting: Veure trobada
       models:
         invite:
           fields:

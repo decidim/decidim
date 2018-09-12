@@ -300,26 +300,32 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :welcome_text, type: :text, translated: true
           end
+
+          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
           content_block.cell = "decidim/content_blocks/sub_hero"
           content_block.public_name_key = "decidim.content_blocks.sub_hero.name"
+          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :highlighted_content_banner) do |content_block|
           content_block.cell = "decidim/content_blocks/highlighted_content_banner"
           content_block.public_name_key = "decidim.content_blocks.highlighted_content_banner.name"
+          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :how_to_participate) do |content_block|
           content_block.cell = "decidim/content_blocks/how_to_participate"
           content_block.public_name_key = "decidim.content_blocks.how_to_participate.name"
+          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :stats) do |content_block|
           content_block.cell = "decidim/content_blocks/stats"
           content_block.public_name_key = "decidim.content_blocks.stats.name"
+          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
@@ -330,6 +336,7 @@ module Decidim
         Decidim.content_blocks.register(:homepage, :footer_sub_hero) do |content_block|
           content_block.cell = "decidim/content_blocks/footer_sub_hero"
           content_block.public_name_key = "decidim.content_blocks.footer_sub_hero.name"
+          content_block.default!
         end
       end
 
@@ -337,6 +344,11 @@ module Decidim
         Decidim::Gamification.register_badge(:invitations) do |badge|
           badge.levels = [1, 5, 10, 30, 50]
           badge.reset = ->(user) { Decidim::User.where(invited_by: user.id).count }
+        end
+
+        Decidim::Gamification.register_badge(:followers) do |badge|
+          badge.levels = [1, 15, 30, 60, 100]
+          badge.reset = ->(user) { user.followers.count }
         end
       end
     end
