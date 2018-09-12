@@ -130,7 +130,7 @@ module Decidim
             development_mode: env == "development",
             load_path_cache: true,
             autoload_paths_cache: true,
-            disable_trace: true,
+            disable_trace: false,
             compile_cache_iseq: false,
             compile_cache_yaml: true
           )
