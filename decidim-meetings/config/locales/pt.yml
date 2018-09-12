@@ -284,6 +284,21 @@ pt:
         minutes:
           create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Próximos eventos
+          upcoming_events: Próximos encontros
+          view_all_events: Ver tudo
+      directory:
+        meetings:
+          index:
+            all: Todos
+            date: Encontro
+            meetings: Reuniões
+            past: Passado
+            search: Pesquisa
+            space_type: Espaço participativo
+            upcoming: próximos
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +321,6 @@ pt:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
-        index:
-          view_meeting: Ver reunião
         meeting_minutes:
           meeting_minutes: Atas de Reunião
           related_information: Informação relacionada
@@ -329,6 +342,8 @@ pt:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Visão
+      meetings_map:
+        view_meeting: Ver reunião
       models:
         invite:
           fields:

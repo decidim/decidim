@@ -17,10 +17,14 @@
           <button type="button" class="button hollow light expanded">31 NOV - 1 DIC Barcelona</button>
         </div>
         <div class="column medium-3">
-          <button type="button" class="button button--sc expanded">Registrate</button>
+          <%= link_to page_path("conferences/conference-view-registration") do %>
+            <button type="button" class="button button--sc expanded">Registrate</button>
+          <% end %>
         </div>
         <div class="column medium-3">
-          <button type="button" class="button button--sc secondary light expanded">Programa</button>
+          <%= link_to page_path("conferences/conference-view-programme") do %>
+            <button type="button" class="button button--sc secondary light expanded">Programa</button>
+          <% end %>
         </div>
       </div>
     </div>

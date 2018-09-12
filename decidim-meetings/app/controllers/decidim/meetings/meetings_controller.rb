@@ -8,7 +8,7 @@ module Decidim
       include Paginable
       helper Decidim::WidgetUrlsHelper
 
-      helper_method :meetings, :geocoded_meetings, :meeting
+      helper_method :meetings, :meeting, :search
 
       def index
         return unless search.results.empty? && params.dig("filter", "date") != "past"
@@ -35,11 +35,7 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.results).visible_meeting_for(current_user)
-      end
-
-      def geocoded_meetings
-        @geocoded_meetings ||= search.results.select(&:geocoded?)
+        @meetings ||= paginate(search.results)
       end
 
       def search_klass
@@ -52,6 +48,12 @@ module Decidim
           search_text: "",
           scope_id: "",
           category_id: ""
+        }
+      end
+
+      def default_search_params
+        {
+          scope: Meeting.visible_meeting_for(current_user)
         }
       end
 
