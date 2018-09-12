@@ -383,7 +383,7 @@ fi:
             name: Nimi
           name: OAuth-sovellus
         participatory_space_private_user:
-          name: Osallistuvan tilan yksityinen käyttäjä
+          name: Osallistumistilan yksityinen käyttäjä
         scope:
           fields:
             name: Nimi
@@ -527,15 +527,15 @@ fi:
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
       participatory_space_private_users:
         create:
-          error: Yksityisen käyttäjän lisäämisessä tähän osallistuvaan tilaan tapahtui virhe.
+          error: Yksityisen käyttäjän lisäämisessä tähän osallistumistilaan tapahtui virhe.
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
         destroy:
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
         index:
-          title: Osallistuvan tilan yksityinen käyttäjä
+          title: Osallistumistilan yksityinen käyttäjä
         new:
           create: Luo
-          title: Uusi osallistuvan tilan yksityinen käyttäjä.
+          title: Uusi osallistumistilan yksityinen käyttäjä.
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.
