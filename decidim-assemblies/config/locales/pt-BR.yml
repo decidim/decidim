@@ -329,7 +329,9 @@ pt-BR:
         assembly:
           take_part: Participar
         index:
+          organizational_chart: Organograma
           promoted_assemblies: Montagens destacadas
+          reset_chart: Restabelecer
         order_by_assemblies:
           assemblies:
             one: "Assembly %{count}"

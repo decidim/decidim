@@ -661,10 +661,11 @@
     // initialization
     $orgChartContainer.each((i, container) => {
 
-      let width = $(container).width()
+      let $container = $(container)
+      let width = $container.width()
       let height = width / (16 / 9)
 
-      d3.json("/orgchart.json").then((data) => {
+      d3.json($container.data("url")).then((data) => {
         // Make a fake previous node if the data entry is not hierarchical
         if (data instanceof Array) {
           fake = true

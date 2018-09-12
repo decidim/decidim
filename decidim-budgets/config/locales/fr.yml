@@ -21,7 +21,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
         edit: Modifier
-        import: Importer des propositions aux projets
+        import: Importer des propositions dans des projets
         new: Nouveau projet
         preview: Aperçu
         title: Actions
@@ -50,12 +50,12 @@ fr:
             success: Projet mis à jour avec succès
         proposals_imports:
           create:
-            invalid: Un problème est survenu lors de l'importation des propositions dans les projets.
+            invalid: Un problème est survenu lors de l'importation des propositions dans des projets
             success: "%{number} propositions importées avec succès dans des projets"
           new:
-            create: Importer des propositions aux projets
-            no_components: Il n'y a pas d'autres éléments de proposition dans cet espace participatif pour importer les propositions dans des projets.
-            select_component: Veuillez sélectionner un composant
+            create: Importer des propositions dans des projets
+            no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
+            select_component: Veuillez sélectionner un module
       admin_log:
         project:
           create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"

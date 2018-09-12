@@ -314,8 +314,6 @@ uk:
           filter: Відібрати
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
-        index:
-          view_meeting: Переглянути зустріч
         meeting_minutes:
           meeting_minutes: Протокол зустрічі
           related_information: Супутні відомості
@@ -339,6 +337,8 @@ uk:
             many: "Залишилось %{count} місць"
             other: "Залишилось %{count} місць"
           view: Переглянути
+      meetings_map:
+        view_meeting: Переглянути зустріч
       models:
         invite:
           fields:

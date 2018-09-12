@@ -158,6 +158,7 @@ ignore_unused:
   - decidim.participatory_processes.content_blocks.*.name
   - decidim.assemblies.content_blocks.*.name
   - decidim.initiatives.content_blocks.*.name
+  - decidim.meetings.content_blocks.*.name
   - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
   - decidim.proposals.collaborative_drafts.orders*
   - decidim.proposals.collaborative_drafts.filters*

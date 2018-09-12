@@ -20,8 +20,8 @@ sv:
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
-      decidim/gamification/badge_earned_event: Badge tjänat
-      decidim/gamification/level_up_event: Du har nivellerat
+      decidim/gamification/badge_earned_event: Emblem intjänad
+      decidim/gamification/level_up_event: Du har gått upp i nivå
       decidim/profile_updated_event: Profil uppdaterad
   activerecord:
     attributes:
@@ -56,11 +56,11 @@ sv:
     account:
       data_portability_export:
         file_no_exists: Fil existerar inte
-        invalid_token: Den angivna token är ogiltig.
-        no_token: Ingen token tillhandahålls
-        notice: Dina uppgifter är pågående. Du får ett mail när det är klart.
+        invalid_token: Den angivna tecknet är ogiltigt.
+        no_token: Inget tecken har tillhandahålls
+        notice: Dina uppgifter behandlas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
-        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kan du inte logga in.
+        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte kunna logga in.
         confirm:
           close: Stäng fönstret
           ok: Ja, jag vill ta bort mitt konto
@@ -68,7 +68,7 @@ sv:
           title: Ta bort mitt konto
         explanation: Var god fyll i anledningen till att du vill radera ditt konto (valfritt).
       destroy:
-        error: Det har varit ett fel att radera ditt konto.
+        error: Det har blivit ett fel vid radering av ditt konto.
         success: Ditt konto har tagits bort.
       show:
         change_password: Ändra lösenord
@@ -85,16 +85,16 @@ sv:
       component:
         create: "%{user_name} lade till %{resource_name} komponenten till %{space_name}-utrymmet"
         delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
-        publish: "%{user_name} publicerade %{resource_name} -komponenten i %{space_name} -utrymmet"
-        unpublish: "%{user_name} opublicerade %{resource_name} -komponenten från %{space_name} -utrymmet"
+        publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
+        unpublish: "%{user_name} opublicerade komponenten %{resource_name} från utrymmet %{space_name}"
       moderation:
-        hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name} rymden"
-        unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name} rymden"
+        hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name}"
+        unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name}"
       newsletter:
-        create: "%{user_name} skapade %{resource_name} nyhetsbrev"
-        delete: "%{user_name} raderade %{resource_name} nyhetsbrev"
-        deliver: "%{user_name} levererade %{resource_name} nyhetsbrev"
-        update: "%{user_name} uppdaterade %{resource_name} nyhetsbrev"
+        create: "%{user_name} skapade nyhetsbrevet %{resource_name}"
+        delete: "%{user_name} raderade nyhetsbrevet %{resource_name}"
+        deliver: "%{user_name} levererade nyhetsbrevet %{resource_name}"
+        update: "%{user_name} uppdaterade nyhetsbrevet %{resource_name}"
       oauth_application:
         create: "%{user_name} skapade OAuth-applikationen %{resource_name}"
         delete: "%{user_name} raderade OAuth-applikationen %{resource_name}"
@@ -102,24 +102,24 @@ sv:
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       scope:
-        create: "%{user_name} skapade området %{resource_name}"
+        create: "%{user_name} skapade omfattningen %{resource_name}"
         create_with_parent: "%{user_name} skapade området %{resource_name} inom ramen för %{parent_scope}"
         delete: "%{user_name} raderade området %{resource_name}"
         delete_with_parent: "%{user_name} raderade området %{resource_name} inom ramen för %{parent_scope}"
-        update: "%{user_name} uppdaterade %{resource_name} -räckvidden"
+        update: "%{user_name} uppdaterade området %{resource_name}"
         update_with_parent: "%{user_name} uppdaterade området %{resource_name} inom ramen för %{parent_scope}"
       static_page:
-        create: "%{user_name} skapade %{resource_name} statisk sida"
-        delete: "%{user_name} raderade %{resource_name} statisk sida"
-        update: "%{user_name} uppdaterade %{resource_name} statisk sida"
+        create: "%{user_name} skapade statisk sida för %{resource_name}"
+        delete: "%{user_name} raderade statisk sida för %{resource_name}"
+        update: "%{user_name} uppdaterade statisk sida för %{resource_name}"
       user:
-        invite: "%{user_name} bjudit in användaren %{resource_name} med roll: %{role}"
+        invite: "%{user_name} bjudit in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} publicerade användaren %{resource_name}"
-        remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med roll: %{role}"
-        unofficialize: "%{user_name} oofficiserad användaren %{resource_name}"
+        remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med rollen: %{role}"
+        unofficialize: "%{user_name} gjorde användaren %{resource_name} inofficiell"
       user_group:
-        reject: "%{user_name} avvisade %{resource_name} användargruppverifiering"
-        verify: "%{user_name} verifierade %{resource_name} användargrupp"
+        reject: "%{user_name} avvisade användargruppverifiering för %{resource_name}"
+        verify: "%{user_name} verifierade användargruppen %{resource_name}"
     anonymous_user: Anonym
     application:
       collection:
@@ -136,18 +136,18 @@ sv:
         other: kommentarer
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Få verifierad genom att införa ett passnummer som börjar med "A"
+        explanation: Bli verifierad genom att införa ett passnummer som börjar med "A"
         fields:
           passport_number: Passnummer
-        name: Ett annat exempel godkännande
+        name: Ett annat exempel på auktorisering
       dummy_authorization_handler:
-        explanation: Få verifierad genom att införa ett dokumentnummer som slutar med "X"
+        explanation: Bli verifierad genom att införa ett dokumentnummer som slutar med "X"
         fields:
           document_number: Dokumentnummer
           postal_code: Postnummer
         name: Exempel godkännande
       dummy_authorization_workflow:
-        name: Dummy godkännande arbetsflöde
+        name: Arbetsflöde för dummy-auktorisering
       errors:
         duplicate_authorization: En användare är redan behörig med samma data.
       expired_at: Förfallit vid %{timestamp}
@@ -162,25 +162,25 @@ sv:
     authorization_modals:
       show:
         expired:
-          authorize: Reauthorize med "%{authorization}"
+          authorize: Återauktorisera med "%{authorization}"
           explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
-          title: Godkännandet har löpt ut
+          title: Auktoriseringen har löpt ut
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att återauktorisera eftersom vi saknar följande data:'
           invalid_field: "%{field}"
-          reauthorize: reauthorize
-          title: Vänligen reauthorize
+          reauthorize: Omauktorisera
+          title: Vänligen omauktorisera
         missing:
           authorize: Godkänn med "%{authorization}"
           explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
           title: Godkännande krävs
         pending:
-          explanation: För att kunna utföra denna åtgärd måste du godkännas med "%{authorization}", men din auktorisation är fortfarande på gång
-          resume: Kolla din "%{authorization}" tillståndsframsteg
+          explanation: För att kunna utföra denna åtgärd måste du auktoriseras med "%{authorization}", men din auktorisering är fortfarande på gång
+          resume: Kolla din "%{authorization}" auktoriseringsprocess
           title: Godkännandet är fortfarande på gång
         unauthorized:
-          explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
+          explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
           invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Okej
           title: Inte behörig
@@ -201,7 +201,7 @@ sv:
             comments_enabled: Kommentarer aktiverade
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
-            resources_permissions_enabled: Resurser behörigheter aktiverade
+            resources_permissions_enabled: Resursbehörigheter aktiverade
           step:
             comments_blocked: Kommentarer blockerade
             dummy_step_attribute_1: Dummy Step Attribut 1
@@ -209,13 +209,13 @@ sv:
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
-        name: Footer sub hero banner
+        name: Sidfot sub hero banner
       hero:
-        name: Hjälten bild
+        name: Hjältebild
       highlighted_content_banner:
         name: Markerad innehållsbanner
       how_to_participate:
-        name: Hur man deltar
+        name: Hur du deltar
       stats:
         name: Organisationsstatistik
       sub_hero:
@@ -227,7 +227,7 @@ sv:
       export:
         ready: Redo
       show:
-        download_data: Ladda ner data
+        download_data: Ladda ner datat
         download_data_description: En fil med all information som är kopplad till kontot skickas till <strong>%{user_email}</strong>
         request_data: Begär data
     devise:
@@ -235,16 +235,16 @@ sv:
         create:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
-          complete_profile: Komplettera profil
+          complete_profile: Färdigställ profil
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
-          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
+          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara vilket namn som helst.
       registrations:
         new:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få ett tillfälligt nyhetsbrev med relevant information
-          newsletter_title: Kontakt tillstånd
+          newsletter_title: Kontakttillstånd
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
           sign_up: Registrera
@@ -256,7 +256,7 @@ sv:
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du till %{link}.
           tos_title: Användarvillkor
-          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
+          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
       sessions:
         new:
           are_you_new?: Ny på plattformen?
@@ -266,21 +266,21 @@ sv:
           buttons:
             check: Kontrollera och fortsätt
             close_modal: Stäng modal
-            uncheck: Håll avmarkeringen
+            uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få ett nyhetsbrev?<br>
             Tänk på att markera kryssrutan nyhetsbrev nedan.<br>
             Det är väldigt viktigt för oss att du kan få tillfälliga e-postmeddelanden för att göra viktiga meddelanden. Du kan alltid ändra det på sidan Meddelandeinställningar.</p>
-            <p>Om du inte markerar rutan kanske du saknar relevant information om nya deltagande möjligheter inom plattformen.<br>
+            <p>Om du inte markerar rutan kanske du missar relevant information om nya deltagande möjligheter inom plattformen.<br>
             Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt.</p>
             <p>Tack för att du läste detta!</p>
-          title: Nyhetsbrev anmälningar
+          title: Notiser till nyhetsbrev
         omniauth_buttons:
           or: Eller
     doorkeeper:
       authorizations:
         new:
-          authorize: Godkänn ansökan
+          authorize: Auktorisera ansökan
           by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
           connect_your_account_html: Anslut ditt konto genom att logga in på <strong>%{organization}</strong>
@@ -304,31 +304,31 @@ sv:
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{resource_title}
           notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden om du följer föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: '%{resource_title} komponenten är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Hej %{user_name},
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
-        email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+        email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan avfölja det från föregående länk.
         email_subject: En uppdatering till %{resource_title}
       gamification:
         badge_earned:
           email_intro: Bra jobbat! Du har tjänat <a href="%{resource_path}">%{badge_name} märket</a> (nivå %{current_level}).
-          email_outro: Du har fått den här meddelandet eftersom du gjorde aktivitet på vår hemsida.
-          email_subject: 'Du har fått ett nytt märke: %{badge_name}!'
-          notification_title: Bra jobbat! Du har tjänat <a href="%{resource_path}">%{badge_name} märket</a> (nivå %{current_level}).
+          email_outro: Du har fått det här meddelandet eftersom du hade aktivitet på vår hemsida.
+          email_subject: 'Du har fått ett nytt emblem: %{badge_name}!'
+          notification_title: Bra jobbat! Du har intjänat <a href="%{resource_path}">%{badge_name} emblemet</a> (nivå %{current_level}).
         level_up:
-          email_intro: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} märket</a>!
-          email_outro: Du har fått den här meddelandet eftersom du gjorde aktivitet på vår hemsida.
-          email_subject: Du har nått nivån %{current_level} på %{badge_name} märke!
-          notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} märket</a>!
+          email_intro: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_url}">%{badge_name} emblemet</a>!
+          email_outro: Du har fått den här meddelandet eftersom du hade aktivitet på vår hemsida.
+          email_subject: Du har nått nivån %{current_level} på %{badge_name} emblemet!
+          notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} emblemet</a>!
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -339,10 +339,10 @@ sv:
           notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       data_portability_export:
-        click_button: Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig till %{date}.
+        click_button: Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig fram till %{date}.
         download: Ladda ner
       export:
-        ready: Vänligen se bifogad en zippad version av din export.
+        ready: Vänligen se zippad version bifogad av din export.
       subject: Din export "%{name}" är klar
     filters:
       linked_classes:
@@ -356,22 +356,22 @@ sv:
     fingerprint:
       check: Kontrollera fingeravtryck
       explanation: Textstycket nedan är en förkortad, sammanfattad representation av detta innehåll. Det är användbart att se till att innehållet inte har manipulerats, eftersom en enda ändring skulle resultera i ett helt annat värde.
-      online_calculator_name: MD5-kalkylator online
-      replicate_help: Detta fingeravtryck beräknas med en SHA256 hash-algoritm. För att replikera det själv kan du använda en %{online_calculator_link} och kopiera klistra in källdata.
+      online_calculator_name: MD5 onlinekalkylator
+      replicate_help: Detta fingeravtryck beräknas med en SHA256 hash-algoritm. För att replikera det själv kan du använda en %{online_calculator_link} och kopiera och klistra in källdata.
       source: Källa
       title: Fingeravtryck
       value: Värde
     followers:
       no_followers: Inga följare än.
     following:
-      no_followings: Följ inte någon eller något än.
+      no_followings: Följer inte någon eller något än.
     follows:
       create:
         button: Följ
         error: Det har inträffat ett fel efter denna resurs.
       destroy:
         button: Sluta följa
-        error: Det har inträffat ett fel som följde bort denna resurs.
+        error: Det har inträffat ett fel vid avföljandet av denna resurs.
     forms:
       current_file: Nuvarande fil
       current_image: Nuvarande bild
@@ -384,36 +384,36 @@ sv:
         invitations:
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
-          explanation: Användare får detta märke genom att bjuda in andra användare.
+          explanation: Användare får detta emblem genom att bjuda in andra användare.
           name: Inbjudningar
           next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
           unearned_another: Den här användaren har inte bjudit in någon användare än.
           unearned_own: Du har inte bjudit in några användare än.
-      description: Badges är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika märken.
+      description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
       level: Nivå %{level}
-      reached_top: Du har nått den översta nivån för detta märke.
+      reached_top: Du har nått den översta nivån för detta emblem.
     invitations:
       create:
-        error: Det fanns några problem när du inbjöd dina vänner
+        error: Det blev några problem när du bjöd in dina vänner
         error_empty_form: Vänligen ange några e-postadresser
         success: Vi har skickat inbjudningarna till dina vänner!
       index:
         customize_message: Anpassa inbjudningsmeddelandet
-        friend_email: 'Friend #%{index} email'
+        friend_email: 'Vän #%{index} e-post'
         invitations_subtitle: Låt dina vänner veta om den här webbplatsen
-        invitations_title: Tror du att fler röster ska höras i %{organization_name}?
-        invite: Inbjudan
+        invitations_title: Tycker du att fler röster ska höras i %{organization_name}?
+        invite: Bjud in
         visit_your_profile: Besök din profil
     log:
       base_presenter:
-        create: "%{user_name} skapad %{resource_name}"
-        create_with_space: "%{user_name} skapad %{resource_name} i %{space_name}"
-        delete: "%{user_name} borttagen %{resource_name}"
-        delete_with_space: "%{user_name} borttagen %{resource_name} i %{space_name}"
-        unknown_action: "%{user_name} utfört en viss åtgärd på %{resource_name}"
-        unknown_action_with_space: "%{user_name} utfört en viss åtgärd på %{resource_name} i %{space_name}"
-        update: "%{user_name} uppdaterad %{resource_name}"
-        update_with_space: "%{user_name} uppdaterad %{resource_name} i %{space_name}"
+        create: "%{user_name} skapade %{resource_name}"
+        create_with_space: "%{user_name} skapade %{resource_name} i %{space_name}"
+        delete: "%{user_name} raderade %{resource_name}"
+        delete_with_space: "%{user_name} raderade %{resource_name} i %{space_name}"
+        unknown_action: "%{user_name} utförde en viss åtgärd på %{resource_name}"
+        unknown_action_with_space: "%{user_name} utförde en viss åtgärd på %{resource_name} i %{space_name}"
+        update: "%{user_name} uppdaterade %{resource_name}"
+        update_with_space: "%{user_name} uppdaterade %{resource_name} i %{space_name}"
       value_types:
         area_presenter:
           not_found: 'Området hittades inte i databasen (ID: %{id})'
@@ -433,12 +433,12 @@ sv:
         new_conversation:
           greeting: Hej, %{recipient}!
           intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se det:"
-          outro: Njut av decidim!
+          outro: Njut av Decidim!
           subject: "%{sender} har startat en konversation med dig"
         new_message:
           greeting: Hej, %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i din konversation. Klicka här för att se dem:"
-          outro: Njut av decidim!
+          outro: Njut av Decidim!
           subject: Du har nya meddelanden från %{sender}
       conversations:
         create:
@@ -458,24 +458,24 @@ sv:
           error: Meddelandet har inte skickats. Försök igen senare
     newsletter_mailer:
       newsletter:
-        note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev på %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">anmälningssidan</a>.
+        note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">notissidan</a>.
         see_on_website: Kan du inte se det här e-postmeddelandet korrekt? Visa den på <a href="%{link}" target="_blank">webbplatsen</a>.
-        unsubscribe: För att välja bort den här typen av e-post, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+        unsubscribe: För att välja bort den här typen av e-post, <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Om du vill ändra dina inställningar kan du göra det på sidan <a href="%{link}" target="_blank">konfiguration</a>
-        error: Ett fel har avbrutits
+        check_subscription: Om du vill ändra dina inställningar kan du göra det på sidan för <a href="%{link}" target="_blank">konfiguration</a>
+        error: Ett fel uppstod vid avbrytandet av prenumeration
         success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
         unsubscribe: Avprenumerera
     newsletters_opt_in:
       unathorized: Tyvärr, den här länken är inte längre tillgänglig
       update:
-        error: Något fel har hänt
+        error: Något fel uppstod
         success: Nyhetsbrevinställningarna uppdateras framgångsrikt
     newsletters_opt_in_mailer:
       notify:
-        body_1: Behandlingen av personuppgifter och dess skydd blir allt viktigare för oss alla. Med den nya allmänna databeskrivningsförordningen (GDPR) den 25 maj 2018 har individer bättre kontroll över deras personuppgifter. Av denna anledning behöver vi din "OK" för att fortsätta att skicka relevant information om aktiviteterna på %{organization_name}.
+        body_1: Behandlingen av personuppgifter och dess skydd blir allt viktigare för oss alla. Med den nya allmänna databeskrivningsförordningen (GDPR) den 25 maj 2018 har individer bättre kontroll över deras personuppgifter. Av denna anledning behöver vi ditt "OK" för att fortsätta att skicka relevant information om aktiviteterna på %{organization_name}.
         body_2: 'Hur kan du ge oss ditt samtycke? Klicka bara på följande knapp:'
         body_3: Med detta samtycke kan du fortsätta att få information om plattformens tjänster. Om vi ​​tvärtom inte får en positiv bekräftelse från din sida kommer vi sluta skicka dig våra meddelanden. Om du bekräftar att du vill fortsätta informeras, har du alltid möjlighet att avbryta när som helst.
         button: Ja, jag vill fortsätta att få relevant information
@@ -490,26 +490,26 @@ sv:
         newsletter_notifications: Jag vill få nyhetsbrev
         update_notifications_settings: Spara ändringar
       update:
-        error: Det har uppstått ett fel vid uppdatering av dina anmälningsinställningar.
-        success: Dina anmälningsinställningar har uppdaterats framgångsrikt.
+        error: Det har uppstått ett fel vid uppdatering av dina notisinställningar.
+        success: Dina inställningar för notiser har framgångsrikt uppdaterats.
     own_user_groups:
       index:
-        pending: Avvaktan
-        rejected: avvisade
+        pending: Pågående
+        rejected: Avvisad
         verified: Verifierad
     pages:
       home:
         extended:
           debates: Debatter
-          debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
+          debates_explanation: Debattera och diskutera, dela dina åsikter och berika relevanta ämnen.
           how_to_participate: Hur deltar jag i en process?
-          meetings: möten
+          meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information
-          proposals: förslag
-          proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
+          proposals: Förslag
+          proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
+          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och bestäm.
           footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
           register: Registrera
         hero:
@@ -517,18 +517,18 @@ sv:
           welcome: Välkommen till %{organization}!
         statistics:
           answers_count: Avslutade Undersökningar
-          assemblies_count: Assemblies
+          assemblies_count: Församlingar
           comments_count: Kommentarer
           debates_count: Debatter
-          endorsements_count: påskrifter
-          headline: Aktuellt tillstånd %{organization}
-          meetings_count: möten
+          endorsements_count: Påskrifter
+          headline: Aktuellt läge för %{organization}
+          meetings_count: Möten
           orders_count: Röster
           pages_count: Sidor
           processes_count: Processer
-          projects_count: projekt
-          proposals_accepted: Godkända förslag
-          proposals_count: förslag
+          projects_count: Projekt
+          proposals_accepted: Godkända Förslag
+          proposals_count: Förslag
           results_count: Resultat
           surveys_count: Undersökningar
           users_count: Deltagare
@@ -539,7 +539,7 @@ sv:
         title: Mer information
       terms_and_conditions:
         accept:
-          error: Det har funnits ett fel när du accepterar villkoren.
+          error: Det har blivit ett fel när du accepterade villkoren.
           success: Bra! Du har accepterat villkoren.
         form:
           agreement: Jag håller med om dessa villkor
@@ -556,7 +556,7 @@ sv:
           body: Var snäll och granska uppdateringar av våra användarvillkor. Annars kommer du inte kunna använda plattformen.
           title: 'Obligatorisk: Granska uppdateringar av våra användarvillkor'
     participatory_space_private_users:
-      not_allowed: Du får inte se det här innehållet
+      not_allowed: Du har inte rätt att se det här innehållet
     profile:
       deleted: Ta bort användare
       view: Se
@@ -564,10 +564,10 @@ sv:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         badges: Emblem
-        conversations: samtal
-        followers: anhängare
-        following: följer
-        notifications: anmälningar
+        conversations: Samtal
+        followers: Anhängare
+        following: Följer
+        notifications: Notiser
       user:
         edit_profile: Redigera profil
     reported_mailer:
@@ -583,7 +583,7 @@ sv:
         subject: En resurs har rapporterats
     reports:
       create:
-        error: Ett fel uppstod när rapporten skapades. Snälla, försök igen.
+        error: Ett fel uppstod när rapporten skapades. Vänligen försök igen.
         success: Rapporten har skapats framgångsrikt och den kommer att granskas av en administratör.
     scopes:
       global: Global omfattning
@@ -617,7 +617,7 @@ sv:
         close: Stäng
         description: Är detta innehåll olämpligt?
         does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
-        offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hattal.
+        offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
         report: Rapportera
         spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
         title: Rapportera ett problem
@@ -639,18 +639,18 @@ sv:
   devise:
     invitations:
       edit:
-        header: Slutför att skapa ditt konto
+        header: Slutför skapandet av ditt konto
         nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
-        subtitle: Om du accepterar inbjudan, ange ditt smeknamn och lösenord.
+        subtitle: Om du accepterar inbjudan, vänligen välj ditt användarnamn och lösenord.
     mailer:
       invitation_instructions:
         accept: Acceptera inbjudan
-        accept_until: Denna inbjudan beror på %{due_date}.
-        decline: Avvisa inbjudan
+        accept_until: Denna inbjudan kommer att förfalla %{due_date}.
+        decline: Avböj inbjudan
         hello: Hej %{email},
         ignore: |-
-          Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />
+          Om du inte vill acceptera inbjudan, ignorerar du detta e-postmeddelande.<br />
           Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt smeknamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
         invited_you_as_friend: "%{invited_by} har bjudit in dig till %{application}."
@@ -667,7 +667,7 @@ sv:
         friend_custom_text: 'De lämnade det här meddelandet för dig:'
         subject: Du har blivit inbjuden till %{organization}
       invite_private_user:
-        subject: Du har blivit inbjuden till en privat deltagande process på %{organization}
+        subject: Du har blivit inbjuden till en privat deltagandeprocess på %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
@@ -680,16 +680,16 @@ sv:
   errors:
     messages:
       content_type_whitelist_error: filtypen är inte giltig
-      cycle_detected: Omfattarens förälder kan inte vara en av sina efterkommande
+      cycle_detected: en omfattnings förälder kan inte vara en av sina efterkommande
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
       long_words: innehåller ord som är för långa
-      must_start_with_caps: måste börja med kepsar
+      must_start_with_caps: måste börja med versaler
       nesting_too_deep: kan inte vara inuti en underkategori
       too_many_marks: använder för många märken
-      too_much_caps: använder för mycket kepsar
+      too_much_caps: använder för många versaler
       too_short: är för kort
   forms:
-    required: Nödvändig
+    required: Krävs
   invisible_captcha:
     sentence_for_humans: Om du är mänsklig, ignorera det här fältet
     timestamp_error_message: Tyvärr, det var för snabbt! Vänligen skicka in igen.
@@ -710,23 +710,23 @@ sv:
         sign_up: Registrera
       impersonation_warning:
         close_session: Stäng session
-        description_html: Du utmärker användaren <b>%{user_name}</b>.
-        expire_time_html: Din session löper ut i <b><span class="minutes">%{minutes}</span> minuter</b>.
+        description_html: Du framställer dig som användaren <b>%{user_name}</b>.
+        expire_time_html: Din session kommer löpa ut om <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
         mark_all_as_read: Markera alla som lästa
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
-        invite_friends: Bjuda in vänner
+        invite_friends: Bjud in vänner
         notifications: Notiser
         profile: Mitt konto
         public_profile: Min offentliga profil
         sign_out: Logga ut
       user_profile:
         account: Konto
-        authorizations: Tillstånd
+        authorizations: Auktoriseringar
         delete_my_account: Ta bort mitt konto
-        my_data: Min data
+        my_data: Mitt data
         notifications_settings: Notisinställningar
         title: Användarinställningar
         user_groups: Organisationer
@@ -735,10 +735,10 @@ sv:
   locale:
     name: Svenska
   password_validator:
-    domain_included_in_password: är för lik detta domännamn
-    email_included_in_password: är för lik din email
+    domain_included_in_password: är för likt detta domännamn
+    email_included_in_password: är för lik din e-post
     fallback: är inte giltigt
-    name_included_in_password: är för lik ditt namn
+    name_included_in_password: är för likt ditt namn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
     password_not_allowed: är ej tillåtet
     password_too_common: är för vanligt

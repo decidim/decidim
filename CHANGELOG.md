@@ -31,10 +31,14 @@
 - **decidim-core**: Adds support for earning badges. [\#3975](https://github.com/decidim/decidim/pull/3975)
 - **decidim-proposals**: Adds the *proposal* badge. [\#3975](https://github.com/decidim/decidim/pull/3975)
 - **decidim-core**: Add link to admin edit from public pages. [\#3978](https://github.com/decidim/decidim/pull/3978)
+- **decidim-assemblies**: Add organizational chart to assemblies home. [\#4045](https://github.com/decidim/decidim/pull/4045)
+- **decidim-meetings**: Add upcoming events content block and page. [\#3987](https://github.com/decidim/decidim/pull/3987)
 
 **Changed**:
 
 **Fixed**:
+
+- **decidim-core**: Fix hero content block migration [\#4061](https://github.com/decidim/decidim/pull/4061)
 
 **Removed**:
 

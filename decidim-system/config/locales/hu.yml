@@ -2,70 +2,70 @@ hu:
   decidim:
     system:
       actions:
-        confirm_destroy: Biztosan törölni akarja?
-        destroy: Töröl
-        edit: szerkesztése
+        confirm_destroy: Biztosan törölni szeretnéd ezt?
+        destroy: Törlés
+        edit: Szerkesztés
         new: Új
         save: Mentés
-        title: Hozzászólások
+        title: Műveletek
       admins:
         create:
           error: Hiba történt egy új rendszergazda létrehozásakor.
-          success: Az Admin létrehozva sikeresen
+          success: Admin létrehozása sikeres
         destroy:
-          success: Az adminisztráció sikeresen törölve
+          success: Admin törlése sikeres
         edit:
           title: Admin szerkesztése
-          update: frissítés
+          update: Frissítés
         index:
           title: Adminok
         new:
-          create: Teremt
+          create: Létrehozás
           title: Új admin
         update:
-          error: Hiba történt az adminisztrátor frissítésekor.
-          success: A rendszergazdák frissítve sikeresen
+          error: Hiba történt az admin frissítése során.
+          success: Admin frissítése sikeres
       default_pages:
         placeholders:
-          content: Kérjük, adj hozzá értelmes tartalmat az adminisztrátori műszerfal %{page} statikus oldalához.
-          title: Alapértelmezett cím %{page}
+          content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
+          title: 'Alapértelmezett cím: %{page}'
       menu:
         admins: Adminok
         dashboard: Irányítópult
-        organizations: szervezetek
+        organizations: Szervezetek
       models:
         admin:
           fields:
             created_at: 'Létrehozva:'
             email: Email
-          name: admin
+          name: Admin
           validations:
-            email_uniqueness: egy másik rendszergazda már ugyanazt az e-mailt használja
+            email_uniqueness: egy másik admin már használja ezt az email címet
         organization:
           actions:
-            save_and_invite: Hozzon létre szervezetet és meghívja adminisztrátort
+            save_and_invite: Szervezet létrehozása & admin meghívása
           fields:
             created_at: 'Létrehozva:'
             name: Név
           name: Szervezet
       organizations:
         create:
-          error: Hiba történt egy új szervezet létrehozásakor.
-          success: A szervezet sikeresen létrejött.
+          error: Hiba történt egy új szervezet létrehozása során.
+          success: Szervezet létrehozása sikeres.
         edit:
-          secondary_hosts_hint: Írja be mindegyiküket egy új sorba
+          secondary_hosts_hint: Mindegyiket új sorba írd be
         index:
-          title: szervezetek
+          title: Szervezetek
         new:
-          reference_prefix_hint: A hivatkozási előtag az egyes szervezetek erőforrásainak egyedi azonosítására szolgál
-          secondary_hosts_hint: Írja be mindegyiküket egy új sorba
+          reference_prefix_hint: A hivatkozási előtag az erőforrások azonosítására szolgál a szervezetek esetében
+          secondary_hosts_hint: Mindegyiket új sorba írd be
           title: Új szervezet
         update:
-          error: Hiba történt a szervezet frissítésekor.
-          success: A szervezet sikeresen frissült.
+          error: Hiba történt a szervezet frissítése során.
+          success: Szervezet frissítése sikeres.
       shared:
         notices:
-          no_organization_warning_html: Hozzon létre egy szervezetet az induláshoz. Mielőtt folytatná, olvassa el a %{guide} at.
-          our_getting_started_guide: Kezdeti útmutatóunk
+          no_organization_warning_html: 'A kezdéshez hozz létre egy szervezetet. Mielőtt folytatnád, olvasd el az útmutatót: %{guide}.'
+          our_getting_started_guide: első lépések útmutatója
       titles:
         dashboard: Irányítópult
