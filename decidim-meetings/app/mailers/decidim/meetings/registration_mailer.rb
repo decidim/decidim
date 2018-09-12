@@ -7,9 +7,11 @@ module Decidim
     class RegistrationMailer < Decidim::ApplicationMailer
       include Decidim::TranslationsHelper
       include ActionView::Helpers::SanitizeHelper
+      include Decidim::ApplicationHelper
 
       helper Decidim::ResourceHelper
       helper Decidim::TranslationsHelper
+      helper Decidim::ApplicationHelper
 
       def confirmation(user, meeting, registration)
         with_user(user) do
@@ -33,8 +35,8 @@ module Decidim
         calendar.event do |event|
           event.dtstart = Icalendar::Values::DateTime.new(@meeting.start_time)
           event.dtend = Icalendar::Values::DateTime.new(@meeting.end_time)
-          event.summary = translated_attribute @meeting.title
-          event.description = strip_tags(translated_attribute(@meeting.description))
+          event.summary = present(@meeting).title
+          event.description = strip_tags(present(@meeting).description)
           event.location = @meeting.address
           event.geo = [@meeting.latitude, @meeting.longitude]
           event.url = @locator.url
