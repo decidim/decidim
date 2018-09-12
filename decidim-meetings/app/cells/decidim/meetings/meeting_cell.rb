@@ -19,6 +19,8 @@ module Decidim
         case @options[:size]
         when :list_item
           "decidim/meetings/meeting_list_item"
+        when :s
+          "decidim/meetings/meeting_s"
         else
           "decidim/meetings/meeting_m"
         end

@@ -2,6 +2,7 @@
 
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
+require "decidim/assemblies/test/factories"
 
 FactoryBot.define do
   factory :meeting_component, parent: :component do

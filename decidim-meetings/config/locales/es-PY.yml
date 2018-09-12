@@ -284,6 +284,21 @@ es-PY:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Próximos Eventos
+          upcoming_events: Próximas reuniones
+          view_all_events: Ver todo
+      directory:
+        meetings:
+          index:
+            all: Todas
+            date: Fecha
+            meetings: Reuniones
+            past: Pasado
+            search: Buscar
+            space_type: Espacio participativo
+            upcoming: Próximo
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +321,6 @@ es-PY:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
-        index:
-          view_meeting: Ver encuentro
         meeting_minutes:
           meeting_minutes: Acta del encuentro
           related_information: Información relacionada
@@ -329,6 +342,8 @@ es-PY:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
           view: Ver
+      meetings_map:
+        view_meeting: Ver encuentro
       models:
         invite:
           fields:

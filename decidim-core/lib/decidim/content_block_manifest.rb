@@ -27,11 +27,18 @@ module Decidim
     attribute :cell, String
     attribute :settings_form_cell, String
     attribute :images, Array[Hash]
+    attribute :default, Boolean, default: false
 
     validates :name, :cell, :public_name_key, presence: true
     validates :settings_form_cell, presence: true, if: :has_settings?
     validate :image_names_are_unique
     validate :images_have_an_uploader
+
+    # Public: Registers whether this content block should be shown by default
+    # when creating an organization. Use `#default` to retrieve it.
+    def default!
+      self.default = true
+    end
 
     def has_settings?
       settings.attributes.any?

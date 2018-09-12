@@ -137,3 +137,9 @@ Decidim.register_component(:meetings) do |component|
     end
   end
 end
+
+Decidim.register_global_engine(
+  :meetings_directory,
+  Decidim::Meetings::DirectoryEngine,
+  at: "/meetings"
+)

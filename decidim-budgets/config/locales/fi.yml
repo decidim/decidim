@@ -4,7 +4,7 @@ fi:
       project:
         budget: Määräraha
         decidim_category_id: Aihepiiri
-        decidim_scope_id: Soveltamisala
+        decidim_scope_id: Teema
         description: Kuvaus
         proposal_ids: Liittyvät ehdotukset
         title: Otsikko

@@ -45,17 +45,17 @@ sv:
         favicon: Ikon
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
-        highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
-        highlighted_content_banner_action_title: Åtgärdsknappens titel
+        highlighted_content_banner_action_subtitle: Undertitel för Åtgärdsknapp
+        highlighted_content_banner_action_title: Titel för Åtgärdsknapp
         highlighted_content_banner_action_url: URL för åtgärdsknapp
-        highlighted_content_banner_enabled: Visa den markerade innehållsbanan
+        highlighted_content_banner_enabled: Visa den markerade innehållsbannern
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram-hanterare
         logo: Logo
         name: Namn
-        official_img_footer: Officiell logo footer
+        official_img_footer: Officiell logo sidfot
         official_img_header: Officiell logotyphuvud
         official_url: Officiell URL
         omnipresent_banner_short_description: Kort beskrivning
@@ -63,14 +63,14 @@ sv:
         omnipresent_banner_url: URL
         reference_prefix: Referensprefix
         show_statistics: Visa statistik
-        tos_version: Användarvillkor version
+        tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
         name: Namn
         organization: Organisation
-        parent_id: Förälder
+        parent_id: Överordnad
         scope_type: Omfattningstyp
         scope_type_id: Omfattningstyp
       scope_type:
@@ -165,13 +165,13 @@ sv:
           title: Ny mapp
         update:
           error: Det uppstod ett fel vid uppdateringen av den här mappen.
-          success: Mapp uppdaterad framgångsrikt.
+          success: Mapp uppdaterad.
       attachments:
         create:
           error: Det uppstod ett fel vid att skapa en ny bilaga.
-          success: Bilagan skapades framgångsrikt.
+          success: Bilagan skapades.
         destroy:
-          success: Bilagan förstördes framgångsrikt.
+          success: Bilagan förstördes.
         edit:
           title: Redigera bifogade fil
           update: Uppdatera
@@ -182,14 +182,14 @@ sv:
           title: Ny bifogad fil
         update:
           error: Det uppstod ett fel vid uppdateringen av den här bilagan.
-          success: Bilagan uppdaterades framgångsrikt.
+          success: Bilagan uppdaterades.
       autocomplete:
-        no_results: Inga resultat funna
+        no_results: Inga resultat
         search_prompt: Skriv minst tre tecken att söka
       categories:
         create:
           error: Det uppstod ett fel vid skapandet av den här kategorin.
-          success: Kategori skapad framgångsrikt.
+          success: Kategori skapad.
         destroy:
           error: Det gick inte att ta bort den här kategorin. Ta bort någon underkategori först, se till att ingen annan enhet tillhör denna kategori och försök igen.
           success: Kategori raderas framgångsrikt.

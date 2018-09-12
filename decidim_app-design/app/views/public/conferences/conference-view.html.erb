@@ -33,10 +33,14 @@
           <div class="row mt-l mb-l">
             <div class="column medium-9 medium-centered">
               <div class="column medium-6">
-                <button type="button" class="button button--sc expanded">Registrate</button>
+                <%= link_to page_path("conferences/conference-view-registration") do %>
+                  <button type="button" class="button button--sc expanded">Registrate</button>
+                <% end %>
               </div>
               <div class="column medium-6">
-                <button type="button" class="button button--sc secondary light expanded">Programa</button>
+                <%= link_to page_path("conferences/conference-view-programme") do %>
+                  <button type="button" class="button button--sc secondary light expanded">Programa</button>
+                <% end %>
               </div>
             </div>
           </div>
@@ -105,7 +109,9 @@
           <div class="card p-m text-center">
             <p>Estas logueado como <%= Faker::Name.name %>&nbsp;&#60;<%= Faker::Internet.email %>&#62;</p>
             <p>Realiza tu registro en la conferencia:</p>
-            <button type="button" class="button button--sc">Registrate</button>
+            <%= link_to page_path("conferences/conference-view-registration") do %>
+              <button type="button" class="button button--sc">Registrate</button>
+            <% end %>
           </div>
         </section>
         <section class="section">
