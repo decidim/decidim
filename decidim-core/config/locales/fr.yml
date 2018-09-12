@@ -381,6 +381,14 @@ fr:
       remove_this_file: Supprimer ce fichier
     gamification:
       badges:
+        followers:
+          description_another: Cet utilisateur a %{score} abonnés.
+          description_own: "%{score} utilisateurs vous suivent."
+          explanation: Les utilisateurs obtiennent ce badge en se faisant suivre par d'autres utilisateurs.
+          name: Suiveurs
+          next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
+          unearned_another: Cet utilisateur n'a pas encore de suiveurs.
+          unearned_own: Vous n'avez pas encore de followers.
         invitations:
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -568,6 +576,10 @@ fr:
         followers: Abonnés
         following: Est abonné à
         notifications: Notifications
+      sidebar:
+        badges:
+          info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
+          title: Badges
       user:
         edit_profile: Mettre à jour le profil
     reported_mailer:
