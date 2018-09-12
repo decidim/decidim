@@ -83,7 +83,7 @@ module Decidim
               else
                 query = query.where("title ilike ?", "%#{params[:term]}%")
               end
-              render json: query.all.collect { |p| [Decidim::Proposals::ProposalPresenter.new(p).title, p.id] }
+              render json: query.all.collect { |p| [present(p).title, p.id] }
             end
           end
         end

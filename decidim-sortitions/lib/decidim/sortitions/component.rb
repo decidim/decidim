@@ -23,7 +23,6 @@ Decidim.register_component(:sortitions) do |component|
     resource.model_class_name = "Decidim::Sortitions::Sortition"
     resource.template = "decidim/sortitions/sortitions/linked_sortitions"
     resource.card = "decidim/sortitions/sortition"
-    resource.presenter = "Decidim::Proposals::ProposalPresenter"
   end
 
   component.register_stat :sortitions_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|

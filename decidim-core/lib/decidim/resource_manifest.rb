@@ -36,9 +36,6 @@ module Decidim
     # The main card to render an instance of the resource.
     attribute :card, String
 
-    # The presenter to render an instance of the resource.
-    attribute :presenter, String
-
     validates :model_class_name, :route_name, :name, presence: true
 
     # Actions are used to validate permissions of a resource against particular

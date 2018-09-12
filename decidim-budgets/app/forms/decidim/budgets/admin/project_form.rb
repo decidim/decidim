@@ -7,6 +7,7 @@ module Decidim
       class ProjectForm < Decidim::Form
         include TranslatableAttributes
         include TranslationsHelper
+        include Decidim::ApplicationHelper
 
         translatable_attribute :title, String
         translatable_attribute :description, String
@@ -36,10 +37,9 @@ module Decidim
         end
 
         def proposals
-          resource_manifest = Decidim.find_resource_manifest(:proposals)
-          @proposals ||= resource_manifest.try(:resource_scope, current_component)
+          @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_component)
                          &.order(title: :asc)
-                         &.map { |proposal| [resource_manifest.presenter.constantize.new(proposal).title, proposal.id] }
+                         &.map { |proposal| [present(proposal).title, proposal.id] }
         end
 
         # Finds the Category from the decidim_category_id.

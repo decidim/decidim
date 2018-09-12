@@ -58,7 +58,6 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
     resource.actions = %w(endorse vote)
-    resource.presenter = "Decidim::Proposals::ProposalPresenter"
   end
 
   component.register_resource(:collaborative_draft) do |resource|

@@ -2,13 +2,13 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= link_to "#{t ".proposals"} > ", proposals_path %>
-      <%= Decidim::Proposals::ProposalPresenter.new(proposal).title %>
+      <%= present(proposal).title %>
     </h2>
   </div>
 
   <div class="card-section">
     <div class="row column">
-      <strong><%= t ".body" %>: </strong>  <%= Decidim::Proposals::ProposalPresenter.new(proposal).body %>
+      <strong><%= t ".body" %>: </strong>  <%= present(proposal).body %>
     </div>
     <div class="row column">
       <strong><%= t ".created_at" %>: </strong> <%= l proposal.created_at, format: :decidim_short %>
