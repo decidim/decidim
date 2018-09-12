@@ -132,3 +132,13 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Debates orain eskuragarri %{participatory_space_title}
           notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Erabiltzaile honek %{score} eztabaidatan parte hartu du.
+          description_own: '%{score} eztabaidetan parte hartu duzu.'
+          explanation: Erabiltzaileek txapela lortu dute eztabaidetan parte hartuz.
+          name: eztabaidak
+          next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
+          unearned_own: Oraindik eztabaidetan parte hartu duzu.
