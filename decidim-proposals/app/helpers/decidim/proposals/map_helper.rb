@@ -9,8 +9,9 @@ module Decidim
       # geocoded_proposals - A collection of geocoded proposals
       def proposals_data_for_map(geocoded_proposals)
         geocoded_proposals.map do |proposal|
-          proposal.slice(:latitude, :longitude, :address).merge(title:  Decidim::Proposals::ProposalPresenter.new(proposal).title,
-                                                                body: truncate(Decidim::Proposals::ProposalPresenter.new(proposal).body, length: 100),
+          presenter = Decidim::Proposals::ProposalPresenter.new(proposal)
+          proposal.slice(:latitude, :longitude, :address).merge(title:  presenter.title,
+                                                                body: truncate(presenter.body, length: 100),
                                                                 icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
                                                                 link: proposal_path(proposal))
         end

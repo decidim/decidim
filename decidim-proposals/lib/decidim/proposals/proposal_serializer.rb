@@ -24,8 +24,8 @@ module Decidim
             id: @proposal.scope.try(:id),
             name: @proposal.scope.try(:name)
           },
-          title: Decidim::Proposals::ProposalPresenter.new(@proposal).title,
-          body: Decidim::Proposals::ProposalPresenter.new(@proposal).body,
+          title: presenter.title,
+          body: presenter.body,
           supports: @proposal.proposal_votes_count,
           comments: @proposal.comments.count,
           published_at: @proposal.published_at,
@@ -51,6 +51,10 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(proposal).url
+      end
+
+      def presenter
+        Decidim::Proposals::ProposalPresenter.new(proposal)
       end
     end
   end

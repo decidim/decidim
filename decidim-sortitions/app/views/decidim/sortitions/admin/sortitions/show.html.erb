@@ -44,7 +44,7 @@
         <tbody>
           <% sortition.proposals.each do |proposal| %>
             <tr>
-              <td><%= proposal.title %></td>
+              <td><%= Decidim.find_resource_manifest(:proposals).presenter.constantize.new(proposal).title %></td>
               <td></td>
             </tr>
           <% end %>
