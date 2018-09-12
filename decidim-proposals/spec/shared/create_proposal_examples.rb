@@ -80,6 +80,13 @@ shared_examples "create a proposal" do |with_author|
         context "with an author" do
           let(:user_group) { nil }
 
+          it "adds the author as a follower" do
+            command.call
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(proposal.followers).to include(author)
+          end
+
           it "sets the author" do
             command.call
             proposal = Decidim::Proposals::Proposal.last
