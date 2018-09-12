@@ -132,3 +132,13 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
           notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Cet utilisateur a participé à %{score} débats.
+          description_own: Vous avez participé à %{score} débats.
+          explanation: Les utilisateurs obtiennent ce badge en participant aux débats.
+          name: Des débats
+          next_level_in: Participez à %{score} autres débats pour atteindre le prochain niveau!
+          unearned_another: Cet utilisateur n'a encore participé à aucun débat.
+          unearned_own: Vous avez déjà participé à des débats.
