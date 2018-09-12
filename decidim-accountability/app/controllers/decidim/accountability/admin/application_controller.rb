@@ -9,7 +9,6 @@ module Decidim
       # Note that it inherits from `Decidim::Components::BaseController`, which
       # override its layout and provide all kinds of useful methods.
       class ApplicationController < Decidim::Admin::Components::BaseController
-        helper Decidim::ApplicationHelper
       end
     end
   end

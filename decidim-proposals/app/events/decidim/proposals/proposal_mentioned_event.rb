@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     class ProposalMentionedEvent < Decidim::Events::SimpleEvent
-      helper Decidim::ApplicationHelper
+      include Decidim::ApplicationHelper
 
       i18n_attributes :mentioned_proposal_title
 

@@ -5,7 +5,7 @@ module Decidim
     # This class serializes a Proposal so can be exported to CSV, JSON or other
     # formats.
     class ProposalSerializer < Decidim::Exporters::Serializer
-      helper Decidim::ApplicationHelper
+      include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
 
       # Public: Initializes the serializer with a proposal.
