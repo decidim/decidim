@@ -22,6 +22,7 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       delete_follow!
+      decrement_score
 
       broadcast(:ok)
     end
@@ -32,6 +33,12 @@ module Decidim
 
     def delete_follow!
       form.follow.destroy!
+    end
+
+    def decrement_score
+      followable = form.follow.followable
+      return unless followable.is_a? Decidim::User
+      Decidim::Gamification.decrement_score(followable, :followers)
     end
   end
 end

@@ -1213,6 +1213,7 @@ RSpec/DescribeClass:
     - spec/gemfiles_spec.rb
     - spec/js_bundles_spec.rb
     - spec/i18n_spec.rb
+    - "**/*/spec/**/*_badge_spec.rb"
     - decidim-core/spec/lib/global_engines_spec.rb
     - "**/tasks/**/*"
 

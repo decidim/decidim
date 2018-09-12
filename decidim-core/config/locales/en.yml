@@ -386,6 +386,14 @@ en:
       remove_this_file: Remove this file
     gamification:
       badges:
+        followers:
+          description_another: This user has %{score} followers.
+          description_own: "%{score} users are following you."
+          explanation: Users get this badge by getting followed by other users.
+          name: Followers
+          next_level_in: Get %{score} more users to follow you to reach the next level!
+          unearned_another: This user doesn't have any followers yet.
+          unearned_own: You've got no followers yet.
         invitations:
           description_another: This user has invited %{score} users.
           description_own: You have invited %{score} users.
@@ -573,6 +581,10 @@ en:
         followers: Followers
         following: Follows
         notifications: Notifications
+      sidebar:
+        badges:
+          info: Badges are earned by performing specific activity in the platform.
+          title: Badges
       user:
         edit_profile: Edit profile
     reported_mailer:

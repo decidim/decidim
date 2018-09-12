@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="card__content">
-      <div class="card__header">
+      <div class="card__header" style="opacity: <%= opacity %>;">
         <div class="badge-container">
           <%= image_tag badge.image, class: "badge__logo" %>
         </div>
@@ -22,7 +22,7 @@
         <div class="p-xs">
           <div class="flex--sbc">
             <strong class="text-uppercase muted">
-              <%= t "decidim.gamification.level", level: status.level %>
+              <%= level_title %>
             </strong>
             <div class="badge-level">
               <% badge.levels.each_with_index do |_threshold, level| %>
