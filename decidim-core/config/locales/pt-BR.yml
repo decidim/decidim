@@ -381,6 +381,12 @@ pt-BR:
       remove_this_file: Remover este ficheiro
     gamification:
       badges:
+        followers:
+          description_another: Esse usuário possui %{score} seguidores.
+          description_own: "%{score} usuários estão seguindo você."
+          explanation: Os usuários recebem esse selo ao serem seguidos por outros usuários.
+          name: Seguidores
+          next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
         invitations:
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
