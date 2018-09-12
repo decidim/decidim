@@ -133,3 +133,13 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Viták létrehozása lehetséges itt: %{participatory_space_title}'
           notification_title: a href="%{resource_path}">Kezd új vitát</a> a(z) <a href="%{participatory_space_url}">%{participatory_space_title}</a> helyen
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Ez a felhasználó %{score} vitában vett részt.
+          description_own: Vettél részt %{score} vitában.
+          explanation: A felhasználók megkapják ezt a jelvényt a vitákban való részvétellel.
+          name: viták
+          next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
+          unearned_another: Ez a felhasználó még nem vett részt vitában.
+          unearned_own: Vannak résztvevők a vitákban.
