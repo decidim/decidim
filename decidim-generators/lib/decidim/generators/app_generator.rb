@@ -131,7 +131,7 @@ module Decidim
             load_path_cache: true,
             autoload_paths_cache: true,
             disable_trace: false,
-            compile_cache_iseq: false,
+            compile_cache_iseq: !ENV["SIMPLECOV"],
             compile_cache_yaml: true
           )
         RUBY
