@@ -4,7 +4,7 @@ module OrderExtend
   include Decidim::HasClassExtends
 
   def per_project
-    component.settings.vote_per_project?
+    component&.settings&.vote_per_project?
   end
 
   def limit_project_reached?
@@ -21,7 +21,7 @@ module OrderExtend
   end
 
   def can_checkout?
-    if component.settings.vote_per_project?
+    if per_project
       limit_project_reached?
     else
       total_budget.to_f >= minimum_budget
@@ -34,7 +34,7 @@ module OrderExtend
 
   def maximum_budget
     return 0 unless component || !per_project
-    component.settings.total_budget.to_f
+    component&.settings&.total_budget.to_f
   end
 end
 
