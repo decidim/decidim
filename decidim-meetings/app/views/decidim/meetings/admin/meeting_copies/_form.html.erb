@@ -5,11 +5,11 @@
 
   <div class="card-section">
     <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true, value: Decidim::Meetings::MeetingPresenter.new(@meeting).title %>
+      <%= form.translated :text_field, :title, autofocus: true, value: present(@meeting).title %>
     </div>
 
     <div class="row column">
-      <%= form.translated :editor, :description, value: Decidim::Meetings::MeetingPresenter.new(@meeting).description %>
+      <%= form.translated :editor, :description, value: present(@meeting).description %>
     </div>
 
     <div class="row column">

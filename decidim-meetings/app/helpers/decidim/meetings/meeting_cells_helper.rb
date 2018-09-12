@@ -9,7 +9,7 @@ module Decidim
       include Decidim::Meetings::MeetingsHelper
       include Decidim::SanitizeHelper
       include Decidim::Meetings::Engine.routes.url_helpers
-
+      
       def description
         decidim_sanitize meeting_description(model)
       end

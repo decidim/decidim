@@ -18,7 +18,7 @@ module Decidim
       end
 
       def title
-        Decidim::Meetings::MeetingPresenter.new(model).title
+        present(model).title
       end
 
       def spans_multiple_dates?
