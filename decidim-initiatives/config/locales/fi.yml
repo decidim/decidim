@@ -221,7 +221,7 @@ fi:
           invite_to_committee_help: Kutsulinkki lähetettäväksi tukikomitean jäsenille
         show_similar_initiatives:
           back: Takaisin
-          compare_help: Jos jokin seuraavista aloitteista on samankaltainen omasi kanssa, suosittelemme, että tuet sitä. Tällä tavoin aloitteellasi on enemmän mahdollisuuksia toteutua.
+          compare_help: Jos jokin seuraavista aloitteista on samankaltainen omasi kanssa, suosittelemme, että kannatat sitä. Tällä tavoin aloitteellasi on enemmän mahdollisuuksia toteutua.
           continue: Oma aloitteeni on erilainen
           more_information: "(Lisää tietoa)"
       events:
