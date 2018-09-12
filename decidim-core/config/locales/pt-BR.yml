@@ -387,6 +387,8 @@ pt-BR:
           explanation: Os usuários recebem esse selo ao serem seguidos por outros usuários.
           name: Seguidores
           next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não possui seguidores.
+          unearned_own: Você ainda não tem seguidores.
         invitations:
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
@@ -574,6 +576,10 @@ pt-BR:
         followers: Seguidores
         following: Segue
         notifications: Notificações
+      sidebar:
+        badges:
+          info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
+          title: Distintivos
       user:
         edit_profile: Editar perfil
     reported_mailer:
