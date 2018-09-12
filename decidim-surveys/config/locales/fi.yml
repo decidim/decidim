@@ -40,7 +40,7 @@ fi:
     events:
       surveys:
         survey_closed:
-          email_intro: Kysely %{resource_title} tilassa %{participatory_space_title} on suljettu.
+          email_intro: Kysely %{resource_title} kohteessa %{participatory_space_title} on suljettu.
           email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä olevan linkin kautta.
           email_subject: Kysely on päättynyt kohteessa %{participatory_space_title}
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päättynyt.
