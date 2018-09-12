@@ -388,6 +388,7 @@ es:
           name: Seguidores
           next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
           unearned_another: Este usuario no tiene seguidores todavía.
+          unearned_own: Aún no tienes seguidores
         invitations:
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
@@ -575,6 +576,10 @@ es:
         followers: Seguidores
         following: Sigue
         notifications: Notificaciones
+      sidebar:
+        badges:
+          info: Las insignias se obtienen realizando una actividad específica en la plataforma.
+          title: Insignias
       user:
         edit_profile: Editar perfil
     reported_mailer:
