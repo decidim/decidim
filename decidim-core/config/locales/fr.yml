@@ -230,6 +230,8 @@ fr:
         download_data: Télécharger les données
         download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
         request_data: Demander les données
+    datepicker:
+      help_text: 'Format attendu: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
