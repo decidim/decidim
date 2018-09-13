@@ -1,0 +1,73 @@
+de:
+  decidim:
+    budgets:
+      actions:
+        confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
+        destroy: Löschen
+        edit: Bearbeiten
+        title: Aktionen
+      admin:
+        models:
+          project:
+            name: Projekt
+        projects:
+          create:
+            invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten
+            success: Projekt erfolgreich erstellt
+          edit:
+            title: Projekt bearbeiten
+          index:
+            title: Projekte
+          update:
+            invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten
+            success: Projekt erfolgreich aktualisiert
+      models:
+        project:
+          fields:
+            title: Titel
+      projects:
+        budget_confirm:
+          cancel: Stornieren
+          confirm: Bestätigen
+          description: Dies sind die Projekte, die Sie ausgewählt haben, um Teil des Budgets zu sein.
+          title: Bestätigung der Abstimmung
+        budget_excess:
+          close: Schließen
+          ok: OK
+          title: Maximales Budget überschritten
+        budget_summary:
+          are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme absagen wollen?
+          assigned: 'Zugewiesen:'
+          cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
+          checked_out:
+            title: Haushaltsabstimmung abgeschlossen
+          title: Sie entscheiden über das Budget
+        count:
+          projects_count:
+            one: 1 Projekt
+            other: "%{count} Projekte"
+        filters:
+          category: Kategorie
+          search: Suche
+        order_progress:
+          vote: Abstimmung
+        order_selected_projects:
+          remove: Löschen
+          selected_projects:
+            one: Projekt ausgewählt
+            other: ausgewählte Projekte
+          view: Aussicht
+        project:
+          add: Hinzufügen
+          remove: Löschen
+        project_budget_button:
+          add: Hinzufügen
+          added: Hinzugefügt
+        show:
+          budget: Budget
+          view_all_projects: Alle Projekte anzeigen
+    orders:
+      checkout:
+        error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten
+        success: Ihre Stimme wurde erfolgreich angenommen
+  total_budget: Gesamtbudget; Gesamtetat
