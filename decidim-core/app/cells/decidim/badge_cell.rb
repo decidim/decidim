@@ -8,12 +8,20 @@ module Decidim
 
     delegate :current_user, to: :controller
 
+    def small
+      render "small"
+    end
+
     def badge
       @options[:badge]
     end
 
     def user
       model
+    end
+
+    def level_title
+      t "decidim.gamification.level", level: status.level
     end
 
     def description
@@ -44,10 +52,14 @@ module Decidim
       t "decidim.gamification.badges.#{badge.name}.name"
     end
 
+    def opacity
+      status.level < 1 ? 0.2 : 1
+    end
+
     private
 
     def status
-      @status ||= Decidim::Gamification.status_for(user, badge.name)
+      @status ||= options[:status] || Decidim::Gamification.status_for(user, badge.name)
     end
   end
 end
