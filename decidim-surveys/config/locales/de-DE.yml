@@ -1,0 +1,39 @@
+de:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Antworten
+      survey_question:
+        mandatory: Verpflichtend
+        question_type: Art
+  decidim:
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Umfrage Benutzer Antworten
+        models:
+          components:
+            description: Beschreibung
+            tos: Nutzungsbedingungen
+        surveys:
+          answer_option:
+            answer_option: Antwortoption
+            statement: Erklärung
+          edit:
+            save: sparen
+            title: Titel
+          form:
+            add_question: Frage hinzufügen
+            already_answered_warning: Die Umfrage wurde bereits von einigen Benutzern beantwortet, sodass Sie ihre Fragen nicht ändern können.
+          question:
+            add_answer_option: Antwortoption hinzufügen
+            question: Frage
+            statement: Erklärung
+          update:
+            invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
+            success: Umfrage wurde erfolgreich gespeichert.
+      question_types:
+        long_answer: Lange Antwort
+        multiple_option: Mehrere Optionen
+        short_answer: Kurze Antwort
+        single_option: Einzeloption
