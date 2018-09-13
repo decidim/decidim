@@ -329,7 +329,9 @@ it:
         assembly:
           take_part: Partecipa
         index:
+          organizational_chart: Grafico organizzativo
           promoted_assemblies: Assiemi evidenziati
+          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} montaggio"

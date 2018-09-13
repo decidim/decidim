@@ -33,7 +33,7 @@ module Decidim
         "data-here-app-id" => Decidim.geocoder[:here_app_id],
         "data-here-app-code" => Decidim.geocoder[:here_app_code]
       }
-      content = capture { yield }
+      content = capture { yield }.html_safe
       content_tag :div, class: "row column" do
         content_tag(:div, "", map_html_options) + content
       end

@@ -13,9 +13,9 @@ sv:
         name: Sida
         settings:
           global:
-            announcement: Meddelande
+            announcement: Notis
           step:
-            announcement: Meddelande
+            announcement: Notis
     pages:
       admin:
         models:

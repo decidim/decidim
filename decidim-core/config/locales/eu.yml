@@ -381,6 +381,14 @@ eu:
       remove_this_file: Ezabatu artxibo hau
     gamification:
       badges:
+        followers:
+          description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
+          description_own: "%{score} erabiltzaile jarraitzen zaituzte."
+          explanation: Erabiltzaileek txapela lortzen dute beste erabiltzaile batzuek jarraituz.
+          name: Jarraitzaileak
+          next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
+          unearned_own: Oraindik ez duzu jarraitzaileik.
         invitations:
           description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
           description_own: '%{score} erabiltzaile gonbidatu dituzu.'
@@ -568,6 +576,10 @@ eu:
         followers: Jarraitzaileak
         following: honako hau
         notifications: jakinarazpenak
+      sidebar:
+        badges:
+          info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
+          title: Badges
       user:
         edit_profile: Editatu profila
     reported_mailer:

@@ -381,6 +381,14 @@ ca:
       remove_this_file: Eliminar aquest arxiu
     gamification:
       badges:
+        followers:
+          description_another: Aquest usuari té %{score} seguidors.
+          description_own: "%{score} usuaris et segueixen."
+          explanation: Els usuaris obtenen aquesta distinció fent-los seguits per altres usuaris.
+          name: Seguidors
+          next_level_in: Obteniu %{score} usuaris més per seguir-vos per arribar al següent nivell.
+          unearned_another: Aquest usuari encara no té cap seguidor.
+          unearned_own: Encara no tens seguidors.
         invitations:
           description_another: Aquest usuari ha convidat a %{score} usuaris.
           description_own: Has convidat %{score} usuaris.
@@ -568,6 +576,10 @@ ca:
         followers: Seguidors
         following: Segueix
         notifications: Notificacions
+      sidebar:
+        badges:
+          info: Les insígnies es guanyen mitjançant la realització d'activitats específiques a la plataforma.
+          title: Insígnies
       user:
         edit_profile: Edita el perfil
     reported_mailer:

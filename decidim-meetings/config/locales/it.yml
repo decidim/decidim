@@ -284,6 +284,21 @@ it:
         minutes:
           create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Prossimi eventi
+          upcoming_events: Prossimi incontri
+          view_all_events: Guarda tutto
+      directory:
+        meetings:
+          index:
+            all: Tutti
+            date: Data
+            meetings: incontri
+            past: Passato
+            search: Ricerca
+            space_type: Spazio partecipativo
+            upcoming: Prossime
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +321,6 @@ it:
           filter: Filtra
           filter_by: Filtra per
           unfold: Espandi
-        index:
-          view_meeting: Visualizza meeting
         meeting_minutes:
           meeting_minutes: Riunione dei verbali
           related_information: Informazioni correlate
@@ -329,6 +342,8 @@ it:
             one: 1 slot restanti
             other: "%{count} slot rimanenti"
           view: vista
+      meetings_map:
+        view_meeting: Visualizza meeting
       models:
         invite:
           fields:

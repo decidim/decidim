@@ -26,10 +26,10 @@ fi:
     events:
       sortitions:
         sortition_created:
-          email_intro: Satunnaisvalinta "%{resource_title}" on lisätty tilaan "%{participatory_space_title}" jota sinä seuraat.
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
-          email_subject: Uusi satunnaistaminen lisättiin kohtaan %{participatory_space_title}
-          notification_title: Satunnaistaminen <a href="%{resource_path}">%{resource_title}</a> on lisätty kohtaan %{participatory_space_title}
+          email_intro: Satunnaisvalinta "%{resource_title}" on lisätty kohteeseen "%{participatory_space_title}" jota sinä seuraat.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_subject: Uusi satunnaistaminen lisättiin kohteeseen %{participatory_space_title}
+          notification_title: Satunnaistaminen <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
     pages:
       home:
         statistics:

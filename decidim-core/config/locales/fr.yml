@@ -211,7 +211,7 @@ fr:
       footer_sub_hero:
         name: Bannière sous-héros footer
       hero:
-        name: Image de héros
+        name: Image principale (hero)
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
       how_to_participate:
@@ -219,7 +219,7 @@ fr:
       stats:
         name: Statistiques de l'organisation
       sub_hero:
-        name: Bannière de sous-héros
+        name: Bannière en dessous de l'image principale ("hero")
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
@@ -321,12 +321,12 @@ fr:
       gamification:
         badge_earned:
           email_intro: Bravo ! Vous avez gagné le badge <a href="%{resource_url}">%{badge_name}</a> (niveau %{current_level}).
-          email_outro: Vous avez reçu cette notification car vous avez effectué des activités sur notre site Web.
+          email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
           email_subject: 'Vous avez gagné un nouveau badge : %{badge_name} !'
           notification_title: Bon travail ! Vous avez gagné le badge <a href="%{resource_path}">%{badge_name}</a> (niveau %{current_level}).
         level_up:
           email_intro: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_url}">%{badge_name}</a> !
-          email_outro: Vous avez reçu cette notification car vous avez effectué des activités sur notre site Web.
+          email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
           email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
           notification_title: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_path}">%{badge_name}</a> !
       notification_event:
@@ -381,6 +381,14 @@ fr:
       remove_this_file: Supprimer ce fichier
     gamification:
       badges:
+        followers:
+          description_another: Cet utilisateur a %{score} abonnés.
+          description_own: "%{score} utilisateurs vous suivent."
+          explanation: Les utilisateurs obtiennent ce badge en se faisant suivre par d'autres utilisateurs.
+          name: Suiveurs
+          next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
+          unearned_another: Cet utilisateur n'a pas encore de suiveurs.
+          unearned_own: Vous n'avez pas encore de followers.
         invitations:
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -389,7 +397,7 @@ fr:
           next_level_in: Invitez %{score} utilisateurs supplémentaires à atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a encore invité aucun utilisateur.
           unearned_own: Vous n'avez encore invité aucun utilisateur.
-      description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plate-forme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plate-forme, vous gagnez différents badges.
+      description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
     invitations:
@@ -568,6 +576,10 @@ fr:
         followers: Abonnés
         following: Est abonné à
         notifications: Notifications
+      sidebar:
+        badges:
+          info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
+          title: Badges
       user:
         edit_profile: Mettre à jour le profil
     reported_mailer:
