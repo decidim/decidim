@@ -650,6 +650,9 @@ ru:
         greeting: Здравствуйте, %{recipient}!
         message: Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.
         subject: Пароль изменен
+    passwords:
+      edit:
+        new_password: Пароль
   doorkeeper:
     scopes:
       public: Обнародованные сведения о вас.
