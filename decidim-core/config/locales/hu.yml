@@ -230,6 +230,8 @@ hu:
         download_data: Töltsd le az adatokat
         download_data_description: 'A fiókhoz tartozó összes információt a következő email címre: <strong>%{user_email}</strong>'
         request_data: Adatkérés
+    datepicker:
+      help_text: 'Várható formátum: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
