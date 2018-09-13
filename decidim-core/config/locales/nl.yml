@@ -649,13 +649,48 @@ nl:
       version_author:
         deleted: Verwijderde gebruiker
   devise:
+    confirmations:
+      confirmed: Uw e-mailadres is succesvol bevestigd.
+      new:
+        resend_confirmation_instructions: Verzend bevestigingsinstructies opnieuw
+      send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het bevestigen van uw e-mailadres.
+      send_paranoid_instructions: Als uw e-mailadres in onze database staat, ontvangt u binnen enkele minuten een e-mail met instructies voor het bevestigen van uw e-mailadres.
+    failure:
+      already_authenticated: Je bent al ingelogd.
+      inactive: Jouw account is nog niet geactiveerd.
+      invalid: Ongeldige %{authentication_keys} of wachtwoord.
+      invited: Je hebt een openstaande uitnodiging, accepteer deze om het maken van je account te voltooien.
+      last_attempt: Je hebt nog een poging voordat je account is vergrendeld.
+      locked: Je account is geblokkeerd.
+      not_found_in_database: Ongeldige %{authentication_keys} of wachtwoord.
+      timeout: Je sessie is verlopen. Log opnieuw in om door te gaan.
+      unauthenticated: U moet inloggen of aanmelden voordat u doorgaat.
+      unconfirmed: U moet uw e-mailadres bevestigen voordat u verdergaat.
     invitations:
       edit:
         header: Eindig met het maken van je account
         nickname_help: Jouw unieke ID op %{organization}.
         submit_button: Opslaan
         subtitle: Als u de uitnodiging accepteert, stelt u uw bijnaam en wachtwoord in.
+      invitation_removed: Je uitnodiging is verwijderd.
+      invitation_token_invalid: Het verstrekte uitnodigingskenmerk is niet geldig!
+      new:
+        header: Verstuur uitnodiging
+        submit_button: Een uitnodiging sturen
+      no_invitations_remaining: Er zijn nog geen uitnodigingen
+      send_instructions: Er is een uitnodigingsmail verzonden naar %{email}.
+      updated: Uw wachtwoord is succesvol ingesteld. U bent nu ingelogd.
+      updated_not_active: Uw wachtwoord is succesvol ingesteld.
     mailer:
+      confirmation_instructions:
+        action: Bevestig mijn account
+        greeting: Welkom %{recipient}!
+        instruction: 'U kunt het e-mailadres van uw account bevestigen via de onderstaande link:'
+        subject: Instructies ter bevestiging
+      email_changed:
+        greeting: Hallo %{recipient}!
+        message: We nemen contact met u op om u te laten weten dat uw e-mailadres wordt gewijzigd in %{email}.
+        subject: Email gewijzigd
       invitation_instructions:
         accept: Accepteer uitnodiging
         accept_until: Deze uitnodiging zal verlopen op %{due_date}.
@@ -670,6 +705,7 @@ nl:
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
         someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privégebruiker van %{application}, je kan accepteren via onderstaande link.
+        subject: Instructies voor de uitnodiging
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
@@ -686,6 +722,13 @@ nl:
         greeting: Hallo %{recipient}!
         message: Wij informeren u dat uw wachtwoord is gewijzigd.
         subject: Wachtwoord is veranderd
+      reset_password_instructions:
+        action: Verander mijn wachtwoord
+        greeting: Hallo %{recipient}!
+        instruction: Iemand heeft om een ​​link gevraagd om uw wachtwoord te wijzigen en u kunt dit doen via de onderstaande link.
+    passwords:
+      edit:
+        new_password: Nieuw wachtwoord
   doorkeeper:
     scopes:
       public: Jouw openbare informatie.
