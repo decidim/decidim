@@ -649,6 +649,11 @@ es-PY:
       version_author:
         deleted: Usuario eliminado
   devise:
+    confirmations:
+      confirmed: Su dirección de correo electrónico ha sido confirmada con éxito.
+      new:
+        resend_confirmation_instructions: Reenviar las instrucciones de confirmación
+      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos minutos.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -686,6 +691,9 @@ es-PY:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
+    passwords:
+      edit:
+        new_password: Contraseña
   doorkeeper:
     scopes:
       public: Tu información pública
