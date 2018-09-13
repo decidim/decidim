@@ -1,0 +1,243 @@
+de:
+  activemodel:
+    attributes:
+      proposal:
+        body: Karosserie
+        category_id: Kategorie
+        has_address: Hat eine Adresse
+        scope_id: Umfang
+        title: Titel
+        user_group_id: Erstellen Sie ein Angebot als
+      proposal_answer:
+        answer: Antworten
+      proposals_copy:
+        copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
+  decidim:
+    events:
+      proposals:
+        creation_enabled:
+          email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title}erstellen! Starten Sie die Teilnahme an dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Vorschläge jetzt in %{participatory_space_title}verfügbar
+        proposal_accepted:
+          email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
+          email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
+          notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade einen Vorschlag gebilligt, der für Sie interessant sein könnte, prüfen Sie ihn und tragen Sie dazu bei:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: "%{endorser_nickname} hat einen neuen Vorschlag befürwortet"
+          notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>gebilligt.
+        proposal_evaluating:
+          email_intro: 'Der Vorschlag "%{resource_title}" wird gerade ausgewertet. Sie können auf dieser Seite nach einer Antwort suchen:'
+          email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
+          notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
+        proposal_rejected:
+          email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
+          email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
+          notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde abgelehnt.
+    proposals:
+      actions:
+        answer: Antworten
+        import: Importieren von einer anderen Komponente
+        private_notes: Private Notizen
+        title: Aktionen
+      admin:
+        actions:
+          preview: Vorschau
+        exports:
+          comments: Bemerkungen
+          proposals: Vorschläge
+        models:
+          proposal:
+            name: Vorschlag
+        proposal_answers:
+          edit:
+            accepted: Akzeptiert
+            answer_proposal: Antworten
+            evaluating: Bewertung
+            rejected: Abgelehnt
+            title: Antwort für den Vorschlag %{title}
+        proposal_notes:
+          create:
+            error: Beim Erstellen dieser Angebotsnotiz ist ein Problem aufgetreten
+            success: Vorschlagsnotiz wurde erfolgreich erstellt
+          form:
+            note: Hinweis
+            submit: einreichen
+          leave_your_note: Hinterlasse deine Nachricht
+          title: Private Notizen
+        proposals:
+          answer:
+            invalid: Es gab ein Problem bei der Beantwortung dieses Vorschlags
+            success: Der Vorschlag wurde erfolgreich beantwortet
+          create:
+            invalid: Beim Erstellen dieses Angebots ist ein Problem aufgetreten
+            success: Angebot erfolgreich erstellt
+          form:
+            attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+            select_a_category: Wählen Sie eine Kategorie
+          index:
+            title: Vorschläge
+          new:
+            create: Erstellen
+            title: Angebot erstellen
+        proposals_imports:
+          create:
+            invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten
+            success: "%{number} Vorschläge wurden erfolgreich importiert"
+          new:
+            create: Vorschläge importieren
+            select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
+        shared:
+          info_proposal:
+            body: Karosserie
+            created_at: Erstellungsdatum
+            proposal_votes_count: Stimmen zählen
+            proposals: Vorschläge
+      answers:
+        accepted: Akzeptiert
+        evaluating: Bewertung
+        not_answered: Nicht beantwortet
+        rejected: Abgelehnt
+        withdrawn: Zurückgezogen
+      create:
+        error: Beim Speichern des Angebots sind Fehler aufgetreten.
+        success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
+      models:
+        proposal:
+          fields:
+            category: Kategorie
+            comments: Bemerkungen
+            id: ICH WÜRDE
+            notes: Anmerkungen
+            official_proposal: Offizieller Vorschlag
+            scope: Umfang
+            state: Zustand
+            title: Titel
+            votes: Stimmen
+      new:
+        limit_reached: Sie können keine neuen Angebote erstellen, da Sie das Limit überschritten haben.
+      proposal_endorsements:
+        create:
+          error: Bei der Bestätigung des Vorschlags sind Fehler aufgetreten.
+        identities:
+          select_identity: Wählen Sie Identität
+      proposal_endorsements_helper:
+        endorsement_button:
+          endorse: Unterstützung
+      proposal_votes:
+        create:
+          error: Es gab Fehler bei der Abstimmung des Vorschlags.
+      proposals:
+        compare:
+          mine_is_different: Mein Vorschlag ist anders
+          no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
+          title: Ähnliche Vorschläge
+        count:
+          proposals_count:
+            one: 1 Vorschlag
+            other: "%{count} Vorschläge"
+        edit:
+          back: Zurück
+          select_a_category: Bitte wählen sie eine Kategorie
+          send: Senden
+          title: Angebot bearbeiten
+        edit_draft:
+          send: Vorschau
+          title: Angebotsentwurf bearbeiten
+        endorsement_identities_cabin:
+          endorse: Unterstützung
+        filters:
+          accepted: Akzeptiert
+          activity: Aktivität
+          all: Alle
+          category: Kategorie
+          category_prompt: Wählen Sie eine Kategorie
+          citizens: Bürger
+          evaluating: Bewertung
+          official: Offiziell
+          origin: Ursprung
+          rejected: Abgelehnt
+          related_to: Bezüglich
+          search: Suche
+          state: Zustand
+          voted: Gewählt
+        filters_small_view:
+          close_modal: Modal schließen
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Entfalten
+        index:
+          new_proposal: Neuer Vorschlag
+          see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
+          view_proposal: Angebot anzeigen
+        linked_proposals:
+          proposal_votes:
+            one: Abstimmung
+            other: Stimmen
+        new:
+          send: Fortsetzen
+          title: Erstellen Sie Ihren Vorschlag
+        orders:
+          label: 'Bestellvorschläge von:'
+          most_voted: Die meisten haben gewählt
+          random: Zufällig
+          recent: Kürzlich
+        preview:
+          modify: Ändern Sie den Vorschlag
+          proposal_edit_before_minutes:
+            one: Sie können diesen Vorschlag in der ersten Minute nach der Veröffentlichung des Vorschlags bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
+            other: Sie können dieses Angebot in den ersten %{count} Minuten nach der Veröffentlichung des Angebots bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
+          publish: Veröffentlichen
+          title: Veröffentlichen Sie Ihren Vorschlag
+        proposal:
+          creation_date: 'Erstellung: %{date}'
+          view_proposal: Angebot anzeigen
+        show:
+          edit_proposal: Angebot bearbeiten
+          proposal_accepted_reason: 'Dieser Vorschlag wurde angenommen, weil:'
+          proposal_in_evaluation_reason: Dieser Vorschlag wird evaluiert
+          proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
+          report: Bericht
+          withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
+          withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?
+          withdraw_proposal: Vorschlag zurückziehen
+        vote_button:
+          already_voted: Schon gewählt
+          already_voted_hover: Aufheben
+          maximum_votes_reached: Wahllimit erreicht
+          no_votes_remaining: Keine verbleibenden Stimmen
+          vote: Abstimmung
+          votes_blocked: Abstimmung deaktiviert
+        votes_count:
+          count:
+            one: ABSTIMMUNG
+            other: ABSTIMMUNGEN
+          most_popular_proposal: Beliebtester Vorschlag
+          need_more_votes: Brauche mehr Stimmen
+        voting_rules:
+          proposal_limit:
+            description: Sie können bis zu %{limit} Vorschläge erstellen.
+          title: 'Die Abstimmung unterliegt folgenden Regeln:'
+          vote_limit:
+            description: Sie können bis zu %{limit} Vorschläge abstimmen.
+            left: Verbleibend
+            votes: Stimmen
+        wizard_aside:
+          back: Zurück
+          info: Sie erstellen einen <strong>Vorschlag</strong>.
+        wizard_steps:
+          see_steps: siehe Schritte
+          step_1: Erstellen Sie Ihren Vorschlag
+          step_2: Vergleichen
+          step_of: Schritt %{current_step_num} von %{total_steps}
+      publish:
+        error: Beim Veröffentlichen des Angebots sind Fehler aufgetreten.
+        success: Angebot wurde erfolgreich veröffentlicht.
+      update:
+        error: Beim Speichern des Angebots sind Fehler aufgetreten.
+        success: Angebot wurde erfolgreich aktualisiert.
+      update_draft:
+        error: Beim Speichern des Angebotsentwurfs sind Fehler aufgetreten.
+        success: Der Angebotsentwurf wurde erfolgreich aktualisiert.
