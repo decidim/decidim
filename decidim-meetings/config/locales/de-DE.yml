@@ -159,11 +159,16 @@ de:
           registrations: Anmeldungen
         invite_join_meeting_mailer:
           invite:
+            invited_you_to_join_a_meeting: "%{invited_by} hat Sie eingeladen, an einem Meeting um %{application}. Sie können es über den folgenden Link akzeptieren."
             join: Trete dem Meeting '%{meeting_title}' bei
         invites:
           create:
             error: Beim Einladen des Nutzers in das Meeting ist ein Problem aufgetreten.
             success: Der Benutzer wurde erfolgreich zum Meeting eingeladen.
+          new:
+            explanation: Der Benutzer wird eingeladen, an einem Meeting teilzunehmen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
+            invite: Einladen
+            new_invite: Nutzer einladen
         meeting_closes:
           edit:
             close: Schließen
@@ -222,6 +227,7 @@ de:
             save: sparen
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
+            invite_user: Nutzer einladen
             registrations_count:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
@@ -265,6 +271,8 @@ de:
           filter: Filter
           filter_by: Filtern nach
           unfold: Entfalten
+        index:
+          view_meeting: Besprechung anzeigen
         meeting_minutes:
           meeting_minutes: Sitzungsprotokolle
           related_information: Zugehörige Informationen
@@ -321,6 +329,13 @@ de:
         upcoming_meetings: Bevorstehende Treffen
       upcoming_meeting_for_card:
         upcoming_meeting: Kommendes Treffen
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Ähnliche Ergebnisse:'
+        result_meeting: 'Ähnliche Treffen:'
+      proposals_from_meeting:
+        meeting_proposal: 'Ähnliche Vorschläge:'
+        proposal_meeting: 'Ähnliche Treffen:'
   devise:
     mailer:
       join_meeting:
