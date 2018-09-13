@@ -1,1 +1,273 @@
 de:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Bannerbild
+        decidim_highlighted_scope_id: Hervorgehobener Umfang
+        description: Beschreibung
+        end_voting_date: Die Abstimmung endet
+        introductory_image: Einführendes Bild
+        introductory_video_url: Einleitende Video-URL
+        questions: Fragen
+        slug: URL-Block
+        start_voting_date: Die Abstimmung beginnt
+        subtitle: Untertitel
+        title: Titel
+      question:
+        banner_image: Bannerbild
+        decidim_scope_id: Kommunales Gebiet
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        i_frame_url: URL des externen Abstimmungssystems
+        origin_scope: Umfang
+        origin_title: Ursprung
+        origin_url: Ursprungs-URL
+        participatory_scope: Partizipativer Bereich
+        promoter_group: Promoter-Gruppe
+        question_context: Kontext
+        reference: Referenz
+        scope: Kommunales Gebiet
+        slug: URL-Block
+        subtitle: Untertitel
+        title: Titel
+        vote: Externes Wahlsystem
+        what_is_decided: Was ist entschieden?
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Antwort nicht gefunden.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Beratung
+        other: Konsultationen
+      decidim/consultations/question:
+        one: Frage
+        other: Fragen
+      decidim/consultations/response:
+        one: Antwort
+        other: Antworten
+      decidim/consultations/vote:
+        one: Abstimmung
+        other: Stimmen
+  decidim:
+    admin:
+      actions:
+        new_consultation: Neue Konsultation
+        new_question: Neue Frage
+        new_response: Neue Antwort
+        publish_results: Veröffentlichen Sie die Ergebnisse
+        unpublish_results: Veröffentlichen Sie die Ergebnisse
+      consultation_publications:
+        create:
+          error: Bei der Veröffentlichung dieser Konsultation ist ein Fehler aufgetreten.
+          success: Konsultation erfolgreich veröffentlicht.
+        destroy:
+          error: Es ist ein Fehler aufgetreten, diese Konsultation aufzuheben.
+          success: Beratung wurde erfolgreich nicht veröffentlicht.
+      consultation_results_publications:
+        create:
+          error: Bei der Veröffentlichung der Ergebnisse für diese Konsultation ist ein Fehler aufgetreten.
+          success: Konsultationsergebnisse erfolgreich veröffentlicht.
+        destroy:
+          error: Es ist ein Fehler aufgetreten, die Ergebnisse dieser Konsultation nicht zu veröffentlichen.
+          success: Konsultationsergebnisse wurden nicht veröffentlicht.
+      consultations:
+        create:
+          error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
+          success: Beratung erfolgreich erstellt.
+        destroy:
+          success: Die Konsultation wurde erfolgreich gelöscht.
+        edit:
+          update: Aktualisieren
+        form:
+          slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Abfrage verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+          title: Allgemeine Information
+        index:
+          not_published: Nicht veröffentlicht
+          published: Veröffentlicht
+        new:
+          create: Erstellen
+          title: Neue Konsultation
+        update:
+          error: Beim Aktualisieren dieser Konsultation ist ein Fehler aufgetreten.
+          success: Beratung erfolgreich aktualisiert.
+      menu:
+        consultations: Konsultationen
+        consultations_submenu:
+          info: Information
+          questions: Fragen
+        questions_submenu:
+          components: Komponenten
+          consultation: Beratung
+          info: Information
+          responses: Antworten
+      models:
+        consultation:
+          fields:
+            created_at: Hergestellt in
+            published: Veröffentlicht
+            title: Titel
+          name:
+            one: Beratung
+            other: Konsultationen
+        question:
+          fields:
+            created_at: Hergestellt in
+            published: Veröffentlicht
+            title: Titel
+          name:
+            one: Frage
+            other: Fragen
+        response:
+          fields:
+            created_at: Hergestellt in
+            title: Titel
+          name:
+            one: Antwort
+            other: Antworten
+      question_publications:
+        create:
+          error: Beim Veröffentlichen dieser Frage ist ein Fehler aufgetreten.
+          success: Frage erfolgreich veröffentlicht.
+        destroy:
+          error: Beim Aufheben der Veröffentlichung dieser Frage ist ein Fehler aufgetreten.
+          success: Frage wurde nicht erfolgreich veröffentlicht.
+      questions:
+        create:
+          error: Beim Erstellen einer neuen Frage ist ein Fehler aufgetreten.
+          success: Frage erfolgreich erstellt.
+        destroy:
+          success: Frage wurde erfolgreich gelöscht.
+        edit:
+          update: Aktualisieren
+        form:
+          title: Allgemeine Information
+        index:
+          not_published: Nicht veröffentlicht
+          published: Veröffentlicht
+        new:
+          create: Erstellen
+          title: Neue Frage
+        update:
+          error: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten.
+          success: Frage erfolgreich aktualisiert.
+      responses:
+        create:
+          error: Beim Erstellen einer neuen Antwort ist ein Fehler aufgetreten.
+          success: Antwort erfolgreich erstellt
+        destroy:
+          error: Beim Entfernen der Antwort ist ein Fehler aufgetreten.
+          success: Antwort wurde erfolgreich gelöscht.
+        edit:
+          update: Aktualisieren
+        form:
+          title: Allgemeine Information
+        new:
+          create: Erstellen
+          title: Neue Antwort
+        update:
+          error: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten.
+          success: Antwort wurde erfolgreich aktualisiert.
+      titles:
+        consultations: Konsultationen
+        questions: Fragen
+        responses: Antworten
+    consultations:
+      consultation:
+        start_voting_date: Die Abstimmung beginnt
+        view_results: Ergebnisse anzeigen
+      consultation_card:
+        view_results: Ergebnisse anzeigen
+      consultations:
+        orders:
+          label: 'Sortieren Sie die Konsultationen nach:'
+          random: Zufällig
+          recent: Neueste
+      count:
+        title:
+          one: "%{count} Beratung"
+          other: "%{count} Konsultationen"
+      filters:
+        active: Aktiv
+        all: Alle
+        finished: Fertig
+        search: Suche
+        state: Zustand
+        upcoming: Bevorstehende
+      filters_small_view:
+        close_modal: Fenster schließen
+        filter: Filter
+        filter_by: Filtern nach
+        unfold: Entfalten
+      highlighted_questions:
+        title: Fragen von %{scope_name}
+      index:
+        title: Konsultationen
+      question:
+        take_part: Teilnehmen
+        view_results: Ergebnisse anzeigen
+        votes_out_of:
+          one: abstimmen
+          other: Stimmen aus
+      question_votes:
+        create:
+          error: Es gab Fehler bei der Abstimmung der Frage
+      regular_questions:
+        title: Fragen für diese Konsultation
+      show:
+        badge_name:
+          finished: Fertig
+          open: Öffnen
+          open_votes: Stimmen öffnen
+          published_results: Ergebnisse veröffentlicht
+        footer_button_text:
+          debate: Debatte
+          view: Aussicht
+          view_results: Ergebnisse anzeigen
+          vote: Abstimmung
+        unspecified: Keine Angabe
+    menu:
+      consultations: Konsultationen
+    pages:
+      home:
+        statistics:
+          consultations_count: Konsultationen
+    questions:
+      results:
+        title: Ergebnisse
+      show:
+        read_more: Weiterlesen
+      statistics:
+        assistants_count_title: Assistenten
+        comments_count_title: Bemerkungen
+        meetings_count_title: Meetings
+        supports_count_title: Unterstützt
+      technical_info:
+        technical_data: Technische Daten
+      vote_button:
+        already_voted: Schon gewählt
+        already_voted_hover: Support entziehen
+        starting_from: Beginnend von %{date}
+        vote: Abstimmung
+      vote_modal:
+        contextual_help: Bitte wähle eine Option.
+        title: 'Beratung: Frage Unterstützung'
+      vote_modal_confirm:
+        change: Veränderung
+        confirm: Bestätigen
+        contextual_help: Bitte bestätigen Sie die ausgewählte Option.
+        title: 'Beratung: Bestätigung der Unterstützung'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Anlagen
+          categories: Kategorien
+      consultation_voting_data:
+        start_voting_date: Die Abstimmung beginnt
+      question_components:
+        question_menu_item: Die Frage
+        unfold: Entfalten
+      question_header:
+        back_to_consultation: Sehen Sie alle Konsultationen
