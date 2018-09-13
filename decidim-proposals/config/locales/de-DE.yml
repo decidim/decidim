@@ -72,6 +72,7 @@ de:
             proposal_wizard_step_1_help_text: Angebotsassistent "Create" -Schritt-Hilfetext
             proposal_wizard_step_2_help_text: Angebotsassistent "Vergleichen" Schritt-Hilfetext
             proposal_wizard_step_3_help_text: Angebotsassistent "Schritt" - Hilfetext "Fertig"
+            proposal_wizard_step_4_help_text: Angebotsassistent "Veröffentlichen" Schritt-Hilfetext
             threshold_per_proposal: Schwellenwert pro Angebot
             vote_limit: Wahllimit pro Benutzer
           step:
@@ -341,6 +342,7 @@ de:
           view_proposal: Angebot anzeigen
         show:
           edit_proposal: Angebot bearbeiten
+          endorsements_list: Liste der Empfehlungen
           hidden_endorsers_count:
             one: und 1 weitere Person
             other: und %{count} weitere Leute
@@ -401,3 +403,11 @@ de:
       update_draft:
         error: Beim Speichern des Angebotsentwurfs sind Fehler aufgetreten.
         success: Der Angebotsentwurf wurde erfolgreich aktualisiert.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Ähnliche Vorschläge
+      included_projects:
+        project_result: 'Ergebnisse, die in diesem Projekt erscheinen:'
+      included_proposals:
+        proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
+        proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
