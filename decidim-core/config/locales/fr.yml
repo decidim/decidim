@@ -47,6 +47,7 @@ fr:
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
+      file_too_big: le fichier est trop volumineux
   date:
     formats:
       decidim_short: "%d/%m/%Y"
