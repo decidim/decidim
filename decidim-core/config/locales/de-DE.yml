@@ -652,12 +652,30 @@ de:
       version_author:
         deleted: Gelöschter Benutzer
   devise:
+    confirmations:
+      confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
+      new:
+        resend_confirmation_instructions: Bestätigungsanweisungen erneut senden
+      send_instructions: Sie erhalten eine E-Mail mit Anweisungen zur Bestätigung Ihrer E-Mail-Adresse in wenigen Minuten.
+      send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten eine E-Mail mit Anweisungen zur Bestätigung Ihrer E-Mail-Adresse.
+    failure:
+      already_authenticated: Sie sind bereits angemeldet.
+      inactive: Dein Benutzerkonto ist noch nicht aktiviert.
+      invalid: Ungültige %{authentication_keys} oder Passwort
+      invited: Sie haben eine ausstehende Einladung, akzeptieren Sie sie, um die Erstellung Ihres Kontos abzuschließen.
+      last_attempt: Sie haben noch einen Versuch, bevor Ihr Konto gesperrt ist.
+      locked: Dein Konto ist gesperrt.
+      not_found_in_database: Ungültige %{authentication_keys} oder Passwort
+      timeout: Ihre Sitzung ist abgelaufen. Bitte logge dich erneut ein, um fortzufahren.
+      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren.
+      unconfirmed: Sie müssen Ihre E-Mail-Adresse bestätigen, bevor Sie fortfahren.
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
         nickname_help: Ihre eindeutige ID in %{organization}.
         submit_button: sparen
         subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
+      invitation_removed: Ihre Einladung wurde entfernt.
     mailer:
       invitation_instructions:
         accept: Die Einladung annehmen
@@ -689,6 +707,9 @@ de:
         greeting: Hallo %{recipient}!
         message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.
         subject: Passwort geändert
+    passwords:
+      edit:
+        new_password: Neues Kennwort
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
