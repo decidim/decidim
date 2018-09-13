@@ -649,13 +649,47 @@ fr:
       version_author:
         deleted: Utilisateur ayant supprimé son compte
   devise:
+    confirmations:
+      confirmed: Votre adresse e-mail a été confirmée avec succès.
+      new:
+        resend_confirmation_instructions: Renvoyer les instructions de confirmation
+      send_instructions: Vous recevrez un e-mail avec les instructions pour confirmer votre adresse e-mail dans quelques minutes.
+      send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un e-mail avec les instructions pour confirmer votre adresse e-mail dans quelques minutes.
+    failure:
+      already_authenticated: Vous êtes déjà connecté.
+      inactive: Votre compte n'est pas encore activé.
+      invalid: '%{authentication_keys} ou mot de passe invalide.'
+      invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
+      last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
+      locked: Ton compte est bloqué.
+      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
+      timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
+      unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
+      unconfirmed: Vous devez confirmer votre adresse e-mail avant de continuer.
     invitations:
       edit:
         header: Terminer la création de votre compte
         nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
+      invitation_removed: Votre invitation a été supprimée.
+      invitation_token_invalid: Le jeton d'invitation fourni n'est pas valide!
+      new:
+        header: Envoyer une invitation
+        submit_button: Envoyer une invitation
+      no_invitations_remaining: Aucune invitation restante
+      send_instructions: Un email d'invitation a été envoyé à %{email}.
+      updated: Votre mot de passe a été défini avec succès. Vous êtes maintenant inscrit.
+      updated_not_active: Votre mot de passe a été défini avec succès.
     mailer:
+      confirmation_instructions:
+        action: Confirmer mon compte
+        greeting: Bienvenue %{recipient}!
+        instruction: 'Vous pouvez confirmer votre compte email par le lien ci-dessous:'
+        subject: Instructions de confirmation
+      email_changed:
+        greeting: Bonjour %{recipient}!
+        message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}.
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
@@ -686,6 +720,9 @@ fr:
         greeting: Bonjour %{recipient} !
         message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
+    passwords:
+      edit:
+        new_password: Votre mot de passe
   doorkeeper:
     scopes:
       public: Votre information publique
