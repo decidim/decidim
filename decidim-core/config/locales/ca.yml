@@ -726,20 +726,94 @@ ca:
         action: Canvia la meva contrasenya
         greeting: Hola %{recipient}
         instruction: Algú ha demanat un enllaç per canviar la contrasenya, i ho podeu fer a través de l'enllaç següent.
+        instruction_2: Si no ho heu sol·licitat, ignoreu aquest correu electrònic.
+        instruction_3: La vostra contrasenya no canviarà fins que accediu a l'enllaç de dalt i creeu-ne un de nou.
+        subject: Reinicia les instruccions de la contrasenya
+      unlock_instructions:
+        action: Desbloqueja el meu compte
+        greeting: Hola %{recipient}
+        instruction: 'Feu clic a l''enllaç següent per desbloquejar el vostre compte:'
+        message: El vostre compte s'ha bloquejat a causa d'una quantitat excessiva d'intents d'inici de sessió incorrectes.
+        subject: Desbloqueja les instruccions
+    omniauth_callbacks:
+      failure: No podeu autenticar-te des de %{kind} perquè "%{reason}".
+      success: S'ha autenticat amb èxit des del compte %{kind}.
     passwords:
       edit:
+        change_my_password: Canvia la meva contrasenya
+        change_your_password: Canvia la teva contrasenya
+        confirm_new_password: Confirmar nova contrasenya
         new_password: Contrasenya
+      new:
+        forgot_your_password: Has oblidat la teva contrasenya?
+        send_me_reset_password_instructions: Envia'm les instruccions de restabliment de la contrasenya
+      no_token: No podeu accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si prové d'un correu electrònic de restabliment de la contrasenya, assegureu-vos que heu utilitzat l'URL complet proporcionat.
+      send_instructions: Rebreu un correu electrònic amb instruccions sobre com restablir la vostra contrasenya en pocs minuts.
+      send_paranoid_instructions: Si la vostra adreça de correu electrònic existeix a la nostra base de dades, rebreu un enllaç de recuperació de la contrasenya a la vostra adreça de correu electrònic en pocs minuts.
+      updated: La contrasenya s'ha modificat correctament. Ja heu iniciat la sessió.
+      updated_not_active: La contrasenya s'ha modificat correctament.
+    registrations:
+      destroyed: Adéu El vostre compte s'ha cancel·lat correctament. Esperem tornar-vos a veure de seguida.
+      edit:
+        are_you_sure: Estàs segur?
+        cancel_my_account: Cancel·lar el meu compte
+        currently_waiting_confirmation_for_email: 'Actualment la confirmació d''espera per a: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: deixeu-lo en blanc si no voleu canviar-lo
+        title: Edita %{resource}
+        unhappy: Infeliç
+        update: Actualització
+        we_need_your_current_password_to_confirm_your_changes: necessitem la contrasenya actual per confirmar els canvis
+      new:
+        sign_up: Registra't
+      signed_up: Benvinguda! Heu iniciat la sessió amb èxit.
+      signed_up_but_inactive: Heu iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar-hi la sessió perquè el vostre compte encara no està activat.
+      signed_up_but_locked: Heu iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar-hi la sessió perquè el vostre compte està bloquejat.
+      signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la vostra adreça de correu electrònic. Seguiu l'enllaç per activar el vostre compte.
+      update_needs_confirmation: Heu actualitzat el vostre compte amb èxit, però hem de verificar la vostra nova adreça electrònica. Comproveu el vostre correu electrònic i seguiu l'enllaç de confirmació per confirmar la vostra nova adreça de correu electrònic.
+      updated: El compte s'ha actualitzat correctament.
+    sessions:
+      already_signed_out: S'ha iniciat la sessió correctament.
+      new:
+        sign_in: Iniciar Sessió
+      signed_in: S'ha iniciat la sessió correctament.
+      signed_out: S'ha iniciat la sessió correctament.
+    shared:
+      links:
+        back: esquena
+        didn_t_receive_confirmation_instructions: No heu rebut instruccions de confirmació?
+        didn_t_receive_unlock_instructions: No heu rebut instruccions de desbloqueig?
+        forgot_your_password: Has oblidat la teva contrasenya?
+        sign_in: Iniciar Sessió
+        sign_in_with_provider: Inicieu sessió amb %{provider}
+        sign_up: Registra't
+      minimum_password_length:
+        one: "(Mínim de%{count} caràcters)"
+        other: "(Mínim de%{count} caràcters)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenvia les instruccions de desbloqueig
+      send_instructions: Rebreu un correu electrònic amb instruccions per desbloquejar el vostre compte en pocs minuts.
+      send_paranoid_instructions: Si el vostre compte existeix, rebrà un correu electrònic amb instruccions per desbloquejar-lo en pocs minuts.
+      unlocked: S'ha desbloquejat el vostre compte correctament. Inicieu sessió per continuar.
   doorkeeper:
     scopes:
       public: La teva informació pública.
   errors:
     messages:
+      already_confirmed: Ja s'ha confirmat. Intenteu iniciar la sessió
+      confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau, sol·liciteu-ne un de nou
       content_type_whitelist_error: el tipus de fitxer no és vàlid
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
+      expired: ha caducat, si us plau, sol·liciteu-ne un de nou
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
       long_words: conté paraules que són massa llargues
       must_start_with_caps: ha de començar amb majúscules
       nesting_too_deep: no pot estar dins d'una subcategoria
+      not_found: no trobat
+      not_locked: no estava bloquejat
+      not_saved:
+        one: '1 error prohibit que es guardés aquest %{resource}:'
+        other: "%{count} errors van prohibir que es guardés aquest %{resource}:"
       too_many_marks: hi ha massa signes de puntuació
       too_much_caps: hi ha massa majúscules
       too_short: és massa curt
@@ -827,6 +901,10 @@ ca:
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
