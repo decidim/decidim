@@ -5,8 +5,54 @@ de:
         body: Antworten
       survey_question:
         mandatory: Verpflichtend
+        max_choices: Maximale Anzahl an Auswahlmöglichkeiten
         question_type: Art
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: sind nicht vollständig
+              too_many: sind zu viele
+    models:
+      decidim/surveys/closed_survey_event: Umfrage beendet
+      decidim/surveys/opened_survey_event: Umfrage gestartet
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Umfrage
+        other: Umfragen
+      decidim/surveys/survey_answer:
+        one: Antworten
+        other: Antworten
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Antworten
+        name: Umfrage
+        settings:
+          global:
+            announcement: Ankündigung
+          step:
+            allow_answers: Erlaube Antworten
+            announcement: Ankündigung
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Die Umfrage %{resource_title} in %{participatory_space_title} wurde geschlossen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Eine Umfrage ist in %{participatory_space_title}
+          notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist beendet.
+        survey_opened:
+          email_intro: 'Die Umfrage %{resource_title} in %{participatory_space_title} ist jetzt geöffnet. Sie können von dieser Seite aus teilnehmen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Eine neue Umfrage in %{participatory_space_title}
+          notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
+    forms:
+      errors:
+        survey_answer:
+          body: Körper darf nicht leer sein
     surveys:
       admin:
         exports:
@@ -18,6 +64,8 @@ de:
         surveys:
           answer_option:
             answer_option: Antwortoption
+            free_text: Freier Text
+            remove: Löschen
             statement: Erklärung
           edit:
             save: sparen
@@ -27,8 +75,13 @@ de:
             already_answered_warning: Die Umfrage wurde bereits von einigen Benutzern beantwortet, sodass Sie ihre Fragen nicht ändern können.
           question:
             add_answer_option: Antwortoption hinzufügen
+            any: Irgendein
+            description: Beschreibung
+            down: Nieder
             question: Frage
+            remove: Löschen
             statement: Erklärung
+            up: Oben
           update:
             invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
             success: Umfrage wurde erfolgreich gespeichert.
@@ -37,3 +90,26 @@ de:
         multiple_option: Mehrere Optionen
         short_answer: Kurze Antwort
         single_option: Einzeloption
+        sorting: Sortierung
+      surveys:
+        answer:
+          invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
+          success: Umfrage erfolgreich beantwortet.
+        question:
+          max_choices: 'Maximale Auswahl: %{n}'
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich</a> an, um die Umfrage zu beantworten.
+            title: Beantworten Sie die Umfrage
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          submit: einreichen
+          survey_answered:
+            body: Sie haben diese Umfrage bereits beantwortet.
+            title: Umfrage beantwortet
+          survey_closed:
+            body: Die Umfrage ist geschlossen und kann nicht beantwortet werden.
+            title: Umfrage geschlossen
+          survey_for_private_users:
+            body: Die Umfrage ist nur für private Benutzer verfügbar
+            title: Umfrage geschlossen
+          tos_agreement: Mit der Teilnahme an dieser Umfrage akzeptieren Sie die Nutzungsbedingungen
