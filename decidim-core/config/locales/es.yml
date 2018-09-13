@@ -649,6 +649,8 @@ es:
       version_author:
         deleted: Usuario eliminado
   devise:
+    confirmations:
+      confirmed: Su dirección de correo electrónico ha sido confirmada con éxito.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -686,6 +688,9 @@ es:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
+    passwords:
+      edit:
+        new_password: Contraseña
   doorkeeper:
     scopes:
       public: Tu información pública
