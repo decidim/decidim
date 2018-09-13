@@ -19,8 +19,8 @@ module Decidim
         attribute :introductory_image, String
         attribute :remove_introductory_image
         attribute :decidim_highlighted_scope_id, Integer
-        attribute :start_voting_date, Date
-        attribute :end_voting_date, Date
+        attribute :start_voting_date, Decidim::Attributes::LocalizedDate
+        attribute :end_voting_date, Decidim::Attributes::LocalizedDate
 
         validates :slug, presence: true, format: { with: Decidim::Consultation.slug_format }
         validates :title, :subtitle, :description, translatable_presence: true

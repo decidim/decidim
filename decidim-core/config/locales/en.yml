@@ -231,6 +231,8 @@ en:
         download_data: Download the data
         download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
         request_data: Request data
+    datepicker:
+      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
