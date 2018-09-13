@@ -381,6 +381,14 @@ fi:
       remove_this_file: Poista tiedosto
     gamification:
       badges:
+        followers:
+          description_another: Tällä käyttäjällä on %{score} seuraajaa.
+          description_own: "%{score} käyttäjää seuraa sinua."
+          explanation: Käyttäjät saavat tämän tunnuksen seuraamalla muita käyttäjiä.
+          name: seuraajaa
+          next_level_in: Get %{score} enemmän käyttäjiä seurata voit päästä seuraavalle tasolle!
+          unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
+          unearned_own: Sinulla ei ole vielä seuraajia.
         invitations:
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
@@ -568,6 +576,10 @@ fi:
         followers: Seuraajat
         following: Seuraa
         notifications: Ilmoitukset
+      sidebar:
+        badges:
+          info: Merkit ansaitaan suorittamalla erityistä toimintaa alustalla.
+          title: Merkit
       user:
         edit_profile: Muokkaa profiilia
     reported_mailer:
