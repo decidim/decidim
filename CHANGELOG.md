@@ -16,6 +16,7 @@
 
 **Fixed**:
 
+- **decidim-debates**: Fix create debates as a normal user in a private space [\4108](https://github.com/decidim/decidim/pull/4108)
 - **decidim-proposals**: Fix hashtags on title when showing proposals related. [\4081](https://github.com/decidim/decidim/pull/4081)
 - **decidim-core**: Fix hero content block migration [\#4061](https://github.com/decidim/decidim/pull/4061)
 - **decidim-core**: Fix default content block creation migration [\#4084](https://github.com/decidim/decidim/pull/4084)
