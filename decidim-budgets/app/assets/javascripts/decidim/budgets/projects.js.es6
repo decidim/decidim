@@ -20,7 +20,7 @@ $(() => {
     const perProject = $budgetSummaryTotal.attr("data_per_project");
     const $currentTarget = $(event.currentTarget);
     const projectBudget = parseInt($currentTarget.attr("data-budget"), 10);
-    if ($currentTarget.attr("data-add") && (currentProjects === totalProjects) && perProject){
+    if ($currentTarget.attr("data-add") && (currentProjects === totalProjects) && perProject) {
       $budgetExceedModal.foundation("toggle");
       cancelEvent(event);
     } else if ($currentTarget.attr("disabled")) {
