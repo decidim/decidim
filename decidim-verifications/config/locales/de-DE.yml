@@ -1,1 +1,137 @@
 de:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Dokumentennummer (mit Buchstaben)
+        document_type: Art des Dokuments
+      id_document_upload:
+        document_number: Dokumentennummer (mit Buchstaben)
+        document_type: Art Ihres Dokuments
+        user: Benutzer
+        verification_attachment: Gescannte Kopie Ihres Dokuments
+      postal_letter_address:
+        full_address: Vollständige Adresse
+      postal_letter_confirmation:
+        verification_code: Bestätigungscode
+      postal_letter_postage:
+        full_address: Vollständige Adresse
+        verification_code: Bestätigungscode
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Überprüfungen
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
+            - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
+            - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
+            - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
+        postal_letter:
+          help:
+            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+            - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
+            - Sie markieren den Brief als gesendet.
+            - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+      direct: Direkte
+      help: Hilfe
+      id_documents:
+        explanation: Laden Sie Ihre Identitätsdokumente hoch, damit wir Ihre Identität überprüfen können
+        name: Identitätsdokumente
+      multistep: Mehrschritt
+      name: Name
+      postal_letter:
+        explanation: Wir senden Ihnen einen Brief mit einem Code, den Sie eingeben müssen, damit wir Ihre Adresse bestätigen können
+        name: Code per Post
+    verifications:
+      authorizations:
+        create:
+          error: Beim Erstellen der Autorisierung ist ein Fehler aufgetreten.
+          success: Sie wurden erfolgreich autorisiert.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
+            dummy_authorization_handler: Überprüfen Sie anhand des Beispielautorisierungshandlers
+            dummy_authorization_workflow: Überprüfen Sie anhand des beispielhaften Autorisierungsworkflows
+            id_documents: Bestätigen Sie, indem Sie Ihr Identitätsdokument hochladen
+            postal_letter: Bestätigen Sie, indem Sie einen Bestätigungscode per Post erhalten
+          title: Bestätigen Sie Ihre Identität
+          verify_with_these_options: 'Mit diesen Optionen können Sie Ihre Identität überprüfen:'
+        new:
+          authorize: Senden
+          authorize_with: Bestätigen Sie mit %{authorizer}
+        skip_verification: Sie können dies für jetzt und %{link}überspringen
+        start_exploring: Fang an zu erforschen
+      dummy_authorization:
+        extra_explanation:
+          one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
+          other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Benutzer sie ändern kann
+              success: Benutzer erfolgreich verifiziert
+            new:
+              introduce_user_data: Stellen Sie die Daten in das Bild ein
+              reject: Ablehnen
+              verify: Überprüfen
+          pending_authorizations:
+            index:
+              title: Ausstehende Überprüfungen
+              verification_number: 'Überprüfung #%{n}'
+          rejections:
+            create:
+              success: Überprüfung abgelehnt Benutzer wird aufgefordert, ihre Dokumente zu ändern
+        authorizations:
+          create:
+            error: Beim Hochladen Ihres Dokuments ist ein Problem aufgetreten
+            success: Dokument erfolgreich hochgeladen
+          edit:
+            being_reviewed: Wir überprüfen Ihre Dokumente. Sie werden in Kürze bestätigt
+            rejection_clarity: Stellen Sie sicher, dass die Informationen im hochgeladenen Bild deutlich sichtbar sind
+            rejection_correctness: Stellen Sie sicher, dass die eingegebenen Informationen korrekt sind
+            rejection_notice: Bei der Überprüfung ist ein Problem aufgetreten. Bitte versuche es erneut
+            send: Überprüfung erneut anfordern
+          new:
+            send: Überprüfung anfordern
+            title: Laden Sie Ihr Identitätsdokument hoch
+          update:
+            error: Beim erneuten Laden Ihres Dokuments ist ein Problem aufgetreten
+            success: Das Dokument wurde erfolgreich neu geladen
+        dni: DNI
+        nie: NIE
+        passport: Reisepass
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresse
+              letter_sent_at: Brief an gesendet
+              mark_as_sent: Als gesendet markieren
+              not_yet_sent: Noch nicht gesendet
+              title: Laufende Überprüfungen
+              username: Nutzername
+              verification_code: Bestätigungscode
+          postages:
+            create:
+              error: Fehler beim Markieren des Briefes als gesendet
+              success: Brief erfolgreich als gesendet markiert
+        authorizations:
+          create:
+            error: Es gab ein Problem mit ihrer Anfrage
+            success: Vielen Dank! Wir senden einen Bestätigungscode an Ihre Adresse
+          edit:
+            send: Bestätigen
+            title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
+            waiting_for_letter: Wir senden Ihnen bald einen Brief mit Ihrem Bestätigungscode an Ihre Adresse
+          new:
+            send: Schick mir einen Brief
+            title: Fordern Sie Ihren Bestätigungscode an
+          update:
+            error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie den Brief, den wir Ihnen geschickt haben
+            success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert
+  errors:
+    messages:
+      uppercase_only_letters_numbers: muss groß geschrieben sein und darf nur Buchstaben und / oder Zahlen enthalten
