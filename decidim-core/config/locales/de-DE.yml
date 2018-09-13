@@ -676,7 +676,24 @@ de:
         submit_button: sparen
         subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
+      invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
+      new:
+        header: Einladung senden
+        submit_button: Eine Einladung schicken
+      no_invitations_remaining: Keine Einladungen übrig
+      send_instructions: Eine Einladungs-E-Mail wurde an %{email}gesendet.
+      updated: Ihr Passwort wurde erfolgreich vergeben. Sie sind jetzt angemeldet.
+      updated_not_active: Ihr Passwort wurde erfolgreich vergeben.
     mailer:
+      confirmation_instructions:
+        action: Bestätige mein Konto
+        greeting: Willkommen %{recipient}!
+        instruction: 'Sie können Ihre Konto-E-Mail über den folgenden Link bestätigen:'
+        subject: Bestätigungsanweisungen
+      email_changed:
+        greeting: Hallo %{recipient}!
+        message: Wir setzen uns mit Ihnen in Verbindung, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse auf %{email}geändert wird.
+        subject: E-Mail geändert
       invitation_instructions:
         accept: Die Einladung annehmen
         accept_until: Diese Einladung wird in %{due_date}fällig.
@@ -691,6 +708,7 @@ de:
         someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
         someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
         someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
+        subject: Anweisungen zur Einladung
       invite_admin:
         subject: Du wurdest eingeladen, %{organization}zu verwalten
       invite_collaborator:
@@ -707,20 +725,98 @@ de:
         greeting: Hallo %{recipient}!
         message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.
         subject: Passwort geändert
+      reset_password_instructions:
+        action: Ändere mein Passwort
+        greeting: Hallo %{recipient}!
+        instruction: Jemand hat einen Link angefordert, um Ihr Passwort zu ändern, und Sie können dies über den folgenden Link tun.
+        instruction_2: Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail.
+        instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den obigen Link zugreifen und einen neuen erstellen.
+        subject: Passwort-Anweisungen zurücksetzen
+      unlock_instructions:
+        action: Entsperren Sie mein Konto
+        greeting: Hallo %{recipient}!
+        instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
+        message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
+        subject: Entsperren Anweisungen
+    omniauth_callbacks:
+      failure: Konnte dich nicht von %{kind} wegen "%{reason}" authentifizieren.
+      success: Erfolgreich von %{kind} account authentifiziert.
     passwords:
       edit:
+        change_my_password: Ändere mein Passwort
+        change_your_password: Ändern Sie Ihr Passwort
+        confirm_new_password: Bestätige neues Passwort
         new_password: Neues Kennwort
+      new:
+        forgot_your_password: Haben Sie Ihr Passwort vergessen?
+        send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
+      no_token: Sie können nicht auf diese Seite zugreifen, ohne von einer E-Mail zum Zurücksetzen des Kennworts zu stammen. Wenn Sie eine E-Mail zum Zurücksetzen des Passworts erhalten, vergewissern Sie sich bitte, dass Sie die vollständige URL verwendet haben.
+      send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Zurücksetzen Ihres Passworts in wenigen Minuten.
+      send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten einen Link zur Passwortwiederherstellung unter Ihrer E-Mail-Adresse.
+      updated: Ihr Passwort wurde erfolgreich geändert. Sie sind jetzt angemeldet.
+      updated_not_active: Ihr Passwort wurde erfolgreich geändert.
+    registrations:
+      destroyed: Tschüss! Ihr Konto wurde erfolgreich storniert. Wir hoffen, Sie bald wieder zu sehen.
+      edit:
+        are_you_sure: Bist du sicher?
+        cancel_my_account: Brechen Sie mein Konto ab
+        currently_waiting_confirmation_for_email: 'Momentan wartende Bestätigung für: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: lassen Sie das Feld leer, wenn Sie es nicht ändern möchten
+        title: Bearbeite %{resource}
+        unhappy: Unzufrieden?
+        update: Aktualisieren
+        we_need_your_current_password_to_confirm_your_changes: Wir benötigen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen
+      new:
+        sign_up: Anmelden
+      signed_up: Herzlich willkommen! Sie haben sich erfolgreich angemeldet.
+      signed_up_but_inactive: Sie haben sich erfolgreich angemeldet. Wir konnten dich jedoch nicht anmelden, weil dein Konto noch nicht aktiviert ist.
+      signed_up_but_locked: Sie haben sich erfolgreich angemeldet. Wir konnten dich jedoch nicht anmelden, weil dein Konto gesperrt ist.
+      signed_up_but_unconfirmed: Eine Nachricht mit einem Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet. Bitte folgen Sie dem Link, um Ihr Konto zu aktivieren.
+      update_needs_confirmation: Sie haben Ihr Konto erfolgreich aktualisiert, aber wir müssen Ihre neue E-Mail-Adresse bestätigen. Bitte überprüfen Sie Ihre E-Mail und folgen Sie dem Bestätigungslink, um Ihre neue E-Mail-Adresse zu bestätigen.
+      updated: Ihr Konto wurde erfolgreich aktualisiert.
+    sessions:
+      already_signed_out: Erfolgreich abgesendet
+      new:
+        sign_in: Einloggen
+      signed_in: Erfolgreich angemeldet
+      signed_out: Erfolgreich abgesendet
+    shared:
+      links:
+        back: Zurück
+        didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungsanweisungen erhalten?
+        didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
+        forgot_your_password: Haben Sie Ihr Passwort vergessen?
+        sign_in: Einloggen
+        sign_in_with_provider: Melde dich mit %{provider}
+        sign_up: Anmelden
+      minimum_password_length:
+        one: "(%{count} Zeichen Minimum)"
+        other: "(%{count} Zeichen Minimum)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Erneute Anweisungen zum Entsperren senden
+      send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Freischalten Ihres Kontos in wenigen Minuten.
+      send_paranoid_instructions: Wenn Ihr Konto existiert, erhalten Sie eine E-Mail mit Anweisungen, wie Sie es in wenigen Minuten entsperren können.
+      unlocked: Ihr Konto wurde erfolgreich entsperrt. Bitte einloggen, um fortzufahren.
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
   errors:
     messages:
+      already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
+      confirmation_period_expired: muss innerhalb von %{period}bestätigt werden, bitte einen neuen anfordern
       content_type_whitelist_error: Der Dateityp ist nicht gültig
       cycle_detected: Der Elternteil eines Bereichs darf keiner seiner Nachkommen sein
+      expired: ist abgelaufen, bitte fordern Sie einen neuen an
       file_size_is_less_than_or_equal_to: Die Dateigröße muss kleiner oder gleich %{count}
       long_words: enthält zu lange Wörter
       must_start_with_caps: muss mit Großbuchstaben beginnen
       nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
+      not_found: nicht gefunden
+      not_locked: war nicht gesperrt
+      not_saved:
+        one: '1 Fehler hat das Speichern dieser %{resource}:'
+        other: "%{count} Fehler verboten, dass %{resource} gespeichert wird:"
       too_many_marks: benutzt zu viele Marken
       too_much_caps: benutzt zu viele Caps
       too_short: ist zu kurz
@@ -808,6 +904,10 @@ de:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
