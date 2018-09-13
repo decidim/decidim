@@ -52,6 +52,7 @@ de:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kurze Beschreibung
         highlighted_content_banner_title: Titel
+        homepage_image: Bild der Startseite
         instagram_handler: Instagram-Handler
         logo: Logo
         name: Name
@@ -65,6 +66,7 @@ de:
         show_statistics: Zeige Statistiken
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
+        welcome_text: Begrüßungstext
         youtube_handler: YouTube-Handler
       scope:
         code: Code
@@ -92,13 +94,33 @@ de:
   activerecord:
     attributes:
       decidim/participatory_process:
+        banner_image: Bannerbild
         description: Beschreibung
+        developer_group: Promoter-Gruppe
+        domain: Domain
+        end_date: Endtermin
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        local_area: Ortsbereich
+        meta_scope: Bereichs-Metadaten
+        participatory_scope: Partizipativer Bereich
+        participatory_structure: Partizipative Struktur
+        promoted: Gefördert
+        scope: Umfang
         short_description: Kurze Beschreibung
         slug: URL-Block
+        start_date: Anfangsdatum
+        subtitle: Untertitel
+        target: Ziel
         title: Titel
       decidim/participatory_process_group:
         description: Beschreibung
+        hero_image: Hauptbild
         name: Name
+        participatory_processes: Partizipative Prozesse
+      decidim/participatory_process_step:
+        end_date: Endtermin
+        start_date: Anfangsdatum
       decidim/static_page:
         content: Inhalt
         slug: URL-Block
@@ -265,21 +287,29 @@ de:
             managed: Gelang es
             not_managed: Nicht verwaltet
           filter_by: Filtern nach
+          impersonate: Imitieren
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
           managed: Gelang es
           name: Name
+          needs_authorization_warning: Sie benötigen mindestens eine Autorisierung, die für diese Organisation aktiviert ist.
           not_managed: Nicht verwaltet
           promote: Fördern
           search: Suche
           status: Status
+          view_logs: Protokolle anzeigen
       impersonations:
+        close_session:
+          error: Beim Schließen der aktuellen Identitätswechsel-Sitzung ist ein Fehler aufgetreten.
+          success: Die aktuelle Identitätswechselsitzung wurde erfolgreich beendet.
         create:
           error: Es gab einen Fehler bei der Identität des Benutzers.
+          success: Der verwaltete Benutzer wurde erfolgreich erstellt.
         form:
           authorization_method: Autorisierungsmethode
           name: Name
           reason: Grund
         new:
+          impersonate: Imitieren
           impersonate_existing_managed_user: Angenommen, dass der Benutzer "%{name}" verwaltet wird
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
