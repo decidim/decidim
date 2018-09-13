@@ -17,6 +17,7 @@
 **Fixed**:
 
 - **decidim-core**: Fix hero content block migration [\#4061](https://github.com/decidim/decidim/pull/4061)
+- **decidim-core**: Fix default content block creation migration [\#4084](https://github.com/decidim/decidim/pull/4084)
 - **decidim-generators**: Bootsnap warnings when generating test applications [\#4098](https://github.com/decidim/decidim/pull/4098)
 
 **Removed**:
