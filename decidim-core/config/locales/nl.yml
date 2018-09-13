@@ -230,6 +230,8 @@ nl:
         download_data: Download de gegevens
         download_data_description: Een bestand met alle informatie die aan het account is gekoppeld, wordt naar <strong>%{user_email}</strong>gestuurd
         request_data: Gegevens aanvragen
+    datepicker:
+      help_text: 'Verwacht formaat: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
