@@ -1,1 +1,150 @@
 de:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Sortierinformationen
+        decidim_category_id: Kategorien der Vorschläge, in denen Sie die Auslosung anwenden möchten
+        decidim_proposals_component_id: Vorschläge festgelegt
+        dice: Ergebnis des Würfelwurfs. Wirf einen 6-seitigen Würfel oder suche nach einem anderen zufälligen Weg, um eine Zahl von 1 bis 6 zu erzeugen, und gib die resultierende Zahl vor einigen Zeugen ein. Dies trägt zur Qualität und zur Gewährleistung der Zufälligkeit des Ergebnisses bei
+        target_items: Anzahl der auszuwählenden Vorschläge (gibt die Anzahl der Vorschläge an, die Sie auswählen möchten, indem Sie viele der Vorschläge auswählen, die Sie zuvor ausgewählt haben)
+        title: Titel
+        witnesses: Zeugen
+    models:
+      decidim/sortitions/create_sortition_event: Sortierung
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortierung
+        other: Sortierungen
+  decidim:
+    components:
+      sortitions:
+        name: Sortierungen
+        settings:
+          global:
+            comments_enabled: Kommentare aktiviert
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Die Sortierung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
+          email_subject: Neue Sortierung wurde zu %{participatory_space_title}hinzugefügt
+          notification_title: Die Sortierung <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortierungen
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortierungen
+    sortitions:
+      admin:
+        actions:
+          destroy: Brechen Sie die Sortierung ab
+          edit: Bearbeiten
+          new: Neue Sortierung
+          show: Sortierdetails
+        models:
+          sortition:
+            fields:
+              category: Kategorie
+              created_at: Erstellungsdatum
+              decidim_proposals_component: Vorschlagskomponente
+              dice: Würfel
+              reference: Referenz
+              request_timestamp: Zeit zeichnen
+              seed: Samen
+              target_items: Zu wählende Elemente
+              title: Titel
+            name:
+              one: Sortierung
+              other: Sortierungen
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Möchten Sie diese Sortierung wirklich abbrechen?
+            destroy: Sortierung abbrechen
+            title: Stornierung der Sortierung
+          create:
+            error: Beim Erstellen einer neuen Datei ist ein Fehler aufgetreten.
+            success: Die Sortierung wurde erfolgreich erstellt
+          destroy:
+            error: Die Sortierung kann nicht abgebrochen werden.
+            success: Die Sortierung wurde erfolgreich abgebrochen
+          edit:
+            title: Aktualisieren Sie die Informationen zur Sortierung
+            update: Aktualisieren
+          form:
+            all_categories: Alle Kategorien
+            select_proposal_component: Wählen Sie die Vorschläge aus
+            title: Neue Sortierung für Vorschläge
+          index:
+            title: Sortierungen
+          new:
+            confirm: Durch Drücken des nächsten Knopfes zeichnet Decidim das Datum und die Zeit (mit der Genauigkeit von Sekunden) auf und zusammen mit dem Würfelwurf wird diese Information verwendet, um eine zufällige Auswahl zu erzeugen. Die Aktion wird unumkehrbar sein, sobald die Schaltfläche angeklickt wird, wird das Ergebnis dieser Verlosung veröffentlicht, zusammen mit den in diesem Formular eingegebenen Daten und kann nicht geändert werden, bitte überprüfen Sie den Inhalt sorgfältig
+            create: Erstellen
+            title: Neue Sortierung
+          show:
+            selected_proposals: Vorschläge für die Auslosung ausgewählt
+          update:
+            error: Beim Aktualisieren der Sortierung ist ein Fehler aufgetreten.
+            success: Die Sortierung wurde erfolgreich aktualisiert
+      admin_log:
+        sortition:
+          create: "%{user_name} erstellt die %{resource_name} Sortierung in %{space_name}"
+          delete: "%{user_name} hat die %{resource_name} Sortierung in %{space_name}abgebrochen"
+          update: "%{user_name} hat die %{resource_name} Sortierung in %{space_name}aktualisiert"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 Vorschlag
+            other: "%{count} Vorschläge"
+        filters:
+          active: Aktiv
+          all: Alle
+          cancelled: Abgebrochen
+          category: Kategorie
+          category_prompt: Wählen Sie eine Kategorie
+          search: Suche
+          state: Zustand
+        filters_small_view:
+          close_modal: Modal schließen
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Entfalten
+        linked_sortitions:
+          selected_proposals: Ausgewählte Vorschläge
+        orders:
+          label: 'Sortieren nach:'
+          random: Zufällig
+          recent: Kürzlich
+        results_count:
+          count:
+            one: ausgewählter Vorschlag
+            other: ausgewählte Vorschläge
+        show:
+          algorithm: Sortieralgorithmuscode
+          any_category: aus allen Kategorien
+          cancelled: Stornierte Sortierung
+          candidate_proposal_ids: Reihenfolge der Sortierungsvorschläge und IDs
+          candidate_proposals_info: 'Die Sortierung wurde unter den folgenden Vorschlägen (%{category_label}) durchgeführt, mit den folgenden IDs (in Fettschrift die ausgewählten Vorschläge) '
+          category: aus der %{category} Kategorie
+          dice_result: "(1) Würfelergebnis"
+          introduction: 'Diese Seite enthält die Ergebnisse der Sortierung %{reference}. Durch diese Sortierung wurde %{target_items} Anzahl von Ergebnissen zufällig und mit einer gleichen Wahrscheinlichkeitsverteilung aus dem unten angezeigten Satz von Vorschlägen ausgewählt. Zusammen mit den Ergebnissen bieten die auf dieser Seite angezeigten Informationen alle Informationen, die erforderlich sind, um die Garantien zu maximieren und die Ergebnisse zu reproduzieren. Der Schlüssel zur Qualität dieser Sortierung ist die doppelte Zufälligkeit, die durch das Rollen eines Würfels (verifiziert durch Zeugen) und den genauen Zeitpunkt der Sortierung bereitgestellt wird, der eine Eingabe für einen Algorithmus liefert, der eine zufällige Auswahl erzeugt. Der Zeitsaat für die Sortierung ist so genau (Sekunden), dass es unmöglich ist, von Menschen kontrolliert zu werden, wodurch eine doppelte "unkontrollierbare" Eingabe bereitgestellt wird, um ein faires Ergebnis zu garantieren. '
+          mathematical_result: Ergebnis (1) x (2)
+          proposals_selected_by_sortition: Vorschläge nach der Sortierung ausgewählt
+          sortition_reproducibility_details: Einzelheiten der Sortierreproduzierbarkeit
+          time_seed: "(2) Zeit Samen"
+          witnesses: Zeugen
+        sortition:
+          random_seed: Zufallssamen
+          selected_proposals:
+            one: Angebot ausgewählt
+            other: Vorschläge ausgewählt
+          view: Aussicht
+        sortition_author:
+          deleted: Gelöschter Benutzer
+        sortition_cancel_author:
+          deleted: Gelöschter Benutzer
+        sortitions_count:
+          count:
+            one: 1 Sortierung
+            other: "%{count} Sortierungen"
