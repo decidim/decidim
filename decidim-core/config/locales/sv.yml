@@ -230,6 +230,8 @@ sv:
         download_data: Ladda ner datat
         download_data_description: En fil med all information som är kopplad till kontot skickas till <strong>%{user_email}</strong>
         request_data: Begär data
+    datepicker:
+      help_text: 'Förväntat format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
