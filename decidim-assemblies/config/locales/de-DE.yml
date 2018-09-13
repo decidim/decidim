@@ -1,1 +1,339 @@
 de:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Bereich
+        assembly_type: Montageart
+        assembly_type_other: Montageart andere
+        banner_image: Bannerbild
+        closing_date: Einsendeschluss
+        closing_date_reason: Schlussdatum Grund
+        composition: Zusammensetzung
+        copy_categories: Kategorien kopieren
+        copy_components: Kopieren Sie Komponenten
+        copy_features: Funktionen kopieren
+        created_by: Erstellt von
+        created_by_other: Erstellt von anderen
+        creation_date: Datum erstellt
+        decidim_area_id: Bereich
+        decidim_scope_id: Umfang
+        description: Beschreibung
+        developer_group: Entwicklergruppe
+        domain: Domain
+        duration: Dauer
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        included_at: Inbegriffen bei
+        instagram: Instagram
+        internal_organisation: Interne Organisation
+        is_transparent: Ist transparent
+        local_area: Ortsbereich
+        meta_scope: Bereichs-Metadaten
+        participatory_processes_ids: Related Partizipative Prozesse
+        participatory_scope: Partizipativer Bereich
+        participatory_structure: Partizipative Struktur
+        private_space: Privatsphäre
+        promoted: Gefördert
+        published_at: Veröffentlicht unter
+        purpose_of_action: Zweck der Aktion
+        scope_id: Umfang
+        scopes_enabled: Bereiche aktiviert
+        short_description: Kurze Beschreibung
+        show_statistics: Zeige Statistiken
+        slug: URL-Block
+        special_features: Besondere Merkmale
+        subtitle: Untertitel
+        target: Ziel
+        title: Titel
+        twitter: Twitter
+        youtube: Youtube
+      assembly_member:
+        birthday: Geburtstag
+        birthplace: Geburtsort
+        ceased_date: Aufgegebenes Datum
+        designation_date: Datum der Benennung
+        designation_mode: Bezeichnungsmodus
+        full_name: Vollständiger Name
+        gender: Geschlecht
+        position: Position
+      assembly_user_role:
+        email: Email
+        name: Name
+        role: Rolle
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Versammlung
+        other: Baugruppen
+      decidim/assembly_member:
+        one: Assembly Mitglied
+        other: Mitglieder der Versammlung
+      decidim/assembly_user_role:
+        one: Assembly-Benutzerrolle
+        other: Zusammenbau von Benutzerrollen
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.
+          success: Assembly wurde erfolgreich erstellt.
+        destroy:
+          success: Baugruppe wurde erfolgreich zerstört.
+        edit:
+          update: Aktualisieren
+        form:
+          title: Allgemeine Information
+        index:
+          not_published: Nicht veröffentlicht
+          private: Privatgelände
+          public: Öffentlichkeit
+          published: Veröffentlicht
+        new:
+          create: Erstellen
+          title: Neue Montage
+        update:
+          error: Beim Aktualisieren dieser Assembly ist ein Fehler aufgetreten.
+          success: Die Baugruppe wurde erfolgreich aktualisiert.
+      assemblies_copies:
+        create:
+          error: Beim Duplizieren dieser Assembly ist ein Fehler aufgetreten.
+          success: Die Baugruppe wurde erfolgreich dupliziert.
+      assembly_copies:
+        new:
+          copy: Kopieren
+          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
+          title: Doppelte Montage
+      assembly_members:
+        create:
+          error: Beim Hinzufügen eines Mitglieds für diese Assembly ist ein Fehler aufgetreten.
+          success: Mitglied wurde erfolgreich für diese Assembly erstellt.
+        destroy:
+          success: Mitglied wurde für diese Assembly erfolgreich zerstört.
+        edit:
+          title: Aktualisieren Sie das Baugruppenelement.
+          update: Aktualisieren
+        index:
+          assembly_members_title: Mitglieder der Versammlung
+        new:
+          create: Erstellen
+          title: Neues Montageelement
+        update:
+          error: Beim Aktualisieren des Elements für diese Assembly ist ein Fehler aufgetreten.
+          success: Mitglied wurde für diese Assembly erfolgreich aktualisiert.
+      assembly_publications:
+        create:
+          error: Beim Veröffentlichen dieser Assembly ist ein Fehler aufgetreten.
+          success: Assembly erfolgreich veröffentlicht.
+        destroy:
+          error: Beim Aufheben der Veröffentlichung dieser Assembly ist ein Fehler aufgetreten.
+          success: Die Assembly wurde nicht veröffentlicht.
+      assembly_user_roles:
+        create:
+          error: Beim Hinzufügen eines Benutzers für diese Assembly ist ein Fehler aufgetreten.
+          success: Der Benutzer wurde für diese Assembly erfolgreich erstellt.
+        destroy:
+          success: Der Benutzer wurde für diese Assembly erfolgreich zerstört.
+        edit:
+          title: Aktualisiere den Benutzer der Baugruppe
+          update: Aktualisieren
+        index:
+          assembly_admins_title: Assembly Benutzer
+        new:
+          create: Erstellen
+          title: Neuer Assembly-Benutzer
+        update:
+          error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
+          success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
+      menu:
+        assemblies: Baugruppen
+        assemblies_submenu:
+          assembly_admins: Assembly Benutzer
+          assembly_members: Mitglieder
+          attachment_collections: Sammlungen
+          attachment_files: Dateien
+          attachments: Anlagen
+          categories: Kategorien
+          components: Komponenten
+          info: Info
+          moderations: Moderationen
+          private_users: Private Benutzer
+      models:
+        assembly:
+          fields:
+            created_at: Hergestellt in
+            private: Privatgelände
+            promoted: Hervorgehoben
+            published: Veröffentlicht
+            title: Titel
+          name: Versammlung
+        assembly_member:
+          fields:
+            ceased_date: Aufgegebenes Datum
+            designation_date: Datum der Benennung
+            full_name: Name
+            position: Position
+          name: Mitglied
+          positions:
+            other: Andere
+            president: Präsident
+            secretary: Sekretär
+            vice_president: Vizepräsident
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Rolle
+          name: Assembly Benutzer
+          roles:
+            admin: Administrator
+            collaborator: Mitarbeiter
+            moderator: Moderator
+      titles:
+        assemblies: Baugruppen
+    admin_log:
+      assembly:
+        create: "%{user_name} erstellt die %{resource_name} Assembly"
+        publish: "%{user_name} veröffentlichte die %{resource_name} Versammlung"
+        unpublish: "%{user_name} unveröffentlicht die %{resource_name} Assembly"
+        update: "%{user_name} aktualisierte die %{resource_name} Assembly"
+      assembly_member:
+        create: "%{user_name} erstellt das %{resource_name} Mitglied in der %{space_name} Assembly"
+        delete: "%{user_name} entfernte das %{resource_name} Mitglied von der %{space_name} Versammlung"
+        update: "%{user_name} hat das %{resource_name} Mitglied in der %{space_name} Assembly aktualisiert"
+      assembly_user_role:
+        create: "%{user_name} lud %{resource_name} zur %{space_name} Versammlung ein"
+        delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Assembly"
+        update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Assembly geändert"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration_help: Wenn die Dauer dieser Assembly begrenzt ist, wählen Sie das Enddatum aus. Andernfalls wird es als unbestimmt angezeigt.
+            included_at_help: Wählen Sie das Datum aus, an dem diese Baugruppe zu Decidim hinzugefügt wurde. Es muss nicht unbedingt mit dem Erstellungsdatum identisch sein.
+            select_a_created_by: Wählen Sie eine erstellt von aus
+            select_an_area: Wählen Sie einen Bereich
+            select_an_assembly_type: Wählen Sie einen Montagetyp
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            social_handlers: Sozial
+        assembly_copies:
+          form:
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        assembly_members:
+          form:
+            existing_user: Existierender Benutzer
+            non_user: Nichtbenutzer
+            select_a_position: Wählen Sie eine Position
+            select_user: Wählen Sie einen Benutzer aus
+            user_type: Benutzertyp
+          index:
+            filter:
+              all: Alle
+              ceased: Aufgegeben
+              not_ceased: Nicht aufgehört
+            filter_by: Filtern nach
+            search: Suche
+      assembly_members:
+        index:
+          members: Mitglieder
+      assembly_types:
+        commission: Kommission
+        consultative_advisory: Beratende / Beratende
+        executive: Exekutive
+        government: Regierung
+        others: Andere
+        participatory: Teilnehmend
+        working_group: Arbeitsgruppe
+      created_by:
+        city_council: Stadtrat
+        others: Andere
+        public: Öffentlichkeit
+      index:
+        title: Baugruppen
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktive Baugruppen
+            see_all_assemblies: Alle Baugruppen anzeigen
+        user_profile:
+          member_of:
+            member_of: Mitglied von
+      show:
+        area: Bereich
+        assembly_type: Montageart
+        children: Baugruppen
+        closing_date: Einsendeschluss
+        composition: Zusammensetzung
+        created_by: Erstellt von
+        creation_date: Datum erstellt
+        developer_group: Entwicklergruppe
+        duration: Dauer
+        included_at: Inbegriffen bei
+        indefinite_duration: Unbestimmt
+        internal_organisation: Interne Organisation
+        is_transparent:
+          'false': undurchsichtig
+          'true': transparent
+        local_area: Ortsbereich
+        participatory_scope: Partizipativer Bereich
+        participatory_structure: Partizipative Struktur
+        private_space: Dies ist eine private Versammlung
+        purpose_of_action: Zweck der Aktion
+        read_less: Lese weniger
+        read_more: Weiterlesen
+        related_participatory_processes: In Verbindung stehende partizipative Prozesse
+        scope: Umfang
+        social_networks: Soziale Netzwerke
+        target: Ziel
+      statistics:
+        answers_count: Antworten
+        assemblies_count: Baugruppen
+        comments_count: Bemerkungen
+        debates_count: Debatten
+        endorsements_count: Empfehlungen
+        headline: Aktivität
+        meetings_count: Meetings
+        orders_count: Stimmen
+        pages_count: Seiten
+        projects_count: Projekte
+        proposals_count: Vorschläge
+        results_count: Ergebnisse
+        surveys_count: Umfragen
+        users_count: Teilnehmer
+        votes_count: Stimmen
+    assembly_members:
+      assembly_member:
+        designated_on: Bezeichnet am
+      index:
+        title: Mitglieder
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
+    menu:
+      assemblies: Baugruppen
+  errors:
+    messages:
+      cannot_be_blank: darf nicht leer sein
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Teilnehmen
+        index:
+          promoted_assemblies: Hervorgehobene Baugruppen
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} Versammlung"
+            other: "%{count} Baugruppen"
+        promoted_assembly:
+          more_info: Mehr Info
+          take_part: Teilnehmen
+      assembly_header:
+        assembly_member_menu_item: Mitglieder
+        assembly_menu_item: Die Versammlung
+        unfold: Entfalten
+      assembly_widgets:
+        show:
+          take_part: Teilnehmen
