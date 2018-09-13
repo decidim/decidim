@@ -648,13 +648,48 @@ hu:
       version_author:
         deleted: Törölt felhasználó
   devise:
+    confirmations:
+      confirmed: E-mail címed sikeresen meg lett erősítve.
+      new:
+        resend_confirmation_instructions: A visszaigazolási utasítások újraküldése
+      send_instructions: Az e-mail címének néhány perc múlva történő megerősítésével kapcsolatban e-mailt kap.
+      send_paranoid_instructions: Ha az Ön e-mail címe létezik az adatbázisunkban, néhány perc múlva kap egy e-mailt az utasítások megerősítésével.
+    failure:
+      already_authenticated: Már be van jelentkezve.
+      inactive: Fiókod nincs aktiválva.
+      invalid: Érvénytelen %{authentication_keys} vagy jelszó.
+      invited: Van egy függőben lévő meghívója, fogadja el, hogy befejezze a fiók létrehozását.
+      last_attempt: Még egy kísérlet van még a fiók zárolása előtt.
+      locked: A fiókja zárolva van.
+      not_found_in_database: Érvénytelen %{authentication_keys} vagy jelszó.
+      timeout: A munkamenet lejárt. Kérjük, jelentkezzen be újra a folytatáshoz.
+      unauthenticated: Jelentkezzen be, vagy regisztráljon, mielőtt folytatja.
+      unconfirmed: A folytatás előtt meg kell erősítenie az e-mail címét.
     invitations:
       edit:
         header: Profil létrehozásának befejezése
         nickname_help: 'Egyedi azonosítód ehhez: %{organization}.'
         submit_button: Mentés
         subtitle: Ha elfogadod a meghívást, állítsd be a beceneved és a jelszavad.
+      invitation_removed: Meghívása eltávolításra került.
+      invitation_token_invalid: A megadott hívásjelző nem érvényes!
+      new:
+        header: Meghívás küldése
+        submit_button: Küldjön meghívót
+      no_invitations_remaining: Nincsenek meghívók
+      send_instructions: Meghívó e-mailt küldött %{email}.
+      updated: A jelszó sikeresen be lett állítva. Most bejelentkezett.
+      updated_not_active: A jelszó sikeresen be lett állítva.
     mailer:
+      confirmation_instructions:
+        action: Fiókom megerősítése
+        greeting: Üdvözöljük %{recipient}!
+        instruction: 'Fiókjának e-mailjeit az alábbi linken keresztül erősítheti meg:'
+        subject: Megerősítési utasítások
+      email_changed:
+        greeting: Hello %{recipient}!
+        message: Értesítjük Önt, hogy értesíti Önt, hogy az e-mail címét %{email}változott.
+        subject: E-mail megváltozott
       invitation_instructions:
         accept: Meghívó elfogadása
         accept_until: 'Ez a meghívás eddig érvényes: %{due_date}.'
@@ -669,6 +704,7 @@ hu:
         someone_invited_you: 'Valaki meghívott, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_admin: 'Valaki meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_private_user: 'Valaki meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
+        subject: Meghívó utasítások
       invite_admin:
         subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
       invite_collaborator:
@@ -685,6 +721,32 @@ hu:
         greeting: Helló %{recipient}!
         message: Azért kaptad ezt az üzenetet, mert megváltozott a jelszavad.
         subject: Jelszó módosítva
+      reset_password_instructions:
+        action: A jelszó megváltoztatása
+        greeting: Hello %{recipient}!
+        instruction: Valaki felkért egy linket a jelszó megváltoztatására, és ezt az alábbi linken keresztül teheti meg.
+        instruction_2: Ha nem kérte ezt, kérjük, figyelmen kívül hagyja ezt az e-mailt.
+        instruction_3: A jelszavát addig nem változtatják meg, amíg nem érjük el a fenti linket, és nem hozunk létre újat.
+        subject: Jelszó-visszaállító utasítások visszaállítása
+      unlock_instructions:
+        action: Fiókom feloldása
+        greeting: Hello %{recipient}!
+        instruction: 'A fiók feloldásához kattintson az alábbi linkre:'
+        message: Fiókját lezárták, mert túl sok sikertelen bejelentkezési kísérlet történt.
+        subject: Feloldási utasítások
+    omniauth_callbacks:
+      failure: Nem sikerült hitelesíteni Önt a %{kind} mert "%{reason}".
+      success: Sikeresen hitelesített %{kind} fiókból.
+    passwords:
+      edit:
+        change_my_password: A jelszó megváltoztatása
+        change_your_password: változtasd meg a jelszavadat
+        confirm_new_password: Erősítse meg az új jelszót
+        new_password: Új jelszó
+      new:
+        forgot_your_password: Elfelejtette a jelszavát?
+        send_me_reset_password_instructions: Küldje el a jelszavas utasítások visszaállítását
+      no_token: Nem érheted el ezt az oldalt jelszó-visszaállító e-mail üzenetek nélkül. Ha jelszó-alaphelyzetbe állított e-mailből származik, kérjük, győződjön meg róla, hogy a teljes URL-t használja.
   doorkeeper:
     scopes:
       public: Nyilvános információk.
