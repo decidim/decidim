@@ -649,13 +649,42 @@ eu:
       version_author:
         deleted: Erabiltzailea ezabatua
   devise:
+    confirmations:
+      confirmed: Zure helbide elektronikoa ondo egiaztatu da.
+      new:
+        resend_confirmation_instructions: Berrikusi berrespen-argibideak
+      send_instructions: Mezu elektroniko bat jasoko duzu jarraibideekin, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
+      send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, zure helbide elektronikoa berretsi ahal izateko gutxienez minutu bat jasoko duzu.
+    failure:
+      already_authenticated: Saioa hasi zara.
+      inactive: Zure kontua ez dago oraindik aktibatuta.
+      invalid: '%{authentication_keys} edo pasahitza baliogabea.'
+      invited: Gonbidapen bat dago zain, onartu zure kontua sortzerakoan.
+      last_attempt: Zure kontua blokeatuta dago aurretik zure saiakera gehiago duzu.
+      locked: Zure kontua blokeatuta dago.
+      not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
+      timeout: Zure saioa iraungi da. Hasi saioa berriro jarraitzeko.
+      unauthenticated: Saioa hasi edo saioa hasi behar duzu jarraitu aurretik.
+      unconfirmed: Zure helbide elektronikoa berretsi behar duzu jarraitu baino lehen.
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
         nickname_help: Zure identifikadore bakarra %{organization} zenbakian.
         submit_button: Gorde
         subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
+      invitation_removed: Zure gonbidapena kendu egin da.
+      invitation_token_invalid: Gonbidapen token hori ez da baliozkoa!
+      new:
+        header: Bidali gonbidapena
+        submit_button: Gonbidapena bidali
+      no_invitations_remaining: Ez da gonbidapenik geratzen
+      send_instructions: Gonbidapen mezu bat bidali da %{email}.
+      updated: Pasahitza ondo ezarri da. Saioa hasi zara.
+      updated_not_active: Pasahitza ondo ezarri da.
     mailer:
+      confirmation_instructions:
+        action: Berretsi nire kontua
+        greeting: Ongi etorri %{recipient}!
       invitation_instructions:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
@@ -686,6 +715,9 @@ eu:
         greeting: Kaixo %{recipient}!
         message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
         subject: Pasahitza aldatu da
+    passwords:
+      edit:
+        new_password: Pasahitza
   doorkeeper:
     scopes:
       public: Zure informazio publikoa.
