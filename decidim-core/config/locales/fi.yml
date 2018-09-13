@@ -230,6 +230,8 @@ fi:
         download_data: Lataa tiedot
         download_data_description: Kaikki tiliisi liittyvät tiedot sisältävä tiedosto lähetetään sähköpostiosoitteeseen <strong>%{user_email}</strong>
         request_data: Pyydä tietoja
+    datepicker:
+      help_text: 'Odotettu muoto: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
