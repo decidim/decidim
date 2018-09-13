@@ -8,6 +8,14 @@ de:
     admin_log:
       page:
         update: "%{user_name} aktualisiert die %{resource_name} Seite in %{space_name}"
+    components:
+      pages:
+        name: Seite
+        settings:
+          global:
+            announcement: Ankündigung
+          step:
+            announcement: Ankündigung
     pages:
       admin:
         models:
