@@ -16,10 +16,37 @@ de:
       proposals_copy:
         copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Muss wieder angebracht werden
     models:
       decidim/proposals/accepted_proposal_event: Vorschlag angenommen
       decidim/proposals/admin/update_proposal_category_event: Angebotskategorie geändert
       decidim/proposals/creation_enabled_event: Angebotserstellung aktiviert
+      decidim/proposals/endorsing_enabled_event: Angebotsunterstützung aktiviert
+      decidim/proposals/evaluating_proposal_event: Das Angebot wird evaluiert
+      decidim/proposals/proposal_endorsed_event: Vorschlag gebilligt
+      decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
+      decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
+      decidim/proposals/rejected_proposal_event: Vorschlag abgelehnt
+      decidim/proposals/voting_enabled_event: Angebotsabstimmung aktiviert
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Vorschlag
+        other: Vorschläge
+      decidim/proposals/proposal_endorsement:
+        one: Billigung
+        other: Empfehlungen
+      decidim/proposals/proposal_note:
+        one: Hinweis
+        other: Anmerkungen
+      decidim/proposals/proposal_vote:
+        one: Abstimmung
+        other: Stimmen
   decidim:
     components:
       proposals:
@@ -45,6 +72,7 @@ de:
             proposal_wizard_step_1_help_text: Angebotsassistent "Create" -Schritt-Hilfetext
             proposal_wizard_step_2_help_text: Angebotsassistent "Vergleichen" Schritt-Hilfetext
             proposal_wizard_step_3_help_text: Angebotsassistent "Schritt" - Hilfetext "Fertig"
+            proposal_wizard_step_4_help_text: Angebotsassistent "Veröffentlichen" Schritt-Hilfetext
             threshold_per_proposal: Schwellenwert pro Angebot
             vote_limit: Wahllimit pro Benutzer
           step:
@@ -54,6 +82,8 @@ de:
             endorsements_blocked: Zustimmungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Angebotsantworten aktiviert
+            votes_blocked: Stimmen blockiert
+            votes_enabled: Stimmen aktiviert
             votes_hidden: Abstimmungen ausgeblendet (wenn Abstimmungen aktiviert sind, wird dies die Anzahl der Abstimmungen verbergen)
     events:
       proposals:
@@ -61,6 +91,7 @@ de:
           email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title}erstellen! Starten Sie die Teilnahme an dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Vorschläge jetzt in %{participatory_space_title}verfügbar
+          notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
         endorsing_enabled:
           email_intro: 'Sie können Vorschläge in %{participatory_space_title}! Starten Sie die Teilnahme an dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
@@ -118,6 +149,7 @@ de:
       actions:
         answer: Antworten
         import: Importieren von einer anderen Komponente
+        new: Neu
         private_notes: Private Notizen
         title: Aktionen
       admin:
@@ -202,11 +234,13 @@ de:
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
       destroy_draft:
         error: Es gab Fehler beim Löschen des Angebotsentwurfs.
+        success: Der Angebotsentwurf wurde erfolgreich vernichtet.
       models:
         proposal:
           fields:
             category: Kategorie
             comments: Bemerkungen
+            created_at: Hergestellt in
             endorsements: Empfehlungen
             id: ICH WÜRDE
             notes: Anmerkungen
@@ -257,6 +291,7 @@ de:
         endorsement_identities_cabin:
           endorse: Unterstützung
         endorsements_card_row:
+          comments: Bemerkungen
           endorse: Unterstützung
         filters:
           accepted: Akzeptiert
@@ -266,6 +301,7 @@ de:
           category_prompt: Wählen Sie eine Kategorie
           citizens: Bürger
           evaluating: Bewertung
+          except_rejected: Alle außer abgelehnt
           official: Offiziell
           origin: Ursprung
           rejected: Abgelehnt
@@ -306,6 +342,10 @@ de:
           view_proposal: Angebot anzeigen
         show:
           edit_proposal: Angebot bearbeiten
+          endorsements_list: Liste der Empfehlungen
+          hidden_endorsers_count:
+            one: und 1 weitere Person
+            other: und %{count} weitere Leute
           proposal_accepted_reason: 'Dieser Vorschlag wurde angenommen, weil:'
           proposal_in_evaluation_reason: Dieser Vorschlag wird evaluiert
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
@@ -363,3 +403,11 @@ de:
       update_draft:
         error: Beim Speichern des Angebotsentwurfs sind Fehler aufgetreten.
         success: Der Angebotsentwurf wurde erfolgreich aktualisiert.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Ähnliche Vorschläge
+      included_projects:
+        project_result: 'Ergebnisse, die in diesem Projekt erscheinen:'
+      included_proposals:
+        proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
+        proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
