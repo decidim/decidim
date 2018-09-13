@@ -230,6 +230,8 @@ de:
         download_data: Laden Sie die Daten herunter
         download_data_description: Eine Datei mit allen mit dem Konto verbundenen Informationen wird an <strong>%{user_email}</strong>gesendet
         request_data: Daten anfordern
+    datepicker:
+      help_text: 'Erwartetes Format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
