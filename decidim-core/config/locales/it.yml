@@ -649,13 +649,48 @@ it:
       version_author:
         deleted: Utente eliminato
   devise:
+    confirmations:
+      confirmed: Il tuo indirizzo email è stato confermato con successo.
+      new:
+        resend_confirmation_instructions: Rispedire le istruzioni di conferma
+      send_instructions: Riceverai un'email con le istruzioni su come confermare il tuo indirizzo email in pochi minuti.
+      send_paranoid_instructions: Se il tuo indirizzo e-mail esiste nel nostro database, riceverai un'email con le istruzioni su come confermare il tuo indirizzo e-mail in pochi minuti.
+    failure:
+      already_authenticated: Sei già iscritto.
+      inactive: Il tuo account non è ancora attivato.
+      invalid: '%{authentication_keys} o password non validi.'
+      invited: Hai un invito in sospeso, accettalo per completare la creazione del tuo account.
+      last_attempt: Hai ancora un tentativo prima che il tuo account sia bloccato.
+      locked: Il tuo account è bloccato.
+      not_found_in_database: '%{authentication_keys} o password non validi.'
+      timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
+      unauthenticated: È necessario accedere o registrarsi prima di continuare.
+      unconfirmed: Devi confermare il tuo indirizzo email prima di continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account
         nickname_help: Il tuo identificativo univoco in %{organization}.
         submit_button: Salva
         subtitle: Se accetti l'invito, imposta il tuo nickname e password.
+      invitation_removed: Il tuo invito è stato rimosso
+      invitation_token_invalid: Il token di invito fornito non è valido!
+      new:
+        header: Spedire un invito
+        submit_button: Invia un invito
+      no_invitations_remaining: Nessun invito rimanente
+      send_instructions: Una email di invito è stata inviata a %{email}.
+      updated: La tua password è stata impostata correttamente. Ora hai effettuato l'accesso.
+      updated_not_active: La tua password è stata impostata correttamente.
     mailer:
+      confirmation_instructions:
+        action: Conferma il mio account
+        greeting: Benvenuto %{recipient}!
+        instruction: 'Puoi confermare l''email del tuo account tramite il link sottostante:'
+        subject: Istruzioni di conferma
+      email_changed:
+        greeting: Ciao %{recipient}!
+        message: Ti stiamo contattando per informarti che la tua email è stata modificata a %{email}.
+        subject: Email cambiata
       invitation_instructions:
         accept: Accetta l'invito
         accept_until: Questo invito scade il %{due_date}.
@@ -670,6 +705,7 @@ it:
         someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
         someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
         someone_invited_you_as_private_user: Qualcuno ti ha invitato come private_user di %{application}, puoi accettarlo tramite il link sottostante.
+        subject: Istruzioni di invito
       invite_admin:
         subject: Sei stato invitato per la gestione della sezione relativa all'organizzazione %{organization}
       invite_collaborator:
@@ -686,6 +722,19 @@ it:
         greeting: Ciao %{recipient}!
         message: Ti contattiamo per informarti che la tua password è stata modificata.
         subject: Password modificata
+      reset_password_instructions:
+        action: Cambia la mia password
+        greeting: Ciao %{recipient}!
+        instruction: Qualcuno ha richiesto un link per cambiare la tua password, e puoi farlo attraverso il link qui sotto.
+        instruction_2: Se non lo hai richiesto, ignora questa email.
+        instruction_3: La tua password non cambierà fino a quando non accedi al link sopra e ne crei uno nuovo.
+        subject: Reimposta le istruzioni della password
+      unlock_instructions:
+        action: Sblocca il mio account
+        greeting: Ciao %{recipient}!
+    passwords:
+      edit:
+        new_password: Nuova password
   doorkeeper:
     scopes:
       public: Le tue informazioni pubbliche.
