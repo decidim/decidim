@@ -649,13 +649,48 @@ ca:
       version_author:
         deleted: Usuari eliminat
   devise:
+    confirmations:
+      confirmed: La vostra adreça de correu electrònic s'ha confirmat correctament.
+      new:
+        resend_confirmation_instructions: Reenvia les instruccions de confirmació
+      send_instructions: Rebreu un correu electrònic amb instruccions per confirmar la vostra adreça de correu electrònic en pocs minuts.
+      send_paranoid_instructions: Si la vostra adreça de correu electrònic existeix a la nostra base de dades, rebrà un correu electrònic amb instruccions per confirmar la vostra adreça de correu electrònic en pocs minuts.
+    failure:
+      already_authenticated: Ja heu iniciat la sessió.
+      inactive: El teu compte encara no està activat.
+      invalid: El %{authentication_keys} o la contrasenya no són vàlids.
+      invited: Teniu una invitació pendent, accepteu-lo per acabar de crear el vostre compte.
+      last_attempt: Teniu un intent més abans de bloquejar el vostre compte.
+      locked: El vostre compte està bloquejat.
+      not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
+      timeout: La vostra sessió ha caducat. Torna a iniciar-la per continuar.
+      unauthenticated: Heu d'iniciar la sessió o registrar-vos abans de continuar.
+      unconfirmed: Heu de confirmar la vostra adreça de correu electrònic abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari/a i contrasenya.
+      invitation_removed: S'ha eliminat la teva invitació.
+      invitation_token_invalid: El token d'invitació proporcionat no és vàlid.
+      new:
+        header: Enviar invitació
+        submit_button: Enviar una invitació
+      no_invitations_remaining: No hi ha invitacions restants
+      send_instructions: S'ha enviat un correu electrònic d'invitació a %{email}.
+      updated: La vostra contrasenya s'ha establert correctament. Ja heu iniciat la sessió.
+      updated_not_active: La vostra contrasenya s'ha establert correctament.
     mailer:
+      confirmation_instructions:
+        action: Confirma el meu compte
+        greeting: Benvinguda %{recipient}
+        instruction: 'Podeu confirmar el correu electrònic del vostre compte a través de l''enllaç següent:'
+        subject: Instruccions de confirmació
+      email_changed:
+        greeting: Hola %{recipient}
+        message: Ens contactem per avisar-vos que el vostre correu electrònic es modifica a %{email}.
+        subject: El correu electrònic s'ha canviat
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
@@ -670,6 +705,7 @@ ca:
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
         someone_invited_you_as_private_user: Algú t'ha convidat com a usuari privat de %{application}. Pots acceptar-ho a través del següent enllaç.
+        subject: Instruccions d'invitació
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
@@ -686,6 +722,13 @@ ca:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
         subject: Contrasenya modificada
+      reset_password_instructions:
+        action: Canvia la meva contrasenya
+        greeting: Hola %{recipient}
+        instruction: Algú ha demanat un enllaç per canviar la contrasenya, i ho podeu fer a través de l'enllaç següent.
+    passwords:
+      edit:
+        new_password: Contrasenya
   doorkeeper:
     scopes:
       public: La teva informació pública.
