@@ -5,7 +5,7 @@ fr:
       survey_answer:
         body: Réponse
       survey_question:
-        mandatory: Requis
+        mandatory: Réponse à la question obligatoire
         max_choices: Nombre de choix maximum
         question_type: Type de question
     errors:
@@ -67,7 +67,7 @@ fr:
             answer_option: Option de réponse
             free_text: Texte libre
             remove: Retirer
-            statement: Déclaration
+            statement: Intitulé de la réponse
           edit:
             save: Sauvegarder
             title: Titre
@@ -81,7 +81,7 @@ fr:
             down: Descendre
             question: Question
             remove: Retirer
-            statement: Déclaration
+            statement: Intitulé de la question
             up: Monter
           update:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
