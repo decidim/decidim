@@ -47,7 +47,6 @@ ca:
   carrierwave:
     errors:
       image_too_big: La imatge és massa gran
-      file_too_big: El fitxer és massa gran
   date:
     formats:
       decidim_short: "%d/%m/%Y"
