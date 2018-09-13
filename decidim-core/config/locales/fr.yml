@@ -690,6 +690,7 @@ fr:
       email_changed:
         greeting: Bonjour %{recipient}!
         message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}.
+        subject: Courriel modifié
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
@@ -704,6 +705,7 @@ fr:
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         someone_invited_you_as_private_user: Vous avez été invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
+        subject: Instructions d'invitation
       invite_admin:
         subject: Vous avez été invité à gérer %{organization}
       invite_collaborator:
@@ -720,20 +722,98 @@ fr:
         greeting: Bonjour %{recipient} !
         message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
+      reset_password_instructions:
+        action: Changer mon mot de passe
+        greeting: Bonjour %{recipient}!
+        instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
+        instruction_2: Si vous ne l'avez pas demandé, veuillez ignorer cet email.
+        instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créez un nouveau.
+        subject: Réinitialiser les instructions de mot de passe
+      unlock_instructions:
+        action: Débloquer mon compte
+        greeting: Bonjour %{recipient}!
+        instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte:'
+        message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
+        subject: Instructions de déverrouillage
+    omniauth_callbacks:
+      failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
+      success: Authentifié avec succès à partir de %{kind} compte.
     passwords:
       edit:
+        change_my_password: Changer mon mot de passe
+        change_your_password: changez votre mot de passe
+        confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Votre mot de passe
+      new:
+        forgot_your_password: Mot de passe oublié?
+        send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
+      no_token: Vous ne pouvez pas accéder à cette page sans provenir d'un courrier électronique de réinitialisation de mot de passe. Si vous venez d'un courrier électronique de réinitialisation de mot de passe, assurez-vous d'avoir utilisé l'URL complète fournie.
+      send_instructions: Vous recevrez un e-mail avec des instructions pour réinitialiser votre mot de passe en quelques minutes.
+      send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un lien de récupération de mot de passe à votre adresse e-mail dans quelques minutes.
+      updated: Votre mot de passe a été changé avec succès. Vous êtes maintenant inscrit.
+      updated_not_active: Votre mot de passe a été changé avec succès.
+    registrations:
+      destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
+      edit:
+        are_you_sure: Êtes-vous sûr?
+        cancel_my_account: Annuler mon compte
+        currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
+        title: Modifier %{resource}
+        unhappy: Malheureux?
+        update: Mettre à jour
+        we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
+      new:
+        sign_up: S'inscrire
+      signed_up: Bienvenue! Vous vous êtes inscrit avec succès.
+      signed_up_but_inactive: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte n'est pas encore activé.
+      signed_up_but_locked: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte est verrouillé.
+      signed_up_but_unconfirmed: Un message avec un lien de confirmation a été envoyé à votre adresse e-mail. Veuillez suivre le lien pour activer votre compte.
+      update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse e-mail. S'il vous plaît vérifier votre email et suivez le lien de confirmation pour confirmer votre nouvelle adresse e-mail.
+      updated: Votre compte a été mis à jour avec succès.
+    sessions:
+      already_signed_out: Signé avec succès.
+      new:
+        sign_in: S'identifier
+      signed_in: Signé avec succès.
+      signed_out: Signé avec succès.
+    shared:
+      links:
+        back: Arrière
+        didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
+        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
+        forgot_your_password: Mot de passe oublié?
+        sign_in: S'identifier
+        sign_in_with_provider: Se connecter avec %{provider}
+        sign_up: S'inscrire
+      minimum_password_length:
+        one: "(%{count} caractère minimum)"
+        other: "(%{count} caractères minimum)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Renvoyer les instructions de déverrouillage
+      send_instructions: Vous recevrez un email avec des instructions pour débloquer votre compte en quelques minutes.
+      send_paranoid_instructions: Si votre compte existe, vous recevrez un email avec des instructions pour le débloquer en quelques minutes.
+      unlocked: Votre compte a été débloqué avec succès. Veuillez vous connecter pour continuer.
   doorkeeper:
     scopes:
       public: Votre information publique
   errors:
     messages:
+      already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
+      confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_whitelist_error: le type de fichier n'est pas valide
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
+      expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       long_words: contient des mots qui sont trop longs
       must_start_with_caps: doit commencer avec des majuscules
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
+      not_found: pas trouvé
+      not_locked: n'était pas verrouillé
+      not_saved:
+        one: '1 erreur a interdit cette sauvegarde %{resource}:'
+        other: "%{count} erreurs interdit ce %{resource} d'être sauvé:"
       too_many_marks: utilise trop de signes
       too_much_caps: utilise trop de majuscules
       too_short: est trop court
@@ -821,6 +901,10 @@ fr:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
