@@ -664,7 +664,7 @@ en:
       already_authenticated: You are already signed in.
       inactive: Your account is not activated yet.
       invalid: Invalid %{authentication_keys} or password.
-      invited: "You have a pending invitation, accept it to finish creating your account."
+      invited: You have a pending invitation, accept it to finish creating your account.
       last_attempt: You have one more attempt before your account is locked.
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
@@ -672,20 +672,20 @@ en:
       unauthenticated: You need to sign in or sign up before continuing.
       unconfirmed: You have to confirm your email address before continuing.
     invitations:
-      send_instructions: "An invitation email has been sent to %{email}."
-      invitation_token_invalid: "The invitation token provided is not valid!"
-      updated: "Your password was set successfully. You are now signed in."
-      updated_not_active: "Your password was set successfully."
-      no_invitations_remaining: "No invitations remaining"
-      invitation_removed: "Your invitation was removed."
-      new:
-        header: "Send invitation"
-        submit_button: "Send an invitation"
       edit:
         header: Finish creating your account
         nickname_help: Your unique identifier in %{organization}.
         submit_button: Save
         subtitle: If you accept the invitation please set your nickname and password.
+      invitation_removed: Your invitation was removed.
+      invitation_token_invalid: The invitation token provided is not valid!
+      new:
+        header: Send invitation
+        submit_button: Send an invitation
+      no_invitations_remaining: No invitations remaining
+      send_instructions: An invitation email has been sent to %{email}.
+      updated: Your password was set successfully. You are now signed in.
+      updated_not_active: Your password was set successfully.
     mailer:
       confirmation_instructions:
         action: Confirm my account
@@ -710,7 +710,7 @@ en:
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
         someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
-        subject: "Invitation instructions"
+        subject: Invitation instructions
       invite_admin:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
