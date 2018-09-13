@@ -230,6 +230,8 @@ eu:
         download_data: Deskargatu datuak
         download_data_description: Kontuarekin lotutako informazio guztia duen fitxategia <strong>%{user_email}</strong>bidaliko da
         request_data: Eskaera datuak
+    datepicker:
+      help_text: 'Espero den formatua: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
