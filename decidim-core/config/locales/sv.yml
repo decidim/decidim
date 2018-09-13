@@ -649,12 +649,35 @@ sv:
       version_author:
         deleted: Raderad användare
   devise:
+    confirmations:
+      confirmed: Din e-postadress har bekräftats.
+      new:
+        resend_confirmation_instructions: Skicka om bekräftelsesinstruktionerna igen
+      send_instructions: Du kommer att få ett mail med instruktioner för hur du bekräftar din e-postadress om några minuter.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress inom några minuter.
+    failure:
+      already_authenticated: Du är redan inloggad.
+      inactive: Ditt konto är inte aktiverat ännu.
+      invalid: Ogiltigt %{authentication_keys} eller lösenord.
+      invited: Du har en väntande inbjudan, acceptera den för att slutföra skapa ditt konto.
+      last_attempt: Du har ytterligare ett försök innan ditt konto är låst.
+      locked: Ditt konto är låst.
+      not_found_in_database: Ogiltigt %{authentication_keys} eller lösenord.
+      timeout: Din session löpte ut. Vänligen logga in igen för att fortsätta.
+      unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
+      unconfirmed: Du måste bekräfta din e-postadress innan du fortsätter.
     invitations:
       edit:
         header: Slutför skapandet av ditt konto
         nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
         subtitle: Om du accepterar inbjudan, vänligen välj ditt användarnamn och lösenord.
+      invitation_removed: Din inbjudan har tagits bort.
+      invitation_token_invalid: Anbudsinfordran är inte giltig!
+      new:
+        header: Skicka inbjudan
+        submit_button: Skicka en inbjudan
+      no_invitations_remaining: Inga inbjudningar kvar
     mailer:
       invitation_instructions:
         accept: Acceptera inbjudan
@@ -686,6 +709,9 @@ sv:
         greeting: Hej %{recipient}!
         message: Vi kontaktar dig för att meddela dig att ditt lösenord har ändrats.
         subject: Lösenord ändrat
+    passwords:
+      edit:
+        new_password: Nytt lösenord
   doorkeeper:
     scopes:
       public: Din offentliga information.
