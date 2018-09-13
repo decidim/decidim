@@ -5,7 +5,6 @@ module Decidim
     module Admin
       # This controller allows admins to make private notes on proposals in a participatory process.
       class ProposalNotesController < Admin::ApplicationController
-        helper Decidim::ApplicationHelper
         helper_method :proposal
 
         def index
