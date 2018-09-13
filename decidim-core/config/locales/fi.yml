@@ -686,6 +686,11 @@ fi:
         action: Vahvista tilini
         greeting: Tervetuloa %{recipient}!
         instruction: 'Voit vahvistaa tilisi sähköpostiviestin alla olevan linkin kautta.'
+        subject: Vahvistusohjeet
+      email_changed:
+        greeting: Hei %{recipient}!
+        message: Ilmoitamme sinulle, että sähköpostiosoitteesi muuttuu %{email}.
+        subject: Sähköposti muuttui
       invitation_instructions:
         accept: Hyväksy kutsu
         accept_until: Tämä kutsu erääntyy %{due_date}.
@@ -700,6 +705,7 @@ fi:
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
         someone_invited_you_as_private_user: Joku on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta.
+        subject: Kutsuohjeet
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
@@ -716,20 +722,98 @@ fi:
         greeting: Hei %{recipient}!
         message: Tämä on ilmoitus siitä, että salasanasi on nyt vaihdettu.
         subject: Salasana vaihdettu
+      reset_password_instructions:
+        action: Vaihda salasanani
+        greeting: Hei %{recipient}!
+        instruction: Joku on pyytänyt linkkiä salasanan vaihtamiseen, ja voit tehdä sen alla olevan linkin kautta.
+        instruction_2: Jos et ole pyytänyt tätä, jätä tämä viesti huomiotta.
+        instruction_3: Salasanasi ei muutu, ennen kuin käytät yllä olevaa linkkiä ja luodaan uusi.
+        subject: Nollaa salasanan ohjeet
+      unlock_instructions:
+        action: Avaa tilini
+        greeting: Hei %{recipient}!
+        instruction: 'Avaa tilin avaaminen napsauttamalla alla olevaa linkkiä:'
+        message: Tilisi on lukittu liian suuren epäonnistuneen kirjautumisen yhteydessä.
+        subject: Avaa ohjeet
+    omniauth_callbacks:
+      failure: Et voi todentaa sinulta %{kind} koska "%{reason}".
+      success: Tunnistettiin onnistuneesti %{kind} tilistä.
     passwords:
       edit:
+        change_my_password: Vaihda salasanani
+        change_your_password: Vaihda salasanasi
+        confirm_new_password: Vahvista uusi salasana
         new_password: Salasanasi
+      new:
+        forgot_your_password: Unohditko salasanasi?
+        send_me_reset_password_instructions: Lähetä minulle salasanan ohjeet
+      no_token: Et voi käyttää tätä sivua lähettämättä salasanan palautusviestiä. Jos et tule salasanan palautussähköpostiviestiltä, ​​varmista, että käytät täydellistä URL-osoitetta.
+      send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutamassa minuutissa.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi on olemassa tietokantaamme, saat salasanan palautussivun sähköpostiisi muutamassa minuutissa.
+      updated: Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään.
+      updated_not_active: Salasanasi on vaihdettu onnistuneesti.
+    registrations:
+      destroyed: Hei hei! Tilisi on peruutettu onnistuneesti. Toivottavasti nähdään pian uudelleen.
+      edit:
+        are_you_sure: Oletko varma?
+        cancel_my_account: Peruuta tilini
+        currently_waiting_confirmation_for_email: 'Odotus odotus: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: jätä tyhjäksi, jos et halua muuttaa sitä
+        title: Muokkaa %{resource}
+        unhappy: Onneton?
+        update: Päivittää
+        we_need_your_current_password_to_confirm_your_changes: tarvitsemme nykyisen salasanasi vahvistamalla muutokset
+      new:
+        sign_up: Kirjaudu
+      signed_up: Tervetuloa! Olet kirjautunut sisään onnistuneesti.
+      signed_up_but_inactive: Olet kirjautunut sisään onnistuneesti. Emme kuitenkaan voineet kirjautua sisään sisään, koska tilisi ei ole vielä aktivoitu.
+      signed_up_but_locked: Olet kirjautunut sisään onnistuneesti. Emme kuitenkaan voineet kirjautua sisään sisään, koska tilisi on lukittu.
+      signed_up_but_unconfirmed: Sähköpostiosoitteesi on lähetetty vahvistuslinkin sisältävä viesti. Seuraa linkkiä aktivoidaksesi tilisi.
+      update_needs_confirmation: Tilisi on päivitetty onnistuneesti, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostiosoitteesi ja seuraa vahvistuslinkkiä vahvistaaksesi uuden sähköpostiosoitteesi.
+      updated: Tilisi on päivitetty onnistuneesti.
+    sessions:
+      already_signed_out: Kirjaudut ulos onnistuneesti.
+      new:
+        sign_in: Kirjaudu sisään
+      signed_in: Kirjauduttiin sisään onnistuneesti.
+      signed_out: Kirjaudut ulos onnistuneesti.
+    shared:
+      links:
+        back: Takaisin
+        didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
+        didn_t_receive_unlock_instructions: Etkö saanut lukitusohjeita?
+        forgot_your_password: Unohditko salasanasi?
+        sign_in: Kirjaudu sisään
+        sign_in_with_provider: Kirjaudu sisään %{provider}
+        sign_up: Kirjaudu
+      minimum_password_length:
+        one: "(Vähintään%{count} merkkiä)"
+        other: "(Vähintään%{count} merkkiä)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Lähetä uudelleen lukituksen ohjeet
+      send_instructions: Saat sähköpostiviestin, jossa on ohjeet tilin avaamiseen muutamassa minuutissa.
+      send_paranoid_instructions: Jos tilisi on olemassa, saat sähköpostin, jossa on ohjeet siitä, miten se voidaan avata muutamassa minuutissa.
+      unlocked: Tilisi on avattu onnistuneesti. Kirjaudu sisään jatkaaksesi.
   doorkeeper:
     scopes:
       public: Julkiset tietosi.
   errors:
     messages:
+      already_confirmed: jo vahvistettiin, kirjaudu sisään
+      confirmation_period_expired: on vahvistettava %{period}, pyydä uutta
       content_type_whitelist_error: tiedostotyyppi ei kelpaa
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
+      expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
       long_words: sisältää liian pitkiä sanoja
       must_start_with_caps: täytyy alkaa isoilla kirjaimilla
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
+      not_found: ei löydetty
+      not_locked: ei lukittu
+      not_saved:
+        one: '1 virhe kieltää tämän %{resource} tallentamisen:'
+        other: "%{count} virheet kieltänyt %{resource} pelastumasta:"
       too_many_marks: sisältää liian monta merkkiä
       too_much_caps: käyttää liikaa isoja kirjaimia
       too_short: on liian lyhyt
@@ -817,6 +901,10 @@ fi:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%B %d. %Y"
       decidim_short: "%d.%m.%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
