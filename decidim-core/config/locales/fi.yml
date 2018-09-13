@@ -649,13 +649,43 @@ fi:
       version_author:
         deleted: Käyttäjä poistettu
   devise:
+    confirmations:
+      confirmed: Sähköpostiosoitteesi on vahvistettu.
+      new:
+        resend_confirmation_instructions: Lähetä vahvistusohjeet uudelleen
+      send_instructions: Saat sähköpostiviestin, jossa on ohjeet sähköpostiosoitteesi vahvistamiseen muutamassa minuutissa.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi on olemassa tietokannassamme, saat sähköpostiosoitteesi, jolla vahvistat sähköpostiosoitteesi muutamassa minuutissa.
+    failure:
+      already_authenticated: Olet jo kirjautunut sisään.
+      inactive: Tilisi ei ole vielä aktivoitu.
+      invalid: Virheellinen %{authentication_keys} tai salasana.
+      invited: Sinulla on vireillä oleva kutsu, hyväksy se lopettaaksesi tilin luomisen.
+      last_attempt: Sinulla on vielä yksi yritys, ennen kuin tilisi on lukittu.
+      locked: Tilisi on lukittu.
+      not_found_in_database: Virheellinen %{authentication_keys} tai salasana.
+      timeout: Istuntosi umpeutui. Jatka eteenpäin kirjautumalla sisään.
+      unauthenticated: Sinun on kirjauduttava sisään tai rekisteröidy ennen kuin jatkat.
+      unconfirmed: Sinun on vahvistettava sähköpostiosoitteesi ennen jatkamista.
     invitations:
       edit:
         header: Viimeistele tilisi
         nickname_help: Yksilöllinen käyttäjänimesi organisaatiossa %{organization}.
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
+      invitation_removed: Kutsu poistettiin.
+      invitation_token_invalid: Tarjottu kutsumerkki ei ole voimassa!
+      new:
+        header: Lähetä kutsu
+        submit_button: Lähetä kutsu
+      no_invitations_remaining: Ei kutsuja jäljellä
+      send_instructions: Kutsuviesti on lähetetty %{email}.
+      updated: Salasanasi on asetettu onnistuneesti. Olet nyt kirjautunut sisään.
+      updated_not_active: Salasanasi on asetettu onnistuneesti.
     mailer:
+      confirmation_instructions:
+        action: Vahvista tilini
+        greeting: Tervetuloa %{recipient}!
+        instruction: 'Voit vahvistaa tilisi sähköpostiviestin alla olevan linkin kautta.'
       invitation_instructions:
         accept: Hyväksy kutsu
         accept_until: Tämä kutsu erääntyy %{due_date}.
@@ -686,6 +716,9 @@ fi:
         greeting: Hei %{recipient}!
         message: Tämä on ilmoitus siitä, että salasanasi on nyt vaihdettu.
         subject: Salasana vaihdettu
+    passwords:
+      edit:
+        new_password: Salasanasi
   doorkeeper:
     scopes:
       public: Julkiset tietosi.
