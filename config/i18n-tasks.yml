@@ -86,7 +86,7 @@ search:
 
 # Do not consider these keys missing:
 ignore_missing:
-  - '{devise,components}.*'
+  - components.*
   - email_subject
   - email_intro
   - email_outro
@@ -94,6 +94,7 @@ ignore_missing:
 
 # Consider these keys used:
 ignore_unused:
+  - devise.*
   - activemodel.attributes.*
   - activemodel.errors.*
   - activemodel.models.*
