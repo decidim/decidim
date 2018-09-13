@@ -103,9 +103,6 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
         site: Weboldal
-  date:
-    formats:
-      datepicker: "%hó/%nap/%év"
   decidim:
     admin:
       actions:
@@ -654,7 +651,3 @@ hu:
           title: Beállítások
         users:
           title: Felhasználók
-  time:
-    formats:
-      datepicker: "%hó/%nap/%év"
-      timepicker: "%hó/%nap/%év %óra:%perc"
