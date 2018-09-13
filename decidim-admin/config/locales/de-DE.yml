@@ -257,21 +257,29 @@ de:
             managed: Gelang es
             not_managed: Nicht verwaltet
           filter_by: Filtern nach
+          impersonate: Imitieren
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
           managed: Gelang es
           name: Name
+          needs_authorization_warning: Sie benötigen mindestens eine Autorisierung, die für diese Organisation aktiviert ist.
           not_managed: Nicht verwaltet
           promote: Fördern
           search: Suche
           status: Status
+          view_logs: Protokolle anzeigen
       impersonations:
+        close_session:
+          error: Beim Schließen der aktuellen Identitätswechsel-Sitzung ist ein Fehler aufgetreten.
+          success: Die aktuelle Identitätswechselsitzung wurde erfolgreich beendet.
         create:
           error: Es gab einen Fehler bei der Identität des Benutzers.
+          success: Der verwaltete Benutzer wurde erfolgreich erstellt.
         form:
           authorization_method: Autorisierungsmethode
           name: Name
           reason: Grund
         new:
+          impersonate: Imitieren
           impersonate_existing_managed_user: Angenommen, dass der Benutzer "%{name}" verwaltet wird
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
