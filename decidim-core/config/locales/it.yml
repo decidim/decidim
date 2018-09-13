@@ -732,20 +732,88 @@ it:
       unlock_instructions:
         action: Sblocca il mio account
         greeting: Ciao %{recipient}!
+        instruction: 'Clicca sul link sottostante per sbloccare il tuo account:'
+        message: Il tuo account è stato bloccato a causa di una quantità eccessiva di tentativi di accesso non riusciti.
+        subject: Sblocca le istruzioni
+    omniauth_callbacks:
+      failure: Impossibile autenticare da %{kind} perché "%{reason}".
+      success: Autenticato con successo da %{kind} account.
     passwords:
       edit:
+        change_my_password: Cambia la mia password
+        change_your_password: Cambia la tua password
+        confirm_new_password: Conferma la nuova password
         new_password: Nuova password
+      new:
+        forgot_your_password: Hai dimenticato la password?
+        send_me_reset_password_instructions: Inviami le istruzioni per la reimpostazione della password
+      no_token: Non è possibile accedere a questa pagina senza l'invio di un'email di reimpostazione della password. Se provieni da un'email di reimpostazione della password, assicurati di aver utilizzato l'URL completo fornito.
+      send_instructions: Riceverai un'email con le istruzioni su come reimpostare la password in pochi minuti.
+      send_paranoid_instructions: Se il tuo indirizzo e-mail esiste nel nostro database, riceverai un link per il recupero della password al tuo indirizzo e-mail in pochi minuti.
+      updated: La tua password è stata cambiata con successo. Ora hai effettuato l'accesso.
+      updated_not_active: La tua password è stata cambiata con successo.
+    registrations:
+      destroyed: Ciao! Il tuo account è stato cancellato con successo. Speriamo di rivederti presto.
+      edit:
+        are_you_sure: Sei sicuro?
+        cancel_my_account: Cancellare il mio account
+        currently_waiting_confirmation_for_email: 'Conferma in attesa per: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: lasciare vuoto se non si desidera modificarlo
+        title: Modifica %{resource}
+        unhappy: Infelice?
+        update: Aggiornare
+        we_need_your_current_password_to_confirm_your_changes: abbiamo bisogno della tua password corrente per confermare le tue modifiche
+      new:
+        sign_up: Iscriviti
+      signed_up: Benvenuto! Ti sei registrato con successo.
+      signed_up_but_inactive: Ti sei registrato con successo. Tuttavia, non siamo riusciti ad accedere perché il tuo account non è ancora attivo.
+      signed_up_but_locked: Ti sei registrato con successo. Tuttavia, non siamo riusciti ad accedere perché il tuo account è bloccato.
+      signed_up_but_unconfirmed: Un messaggio con un link di conferma è stato inviato al tuo indirizzo email. Segui il link per attivare il tuo account.
+      update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua email e segui il link di conferma per confermare il tuo nuovo indirizzo email.
+      updated: Il tuo account è stato aggiornato correttamente.
+    sessions:
+      already_signed_out: Sottoscritto con successo.
+      new:
+        sign_in: Accesso
+      signed_in: Firmato correttamente
+      signed_out: Sottoscritto con successo.
+    shared:
+      links:
+        back: Indietro
+        didn_t_receive_confirmation_instructions: Non hai ricevuto le istruzioni di conferma?
+        didn_t_receive_unlock_instructions: Non hai ricevuto le istruzioni di sblocco?
+        forgot_your_password: Hai dimenticato la password?
+        sign_in: Accesso
+        sign_in_with_provider: Accedi con %{provider}
+        sign_up: Iscriviti
+      minimum_password_length:
+        one: "(Minimo%{count} caratteri)"
+        other: "(Minimo%{count} caratteri)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Rinvia le istruzioni di sblocco
+      send_instructions: Riceverai un'email con le istruzioni su come sbloccare il tuo account in pochi minuti.
+      send_paranoid_instructions: Se il tuo account esiste, riceverai un'email con le istruzioni su come sbloccarlo in pochi minuti.
+      unlocked: Il tuo account è stato sbloccato correttamente. Per favore accedi per continuare.
   doorkeeper:
     scopes:
       public: Le tue informazioni pubbliche.
   errors:
     messages:
+      already_confirmed: era già confermato, per favore prova ad accedere
+      confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
       content_type_whitelist_error: il tipo di file non è valido
       cycle_detected: Il genitore di un ambito non può essere uno dei suoi discendenti
+      expired: è scaduto, si prega di richiederne uno nuovo
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
       long_words: contiene parole troppo lunghe
       must_start_with_caps: deve iniziare con i cappucci
       nesting_too_deep: Non può stare all'interno di una subcategoria
+      not_found: non trovato
+      not_locked: non era bloccato
+      not_saved:
+        one: '1 errore ha impedito a questo %{resource} di essere salvato:'
+        other: "%{count} errori hanno impedito a questo %{resource} di essere salvato:"
       too_many_marks: sta usando troppi marchi
       too_much_caps: sta usando troppi cappucci
       too_short: è troppo corto
@@ -833,6 +901,10 @@ it:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
