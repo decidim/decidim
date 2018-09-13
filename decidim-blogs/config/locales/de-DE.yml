@@ -1,1 +1,76 @@
 de:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Neuer Blogeintrag
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Post
+        other: Beiträge
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Möchten Sie diesen Beitrag wirklich löschen?
+        destroy: Löschen
+        edit: Bearbeiten
+        new: Neu
+        title: Aktionen
+      admin:
+        models:
+          components:
+            body: Karosserie
+          post:
+            name: Post
+        posts:
+          create:
+            invalid: Beim Erstellen dieses Posts ist ein Problem aufgetreten
+            success: Post erfolgreich erstellt
+          destroy:
+            success: Beitrag wurde erfolgreich gelöscht
+          edit:
+            save: Aktualisieren
+          index:
+            title: Beiträge
+          new:
+            create: Erstellen
+            title: Post erstellen
+          update:
+            invalid: Beim Speichern des Posts sind Fehler aufgetreten.
+            success: Beitrag wurde erfolgreich gespeichert
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Karosserie
+            created_at: Hergestellt in
+            title: Titel
+      posts:
+        show:
+          view: Aussicht
+        sidebar_blog:
+          comments: Bemerkungen
+          most_commented_posts: Meist kommentierte Posts
+      read_more: Weiterlesen
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Ankündigung
+            comments_enabled: Kommentare aktiviert
+          step:
+            announcement: Ankündigung
+            comments_blocked: Kommentare blockiert
+    events:
+      blogs:
+        post_created:
+          email_intro: Der Beitrag "%{resource_title}" wurde in "%{participatory_space_title}" veröffentlicht, dem Sie folgen.
+          email_subject: Neuer Beitrag in %{participatory_space_title}
+          notification_title: Der Beitrag <a href="%{resource_path}">%{resource_title}</a> wurde in %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Beiträge
+    participatory_processes:
+      statistics:
+        posts_count: Beiträge
