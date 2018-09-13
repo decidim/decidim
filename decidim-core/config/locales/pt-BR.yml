@@ -649,6 +649,18 @@ pt-BR:
       version_author:
         deleted: Usuário excluído
   devise:
+    confirmations:
+      confirmed: Seu endereço de e-mail foi confirmado com sucesso.
+      new:
+        resend_confirmation_instructions: Reenviar instruções de confirmação
+      send_instructions: Você receberá um e-mail com instruções sobre como confirmar seu endereço de e-mail em alguns minutos.
+      send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um e-mail com instruções sobre como confirmar seu endereço de e-mail em alguns minutos.
+    failure:
+      already_authenticated: Você já está inscrito.
+      inactive: Sua conta Ainda não esta ativada.
+      invalid: '%{authentication_keys} inválido ou senha.'
+      invited: Você tem um convite pendente, aceite-o para concluir a criação da sua conta.
+      last_attempt: Você tem mais uma tentativa antes que sua conta seja bloqueada.
     invitations:
       edit:
         header: Termine de criar sua conta
@@ -686,6 +698,9 @@ pt-BR:
         greeting: Olá %{recipient}!
         message: Estamos nos comunicando com você para notificá-lo de que sua senha foi alterada.
         subject: A senha mudou
+    passwords:
+      edit:
+        new_password: Nova senha
   doorkeeper:
     scopes:
       public: Sua informação pública.
