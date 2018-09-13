@@ -230,6 +230,8 @@ ca:
         download_data: Baixa't les dades
         download_data_description: Un fitxer amb tota la informació associada al compte s'enviarà a <strong>%{user_email}</strong>
         request_data: Sol·licita dades
+    datepicker:
+      help_text: 'Format esperat: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
