@@ -35,7 +35,7 @@ module Decidim
       end
 
       def description
-        truncate(present(model).html_body, length: 100)
+        truncate(present(model).body, length: 100)
       end
 
       def badge_classes
