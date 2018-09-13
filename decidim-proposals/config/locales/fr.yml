@@ -187,13 +187,13 @@ fr:
     gamification:
       badges:
         accepted_proposals:
-          description_another: Cet utilisateur a reçu %{score} propositions acceptées.
-          description_own: Vous avez %{score} propositions acceptées.
-          explanation: Les utilisateurs obtiennent ce badge en faisant accepter leurs propositions.
+          description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
+          description_own: '%{score} de vos propositions ont été acceptées.'
+          explanation: Les utilisateurs obtiennent ce badge lorsque leurs propositions sont acceptées.
           name: Propositions acceptées
-          next_level_in: Recevez %{score} propositions supplémentaires pour atteindre le niveau suivant!
-          unearned_another: Cet utilisateur n'a encore reçu aucune proposition.
-          unearned_own: Vous n'avez pas encore de propositions acceptées.
+          next_level_in: Vous atteindrez le niveau suivant lorsque %{score} propositions supplémentaires seront acceptés !
+          unearned_another: Aucune proposition de cet auteur n'a encore été acceptée.
+          unearned_own: Aucune de vos propositions n'a encore été acceptée.
         proposal_votes:
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
@@ -345,10 +345,10 @@ fr:
         filters:
           all: Tout
           category: Catégorie
-          category_prompt: Invite de catégorie
+          category_prompt: Catégories
           open: Ouvrir
           published: Publié
-          related_to: Relatif à
+          related_to: Lié à
           search: Chercher
           state: État
           withdrawn: Retiré
@@ -365,7 +365,7 @@ fr:
         orders:
           label: 'Ordre des brouillons par:'
           most_contributed: La plupart ont contribué
-          random: au hasard
+          random: Aléatoire
           recent: Récent
         requests:
           accepted_request:
@@ -375,14 +375,14 @@ fr:
             error: Votre demande n'a pas pu être complétée, réessayez plus tard.
             success: Votre demande de collaboration a été envoyée avec succès
           collaboration_requests:
-            accept_request: Acceptez
-            reject_request: Rejeter
+            accept_request: Accepté
+            reject_request: Rejeté
             title: Demandes de collaboration
           rejected_request:
             error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
             success: "@%{user} a été rejeté en tant que collaborateur avec succès"
         show:
-          back: Arrière
+          back: Retour
           edit: Modifier un brouillon collaboratif
           final_proposal: proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
