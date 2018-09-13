@@ -742,18 +742,78 @@ gl:
       edit:
         change_my_password: Cambiar o meu contrasinal
         change_your_password: Cambia o teu contrasinal
+        confirm_new_password: Confirma o contrasinal novo
         new_password: Novo contrasinal
+      new:
+        forgot_your_password: Esqueceu o contrasinal?
+        send_me_reset_password_instructions: Envíame a restablecer as instrucións do contrasinal
+      no_token: Non podes acceder a esta páxina sen necesidade dun correo electrónico de restablecemento de contrasinal. Se provén dun correo electrónico de restablecemento de contrasinal, asegúrese de utilizar a URL completa proporcionada.
+      send_instructions: Recibirás un correo electrónico con instrucións sobre como restablecer a túa contrasinal en poucos minutos.
+      send_paranoid_instructions: Se o seu enderezo de correo electrónico existe na nosa base de datos, recibirá unha ligazón de recuperación de contrasinal no seu enderezo de correo electrónico en poucos minutos.
+      updated: O seu contrasinal modificouse con éxito. Agora iniciaches sesión.
+      updated_not_active: O seu contrasinal modificouse con éxito.
+    registrations:
+      destroyed: Adeus! Cancelouse correctamente a túa conta. Esperamos volver a ver de novo.
+      edit:
+        are_you_sure: Estás seguro?
+        cancel_my_account: Cancelar a miña conta
+        currently_waiting_confirmation_for_email: 'Actualmente está a espera de confirmación para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: Deixar en branco se non o quere cambiar
+        title: Editar %{resource}
+        unhappy: Infeliz
+        update: Actualización
+        we_need_your_current_password_to_confirm_your_changes: necesitamos o seu contrasinal actual para confirmar os seus cambios
+      new:
+        sign_up: Rexistrarse
+      signed_up: Benvido! Rexistráches con éxito.
+      signed_up_but_inactive: Rexistráches con éxito. Non obstante, non puidemos iniciar sesión porque a túa conta aínda non está activada.
+      signed_up_but_locked: Rexistráches con éxito. Non obstante, non puidemos iniciar sesión porque a túa conta está bloqueada.
+      signed_up_but_unconfirmed: Enviouse unha mensaxe cunha ligazón de confirmación ao seu enderezo de correo electrónico. Sigue a ligazón para activar a túa conta.
+      update_needs_confirmation: Actualizou a súa conta correctamente, pero necesitamos verificar o seu novo enderezo de correo electrónico. Verifique o seu correo electrónico e siga a ligazón de confirmación para confirmar o seu novo enderezo de correo electrónico.
+      updated: A túa conta foi actualizada correctamente.
+    sessions:
+      already_signed_out: Saíu con éxito.
+      new:
+        sign_in: Iniciar sesión
+      signed_in: Iniciar sesión con éxito.
+      signed_out: Saíu con éxito.
+    shared:
+      links:
+        back: De volta
+        didn_t_receive_confirmation_instructions: Non recibiches instrucións de confirmación?
+        didn_t_receive_unlock_instructions: Non recibiches instrucións de desbloqueo?
+        forgot_your_password: Esqueceu o contrasinal?
+        sign_in: Iniciar sesión
+        sign_in_with_provider: Inicia sesión con %{provider}
+        sign_up: Rexistrarse
+      minimum_password_length:
+        one: "(Mínimo de%{count} caracteres)"
+        other: "(Mínimo de%{count} caracteres)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenvía instrucións de desbloqueo
+      send_instructions: Recibirás un correo electrónico con instrucións sobre como desbloquear a túa conta nuns minutos.
+      send_paranoid_instructions: Se a túa conta existe, recibirás un correo electrónico con instrucións sobre como desbloquearlo en poucos minutos.
+      unlocked: A túa conta foi desbloqueada con éxito. Inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: A túa información pública.
   errors:
     messages:
+      already_confirmed: xa se confirmou, intente iniciar sesión
+      confirmation_period_expired: Necesítase confirmar dentro de %{period}, solicita un novo
       content_type_whitelist_error: o tipo de ficheiro non é válido
       cycle_detected: un pai do alcance non pode ser un dos seus descendentes
+      expired: caducou, por favor solicita unha nova
       file_size_is_less_than_or_equal_to: O tamaño do ficheiro debe ser inferior ou igual a %{count}
       long_words: contén palabras que son demasiado longas
       must_start_with_caps: debe comezar con tapas
       nesting_too_deep: non pode estar dentro dunha subcategoría
+      not_found: non atopado
+      not_locked: Non estaba bloqueado
+      not_saved:
+        one: 'O erro 1 prohibiuse que este %{resource} se gardase:'
+        other: "%{count} erros prohibidos de gardar este %{resource}:"
       too_many_marks: está a usar demasiadas marcas
       too_much_caps: está a usar demasiadas tapas
       too_short: é demasiado curto
@@ -841,6 +901,10 @@ gl:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
