@@ -230,6 +230,8 @@ gl:
         download_data: Descarga os datos
         download_data_description: Un ficheiro con toda a información asociada á conta enviarase a <strong>%{user_email}</strong>
         request_data: Solicitar datos
+    datepicker:
+      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
