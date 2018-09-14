@@ -17,6 +17,10 @@ module Decidim
         icon "meetings", class: "icon--big"
       end
 
+      def title
+        present(model).title
+      end
+
       def spans_multiple_dates?
         start_date != end_date
       end

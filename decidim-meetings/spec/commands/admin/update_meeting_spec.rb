@@ -51,7 +51,8 @@ module Decidim::Meetings
         private_meeting: private_meeting,
         transparent: transparent,
         services_to_persist: services_to_persist,
-        current_user: user
+        current_user: user,
+        current_organization: organization
       )
     end
 
@@ -130,7 +131,8 @@ module Decidim::Meetings
             private_meeting: private_meeting,
             transparent: transparent,
             services_to_persist: services_to_persist,
-            current_user: user
+            current_user: user,
+            current_organization: organization
           )
         end
 

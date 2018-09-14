@@ -24,9 +24,9 @@
     <div class="row column">
       <% if @form.proposals %>
         <%= form.select :proposal_ids,
-                        @form.proposals.order(title: :asc).pluck(:title, :id),
-                        { include_blank: true },
-                        { multiple: true, class: "chosen-select" } %>
+                      @form.proposals.order(title: :asc).map{|proposal| [present(proposal).title, proposal.id]},
+                      { include_blank: true },
+                      { multiple: true, class: "chosen-select" } %>
       <% end %>
     </div>
   </div>
