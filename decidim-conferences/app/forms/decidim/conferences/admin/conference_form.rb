@@ -28,8 +28,8 @@ module Decidim
         attribute :banner_image
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
-        attribute :start_date, Decidim::Attributes::TimeWithZone
-        attribute :end_date, Decidim::Attributes::TimeWithZone
+        attribute :start_date, Decidim::Attributes::LocalizedDate
+        attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :registrations_enabled, Boolean
         attribute :available_slots, Integer
         attribute :location, String

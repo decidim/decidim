@@ -37,14 +37,14 @@
         <% if current_participatory_space.start_date.presence %>
           <div class="definition-data__item start_date">
             <span class="definition-data__title"><%= t("conferences.show.start_date", scope: "decidim") %></span>
-            <%= l current_participatory_space.start_date, format: :datepicker %>
+            <%= l current_participatory_space.start_date, format: :long %>
           </div>
         <% end %>
 
         <% if current_participatory_space.end_date.presence %>
           <div class="definition-data__item end_date">
             <span class="definition-data__title"><%= t("conferences.show.end_date", scope: "decidim") %></span>
-            <%= l current_participatory_space.end_date, format: :datepicker %>
+            <%= l current_participatory_space.end_date, format: :long %>
           </div>
         <% end %>
       </div>

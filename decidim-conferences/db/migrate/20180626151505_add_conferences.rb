@@ -21,8 +21,8 @@ class AddConferences < ActiveRecord::Migration[5.2]
       t.datetime :published_at
       t.jsonb :objectives, null: false
       t.boolean :show_statistics, default: false
-      t.datetime :start_date
-      t.datetime :end_date
+      t.date :start_date
+      t.date :end_date
       t.boolean :scopes_enabled, null: false, default: true
       t.integer :decidim_scope_id
 

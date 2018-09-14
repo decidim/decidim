@@ -8,9 +8,8 @@ describe Decidim::Conferences::UpcomingConferenceNotificationJob do
   let(:organization) { create :organization }
   let(:user) { create :user, organization: organization }
   let(:start_date) { 1.day.from_now }
-  let(:participatory_space) { create :participatory_process, organization: organization }
-  let(:component) { create :component, manifest_name: :conferences, participatory_space: participatory_space }
-  let(:conference) { create :conference, start_date: start_date }
+  let(:conference) { create :conference, start_date: start_date, organization: organization }
+  let(:component) { create :component, manifest_name: :conferences, participatory_space: conference }
   let!(:checksum) { subject.generate_checksum(conference) }
   let!(:follow) { create :follow, followable: conference, user: user }
 
