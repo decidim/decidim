@@ -54,6 +54,8 @@ fr:
   decidim:
     admin:
       actions:
+        consultation:
+          new: Nouvelle consultation
         publish_results: Publier les résultats
         unpublish_results: Dépublier des résultats
       consultation_publications:

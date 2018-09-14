@@ -54,6 +54,8 @@ ca:
   decidim:
     admin:
       actions:
+        consultation:
+          new: Nova consulta
         publish_results: Publica els resultats
         unpublish_results: Despublicar resultats
       consultation_publications:

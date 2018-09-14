@@ -54,6 +54,8 @@ en:
   decidim:
     admin:
       actions:
+        consultation:
+          new: New consultation
         publish_results: Publish results
         unpublish_results: Unpublish results
       consultation_publications:
