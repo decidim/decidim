@@ -749,52 +749,52 @@ fi:
       new:
         forgot_your_password: Unohditko salasanasi?
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
-      no_token: Et voi käyttää tätä sivua lähettämättä salasanan palautusviestiä. Jos et tule salasanan palautussähköpostiviestiltä, ​​varmista, että käytät täydellistä URL-osoitetta.
-      send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutamassa minuutissa.
-      send_paranoid_instructions: Jos sähköpostiosoitteesi on olemassa tietokantaamme, saat salasanan palautussivun sähköpostiisi muutamassa minuutissa.
+      no_token: Et pääse sivulle, ellet käytä sähköpostiisi lähtettyä salasanan vaihtamiseen liittyvää linkkiä. Mikäli käytit sähköpostissa olevaa linkkiä, varmista, että käytät täysin samaa URL-osoitetta, joka näkyy lähetetyssä viestissä.
+      send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutaman minuutin kuluessa.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat ohjeet salasanan vaihtamiseesi sähköpostiisi muutaman minuutin kuluessa.
       updated: Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään.
       updated_not_active: Salasanasi on vaihdettu onnistuneesti.
     registrations:
-      destroyed: Hei hei! Tilisi on peruutettu onnistuneesti. Toivottavasti nähdään pian uudelleen.
+      destroyed: Hei hei! Tilisi on poistettu onnistuneesti. Toivomme näkevämme sinut pian uudelleen.
       edit:
         are_you_sure: Oletko varma?
-        cancel_my_account: Peruuta tilini
-        currently_waiting_confirmation_for_email: 'Odotus odotus: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: jätä tyhjäksi, jos et halua muuttaa sitä
+        cancel_my_account: Poista tilini
+        currently_waiting_confirmation_for_email: 'Odottaa varmistusta sähköpostista: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: jätä tyhjäksi, jos et halua muuttaa
         title: Muokkaa %{resource}
-        unhappy: Onneton?
-        update: Päivittää
-        we_need_your_current_password_to_confirm_your_changes: tarvitsemme nykyisen salasanasi vahvistamalla muutokset
+        unhappy: Oletko tyytymätön?
+        update: Päivitä
+        we_need_your_current_password_to_confirm_your_changes: tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset
       new:
-        sign_up: Kirjaudu
+        sign_up: Rekisteröidy
       signed_up: Tervetuloa! Olet kirjautunut sisään onnistuneesti.
-      signed_up_but_inactive: Olet kirjautunut sisään onnistuneesti. Emme kuitenkaan voineet kirjautua sisään sisään, koska tilisi ei ole vielä aktivoitu.
-      signed_up_but_locked: Olet kirjautunut sisään onnistuneesti. Emme kuitenkaan voineet kirjautua sisään sisään, koska tilisi on lukittu.
-      signed_up_but_unconfirmed: Sähköpostiosoitteesi on lähetetty vahvistuslinkin sisältävä viesti. Seuraa linkkiä aktivoidaksesi tilisi.
-      update_needs_confirmation: Tilisi on päivitetty onnistuneesti, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostiosoitteesi ja seuraa vahvistuslinkkiä vahvistaaksesi uuden sähköpostiosoitteesi.
+      signed_up_but_inactive: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi ei ole vielä aktivoitu.
+      signed_up_but_locked: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi on lukittu.
+      signed_up_but_unconfirmed: Sähköpostiosoitteesi on lähetetty vahvistuslinkin sisältävä viesti. Aktivoi tilisi käyttämällä kyseistä linkkiä.
+      update_needs_confirmation: Tilisi on päivitetty onnistuneesti, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostisi ja vahvista sähköpostiosoitteesi käyttämällä sähköpostissa näkyvää linkkiä.
       updated: Tilisi on päivitetty onnistuneesti.
     sessions:
       already_signed_out: Kirjaudut ulos onnistuneesti.
       new:
         sign_in: Kirjaudu sisään
-      signed_in: Kirjauduttiin sisään onnistuneesti.
-      signed_out: Kirjaudut ulos onnistuneesti.
+      signed_in: Kirjauduit sisään onnistuneesti.
+      signed_out: Kirjauduit ulos onnistuneesti.
     shared:
       links:
         back: Takaisin
         didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
-        didn_t_receive_unlock_instructions: Etkö saanut lukitusohjeita?
+        didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
         sign_in: Kirjaudu sisään
-        sign_in_with_provider: Kirjaudu sisään %{provider}
-        sign_up: Kirjaudu
+        sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
+        sign_up: Rekisteröidy
       minimum_password_length:
-        one: "(Vähintään%{count} merkkiä)"
-        other: "(Vähintään%{count} merkkiä)"
+        one: "(vähintään %{count} merkki)"
+        other: "(vähintään %{count} merkkiä)"
     unlocks:
       new:
-        resend_unlock_instructions: Lähetä uudelleen lukituksen ohjeet
-      send_instructions: Saat sähköpostiviestin, jossa on ohjeet tilin avaamiseen muutamassa minuutissa.
+        resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon
+      send_instructions: Saat muutaman minuutin kuluessa sähköpostiviestin, jossa on ohjeet tilin lukituksen poistoon.
       send_paranoid_instructions: Jos tilisi on olemassa, saat sähköpostin, jossa on ohjeet siitä, miten se voidaan avata muutamassa minuutissa.
       unlocked: Tilisi on avattu onnistuneesti. Kirjaudu sisään jatkaaksesi.
   doorkeeper:
