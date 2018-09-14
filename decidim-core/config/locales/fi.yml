@@ -730,12 +730,12 @@ fi:
         instruction: Joku on pyytänyt linkin käyttäjätilisi salasanan vaihtamiseen, ja voit tehdä sen alla olevan linkin kautta.
         instruction_2: Jos et ole pyytänyt tätä, ohita tämä viesti.
         instruction_3: Salasanasi ei muutu, ennen kuin klikkaat yllä olevaa linkkiä ja luot uuden.
-        subject: Nollaa salasanan ohjeet
+        subject: Ohjeet salasanan nollaukseen
       unlock_instructions:
         action: Avaa tilini
         greeting: Hei %{recipient}!
-        instruction: 'Avaa tilin avaaminen napsauttamalla alla olevaa linkkiä:'
-        message: Tilisi on lukittu liian suuren epäonnistuneen kirjautumisen yhteydessä.
+        instruction: 'Napsauttamalla seuraavaa linkkiä voit avata tilisi:'
+        message: Käyttäjätilisi on lukittu, koska epäonnistuneita kirjautumisyrityksiä oli liian monta.
         subject: Avaa ohjeet
     omniauth_callbacks:
       failure: Et voi todentaa sinulta %{kind} koska "%{reason}".
@@ -811,11 +811,11 @@ fi:
       long_words: sisältää liian pitkiä sanoja
       must_start_with_caps: täytyy alkaa isoilla kirjaimilla
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
-      not_found: ei löydetty
+      not_found: ei löydy
       not_locked: ei lukittu
       not_saved:
-        one: '1 virhe kieltää tämän %{resource} tallentamisen:'
-        other: "%{count} virheet kieltänyt %{resource} pelastumasta:"
+        one: '1 virhe esti %{resource} tallentamisen:'
+        other: "%{count} virhettä esti %{resource} tallentamisen:"
       too_many_marks: sisältää liian monta merkkiä
       too_much_caps: käyttää liikaa isoja kirjaimia
       too_short: on liian lyhyt
