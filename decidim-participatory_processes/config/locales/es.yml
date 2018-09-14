@@ -73,6 +73,8 @@ es:
         publish: Publicar
         resend_invitation: Reenviar invitación
         unpublish: Despublicar
+        participatory_process:
+          new: nuevo proceso participativo
       menu:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos

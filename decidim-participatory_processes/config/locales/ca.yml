@@ -73,6 +73,8 @@ ca:
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
         unpublish: Despublicar
+        participatory_process:
+          new: nou procés participatiu
       menu:
         participatory_process_groups: Grups de processos
         participatory_processes: Processos

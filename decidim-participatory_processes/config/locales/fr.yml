@@ -72,6 +72,8 @@ fr:
         publish: Publier
         resend_invitation: Renvoyer l'invitation
         unpublish: Dépublier
+        participatory_process:
+          new: Nouvelle concertation
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_processes: Concertations
