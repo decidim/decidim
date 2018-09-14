@@ -76,6 +76,9 @@ en:
         other: Assembly user roles
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: There was an error creating a new assembly.

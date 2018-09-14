@@ -78,6 +78,9 @@ fr:
         other: Fonctions du membre dans l'assemblée
   decidim:
     admin:
+      actions:
+        assembly:
+          new: Nouvelle assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
