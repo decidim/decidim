@@ -738,8 +738,8 @@ fi:
         message: Käyttäjätilisi on lukittu, koska epäonnistuneita kirjautumisyrityksiä oli liian monta.
         subject: Avaa ohjeet
     omniauth_callbacks:
-      failure: Et voi todentaa sinulta %{kind} koska "%{reason}".
-      success: Tunnistettiin onnistuneesti %{kind} tilistä.
+      failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
+      success: Kirjauduit onnistuneesti sisään %{kind} -tilillä.
     passwords:
       edit:
         change_my_password: Vaihda salasanani
@@ -748,7 +748,7 @@ fi:
         new_password: Salasanasi
       new:
         forgot_your_password: Unohditko salasanasi?
-        send_me_reset_password_instructions: Lähetä minulle salasanan ohjeet
+        send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
       no_token: Et voi käyttää tätä sivua lähettämättä salasanan palautusviestiä. Jos et tule salasanan palautussähköpostiviestiltä, ​​varmista, että käytät täydellistä URL-osoitetta.
       send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutamassa minuutissa.
       send_paranoid_instructions: Jos sähköpostiosoitteesi on olemassa tietokantaamme, saat salasanan palautussivun sähköpostiisi muutamassa minuutissa.
