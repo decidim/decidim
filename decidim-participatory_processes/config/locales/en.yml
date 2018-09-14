@@ -69,12 +69,12 @@ en:
         duplicate: Duplicate
         edit: Edit
         new: New
+        participatory_process:
+          new: new participatory process
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
         unpublish: Unpublish
-        participatory_process:
-          new: new participatory process
       menu:
         participatory_process_groups: Process groups
         participatory_processes: Processes

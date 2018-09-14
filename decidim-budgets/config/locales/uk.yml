@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -11,9 +12,9 @@ uk:
   activerecord:
     models:
       decidim/budgets/project:
-        one: Проект
         few: Проекти
         many: Проектів
+        one: Проект
         other: Проектів
   decidim:
     budgets:
@@ -81,9 +82,9 @@ uk:
           title: Ви визначаєте бюджет
         count:
           projects_count:
-            one: 1 проект
             few: "%{count} проекти"
             many: "%{count} проектів"
+            one: 1 проект
             other: "%{count} проектів"
         filters:
           category: Категорія
@@ -99,17 +100,17 @@ uk:
         order_selected_projects:
           remove: Видалити
           selected_projects:
-            one: обраний проект
             few: обраних проекти
             many: обраних проектів
+            one: обраний проект
             other: обраних проектів
           view: Переглянути
         project:
           add: Додати
           count:
-            one: 1 людина підтримує
             few: "%{count} людей підтримує"
             many: "%{count} людей підтримують"
+            one: 1 людина підтримує
             other: "%{count} людей підтримують"
           remove: Видалити
           view: Переглянути

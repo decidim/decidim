@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -24,16 +25,16 @@ hu:
       admin:
         id_documents:
           help:
-            - A felhasználók kitöltik személyazonosító adataikat és feltöltik a dokumentumuk másolatát.
-            - Töltse fel a feltöltött képen megjelenő információkat.
-            - Az információnak meg kell egyeznie a felhasználó által kitöltve.
-            - Ha nem tudja egyértelműen látni az adatokat, vagy nem tudja ellenőrizni, akkor elutasíthatja a kérelmet, és a felhasználó képes lesz javítani.
+          - A felhasználók kitöltik személyazonosító adataikat és feltöltik a dokumentumuk másolatát.
+          - Töltse fel a feltöltött képen megjelenő információkat.
+          - Az információnak meg kell egyeznie a felhasználó által kitöltve.
+          - Ha nem tudja egyértelműen látni az adatokat, vagy nem tudja ellenőrizni, akkor elutasíthatja a kérelmet, és a felhasználó képes lesz javítani.
         postal_letter:
           help:
-            - A felhasználók ellenőrző kódot kérnek a címükre.
-            - A levelet a címére küldi az ellenőrző kóddal.
-            - Ön a levelet küldöttként jelöli meg.
-            - Miután megjelölte a levelet elküldöttként, a felhasználó be tudja mutatni a kódot, és ellenőrizni tudja.
+          - A felhasználók ellenőrző kódot kérnek a címükre.
+          - A levelet a címére küldi az ellenőrző kóddal.
+          - Ön a levelet küldöttként jelöli meg.
+          - Miután megjelölte a levelet elküldöttként, a felhasználó be tudja mutatni a kódot, és ellenőrizni tudja.
       direct: Közvetlen
       help: Segítség
       id_documents:
