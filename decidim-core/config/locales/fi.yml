@@ -655,18 +655,18 @@ fi:
       confirmed: Sähköpostiosoitteesi on vahvistettu.
       new:
         resend_confirmation_instructions: Lähetä vahvistusohjeet uudelleen
-      send_instructions: Saat sähköpostiviestin, jossa on ohjeet sähköpostiosoitteesi vahvistamiseen muutamassa minuutissa.
-      send_paranoid_instructions: Jos sähköpostiosoitteesi on olemassa tietokannassamme, saat sähköpostiosoitteesi, jolla vahvistat sähköpostiosoitteesi muutamassa minuutissa.
+      send_instructions: Saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi on tietokannassamme, saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.
     failure:
       already_authenticated: Olet jo kirjautunut sisään.
       inactive: Tilisi ei ole vielä aktivoitu.
       invalid: Virheellinen %{authentication_keys} tai salasana.
-      invited: Sinulla on vireillä oleva kutsu, hyväksy se lopettaaksesi tilin luomisen.
-      last_attempt: Sinulla on vielä yksi yritys, ennen kuin tilisi on lukittu.
-      locked: Tilisi on lukittu.
+      invited: Sinulla on odottava kutsu, hyväksy se ja viimeistele tilin luominen.
+      last_attempt: Sinulla on vielä yksi yritys ennen kuin tunnuksesi lukitaan.
+      locked: Tunnuksesi on lukittu.
       not_found_in_database: Virheellinen %{authentication_keys} tai salasana.
-      timeout: Istuntosi umpeutui. Jatka eteenpäin kirjautumalla sisään.
-      unauthenticated: Sinun on kirjauduttava sisään tai rekisteröidy ennen kuin jatkat.
+      timeout: Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.
+      unauthenticated: Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.
       unconfirmed: Sinun on vahvistettava sähköpostiosoitteesi ennen jatkamista.
     invitations:
       edit:
@@ -674,8 +674,8 @@ fi:
         nickname_help: Yksilöllinen käyttäjänimesi organisaatiossa %{organization}.
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
-      invitation_removed: Kutsu poistettiin.
-      invitation_token_invalid: Tarjottu kutsumerkki ei ole voimassa!
+      invitation_removed: Kutsusi peruutettiin.
+      invitation_token_invalid: Käyttämäsi kutsuavain ei ole voimassa!
       new:
         header: Lähetä kutsu
         submit_button: Lähetä kutsu
@@ -685,14 +685,14 @@ fi:
       updated_not_active: Salasanasi on asetettu onnistuneesti.
     mailer:
       confirmation_instructions:
-        action: Vahvista tilini
+        action: Vahvista käyttäjätilini
         greeting: Tervetuloa %{recipient}!
-        instruction: 'Voit vahvistaa tilisi sähköpostiviestin alla olevan linkin kautta.'
+        instruction: 'Voit vahvistaa käyttäjätiliisi kytketyn sähköpostiosoitteen alla olevan linkin kautta.'
         subject: Vahvistusohjeet
       email_changed:
         greeting: Hei %{recipient}!
-        message: Ilmoitamme sinulle, että sähköpostiosoitteesi muuttuu %{email}.
-        subject: Sähköposti muuttui
+        message: Ilmoitamme sinulle, että  käyttäjätilisi sähköpostiosoitteeksi on vaihdettu %{email}.
+        subject: Sähköposti vaihdettu
       invitation_instructions:
         accept: Hyväksy kutsu
         accept_until: Tämä kutsu erääntyy %{due_date}.
@@ -727,9 +727,9 @@ fi:
       reset_password_instructions:
         action: Vaihda salasanani
         greeting: Hei %{recipient}!
-        instruction: Joku on pyytänyt linkkiä salasanan vaihtamiseen, ja voit tehdä sen alla olevan linkin kautta.
-        instruction_2: Jos et ole pyytänyt tätä, jätä tämä viesti huomiotta.
-        instruction_3: Salasanasi ei muutu, ennen kuin käytät yllä olevaa linkkiä ja luodaan uusi.
+        instruction: Joku on pyytänyt linkin käyttäjätilisi salasanan vaihtamiseen, ja voit tehdä sen alla olevan linkin kautta.
+        instruction_2: Jos et ole pyytänyt tätä, ohita tämä viesti.
+        instruction_3: Salasanasi ei muutu, ennen kuin klikkaat yllä olevaa linkkiä ja luot uuden.
         subject: Nollaa salasanan ohjeet
       unlock_instructions:
         action: Avaa tilini
