@@ -795,15 +795,15 @@ fi:
       new:
         resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon
       send_instructions: Saat muutaman minuutin kuluessa sähköpostiviestin, jossa on ohjeet tilin lukituksen poistoon.
-      send_paranoid_instructions: Jos tilisi on olemassa, saat sähköpostin, jossa on ohjeet siitä, miten se voidaan avata muutamassa minuutissa.
-      unlocked: Tilisi on avattu onnistuneesti. Kirjaudu sisään jatkaaksesi.
+      send_paranoid_instructions: Jos tilisi on olemassa, saat muutaman minuutin kuluessa sähköpostiisi ohjeet tilin lukituksen poistoon.
+      unlocked: Tilisi lukitus on poistettu onnistuneesti. Kirjaudu sisään jatkaaksesi.
   doorkeeper:
     scopes:
       public: Julkiset tietosi.
   errors:
     messages:
-      already_confirmed: jo vahvistettiin, kirjaudu sisään
-      confirmation_period_expired: on vahvistettava %{period}, pyydä uutta
+      already_confirmed: on jo vahvistettu, yritä kirjautua sisään
+      confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
       content_type_whitelist_error: tiedostotyyppi ei kelpaa
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
@@ -816,7 +816,7 @@ fi:
       not_saved:
         one: '1 virhe esti %{resource} tallentamisen:'
         other: "%{count} virhettä esti %{resource} tallentamisen:"
-      too_many_marks: sisältää liian monta merkkiä
+      too_many_marks: sisältää liian monta erikoismerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: käyttää liikaa isoja kirjaimia
       too_short: on liian lyhyt
   forms:
@@ -906,7 +906,7 @@ fi:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
+            accept_until_format: "%B %d, %Y klo %k:%M"
       time_of_day: "%H:%M"
   views:
     pagination:
