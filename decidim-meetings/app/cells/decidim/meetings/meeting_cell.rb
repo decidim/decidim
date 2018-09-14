@@ -26,6 +26,10 @@ module Decidim
         end
       end
 
+      def title
+        present(model).title
+      end
+
       def resource_icon
         icon "meetings", remove_icon_class: true, width: 40, height: 70
       end
