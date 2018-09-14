@@ -15,6 +15,10 @@ module Decidim
         render
       end
 
+      def title
+        present(model).title
+      end
+
       private
 
       def spans_multiple_dates?

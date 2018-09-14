@@ -381,6 +381,14 @@ gl:
       remove_this_file: Elimina este ficheiro
     gamification:
       badges:
+        followers:
+          description_another: Este usuario ten %{score} seguidores.
+          description_own: "%{score} seguidores están seguindo."
+          explanation: Os usuarios obtén esta insignia seguindo outros usuarios.
+          name: Seguidores
+          next_level_in: Obteña máis de %{score} usuarios que che sigan para chegar ao seguinte nivel.
+          unearned_another: Este usuario aínda non ten ningún seguidor.
+          unearned_own: Aínda non tes followers.
         invitations:
           description_another: Este usuario invitou a %{score} usuarios.
           description_own: Invitaches %{score} usuarios.
@@ -568,6 +576,10 @@ gl:
         followers: Seguidores
         following: Segue
         notifications: Notificacións
+      sidebar:
+        badges:
+          info: As insignias obtéñense realizando actividades específicas na plataforma.
+          title: Insignias
       user:
         edit_profile: Editar perfil
     reported_mailer:

@@ -381,6 +381,14 @@ sv:
       remove_this_file: Ta bort den här filen
     gamification:
       badges:
+        followers:
+          description_another: Den här användaren har %{score} följare.
+          description_own: "%{score} användare följer dig."
+          explanation: Användare får detta märke genom att följa av andra användare.
+          name: anhängare
+          next_level_in: Få %{score} fler användare att följa dig för att nå nästa nivå!
+          unearned_another: Den här användaren har inga anhängare än.
+          unearned_own: Du har inga anhängare än.
         invitations:
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
@@ -568,6 +576,10 @@ sv:
         followers: Anhängare
         following: Följer
         notifications: Notiser
+      sidebar:
+        badges:
+          info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
+          title: Emblem
       user:
         edit_profile: Redigera profil
     reported_mailer:

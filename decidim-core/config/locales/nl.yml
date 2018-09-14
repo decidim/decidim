@@ -381,6 +381,14 @@ nl:
       remove_this_file: Verwijder dit bestand
     gamification:
       badges:
+        followers:
+          description_another: Deze gebruiker heeft %{score} volgers.
+          description_own: "%{score} gebruikers volgen u."
+          explanation: Gebruikers krijgen deze badge door zich te laten volgen door andere gebruikers.
+          name: Volgers
+          next_level_in: Ontvang nog %{score} extra gebruikers om je te volgen en het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen volgers.
+          unearned_own: Je hebt nog geen volgers.
         invitations:
           description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
           description_own: Je hebt %{score} gebruikers uitgenodigd.
@@ -568,6 +576,10 @@ nl:
         followers: Volgers
         following: volgt
         notifications: meldingen
+      sidebar:
+        badges:
+          info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
+          title: badges
       user:
         edit_profile: Bewerk profiel
     reported_mailer:

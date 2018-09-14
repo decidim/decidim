@@ -39,7 +39,7 @@ module Decidim
       return hidden_field(name) if name.to_s == "handler_name"
 
       case type.name
-      when "Date"
+      when "Date", "Decidim::Attributes::LocalizedDate"
         date_field name
       else
         text_field name
@@ -58,7 +58,7 @@ module Decidim
 
     def public_attributes
       form_attributes.inject({}) do |all, attribute|
-        all.update(attribute.name => attribute.type.primitive)
+        all.update(attribute.name => attribute.class)
       end
     end
 
