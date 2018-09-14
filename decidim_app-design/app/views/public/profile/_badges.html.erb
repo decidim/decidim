@@ -2,7 +2,7 @@
 <div class="row small-up-2 medium-up-4 card-grid">
   <% @files.each do |i| %>
     <div class="column">
-      <%= render partial: page_path("user") + "/badge", locals: { template: File.basename(i, ".svg") } %>
+      <%= render partial: page_path("profile") + "/badge", locals: { template: File.basename(i, ".svg") } %>
     </div>
   <% end %>
 </div>
