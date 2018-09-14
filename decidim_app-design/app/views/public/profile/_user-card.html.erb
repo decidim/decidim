@@ -66,17 +66,48 @@
     </div>
   </div>
 </div>
-<% if @activeuser == "logged" %>
-<div class="row">
-  <div class="column medium-8 medium-centered">
-    <button class="button light expanded">Edit profile</button>
+<% if @activepage != "group" %>
+  <% if @activeuser == "logged" %>
+  <div class="row">
+    <div class="column medium-8 medium-centered">
+      <button class="button light expanded">Edit profile</button>
+    </div>
   </div>
-</div>
-<% end %>
+  <% end %>
+  <div class="row">
+    <div class="column medium-8 medium-centered">
+      <button class="button secondary light expanded">
+        Invite friends
+      </button>
+    </div>
+  </div>
+<% else %>
 <div class="row">
   <div class="column medium-8 medium-centered">
-    <button class="button secondary light expanded">
-      Invite friends
+    <button class="button secondary hollow expanded button--icon button--sc">
+      <%= icon "bell" %>
+      <span>Seguir</span>
     </button>
   </div>
 </div>
+<% if @activeuser == "logged" %>
+  <div class="row">
+    <div class="column medium-8 medium-centered">
+      <button class="button light expanded">Join group</button>
+      <button class="button secondary light expanded">
+        Invite members
+      </button>
+      <div class="text-center">
+        <a href=""><u>Manage admins</u></a>
+      </div>
+      <div class="text-center">
+        <a href=""><u>Manage members</u></a>
+      </div>
+      <div class="text-center flex--cb">
+        <a href=""><u>Request verification</u></a>
+        <%= partial "help-tooltip" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
