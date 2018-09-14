@@ -816,7 +816,7 @@ fi:
       not_saved:
         one: '1 virhe esti %{resource} tallentamisen:'
         other: "%{count} virhettä esti %{resource} tallentamisen:"
-      too_many_marks: sisältää liian monta erikoismerkkiä peräkkäin (esim. ! ja ?)
+      too_many_marks: sisältää liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: käyttää liikaa isoja kirjaimia
       too_short: on liian lyhyt
   forms:
