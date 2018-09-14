@@ -13,7 +13,7 @@
   <% @files.each do |i| %>
     <div class="row mb-m">
       <div class="column medium-2">
-        <%= render partial: page_path("user") + "/badge", locals: { template: File.basename(i, ".svg"), level: 0 } %>
+        <%= render partial: page_path("profile") + "/badge", locals: { template: File.basename(i, ".svg"), level: 0 } %>
       </div>
       <div class="column medium-10">
         <h6><strong><%= File.basename(i, ".svg").capitalize %> badge</strong></h6>

@@ -1,6 +1,7 @@
 <%
 @title = "Decidim Barcelona"
 @activeuser = "logged"
+@activepage = "user"
 @files = Dir.glob("app/assets/images/badges/*.svg")
 %>
 
@@ -31,30 +32,30 @@
   </div>
   <div class="row">
     <div class="columns medium-3">
-      <%= render partial: page_path("user") + "/user-card" %>
+      <%= render partial: page_path("profile") + "/user-card" %>
     </div>
     <div class="columns medium-9">
       <div class="tabs-content" data-tabs-content="profile-tabs">
         <div class="tabs-panel is-active" id="timeline">
-          <%= render partial: page_path("user") + "/timeline" %>
+          <%= render partial: page_path("profile") + "/timeline" %>
         </div>
         <div class="tabs-panel" id="notifications">
-          <%= render partial: page_path("user") + "/notifications" %>
+          <%= render partial: page_path("profile") + "/notifications" %>
         </div>
         <div class="tabs-panel" id="conversations">
-          <%= render partial: page_path("user") + "/conversations" %>
+          <%= render partial: page_path("profile") + "/conversations" %>
         </div>
         <div class="tabs-panel" id="conversation">
-          <%= render partial: page_path("user") + "/conversation" %>
+          <%= render partial: page_path("profile") + "/conversation" %>
         </div>
         <div class="tabs-panel" id="following">
-          <%= render partial: page_path("user") + "/following" %>
+          <%= render partial: page_path("profile") + "/following" %>
         </div>
         <div class="tabs-panel" id="followers">
-          <%= render partial: page_path("user") + "/followers" %>
+          <%= render partial: page_path("profile") + "/followers" %>
         </div>
         <div class="tabs-panel" id="badges">
-          <%= render partial: page_path("user") + "/badges" %>
+          <%= render partial: page_path("profile") + "/badges" %>
         </div>
       </div>
     </div>

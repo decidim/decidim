@@ -1,0 +1,16 @@
+.list-request{
+  border-top: $border;
+
+  p{
+    margin-top: $global-margin;
+  }
+
+  > div{
+    padding: $global-padding / 2 0;
+    border-bottom: $border;
+
+    &:first-of-type{
+      border-top: $border;
+    }
+  }
+}
