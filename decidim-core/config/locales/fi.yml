@@ -386,9 +386,9 @@ fi:
         followers:
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
-          explanation: Käyttäjät saavat tämän tunnuksen seuraamalla muita käyttäjiä.
-          name: seuraajaa
-          next_level_in: Get %{score} enemmän käyttäjiä seurata voit päästä seuraavalle tasolle!
+          explanation: Käyttäjät saavat tämän kunniamerkin kun heillä on seuraajia.
+          name: Seuraajat
+          next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
           unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
         invitations:
@@ -580,8 +580,8 @@ fi:
         notifications: Ilmoitukset
       sidebar:
         badges:
-          info: Merkit ansaitaan suorittamalla erityistä toimintaa alustalla.
-          title: Merkit
+          info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
+          title: Kunniamerkit
       user:
         edit_profile: Muokkaa profiilia
     reported_mailer:
