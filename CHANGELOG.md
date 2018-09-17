@@ -20,6 +20,8 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-core**: Now have a quality setting which can be used by adding `process quality:%%` where %% is  your desired percentage of quality
 - **decidim-core** : Add an initializer otion to skip first login authorization [\#176](https://github.com/OpenSourcePolitics/decidim/pull/176)
 - **decidim-admin**: Add link to user profile and link to conversation from admin space. [\#208](https://github.com/OpenSourcePolitics/decidim/pull/208)
+- **decidim-core**: Add a config accessor for admin upload attachment
+[\#258](https://github.com/OpenSourcePolitics/decidim/issues/258)
 
 
 **Changed**:

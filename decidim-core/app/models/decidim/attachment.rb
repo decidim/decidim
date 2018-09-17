@@ -8,7 +8,7 @@ module Decidim
     belongs_to :attached_to, polymorphic: true
 
     validates :file, :content_type, presence: true
-    validates :file, file_size: { less_than_or_equal_to: ->(_attachment) { Decidim.maximum_attachment_size } }
+    validates :file, file_size: { less_than_or_equal_to: ->(_attachment) { Decidim.maximum_attachment_admin_size } }
     mount_uploader :file, Decidim::AttachmentUploader
 
     default_scope { order(arel_table[:weight].asc) }
