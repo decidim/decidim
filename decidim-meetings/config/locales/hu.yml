@@ -284,6 +284,7 @@ hu:
         minutes:
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
+      conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_events:
           name: Közelgő események
