@@ -5,6 +5,7 @@
 
 **Upgrade notes**:
 
+- **decidim-budgets**: Re-introduce vote on budget by number of project. This feature has not been fully tested. See [\#265](https://github.com/OpenSourcePolitics/decidim/pull/265)
 - **Banner uploader**: banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
 you should update existing image if you don't want to reupload them.
 use the following command in your rails console : `Decidim::ParticipatoryProcess.find_each { |process| process.banner_image.recreate_versions! if process.banner_image? }`
@@ -14,7 +15,8 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Added**:
 
-- **decidim-debates**: Allow debates to be reported [#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
+- **decidim-budgets**: Re-introduce vote on budget by number of project.[\#247](https://github.com/OpenSourcePolitics/decidim/pull/247)
+- **decidim-debates**: Allow debates to be reported [\#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
 - **decidim-core**: Banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
 - **decidim-core**: Avater uploader has been changed in [\#147](https://github.com/OpenSourcePolitics/decidim/pull/147)
 - **decidim-core**: Now have a quality setting which can be used by adding `process quality:%%` where %% is  your desired percentage of quality
