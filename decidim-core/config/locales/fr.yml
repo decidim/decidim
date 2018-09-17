@@ -529,6 +529,7 @@ fr:
           answers_count: Enquêtes terminées
           assemblies_count: Agora
           comments_count: Commentaires
+          conferences_count: Conférences
           debates_count: Débats
           endorsements_count: Soutiens
           headline: État actuel de %{organization}
