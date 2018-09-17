@@ -86,7 +86,7 @@ search:
 
 # Do not consider these keys missing:
 ignore_missing:
-  - '{devise,components}.*'
+  - components.*
   - email_subject
   - email_intro
   - email_outro
@@ -94,6 +94,7 @@ ignore_missing:
 
 # Consider these keys used:
 ignore_unused:
+  - devise.*
   - activemodel.attributes.*
   - activemodel.errors.*
   - activemodel.models.*
@@ -164,6 +165,9 @@ ignore_unused:
   - decidim.proposals.collaborative_drafts.filters*
   - decidim.proposals.collaborative_drafts.show.withdraw
   - decidim.proposals.collaborative_drafts.show.publish
+  - decidim.conferences.content_blocks.*.name
+  - decidim.conferences.pages.home.highlighted_conferences.*
+  - decidim.conferences.statistics.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

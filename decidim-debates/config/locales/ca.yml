@@ -132,3 +132,13 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Els debats ja estan disponibles a %{participatory_space_title}
           notification_title: Ja pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Aquest usuari ha participat en %{score} debats.
+          description_own: Has participat en %{score} debats.
+          explanation: Els usuaris obtenen aquesta distinció participant en debats.
+          name: Debats
+          next_level_in: Participa en %{score} debats més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha participat en cap debat.
+          unearned_own: Has participat en qualsevol debat encara.

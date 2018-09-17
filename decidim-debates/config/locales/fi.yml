@@ -133,3 +133,13 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
           email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Tämä käyttäjä on osallistunut %{score} keskusteluun.
+          description_own: Olet osallistunut %{score} keskusteluun.
+          explanation: Käyttäjät saavat tämän tunnuksen osallistumalla keskusteluihin.
+          name: keskustelut
+          next_level_in: Osallistu vielä %{score} keskusteluun seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä osallistunut keskusteluun.
+          unearned_own: Olet osallistunut keskusteluihin vielä.

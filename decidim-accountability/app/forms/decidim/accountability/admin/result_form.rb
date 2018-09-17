@@ -15,8 +15,8 @@ module Decidim
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
         attribute :project_ids, Array[Integer]
-        attribute :start_date, Date
-        attribute :end_date, Date
+        attribute :start_date, Decidim::Attributes::LocalizedDate
+        attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :progress, Float
         attribute :decidim_accountability_status_id, Integer
         attribute :parent_id, Integer

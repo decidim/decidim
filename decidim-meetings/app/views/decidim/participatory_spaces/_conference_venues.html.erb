@@ -1,0 +1,15 @@
+<% if meetings.any? %>
+  <div class="section conference_venues">
+    <h4 class="section-heading">
+      <%= t("conference_venues", scope: "decidim.meetings") %>
+    </h4>
+    <div class="card card--list">
+      <% meetings.each do |meeting_block| %>
+        <% meeting_block.last.each_with_index do |meeting, index| %>
+          <% next if index != 0 %>
+          <%== cell("decidim/address", meeting) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -15,7 +15,7 @@ describe "Meeting embeds", type: :system do
     end
 
     it "renders the page correctly" do
-      expect(page).to have_i18n_content(meeting.title)
+      expect(page).to have_content(Decidim::Meetings::MeetingPresenter.new(meeting).title)
       expect(page).to have_content(organization.name)
     end
 

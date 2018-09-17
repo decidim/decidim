@@ -63,7 +63,7 @@
           <% amends = Faker::Number.between(8, 20) %>
           <h2 class="section-heading">Enmiendas (<%= amends %>)</h2>
           <%= render layout: "public/components/collapsible-list", locals: { text: raw("<u>Muestra #{amends - 4} otras enmiendas</u>"), size: 4, classText: "" } do %>
-            <div class="row small-up-1 medium-up-2">
+            <div class="row small-up-1 medium-up-2 card-grid">
               <% amends.times do %>
               <!-- If you append .collapse, you'll hide those as well -->
               <div class="column collapse">

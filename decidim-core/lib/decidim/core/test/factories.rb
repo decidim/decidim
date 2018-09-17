@@ -5,6 +5,7 @@ require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
+require "decidim/conferences/test/factories"
 require "decidim/comments/test/factories"
 
 FactoryBot.define do

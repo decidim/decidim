@@ -140,7 +140,7 @@ module Decidim
 
           menu.item I18n.t("menu.more_information", scope: "decidim"),
                     decidim.pages_path,
-                    position: 3,
+                    position: 7,
                     active: :inclusive
         end
       end

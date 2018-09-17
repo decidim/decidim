@@ -391,6 +391,14 @@ pl:
       remove_this_file: Usuń ten plik
     gamification:
       badges:
+        followers:
+          description_another: Ten użytkownik ma %{score} obserwujących.
+          description_own: "%{score} użytkowników obserwuje Ciebie."
+          explanation: Użytkownicy otrzymują tę plakietkę, obserwując innych użytkowników.
+          name: Obserwujący
+          next_level_in: Uzyskaj %{score} innych użytkowników, którzy obserwują Cię, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie ma jeszcze żadnych obserwujących.
+          unearned_own: Nie masz jeszcze żadnych obserwujących.
         invitations:
           description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
           description_own: Zaprosiłeś %{score} użytkowników.
@@ -578,6 +586,10 @@ pl:
         followers: Obserwujący
         following: Podąża
         notifications: Powiadomienia
+      sidebar:
+        badges:
+          info: Odznaki zdobywa się, wykonując określoną czynność na platformie.
+          title: Odznaki
       user:
         edit_profile: Edytuj profil
     reported_mailer:

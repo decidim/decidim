@@ -3,12 +3,12 @@
     <h2 class="card-title"><%= title %></h2>
   </div>
   <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true  %>
+    <div class="row column  hashtags__container">
+      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, value: @meeting.present? ? present(@meeting).title : ""  %>
     </div>
 
-    <div class="row column">
-      <%= form.translated :editor, :description, class: "js-hashtags", hashtaggable: true  %>
+    <div class="row column hashtags__container">
+      <%= form.translated :editor, :description, class: "js-hashtags", hashtaggable: true, value: @meeting.present? ? present(@meeting).title : ""  %>
     </div>
 
     <div class="row column">

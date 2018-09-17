@@ -380,6 +380,14 @@ hu:
       remove_this_file: Töröld ezt a fájlt
     gamification:
       badges:
+        followers:
+          description_another: Ennek a felhasználónak %{score} követője van.
+          description_own: "%{score} felhasználó követi Önt."
+          explanation: A felhasználók ezt a jelvényt kapják más felhasználók követésével.
+          name: Követő
+          next_level_in: Get %{score} több felhasználó követni, hogy a következő szintre!
+          unearned_another: Ennek a felhasználónak még nincsenek követői.
+          unearned_own: Még nincsenek követői.
         invitations:
           description_another: Felhasználó meghívott %{score} felhasználókat.
           description_own: Meghívtál %{score} felhasználótkat.
@@ -567,6 +575,10 @@ hu:
         followers: Követők
         following: Követés
         notifications: Értesítések
+      sidebar:
+        badges:
+          info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
+          title: Kitűzők
       user:
         edit_profile: Profil szerkesztése
     reported_mailer:
