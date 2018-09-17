@@ -19,6 +19,7 @@
 - **decidim-participatory_processes**: Set max number of results in highlighted processes content block (4, 8 or 12) [\#4124](https://github.com/decidim/decidim/pull/4124)
 - **decidim-core**: Add an HTML content block [\#4134](https://github.com/decidim/decidim/pull/4134)
 - **decidim-consultations**: Add a "Highlighted consultations" content block [\#4137](https://github.com/decidim/decidim/pull/4137)
+- **decidim-admin**: Adds a link to the admin navigation so users can easily access the public page. [\#4126](https://github.com/decidim/decidim/pull/4126)
 
 **Changed**:
 
