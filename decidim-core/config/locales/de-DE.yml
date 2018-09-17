@@ -241,32 +241,32 @@ de:
           nickname_help: Ihre kurze, eindeutige ID in %{organization}
           sign_up: Bitte vervollständigen Sie Ihr Profil
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
-          username_help: Der öffentliche Name, der in Ihren Posts angezeigt wird. Mit dem Ziel, die Anonymität zu gewährleisten, kann jeder Name angegeben werden.
+          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
         new:
-          already_have_an_account?: Hast du schon ein Konto?
+          already_have_an_account?: Haben Sie bereits ein Konto?
           newsletter: Erhalten Sie gelegentlich einen Newsletter mit relevanten Informationen
           newsletter_title: Kontakt Erlaubnis
           nickname_help: Ihre kurze, eindeutige ID in %{organization}
           sign_in: Einloggen
-          sign_up: Anmelden
+          sign_up: Registrieren
           sign_up_as:
-            legend: Melden Sie sich als an
-            user: Individuell
+            legend: Registrieren als
+            user: Privatperson
             user_group: Organisation / Kollektiv
-          subtitle: Melden Sie sich an, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
+          subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
           terms: die Nutzungsbedingungen
           tos_agreement: Mit der Anmeldung stimmst du der %{link}.
           tos_title: Nutzungsbedingungen
-          username_help: Der öffentliche Name, der in Ihren Posts angezeigt wird. Mit dem Ziel, die Anonymität zu gewährleisten, kann jeder Name angegeben werden.
+          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       sessions:
         new:
           are_you_new?: Neu auf der Plattform?
-          register: Ein Konto erstellen
+          register: Konto erstellen
       shared:
         newsletter_modal:
           buttons:
-            check: Überprüfen Sie und fahren Sie fort
+            check: Überprüfen und fortfahren
             close_modal: Modal schließen
             uncheck: Deaktivieren Sie das Kontrollkästchen
           notice: |-
@@ -288,12 +288,12 @@ de:
         new:
           authorize: Anwendung autorisieren
           by_organization_link_html: <small class="heading-small">von %{link}</small>
-          cancel: Stornieren
+          cancel: Abbrechen
           connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong>
-          publish_content: Veröffentlichen Sie Inhalte für Sie
-          see_email: Sehen Sie Ihre E-Mail
-          see_name: Sieh deinen Namen
-          see_username: Sieh deinen Benutzernamen
+          publish_content: Inhalte für Sie veröffentlichen
+          see_email: Ihre E-Mail anzeigen
+          see_name: Ihren Namen anzeigen
+          see_username: Ihren Benutzernamen anzeigen
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Aktualisiere dein Profil
