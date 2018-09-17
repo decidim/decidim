@@ -165,6 +165,9 @@ ignore_unused:
   - decidim.proposals.collaborative_drafts.filters*
   - decidim.proposals.collaborative_drafts.show.withdraw
   - decidim.proposals.collaborative_drafts.show.publish
+  - decidim.conferences.content_blocks.*.name
+  - decidim.conferences.pages.home.highlighted_conferences.*
+  - decidim.conferences.statistics.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

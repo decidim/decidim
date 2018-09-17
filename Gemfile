@@ -5,6 +5,7 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", path: "."
+gem "decidim-conferences", path: "."
 gem "decidim-consultations", path: "."
 gem "decidim-initiatives", path: "."
 

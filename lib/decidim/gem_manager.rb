@@ -22,6 +22,7 @@ module Decidim
       participatory_processes
       assemblies
       consultations
+      conferences
     ).freeze
 
     COMPONENTS = %w(

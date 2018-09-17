@@ -1,0 +1,89 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <% if allowed_to? :update, :conference, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.edit_conference_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.edit_conference_path(current_participatory_space) %>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :component, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.components_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("components", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.components_path(current_participatory_space) %>
+          <ul>
+            <% current_participatory_space.components.each do |component| %>
+              <% if component.manifest.admin_engine %>
+                <li <% if is_active_link?(manage_component_path(component)) || is_active_link?(decidim_admin_conferences.edit_component_path(current_participatory_space, component)) || is_active_link?(decidim_admin_conferences.edit_component_permissions_path(current_participatory_space, component)) %> class="is-active" <% end %>>
+                  <%= link_to manage_component_path(component) do %>
+                    <%= translated_attribute component.name %>
+                    <% if component.primary_stat.present? %>
+                      <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>"><%= component.primary_stat %></span>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :category, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.categories_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.categories_path(current_participatory_space) %>
+        </li>
+      <% end %>
+      <% if allowed_to?(:read, :attachment_collection, conference: current_participatory_space) || allowed_to?(:read, :attachment, conference: current_participatory_space) %>
+        <li>
+          <span class="secondary-nav__subtitle"><%= t("attachments", scope: "decidim.admin.menu.conferences_submenu") %></span>
+          <ul>
+            <% if allowed_to? :read, :attachment_collection, conference: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("attachment_collections", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space) %>
+              </li>
+            <% end %>
+            <% if allowed_to? :read, :attachment, conference: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_conferences.conference_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("attachment_files", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_attachments_path(current_participatory_space) %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :conference_speaker, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.conference_speakers_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("conference_speakers", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_speakers_path(current_participatory_space) %>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :conference_invite, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.conference_conference_invites_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("conference_invites", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_conference_invites_path(current_participatory_space) %>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :conference_registration, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.conference_conference_registrations_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("conference_registrations", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_conference_registrations_path(current_participatory_space) %>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :conference_user_role, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.conference_user_roles_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("conference_admins", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_user_roles_path(current_participatory_space) %>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :moderation, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.moderations_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.moderations_path(current_participatory_space) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= link_to translated_attribute(current_participatory_space.title), decidim_conferences.conference_path(current_participatory_space), target: "_blank" %>
+    </div>
+  </div>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
+<% end %>

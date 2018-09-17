@@ -534,6 +534,7 @@ en:
           answers_count: Completed Surveys
           assemblies_count: Assemblies
           comments_count: Comments
+          conferences_count: Conferences
           debates_count: Debates
           endorsements_count: Endorsements
           headline: Current state of %{organization}

@@ -62,7 +62,7 @@ module Decidim
           end
         end
 
-        Decidim.view_hooks.register(:assembly_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
+        Decidim.view_hooks.register(:current_participatory_space_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
           meetings = Decidim::Meetings::Meeting.where(component: published_components)
 
@@ -89,6 +89,19 @@ module Decidim
             partial: "decidim/participatory_spaces/upcoming_meeting_for_card.html",
             locals: {
               upcoming_meeting: upcoming_meeting
+            }
+          )
+        end
+
+        Decidim.view_hooks.register(:conference_venues, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
+          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
+          meetings = Decidim::Meetings::Meeting.where(component: published_components).group_by(&:address)
+          next unless meetings.any?
+
+          view_context.render(
+            partial: "decidim/participatory_spaces/conference_venues",
+            locals: {
+              meetings: meetings
             }
           )
         end
