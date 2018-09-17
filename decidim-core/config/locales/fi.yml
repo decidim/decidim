@@ -685,7 +685,7 @@ fi:
       long_words: sisältää liian pitkiä sanoja
       must_start_with_caps: täytyy alkaa isoilla kirjaimilla
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
-      too_many_marks: sisältää liian monta merkkiä
+      too_many_marks: sisältää liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: käyttää liikaa isoja kirjaimia
       too_short: on liian lyhyt
   forms:
