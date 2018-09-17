@@ -1,0 +1,349 @@
+de:
+  activemodel:
+    attributes:
+      conference:
+        banner_image: Bannerbild
+        copy_categories: Kategorien kopieren
+        copy_components: Kopieren Sie Komponenten
+        copy_features: Funktionen kopieren
+        decidim_scope_id: Umfang
+        description: Beschreibung
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        promoted: Gefördert
+        published_at: Veröffentlicht unter
+        scope_id: Umfang
+        scopes_enabled: Bereiche aktiviert
+        short_description: Kurze Beschreibung
+        show_statistics: Zeige Statistiken
+        slogan: Slogan
+        slug: URL-Block
+        title: Titel
+      conference_speaker:
+        full_name: Vollständiger Name
+      conference_user_role:
+        email: Email
+        name: Name
+        role: Rolle
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Diese E-Mail wurde bereits eingeladen
+  activerecord:
+    models:
+      decidim/conference:
+        one: Konferenz
+        other: Konferenzen
+      decidim/conference_speaker:
+        one: Konferenzsprecher
+        other: Konferenzsprecher
+      decidim/conference_user_role:
+        one: Konferenzbenutzerrolle
+        other: Konferenzbenutzerrollen
+  decidim:
+    admin:
+      actions:
+        new_conference: Neue Konferenz
+      conference_copies:
+        new:
+          copy: Kopieren
+          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
+          title: Doppelte Konferenz
+      conference_publications:
+        create:
+          error: Beim Veröffentlichen dieser Konferenz ist ein Fehler aufgetreten.
+          success: Konferenz erfolgreich veröffentlicht.
+        destroy:
+          error: Beim Aufheben der Veröffentlichung dieser Konferenz ist ein Fehler aufgetreten.
+          success: Konferenz wurde nicht erfolgreich veröffentlicht.
+      conference_speakers:
+        create:
+          error: Beim Hinzufügen eines Sprechers für diese Konferenz ist ein Fehler aufgetreten.
+          success: Referent erfolgreich für diese Konferenz erstellt.
+        destroy:
+          success: Der Redner wurde für diese Konferenz erfolgreich gelöscht.
+        edit:
+          title: Konferenzsprecher aktualisieren
+          update: Aktualisieren
+        index:
+          conference_speakers_title: Konferenzsprecher
+        new:
+          create: Erstellen
+          title: Neuer Konferenzsprecher.
+        update:
+          error: Beim Aktualisieren des Sprechers für diese Konferenz ist ein Fehler aufgetreten.
+          success: Der Sprecher wurde für diese Konferenz erfolgreich aktualisiert.
+      conference_user_roles:
+        create:
+          error: Beim Hinzufügen eines Benutzers für diese Konferenz ist ein Fehler aufgetreten.
+          success: Benutzer wurde erfolgreich zu dieser Konferenz hinzugefügt.
+        destroy:
+          success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
+        edit:
+          title: Aktualisieren Sie den Konferenzbenutzer.
+          update: Aktualisieren
+        index:
+          conference_admins_title: Konferenzbenutzer
+        new:
+          create: Erstellen
+          title: Neuer Konferenzbenutzer
+        update:
+          error: Bei einem Fehler ist ein Benutzer für diese Konferenz aktualisiert worden.
+          success: Der Benutzer wurde für diese Konferenz erfolgreich aktualisiert.
+      conferences:
+        create:
+          error: Beim Erstellen einer neuen Konferenz ist ein Fehler aufgetreten.
+          success: Konferenz erfolgreich erstellt
+        destroy:
+          success: Konferenz wurde erfolgreich gelöscht.
+        edit:
+          update: Aktualisieren
+        exports:
+          registrations: Anmeldungen
+        form:
+          title: Allgemeine Information
+        index:
+          not_published: Nicht veröffentlicht
+          published: Veröffentlicht
+        new:
+          create: Erstellen
+          title: Konferenz
+        update:
+          error: Beim Aktualisieren dieser Konferenz ist ein Fehler aufgetreten.
+          success: Konferenz wurde erfolgreich aktualisiert.
+      conferences_copies:
+        create:
+          error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
+          success: Konferenz wurde erfolgreich dupliziert.
+      menu:
+        conferences: Konferenzen
+        conferences_submenu:
+          attachment_collections: Ordner
+          attachment_files: Dateien
+          attachments: Anlagen
+          categories: Kategorien
+          components: Komponenten
+          conference_admins: Konferenzadministratoren
+          conference_invites: Konferenz lädt ein
+          conference_registrations: Konferenzanmeldungen
+          conference_speakers: Konferenzsprecher
+          info: Info
+          moderations: Moderationen
+      models:
+        conference:
+          fields:
+            created_at: Hergestellt in
+            promoted: Gefördert
+            published: Veröffentlicht
+            title: Titel
+        conference_speaker:
+          fields:
+            affiliation: Zugehörigkeit
+            full_name: Vollständiger Name
+            position: Position
+          name: Konferenzsprecher
+        conference_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Rolle
+          name: Konferenzbenutzer
+          roles:
+            admin: Administrator
+            collaborator: Mitarbeiter
+            moderator: Moderator
+      titles:
+        conferences: Konferenzen
+    conference_speakers:
+      index:
+        title: Lautsprecher
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        conference_invites:
+          create:
+            error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
+            success: Der Benutzer wurde erfolgreich zur Teilnahme an der Konferenz eingeladen.
+          form:
+            attendee_type: Teilnehmertyp
+            existing_user: Existierender Benutzer
+            invite_explanation: Der Benutzer wird eingeladen, der Konferenz und der Organisation beizutreten.
+            non_user: Nicht existierender Benutzer
+            select_user: Nutzer wählen
+          index:
+            filter:
+              accepted: Akzeptiert
+              all: Alle
+              rejected: Abgelehnt
+              sent: Geschickt
+            filter_by: Filtern nach
+            invite_attendee: Teilnehmer einladen
+            invites: Lädt ein
+            search: Suche
+          new:
+            explanation: Der Benutzer wird eingeladen, an einer Konferenz teilzunehmen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
+            invite: Einladen
+            new_invite: Nutzer einladen
+        conference_registrations:
+          index:
+            registrations: Anmeldungen
+        conference_speakers:
+          form:
+            existing_user: Existierender Benutzer
+            non_user: Nichtbenutzer
+            select_user: Nutzer wählen
+            user_type: Benutzertyp
+          index:
+            search: Suche
+        conferences:
+          form:
+            available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
+            registrations_count:
+              one: Es gab 1 Registrierung.
+              other: Es gab %{count} Registrierungen.
+            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        invite_join_conference_mailer:
+          invite:
+            decline: Einladung '%{conference_title}' ablehnen
+            invited_you_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            join: An Konferenz "%{conference_title}" teilnehmen
+      conference:
+        registration_confirm:
+          cancel: Stornieren
+          confirm: Bestätigen
+        show:
+          going: Gehen
+          join: Konferenz beitreten
+          no_slots_available: Keine Steckplätze verfügbar
+          remaining_slots:
+            one: 1 Steckplatz übrig
+            other: "%{count} freie Plätze"
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Ihre Anmeldung zur Konferenz <a href="%{url}">%{title}</a> wurde bestätigt.
+          details: Sie finden die Details der Konferenz im Anhang.
+      conference_registrations:
+        create:
+          invalid: Bei dieser Konferenz ist ein Problem aufgetreten.
+          success: Sie sind der Konferenz erfolgreich beigetreten.
+        decline_invitation:
+          invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
+          success: Sie haben die Einladung erfolgreich abgelehnt.
+        destroy:
+          invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
+          success: Sie haben die Konferenz erfolgreich verlassen.
+      conference_speaker:
+        show:
+          affiliation: Zugehörigkeit
+          personal_url: Persönliche Url
+          position: Position
+          short_bio: Kurzbiografie
+          twitter_handle: Twitter
+      conference_speakers:
+        index:
+          speakers: Lautsprecher
+      content_blocks:
+        highlighted_conferences:
+          name: Hervorgehobene Konferenzen
+      index:
+        title: Konferenzen
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Die Registrierung Ihrer Konferenz wurde bestätigt
+        invite_join_conference_mailer:
+          invite:
+            subject: Einladung zur Teilnahme an einer Konferenz
+      models:
+        conference_invite:
+          fields:
+            email: Email
+            name: Name
+            sent_at: Gesendet um
+            status: Status
+          status:
+            accepted: Akzeptiert (%{at})
+            rejected: Zurückgewiesen (%{at})
+            sent: Geschickt
+        conference_registration:
+          fields:
+            email: Email
+            name: Name
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktive Konferenzen
+            see_all_conferences: Alle Konferenzen anzeigen
+      show:
+        end_date: Endtermin
+        objectives: Ziele
+        start_date: Anfangsdatum
+      statistics:
+        answers_count: Antworten
+        comments_count: Bemerkungen
+        conference_count: Konferenzen
+        debates_count: Debatten
+        endorsements_count: Empfehlungen
+        headline: Aktivität
+        meetings_count: Meetings
+        orders_count: Stimmen
+        pages_count: Seiten
+        posts_count: Beiträge
+        projects_count: Projekte
+        proposals_count: Vorschläge
+        results_count: Ergebnisse
+        surveys_count: Umfragen
+        users_count: Teilnehmer
+        votes_count: Stimmen
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_intro: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Konferenz sind.
+          email_subject: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%
+          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz belegt Slots sind über %{percentage}%.
+        conference_updated:
+          email_intro: 'Die Konferenz "%{resource_title}" wurde aktualisiert. Sie können die neue Version von ihrer Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
+          email_subject: Die Konferenz "%{resource_title}" wurde aktualisiert
+          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz wurde aktualisiert.
+        registrations_enabled:
+          email_intro: 'Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht. Sie können sich auf seiner Seite registrieren:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
+          email_subject: Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht.
+          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz hat Registrierungen ermöglicht.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id})'
+    menu:
+      conferences: Konferenzen
+  devise:
+    mailer:
+      join_conference:
+        subject: Einladung zur Teilnahme an einer Konferenz
+  layouts:
+    decidim:
+      conference_header:
+        conference_menu_item: Die Konferenz
+        conference_speaker_menu_item: Lautsprecher
+        unfold: Entfalten
+      conference_widgets:
+        show:
+          take_part: Teilnehmen
+      conferences:
+        conference:
+          take_part: Teilnehmen
+        index:
+          promoted_conferences: Geförderte Konferenzen
+        order_by_conferences:
+          conferences:
+            one: "%{count} Konferenz"
+            other: "%{count} Konferenzen"
+        promoted_conference:
+          more_info: Mehr Info
+          take_part: Teilnehmen
