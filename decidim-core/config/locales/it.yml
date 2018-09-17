@@ -529,6 +529,7 @@ it:
           answers_count: Sondaggi completati
           assemblies_count: assemblee
           comments_count: Commenti
+          conferences_count: conferenze
           debates_count: Dibattiti
           endorsements_count: Riconoscimenti
           headline: Stato attuale dell'organizzazione %{organization}
