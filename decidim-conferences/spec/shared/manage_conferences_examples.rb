@@ -48,6 +48,9 @@ shared_examples "manage conferences" do
         attach_file :conference_hero_image, image1_path
         attach_file :conference_banner_image, image2_path
 
+        fill_in :conference_start_date, with: 1.month.ago
+        fill_in :conference_end_date, with: 1.month.ago + 3.days
+
         find("*[type=submit]").click
       end
 
