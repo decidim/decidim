@@ -528,6 +528,7 @@ hu:
           answers_count: Befejezett felmérések
           assemblies_count: Gyűlések
           comments_count: Hozzászólások
+          conferences_count: Konferenciák
           debates_count: Viták
           endorsements_count: Jóváhagyások
           headline: A %{organization} jelenlegi állapota
