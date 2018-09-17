@@ -97,7 +97,6 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
-          name: Participatory process
         participatory_process_group:
           fields:
             name: Name

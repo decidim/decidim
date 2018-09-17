@@ -97,7 +97,6 @@ ca:
             promoted: Destacat
             published: Publicat
             title: Títol
-          name: Procés participatiu
         participatory_process_group:
           fields:
             name: Nom

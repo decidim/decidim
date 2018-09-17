@@ -108,9 +108,6 @@ en:
             created_at: Created at
             published: Published
             title: Title
-          name:
-            one: Consultation
-            other: Consultations
         question:
           fields:
             created_at: Created at

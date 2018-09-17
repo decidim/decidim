@@ -168,7 +168,6 @@ hu:
             promoted: Legfontosabb
             published: Közzétett
             title: Cím
-          name: gyülekezés
         assembly_member:
           fields:
             ceased_date: Megszűnt dátum

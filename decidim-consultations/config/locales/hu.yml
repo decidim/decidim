@@ -106,9 +106,6 @@ hu:
             created_at: 'Létrehozva:'
             published: Közzétett
             title: Cím
-          name:
-            one: Konzultáció
-            other: konzultációk
         question:
           fields:
             created_at: 'Létrehozva:'

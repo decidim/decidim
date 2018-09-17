@@ -108,9 +108,6 @@ es:
             created_at: Creado en
             published: Publicado
             title: Título
-          name:
-            one: Consulta
-            other: Consultas
         question:
           fields:
             created_at: Creado en

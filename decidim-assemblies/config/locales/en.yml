@@ -171,7 +171,6 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
-          name: Assembly
         assembly_member:
           fields:
             ceased_date: Ceased date

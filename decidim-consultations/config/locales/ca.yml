@@ -108,9 +108,6 @@ ca:
             created_at: Creat el
             published: Publicat
             title: Títol
-          name:
-            one: Consulta
-            other: Consultes
         question:
           fields:
             created_at: Creat el

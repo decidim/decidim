@@ -173,7 +173,6 @@ fr:
             promoted: Mise en évidence
             published: Publiée
             title: Titre
-          name: Assemblée
         assembly_member:
           fields:
             ceased_date: Date de radiation
