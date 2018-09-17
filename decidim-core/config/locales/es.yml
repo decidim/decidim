@@ -529,6 +529,7 @@ es:
           answers_count: Encuestas completadas
           assemblies_count: Asambleas
           comments_count: Comentarios
+          conferences_count: Conferencias
           debates_count: Debates
           endorsements_count: Adhesiones
           headline: Estado actual de %{organization}
