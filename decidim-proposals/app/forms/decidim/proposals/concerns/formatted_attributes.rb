@@ -7,11 +7,11 @@ module Decidim
         extend ActiveSupport::Concern
         included do
           def formatted_title
-            title.titleize
+            title.capitalize
           end
 
           def formatted_body
-            body.titleize
+            body.capitalize
           end
         end
       end
