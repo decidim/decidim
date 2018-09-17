@@ -35,16 +35,14 @@
   margin-bottom: 0;
 }
 
-// TODO : BUDGET / USE PROPER BREAKPOINT
-
-@media print, screen and (min-width: 40em){
-  .budget-list__data_votes{
+.budget-list__data_votes{
+  @include breakpoint(medium){
     flex-basis: 21rem !important;
   }
 }
 
-@media print, screen and (min-width: 40em){
-  .budget-list__number_votes{
+.budget-list__number_votes{
+  @include breakpoint(medium){
     font-size: 1.3rem !important;
   }
 }
