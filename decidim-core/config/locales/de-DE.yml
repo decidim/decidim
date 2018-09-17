@@ -7,38 +7,38 @@ de:
         details: Zusätzliche Kommentare
       user:
         about: Über
-        email: Deine E-Mail
-        name: Dein Name
+        email: Ihre E-Mail-Adresse
+        name: Ihr Name
         nickname: Ihre kurze, eindeutige Kennung
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
-        remove_avatar: Entferne den Avatar
+        remove_avatar: Avatar entfernen
         user_group_document_number: Organisationsbelegnummer
         user_group_name: Name der Organisation
         user_group_phone: Organisationstelefon
     models:
-      decidim/attachment_created_event: Befestigung
+      decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
       decidim/gamification/badge_earned_event: Abzeichen verdient
-      decidim/gamification/level_up_event: Du bist ausgeglichen
+      decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
       decidim/profile_updated_event: Profil aktualisiert
   activerecord:
     attributes:
       decidim/user:
         current_password: Aktuelles Passwort
-        email: Email
-        name: Nutzername
+        email: E-Mail-Adresse
+        name: Benutzername
         password: Passwort
-        password_confirmation: Passwort Bestätigung
+        password_confirmation: Bestätigung des Passworts
         remember_me: Erinnere dich an mich
         user_group_document_number: Organisationsbelegnummer
         user_group_name: Name der Organisation
         user_group_phone: Organisationstelefon
     models:
       decidim/user:
-        one: Benutzer
-        other: Benutzer
+        one: Benutzer*in
+        other: Benutzer*innen
       decidim/user_group:
         one: Benutzergruppe
         other: Benutzergruppen
@@ -55,7 +55,7 @@ de:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Die Datei existiert nicht
+        file_no_exists: Diese Datei existiert nicht
         invalid_token: Das angegebene Token ist ungültig.
         no_token: Kein Token zur Verfügung gestellt
         notice: Ihre Daten werden gerade bearbeitet. Sie erhalten nach Fertigstellung eine E-Mail.
@@ -64,9 +64,9 @@ de:
         confirm:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
-          question: Möchtest du dein Konto wirklich löschen?
-          title: Löschen Sie mein Konto
-        explanation: Bitte geben Sie den Grund ein, warum Sie Ihr Konto löschen möchten (optional).
+          question: Sind Sie sicher, dass Sie Ihr Konto löschen möchten?
+          title: Mein Konto löschen
+        explanation: Bitte geben Sie den Grund an, warum Sie Ihr Konto löschen möchten (optional).
       destroy:
         error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich gelöscht.
