@@ -539,6 +539,7 @@ pl:
           answers_count: Ankiety zakończone
           assemblies_count: Złożenia
           comments_count: Komentarze
+          conferences_count: Konferencje
           debates_count: Debaty
           endorsements_count: Adnotacje
           headline: Aktualny stan %{organization}
