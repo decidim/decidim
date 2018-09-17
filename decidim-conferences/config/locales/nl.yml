@@ -1,0 +1,349 @@
+nl:
+  activemodel:
+    attributes:
+      conference:
+        banner_image: Banner afbeelding
+        copy_categories: Categorieën kopiëren
+        copy_components: Kopieer componenten
+        copy_features: Functies kopiëren
+        decidim_scope_id: strekking
+        description: Beschrijving
+        hashtag: Hashtag
+        hero_image: Home afbeelding
+        promoted: gepromoveerd
+        published_at: Gepubliceerd op
+        scope_id: strekking
+        scopes_enabled: Scopes ingeschakeld
+        short_description: Korte beschrijving
+        show_statistics: Toon statistieken
+        slogan: leuze
+        slug: URL-slug
+        title: Titel
+      conference_speaker:
+        full_name: Voor-en achternaam
+      conference_user_role:
+        email: E-mail
+        name: Naam
+        role: Rol
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Deze e-mail is al uitgenodigd
+  activerecord:
+    models:
+      decidim/conference:
+        one: Conferentie
+        other: conferenties
+      decidim/conference_speaker:
+        one: Conferentie spreker
+        other: Sprekers van de conferentie
+      decidim/conference_user_role:
+        one: Conferentiegebruikersrol
+        other: Gebruikersrollen van de conferentie
+  decidim:
+    admin:
+      actions:
+        new_conference: Nieuwe conferentie
+      conference_copies:
+        new:
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Dubbele conferentie
+      conference_publications:
+        create:
+          error: Er is een fout opgetreden bij het publiceren van deze conferentie.
+          success: Conferentie met succes gepubliceerd.
+        destroy:
+          error: Er is een fout opgetreden bij het niet-publiceren van deze conferentie.
+          success: Conferentie ongepubliceerd succesvol.
+      conference_speakers:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een spreker voor deze conferentie.
+          success: Luidspreker gemaakt voor deze conferentie.
+        destroy:
+          success: Spreker is met succes verwijderd voor deze conferentie.
+        edit:
+          title: Conferentieluidspreker updaten.
+          update: Bijwerken
+        index:
+          conference_speakers_title: Sprekers van de conferentie
+        new:
+          create: creëren
+          title: Nieuwe spreker voor conferenties.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van de spreker voor deze conferentie.
+          success: Luidspreker succesvol bijgewerkt voor deze conferentie.
+      conference_user_roles:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze conferentie.
+          success: Gebruiker succesvol toegevoegd aan deze conferentie.
+        destroy:
+          success: Gebruiker is met succes van deze conferentie verwijderd.
+        edit:
+          title: Conferentiegebruiker updaten.
+          update: Bijwerken
+        index:
+          conference_admins_title: conferentie gebruikers
+        new:
+          create: creëren
+          title: Nieuwe conferentiegebruiker.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze conferentie.
+          success: Gebruiker is succesvol geüpdatet voor deze conferentie.
+      conferences:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe conferentie.
+          success: Conferentie met succes gemaakt.
+        destroy:
+          success: Conferentie met succes verwijderd.
+        edit:
+          update: Bijwerken
+        exports:
+          registrations: registraties
+        form:
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
+        new:
+          create: creëren
+          title: Conferentie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze conferentie.
+          success: Conferentie succesvol bijgewerkt.
+      conferences_copies:
+        create:
+          error: Er is een fout opgetreden bij het dupliceren van deze conferentie.
+          success: Conferentie succesvol gedupliceerd.
+      menu:
+        conferences: conferenties
+        conferences_submenu:
+          attachment_collections: folders
+          attachment_files: bestanden
+          attachments: Bijlagen
+          categories: Categorieën
+          components: Components
+          conference_admins: Conferentiebeheerders
+          conference_invites: Conference Invites
+          conference_registrations: Conferentie-registraties
+          conference_speakers: Sprekers van de conferentie
+          info: info
+          moderations: matigingen
+      models:
+        conference:
+          fields:
+            created_at: Gemaakt bij
+            promoted: gepromoveerd
+            published: Gepubliceerd
+            title: Titel
+        conference_speaker:
+          fields:
+            affiliation: Aansluiting
+            full_name: Voor-en achternaam
+            position: Positie
+          name: Conference Speaker
+        conference_user_role:
+          fields:
+            email: E-mail
+            name: Naam
+            role: Rol
+          name: Conferentie Gebruiker
+          roles:
+            admin: Beheerder
+            collaborator: Medewerker
+            moderator: Moderator
+      titles:
+        conferences: conferenties
+    conference_speakers:
+      index:
+        title: sprekers
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze conferentie verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
+        conference_invites:
+          create:
+            error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de conferentie.
+            success: Gebruiker met succes uitgenodigd om deel te nemen aan de conferentie.
+          form:
+            attendee_type: Type deelnemer
+            existing_user: Bestaande gebruiker
+            invite_explanation: De gebruiker wordt ook uitgenodigd om deel te nemen aan de conferentie en aan de organisatie.
+            non_user: Niet bestaande gebruiker
+            select_user: Selecteer gebruiker
+          index:
+            filter:
+              accepted: Aanvaard
+              all: Alle
+              rejected: Verworpen
+              sent: Verzonden
+            filter_by: Filteren op
+            invite_attendee: Nodig Deelnemer uit
+            invites: Uitnodigingen
+            search: Zoeken
+          new:
+            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een conferentie. Als de e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
+            invite: Nodig uit
+            new_invite: Nodig gebruiker uit
+        conference_registrations:
+          index:
+            registrations: registraties
+        conference_speakers:
+          form:
+            existing_user: Bestaande gebruiker
+            non_user: Niet gebruiker
+            select_user: Selecteer gebruiker
+            user_type: Gebruikerstype
+          index:
+            search: Zoeken
+        conferences:
+          form:
+            available_slots_help: Laat het op 0 staan ​​als je onbeperkte slots beschikbaar hebt.
+            registrations_count:
+              one: Er is 1 registratie geweest.
+              other: Er zijn %{count} registraties geweest.
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze conferentie verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
+        invite_join_conference_mailer:
+          invite:
+            decline: Uitnodiging '%{conference_title}' weigeren
+            invited_you_to_join_a_conference: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een conferentie op %{application}. U kunt het weigeren of accepteren via de onderstaande links."
+            join: Deelnemen aan conferentie '%{conference_title}'
+      conference:
+        registration_confirm:
+          cancel: Annuleer
+          confirm: Bevestigen
+        show:
+          going: gaand
+          join: Doe mee met Conference
+          no_slots_available: Geen slots beschikbaar
+          remaining_slots:
+            one: 1 slot over
+            other: "%{count} slots over"
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is bevestigd.
+          details: U vindt de details van de conferentie in de bijlage.
+      conference_registrations:
+        create:
+          invalid: Er is een probleem opgetreden bij deze conferentie.
+          success: U bent succesvol bij de conferentie gekomen.
+        decline_invitation:
+          invalid: Er is een probleem opgetreden bij het afwijzen van de uitnodiging.
+          success: U hebt de uitnodiging met succes afgewezen.
+        destroy:
+          invalid: Er is een probleem met het verlaten van deze conferentie.
+          success: U hebt de conferentie met succes verlaten.
+      conference_speaker:
+        show:
+          affiliation: Aansluiting
+          personal_url: Persoonlijke URL
+          position: Positie
+          short_bio: Korte biografie
+          twitter_handle: tjilpen
+      conference_speakers:
+        index:
+          speakers: sprekers
+      content_blocks:
+        highlighted_conferences:
+          name: Gemarkeerde conferenties
+      index:
+        title: conferenties
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: De registratie van uw conferentie is bevestigd
+        invite_join_conference_mailer:
+          invite:
+            subject: Uitnodiging om deel te nemen aan een conferentie
+      models:
+        conference_invite:
+          fields:
+            email: E-mail
+            name: Naam
+            sent_at: Verzonden op
+            status: staat
+          status:
+            accepted: Geaccepteerd (%{at})
+            rejected: Rejected (%{at})
+            sent: Verzonden
+        conference_registration:
+          fields:
+            email: E-mail
+            name: Naam
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Actieve conferenties
+            see_all_conferences: Bekijk alle conferenties
+      show:
+        end_date: Einddatum
+        objectives: Doelen
+        start_date: Begin datum
+      statistics:
+        answers_count: antwoorden
+        comments_count: Comments
+        conference_count: conferenties
+        debates_count: debatten
+        endorsements_count: Endorsements
+        headline: Activiteit
+        meetings_count: vergaderingen
+        orders_count: stemmen
+        pages_count: Pages
+        posts_count: berichten
+        projects_count: projecten
+        proposals_count: voorstellen
+        results_count: resultaten
+        surveys_count: onderzoeken
+        users_count: Deelnemers
+        votes_count: stemmen
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_intro: De door de '%{resource_title}conferentie ingenomen slots zijn meer dan %{percentage}%.
+          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de conferentie.
+          email_subject: De "%{resource_title}" -bezette slots zijn meer dan %{percentage}%
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie bezet slots zijn meer dan %{percentage}%.
+        conference_updated:
+          email_intro: 'De "%{resource_title}" -conferentie is bijgewerkt. Je kunt de nieuwe versie van de pagina lezen:'
+          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: De "%{resource_title}" -conferentie is bijgewerkt
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie is bijgewerkt.
+        registrations_enabled:
+          email_intro: 'De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt. U kunt uzelf registreren op zijn pagina:'
+          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie heeft registraties mogelijk gemaakt.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'De conferentie is niet gevonden in de database (ID: %{id})'
+    menu:
+      conferences: conferenties
+  devise:
+    mailer:
+      join_conference:
+        subject: Uitnodiging om deel te nemen aan een conferentie
+  layouts:
+    decidim:
+      conference_header:
+        conference_menu_item: De conferentie
+        conference_speaker_menu_item: sprekers
+        unfold: Ontvouwen
+      conference_widgets:
+        show:
+          take_part: Deelnemen
+      conferences:
+        conference:
+          take_part: Deelnemen
+        index:
+          promoted_conferences: Gepromoveerde conferenties
+        order_by_conferences:
+          conferences:
+            one: "%{count} conferentie"
+            other: "%{count} conferenties"
+        promoted_conference:
+          more_info: Meer informatie
+          take_part: Deelnemen
