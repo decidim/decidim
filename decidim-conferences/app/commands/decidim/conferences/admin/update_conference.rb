@@ -124,7 +124,7 @@ module Decidim
           checksum = Decidim::Conferences::UpcomingConferenceNotificationJob.generate_checksum(@conference)
 
           Decidim::Conferences::UpcomingConferenceNotificationJob
-            .set(wait_until: (@conference.start_date - 2.days))
+            .set(wait_until: (@conference.start_date - 2.days).to_s)
             .perform_later(@conference.id, checksum)
         end
       end
