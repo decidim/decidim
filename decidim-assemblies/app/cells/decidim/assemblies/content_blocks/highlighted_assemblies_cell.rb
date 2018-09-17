@@ -11,8 +11,15 @@ module Decidim
           render if highlighted_assemblies.any?
         end
 
+        def max_results
+          model.settings.max_results
+        end
+
         def highlighted_assemblies
-          OrganizationPrioritizedAssemblies.new(current_organization, current_user)
+          @highlighted_assemblies ||= OrganizationPrioritizedAssemblies
+                                      .new(current_organization, current_user)
+                                      .query
+                                      .limit(max_results)
         end
 
         def i18n_scope
