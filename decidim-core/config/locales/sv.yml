@@ -529,6 +529,7 @@ sv:
           answers_count: Avslutade Undersökningar
           assemblies_count: Församlingar
           comments_count: Kommentarer
+          conferences_count: konferenser
           debates_count: Debatter
           endorsements_count: Påskrifter
           headline: Aktuellt läge för %{organization}
