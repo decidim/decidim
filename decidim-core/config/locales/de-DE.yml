@@ -7,7 +7,7 @@ de:
         details: Zusätzliche Kommentare
       user:
         about: Über
-        email: Ihre E-Mail-Adresse
+        email: Ihre E-Mail
         name: Ihr Name
         nickname: Ihre kurze, eindeutige Kennung
         password: Passwort
@@ -27,7 +27,7 @@ de:
     attributes:
       decidim/user:
         current_password: Aktuelles Passwort
-        email: E-Mail-Adresse
+        email: E-Mail
         name: Benutzername
         password: Passwort
         password_confirmation: Bestätigung des Passworts
@@ -72,14 +72,14 @@ de:
         success: Ihr Konto wurde erfolgreich gelöscht.
       show:
         change_password: Passwort ändern
-        update_account: Account aktualisieren
+        update_account: Konto aktualisieren
       update:
         error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich aktualisiert.
-        success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail, um Ihre neue E-Mail-Adresse zu bestätigen.
+        success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
     admin_log:
       area:
-        create: "%{user_name} erstellt den %{resource_name} Bereich"
+        create: "%{user_name} hat den %{resource_name} Bereich erstellt"
         delete: "%{user_name} löschte den %{resource_name} Bereich"
         update: "%{user_name} aktualisiert den %{resource_name} Bereich"
       component:
@@ -129,16 +129,16 @@ de:
       documents:
         related_documents: Zugehörige Dokumente
       photos:
-        related_photos: Ähnliche Fotos
+        related_photos: Zugehörige Fotos
     author:
       comments:
         one: Kommentar
-        other: Bemerkungen
+        other: Kommentare
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verifiziert werden, indem eine Passnummer eingeführt wird, die mit "A" beginnt
+        explanation: Lassen Sie sich verifizieren, indem Sie eine Reisepassnummer eingeben, die mit "A" beginnt
         fields:
-          passport_number: Ausweisnummer
+          passport_number: Reisepassnummer
         name: Ein weiteres Beispiel für eine Autorisierung
       dummy_authorization_handler:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet
@@ -150,8 +150,8 @@ de:
         name: Dummy-Autorisierungs-Workflow
       errors:
         duplicate_authorization: Ein Benutzer ist bereits mit den gleichen Daten berechtigt.
-      expired_at: Abgelaufen bei %{timestamp}
-      expires_at: Läuft bei %{timestamp}
+      expired_at: Abgelaufen am %{timestamp}
+      expires_at: Läuft am %{timestamp} ab
       foo_authorization:
         fields:
           bar: Bar
