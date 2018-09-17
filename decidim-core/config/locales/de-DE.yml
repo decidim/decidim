@@ -532,6 +532,7 @@ de:
           answers_count: Abgeschlossene Umfragen
           assemblies_count: Baugruppen
           comments_count: Bemerkungen
+          conferences_count: Konferenzen
           debates_count: Debatten
           endorsements_count: Empfehlungen
           headline: Aktueller Zustand von %{organization}
