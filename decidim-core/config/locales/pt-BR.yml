@@ -529,6 +529,7 @@ pt-BR:
           answers_count: Inquéritos concluídos
           assemblies_count: Assembleias
           comments_count: Comentários
+          conferences_count: Conferências
           debates_count: Debates
           endorsements_count: Avais
           headline: Estado atual de %{organization}
