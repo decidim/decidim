@@ -284,6 +284,7 @@ ca:
         minutes:
           create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} va ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
+      conference_venues: Llocs de conferències
       content_blocks:
         upcoming_events:
           name: Pròxims esdeveniments
