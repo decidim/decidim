@@ -9,7 +9,6 @@ PATH
       decidim-blogs (= 0.15.0.dev)
       decidim-budgets (= 0.15.0.dev)
       decidim-comments (= 0.15.0.dev)
-      decidim-conferences (= 0.15.0.dev)
       decidim-core (= 0.15.0.dev)
       decidim-debates (= 0.15.0.dev)
       decidim-generators (= 0.15.0.dev)
@@ -57,9 +56,6 @@ PATH
     decidim-comments (0.15.0.dev)
       decidim-core (= 0.15.0.dev)
       jquery-rails (~> 4.0)
-    decidim-conferences (0.15.0.dev)
-      decidim-core (~> 0.15.a)
-      decidim-meetings (~> 0.15.a)
     decidim-consultations (0.15.0.dev)
       decidim-admin (= 0.15.0.dev)
       decidim-comments (= 0.15.0.dev)
@@ -724,4 +720,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.3
+   1.16.4
