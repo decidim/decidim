@@ -285,6 +285,7 @@ pt-BR:
         minutes:
           create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
+      conference_venues: Locais de conferência
       content_blocks:
         upcoming_events:
           name: Próximos eventos
