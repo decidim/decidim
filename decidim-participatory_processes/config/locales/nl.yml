@@ -267,6 +267,9 @@ nl:
         title: Participatieve processtappen
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
