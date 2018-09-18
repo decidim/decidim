@@ -89,6 +89,11 @@ module Decidim
         Decidim.content_blocks.register(:homepage, :highlighted_assemblies) do |content_block|
           content_block.cell = "decidim/assemblies/content_blocks/highlighted_assemblies"
           content_block.public_name_key = "decidim.assemblies.content_blocks.highlighted_assemblies.name"
+          content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 4
+          end
         end
       end
     end
