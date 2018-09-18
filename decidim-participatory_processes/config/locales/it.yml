@@ -267,6 +267,9 @@ it:
         title: Fasi del processo partecipativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantità massima di elementi da mostrare
         participatory_process_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
