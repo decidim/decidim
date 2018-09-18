@@ -239,6 +239,9 @@ en:
               not_ceased: Not ceased
             filter_by: Filter by
             search: Search
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximum amount of elements to show
       assembly_members:
         index:
           members: Members
