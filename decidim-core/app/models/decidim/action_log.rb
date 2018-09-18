@@ -32,9 +32,15 @@ module Decidim
 
     validates :organization, :user, :action, presence: true
     validates :resource, presence: true, if: ->(log) { log.action != "delete" }
+    validates :visibility, presence: true, inclusion: { in: %w(admin-only public-only all) }
 
     # To ensure records can't be deleted
     before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
+
+    # A scope that filters all the logs that should be visible at the admin panel.
+    def self.for_admin
+      where(visibility: %w(admin-only all))
+    end
 
     # Overwrites the method so that records cannot be modified.
     #
