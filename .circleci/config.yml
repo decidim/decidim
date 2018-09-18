@@ -66,7 +66,7 @@ references:
   run_rspec_without_system: &run_rspec_without_system
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-${CIRCLE_JOB%_without_system} && ls spec | grep -v system | xargs -I '{}' bundle exec rspec spec/'{}'
+      command: mkdir ~/rspec && cd decidim-${CIRCLE_JOB%_without_system} && ls spec | grep -v system | grep -v factories.rb | xargs -I % echo spec/% | xargs bundle exec rspec
   run_rspec_only_system: &run_rspec_only_system
     run:
       name: Run RSpec
