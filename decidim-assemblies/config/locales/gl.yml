@@ -238,6 +238,9 @@ gl:
               not_ceased: Non cesou
             filter_by: Filtrar por
             search: Busca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Cantidade máxima de elementos para mostrar
       assembly_members:
         index:
           members: Membros
