@@ -29,11 +29,12 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Zone d'application locale
+        local_area: Zone d'organisation
         meta_scope: Échelle
+        parent_id: Assemblée parentale
         participatory_processes_ids: Concertations associées
-        participatory_scope: Objectif
-        participatory_structure: Modalités
+        participatory_scope: Ce qui est décidé
+        participatory_structure: Comment est-il décidé
         private_space: Espace privé
         promoted: Mise en avant
         published_at: Publiée à
@@ -45,7 +46,7 @@ fr:
         slug: Identifiant
         special_features: Particularités
         subtitle: Sous-titre
-        target: Pour qui ?
+        target: Qui participe
         title: Titre
         twitter: Twitter
         youtube: Youtube
@@ -217,6 +218,7 @@ fr:
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
+            select_parent_assembly: Sélectionner l'assemblage parent
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             social_handlers: Réseaux sociaux
         assembly_copies:
@@ -247,6 +249,9 @@ fr:
         others: Autres
         participatory: Participatif
         working_group: Groupe de travail
+      content_blocks:
+        highlighted_assemblies:
+          name: Assemblages en surbrillance
       created_by:
         city_council: Conseil municipal
         others: Autres
@@ -277,9 +282,9 @@ fr:
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Zone d'application locale
-        participatory_scope: Objectif
-        participatory_structure: Modalités
+        local_area: Zone d'organisation
+        participatory_scope: Ce qui est décidé
+        participatory_structure: Comment est-il décidé
         private_space: Ceci est une assemblée privée
         purpose_of_action: But de l'action
         read_less: Voir moins
@@ -287,7 +292,7 @@ fr:
         related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
-        target: Pour qui ?
+        target: Qui participe
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées
@@ -324,7 +329,9 @@ fr:
         assembly:
           take_part: Participer
         index:
+          organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
+          reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"

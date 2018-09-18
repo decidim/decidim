@@ -12,7 +12,7 @@ module Decidim
   #
   # Content blocks are intended to be used in the home page, for example.
   #
-  # A content block has a set of options and an associated `cell` that will
+  # A content block has a set of settings and an associated `cell` that will
   # handle the layout logic. They can also have attached images that can be used
   # as background images, for example. You must explicitly specify the number of
   # images the block will have (this means the number of attached images cannot
@@ -23,56 +23,43 @@ module Decidim
     include Virtus.model
 
     attribute :name, Symbol
-    attribute :i18n_name_key, String
-    attribute :cell_name, String, writer: :private
-    attribute :image_names, Array[Symbol]
-    attribute :options, Array[Hash]
+    attribute :public_name_key, String
+    attribute :cell, String
+    attribute :settings_form_cell, String
+    attribute :images, Array[Hash]
+    attribute :default, Boolean, default: false
 
-    validates :name, :cell_name, :i18n_name_key, presence: true
+    validates :name, :cell, :public_name_key, presence: true
+    validates :settings_form_cell, presence: true, if: :has_settings?
     validate :image_names_are_unique
-    validate :option_names_are_unique
+    validate :images_have_an_uploader
 
-    # Public: Registers an image with a given name. Use `#images` to retrieve
-    # them all.
-    def image(name)
-      raise ImageNameCannotBeBlank if name.blank?
-
-      image_names << name
+    # Public: Registers whether this content block should be shown by default
+    # when creating an organization. Use `#default` to retrieve it.
+    def default!
+      self.default = true
     end
 
-    # Public: Registers the cell this content block will use to render itself.
-    # Use `#cell_name` to retrieve it.
-    def cell(cell_name)
-      self.cell_name = cell_name
+    def has_settings?
+      settings.attributes.any?
     end
 
-    # Public: Registers the I18n key this contnt block will use to retrieve its
-    # public name. Use `#i18n_name_key` to retrieve it.
-    def public_name_key(i18n_key)
-      self.i18n_name_key = i18n_key
-    end
-
-    # Public: Registers an option. Use `#options` to retrieve them all.
-    def option(name, type, metadata = {})
-      raise OptionNameCannotBeBlank, "Option names cannot be blank" if name.blank?
-      raise OptionTypeCannotBeBlank, "Option types cannot be blank" if type.blank?
-
-      options << { name: name, type: type }.merge(metadata)
+    def settings(&block)
+      @settings ||= SettingsManifest.new
+      yield(@settings) if block
+      @settings
     end
 
     private
 
-    def option_names_are_unique
-      option_names = options.map { |option| option.fetch(:name) }
-      errors.add(:options, :invalid) if option_names.count != option_names.uniq.count
-    end
-
     def image_names_are_unique
-      errors.add(:image_names, :invalid) if image_names.count != image_names.uniq.count
+      image_names = images.map { |image| image[:name] }
+      errors.add(:images, "names must be unique per manifest") if image_names.count != image_names.uniq.count
     end
 
-    class ImageNameCannotBeBlank < StandardError; end
-    class OptionNameCannotBeBlank < StandardError; end
-    class OptionTypeCannotBeBlank < StandardError; end
+    def images_have_an_uploader
+      uploaders = images.map { |image| image[:uploader].presence }
+      errors.add(:images, "must have an uploader") if uploaders.compact.count != images.count
+    end
   end
 end

@@ -6,8 +6,8 @@ fr:
         description: Description
         offline_votes: Votes en présentiel
         scope_id: Périmètre d'application
-        signature_end_time: Fin de la période de collecte des signatures
-        signature_start_time: Début de la période de collecte des signatures
+        signature_end_date: Fin de la période de collecte des signatures
+        signature_start_date: Début de la période de collecte des signatures
         signature_type: Type de collecte des signatures
         signature_type_values:
           any: Mixte
@@ -82,6 +82,16 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Nouvelle étape franchie !
           notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Cet utilisateur a reçu %{score} initiatives publiées.
+          description_own: Vous avez publié %{score} initiatives.
+          explanation: Les utilisateurs obtiennent ce badge en publiant leurs initiatives.
+          name: Initiatives publiées
+          next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
+          unearned_another: Cet utilisateur n'a pas encore publié d'initiative.
+          unearned_own: Vous n'avez pas encore publié d'initiative.
     initiatives:
       admin:
         committee_requests:
@@ -181,6 +191,9 @@ fr:
           help_text: Vous êtes sur le point de demander à devenir membre du Comité de promotion de cette initiative
         spawn:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
+      content_blocks:
+        highlighted_initiatives:
+          name: Initiatives soulignées
       create_initiative:
         fill_data:
           back: Retour

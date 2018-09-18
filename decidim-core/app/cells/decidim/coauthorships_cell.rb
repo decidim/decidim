@@ -4,9 +4,9 @@ module Decidim
   # This cell renders a collapsible list of a model's coauthors.
   #
   # Available sizes:
-  #  - `:small` => collapses after 3 elements.
-  #  - `:default` => collapses after 7 elements. If not specified, this one is
-  #    used.
+  #  - any number from 1 to 12
+  #  - default value is 1
+  #  - it is delegated to the `decidim/collapsible_list` cell
   #
   # Extra params:
   # - `extra_small` => boolean: when this cell is included in small places this
@@ -20,14 +20,14 @@ module Decidim
 
     def show
       if authorable? || official?
-        cell "decidim/author", presenter_for_author(model), options: extra_classes, has_actions: has_actions?, from: model
+        cell "decidim/author", presenter_for_author(model), extra_classes.merge(has_actions: has_actions?, from: model)
       else
         cell(
           "decidim/collapsible_authors",
           presenters_for_identities(model),
           cell_name: "decidim/author",
           cell_options: extra_classes,
-          size: 3,
+          size: size,
           from: model,
           has_actions: has_actions?
         )
@@ -68,6 +68,10 @@ module Decidim
       else
         {}
       end
+    end
+
+    def size
+      options[:size] || 1
     end
   end
 end

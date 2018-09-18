@@ -6,7 +6,7 @@ shared_examples_for "publicable" do
   let(:factory_name) { described_class.name.demodulize.underscore.to_sym }
 
   let!(:published) do
-    create(factory_name, published_at: Time.zone.now)
+    create(factory_name, published_at: Time.current)
   end
 
   let!(:unpublished) do

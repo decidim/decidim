@@ -106,6 +106,11 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" bilera eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
+        registration_code_validated:
+          email_intro: Zure izena emateko kodea "%{registration_code}" balidatu da.
+          email_outro: Jakinarazpen hau jaso duzu zure "%{resource_title}" bilera-kodearen kodea erregistratu delako.
+          email_subject: Zure izena emateko kodea "%{registration_code}" balidatu da
+          notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> bilerako balioztatu da.
         registrations_enabled:
           email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
@@ -246,6 +251,8 @@ eu:
         registrations:
           edit:
             save: Gorde
+            validate: Balidatu
+            validate_registration_code: Baliozkotzeko inskripzio kodea
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
@@ -257,6 +264,9 @@ eu:
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
+          validate_registration_code:
+            invalid: Izena emateko kode hau baliogabea da.
+            success: Izen-ematearen kodea behar bezala balioztatu da.
       admin_log:
         invite:
           create: "%{user_name} gonbidatu %{attendee_name} batzeko %{resource_name} buruzko bilera %{space_name} espazio"
@@ -274,6 +284,21 @@ eu:
         minutes:
           create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
           update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+      content_blocks:
+        upcoming_events:
+          name: Hurrengo ekitaldiak
+          upcoming_events: Hurrengo topaketak
+          view_all_events: Ikusi dena
+      directory:
+        meetings:
+          index:
+            all: guztiak
+            date: data
+            meetings: Bilerak
+            past: Iragana
+            search: Search
+            space_type: Partaidetza espazioa
+            upcoming: Datozen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -296,8 +321,6 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
-        index:
-          view_meeting: Ikusi topaketa
         meeting_minutes:
           meeting_minutes: Bilera Minutes
           related_information: Lotutako informazioa
@@ -319,6 +342,8 @@ eu:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
           view: ikusi
+      meetings_map:
+        view_meeting: Ikusi topaketa
       models:
         invite:
           fields:

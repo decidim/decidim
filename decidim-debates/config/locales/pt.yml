@@ -132,3 +132,13 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Debates agora disponíveis em %{participatory_space_title}
           notification_title: Agora você pode começar <a href="%{resource_path}">novos debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Este usuário participou em %{score} debates.
+          description_own: Você participou de %{score} debates.
+          explanation: Os usuários recebem esse selo participando de debates.
+          name: Debates
+          next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não participou de nenhum debate.
+          unearned_own: Você participou de algum debate ainda.

@@ -73,6 +73,8 @@ describe "Assemblies", type: :system do
       visit decidim_assemblies.assemblies_path
     end
 
+    it_behaves_like "editable content for admins"
+
     context "and accessing from the homepage" do
       it "the menu link is shown" do
         visit decidim.root_path
@@ -112,6 +114,18 @@ describe "Assemblies", type: :system do
 
       expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
     end
+
+    it "shows the organizational chart" do
+      within "#assemblies-chart" do
+        within ".js-orgchart" do
+          expect(page).to have_selector(".svg-chart-container")
+
+          within ".svg-chart-container" do
+            expect(page).to have_selector("g.node", count: 2)
+          end
+        end
+      end
+    end
   end
 
   describe "when going to the assembly page" do
@@ -125,6 +139,8 @@ describe "Assemblies", type: :system do
 
       visit decidim_assemblies.assembly_path(assembly)
     end
+
+    it_behaves_like "editable content for admins"
 
     it "shows the details of the given assembly" do
       within "div.wrapper" do

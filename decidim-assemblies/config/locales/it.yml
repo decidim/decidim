@@ -29,11 +29,12 @@ it:
         instagram: Instagram
         internal_organisation: Organizzazione interna
         is_transparent: È trasparente
-        local_area: Municipi
+        local_area: Area organizzativa
         meta_scope: Metadati di ambito
+        parent_id: Assemblaggio genitore
         participatory_processes_ids: Processi partecipativi correlati
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         private_space: Spazio privato
         promoted: Promosso
         published_at: Pubblicato a
@@ -45,7 +46,7 @@ it:
         slug: URL slug
         special_features: Caratteristiche speciali
         subtitle: Sottotitolo
-        target: Target
+        target: Chi partecipa
         title: Titolo
         twitter: cinguettio
         youtube: Youtube
@@ -217,6 +218,7 @@ it:
             select_a_created_by: Seleziona un creato da
             select_an_area: Seleziona un'area
             select_an_assembly_type: Seleziona un tipo di assieme
+            select_parent_assembly: Seleziona il gruppo genitore
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             social_handlers: Sociale
         assembly_copies:
@@ -247,6 +249,9 @@ it:
         others: Altri
         participatory: Participatory
         working_group: Gruppo di lavoro
+      content_blocks:
+        highlighted_assemblies:
+          name: Assiemi evidenziati
       created_by:
         city_council: Consiglio comunale
         others: Altri
@@ -277,9 +282,9 @@ it:
         is_transparent:
           'false': opaco
           'true': trasparente
-        local_area: Municipi
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        local_area: Area organizzativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         private_space: Questo è un assemblaggio privato
         purpose_of_action: Scopo dell'azione
         read_less: Leggi di meno
@@ -287,7 +292,7 @@ it:
         related_participatory_processes: Processi partecipativi correlati
         scope: Objetivos
         social_networks: Social networks
-        target: A chi è destinato il processo?
+        target: Chi partecipa
       statistics:
         answers_count: risposte
         assemblies_count: assemblee
@@ -324,7 +329,9 @@ it:
         assembly:
           take_part: Partecipa
         index:
+          organizational_chart: Grafico organizzativo
           promoted_assemblies: Assiemi evidenziati
+          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} montaggio"

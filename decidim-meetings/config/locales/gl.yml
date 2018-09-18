@@ -106,6 +106,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Realizouse a reunión "%{resource_title}"
           notification_title: Reunirase a reunión <a href="%{resource_path}">%{resource_title}</a>.
+        registration_code_validated:
+          email_intro: O seu código de rexistro "%{registration_code}" foi validado.
+          email_outro: Recibiches esta notificación porque o teu código de rexistro para a reunión "%{resource_title}" foi validado.
+          email_subject: O seu código de rexistro "%{registration_code}" foi validado
+          notification_title: O seu código de rexistro "%{registration_code}" para a xuntanza <a href="%{resource_path}">%{resource_title}</a> validouse.
         registrations_enabled:
           email_intro: 'A xuntanza "%{resource_title}" habilitou as inscricións. Pode rexistrarse na súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
@@ -246,6 +251,8 @@ gl:
         registrations:
           edit:
             save: Gardar
+            validate: Validar
+            validate_registration_code: Validar o código de rexistro
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
@@ -257,6 +264,9 @@ gl:
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.
+          validate_registration_code:
+            invalid: Este código de rexistro non é válido.
+            success: Código de rexistro validado con éxito.
       admin_log:
         invite:
           create: "%{user_name} invitados %{attendee_name} para unirse a %{resource_name} reunión no %{space_name} espazo"
@@ -274,6 +284,21 @@ gl:
         minutes:
           create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
           update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Próximos eventos
+          upcoming_events: Próximas reunións
+          view_all_events: Ver todo
+      directory:
+        meetings:
+          index:
+            all: Todo
+            date: Data
+            meetings: Reunións
+            past: Pasado
+            search: Busca
+            space_type: Espazo participativo
+            upcoming: Próximos
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -296,8 +321,6 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
-        index:
-          view_meeting: Ver reunión
         meeting_minutes:
           meeting_minutes: Minutos de reunión
           related_information: Información relacionada
@@ -319,6 +342,8 @@ gl:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Ver
+      meetings_map:
+        view_meeting: Ver reunión
       models:
         invite:
           fields:

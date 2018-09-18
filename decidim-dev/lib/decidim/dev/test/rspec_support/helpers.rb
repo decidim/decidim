@@ -23,7 +23,7 @@ module Decidim::ComponentTestHelpers
   end
 
   def stripped(text)
-    Nokogiri::HTML(text).text
+    text.gsub(/^<p>/, "").gsub(%r{</p>$}, "")
   end
 
   def within_flash_messages

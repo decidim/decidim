@@ -52,7 +52,6 @@ fr:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
-        homepage_image: Image de la page d'accueil
         instagram_handler: Gestionnaire Instagram
         logo: Logo
         name: Nom
@@ -66,7 +65,6 @@ fr:
         show_statistics: Montrer les statistiques
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
-        welcome_text: Texte de bienvenue
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -93,34 +91,6 @@ fr:
               must_be_ssl: L'URI de redirection doit être un URI SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Image d'en-tête
-        description: Description
-        developer_group: Organisateur
-        domain: Domaine
-        end_date: Date de fin
-        hashtag: Hashtag
-        hero_image: Image de la page d'accueil
-        local_area: Espace d'organisation
-        meta_scope: Échelle
-        participatory_scope: Objectif
-        participatory_structure: Modalités
-        promoted: Mis en avant
-        scope: Périmètre d’application
-        short_description: Résumé
-        slug: Identifiant
-        start_date: Date de début
-        subtitle: Sous-titre
-        target: Participants
-        title: Titre
-      decidim/participatory_process_group:
-        description: Description
-        hero_image: Image de la page d'accueil
-        name: Nom
-        participatory_processes: Concertations
-      decidim/participatory_process_step:
-        end_date: Date de fin
-        start_date: Date de début
       decidim/static_page:
         content: Contenu
         slug: Identifiant
@@ -333,6 +303,7 @@ fr:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
+        homepage: Page d'accueil
         impersonations: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
@@ -526,6 +497,13 @@ fr:
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page
           omnipresent_banner_appearance_title: Modifier la bannière permanente
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocs de contenu actif
+          inactive_content_blocks: Blocs de contenu inactif
+      organization_homepage_content_blocks:
+        edit:
+          update: Mettre à jour
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.

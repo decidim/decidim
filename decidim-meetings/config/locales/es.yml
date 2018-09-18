@@ -80,7 +80,7 @@ es:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de registro predeterminados
-            resources_permissions_enabled: Permisos de acciones se pueden establecer para cada reunión
+            resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -106,6 +106,11 @@ es:
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Se ha actualizado el encuentro "%{resource_title}"
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
+        registration_code_validated:
+          email_intro: Su código de registro "%{registration_code}" ha sido validado.
+          email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
+          email_subject: Su código de registro "%{registration_code}" ha sido validado
+          notification_title: Su código de registro "%{registration_code}" para el encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido validado.
         registrations_enabled:
           email_intro: 'El encuentro "%{resource_title}" ha ha abierto las inscripciones. Puedes inscribirte en su página:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -176,7 +181,7 @@ es:
             attendee_type: Tipo de Asistente
             existing_user: Usuario existente
             invite: Invitar
-            invite_explanation: El usuario será invitado a unirse a la reunión y a la organización también.
+            invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
             non_user: Usuario no existente
             select_user: Seleccionar usuario
           index:
@@ -246,6 +251,8 @@ es:
         registrations:
           edit:
             save: Guardar
+            validate: Validar
+            validate_registration_code: Validar el código de registro
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
@@ -257,6 +264,9 @@ es:
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
+          validate_registration_code:
+            invalid: Este código de registro no es válido.
+            success: Código de registro validado con éxito.
       admin_log:
         invite:
           create: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
@@ -274,6 +284,21 @@ es:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      content_blocks:
+        upcoming_events:
+          name: Próximos Eventos
+          upcoming_events: Próximas reuniones
+          view_all_events: Ver todo
+      directory:
+        meetings:
+          index:
+            all: Todas
+            date: Fecha
+            meetings: Reuniones
+            past: Pasado
+            search: Buscar
+            space_type: Espacio participativo
+            upcoming: Próximo
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -296,8 +321,6 @@ es:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
-        index:
-          view_meeting: Ver encuentro
         meeting_minutes:
           meeting_minutes: Acta del encuentro
           related_information: Información relacionada
@@ -319,6 +342,8 @@ es:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
           view: Ver
+      meetings_map:
+        view_meeting: Ver encuentro
       models:
         invite:
           fields:

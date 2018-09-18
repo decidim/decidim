@@ -1,0 +1,622 @@
+hu:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        body: Szöveg
+        category_id: Kategória
+        decidim_scope_id: Hatáskör
+        has_address: Van lakcíme
+        state: Állapot
+        title: Cím
+        user_group_id: Közösen szerkesztett vázlat
+      proposal:
+        answer: Válasz
+        answered_at: 'Megválaszolva:'
+        body: Szöveg
+        category_id: Kategória
+        has_address: Van lakcíme
+        scope_id: Hatáskör
+        state: Állapot
+        title: Cím
+        user_group_id: Készíts javaslatot
+      proposal_answer:
+        answer: Válasz
+      proposals_copy:
+        copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
+        origin_component_id: Javaslatok másolásához szükséges elem
+    errors:
+      models:
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Újra kell csatolni
+    models:
+      decidim/proposals/accepted_proposal_event: Javaslat elfogadva
+      decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
+      decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
+      decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
+      decidim/proposals/evaluating_proposal_event: Javaslat értékelése folyamatban
+      decidim/proposals/proposal_endorsed_event: Javaslat jóváhagyva
+      decidim/proposals/proposal_mentioned_event: Javaslat megemlítve
+      decidim/proposals/publish_proposal_event: Javaslat közzétéve
+      decidim/proposals/rejected_proposal_event: Javaslat elutasítva
+      decidim/proposals/voting_enabled_event: Javaslatról szavazás engedélyezve
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Közös vázlat
+        other: Közös vázlatok
+      decidim/proposals/proposal:
+        one: Javaslat
+        other: javaslatok
+      decidim/proposals/proposal_endorsement:
+        one: Jóváhagyás
+        other: Jóváhagyások
+      decidim/proposals/proposal_note:
+        one: Megjegyzés
+        other: Megjegyzések
+      decidim/proposals/proposal_vote:
+        one: Szavazás
+        other: Szavazások
+  decidim:
+    components:
+      proposals:
+        actions:
+          create: Létrehozás
+          endorse: Támogatás
+          vote: Szavazás
+          withdraw: Visszalépés
+        name: Javaslatok
+        settings:
+          global:
+            announcement: Közlemény
+            attachments_allowed: Mellékletek engedélyezése
+            can_accumulate_supports_beyond_threshold: Képes átlépni a támogatás küszöb-értékét
+            collaborative_drafts_enabled: Közös vázlatok engedélyezve
+            comments_enabled: Megjegyzések engedélyezve
+            geocoding_enabled: Geokódolás engedélyezve
+            new_proposal_help_text: Új javaslat súgószöveg
+            official_proposals_enabled: Hivatalos javaslatok engedélyezve
+            proposal_answering_enabled: Javaslat válasz engedélyezve
+            proposal_edit_before_minutes: A javaslatokat a szerzők az ülés lezárásáig szerkeszthetik
+            proposal_length: Javaslat szöveg maximális hossza
+            proposal_limit: Javaslat limit felhasználónként
+            proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" gomb súgójának szövege
+            proposal_wizard_step_2_help_text: Javaslat varázsló "Összehasonlítás" gomb súgójának szövege
+            proposal_wizard_step_3_help_text: Javaslat varázsló "Teljesítés" gomb súgójának szövege
+            proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" gomb súgójának szövege
+            resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
+            threshold_per_proposal: Küszöbérték javaslatonként
+            vote_limit: Szavazási limit felhasználónként
+          step:
+            announcement: Közlemény
+            comments_blocked: Megjegyzések letiltva
+            creation_enabled: Javaslat létrehozása engedélyezve
+            endorsements_blocked: Jóváhagyások letiltva
+            endorsements_enabled: Jóváhagyások engedélyezve
+            proposal_answering_enabled: Javaslat válasz engedélyezve
+            votes_blocked: Szavazás letiltva
+            votes_enabled: Szavazás engedélyezve
+            votes_hidden: Szavazatok elrejtése (ha a szavazás engedélyezett, ez elrejti a szavazatok számát)
+    events:
+      proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} jóváhagyva, mint közreműködő ebben a közösen szerkesztett vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
+          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> jóváhagyva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} elutasítva, mint közreműködő ebben a közösen szerkesztett vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: "%{requester_name} elutasítva, mint közreműködő ebben a közösen szerkesztett vázlatban: %{resource_title}."
+          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> elutasítva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} hozzáférést kért, mint közreműködő. <strong>Fogadd el vagy utasítsd el a kérést</strong> ennek a közös vázlatnak az oldaláról: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: "%{requester_name} közreműködési hozzáférést kért ehhez: %{resource_title}."
+          notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> közreműködése hozzáférést kért a következő közös vázlathoz: <a href="%{resource_path}">%{resource_title}</a>. Kérlek, <strong>fogadd el vagy utasítsd el a kérelmet</strong>.'
+        collaborative_draft_access_requester_accepted:
+          email_intro: 'Jóváhagyták a közreműködési kérelmedet ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködőként szeretnél részt venni ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: 'Jóváhagyták közreműködési kérelmedet itt: %{resource_title}.'
+          notification_title: 'Közreműködési kérelmedet <strong>jóváhagyták</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+        collaborative_draft_access_requester_rejected:
+          email_intro: 'Közreműködési kérelmedet elutasították ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködőként szeretnél részt venni ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: 'Közreműködési kérelmedet elutasították itt: %{resource_title}.'
+          notification_title: 'Közreműködési kérelmedet <strong>elutasították</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> visszavonta a(z) <a href="%{resource_path}">%{resource_title}</a> közös vázlatot.
+          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
+          email_subject: "%{author_name} %{author_nickname} visszavonta a(z) %{resource_title} közös vázlatot."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>visszavonta</strong> a(z) <a href="%{resource_path}">%{resource_title}</a> közös vázlatot.
+        creation_enabled:
+          email_intro: 'Mostantól új javaslatokat készíthetsz itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Javaslatok elérhetőek innen: %{participatory_space_title}'
+          notification_title: 'Mostantól <a href="%{resource_path}">új javaslatokat terjeszthetsz elő</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
+        endorsing_enabled:
+          email_intro: 'Hagyd jóvá az új javaslatokat itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Javaslatok jóváhagyása elkezdődött itt: %{participatory_space_title}'
+          notification_title: 'Mostantól <a href="%{resource_path}">jóváhagyhatsz javaslatokat</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
+        proposal_accepted:
+          email_intro: 'A(z) "%{resource_title}" című javaslat elfogadva. További részletek a következő oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_subject: A követett javaslatot elfogadták
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname} (akit követsz) épp most hagyott jóvá egy olyan javaslatot, ami számodra is érdekes lehet. Nézz rá és tegyél hozzá:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{endorser_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: "%{endorser_nickname} támogatta az új javaslatot"
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat jóváhagyva általa: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
+        proposal_evaluating:
+          email_intro: 'A(z) "%{resource_title}" című javaslatot éppen értékelik. További részletek a következő oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_subject: A követett javaslat értékelése folyamatban van
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> javaslat értékelése folyamatban.
+        proposal_mentioned:
+          email_intro: '"%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_path}">egy megjegyzésben</a>.'
+          email_subject: '"%{mentioned_proposal_title}" című javaslatod említésre került'
+          notification_title: '"%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_path}">egy megjegyzésben</a>.'
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, aki követ téged, új javaslatot tett közzé. Nézd meg és tegyél hozzá te is valamit:"
+          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: '%{author_nickname} új javaslata'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat közzétéve általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
+        proposal_published_for_space:
+          email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
+          email_subject: 'Új javaslat hozzáadva ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}'
+        proposal_rejected:
+          email_intro: 'A(z) "%{resource_title}" című javaslat elutasítva. További részletek a következő oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+          email_subject: A követett javaslatot elutasították
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslatot elutasították.
+        proposal_update_category:
+          email_intro: 'Az admin frissítette a(z) "%{resource_title}" című javaslatod kategóriáját, ellenőrizd:'
+          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
+          email_subject: A(z) %{resource_title} című javaslat frissítve
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat kategóriát az admin frissítette.
+        voting_enabled:
+          email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Javaslatokról való szavazás kezdődött itt: %{participatory_space_title}'
+          notification_title: 'Mostantól tehetsz <a href="%{resource_path}">szavazási javaslatokat</a> ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
+    gamification:
+      badges:
+        accepted_proposals:
+          description_another: A felhasználó %{score} javaslatait elfogadták.
+          description_own: '%{score} ajánlatodat fogadták el.'
+          explanation: A jelvényt elfogadott javaslatokkal szerezhetik meg a felhasználók.
+          name: Elfogadott javaslatok
+          next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
+          unearned_another: A felhasználónak még nincsenek elfogadott javaslatai.
+          unearned_own: Még nincs elfogadott javaslatod.
+        proposal_votes:
+          description_another: A felhasználó %{score} javaslatot támogatott.
+          description_own: Eddig %{score} javaslatot támogattál.
+          explanation: A felhasználók javaslatok támogatásával szerezhetik meg a jelvényt.
+          name: Javaslat támogatói
+          next_level_in: Támogatja a %{score} további javaslatot a következő szint eléréséhez!
+          unearned_another: A felhasználó még nem támogatott egy javaslatot sem.
+          unearned_own: Még nem támogattál egyetlen javaslatot sem.
+        proposals:
+          description_another: A felhasználó %{score} javaslatot hozott létre.
+          description_own: Eddig %{score} javaslatot hoztál létre.
+          explanation: A felhasználók javaslatok létrehozásával szerezhetik meg a jelvényt.
+          name: Javaslatok
+          next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
+          unearned_another: A felhasználó még nem hozott létre javaslatokat.
+          unearned_own: Még nem hoztál létre javaslatokat.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Javaslatok
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: Javaslatok
+        see_all_proposals: Összes javaslat
+    proposals:
+      actions:
+        answer: Válasz
+        import: Importálás egy másik elemből
+        new: Új javaslat
+        private_notes: Privát jegyzet
+        title: Műveletek
+      admin:
+        actions:
+          preview: Előnézet
+        exports:
+          comments: Hozzászólások
+          proposals: Javaslatok
+        models:
+          proposal:
+            name: Javaslat
+        proposal_answers:
+          edit:
+            accepted: Elfogadva
+            answer_proposal: Válasz
+            evaluating: Értékelés
+            rejected: Elutasítva
+            title: Válasz a(z) %{title} javaslatra
+        proposal_notes:
+          create:
+            error: Probléma merült fel a javaslat jegyzetének létrehozásakor
+            success: Javaslat jegyzetének létrehozása sikeres
+          form:
+            note: Jegyzet
+            submit: Küldés
+          leave_your_note: Jegyzet elhagyása
+          title: Privát jegyzetek
+        proposals:
+          answer:
+            invalid: Probléma merült fel a javaslat megválaszolásakor
+            success: Javaslat megválaszolása sikeres
+          create:
+            invalid: Probléma merült fel a javaslat létrehozásakor
+            success: Javaslat létrehozása sikeres
+          form:
+            attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
+            select_a_category: Válassz kategóriát
+          index:
+            actions: Műveletek
+            cancel: Mégse
+            change_category: Kategória módosítása
+            selected: kiválasztva
+            title: Javaslatok
+            update: Frissítés
+          new:
+            create: Létrehozás
+            title: Javaslat létrehozása
+          update_category:
+            invalid: 'A javaslatok már a(z) %{category} kategóriába tartoznak: %{proposals}.'
+            select_a_category: Kérlek, válassz kategóriát
+            select_a_proposal: Kérlek, válassz javaslatot
+            success: 'A javaslatok frissítése a(z) %{category} kategóriában sikeres: %{proposals}.'
+        proposals_imports:
+          create:
+            invalid: Probléma merült fel a javaslatok importálásakor
+            success: "%{number} javaslat sikeresen importálva"
+          new:
+            create: Javaslatok importálása
+            no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
+            select_component: Válassz ki egy elemet
+            select_states: Ellenőrizd az importálandó javaslatok állapotát
+        shared:
+          info_proposal:
+            body: Szöveg
+            created_at: Létrehozás dátuma
+            proposal_votes_count: Szavazatok száma
+            proposals: Javaslatok
+      admin_log:
+        proposal:
+          answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
+          create: "%{user_name} létrehozta a(z) %{resource_name} javaslatot (hivatalos) itt: %{space_name}"
+        proposal_note:
+          create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
+      answers:
+        accepted: Elfogadva
+        evaluating: Értékelés
+        not_answered: Nem megválaszolt
+        rejected: Elutasítva
+        withdrawn: Visszavonva
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Hiba történt a közösen szerkesztett vázlat közzététele során.
+            irreversible_action_modal:
+              body: Miután a vázlatot közzétetted, mint javaslatot, már nem szerkesztheted. A javaslathoz új szerzők vagy közreműködők sem adhatóak hozzá.
+              cancel: Mégse
+              ok: Közzététel javaslatként
+              title: A következő művelet visszavonhatatlan
+            success: A közös vázlat javaslatként való közzététele sikeres volt.
+          view_collaborative_draft: Közös vázlat megtekintése
+          withdraw:
+            error: Hiba történt a közösen szerkesztett vázlat lezárásakor.
+            irreversible_action_modal:
+              body: A tervezet a lezárás után nem szerkeszthető. A javaslathoz új szerzők vagy közreműködők sem adhatóak hozzá.
+              cancel: Mégse
+              ok: Közös vázlat visszavonása
+              title: A következő művelet visszavonhatatlan
+            success: Közös vázlat visszavonása sikeres.
+        compare:
+          mine_is_different: A közös vázlatom eltér ettől
+          no_similars_found: Szép munka! Nincsen hasonló közös vázlat
+          title: Hasonló közös vázlatok
+        complete:
+          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
+          select_a_category: Válassz kategóriát
+          send: Küldés
+          title: Fejezd be a közös vázlatot
+        count:
+          drafts_count:
+            one: 1 közös vázlat
+            other: "%{count} közös vázlat"
+        create:
+          error: Hiba a közösen szerkesztett vázlatok létrehozásakor
+          success: Közös vázlat létrehozása sikeres.
+        edit:
+          back: Vissza
+          select_a_category: Válassz kategóriát
+          send: Küldés
+          title: Közös vázlat szerkesztése
+        filters:
+          all: Összes
+          category: Kategória
+          category_prompt: Prompt Kategória
+          open: Megnyitás
+          published: Közzétéve
+          related_to: Kapcsolódó
+          search: Keresés
+          state: Állapot
+          withdrawn: Visszavonva
+        filters_small_view:
+          close_modal: Modal bezárása
+          filter: Szűrés
+          filter_by: 'Szűrés ez alapján:'
+          unfold: Kibont
+        new:
+          send: Tovább
+          title: Hozz létre közös vázlatot
+        new_collaborative_draft_button:
+          new_collaborative_draft: Új közös vázlat
+        orders:
+          label: 'Vázlatok rendezése:'
+          most_contributed: Legtöbbeket bevonó
+          random: Véletlenszerű
+          recent: Legutóbbi
+        requests:
+          accepted_request:
+            error: Nem lehet közreműködő partner, próbáld újra később.
+            success: "@%{user} elfogadva, mint közreműködő"
+          access_requested:
+            error: Nem sikerült befejezni a műveletet, próbáld újra később.
+            success: A közreműködés iránti kérelmedet sikeresen elküldtük
+          collaboration_requests:
+            accept_request: Elfogad
+            reject_request: Elutasít
+            title: Közreműködési kérelmek
+          rejected_request:
+            error: Nem lehetett elutasítani a közreműködőt, próbálkozz később.
+            success: "@%{user} elutasítva, mint közreműködő"
+        show:
+          back: Vissza
+          edit: Közös vázlat szerkesztése
+          final_proposal: végleges javaslat
+          final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
+          hidden_authors_count:
+            one: és még 1 ember
+            other: és még %{count} ember
+          info-message: Ez egy javaslathoz készülő, úgynevezett <strong>közösen szerkesztett vázlat</strong>, ami azt jelenti, hogy a megjegyzések szekción keresztül, vagy közvetlen hozzáférés segítségével közösen alakíthatjátok a szöveget. Ha a szerző(k) hozzáférést biztosítanak neked, akkor módosíthatod is a vázlatot.
+          of_versions: "(ennyiből: %{number})"
+          publish: Közzétesz
+          publish_info: Vázlat jelen verziójának közzététele vagy
+          published_proposal: közzétett javaslat
+          request_access: Hozzáférés kérése
+          requested_access: Hozzáférés megkérve
+          see_other_versions: más verziók
+          version: '%{number} verzió'
+          version_history: nézd meg a javaslat verziótörténetét
+          withdraw: tervezet visszavonása
+        states:
+          open: Megnyitás
+          published: Közzétéve
+          withdrawn: Visszavonva
+        update:
+          error: Hiba történt a közösen szerkesztett vázlat mentése során.
+          success: Közös vázlat frissítése sikeres.
+        wizard_aside:
+          back: Vissza
+          info: Épp egy <strong>közös vázlat</strong> hozol létre.
+        wizard_steps:
+          see_steps: lépések
+          step_1: Hozd létre a közös vázlatod
+          step_2: Összehasonlítás közös vázlatokkal
+          step_3: Fejezd be a közös vázlatodat
+          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+      create:
+        error: Hiba történt a javaslat mentése során.
+        success: Javaslat létrehozása sikeres. Vázlatként mentve.
+      destroy_draft:
+        error: Hiba történt a javaslat tervezetének törlésekor.
+        success: Javaslat vázlatának törlése sikeres volt.
+      models:
+        collaborative_draft:
+          fields:
+            authors: Szerzők
+            comments: Hozzászólások
+            contributions: Közreműködések
+        proposal:
+          fields:
+            category: Kategória
+            comments: Hozzászólások
+            endorsements: Jóváhagyások
+            id: ID
+            notes: Jegyzetek
+            official_proposal: Hivatalos javaslat
+            published_at: 'Közzétéve:'
+            scope: Hatáskör
+            state: Állapot
+            title: Cím
+            votes: Szavazatok
+      new:
+        limit_reached: Nem hozhatsz létre új javaslatokat, mert túllépted a maximumot.
+      proposal_endorsements:
+        create:
+          error: Hiba történt a javaslat jóváhagyása során.
+        identities:
+          done: Kész
+          select_identity: Válassz azonosítót
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Jóváhagyva
+          endorse: Jóváhagy
+        render_endorsements_button_card_part:
+          endorse: Jóváhagy
+      proposal_votes:
+        create:
+          error: Hiba történt a javaslatra való szavazás során.
+      proposals:
+        compare:
+          mine_is_different: Javaslatom más jellegű
+          no_similars_found: Szép munka! Nincsen hasonló javaslat
+          title: Hasonló javaslatok
+        complete:
+          send: Küldés
+          title: Fejezd be a javaslatod
+        count:
+          proposals_count:
+            one: 1 javaslat
+            other: "%{count} javaslat"
+        edit:
+          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
+          back: Vissza
+          select_a_category: Válassz kategóriát
+          send: Küldés
+          title: Javaslat szerkesztése
+        edit_draft:
+          discard: Vázlat elvetése
+          discard_confirmation: Biztos vagy benne, hogy elveted ezt a vázlatot?
+          send: Előnézet
+          title: Javaslat vázlatok szerkesztése
+        endorsement_identities_cabin:
+          endorse: Jóváhagy
+        endorsements_card_row:
+          comments: Hozzászólások
+        filters:
+          accepted: Elfogadva
+          activity: Tevékenység
+          all: Összes
+          category: Kategória
+          category_prompt: Válassz kategóriát
+          citizens: Állampolgárok
+          evaluating: Értékelés
+          except_rejected: Összes elutasítva
+          official: Hivatalos
+          origin: Kiindulópont
+          rejected: Elutasítva
+          related_to: Kapcsolódó
+          search: Keresés
+          state: Állapot
+          voted: Szavazott
+        filters_small_view:
+          close_modal: Modal bezárása
+          filter: Szűrés
+          filter_by: 'Szűrés ez alapján:'
+          unfold: Kibont
+        index:
+          collaborative_drafts_list: Hozzáférés közös vázlatokhoz
+          new_proposal: Új javaslat
+          see_all_withdrawn: Összes visszavont javaslat
+          view_proposal: Javaslat megtekintése
+        linked_proposals:
+          proposal_votes:
+            one: szavazat
+            other: szavazatok
+        new:
+          send: Tovább
+          title: Hozz létre javaslatot
+        orders:
+          label: 'Javaslatok rendezése:'
+          most_voted: Legtöbb szavazattal
+          random: Véletlenszerű
+          recent: Legutóbbi
+        preview:
+          modify: Javaslat módosítása
+          proposal_edit_before_minutes:
+            one: Ezt a javaslatot a közzétételt követő első percben azonnal szerkesztheted. Miután azonban ez az ablak bezárult, többé nem fogod tudni szerkeszteni a javaslatot.
+            other: Ezt a javaslatot a közzétételt követő %{count}. percben már szerkesztheted. Miután azonban ez az ablak bezárult, többé nem fogod tudni szerkeszteni a javaslatot.
+          publish: Közzétesz
+          title: Javaslatod közzététele
+        proposal:
+          creation_date: 'Létrehozás: %{date}'
+          view_proposal: Javaslat megtekintése
+        show:
+          edit_proposal: Javaslat szerkesztése
+          endorsements_list: Jóváhagyások listája
+          hidden_endorsers_count:
+            one: és még 1 ember
+            other: és még %{count} ember
+          link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
+          link_to_collaborative_draft_text: Közös vázlat megtekintése
+          proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
+          proposal_in_evaluation_reason: Javaslat értékelése folyamatban
+          proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
+          report: Jelentés
+          sign_in: Bejelentkezés
+          sign_in_or_up: "%{in} vagy %{up} a részvételhez"
+          sign_up: regisztrálj
+          withdraw_btn_hint: Ha meggondoltad magad, az első támogatás megszerzéséig bármikor visszavonhatod a javaslatod. A javaslat nem törlődik automatikusan, hanem a visszavont javaslatok listájára kerül.
+          withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?
+          withdraw_proposal: Javaslat visszavonása
+        tags:
+          changed_from: "(<u>%{previous_category}</u> a rendszergazda megváltoztatta)"
+          filed_as: Iktatva mint
+        vote_button:
+          already_voted: Már szavazott
+          already_voted_hover: Szavazat visszavonása
+          maximum_votes_reached: Szavazási határon túl
+          no_votes_remaining: Nincs több szavazat
+          vote: Szavazás
+          votes_blocked: Szavazás letiltva
+        votes_count:
+          count:
+            one: SZAVAZAT
+            other: SZAVAZATOK
+          most_popular_proposal: Legnépszerűbb javaslat
+          need_more_votes: Több szavazat kell
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
+          proposal_limit:
+            description: Legfeljebb %{limit} javaslatot készíthetsz.
+          threshold_per_proposal:
+            description: Javaslatok jóváhagyáshoz legalább %{limit} támogatás szükséges
+          title: 'A szavazásra ezen szabályok vonatkoznak:'
+          vote_limit:
+            description: Legfeljebb %{limit} javaslatról szavazhatsz.
+            left: Fennmaradó
+            votes: Szavazatok
+        wizard_aside:
+          back: Vissza
+          info: Épp egy <strong>javaslatot</strong> hozol létre.
+        wizard_steps:
+          see_steps: lépések
+          step_1: Hozz létre javaslatot
+          step_2: Összehasonlítás
+          step_3: Befejez
+          step_4: Javaslatod közzététele
+          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+      publish:
+        error: Hiba történt a javaslat közzététele során.
+        success: Javaslat közzététele sikeres.
+      update:
+        error: Hiba történt a javaslat mentése során.
+        success: Javaslat frissítése sikeres.
+      update_draft:
+        error: Hiba történt a javaslat vázlatának mentése során.
+        success: Javaslat vázlat frissítése sikeres.
+      versions:
+        changes_at_title: 'Változások itt: "%{title}"'
+        index:
+          title: Verziók
+        stats:
+          back_to_collaborative_draft: Vissza a közös vázlathoz
+          number_of_versions: Verziók
+          show_all_versions: Összes verzió megjelenítése
+          version_author: Verzió szerzője
+          version_created_at: 'Verzió létrehozva itt:'
+          version_number: Verziószám
+          version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
+        version:
+          version_index: '%{index} verzió'
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Kapcsolódó javaslatok
+      included_projects:
+        project_result: 'Projektben megjelenő eredmények:'
+      included_proposals:
+        proposal_project: 'Ezen projektekben megjelenő javaslat:'
+        proposal_result: 'Az eredményekben megjelenő javaslat:'

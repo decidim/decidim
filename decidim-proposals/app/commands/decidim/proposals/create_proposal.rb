@@ -4,13 +4,16 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Rectify::Command
+      include AttachmentMethods
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
       # current_user - The current user.
-      def initialize(form, current_user)
+      # coauthorships - The coauthorships of the proposal.
+      def initialize(form, current_user, coauthorships = nil)
         @form = form
         @current_user = current_user
+        @coauthorships = coauthorships
       end
 
       # Executes the command. Broadcasts these events:
@@ -39,15 +42,20 @@ module Decidim
       attr_reader :form, :proposal, :attachment
 
       def create_proposal
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+
         @proposal = Proposal.create!(
-          title: form.title,
-          body: form.body,
+          title: parsed_title,
+          body: parsed_body,
           component: form.component
         )
         proposal.add_coauthor(@current_user, user_group: user_group)
       end
 
       def proposal_limit_reached?
+        return false if @coauthorships.present?
+
         proposal_limit = form.current_component.settings.proposal_limit
 
         return false if proposal_limit.zero?

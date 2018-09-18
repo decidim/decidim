@@ -274,6 +274,9 @@ fr:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Concertations mises en avant
       index:
         title: Concertations
       pages:
@@ -281,6 +284,8 @@ fr:
           highlighted_processes:
             active_processes: Concertations actives
             active_step: Étape active
+            more_information: Plus d'informations
+            participate: Participer
             see_all_processes: Voir toutes les concertations
       participatory_process_groups:
         none: Aucun

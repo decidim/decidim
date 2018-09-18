@@ -52,7 +52,6 @@ ca:
         highlighted_content_banner_image: Imatge
         highlighted_content_banner_short_description: Descripció breu
         highlighted_content_banner_title: Títol
-        homepage_image: Imatge de la pàgina d'inici
         instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
         name: Nom
@@ -66,7 +65,6 @@ ca:
         show_statistics: Mostra estadístiques
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
-        welcome_text: Text de benvinguda
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
@@ -93,34 +91,6 @@ ca:
               must_be_ssl: L'URL de redirecció ha de ser SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imatge de bàner
-        description: Descripció
-        developer_group: Grup promotor
-        domain: Àrees municipals
-        end_date: Data de finalització
-        hashtag: Hashtag
-        hero_image: Imatge de portada
-        local_area: Àrea municipal
-        meta_scope: 'Metadades: àmbit'
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
-        promoted: Destacat
-        scope: Àmbit
-        short_description: Descripció breu
-        slug: Nom curt d'URL
-        start_date: Data d'inici
-        subtitle: Subtítol
-        target: A qui va dirigit?
-        title: Títol
-      decidim/participatory_process_group:
-        description: Descripció
-        hero_image: Imatge de portada
-        name: Nom
-        participatory_processes: Processos participatius
-      decidim/participatory_process_step:
-        end_date: Data de finalització
-        start_date: Data d'inici
       decidim/static_page:
         content: Contingut
         slug: Nom curt d'URL
@@ -333,6 +303,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
+        homepage: Pàgina d'inici
         impersonations: Impersonacions
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
@@ -526,6 +497,13 @@ ca:
           homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
           omnipresent_banner_appearance_title: Edita pancarta omnipresent
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocs de contingut actiu
+          inactive_content_blocks: Blocs de contingut inactiu
+      organization_homepage_content_blocks:
+        edit:
+          update: Actualitza
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.

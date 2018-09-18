@@ -6,7 +6,7 @@
     <%= proposal.id %><br />
   </td>
   <td>
-    <%= proposal.title %><br />
+    <%= present(proposal).title %><br />
   </td>
   <td>
     <% if proposal.category %>

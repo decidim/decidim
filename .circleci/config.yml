@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 defaults: &defaults
   docker:
@@ -26,10 +26,6 @@ references:
     run:
       name: Install ruby dependencies
       command: cd decidim-$CIRCLE_JOB && bundle install
-  install_npm_dependencies: &install_npm_dependencies
-    run:
-      name: Install npm dependencies
-      command: npm ci
   save_ruby_cache: &save_ruby_cache
     save_cache:
       key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
@@ -84,7 +80,6 @@ jobs:
       - checkout
       - *restore_ruby_cache
       - run: bundle install
-      - *install_npm_dependencies
       - *save_ruby_cache
       - *wait_for_db
       - run:
@@ -100,6 +95,19 @@ jobs:
     steps:
       - *attach_workspace
       - checkout
+      - restore_cache:
+          keys:
+            - npm-dependencies-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install npm dependencies
+          command: npm ci --verbose
+      - save_cache:
+          key: npm-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - /root/.npm
+      - run:
+          name: Run js lint & tests
+          command: npm run test:ci
       - *restore_ruby_cache
       - run: bundle install
       - *save_ruby_cache
@@ -112,10 +120,7 @@ jobs:
           command: bundle exec rubocop
       - run:
           name: Run erb_lint
-          command: bundle exec erblint --lint-all
-      - run:
-          name: Run erb_lint on cells views
-          command: bundle exec erblint **/app/cells/**/*.erb
+          command: bundle exec erblint **/app/{cells,views}/**/*.erb
       - *store_test_results
   generators:
     <<: *defaults
@@ -146,6 +151,20 @@ jobs:
       - *store_test_results
       - *persist_coverage_to_workspace
   assemblies:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
+  conferences:
     <<: *defaults
     steps:
       - *attach_workspace
@@ -205,7 +224,6 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *install_npm_dependencies
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
@@ -248,10 +266,6 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - *install_npm_dependencies
-      - run:
-          name: Run main folder lint & tests
-          command: npm run test:ci
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
@@ -412,56 +426,29 @@ jobs:
       - run:
           name: Build image
           command: |
-            docker build -t registry.heroku.com/decidim-design/web -f Dockerfile.design .
-      - run:
-          name: Push deployment image
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
-              docker push registry.heroku.com/decidim-design/web
-            fi
+            docker build -f Dockerfile.design .
   upload-coverage:
     <<: *defaults
     environment:
-      - CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
+      CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
     steps:
       - *attach_workspace
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 20 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 21 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
   version: 2
   build_and_test:
     jobs:
+      - build_test_app
+      - main
       - build_design_app:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
           requires:
             - main
-      - build_test_app:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
-      - main:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
       - generators:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
           requires:
             - main
       - core:
@@ -469,6 +456,10 @@ workflows:
             - build_test_app
             - main
       - assemblies:
+          requires:
+            - build_test_app
+            - main
+      - conferences:
           requires:
             - build_test_app
             - main
@@ -562,3 +553,4 @@ workflows:
             - sortitions
             - consultations
             - blogs
+            - conferences

@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user updates a proposal.
     class UpdateProposal < Rectify::Command
+      include AttachmentMethods
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -13,6 +14,7 @@ module Decidim
         @form = form
         @current_user = current_user
         @proposal = proposal
+        @attached_to = proposal
       end
 
       # Executes the command. Broadcasts these events:
@@ -46,9 +48,12 @@ module Decidim
       attr_reader :form, :proposal, :current_user, :attachment
 
       def update_proposal
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+
         @proposal.update!(
-          title: form.title,
-          body: form.body,
+          title: parsed_title,
+          body: parsed_body,
           category: form.category,
           scope: form.scope,
           address: form.address,
@@ -85,39 +90,6 @@ module Decidim
 
       def user_group_proposals
         Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id)
-      end
-
-      def build_attachment
-        @attachment = Attachment.new(
-          title: form.attachment.title,
-          file: form.attachment.file,
-          attached_to: @proposal
-        )
-      end
-
-      def attachment_invalid?
-        if form.attachment.invalid? && form.attachment.errors.has_key?(:file)
-          form.attachment.errors.add :file, attachment.errors[:file]
-          true
-        end
-      end
-
-      def attachment_present?
-        return if form.attachment.nil?
-        form.attachment.file.present?
-      end
-
-      def create_attachment
-        attachment.attached_to = proposal
-        attachment.save!
-      end
-
-      def attachments_allowed?
-        form.current_component.settings.attachments_allowed?
-      end
-
-      def process_attachments?
-        attachments_allowed? && attachment_present?
       end
     end
   end

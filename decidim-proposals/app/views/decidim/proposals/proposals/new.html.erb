@@ -1,18 +1,18 @@
 <div class="row">
-  <%= render partial: "wizard_aside" %>
+  <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
 
   <div class="columns large-6">
-    <%= render partial: "wizard_header" %>
+    <%= render partial: "decidim/proposals/proposals/wizard_header" %>
 
     <div class="card">
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
-          <div class="field">
-            <%= form.text_field :title %>
+          <div class="field hashtags__container">
+            <%= form.text_field :title, class: "js-hashtags", hashtaggable: true %>
           </div>
 
-          <div class="field">
-            <%= form.text_area :body, rows: 10 %>
+          <div class="field hashtags__container">
+            <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true %>
           </div>
 
           <% if current_user.user_groups.verified.any? %>

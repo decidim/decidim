@@ -136,3 +136,13 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Debaty są teraz dostępne w %{participatory_space_title}
           notification_title: Możesz teraz uruchomić <a href="%{resource_path}">nowych debat</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Ten użytkownik uczestniczył w %{score} debatach.
+          description_own: Brałeś udział w %{score} debatach.
+          explanation: Użytkownicy otrzymują tę odznakę uczestnicząc w debatach.
+          name: Debaty
+          next_level_in: Weź udział w %{score} kolejnych debatach, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnej debacie.
+          unearned_own: Brałeś już udział w jakichkolwiek debatach.

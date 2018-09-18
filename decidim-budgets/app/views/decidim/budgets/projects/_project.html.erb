@@ -6,7 +6,7 @@
           <%= translated_attribute project.title %>
         </h5>
       <% end %>
-      <%= cell "decidim/tags", project, context: {extra_classes: ["tags--project"]} %>
+      <%= cell "decidim/tags", project, context: { extra_classes: ["tags--project"] } %>
     </div>
   </div>
   <% if current_user.present? %>

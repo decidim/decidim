@@ -1,13 +1,22 @@
-<% provide(:title, translated_attribute(meeting.title)) %>
+<% provide(:title, present(meeting).title) %>
 
 <% add_decidim_meta_tags({
-  title: translated_attribute(meeting.title),
-  description: translated_attribute(meeting.description),
+  title: present(meeting).title,
+  description: present(meeting).description,
   url: meeting_url(meeting.id)
 }) %>
 
+<%
+edit_link(
+  resource_locator(meeting).edit,
+  :update,
+  :meeting,
+  meeting: meeting
+)
+%>
+
 <div class="row column view-header">
-  <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
+  <h2 class="heading2"><%= present(meeting).html_title %></h2>
   <% if meeting.organizer.present? %>
     <%= render partial: "decidim/shared/author_reference", locals: { author: present(meeting.organizer) } %>
   <% end %>
@@ -83,7 +92,7 @@
           <%= t("transparent", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
-      <p><%= decidim_sanitize translated_attribute meeting.description %></p>
+      <p><%= decidim_sanitize(present(meeting).html_description) %></p>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>

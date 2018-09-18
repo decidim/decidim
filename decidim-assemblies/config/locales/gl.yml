@@ -29,11 +29,12 @@ gl:
         instagram: Instagram
         internal_organisation: Organización interna
         is_transparent: É transparente
-        local_area: Área local
+        local_area: Área de organización
         meta_scope: Metadatos de ámbito
+        parent_id: Asemblea primaria
         participatory_processes_ids: Procesos participativos relacionados
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
         private_space: Espazo privado
         promoted: Promocionado
         published_at: Publicado en
@@ -45,7 +46,7 @@ gl:
         slug: URL slug
         special_features: Características especiais
         subtitle: Subtítulo
-        target: Obxectivo
+        target: Quen participa
         title: Título
         twitter: Twitter
         youtube: YouTube
@@ -217,6 +218,7 @@ gl:
             select_a_created_by: Seleccione un creado por
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto
+            select_parent_assembly: Seleccione o conxunto primario
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -247,6 +249,9 @@ gl:
         others: Outros
         participatory: Participativa
         working_group: Grupo de traballo
+      content_blocks:
+        highlighted_assemblies:
+          name: Asembleas destacadas
       created_by:
         city_council: Concello
         others: Outros
@@ -277,9 +282,9 @@ gl:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área local
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
+        local_area: Área de organización
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
         private_space: Esta é unha asemblea privada
         purpose_of_action: Propósito da acción
         read_less: Ler menos
@@ -287,7 +292,7 @@ gl:
         related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         social_networks: Redes Sociais
-        target: Obxectivo
+        target: Quen participa
       statistics:
         answers_count: Respostas
         assemblies_count: Asembleas
@@ -324,7 +329,9 @@ gl:
         assembly:
           take_part: Tomar parte en
         index:
+          organizational_chart: Organigrama
           promoted_assemblies: Asembleas destacadas
+          reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
             one: "Asemblea %{count}"

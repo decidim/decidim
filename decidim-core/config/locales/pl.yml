@@ -20,6 +20,8 @@ pl:
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny składnik
+      decidim/gamification/badge_earned_event: Zdobyta odznaka
+      decidim/gamification/level_up_event: Wyrównałeś
       decidim/profile_updated_event: Profil zaktualizowany
   activerecord:
     attributes:
@@ -215,6 +217,19 @@ pl:
             dummy_step_attribute_1: Atrybut krokowy atrapy 1
             dummy_step_attribute_2: Atrybut krokowy atrapy 2
     contact: Kontakt
+    content_blocks:
+      footer_sub_hero:
+        name: Banner podrzędny stopki
+      hero:
+        name: Obraz bohatera
+      highlighted_content_banner:
+        name: Wyróżniony baner treści
+      how_to_participate:
+        name: Jak uczestniczyć
+      stats:
+        name: Statystyki organizacji
+      sub_hero:
+        name: Banner podrzędny
     core:
       actions:
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
@@ -313,6 +328,17 @@ pl:
         email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
         email_outro: Otrzymałeś powiadomienie, ponieważ są po "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
         email_subject: Aktualizacja %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
+          email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
+          email_subject: 'Otrzymałeś nową odznakę: %{badge_name}!'
+          notification_title: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
+        level_up:
+          email_intro: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
+          email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
+          email_subject: Osiągnąłeś poziom %{current_level} na %{badge_name} odznace!
+          notification_title: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -331,7 +357,8 @@ pl:
     filters:
       linked_classes:
         all: Wszystkie
-        dummyresource: Dummy zasobów
+        collaborative_draft: Wspólny projekt
+        dummy_resource: Dummy zasobów
         meeting: Spotkania
         project: Projekty
         proposal: Propozycje
@@ -362,6 +389,27 @@ pl:
       errors:
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
+    gamification:
+      badges:
+        followers:
+          description_another: Ten użytkownik ma %{score} obserwujących.
+          description_own: "%{score} użytkowników obserwuje Ciebie."
+          explanation: Użytkownicy otrzymują tę plakietkę, obserwując innych użytkowników.
+          name: Obserwujący
+          next_level_in: Uzyskaj %{score} innych użytkowników, którzy obserwują Cię, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie ma jeszcze żadnych obserwujących.
+          unearned_own: Nie masz jeszcze żadnych obserwujących.
+        invitations:
+          description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
+          description_own: Zaprosiłeś %{score} użytkowników.
+          explanation: Użytkownicy otrzymują tę plakietkę, zapraszając innych użytkowników.
+          name: Zaproszenia
+          next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie zaprosił jeszcze żadnego użytkownika.
+          unearned_own: Nie zaprosiłeś jeszcze żadnych użytkowników.
+      description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
+      level: Poziom %{level}
+      reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     invitations:
       create:
         error: Podczas zapraszania znajomych pojawiły się pewne problemy
@@ -414,13 +462,13 @@ pl:
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
+          from: Od
+          last_message_html: Ostatnia wiadomość <strong>%{time} temu</strong>
           no_conversations: Nie masz jeszcze żadnych rozmów
-          title: Rozmowy
-        reply:
-          send: Wysłać
-          title: Odpowiadać
         show:
-          title: Rozmowa z %{usernames}
+          conversation_with_html: Rozmowa z <strong>%{name}</strong>
+          reply: Odpowiadać
+          send: Wysłać
         start:
           send: Wysłać
           title: Zacząć rozmowę
@@ -533,9 +581,15 @@ pl:
     profiles:
       default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
+        badges: Odznaki
+        conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
         notifications: Powiadomienia
+      sidebar:
+        badges:
+          info: Odznaki zdobywa się, wykonując określoną czynność na platformie.
+          title: Odznaki
       user:
         edit_profile: Edytuj profil
     reported_mailer:
@@ -667,6 +721,8 @@ pl:
         description_html: Ta strona używa plików cookie. Kontynuując przeglądanie witryny, zgadzasz się na korzystanie z plików cookie. Dowiedz się więcej o tym %{link}.
         link_label: tutaj
         ok: zgadzam się
+      edit_link:
+        edit: Edytować
       footer:
         made_with_open_source: Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
@@ -734,6 +790,7 @@ pl:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"

@@ -13,11 +13,11 @@ es:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
-        local_area: Áreas municipales
+        local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         promoted: Destacado
         published_at: Publicado en
         scope_id: Ámbito
@@ -27,7 +27,7 @@ es:
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
-        target: '¿A quién va dirigida?'
+        target: Quién participa
         title: Título
       participatory_process_group:
         description: Descripción
@@ -274,6 +274,9 @@ es:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Procesos destacados
       index:
         title: Procesos participativos
       pages:
@@ -281,6 +284,8 @@ es:
           highlighted_processes:
             active_processes: Procesos activos
             active_step: Paso activo
+            more_information: Más información
+            participate: Participar
             see_all_processes: Ver todos los procesos
       participatory_process_groups:
         none: Ninguna

@@ -71,7 +71,13 @@ module Decidim
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
-            send(type, name_with_locale(name, locale), options.merge(label: false))
+            if options[:hashtaggable]
+              content_tag(:div, class: "hashtags__container") do
+                send(type, name_with_locale(name, locale), options.merge(label: false))
+              end
+            else
+              send(type, name_with_locale(name, locale), options.merge(label: false))
+            end
           end
         end
       end
@@ -137,11 +143,11 @@ module Decidim
       options[:lines] ||= 10
       options[:disabled] ||= false
 
-      content_tag(:div, class: "editor") do
+      content_tag(:div, class: "editor #{"hashtags__container" if options[:hashtaggable]}") do
         template = ""
         template += label(name, options[:label].to_s || name) if options[:label] != false
         template += hidden_field(name, options)
-        template += content_tag(:div, nil, class: "editor-container", data: {
+        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if options[:hashtaggable]}", data: {
                                   toolbar: options[:toolbar],
                                   disabled: options[:disabled]
                                 }, style: "height: #{options[:lines]}rem")
@@ -251,20 +257,19 @@ module Decidim
     def date_field(attribute, options = {})
       value = object.send(attribute)
       data = { datepicker: "" }
-      data[:startdate] = I18n.localize(value, format: :datepicker) if value.present?
-      iso_value = value.present? ? value.strftime("%Y-%m-%d") : ""
+      data[:startdate] = I18n.localize(value, format: :decidim_short) if value.present? && value.is_a?(Date)
+      datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
+      data[:"date-format"] = datepicker_format
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.text_field(
         @object_name,
         attribute,
-        options.merge(name: nil,
-                      id: "date_field_#{@object_name}_#{attribute}",
-                      data: data)
+        options.merge(data: data)
       )
-      template += @template.hidden_field(@object_name, attribute, value: iso_value)
-      template += error_and_help_text(attribute, options)
+      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
+      template += error_and_help_text(attribute, options.merge(help_text: help_text))
       template.html_safe
     end
 
@@ -272,22 +277,20 @@ module Decidim
     # datepicker library
     def datetime_field(attribute, options = {})
       value = object.send(attribute)
-      if value.present?
-        iso_value = value.strftime("%Y-%m-%dT%H:%M:%S")
-        formatted_value = I18n.localize(value, format: :timepicker)
-      end
+      data = { datepicker: "", timepicker: "" }
+      data[:startdate] = I18n.localize(value, format: :decidim_short) if value.present? && value.is_a?(ActiveSupport::TimeWithZone)
+      datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
+      data[:"date-format"] = datepicker_format
+
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.text_field(
         @object_name,
         attribute,
-        options.merge(value: formatted_value,
-                      name: nil,
-                      id: "datetime_field_#{@object_name}_#{attribute}",
-                      data: { datepicker: "", timepicker: "" })
+        options.merge(data: data)
       )
-      template += @template.hidden_field(@object_name, attribute, value: iso_value)
-      template += error_and_help_text(attribute, options)
+      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
+      template += error_and_help_text(attribute, options.merge(help_text: help_text))
       template.html_safe
     end
 
@@ -598,6 +601,10 @@ module Decidim
       selected = [selected] unless selected.is_a?(Array)
       selected = Decidim::Scope.where(id: selected.map(&:to_i)) unless selected.first.is_a?(Decidim::Scope)
       selected
+    end
+
+    def ruby_format_to_datepicker(ruby_date_format)
+      ruby_date_format.gsub("%d", "dd").gsub("%m", "mm").gsub("%Y", "yyyy").gsub("%H", "hh").gsub("%M", "ii")
     end
   end
 end

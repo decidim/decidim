@@ -15,10 +15,14 @@ module Decidim
       class ProposalPresenter < Decidim::Log::BasePresenter
         private
 
+        def resource_presenter
+          @resource_presenter ||= Decidim::Proposals::Log::ResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
+        end
+
         def diff_fields_mapping
           {
-            title: :string,
-            body: :string,
+            title: "Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter",
+            body: "Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter",
             state: "Decidim::Proposals::AdminLog::ValueTypes::ProposalStatePresenter",
             answered_at: :date,
             answer: :i18n

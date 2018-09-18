@@ -1,6 +1,14 @@
 pt:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Corpo
+        category_id: Categoria
+        decidim_scope_id: Escopo
+        has_address: Tem endereço
+        state: Estado
+        title: Título
+        user_group_id: Criar rascunho colaborativo como
       proposal:
         answer: Responda
         answered_at: Respondido em
@@ -35,6 +43,9 @@ pt:
       decidim/proposals/voting_enabled_event: Proposta de votação ativada
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Rascunho colaborativo
+        other: Rascunhos colaborativos
       decidim/proposals/proposal:
         one: Proposta
         other: Propostas
@@ -61,6 +72,7 @@ pt:
             announcement: Anúncio
             attachments_allowed: Permitir anexos
             can_accumulate_supports_beyond_threshold: Pode acumular suportes além do limiar
+            collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             geocoding_enabled: Geocoding habilitado
             new_proposal_help_text: Novo texto de ajuda da proposta
@@ -88,6 +100,36 @@ pt:
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} foi aceito para acessar como colaborador do rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} foi aceito para acessar como contribuidor %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceito <strong>para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} foi rejeitado para acessar como colaborador do projeto de colaboração <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} foi rejeitado para acessar como colaborador do %{resource_title} esboço colaborativo."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi <strong>rejeitado para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} solicitou acesso como colaborador. Você pode <strong>aceitar ou rejeitar a solicitação</strong> da página de rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} solicitou acesso para contribuir com %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitou acesso para contribuir para o projeto de colaboração <a href="%{resource_path}">%{resource_title}</a> . Por favor, <strong>aceite ou rejeite o pedido</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Você foi aceito para acessar como colaborador do rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Você recebeu esta notificação porque pediu para se tornar um colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Você foi aceito como colaborador de %{resource_title}.
+          notification_title: Você foi aceito como <strong>para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Você foi rejeitado para acessar como colaborador do rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Você recebeu esta notificação porque pediu para se tornar um colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Você foi rejeitado como colaborador de %{resource_title}.
+          notification_title: Você foi <strong>rejeitado para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retirou o esboço de colaboração <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} retirou o %{resource_title} rascunho colaborativo."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirado</strong> o <a href="%{resource_path}">%{resource_title}</a> rascunho colaborativo.
         creation_enabled:
           email_intro: 'Agora você pode criar novas propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
@@ -142,6 +184,32 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: As propostas de votação começaram para %{participatory_space_title}
           notification_title: Agora você pode iniciar <a href="%{resource_path}">propostas de votação</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        accepted_proposals:
+          description_another: Este utilizador obteve %{score} propostas aceites.
+          description_own: Você tem %{score} propostas aceitas.
+          explanation: Os usuários recebem esse selo ao aceitar suas propostas.
+          name: Propostas aceitas
+          next_level_in: Receba mais %{score} propostas aceitas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não recebeu nenhuma proposta aceita.
+          unearned_own: Você não recebeu nenhuma proposta aceita ainda.
+        proposal_votes:
+          description_another: Este usuário deu suporte a %{score} propostas.
+          description_own: Você deu suporte a %{score} propostas.
+          explanation: Os usuários recebem esse selo dando suporte a propostas.
+          name: Apoios proposta
+          next_level_in: Dê suporte a mais %{score} propostas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não deu suporte a nenhuma proposta.
+          unearned_own: Você deu suporte a nenhuma proposta ainda.
+        proposals:
+          description_another: Este usuário criou %{score} propostas.
+          description_own: Você criou %{score} propostas.
+          explanation: Os usuários recebem esse selo criando propostas.
+          name: Propostas
+          next_level_in: Crie mais %{score} propostas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não criou nenhuma proposta.
+          unearned_own: Você não criou nenhuma proposta ainda.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -234,6 +302,120 @@ pt:
         not_answered: Não respondido
         rejected: Rejeitado
         withdrawn: Retirado
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Houve erros ao publicar o rascunho colaborativo.
+            irreversible_action_modal:
+              body: Depois de publicar o rascunho como uma proposta, o rascunho não será mais editável. A proposta não aceita novos autores ou contribuições.
+              cancel: Cancelar
+              ok: Publicar como uma proposta
+              title: A ação a seguir é irreversível
+            success: Esboço colaborativo publicado com sucesso como uma proposta.
+          view_collaborative_draft: Ver rascunho colaborativo
+          withdraw:
+            error: Houve erros ao fechar o rascunho colaborativo.
+            irreversible_action_modal:
+              body: Depois de fechar o rascunho, o rascunho não será mais editável. O rascunho não aceita novos autores ou contribuições.
+              cancel: Cancelar
+              ok: Retirar o rascunho colaborativo
+              title: A ação a seguir é irreversível
+            success: Esboço colaborativo retirado com sucesso.
+        compare:
+          mine_is_different: Meu rascunho colaborativo é diferente
+          no_similars_found: Bem feito! Nenhum rascunho colaborativo semelhante encontrado
+          title: Rascunhos colaborativos semelhantes
+        complete:
+          attachment_legend: "(Opcional) Adicione um anexo"
+          select_a_category: Por favor, selecione uma categoria
+          send: Enviar
+          title: Complete seu rascunho colaborativo
+        count:
+          drafts_count:
+            one: 1 rascunho colaborativo
+            other: "%{count} rascunhos colaborativos"
+        create:
+          error: Houve um problema ao criar esses rascunhos colaborativos
+          success: Rascunho colaborativo criado com sucesso.
+        edit:
+          back: Costas
+          select_a_category: Por favor, selecione uma categoria
+          send: Enviar
+          title: Editar rascunho colaborativo
+        filters:
+          all: Todos
+          category: Categoria
+          category_prompt: Prompt de categoria
+          open: Aberto
+          published: Publicados
+          related_to: Relacionado a
+          search: Pesquisa
+          state: Estado
+          withdrawn: Retirado
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        new:
+          send: Continuar
+          title: Crie seu rascunho colaborativo
+        new_collaborative_draft_button:
+          new_collaborative_draft: Novo rascunho colaborativo
+        orders:
+          label: 'Encomenda de rascunhos por:'
+          most_contributed: A maioria contribuiu
+          random: Aleatória
+          recent: Recente
+        requests:
+          accepted_request:
+            error: Não foi possível aceitar como colaborador. Tente novamente mais tarde.
+            success: "@%{user} foi aceito como colaborador com sucesso"
+          access_requested:
+            error: Sua solicitação não pôde ser concluída. Tente novamente mais tarde.
+            success: Sua solicitação para colaborar foi enviada com sucesso
+          collaboration_requests:
+            accept_request: Aceitar
+            reject_request: Rejeitar
+            title: Pedidos de colaboração
+          rejected_request:
+            error: Não foi possível rejeitá-lo como colaborador. Tente novamente mais tarde.
+            success: "@%{user} foi rejeitado como colaborador com sucesso"
+        show:
+          back: Costas
+          edit: Editar rascunho colaborativo
+          final_proposal: proposta final
+          final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
+          hidden_authors_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
+          info-message: Este é um <strong>projecto colaborativo</strong> para uma proposta. Isso significa que você pode ajudar seus autores a moldar a proposta usando a seção de comentários abaixo ou melhorá-la diretamente solicitando acesso para editá-la. Depois que os autores lhe concederem acesso, você poderá fazer alterações neste rascunho.
+          of_versions: "(de %{number})"
+          publish: Publicar
+          publish_info: Publicar esta versão do rascunho ou
+          published_proposal: proposta publicada
+          request_access: Solicitar acesso
+          requested_access: Acesso solicitado
+          see_other_versions: veja outras versões
+          version: Versão %{number}
+          version_history: ver o histórico de versões desta proposta
+          withdraw: retirar o rascunho
+        states:
+          open: Aberto
+          published: Publicados
+          withdrawn: Retirado
+        update:
+          error: Houve erros ao salvar o rascunho colaborativo.
+          success: Rascunho colaborativo atualizado com sucesso.
+        wizard_aside:
+          back: Costas
+          info: Você está criando um <strong>projecto de colaboração</strong>.
+        wizard_steps:
+          see_steps: ver passos
+          step_1: Crie seu rascunho colaborativo
+          step_2: Comparar com rascunhos colaborativos
+          step_3: Complete seu rascunho colaborativo
+          step_of: Etapa %{current_step_num} de %{total_steps}
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso. Salvo como um rascunho.
@@ -241,6 +423,11 @@ pt:
         error: Houve erros ao excluir o rascunho da proposta.
         success: O rascunho da proposta foi excluído com sucesso.
       models:
+        collaborative_draft:
+          fields:
+            authors: Autores
+            comments: Comentários
+            contributions: Contribuições
         proposal:
           fields:
             category: Categoria
@@ -266,6 +453,8 @@ pt:
         endorsement_button:
           already_endorsed: Endossado
           endorse: Endossar
+        render_endorsements_button_card_part:
+          endorse: Endossar
       proposal_votes:
         create:
           error: Houve erros ao votar a proposta.
@@ -275,8 +464,6 @@ pt:
           no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
           title: Propostas semelhantes
         complete:
-          attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Por favor, selecione uma categoria
           send: Enviar
           title: Complete sua proposta
         count:
@@ -284,6 +471,7 @@ pt:
             one: 1 proposta
             other: "%{count} propostas"
         edit:
+          attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
           select_a_category: Selecione uma categoria
           send: Enviar
@@ -297,7 +485,6 @@ pt:
           endorse: Endossar
         endorsements_card_row:
           comments: Comentários
-          endorse: Endossar
         filters:
           accepted: Aceitaram
           activity: Atividade
@@ -320,6 +507,7 @@ pt:
           filter_by: Filtrar por
           unfold: Desdobrar
         index:
+          collaborative_drafts_list: Acesse rascunhos colaborativos
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
           view_proposal: Ver proposta
@@ -351,6 +539,8 @@ pt:
           hidden_endorsers_count:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
+          link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Revise o histórico
+          link_to_collaborative_draft_text: Veja o rascunho colaborativo
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
@@ -408,6 +598,20 @@ pt:
       update_draft:
         error: Houve erros ao salvar o rascunho da proposta.
         success: Rascunho da proposta atualizado com sucesso.
+      versions:
+        changes_at_title: Mudanças em "%{title}"
+        index:
+          title: Versões
+        stats:
+          back_to_collaborative_draft: Volte para o rascunho colaborativo
+          number_of_versions: Versões
+          show_all_versions: Mostrar todas as versões
+          version_author: Autor da versão
+          version_created_at: Versão criada em
+          version_number: Número da versão
+          version_number_out_of_total: "%{current_version} de %{total_count}"
+        version:
+          version_index: Versão %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas

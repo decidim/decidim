@@ -2,12 +2,12 @@
   <%= render partial: "wizard_aside" %>
 
   <div class="columns large-6">
-    <%= render partial: "wizard_header", locals: {callout_step_help_text_class: "warning"} %>
+    <%= render partial: "wizard_header", locals: { callout_step_help_text_class: "warning" } %>
 
     <% if @similar_proposals.presence %>
       <div class="row small-up-1 card-grid">
         <% @similar_proposals.each do |proposal| %>
-          <%= render partial: "proposal_similar", locals: {proposal: proposal} %>
+          <%= render partial: "proposal_similar", locals: { proposal: proposal } %>
         <% end %>
       </div>
     <% end %>

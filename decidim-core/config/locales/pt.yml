@@ -20,6 +20,8 @@ pt:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
+      decidim/gamification/badge_earned_event: Distintivo ganho
+      decidim/gamification/level_up_event: Você subiu de nível
       decidim/profile_updated_event: perfil atualizado
   activerecord:
     attributes:
@@ -205,6 +207,19 @@ pt:
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contato
+    content_blocks:
+      footer_sub_hero:
+        name: Rodapé do sub-herói banner
+      hero:
+        name: Imagem do herói
+      highlighted_content_banner:
+        name: Banner de conteúdo destacado
+      how_to_participate:
+        name: Como participar
+      stats:
+        name: Estatísticas da organização
+      sub_hero:
+        name: Banner de sub-herói
     core:
       actions:
         unauthorized: Não está autorizado a realizar esta ação
@@ -303,6 +318,17 @@ pt:
         email_intro: 'Houve uma atualização para "%{resource_title}". Você pode vê-lo a partir desta página:'
         email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
         email_subject: Uma atualização para %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
+          email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
+          email_subject: 'Você ganhou um novo selo: %{badge_name}!'
+          notification_title: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
+        level_up:
+          email_intro: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
+          email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
+          email_subject: Você atingiu o nível %{current_level} no %{badge_name} crachá!
+          notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -321,7 +347,8 @@ pt:
     filters:
       linked_classes:
         all: Todos
-        dummyresource: Recursos falsos
+        collaborative_draft: Rascunho colaborativo
+        dummy_resource: Recursos falsos
         meeting: Reuniões
         project: Projetos
         proposal: Propostas
@@ -352,6 +379,27 @@ pt:
       errors:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
+    gamification:
+      badges:
+        followers:
+          description_another: Esse usuário possui %{score} seguidores.
+          description_own: "%{score} usuários estão seguindo você."
+          explanation: Os usuários recebem esse selo ao serem seguidos por outros usuários.
+          name: Seguidores
+          next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não possui seguidores.
+          unearned_own: Você ainda não tem seguidores.
+        invitations:
+          description_another: Este usuário convidou %{score} usuários.
+          description_own: Você convidou %{score} usuários.
+          explanation: Os usuários recebem esse selo convidando outros usuários.
+          name: Convites
+          next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não convidou nenhum usuário.
+          unearned_own: Você não convidou nenhum usuário ainda.
+      description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
+      level: Nível %{level}
+      reached_top: Você atingiu o nível superior para este selo.
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -404,13 +452,13 @@ pt:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
+          from: A partir de
+          last_message_html: Última mensagem <strong>%{time} atrás</strong>
           no_conversations: Ainda não há conversas
-          title: Conversas
-        reply:
-          send: Enviar
-          title: Resposta
         show:
-          title: Conversa com %{usernames}
+          conversation_with_html: Conversa com <strong>%{name}</strong>
+          reply: Resposta
+          send: Enviar
         start:
           send: Enviar
           title: Comece uma conversa
@@ -523,9 +571,15 @@ pt:
     profiles:
       default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
+        badges: Distintivos
+        conversations: Conversas
         followers: Seguidores
         following: Segue
         notifications: Notificações
+      sidebar:
+        badges:
+          info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
+          title: Distintivos
       user:
         edit_profile: Editar Perfil
     reported_mailer:
@@ -657,6 +711,8 @@ pt:
         description_html: Este site usa cookies. Ao continuar a navegar no site, você concorda com o uso de cookies. Saiba mais sobre isso %{link}.
         link_label: aqui
         ok: Concordo
+      edit_link:
+        edit: Editar
       footer:
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:
@@ -724,6 +780,7 @@ pt:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
