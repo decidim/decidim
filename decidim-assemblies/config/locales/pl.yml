@@ -244,6 +244,9 @@ pl:
               not_ceased: Nie przestał
             filter_by: Filtruj według
             search: Szukaj
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maksymalna ilość elementów do pokazania
       assembly_members:
         index:
           members: Członkowie
