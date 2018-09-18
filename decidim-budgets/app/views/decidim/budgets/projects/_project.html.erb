@@ -25,8 +25,8 @@
         <% end %>
       </div>
     <% else %>
-      <div class="card--list__data budget-list__data <%= 'budget-list__data_votes' if current_settings.show_votes? %>">
-        <span class="card--list__data__number budget-list__number <%= 'budget-list__number_votes' if current_settings.show_votes? %>">
+      <div class="card--list__data budget-list__data <%= "budget-list__data_votes" if current_settings.show_votes? %>">
+        <span class="card--list__data__number budget-list__number <%= "budget-list__number_votes" if current_settings.show_votes? %>">
           <%= budget_to_currency(project.budget) %>
         </span>
         <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true, "redirect-url": project_path(project) }, disabled: !current_settings.votes_enabled? || current_order_checked_out? || !current_participatory_space.can_participate?(current_user), class: "button tiny hollow budget--list__action" do %>
@@ -40,8 +40,8 @@
       </div>
     <% end %>
   <% else %>
-    <div class="card--list__data budget-list__data <%= 'budget-list__data_votes' if current_settings.show_votes? %>">
-      <span class="card--list__data__number budget-list__number <%= 'budget-list__number_votes' if current_settings.show_votes? %>">
+    <div class="card--list__data budget-list__data <%= "budget-list__data_votes" if current_settings.show_votes? %>">
+      <span class="card--list__data__number budget-list__number <%= "budget-list__number_votes" if current_settings.show_votes? %>">
         <%= budget_to_currency(project.budget) %>
       </span>
       <a href="#" class="button tiny hollow budget--list__action disabled" data-toggle="loginModal">
