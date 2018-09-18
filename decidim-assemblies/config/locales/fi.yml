@@ -238,6 +238,9 @@ fi:
               not_ceased: Ei lakkautettu
             filter_by: Suodata
             search: Hae
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Näytettävien elementtien enimmäismäärä
       assembly_members:
         index:
           members: Jäsenet
