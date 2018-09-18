@@ -238,6 +238,9 @@ hu:
               not_ceased: Nem szűnt meg
             filter_by: 'Szűrés ez alapján:'
             search: Keresés
+        content_blocks:
+          highlighted_assemblies:
+            max_results: A megjelenítendő elemek maximális száma
       assembly_members:
         index:
           members: Tagok
