@@ -27,7 +27,8 @@ module Decidim
           @initiative = Decidim.traceability.perform_action!(
             :publish,
             initiative,
-            current_user
+            current_user,
+            visibility: "all"
           ) do
             initiative.publish!
             increment_score

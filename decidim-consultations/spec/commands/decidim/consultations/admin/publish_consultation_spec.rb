@@ -6,12 +6,14 @@ module Decidim
   module Consultations
     module Admin
       describe PublishConsultation do
-        subject { described_class.new(consultation) }
+        subject { described_class.new(consultation, current_user) }
 
         let(:consultation) { create :consultation, :unpublished }
+        let(:current_user) { create :user, :admin, organization: consultation.organization }
 
         context "when the consultation is nil" do
           let(:consultation) { nil }
+          let(:current_user) { nil }
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)
