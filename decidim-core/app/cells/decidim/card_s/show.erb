@@ -1,0 +1,26 @@
+<article class="card">
+  <div class="card__content">
+    <div class="card__header">
+      <h5 class="card__title">
+        <span class="text-muted"><%= card_title %></span>
+        <% if render_title_link? %>
+          <%= link_to card_title_link_path, class: "card__link" do %>
+            <%= card_title_link_text %>
+          <% end %>
+        <% end %>
+      </h5>
+    </div>
+    <% if render_content? %>
+      <div class="card__text">
+        <div class="text-medium">
+          <span>
+            <%= card_content %>
+            <% if render_content_link? %>
+              <%= link_to card_content_link_text, card_content_link_path %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</article>
