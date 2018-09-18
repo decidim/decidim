@@ -1,0 +1,17 @@
+<section class="wrapper-home upcoming-events home-section">
+  <div class="row">
+    <h3 class="section-heading"><%= t("decidim.content_blocks.last_activity.title") %></h3>
+    <div class="row">
+      <div class="columns medium-6">
+        <% last_activity.each do |activity| %>
+          <%= card_for activity.resource, size: :s %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <%= link_to t("decidim.content_blocks.last_activity.view_all"), "/activity", class: "button hollow button--sc pull-right" %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -42,6 +42,11 @@ module Decidim
       where(visibility: %w(admin-only all))
     end
 
+    # A scope that filters all the logs that should be visible at public pages.
+    def self.public
+      where(visibility: %w(public-only all))
+    end
+
     # Overwrites the method so that records cannot be modified.
     #
     # Returns a Boolean.

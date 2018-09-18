@@ -220,6 +220,10 @@ en:
       html:
         html_content: HTML content
         name: HTML block
+      last_activity:
+        name: Last activity
+        view_all: View all
+        title: Last activity
       metrics:
         name: Organization metrics
       stats:

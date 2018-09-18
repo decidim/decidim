@@ -327,6 +327,12 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:homepage, :last_activity) do |content_block|
+          content_block.cell = "decidim/content_blocks/last_activity"
+          content_block.public_name_key = "decidim.content_blocks.last_activity.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:homepage, :stats) do |content_block|
           content_block.cell = "decidim/content_blocks/stats"
           content_block.public_name_key = "decidim.content_blocks.stats.name"
