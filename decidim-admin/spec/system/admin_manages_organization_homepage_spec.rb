@@ -18,7 +18,9 @@ describe "Admin manages organization homepage", type: :system do
       expect(Decidim::ContentBlock.count).to eq 0
 
       within ".js-list-availables" do
-        find("svg.icon--pencil").click
+        within find("li", text: "Hero image") do
+          find("svg.icon--pencil").click
+        end
       end
 
       expect(Decidim::ContentBlock.count).to eq 1
