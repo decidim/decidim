@@ -66,11 +66,11 @@ references:
   run_rspec_without_system: &run_rspec_without_system
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && ls spec | grep -v system | xargs -I '{}' bundle exec rspec spec/'{}'
+      command: mkdir ~/rspec && cd decidim-${CIRCLE_JOB%_without_system} && ls spec | grep -v system | xargs -I '{}' bundle exec rspec spec/'{}'
   run_rspec_only_system: &run_rspec_only_system
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rspec spec/system
+      command: mkdir ~/rspec && cd decidim-${CIRCLE_JOB%_only_system} && bundle exec rspec spec/system
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
