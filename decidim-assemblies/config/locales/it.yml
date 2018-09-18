@@ -238,6 +238,9 @@ it:
               not_ceased: Non è cessato
             filter_by: Filtra per
             search: Ricerca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantità massima di elementi da mostrare
       assembly_members:
         index:
           members: Utenti
