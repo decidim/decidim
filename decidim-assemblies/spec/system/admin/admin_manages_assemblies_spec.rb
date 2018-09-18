@@ -13,7 +13,7 @@ describe "Admin manages assemblies", type: :system do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New"
+      click_link "New assembly"
     end
 
     it "creates a new assembly" do
