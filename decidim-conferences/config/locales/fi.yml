@@ -140,7 +140,7 @@ fi:
             title: Otsikko
         conference_speaker:
           fields:
-            affiliation: kuuluminen
+            affiliation: Jäsenyys
             full_name: Koko nimi
             position: Asema
           name: Konferenssin puhuja
@@ -234,11 +234,11 @@ fi:
           invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
-          invalid: On tapahtunut ongelma, joka jättää tämän konferenssin.
+          invalid: Konferenssista poistumisessa on tapahtunut virhe.
           success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
         show:
-          affiliation: kuuluminen
+          affiliation: Jäsenyys
           personal_url: Henkilökohtainen URL-osoite
           position: Asema
           short_bio: Lyhyt biografia
