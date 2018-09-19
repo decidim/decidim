@@ -611,6 +611,7 @@ es-PY:
         new:
           create: Invitar
           title: Invitar a un usuario como administrador
+      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
