@@ -16,6 +16,7 @@
 // = require ./field_dependent_inputs.component
 // = require ./bundle
 // = require ./draggable-list
+// = require ./sortable
 // = require decidim/input_tags
 // = require decidim/input_hashtags
 // = require_self
