@@ -19,7 +19,7 @@ fi:
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         promoted: Korostettu
-        published_at: Julkaistu
+        published_at: Julkaisuaika
         scope_id: Teema
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
