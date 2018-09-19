@@ -37,7 +37,7 @@ fi:
         participatory_structure: Miten päätetään
         private_space: Yksityinen tila
         promoted: Korostettu
-        published_at: Julkaistu osoitteessa
+        published_at: Julkaisuaika
         purpose_of_action: Toiminnan tarkoitus
         scope_id: Teema
         scopes_enabled: Teemat käytössä
@@ -130,7 +130,7 @@ fi:
           error: Kehitysryhmän julkaisussa tapahtui virhe.
           success: Kehitysryhmä julkaistiin onnistuneesti.
         destroy:
-          error: Kehitysryhmän julkaisun lopettamisessa tapahtui virhe.
+          error: Kehitysryhmän julkaisun perumisessa tapahtui virhe.
           success: Kehitysryhmän julkaisu lopetettu onnistuneesti.
       assembly_user_roles:
         create:
