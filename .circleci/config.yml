@@ -119,8 +119,11 @@ jobs:
           name: Run rubocop
           command: bundle exec rubocop
       - run:
-          name: Run erb_lint
-          command: bundle exec erblint **/app/{cells,views}/**/*.erb
+          name: Run erb_lint on Rails views
+          command: bundle exec erblint --lint-all
+      - run:
+          name: Run erb_lint on cells views
+          command: bundle exec erblint **/app/cells/**/*.erb
       - *store_test_results
   generators:
     <<: *defaults
