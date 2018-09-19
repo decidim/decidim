@@ -216,6 +216,9 @@ eu:
         name: Nabarmendutako edukia banner
       how_to_participate:
         name: Nola parte hartu
+      html:
+        html_content: HTML edukia
+        name: HTML blokea
       stats:
         name: Erakundearen estatistikak
       sub_hero:
