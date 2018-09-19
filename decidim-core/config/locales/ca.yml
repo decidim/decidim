@@ -216,6 +216,9 @@ ca:
         name: Bàner de contingut destacat
       how_to_participate:
         name: Com participar
+      html:
+        html_content: Contingut HTML
+        name: Bloc HTML
       stats:
         name: Estadístiques de l'organització
       sub_hero:
