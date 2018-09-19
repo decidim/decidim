@@ -612,6 +612,7 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
