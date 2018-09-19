@@ -3,14 +3,19 @@
     <h3 class="section-heading"><%= t("decidim.content_blocks.last_activity.title") %></h3>
     <div class="row">
       <div class="columns medium-6">
-        <% last_activity.each do |activity| %>
-          <%= card_for activity.resource, size: :s %>
+        <% last_activity.first(4).each do |activity| %>
+          <%= cell activity_cell_for(activity.resource), activity.resource %>
+        <% end %>
+      </div>
+      <div class="columns medium-6">
+        <% last_activity.last(4).each do |activity| %>
+          <%= cell activity_cell_for(activity.resource), activity.resource %>
         <% end %>
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <%= link_to t("decidim.content_blocks.last_activity.view_all"), "/activity", class: "button hollow button--sc pull-right" %>
+        <%= link_to t("decidim.content_blocks.last_activity.view_all"), last_activities_path, class: "button hollow button--sc pull-right" %>
       </div>
     </div>
   </div>

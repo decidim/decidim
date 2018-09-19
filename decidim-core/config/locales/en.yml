@@ -222,8 +222,8 @@ en:
         name: HTML block
       last_activity:
         name: Last activity
-        view_all: View all
         title: Last activity
+        view_all: View all
       metrics:
         name: Organization metrics
       stats:
