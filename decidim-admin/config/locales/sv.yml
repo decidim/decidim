@@ -611,6 +611,7 @@ sv:
         new:
           create: Bjud in
           title: Bjud in användaren som administratör
+      view_public_page: Visa allmän sida
     forms:
       errors:
         impersonate_user:
