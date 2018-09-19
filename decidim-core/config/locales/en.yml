@@ -219,6 +219,9 @@ en:
         name: How to participate
       metrics:
         name: Organization metrics
+      html:
+        html_content: HTML content
+        name: HTML block
       stats:
         name: Organization stats
       sub_hero:

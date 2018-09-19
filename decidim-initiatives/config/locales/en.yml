@@ -103,6 +103,9 @@ en:
             no_members_yet: There are no members in the promoter committee
             revoke: Revoke
             title: Committee members
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum amount of elements to show
         initiatives:
           edit:
             accept: Accept initiative

@@ -21,10 +21,16 @@ module Decidim
           highlighted_processes.to_a.length == 1
         end
 
+        def max_results
+          model.settings.max_results
+        end
+
         def highlighted_processes
-          OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user) |
+          @highlighted_processes ||= (
+            OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user) |
             HighlightedParticipatoryProcesses.new |
             FilteredParticipatoryProcesses.new("active")
+          ).query.limit(max_results)
         end
 
         def i18n_scope
