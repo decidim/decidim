@@ -71,88 +71,88 @@ fi:
           conference_speakers_title: Konferenssin puhujat
         new:
           create: Luo
-          title: Uusi kokouspuhuja.
+          title: Uusi konferenssin puhuja.
         update:
-          error: Virhe päivitteli tämän konferenssin kaiuttimen.
-          success: Puhuja päivitettiin onnistuneesti tämän kokouksen yhteydessä.
+          error: Konferenssin puhujan päivittämisessä tapahtui virhe.
+          success: Konferenssin puhuja päivitettiin onnistuneesti.
       conference_user_roles:
         create:
-          error: Virhe lisäsi käyttäjää tähän konferenssiin.
-          success: Käyttäjä lisäsi menestyksekkäästi tähän konferenssiin.
+          error: Käyttäjän lisääminen tähän konferenssiin ei onnistunut.
+          success: Käyttäjä lisätty onnistuneesti konferenssiin.
         destroy:
-          success: Käyttäjä poistettiin onnistuneesti tästä kokouksesta.
+          success: Käyttäjä poistettiin onnistuneesti konferenssista.
         edit:
           title: Päivitä konferenssin käyttäjä.
-          update: Päivittää
+          update: Päivitä
         index:
-          conference_admins_title: konferenssin käyttäjille
+          conference_admins_title: konferenssin käyttäjät
         new:
-          create: Luoda
-          title: Uusi neuvottelukäyttäjä.
+          create: Luo
+          title: Uusi konferenssin käyttäjä.
         update:
-          error: Virhettä päivitettiin tämän konferenssin käyttäjä.
-          success: Käyttäjä on päivittynyt onnistuneesti tähän konferenssiin.
+          error: Konferenssin käyttäjän päivittämisessä tapahtui virhe.
+          success: Konferenssin käyttäjä päivitettiin onnistuneesti.
       conferences:
         create:
-          error: Uuden kokouksen luomisessa tapahtui virhe.
-          success: Konferenssi luotiin onnistuneesti.
+          error: Uuden konferenssin luomisessa tapahtui virhe.
+          success: Konferenssi luotu onnistuneesti.
         destroy:
-          success: Kokous poistettiin onnistuneesti.
+          success: Kokous poistettu onnistuneesti.
         edit:
-          update: Päivittää
+          update: Päivitä
         exports:
-          registrations: rekisteröinnit
+          registrations: Ilmoittautumiset
         form:
           title: Yleistä tietoa
         index:
           not_published: Ei julkaistu
           published: Julkaistu
         new:
-          create: Luoda
+          create: Luo
           title: Konferenssi
         update:
           error: Konferenssin päivittämisessä tapahtui virhe.
-          success: Konferenssi on päivitetty onnistuneesti.
+          success: Konferenssi päivitetty onnistuneesti.
       conferences_copies:
         create:
-          error: Tässä kokouksessa kopioitiin virhe.
-          success: Konferenssi kopioitiin onnistuneesti.
+          error: Virhe kopioitaessa konferenssia.
+          success: Konferenssi kopioitu onnistuneesti.
       menu:
-        conferences: Kokoukset
+        conferences: Konferenssit
         conferences_submenu:
-          attachment_collections: kansiot
+          attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
-          categories: Luokat
-          components: komponentit
+          categories: Aihepiirit
+          components: Komponentit
           conference_admins: Konferenssin ylläpitäjät
-          conference_invites: Konferenssi kutsuu
-          conference_registrations: Konferenssirekisteröinnit
-          conference_speakers: Konferenssikaiuttimet
+          conference_invites: Konferenssin kutsut
+          conference_registrations: Konferenssin ilmoittautumiset
+          conference_speakers: Konferenssin puhujat
           info: Tiedot
-          moderations: moderations
+          moderations: Moderoinnit
       models:
         conference:
           fields:
-            created_at: Luotu osoitteessa
-            promoted: Ylennetty
+            created_at: Luonnin ajankohta
+            promoted: Korostettu
             published: Julkaistu
-            title: otsikko
+            title: Otsikko
         conference_speaker:
           fields:
             affiliation: kuuluminen
             full_name: Koko nimi
-            position: asento
-          name: Konferenssipuhuja
+            position: Asema
+          name: Konferenssin puhuja
         conference_user_role:
           fields:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Konferenssikäyttäjä
+          name: Konferenssin käyttäjä
           roles:
-            admin: Järjestelmänvalvoja
-            collaborator: työtoveri
+            admin: Hallinnointikäyttäjä
+            collaborator: Osallistumiskäyttäjä
             moderator: hidastin
       titles:
         conferences: Kokoukset
