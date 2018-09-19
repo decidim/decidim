@@ -611,6 +611,7 @@ eu:
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa
+      view_public_page: Ikusi orri publikoa
     forms:
       errors:
         impersonate_user:
