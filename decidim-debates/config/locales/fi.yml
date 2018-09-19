@@ -2,8 +2,8 @@ fi:
   activemodel:
     attributes:
       debate:
-        category_id: Kategoria
-        decidim_category_id: Kategoria
+        category_id: Aihepiiri
+        decidim_category_id: Aihepiiri
         description: Kuvaus
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
@@ -19,13 +19,13 @@ fi:
     models:
       decidim/debates/debate:
         one: Keskustelu
-        other: keskustelut
+        other: Keskustelut
   decidim:
     components:
       debates:
         actions:
           create: Luo
-        name: keskustelut
+        name: Keskustelut
         settings:
           global:
             announcement: Ilmoitus
@@ -105,7 +105,7 @@ fi:
           fields:
             end_time: Päättymispäivä
             official_debate: Virallinen keskustelu
-            start_time: Aloituspäivämäärä
+            start_time: Alkamispäivä
             title: Otsikko
     events:
       debates:
