@@ -216,6 +216,9 @@ it:
         name: Banner dei contenuti evidenziati
       how_to_participate:
         name: Come partecipare
+      html:
+        html_content: Contenuto HTML
+        name: Blocco HTML
       stats:
         name: Statistiche dell'organizzazione
       sub_hero:
