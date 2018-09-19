@@ -69,22 +69,22 @@ fi:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} on jättänyt kommentin %{resource_title}. Voit lukea sen tällä sivulla:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_name}. Voit poistaa tämän käyttäjän hänen profiilisivulta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit poistaa tämän käyttäjän hänen profiilisivulta.
           email_subject: '%{author_name} on jäättänyt uuden kommentin kohtaan %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin tällä sivulla:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit lopettaa seuraamisen edellisestä linkistä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
           email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen tällä sivulla:"
-          email_outro: Olet saanut tämän ilmoituksen, koska kommenttiisi vastattiin.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska kommenttiisi vastattiin.
           email_subject: "%{author_name} on vastannut kommentiisi %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiisi kohdassa <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Sinut on mainittu
-          email_outro: Olet saanut tämän ilmoituksen, koska sinut on mainittu kohdssa %{resource_title}.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu kohdssa %{resource_title}.
           email_subject: Sinut on mainittu kohdassa %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
   errors:
