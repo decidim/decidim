@@ -611,6 +611,7 @@ fi:
         new:
           create: Kutsu
           title: Kutsu käyttäjä hallinnoijaksi
+      view_public_page: Näytä julkinen sivu
     forms:
       errors:
         impersonate_user:
