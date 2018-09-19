@@ -216,6 +216,9 @@ es-PY:
         name: Banner de contenido resaltado
       how_to_participate:
         name: Como participar
+      html:
+        html_content: Contenido HTML
+        name: Bloque de HTML
       stats:
         name: Estadísticas de la organización
       sub_hero:
