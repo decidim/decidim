@@ -611,6 +611,7 @@ gl:
         new:
           create: Invitar
           title: Convidar ao usuario como administrador
+      view_public_page: Ver páxina pública
     forms:
       errors:
         impersonate_user:
