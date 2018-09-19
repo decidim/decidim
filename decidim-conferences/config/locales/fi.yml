@@ -163,10 +163,10 @@ fi:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
-            error: Ongelma on ollut, kun käyttäjää pyydetään liittymään konferenssiin.
+            error: Käyttäjän kutsumisessa konferenssiin esiintyi ongelma.
             success: Käyttäjä kutsuttu onnistuneesti konferenssiin.
           form:
             attendee_type: Osallistujatyyppi
@@ -185,7 +185,7 @@ fi:
             invites: Kutsut
             search: Hae
           new:
-            explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköposti ei ole rekisteröity, ne kutsutaan myös organisaatioon.
+            explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
             new_invite: Kutsu käyttäjä
         conference_registrations:
@@ -205,11 +205,11 @@ fi:
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
-            slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut liittymään konferenssiin %{application}. Voit hylätä tai hyväksyä sen alla olevien linkkien kautta."
+            invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
             join: Liity konferenssiin '%{conference_title}'
       conference:
         registration_confirm:
@@ -224,18 +224,18 @@ fi:
             other: "%{count} paikkaa jäljellä"
       conference_registration_mailer:
         confirmation:
-          confirmed_html: Ilmoittautumislomake <a href="%{url}">%{title}</a> on vahvistettu.
+          confirmed_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> on vahvistettu.
           details: Konferenssin tiedot löytyvät liitetiedostosta.
       conference_registrations:
         create:
-          invalid: On tapahtunut ongelma, joka liittyy tähän konferenssiin.
-          success: Olet liittynyt konferenssiin onnistuneesti.
+          invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
+          success: Olet ilmoittautunut konferenssiin onnistuneesti.
         decline_invitation:
-          invalid: Ongelma on hylätty.
+          invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
           invalid: On tapahtunut ongelma, joka jättää tämän konferenssin.
-          success: Olet jättänyt konferenssin onnistuneeksi.
+          success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
         show:
           affiliation: kuuluminen
@@ -286,24 +286,24 @@ fi:
         answers_count: Vastaukset
         comments_count: Kommentit
         conference_count: Konferenssit
-        debates_count: keskustelut
-        endorsements_count: merkintöjen
-        headline: aktiviteetti
-        meetings_count: kokoukset
-        orders_count: ääntä
-        pages_count: sivut
-        posts_count: Viestejä
-        projects_count: projektit
-        proposals_count: ehdotukset
-        results_count: tulokset
-        surveys_count: tutkimukset
+        debates_count: Keskustelut
+        endorsements_count: Suositukset
+        headline: Toiminta
+        meetings_count: Tapaamiset
+        orders_count: Äänet
+        pages_count: Sivut
+        posts_count: Viestit
+        projects_count: Suunnitelmat
+        proposals_count: Ehdotukset
+        results_count: Tulokset
+        surveys_count: Kyselyt
         users_count: Osallistujat
         votes_count: Äänet
     events:
       conferences:
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
-          email_outro: Olet saanut tämän ilmoituksen, koska olet konferenssin osallistuvan tilan ylläpitäjä.
+          email_outro: Saat tämän ilmoituksen, koska olet konferenssin osallistumistilan hallinnoija.
           email_subject: '"%{resource_title}" -konferenssin käyttämät paikat ovat yli %{percentage}%'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin käyttämät lähtöajat ovat yli %{percentage}%.
         conference_updated:
