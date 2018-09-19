@@ -216,6 +216,9 @@ sv:
         name: Markerad innehållsbanner
       how_to_participate:
         name: Hur du deltar
+      html:
+        html_content: HTML-innehåll
+        name: HTML-block
       stats:
         name: Organisationsstatistik
       sub_hero:
