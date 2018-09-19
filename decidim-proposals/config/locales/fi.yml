@@ -3,7 +3,7 @@ fi:
     attributes:
       collaborative_draft:
         body: Leipäteksti
-        category_id: Kategoria
+        category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: On osoite
         state: Tila
@@ -32,7 +32,7 @@ fi:
               needs_to_be_reattached: Liitettävä uudelleen
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
-      decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muutettu
+      decidim/proposals/admin/update_proposal_category_event: Ehdotuksen aihepiiri muutettu
       decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
       decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
       decidim/proposals/evaluating_proposal_event: Ehdotus on arvioitavana
@@ -175,10 +175,10 @@ fi:
           email_subject: Seuraamasi ehdotus on hylätty
           notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
         proposal_update_category:
-          email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi luokkaan "%{resource_title}", tarkista se:'
+          email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet ehdotuksen tekijä.
-          email_subject: Ehdotusluokka %{resource_title} on päivitetty
-          notification_title: Järjestelmänvalvoja on päivittänyt ehdotusluokan <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
+          notification_title: Järjestelmänvalvoja on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
         voting_enabled:
           email_intro: 'Voit äänestää ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
@@ -263,7 +263,7 @@ fi:
           index:
             actions: Toiminnot
             cancel: Peruuta
-            change_category: Vaihda luokka
+            change_category: Vaihda aihepiiri
             selected: valittu
             title: Ehdotukset
             update: Päivitä
@@ -271,10 +271,10 @@ fi:
             create: Luo
             title: Luo ehdotus
           update_category:
-            invalid: 'Näissä ehdotuksissa oli jo luokka %{category}: %{proposals}.'
-            select_a_category: Valitse luokka
+            invalid: 'Näissä ehdotuksissa oli jo aihepiiri %{category}: %{proposals}.'
+            select_a_category: Valitse aihepiiri
             select_a_proposal: Valitse ehdotus
-            success: 'Ehdotukset päivitettiin onnistuneesti luokkaan %{category}: %{proposals}.'
+            success: 'Ehdotukset päivitettiin onnistuneesti aihepiiriin %{category}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ehdotuksien tuomisessa esiintyi ongelma
@@ -473,7 +473,7 @@ fi:
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          select_a_category: Valitse kategoria
+          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
@@ -552,7 +552,7 @@ fi:
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
         tags:
-          changed_from: "(muutettu ryhmästä <u>%{previous_category}</u> ylläpitäjä toimesta)"
+          changed_from: "(muutettu aihepiiristä <u>%{previous_category}</u> ylläpitäjä toimesta)"
           filed_as: Merkitty
         vote_button:
           already_voted: Jo äänestetty
