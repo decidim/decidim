@@ -74,12 +74,12 @@ fi:
       initiatives:
         initiative_extended:
           email_intro: Aloitteen %{resource_title} allekirjoitusten keräämisen aikaa on jatkettu!
-          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Aloitteen allekirjoitusten keräämisen aikaa on jatkettu!
           notification_title: Aloitteen <a href="%{resource_path}">%{resource_title}</a> allekirjoitusten keräämisen aikaa on jatkettu.
         milestone_completed:
           email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
-          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi virstanpylväs saavutettu!
           notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
     gamification:
@@ -243,12 +243,12 @@ fi:
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on luonut uuden aloitteen. Tutustu siihen ja osallistu:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi aloite käyttäjältä %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on luonut aloitteen <a href="%{resource_path}">%{resource_title}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on hyväksynyt seuraavan aloitteen. Ehkä haluat osallistua keskusteluun:"
-          email_outro: Saat tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_nickname} on suositellut aloitetta'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
       index:
