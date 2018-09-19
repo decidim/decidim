@@ -226,6 +226,9 @@ pl:
         name: Wyróżniony baner treści
       how_to_participate:
         name: Jak uczestniczyć
+      html:
+        html_content: Treść HTML
+        name: Blok HTML
       stats:
         name: Statystyki organizacji
       sub_hero:
