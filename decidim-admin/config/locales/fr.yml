@@ -611,6 +611,7 @@ fr:
         new:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
+      view_public_page: Voir la page publique
     forms:
       errors:
         impersonate_user:
