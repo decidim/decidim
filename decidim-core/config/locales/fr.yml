@@ -216,6 +216,9 @@ fr:
         name: Bannière de contenu mis en valeur
       how_to_participate:
         name: Comment participer
+      html:
+        html_content: Contenu HTML
+        name: Bloc HTML
       stats:
         name: Statistiques de l'organisation
       sub_hero:
