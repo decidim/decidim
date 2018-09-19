@@ -611,6 +611,7 @@ hu:
         new:
           create: Meghívás
           title: Felhasználó meghívása rendszergazdaként
+      view_public_page: Nyilvános oldal megtekintése
     forms:
       errors:
         impersonate_user:
