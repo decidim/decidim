@@ -611,6 +611,7 @@ ca:
         new:
           create: Convidar
           title: Convidar un usuari com a administrador
+      view_public_page: Mostra la pàgina pública
     forms:
       errors:
         impersonate_user:
