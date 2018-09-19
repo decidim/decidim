@@ -3,7 +3,7 @@ fi:
     attributes:
       conference:
         banner_image: Bannerikuva
-        copy_categories: Kopioi luokat
+        copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_features: Kopiointitoiminnot
         decidim_scope_id: laajuus
