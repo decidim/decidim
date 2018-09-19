@@ -43,6 +43,9 @@ en:
         new: New %{name}
         title: Actions
       admin:
+        exports:
+          debates: debates
+          comments: comments
         debates:
           create:
             invalid: There has been a problem while creating the debate.

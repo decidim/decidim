@@ -1,0 +1,10 @@
+<div class="flex--cc flex-gap--1">
+  <div id="js-other-actions-wrapper">
+    <% if allowed_to? :create, :debate %>
+      <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")),
+                  new_debate_path,
+                  class: "button tiny button--simple" %>
+    <% end %>
+    <%= export_dropdown %>
+  </div>
+</div>
