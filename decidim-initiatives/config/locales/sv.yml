@@ -102,6 +102,9 @@ sv:
             no_members_yet: Det finns inga medlemmar i promotorkommittén
             revoke: Återkalla
             title: kommittémedlemmar
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximal mängd element att visa
         initiatives:
           edit:
             accept: Acceptera initiativ
