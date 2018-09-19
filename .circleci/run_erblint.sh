@@ -1,7 +1,7 @@
 #!/bin/bash
 
-set -s globstar
+shopt -s globstar
 
 bundle exec erblint **/app/{cells,views}/**/*.erb
 
-set -u globstar
+shopt -u globstar
