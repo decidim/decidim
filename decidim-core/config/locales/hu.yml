@@ -216,6 +216,9 @@ hu:
         name: Kiemelt banner
       how_to_participate:
         name: Így vehetsz részt
+      html:
+        html_content: HTML tartalom
+        name: HTML blokk
       stats:
         name: Szervezeti statisztikák
       sub_hero:
