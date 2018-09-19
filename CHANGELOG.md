@@ -177,6 +177,9 @@
 - **decidim-proposals**: Rename "votes" column to "supports" when exporting proposals [\#4018](https://github.com/decidim/decidim/pull/4018)
 - **decidim-core**: Fix hero content block migration [\#4061](https://github.com/decidim/decidim/pull/4061)
 - **decidim-core**: Fix default content block creation migration [\#4100](https://github.com/decidim/decidim/pull/4100)
+- **decidim-core**: Fix default content block creation migration [\#4084](https://github.com/decidim/decidim/pull/4084)
+- **decidim-generators**: Bootsnap warnings when generating test applications [\#4098](https://github.com/decidim/decidim/pull/4098)
+- **decidim-admin**: Don't list deleted users at officialized list. [\#4139](https://github.com/decidim/decidim/pull/4139)
 
 **Removed**:
 

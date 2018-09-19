@@ -15,7 +15,7 @@ module Decidim
         @query = params[:q]
         @state = params[:state]
 
-        @users = Decidim::Admin::UserFilter.for(current_organization.users, @query, @state)
+        @users = Decidim::Admin::UserFilter.for(current_organization.users.not_deleted, @query, @state)
                                            .page(params[:page])
                                            .per(15)
       end
