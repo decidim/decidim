@@ -192,7 +192,7 @@ fi:
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
-            moderator: Moderaattori
+            moderator: Moderoija
       titles:
         assemblies: Kehitysryhmät
     admin_log:
