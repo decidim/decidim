@@ -11,6 +11,5 @@ module Decidim
 
     validates :title, presence: true, if: ->(form) { form.file.present? }
     validates :file, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }
-
   end
 end
