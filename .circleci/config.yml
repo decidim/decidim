@@ -63,6 +63,14 @@ references:
     run:
       name: Run RSpec
       command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake
+  run_rspec_without_system: &run_rspec_without_system
+    run:
+      name: Run RSpec
+      command: mkdir ~/rspec && cd decidim-${CIRCLE_JOB%_without_system} && ls spec | grep -v system | grep -v factories.rb | xargs -I % echo spec/% | xargs bundle exec rspec
+  run_rspec_only_system: &run_rspec_only_system
+    run:
+      name: Run RSpec
+      command: mkdir ~/rspec && cd decidim-${CIRCLE_JOB%_only_system} && bundle exec rspec spec/system
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
@@ -220,14 +228,28 @@ jobs:
       - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
-  admin:
+  admin_without_system:
     <<: *defaults
     steps:
       - *attach_workspace
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
-      - *run_rspec
+      - *run_rspec_without_system
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
+  admin_only_system:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec_only_system
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
@@ -248,14 +270,28 @@ jobs:
       - *store_log_artifacts
       - *store_test_results
       - *persist_coverage_to_workspace
-  proposals:
+  proposals_only_system:
     <<: *defaults
     steps:
       - *attach_workspace
       - *restore_ruby_cache
       - *wait_for_db
       - *create_test_db
-      - *run_rspec
+      - *run_rspec_only_system
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
+  proposals_without_system:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec_without_system
       - *format_test_coverage
       - *extract_failure_logs
       - *store_screenshot_artifacts
@@ -436,7 +472,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 21 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 23 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
@@ -475,7 +511,11 @@ workflows:
           requires:
             - build_test_app
             - main
-      - admin:
+      - admin_without_system:
+          requires:
+            - build_test_app
+            - main
+      - admin_only_system:
           requires:
             - build_test_app
             - main
@@ -483,7 +523,11 @@ workflows:
           requires:
             - build_test_app
             - main
-      - proposals:
+      - proposals_without_system:
+          requires:
+            - build_test_app
+            - main
+      - proposals_only_system:
           requires:
             - build_test_app
             - main
@@ -539,9 +583,11 @@ workflows:
             - initiatives
             - api
             - participatory_processes
-            - admin
+            - admin_without_system
+            - admin_only_system
             - system
-            - proposals
+            - proposals_without_system
+            - proposals_only_system
             - comments
             - meetings
             - pages
