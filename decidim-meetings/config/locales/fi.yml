@@ -88,7 +88,7 @@ fi:
       meetings:
         meeting_closed:
           email_intro: 'Kokous "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Kokous "%{resource_title}" suljettiin
           notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
