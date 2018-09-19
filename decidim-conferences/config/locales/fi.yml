@@ -303,23 +303,23 @@ fi:
       conferences:
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
-          email_outro: Saat tämän ilmoituksen, koska olet konferenssin osallistumistilan hallinnoija.
-          email_subject: '"%{resource_title}" -konferenssin käyttämät paikat ovat yli %{percentage}%'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin käyttämät lähtöajat ovat yli %{percentage}%.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallistumistilan hallinnoija.
+          email_subject: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssista on varattu yli %{percentage}% vapaista paikoista.
         conference_updated:
-          email_intro: '"%{resource_title}" -konferenssi päivitettiin. Voit lukea uuden version sivulta:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}" -konferenssia. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" -konferenssi päivitettiin'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssi päivitettiin.
+          email_intro: '"%{resource_title}" -konferenssia päivitettiin. Voit tarkastaa uuden version sivulta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" -konferenssia. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: '"%{resource_title}" -konferenssia päivitettiin'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssia päivitettiin.
         registrations_enabled:
-          email_intro: '"%{resource_title}" -konferenssi on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}" -konferenssia. Voit purkaa sen edellisestä linkistä.
-          email_subject: '"%{resource_title}" -konferenssi on mahdollistanut rekisteröinnit.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssi on mahdollistanut rekisteröinnit.
+          email_intro: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu. Voit ilmoittautua konferenssiin sen sivulla:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" -konferenssia. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin ilmoittautumiset on avattu.
     log:
       value_types:
         conference_presenter:
-          not_found: 'Konferenssi ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Konferenssia ei löytynyt tietokannasta (ID: %{id})'
     menu:
       conferences: Konferenssit
   devise:
