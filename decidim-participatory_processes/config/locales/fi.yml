@@ -116,7 +116,7 @@ fi:
           name: Osallistumisprosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
-            collaborator: Kollaboraattori
+            collaborator: Osallistumiskäyttäjä
             moderator: Moderoija
         user:
           fields:
