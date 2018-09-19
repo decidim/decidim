@@ -102,6 +102,9 @@ hu:
             no_members_yet: A promóciós bizottságban nincsenek tagok
             revoke: Visszavonás
             title: Bizottsági tagok
+        content_blocks:
+          highlighted_initiatives:
+            max_results: A megjelenítendő elemek maximális száma
         initiatives:
           edit:
             accept: Kezdeményezés elfogadása
