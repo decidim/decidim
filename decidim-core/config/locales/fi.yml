@@ -216,6 +216,9 @@ fi:
         name: Korostettu sisältöbanneri
       how_to_participate:
         name: Kuinka osallistua
+      html:
+        html_content: HTML-sisältö
+        name: HTML-lohko
       stats:
         name: Organisaation tilastot
       sub_hero:
