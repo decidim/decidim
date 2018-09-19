@@ -174,6 +174,10 @@ hu:
         questions: Kérdések
         responses: Válaszok
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: A megjelenítendő elemek maximális száma
       consultation:
         start_voting_date: Szavazás kezdése
         view_results: Eredmények megtekintése
@@ -184,6 +188,9 @@ hu:
           label: 'Konzultációk rendezése:'
           random: Véletlenszerű
           recent: Legutóbbi
+      content_blocks:
+        highlighted_consultations:
+          name: Kiemelt konzultációk
       count:
         title:
           one: "%{count} konzultáció"
@@ -204,6 +211,15 @@ hu:
         title: '%{scope_name} kérdések'
       index:
         title: Konzultációk
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktív konzultációk
+            see_all_consultations: Lásd az összes konzultációt
+            voting_ends_in:
+              one: Szavazás <strong>vége <strong> holnap</strong>
+              other: A szavazás végződik <strong>%{count} nap</strong>
+            voting_ends_today: A szavazás végeredménye <strong>ma</strong>
       question:
         take_part: Vegyél részt
         view_results: Eredmények megtekintése
