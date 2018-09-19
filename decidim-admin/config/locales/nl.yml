@@ -611,6 +611,7 @@ nl:
         new:
           create: Nodig uit
           title: Nodig gebruiker uit als beheerder
+      view_public_page: Bekijk openbare pagina
     forms:
       errors:
         impersonate_user:
