@@ -284,7 +284,7 @@ fi:
         minutes:
           create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
           update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
-      conference_venues: Konferenssitapahtumat
+      conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_events:
           name: Tulevat tapahtumat
