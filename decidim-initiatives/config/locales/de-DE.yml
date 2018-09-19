@@ -102,6 +102,9 @@ de:
             no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
             revoke: Widerrufen
             title: Ausschussmitglieder
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
         initiatives:
           edit:
             accept: Initiative akzeptieren
