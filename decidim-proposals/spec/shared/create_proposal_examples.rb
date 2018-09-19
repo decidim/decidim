@@ -78,6 +78,7 @@ shared_examples "create a proposal" do |with_author|
 
       it "format title and body" do
         command.call
+        proposal = Decidim::Proposals::Proposal.last
         expect(proposal.title).to eq("A reasonable proposal title")
         expect(proposal.body).to eq("A reasonable proposal body")
       end
