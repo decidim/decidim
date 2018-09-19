@@ -257,18 +257,18 @@ fi:
             subject: Konferenssin ilmoittautuminen on vahvistettu
         invite_join_conference_mailer:
           invite:
-            subject: Kutsu liittymään konferenssiin
+            subject: Kutsu konferenssiin
       models:
         conference_invite:
           fields:
             email: Sähköposti
             name: Nimi
-            sent_at: Lähetetty osoitteessa
-            status: Status
+            sent_at: Lähetyksen ajankohta
+            status: Tila
           status:
             accepted: Hyväksytty (%{at})
             rejected: Hylätty (%{at})
-            sent: Lähetetyt
+            sent: Lähetetty
         conference_registration:
           fields:
             email: Sähköposti
@@ -280,12 +280,12 @@ fi:
             see_all_conferences: Katso kaikki konferenssit
       show:
         end_date: Päättymispäivä
-        objectives: tavoitteet
-        start_date: Aloituspäivämäärä
+        objectives: Tavoitteet
+        start_date: Alkamispäivä
       statistics:
-        answers_count: vastaukset
+        answers_count: Vastaukset
         comments_count: Kommentit
-        conference_count: Kokoukset
+        conference_count: Konferenssit
         debates_count: keskustelut
         endorsements_count: merkintöjen
         headline: aktiviteetti
