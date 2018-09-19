@@ -2,7 +2,7 @@
   <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
 
   <div class="columns large-6">
-    <%= render partial: "decidim/proposals/proposals/wizard_header", locals: {callout_step_help_text_class: "warning"} %>
+    <%= render partial: "decidim/proposals/proposals/wizard_header", locals: { callout_step_help_text_class: "warning" } %>
 
     <% if @similar_collaborative_drafts.presence %>
       <div class="row small-up-1 card-grid">
@@ -12,7 +12,7 @@
       </div>
     <% end %>
     <div class="row column text-center">
-      <%= link_to t(".mine_is_different"), complete_collaborative_drafts_path(collaborative_draft: {title: @form.title, body: @form.body}), class: "button small" %>
+      <%= link_to t(".mine_is_different"), complete_collaborative_drafts_path(collaborative_draft: { title: @form.title, body: @form.body }), class: "button small" %>
     </div>
   </div>
   <div class="columns large-3"></div>

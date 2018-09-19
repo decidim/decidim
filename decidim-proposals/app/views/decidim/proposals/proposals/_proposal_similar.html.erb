@@ -16,7 +16,7 @@
       <%== cell("decidim/proposals/proposal_m", proposal).badge %>
 
       <p><%= truncate(present(proposal).html_body, length: 100) %></p>
-      <%= cell "decidim/tags", proposal, context: {extra_classes: ["tags--proposal"]} %>
+      <%= cell "decidim/tags", proposal, context: { extra_classes: ["tags--proposal"] } %>
     </div>
   </article>
 </div>
