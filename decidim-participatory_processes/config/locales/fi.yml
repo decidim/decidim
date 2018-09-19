@@ -10,7 +10,7 @@ fi:
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Järjestöalue
@@ -25,7 +25,7 @@ fi:
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         slug: URL-tunniste
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
@@ -36,9 +36,9 @@ fi:
         participatory_process_ids: Liittyvät prosessit
       participatory_process_step:
         description: Kuvaus
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         short_description: Lyhyt kuvaus
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
@@ -104,8 +104,8 @@ fi:
           name: Prosessiryhmä
         participatory_process_step:
           fields:
-            end_date: Päättymisaika
-            start_date: Aloitusaika
+            end_date: Päättymispäivä
+            start_date: Alkamispäivä
             title: Otsikko
           name: Osallistumisprosessin vaihe
         participatory_process_user_role:
@@ -321,13 +321,13 @@ fi:
           loading: Ladataan tulokset...
       show:
         developer_group: Kehittäjäryhmä
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
         scope: Teema
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         target: Kuka osallistuu
         unspecified: Ei määritelty
       statistics:
