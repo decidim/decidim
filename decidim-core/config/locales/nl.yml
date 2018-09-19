@@ -216,6 +216,9 @@ nl:
         name: Gemarkeerde inhoudsbanner
       how_to_participate:
         name: Hoe deel te nemen
+      html:
+        html_content: HTML-inhoud
+        name: HTML-blok
       stats:
         name: Organisatie statistieken
       sub_hero:
