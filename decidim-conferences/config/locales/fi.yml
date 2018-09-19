@@ -5,20 +5,20 @@ fi:
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
-        copy_features: Kopiointitoiminnot
-        decidim_scope_id: laajuus
+        copy_features: Kopioi ominaisuudet
+        decidim_scope_id: Teema
         description: Kuvaus
         hashtag: Hashtag
-        hero_image: Etusivukuva
-        promoted: Ylennetty
-        published_at: Julkaistu osoitteessa
-        scope_id: laajuus
-        scopes_enabled: Sovellukset ovat käytössä
+        hero_image: Etusivun kuva
+        promoted: Korostettu
+        published_at: Julkaisuaika
+        scope_id: Teema
+        scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         slogan: Iskulause
-        slug: URL-linkki
-        title: otsikko
+        slug: URL-tunniste
+        title: Otsikko
       conference_speaker:
         full_name: Koko nimi
       conference_user_role:
@@ -30,15 +30,15 @@ fi:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Tämä sähköposti on jo kutsuttu
+              already_invited: Tämä sähköpostiosoite on jo kutsuttu
   activerecord:
     models:
       decidim/conference:
         one: Konferenssi
-        other: Kokoukset
+        other: Konferenssit
       decidim/conference_speaker:
-        one: Konferenssipuhuja
-        other: Konferenssikaiuttimet
+        one: Konferenssin puhuja
+        other: Konferenssin puhujat
       decidim/conference_user_role:
         one: Konferenssin käyttäjärooli
         other: Konferenssin käyttäjäroolit
@@ -53,24 +53,24 @@ fi:
           title: Kopioi konferenssi
       conference_publications:
         create:
-          error: Konferenssin julkaisemisesta oli virhe.
-          success: Konferenssi julkaistiin onnistuneesti.
+          error: Konferenssin julkaisemisesta tapahtui virhe.
+          success: Konferenssi julkaistu onnistuneesti.
         destroy:
-          error: Puhelu epäonnistui tämän konferenssin julkaisemisen yhteydessä.
-          success: Konferenssi julkaistiin julkaisematta.
+          error: Tämän konferenssin julkaisun perumisessa tapahtui virhe.
+          success: Konferenssin julkaisu peruutettu onnistuneesti.
       conference_speakers:
         create:
-          error: Virhe lisäsi puhujaa tähän konferenssiin.
-          success: Puhuja luotiin onnistuneesti tämän konferenssin puolesta.
+          error: Puhujan lisääminen tähän konferenssiin ei onnistunut.
+          success: Puhuja lisättiin onnistuneesti konferenssiin.
         destroy:
-          success: Puhuja poistettiin onnistuneesti tämän kokouksen yhteydessä.
+          success: Puhuja poistettiin onnistuneesti konferenssista.
         edit:
-          title: Päivitä konferenssipuhuja.
-          update: Päivittää
+          title: Päivitä konferenssin puhuja.
+          update: Päivitä
         index:
-          conference_speakers_title: Konferenssikaiuttimet
+          conference_speakers_title: Konferenssin puhujat
         new:
-          create: Luoda
+          create: Luo
           title: Uusi kokouspuhuja.
         update:
           error: Virhe päivitteli tämän konferenssin kaiuttimen.
