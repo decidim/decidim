@@ -78,8 +78,8 @@ fi:
           participate: Osallistu
         filters:
           all: Kaikki
-          category: Kategoria
-          category_prompt: Valitse kategoria
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
           citizens: Kansalaiset
           official: Virallinen
           origin: Alkuperä
@@ -94,7 +94,7 @@ fi:
         new:
           back: Takaisin
           create: Luo
-          select_a_category: Valitse kategoria
+          select_a_category: Valitse aihepiiri
           title: Uusi keskustelu
         share:
           close_window: Sulje ikkuna
