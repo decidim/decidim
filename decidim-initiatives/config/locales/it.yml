@@ -102,6 +102,9 @@ it:
             no_members_yet: Non ci sono membri nel comitato promotore
             revoke: Revocare
             title: membri del Comitato
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantità massima di elementi da mostrare
         initiatives:
           edit:
             accept: Accetta l'iniziativa
