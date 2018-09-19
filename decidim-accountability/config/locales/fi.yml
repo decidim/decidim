@@ -6,11 +6,11 @@ fi:
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         description: Kuvaus
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         progress: Edistyminen
         project_ids: Liitetyt projektit
         proposals: Sisällytetyt ehdotukset
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         title: Otsikko
         updated_at: Päivitysaika
       status:
@@ -119,9 +119,9 @@ fi:
       models:
         result:
           fields:
-            end_date: Päättymisaika
+            end_date: Päättymispäivä
             progress: Edistyminen
-            start_date: Aloitusaika
+            start_date: Alkamispäivä
             status: Tila
             title: Otsikko
         status:
