@@ -208,6 +208,10 @@ en:
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
+    last_activities:
+      index:
+        last_activity: Last activity
+        search: Search
     content_blocks:
       footer_sub_hero:
         name: Footer sub hero banner
