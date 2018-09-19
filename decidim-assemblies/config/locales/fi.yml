@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       assembly:
-        area_id: alue
+        area_id: Alue
         assembly_type: Ryhmän tyyppi
         assembly_type_other: Muu ryhmän tyyppi
         banner_image: Bannerikuva
