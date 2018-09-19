@@ -216,6 +216,9 @@ pt:
         name: Banner de conteúdo destacado
       how_to_participate:
         name: Como participar
+      html:
+        html_content: Conteúdo HTML
+        name: Bloco HTML
       stats:
         name: Estatísticas da organização
       sub_hero:
