@@ -4,8 +4,8 @@ module Decidim
   module Debates
     # This class serializes a debate so can be exported to CSV, JSON or other
     # formats.
-    class DebateSerializerautho < Decidim::Exporters::Serializer
-      # TODO ADD TESTS
+    class DebateSerializer < Decidim::Exporters::Serializer
+      # TODO: ADD TESTS
       include Decidim::ResourceHelper
 
       # Public: Initializes the serializer with a debate.
