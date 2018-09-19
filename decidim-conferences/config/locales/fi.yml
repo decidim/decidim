@@ -153,12 +153,12 @@ fi:
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
-            moderator: hidastin
+            moderator: Moderoija
       titles:
-        conferences: Kokoukset
+        conferences: Konferenssit
     conference_speakers:
       index:
-        title: kaiuttimet
+        title: Puhujat
     conferences:
       admin:
         conference_copies:
@@ -167,30 +167,30 @@ fi:
         conference_invites:
           create:
             error: Ongelma on ollut, kun käyttäjää pyydetään liittymään konferenssiin.
-            success: Käyttäjä onnistuneesti kutsui liittymään konferenssiin.
+            success: Käyttäjä kutsuttu onnistuneesti konferenssiin.
           form:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
-            invite_explanation: Käyttäjää kutsutaan mukaan myös konferenssiin ja organisaatioon.
-            non_user: Ei olemassa olevaa käyttäjää
+            invite_explanation: Käyttäjää kutsutaan mukaan konferenssiin ja organisaatioon.
+            non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
             filter:
               accepted: Hyväksytyt
               all: Kaikki
-              rejected: hylätty
+              rejected: Hylätyt
               sent: Lähetetyt
             filter_by: Suodata
-            invite_attendee: Kutsu osanottaja
-            invites: kutsut
+            invite_attendee: Kutsu osallistuja
+            invites: Kutsut
             search: Hae
           new:
             explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköposti ei ole rekisteröity, ne kutsutaan myös organisaatioon.
-            invite: kutsu
+            invite: Kutsu
             new_invite: Kutsu käyttäjä
         conference_registrations:
           index:
-            registrations: rekisteröinnit
+            registrations: Ilmoittautumiset
         conference_speakers:
           form:
             existing_user: Olemassa oleva käyttäjä
@@ -201,10 +201,10 @@ fi:
             search: Hae
         conferences:
           form:
-            available_slots_help: Jätä se arvoon 0, jos sinulla on rajoittamaton lähtö.
+            available_slots_help: Jätä arvoksi 0, mikäli paikkojen määrää ei ole rajoitettu.
             registrations_count:
-              one: Rekisteröityä on ollut 1.
-              other: '%{count} rekisteröintiä.'
+              one: Ilmoittautumisia on 1 kpl.
+              other: Ilmoittautumisia on %{count} kpl.
             slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
         invite_join_conference_mailer:
           invite:
@@ -213,15 +213,15 @@ fi:
             join: Liity konferenssiin '%{conference_title}'
       conference:
         registration_confirm:
-          cancel: Peruuttaa
-          confirm: Vahvistaa
+          cancel: Peruuta
+          confirm: Vahvista
         show:
-          going: Going
+          going: Osallistumassa
           join: Liity konferenssiin
-          no_slots_available: Ei aikavälejä
+          no_slots_available: Ei paikkoja vapaana
           remaining_slots:
             one: 1 paikka jäljellä
-            other: "Jäljellä %{count} paikkaa"
+            other: "%{count} paikkaa jäljellä"
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumislomake <a href="%{url}">%{title}</a> on vahvistettu.
@@ -239,22 +239,22 @@ fi:
       conference_speaker:
         show:
           affiliation: kuuluminen
-          personal_url: Henkilökohtainen URL
-          position: asento
+          personal_url: Henkilökohtainen URL-osoite
+          position: Asema
           short_bio: Lyhyt biografia
-          twitter_handle: Viserrys
+          twitter_handle: Twitter
       conference_speakers:
         index:
-          speakers: kaiuttimet
+          speakers: Puhujat
       content_blocks:
         highlighted_conferences:
           name: Korostetut konferenssit
       index:
-        title: Kokoukset
+        title: Konferenssit
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Konferenssin rekisteröinti on vahvistettu
+            subject: Konferenssin ilmoittautuminen on vahvistettu
         invite_join_conference_mailer:
           invite:
             subject: Kutsu liittymään konferenssiin
@@ -297,12 +297,12 @@ fi:
         proposals_count: ehdotukset
         results_count: tulokset
         surveys_count: tutkimukset
-        users_count: osallistujien
-        votes_count: ääntä
+        users_count: Osallistujat
+        votes_count: Äänet
     events:
       conferences:
         conference_registrations_over_percentage:
-          email_intro: '"%{resource_title}" -konferenssin käyttämät paikat ovat yli %{percentage}%.'
+          email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
           email_outro: Olet saanut tämän ilmoituksen, koska olet konferenssin osallistuvan tilan ylläpitäjä.
           email_subject: '"%{resource_title}" -konferenssin käyttämät paikat ovat yli %{percentage}%'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin käyttämät lähtöajat ovat yli %{percentage}%.
@@ -321,29 +321,29 @@ fi:
         conference_presenter:
           not_found: 'Konferenssi ei löytynyt tietokannasta (ID: %{id})'
     menu:
-      conferences: Kokoukset
+      conferences: Konferenssit
   devise:
     mailer:
       join_conference:
-        subject: Kutsu liittymään konferenssiin
+        subject: Kutsu konferenssiin
   layouts:
     decidim:
       conference_header:
         conference_menu_item: Konferenssi
-        conference_speaker_menu_item: kaiuttimet
-        unfold: avautua
+        conference_speaker_menu_item: Puhujat
+        unfold: Avaa
       conference_widgets:
         show:
-          take_part: Ottaa osaa
+          take_part: Osallistu
       conferences:
         conference:
-          take_part: Ottaa osaa
+          take_part: Osallistu
         index:
-          promoted_conferences: Edistetyt konferenssit
+          promoted_conferences: Korostetut konferenssit
         order_by_conferences:
           conferences:
             one: "%{count} konferenssi"
             other: "%{count} konferenssia"
         promoted_conference:
           more_info: Lisätietoja
-          take_part: Ottaa osaa
+          take_part: Osallistu
