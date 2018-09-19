@@ -102,6 +102,9 @@ fi:
             no_members_yet: Tukikomiteassa ei ole jäseniä
             revoke: Kumoa
             title: Komitean jäsenet
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Näytettävien elementtien enimmäismäärä
         initiatives:
           edit:
             accept: Hyväksy aloite
