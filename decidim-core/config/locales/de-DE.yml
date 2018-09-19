@@ -216,6 +216,9 @@ de:
         name: Hervorgehobenes Inhaltsbanner
       how_to_participate:
         name: Wie kann ich mich beteiligen
+      html:
+        html_content: HTML-Inhalt
+        name: HTML-Block
       stats:
         name: Organisationsstatistiken
       sub_hero:
