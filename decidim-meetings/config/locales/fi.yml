@@ -159,7 +159,7 @@ fi:
             add_agenda_item: Lisää esityslistan kohde
             agenda_items: Esityslistan kohteet
             end_date: Päättymispäivä
-            start_date: Aloituspäivämäärä
+            start_date: Alkamispäivä
           new:
             create: Luoda
             title: Uusi esityslista
@@ -359,9 +359,9 @@ fi:
         meeting:
           fields:
             closed: Suljettu
-            end_time: Lopetusaika
+            end_time: Päättymispäivä
             map: Kartta
-            start_time: Aloitusaika
+            start_time: Alkamispäivä
             title: Otsikko
       read_more: "(lue lisää)"
       registration_mailer:
