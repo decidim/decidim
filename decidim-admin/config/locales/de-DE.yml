@@ -610,6 +610,7 @@ de:
         new:
           create: Einladen
           title: Benutzer als Administrator einladen
+      view_public_page: Öffentliche Seite anzeigen
     forms:
       errors:
         impersonate_user:
