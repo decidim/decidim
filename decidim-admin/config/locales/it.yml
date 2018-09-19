@@ -611,6 +611,7 @@ it:
         new:
           create: Invita
           title: Invita l'utente in qualità di amministratore
+      view_public_page: Visualizza la pagina pubblica
     forms:
       errors:
         impersonate_user:
