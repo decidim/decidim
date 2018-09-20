@@ -9,17 +9,17 @@ module Decidim
         described_class.new(debate)
       end
 
-      let!(:debate) {create(:debate, :with_author)}
-      let!(:category) {create(:category, participatory_space: component.participatory_space)}
-      let(:participatory_process) {component.participatory_space}
-      let(:component) {debate.component}
+      let!(:debate) { create(:debate, :with_author) }
+      let!(:category) { create(:category, participatory_space: component.participatory_space) }
+      let(:participatory_process) { component.participatory_space }
+      let(:component) { debate.component }
 
       before do
         debate.update!(category: category)
       end
 
       describe "#serialize" do
-        let(:serialized) {subject.serialize}
+        let(:serialized) { subject.serialize }
 
         it "serializes the id" do
           expect(serialized).to include(id: debate.id)
