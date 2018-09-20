@@ -222,6 +222,7 @@ en:
     proposals:
       actions:
         answer: Answer
+        edit_proposal: Edit proposal
         import: Import from another component
         new: New proposal
         private_notes: Private notes

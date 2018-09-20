@@ -51,6 +51,10 @@
   </td>
 
   <td class="table-list__actions">
+    <% if allowed_to? :edit, :proposal, proposal: proposal %>
+      <%= icon_link_to "pencil", "#", t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
+    <% end %>
+
     <% if allowed_to? :create, :proposal_note %>
       <%= icon_link_to "chat", proposal_proposal_notes_path(proposal_id: proposal.id), t("actions.private_notes", scope: "decidim.proposals"), class: "action-icon--index-notes" %>
     <% end %>
