@@ -2,6 +2,7 @@
   <%= bulk_actions_dropdown %>
 
   <div id="js-other-actions-wrapper">
+    <%= link_to "t()", participatory_texts_path, class: "button tiny button--simple" %>
     <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path, class: "button tiny button--simple" if allowed_to? :import, :proposals %>
 
     <% if allowed_to? :create, :proposal %>

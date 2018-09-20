@@ -18,6 +18,9 @@ module Decidim
           resources :proposal_answers, only: [:edit, :update]
           resources :proposal_notes, only: [:index, :create]
         end
+        scope "/proposal_components/:component_id" do
+          resources :participatory_texts, only: :index
+        end
 
         root to: "proposals#index"
       end
