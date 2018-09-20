@@ -58,16 +58,24 @@ module Decidim
       fields
     end
 
-    private
-
-    def map_common_fields(resource)
-      participatory_space = read_field(resource, @declared_fields, :participatory_space)
+    def retrieve_organization(resource)
       if @declared_fields[:organization_id].present?
         organization_id = read_field(resource, @declared_fields, :organization_id)
         @organization = Decidim::Organization.find(organization_id)
       else
-        @organization = participatory_space.organization
+        @organization = participatory_space(resource).organization
       end
+    end
+
+    private
+
+    def participatory_space(resource)
+      @participatory_space ||= read_field(resource, @declared_fields, :participatory_space)
+    end
+
+    def map_common_fields(resource)
+      participatory_space = participatory_space(resource)
+      @organization = retrieve_organization(resource)
       {
         decidim_scope_id: read_field(resource, @declared_fields, :scope_id),
         decidim_participatory_space_id: participatory_space&.id,
