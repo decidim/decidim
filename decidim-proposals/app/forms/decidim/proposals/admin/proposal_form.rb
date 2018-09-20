@@ -31,6 +31,7 @@ module Decidim
           return unless model.categorization
 
           self.category_id = model.categorization.decidim_category_id
+          self.scope_id = model.decidim_scope_id
         end
 
         alias component current_component

@@ -259,6 +259,9 @@ en:
           create:
             invalid: There's been a problem creating this proposal
             success: Proposal successfully created
+          edit:
+            title: Update proposal
+            update: Update
           form:
             attachment_legend: "(Optional) Add an attachment"
             select_a_category: Select a category
