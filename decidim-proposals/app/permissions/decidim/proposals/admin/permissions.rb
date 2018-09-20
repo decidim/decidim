@@ -22,6 +22,10 @@ module Decidim
             toggle_allow(admin_proposal_answering_is_enabled?) if permission_action.subject == :proposal_answer
           end
 
+          # Admins can only edit official proposals if they are within the
+          # time limit.
+          allow! if admin_edition_is_available? && permission_action.subject == :proposal && permission_action.action == :edit
+
           # Every user allowed by the space can update the category of the proposal
           allow! if permission_action.subject == :proposal_category && permission_action.action == :update
 
@@ -33,9 +37,18 @@ module Decidim
 
         private
 
+        def proposal
+          @proposal ||= context.fetch(:proposal, nil)
+        end
+
         def admin_creation_is_enabled?
           current_settings.try(:creation_enabled?) &&
             component_settings.try(:official_proposals_enabled)
+        end
+
+        def admin_edition_is_available?
+          return unless proposal
+          admin_creation_is_enabled? && proposal.official? && proposal.within_edit_time_limit?
         end
 
         def admin_proposal_answering_is_enabled?
