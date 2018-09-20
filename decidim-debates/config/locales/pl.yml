@@ -62,13 +62,17 @@ pl:
           update:
             invalid: Wystąpił problem podczas aktualizowania tej debaty.
             success: Debata zaktualizowana pomyślnie.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debata
       admin_log:
         debate:
           create: "%{user_name} stworzył %{resource_name} debatę na przestrzeni %{space_name}"
-          update: "%{user_name} zaktualizował %{resource_name} debatę na temat przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował %{resource_name} debatę na temat przestrzeni
+            %{space_name}"
       debates:
         count:
           debates_count:
@@ -116,22 +120,34 @@ pl:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Cześć, Nowa debata została utworzona na %{space_title} obszarze partycypacyjnym, sprawdź i pomóż:'
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{space_title} przestrzeń partycypacyjną. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+            email_intro: 'Cześć, Nowa debata została utworzona na %{space_title} obszarze
+              partycypacyjnym, sprawdź i pomóż:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{space_title}
+              przestrzeń partycypacyjną. Możesz przestać otrzymywać powiadomienia
+              po poprzednim linku.
             email_subject: Nowa debata na temat %{space_title}
-            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona na <a href="%{space_path}">%{space_title}</a>.
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a>
+              została utworzona na <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Witaj, %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową debatę, sprawdź i pomóż:'
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+            email_intro: 'Witaj, %{author_name} %{author_nickname}, którego obserwujesz,
+              stworzył nową debatę, sprawdź i pomóż:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}.
+              Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Nowa debata %{author_nickname}
-            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a>
+              została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
-          email_intro: 'Tworzenie debaty nie jest już aktywne w %{participatory_space_title}. Nadal możesz uczestniczyć w otwartych debatach na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_intro: 'Tworzenie debaty nie jest już aktywne w %{participatory_space_title}.
+            Nadal możesz uczestniczyć w otwartych debatach na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}.
+            Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Tworzenie debaty zostało wyłączone w %{participatory_space_title}
           notification_title: Tworzenie debat jest teraz wyłączone w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Możesz teraz rozpocząć nowe debaty w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_intro: 'Możesz teraz rozpocząć nowe debaty w %{participatory_space_title}!
+            Zacznij uczestniczyć w tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}.
+            Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Debaty są teraz dostępne w %{participatory_space_title}
-          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">nowych debat</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">nowych
+            debat</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>

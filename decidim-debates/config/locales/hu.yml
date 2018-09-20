@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -59,13 +60,18 @@ hu:
           update:
             invalid: Probléma merült fel a vita frissítése során.
             success: A vita sikeresen frissült.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Vita
       admin_log:
         debate:
-          create: "%{user_name} létrehozta az %{resource_name} vitát a %{space_name} téren"
-          update: "%{user_name} frissítette az %{resource_name} vitát a %{space_name} helyről"
+          create: "%{user_name} létrehozta az %{resource_name} vitát a %{space_name}
+            téren"
+          update: "%{user_name} frissítette az %{resource_name} vitát a %{space_name}
+            helyről"
       debates:
         count:
           debates_count:
@@ -111,25 +117,36 @@ hu:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: |-
-              Szia, Új vita született a %{space_title} részvételi téren, nézd meg és járuljon hozzá:
-            email_outro: Ezt az értesítést azért kapta, mert a %{space_title} részvételi helyet követi. Leállíthatja az értesítések fogadását az előző link után.
+            email_intro: 'Szia, Új vita született a %{space_title} részvételi téren,
+              nézd meg és járuljon hozzá:'
+            email_outro: Ezt az értesítést azért kapta, mert a %{space_title} részvételi
+              helyet követi. Leállíthatja az értesítések fogadását az előző link után.
             email_subject: Új vita a %{space_title}
-            notification_title: A <a href="%{resource_path}">%{resource_title}</a> vitát <a href="%{space_path}">%{space_title}</a>ben hozták létre.
+            notification_title: A <a href="%{resource_path}">%{resource_title}</a>
+              vitát <a href="%{space_path}">%{space_title}</a>ben hozták létre.
           user_followers:
             email_intro: |-
               Hi,
               %{author_name} %{author_nickname}, kivel következő, létrehozott egy új vitát, nézd meg, és hozzájárul:
-            email_outro: Ezt az értesítést megkapta, mert %{author_nickname}követ. Leállíthatja az értesítések fogadását az előző link után.
+            email_outro: Ezt az értesítést megkapta, mert %{author_nickname}követ.
+              Leállíthatja az értesítések fogadását az előző link után.
             email_subject: 'Új vita: %{author_nickname}'
-            notification_title: A <a href="%{resource_path}">%{resource_title}</a> vitát <a href="%{author_path}">%{author_name} %{author_nickname}</a>hozta létre.
+            notification_title: A <a href="%{resource_path}">%{resource_title}</a>
+              vitát <a href="%{author_path}">%{author_name} %{author_nickname}</a>hozta
+              létre.
         creation_disabled:
-          email_intro: 'A viták létrehozása már nem aktív a %{participatory_space_title}. Még mindig részt vehetsz a megnyitott vitákban ezen az oldalon:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+          email_intro: 'A viták létrehozása már nem aktív a %{participatory_space_title}.
+            Még mindig részt vehetsz a megnyitott vitákban ezen az oldalon:'
+          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ.
+            Leállíthatja az értesítések fogadását az előző link után.
           email_subject: A viták létrehozása %{participatory_space_title}letiltva
-          notification_title: A viták létrehozása most <a href="%{participatory_space_url}">%{participatory_space_title}</a>ben van tiltva
+          notification_title: A viták létrehozása most <a href="%{participatory_space_url}">%{participatory_space_title}</a>ben
+            van tiltva
         creation_enabled:
-          email_intro: 'Most új vitákat indíthat %{participatory_space_title}! Kezdje el részt venni ezen az oldalon:'
-          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ. Leállíthatja az értesítések fogadását az előző link után.
+          email_intro: 'Most új vitákat indíthat %{participatory_space_title}! Kezdje
+            el részt venni ezen az oldalon:'
+          email_outro: Ezt az értesítést megkapta, mert %{participatory_space_title}követ.
+            Leállíthatja az értesítések fogadását az előző link után.
           email_subject: A viták most %{participatory_space_title}állnak rendelkezésre
-          notification_title: Most <a href="%{resource_path}">új vitát kezdhetsz</a> ben <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Most <a href="%{resource_path}">új vitát kezdhetsz</a>
+            ben <a href="%{participatory_space_url}">%{participatory_space_title}</a>
