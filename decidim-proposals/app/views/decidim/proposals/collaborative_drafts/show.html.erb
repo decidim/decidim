@@ -116,7 +116,7 @@
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
       <% end %>
 
-      <%= cell "decidim/tags", @collaborative_draft, context: {extra_classes: ["tags--collaborative-draft"]} %>
+      <%= cell "decidim/tags", @collaborative_draft, context: { extra_classes: ["tags--collaborative-draft"] } %>
     </div>
   </div>
 </div>

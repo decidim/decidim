@@ -1,6 +1,7 @@
 <% content_for :secondary_nav do %>
   <div class="secondary-nav secondary-nav--subnav">
     <ul>
+      <%= public_page_link decidim_consultations.consultation_path(current_participatory_space.consultation) %>
       <% if allowed_to?(:update, :consultation, consultation: current_participatory_space.consultation) %>
         <li <% if is_active_link?(decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("consultation", scope: "decidim.admin.menu.questions_submenu"),

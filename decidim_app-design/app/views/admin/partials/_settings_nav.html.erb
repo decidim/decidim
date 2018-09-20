@@ -9,7 +9,7 @@
     <% end %>>
       <%= link_to "Configuración", page_path("settings") %>
     </li>
-    <li <% if @activepage == "appearance" %>
+    <li <% if @activepage == "settings-appearance" %>
      class="is-active"
     <% end %>>
       <%= link_to "Apariencia", page_path("appearance") %>
@@ -23,6 +23,11 @@
      class="is-active"
     <% end %>>
       <%= link_to "Tipos de ámbito", page_path("settings-scope-types") %>
+    </li>
+    <li <% if @activepage == "settings-participatory-texts" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Textos participativos", page_path("participatory-texts") %>
     </li>
   </ul>
 </div>
