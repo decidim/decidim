@@ -5,9 +5,9 @@
 <% else %>
   <%= render partial: "decidim/shared/results_per_page" %>
 
-  <div class="row small-up-1 medium-up-2 card-grid">
+  <div class="row">
     <% activities.each do |activity| %>
-      <% cell_name = "#{resource.class.name.underscore}_activity" %>
+      <% cell_name = "#{activity.resource.class.name.underscore}_activity" %>
       <%= cell cell_name, activity.resource %>
     <% end %>
   </div>

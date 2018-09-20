@@ -24,7 +24,6 @@ module Decidim
 
     def default_filter_params
       {
-        search_text: "",
         resource_type: "all"
       }
     end
