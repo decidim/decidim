@@ -5,7 +5,7 @@ fi:
         body: Leipäteksti
         category_id: Aihepiiri
         decidim_scope_id: Teema
-        has_address: On osoite
+        has_address: Ehdotuksella on sijainti
         state: Tila
         title: Otsikko
         user_group_id: Luo yhteistyöluonnos nimellä
@@ -14,7 +14,7 @@ fi:
         answered_at: Vastattu osoitteessa
         body: Leipäteksti
         category_id: Aihepiiri
-        has_address: Ehdotuksella on osoite
+        has_address: Ehdotuksella on tarkka sijainti
         scope_id: Teema
         state: Tila
         title: Otsikko
