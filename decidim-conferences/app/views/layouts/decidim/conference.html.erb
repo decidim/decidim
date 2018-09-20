@@ -6,10 +6,21 @@
 ) %>
 
 <%= render "layouts/decidim/application" do %>
-  <div class="wrapper">
-    <%= render partial: "layouts/decidim/conference_header" %>
-    <%= yield %>
-  </div>
+  <main>
+    <%= render partial: "layouts/decidim/conference_hero" %>
+
+    <section class="wrapper-home">
+      <div class="row">
+        <div class="columns section view-side mediumlarge-4 large-3">
+          <%= render partial: "layouts/decidim/conferences_nav" %>
+        </div>
+        <div class="columns mediumlarge-8 large-9">
+          <%= yield %>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <% if content_for? :expanded %>
     <div class="expanded">
       <div class="wrapper wrapper--inner">

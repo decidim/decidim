@@ -46,7 +46,7 @@ module Decidim
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
-    mount_uploader :banner_image, Decidim::BannerImageUploader
+    mount_uploader :banner_image, Decidim::HomepageImageUploader
 
     # Scope to return only the promoted conferences.
     #

@@ -1,0 +1,64 @@
+<% if current_participatory_space.components.any? || current_participatory_space.speakers.any? %>
+  <section class="section">
+    <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
+      <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
+        <div class="process-nav__link">
+        <% if self.try(:current_component) %>
+          <%= translated_attribute(current_component.name) %>
+        <% else %>
+          <%= icon "conference" %>
+          <%= t ".conference_menu_item" %>
+        <% end %>
+        </div>
+    </button>
+    <div class="row column process-nav__content is-active" id="process-nav-content" data-toggler=".is-active">
+      <ul class="conference-nav">
+        <li class="<%= "is-active" if is_active_link?(decidim_conferences.conference_path(current_participatory_space), :exclusive) %>">
+          <%= active_link_to decidim_conferences.conference_path(current_participatory_space), active: :exclusive, class_active: "is-active" do %>
+            <%= t ".conference_menu_item" %>
+          <% end %>
+        </li>
+
+        <% if current_participatory_space.speakers.any? %>
+          <li class="<%= "is-active" if is_active_link?(decidim_conferences.conference_conference_speakers_path(current_participatory_space), :inclusive) %>">
+            <%= active_link_to decidim_conferences.conference_conference_speakers_path(current_participatory_space), active: :inclusive, class_active: "is-active" do %>
+              <%= t ".conference_speaker_menu_item" %>
+            <% end %>
+          </li>
+        <% end %>
+
+        <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
+          <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
+            <li class="<%= "is-active" if is_active_link?(main_component_path(component_meeting), :inclusive) %>">
+              <%= active_link_to main_component_path(component_meeting), active: :inclusive, class_active: "is-active" do %>
+                <%= translated_attribute(component_meeting.name) %>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+
+        <% if current_participatory_space.components.where(manifest_name: "meetings").published.any? %>
+          <li class="">
+            <%= active_link_to decidim_conferences.conference_path(current_participatory_space, anchor: "venues"), active: :exclusive, class_active: "is-active" do %>
+              <%= t ".venues" %>
+            <% end %>
+          </li>
+        <% end %>
+
+        <% current_participatory_space.components.each do |component| %>
+          <% next if component.manifest_name == "meetings" %>
+          <% if component.published? || component == self.try(:current_component) %>
+            <li class="<%= "is-active" if is_active_link?(main_component_path(component), :inclusive) %>">
+              <%= active_link_to main_component_path(component), active: :inclusive, class_active: "is-active" do %>
+                <%= translated_attribute(component.name) %>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+<% end %>
+<% if content_for? :expanded_conference_nav %>
+  <%= yield :expanded_conference_nav %>
+<% end %>

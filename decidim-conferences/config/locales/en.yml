@@ -249,6 +249,15 @@ en:
       conference_speakers:
         index:
           speakers: Speakers
+      conferences:
+        show:
+          already_account: Do you already have an account in decidim?
+          login_as: You are login as %{name} <%{email}>
+          make_conference_registration: "Make your registration in the conference:"
+          new_user: New user?
+          register: Register
+          sign_in: Login to register at this conference
+          sign_up: Register for free in decidim to register
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences
@@ -282,9 +291,9 @@ en:
             active_conferences: Active conferences
             see_all_conferences: See all conferences
       show:
-        end_date: End date
+        details: Details
+        introduction: Introduction
         objectives: Objectives
-        start_date: Start date
       statistics:
         answers_count: Answers
         comments_count: Comments
@@ -331,10 +340,11 @@ en:
         subject: Invitation to join a conference
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: The Conference
+      conferences_nav:
+        conference_menu_item: Information
         conference_speaker_menu_item: Speakers
         unfold: Unfold
+        venues: Venues
       conference_widgets:
         show:
           take_part: Take part
