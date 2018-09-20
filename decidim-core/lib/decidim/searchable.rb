@@ -38,7 +38,7 @@ module Decidim
 
       after_destroy do |searchable|
         if self.class.search_resource_fields_mapper
-          org = self.class.search_resource_fields_mapper.organization
+          org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
           searchable.searchable_resources.by_organization(org.id).destroy_all
         end
       end
