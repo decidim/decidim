@@ -55,7 +55,7 @@ module Decidim
       def add_to_index_as_search_resource
         fields = self.class.search_resource_fields_mapper.mapped(self)
         fields[:i18n].keys.each do |locale|
-          Decidim::SearchableResource.create(contents_to_searchable_resource_attributes(fields, locale))
+          Decidim::SearchableResource.create!(contents_to_searchable_resource_attributes(fields, locale))
         end
       end
 

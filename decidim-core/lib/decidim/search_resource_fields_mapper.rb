@@ -61,16 +61,16 @@ module Decidim
     def retrieve_organization(resource)
       if @declared_fields[:organization_id].present?
         organization_id = read_field(resource, @declared_fields, :organization_id)
-        @organization = Decidim::Organization.find(organization_id)
+        Decidim::Organization.find(organization_id)
       else
-        @organization = participatory_space(resource).organization
+        participatory_space(resource).organization
       end
     end
 
     private
 
     def participatory_space(resource)
-      @participatory_space ||= read_field(resource, @declared_fields, :participatory_space)
+      read_field(resource, @declared_fields, :participatory_space)
     end
 
     def map_common_fields(resource)
