@@ -72,7 +72,7 @@ module Decidim
 
           @form = form(Admin::ProposalForm).from_params(params)
           Admin::UpdateProposal.call(@form, @proposal) do
-            on(:ok) do |proposal|
+            on(:ok) do |_proposal|
               flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
               redirect_to proposals_path
             end
