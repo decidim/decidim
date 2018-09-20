@@ -14,7 +14,7 @@ fi:
         answered_at: Vastattu osoitteessa
         body: Leipäteksti
         category_id: Aihepiiri
-        has_address: Ehdotuksella on tarkka sijainti
+        has_address: Ehdotuksella on sijainti
         scope_id: Teema
         state: Tila
         title: Otsikko
