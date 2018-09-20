@@ -65,7 +65,7 @@ RSpec.shared_examples "manage debates" do
     visit_component_admin
 
     within ".card-title" do
-      page.find(".button.button--title").click
+      click_link "New Debate"
     end
 
     within ".new_debate" do
