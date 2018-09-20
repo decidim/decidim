@@ -83,7 +83,7 @@ fr:
             description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
           description_per_budget: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
-          description_per_project: A quels projets pensez-vous que nous devrions allouer un budget ? Choisissez %{minimum_project} projets et validez votre vote. Attention tout vote est définitif.
+          description_per_project: A quels projets pensez-vous que nous devrions allouer un budget ? Choisissez %{minimum_project} projets et validez votre vote.
           title: Vous décidez du budget
         count:
           projects_count:
@@ -99,7 +99,7 @@ fr:
           filter_by: Filtrer par
           unfold: Voir la suite
         index:
-          view_project: View project
+          view_project: Voir le projet
         order_progress:
           vote: Voter
         order_selected_projects:
@@ -128,8 +128,8 @@ fr:
           remove: Supprimer
           view: Voir
         project_budget_button:
-          add: Ajouter
-          added: Ajouté
+          add: Choisir
+          added: Choisis
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
