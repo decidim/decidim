@@ -34,6 +34,7 @@ module Decidim
 
     private
 
+    # This is done since we only allow one level of subcategories.
     def forbid_deep_nesting
       return unless parent
       return if parent.parent.blank?
