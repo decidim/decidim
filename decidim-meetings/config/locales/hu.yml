@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -231,7 +232,7 @@ hu:
             invite_user: Felhasználó meghívása
             registrations_count:
               one: 1 regisztráció volt.
-              other: '%{count} regisztráció volt.'
+              other: "%{count} regisztráció volt."
             reserved_slots_help: Hagyja 0-ra, ha nem rendelkezik foglalással
             reserved_slots_less_than: Legalább %{count}vagy egyenlőnek kell lennie
           update:

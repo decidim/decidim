@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -105,9 +106,6 @@ hu:
             created_at: 'Létrehozva:'
             published: Közzétett
             title: Cím
-          name:
-            one: Konzultáció
-            other: konzultációk
         question:
           fields:
             created_at: 'Létrehozva:'
@@ -245,7 +243,7 @@ hu:
       vote_button:
         already_voted: Már megszavazták
         already_voted_hover: A támogatás visszavonása
-        starting_from: '%{date}tól kezdődően'
+        starting_from: "%{date}tól kezdődően"
         vote: Szavazás
       vote_modal:
         contextual_help: Kérem válasszon egy opciót.

@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -177,7 +178,7 @@ hu:
         show:
           changes_at_title: Változások a "%{title}"
         version:
-          version_index: '%{index}verzió'
+          version_index: "%{index}verzió"
     components:
       accountability:
         name: felelősségre vonhatóság

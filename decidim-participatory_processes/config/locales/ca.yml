@@ -69,6 +69,8 @@ ca:
         duplicate: Duplicar
         edit: Editar
         new: Nou/va
+        participatory_process:
+          new: nou procés participatiu
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
@@ -95,7 +97,6 @@ ca:
             promoted: Destacat
             published: Publicat
             title: Títol
-          name: Procés participatiu
         participatory_process_group:
           fields:
             name: Nom

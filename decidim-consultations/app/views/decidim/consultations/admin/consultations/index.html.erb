@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.consultations" %>
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.consultation.name", scope: "decidim.admin")),
+      <%= link_to t("actions.consultation.new", scope: "decidim.admin"),
                   ["new", "consultation"], class: "button tiny button--title" if allowed_to? :create, :consultation %>
     </h2>
   </div>

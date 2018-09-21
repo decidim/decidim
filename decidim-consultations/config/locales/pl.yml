@@ -114,11 +114,6 @@ pl:
             created_at: Utworzono w
             published: Opublikowany
             title: Tytuł
-          name:
-            few: Konsultacje
-            many: Konsultacje
-            one: Konsultacja
-            other: Konsultacje
         question:
           fields:
             created_at: Utworzono w
