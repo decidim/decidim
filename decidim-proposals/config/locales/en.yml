@@ -78,6 +78,7 @@ en:
             geocoding_enabled: Geocoding enabled
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
+            participatory_texts_enabled: Participatory texts enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_length: Maximum proposal body length
