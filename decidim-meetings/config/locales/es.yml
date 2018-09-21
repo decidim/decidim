@@ -26,6 +26,7 @@ es:
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
+        organizer_id: Organizador
       minutes:
         audio_url: URL del audio
         description: Descripción
