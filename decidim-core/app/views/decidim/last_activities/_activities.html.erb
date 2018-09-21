@@ -1,4 +1,4 @@
-<% if activities.length == 0 %>
+<% if resources.length == 0 %>
   <div class="callout warning">
     <%= t ".no_activities_warning" %>
   </div>
@@ -6,9 +6,9 @@
   <%= render partial: "decidim/shared/results_per_page" %>
 
   <div class="row">
-    <% activities.each do |activity| %>
-      <% cell_name = "#{activity.resource.class.name.underscore}_activity" %>
-      <%= cell cell_name, activity.resource %>
+    <% resources.each do |resource| %>
+      <% cell_name = "#{resource.class.name.underscore}_activity" %>
+      <%= cell cell_name, resource %>
     <% end %>
   </div>
 

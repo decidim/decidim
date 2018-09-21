@@ -8,7 +8,20 @@ module Decidim
 
     helper Decidim::ResourceHelper
     helper Decidim::FiltersHelper
-    helper_method :activities
+    helper_method :resources, :activities
+
+    def index
+      @resource_types = search.results.pluck(:resource_type).uniq
+      @resource_types_collection = @resource_types.map do |klass|
+        [klass, klass.constantize.model_name.human]
+      end
+    end
+
+    def resources
+      @resources ||= activities.select(:resource_type, :resource_id).group_by(&:resource_type).flat_map do |resource_type, activities|
+        resource_type.constantize.includes(component: { participatory_space: :organization }).where(id: activities.map(&:resource_id))
+      end
+    end
 
     def activities
       @activities ||= paginate(search.results)
@@ -30,7 +43,7 @@ module Decidim
 
     def default_search_params
       {
-        scope: ActionLog.public.includes(:resource)
+        scope: ActionLog.public
       }
     end
   end

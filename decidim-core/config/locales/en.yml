@@ -212,6 +212,9 @@ en:
       index:
         last_activity: Last activity
         search: Search
+        resource_type: Type
+      activities:
+        no_activities_warning: No activity
     content_blocks:
       footer_sub_hero:
         name: Footer sub hero banner

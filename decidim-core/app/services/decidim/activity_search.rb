@@ -6,7 +6,7 @@ module Decidim
   # find the activities.
   class ActivitySearch < ResourceSearch
     # Public: Initializes the service.
-    # component     - A Decidim::Component to get the activities from.
+    # component   - A Decidim::Component to get the activities from.
     # page        - The page number to paginate the results.
     # per_page    - The number of proposals to return per page.
     def initialize(options = {})
@@ -20,6 +20,7 @@ module Decidim
 
     def search_resource_type
       return query if options[:resource_type].blank? || options[:resource_type] == "all"
+      query.where(resource_type: options[:resource_type])
     end
   end
 end
