@@ -73,28 +73,28 @@ fi:
             attachments_allowed: Salli liitteet
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
-            comments_enabled: Kommentit ovat käytössä
+            comments_enabled: Kommentit käytössä
             geocoding_enabled: Geokoodaus on käytössä
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä
-            proposal_length: Suurin ehdotuksen pituus
-            proposal_limit: Ehdotuksen raja käyttäjää kohden
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
+            proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
+            proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
             proposal_wizard_step_3_help_text: Ohjattu ohjattu "Valmis" vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle ehdotukselle
-            threshold_per_proposal: Kynnys ehdotusta kohden
-            vote_limit: Äänestysraja käyttäjää kohden
+            threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
+            vote_limit: Käytettävissä olevien äänien määrä käyttäjää kohden
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
             creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
-            proposal_answering_enabled: Ehdotukseen vastaaminen on käytössä
+            proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             votes_blocked: Äänestys estetty
             votes_enabled: Äänestys käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
@@ -557,7 +557,7 @@ fi:
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
-          maximum_votes_reached: Äänestysraja saavutettu
+          maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
           votes_blocked: Äänestys estetty
