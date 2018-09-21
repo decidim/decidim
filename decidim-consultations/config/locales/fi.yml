@@ -190,7 +190,7 @@ fi:
           recent: Viimeisin ensin
       content_blocks:
         highlighted_consultations:
-          name: Korostetut neuvottelut
+          name: Korostetut kuulemiset
       count:
         title:
           one: "%{count} kuuleminen"
@@ -215,10 +215,10 @@ fi:
         home:
           highlighted_consultations:
             active_consultations: Aktiiviset neuvottelut
-            see_all_consultations: Katso kaikki neuvottelut
+            see_all_consultations: Katso kaikki kuulemiset
             voting_ends_in:
               one: Äänestys päättyy <strong>huomenna</strong>
-              other: Äänestys päättyy <strong>%{count} päivä</strong>
+              other: Äänestys päättyy <strong>%{count} päivän</strong> päästä
             voting_ends_today: Äänestys päättyy <strong>tänään</strong>
       question:
         take_part: Osallistu
