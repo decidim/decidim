@@ -145,7 +145,6 @@ hu:
       errors:
         duplicate_authorization: A felhasználó ugyanazokkal az adatokkal már engedélyezett.
       expired_at: "%{timestamp}kor lejárt"
-      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
           bar: Bár

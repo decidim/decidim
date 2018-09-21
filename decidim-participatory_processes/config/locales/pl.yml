@@ -101,7 +101,6 @@ pl:
             promoted: Podświetlony
             published: Opublikowany
             title: Tytuł
-          name: Proces współuczestnictwa
         participatory_process_group:
           fields:
             name: Nazwa

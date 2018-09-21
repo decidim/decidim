@@ -106,9 +106,6 @@ it:
             created_at: Creato a
             published: Pubblicato
             title: Titolo
-          name:
-            one: Consultazione
-            other: consultazioni
         question:
           fields:
             created_at: Creato a

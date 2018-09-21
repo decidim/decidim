@@ -168,7 +168,6 @@ pt:
             promoted: Em destaque
             published: Publicados
             title: Título
-          name: Assembléia
         assembly_member:
           fields:
             ceased_date: Data de cessação

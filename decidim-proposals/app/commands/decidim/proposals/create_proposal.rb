@@ -47,8 +47,8 @@ module Decidim
 
       def create_proposal
         @proposal = Proposal.create!(
-          title: form.title,
-          body: form.body,
+          title: form.formatted_title,
+          body: form.formatted_body,
           category: form.category,
           scope: form.scope,
           author: @current_user,

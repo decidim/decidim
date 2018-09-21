@@ -168,7 +168,6 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Bijeenkomst
         assembly_member:
           fields:
             ceased_date: Gestaakte datum

@@ -95,7 +95,6 @@ sv:
             promoted: Markerad
             published: Publicerad
             title: Titel
-          name: Deltagande process
         participatory_process_group:
           fields:
             name: Namn

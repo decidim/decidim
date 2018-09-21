@@ -76,6 +76,9 @@ ca:
         other: Rol dels usuaris de l'assemblea
   decidim:
     admin:
+      actions:
+        assembly:
+          new: Nou muntatge
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
@@ -168,7 +171,6 @@ ca:
             promoted: Destacat
             published: Publicat
             title: Títol
-          name: Assemblea
         assembly_member:
           fields:
             ceased_date: Data de cessament

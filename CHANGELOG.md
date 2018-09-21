@@ -28,6 +28,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Changed**:
 
+- **decidim-proposals**: Remove caps first validator. Format title and body without any intervention from the user [\#259](https://github.com/OpenSourcePolitics/decidim/pull/259)
  - **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#228](https://github.com/OpenSourcePolitics/decidim/pull/228)
 
 **Fixed**:
