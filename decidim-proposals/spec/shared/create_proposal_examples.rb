@@ -76,6 +76,13 @@ shared_examples "create a proposal" do |with_author|
         end.to change(Decidim::Proposals::Proposal, :count).by(1)
       end
 
+      it "format title and body" do
+        command.call
+        proposal = Decidim::Proposals::Proposal.last
+        expect(proposal.title).to eq("A reasonable proposal title")
+        expect(proposal.body).to eq("A reasonable proposal body")
+      end
+
       if with_author
         context "with an author" do
           let(:user_group) { nil }
