@@ -527,7 +527,7 @@ fi:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
-            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutien aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
+            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
         proposal:
