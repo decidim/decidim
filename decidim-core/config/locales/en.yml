@@ -817,17 +817,17 @@ en:
       cycle_detected: a scope's parent can't be one of its descendants
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
-      long_words: contains words that are too long
-      must_start_with_caps: must start with caps
+      long_words: contains words that are too long (over 35 characters)
+      must_start_with_caps: must start with a capital letter
       nesting_too_deep: can't be inside of a subcategory
       not_found: not found
       not_locked: was not locked
       not_saved:
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"
-      too_many_marks: is using too many marks
-      too_much_caps: is using too much caps
-      too_short: is too short
+      too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
+      too_much_caps: is using too much capital letters (over 25% of the text)
+      too_short: is too short (under 15 characters)
   forms:
     required: Required
   invisible_captcha:
