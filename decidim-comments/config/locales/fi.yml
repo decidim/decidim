@@ -56,7 +56,7 @@ fi:
         order:
           best_rated: Parhaiksi arvioidut
           most_discussed: Eniten keskustelua herättäneet
-          older: Vanhemmat
+          older: Vanhimmat
           recent: Uusimmat
         title: 'Järjestä tulokset:'
       comment_thread:
