@@ -21,7 +21,7 @@ fi:
           error: Äänestettäessä kommenttia tapahtui virhe.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">kirjaudu</a> kommentoidaksesi.
+        account_message: <a href="%{sign_in_url}">Kirjaudu sisään</a> tai <a href="%{sign_up_url}">rekisteröidy palveluun</a> kommentoidaksesi.
         form:
           body:
             label: Kommentti
@@ -34,7 +34,7 @@ fi:
           neutral: Neutraali
         remaining_characters: "%{count} merkkiä jäljellä"
         remaining_characters_1: "%{count} merkki jäljellä"
-        title: Lisää kommenttisi
+        title: Lisää oma kommenttisi
       comment:
         alignment:
           against: Vastaan
