@@ -8,19 +8,18 @@ module Decidim
 
     helper Decidim::ResourceHelper
     helper Decidim::FiltersHelper
-    helper_method :resources, :activities
+
+    helper_method :activities
 
     def index
-      @resource_types = search.results.pluck(:resource_type).uniq
-      @resource_types_collection = @resource_types.map do |klass|
+      @resource_types = search.resource_types
+      @resource_types = @resource_types.sort_by do |klass|
+        klass.constantize.model_name.human
+      end
+      @resource_types = @resource_types.map do |klass|
         [klass, klass.constantize.model_name.human]
       end
-    end
-
-    def resources
-      @resources ||= activities.select(:resource_type, :resource_id).group_by(&:resource_type).flat_map do |resource_type, activities|
-        resource_type.constantize.includes(component: { participatory_space: :organization }).where(id: activities.map(&:resource_id))
-      end
+      @resource_types << ["all", "All"]
     end
 
     def activities
@@ -38,12 +37,6 @@ module Decidim
     def default_filter_params
       {
         resource_type: "all"
-      }
-    end
-
-    def default_search_params
-      {
-        scope: ActionLog.public
       }
     end
   end

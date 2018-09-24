@@ -6,7 +6,6 @@
       <div class="card card--secondary show-for-mediumlarge">
         <%= filter_form_for filter, last_activities_path do |form| %>
           <%= form.collection_radio_buttons :resource_type, @resource_types, :first, :last, legend_title: t(".resource_type") %>
-          <%#= form.collection_radio_buttons :resource_type, @resource_types, :first, :last, legend_title: t(".resource_type") %>
         <% end %>
       </div>
     </div>

@@ -136,6 +136,8 @@ en:
           unearned_another: This user hasn't attended any meeting yet.
           unearned_own: You haven't attended any meeting yet.
     meetings:
+      last_activity:
+        new_meeting_at_html: <span>New meeting at %{link}</span>
       actions:
         agenda: Agenda
         attachment_collections: Folders

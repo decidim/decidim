@@ -1,4 +1,4 @@
-<% if resources.length == 0 %>
+<% if activities.length == 0 %>
   <div class="callout warning">
     <%= t ".no_activities_warning" %>
   </div>
@@ -6,11 +6,8 @@
   <%= render partial: "decidim/shared/results_per_page" %>
 
   <div class="row">
-    <% resources.each do |resource| %>
-      <% cell_name = "#{resource.class.name.underscore}_activity" %>
-      <%= cell cell_name, resource %>
-    <% end %>
+    <%= cell "decidim/activities", activities %>
   </div>
 
-  <%= decidim_paginate activities, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+  <%= decidim_paginate activities, resource_type: params[:resource_type] %>
 <% end %>

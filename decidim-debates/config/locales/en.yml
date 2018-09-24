@@ -36,6 +36,8 @@ en:
             comments_blocked: Comments blocked
             creation_enabled: Debate creation by users enabled
     debates:
+      last_activity:
+        new_debate_at_html: <span>New debate at %{link}</span>
       actions:
         confirm_destroy: Are you sure?
         destroy: Delete
