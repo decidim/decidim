@@ -10,7 +10,7 @@ fi:
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
@@ -19,13 +19,13 @@ fi:
         participatory_scope: Osallistumisprosessin konteksti
         participatory_structure: Osallistumisprosessin rakenne
         promoted: Korostettu
-        published_at: Julkaistu
+        published_at: Julkaisuaika
         scope_id: Teema
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         slug: URL-tunniste
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
@@ -36,9 +36,9 @@ fi:
         participatory_process_ids: Liittyvät prosessit
       participatory_process_step:
         description: Kuvaus
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         short_description: Lyhyt kuvaus
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
@@ -104,8 +104,8 @@ fi:
           name: Prosessiryhmä
         participatory_process_step:
           fields:
-            end_date: Päättymisaika
-            start_date: Aloitusaika
+            end_date: Päättymispäivä
+            start_date: Alkamispäivä
             title: Otsikko
           name: Osallistumisprosessin vaihe
         participatory_process_user_role:
@@ -116,7 +116,7 @@ fi:
           name: Osallistumisprosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
-            collaborator: Kollaboraattori
+            collaborator: Osallistumiskäyttäjä
             moderator: Moderoija
         user:
           fields:
@@ -245,12 +245,12 @@ fi:
       participatory_process:
         step_activated:
           email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteeseen %{participatory_space_title}
           notification_title: Vaihe %{resource_title} on nyt käytössä kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Vaiheen %{resource_title} päivämäärät kohteessa %{participatory_space_title} on päivitetty. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteeseen %{participatory_space_title}
           notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
@@ -292,13 +292,13 @@ fi:
           loading: Ladataan tulokset...
       show:
         developer_group: Kehittäjäryhmä
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
         scope: Teema
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         target: Kuka osallistuu
         unspecified: Ei määritelty
       statistics:

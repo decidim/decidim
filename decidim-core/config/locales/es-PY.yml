@@ -696,7 +696,7 @@ es-PY:
     password_not_allowed: No se permite
     password_too_common: Es demasiado común
     password_too_long: Es demasiado largo
-    password_too_short: Es demasiado corto
+    password_too_short: es demasiado corto
   social_share_button:
     delicious: Delicioso
     douban: Douban
