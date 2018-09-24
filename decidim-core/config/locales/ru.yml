@@ -700,7 +700,7 @@ ru:
     password_not_allowed: не допускается
     password_too_common: слишком распространен
     password_too_long: слишком длинный
-    password_too_short: слишком короткий
+    password_too_short: слишком короткое
   social_share_button:
     delicious: Delicious
     douban: Douban
