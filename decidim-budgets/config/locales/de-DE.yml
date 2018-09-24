@@ -145,9 +145,6 @@ de:
       destroy:
         error: Bei der Absage der Abstimmung ist ein Fehler aufgetreten
         success: Ihre Abstimmung wurde erfolgreich abgebrochen
-    resource_links:
-      included_proposals:
-        project_proposal: 'Vorschläge in diesem Projekt:'
   index:
     confirmed_orders_count: Stimmen zählen
   total_budget: Gesamtbudget; Gesamtetat
