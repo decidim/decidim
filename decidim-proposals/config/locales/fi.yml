@@ -84,7 +84,7 @@ fi:
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Vertaile" -vaiheen ohjeteksti
             proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Valmis" -vaiheen ohjeteksti
-            proposal_wizard_step_4_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
+            proposal_wizard_step_4_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
             threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
             vote_limit: Käytettävissä olevien äänien määrä käyttäjää kohden
@@ -535,7 +535,7 @@ fi:
           view_proposal: Näytä ehdotus
         show:
           edit_proposal: Muokkaa ehdotusta
-          endorsements_list: Luettelo hyväksynnästä
+          endorsements_list: Luettelo suositteluista
           hidden_endorsers_count:
             one: ja vielä yksi henkilö
             other: ja %{count} muuta henkilöä
@@ -613,9 +613,7 @@ fi:
         version:
           version_index: Versio %{index}
     resource_links:
-      copied_from_component:
-        proposal_proposal: Vastaavat ehdotukset
       included_projects:
-        project_result: 'Tässä projektissa näkyvät tulokset:'
+        project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
       included_proposals:
-        proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'
+        proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
