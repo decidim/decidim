@@ -175,6 +175,10 @@ en:
         questions: Questions
         responses: Responses
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximum amount of elements to show
       consultation:
         start_voting_date: Voting begins
         view_results: View results
@@ -185,6 +189,9 @@ en:
           label: 'Sort consultations by:'
           random: Random
           recent: Most recent
+      content_blocks:
+        highlighted_consultations:
+          name: Highlighted consultations
       count:
         title:
           one: "%{count} consultation"
@@ -205,6 +212,15 @@ en:
         title: Questions from %{scope_name}
       index:
         title: Consultations
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Active consultations
+            see_all_consultations: See all consultations
+            voting_ends_in:
+              one: Voting ends <strong>tomorrow</strong>
+              other: Voting ends in <strong>%{count} days</strong>
+            voting_ends_today: Voting ends <strong>today</strong>
       question:
         take_part: Take part
         view_results: View results

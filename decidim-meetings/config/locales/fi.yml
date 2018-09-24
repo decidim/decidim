@@ -26,6 +26,7 @@ fi:
         start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
+        organizer_id: Järjestäminen
       minutes:
         audio_url: Äänen URL-osoite
         description: Kuvaus

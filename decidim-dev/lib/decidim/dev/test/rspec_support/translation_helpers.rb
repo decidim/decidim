@@ -97,3 +97,7 @@ module TranslationHelpers
     upcase ? content.upcase : content
   end
 end
+
+RSpec.configure do |config|
+  config.include TranslationHelpers
+end

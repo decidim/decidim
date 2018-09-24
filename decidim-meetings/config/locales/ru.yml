@@ -26,6 +26,7 @@ ru:
         start_time: Время начала
         title: Название
         transparent: Прозрачная
+        organizer_id: Организация
       minutes:
         audio_url: Веб-адрес аудиозаписи
         description: Описание

@@ -26,6 +26,7 @@ uk:
         start_time: Час початку
         title: Назва
         transparent: Прозора
+        organizer_id: Організатор
       minutes:
         audio_url: Веб-адреса аудіозапису
         description: Опис
