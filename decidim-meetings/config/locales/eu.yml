@@ -26,6 +26,7 @@ eu:
         start_time: Hasiera-ordua
         title: Titulua
         transparent: gardena
+        organizer_id: Antolatzailea
       minutes:
         audio_url: Audioaren URLa
         description: deskribapena
