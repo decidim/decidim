@@ -4,7 +4,7 @@ fi:
       dummy_resource:
         created_at: Luontiaika
         field: Oma kenttä
-        start_date: Aloituspäivämäärä
+        start_date: Alkamispäivä
         title: Otsikko
         updated_at: Päivitysaika
   decidim:
