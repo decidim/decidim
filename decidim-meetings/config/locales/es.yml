@@ -20,13 +20,13 @@ es:
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        organizer_id: Organizador
         private_meeting: Encuentro privado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
-        organizer_id: Organizador
       minutes:
         audio_url: URL del audio
         description: Descripción
