@@ -273,15 +273,11 @@ de:
             close_modal: Modal schließen
             uncheck: Deaktivieren Sie das Kontrollkästchen
           notice: |-
-            <p>Hey, bist du sicher, dass du keinen Newsletter erhalten möchtest?<br>
-            Bitte beachten Sie, dass Sie das Kästchen für den Newsletter noch einmal ankreuzen.<br>
-            Es ist sehr wichtig für uns, dass Sie gelegentlich E-Mails
-            , um wichtige Ankündigungen zu machen. Sie können dies jederzeit auf der Seite mit den
-            Benachrichtigungseinstellungen ändern.</p>
-            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen
-            zu neuen partizipativen Möglichkeiten innerhalb der Plattform.<br>
-            Wenn Sie noch Empfang Newsletter vermeiden wollen, wir vollkommen
-            Ihre Entscheidung verstehen.</p>
+            <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
+            Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
+            Für uns ist es sehr wichtig, die Möglichkeit zu haben Ihnen gelegentlich E-Mails mit wichtigen Ankündigungen schicken zu können. Sie können dies jederzeit in den Benachrichtigungseinstellungen ändern.</p>
+            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen zu neuen Beteiligungsmöglichkeiten auf der Plattform.<br>
+            Wenn Sie nach wie vor keinen Newsletter erhalten möchten, verstehen wir natürlich Ihre Entscheidung.</p>
             <p>Danke fürs Lesen!</p>
           title: Newsletter Benachrichtigungen
         omniauth_buttons:
@@ -299,14 +295,14 @@ de:
           see_username: Ihren Benutzernamen anzeigen
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
-          update_profile: Aktualisiere dein Profil
+          update_profile: Profil aktualisieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
     errors:
       internal_server_error:
         title: Es gab ein Problem mit unserem Server
-        try_later: Bitte versuche es später erneut.
+        try_later: Bitte versuchen Sie es später nochmal.
       not_found:
-        back_home: Zurück zuhause
+        back_home: Zurück zur Startseite
         content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
         title: Die von Ihnen gesuchte Seite kann nicht gefunden werden
     events:
