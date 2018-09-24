@@ -179,7 +179,6 @@ de:
           form:
             attendee_type: Teilnehmertyp
             existing_user: Existierender Benutzer
-            invite: Einladen
             invite_explanation: Der Benutzer wird eingeladen, dem Meeting und der Organisation beizutreten.
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
@@ -305,8 +304,6 @@ de:
           filter: Filter
           filter_by: Filtern nach
           unfold: Entfalten
-        index:
-          view_meeting: Besprechung anzeigen
         meeting_minutes:
           meeting_minutes: Sitzungsprotokolle
           related_information: Zugehörige Informationen
@@ -377,13 +374,6 @@ de:
         upcoming_meetings: Bevorstehende Treffen
       upcoming_meeting_for_card:
         upcoming_meeting: Kommendes Treffen
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Ähnliche Ergebnisse:'
-        result_meeting: 'Ähnliche Treffen:'
-      proposals_from_meeting:
-        meeting_proposal: 'Ähnliche Vorschläge:'
-        proposal_meeting: 'Ähnliche Treffen:'
   devise:
     mailer:
       join_meeting:
