@@ -221,6 +221,7 @@ fi:
     proposals:
       actions:
         answer: Vastaa
+        edit_proposal: Muokkaa ehdotusta
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
         private_notes: Omat muistiinpanot
@@ -257,6 +258,9 @@ fi:
           create:
             invalid: Ehdotuksen luonnissa tapahtui virhe
             success: Ehdotus luotu onnistuneesti
+          edit:
+            title: Päivitä ehdotus
+            update: Päivittää
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
             select_a_category: Valitse aihepiiri
@@ -294,6 +298,7 @@ fi:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
           create: "%{user_name} loi ehdotuksen %{resource_name} tilaan %{space_name} virallisena ehdotuksena"
+          update: "%{user_name} päivitti %{resource_name} virallisen ehdotuksen %{space_name} tilasta"
         proposal_note:
           create: "%{user_name} jätti yksityisen viestin ehdotuksesta %{resource_name} tilaan %{space_name}"
       answers:
