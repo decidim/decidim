@@ -221,6 +221,7 @@ ca:
     proposals:
       actions:
         answer: Respondre
+        edit_proposal: Edició de la proposta
         import: Importa des d'un altre component
         new: Nova proposta
         private_notes: Notes privades
@@ -257,6 +258,9 @@ ca:
           create:
             invalid: Hi ha hagut un problema en crear aquesta proposta
             success: Proposta creada correctament
+          edit:
+            title: Actualitza la proposta
+            update: Actualització
           form:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             select_a_category: Selecciona una categoria
@@ -294,6 +298,7 @@ ca:
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la proposta %{resource_name} sobre l'espai %{space_name} com a proposta oficial"
+          update: "%{user_name} actualitzar la %{resource_name} proposta oficial sobre l'espai %{space_name}"
         proposal_note:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
       answers:
