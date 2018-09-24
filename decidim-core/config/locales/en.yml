@@ -826,7 +826,7 @@ en:
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
-      too_much_caps: is using too much capital letters (over 25% of the text)
+      too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)
   forms:
     required: Required

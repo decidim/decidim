@@ -52,7 +52,7 @@ describe "Edit proposals", type: :system do
         fill_in "Body", with: "A"
         click_button "Send"
 
-        expect(page).to have_content("is using too much capital letters (over 25% of the text), is too short (under 15 characters)")
+        expect(page).to have_content("is using too many capital letters (over 25% of the text), is too short (under 15 characters)")
       end
     end
   end
