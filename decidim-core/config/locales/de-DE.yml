@@ -16,7 +16,7 @@ de:
         remove_avatar: Avatar entfernen
         user_group_document_number: Organisationsbelegnummer
         user_group_name: Name der Organisation
-        user_group_phone: Organisationstelefon
+        user_group_phone: Telefon der Organisation
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
@@ -31,10 +31,10 @@ de:
         name: Benutzername
         password: Passwort
         password_confirmation: Bestätigung des Passworts
-        remember_me: Erinnere dich an mich
+        remember_me: Erinneren Sie mich
         user_group_document_number: Organisationsbelegnummer
         user_group_name: Name der Organisation
-        user_group_phone: Organisationstelefon
+        user_group_phone: Telefon der Organisation
     models:
       decidim/user:
         one: Benutzer*in
@@ -84,7 +84,7 @@ de:
         update: "%{user_name} hat den %{resource_name} Bereich aktualisiert"
       component:
         create: "%{user_name} hat die %{resource_name} Komponente zu %{space_name} hinzugefügt"
-        delete: "%{user_name} entfernte die %{resource_name} Komponente von dem %{space_name} Leerzeichen"
+        delete: "%{user_name} hat die %{resource_name} Komponente von dem %{space_name} ... entfernt"
         publish: "%{user_name} veröffentlichte die %{resource_name} Komponente in dem %{space_name} Raum"
         unpublish: "%{user_name} unveröffentlicht die %{resource_name} Komponente aus dem %{space_name} Leerzeichen"
       moderation:
