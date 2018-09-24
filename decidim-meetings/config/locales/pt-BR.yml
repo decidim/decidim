@@ -20,13 +20,13 @@ pt-BR:
         end_time: Fim do tempo
         location: Localização
         location_hints: Dicas de localização
+        organizer_id: Organizador
         private_meeting: Reunião privada
         registration_terms: Termos de registro
         registrations_enabled: Registos habilitados
         start_time: Hora de início
         title: Título
         transparent: Transparente
-        organizer_id: Organizador
       minutes:
         audio_url: URL de áudio
         description: Descrição
