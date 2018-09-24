@@ -812,17 +812,17 @@ eu:
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       expired: iraungi egin da, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
-      long_words: luzeegia den hitzak ditu
-      must_start_with_caps: txantiloiak hasi behar dira
+      long_words: luzeegia daukaten hitzak (35 karaktere baino gehiago)
+      must_start_with_caps: letra maiuskulaz hasi behar da
       nesting_too_deep: ezin da egon azpikategoria batean
       not_found: ez da aurkitu
       not_locked: ez zen blokeatuta
       not_saved:
         one: '1 errore hau debekatu egin da %{resource} gordetzean:'
         other: "%{count} errore hau debekatu zuen %{resource} gordetzean:"
-      too_many_marks: marka gehiegi erabiltzen ari da
-      too_much_caps: txantiloiak gehiegi erabiltzen ari dira
-      too_short: oso laburra da
+      too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
+      too_much_caps: maiuskulaz gehiegi erabiltzen ari da (testuaren% 25 baino gehiago)
+      too_short: laburra da (15 karaktere baino gutxiago)
   forms:
     required: Nahitaezkoa da
   invisible_captcha:
