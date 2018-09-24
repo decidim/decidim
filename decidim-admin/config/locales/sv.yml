@@ -103,9 +103,6 @@ sv:
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
         site: Hemsida
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -654,7 +651,3 @@ sv:
           title: inställningar
         users:
           title: Användare
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"
