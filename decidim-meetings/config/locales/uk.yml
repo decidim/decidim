@@ -186,7 +186,6 @@ uk:
           form:
             attendee_type: Різновид учасника
             existing_user: Чинний учасник
-            invite: Запросити
             invite_explanation: Учаснику буде запропоновано приєднатися до зустрічі та до організації.
             non_user: Не чинний учасник
             select_user: Оберіть учасника
@@ -337,8 +336,6 @@ uk:
             many: "Залишилось %{count} місць"
             other: "Залишилось %{count} місць"
           view: Переглянути
-      meetings_map:
-        view_meeting: Переглянути зустріч
       models:
         invite:
           fields:
@@ -388,13 +385,6 @@ uk:
         upcoming_meetings: Прийдешні зустрічі
       upcoming_meeting_for_card:
         upcoming_meeting: Прийдешня зустріч
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Пов''язані підсумки:'
-        result_meeting: 'Пов''язані зустрічі:'
-      proposals_from_meeting:
-        meeting_proposal: 'Супутні пропозиції:'
-        proposal_meeting: 'Пов''язані зустрічі:'
   devise:
     mailer:
       join_meeting:
