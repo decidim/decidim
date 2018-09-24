@@ -661,12 +661,7 @@ ru:
       content_type_whitelist_error: этот тип файла недопустим
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
-      long_words: содержит слишком длинные слова
-      must_start_with_caps: должно начинаться с заглавных букв
       nesting_too_deep: не может быть внутри подкатегории
-      too_many_marks: содержит слишком много знаков вопроса или восклицания
-      too_much_caps: содержит слишком много заглавных букв
-      too_short: слишком короткое
   forms:
     required: Обязательно
   invisible_captcha:
