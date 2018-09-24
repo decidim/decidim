@@ -221,6 +221,7 @@ fr:
     proposals:
       actions:
         answer: Répondre
+        edit_proposal: Modifier la proposition
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
         private_notes: Notes privées
@@ -257,6 +258,9 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
             success: Proposition créée avec succès
+          edit:
+            title: Mise à jour de la proposition
+            update: Mettre à jour
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
@@ -294,6 +298,7 @@ fr:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
+          update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
           create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
       answers:
