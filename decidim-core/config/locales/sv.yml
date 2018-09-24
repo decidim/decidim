@@ -812,17 +812,15 @@ sv:
       cycle_detected: en omfattnings förälder kan inte vara en av sina efterkommande
       expired: har gått ut, vänligen be om en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
-      long_words: innehåller ord som är för långa
-      must_start_with_caps: måste börja med versaler
+      long_words: innehåller ord som är för långa (över 35 tecken)
+      must_start_with_caps: måste börja med en bokstav
       nesting_too_deep: kan inte vara inuti en underkategori
       not_found: hittades inte
       not_locked: var inte låst
       not_saved:
         one: '1 fel förbjudet att detta %{resource} sparas:'
         other: "%{count} fel förbjudna att denna %{resource} sparas:"
-      too_many_marks: använder för många märken
-      too_much_caps: använder för många versaler
-      too_short: är för kort
+      too_many_marks: använder för många på varandra följande skiljetecken (t.ex.! och?)
   forms:
     required: Krävs
   invisible_captcha:
