@@ -20,13 +20,13 @@ sv:
         end_time: Sluttid
         location: Plats
         location_hints: Platstips
+        organizer_id: Arrangör
         private_meeting: Privat möte
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
         title: Titel
         transparent: Transparent
-        organizer_id: Arrangör
       minutes:
         audio_url: Ljud-URL
         description: Beskrivning
