@@ -167,29 +167,8 @@ uk:
       started_at: 'Розпочато: %{timestamp}'
     authorization_modals:
       show:
-        expired:
-          authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
-          explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
-          title: Строк дії підтвердження особи вичерпався
         incomplete:
           cancel: Скасувати
-          explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
-          invalid_field: "Поле %{field}"
-          reauthorize: Заново підтвердити свою особу
-          title: Будь ласка, заново підтвердіть свою особу
-        missing:
-          authorize: Підтвердити свою особу за допомогою "%{authorization}"
-          explanation: Щоб виконати цю дію, потрібно підтвердити свою особу за допомогою "%{authorization}".
-          title: Необхідне підтвердження своєї особи
-        pending:
-          explanation: Щоб виконати цю дію, потрібно підтвердити особу за допомогою "%{authorization}", але ваше підтвердження особи все ще триває
-          resume: Відстежте перебіг підтвердження особи "%{authorization}"
-          title: Підтвердження особи все ще триває
-        unauthorized:
-          explanation: Вибачте, ви не можете виконати цю дію, оскільки деякі з ваших даних підтвердження особи не збігаються.
-          invalid_field: "Для поля %{field} значення %{value} неприпустиме."
-          ok: Гаразд
-          title: Недостатньо прав через відсутність підтвердження особи
     collapsible_list:
       hidden_elements_count:
         one: і ще 1
@@ -339,7 +318,6 @@ uk:
     filters:
       linked_classes:
         all: Усі
-        dummy_resource: Приклади ресурсів
         meeting: Зустрічі
         project: Проекти
         proposal: Пропозиції
@@ -427,7 +405,6 @@ uk:
           no_conversations: У вас ще немає бесід
         show:
           conversation_with_html: Бесіда з <strong>%{name}</strong>
-          reply: Відповісти
           send: Надіслати
         start:
           send: Надіслати
@@ -460,8 +437,6 @@ uk:
         greetings: Добридень,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>!
         hello: Вітаємо,
         subject: Бажаєте продовжити отримувати свіжі новини про %{organization_name}?
-    notifications:
-      no_notifications: Ще немає сповіщень.
     notifications_settings:
       show:
         email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
@@ -478,41 +453,13 @@ uk:
     pages:
       home:
         extended:
-          debates: Обговорення
-          debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення, що вас цікавлять.
-          how_to_participate: Як я можу взяти участь у русі?
           meetings: Зустрічі
-          meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
-          more_info: Додаткові відомості
           proposals: Пропозиції
-          proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
-        footer_sub_hero:
-          footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
-          footer_sub_hero_headline: Ласкаво просимо до майданчику співучасті %{organization}!
-          register: Зареєструватися
-        hero:
-          participate: Взяти участь
-          welcome: Ласкаво просимо до %{organization}!
         statistics:
-          answers_count: Пройдених опитувань
-          assemblies_count: Зборів
-          comments_count: Коментарів
-          debates_count: Обговорення
-          endorsements_count: Проявів підтримки
-          headline: Поточний стан %{organization}
           meetings_count: Зустрічей
-          orders_count: Голосів
-          pages_count: Сторінок
-          processes_count: Рухів
           projects_count: Проектів
-          proposals_accepted: Прийняті пропозиції
           proposals_count: Пропозицій
           results_count: Підсумків
-          surveys_count: Опитувань
-          users_count: Учасників
-          votes_count: Голосів
-        sub_hero:
-          register: Зареєструватися
       index:
         title: Додаткові відомості
       terms_and_conditions:
@@ -650,9 +597,6 @@ uk:
         greeting: Доброго дня, %{recipient}!
         message: Ми пишемо вам, щоб повідомити про те, що ваш пароль був змінений.
         subject: Пароль змінено
-    passwords:
-      edit:
-        new_password: Пароль
   doorkeeper:
     scopes:
       public: Оприлюднені відомості про вас.
