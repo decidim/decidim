@@ -6,7 +6,7 @@ fi:
         answered_at: Vastattu osoitteessa
         body: Leipäteksti
         category_id: Aihepiiri
-        has_address: Ehdotuksella on osoite
+        has_address: Ehdotuksella on sijainti
         scope_id: Teema
         state: Tila
         title: Otsikko
@@ -24,7 +24,7 @@ fi:
               needs_to_be_reattached: Liitettävä uudelleen
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
-      decidim/proposals/admin/update_proposal_category_event: Ehdotusluokka muutettu
+      decidim/proposals/admin/update_proposal_category_event: Ehdotuksen aihepiiri muutettu
       decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
       decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
       decidim/proposals/evaluating_proposal_event: Ehdotus on arvioitavana
@@ -61,27 +61,27 @@ fi:
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
-            comments_enabled: Kommentit ovat käytössä
-            geocoding_enabled: Geokoodaus on käytössä
+            comments_enabled: Kommentit käytössä
+            geocoding_enabled: Geokoodaus käytössä
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä
-            proposal_length: Suurin ehdotuksen pituus
-            proposal_limit: Ehdotuksen raja käyttäjää kohden
-            proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
-            proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ohjattu ohjattu "Valmis" vaiheen ohjeteksti
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
+            proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
+            proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
+            proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
+            proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Vertaile" -vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Valmis" -vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
-            threshold_per_proposal: Kynnys ehdotusta kohden
-            vote_limit: Äänestysraja käyttäjää kohden
+            threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
+            vote_limit: Käytettävissä olevien äänien määrä käyttäjää kohden
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
             creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
-            proposal_answering_enabled: Ehdotukseen vastaaminen on käytössä
+            proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             votes_blocked: Äänet ovat tukossa
             votes_enabled: Äänet käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
@@ -89,27 +89,27 @@ fi:
       proposals:
         creation_enabled:
           email_intro: 'Voit nyt luoda uusia ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Ehdotukset nyt käytössä kohteessa %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">uutta ehdotusta</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Voit suositella ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esiteyn linkin kautta.
           email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisestä linkistä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
           email_subject: Seuraamasi ehdotus on hyväksytty
           notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistu:"
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet seuraat %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: "%{endorser_nickname} on suositellut uutta ehdotusta"
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut ehdotusta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tältä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Seuraamasi ehdotus on arvioitavana
           notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on arvioitavana.
         proposal_mentioned:
@@ -118,27 +118,27 @@ fi:
           notification_title: Ehdotuksesi%{mentioned_proposal_title} on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on julkaissut uuden ehdotuksen, tarkista se ja osallistu:"
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi ehdotus tekijältä %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus julkaistiin tekijän <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta.
         proposal_published_for_space:
           email_intro: Ehdotus "%{resource_title}", jota seuraat, on lisätty kohteeseen "%{participatory_space_title}".
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi ehdotus lisätty tilaan %{participatory_space_title}
           notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
           email_subject: Seuraamasi ehdotus on hylätty
           notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
         proposal_update_category:
-          email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi luokkaan "%{resource_title}", tarkista se:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska olet ehdotuksen tekijä.
-          email_subject: Ehdotusluokka %{resource_title} on päivitetty
-          notification_title: Järjestelmänvalvoja on päivittänyt ehdotusluokan <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
+          notification_title: Järjestelmänvalvoja on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
         voting_enabled:
           email_intro: 'Voit äänestää ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Ehdotusten äänestäminen on alkanut kohteessa %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten äänestämisen</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     participatory_processes:
@@ -194,7 +194,7 @@ fi:
           index:
             actions: Toiminnot
             cancel: Peruuta
-            change_category: Vaihda luokka
+            change_category: Vaihda aihepiiri
             selected: valittu
             title: Ehdotukset
             update: Päivitä
@@ -202,10 +202,10 @@ fi:
             create: Luo
             title: Luo ehdotus
           update_category:
-            invalid: 'Näissä ehdotuksissa oli jo luokka %{category}: %{proposals}.'
-            select_a_category: Valitse luokka
+            invalid: 'Näissä ehdotuksissa oli jo aihepiiri %{category}: %{proposals}.'
+            select_a_category: Valitse aihepiiri
             select_a_proposal: Valitse ehdotus
-            success: 'Ehdotukset päivitettiin onnistuneesti luokkaan %{category}: %{proposals}.'
+            success: 'Ehdotukset päivitettiin onnistuneesti aihepiiriin %{category}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ehdotuksien tuomisessa esiintyi ongelma
@@ -275,7 +275,7 @@ fi:
           title: Vastaavat ehdotukset
         complete:
           attachment_legend: "(Valinnainen) Lisää liite"
-          select_a_category: Valitse kategoria
+          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Viimeistele ehdotuksesi
         count:
@@ -284,7 +284,7 @@ fi:
             other: "%{count} ehdotusta"
         edit:
           back: Takaisin
-          select_a_category: Valitse kategoria
+          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
@@ -338,7 +338,7 @@ fi:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
-            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutien aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
+            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
         proposal:
@@ -361,12 +361,12 @@ fi:
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
         tags:
-          changed_from: "(muutettu ryhmästä <u>%{previous_category}</u> ylläpitäjä toimesta)"
+          changed_from: "(muutettu aihepiiristä <u>%{previous_category}</u> ylläpitäjä toimesta)"
           filed_as: Merkitty
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
-          maximum_votes_reached: Äänestysraja saavutettu
+          maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
           votes_blocked: Äänestys estetty
