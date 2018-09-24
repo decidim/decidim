@@ -812,17 +812,17 @@ fr:
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
-      long_words: contient des mots qui sont trop longs
-      must_start_with_caps: doit commencer avec des majuscules
+      long_words: contient des mots trop longs (plus de 35 caractères)
+      must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
       not_found: pas trouvé
       not_locked: n'était pas verrouillé
       not_saved:
         one: '1 erreur a interdit cette sauvegarde %{resource}:'
         other: "%{count} erreurs interdit ce %{resource} d'être sauvé:"
-      too_many_marks: utilise trop de signes
-      too_much_caps: utilise trop de majuscules
-      too_short: est trop court
+      too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
+      too_much_caps: utilise trop de majuscules (plus de 25% du texte)
+      too_short: est trop court (moins de 15 caractères)
   forms:
     required: Champs obligatoires
   invisible_captcha:
