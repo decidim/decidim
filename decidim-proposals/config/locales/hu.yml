@@ -221,6 +221,7 @@ hu:
     proposals:
       actions:
         answer: Válasz
+        edit_proposal: Javaslat szerkesztése
         import: Importálás egy másik elemből
         new: Új javaslat
         private_notes: Privát jegyzet
@@ -257,6 +258,9 @@ hu:
           create:
             invalid: Probléma merült fel a javaslat létrehozásakor
             success: Javaslat létrehozása sikeres
+          edit:
+            title: Frissítse a javaslatot
+            update: frissítés
           form:
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             select_a_category: Válassz kategóriát
@@ -294,6 +298,7 @@ hu:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
           create: "%{user_name} létrehozta a(z) %{resource_name} javaslatot (hivatalos) itt: %{space_name}"
+          update: "%{user_name} frissítette az %{resource_name} hivatalos javaslatot a %{space_name} helyre"
         proposal_note:
           create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
       answers:
