@@ -16,28 +16,18 @@ module Decidim
       @metric_name = ""
     end
 
-    def clean
-      @query = nil
-      @cumulative = nil
-      @quantity = nil
-      @registry = nil
-    end
-
     def valid?
       @day.present?
     end
 
-    def registry
+    def save
       return @registry if @registry
-      query
+
       return if cumulative.zero?
       @registry = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name, organization: @organization)
       @registry.assign_attributes(cumulative: cumulative, quantity: quantity)
+      @registry.save!
       @registry
-    end
-
-    def registry!
-      registry.try(:save!)
     end
 
     private
@@ -55,7 +45,7 @@ module Decidim
     end
 
     def cumulative
-      @cumulative ||= @query.count
+      @cumulative ||= query.count
     end
 
     def quantity

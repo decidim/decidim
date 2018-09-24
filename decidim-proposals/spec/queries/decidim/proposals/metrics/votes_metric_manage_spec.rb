@@ -29,7 +29,6 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
     it "updates metric records" do
       create(:metric, metric_type: "votes", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space, related_object: proposal)
       registry = generate_metric_registry
-      puts Decidim::Metric.all.as_json
 
       expect(Decidim::Metric.count).to eq(1)
       expect(registry.collect(&:cumulative)).to eq([5])
@@ -40,6 +39,5 @@ end
 
 def generate_metric_registry(date = nil)
   metric = described_class.for(date, organization)
-  metric.registry!
-  metric.registry
+  metric.save
 end

@@ -30,7 +30,7 @@ describe Decidim::MetricJob do
         .and_return(true)
 
       expect(manager_object)
-        .to receive(:registry!)
+        .to receive(:save)
 
       subject.perform_now(manager_class.name, organization.id, day)
     end

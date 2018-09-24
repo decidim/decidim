@@ -8,7 +8,7 @@ module Decidim
       organization = Decidim::Organization.find_by(id: organization_id)
       return unless organization
       metric = manager_class.constantize.for(day, organization)
-      metric.registry! if metric.valid?
+      metric.save if metric.valid?
     end
   end
 end

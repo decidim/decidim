@@ -7,22 +7,12 @@ module Decidim
         def initialize(day_string, organization)
           super(day_string, organization)
           @metric_name = "votes"
-
-          spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
-            manifest.participatory_spaces.call(@organization).public_spaces
-          end
-          components = Decidim::Component.where(participatory_space: spaces).published
-          proposals = Decidim::Proposals::Proposal.where(component: components).except_withdrawn
-          @query = Decidim::Proposals::ProposalVote.joins(proposal: :component)
-                                                   .left_outer_joins(proposal: :category)
-                                                   .where(proposal: proposals)
         end
 
-        def registry
+        def save
           return @registry if @registry
-          query
-          @registry = []
 
+          @registry = []
           cumulative.each do |key, cumulative_value|
             next if cumulative_value.zero?
             quantity_value = quantity[key] || 0
@@ -34,26 +24,30 @@ module Decidim
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
             @registry << record
           end
+          @registry.each(&:save!)
           @registry
-        end
-
-        def registry!
-          registry.each(&:save!)
         end
 
         private
 
         def query
+          return @query if @query
+
+          spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
+            manifest.participatory_spaces.call(@organization).public_spaces
+          end
+          components = Decidim::Component.where(participatory_space: spaces).published
+          proposals = Decidim::Proposals::Proposal.where(component: components).except_withdrawn
+          @query = Decidim::Proposals::ProposalVote.joins(proposal: :component)
+                                                   .left_outer_joins(proposal: :category)
+                                                   .where(proposal: proposals)
           @query = @query.where("decidim_proposals_proposal_votes.created_at <= ?", end_time)
           @query = @query.group("decidim_categorizations.id", :participatory_space_type, :participatory_space_id, :decidim_proposal_id)
-        end
-
-        def cumulative
-          @cumulative ||= @query.count
+          @query
         end
 
         def quantity
-          @quantity ||= @query.where("decidim_proposals_proposal_votes.created_at >= ?", start_time).count
+          @quantity ||= query.where("decidim_proposals_proposal_votes.created_at >= ?", start_time).count
         end
       end
     end

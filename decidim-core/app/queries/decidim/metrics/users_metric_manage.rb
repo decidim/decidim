@@ -7,13 +7,16 @@ module Decidim
       def initialize(day_string, organization)
         super(day_string, organization)
         @metric_name = "users"
-        @query = Decidim::User
       end
 
       private
 
       def query
+        return @query if @query
+
+        @query = Decidim::User
         @query = @query.where("confirmed_at <= ?", end_time).not_managed.confirmed
+        @query
       end
 
       def quantity
