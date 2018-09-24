@@ -221,6 +221,7 @@ nl:
     proposals:
       actions:
         answer: Antwoord
+        edit_proposal: Bewerk voorstel
         import: Importeren vanuit een ander onderdeel
         new: Nieuw voorstel
         private_notes: Privé-opmerkingen
@@ -257,6 +258,9 @@ nl:
           create:
             invalid: Er is een probleem opgetreden met het maken van dit voorstel
             success: Voorstel succesvol aangemaakt
+          edit:
+            title: Update voorstel
+            update: Bijwerken
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             select_a_category: Kies een categorie
@@ -294,6 +298,7 @@ nl:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} spatie"
           create: "%{user_name} heeft het voorstel %{resource_name} op de %{space_name} ruimte gemaakt als officieel voorstel"
+          update: "%{user_name} heeft het %{resource_name} officiële voorstel op de %{space_name} ruimte bijgewerkt"
         proposal_note:
           create: "%{user_name} heeft een privé-opmerking achtergelaten op het voorstel %{resource_name} op de %{space_name} spatie"
       answers:
