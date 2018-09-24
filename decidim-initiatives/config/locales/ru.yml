@@ -6,8 +6,6 @@ ru:
         description: Описание
         offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
-        signature_end_date: Конец периода сбора подписей
-        signature_start_date: Начало периода сбора подписей
         signature_type: Вид сбора подписей
         signature_type_values:
           any: Смешанный
