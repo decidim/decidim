@@ -181,7 +181,6 @@ fr:
           form:
             attendee_type: Type de participant
             existing_user: Utilisateur existant
-            invite: Inviter
             invite_explanation: L'utilisateur sera invité à se joindre à la réunion et à l'organisation.
             non_user: Utilisateur non existant
             select_user: Sélectionner un utilisateur
@@ -344,8 +343,6 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
-      meetings_map:
-        view_meeting: Voir la rencontre
       models:
         invite:
           fields:
@@ -395,13 +392,6 @@ fr:
         upcoming_meetings: Rencontres à venir
       upcoming_meeting_for_card:
         upcoming_meeting: Prochaine rencontre
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Résultats associés :'
-        result_meeting: 'Rencontres associées :'
-      proposals_from_meeting:
-        meeting_proposal: 'Propositions créées lors de cette rencontre :'
-        proposal_meeting: 'Rencontres associées :'
   devise:
     mailer:
       join_meeting:
