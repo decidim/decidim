@@ -6,11 +6,11 @@ fi:
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         description: Kuvaus
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         progress: Edistyminen
         project_ids: Liitetyt projektit
         proposals: Sisällytetyt ehdotukset
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         title: Otsikko
         updated_at: Päivitysaika
       status:
@@ -119,9 +119,9 @@ fi:
       models:
         result:
           fields:
-            end_date: Päättymisaika
+            end_date: Päättymispäivä
             progress: Edistyminen
-            start_date: Aloitusaika
+            start_date: Alkamispäivä
             status: Tila
             title: Otsikko
         status:
@@ -196,7 +196,7 @@ fi:
       accountability:
         proposal_linked:
           email_intro: 'Ehdotus "%{proposal_title}" on sisällytetty tulokseen. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohtaan %{proposal_title}
           notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty tulokseen <a href="%{resource_path}">%{resource_title}</a>.
     participatory_processes:
