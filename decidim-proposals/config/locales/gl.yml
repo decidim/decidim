@@ -535,7 +535,6 @@ gl:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Lista de avales
           hidden_endorsers_count:
             one: e 1 persoa máis
             other: e %{count} persoas máis
@@ -612,11 +611,3 @@ gl:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versión %{index}
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Propostas relacionadas
-      included_projects:
-        project_result: 'Resultados que aparecen neste proxecto:'
-      included_proposals:
-        proposal_project: 'Proposta que aparece nestes proxectos:'
-        proposal_result: 'Proposta que aparece nestes resultados:'
