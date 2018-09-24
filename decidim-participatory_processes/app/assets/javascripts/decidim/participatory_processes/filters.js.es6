@@ -7,8 +7,14 @@ $(() => {
     $loading.hide();
 
     $processesGrid.on("click", filterLinksSelector, (event) => {
-      const $target = $(event.target);
       const $processesGridCards = $processesGrid.find(".card-grid .column");
+      let $target = $(event.target);
+
+      // IE11 matches the <strong> element inside the filtering anchor element
+      // as the `event.target` breaking the functionality below.
+      if (!$target.is("a")) {
+        $target = $target.parents("a");
+      }
 
       $(filterLinksSelector).removeClass("is-active");
       $target.addClass("is-active");
