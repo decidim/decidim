@@ -181,7 +181,6 @@ eu:
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Erabiltzaile existentea
-            invite: Gonbit egin
             invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
             non_user: Erabiltzailea ez dago
             select_user: Aukeratu erabiltzailea
@@ -344,8 +343,6 @@ eu:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
           view: ikusi
-      meetings_map:
-        view_meeting: Ikusi topaketa
       models:
         invite:
           fields:
@@ -395,13 +392,6 @@ eu:
         upcoming_meetings: Hurrengo topaketak
       upcoming_meeting_for_card:
         upcoming_meeting: Hurrengo bilera
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Topaketaren emaitzak:'
-        result_meeting: 'Proposamenarekin lotutako topaketak:'
-      proposals_from_meeting:
-        meeting_proposal: 'Topaketari dagozkion proposamenak:'
-        proposal_meeting: 'Proposamenarekin lotutako topaketak:'
   devise:
     mailer:
       join_meeting:
