@@ -821,7 +821,7 @@ eu:
         one: '1 errore hau debekatu egin da %{resource} gordetzean:'
         other: "%{count} errore hau debekatu zuen %{resource} gordetzean:"
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
-      too_much_caps: maiuskulaz gehiegi erabiltzen ari da (testuaren% 25 baino gehiago)
+      too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
       too_short: laburra da (15 karaktere baino gutxiago)
   forms:
     required: Nahitaezkoa da
