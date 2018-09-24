@@ -161,29 +161,8 @@ fi:
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Valtuuta uudestaan palvelulla "%{authorization}"
-          explanation: Valtuutuksesi on umpeutunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettava itsesi uudestaan palvelulla "%{authorization}".
-          title: Valtuutus on umpeutunut
         incomplete:
           cancel: Peruuta
-          explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
-          invalid_field: "%{field}"
-          reauthorize: Varmenna uudestaan
-          title: Varmenna uudestaan
-        missing:
-          authorize: Varmenna varmennustavalla "%{authorization}"
-          explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
-          title: Varmennus vaaditaan
-        pending:
-          explanation: Tämän toiminnon suorittamiseksi sinun valtuutettava itsesi palvelulla "%{authorization}", mutta valtuutuksesi on edelleen kesken
-          resume: Tarkista "%{authorization}" valtuutuksen eteneminen
-          title: Valtuutus on edelleen kesken
-        unauthorized:
-          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
-          ok: Ok
-          title: Ei varmennettu
     collapsible_list:
       hidden_elements_count:
         one: ja 1 lisää
@@ -348,7 +327,6 @@ fi:
       linked_classes:
         all: Kaikki
         collaborative_draft: Yhdessä koostettu luonnos
-        dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
         proposal: Ehdotukset
@@ -449,7 +427,6 @@ fi:
           no_conversations: Sinulla ei vielä ole keskusteluja
         show:
           conversation_with_html: Keskustelu käyttäjän <strong>%{name}</strong> kanssa
-          reply: Vastaa
           send: Lähetä
         start:
           send: Lähetä
@@ -482,8 +459,6 @@ fi:
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
         subject: Haluatko jatkaa olennaisen tiedon vastaanottamista koskien %{organization_name} -palvelua?
-    notifications:
-      no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
       show:
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
@@ -500,41 +475,13 @@ fi:
     pages:
       home:
         extended:
-          debates: Väittelyt
-          debates_explanation: Väittele, keskustele ja jaa näkemyksesi rikastuttaaksesi sinua koskettavia aiheita.
-          how_to_participate: Kuinka osallistun prosessiin?
           meetings: Tapahtumat
-          meetings_explanation: Selvitä missä ja milloin voit osallistua julkisiin tapahtumiin.
-          more_info: Lisätietoja
           proposals: Ehdotukset
-          proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
-        footer_sub_hero:
-          footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
-          footer_sub_hero_headline: Tervetuloa %{organization} -organisaation yhteisölliseen osallistumispalveluun.
-          register: Rekisteröidy
-        hero:
-          participate: Osallistu
-          welcome: Tervetuloa organisaatioon %{organization}!
         statistics:
-          answers_count: Valmistuneet kyselyt
-          assemblies_count: Kehitysryhmät
-          comments_count: Kommentit
-          debates_count: Väittelyt
-          endorsements_count: merkintöjen
-          headline: Tämänhetkinen tila organisaatiolle %{organization}
           meetings_count: Tapahtumat
-          orders_count: Äänet
-          pages_count: Sivut
-          processes_count: Prosessit
           projects_count: Projektit
-          proposals_accepted: Hyväksytyt ehdotukset
           proposals_count: Ehdotukset
           results_count: Tulokset
-          surveys_count: Kyselyt
-          users_count: Osallistujat
-          votes_count: Äänet
-        sub_hero:
-          register: Rekisteröidy
       index:
         title: Lisätietoa
       terms_and_conditions:
