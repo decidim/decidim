@@ -181,7 +181,6 @@ pt-BR:
           form:
             attendee_type: Tipo de participante
             existing_user: Usuário existente
-            invite: Convite
             invite_explanation: O usuário será convidado a participar do encontro e da organização.
             non_user: Usuário inexistente
             select_user: Selecionar usuário
@@ -344,8 +343,6 @@ pt-BR:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Visualizar
-      meetings_map:
-        view_meeting: Ver reunião
       models:
         invite:
           fields:
@@ -395,13 +392,6 @@ pt-BR:
         upcoming_meetings: Próximas reuniões
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunião
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Resultados relacionados:'
-        result_meeting: 'Reuniões relacionadas:'
-      proposals_from_meeting:
-        meeting_proposal: 'Propostas relacionadas:'
-        proposal_meeting: 'Reuniões relacionadas:'
   devise:
     mailer:
       join_meeting:
