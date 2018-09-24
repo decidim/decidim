@@ -661,12 +661,7 @@ uk:
       content_type_whitelist_error: цей тип файлу неприпустимий
       cycle_detected: батько обсягу не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
-      long_words: містить занадто довгі слова
-      must_start_with_caps: має починатися з великих літер
       nesting_too_deep: не може бути всередині підкатегорії
-      too_many_marks: містить забагато знаків оклику або питання
-      too_much_caps: містить забагато великих літер
-      too_short: занадто короткий
   forms:
     required: Обов'язкове поле
   invisible_captcha:
