@@ -26,6 +26,7 @@ fr:
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
+        organizer_id: Organisateur
       minutes:
         audio_url: Lien vers l'audio
         description: Description
