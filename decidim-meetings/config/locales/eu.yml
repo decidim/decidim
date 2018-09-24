@@ -20,13 +20,13 @@ eu:
         end_time: Amaiera-ordua
         location: Kokapena
         location_hints: Kokapen-argibideak
+        organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
         registration_terms: Izen-emateak
         registrations_enabled: Erregistroak gaituta
         start_time: Hasiera-ordua
         title: Titulua
         transparent: gardena
-        organizer_id: Antolatzea
       minutes:
         audio_url: Audioaren URLa
         description: deskribapena
