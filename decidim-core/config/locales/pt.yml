@@ -821,7 +821,7 @@ pt:
         one: '1 erro proibiu que este %{resource} fosse salvo:'
         other: "%{count} erros proibiram este %{resource} de ser salvo:"
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
-      too_much_caps: está usando letras maiúsculas demais (mais de 25% do texto)
+      too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
       too_short: é muito curto (menos de 15 caracteres)
   forms:
     required: Requeridos
