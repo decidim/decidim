@@ -816,17 +816,17 @@ de:
       cycle_detected: Der Elternteil eines Bereichs darf keiner seiner Nachkommen sein
       expired: ist abgelaufen, bitte fordern Sie einen neuen an
       file_size_is_less_than_or_equal_to: Die Dateigröße muss kleiner oder gleich %{count}
-      long_words: enthält zu lange Wörter
-      must_start_with_caps: muss mit Großbuchstaben beginnen
+      long_words: enthält zu lange Wörter (über 35 Zeichen)
+      must_start_with_caps: muss mit einem Großbuchstaben beginnen
       nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
       not_found: nicht gefunden
       not_locked: war nicht gesperrt
       not_saved:
         one: '1 Fehler hat das Speichern dieser %{resource}:'
         other: "%{count} Fehler verboten, dass %{resource} gespeichert wird:"
-      too_many_marks: benutzt zu viele Marken
-      too_much_caps: benutzt zu viele Caps
-      too_short: ist zu kurz
+      too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
+      too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
+      too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     required: Erforderlich
   invisible_captcha:
