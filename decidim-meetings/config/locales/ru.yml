@@ -186,7 +186,6 @@ ru:
           form:
             attendee_type: Вид участника
             existing_user: Существующий участник
-            invite: Пригласить
             invite_explanation: Участнику будет предложено присоединиться к встрече и к организации.
             non_user: Не существующий участник
             select_user: Выберите участника
@@ -337,8 +336,6 @@ ru:
             many: "Осталось %{count} мест"
             other: "Осталось %{count} мест"
           view: Посмотреть
-      meetings_map:
-        view_meeting: Посмотреть встречу
       models:
         invite:
           fields:
@@ -388,13 +385,6 @@ ru:
         upcoming_meetings: Предстоящие встречи
       upcoming_meeting_for_card:
         upcoming_meeting: Предстоящая встреча
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Подобные итоги:'
-        result_meeting: 'Подобные встречи:'
-      proposals_from_meeting:
-        meeting_proposal: 'Подобные предложения:'
-        proposal_meeting: 'Подобные встречи:'
   devise:
     mailer:
       join_meeting:
