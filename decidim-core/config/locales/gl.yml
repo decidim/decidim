@@ -812,17 +812,17 @@ gl:
       cycle_detected: un pai do alcance non pode ser un dos seus descendentes
       expired: caducou, por favor solicita unha nova
       file_size_is_less_than_or_equal_to: O tamaño do ficheiro debe ser inferior ou igual a %{count}
-      long_words: contén palabras que son demasiado longas
-      must_start_with_caps: debe comezar con tapas
+      long_words: contén palabras que son demasiado longas (máis de 35 caracteres)
+      must_start_with_caps: debe comezar cunha letra maiúscula
       nesting_too_deep: non pode estar dentro dunha subcategoría
       not_found: non atopado
       not_locked: Non estaba bloqueado
       not_saved:
         one: 'O erro 1 prohibiuse que este %{resource} se gardase:'
         other: "%{count} erros prohibidos de gardar este %{resource}:"
-      too_many_marks: está a usar demasiadas marcas
-      too_much_caps: está a usar demasiadas tapas
-      too_short: é demasiado curto
+      too_many_marks: está a usar demasiadas marcas de puntuación consecutivas (por exemplo, e?)
+      too_much_caps: está a empregar maiúsculas (máis do 25% do texto)
+      too_short: é demasiado curto (menos de 15 caracteres)
   forms:
     required: Requerido
   invisible_captcha:
