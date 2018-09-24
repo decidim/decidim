@@ -180,7 +180,6 @@ pt:
           form:
             attendee_type: Tipo de participante
             existing_user: Usuário existente
-            invite: Convite
             invite_explanation: O usuário será convidado a participar da reunião e também da organização.
             non_user: Usuário não existente
             select_user: Selecione o usuário
@@ -306,8 +305,6 @@ pt:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
-        index:
-          view_meeting: Ver reunião
         meeting_minutes:
           meeting_minutes: Atas de Reunião
           related_information: Informação relacionada
@@ -378,13 +375,6 @@ pt:
         upcoming_meetings: Próximas reuniões
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunião
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Resultados relacionados:'
-        result_meeting: 'Reuniões relacionadas:'
-      proposals_from_meeting:
-        meeting_proposal: 'Propostas relacionadas:'
-        proposal_meeting: 'Reuniões relacionadas:'
   devise:
     mailer:
       join_meeting:
