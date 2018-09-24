@@ -531,7 +531,6 @@ de:
           view_proposal: Angebot anzeigen
         show:
           edit_proposal: Angebot bearbeiten
-          endorsements_list: Liste der Empfehlungen
           hidden_endorsers_count:
             one: und 1 weitere Person
             other: und %{count} weitere Leute
@@ -608,11 +607,3 @@ de:
           version_number_out_of_total: "%{current_version} von %{total_count}"
         version:
           version_index: Version %{index}
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Ähnliche Vorschläge
-      included_projects:
-        project_result: 'Ergebnisse, die in diesem Projekt erscheinen:'
-      included_proposals:
-        proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
-        proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
