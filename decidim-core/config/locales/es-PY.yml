@@ -812,17 +812,14 @@ es-PY:
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
       expired: ha expirado, solicite uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
-      long_words: contiene palabras que son demasiado largas
-      must_start_with_caps: debe comenzar con mayúsculas
+      long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
+      must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
       not_found: extraviado
       not_locked: no estaba bloqueado
       not_saved:
         one: '1 error ha impedido que se guarde este %{resource}:'
         other: "%{count} errores prohibieron que se guarde este %{resource}:"
-      too_many_marks: hay demasiados signos de puntuación
-      too_much_caps: hay demasiadas mayúsculas
-      too_short: es demasiado corto
   forms:
     required: Obligatorio
   invisible_captcha:
