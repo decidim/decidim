@@ -26,6 +26,7 @@ pl:
         start_time: Czas rozpoczęcia
         title: Tytuł
         transparent: Przezroczysty
+        organizer_id: Organizator
       minutes:
         audio_url: Adres audio
         description: Opis
