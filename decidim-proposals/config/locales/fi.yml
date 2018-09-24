@@ -259,8 +259,8 @@ fi:
             invalid: Ehdotuksen luonnissa tapahtui virhe
             success: Ehdotus luotu onnistuneesti
           edit:
-            title: Päivitä ehdotus
-            update: Päivittää
+            title: Päivitä ehdotusta
+            update: Päivitä
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
             select_a_category: Valitse aihepiiri
@@ -618,7 +618,10 @@ fi:
         version:
           version_index: Versio %{index}
     resource_links:
+      copied_from_component:
+        proposal_proposal: Liittyvät ehdotukset
       included_projects:
         project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
       included_proposals:
         proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
+        proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
