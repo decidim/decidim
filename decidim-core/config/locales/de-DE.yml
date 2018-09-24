@@ -161,29 +161,8 @@ de:
       started_at: Begann am %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Erneute Autorisierung mit "%{authorization}"
-          explanation: Ihre Autorisierung ist abgelaufen. Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" erneut autorisiert werden.
-          title: Die Autorisierung ist abgelaufen
         incomplete:
           cancel: Abbrechen
-          explanation: 'Obwohl Sie derzeit mit "%{authorization}" autorisiert sind, müssen Sie erneut autorisieren, da uns folgende Daten fehlen:'
-          invalid_field: "%{field}"
-          reauthorize: Erneut autorisieren
-          title: Bitte erneut autorisieren
-        missing:
-          authorize: Autorisieren mit "%{authorization}"
-          explanation: Um diese Aktion durchzuführen, müssen Sie mit "%{authorization}" autorisiert sein.
-          title: Autorisierung erforderlich
-        pending:
-          explanation: Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" autorisiert sein, aber Ihre Autorisierung ist noch in Bearbeitung
-          resume: Überprüfen Sie Ihren Autorisierungsfortschritt "%{authorization}"
-          title: Die Autorisierung läuft noch
-        unauthorized:
-          explanation: Leider können Sie diese Aktion nicht ausführen, da einige Ihrer Autorisierungsdaten nicht übereinstimmen.
-          invalid_field: "%{field} Wert %{value} ist nicht gültig."
-          ok: OK
-          title: Nicht berechtigt
     collapsible_list:
       hidden_elements_count:
         one: und 1 mehr
@@ -303,16 +282,16 @@ de:
     events:
       attachments:
         attachment_created:
-          email_intro: 'Ein neues Dokument wurde zu %{resource_title}hinzugefügt. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Ein Update auf %{resource_title}
+          email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Wenn Sie auf den folgenden Link klicken, können Sie sich von den Benachrichtigungen abmelden.
+          email_subject: Eine Aktualisierung auf %{resource_title}
           notification_title: Ein <a href="%{resource_path}">neues Dokument</a> wurde zu <a href="%{attached_to_url}">%{resource_title}</a>hinzugefügt
       components:
         component_published:
-          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title}. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Ein Update auf %{participatory_space_title}
-          notification_title: Die Komponente %{resource_title} ist jetzt für <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Wenn Sie auf den folgenden Link klicken, können Sie sich von den Benachrichtigungen abmelden.
+          email_subject: Eine Aktualisierung auf %{participatory_space_title}
+          notification_title: Die Komponente %{resource_title} ist jetzt für <a href="%{resource_path}">%{participatory_space_title}</a> aktiv
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können es von dieser Seite sehen:'
@@ -320,7 +299,7 @@ de:
         email_subject: Ein Update auf %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Gut gemacht! Du hast das <a href="%{resource_url}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
+          email_intro: Gut gemacht! Sie haben das <a href="%{resource_url}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
           email_subject: 'Du hast ein neues Abzeichen erhalten: %{badge_name}!'
           notification_title: Gut gemacht! Du hast das <a href="%{resource_path}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
@@ -348,7 +327,6 @@ de:
       linked_classes:
         all: Alle
         collaborative_draft: Gemeinsamer Entwurf
-        dummy_resource: Dummy-Ressourcen
         meeting: Meetings
         project: Projekte
         proposal: Vorschläge
@@ -449,7 +427,6 @@ de:
           no_conversations: Du hast noch keine Unterhaltungen
         show:
           conversation_with_html: Gespräch mit <strong>%{name}</strong>
-          reply: Antworten
           send: Senden
         start:
           send: Senden
@@ -482,8 +459,6 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name}?
-    notifications:
-      no_notifications: Noch keine Benachrichtigungen
     notifications_settings:
       show:
         email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
@@ -500,41 +475,13 @@ de:
     pages:
       home:
         extended:
-          debates: Debatten
-          debates_explanation: Debate und diskutieren, teilen Sie Ihre Ansichten und bereichern Sie die relevanten Themen.
-          how_to_participate: Wie nehme ich an einem Prozess teil?
           meetings: Meetings
-          meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
-          more_info: Mehr Info
           proposals: Vorschläge
-          proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
-        footer_sub_hero:
-          footer_sub_hero_body: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
-          footer_sub_hero_headline: Willkommen bei %{organization} partizipativen Plattform.
-          register: Registrieren
-        hero:
-          participate: Sich beteiligen
-          welcome: Willkommen bei %{organization}!
         statistics:
-          answers_count: Abgeschlossene Umfragen
-          assemblies_count: Baugruppen
-          comments_count: Bemerkungen
-          debates_count: Debatten
-          endorsements_count: Empfehlungen
-          headline: Aktueller Zustand von %{organization}
           meetings_count: Meetings
-          orders_count: Stimmen
-          pages_count: Seiten
-          processes_count: Prozesse
           projects_count: Projekte
-          proposals_accepted: Akzeptierte Vorschläge
           proposals_count: Vorschläge
           results_count: Ergebnisse
-          surveys_count: Umfragen
-          users_count: Teilnehmer
-          votes_count: Stimmen
-        sub_hero:
-          register: Registrieren
       index:
         title: Mehr Informationen
       terms_and_conditions:
