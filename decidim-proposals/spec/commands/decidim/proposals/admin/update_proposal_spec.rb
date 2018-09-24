@@ -7,12 +7,14 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
   let(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
+  let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
     form_klass.from_params(
       form_params
     ).with_context(
       current_organization: organization,
       current_participatory_space: component.participatory_space,
+      current_user: user,
       current_component: component
     )
   end
@@ -63,6 +65,19 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         expect do
           command.call
         end.to change(proposal, :title)
+      end
+
+      it "traces the update", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(proposal, user, a_kind_of(Hash))
+          .and_call_original
+
+        expect { command.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "update"
       end
 
       context "when geocoding is enabled" do

@@ -43,13 +43,15 @@ module Decidim
 
         private
 
-        attr_reader :form, :proposal, :current_user, :attachment
+        attr_reader :form, :proposal, :attachment
 
         def update_proposal
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
 
-          @proposal.update!(
+          Decidim.traceability.update!(
+            proposal,
+            form.current_user,
             title: parsed_title,
             body: parsed_body,
             category: form.category,
