@@ -20,13 +20,13 @@ gl:
         end_time: Hora de finalización
         location: Localización
         location_hints: Consellos de localización
+        organizer_id: Organizador
         private_meeting: Encontro privado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
-        organizer_id: Organizador
       minutes:
         audio_url: URL de audio
         description: Descrición
