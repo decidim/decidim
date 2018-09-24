@@ -812,17 +812,17 @@ it:
       cycle_detected: Il genitore di un ambito non può essere uno dei suoi discendenti
       expired: è scaduto, si prega di richiederne uno nuovo
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
-      long_words: contiene parole troppo lunghe
-      must_start_with_caps: deve iniziare con i cappucci
+      long_words: contiene parole troppo lunghe (oltre 35 caratteri)
+      must_start_with_caps: deve iniziare con una lettera maiuscola
       nesting_too_deep: Non può stare all'interno di una subcategoria
       not_found: non trovato
       not_locked: non era bloccato
       not_saved:
         one: '1 errore ha impedito a questo %{resource} di essere salvato:'
         other: "%{count} errori hanno impedito a questo %{resource} di essere salvato:"
-      too_many_marks: sta usando troppi marchi
-      too_much_caps: sta usando troppi cappucci
-      too_short: è troppo corto
+      too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
+      too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
+      too_short: è troppo corto (meno di 15 caratteri)
   forms:
     required: Richiesto
   invisible_captcha:
