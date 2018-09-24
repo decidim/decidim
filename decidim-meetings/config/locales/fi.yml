@@ -181,7 +181,6 @@ fi:
           form:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
-            invite: Kutsu
             invite_explanation: Käyttäjä tullaan kutsumaan mukaan tapahtumaan. Käyttäjä kutsutaan myös järjestöön.
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
@@ -344,8 +343,6 @@ fi:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
           view: Näytä
-      meetings_map:
-        view_meeting: Näytä tapahtuma
       models:
         invite:
           fields:
@@ -395,13 +392,6 @@ fi:
         upcoming_meetings: Tulevat tapahtumat
       upcoming_meeting_for_card:
         upcoming_meeting: Tuleva tapahtuma
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Liittyvät tulokset:'
-        result_meeting: 'Liittyvät tapaamiset:'
-      proposals_from_meeting:
-        meeting_proposal: 'Liittyvät ehdotukset:'
-        proposal_meeting: 'Liittyvät tapaamiset:'
   devise:
     mailer:
       join_meeting:
