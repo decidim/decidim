@@ -821,7 +821,7 @@ fi:
         one: '1 virhe esti %{resource} tallentamisen:'
         other: "%{count} virhettä esti %{resource} tallentamisen:"
       too_many_marks: käyttää liian monia peräkkäisiä välimerkkejä (esim.! ja?)
-      too_much_caps: käyttää liikaa isoja kirjaimia (yli 25% tekstistä)
+      too_much_caps: käyttää liian monia isoja kirjaimia (yli 25 prosenttia tekstistä)
       too_short: on liian lyhyt (alle 15 merkkiä)
   forms:
     required: Vaadittu
