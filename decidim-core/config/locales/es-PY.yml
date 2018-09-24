@@ -820,6 +820,9 @@ es-PY:
       not_saved:
         one: '1 error ha impedido que se guarde este %{resource}:'
         other: "%{count} errores prohibieron que se guarde este %{resource}:"
+      too_many_marks: está usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
+      too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
+      too_short: es demasiado corto (menos de 15 caracteres)
   forms:
     required: Obligatorio
   invisible_captcha:
