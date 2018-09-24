@@ -180,7 +180,6 @@ hu:
           form:
             attendee_type: Résztvevő típusa
             existing_user: Létező felhasználó
-            invite: Meghívás
             invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezethet csatlakozásra.
             non_user: Nem létező felhasználó
             select_user: Felhasználó kiválasztása
@@ -306,8 +305,6 @@ hu:
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
-        index:
-          view_meeting: Találkozó megtekintése
         meeting_minutes:
           meeting_minutes: Találkozó jegyzőkönyve
           related_information: Kapcsolódó információ
@@ -378,13 +375,6 @@ hu:
         upcoming_meetings: Közelgő találkozók
       upcoming_meeting_for_card:
         upcoming_meeting: Közelgő találkozó
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Kapcsolódó eredmények:'
-        result_meeting: 'Kapcsolódó találkozók:'
-      proposals_from_meeting:
-        meeting_proposal: 'Kapcsolódó javaslatok:'
-        proposal_meeting: 'Kapcsolódó találkozók:'
   devise:
     mailer:
       join_meeting:
