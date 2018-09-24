@@ -181,7 +181,6 @@ ca:
           form:
             attendee_type: Tipus d'assistent
             existing_user: Usuari existent
-            invite: Convidar
             invite_explanation: L'usuari serà convidat a participar a la trobada i també a l'organització.
             non_user: Usuari no existent
             select_user: Selecciona l'usuari
@@ -344,8 +343,6 @@ ca:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"
           view: Veure
-      meetings_map:
-        view_meeting: Veure trobada
       models:
         invite:
           fields:
@@ -395,13 +392,6 @@ ca:
         upcoming_meetings: Properes trobades
       upcoming_meeting_for_card:
         upcoming_meeting: Propera reunió
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Resultats relacionats:'
-        result_meeting: 'Trobades relacionades:'
-      proposals_from_meeting:
-        meeting_proposal: 'Propostes relacionades:'
-        proposal_meeting: 'Trobades relacionades:'
   devise:
     mailer:
       join_meeting:
