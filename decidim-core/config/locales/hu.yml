@@ -811,17 +811,17 @@ hu:
       cycle_detected: a hatáskör parentje nem lehet ahhoz kötőd elem
       expired: lejárt, kérjen újat
       file_size_is_less_than_or_equal_to: 'fájlméret maximum ekkora lehet: %{count}'
-      long_words: túl hosszú szavakat tartalmaz
-      must_start_with_caps: csak nagybetűvel kezdődhet
+      long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
+      must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
       not_found: nem található
       not_locked: nem volt zárva
       not_saved:
         one: '1 hiba tiltotta, hogy ez a %{resource} mentése:'
         other: "%{count} hiba tiltotta, hogy ez az %{resource} mentése:"
-      too_many_marks: túl sok jelet használsz
-      too_much_caps: túl sok nagybetűt használsz
-      too_short: túl rövid
+      too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
+      too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
+      too_short: túl rövid (15 karakterig)
   forms:
     required: Kötelező
   invisible_captcha:
