@@ -16,7 +16,8 @@ module Decidim
         attribute :scope_id, Integer
         attribute :attachment, AttachmentForm
 
-        validates :title, :body, presence: true
+        validates :title, :body, presence: true, etiquette: true
+        validates :title, length: { maximum: 150 }
         validates :address, geocoding: true, if: -> { current_component.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
@@ -31,6 +32,7 @@ module Decidim
           return unless model.categorization
 
           self.category_id = model.categorization.decidim_category_id
+          self.scope_id = model.decidim_scope_id
         end
 
         alias component current_component

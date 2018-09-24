@@ -232,6 +232,7 @@ en:
     proposals:
       actions:
         answer: Answer
+        edit_proposal: Edit proposal
         import: Import from another component
         new: New proposal
         private_notes: Private notes
@@ -268,6 +269,9 @@ en:
           create:
             invalid: There's been a problem creating this proposal
             success: Proposal successfully created
+          edit:
+            title: Update proposal
+            update: Update
           form:
             attachment_legend: "(Optional) Add an attachment"
             select_a_category: Select a category
@@ -305,6 +309,7 @@ en:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
+          update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
       answers:
