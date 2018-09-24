@@ -161,29 +161,8 @@ ca:
       started_at: Iniciat el %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Torna a autoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
-          title: L'autorització ha caducat
         incomplete:
           cancel: Cancel·lar
-          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
-          invalid_field: "%{field}"
-          reauthorize: Reautoritzar-se
-          title: Si us plau, reautoritza't
-        missing:
-          authorize: Autoritzar amb "%{authorization}"
-          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
-          title: Es requereix autorització
-        pending:
-          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
-          resume: Comprova el progrés de l'autorització "%{authorization}"
-          title: L'autorització encara està en progrés
-        unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
-          ok: D'acord
-          title: Acció no autoritzada
     collapsible_list:
       hidden_elements_count:
         one: i 1 més
@@ -353,7 +332,6 @@ ca:
       linked_classes:
         all: Tots
         collaborative_draft: Esborrany de col·laboració
-        dummy_resource: Recursos de prova
         meeting: Trobades
         project: Projectes
         proposal: propostes
@@ -462,7 +440,6 @@ ca:
           no_conversations: Encara no tens converses
         show:
           conversation_with_html: Conversa amb <strong>%{name}</strong>
-          reply: Respon
           send: Enviar
         start:
           send: Enviar
@@ -495,8 +472,6 @@ ca:
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: Vols seguir rebent informació rellevant sobre %{organization_name}?
-    notifications:
-      no_notifications: Encara no hi ha notificacions.
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
@@ -513,42 +488,14 @@ ca:
     pages:
       home:
         extended:
-          debates: Debats
-          debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
-          how_to_participate: Com participo en un procés?
           meetings: Trobades
-          meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
-          more_info: Més informació
           proposals: Propostes
-          proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
-        footer_sub_hero:
-          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-          footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
-          register: Registra't
-        hero:
-          participate: Participa
-          welcome: Benvingut a %{organization}!
         statistics:
-          answers_count: Enquestes realitzades
-          assemblies_count: Assemblees
-          comments_count: Comentaris
           conferences_count: Conferències
-          debates_count: Debats
-          endorsements_count: Adhesions
-          headline: Estat actual de %{organization}
           meetings_count: Trobades
-          orders_count: Vots
-          pages_count: Pàgines
-          processes_count: Processos
           projects_count: Projectes
-          proposals_accepted: Propostes acceptades
           proposals_count: Propostes
           results_count: Resultats
-          surveys_count: Enquestes
-          users_count: Participants
-          votes_count: Vots
-        sub_hero:
-          register: Registra't
       index:
         title: Més informació
       terms_and_conditions:
@@ -749,7 +696,6 @@ ca:
         change_my_password: Canvia la meva contrasenya
         change_your_password: Canvia la teva contrasenya
         confirm_new_password: Confirmar nova contrasenya
-        new_password: Contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
         send_me_reset_password_instructions: Envia'm les instruccions de restabliment de la contrasenya
