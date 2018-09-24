@@ -24,7 +24,7 @@ module Decidim
 
           # Admins can only edit official proposals if they are within the
           # time limit.
-          allow! if admin_edition_is_available? && permission_action.subject == :proposal && permission_action.action == :edit
+          allow! if permission_action.subject == :proposal && permission_action.action == :edit && admin_edition_is_available?
 
           # Every user allowed by the space can update the category of the proposal
           allow! if permission_action.subject == :proposal_category && permission_action.action == :update
