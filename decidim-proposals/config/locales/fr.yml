@@ -535,7 +535,7 @@ fr:
           view_proposal: Voir la proposition
         show:
           edit_proposal: Modifier la proposition
-          endorsements_list: Liste des promoteurs
+          endorsements_list: Liste des soutiens
           hidden_endorsers_count:
             one: et 1 autre personne
             other: et %{count} autres personnes
@@ -613,10 +613,7 @@ fr:
         version:
           version_index: Version %{index}
     resource_links:
-      copied_from_component:
-        proposal_proposal: Propositions associées
       included_projects:
-        project_result: 'Résultats apparaissant dans ce projet :'
+        project_result: 'Réalisations apparaissant dans ce projet :'
       included_proposals:
-        proposal_project: 'Proposition figurant dans ces projets :'
-        proposal_result: 'Proposition figurant dans ces résultats :'
+        proposal_result: 'Proposition figurant dans ces réalisations :'
