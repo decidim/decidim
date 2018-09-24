@@ -221,6 +221,7 @@ es-PY:
     proposals:
       actions:
         answer: Respuesta
+        edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
         private_notes: Notas privadas
@@ -257,6 +258,9 @@ es-PY:
           create:
             invalid: Ha habido un problema al crear esta propuesta
             success: Propuesta creada correctamente
+          edit:
+            title: Actualizar propuesta
+            update: Actualizar
           form:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             select_a_category: Seleccione una categoría
@@ -294,6 +298,7 @@ es-PY:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
+          update: "%{user_name} actualizó la %{resource_name} propuesta oficial en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
       answers:
