@@ -535,7 +535,6 @@ sv:
           view_proposal: Visa förslag
         show:
           edit_proposal: Redigera förslag
-          endorsements_list: Förteckning över Stöd
           hidden_endorsers_count:
             one: och ytterligare 1 person
             other: och %{count} fler personer
@@ -612,11 +611,3 @@ sv:
           version_number_out_of_total: "%{current_version} av %{total_count}"
         version:
           version_index: Version %{index}
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Relaterade förslag
-      included_projects:
-        project_result: 'Resultat som visas i detta projekt:'
-      included_proposals:
-        proposal_project: 'Förslag som framgår i dessa projekt:'
-        proposal_result: 'Förslag som visas i dessa resultat:'
