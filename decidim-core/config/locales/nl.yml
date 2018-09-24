@@ -812,17 +812,17 @@ nl:
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       expired: is verlopen, vraag een nieuwe aan
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
-      long_words: bevat woorden die te lang zijn
-      must_start_with_caps: moet beginnen met caps
+      long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
+      must_start_with_caps: moet beginnen met een hoofdletter
       nesting_too_deep: kan niet binnen een subcategorie zijn
       not_found: niet gevonden
       not_locked: was niet op slot
       not_saved:
         one: '1 fout is verhinderd dat deze %{resource} wordt opgeslagen:'
         other: "%{count} fouten om te voorkomen dat deze %{resource} wordt opgeslagen:"
-      too_many_marks: gebruikt te veel markeringen
-      too_much_caps: gebruikt te veel caps
-      too_short: is te kort
+      too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld! en?)
+      too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
+      too_short: is te kort (minder dan 15 tekens)
   forms:
     required: Vereist
   invisible_captcha:
