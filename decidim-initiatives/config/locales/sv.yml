@@ -6,8 +6,6 @@ sv:
         description: Beskrivning
         offline_votes: Ansikte mot ansikte stöd
         scope_id: Omfattning
-        signature_end_date: Slutet på signaturuppsamlingsperioden
-        signature_start_date: Början av signaturuppsamlingsperioden
         signature_type: Signaturuppsamlingstyp
         signature_type_values:
           any: Blandad
