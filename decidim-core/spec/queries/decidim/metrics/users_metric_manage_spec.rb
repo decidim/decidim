@@ -36,6 +36,5 @@ end
 
 def generate_metric_registry(date = nil)
   metric = described_class.for(date, organization)
-  metric.registry!
-  metric.registry
+  metric.save
 end
