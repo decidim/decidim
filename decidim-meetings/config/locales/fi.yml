@@ -20,13 +20,13 @@ fi:
         end_time: Lopetusaika
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
+        organizer_id: Järjestäjä
         private_meeting: Yksityinen kokous
         registration_terms: Ilmoittautumisehdot
         registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
-        organizer_id: Järjestäjä
       minutes:
         audio_url: Äänen URL-osoite
         description: Kuvaus
