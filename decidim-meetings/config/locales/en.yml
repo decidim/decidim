@@ -21,13 +21,13 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        organizer_id: Organizer
         private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
         transparent: Transparent
-        organizer_id: Organizer
       minutes:
         audio_url: Audio url
         description: Description
