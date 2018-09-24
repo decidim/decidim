@@ -812,17 +812,17 @@ pt:
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
-      long_words: contém palavras que são muito longas
-      must_start_with_caps: deve começar com bonés
+      long_words: contém palavras muito longas (mais de 35 caracteres)
+      must_start_with_caps: deve começar com letra maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria
       not_found: não encontrado
       not_locked: não estava trancado
       not_saved:
         one: '1 erro proibiu que este %{resource} fosse salvo:'
         other: "%{count} erros proibiram este %{resource} de ser salvo:"
-      too_many_marks: está usando muitas marcas
-      too_much_caps: está usando bonés demais
-      too_short: é muito curto
+      too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
+      too_much_caps: está usando letras maiúsculas demais (mais de 25% do texto)
+      too_short: é muito curto (menos de 15 caracteres)
   forms:
     required: Requeridos
   invisible_captcha:
