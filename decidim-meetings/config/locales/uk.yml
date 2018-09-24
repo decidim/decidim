@@ -186,7 +186,6 @@ uk:
           form:
             attendee_type: Різновид учасника
             existing_user: Чинний учасник
-            invite: Запросити
             invite_explanation: Учаснику буде запропоновано приєднатися до зустрічі та до організації.
             non_user: Не чинний учасник
             select_user: Оберіть учасника
@@ -314,8 +313,6 @@ uk:
           filter: Відібрати
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
-        index:
-          view_meeting: Переглянути зустріч
         meeting_minutes:
           meeting_minutes: Протокол зустрічі
           related_information: Супутні відомості
@@ -388,13 +385,6 @@ uk:
         upcoming_meetings: Прийдешні зустрічі
       upcoming_meeting_for_card:
         upcoming_meeting: Прийдешня зустріч
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Пов''язані підсумки:'
-        result_meeting: 'Пов''язані зустрічі:'
-      proposals_from_meeting:
-        meeting_proposal: 'Супутні пропозиції:'
-        proposal_meeting: 'Пов''язані зустрічі:'
   devise:
     mailer:
       join_meeting:
