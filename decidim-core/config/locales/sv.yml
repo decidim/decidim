@@ -821,6 +821,8 @@ sv:
         one: '1 fel förbjudet att detta %{resource} sparas:'
         other: "%{count} fel förbjudna att denna %{resource} sparas:"
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex.! och?)
+      too_much_caps: använder för stora bokstäver (över 25% av texten)
+      too_short: är för kort (under 15 tecken)
   forms:
     required: Krävs
   invisible_captcha:
