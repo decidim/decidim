@@ -311,11 +311,6 @@ gl:
             no_active: Non hai procesos activos
             no_active_nor_upcoming: Non hai procesos activos nin futuros
             no_active_nor_upcoming_callout: Non hai procesos activos nin próximos. Aquí tes unha lista dos últimos.
-          names:
-            active: Activo
-            all: Todo
-            past: Pasado
-            upcoming: Próximos
           see: Ver
         index:
           loading: Cargando resultados ...
