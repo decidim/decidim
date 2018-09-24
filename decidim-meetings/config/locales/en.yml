@@ -27,6 +27,7 @@ en:
         start_time: Start Time
         title: Title
         transparent: Transparent
+        organizer_id: Organizer
       minutes:
         audio_url: Audio url
         description: Description

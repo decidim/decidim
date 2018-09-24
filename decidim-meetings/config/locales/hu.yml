@@ -26,6 +26,7 @@ hu:
         start_time: Kezdő időpont
         title: Cím
         transparent: Átlátszó
+        organizer_id: Szervező
       minutes:
         audio_url: Audio url
         description: Leírás
