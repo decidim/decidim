@@ -209,7 +209,7 @@ de:
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
-        name: Footer-Subhelden-Banner
+        name: Fußzeile sub hero Banner
       hero:
         name: Heldenbild
       highlighted_content_banner:
@@ -222,7 +222,7 @@ de:
       stats:
         name: Organisationsstatistiken
       sub_hero:
-        name: Sub-Helden-Banner
+        name: Sub hero Banner
     core:
       actions:
         unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen
@@ -248,7 +248,7 @@ de:
       registrations:
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
-          newsletter: Erhalten Sie gelegentlich einen Newsletter mit relevanten Informationen
+          newsletter: Erhalten Sie einen gelegentlichen Newsletter mit relevanten Informationen
           newsletter_title: Kontakt Erlaubnis
           nickname_help: Ihre kurze, eindeutige ID in %{organization}
           sign_in: Einloggen
