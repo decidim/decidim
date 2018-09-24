@@ -231,6 +231,7 @@ pl:
     proposals:
       actions:
         answer: Odpowiedź
+        edit_proposal: Edytuj propozycję
         import: Importuj z innego komponentu
         new: Nowa propozycja
         private_notes: Prywatne notatki
@@ -267,6 +268,9 @@ pl:
           create:
             invalid: Podczas tworzenia tego wniosku wystąpił problem
             success: Propozycja została pomyślnie utworzona
+          edit:
+            title: Zaktualizuj propozycję
+            update: Aktualizacja
           form:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             select_a_category: Wybierz kategorię
@@ -304,6 +308,7 @@ pl:
         proposal:
           answer: "%{user_name} odpowiedziało na propozycję %{resource_name} na przestrzeni %{space_name}"
           create: "%{user_name} stworzył propozycję %{resource_name} w przestrzeni %{space_name} jako oficjalną propozycję"
+          update: "%{user_name} zaktualizował %{resource_name} oficjalną propozycję na %{space_name} miejsca"
         proposal_note:
           create: "%{user_name} zostawił prywatną notatkę na %{resource_name} propozycji w przestrzeni %{space_name}"
       answers:
