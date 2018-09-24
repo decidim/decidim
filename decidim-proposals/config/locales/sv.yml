@@ -221,6 +221,7 @@ sv:
     proposals:
       actions:
         answer: Svara
+        edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
         private_notes: Privata anteckningar
@@ -257,6 +258,9 @@ sv:
           create:
             invalid: Det har uppstått ett problem med att skapa detta förslag
             success: Förslaget skapades
+          edit:
+            title: Uppdateringsförslag
+            update: Uppdatering
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             select_a_category: Välj en kategori
@@ -294,6 +298,7 @@ sv:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
           create: "%{user_name} skapade förslaget %{resource_name} på utrymmet %{space_name} som ett officiellt förslag"
+          update: "%{user_name} uppdaterade %{resource_name} officiellt förslag på %{space_name} platsen"
         proposal_note:
           create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på platsen %{space_name}"
       answers:
