@@ -540,7 +540,6 @@ pt-BR:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Lista de avais
           hidden_endorsers_count:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
@@ -617,11 +616,3 @@ pt-BR:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versão %{index}
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Propostas relacionadas
-      included_projects:
-        project_result: 'Resultados que aparecem neste projeto:'
-      included_proposals:
-        proposal_project: 'Proposta que aparece nesses projetos:'
-        proposal_result: 'Proposta que aparece nesses resultados:'
