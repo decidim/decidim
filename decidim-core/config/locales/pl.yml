@@ -824,8 +824,8 @@ pl:
       cycle_detected: Rodzicem zakresu nie może być jeden z jego potomków
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: Rozmiar pliku musi być mniejszy lub równy %{count}
-      long_words: zawiera słowa, które są zbyt długie
-      must_start_with_caps: musi zaczynać się od czapek
+      long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
+      must_start_with_caps: musi zaczynać się od dużej litery
       nesting_too_deep: Nie może być wewnątrz podkategorii
       not_found: nie znaleziono
       not_locked: nie był zablokowany
@@ -834,9 +834,9 @@ pl:
         few: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
         many: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
         other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
-      too_many_marks: używa zbyt wielu znaków
-      too_much_caps: używa za dużo kapsli
-      too_short: jest za krótki
+      too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
+      too_much_caps: używa zbyt dużej litery (ponad 25% tekstu)
+      too_short: jest za krótki (poniżej 15 znaków)
   forms:
     required: wymagany
   invisible_captcha:
