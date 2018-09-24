@@ -812,17 +812,17 @@ ca:
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
       expired: ha caducat, si us plau, sol·liciteu-ne un de nou
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
-      long_words: conté paraules que són massa llargues
-      must_start_with_caps: ha de començar amb majúscules
+      long_words: conté paraules massa llargues (més de 35 caràcters)
+      must_start_with_caps: ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
       not_found: no trobat
       not_locked: no estava bloquejat
       not_saved:
         one: '1 error prohibit que es guardés aquest %{resource}:'
         other: "%{count} errors van prohibir que es guardés aquest %{resource}:"
-      too_many_marks: hi ha massa signes de puntuació
-      too_much_caps: hi ha massa majúscules
-      too_short: és massa curt
+      too_many_marks: està usant massa marques de puntuació consecutives (p. ex. i?)
+      too_much_caps: està utilitzant massa lletres majúscules (més del 25% del text)
+      too_short: és massa curt (menys de 15 caràcters)
   forms:
     required: Obligatori
   invisible_captcha:
