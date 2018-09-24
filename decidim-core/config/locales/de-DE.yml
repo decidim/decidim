@@ -251,15 +251,15 @@ de:
           newsletter: Erhalten Sie einen gelegentlichen Newsletter mit relevanten Informationen
           newsletter_title: Kontakt Erlaubnis
           nickname_help: Ihre kurze, eindeutige ID in %{organization}
-          sign_in: Einloggen
+          sign_in: Anmelden
           sign_up: Registrieren
           sign_up_as:
             legend: Registrieren als
             user: Privatperson
             user_group: Organisation / Kollektiv
           subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
-          terms: die Nutzungsbedingungen
-          tos_agreement: Mit der Anmeldung stimmst du der %{link}.
+          terms: Nutzungsbedingungen
+          tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
           tos_title: Nutzungsbedingungen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       sessions:
