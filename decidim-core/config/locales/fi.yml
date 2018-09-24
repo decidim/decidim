@@ -758,8 +758,8 @@ fi:
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
-      long_words: sisältää liian pitkät sanat (yli 35 merkkiä)
-      must_start_with_caps: on aloitettava pääkirjeellä
+      long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
+      must_start_with_caps: tulee alkaa isolla kirjaimella
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
       not_found: ei löydy
       not_locked: ei lukittu
@@ -768,7 +768,7 @@ fi:
         other: "%{count} virhettä esti %{resource} tallentamisen:"
       too_many_marks: käyttää liian monia peräkkäisiä välimerkkejä (esim.! ja?)
       too_much_caps: käyttää liian monia isoja kirjaimia (yli 25 prosenttia tekstistä)
-      too_short: on liian lyhyt (alle 15 merkkiä)
+      too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     required: Vaadittu
   invisible_captcha:
