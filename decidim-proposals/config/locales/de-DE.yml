@@ -217,6 +217,7 @@ de:
     proposals:
       actions:
         answer: Antworten
+        edit_proposal: Angebot bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
         private_notes: Private Notizen
@@ -253,6 +254,9 @@ de:
           create:
             invalid: Beim Erstellen dieses Angebots ist ein Problem aufgetreten
             success: Angebot erfolgreich erstellt
+          edit:
+            title: Angebot aktualisieren
+            update: Aktualisieren
           form:
             attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
             select_a_category: Wählen Sie eine Kategorie
