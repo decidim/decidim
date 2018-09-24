@@ -221,6 +221,7 @@ it:
     proposals:
       actions:
         answer: Risposta
+        edit_proposal: Modifica proposta
         import: Importa da un altro componente
         new: Nuova proposta
         private_notes: Note private
@@ -257,6 +258,9 @@ it:
           create:
             invalid: Sono stati riscontrati dei problemi durante la creazione di questa proposta
             success: OK, proposta creata.
+          edit:
+            title: Aggiorna proposta
+            update: Aggiornare
           form:
             attachment_legend: "(Opzionale) Aggiungere un allegato"
             select_a_category: Scegli una categoria
@@ -294,6 +298,7 @@ it:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
           create: "%{user_name} ha creato la proposta %{resource_name} nello spazio %{space_name} come proposta ufficiale"
+          update: "%{user_name} aggiornato la %{resource_name} proposta ufficiale sul %{space_name} spazio"
         proposal_note:
           create: "%{user_name} ha lasciato una nota privata sulla proposta %{resource_name} sullo spazio %{space_name}"
       answers:
