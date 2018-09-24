@@ -7,36 +7,36 @@ de:
         details: Zusätzliche Kommentare
       user:
         about: Über
-        email: Deine E-Mail
-        name: Dein Name
+        email: Ihre E-Mail
+        name: Ihr Name
         nickname: Ihre kurze, eindeutige Kennung
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
-        remove_avatar: Entferne den Avatar
+        remove_avatar: Avatar entfernen
         user_group_document_number: Organisationsbelegnummer
         user_group_name: Name der Organisation
-        user_group_phone: Organisationstelefon
+        user_group_phone: Telefon der Organisation
     models:
-      decidim/attachment_created_event: Befestigung
+      decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
       decidim/profile_updated_event: Profil aktualisiert
   activerecord:
     attributes:
       decidim/user:
         current_password: Aktuelles Passwort
-        email: Email
-        name: Nutzername
+        email: E-Mail
+        name: Benutzername
         password: Passwort
-        password_confirmation: Passwort Bestätigung
-        remember_me: Erinnere dich an mich
+        password_confirmation: Bestätigung des Passworts
+        remember_me: Erinneren Sie mich
         user_group_document_number: Organisationsbelegnummer
         user_group_name: Name der Organisation
-        user_group_phone: Organisationstelefon
+        user_group_phone: Telefon der Organisation
     models:
       decidim/user:
-        one: Benutzer
-        other: Benutzer
+        one: Benutzer*in
+        other: Benutzer*innen
       decidim/user_group:
         one: Benutzergruppe
         other: Benutzergruppen
@@ -53,7 +53,7 @@ de:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Die Datei existiert nicht
+        file_no_exists: Diese Datei existiert nicht
         invalid_token: Das angegebene Token ist ungültig.
         no_token: Kein Token zur Verfügung gestellt
         notice: Ihre Daten werden gerade bearbeitet. Sie erhalten nach Fertigstellung eine E-Mail.
@@ -62,27 +62,27 @@ de:
         confirm:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
-          question: Möchtest du dein Konto wirklich löschen?
-          title: Löschen Sie mein Konto
-        explanation: Bitte geben Sie den Grund ein, warum Sie Ihr Konto löschen möchten (optional).
+          question: Sind Sie sicher, dass Sie Ihr Konto löschen möchten?
+          title: Mein Konto löschen
+        explanation: Bitte geben Sie den Grund an, warum Sie Ihr Konto löschen möchten (optional).
       destroy:
         error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich gelöscht.
       show:
         change_password: Passwort ändern
-        update_account: Account aktualisieren
+        update_account: Konto aktualisieren
       update:
         error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich aktualisiert.
-        success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail, um Ihre neue E-Mail-Adresse zu bestätigen.
+        success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
     admin_log:
       area:
-        create: "%{user_name} erstellt den %{resource_name} Bereich"
-        delete: "%{user_name} löschte den %{resource_name} Bereich"
-        update: "%{user_name} aktualisiert den %{resource_name} Bereich"
+        create: "%{user_name} hat den %{resource_name} Bereich erstellt"
+        delete: "%{user_name} hat den %{resource_name} Bereich gelöscht"
+        update: "%{user_name} hat den %{resource_name} Bereich aktualisiert"
       component:
         create: "%{user_name} hat die %{resource_name} Komponente zu %{space_name} hinzugefügt"
-        delete: "%{user_name} entfernte die %{resource_name} Komponente von dem %{space_name} Leerzeichen"
+        delete: "%{user_name} hat die %{resource_name} Komponente von dem %{space_name} ... entfernt"
         publish: "%{user_name} veröffentlichte die %{resource_name} Komponente in dem %{space_name} Raum"
         unpublish: "%{user_name} unveröffentlicht die %{resource_name} Komponente aus dem %{space_name} Leerzeichen"
       moderation:
@@ -127,17 +127,17 @@ de:
       documents:
         related_documents: Zugehörige Dokumente
       photos:
-        related_photos: Ähnliche Fotos
+        related_photos: Zugehörige Fotos
     author:
       comments:
         one: Kommentar
-        other: Bemerkungen
+        other: Kommentare
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verifiziert werden, indem eine Passnummer eingeführt wird, die mit "A" beginnt
+        explanation: Lassen Sie sich verifizieren, indem Sie eine Reisepassnummer eingeben, die mit "A" beginnt
         fields:
-          passport_number: Ausweisnummer
-        name: Ein weiteres Beispiel für eine Autorisierung
+          passport_number: Reisepassnummer
+        name: Ein weiteres Beispiel für eine Berechtigung
       dummy_authorization_handler:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet
         fields:
@@ -148,21 +148,21 @@ de:
         name: Dummy-Autorisierungs-Workflow
       errors:
         duplicate_authorization: Ein Benutzer ist bereits mit den gleichen Daten berechtigt.
-      expired_at: Abgelaufen bei %{timestamp}
-      expires_at: Läuft bei %{timestamp}
+      expired_at: Abgelaufen am %{timestamp}
+      expires_at: Läuft am %{timestamp} ab
       foo_authorization:
         fields:
           bar: Bar
           foo: Foo
         name: Foo Genehmigung
-      granted_at: Zugegeben bei %{timestamp}
-      started_at: Begann bei %{timestamp}
+      granted_at: Zugelassen am %{timestamp}
+      started_at: Begann am %{timestamp}
     collapsible_list:
       hidden_elements_count:
         one: und 1 mehr
         other: und %{count} mehr
-      see_less: "(siehe weniger)"
-      see_more: "(Mehr sehen)"
+      see_less: "(Weniger anzeigen)"
+      see_more: "(Mehr anzeigen)"
     components:
       dummy:
         actions:
@@ -186,56 +186,52 @@ de:
       export:
         ready: Bereit
       show:
-        download_data: Laden Sie die Daten herunter
-        download_data_description: Eine Datei mit allen mit dem Konto verbundenen Informationen wird an <strong>%{user_email}</strong>gesendet
+        download_data: Daten herunterladen
+        download_data_description: Eine Datei mit allen Informationen, die mit diesem Konto verbunden sind, wird an <strong>%{user_email}</strong> gesendet
         request_data: Daten anfordern
     devise:
       omniauth_registrations:
         create:
           email_already_exists: Ein anderes Konto verwendet dieselbe E-Mail-Adresse
         new:
-          complete_profile: Komplettes Profil
+          complete_profile: Profil vervollständingen
           nickname_help: Ihre kurze, eindeutige ID in %{organization}
-          sign_up: Bitte vervollständige dein Profil
+          sign_up: Bitte vervollständigen Sie Ihr Profil
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
-          username_help: Der öffentliche Name, der in Ihren Posts angezeigt wird. Mit dem Ziel, die Anonymität zu gewährleisten, kann jeder Name angegeben werden.
+          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
         new:
-          already_have_an_account?: Hast du schon ein Konto?
-          newsletter: Erhalten Sie gelegentlich einen Newsletter mit relevanten Informationen
+          already_have_an_account?: Haben Sie bereits ein Konto?
+          newsletter: Erhalten Sie einen gelegentlichen Newsletter mit relevanten Informationen
           newsletter_title: Kontakt Erlaubnis
           nickname_help: Ihre kurze, eindeutige ID in %{organization}
-          sign_in: Einloggen
-          sign_up: Anmelden
+          sign_in: Anmelden
+          sign_up: Registrieren
           sign_up_as:
-            legend: Melden Sie sich als an
-            user: Individuell
+            legend: Registrieren als
+            user: Privatperson
             user_group: Organisation / Kollektiv
-          subtitle: Melden Sie sich an, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
-          terms: die Nutzungsbedingungen
-          tos_agreement: Mit der Anmeldung stimmst du der %{link}.
+          subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
+          terms: Nutzungsbedingungen
+          tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
           tos_title: Nutzungsbedingungen
-          username_help: Der öffentliche Name, der in Ihren Posts angezeigt wird. Mit dem Ziel, die Anonymität zu gewährleisten, kann jeder Name angegeben werden.
+          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       sessions:
         new:
           are_you_new?: Neu auf der Plattform?
-          register: Ein Konto erstellen
+          register: Konto erstellen
       shared:
         newsletter_modal:
           buttons:
-            check: Überprüfen Sie und fahren Sie fort
+            check: Überprüfen und fortfahren
             close_modal: Modal schließen
             uncheck: Deaktivieren Sie das Kontrollkästchen
           notice: |-
-            <p>Hey, bist du sicher, dass du keinen Newsletter erhalten möchtest?<br>
-            Bitte beachten Sie, dass Sie das Kästchen für den Newsletter noch einmal ankreuzen.<br>
-            Es ist sehr wichtig für uns, dass Sie gelegentlich E-Mails
-            , um wichtige Ankündigungen zu machen. Sie können dies jederzeit auf der Seite mit den
-            Benachrichtigungseinstellungen ändern.</p>
-            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen
-            zu neuen partizipativen Möglichkeiten innerhalb der Plattform.<br>
-            Wenn Sie noch Empfang Newsletter vermeiden wollen, wir vollkommen
-            Ihre Entscheidung verstehen.</p>
+            <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
+            Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
+            Für uns ist es sehr wichtig, die Möglichkeit zu haben Ihnen gelegentlich E-Mails mit wichtigen Ankündigungen schicken zu können. Sie können dies jederzeit in den Benachrichtigungseinstellungen ändern.</p>
+            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen zu neuen Beteiligungsmöglichkeiten auf der Plattform.<br>
+            Wenn Sie nach wie vor keinen Newsletter erhalten möchten, verstehen wir natürlich Ihre Entscheidung.</p>
             <p>Danke fürs Lesen!</p>
           title: Newsletter Benachrichtigungen
         omniauth_buttons:
@@ -245,22 +241,22 @@ de:
         new:
           authorize: Anwendung autorisieren
           by_organization_link_html: <small class="heading-small">von %{link}</small>
-          cancel: Stornieren
+          cancel: Abbrechen
           connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong>
-          publish_content: Veröffentlichen Sie Inhalte für Sie
-          see_email: Sehen Sie Ihre E-Mail
-          see_name: Sieh deinen Namen
-          see_username: Sieh deinen Benutzernamen
+          publish_content: Inhalte für Sie veröffentlichen
+          see_email: Ihre E-Mail anzeigen
+          see_name: Ihren Namen anzeigen
+          see_username: Ihren Benutzernamen anzeigen
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
-          update_profile: Aktualisiere dein Profil
+          update_profile: Profil aktualisieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
     errors:
       internal_server_error:
         title: Es gab ein Problem mit unserem Server
-        try_later: Bitte versuche es später erneut.
+        try_later: Bitte versuchen Sie es später nochmal.
       not_found:
-        back_home: Zurück zuhause
+        back_home: Zurück zur Startseite
         content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
         title: Die von Ihnen gesuchte Seite kann nicht gefunden werden
     events:
@@ -279,6 +275,7 @@ de:
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können es von dieser Seite sehen:'
+        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können sich durch den vorherigen Link davon abmelden.
         email_subject: Ein Update auf %{resource_title}
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
