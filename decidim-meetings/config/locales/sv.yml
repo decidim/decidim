@@ -180,7 +180,6 @@ sv:
           form:
             attendee_type: Deltagartyp
             existing_user: Existerande användare
-            invite: Bjud in
             invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
             non_user: Icke-existerande användare
             select_user: Välj användare
@@ -306,8 +305,6 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
-        index:
-          view_meeting: Visa möte
         meeting_minutes:
           meeting_minutes: Mötesprotokoll
           related_information: Relaterad information
@@ -378,13 +375,6 @@ sv:
         upcoming_meetings: Kommande möten
       upcoming_meeting_for_card:
         upcoming_meeting: Kommande möte
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Relaterade resultat:'
-        result_meeting: 'Relaterade möten:'
-      proposals_from_meeting:
-        meeting_proposal: 'Relaterade förslag:'
-        proposal_meeting: 'Relaterade möten:'
   devise:
     mailer:
       join_meeting:
