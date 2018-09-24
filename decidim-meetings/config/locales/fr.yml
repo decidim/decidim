@@ -20,13 +20,13 @@ fr:
         end_time: Heure de fin
         location: Lieu
         location_hints: Données de localisation
+        organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions ouvertes
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
-        organizer_id: Organizateur
       minutes:
         audio_url: Lien vers l'audio
         description: Description
