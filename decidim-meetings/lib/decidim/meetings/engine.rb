@@ -111,6 +111,15 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/views") # for partials
       end
+
+      initializer "decidim_meetings.attended_meetings_badge" do
+        Decidim::Gamification.register_badge(:attended_meetings) do |badge|
+          badge.levels = [1, 3, 5, 10, 30]
+          badge.reset = lambda do |user|
+            Decidim::Meetings::Registration.where(user: user).count
+          end
+        end
+      end
     end
   end
 end
