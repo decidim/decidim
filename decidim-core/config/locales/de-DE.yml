@@ -280,10 +280,10 @@ de:
     doorkeeper:
       authorizations:
         new:
-          authorize: Anwendung autorisieren
+          authorize: App zulassen
           by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
-          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong>
+          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong> anmelden
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
@@ -294,7 +294,7 @@ de:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
     errors:
       internal_server_error:
-        title: Es gab ein Problem mit unserem Server
+        title: Auf unserem Server ist ein Problem aufgetreten
         try_later: Bitte versuchen Sie es später nochmal.
       not_found:
         back_home: Zurück zur Startseite
