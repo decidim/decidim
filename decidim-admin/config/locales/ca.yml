@@ -103,9 +103,6 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
         site: Lloc web
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -614,6 +611,7 @@ ca:
         new:
           create: Convidar
           title: Convidar un usuari com a administrador
+      view_public_page: Mostra la pàgina pública
     forms:
       errors:
         impersonate_user:
@@ -654,7 +652,3 @@ ca:
           title: Configuració
         users:
           title: Usuaris
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

@@ -174,6 +174,10 @@ fi:
         questions: Kysymykset
         responses: Vastaukset
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Näytettävien elementtien enimmäismäärä
       consultation:
         start_voting_date: Äänestyksen alkamisajankohta
         view_results: Näytä tulokset
@@ -184,6 +188,9 @@ fi:
           label: 'Lajittele kuulemiset:'
           random: Sattumanvarainen järjestys
           recent: Viimeisin ensin
+      content_blocks:
+        highlighted_consultations:
+          name: Korostetut kuulemiset
       count:
         title:
           one: "%{count} kuuleminen"
@@ -204,6 +211,15 @@ fi:
         title: Kysymykset teemasta %{scope_name}
       index:
         title: Kuulemiset
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktiiviset neuvottelut
+            see_all_consultations: Katso kaikki kuulemiset
+            voting_ends_in:
+              one: Äänestys päättyy <strong>huomenna</strong>
+              other: Äänestys päättyy <strong>%{count} päivän</strong> päästä
+            voting_ends_today: Äänestys päättyy <strong>tänään</strong>
       question:
         take_part: Osallistu
         view_results: Näytä tulokset

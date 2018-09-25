@@ -238,6 +238,9 @@ eu:
               not_ceased: Ez da gelditu
             filter_by: Iragazi arabera
             search: Search
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Erakusteko elementu gehienen kopurua
       assembly_members:
         index:
           members: Bazkideek

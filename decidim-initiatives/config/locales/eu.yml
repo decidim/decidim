@@ -102,6 +102,9 @@ eu:
             no_members_yet: Ez dago bazkide promoziorako batzordean
             revoke: Baliogabetu
             title: Batzorde kideak
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Erakusteko elementu gehienen kopurua
         initiatives:
           edit:
             accept: Onartu ekimena
