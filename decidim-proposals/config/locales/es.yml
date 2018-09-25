@@ -84,7 +84,7 @@ es:
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
             proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
-            proposal_wizard_step_4_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
+            proposal_wizard_step_4_help_text: 'Asistente de propuesta: texto de ayuda paso "Publicar"'
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por usuario
@@ -535,7 +535,6 @@ es:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
-          endorsements_list: Lista de adhesiones
           hidden_endorsers_count:
             one: y 1 persona más
             other: y %{count} persona/s más
@@ -612,11 +611,3 @@ es:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versión %{index}
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Propuestas relacionadas
-      included_projects:
-        project_result: 'Resultados que aparecen en este proyecto:'
-      included_proposals:
-        proposal_project: 'Propuesta formulada en estos proyectos:'
-        proposal_result: 'Propuesta formulada en estos resultados:'

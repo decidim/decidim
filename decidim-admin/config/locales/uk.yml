@@ -103,9 +103,6 @@ uk:
         organization_url: Адреса сайту організації
         redirect_uri: URI перенаправлення
         site: Веб-сайт
-  date:
-    formats:
-      datepicker: "%d.%m.%Y"
   decidim:
     admin:
       actions:
@@ -651,7 +648,3 @@ uk:
           title: Налаштування
         users:
           title: Учасники
-  time:
-    formats:
-      datepicker: "%d.%m.%Y"
-      timepicker: "%H:%M %d.%m.%Y"

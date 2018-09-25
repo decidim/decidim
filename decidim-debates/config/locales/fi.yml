@@ -2,8 +2,8 @@ fi:
   activemodel:
     attributes:
       debate:
-        category_id: Kategoria
-        decidim_category_id: Kategoria
+        category_id: Aihepiiri
+        decidim_category_id: Aihepiiri
         description: Kuvaus
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
@@ -19,13 +19,13 @@ fi:
     models:
       decidim/debates/debate:
         one: Keskustelu
-        other: keskustelut
+        other: Keskustelut
   decidim:
     components:
       debates:
         actions:
           create: Luo
-        name: keskustelut
+        name: Keskustelut
         settings:
           global:
             announcement: Ilmoitus
@@ -78,8 +78,8 @@ fi:
           participate: Osallistu
         filters:
           all: Kaikki
-          category: Kategoria
-          category_prompt: Valitse kategoria
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
           citizens: Kansalaiset
           official: Virallinen
           origin: Alkuperä
@@ -94,7 +94,7 @@ fi:
         new:
           back: Takaisin
           create: Luo
-          select_a_category: Valitse kategoria
+          select_a_category: Valitse aihepiiri
           title: Uusi keskustelu
         share:
           close_window: Sulje ikkuna
@@ -105,7 +105,7 @@ fi:
           fields:
             end_time: Päättymispäivä
             official_debate: Virallinen keskustelu
-            start_time: Aloituspäivämäärä
+            start_time: Alkamispäivä
             title: Otsikko
     events:
       debates:
@@ -114,22 +114,22 @@ fi:
             email_intro: |-
               Hei,
               Uusi keskustelu on luotu osallistumistilaan %{space_title}. Tutustu ja osallistu siihen:
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi keskustelu kohdassa %{space_title}
             notification_title: Keskustelu aiheesta <a href="%{resource_path}">%{resource_title}</a> luotiin kohtaan <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hei, %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun, tutustu ja osallistu siihen:
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi keskustelu käyttäjältä %{author_nickname}
             notification_title: Käyttäjä <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Keskustelujen luominen ei ole enää käytössä kohteessa %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin tämän sivun kautta:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Keskustelujen luominen on poistettu käytöstä kohteessa %{participatory_space_title}
           notification_title: Keskustelujen luominen on nyt poistettu käytöstä kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
           email_intro: 'Nyt voit aloittaa uusia keskusteluja kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>

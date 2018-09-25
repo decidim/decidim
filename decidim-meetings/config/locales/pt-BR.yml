@@ -306,8 +306,6 @@ pt-BR:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
-        index:
-          view_meeting: Ver reunião
         meeting_minutes:
           meeting_minutes: Atas de Reunião
           related_information: Informação relacionada

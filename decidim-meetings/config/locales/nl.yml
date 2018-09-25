@@ -180,7 +180,7 @@ nl:
           form:
             attendee_type: Type deelnemer
             existing_user: Bestaande gebruiker
-            invite: Uitnodigen
+            invite: Nodig uit
             invite_explanation: De gebruiker wordt ook uitgenodigd om deel te nemen aan de vergadering en aan de organisatie.
             non_user: Niet bestaande gebruiker
             select_user: Selecteer gebruiker
@@ -306,8 +306,6 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
-        index:
-          view_meeting: Bekijk de vergadering
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Gerelateerde informatie
@@ -381,10 +379,10 @@ nl:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Gerelateerde resultaten:'
-        result_meeting: 'Gerelateerde vergaderingen:'
+        result_meeting: 'Gerelateerde bijeenkomsten:'
       proposals_from_meeting:
         meeting_proposal: 'Gerelateerde voorstellen:'
-        proposal_meeting: 'Gerelateerde vergaderingen:'
+        proposal_meeting: 'Gerelateerde bijeenkomsten:'
   devise:
     mailer:
       join_meeting:

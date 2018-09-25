@@ -180,7 +180,7 @@ sv:
           form:
             attendee_type: Deltagartyp
             existing_user: Existerande användare
-            invite: Bjud in
+            invite: Inbjudan
             invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
             non_user: Icke-existerande användare
             select_user: Välj användare
@@ -306,8 +306,6 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
-        index:
-          view_meeting: Visa möte
         meeting_minutes:
           meeting_minutes: Mötesprotokoll
           related_information: Relaterad information

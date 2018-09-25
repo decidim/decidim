@@ -161,29 +161,8 @@ es:
       started_at: Comenzó el %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Volver a autorizar con "%{authorization}"
-          explanation: Tu autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
-          title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
-          explanation: 'A pesar de que actualmente está autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque carecemos de los datos siguientes:'
-          invalid_field: "%{field}"
-          reauthorize: Reautorizarse
-          title: Por favor, re-autorízate
-        missing:
-          authorize: Autorizar con "%{authorization}"
-          explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
-          title: Autorización requerida
-        pending:
-          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
-          resume: Verifica el progreso de la autorización "%{authorization}"
-          title: La autorización aún está en progreso
-        unauthorized:
-          explanation: No puedes realizar esta acción ya que algunos de los datos de autorización no son los requeridos.
-          invalid_field: "%{field} valor %{value} no es válido."
-          ok: De acuerdo
-          title: No autorizado
     collapsible_list:
       hidden_elements_count:
         one: y 1 más
@@ -348,7 +327,6 @@ es:
       linked_classes:
         all: Todas
         collaborative_draft: Borrador colaborativo
-        dummy_resource: Recursos ficticios
         meeting: Encuentros
         project: Proyectos
         proposal: Propuestas
@@ -449,7 +427,6 @@ es:
           no_conversations: Aún no tienes conversaciones
         show:
           conversation_with_html: Conversación con <strong>%{name}</strong>
-          reply: Respuesta
           send: Enviar
         start:
           send: Enviar
@@ -482,8 +459,6 @@ es:
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: '¿Deseas seguir recibiendo información relevante sobre %{organization_name}?'
-    notifications:
-      no_notifications: No hay notificaciones aún.
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
@@ -500,41 +475,13 @@ es:
     pages:
       home:
         extended:
-          debates: Debates
-          debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-          how_to_participate: '¿Cómo tomo parte en un proceso?'
           meetings: Encuentros
-          meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
-          more_info: Más información
           proposals: Propuestas
-          proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
-        footer_sub_hero:
-          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
-          footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
-          register: Regístrate
-        hero:
-          participate: Participar
-          welcome: Bienvenido a %{organization}!
         statistics:
-          answers_count: Encuestas completadas
-          assemblies_count: Asambleas
-          comments_count: Comentarios
-          debates_count: Debates
-          endorsements_count: Adhesiones
-          headline: Estado actual de %{organization}
           meetings_count: Encuentros
-          orders_count: Votos
-          pages_count: Páginas
-          processes_count: Procesos
           projects_count: Proyectos
-          proposals_accepted: Propuestas aceptadas
           proposals_count: Propuestas
           results_count: Resultados
-          surveys_count: Encuestas
-          users_count: Participantes
-          votes_count: Votos
-        sub_hero:
-          register: Regístrate
       index:
         title: Más información
       terms_and_conditions:
@@ -687,7 +634,7 @@ es:
       nesting_too_deep: no puede estar dentro de una subcategoría
       too_many_marks: hay demasiados signos de puntuación
       too_much_caps: hay demasiadas mayúsculas
-      too_short: es demasiado corto
+      too_short: Es demasiado corto
   forms:
     required: Obligatorio
   invisible_captcha:
