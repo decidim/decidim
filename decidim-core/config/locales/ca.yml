@@ -691,7 +691,7 @@ ca:
       confirmation_instructions:
         action: Confirma el meu compte
         greeting: Benvinguda %{recipient}
-        instruction: 'Podeu confirmar el correu electrònic del vostre compte a través de l''enllaç següent:'
+        instruction: 'Pots confirmar el correu electrònic del teu compte a través de l''enllaç següent:'
         subject: Instruccions de confirmació
       email_changed:
         greeting: Hola %{recipient}
@@ -731,10 +731,10 @@ ca:
       reset_password_instructions:
         action: Canvia la meva contrasenya
         greeting: Hola %{recipient}
-        instruction: Algú ha demanat un enllaç per canviar la contrasenya, i ho podeu fer a través de l'enllaç següent.
+        instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, i ho pots fer a través de l'enllaç següent.
         instruction_2: Si no ho heu sol·licitat, ignoreu aquest correu electrònic.
         instruction_3: La vostra contrasenya no canviarà fins que accediu a l'enllaç de dalt i creeu-ne un de nou.
-        subject: Reinicia les instruccions de la contrasenya
+        subject: Instruccions de regeneració de contrasenya
       unlock_instructions:
         action: Desbloqueja el meu compte
         greeting: Hola %{recipient}
