@@ -161,8 +161,24 @@ de:
       started_at: Begann am %{timestamp}
     authorization_modals:
       show:
+        expired:
+          explanation: Ihre Berechtigung ist abgelaufen. Um diese Aktion ausführen zu können, müssen Sie mit "%{authorization}" erneut berechtigt werden.
+          title: Berechtigung abgelaufen
         incomplete:
           cancel: Abbrechen
+          explanation: 'Obwohl Sie derzeit mit "%{authorization}" berechtigt sind, müssen wir Sie erneut berechtigen, da uns folgende Daten fehlen:'
+          invalid_field: "%{field}"
+          reauthorize: Erneut berechtigen
+          title: Bitte erneut berechtigen
+        missing:
+          authorize: Mit "%{authorization}" berechtigen
+          explanation: Um diese Aktion ausführen zu können, müssen Sie mit "%{authorization}" erneut berechtigt werden.
+          title: Berechtigung erforderlich
+        pending:
+          explanation: Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" berechtigt sein, aber Ihre Berechtigung ist noch in Bearbeitung
+        unauthorized:
+          ok: Ok
+          title: Nicht berechtigt
     collapsible_list:
       hidden_elements_count:
         one: und 1 mehr
@@ -332,7 +348,7 @@ de:
         proposal: Vorschläge
         result: Ergebnisse
     fingerprint:
-      check: Überprüfen Sie den Fingerabdruck
+      check: Fingerabdruck überprüfen
       explanation: Der folgende Textteil ist eine verkürzte, gehashte Darstellung dieses Inhalts. Es ist nützlich, sicherzustellen, dass der Inhalt nicht manipuliert wurde, da eine einzige Änderung zu einem völlig anderen Wert führen würde.
       online_calculator_name: MD5 Rechner online
       replicate_help: Dieser Fingerabdruck wird unter Verwendung eines SHA256-Hashing-Algorithmus berechnet. Um es selbst zu replizieren, können Sie eine %{online_calculator_link} und die Quelldaten kopieren.
@@ -475,13 +491,30 @@ de:
     pages:
       home:
         extended:
+          debates: Diskussionen
           meetings: Meetings
+          meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
           proposals: Vorschläge
+        footer_sub_hero:
+          register: Registrieren
+        hero:
+          participate: Teilnehmen
         statistics:
+          assemblies_count: Versammlungen
+          comments_count: Kommentare
+          debates_count: Diskussionen
+          endorsements_count: Unterstützungen
           meetings_count: Meetings
+          orders_count: Stimmen
+          pages_count: Seiten
           projects_count: Projekte
+          proposals_accepted: Akzeptierte Vorschläge
           proposals_count: Vorschläge
           results_count: Ergebnisse
+          users_count: Teilnehmer*innen
+          votes_count: Stimmen
+        sub_hero:
+          register: Registrieren
       index:
         title: Mehr Informationen
       terms_and_conditions:
