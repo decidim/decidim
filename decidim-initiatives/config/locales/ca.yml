@@ -102,6 +102,9 @@ ca:
             no_members_yet: No hi ha membres al comitè promotor
             revoke: Revocar
             title: Membres del comitè
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantitat màxima d'elements que es mostraran
         initiatives:
           edit:
             accept: Accepta la iniciativa

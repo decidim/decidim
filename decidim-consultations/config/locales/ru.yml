@@ -220,6 +220,10 @@ ru:
         title: Вопросы из %{scope_name}
       index:
         title: Консультации
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Действующие консультации
       question:
         take_part: Принять участие
         view_results: Посмотреть итоги

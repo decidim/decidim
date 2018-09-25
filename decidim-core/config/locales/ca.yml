@@ -216,6 +216,9 @@ ca:
         name: Bàner de contingut destacat
       how_to_participate:
         name: Com participar
+      html:
+        html_content: Contingut HTML
+        name: Bloc HTML
       stats:
         name: Estadístiques de l'organització
       sub_hero:
@@ -230,6 +233,8 @@ ca:
         download_data: Baixa't les dades
         download_data_description: Un fitxer amb tota la informació associada al compte s'enviarà a <strong>%{user_email}</strong>
         request_data: Sol·licita dades
+    datepicker:
+      help_text: 'Format esperat: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -527,6 +532,7 @@ ca:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees
           comments_count: Comentaris
+          conferences_count: Conferències
           debates_count: Debats
           endorsements_count: Adhesions
           headline: Estat actual de %{organization}
@@ -649,13 +655,48 @@ ca:
       version_author:
         deleted: Usuari eliminat
   devise:
+    confirmations:
+      confirmed: La vostra adreça de correu electrònic s'ha confirmat correctament.
+      new:
+        resend_confirmation_instructions: Reenvia les instruccions de confirmació
+      send_instructions: Rebreu un correu electrònic amb instruccions per confirmar la vostra adreça de correu electrònic en pocs minuts.
+      send_paranoid_instructions: Si la vostra adreça de correu electrònic existeix a la nostra base de dades, rebrà un correu electrònic amb instruccions per confirmar la vostra adreça de correu electrònic en pocs minuts.
+    failure:
+      already_authenticated: Ja heu iniciat la sessió.
+      inactive: El teu compte encara no està activat.
+      invalid: El %{authentication_keys} o la contrasenya no són vàlids.
+      invited: Teniu una invitació pendent, accepteu-lo per acabar de crear el vostre compte.
+      last_attempt: Teniu un intent més abans de bloquejar el vostre compte.
+      locked: El vostre compte està bloquejat.
+      not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
+      timeout: La vostra sessió ha caducat. Torna a iniciar-la per continuar.
+      unauthenticated: Heu d'iniciar la sessió o registrar-vos abans de continuar.
+      unconfirmed: Heu de confirmar la vostra adreça de correu electrònic abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari/a i contrasenya.
+      invitation_removed: S'ha eliminat la teva invitació.
+      invitation_token_invalid: El token d'invitació proporcionat no és vàlid.
+      new:
+        header: Enviar invitació
+        submit_button: Enviar una invitació
+      no_invitations_remaining: No hi ha invitacions restants
+      send_instructions: S'ha enviat un correu electrònic d'invitació a %{email}.
+      updated: La vostra contrasenya s'ha establert correctament. Ja heu iniciat la sessió.
+      updated_not_active: La vostra contrasenya s'ha establert correctament.
     mailer:
+      confirmation_instructions:
+        action: Confirma el meu compte
+        greeting: Benvinguda %{recipient}
+        instruction: 'Pots confirmar el correu electrònic del teu compte a través de l''enllaç següent:'
+        subject: Instruccions de confirmació
+      email_changed:
+        greeting: Hola %{recipient}
+        message: Ens contactem per avisar-vos que el vostre correu electrònic es modifica a %{email}.
+        subject: El correu electrònic s'ha canviat
       invitation_instructions:
         accept: Acceptar invitació
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
@@ -670,6 +711,7 @@ ca:
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
         someone_invited_you_as_private_user: Algú t'ha convidat com a usuari privat de %{application}. Pots acceptar-ho a través del següent enllaç.
+        subject: Instruccions d'invitació
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
@@ -686,20 +728,101 @@ ca:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
         subject: Contrasenya modificada
+      reset_password_instructions:
+        action: Canvia la meva contrasenya
+        greeting: Hola %{recipient}
+        instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, i ho pots fer a través de l'enllaç següent.
+        instruction_2: Si no ho heu sol·licitat, ignoreu aquest correu electrònic.
+        instruction_3: La vostra contrasenya no canviarà fins que accediu a l'enllaç de dalt i creeu-ne un de nou.
+        subject: Instruccions de regeneració de contrasenya
+      unlock_instructions:
+        action: Desbloqueja el meu compte
+        greeting: Hola %{recipient}
+        instruction: 'Feu clic a l''enllaç següent per desbloquejar el vostre compte:'
+        message: El vostre compte s'ha bloquejat a causa d'una quantitat excessiva d'intents d'inici de sessió incorrectes.
+        subject: Desbloqueja les instruccions
+    omniauth_callbacks:
+      failure: No podeu autenticar-te des de %{kind} perquè "%{reason}".
+      success: S'ha autenticat amb èxit des del compte %{kind}.
+    passwords:
+      edit:
+        change_my_password: Canvia la meva contrasenya
+        change_your_password: Canvia la teva contrasenya
+        confirm_new_password: Confirmar nova contrasenya
+        new_password: Contrasenya
+      new:
+        forgot_your_password: Has oblidat la teva contrasenya?
+        send_me_reset_password_instructions: Envia'm les instruccions de restabliment de la contrasenya
+      no_token: No podeu accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si prové d'un correu electrònic de restabliment de la contrasenya, assegureu-vos que heu utilitzat l'URL complet proporcionat.
+      send_instructions: Rebreu un correu electrònic amb instruccions sobre com restablir la vostra contrasenya en pocs minuts.
+      send_paranoid_instructions: Si la vostra adreça de correu electrònic existeix a la nostra base de dades, rebreu un enllaç de recuperació de la contrasenya a la vostra adreça de correu electrònic en pocs minuts.
+      updated: La contrasenya s'ha modificat correctament. Ja heu iniciat la sessió.
+      updated_not_active: La contrasenya s'ha modificat correctament.
+    registrations:
+      destroyed: Adéu El vostre compte s'ha cancel·lat correctament. Esperem tornar-vos a veure de seguida.
+      edit:
+        are_you_sure: Estàs segur?
+        cancel_my_account: Cancel·lar el meu compte
+        currently_waiting_confirmation_for_email: 'Actualment la confirmació d''espera per a: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: deixeu-lo en blanc si no voleu canviar-lo
+        title: Edita %{resource}
+        unhappy: Infeliç
+        update: Actualització
+        we_need_your_current_password_to_confirm_your_changes: necessitem la contrasenya actual per confirmar els canvis
+      new:
+        sign_up: Registra't
+      signed_up: Benvinguda! Heu iniciat la sessió amb èxit.
+      signed_up_but_inactive: Heu iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar-hi la sessió perquè el vostre compte encara no està activat.
+      signed_up_but_locked: Heu iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar-hi la sessió perquè el vostre compte està bloquejat.
+      signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la vostra adreça de correu electrònic. Seguiu l'enllaç per activar el vostre compte.
+      update_needs_confirmation: Heu actualitzat el vostre compte amb èxit, però hem de verificar la vostra nova adreça electrònica. Comproveu el vostre correu electrònic i seguiu l'enllaç de confirmació per confirmar la vostra nova adreça de correu electrònic.
+      updated: El compte s'ha actualitzat correctament.
+    sessions:
+      already_signed_out: S'ha iniciat la sessió correctament.
+      new:
+        sign_in: Iniciar Sessió
+      signed_in: S'ha iniciat la sessió correctament.
+      signed_out: S'ha iniciat la sessió correctament.
+    shared:
+      links:
+        back: esquena
+        didn_t_receive_confirmation_instructions: No heu rebut instruccions de confirmació?
+        didn_t_receive_unlock_instructions: No heu rebut instruccions de desbloqueig?
+        forgot_your_password: Has oblidat la teva contrasenya?
+        sign_in: Iniciar Sessió
+        sign_in_with_provider: Inicieu sessió amb %{provider}
+        sign_up: Registra't
+      minimum_password_length:
+        one: "(Mínim de%{count} caràcters)"
+        other: "(Mínim de%{count} caràcters)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenvia les instruccions de desbloqueig
+      send_instructions: Rebreu un correu electrònic amb instruccions per desbloquejar el vostre compte en pocs minuts.
+      send_paranoid_instructions: Si el vostre compte existeix, rebrà un correu electrònic amb instruccions per desbloquejar-lo en pocs minuts.
+      unlocked: S'ha desbloquejat el vostre compte correctament. Inicieu sessió per continuar.
   doorkeeper:
     scopes:
       public: La teva informació pública.
   errors:
     messages:
+      already_confirmed: Ja s'ha confirmat. Intenteu iniciar la sessió
+      confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau, sol·liciteu-ne un de nou
       content_type_whitelist_error: el tipus de fitxer no és vàlid
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
+      expired: ha caducat, si us plau, sol·liciteu-ne un de nou
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
-      long_words: conté paraules que són massa llargues
-      must_start_with_caps: ha de començar amb majúscules
+      long_words: conté paraules massa llargues (més de 35 caràcters)
+      must_start_with_caps: ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
-      too_many_marks: hi ha massa signes de puntuació
-      too_much_caps: hi ha massa majúscules
-      too_short: és massa curt
+      not_found: no trobat
+      not_locked: no estava bloquejat
+      not_saved:
+        one: '1 error prohibit que es guardés aquest %{resource}:'
+        other: "%{count} errors van prohibir que es guardés aquest %{resource}:"
+      too_many_marks: està usant massa marques de puntuació consecutives (p. ex. i?)
+      too_much_caps: està utilitzant massa lletres majúscules (més del 25% del text)
+      too_short: és massa curt (menys de 15 caràcters)
   forms:
     required: Obligatori
   invisible_captcha:
@@ -784,6 +907,10 @@ ca:
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

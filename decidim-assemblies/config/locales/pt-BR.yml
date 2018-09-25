@@ -238,6 +238,9 @@ pt-BR:
               not_ceased: Não cessou
             filter_by: Filtrar por
             search: Procurar
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantidade máxima de elementos para mostrar
       assembly_members:
         index:
           members: Membros

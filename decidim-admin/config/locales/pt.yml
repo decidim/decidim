@@ -103,9 +103,6 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
         site: Local na rede Internet
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -614,6 +611,7 @@ pt:
         new:
           create: Convite
           title: Convide o usuário como administrador
+      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
@@ -654,7 +652,3 @@ pt:
           title: Configurações
         users:
           title: Utilizadores
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

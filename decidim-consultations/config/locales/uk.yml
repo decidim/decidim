@@ -220,6 +220,10 @@ uk:
         title: Питання з %{scope_name}
       index:
         title: Консультації
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Діючі консультації
       question:
         take_part: Взяти участь
         view_results: Переглянути підсумки

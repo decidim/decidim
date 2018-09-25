@@ -238,6 +238,9 @@ ca:
               not_ceased: No cessat
             filter_by: Filtra per
             search: Cerca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantitat màxima d'elements que es mostraran
       assembly_members:
         index:
           members: Membres

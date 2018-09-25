@@ -102,6 +102,9 @@ nl:
             no_members_yet: Er zijn geen leden in de promotieraad
             revoke: Intrekken
             title: Commissieleden
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
         initiatives:
           edit:
             accept: Accepteer initiatief

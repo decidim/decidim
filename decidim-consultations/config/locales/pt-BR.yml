@@ -174,6 +174,10 @@ pt-BR:
         questions: Questões
         responses: Respostas
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantidade máxima de elementos para mostrar
       consultation:
         start_voting_date: A votação começa
         view_results: Ver resultados
@@ -184,6 +188,9 @@ pt-BR:
           label: 'Ordenar consultas por:'
           random: Aleatório
           recent: Mais recente
+      content_blocks:
+        highlighted_consultations:
+          name: Consultas destacadas
       count:
         title:
           one: "%{count} consulta"
@@ -204,6 +211,15 @@ pt-BR:
         title: Perguntas de %{scope_name}
       index:
         title: Consultas
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultas ativas
+            see_all_consultations: Veja todas as consultas
+            voting_ends_in:
+              one: A votação termina <strong>amanhã</strong>
+              other: A votação termina em <strong>%{count} dia</strong>
+            voting_ends_today: A votação termina <strong>hoje</strong>
       question:
         take_part: Participar
         view_results: Ver resultados

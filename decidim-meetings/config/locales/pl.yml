@@ -20,13 +20,13 @@ pl:
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        organizer_id: Organizator
         private_meeting: Prywatne spotkanie
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracje włączone
         start_time: Czas rozpoczęcia
         title: Tytuł
         transparent: Przezroczysty
-        organizer_id: Organizator
       minutes:
         audio_url: Adres audio
         description: Opis
@@ -293,6 +293,7 @@ pl:
         minutes:
           create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+      conference_venues: Sale konferencyjne
       content_blocks:
         upcoming_events:
           name: Nadchodzące wydarzenia

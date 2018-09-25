@@ -103,9 +103,6 @@ it:
         organization_url: URL dell'organizzazione
         redirect_uri: Reindirizza URI
         site: Sito web
-  date:
-    formats:
-      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -614,6 +611,7 @@ it:
         new:
           create: Invita
           title: Invita l'utente in qualità di amministratore
+      view_public_page: Visualizza la pagina pubblica
     forms:
       errors:
         impersonate_user:
@@ -654,7 +652,3 @@ it:
           title: Impostazioni
         users:
           title: Utenti
-  time:
-    formats:
-      datepicker: "%m/%d/%Y"
-      timepicker: "%m/%d/%Y %H:%M"

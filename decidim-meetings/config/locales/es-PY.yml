@@ -20,13 +20,13 @@ es-PY:
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        organizer_id: Organizador
         private_meeting: Encuentro privado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
-        organizer_id: Organizador
       minutes:
         audio_url: URL del audio
         description: Descripción
@@ -285,6 +285,7 @@ es-PY:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_events:
           name: Próximos Eventos

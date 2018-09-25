@@ -267,6 +267,9 @@ es-PY:
         title: Fases del proceso participativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Cantidad máxima de elementos para mostrar
         participatory_process_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'

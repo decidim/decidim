@@ -174,6 +174,10 @@ ca:
         questions: Preguntes
         responses: Respostes
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantitat màxima d'elements que es mostraran
       consultation:
         start_voting_date: Comença la votació
         view_results: Veure resultats
@@ -184,6 +188,9 @@ ca:
           label: 'Ordena les consultes per:'
           random: Aleatori
           recent: Més recent
+      content_blocks:
+        highlighted_consultations:
+          name: Consultes destacades
       count:
         title:
           one: "%{count} consulta"
@@ -204,6 +211,15 @@ ca:
         title: Preguntes de %{scope_name}
       index:
         title: Consultes
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultes actives
+            see_all_consultations: Veure totes les consultes
+            voting_ends_in:
+              one: La votació finalitza el <strong>demà</strong>
+              other: La votació finalitza en <strong>%{count} dies</strong>
+            voting_ends_today: La votació acaba <strong>avui</strong>
       question:
         take_part: Participar
         view_results: Veure resultats

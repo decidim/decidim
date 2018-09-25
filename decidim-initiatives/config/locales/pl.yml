@@ -108,6 +108,9 @@ pl:
             no_members_yet: W komisji promotorskiej nie ma członków
             revoke: Unieważnić
             title: członkowie Komitetu
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maksymalna ilość elementów do pokazania
         initiatives:
           edit:
             accept: Przyjmij inicjatywę
