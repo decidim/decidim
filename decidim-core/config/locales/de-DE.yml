@@ -145,18 +145,18 @@ de:
         fields:
           document_number: Dokumentnummer
           postal_code: Postleitzahl
-        name: Beispielberechtigung
+        name: Beispiel Berechtigung
       dummy_authorization_workflow:
-        name: Dummy-Autorisierungs-Workflow
+        name: Arbeitsablauf Dummy Berechtigung
       errors:
-        duplicate_authorization: Ein Benutzer ist bereits mit den gleichen Daten berechtigt.
+        duplicate_authorization: Ein*e Benutzer*in ist bereits mit den gleichen Daten berechtigt.
       expired_at: Abgelaufen am %{timestamp}
       expires_at: Läuft am %{timestamp} ab
       foo_authorization:
         fields:
           bar: Bar
           foo: Foo
-        name: Foo Genehmigung
+        name: Foo Berechtigung
       granted_at: Zugelassen am %{timestamp}
       started_at: Begann am %{timestamp}
     authorization_modals:
