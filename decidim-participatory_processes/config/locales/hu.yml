@@ -311,11 +311,6 @@ hu:
             no_active: Nincsenek aktív folyamatok
             no_active_nor_upcoming: Nincs aktív vagy közelgő folyamat
             no_active_nor_upcoming_callout: Nincs sem aktív, sem közelgő folyamat. A korrábbiakat itt nézheted meg.
-          names:
-            active: Aktív
-            all: Összes
-            past: Előzmények
-            upcoming: Közelgő
           see: Lásd
         index:
           loading: Eredmények betöltése...
