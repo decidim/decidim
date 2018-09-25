@@ -129,7 +129,7 @@ sv:
           description_own: Du har deltagit i %{score} möten.
           explanation: Användare får detta märke genom att delta i möten.
           name: Deltog i möten
-          next_level_in: Uppmärksamma %{score} fler möten för att nå nästa nivå!
+          next_level_in: Närvara på %{score} fler möten för att nå nästa nivå!
           unearned_another: den här användaren har inte deltagit i något möte än.
           unearned_own: Du har inte deltagit i något möte än.
     meetings:
