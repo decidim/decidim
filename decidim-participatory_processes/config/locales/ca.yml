@@ -267,6 +267,9 @@ ca:
         title: Fases del procés participatiu
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantitat màxima d'elements que es mostraran
         participatory_process_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -308,11 +311,6 @@ ca:
             no_active: Sense processos actius
             no_active_nor_upcoming: No hi ha processos actius ni futurs
             no_active_nor_upcoming_callout: No hi ha processos actius ni futurs. Aquí hi ha una llista dels anteriors.
-          names:
-            active: Actius
-            all: Tots
-            past: Passats
-            upcoming: Propers
           see: Veure
         index:
           loading: Carregant resultats...

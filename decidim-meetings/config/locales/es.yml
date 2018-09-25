@@ -20,6 +20,7 @@ es:
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        organizer_id: Organizador
         private_meeting: Encuentro privado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
@@ -122,6 +123,16 @@ es:
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Este usuario asistió a %{score} encuentros.
+          description_own: Usted ha asistido a %{score} reuniones.
+          explanation: Los usuarios obtienen esta insignia asistiendo a las reuniones.
+          name: Reuniones asistidas
+          next_level_in: Attent %{score} reuniones más para llegar al siguiente nivel!
+          unearned_another: este usuario no ha asistido a ninguna reunión aún.
+          unearned_own: No has asistido a ninguna reunión todavía.
     meetings:
       actions:
         agenda: Orden del día
@@ -181,7 +192,7 @@ es:
           form:
             attendee_type: Tipo de Asistente
             existing_user: Usuario existente
-            invite: Invitar
+            invite: Invitación
             invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
             non_user: Usuario no existente
             select_user: Seleccionar usuario
@@ -285,6 +296,7 @@ es:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_events:
           name: Próximos Eventos
@@ -343,8 +355,6 @@ es:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
           view: Ver
-      meetings_map:
-        view_meeting: Ver encuentro
       models:
         invite:
           fields:
@@ -397,10 +407,10 @@ es:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
-        result_meeting: 'Encuentros relacionados:'
+        result_meeting: 'Reuniones relacionadas:'
       proposals_from_meeting:
         meeting_proposal: 'Propuestas relacionadas:'
-        proposal_meeting: 'Encuentros relacionados:'
+        proposal_meeting: 'Reuniones relacionadas:'
   devise:
     mailer:
       join_meeting:

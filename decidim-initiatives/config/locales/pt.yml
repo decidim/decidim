@@ -6,8 +6,6 @@ pt:
         description: Descrição
         offline_votes: Suporte face a face
         scope_id: Escopo
-        signature_end_date: Fim do período de coleta de assinaturas
-        signature_start_date: Início do período de coleta de assinaturas
         signature_type: Tipo de coleta de assinatura
         signature_type_values:
           any: Misturado
@@ -102,6 +100,9 @@ pt:
             no_members_yet: Não há membros no comitê de promotores
             revoke: Revogar
             title: membros do Comitê
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantidade máxima de elementos para mostrar
         initiatives:
           edit:
             accept: Aceitar iniciativa

@@ -6,8 +6,6 @@ hu:
         description: Leírás
         offline_votes: Támogatás szemtől szembe
         scope_id: Hatáskör
-        signature_end_date: Az aláírásgyűjtési időszak vége
-        signature_start_date: Az aláírásgyűjtési időszak kezdete
         signature_type: Aláírásgyűjtés típusa
         signature_type_values:
           any: Vegyes
@@ -102,6 +100,9 @@ hu:
             no_members_yet: A promóciós bizottságban nincsenek tagok
             revoke: Visszavonás
             title: Bizottsági tagok
+        content_blocks:
+          highlighted_initiatives:
+            max_results: A megjelenítendő elemek maximális száma
         initiatives:
           edit:
             accept: Kezdeményezés elfogadása

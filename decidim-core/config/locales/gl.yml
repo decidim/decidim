@@ -161,29 +161,8 @@ gl:
       started_at: Comezou en %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Reautorizar con "%{authorization}"
-          explanation: A túa autorización caducou. Para realizar esta acción, necesitas ser autorizado de novo con "%{authorization}".
-          title: A autorización caducou
         incomplete:
           cancel: Cancelar
-          explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que reautoresas porque falta os seguintes datos:'
-          invalid_field: "%{field}"
-          reauthorize: Reautorizar
-          title: Reautoralizar
-        missing:
-          authorize: Autorízase con "%{authorization}"
-          explanation: Para realizar esta acción, necesitas estar autorizado con "%{authorization}".
-          title: Requírese a autorización
-        pending:
-          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero a túa autorización aínda está en progreso.
-          resume: Verifica o progreso da túa autorización "%{authorization}"
-          title: A autorización aínda está en progreso
-        unauthorized:
-          explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
-          invalid_field: "O %{field} valor %{value} non é válido."
-          ok: Ok
-          title: Non autorizado
     collapsible_list:
       hidden_elements_count:
         one: e 1 máis
@@ -216,6 +195,9 @@ gl:
         name: Banner de contido destacado
       how_to_participate:
         name: Como participar
+      html:
+        html_content: Contido HTML
+        name: Bloque HTML
       stats:
         name: Estatísticas da organización
       sub_hero:
@@ -230,6 +212,8 @@ gl:
         download_data: Descarga os datos
         download_data_description: Un ficheiro con toda a información asociada á conta enviarase a <strong>%{user_email}</strong>
         request_data: Solicitar datos
+    datepicker:
+      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -348,7 +332,6 @@ gl:
       linked_classes:
         all: Todo
         collaborative_draft: Proxecto colaborativo
-        dummy_resource: Recursos maniquís
         meeting: Reunións
         project: Proxectos
         proposal: Propostas
@@ -457,7 +440,6 @@ gl:
           no_conversations: Aínda non tes conversas
         show:
           conversation_with_html: Conversa con <strong>%{name}</strong>
-          reply: Responder
           send: Enviar
         start:
           send: Enviar
@@ -490,8 +472,6 @@ gl:
         greetings: Saúdos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ola,
         subject: Queres seguir recibindo información relevante sobre %{organization_name}?
-    notifications:
-      no_notifications: Aínda non hai notificacións.
     notifications_settings:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
@@ -508,41 +488,14 @@ gl:
     pages:
       home:
         extended:
-          debates: Debates
-          debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
-          how_to_participate: '¿Como participo nun proceso?'
           meetings: Reunións
-          meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
-          more_info: Máis información
           proposals: Propostas
-          proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
-        footer_sub_hero:
-          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
-          footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
-          register: Rexistrarse
-        hero:
-          participate: Participar
-          welcome: Benvido a %{organization}.
         statistics:
-          answers_count: Enquisas concluídas
-          assemblies_count: Asembleas
-          comments_count: Comentarios
-          debates_count: Debates
-          endorsements_count: Aprobacións
-          headline: Estado actual de %{organization}
+          conferences_count: Conferencias
           meetings_count: Reunións
-          orders_count: Votos
-          pages_count: Páxinas
-          processes_count: Procesos
           projects_count: Proxectos
-          proposals_accepted: Propostas aceptadas
           proposals_count: Propostas
           results_count: Resultados
-          surveys_count: Enquisas
-          users_count: Participantes
-          votes_count: Votos
-        sub_hero:
-          register: Rexistrarse
       index:
         title: Máis información
       terms_and_conditions:
@@ -649,13 +602,48 @@ gl:
       version_author:
         deleted: Usuario eliminado
   devise:
+    confirmations:
+      confirmed: O seu enderezo de correo electrónico confirmouse con éxito.
+      new:
+        resend_confirmation_instructions: Reenvía as instrucións de confirmación
+      send_instructions: Recibirás un correo electrónico con instrucións para confirmar o teu enderezo de correo electrónico en poucos minutos.
+      send_paranoid_instructions: Se o enderezo de correo electrónico existe na nosa base de datos, recibirá un correo electrónico con instrucións para confirmar o seu enderezo de correo electrónico en poucos minutos.
+    failure:
+      already_authenticated: Xa estás conectado.
+      inactive: A túa conta aínda non está activada.
+      invalid: O %{authentication_keys} ou o contrasinal non son válidos.
+      invited: Tes unha invitación pendente, acepta-la para finalizar a creación da túa conta.
+      last_attempt: Tes unha tentativa máis antes de que a túa conta estea bloqueada.
+      locked: A túa conta está bloqueada.
+      not_found_in_database: O %{authentication_keys} ou o contrasinal non son válidos.
+      timeout: A túa sesión caducou. Inicia sesión de novo para continuar.
+      unauthenticated: Necesitas iniciar sesión ou rexistrarte antes de continuar.
+      unconfirmed: Ten que confirmar o seu enderezo de correo electrónico antes de continuar.
     invitations:
       edit:
         header: Acaba de crear a túa conta
         nickname_help: O teu identificador único en %{organization}.
         submit_button: Gardar
         subtitle: Se aceptas a invitación, configure o teu alcume e contrasinal.
+      invitation_removed: A túa invitación foi eliminada.
+      invitation_token_invalid: O token de invitación proporcionado non é válido.
+      new:
+        header: Enviar invitación
+        submit_button: Enviar unha invitación
+      no_invitations_remaining: Non hai invitacións restantes
+      send_instructions: Enviouse un correo electrónico de invitación a %{email}.
+      updated: O seu contrasinal configurouse con éxito. Agora iniciaches sesión.
+      updated_not_active: O seu contrasinal configurouse con éxito.
     mailer:
+      confirmation_instructions:
+        action: Confirme a miña conta
+        greeting: Benvidos %{recipient}.
+        instruction: 'Pode confirmar a súa conta por correo electrónico a través da seguinte ligazón:'
+        subject: Instrucións de confirmación
+      email_changed:
+        greeting: Ola %{recipient}
+        message: Estamos a contactar con vostede para notificarlle que o seu correo electrónico está a ser modificado a %{email}.
+        subject: Cambiouse o correo electrónico
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación farase en %{due_date}.
@@ -670,6 +658,7 @@ gl:
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_private_user: Alguén te convidou como usuario privado de %{application}, podes aceptalo a través da seguinte ligazón.
+        subject: Instrucións de invitación
       invite_admin:
         subject: Invitaboute a xestionar %{organization}
       invite_collaborator:
@@ -686,20 +675,100 @@ gl:
         greeting: Ola %{recipient}!
         message: Estamos a contactar con vostede para notificarlle que se cambiou o seu contrasinal.
         subject: Contrasinal modificado
+      reset_password_instructions:
+        action: Cambiar o meu contrasinal
+        greeting: Ola %{recipient}
+        instruction: Alguén solicitou unha ligazón para cambiar o teu contrasinal e podes facelo a través da seguinte ligazón.
+        instruction_2: Se non solicitou isto, ignore este correo electrónico.
+        instruction_3: O seu contrasinal non cambiará ata que acceda á ligazón anterior e cree unha nova.
+        subject: Restablecer as instrucións do contrasinal
+      unlock_instructions:
+        action: Desbloquea a miña conta
+        greeting: Ola %{recipient}
+        instruction: 'Fai clic na seguinte ligazón para desbloquear a túa conta:'
+        message: A túa conta foi bloqueada debido a unha cantidade excesiva de intentos de inicio de sesión incorrectos.
+        subject: Desbloquear instrucións
+    omniauth_callbacks:
+      failure: Non puiden autenticarme desde %{kind} porque "%{reason}".
+      success: Autenticado con éxito a partir de %{kind} contas.
+    passwords:
+      edit:
+        change_my_password: Cambiar o meu contrasinal
+        change_your_password: Cambia o teu contrasinal
+        confirm_new_password: Confirma o contrasinal novo
+      new:
+        forgot_your_password: Esqueceu o contrasinal?
+        send_me_reset_password_instructions: Envíame a restablecer as instrucións do contrasinal
+      no_token: Non podes acceder a esta páxina sen necesidade dun correo electrónico de restablecemento de contrasinal. Se provén dun correo electrónico de restablecemento de contrasinal, asegúrese de utilizar a URL completa proporcionada.
+      send_instructions: Recibirás un correo electrónico con instrucións sobre como restablecer a túa contrasinal en poucos minutos.
+      send_paranoid_instructions: Se o seu enderezo de correo electrónico existe na nosa base de datos, recibirá unha ligazón de recuperación de contrasinal no seu enderezo de correo electrónico en poucos minutos.
+      updated: O seu contrasinal modificouse con éxito. Agora iniciaches sesión.
+      updated_not_active: O seu contrasinal modificouse con éxito.
+    registrations:
+      destroyed: Adeus! Cancelouse correctamente a túa conta. Esperamos volver a ver de novo.
+      edit:
+        are_you_sure: Estás seguro?
+        cancel_my_account: Cancelar a miña conta
+        currently_waiting_confirmation_for_email: 'Actualmente está a espera de confirmación para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: Deixar en branco se non o quere cambiar
+        title: Editar %{resource}
+        unhappy: Infeliz
+        update: Actualización
+        we_need_your_current_password_to_confirm_your_changes: necesitamos o seu contrasinal actual para confirmar os seus cambios
+      new:
+        sign_up: Rexistrarse
+      signed_up: Benvido! Rexistráches con éxito.
+      signed_up_but_inactive: Rexistráches con éxito. Non obstante, non puidemos iniciar sesión porque a túa conta aínda non está activada.
+      signed_up_but_locked: Rexistráches con éxito. Non obstante, non puidemos iniciar sesión porque a túa conta está bloqueada.
+      signed_up_but_unconfirmed: Enviouse unha mensaxe cunha ligazón de confirmación ao seu enderezo de correo electrónico. Sigue a ligazón para activar a túa conta.
+      update_needs_confirmation: Actualizou a súa conta correctamente, pero necesitamos verificar o seu novo enderezo de correo electrónico. Verifique o seu correo electrónico e siga a ligazón de confirmación para confirmar o seu novo enderezo de correo electrónico.
+      updated: A túa conta foi actualizada correctamente.
+    sessions:
+      already_signed_out: Saíu con éxito.
+      new:
+        sign_in: Iniciar sesión
+      signed_in: Iniciar sesión con éxito.
+      signed_out: Saíu con éxito.
+    shared:
+      links:
+        back: De volta
+        didn_t_receive_confirmation_instructions: Non recibiches instrucións de confirmación?
+        didn_t_receive_unlock_instructions: Non recibiches instrucións de desbloqueo?
+        forgot_your_password: Esqueceu o contrasinal?
+        sign_in: Iniciar sesión
+        sign_in_with_provider: Inicia sesión con %{provider}
+        sign_up: Rexistrarse
+      minimum_password_length:
+        one: "(Mínimo de%{count} caracteres)"
+        other: "(Mínimo de%{count} caracteres)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenvía instrucións de desbloqueo
+      send_instructions: Recibirás un correo electrónico con instrucións sobre como desbloquear a túa conta nuns minutos.
+      send_paranoid_instructions: Se a túa conta existe, recibirás un correo electrónico con instrucións sobre como desbloquearlo en poucos minutos.
+      unlocked: A túa conta foi desbloqueada con éxito. Inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: A túa información pública.
   errors:
     messages:
+      already_confirmed: xa se confirmou, intente iniciar sesión
+      confirmation_period_expired: Necesítase confirmar dentro de %{period}, solicita un novo
       content_type_whitelist_error: o tipo de ficheiro non é válido
       cycle_detected: un pai do alcance non pode ser un dos seus descendentes
+      expired: caducou, por favor solicita unha nova
       file_size_is_less_than_or_equal_to: O tamaño do ficheiro debe ser inferior ou igual a %{count}
-      long_words: contén palabras que son demasiado longas
-      must_start_with_caps: debe comezar con tapas
+      long_words: contén palabras que son demasiado longas (máis de 35 caracteres)
+      must_start_with_caps: debe comezar cunha letra maiúscula
       nesting_too_deep: non pode estar dentro dunha subcategoría
-      too_many_marks: está a usar demasiadas marcas
-      too_much_caps: está a usar demasiadas tapas
-      too_short: é demasiado curto
+      not_found: non atopado
+      not_locked: Non estaba bloqueado
+      not_saved:
+        one: 'O erro 1 prohibiuse que este %{resource} se gardase:'
+        other: "%{count} erros prohibidos de gardar este %{resource}:"
+      too_many_marks: está a usar demasiadas marcas de puntuación consecutivas (por exemplo, e?)
+      too_much_caps: está a usar letras maiúsculas (máis do 25% do texto)
+      too_short: é demasiado curto (menos de 15 caracteres)
   forms:
     required: Requerido
   invisible_captcha:
@@ -784,6 +853,10 @@ gl:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

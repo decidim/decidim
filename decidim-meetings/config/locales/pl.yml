@@ -20,6 +20,7 @@ pl:
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        organizer_id: Organizator
         private_meeting: Prywatne spotkanie
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracje włączone
@@ -128,6 +129,16 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
+          description_own: Brałeś udział w %{score} spotkaniach.
+          explanation: Użytkownicy otrzymują tę odznakę, uczestnicząc w spotkaniach.
+          name: Udział w spotkaniach
+          next_level_in: Uznaj %{score} dodatkowych spotkań, aby przejść do następnego poziomu!
+          unearned_another: ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
+          unearned_own: Nie uczestniczyłeś jeszcze w żadnym spotkaniu.
     meetings:
       actions:
         agenda: Program
@@ -187,7 +198,7 @@ pl:
           form:
             attendee_type: Typ uczestnika
             existing_user: Istniejący użytkownik
-            invite: Zaproś
+            invite: Zapraszam
             invite_explanation: Użytkownik zostanie zaproszony do przyłączenia się do spotkania i do organizacji.
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
@@ -293,6 +304,7 @@ pl:
         minutes:
           create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+      conference_venues: Sale konferencyjne
       content_blocks:
         upcoming_events:
           name: Nadchodzące wydarzenia
@@ -353,8 +365,6 @@ pl:
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count}"
           view: Widok
-      meetings_map:
-        view_meeting: Pokaż spotkanie
       models:
         invite:
           fields:

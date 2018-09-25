@@ -174,6 +174,10 @@ fr:
         questions: Questions
         responses: Réponses
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantité maximale d'éléments à afficher
       consultation:
         start_voting_date: Le vote commence le
         view_results: Voir les résultats
@@ -184,6 +188,9 @@ fr:
           label: 'Trier les votations par :'
           random: Aléatoire
           recent: Les plus récentes
+      content_blocks:
+        highlighted_consultations:
+          name: Consultations surlignées
       count:
         title:
           one: "%{count} votation"
@@ -204,6 +211,15 @@ fr:
         title: Questions de %{scope_name}
       index:
         title: Votations
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultations actives
+            see_all_consultations: Voir toutes les consultations
+            voting_ends_in:
+              one: Le vote se termine <strong>demain</strong>
+              other: Le vote prend fin à <strong>%{count} jour</strong>
+            voting_ends_today: Fin du vote <strong>aujourd'hui</strong>
       question:
         take_part: Participer
         view_results: Voir les résultats

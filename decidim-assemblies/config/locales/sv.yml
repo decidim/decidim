@@ -238,6 +238,9 @@ sv:
               not_ceased: Inte upphört
             filter_by: Filtrera efter
             search: Sök
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximal mängd element att visa
       assembly_members:
         index:
           members: Medlemmar

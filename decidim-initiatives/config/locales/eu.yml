@@ -6,8 +6,6 @@ eu:
         description: deskribapena
         offline_votes: Face-to-face euskarriak
         scope_id: esparrua
-        signature_end_date: Sinadura bildumaren epea amaituta
-        signature_start_date: Sinadura bildumaren aldiaren hasiera
         signature_type: Sinadura bilketa mota
         signature_type_values:
           any: mistoa
@@ -102,6 +100,9 @@ eu:
             no_members_yet: Ez dago bazkide promoziorako batzordean
             revoke: Baliogabetu
             title: Batzorde kideak
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Erakusteko elementu gehienen kopurua
         initiatives:
           edit:
             accept: Onartu ekimena

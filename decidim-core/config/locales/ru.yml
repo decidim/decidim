@@ -167,29 +167,8 @@ ru:
       started_at: 'Начато: %{timestamp}'
     authorization_modals:
       show:
-        expired:
-          authorize: Снова подтвердить свою личность с помощью "%{authorization}"
-          explanation: Срок действия подтверждения вашей личности истек. Чтобы выполнить это действие, вам необходимо снова подтвердить свою личность с помощью «%{authorization}».
-          title: Срок действия подтверждения личности истек
         incomplete:
           cancel: Отменить
-          explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
-          invalid_field: "%{field}"
-          reauthorize: Заново подтвердить свою личность
-          title: Пожалуйста, заново подтвердите свою личность
-        missing:
-          authorize: Подтвердить свою личность с помощью "%{authorization}"
-          explanation: Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}».
-          title: Требуется подтверждение личности
-        pending:
-          explanation: Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}», но подтверждение вашей личности еще не завершено
-          resume: Отследите ход подтверждения личности «%{authorization}»
-          title: Подтверждение личности еще не проведено
-        unauthorized:
-          explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не сходятся.
-          invalid_field: "Для %{field} недопустимо значение %{value}."
-          ok: Хорошо
-          title: Не подтвердили свою личность
     collapsible_list:
       hidden_elements_count:
         one: и еще 1
@@ -339,7 +318,6 @@ ru:
     filters:
       linked_classes:
         all: Все
-        dummy_resource: Примеры ресурсов
         meeting: Встречи
         project: Проекты
         proposal: Предложения
@@ -427,7 +405,6 @@ ru:
           no_conversations: У вас еще нет бесед
         show:
           conversation_with_html: Беседа с <strong>%{name}</strong>
-          reply: Ответить
           send: Отправить
         start:
           send: Отправить
@@ -460,8 +437,6 @@ ru:
         greetings: Здравствуйте,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>!
         hello: Здравствуйте!
         subject: Вы хотите продолжать получать новости о %{organization_name}?
-    notifications:
-      no_notifications: Пока нет уведомлений.
     notifications_settings:
       show:
         email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
@@ -478,41 +453,13 @@ ru:
     pages:
       home:
         extended:
-          debates: Обсуждения
-          debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в интересующие вас обсуждения.
-          how_to_participate: Как принять участие в движении?
           meetings: Встречи
-          meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
-          more_info: Дополнительные сведения
           proposals: Предложения
-          proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
-        footer_sub_hero:
-          footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
-          footer_sub_hero_headline: Добро пожаловать на площадку соучастия %{organization}!
-          register: Зарегистрироваться
-        hero:
-          participate: Принять участие
-          welcome: Добро пожаловать в %{organization}!
         statistics:
-          answers_count: Пройденных опросов
-          assemblies_count: Собраний
-          comments_count: Комментариев
-          debates_count: Обсуждения
-          endorsements_count: Выражений поддержки
-          headline: Текущее состояние %{organization}
           meetings_count: Встреч
-          orders_count: Голосов
-          pages_count: Страниц
-          processes_count: Движений
           projects_count: Проектов
-          proposals_accepted: Принятые предложения
           proposals_count: Предложений
           results_count: Итогов
-          surveys_count: Опросов
-          users_count: Участников
-          votes_count: Голосов
-        sub_hero:
-          register: Зарегистрироваться
       index:
         title: Дополнительные сведения
       terms_and_conditions:
@@ -658,12 +605,7 @@ ru:
       content_type_whitelist_error: этот тип файла недопустим
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
-      long_words: содержит слишком длинные слова
-      must_start_with_caps: должно начинаться с заглавных букв
       nesting_too_deep: не может быть внутри подкатегории
-      too_many_marks: содержит слишком много знаков вопроса или восклицания
-      too_much_caps: содержит слишком много заглавных букв
-      too_short: слишком короткое
   forms:
     required: Обязательно
   invisible_captcha:

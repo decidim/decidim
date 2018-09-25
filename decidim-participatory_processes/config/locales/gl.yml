@@ -267,6 +267,9 @@ gl:
         title: Pasos de proceso participativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Cantidade máxima de elementos para mostrar
         participatory_process_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
@@ -308,11 +311,6 @@ gl:
             no_active: Non hai procesos activos
             no_active_nor_upcoming: Non hai procesos activos nin futuros
             no_active_nor_upcoming_callout: Non hai procesos activos nin próximos. Aquí tes unha lista dos últimos.
-          names:
-            active: Activo
-            all: Todo
-            past: Pasado
-            upcoming: Próximos
           see: Ver
         index:
           loading: Cargando resultados ...

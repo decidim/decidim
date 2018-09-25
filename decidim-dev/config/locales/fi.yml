@@ -4,7 +4,7 @@ fi:
       dummy_resource:
         created_at: Luontiaika
         field: Oma kenttä
-        start_date: Aloituspäivämäärä
+        start_date: Alkamispäivä
         title: Otsikko
         updated_at: Päivitysaika
   decidim:
@@ -25,7 +25,7 @@ fi:
     pages:
       home:
         statistics:
-          bar: Palkki
+          bar: Bar
           dummies_count_high: Esimerkkiluku, korkea
           dummies_count_medium: Esimerkkiluku, keskitaso
           foo: Foo

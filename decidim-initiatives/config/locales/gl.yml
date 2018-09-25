@@ -6,8 +6,6 @@ gl:
         description: Descrición
         offline_votes: Soportes cara a cara
         scope_id: Alcance
-        signature_end_date: Fin do período de recadación de sinaturas
-        signature_start_date: Inicio do período de recollida de sinaturas
         signature_type: Tipo de recadación de sinatura
         signature_type_values:
           any: Mesturado
@@ -102,6 +100,9 @@ gl:
             no_members_yet: Non hai membros no comité promotor
             revoke: Revocar
             title: Membros do comité
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Cantidade máxima de elementos para mostrar
         initiatives:
           edit:
             accept: Acepte a iniciativa

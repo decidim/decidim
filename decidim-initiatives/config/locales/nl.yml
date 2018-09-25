@@ -6,8 +6,6 @@ nl:
         description: Beschrijving
         offline_votes: Face-to-face ondersteuning
         scope_id: Bereik
-        signature_end_date: Einde van de periode om handtekeningen te verzamelen
-        signature_start_date: Begin van de periode om handtekeningen te verzamelen
         signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd
@@ -102,6 +100,9 @@ nl:
             no_members_yet: Er zijn geen leden in de promotieraad
             revoke: Intrekken
             title: Commissieleden
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
         initiatives:
           edit:
             accept: Accepteer initiatief

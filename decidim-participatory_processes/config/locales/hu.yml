@@ -267,6 +267,9 @@ hu:
         title: Részvételi folyamat lépések
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: A megjelenítendő elemek maximális száma
         participatory_process_copies:
           form:
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
@@ -308,11 +311,6 @@ hu:
             no_active: Nincsenek aktív folyamatok
             no_active_nor_upcoming: Nincs aktív vagy közelgő folyamat
             no_active_nor_upcoming_callout: Nincs sem aktív, sem közelgő folyamat. A korrábbiakat itt nézheted meg.
-          names:
-            active: Aktív
-            all: Összes
-            past: Előzmények
-            upcoming: Közelgő
           see: Lásd
         index:
           loading: Eredmények betöltése...

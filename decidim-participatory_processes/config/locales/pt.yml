@@ -267,6 +267,9 @@ pt:
         title: Etapas do processo participativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantidade máxima de elementos para mostrar
         participatory_process_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -308,11 +311,6 @@ pt:
             no_active: Nenhum processo ativo
             no_active_nor_upcoming: Não há processos ativos nem futuros
             no_active_nor_upcoming_callout: Não há processos ativos nem futuros. Aqui está uma lista dos últimos.
-          names:
-            active: Ativo
-            all: Todos
-            past: Passado
-            upcoming: próximos
           see: Vejo
         index:
           loading: Carregando os resultados ...

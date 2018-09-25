@@ -238,6 +238,9 @@ es-PY:
               not_ceased: No cesado
             filter_by: Filtrado por
             search: Buscar
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Cantidad máxima de elementos para mostrar
       assembly_members:
         index:
           members: Miembros

@@ -221,6 +221,7 @@ gl:
     proposals:
       actions:
         answer: Resposta
+        edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
         private_notes: Notas privadas
@@ -257,6 +258,9 @@ gl:
           create:
             invalid: Produciuse un problema ao crear esta proposta
             success: Creouse a proposta correctamente
+          edit:
+            title: Actualizar a proposta
+            update: Actualización
           form:
             attachment_legend: "(Opcional) Engada un anexo"
             select_a_category: Selecciona unha categoría
@@ -294,6 +298,7 @@ gl:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
           create: "%{user_name} creou a proposta %{resource_name} no espazo %{space_name} como proposta oficial"
+          update: "%{user_name} actualizou a %{resource_name} proposta oficial sobre o espazo %{space_name}"
         proposal_note:
           create: "%{user_name} deixou unha nota privada na proposta %{resource_name} no espazo %{space_name}"
       answers:
@@ -535,7 +540,6 @@ gl:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Lista de avales
           hidden_endorsers_count:
             one: e 1 persoa máis
             other: e %{count} persoas máis
@@ -612,11 +616,3 @@ gl:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versión %{index}
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Propostas relacionadas
-      included_projects:
-        project_result: 'Resultados que aparecen neste proxecto:'
-      included_proposals:
-        proposal_project: 'Proposta que aparece nestes proxectos:'
-        proposal_result: 'Proposta que aparece nestes resultados:'

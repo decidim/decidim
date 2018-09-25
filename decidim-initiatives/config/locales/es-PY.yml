@@ -6,8 +6,6 @@ es-PY:
         description: Descripción
         offline_votes: Apoyo cara a cara
         scope_id: Alcance
-        signature_end_date: Fin del período de recolección de firmas
-        signature_start_date: Inicio del período de recolección de firmas
         signature_type: Tipo de colección de firma
         signature_type_values:
           any: Mezclado
@@ -102,6 +100,9 @@ es-PY:
             no_members_yet: No hay miembros en el comité promotor
             revoke: Revocar
             title: Miembros del comité
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Cantidad máxima de elementos para mostrar
         initiatives:
           edit:
             accept: Aceptar iniciativa

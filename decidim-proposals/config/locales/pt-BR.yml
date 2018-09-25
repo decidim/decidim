@@ -221,6 +221,7 @@ pt-BR:
     proposals:
       actions:
         answer: Responda
+        edit_proposal: Editar proposta
         import: Importar de outro componente
         new: Nova proposta
         private_notes: Notas privadas
@@ -257,6 +258,9 @@ pt-BR:
           create:
             invalid: Tem havido um problema ao criar esta proposta
             success: Proposta criada com sucesso
+          edit:
+            title: Atualizar proposta
+            update: Atualizar
           form:
             attachment_legend: "(Opcional) Adicionar um anexo"
             select_a_category: Selecionar uma categoria
@@ -294,6 +298,7 @@ pt-BR:
         proposal:
           answer: "%{user_name} respondeu a proposta %{resource_name} no espaço %{space_name}"
           create: "%{user_name} criou a proposta %{resource_name} no espaço %{space_name} como uma proposta oficial"
+          update: "%{user_name} atualizou a proposta oficial %{resource_name} no espaço %{space_name}"
         proposal_note:
           create: "%{user_name} deixou uma nota privada na proposta %{resource_name} no espaço %{space_name}"
       answers:
@@ -535,7 +540,6 @@ pt-BR:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Lista de avais
           hidden_endorsers_count:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
@@ -612,11 +616,3 @@ pt-BR:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versão %{index}
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Propostas relacionadas
-      included_projects:
-        project_result: 'Resultados que aparecem neste projeto:'
-      included_proposals:
-        proposal_project: 'Proposta que aparece nesses projetos:'
-        proposal_result: 'Proposta que aparece nesses resultados:'

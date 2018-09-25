@@ -20,6 +20,7 @@ hu:
         end_time: Záró időpont
         location: Helye
         location_hints: Tippek a helyre
+        organizer_id: Szervező
         private_meeting: Privát találkozó
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Regisztráció engedélyezve
@@ -122,6 +123,16 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Ez a felhasználó %{score} találkozón vett részt.
+          description_own: '%{score} találkozóra vett részt.'
+          explanation: A felhasználók megkapják ezt a jelvényt a találkozókon.
+          name: Részt vett az üléseken
+          next_level_in: Figyeljen még %{score} találkozóra, hogy elérje a következő szintet!
+          unearned_another: ez a felhasználó még nem vett részt egyetlen találkozóban sem.
+          unearned_own: Még nem vettél részt semmilyen találkozón.
     meetings:
       actions:
         agenda: Napirend
@@ -285,6 +296,7 @@ hu:
         minutes:
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
+      conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_events:
           name: Közelgő események
@@ -343,8 +355,6 @@ hu:
             one: 1 hely maradt
             other: "%{count} hely maradt"
           view: Nézet
-      meetings_map:
-        view_meeting: Találkozó megtekintése
       models:
         invite:
           fields:
@@ -397,10 +407,10 @@ hu:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Kapcsolódó eredmények:'
-        result_meeting: 'Kapcsolódó találkozók:'
+        result_meeting: 'Kapcsolódó értekezletek:'
       proposals_from_meeting:
         meeting_proposal: 'Kapcsolódó javaslatok:'
-        proposal_meeting: 'Kapcsolódó találkozók:'
+        proposal_meeting: 'Kapcsolódó értekezletek:'
   devise:
     mailer:
       join_meeting:

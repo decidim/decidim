@@ -6,8 +6,6 @@ fr:
         description: Description
         offline_votes: Votes en présentiel
         scope_id: Périmètre d'application
-        signature_end_date: Fin de la période de collecte des signatures
-        signature_start_date: Début de la période de collecte des signatures
         signature_type: Type de collecte des signatures
         signature_type_values:
           any: Mixte
@@ -102,6 +100,9 @@ fr:
             no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion
             revoke: Révoquer
             title: Membres du comité de promotion
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantité maximale d'éléments à afficher
         initiatives:
           edit:
             accept: Signer la pétition

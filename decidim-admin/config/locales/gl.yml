@@ -103,9 +103,6 @@ gl:
         organization_url: URL da organización
         redirect_uri: Redirixir URI
         site: Sitio web
-  date:
-    formats:
-      datepicker: "%m / %d / %Y"
   decidim:
     admin:
       actions:
@@ -614,6 +611,7 @@ gl:
         new:
           create: Invitar
           title: Convidar ao usuario como administrador
+      view_public_page: Ver páxina pública
     forms:
       errors:
         impersonate_user:
@@ -654,7 +652,3 @@ gl:
           title: Configuración
         users:
           title: Usuarios
-  time:
-    formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"

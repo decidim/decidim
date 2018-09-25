@@ -6,8 +6,6 @@ pl:
         description: Opis
         offline_votes: Wsparcie twarzą w twarz
         scope_id: Zakres
-        signature_end_date: Koniec okresu zbierania podpisu
-        signature_start_date: Początek okresu zbierania podpisu
         signature_type: Typ kolekcji podpisu
         signature_type_values:
           any: Mieszany
@@ -108,6 +106,9 @@ pl:
             no_members_yet: W komisji promotorskiej nie ma członków
             revoke: Unieważnić
             title: członkowie Komitetu
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maksymalna ilość elementów do pokazania
         initiatives:
           edit:
             accept: Przyjmij inicjatywę

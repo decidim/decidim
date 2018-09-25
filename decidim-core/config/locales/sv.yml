@@ -161,29 +161,8 @@ sv:
       started_at: Börjat vid %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Återauktorisera med "%{authorization}"
-          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
-          title: Auktoriseringen har löpt ut
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att återauktorisera eftersom vi saknar följande data:'
-          invalid_field: "%{field}"
-          reauthorize: Omauktorisera
-          title: Vänligen omauktorisera
-        missing:
-          authorize: Godkänn med "%{authorization}"
-          explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
-          title: Godkännande krävs
-        pending:
-          explanation: För att kunna utföra denna åtgärd måste du auktoriseras med "%{authorization}", men din auktorisering är fortfarande på gång
-          resume: Kolla din "%{authorization}" auktoriseringsprocess
-          title: Godkännandet är fortfarande på gång
-        unauthorized:
-          explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
-          invalid_field: "%{field} värde %{value} är inte giltigt."
-          ok: Okej
-          title: Inte behörig
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -216,6 +195,9 @@ sv:
         name: Markerad innehållsbanner
       how_to_participate:
         name: Hur du deltar
+      html:
+        html_content: HTML-innehåll
+        name: HTML-block
       stats:
         name: Organisationsstatistik
       sub_hero:
@@ -230,6 +212,8 @@ sv:
         download_data: Ladda ner datat
         download_data_description: En fil med all information som är kopplad till kontot skickas till <strong>%{user_email}</strong>
         request_data: Begär data
+    datepicker:
+      help_text: 'Förväntat format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -348,7 +332,6 @@ sv:
       linked_classes:
         all: Alla
         collaborative_draft: Samarbetsförslag
-        dummy_resource: Dummy resurser
         meeting: Möten
         project: Projekt
         proposal: Förslag
@@ -457,7 +440,6 @@ sv:
           no_conversations: Du har inga konversationer än
         show:
           conversation_with_html: Samtal med <strong>%{name}</strong>
-          reply: Svara
           send: Skicka
         start:
           send: Skicka
@@ -490,8 +472,6 @@ sv:
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallå,
         subject: Vill du fortsätta att få relevant information om %{organization_name}?
-    notifications:
-      no_notifications: Inga notiser ännu.
     notifications_settings:
       show:
         email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
@@ -508,41 +488,14 @@ sv:
     pages:
       home:
         extended:
-          debates: Debatter
-          debates_explanation: Debattera och diskutera, dela dina åsikter och berika relevanta ämnen.
-          how_to_participate: Hur deltar jag i en process?
           meetings: Möten
-          meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
-          more_info: Mer information
           proposals: Förslag
-          proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
-        footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och bestäm.
-          footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
-          register: Registrera
-        hero:
-          participate: Delta
-          welcome: Välkommen till %{organization}!
         statistics:
-          answers_count: Avslutade Undersökningar
-          assemblies_count: Församlingar
-          comments_count: Kommentarer
-          debates_count: Debatter
-          endorsements_count: Påskrifter
-          headline: Aktuellt läge för %{organization}
+          conferences_count: konferenser
           meetings_count: Möten
-          orders_count: Röster
-          pages_count: Sidor
-          processes_count: Processer
           projects_count: Projekt
-          proposals_accepted: Godkända Förslag
           proposals_count: Förslag
           results_count: Resultat
-          surveys_count: Undersökningar
-          users_count: Deltagare
-          votes_count: Röster
-        sub_hero:
-          register: Registrera
       index:
         title: Mer information
       terms_and_conditions:
@@ -649,13 +602,48 @@ sv:
       version_author:
         deleted: Raderad användare
   devise:
+    confirmations:
+      confirmed: Din e-postadress har bekräftats.
+      new:
+        resend_confirmation_instructions: Skicka om bekräftelsesinstruktionerna igen
+      send_instructions: Du kommer att få ett mail med instruktioner för hur du bekräftar din e-postadress om några minuter.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress inom några minuter.
+    failure:
+      already_authenticated: Du är redan inloggad.
+      inactive: Ditt konto är inte aktiverat ännu.
+      invalid: Ogiltigt %{authentication_keys} eller lösenord.
+      invited: Du har en väntande inbjudan, acceptera den för att slutföra skapa ditt konto.
+      last_attempt: Du har ytterligare ett försök innan ditt konto är låst.
+      locked: Ditt konto är låst.
+      not_found_in_database: Ogiltigt %{authentication_keys} eller lösenord.
+      timeout: Din session löpte ut. Vänligen logga in igen för att fortsätta.
+      unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
+      unconfirmed: Du måste bekräfta din e-postadress innan du fortsätter.
     invitations:
       edit:
         header: Slutför skapandet av ditt konto
         nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
         subtitle: Om du accepterar inbjudan, vänligen välj ditt användarnamn och lösenord.
+      invitation_removed: Din inbjudan har tagits bort.
+      invitation_token_invalid: Anbudsinfordran är inte giltig!
+      new:
+        header: Skicka inbjudan
+        submit_button: Skicka en inbjudan
+      no_invitations_remaining: Inga inbjudningar kvar
+      send_instructions: Ett inbjudningsemail har skickats till %{email}.
+      updated: Ditt lösenord har upprättats. Du är nu inloggad.
+      updated_not_active: Ditt lösenord har upprättats.
     mailer:
+      confirmation_instructions:
+        action: Bekräfta mitt konto
+        greeting: Välkommen %{recipient}!
+        instruction: 'Du kan bekräfta ditt konto email via länken nedan:'
+        subject: Bekräftelsesanvisningar
+      email_changed:
+        greeting: Hej %{recipient}!
+        message: Vi kontaktar dig för att meddela dig att ditt e-postmeddelande ändras till %{email}.
+        subject: E-post ändrad
       invitation_instructions:
         accept: Acceptera inbjudan
         accept_until: Denna inbjudan kommer att förfalla %{due_date}.
@@ -670,6 +658,7 @@ sv:
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
         someone_invited_you_as_private_user: Någon har bjudit in dig som privat_användare av %{application}, du kan acceptera den via länken nedan.
+        subject: Inbjudningsanvisningar
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
@@ -686,20 +675,100 @@ sv:
         greeting: Hej %{recipient}!
         message: Vi kontaktar dig för att meddela dig att ditt lösenord har ändrats.
         subject: Lösenord ändrat
+      reset_password_instructions:
+        action: Ändra mitt lösenord
+        greeting: Hej %{recipient}!
+        instruction: Någon har begärt en länk för att ändra ditt lösenord, och du kan göra det genom länken nedan.
+        instruction_2: Om du inte begärt detta, ignorerar du det här e-postmeddelandet.
+        instruction_3: Ditt lösenord ändras inte förrän du öppnar länken ovan och skapar en ny.
+        subject: Återställ lösenordsinstruktioner
+      unlock_instructions:
+        action: Lås upp mitt konto
+        greeting: Hej %{recipient}!
+        instruction: 'Klicka på länken nedan för att låsa upp ditt konto:'
+        message: Ditt konto har blivit låsat på grund av ett stort antal misslyckade inloggningsförsök.
+        subject: Lås upp instruktioner
+    omniauth_callbacks:
+      failure: Kunde inte autentisera dig från %{kind} eftersom "%{reason}".
+      success: Succesfullt autentiserad från %{kind} konto.
+    passwords:
+      edit:
+        change_my_password: Ändra mitt lösenord
+        change_your_password: Ändra ditt lösenord
+        confirm_new_password: Bekräfta nytt lösenord
+      new:
+        forgot_your_password: Glömt ditt lösenord?
+        send_me_reset_password_instructions: Skicka mig återställ lösenordsinstruktioner
+      no_token: Du kan inte komma åt den här sidan utan att komma från ett e-postmeddelande för lösenordsåterställning. Om du kommer från ett lösenordsåterställt e-postmeddelande, var vänlig och se till att du använde hela webbadressen.
+      send_instructions: Du får ett mail med instruktioner om hur du återställer ditt lösenord om några minuter.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas, får du en länk för återställning av lösenord på din e-postadress om några minuter.
+      updated: Ditt lösenord har ändrats framgångsrikt. Du är nu inloggad.
+      updated_not_active: Ditt lösenord har ändrats framgångsrikt.
+    registrations:
+      destroyed: Adjö! Ditt konto har blivit avstängt. Vi hoppas att vi ses snart igen.
+      edit:
+        are_you_sure: Är du säker?
+        cancel_my_account: Avbryt mitt konto
+        currently_waiting_confirmation_for_email: 'För närvarande väntar bekräftelse på: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: lämna tomt om du inte vill ändra det
+        title: Redigera %{resource}
+        unhappy: Olycklig?
+        update: Uppdatering
+        we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta dina ändringar
+      new:
+        sign_up: Bli Medlem
+      signed_up: Välkommen! Du har anmält dig framgångsrikt.
+      signed_up_but_inactive: Du har anmält dig framgångsrikt. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
+      signed_up_but_locked: Du har anmält dig framgångsrikt. Vi kunde dock inte logga in eftersom ditt konto är låst.
+      signed_up_but_unconfirmed: Ett meddelande med en bekräftelse länk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
+      update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
+      updated: Ditt konto har uppdaterats framgångsrikt.
+    sessions:
+      already_signed_out: Utloggad framgångsrikt.
+      new:
+        sign_in: Logga in
+      signed_in: Inloggad med framgång.
+      signed_out: Utloggad framgångsrikt.
+    shared:
+      links:
+        back: Tillbaka
+        didn_t_receive_confirmation_instructions: Fick inte bekräftelsesinstruktioner?
+        didn_t_receive_unlock_instructions: Fick inte upplåsningsinstruktioner?
+        forgot_your_password: Glömt ditt lösenord?
+        sign_in: Logga in
+        sign_in_with_provider: Logga in med %{provider}
+        sign_up: Bli Medlem
+      minimum_password_length:
+        one: "(%{count} tecken minimum)"
+        other: "(Minst%{count} tecken)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Skicka om upplåsningsinstruktionerna igen
+      send_instructions: Du kommer att få ett mail med instruktioner om hur du låser upp ditt konto inom några minuter.
+      send_paranoid_instructions: Om ditt konto finns, får du ett mail med instruktioner om hur du låser upp det på några minuter.
+      unlocked: Ditt konto har upplösts framgångsrikt. Vänligen logga in för att fortsätta.
   doorkeeper:
     scopes:
       public: Din offentliga information.
   errors:
     messages:
+      already_confirmed: var redan bekräftad, var god försök att logga in
+      confirmation_period_expired: måste bekräftas inom %{period}, vänligen be om en ny
       content_type_whitelist_error: filtypen är inte giltig
       cycle_detected: en omfattnings förälder kan inte vara en av sina efterkommande
+      expired: har gått ut, vänligen be om en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
-      long_words: innehåller ord som är för långa
-      must_start_with_caps: måste börja med versaler
+      long_words: innehåller ord som är för långa (över 35 tecken)
+      must_start_with_caps: måste börja med en bokstav
       nesting_too_deep: kan inte vara inuti en underkategori
-      too_many_marks: använder för många märken
-      too_much_caps: använder för många versaler
-      too_short: är för kort
+      not_found: hittades inte
+      not_locked: var inte låst
+      not_saved:
+        one: '1 fel förbjudet att detta %{resource} sparas:'
+        other: "%{count} fel förbjudna att denna %{resource} sparas:"
+      too_many_marks: använder för många på varandra följande skiljetecken (t.ex.! och?)
+      too_much_caps: använder för många stora bokstäver (över 25% av texten)
+      too_short: är för kort (under 15 tecken)
   forms:
     required: Krävs
   invisible_captcha:
@@ -784,6 +853,10 @@ sv:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

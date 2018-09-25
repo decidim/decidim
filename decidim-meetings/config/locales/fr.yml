@@ -20,6 +20,7 @@ fr:
         end_time: Heure de fin
         location: Lieu
         location_hints: Données de localisation
+        organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions ouvertes
@@ -122,6 +123,16 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Cet utilisateur a participé à %{score} réunions.
+          description_own: Vous avez assisté à %{score} réunions.
+          explanation: Les utilisateurs obtiennent ce badge en assistant aux réunions.
+          name: Assister aux réunions
+          next_level_in: Attendez %{score} plus de réunions pour atteindre le niveau suivant!
+          unearned_another: cet utilisateur n'a encore assisté à aucune réunion.
+          unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
       actions:
         agenda: Ordre du jour
@@ -285,6 +296,7 @@ fr:
         minutes:
           create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+      conference_venues: Salles de conférence
       content_blocks:
         upcoming_events:
           name: Évènements à venir
@@ -343,8 +355,6 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
-      meetings_map:
-        view_meeting: Voir la rencontre
       models:
         invite:
           fields:
@@ -396,11 +406,11 @@ fr:
         upcoming_meeting: Prochaine rencontre
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Résultats associés :'
-        result_meeting: 'Rencontres associées :'
+        meeting_result: 'Résultats liés:'
+        result_meeting: 'Réunions connexes:'
       proposals_from_meeting:
-        meeting_proposal: 'Propositions créées lors de cette rencontre :'
-        proposal_meeting: 'Rencontres associées :'
+        meeting_proposal: 'Propositions connexes:'
+        proposal_meeting: 'Réunions connexes:'
   devise:
     mailer:
       join_meeting:

@@ -20,6 +20,7 @@ sv:
         end_time: Sluttid
         location: Plats
         location_hints: Platstips
+        organizer_id: Arrangör
         private_meeting: Privat möte
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
@@ -122,6 +123,16 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Den här användaren har deltagit i %{score} möten.
+          description_own: Du har deltagit i %{score} möten.
+          explanation: Användare får detta märke genom att delta i möten.
+          name: Deltog i möten
+          next_level_in: Närvara på %{score} fler möten för att nå nästa nivå!
+          unearned_another: den här användaren har inte deltagit i något möte än.
+          unearned_own: Du har inte deltagit i något möte än.
     meetings:
       actions:
         agenda: Dagordning
@@ -181,7 +192,7 @@ sv:
           form:
             attendee_type: Deltagartyp
             existing_user: Existerande användare
-            invite: Bjud in
+            invite: Inbjudan
             invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
             non_user: Icke-existerande användare
             select_user: Välj användare
@@ -285,6 +296,7 @@ sv:
         minutes:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
+      conference_venues: Konferenslokaler
       content_blocks:
         upcoming_events:
           name: Uppkommande händelser
@@ -343,8 +355,6 @@ sv:
             one: 1 plats kvar
             other: "%{count} platser kvar"
           view: Visa
-      meetings_map:
-        view_meeting: Visa möte
       models:
         invite:
           fields:

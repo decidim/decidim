@@ -275,6 +275,9 @@ pl:
         title: Etapy procesu partycypacyjnego
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maksymalna ilość elementów do pokazania
         participatory_process_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
@@ -324,11 +327,6 @@ pl:
             no_active: Brak aktywnych procesów
             no_active_nor_upcoming: Brak aktywnych i nadchodzących procesów
             no_active_nor_upcoming_callout: Nie ma aktywnych ani nadchodzących procesów. Oto lista poprzednich.
-          names:
-            active: Aktywne
-            all: Wszystko
-            past: Przeszłe
-            upcoming: Nadchodzące
           see: Widzieć
         index:
           loading: Wyniki wyszukiwania...

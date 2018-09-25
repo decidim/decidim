@@ -20,6 +20,7 @@ eu:
         end_time: Amaiera-ordua
         location: Kokapena
         location_hints: Kokapen-argibideak
+        organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
         registration_terms: Izen-emateak
         registrations_enabled: Erregistroak gaituta
@@ -122,6 +123,16 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Erabiltzaile honek %{score} bileratan parte hartu du.
+          description_own: '%{score} bileretan parte hartu duzu.'
+          explanation: Erabiltzaileek txapela lortzen dute bilerak bertaratu direnean.
+          name: Bilera parte hartzera
+          next_level_in: Aurreratua %{score} bilera gehiago hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek ez du oraindik bilerarako parte hartu.
+          unearned_own: Oraindik ez duzu bilerarako parte hartu.
     meetings:
       actions:
         agenda: Agenda
@@ -181,7 +192,7 @@ eu:
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Erabiltzaile existentea
-            invite: Gonbit egin
+            invite: gonbidatu
             invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
             non_user: Erabiltzailea ez dago
             select_user: Aukeratu erabiltzailea
@@ -285,6 +296,7 @@ eu:
         minutes:
           create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
           update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+      conference_venues: Hitzaldi aretoak
       content_blocks:
         upcoming_events:
           name: Hurrengo ekitaldiak
@@ -343,8 +355,6 @@ eu:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
           view: ikusi
-      meetings_map:
-        view_meeting: Ikusi topaketa
       models:
         invite:
           fields:
@@ -396,11 +406,11 @@ eu:
         upcoming_meeting: Hurrengo bilera
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Topaketaren emaitzak:'
-        result_meeting: 'Proposamenarekin lotutako topaketak:'
+        meeting_result: 'Erlazionatutako emaitzak:'
+        result_meeting: 'Lotutako topaketak:'
       proposals_from_meeting:
-        meeting_proposal: 'Topaketari dagozkion proposamenak:'
-        proposal_meeting: 'Proposamenarekin lotutako topaketak:'
+        meeting_proposal: 'Lotutako proposamenak:'
+        proposal_meeting: 'Lotutako topaketak:'
   devise:
     mailer:
       join_meeting:

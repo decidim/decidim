@@ -267,6 +267,9 @@ it:
         title: Fasi del processo partecipativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantità massima di elementi da mostrare
         participatory_process_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
@@ -308,11 +311,6 @@ it:
             no_active: Nessun processo attivo
             no_active_nor_upcoming: Nessun processo attivo o imminente
             no_active_nor_upcoming_callout: Non ci sono processi attivi o imminenti. Ecco una lista di quelli passati.
-          names:
-            active: Attivo
-            all: Tutti
-            past: Passato
-            upcoming: Imminenti
           see: Vedere
         index:
           loading: Caricamento risultati...

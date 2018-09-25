@@ -267,6 +267,9 @@ sv:
         title: Steg vid deltagandeprocesser
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximal mängd element att visa
         participatory_process_copies:
           form:
             slug_help: 'Rena URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
@@ -308,11 +311,6 @@ sv:
             no_active: Inga aktiva processer
             no_active_nor_upcoming: Inga aktiva eller kommande processer
             no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över de förflutna.
-          names:
-            active: Aktiva
-            all: Alla
-            past: Tidigare
-            upcoming: Kommande
           see: Se
         index:
           loading: Laddar resultat...
