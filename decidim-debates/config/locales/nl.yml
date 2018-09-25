@@ -142,4 +142,4 @@ nl:
           name: debatten
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
-          unearned_own: Je hebt nog deelgenomen aan debatten.
+          unearned_own: Je hebt nog niet deelgenomen aan debatten.
