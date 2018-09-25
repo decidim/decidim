@@ -141,4 +141,4 @@ es-PY:
           name: Debates
           next_level_in: '¡Participe en %{score} debates más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha participado en ningún debate.
-          unearned_own: Has participado en cualquier debate aún.
+          unearned_own: No has participado en ningún debate todavía.
