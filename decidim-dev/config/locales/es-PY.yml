@@ -25,10 +25,8 @@ es-PY:
     pages:
       home:
         statistics:
-          bar: Bar
           dummies_count_high: Falso alta
           dummies_count_medium: Falso medium
-          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies alta
