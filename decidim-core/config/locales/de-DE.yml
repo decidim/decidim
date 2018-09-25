@@ -353,7 +353,7 @@ de:
         proposal: Vorschläge
         result: Ergebnisse
     fingerprint:
-      check: Überprüfen Sie den Fingerabdruck
+      check: Fingerabdruck überprüfen
       explanation: Der folgende Textteil ist eine verkürzte, gehashte Darstellung dieses Inhalts. Es ist nützlich, sicherzustellen, dass der Inhalt nicht manipuliert wurde, da eine einzige Änderung zu einem völlig anderen Wert führen würde.
       online_calculator_name: MD5 Rechner online
       replicate_help: Dieser Fingerabdruck wird unter Verwendung eines SHA256-Hashing-Algorithmus berechnet. Um es selbst zu replizieren, können Sie eine %{online_calculator_link} und die Quelldaten kopieren.
@@ -367,24 +367,24 @@ de:
     follows:
       create:
         button: Folgen
-        error: Nach dieser Ressource ist ein Fehler aufgetreten.
+        error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
       destroy:
-        button: Hör auf zu folgen
-        error: Beim Löschen dieser Ressource ist ein Fehler aufgetreten.
+        button: Entfolgen
+        error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
       current_file: Aktuelle Datei
       current_image: Aktuelles Bild
       default_image: Standardbild
       errors:
         error: In diesem Feld ist ein Fehler aufgetreten.
-      remove_this_file: Entferne diese Datei
+      remove_this_file: Diese Datei entfernen
     gamification:
       badges:
         followers:
-          description_another: Dieser Benutzer hat %{score} Follower.
-          description_own: "%{score} Benutzer folgen dir."
+          description_another: Diese*r Benutzer*in hat %{score} Follower.
+          description_own: "%{score} Benutzer*innen folgen dir."
           explanation: Benutzer erhalten dieses Abzeichen, indem sie von anderen Benutzern verfolgt werden.
-          name: Anhänger
+          name: Follower
           next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Follower.
           unearned_own: Du hast noch keine Follower.
@@ -407,20 +407,20 @@ de:
       index:
         customize_message: Passen Sie die Einladungsnachricht an
         friend_email: 'Freund #%{index} E-Mail'
-        invitations_subtitle: Informieren Sie Ihre Freunde über diese Website
+        invitations_subtitle: Erzählen Sie Ihre Freunden von dieser Website
         invitations_title: Denkst du, mehr Stimmen sollten in %{organization_name}?
         invite: Einladen
-        visit_your_profile: Besuchen Sie Ihr Profil
+        visit_your_profile: Zu Ihrem Profil
     log:
       base_presenter:
-        create: "%{user_name} erstellt %{resource_name}"
-        create_with_space: "%{user_name} erstellt %{resource_name} in %{space_name}"
-        delete: "%{user_name} gelöscht %{resource_name}"
-        delete_with_space: "%{user_name} gelöscht %{resource_name} in %{space_name}"
-        unknown_action: "%{user_name} hat eine Aktion auf %{resource_name}"
-        unknown_action_with_space: "%{user_name} führte eine Aktion bei %{resource_name} in %{space_name}"
-        update: "%{user_name} aktualisiert %{resource_name}"
-        update_with_space: "%{user_name} aktualisiert %{resource_name} in %{space_name}"
+        create: "%{user_name} hat %{resource_name} erstellt"
+        create_with_space: "%{user_name} hat %{resource_name} in %{space_name} erstellt"
+        delete: "%{user_name} hat %{resource_name} gelöscht"
+        delete_with_space: "%{user_name} hat %{resource_name} in %{space_name} gelöscht"
+        unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
+        unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
+        update: "%{user_name} hat %{resource_name} aktualisiert"
+        update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
       value_types:
         area_presenter:
           not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
