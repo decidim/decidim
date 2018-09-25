@@ -141,4 +141,4 @@ pt-BR:
           name: Debates
           next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
           unearned_another: Este usuário ainda não participou de nenhum debate.
-          unearned_own: Você participou de algum debate ainda.
+          unearned_own: Você ainda não participou de nenhum debate.
