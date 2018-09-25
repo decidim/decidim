@@ -552,14 +552,14 @@ de:
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
     profile:
-      deleted: Gelöschter Benutzer
-      view: Aussicht
+      deleted: Gelöschte*r Benutzer*in
+      view: Anzeigen
     profiles:
       default_officialization_text: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
       show:
         badges: Abzeichen
         conversations: Gespräche
-        followers: Anhänger
+        followers: Follower
         following: Folgt
         notifications: Benachrichtigungen
       sidebar:
