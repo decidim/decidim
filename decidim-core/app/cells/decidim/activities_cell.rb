@@ -9,22 +9,17 @@ module Decidim
     delegate :current_organization, to: :controller
 
     def show
-      return if resources.blank?
-      render
-    end
-
-    def resources
-      @resources ||= activities.group_by(&:resource_type).flat_map do |resource_type, activities|
-        klass = resource_type.constantize
-        if klass.include?(Decidim::HasComponent)
-          klass
-            .includes(:component)
-            .where(id: activities.map(&:resource_id))
-            .where.not(decidim_components: { published_at: nil })
-        else
-          klass.where(id: activities.map(&:resource_id))
-        end
+      return if activities.blank?
+      activities.map do |activity|
+        activity.organization_lazy
+        activity.resource_lazy
+        activity.participatory_space_lazy
+        activity.component_lazy
       end
+
+      puts "RENDERING ACTIVITIEIEIEIEIEIEIEIEIEIIEIEIEIES"
+
+      render
     end
 
     def activities

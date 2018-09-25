@@ -54,6 +54,29 @@ module Decidim
       !new_record?
     end
 
+    def component_lazy(cache: true)
+      self.class.lazy_relation(decidim_component_id, "Decidim::Component", cache)
+    end
+
+    def organization_lazy(cache: true)
+      self.class.lazy_relation(decidim_organization_id, "Decidim::Organization", cache)
+    end
+
+    def user_lazy(cache: true)
+      self.class.lazy_relation(decidim_user_id, "Decidim::User", cache)
+    end
+
+    def participatory_space_lazy(cache: true)
+      return if participatory_space_id.blank? || participatory_space_type.blank?
+      return resouce_lazy if participatory_space_id == resource_id && participatory_space_type == resource_type
+
+      self.class.lazy_relation(participatory_space_id, participatory_space_type, cache)
+    end
+
+    def resource_lazy(cache: true)
+      self.class.lazy_relation(resource_id, resource_type, cache)
+    end
+
     # Public: Finds the correct presenter class for the given
     # `log_type` and the related `resource_type`. If no specific
     # presenter can be found, it falls back to `Decidim::Log::BasePresenter`
@@ -65,6 +88,23 @@ module Decidim
       resource_type.constantize.log_presenter_class_for(log_type)
     rescue NameError
       Decidim::Log::BasePresenter
+    end
+
+    def self.lazy_relation(id_method, klass_name, cache)
+      klass = klass_name.constantize
+      BatchLoader.for(id_method).batch(cache: cache, key: klass.name.underscore) do |relation_ids, loader|
+        scope = klass.where(id: relation_ids)
+
+        scope = if klass.include?(Decidim::HasComponent)
+                  scope.where(id: relation_ids).includes(:component).where.not(decidim_components: { published_at: nil })
+                elsif klass.reflect_on_association(:organization)
+                  scope.where(id: relation_ids).includes(:organization)
+                end
+
+        scope = scope.published if klass.include?(Decidim::Publicable)
+
+        scope.each { |relation| loader.call(relation.id, relation) }
+      end
     end
   end
 end

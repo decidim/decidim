@@ -42,6 +42,7 @@ require "doorkeeper"
 require "doorkeeper-i18n"
 require "nobspw"
 require "kaminari"
+require "batch-loader"
 
 require "decidim/api"
 
@@ -60,6 +61,7 @@ module Decidim
 
       initializer "decidim.middleware" do |app|
         app.config.middleware.use Decidim::CurrentOrganization
+        app.config.middleware.use BatchLoader::Middleware
       end
 
       initializer "decidim.assets" do |app|

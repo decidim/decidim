@@ -1,4 +1,4 @@
-<% resources.each do |resource| %>
-  <% cell_name = "#{resource.class.name.underscore}_activity" %>
-  <%= cell cell_name, resource %>
+<% activities.each do |activity| %>
+  <% cell_name = "#{activity.resource_type.constantize.name.underscore}_activity" %>
+  <%= cell cell_name, activity %>
 <% end %>

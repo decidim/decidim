@@ -2,7 +2,7 @@
   <div class="row">
     <h3 class="section-heading"><%= t("decidim.content_blocks.last_activity.title") %></h3>
     <div class="row">
-      <% activities.each_slice(4) do |column_activities| %>
+      <% valid_activities.each_slice(4) do |column_activities| %>
         <div class="columns medium-6">
           <%= cell "decidim/activities", column_activities %>
         </div>

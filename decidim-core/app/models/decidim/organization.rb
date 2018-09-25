@@ -55,5 +55,15 @@ module Decidim
     def published_components
       @published_components ||= Component.where(participatory_space: public_participatory_spaces).published
     end
+
+    # def self.lazy_find(id)
+    #   BatchLoader.for(id_method).batch(cache: cache, key: klass.name.underscore) do |relation_ids, loader|
+    #     klass.where(id: relation_ids).each { |relation| loader.call(relation.id, relation) }
+    #   end
+    # end
+
+    # def self.batch_loader
+    #   @batch_loader ||= batch
+    # end
   end
 end

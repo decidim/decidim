@@ -6,10 +6,7 @@ module Decidim
       def title
         I18n.t(
           "decidim.proposals.last_activity.new_proposal_at_html",
-          link: link_to(
-            translated_attribute(model.component.participatory_space.title),
-            resource_locator(model.component.participatory_space).path
-          )
+          link: participatory_space_link
         )
       end
     end
