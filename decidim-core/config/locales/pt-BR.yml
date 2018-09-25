@@ -161,29 +161,9 @@ pt-BR:
       started_at: Iniciado em %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Reautorize com "%{authorization}"
-          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
-          title: A autorização expirou
         incomplete:
           cancel: Cancelar
-          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
-          invalid_field: "%{field}"
-          reauthorize: Reautorizar
           title: Reautorize
-        missing:
-          authorize: Autorizar com "%{authorization}"
-          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
-          title: Autorização necessária
-        pending:
-          explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
-          resume: Verifique o seu progresso de autorização "%{authorization}"
-          title: A autorização ainda está em progresso
-        unauthorized:
-          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
-          invalid_field: "%{field} valor %{value} não é válido."
-          ok: Ok
-          title: Não autorizado
     collapsible_list:
       hidden_elements_count:
         one: e mais 1
@@ -353,7 +333,6 @@ pt-BR:
       linked_classes:
         all: Todos
         collaborative_draft: Rascunho colaborativo
-        dummy_resource: Recursos falsos
         meeting: Encontros
         project: Projetos
         proposal: Propostas
@@ -462,7 +441,6 @@ pt-BR:
           no_conversations: Ainda não há conversas
         show:
           conversation_with_html: Conversa com <strong>%{name}</strong>
-          reply: Resposta
           send: Enviar
         start:
           send: Enviar
@@ -495,8 +473,6 @@ pt-BR:
         greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Olá,
         subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
-    notifications:
-      no_notifications: Não há notificações.
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
@@ -513,42 +489,14 @@ pt-BR:
     pages:
       home:
         extended:
-          debates: Debates
-          debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
-          how_to_participate: Como faço parte de um processo?
           meetings: Encontros
-          meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
-          more_info: Saiba mais
           proposals: Propostas
-          proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
-        footer_sub_hero:
-          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
-          footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-          register: Registrar-se
-        hero:
-          participate: Participar
-          welcome: Bem-vindo ao %{organization}!
         statistics:
-          answers_count: Inquéritos concluídos
-          assemblies_count: Assembleias
-          comments_count: Comentários
           conferences_count: Conferências
-          debates_count: Debates
-          endorsements_count: Avais
-          headline: Estado atual de %{organization}
           meetings_count: Encontros
-          orders_count: Votos
-          pages_count: Páginas
-          processes_count: Processos
           projects_count: Projetos
-          proposals_accepted: Propostas aceitas
           proposals_count: Propostas
           results_count: Resultados
-          surveys_count: pesquisas
-          users_count: Participantes
-          votes_count: Votos
-        sub_hero:
-          register: Registrar-se
       index:
         title: Mais informações
       terms_and_conditions:
@@ -749,7 +697,6 @@ pt-BR:
         change_my_password: Mudar minha senha
         change_your_password: Mude sua senha
         confirm_new_password: Confirme a nova senha
-        new_password: Nova senha
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
