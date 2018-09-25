@@ -180,6 +180,7 @@ gl:
           form:
             attendee_type: Tipo de asistente
             existing_user: Usuario existente
+            invite: Invitar
             invite_explanation: Tamén se invitará ao usuario a unirse á reunión e á organización.
             non_user: Usuario non existente
             select_user: Seleccionar usuario
@@ -375,6 +376,13 @@ gl:
         upcoming_meetings: Próximas reunións
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunión
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Resultados relacionados:'
+        result_meeting: 'Reunións relacionadas:'
+      proposals_from_meeting:
+        meeting_proposal: 'Propostas relacionadas:'
+        proposal_meeting: 'Reunións relacionadas:'
   devise:
     mailer:
       join_meeting:
