@@ -169,29 +169,8 @@ pl:
       started_at: Rozpoczęty pod adresem %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Ponownie autoryzuj, używając "%{authorization}"
-          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
-          title: Upoważnienie wygasło
         incomplete:
           cancel: Anuluj
-          explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
-          invalid_field: "%{field}"
-          reauthorize: Ponów autoryzację
-          title: Proszę ponownie autoryzować
-        missing:
-          authorize: Zezwól na "%{authorization}"
-          explanation: Aby wykonać tę czynność, musisz być autoryzowanym przez "%{authorization}".
-          title: Wymagana Autoryzacja
-        pending:
-          explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}", ale twoja autoryzacja jest nadal w toku
-          resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
-          title: Autoryzacja jest nadal w toku
-        unauthorized:
-          explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
-          invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
-          ok: Ok
-          title: Nieautoryzowany
     collapsible_list:
       hidden_elements_count:
         one: i 1 więcej
@@ -363,7 +342,6 @@ pl:
       linked_classes:
         all: Wszystkie
         collaborative_draft: Wspólny projekt
-        dummy_resource: Dummy zasobów
         meeting: Spotkania
         project: Projekty
         proposal: Propozycje
@@ -472,7 +450,6 @@ pl:
           no_conversations: Nie masz jeszcze żadnych rozmów
         show:
           conversation_with_html: Rozmowa z <strong>%{name}</strong>
-          reply: Odpowiadać
           send: Wysłać
         start:
           send: Wysłać
@@ -505,8 +482,6 @@ pl:
         greetings: Pozdrowienia,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Cześć,
         subject: Czy chcesz nadal otrzymywać odpowiednie informacje o %{organization_name}?
-    notifications:
-      no_notifications: Nie powiadomienia.
     notifications_settings:
       show:
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.
@@ -523,42 +498,14 @@ pl:
     pages:
       home:
         extended:
-          debates: Debaty
-          debates_explanation: Debata i dyskutuj, podziel się swoimi poglądami i wzbogacaj odpowiednie tematy.
-          how_to_participate: Jak wziąć udział w procesie?
           meetings: Spotkania
-          meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
-          more_info: Więcej informacji
           proposals: Propozycje
-          proposals_explanation: Zrób propozycje, wspieraj istniejące i promuj zmiany, które chcesz zobaczyć.
-        footer_sub_hero:
-          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz się i decyduj.
-          footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
-          register: Zarejestrować
-        hero:
-          participate: Uczestniczyć
-          welcome: Witamy w %{organization}!
         statistics:
-          answers_count: Ankiety zakończone
-          assemblies_count: Złożenia
-          comments_count: Komentarze
           conferences_count: Konferencje
-          debates_count: Debaty
-          endorsements_count: Adnotacje
-          headline: Aktualny stan %{organization}
           meetings_count: Spotkania
-          orders_count: Głosowania
-          pages_count: Strony
-          processes_count: Procesy
           projects_count: Projektowanie
-          proposals_accepted: Przyjęte propozycje
           proposals_count: Propozycje
           results_count: Wyniki
-          surveys_count: Ankiety
-          users_count: Uczestnicy
-          votes_count: Głosowania
-        sub_hero:
-          register: Zarejestrować
       index:
         title: Więcej informacji
       terms_and_conditions:
@@ -759,7 +706,6 @@ pl:
         change_my_password: Zmień moje hasło
         change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
-        new_password: Nowe hasło
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
