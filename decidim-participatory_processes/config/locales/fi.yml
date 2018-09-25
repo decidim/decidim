@@ -310,6 +310,9 @@ fi:
             no_active_nor_upcoming_callout: Käytössä olevia tai tulevia prosesseja ei ole tiedossa. Tässä on luettelo menneistä prosesseista.
           names:
             active: Aktiiviset
+            all: Kaikki
+            past: Menneet
+            upcoming: Tulevat
           see: Katso
         index:
           loading: Ladataan tulokset...
