@@ -122,6 +122,16 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Questo utente ha partecipato a %{score} riunioni.
+          description_own: Hai partecipato a %{score} riunioni.
+          explanation: Gli utenti ricevono questo badge partecipando alle riunioni.
+          name: Riunioni frequentate
+          next_level_in: Attento %{score} altri incontri per raggiungere il livello successivo!
+          unearned_another: questo utente non ha ancora partecipato a nessuna riunione.
+          unearned_own: Non hai ancora partecipato a nessuna riunione.
     meetings:
       actions:
         agenda: ordine del giorno
@@ -181,6 +191,7 @@ it:
           form:
             attendee_type: Tipo di partecipante
             existing_user: Utente esistente
+            invite: Invitare
             invite_explanation: L'utente sarà invitato a partecipare alla riunione e all'organizzazione.
             non_user: Utente non esistente
             select_user: Seleziona utente
@@ -392,6 +403,13 @@ it:
         upcoming_meetings: Prossimi incontri
       upcoming_meeting_for_card:
         upcoming_meeting: Prossimo incontro
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Risultati correlati:'
+        result_meeting: 'Riunioni correlate:'
+      proposals_from_meeting:
+        meeting_proposal: 'Proposte correlate:'
+        proposal_meeting: 'Riunioni correlate:'
   devise:
     mailer:
       join_meeting:
