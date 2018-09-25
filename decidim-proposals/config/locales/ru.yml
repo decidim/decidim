@@ -361,7 +361,6 @@ ru:
           view_proposal: Просмотреть предложение
         show:
           edit_proposal: Редактировать предложение
-          endorsements_list: Список тех, кто поддержал
           hidden_endorsers_count:
             one: и еще 1 человек
             few: и еще %{count} человека
@@ -426,11 +425,3 @@ ru:
       update_draft:
         error: При попытке сохранить этот черновик предложения произошли ошибки.
         success: Черновик предложения успешно обновлен.
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Подобные предложения
-      included_projects:
-        project_result: 'Итоги, представленные в этом проекте:'
-      included_proposals:
-        proposal_project: 'Предложение представлено в проектах:'
-        proposal_result: 'Предложения, представленные в этих итогах:'
