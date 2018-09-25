@@ -6,6 +6,8 @@ fi:
         description: Kuvaus
         offline_votes: Alustan ulkopuolella kerätyt kannatukset
         scope_id: Teema
+        signature_end_date: Allekirjoitusten keräämisen viimeinen päivä
+        signature_start_date: Allekirjoitusten keräämisen alkamispäivä
         signature_type: Allekirjoituksen keräämistapa
         signature_type_values:
           any: Monikanavainen
