@@ -180,6 +180,7 @@ nl:
           form:
             attendee_type: Type deelnemer
             existing_user: Bestaande gebruiker
+            invite: Nodig uit
             invite_explanation: De gebruiker wordt ook uitgenodigd om deel te nemen aan de vergadering en aan de organisatie.
             non_user: Niet bestaande gebruiker
             select_user: Selecteer gebruiker
@@ -375,6 +376,13 @@ nl:
         upcoming_meetings: Toekomstige events
       upcoming_meeting_for_card:
         upcoming_meeting: Aankomende vergadering
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Gerelateerde resultaten:'
+        result_meeting: 'Gerelateerde bijeenkomsten:'
+      proposals_from_meeting:
+        meeting_proposal: 'Gerelateerde voorstellen:'
+        proposal_meeting: 'Gerelateerde bijeenkomsten:'
   devise:
     mailer:
       join_meeting:
