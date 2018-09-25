@@ -317,7 +317,7 @@ de:
         email_greeting: Hallo %{user_name},
         email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können es von dieser Seite sehen:'
         email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können sich durch den vorherigen Link davon abmelden.
-        email_subject: Ein Update auf %{resource_title}
+        email_subject: Eine Aktualisierung auf %{resource_title}
       gamification:
         badge_earned:
           email_intro: Gut gemacht! Sie haben das <a href="%{resource_url}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
