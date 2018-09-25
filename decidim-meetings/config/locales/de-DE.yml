@@ -121,6 +121,16 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie das Treffen "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
           email_subject: Das Treffen "%{resource_title}" beginnt in weniger als 48 Stunden.
           notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Meeting beginnt in weniger als 48 Stunden.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Dieser Benutzer hat an %{score} Meetings teilgenommen.
+          description_own: Sie haben an %{score} Sitzungen teilgenommen.
+          explanation: Benutzer erhalten dieses Abzeichen, indem sie an Meetings teilnehmen.
+          name: Besuchte Sitzungen
+          next_level_in: Attent %{score} weitere Treffen das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch kein Meeting besucht.
+          unearned_own: Sie haben noch kein Meeting besucht.
     meetings:
       actions:
         agenda: Agenda
@@ -180,6 +190,7 @@ de:
           form:
             attendee_type: Teilnehmertyp
             existing_user: Existierender Benutzer
+            invite: Einladen
             invite_explanation: Der Benutzer wird eingeladen, dem Meeting und der Organisation beizutreten.
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
@@ -391,6 +402,13 @@ de:
         upcoming_meetings: Bevorstehende Treffen
       upcoming_meeting_for_card:
         upcoming_meeting: Kommendes Treffen
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Ähnliche Ergebnisse:'
+        result_meeting: 'Ähnliche Treffen:'
+      proposals_from_meeting:
+        meeting_proposal: 'Ähnliche Vorschläge:'
+        proposal_meeting: 'Ähnliche Treffen:'
   devise:
     mailer:
       join_meeting:
