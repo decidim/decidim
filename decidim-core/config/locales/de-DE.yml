@@ -498,7 +498,7 @@ de:
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
     own_user_groups:
       index:
-        pending: steht aus
+        pending: Ausstehend
         rejected: Abgelehnt
         verified: Überprüft
     pages:
