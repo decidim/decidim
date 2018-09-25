@@ -433,19 +433,19 @@ de:
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
     menu:
-      home: Zuhause
-      more_information: Mehr Informationen
+      home: Start
+      more_information: Weitere Informationen
     messaging:
       conversation_mailer:
         new_conversation:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit Ihnen begonnen. Klicken Sie hier, um es zu sehen:"
-          outro: Genieße Decidim!
+          outro: Viel Spaß mit Decidim!
           subject: "%{sender} hat ein Gespräch mit Ihnen begonnen"
         new_message:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
-          outro: Genieße Decidim!
+          outro: Viel Spaß mit Decidim!
           subject: Sie haben neue Nachrichten von %{sender}
       conversations:
         create:
@@ -459,13 +459,13 @@ de:
           send: Senden
         start:
           send: Senden
-          title: Eine Konversation beginnen
+          title: Ein Gespräch beginnen
         update:
           error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     newsletter_mailer:
       newsletter:
         note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
-        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Sehen Sie es auf der <a href="%{link}" target="_blank">Website an</a>.
+        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Klicken Sie bitte hier <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletters:
       unsubscribe:
@@ -487,7 +487,7 @@ de:
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
-        subject: Möchten Sie weiterhin relevante Informationen über %{organization_name}?
+        subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
     notifications_settings:
       show:
         email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
