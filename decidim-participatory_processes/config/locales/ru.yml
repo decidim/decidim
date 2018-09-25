@@ -324,11 +324,6 @@ ru:
             no_active: Нет идущих движений
             no_active_nor_upcoming: Нет идущих или грядущих движений
             no_active_nor_upcoming_callout: Нет ни идущих, ни грядущих движений. Вот список прошедших.
-          names:
-            active: Действующие
-            all: Все
-            past: Прошедшие
-            upcoming: Грядущие
           see: Посмотреть
         index:
           loading: Загрузка результатов...
