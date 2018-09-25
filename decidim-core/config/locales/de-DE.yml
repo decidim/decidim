@@ -387,23 +387,23 @@ de:
           name: Follower
           next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Follower.
-          unearned_own: Du hast noch keine Follower.
+          unearned_own: Sie haben noch keine Follower.
         invitations:
-          description_another: Dieser Benutzer hat %{score} Benutzer eingeladen.
-          description_own: Sie haben %{score} Benutzer eingeladen.
+          description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
+          description_own: Sie haben %{score} Benutzer*innen eingeladen.
           explanation: Benutzer erhalten dieses Abzeichen, indem sie andere Benutzer einladen.
           name: Einladungen
-          next_level_in: Laden Sie %{score} weitere Nutzer ein, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keinen Benutzer eingeladen.
-          unearned_own: Sie haben noch keine Benutzer eingeladen.
+          next_level_in: Laden Sie %{score} weitere Benutzer*innen ein, um das nächste Level zu erreichen!
+          unearned_another: Diese*r Benutzer*in hat noch niemanden eingeladen.
+          unearned_own: Sie haben noch keine Benutzer*innen eingeladen.
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
-      level: Stufe %{level}
+      level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
     invitations:
       create:
         error: Es gab einige Probleme beim Einladen deiner Freunde
         error_empty_form: Bitte geben Sie einige E-Mail-Adressen ein
-        success: Wir haben die Einladungen an deine Freunde geschickt!
+        success: Wir haben die Einladungen an Ihre Freunde geschickt!
       index:
         customize_message: Passen Sie die Einladungsnachricht an
         friend_email: 'Freund #%{index} E-Mail'
