@@ -180,6 +180,7 @@ fr:
           form:
             attendee_type: Type de participant
             existing_user: Utilisateur existant
+            invite: Inviter
             invite_explanation: L'utilisateur sera invité à se joindre à la réunion et à l'organisation.
             non_user: Utilisateur non existant
             select_user: Sélectionner un utilisateur
@@ -375,6 +376,13 @@ fr:
         upcoming_meetings: Rencontres à venir
       upcoming_meeting_for_card:
         upcoming_meeting: Prochaine rencontre
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Résultats liés:'
+        result_meeting: 'Réunions connexes:'
+      proposals_from_meeting:
+        meeting_proposal: 'Propositions connexes:'
+        proposal_meeting: 'Réunions connexes:'
   devise:
     mailer:
       join_meeting:
