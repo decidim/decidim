@@ -311,11 +311,6 @@ eu:
             no_active: Ez dago prozesu aktiborik
             no_active_nor_upcoming: Prozesu aktibo ez etorkizunik ez
             no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
-          names:
-            active: Aktiboa
-            all: guztiak
-            past: Aurrekoak
-            upcoming: Hurrengoak
           see: Ikusi
         index:
           loading: Emaitzak kargatzen...
