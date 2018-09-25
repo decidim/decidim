@@ -517,10 +517,18 @@ de:
           comments_count: Kommentare
           conferences_count: Konferenzen
           debates_count: Diskussionen
+          endorsements_count: Unterstützungen
           meetings_count: Meetings
+          orders_count: Stimmen
+          pages_count: Seiten
           projects_count: Projekte
+          proposals_accepted: Akzeptierte Vorschläge
           proposals_count: Vorschläge
           results_count: Ergebnisse
+          users_count: Teilnehmer*innen
+          votes_count: Stimmen
+        sub_hero:
+          register: Registrieren
       index:
         title: Mehr Informationen
       terms_and_conditions:
@@ -721,6 +729,7 @@ de:
         change_my_password: Ändere mein Passwort
         change_your_password: Ändern Sie Ihr Passwort
         confirm_new_password: Bestätige neues Passwort
+        new_password: Neues Passwort
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
