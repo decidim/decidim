@@ -161,29 +161,8 @@ eu:
       started_at: Hasi zen %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Errebokatu "%{authorization}" rekin
-          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
-          title: Baimena iraungi da
         incomplete:
           cancel: Utzi
-          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
-          invalid_field: "%{field}"
-          reauthorize: Berriz eskuratu baimena
-          title: Mesedez, eskura ezazu berriz baimena
-        missing:
-          authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
-          explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
-          title: Baimena behar da
-        pending:
-          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
-          resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
-          title: Baimena oraindik ere egiten ari da
-        unauthorized:
-          explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
-          invalid_field: "%{field} balio %{value} ez da baliozkoa."
-          ok: Ados
-          title: Ez dago baimenduta
     collapsible_list:
       hidden_elements_count:
         one: eta beste bat
@@ -353,7 +332,6 @@ eu:
       linked_classes:
         all: Guztiak
         collaborative_draft: Zirriborro kolaboratzailea
-        dummy_resource: Dummy baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
         proposal: Proposamenak
@@ -462,7 +440,6 @@ eu:
           no_conversations: Oraindik ez duzu elkarrizketarik
         show:
           conversation_with_html: Elkarrizketa <strong>%{name}</strong>
-          reply: Erantzun
           send: Bidali
         start:
           send: Bidali
@@ -495,8 +472,6 @@ eu:
         greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
         subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
-    notifications:
-      no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
@@ -513,42 +488,14 @@ eu:
     pages:
       home:
         extended:
-          debates: Eztabaidak
-          debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
-          how_to_participate: Nola har dezaket parte prozesu batean?
           meetings: Bilerak
-          meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
-          more_info: Argibide gehiago
           proposals: proposamenak
-          proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
-        footer_sub_hero:
-          footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
-          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
-          register: Erregistroa
-        hero:
-          participate: Parte hartu
-          welcome: Ongi etorri %{organization} erakundera!
         statistics:
-          answers_count: Amaitutako inkestak
-          assemblies_count: Batzar
-          comments_count: Iruzkinak
           conferences_count: Jardunaldiak
-          debates_count: Eztabaidak
-          endorsements_count: Oniritziak
-          headline: '%{organization} erakundearen egungo egoera'
           meetings_count: Bilerak
-          orders_count: Euskarriak
-          pages_count: Orriak
-          processes_count: Prozesuak
           projects_count: Proiektuak
-          proposals_accepted: Onartutako proposamenak
           proposals_count: proposamenak
           results_count: Emaitzak
-          surveys_count: Inkestak
-          users_count: Parte-hartzaileak
-          votes_count: Euskarriak
-        sub_hero:
-          register: Erregistroa
       index:
         title: Argibide gehiago
       terms_and_conditions:
@@ -749,7 +696,6 @@ eu:
         change_my_password: Aldatu nire pasahitza
         change_your_password: Aldatu zure pasahitza
         confirm_new_password: Berretsi pasahitz berria
-        new_password: Pasahitza
       new:
         forgot_your_password: Zure pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali berrezarri pasahitzaren argibideak
