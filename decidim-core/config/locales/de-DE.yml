@@ -9,12 +9,12 @@ de:
         about: Über
         email: Ihre E-Mail
         name: Ihr Name
-        nickname: Ihre kurze, eindeutige Kennung
+        nickname: Ihr kurzer, eindeutiger Benutzername
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
-        user_group_document_number: Organisationsbelegnummer
+        user_group_document_number: Dokumentennummer der Organisation
         user_group_name: Name der Organisation
         user_group_phone: Telefon der Organisation
     models:
@@ -32,7 +32,7 @@ de:
         password: Passwort
         password_confirmation: Bestätigung des Passworts
         remember_me: Erinneren Sie mich
-        user_group_document_number: Organisationsbelegnummer
+        user_group_document_number: Dokumentennummer der Organisation
         user_group_name: Name der Organisation
         user_group_phone: Telefon der Organisation
     models:
@@ -525,6 +525,7 @@ de:
           proposals_accepted: Akzeptierte Vorschläge
           proposals_count: Vorschläge
           results_count: Ergebnisse
+          surveys_count: Umfragen
           users_count: Teilnehmer*innen
           votes_count: Stimmen
         sub_hero:
