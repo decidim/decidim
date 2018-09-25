@@ -221,6 +221,7 @@ eu:
     proposals:
       actions:
         answer: Erantzuna
+        edit_proposal: Editatu proposamena
         import: Inportatu beste osagai batetik
         new: Proposamen berria
         private_notes: Ohar pribatuak
@@ -257,6 +258,9 @@ eu:
           create:
             invalid: Arazo bat izan da proposamen hau sortzean.
             success: Proposamena zuzen sortu da.
+          edit:
+            title: Eguneratze proposamena
+            update: eguneratzearen
           form:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             select_a_category: Aukeratu kategoria bat
@@ -294,6 +298,7 @@ eu:
         proposal:
           answer: "%{user_name} %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
           create: "%{user_name} %{resource_name} %{space_name} espazio proposamena sortu zen proposamen ofizial gisa"
+          update: "%{user_name} eguneratu %{resource_name} ofizialaren proposamena %{space_name} espazio"
         proposal_note:
           create: "%{user_name} ohar pribatu bat utzi %{resource_name} %{space_name} espazioan proposamena"
       answers:
@@ -535,7 +540,6 @@ eu:
           view_proposal: Ikusi proposamena
         show:
           edit_proposal: Editatu proposamena
-          endorsements_list: Onarpenen zerrenda
           hidden_endorsers_count:
             one: eta beste 1 pertsona
             other: eta beste %{count} pertsona
@@ -612,11 +616,3 @@ eu:
           version_number_out_of_total: "%{current_version} out of %{total_count}"
         version:
           version_index: '%{index}bertsioa'
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Lotutako proposamenak
-      included_projects:
-        project_result: 'Proiektu honetan agertzen diren emaitzak:'
-      included_proposals:
-        proposal_project: 'Proiektu hauetatik sortutako proposamena:'
-        proposal_result: 'Emaitza hauetatik sortutako proposamena:'
