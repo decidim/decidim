@@ -122,6 +122,16 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Erabiltzaile honek %{score} bileratan parte hartu du.
+          description_own: '%{score} bileretan parte hartu duzu.'
+          explanation: Erabiltzaileek txapela lortzen dute bilerak bertaratu direnean.
+          name: Bilera parte hartzera
+          next_level_in: Aurreratua %{score} bilera gehiago hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek ez du oraindik bilerarako parte hartu.
+          unearned_own: Oraindik ez duzu bilerarako parte hartu.
     meetings:
       actions:
         agenda: Agenda
@@ -181,6 +191,7 @@ eu:
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Erabiltzaile existentea
+            invite: gonbidatu
             invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
             non_user: Erabiltzailea ez dago
             select_user: Aukeratu erabiltzailea
@@ -392,6 +403,13 @@ eu:
         upcoming_meetings: Hurrengo topaketak
       upcoming_meeting_for_card:
         upcoming_meeting: Hurrengo bilera
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Erlazionatutako emaitzak:'
+        result_meeting: 'Lotutako topaketak:'
+      proposals_from_meeting:
+        meeting_proposal: 'Lotutako proposamenak:'
+        proposal_meeting: 'Lotutako topaketak:'
   devise:
     mailer:
       join_meeting:
