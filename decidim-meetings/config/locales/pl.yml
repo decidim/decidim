@@ -186,6 +186,7 @@ pl:
           form:
             attendee_type: Typ uczestnika
             existing_user: Istniejący użytkownik
+            invite: Zapraszam
             invite_explanation: Użytkownik zostanie zaproszony do przyłączenia się do spotkania i do organizacji.
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
@@ -385,6 +386,13 @@ pl:
         upcoming_meetings: Nadchodzące spotkania
       upcoming_meeting_for_card:
         upcoming_meeting: Najbliższe spotkanie
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Powiązane wyniki:'
+        result_meeting: 'Powiązane spotkania:'
+      proposals_from_meeting:
+        meeting_proposal: 'Powiązane propozycje:'
+        proposal_meeting: 'Powiązane spotkania:'
   devise:
     mailer:
       join_meeting:
