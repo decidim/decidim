@@ -109,7 +109,7 @@ fr:
           view: Voir
         project_budget_button:
           add: Voter pour ce projet
-          added: Vous avez voté pour ce projet
+          added: Vous avez déjà voté
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
