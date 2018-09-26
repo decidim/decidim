@@ -40,7 +40,7 @@ fr:
             update: Mettre à jour
           form:
             fields:
-              address: Address
+              address: Adresse
           index:
             finished_orders: Votes terminés
             pending_orders: Votes en cours
@@ -105,11 +105,11 @@ fr:
         order_selected_projects:
           choose: Choisissez encore
           per_project:
-            one: project selected out of a total of
-            other: projects selected out of a total of
+            one: projet sélectionné sur un total de
+            other: projets sélectionné sur un total de
           remaining_projects:
-            one: 1 project to validate your vote.
-            other: "%{count} projects to validate your vote."
+            one: 1 projet pour valider votre vote.
+            other: "%{count} projets pour valider votre vote."
           remove: Supprimer
           selected_projects:
             one: projet sélectionné
@@ -128,8 +128,8 @@ fr:
           remove: Supprimer
           view: Voir
         project_budget_button:
-          add: Choisir
-          added: Choisis
+          add: Voter pour ce projet
+          added: Vous avez déjà voté
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
@@ -163,7 +163,7 @@ fr:
         success: Votre vote a été annulé avec succès
     resource_links:
       included_proposals:
-        project_proposal: 'Propositions incluses dans ce projet:'
+        project_proposal: 'Propositions inspirant le projet:'
   index:
     confirmed_orders_count: Nombre de votes
   total_budget: Budget total
