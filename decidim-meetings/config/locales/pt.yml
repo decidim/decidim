@@ -129,8 +129,8 @@ pt:
           description_own: Você participou de %{score} reuniões.
           explanation: Os usuários obtêm esse selo participando de reuniões.
           name: Participou de reuniões
-          next_level_in: Atraia mais %{score} reuniões para alcançar o próximo nível!
-          unearned_another: este usuário ainda não participou de nenhuma reunião.
+          next_level_in: Participe de mais %{score} reuniões para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não participou de nenhuma reunião.
           unearned_own: Você não participou de nenhuma reunião ainda.
     meetings:
       actions:
