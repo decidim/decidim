@@ -161,8 +161,29 @@ nl:
       started_at: Gestart om %{timestamp}
     authorization_modals:
       show:
+        expired:
+          authorize: Opnieuw autoriseren met "%{authorization}"
+          explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw toestemming krijgen met '%{authorization}'.
+          title: Autorisatie is verlopen
         incomplete:
           cancel: Annuleer
+          explanation: 'Hoewel u momenteel geautoriseerd bent met ''%{authorization}'', moeten we opnieuw autoriseren omdat we de volgende gegevens missen:'
+          invalid_field: "%{field}"
+          reauthorize: reauthorize
+          title: Voer de autorisatie opnieuw in
+        missing:
+          authorize: Autoriseren met "%{authorization}"
+          explanation: Om deze actie uit te voeren, moet u gemachtigd zijn met "%{authorization}".
+          title: Autorisatie vereist
+        pending:
+          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw machtiging is nog aan de gang
+          resume: Controleer de voortgang van uw autorisatie "%{authorization}"
+          title: Autorisatie is nog bezig
+        unauthorized:
+          explanation: Sorry, u kunt deze actie niet uitvoeren omdat sommige van uw autorisatiegegevens niet overeenkomen.
+          invalid_field: "%{field} waarde %{value} is niet geldig."
+          ok: OK
+          title: Geen bevoegdheid
     collapsible_list:
       hidden_elements_count:
         one: en nog 1
@@ -327,6 +348,7 @@ nl:
       linked_classes:
         all: Alle
         collaborative_draft: Samenwerkingsconcept
+        dummy_resource: Dummy-hulpmiddelen
         meeting: Vergaderingen
         project: Projecten
         proposal: Voorstellen
@@ -427,6 +449,7 @@ nl:
           no_conversations: Je hebt nog geen gesprekken
         show:
           conversation_with_html: Gesprek met <strong>%{name}</strong>
+          reply: Antwoord
           send: Sturen
         start:
           send: Verzenden
@@ -459,6 +482,8 @@ nl:
         greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Wilt u relevante informatie over %{organization_name}blijven ontvangen?
+    notifications:
+      no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
@@ -475,13 +500,41 @@ nl:
     pages:
       home:
         extended:
+          debates: debatten
+          debates_explanation: Debat en bespreek, deel uw mening en verrijk de relevante onderwerpen.
+          how_to_participate: Hoe neem ik deel aan een proces?
           meetings: vergaderingen
+          meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
+          more_info: Meer informatie
           proposals: voorstellen
+          proposals_explanation: Doe voorstellen, ondersteun bestaande en promoot de veranderingen die u wilt zien.
+        footer_sub_hero:
+          footer_sub_hero_body: Laten we een meer open, transparante en samenwerkende samenleving bouwen.<br /> Doe mee, neem deel en beslis.
+          footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
+          register: Registreren
+        hero:
+          participate: Deelnemen
+          welcome: Welkom bij %{organization}!
         statistics:
+          answers_count: Voltooide enquêtes
+          assemblies_count: Assemblies
+          comments_count: Comments
+          debates_count: debatten
+          endorsements_count: Endorsements
+          headline: Huidige status van %{organization}
           meetings_count: vergaderingen
+          orders_count: stemmen
+          pages_count: Pages
+          processes_count: Processen
           projects_count: projecten
+          proposals_accepted: Aanvaarde voorstellen
           proposals_count: voorstellen
           results_count: resultaten
+          surveys_count: onderzoeken
+          users_count: Deelnemers
+          votes_count: stemmen
+        sub_hero:
+          register: Registreren
       index:
         title: Meer informatie
       terms_and_conditions:
