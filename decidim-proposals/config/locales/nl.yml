@@ -540,6 +540,7 @@ nl:
           view_proposal: Bekijk voorstel
         show:
           edit_proposal: Bewerk voorstel
+          endorsements_list: Lijst met aanbevelingen
           hidden_endorsers_count:
             one: en nog 1 persoon
             other: en nog %{count} mensen
