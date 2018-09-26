@@ -210,6 +210,16 @@ fr:
           next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
+    metrics:
+      accepted_proposals:
+        object: proposition
+        title: Propositions Acceptées
+      proposals:
+        object: proposition
+        title: Les propositions
+      votes:
+        object: votes
+        title: Votes
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ fr:
     proposals:
       actions:
         answer: Répondre
+        edit_proposal: Modifier la proposition
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
         private_notes: Notes privées
@@ -257,6 +268,9 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
             success: Proposition créée avec succès
+          edit:
+            title: Mise à jour de la proposition
+            update: Mettre à jour
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
@@ -294,6 +308,7 @@ fr:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
+          update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
           create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
       answers:
@@ -614,9 +629,9 @@ fr:
           version_index: Version %{index}
     resource_links:
       copied_from_component:
-        proposal_proposal: Propositions associées
+        proposal_proposal: Propositions connexes
       included_projects:
         project_result: 'Réalisations apparaissant dans ce projet :'
       included_proposals:
-        proposal_project: 'Proposition figurant dans ces projets :'
+        proposal_project: 'Proposition figurant dans ces projets:'
         proposal_result: 'Proposition figurant dans ces réalisations :'
