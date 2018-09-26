@@ -44,6 +44,8 @@ module Decidim
 
         def attributes
           {
+            cta_path: form.cta_path,
+            cta_text: form.cta_text,
             title: form.title,
             start_date: form.start_date,
             end_date: form.end_date,
