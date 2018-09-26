@@ -161,8 +161,29 @@ sv:
       started_at: Börjat vid %{timestamp}
     authorization_modals:
       show:
+        expired:
+          authorize: Reauthorize med "%{authorization}"
+          explanation: Ditt godkännande har löpt ut. För att utföra den här åtgärden måste du vara auktoriserad med "%{authorization}".
+          title: Godkännandet har löpt ut
         incomplete:
           cancel: Avbryt
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
+          invalid_field: "%{field}"
+          reauthorize: reauthorize
+          title: Vänligen reauthorize
+        missing:
+          authorize: Godkänn med "%{authorization}"
+          explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
+          title: Godkännande krävs
+        pending:
+          explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisation är fortfarande på gång
+          resume: Kolla din "%{authorization}" -tillståndsframsteg
+          title: Godkännandet är fortfarande på gång
+        unauthorized:
+          explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
+          invalid_field: "%{field} värde %{value} är inte giltigt."
+          ok: Ok
+          title: Inte behörig
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -198,6 +219,8 @@ sv:
       html:
         html_content: HTML-innehåll
         name: HTML-block
+      metrics:
+        name: Organisationsstatistik
       stats:
         name: Organisationsstatistik
       sub_hero:
@@ -332,6 +355,7 @@ sv:
       linked_classes:
         all: Alla
         collaborative_draft: Samarbetsförslag
+        dummy_resource: Dummy resurser
         meeting: Möten
         project: Projekt
         proposal: Förslag
@@ -440,12 +464,17 @@ sv:
           no_conversations: Du har inga konversationer än
         show:
           conversation_with_html: Samtal med <strong>%{name}</strong>
+          reply: Svar
           send: Skicka
         start:
           send: Skicka
           title: Starta en konversation
         update:
           error: Meddelandet har inte skickats. Försök igen senare
+    metrics:
+      users:
+        object: användare
+        title: användare
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">notissidan</a>.
@@ -472,6 +501,8 @@ sv:
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallå,
         subject: Vill du fortsätta att få relevant information om %{organization_name}?
+    notifications:
+      no_notifications: Inga meddelanden ännu.
     notifications_settings:
       show:
         email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
@@ -488,14 +519,44 @@ sv:
     pages:
       home:
         extended:
+          debates: debatter
+          debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
+          how_to_participate: Hur tar jag del i en process?
           meetings: Möten
+          meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
+          more_info: Mer information
           proposals: Förslag
+          proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
+        footer_sub_hero:
+          footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
+          footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
+          register: Registrera
+        hero:
+          participate: Delta
+          welcome: Välkommen till %{organization}!
+        metrics:
+          headline: Deltagande i siffror
         statistics:
+          answers_count: Avslutade undersökningar
+          assemblies_count: Assemblies
+          comments_count: kommentarer
           conferences_count: konferenser
+          debates_count: debatter
+          endorsements_count: påskrifter
+          headline: Nuvarande tillstånd av %{organization}
           meetings_count: Möten
+          orders_count: röster
+          pages_count: sidor
+          processes_count: processer
           projects_count: Projekt
+          proposals_accepted: Godkända förslag
           proposals_count: Förslag
           results_count: Resultat
+          surveys_count: Undersökningar
+          users_count: Deltagare
+          votes_count: röster
+        sub_hero:
+          register: Registrera
       index:
         title: Mer information
       terms_and_conditions:
@@ -696,6 +757,7 @@ sv:
         change_my_password: Ändra mitt lösenord
         change_your_password: Ändra ditt lösenord
         confirm_new_password: Bekräfta nytt lösenord
+        new_password: Nytt lösenord
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig återställ lösenordsinstruktioner
