@@ -129,8 +129,8 @@ fi:
           description_own: Olet osallistunut %{score} kokoukseen.
           explanation: Käyttäjät saavat tämän tunnuksen osallistumalla kokouksiin.
           name: Osallistui kokouksiin
-          next_level_in: Huomioi vielä %{score} kokousta seuraavalle tasolle!
-          unearned_another: tämä käyttäjä ei ole vielä osallistunut kokoukseen.
+          next_level_in: Osallistu %{score} lisää tapaamisia päästä seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä osallistunut kokoukseen.
           unearned_own: Et ole vielä osallistunut mihinkään kokoukseen.
     meetings:
       actions:
