@@ -9,12 +9,12 @@ de:
         about: Über
         email: Ihre E-Mail
         name: Ihr Name
-        nickname: Ihre kurze, eindeutige Kennung
+        nickname: Ihr kurzer, eindeutiger Benutzername
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
-        user_group_document_number: Organisationsbelegnummer
+        user_group_document_number: Dokumentennummer der Organisation
         user_group_name: Name der Organisation
         user_group_phone: Telefon der Organisation
     models:
@@ -32,7 +32,7 @@ de:
         password: Passwort
         password_confirmation: Bestätigung des Passworts
         remember_me: Erinneren Sie mich
-        user_group_document_number: Organisationsbelegnummer
+        user_group_document_number: Dokumentennummer der Organisation
         user_group_name: Name der Organisation
         user_group_phone: Telefon der Organisation
     models:
@@ -145,18 +145,18 @@ de:
         fields:
           document_number: Dokumentnummer
           postal_code: Postleitzahl
-        name: Beispielberechtigung
+        name: Beispiel Berechtigung
       dummy_authorization_workflow:
-        name: Dummy-Autorisierungs-Workflow
+        name: Arbeitsablauf Dummy Berechtigung
       errors:
-        duplicate_authorization: Ein Benutzer ist bereits mit den gleichen Daten berechtigt.
+        duplicate_authorization: Ein*e Benutzer*in ist bereits mit den gleichen Daten berechtigt.
       expired_at: Abgelaufen am %{timestamp}
       expires_at: Läuft am %{timestamp} ab
       foo_authorization:
         fields:
           bar: Bar
           foo: Foo
-        name: Foo Genehmigung
+        name: Foo Berechtigung
       granted_at: Zugelassen am %{timestamp}
       started_at: Begann am %{timestamp}
     authorization_modals:
@@ -275,10 +275,10 @@ de:
     doorkeeper:
       authorizations:
         new:
-          authorize: Anwendung autorisieren
+          authorize: App zulassen
           by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
-          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong>
+          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong> anmelden
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
@@ -289,7 +289,7 @@ de:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
     errors:
       internal_server_error:
-        title: Es gab ein Problem mit unserem Server
+        title: Auf unserem Server ist ein Problem aufgetreten
         try_later: Bitte versuchen Sie es später nochmal.
       not_found:
         back_home: Zurück zur Startseite
@@ -312,7 +312,7 @@ de:
         email_greeting: Hallo %{user_name},
         email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können es von dieser Seite sehen:'
         email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können sich durch den vorherigen Link davon abmelden.
-        email_subject: Ein Update auf %{resource_title}
+        email_subject: Eine Aktualisierung auf %{resource_title}
       gamification:
         badge_earned:
           email_intro: Gut gemacht! Sie haben das <a href="%{resource_url}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
@@ -362,52 +362,52 @@ de:
     follows:
       create:
         button: Folgen
-        error: Nach dieser Ressource ist ein Fehler aufgetreten.
+        error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
       destroy:
-        button: Hör auf zu folgen
-        error: Beim Löschen dieser Ressource ist ein Fehler aufgetreten.
+        button: Entfolgen
+        error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
       current_file: Aktuelle Datei
       current_image: Aktuelles Bild
       default_image: Standardbild
       errors:
         error: In diesem Feld ist ein Fehler aufgetreten.
-      remove_this_file: Entferne diese Datei
+      remove_this_file: Diese Datei entfernen
     gamification:
       badges:
         invitations:
-          description_another: Dieser Benutzer hat %{score} Benutzer eingeladen.
-          description_own: Sie haben %{score} Benutzer eingeladen.
+          description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
+          description_own: Sie haben %{score} Benutzer*innen eingeladen.
           explanation: Benutzer erhalten dieses Abzeichen, indem sie andere Benutzer einladen.
           name: Einladungen
-          next_level_in: Laden Sie %{score} weitere Nutzer ein, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keinen Benutzer eingeladen.
-          unearned_own: Sie haben noch keine Benutzer eingeladen.
+          next_level_in: Laden Sie %{score} weitere Benutzer*innen ein, um das nächste Level zu erreichen!
+          unearned_another: Diese*r Benutzer*in hat noch niemanden eingeladen.
+          unearned_own: Sie haben noch keine Benutzer*innen eingeladen.
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
-      level: Stufe %{level}
+      level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
     invitations:
       create:
         error: Es gab einige Probleme beim Einladen deiner Freunde
         error_empty_form: Bitte geben Sie einige E-Mail-Adressen ein
-        success: Wir haben die Einladungen an deine Freunde geschickt!
+        success: Wir haben die Einladungen an Ihre Freunde geschickt!
       index:
         customize_message: Passen Sie die Einladungsnachricht an
         friend_email: 'Freund #%{index} E-Mail'
-        invitations_subtitle: Informieren Sie Ihre Freunde über diese Website
+        invitations_subtitle: Erzählen Sie Ihre Freunden von dieser Website
         invitations_title: Denkst du, mehr Stimmen sollten in %{organization_name}?
         invite: Einladen
-        visit_your_profile: Besuchen Sie Ihr Profil
+        visit_your_profile: Zu Ihrem Profil
     log:
       base_presenter:
-        create: "%{user_name} erstellt %{resource_name}"
-        create_with_space: "%{user_name} erstellt %{resource_name} in %{space_name}"
-        delete: "%{user_name} gelöscht %{resource_name}"
-        delete_with_space: "%{user_name} gelöscht %{resource_name} in %{space_name}"
-        unknown_action: "%{user_name} hat eine Aktion auf %{resource_name}"
-        unknown_action_with_space: "%{user_name} führte eine Aktion bei %{resource_name} in %{space_name}"
-        update: "%{user_name} aktualisiert %{resource_name}"
-        update_with_space: "%{user_name} aktualisiert %{resource_name} in %{space_name}"
+        create: "%{user_name} hat %{resource_name} erstellt"
+        create_with_space: "%{user_name} hat %{resource_name} in %{space_name} erstellt"
+        delete: "%{user_name} hat %{resource_name} gelöscht"
+        delete_with_space: "%{user_name} hat %{resource_name} in %{space_name} gelöscht"
+        unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
+        unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
+        update: "%{user_name} hat %{resource_name} aktualisiert"
+        update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
       value_types:
         area_presenter:
           not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
@@ -420,19 +420,19 @@ de:
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
     menu:
-      home: Zuhause
-      more_information: Mehr Informationen
+      home: Start
+      more_information: Weitere Informationen
     messaging:
       conversation_mailer:
         new_conversation:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit Ihnen begonnen. Klicken Sie hier, um es zu sehen:"
-          outro: Genieße Decidim!
+          outro: Viel Spaß mit Decidim!
           subject: "%{sender} hat ein Gespräch mit Ihnen begonnen"
         new_message:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
-          outro: Genieße Decidim!
+          outro: Viel Spaß mit Decidim!
           subject: Sie haben neue Nachrichten von %{sender}
       conversations:
         create:
@@ -446,13 +446,13 @@ de:
           send: Senden
         start:
           send: Senden
-          title: Eine Konversation beginnen
+          title: Ein Gespräch beginnen
         update:
           error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     newsletter_mailer:
       newsletter:
         note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
-        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Sehen Sie es auf der <a href="%{link}" target="_blank">Website an</a>.
+        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Klicken Sie bitte hier <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletters:
       unsubscribe:
@@ -474,7 +474,7 @@ de:
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
-        subject: Möchten Sie weiterhin relevante Informationen über %{organization_name}?
+        subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
     notifications_settings:
       show:
         email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
@@ -485,7 +485,7 @@ de:
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
     own_user_groups:
       index:
-        pending: steht aus
+        pending: Ausstehend
         rejected: Abgelehnt
         verified: Überprüft
     pages:
@@ -511,6 +511,7 @@ de:
           proposals_accepted: Akzeptierte Vorschläge
           proposals_count: Vorschläge
           results_count: Ergebnisse
+          surveys_count: Umfragen
           users_count: Teilnehmer*innen
           votes_count: Stimmen
         sub_hero:
@@ -538,14 +539,14 @@ de:
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
     profile:
-      deleted: Gelöschter Benutzer
-      view: Aussicht
+      deleted: Gelöschte*r Benutzer*in
+      view: Anzeigen
     profiles:
       default_officialization_text: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
       show:
         badges: Abzeichen
         conversations: Gespräche
-        followers: Anhänger
+        followers: Follower
         following: Folgt
         notifications: Benachrichtigungen
       user:
