@@ -141,4 +141,4 @@ gl:
           name: Debates
           next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
           unearned_another: Este usuario aínda non participou en ningún debate.
-          unearned_own: Participaches nos debates aínda.
+          unearned_own: Aínda non participou en ningún debate.
