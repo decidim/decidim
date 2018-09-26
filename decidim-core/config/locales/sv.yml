@@ -474,7 +474,7 @@ sv:
     metrics:
       users:
         object: användare
-        title: användare
+        title: Användare
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">notissidan</a>.
