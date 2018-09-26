@@ -9,12 +9,12 @@ FactoryBot.define do
   end
 
   factory :conference, class: "Decidim::Conference" do
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate_localized_title }
     slug { generate(:conference_slug) }
-    slogan { Decidim::Faker::Localized.sentence(1) }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    objectives { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    slogan { generate_localized_title }
+    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    objectives { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
@@ -94,7 +94,7 @@ FactoryBot.define do
     full_name { Faker::Name.name }
     position { Decidim::Faker::Localized.word }
     affiliation { Decidim::Faker::Localized.word }
-    short_bio { Decidim::Faker::Localized.sentence(5) }
+    short_bio { generate_localized_title }
     twitter_handle { Faker::Internet.user_name }
     personal_url { Faker::Internet.url }
 

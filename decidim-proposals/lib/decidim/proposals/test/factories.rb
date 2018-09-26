@@ -167,7 +167,7 @@ FactoryBot.define do
       user_groups { [] }
     end
 
-    title { Faker::Lorem.sentence }
+    title { generate(:title) }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     published_at { Time.current }
@@ -214,7 +214,7 @@ FactoryBot.define do
 
     trait :with_answer do
       state { "accepted" }
-      answer { Decidim::Faker::Localized.sentence }
+      answer { generate_localized_title }
       answered_at { Time.current }
     end
 
@@ -270,7 +270,7 @@ FactoryBot.define do
       user_groups { [] }
     end
 
-    title { Faker::Lorem.sentence }
+    title { generate(:title) }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
