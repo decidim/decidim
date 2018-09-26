@@ -161,8 +161,29 @@ hu:
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       show:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Engedélye lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a "%{authorization}" -ot.
+          title: Az engedélyezés lejárt
         incomplete:
           cancel: Mégse
+          explanation: 'Annak ellenére, hogy jelenleg "%{authorization}" -al engedélyezett, újra engedélyezni kell, mert nem rendelkezünk az alábbi adatokkal:'
+          invalid_field: "%{field}"
+          reauthorize: Újraengedélyezés
+          title: Kérjük, engedélyezze újra
+        missing:
+          authorize: Engedélyezzen a "%{authorization}"
+          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al.
+          title: Engedély szükséges
+        pending:
+          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al, de engedélye még folyamatban van
+          resume: Ellenőrizze a "%{authorization}" engedélyezés előrehaladását
+          title: Az engedélyezés még folyamatban van
+        unauthorized:
+          explanation: Sajnáljuk, ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
+          invalid_field: "%{field} érték %{value} nem érvényes."
+          ok: Rendben
+          title: Nem engedélyezett
     collapsible_list:
       hidden_elements_count:
         one: és még egy
@@ -326,6 +347,7 @@ hu:
       linked_classes:
         all: Összes
         collaborative_draft: Közös vázlat
+        dummy_resource: Dummy források
         meeting: Találkozók
         project: Projektek
         proposal: Javaslatok
@@ -426,6 +448,7 @@ hu:
           no_conversations: Még nincsenek beszélgetések
         show:
           conversation_with_html: 'Beszélgetés vele: <strong>%{name}</strong>'
+          reply: Válasz
           send: Küldés
         start:
           send: Küldés
@@ -458,6 +481,8 @@ hu:
         greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Helló!
         subject: 'Szeretnél továbbra is fontos információkat kapni róluk: a %{organization_name}?'
+    notifications:
+      no_notifications: Még nincs értesítés.
     notifications_settings:
       show:
         email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
@@ -474,13 +499,41 @@ hu:
     pages:
       home:
         extended:
+          debates: viták
+          debates_explanation: Vitassák meg és vitassák meg, osszák meg nézeteiket, és gazdagítsák a releváns témákat.
+          how_to_participate: Hogyan vehetek részt egy folyamatban?
           meetings: Találkozók
+          meetings_explanation: Tudja meg, hol és mikor részt vehet a nyilvános találkozókon.
+          more_info: Több információ
           proposals: Javaslatok
+          proposals_explanation: Tegyen javaslatokat, támogassa a meglévőket és előmozdítsa a látni kívánt változásokat.
+        footer_sub_hero:
+          footer_sub_hero_body: Építsünk egy nyitottabb, átláthatóbb és együttműködő társadalmat.<br /> Csatlakozz, vegyen részt és döntsön.
+          footer_sub_hero_headline: Üdvözöljük a %{organization} részvételi platformon.
+          register: Regisztráció
+        hero:
+          participate: Részt venni
+          welcome: Üdvözöljük a %{organization}!
         statistics:
+          answers_count: Befejezett felmérések
+          assemblies_count: szerelvények
+          comments_count: Hozzászólások
+          debates_count: viták
+          endorsements_count: Elismerések
+          headline: A jelenlegi állapot %{organization}
           meetings_count: Találkozók
+          orders_count: szavazatok
+          pages_count: Oldalak
+          processes_count: Eljárások
           projects_count: Projektek
+          proposals_accepted: Elfogadott javaslatok
           proposals_count: Javaslatok
           results_count: Eredmények
+          surveys_count: Felmérések
+          users_count: résztvevők
+          votes_count: szavazatok
+        sub_hero:
+          register: Regisztráció
       index:
         title: További információk
       terms_and_conditions:
