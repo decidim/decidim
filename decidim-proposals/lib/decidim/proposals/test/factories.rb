@@ -167,7 +167,7 @@ FactoryBot.define do
       user_groups { [] }
     end
 
-    title { Faker::Lorem.sentence }
+    title { generate(:title) }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     published_at { Time.current }
@@ -270,7 +270,7 @@ FactoryBot.define do
       user_groups { [] }
     end
 
-    title { Faker::Lorem.sentence }
+    title { generate(:title) }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
