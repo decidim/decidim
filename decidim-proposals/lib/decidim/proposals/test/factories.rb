@@ -183,6 +183,10 @@ FactoryBot.define do
       end
     end
 
+    trait :published do
+      published_at { Time.current }
+    end
+
     trait :official do
       after :build do |proposal|
         proposal.coauthorships.clear

@@ -220,6 +220,8 @@ en:
       html:
         html_content: HTML content
         name: HTML block
+      metrics:
+        name: Organization metrics
       stats:
         name: Organization stats
       sub_hero:
@@ -474,6 +476,10 @@ en:
           title: Start a conversation
         update:
           error: Message not sent. Try again later
+    metrics:
+      users:
+        object: users
+        title: Users
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
@@ -533,6 +539,8 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
+        metrics:
+          headline: Participation in figures
         statistics:
           answers_count: Completed Surveys
           assemblies_count: Assemblies

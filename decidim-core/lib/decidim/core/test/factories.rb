@@ -450,4 +450,15 @@ FactoryBot.define do
     name { generate(:hashtag_name) }
     organization
   end
+
+  factory :metric, class: "Decidim::Metric" do
+    organization
+    day { Time.zone.today }
+    metric_type { "random_metric" }
+    cumulative { 2 }
+    quantity { 1 }
+    category { create :category }
+    participatory_space { create :participatory_process, organization: organization }
+    related_object { create :component, participatory_space: participatory_space }
+  end
 end
