@@ -162,25 +162,25 @@ it:
     authorization_modals:
       show:
         expired:
-          authorize: Rinnova con "%{authorization}"
+          authorize: Riautorizza con "%{authorization}"
           explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
           title: L'autorizzazione è scaduta
         incomplete:
           cancel: Annulla
-          explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
+          explanation: 'Anche se al momento sei autorizzato con "%{authorization}", abbiamo bisogno che tu rinnovi l''autorizzazione perché mancano i seguenti dati:'
           invalid_field: "%{field}"
-          reauthorize: Ri-autorizzare
-          title: Per favore, occorre una nuova autorizzazione
+          reauthorize: ri-autorizzare
+          title: Si prega di ri-autorizzare
         missing:
-          authorize: Autorizzare con "%{authorization}"
-          explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
-          title: Autorizzazione richiesta
+          authorize: Autorizza con "%{authorization}"
+          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}".
+          title: Autorizzazione Richiesta
         pending:
           explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
           resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
           title: L'autorizzazione è ancora in corso
         unauthorized:
-          explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
+          explanation: Spiacenti, non puoi eseguire questa azione poiché alcuni dati di autorizzazione non corrispondono.
           invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
@@ -219,6 +219,8 @@ it:
       html:
         html_content: Contenuto HTML
         name: Blocco HTML
+      metrics:
+        name: Metriche dell'organizzazione
       stats:
         name: Statistiche dell'organizzazione
       sub_hero:
@@ -462,13 +464,17 @@ it:
           no_conversations: Non hai ancora conversazioni
         show:
           conversation_with_html: Conversazione con <strong>%{name}</strong>
-          reply: Rispondi
+          reply: rispondere
           send: Inviare
         start:
           send: Invia
           title: Inizia una conversazione
         update:
           error: Messaggio non inviato. Riprova più tardi
+    metrics:
+      users:
+        object: utenti
+        title: utenti
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
@@ -496,7 +502,7 @@ it:
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
     notifications:
-      no_notifications: Nessuna notifica.
+      no_notifications: Nessuna notifica ancora.
     notifications_settings:
       show:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
@@ -513,42 +519,44 @@ it:
     pages:
       home:
         extended:
-          debates: Dibattiti
-          debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
-          how_to_participate: Come posso partecipare ad un processo?
+          debates: dibattiti
+          debates_explanation: Dibattiti e discuti, condividi le tue opinioni e arricchisci gli argomenti pertinenti.
+          how_to_participate: Come partecipare a un processo?
           meetings: incontri
-          meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
-          more_info: Maggiori informazioni
+          meetings_explanation: Scopri dove e quando puoi partecipare agli incontri pubblici.
+          more_info: Ulteriori informazioni
           proposals: proposte
-          proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
+          proposals_explanation: Fai proposte, supporta quelli esistenti e promuovi i cambiamenti che vuoi vedere.
         footer_sub_hero:
-          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
-          footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
-          register: Registrati
+          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Iscriviti, partecipa e decidi.
+          footer_sub_hero_headline: Benvenuti su %{organization} piattaforma partecipativa.
+          register: Registrare
         hero:
-          participate: Partecipa
+          participate: Partecipare
           welcome: Benvenuto su %{organization}!
+        metrics:
+          headline: Partecipazione in cifre
         statistics:
           answers_count: Sondaggi completati
           assemblies_count: assemblee
           comments_count: Commenti
           conferences_count: conferenze
-          debates_count: Dibattiti
+          debates_count: dibattiti
           endorsements_count: Riconoscimenti
-          headline: Stato attuale dell'organizzazione %{organization}
+          headline: Stato attuale di %{organization}
           meetings_count: incontri
-          orders_count: Voti
-          pages_count: Pagine
+          orders_count: voti
+          pages_count: pagine
           processes_count: Processi
           projects_count: progetti
           proposals_accepted: Proposte accettate
           proposals_count: proposte
           results_count: risultati
           surveys_count: indagini
-          users_count: Partecipanti
-          votes_count: Voti
+          users_count: I partecipanti
+          votes_count: voti
         sub_hero:
-          register: Registrati
+          register: Registrare
       index:
         title: Informazione
       terms_and_conditions:
