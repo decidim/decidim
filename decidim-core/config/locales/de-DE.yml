@@ -162,6 +162,7 @@ de:
     authorization_modals:
       show:
         expired:
+          authorize: Erneute Autorisierung mit "%{authorization}"
           explanation: Ihre Berechtigung ist abgelaufen. Um diese Aktion ausführen zu können, müssen Sie mit "%{authorization}" erneut berechtigt werden.
           title: Berechtigung abgelaufen
         incomplete:
@@ -176,7 +177,11 @@ de:
           title: Berechtigung erforderlich
         pending:
           explanation: Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" berechtigt sein, aber Ihre Berechtigung ist noch in Bearbeitung
+          resume: Überprüfen Sie Ihren Autorisierungsfortschritt "%{authorization}"
+          title: Die Autorisierung läuft noch
         unauthorized:
+          explanation: Leider können Sie diese Aktion nicht ausführen, da einige Ihrer Autorisierungsdaten nicht übereinstimmen.
+          invalid_field: "%{field} Wert %{value} ist nicht gültig."
           ok: Ok
           title: Nicht berechtigt
     collapsible_list:
@@ -214,6 +219,8 @@ de:
       html:
         html_content: HTML-Inhalt
         name: HTML-Block
+      metrics:
+        name: Organisationsmetriken
       stats:
         name: Organisationsstatistiken
       sub_hero:
@@ -348,6 +355,7 @@ de:
       linked_classes:
         all: Alle
         collaborative_draft: Gemeinsamer Entwurf
+        dummy_resource: Dummy-Ressourcen
         meeting: Meetings
         project: Projekte
         proposal: Vorschläge
@@ -456,12 +464,17 @@ de:
           no_conversations: Du hast noch keine Unterhaltungen
         show:
           conversation_with_html: Gespräch mit <strong>%{name}</strong>
+          reply: Antworten
           send: Senden
         start:
           send: Senden
           title: Ein Gespräch beginnen
         update:
           error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
+    metrics:
+      users:
+        object: Benutzer
+        title: Benutzer
     newsletter_mailer:
       newsletter:
         note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
@@ -488,6 +501,8 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
+    notifications:
+      no_notifications: Noch keine Benachrichtigungen
     notifications_settings:
       show:
         email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
@@ -519,6 +534,8 @@ de:
         hero:
           participate: Teilnehmen
           welcome: Willkommen bei %{organization}!
+        metrics:
+          headline: Teilnahme an Zahlen
         statistics:
           answers_count: Abgeschlossene Umfragen
           assemblies_count: Versammlungen
