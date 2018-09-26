@@ -129,8 +129,8 @@ fr:
           description_own: Vous avez assisté à %{score} réunions.
           explanation: Les utilisateurs obtiennent ce badge en assistant aux réunions.
           name: Assister aux réunions
-          next_level_in: Attendez %{score} plus de réunions pour atteindre le niveau suivant!
-          unearned_another: cet utilisateur n'a encore assisté à aucune réunion.
+          next_level_in: Assister à %{score} plus de réunions pour atteindre le prochain niveau!
+          unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.
           unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
       actions:
