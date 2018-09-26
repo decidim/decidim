@@ -206,6 +206,16 @@ de:
           next_level_in: Erstellen Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Vorschläge erstellt.
           unearned_own: Sie haben noch keine Vorschläge erstellt.
+    metrics:
+      accepted_proposals:
+        object: Vorschlag
+        title: Akzeptierte Vorschläge
+      proposals:
+        object: Vorschlag
+        title: Vorschläge
+      votes:
+        object: Stimmen
+        title: Stimmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -535,6 +545,7 @@ de:
           view_proposal: Angebot anzeigen
         show:
           edit_proposal: Angebot bearbeiten
+          endorsements_list: Liste der Empfehlungen
           hidden_endorsers_count:
             one: und 1 weitere Person
             other: und %{count} weitere Leute
@@ -611,3 +622,11 @@ de:
           version_number_out_of_total: "%{current_version} von %{total_count}"
         version:
           version_index: Version %{index}
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Ähnliche Vorschläge
+      included_projects:
+        project_result: 'Ergebnisse, die in diesem Projekt erscheinen:'
+      included_proposals:
+        proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
+        proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
