@@ -489,6 +489,9 @@ pt-BR:
     pages:
       home:
         extended:
+          debates: Debates
+          debates_explanation: Debata e discuta, compartilhe seus pontos de vista e enriqueça os tópicos relevantes.
+          how_to_participate: Como faço para participar de um processo?
           meetings: Encontros
           proposals: Propostas
         statistics:
