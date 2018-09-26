@@ -60,6 +60,7 @@ en:
           survey_user_answers: Survey user answers
         models:
           components:
+            title: Title
             description: Description
             tos: Terms of service
         surveys:
