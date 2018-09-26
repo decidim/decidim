@@ -210,6 +210,16 @@ ca:
           next_level_in: Crea %{score} més propostes per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha creat cap proposta.
           unearned_own: Encara no has creat cap proposta.
+    metrics:
+      accepted_proposals:
+        object: proposta
+        title: Propostes acceptades
+      proposals:
+        object: proposta
+        title: Propostes
+      votes:
+        object: vots
+        title: Vots
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ ca:
     proposals:
       actions:
         answer: Respondre
+        edit_proposal: Edició de la proposta
         import: Importa des d'un altre component
         new: Nova proposta
         private_notes: Notes privades
@@ -257,6 +268,9 @@ ca:
           create:
             invalid: Hi ha hagut un problema en crear aquesta proposta
             success: Proposta creada correctament
+          edit:
+            title: Actualitza la proposta
+            update: Actualització
           form:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             select_a_category: Selecciona una categoria
@@ -294,6 +308,7 @@ ca:
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la proposta %{resource_name} sobre l'espai %{space_name} com a proposta oficial"
+          update: "%{user_name} actualitzar la %{resource_name} proposta oficial sobre l'espai %{space_name}"
         proposal_note:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
       answers:
@@ -535,7 +550,7 @@ ca:
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Llista d'adhesions
+          endorsements_list: Llista d'aprovacions
           hidden_endorsers_count:
             one: i 1 persona més
             other: i %{count} persones més
@@ -618,5 +633,5 @@ ca:
       included_projects:
         project_result: 'Resultats que apareixen en aquest projecte:'
       included_proposals:
-        proposal_project: 'Proposta formulada en aquests projectes:'
-        proposal_result: 'La proposta apareix en aquests resultats:'
+        proposal_project: 'Proposta que apareix en aquests projectes:'
+        proposal_result: 'Proposta que apareix en aquests resultats:'
