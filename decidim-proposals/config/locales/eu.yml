@@ -535,6 +535,7 @@ eu:
           view_proposal: Ikusi proposamena
         show:
           edit_proposal: Editatu proposamena
+          endorsements_list: Onarpenen zerrenda
           hidden_endorsers_count:
             one: eta beste 1 pertsona
             other: eta beste %{count} pertsona
@@ -611,3 +612,11 @@ eu:
           version_number_out_of_total: "%{current_version} out of %{total_count}"
         version:
           version_index: '%{index}bertsioa'
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Lotutako proposamenak
+      included_projects:
+        project_result: 'Proiektu honetan agertzen diren emaitzak:'
+      included_proposals:
+        proposal_project: 'Proiektu hauetan agertzen den proposamena:'
+        proposal_result: 'Emaitza hauek agertzen diren proposamena:'
