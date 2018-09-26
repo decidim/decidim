@@ -18,12 +18,19 @@ module Decidim
           author = Decidim::User.where(organization: organization).all.sample
           user_group = [true, false].sample ? author.user_groups.verified.sample : nil
 
-          Comment.create(
+          params = {
             commentable: resource,
             root_commentable: resource,
             body: ::Faker::Lorem.sentence,
             author: author,
             user_group: user_group
+          }
+
+          Decidim.traceability.create!(
+            Decidim::Comments::Comment,
+            author,
+            params,
+            visibility: "public-only"
           )
         end
       end

@@ -58,7 +58,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     end
 
     2.times do |n|
-      process = Decidim::ParticipatoryProcess.create!(
+      params = {
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
         subtitle: Decidim::Faker::Localized.sentence(2),
@@ -84,6 +84,13 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         end_date: 2.months.from_now,
         participatory_process_group: process_groups.sample,
         scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
+      }
+
+      process = Decidim.traceability.create!(
+        Decidim::ParticipatoryProcess,
+        organization.users.first,
+        params,
+        visibility: "all"
       )
 
       Decidim::ParticipatoryProcessStep.find_or_initialize_by(

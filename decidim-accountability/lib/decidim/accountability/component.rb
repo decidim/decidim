@@ -53,7 +53,7 @@ Decidim.register_component(:accountability) do |component|
       email: "admin@example.org"
     )
 
-    component = Decidim::Component.create!(
+    params = {
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
       manifest_name: :accountability,
       published_at: Time.current,
@@ -65,6 +65,13 @@ Decidim.register_component(:accountability) do |component|
         heading_parent_level_results: Decidim::Faker::Localized.word,
         heading_leaf_level_results: Decidim::Faker::Localized.word
       }
+    }
+
+    Decidim.traceability.create!(
+      Decidim::Component,
+      admin_user,
+      params,
+      visibility: "all"
     )
 
     5.times do |i|
