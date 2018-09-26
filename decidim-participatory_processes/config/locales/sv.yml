@@ -308,6 +308,11 @@ sv:
             no_active: Inga aktiva processer
             no_active_nor_upcoming: Inga aktiva eller kommande processer
             no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över de förflutna.
+          names:
+            active: Aktiva
+            all: Allt
+            past: Dåtid
+            upcoming: kommande
           see: Se
         index:
           loading: Laddar resultat...
