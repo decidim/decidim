@@ -129,8 +129,8 @@ ca:
           description_own: Has assistit a %{score} reunions.
           explanation: Els usuaris obtenen aquesta distinció assistint a reunions.
           name: Reunions assistides
-          next_level_in: '¡Assistiu a més de %{score} reunions per arribar al següent nivell!'
-          unearned_another: aquest usuari encara no ha assistit a cap reunió.
+          next_level_in: Assistiu a més de %{score} reunions per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha assistit a cap reunió.
           unearned_own: Encara no heu assistit a cap reunió.
     meetings:
       actions:
