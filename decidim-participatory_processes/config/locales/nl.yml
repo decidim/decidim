@@ -308,6 +308,11 @@ nl:
             no_active: Geen actieve processen
             no_active_nor_upcoming: Geen actieve of aankomende processen
             no_active_nor_upcoming_callout: Er zijn geen actieve of aankomende processen. Hier is een lijst met de vorige.
+          names:
+            active: Actief
+            all: Alle
+            past: Verleden
+            upcoming: Aankomende
           see: Zien
         index:
           loading: Laden van resultaten...

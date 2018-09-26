@@ -535,6 +535,7 @@ ca:
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Llista d'aprovacions
           hidden_endorsers_count:
             one: i 1 persona més
             other: i %{count} persones més
@@ -611,3 +612,11 @@ ca:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versió %{index}
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Propostes relacionades
+      included_projects:
+        project_result: 'Resultats que apareixen en aquest projecte:'
+      included_proposals:
+        proposal_project: 'Proposta que apareix en aquests projectes:'
+        proposal_result: 'Proposta que apareix en aquests resultats:'

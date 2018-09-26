@@ -535,6 +535,7 @@ hu:
           view_proposal: Javaslat megtekintése
         show:
           edit_proposal: Javaslat szerkesztése
+          endorsements_list: A jóváhagyások listája
           hidden_endorsers_count:
             one: és még 1 ember
             other: és még %{count} ember
@@ -611,3 +612,11 @@ hu:
           version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
         version:
           version_index: '%{index} verzió'
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Kapcsolódó javaslatok
+      included_projects:
+        project_result: 'A projektben megjelenő eredmények:'
+      included_proposals:
+        proposal_project: 'E projektekben megjelenő javaslat:'
+        proposal_result: 'Az eredmények az alábbi eredmények között jelennek meg:'
