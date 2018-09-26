@@ -35,6 +35,8 @@ pl:
         name: Nazwa
         participatory_process_ids: Powiązane procesy
       participatory_process_step:
+        cta_path: Ścieżka wezwania do działania
+        cta_text: Tekst wezwania do działania
         description: Opis
         end_date: Data zakończenia
         short_description: Krótki opis
@@ -281,6 +283,10 @@ pl:
         participatory_process_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptuje litery, cyfry, myślniki i ukośniki i musi zaczynać się od litery. Jeśli nie zostanie ustawiony, przycisk nie będzie wyświetlany. Przykład: %{url}'
+            cta_text_help: Jeśli nie zostanie ustawiony, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
@@ -328,9 +334,9 @@ pl:
             no_active_nor_upcoming: Brak aktywnych i nadchodzących procesów
             no_active_nor_upcoming_callout: Nie ma aktywnych ani nadchodzących procesów. Oto lista poprzednich.
           names:
-            active: Aktywne
+            active: Aktywny
             all: Wszystko
-            past: Przeszłe
+            past: Przeszłość
             upcoming: Nadchodzące
           see: Widzieć
         index:

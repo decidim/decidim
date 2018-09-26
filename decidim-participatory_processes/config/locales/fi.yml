@@ -35,6 +35,8 @@ fi:
         name: Nimi
         participatory_process_ids: Liittyvät prosessit
       participatory_process_step:
+        cta_path: Call to Action -polku
+        cta_text: Call to Action -teksti
         description: Kuvaus
         end_date: Päättymispäivä
         short_description: Lyhyt kuvaus
@@ -273,6 +275,10 @@ fi:
         participatory_process_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Käytä osittaisia ​​polkuja, ei täysiä URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja viivat, ja sen täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näy. Esimerkki: %{url}'
+            cta_text_help: Jos asetusta ei ole asetettu, painiketta ei näy.
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.

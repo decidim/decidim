@@ -145,9 +145,6 @@ sv:
       destroy:
         error: Ett fel uppstod när du avbröt din röst
         success: Din röst har avbrutits
-    resource_links:
-      included_proposals:
-        project_proposal: 'Förslag som ingår i detta projekt:'
   index:
     confirmed_orders_count: Antal röster
   total_budget: Total budget

@@ -210,6 +210,16 @@ nl:
           next_level_in: Maak nog %{score} voorstellen om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen voorstellen gedaan.
           unearned_own: U hebt nog geen voorstellen gemaakt.
+    metrics:
+      accepted_proposals:
+        object: voorstel
+        title: Aanvaarde voorstellen
+      proposals:
+        object: voorstel
+        title: voorstellen
+      votes:
+        object: stemmen
+        title: stemmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ nl:
     proposals:
       actions:
         answer: Antwoord
+        edit_proposal: Bewerk voorstel
         import: Importeren vanuit een ander onderdeel
         new: Nieuw voorstel
         private_notes: Privé-opmerkingen
@@ -257,6 +268,9 @@ nl:
           create:
             invalid: Er is een probleem opgetreden met het maken van dit voorstel
             success: Voorstel succesvol aangemaakt
+          edit:
+            title: Update voorstel
+            update: Bijwerken
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             select_a_category: Kies een categorie
@@ -294,6 +308,7 @@ nl:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} spatie"
           create: "%{user_name} heeft het voorstel %{resource_name} op de %{space_name} ruimte gemaakt als officieel voorstel"
+          update: "%{user_name} heeft het %{resource_name} officiële voorstel op de %{space_name} ruimte bijgewerkt"
         proposal_note:
           create: "%{user_name} heeft een privé-opmerking achtergelaten op het voorstel %{resource_name} op de %{space_name} spatie"
       answers:
@@ -614,9 +629,9 @@ nl:
           version_index: Versie %{index}
     resource_links:
       copied_from_component:
-        proposal_proposal: Verwante voorstellen
+        proposal_proposal: Gerelateerde voorstellen
       included_projects:
         project_result: 'Resultaten die in dit project verschijnen:'
       included_proposals:
         proposal_project: 'Voorstel in deze projecten:'
-        proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
+        proposal_result: 'Voorstel in deze resultaten:'

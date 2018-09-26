@@ -163,24 +163,24 @@ es-PY:
       show:
         expired:
           authorize: Volver a autorizar con "%{authorization}"
-          explanation: Tu autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
+          explanation: Su autorización ha expirado. Para realizar esta acción, debe volver a autorizarse con "%{authorization}".
           title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
-          explanation: 'A pesar de que actualmente está autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque carecemos de los datos siguientes:'
+          explanation: 'Aunque actualmente está autorizado con "%{authorization}", necesitamos que vuelva a autorizarnos porque no tenemos la siguiente información:'
           invalid_field: "%{field}"
-          reauthorize: Reautorizarse
-          title: Por favor, re-autorízate
+          reauthorize: Reautorizar
+          title: Por favor vuelva a autorizar
         missing:
           authorize: Autorizar con "%{authorization}"
-          explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
+          explanation: Para realizar esta acción, debe estar autorizado con "%{authorization}".
           title: Autorización requerida
         pending:
-          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
-          resume: Verifica el progreso de la autorización "%{authorization}"
+          explanation: Para realizar esta acción, debe estar autorizado con "%{authorization}", pero su autorización aún está en progreso.
+          resume: Verifique su progreso de autorización "%{authorization}"
           title: La autorización aún está en progreso
         unauthorized:
-          explanation: No puedes realizar esta acción ya que algunos de los datos de autorización no son los requeridos.
+          explanation: Lo sentimos, no puede realizar esta acción ya que algunos de sus datos de autorización no coinciden.
           invalid_field: "%{field} valor %{value} no es válido."
           ok: De acuerdo
           title: No autorizado
@@ -219,6 +219,8 @@ es-PY:
       html:
         html_content: Contenido HTML
         name: Bloque de HTML
+      metrics:
+        name: Métricas de la organización
       stats:
         name: Estadísticas de la organización
       sub_hero:
@@ -469,6 +471,10 @@ es-PY:
           title: Iniciar una conversación
         update:
           error: Mensaje no enviado. Inténtalo más tarde
+    metrics:
+      users:
+        object: usuarios
+        title: Usuarios
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
@@ -496,7 +502,7 @@ es-PY:
         hello: Hola,
         subject: '¿Desea seguir recibiendo información relevante sobre %{organization_name}?'
     notifications:
-      no_notifications: No hay notificaciones aún.
+      no_notifications: No hay notificaciones todavía
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
@@ -514,27 +520,29 @@ es-PY:
       home:
         extended:
           debates: Debates
-          debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-          how_to_participate: '¿Cómo tomo parte en un proceso?'
+          debates_explanation: Debate y debate, comparte tus puntos de vista y enriquece los temas relevantes.
+          how_to_participate: '¿Cómo participo en un proceso?'
           meetings: Encuentros
-          meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
+          meetings_explanation: Averigüe dónde y cuándo puede participar en reuniones públicas.
           more_info: Más información
           proposals: Propuestas
-          proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
+          proposals_explanation: Haga propuestas, respalde las existentes y promueva los cambios que desea ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
-          footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
-          register: Regístrate
+          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa.<br /> Únete, participa y decide.
+          footer_sub_hero_headline: Bienvenido a %{organization} plataforma participativa.
+          register: Registro
         hero:
           participate: Participar
           welcome: Bienvenido a %{organization}!
+        metrics:
+          headline: Participación en figuras
         statistics:
           answers_count: Encuestas completadas
           assemblies_count: Asambleas
           comments_count: Comentarios
           conferences_count: Conferencias
           debates_count: Debates
-          endorsements_count: Adhesiones
+          endorsements_count: Endosos
           headline: Estado actual de %{organization}
           meetings_count: Encuentros
           orders_count: Votos
@@ -548,7 +556,7 @@ es-PY:
           users_count: Participantes
           votes_count: Votos
         sub_hero:
-          register: Regístrate
+          register: Registro
       index:
         title: Más información
       terms_and_conditions:
@@ -749,7 +757,7 @@ es-PY:
         change_my_password: Cambiar mi contraseña
         change_your_password: cambia tu contraseña
         confirm_new_password: Confirmar nueva contraseña
-        new_password: Contraseña
+        new_password: Nueva contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña

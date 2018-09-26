@@ -35,6 +35,8 @@ es:
         name: Nombre
         participatory_process_ids: Procesos relacionados
       participatory_process_step:
+        cta_path: Ruta de llamada a la acción
+        cta_text: Texto de llamada a la acción
         description: Descripción
         end_date: Fecha de finalización
         short_description: Descripción breve
@@ -273,6 +275,10 @@ es:
         participatory_process_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no está configurado, el botón no se mostrará. Ejemplo: %{url}'
+            cta_text_help: Si no está configurado, el botón no se mostrará.
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
@@ -312,10 +318,10 @@ es:
             no_active_nor_upcoming: Sin procesos activos ni futuros
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           names:
-            active: Activa
-            all: Todos
-            past: Pasadas
-            upcoming: Próximas
+            active: Activo
+            all: Todas
+            past: Pasado
+            upcoming: Próximo
           see: Ver
         index:
           loading: Cargando resultados...

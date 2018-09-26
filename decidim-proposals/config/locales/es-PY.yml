@@ -210,6 +210,16 @@ es-PY:
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
+    metrics:
+      accepted_proposals:
+        object: propuesta
+        title: Propuestas aceptadas
+      proposals:
+        object: propuesta
+        title: Propuestas
+      votes:
+        object: votos
+        title: Votos
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ es-PY:
     proposals:
       actions:
         answer: Respuesta
+        edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
         private_notes: Notas privadas
@@ -257,6 +268,9 @@ es-PY:
           create:
             invalid: Ha habido un problema al crear esta propuesta
             success: Propuesta creada correctamente
+          edit:
+            title: Actualizar propuesta
+            update: Actualizar
           form:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             select_a_category: Seleccione una categoría
@@ -294,6 +308,7 @@ es-PY:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
+          update: "%{user_name} actualizó la %{resource_name} propuesta oficial en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
       answers:
@@ -535,7 +550,7 @@ es-PY:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
-          endorsements_list: Lista de adhesiones
+          endorsements_list: Lista de Endosos
           hidden_endorsers_count:
             one: y 1 persona más
             other: y %{count} personas más
@@ -618,5 +633,5 @@ es-PY:
       included_projects:
         project_result: 'Resultados que aparecen en este proyecto:'
       included_proposals:
-        proposal_project: 'Propuesta formulada en estos proyectos:'
-        proposal_result: 'Propuesta formulada en estos resultados:'
+        proposal_project: 'Propuesta que aparece en estos proyectos:'
+        proposal_result: 'Propuesta que aparece en estos resultados:'

@@ -162,28 +162,28 @@ ca:
     authorization_modals:
       show:
         expired:
-          authorize: Torna a autoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
+          authorize: Reautoritzar amb "%{authorization}"
+          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar amb "%{authorization}".
           title: L'autorització ha caducat
         incomplete:
           cancel: Cancel·lar
-          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
+          explanation: 'Tot i que actualment està autoritzat amb "%{authorization}", necessitem que la reautoritzeu perquè no disposem de les dades següents:'
           invalid_field: "%{field}"
-          reauthorize: Reautoritzar-se
-          title: Si us plau, reautoritza't
+          reauthorize: Reautoritzar
+          title: Torna a autoritzar
         missing:
-          authorize: Autoritzar amb "%{authorization}"
-          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
-          title: Es requereix autorització
+          authorize: Autoritzeu-vos amb "%{authorization}"
+          explanation: Per realitzar aquesta acció, heu d'estar autoritzats amb "%{authorization}".
+          title: Es necessita autorització
         pending:
-          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
-          resume: Comprova el progrés de l'autorització "%{authorization}"
+          explanation: Per realitzar aquesta acció, heu d'estar autoritzats amb "%{authorization}", però la vostra autorització encara està en curs
+          resume: Comproveu el vostre progrés d'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
+          explanation: No podeu realitzar aquesta acció ja que algunes dades d'autorització no coincideixen.
+          invalid_field: "%{field} valor %{value} no és vàlida."
           ok: D'acord
-          title: Acció no autoritzada
+          title: No autoritzat
     collapsible_list:
       hidden_elements_count:
         one: i 1 més
@@ -219,6 +219,8 @@ ca:
       html:
         html_content: Contingut HTML
         name: Bloc HTML
+      metrics:
+        name: Mètriques de l'organització
       stats:
         name: Estadístiques de l'organització
       sub_hero:
@@ -353,7 +355,7 @@ ca:
       linked_classes:
         all: Tots
         collaborative_draft: Esborrany de col·laboració
-        dummy_resource: Recursos de prova
+        dummy_resource: Recursos maniquís
         meeting: Trobades
         project: Projectes
         proposal: propostes
@@ -469,6 +471,10 @@ ca:
           title: Comença una conversa
         update:
           error: Missatge no enviat. Torna-ho a provar més tard
+    metrics:
+      users:
+        object: usuaris
+        title: Usuaris
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
@@ -496,7 +502,7 @@ ca:
         hello: Hola,
         subject: Vols seguir rebent informació rellevant sobre %{organization_name}?
     notifications:
-      no_notifications: Encara no hi ha notificacions.
+      no_notifications: Encara no hi ha cap notificació.
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
@@ -514,27 +520,29 @@ ca:
       home:
         extended:
           debates: Debats
-          debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
-          how_to_participate: Com participo en un procés?
+          debates_explanation: Debateu i discuteixi, compartiu les vostres opinions i enriqueixi els temes rellevants.
+          how_to_participate: Com puc participar en un procés?
           meetings: Trobades
-          meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
+          meetings_explanation: Esbrineu on i quan podeu participar en reunions públiques.
           more_info: Més informació
           proposals: Propostes
           proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
         footer_sub_hero:
-          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-          footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
-          register: Registra't
+          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br /> Uneix-te, participa i decideix.
+          footer_sub_hero_headline: Benvingut a %{organization} plataforma participativa.
+          register: Registre
         hero:
           participate: Participa
-          welcome: Benvingut a %{organization}!
+          welcome: Benvingut a %{organization}
+        metrics:
+          headline: Participació en xifres
         statistics:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees
           comments_count: Comentaris
           conferences_count: Conferències
           debates_count: Debats
-          endorsements_count: Adhesions
+          endorsements_count: Aprovacions
           headline: Estat actual de %{organization}
           meetings_count: Trobades
           orders_count: Vots
@@ -548,7 +556,7 @@ ca:
           users_count: Participants
           votes_count: Vots
         sub_hero:
-          register: Registra't
+          register: Registre
       index:
         title: Més informació
       terms_and_conditions:
@@ -691,7 +699,7 @@ ca:
       confirmation_instructions:
         action: Confirma el meu compte
         greeting: Benvinguda %{recipient}
-        instruction: 'Pots confirmar el correu electrònic del teu compte a través de l''enllaç següent:'
+        instruction: 'Podeu confirmar el correu electrònic del vostre compte a través de l''enllaç següent:'
         subject: Instruccions de confirmació
       email_changed:
         greeting: Hola %{recipient}
@@ -731,10 +739,10 @@ ca:
       reset_password_instructions:
         action: Canvia la meva contrasenya
         greeting: Hola %{recipient}
-        instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, i ho pots fer a través de l'enllaç següent.
+        instruction: Algú ha demanat un enllaç per canviar la contrasenya, i ho podeu fer a través de l'enllaç següent.
         instruction_2: Si no ho heu sol·licitat, ignoreu aquest correu electrònic.
         instruction_3: La vostra contrasenya no canviarà fins que accediu a l'enllaç de dalt i creeu-ne un de nou.
-        subject: Instruccions de regeneració de contrasenya
+        subject: Reinicia les instruccions de la contrasenya
       unlock_instructions:
         action: Desbloqueja el meu compte
         greeting: Hola %{recipient}
@@ -749,7 +757,7 @@ ca:
         change_my_password: Canvia la meva contrasenya
         change_your_password: Canvia la teva contrasenya
         confirm_new_password: Confirmar nova contrasenya
-        new_password: Contrasenya
+        new_password: Nova contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
         send_me_reset_password_instructions: Envia'm les instruccions de restabliment de la contrasenya

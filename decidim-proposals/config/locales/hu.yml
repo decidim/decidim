@@ -210,6 +210,16 @@ hu:
           next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
           unearned_another: A felhasználó még nem hozott létre javaslatokat.
           unearned_own: Még nem hoztál létre javaslatokat.
+    metrics:
+      accepted_proposals:
+        object: javaslat
+        title: Elfogadott javaslatok
+      proposals:
+        object: javaslat
+        title: javaslatok
+      votes:
+        object: szavazat
+        title: szavazatok
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ hu:
     proposals:
       actions:
         answer: Válasz
+        edit_proposal: Javaslat szerkesztése
         import: Importálás egy másik elemből
         new: Új javaslat
         private_notes: Privát jegyzet
@@ -257,6 +268,9 @@ hu:
           create:
             invalid: Probléma merült fel a javaslat létrehozásakor
             success: Javaslat létrehozása sikeres
+          edit:
+            title: Frissítse a javaslatot
+            update: frissítés
           form:
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             select_a_category: Válassz kategóriát
@@ -294,6 +308,7 @@ hu:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
           create: "%{user_name} létrehozta a(z) %{resource_name} javaslatot (hivatalos) itt: %{space_name}"
+          update: "%{user_name} frissítette az %{resource_name} hivatalos javaslatot a %{space_name} helyre"
         proposal_note:
           create: "%{user_name} privát megjegyzést hagyott a(z) %{resource_name} javaslathoz itt: %{space_name}"
       answers:
@@ -535,7 +550,7 @@ hu:
           view_proposal: Javaslat megtekintése
         show:
           edit_proposal: Javaslat szerkesztése
-          endorsements_list: Jóváhagyások listája
+          endorsements_list: A jóváhagyások listája
           hidden_endorsers_count:
             one: és még 1 ember
             other: és még %{count} ember
@@ -616,7 +631,7 @@ hu:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok
       included_projects:
-        project_result: 'Projektben megjelenő eredmények:'
+        project_result: 'A projektben megjelenő eredmények:'
       included_proposals:
-        proposal_project: 'Ezen projektekben megjelenő javaslat:'
-        proposal_result: 'Az eredményekben megjelenő javaslat:'
+        proposal_project: 'E projektekben megjelenő javaslat:'
+        proposal_result: 'Az eredmények az alábbi eredmények között jelennek meg:'

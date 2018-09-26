@@ -35,6 +35,8 @@ hu:
         name: Név
         participatory_process_ids: Kapcsolódó folyamatok
       participatory_process_step:
+        cta_path: Hívás cselekvés útjára
+        cta_text: Call to Action szöveg
         description: Leírás
         end_date: Befejezés dátuma
         short_description: Rövid leírás
@@ -273,6 +275,10 @@ hu:
         participatory_process_copies:
           form:
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és vágások fogadhatók el, és betűvel kell kezdődniük. Ha nincs beállítva, a gomb nem jelenik meg. Példa: %{url}'
+            cta_text_help: Ha nincs beállítva, a gomb nem jelenik meg.
         participatory_processes:
           form:
             announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
@@ -313,9 +319,9 @@ hu:
             no_active_nor_upcoming_callout: Nincs sem aktív, sem közelgő folyamat. A korrábbiakat itt nézheted meg.
           names:
             active: Aktív
-            all: Összes
-            past: Előzmények
-            upcoming: Közelgő
+            all: Minden
+            past: Múlt
+            upcoming: közelgő
           see: Lásd
         index:
           loading: Eredmények betöltése...

@@ -214,7 +214,7 @@ fi:
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Aktiiviset neuvottelut
+            active_consultations: Aktiiviset kuulemiset
             see_all_consultations: Katso kaikki kuulemiset
             voting_ends_in:
               one: Äänestys päättyy <strong>huomenna</strong>
