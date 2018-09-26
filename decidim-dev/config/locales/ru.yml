@@ -15,10 +15,8 @@ ru:
     pages:
       home:
         statistics:
-          bar: Пример переменной 1
           dummies_count_high: Пример наибольшего количества
           dummies_count_medium: Пример среднего количества
-          foo: Пример переменной 2
     participatory_processes:
       statistics:
         dummies_count_high: Пример наибольшего количества
