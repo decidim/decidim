@@ -22,6 +22,16 @@
             <%= participatory_space_helpers.step_dates participatory_process.active_step %>
           </span>
         </div>
+        <% cta_text = translated_attribute(participatory_process.active_step.cta_text) %>
+        <% if participatory_process.active_step.cta_path.present? && cta_text.present? %>
+          <div class="process-header__button">
+            <%= link_to(
+              cta_text,
+              participatory_process.active_step.cta_path,
+              class: "button button-sc"
+            ) %>
+          </div>
+        <% end %>
         <div class="process-header__link">
           <%= link_to t(".view_steps"), decidim_participatory_processes.participatory_process_participatory_process_steps_path(current_participatory_space) %>
         </div>
