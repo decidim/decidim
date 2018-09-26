@@ -186,7 +186,7 @@ pl:
           form:
             attendee_type: Typ uczestnika
             existing_user: Istniejący użytkownik
-            invite: Zaproś
+            invite: Zapraszam
             invite_explanation: Użytkownik zostanie zaproszony do przyłączenia się do spotkania i do organizacji.
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
@@ -314,8 +314,6 @@ pl:
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
-        index:
-          view_meeting: Pokaż spotkanie
         meeting_minutes:
           meeting_minutes: Protokół ze spotkań
           related_information: Powiązana informacja

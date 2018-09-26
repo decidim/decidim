@@ -88,37 +88,37 @@ fi:
       meetings:
         meeting_closed:
           email_intro: 'Kokous "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Kokous "%{resource_title}" suljettiin
           notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
           email_intro: Kokous "%{resource_title}" on lisätty kohteeseen "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi kokous lisätty kohteeseen %{participatory_space_title}
           notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on lisätty kohtaan %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet kokouksen osallistumistilan ylläpitäjä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet kokouksen osallistumistilan ylläpitäjä.
           email_subject: Kokouksen "%{resource_title}" varatut paikat ylittävät %{percentage}%
           notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
         meeting_updated:
           email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Kokous "%{resource_title}" päivitettiin
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
         registration_code_validated:
           email_intro: Rekisteröintikoodisi "%{registration_code}" on vahvistettu.
-          email_outro: Olet saanut tämän ilmoituksen, koska rekisteröintikoodisi kokoukseen "%{resource_title}" on vahvistettu.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska rekisteröintikoodisi kokoukseen "%{resource_title}" on vahvistettu.
           email_subject: Rekisteröintikoodisi "%{registration_code}" on vahvistettu
           notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
         registrations_enabled:
           email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuma "%{resource_title}" on mahdollistanut ilmoittautumiset.
           notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on avannut rekisteröinnin.
         upcoming_meeting:
           email_intro: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
     meetings:
@@ -159,7 +159,7 @@ fi:
             add_agenda_item: Lisää esityslistan kohde
             agenda_items: Esityslistan kohteet
             end_date: Päättymispäivä
-            start_date: Aloituspäivämäärä
+            start_date: Alkamispäivä
           new:
             create: Luoda
             title: Uusi esityslista
@@ -306,8 +306,6 @@ fi:
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
-        index:
-          view_meeting: Näytä tapahtuma
         meeting_minutes:
           meeting_minutes: Tapahtumapöytäkirja
           related_information: Liittyviä tietoja
@@ -343,9 +341,9 @@ fi:
         meeting:
           fields:
             closed: Suljettu
-            end_time: Lopetusaika
+            end_time: Päättymispäivä
             map: Kartta
-            start_time: Aloitusaika
+            start_time: Alkamispäivä
             title: Otsikko
       read_more: "(lue lisää)"
       registration_mailer:

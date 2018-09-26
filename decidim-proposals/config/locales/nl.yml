@@ -535,7 +535,6 @@ nl:
           view_proposal: Bekijk voorstel
         show:
           edit_proposal: Bewerk voorstel
-          endorsements_list: Lijst met aanbevelingen
           hidden_endorsers_count:
             one: en nog 1 persoon
             other: en nog %{count} mensen
@@ -612,11 +611,3 @@ nl:
           version_number_out_of_total: "%{current_version} van de %{total_count}"
         version:
           version_index: Versie %{index}
-    resource_links:
-      copied_from_component:
-        proposal_proposal: Verwante voorstellen
-      included_projects:
-        project_result: 'Resultaten die in dit project verschijnen:'
-      included_proposals:
-        proposal_project: 'Voorstel in deze projecten:'
-        proposal_result: 'Voorstel dat in deze resultaten voorkomt:'

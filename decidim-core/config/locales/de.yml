@@ -1,0 +1,729 @@
+de:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Grund, dein Konto zu löschen
+      report:
+        details: Zusätzliche Kommentare
+      user:
+        about: Über
+        email: Ihre E-Mail
+        name: Ihr Name
+        nickname: Ihre kurze, eindeutige Kennung
+        password: Passwort
+        password_confirmation: Bestätigen Sie Ihr Passwort
+        personal_url: Persönliche URL
+        remove_avatar: Avatar entfernen
+        user_group_document_number: Organisationsbelegnummer
+        user_group_name: Name der Organisation
+        user_group_phone: Telefon der Organisation
+    models:
+      decidim/attachment_created_event: Anhang
+      decidim/component_published_event: Aktive Komponente
+      decidim/gamification/badge_earned_event: Abzeichen verdient
+      decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
+      decidim/profile_updated_event: Profil aktualisiert
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Aktuelles Passwort
+        email: E-Mail
+        name: Benutzername
+        password: Passwort
+        password_confirmation: Bestätigung des Passworts
+        remember_me: Erinneren Sie mich
+        user_group_document_number: Organisationsbelegnummer
+        user_group_name: Name der Organisation
+        user_group_phone: Telefon der Organisation
+    models:
+      decidim/user:
+        one: Benutzer*in
+        other: Benutzer*innen
+      decidim/user_group:
+        one: Benutzergruppe
+        other: Benutzergruppen
+  booleans:
+    'false': 'Nein'
+    'true': 'Ja'
+  carrierwave:
+    errors:
+      image_too_big: Das Bild ist zu groß
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
+  decidim:
+    account:
+      data_portability_export:
+        file_no_exists: Diese Datei existiert nicht
+        invalid_token: Das angegebene Token ist ungültig.
+        no_token: Kein Token zur Verfügung gestellt
+        notice: Ihre Daten werden gerade bearbeitet. Sie erhalten nach Fertigstellung eine E-Mail.
+      delete:
+        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr anmelden.
+        confirm:
+          close: Fenster schließen
+          ok: Ja, ich möchte mein Konto löschen
+          question: Sind Sie sicher, dass Sie Ihr Konto löschen möchten?
+          title: Mein Konto löschen
+        explanation: Bitte geben Sie den Grund an, warum Sie Ihr Konto löschen möchten (optional).
+      destroy:
+        error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
+        success: Ihr Konto wurde erfolgreich gelöscht.
+      show:
+        change_password: Passwort ändern
+        update_account: Konto aktualisieren
+      update:
+        error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
+        success: Ihr Konto wurde erfolgreich aktualisiert.
+        success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
+    admin_log:
+      area:
+        create: "%{user_name} hat den %{resource_name} Bereich erstellt"
+        delete: "%{user_name} hat den %{resource_name} Bereich gelöscht"
+        update: "%{user_name} hat den %{resource_name} Bereich aktualisiert"
+      component:
+        create: "%{user_name} hat die %{resource_name} Komponente zu %{space_name} hinzugefügt"
+        delete: "%{user_name} hat die %{resource_name} Komponente von dem %{space_name} ... entfernt"
+        publish: "%{user_name} veröffentlichte die %{resource_name} Komponente in dem %{space_name} Raum"
+        unpublish: "%{user_name} unveröffentlicht die %{resource_name} Komponente aus dem %{space_name} Leerzeichen"
+      moderation:
+        hide: "%{user_name} versteckte eine Ressource vom Typ %{resource_type} in dem %{space_name} Raum"
+        unreport: "%{user_name} eine Ressource vom Typ %{resource_type} in den %{space_name} Feldern nicht gemeldet"
+      newsletter:
+        create: "%{user_name} hat den %{resource_name} Newsletter erstellt"
+        delete: "%{user_name} löschte den %{resource_name} Newsletter"
+        deliver: "%{user_name} lieferte den %{resource_name} Newsletter"
+        update: "%{user_name} aktualisierte den %{resource_name} Newsletter"
+      oauth_application:
+        create: "%{user_name} hat die %{resource_name} OAuth-Anwendung erstellt"
+        delete: "%{user_name} löschte die %{resource_name} OAuth-Anwendung"
+        update: "%{user_name} hat die %{resource_name} OAuth-Anwendung aktualisiert"
+      organization:
+        update: "%{user_name} aktualisiert die Organisationseinstellungen"
+      scope:
+        create: "%{user_name} hat den %{resource_name} Bereich erstellt"
+        create_with_parent: "%{user_name} erstellte den %{resource_name} Bereich innerhalb des %{parent_scope} Bereichs"
+        delete: "%{user_name} löschte den %{resource_name} Bereich"
+        delete_with_parent: "%{user_name} löschte den %{resource_name} Bereich innerhalb des %{parent_scope} Bereichs"
+        update: "%{user_name} hat den %{resource_name} Bereich aktualisiert"
+        update_with_parent: "%{user_name} hat den %{resource_name} Bereich innerhalb des %{parent_scope} Bereichs aktualisiert"
+      static_page:
+        create: "%{user_name} hat die %{resource_name} statische Seite erstellt"
+        delete: "%{user_name} löschte die %{resource_name} statische Seite"
+        update: "%{user_name} hat die %{resource_name} statische Seite aktualisiert"
+      user:
+        invite: "%{user_name} den Benutzer %{resource_name} mit der Rolle %{role}eingeladen"
+        officialize: "%{user_name} den Benutzer %{resource_name}offiziell anerkannt"
+        remove_from_admin: "%{user_name} entfernte den Benutzer %{resource_name} mit der Rolle: %{role}"
+        unofficialize: "%{user_name} inoffizialisierte den Benutzer %{resource_name}"
+      user_group:
+        reject: "%{user_name} wies die %{resource_name} - Benutzergruppe Verifikations"
+        verify: "%{user_name} die %{resource_name} Benutzergruppe verifiziert"
+    anonymous_user: Anonym
+    application:
+      collection:
+        documents:
+          one: Dokument
+          other: Unterlagen
+      documents:
+        related_documents: Zugehörige Dokumente
+      photos:
+        related_photos: Zugehörige Fotos
+    author:
+      comments:
+        one: Kommentar
+        other: Kommentare
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Lassen Sie sich verifizieren, indem Sie eine Reisepassnummer eingeben, die mit "A" beginnt
+        fields:
+          passport_number: Reisepassnummer
+        name: Ein weiteres Beispiel für eine Berechtigung
+      dummy_authorization_handler:
+        explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet
+        fields:
+          document_number: Dokumentnummer
+          postal_code: Postleitzahl
+        name: Beispielberechtigung
+      dummy_authorization_workflow:
+        name: Dummy-Autorisierungs-Workflow
+      errors:
+        duplicate_authorization: Ein Benutzer ist bereits mit den gleichen Daten berechtigt.
+      expired_at: Abgelaufen am %{timestamp}
+      expires_at: Läuft am %{timestamp} ab
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo Genehmigung
+      granted_at: Zugelassen am %{timestamp}
+      started_at: Begann am %{timestamp}
+    authorization_modals:
+      show:
+        incomplete:
+          cancel: Abbrechen
+    collapsible_list:
+      hidden_elements_count:
+        one: und 1 mehr
+        other: und %{count} mehr
+      see_less: "(Weniger anzeigen)"
+      see_more: "(Mehr anzeigen)"
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Dummy-Komponente
+        settings:
+          global:
+            comments_enabled: Kommentare aktiviert
+            dummy_global_attribute_1: Dummy-Attribut 1
+            dummy_global_attribute_2: Dummy-Attribut 2
+            resources_permissions_enabled: Ressourcenberechtigungen aktiviert
+          step:
+            comments_blocked: Kommentare blockiert
+            dummy_step_attribute_1: Dummy-Schritt-Attribut 1
+            dummy_step_attribute_2: Dummy-Schritt-Attribut 2
+    contact: Kontakt
+    content_blocks:
+      footer_sub_hero:
+        name: Fußzeile sub hero Banner
+      hero:
+        name: Heldenbild
+      highlighted_content_banner:
+        name: Hervorgehobenes Inhaltsbanner
+      how_to_participate:
+        name: Wie kann ich mich beteiligen
+      stats:
+        name: Organisationsstatistiken
+      sub_hero:
+        name: Sub hero Banner
+    core:
+      actions:
+        unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen
+    data_portability:
+      export:
+        ready: Bereit
+      show:
+        download_data: Daten herunterladen
+        download_data_description: Eine Datei mit allen Informationen, die mit diesem Konto verbunden sind, wird an <strong>%{user_email}</strong> gesendet
+        request_data: Daten anfordern
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Ein anderes Konto verwendet dieselbe E-Mail-Adresse
+        new:
+          complete_profile: Profil vervollständingen
+          nickname_help: Ihre kurze, eindeutige ID in %{organization}
+          sign_up: Bitte vervollständigen Sie Ihr Profil
+          subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
+          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
+      registrations:
+        new:
+          already_have_an_account?: Haben Sie bereits ein Konto?
+          newsletter: Erhalten Sie einen gelegentlichen Newsletter mit relevanten Informationen
+          newsletter_title: Kontakt Erlaubnis
+          nickname_help: Ihre kurze, eindeutige ID in %{organization}
+          sign_in: Anmelden
+          sign_up: Registrieren
+          sign_up_as:
+            legend: Registrieren als
+            user: Privatperson
+            user_group: Organisation / Kollektiv
+          subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
+          terms: Nutzungsbedingungen
+          tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
+          tos_title: Nutzungsbedingungen
+          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
+      sessions:
+        new:
+          are_you_new?: Neu auf der Plattform?
+          register: Konto erstellen
+      shared:
+        newsletter_modal:
+          buttons:
+            check: Überprüfen und fortfahren
+            close_modal: Modal schließen
+            uncheck: Deaktivieren Sie das Kontrollkästchen
+          notice: |-
+            <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
+            Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
+            Für uns ist es sehr wichtig, die Möglichkeit zu haben Ihnen gelegentlich E-Mails mit wichtigen Ankündigungen schicken zu können. Sie können dies jederzeit in den Benachrichtigungseinstellungen ändern.</p>
+            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen zu neuen Beteiligungsmöglichkeiten auf der Plattform.<br>
+            Wenn Sie nach wie vor keinen Newsletter erhalten möchten, verstehen wir natürlich Ihre Entscheidung.</p>
+            <p>Danke fürs Lesen!</p>
+          title: Newsletter Benachrichtigungen
+        omniauth_buttons:
+          or: Oder
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Anwendung autorisieren
+          by_organization_link_html: <small class="heading-small">von %{link}</small>
+          cancel: Abbrechen
+          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong>
+          publish_content: Inhalte für Sie veröffentlichen
+          see_email: Ihre E-Mail anzeigen
+          see_name: Ihren Namen anzeigen
+          see_username: Ihren Benutzernamen anzeigen
+          this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
+          this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
+          update_profile: Profil aktualisieren
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
+    errors:
+      internal_server_error:
+        title: Es gab ein Problem mit unserem Server
+        try_later: Bitte versuchen Sie es später nochmal.
+      not_found:
+        back_home: Zurück zur Startseite
+        content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
+        title: Die von Ihnen gesuchte Seite kann nicht gefunden werden
+    events:
+      attachments:
+        attachment_created:
+          email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Wenn Sie auf den folgenden Link klicken, können Sie sich von den Benachrichtigungen abmelden.
+          email_subject: Eine Aktualisierung auf %{resource_title}
+          notification_title: Ein <a href="%{resource_path}">neues Dokument</a> wurde zu <a href="%{attached_to_url}">%{resource_title}</a>hinzugefügt
+      components:
+        component_published:
+          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Wenn Sie auf den folgenden Link klicken, können Sie sich von den Benachrichtigungen abmelden.
+          email_subject: Eine Aktualisierung auf %{participatory_space_title}
+          notification_title: Die Komponente %{resource_title} ist jetzt für <a href="%{resource_path}">%{participatory_space_title}</a> aktiv
+      email_event:
+        email_greeting: Hallo %{user_name},
+        email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können es von dieser Seite sehen:'
+        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können sich durch den vorherigen Link davon abmelden.
+        email_subject: Ein Update auf %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Gut gemacht! Sie haben das <a href="%{resource_url}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
+          email_subject: 'Du hast ein neues Abzeichen erhalten: %{badge_name}!'
+          notification_title: Gut gemacht! Du hast das <a href="%{resource_path}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
+        level_up:
+          email_intro: Gut gemacht! Du hast Stufe %{current_level} auf dem <a href="%{resource_url}">%{badge_name} Abzeichen</a>!
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
+          email_subject: Du hast Level %{current_level} auf dem %{badge_name} Abzeichen erreicht!
+          notification_title: Gut gemacht! Du hast Stufe %{current_level} auf dem <a href="%{resource_path}">%{badge_name} Abzeichen</a>!
+      notification_event:
+        notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
+      users:
+        profile_updated:
+          email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: "%{nickname} hat ihr Profil aktualisiert"
+          notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
+    export_mailer:
+      data_portability_export:
+        click_button: Klicken Sie auf die Schaltfläche "Weiter", um Ihre Daten herunterzuladen. <br/> Sie haben die Datei bis %{date}verfügbar.
+        download: Herunterladen
+      export:
+        ready: Anbei finden Sie eine gezippte Version Ihres Exports.
+      subject: Ihr Export "%{name}" ist fertig
+    filters:
+      linked_classes:
+        all: Alle
+        collaborative_draft: Gemeinsamer Entwurf
+        meeting: Meetings
+        project: Projekte
+        proposal: Vorschläge
+        result: Ergebnisse
+    fingerprint:
+      check: Überprüfen Sie den Fingerabdruck
+      explanation: Der folgende Textteil ist eine verkürzte, gehashte Darstellung dieses Inhalts. Es ist nützlich, sicherzustellen, dass der Inhalt nicht manipuliert wurde, da eine einzige Änderung zu einem völlig anderen Wert führen würde.
+      online_calculator_name: MD5 Rechner online
+      replicate_help: Dieser Fingerabdruck wird unter Verwendung eines SHA256-Hashing-Algorithmus berechnet. Um es selbst zu replizieren, können Sie eine %{online_calculator_link} und die Quelldaten kopieren.
+      source: Quelle
+      title: Fingerabdruck
+      value: Wert
+    followers:
+      no_followers: Noch keine Follower.
+    following:
+      no_followings: Folgt noch niemandem oder irgendetwas.
+    follows:
+      create:
+        button: Folgen
+        error: Nach dieser Ressource ist ein Fehler aufgetreten.
+      destroy:
+        button: Hör auf zu folgen
+        error: Beim Löschen dieser Ressource ist ein Fehler aufgetreten.
+    forms:
+      current_file: Aktuelle Datei
+      current_image: Aktuelles Bild
+      default_image: Standardbild
+      errors:
+        error: In diesem Feld ist ein Fehler aufgetreten.
+      remove_this_file: Entferne diese Datei
+    gamification:
+      badges:
+        invitations:
+          description_another: Dieser Benutzer hat %{score} Benutzer eingeladen.
+          description_own: Sie haben %{score} Benutzer eingeladen.
+          explanation: Benutzer erhalten dieses Abzeichen, indem sie andere Benutzer einladen.
+          name: Einladungen
+          next_level_in: Laden Sie %{score} weitere Nutzer ein, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keinen Benutzer eingeladen.
+          unearned_own: Sie haben noch keine Benutzer eingeladen.
+      description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
+      level: Stufe %{level}
+      reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
+    invitations:
+      create:
+        error: Es gab einige Probleme beim Einladen deiner Freunde
+        error_empty_form: Bitte geben Sie einige E-Mail-Adressen ein
+        success: Wir haben die Einladungen an deine Freunde geschickt!
+      index:
+        customize_message: Passen Sie die Einladungsnachricht an
+        friend_email: 'Freund #%{index} E-Mail'
+        invitations_subtitle: Informieren Sie Ihre Freunde über diese Website
+        invitations_title: Denkst du, mehr Stimmen sollten in %{organization_name}?
+        invite: Einladen
+        visit_your_profile: Besuchen Sie Ihr Profil
+    log:
+      base_presenter:
+        create: "%{user_name} erstellt %{resource_name}"
+        create_with_space: "%{user_name} erstellt %{resource_name} in %{space_name}"
+        delete: "%{user_name} gelöscht %{resource_name}"
+        delete_with_space: "%{user_name} gelöscht %{resource_name} in %{space_name}"
+        unknown_action: "%{user_name} hat eine Aktion auf %{resource_name}"
+        unknown_action_with_space: "%{user_name} führte eine Aktion bei %{resource_name} in %{space_name}"
+        update: "%{user_name} aktualisiert %{resource_name}"
+        update_with_space: "%{user_name} aktualisiert %{resource_name} in %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+        scope_presenter:
+          not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+    managed_users:
+      expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
+    menu:
+      home: Zuhause
+      more_information: Mehr Informationen
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hallo, %{recipient}!
+          intro: "%{sender} hat eine neue Unterhaltung mit Ihnen begonnen. Klicken Sie hier, um es zu sehen:"
+          outro: Genieße Decidim!
+          subject: "%{sender} hat ein Gespräch mit Ihnen begonnen"
+        new_message:
+          greeting: Hallo, %{recipient}!
+          intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
+          outro: Genieße Decidim!
+          subject: Sie haben neue Nachrichten von %{sender}
+      conversations:
+        create:
+          error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
+        index:
+          from: Von
+          last_message_html: Letzte Nachricht <strong>%{time} vor</strong>
+          no_conversations: Du hast noch keine Unterhaltungen
+        show:
+          conversation_with_html: Gespräch mit <strong>%{name}</strong>
+          send: Senden
+        start:
+          send: Senden
+          title: Eine Konversation beginnen
+        update:
+          error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
+    newsletter_mailer:
+      newsletter:
+        note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
+        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Sehen Sie es auf der <a href="%{link}" target="_blank">Website an</a>.
+        unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Wenn Sie Ihre Einstellungen ändern möchten, können Sie dies in der <a href="%{link}" target="_blank">- Konfiguration Seite</a>
+        error: Beim Abbestellen ist ein Fehler aufgetreten
+        success: Sie haben sich erfolgreich abgemeldet.
+        token_error: Der Link ist abgelaufen.
+        unsubscribe: Abmelden
+    newsletters_opt_in:
+      unathorized: Entschuldigung, dieser Link ist nicht mehr verfügbar
+      update:
+        error: Etwas ist schiefgelaufen
+        success: Newslettereinstellungen wurden erfolgreich aktualisiert
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Die Verarbeitung personenbezogener Daten und deren Schutz wird für uns alle immer wichtiger. Mit der neuen Datenschutz-Grundverordnung (DSGV) vom 25. Mai 2018 haben Einzelpersonen eine bessere Kontrolle über ihre personenbezogenen Daten. Aus diesem Grund benötigen wir Ihr "OK" um weiterhin relevante Informationen über die Aktivitäten der %{organization_name}zu senden.
+        body_2: 'Wie können Sie uns Ihre Zustimmung geben? Klicken Sie einfach auf den folgenden Knopf:'
+        body_3: Mit dieser Zustimmung können Sie weiterhin Informationen über die Dienste der Plattform erhalten. Wenn wir im Gegenteil keine positive Bestätigung von Ihnen erhalten, werden wir Ihnen keine Nachrichten mehr senden. Wenn Sie bestätigen, dass Sie weiterhin informiert werden möchten, haben Sie jederzeit die Möglichkeit, den Vorgang abzubrechen.
+        button: Ja, ich möchte weiterhin relevante Informationen erhalten
+        greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo,
+        subject: Möchten Sie weiterhin relevante Informationen über %{organization_name}?
+    notifications_settings:
+      show:
+        email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
+        newsletter_notifications: Ich möchte Newsletter erhalten
+        update_notifications_settings: Änderungen speichern
+      update:
+        error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
+        success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
+    own_user_groups:
+      index:
+        pending: steht aus
+        rejected: Abgelehnt
+        verified: Überprüft
+    pages:
+      home:
+        extended:
+          meetings: Meetings
+          proposals: Vorschläge
+        statistics:
+          meetings_count: Meetings
+          projects_count: Projekte
+          proposals_count: Vorschläge
+          results_count: Ergebnisse
+      index:
+        title: Mehr Informationen
+      terms_and_conditions:
+        accept:
+          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
+          success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
+        form:
+          agreement: Ich stimme diesen Bedingungen zu
+          legend: Stimme den Nutzungsbedingungen zu
+        refuse:
+          modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
+          modal_btn_continue: Bedingungen akzeptieren und fortfahren
+          modal_btn_exit: Ich werde es später überprüfen
+          modal_button: Verweiße die Bedingungen
+          modal_close: Modal schließen
+          modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
+        required_review:
+          alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
+          body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
+          title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
+    participatory_space_private_users:
+      not_allowed: Sie dürfen diesen Inhalt nicht sehen
+    profile:
+      deleted: Gelöschter Benutzer
+      view: Aussicht
+    profiles:
+      default_officialization_text: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
+      show:
+        badges: Abzeichen
+        conversations: Gespräche
+        followers: Anhänger
+        following: Folgt
+        notifications: Benachrichtigungen
+      user:
+        edit_profile: Profil bearbeiten
+    reported_mailer:
+      hide:
+        hello: Hallo %{name},
+        manage_moderations: Moderationen verwalten
+        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
+        subject: Eine Ressource wurde automatisch ausgeblendet
+      report:
+        hello: Hallo %{name},
+        manage_moderations: Moderationen verwalten
+        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde gemeldet.</p>
+        subject: Eine Ressource wurde gemeldet
+    reports:
+      create:
+        error: Beim Erstellen des Berichts ist ein Fehler aufgetreten. Bitte, versuche es noch einmal.
+        success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+    scopes:
+      global: Globaler Umfang
+      picker:
+        cancel: Stornieren
+        choose: Wählen
+        title: Wählen Sie %{field}
+      prompt: Wählen Sie einen Bereich aus
+      scopes: Bereiche
+    search:
+      filter:
+        all: Alle
+        component: Komponente
+      results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
+      term_input_placeholder: Suche
+    searches:
+      filters:
+        search: Suche
+      filters_small_view:
+        close_modal: Modal schließen
+        filter: Filter
+        filter_by: Filtern nach
+        unfold: Entfalten
+    shared:
+      embed_modal:
+        close_window: Fenster schließen
+        embed: Bitte fügen Sie diesen Code in Ihre Seite ein
+        embed_link: Einbetten
+      flag_modal:
+        already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
+        close: Schließen
+        description: Ist dieser Inhalt unangemessen?
+        does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
+        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
+        report: Bericht
+        spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
+        title: Ein Problem melden
+      follow_button:
+        sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
+      login_modal:
+        please_sign_in: Bitte einloggen
+        sign_up: Anmelden
+      reference:
+        reference: 'Referenz: %{reference}'
+      results_per_page:
+        label: 'Ergebnisse pro Seite:'
+      share_modal:
+        close_window: Fenster schließen
+        share: Aktie
+        share_link: Einen Link teilen
+      version_author:
+        deleted: Gelöschter Benutzer
+  devise:
+    invitations:
+      edit:
+        header: Beenden Sie die Erstellung Ihres Kontos
+        nickname_help: Ihre eindeutige ID in %{organization}.
+        submit_button: sparen
+        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
+    mailer:
+      invitation_instructions:
+        accept: Die Einladung annehmen
+        accept_until: Diese Einladung wird in %{due_date}fällig.
+        decline: Einladung ablehnen
+        hello: Hallo %{email},
+        ignore: |-
+          Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
+          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
+        invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
+        invited_you_as_friend: "%{invited_by} hat dich zu %{application}eingeladen."
+        invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
+        someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
+        someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
+        someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
+      invite_admin:
+        subject: Du wurdest eingeladen, %{organization}zu verwalten
+      invite_collaborator:
+        subject: Du wurdest eingeladen, an %{organization}
+      invite_friend:
+        accept_invitation: 'Sie können die Einladung über den folgenden Link annehmen:'
+        friend_custom_text: 'Sie haben diese Nachricht für dich hinterlassen:'
+        subject: Du wurdest zu %{organization}eingeladen
+      invite_private_user:
+        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization}eingeladen
+      organization_admin_invitation_instructions:
+        subject: Du wurdest eingeladen, %{organization}zu verwalten
+      password_change:
+        greeting: Hallo %{recipient}!
+        message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.
+        subject: Passwort geändert
+  doorkeeper:
+    scopes:
+      public: Ihre öffentlichen Informationen.
+  errors:
+    messages:
+      content_type_whitelist_error: Der Dateityp ist nicht gültig
+      cycle_detected: Der Elternteil eines Bereichs darf keiner seiner Nachkommen sein
+      file_size_is_less_than_or_equal_to: Die Dateigröße muss kleiner oder gleich %{count}
+      long_words: enthält zu lange Wörter
+      must_start_with_caps: muss mit Großbuchstaben beginnen
+      nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
+      too_many_marks: benutzt zu viele Marken
+      too_much_caps: benutzt zu viele Caps
+      too_short: ist zu kurz
+  forms:
+    required: Erforderlich
+  invisible_captcha:
+    sentence_for_humans: Wenn Sie ein Mensch sind, ignorieren Sie dieses Feld
+    timestamp_error_message: Entschuldigung, das war zu schnell! Bitte erneut einreichen
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Diese Seite verwendet Cookies. Indem Sie die Seite weiter durchsuchen, stimmen Sie der Verwendung von Cookies zu. Erfahren Sie mehr darüber %{link}.
+        link_label: Hier
+        ok: ich stimme zu
+      edit_link:
+        edit: Bearbeiten
+      footer:
+        made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
+      header:
+        close_menu: Menü schließen
+        navigation: Navigation
+        sign_in: Anmelden
+        sign_up: Anmelden
+      impersonation_warning:
+        close_session: Sitzung schließen
+        description_html: Sie geben sich als Benutzer <b>%{user_name}</b>.
+        expire_time_html: Ihre Sitzung wird in <b><span class="minutes">%{minutes}</span> Minuten</b>ablaufen.
+      notifications_dashboard:
+        mark_all_as_read: Alles als gelesen markieren
+      user_menu:
+        admin_dashboard: Admin-Dashboard
+        conversations: Gespräche
+        invite_friends: Freunde einladen
+        notifications: Benachrichtigungen
+        profile: Mein Konto
+        public_profile: Mein öffentliches Profil
+        sign_out: Ausloggen
+      user_profile:
+        account: Konto
+        authorizations: Berechtigungen
+        delete_my_account: Löschen Sie mein Konto
+        my_data: Meine Daten
+        notifications_settings: Benachrichtigungseinstellungen
+        title: Benutzereinstellungen
+        user_groups: Organisationen
+      widget:
+        see_more: Mehr sehen
+  locale:
+    name: Englisch
+  password_validator:
+    domain_included_in_password: ist diesem Domainnamen zu ähnlich
+    email_included_in_password: ist Ihrer E-Mail zu ähnlich
+    fallback: ist ungültig
+    name_included_in_password: ist Ihrem Namen zu ähnlich
+    not_enough_unique_characters: hat nicht genug eindeutige Zeichen
+    password_not_allowed: ist nicht erlaubt
+    password_too_common: ist zu allgemein
+    password_too_long: es ist zu lang
+    password_too_short: ist zu kurz
+  social_share_button:
+    delicious: Köstlich
+    douban: Douban
+    email: Email
+    facebook: Facebook
+    google_bookmark: Google Lesezeichen
+    google_plus: Google+
+    hacker_news: Hacker Nachrichten
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Teilen mit %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Öffnen Sie Ihr WeChat, klicken Sie auf "Discover" und dann auf das "Scan QR Code" Menü.
+    weibo: Sina Weibo
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; zuerst"
+      last: Letzte &raquo;
+      next: Nächste &rsaquo;
+      previous: "&lsaquo; Zurück"
+      truncate: "&hellip;"

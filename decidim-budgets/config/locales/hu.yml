@@ -145,9 +145,6 @@ hu:
       destroy:
         error: Hiba történt a szavazatod törlése során
         success: A szavazatod visszavonása sikeres volt
-    resource_links:
-      included_proposals:
-        project_proposal: 'A projekthez kapcsolódó javaslatok:'
   index:
     confirmed_orders_count: Szavazatok száma
   total_budget: Teljes költségvetés

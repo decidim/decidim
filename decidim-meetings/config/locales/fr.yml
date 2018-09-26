@@ -306,8 +306,6 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite
-        index:
-          view_meeting: Voir la rencontre
         meeting_minutes:
           meeting_minutes: Comptes rendus des rencontres
           related_information: Informations liées
@@ -380,11 +378,11 @@ fr:
         upcoming_meeting: Prochaine rencontre
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Résultats associés :'
-        result_meeting: 'Rencontres associées :'
+        meeting_result: 'Résultats liés:'
+        result_meeting: 'Réunions connexes:'
       proposals_from_meeting:
-        meeting_proposal: 'Propositions créées lors de cette rencontre :'
-        proposal_meeting: 'Rencontres associées :'
+        meeting_proposal: 'Propositions connexes:'
+        proposal_meeting: 'Réunions connexes:'
   devise:
     mailer:
       join_meeting:

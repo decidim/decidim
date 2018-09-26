@@ -153,9 +153,6 @@ pl:
       destroy:
         error: Podczas anulowania Twojego głosu wystąpił błąd
         success: Twój głos został pomyślnie zakończony
-    resource_links:
-      included_proposals:
-        project_proposal: 'Propozycje zawarte w tym projekcie:'
   index:
     confirmed_orders_count: Liczba głosów
   total_budget: Cały budżet

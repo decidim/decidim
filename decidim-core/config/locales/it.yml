@@ -161,29 +161,8 @@ it:
       started_at: Iniziato a %{timestamp}
     authorization_modals:
       show:
-        expired:
-          authorize: Rinnova con "%{authorization}"
-          explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
-          title: L'autorizzazione è scaduta
         incomplete:
           cancel: Annulla
-          explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
-          invalid_field: "%{field}"
-          reauthorize: Ri-autorizzare
-          title: Per favore, occorre una nuova autorizzazione
-        missing:
-          authorize: Autorizzare con "%{authorization}"
-          explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
-          title: Autorizzazione richiesta
-        pending:
-          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
-          resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
-          title: L'autorizzazione è ancora in corso
-        unauthorized:
-          explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
-          invalid_field: "%{field} valore %{value} non è valido."
-          ok: Ok
-          title: Non autorizzato
     collapsible_list:
       hidden_elements_count:
         one: e 1 altro
@@ -348,7 +327,6 @@ it:
       linked_classes:
         all: Tutto
         collaborative_draft: Bozza collaborativa
-        dummy_resource: Risorse fittizie
         meeting: Incontri
         project: Progetti
         proposal: Proposte
@@ -449,7 +427,6 @@ it:
           no_conversations: Non hai ancora conversazioni
         show:
           conversation_with_html: Conversazione con <strong>%{name}</strong>
-          reply: Rispondi
           send: Inviare
         start:
           send: Invia
@@ -482,8 +459,6 @@ it:
         greetings: Saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
-    notifications:
-      no_notifications: Nessuna notifica.
     notifications_settings:
       show:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
@@ -500,41 +475,13 @@ it:
     pages:
       home:
         extended:
-          debates: Dibattiti
-          debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
-          how_to_participate: Come posso partecipare ad un processo?
           meetings: incontri
-          meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
-          more_info: Maggiori informazioni
           proposals: proposte
-          proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
-        footer_sub_hero:
-          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
-          footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
-          register: Registrati
-        hero:
-          participate: Partecipa
-          welcome: Benvenuto su %{organization}!
         statistics:
-          answers_count: Sondaggi completati
-          assemblies_count: assemblee
-          comments_count: Commenti
-          debates_count: Dibattiti
-          endorsements_count: Riconoscimenti
-          headline: Stato attuale dell'organizzazione %{organization}
           meetings_count: incontri
-          orders_count: Voti
-          pages_count: Pagine
-          processes_count: Processi
           projects_count: progetti
-          proposals_accepted: Proposte accettate
           proposals_count: proposte
           results_count: risultati
-          surveys_count: indagini
-          users_count: Partecipanti
-          votes_count: Voti
-        sub_hero:
-          register: Registrati
       index:
         title: Informazione
       terms_and_conditions:

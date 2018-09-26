@@ -180,7 +180,7 @@ eu:
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Erabiltzaile existentea
-            invite: Gonbit egin
+            invite: gonbidatu
             invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
             non_user: Erabiltzailea ez dago
             select_user: Aukeratu erabiltzailea
@@ -306,8 +306,6 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
-        index:
-          view_meeting: Ikusi topaketa
         meeting_minutes:
           meeting_minutes: Bilera Minutes
           related_information: Lotutako informazioa
@@ -380,11 +378,11 @@ eu:
         upcoming_meeting: Hurrengo bilera
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Topaketaren emaitzak:'
-        result_meeting: 'Proposamenarekin lotutako topaketak:'
+        meeting_result: 'Erlazionatutako emaitzak:'
+        result_meeting: 'Lotutako topaketak:'
       proposals_from_meeting:
-        meeting_proposal: 'Topaketari dagozkion proposamenak:'
-        proposal_meeting: 'Proposamenarekin lotutako topaketak:'
+        meeting_proposal: 'Lotutako proposamenak:'
+        proposal_meeting: 'Lotutako topaketak:'
   devise:
     mailer:
       join_meeting:
