@@ -129,8 +129,8 @@ it:
           description_own: Hai partecipato a %{score} riunioni.
           explanation: Gli utenti ricevono questo badge partecipando alle riunioni.
           name: Riunioni frequentate
-          next_level_in: Attento %{score} altri incontri per raggiungere il livello successivo!
-          unearned_another: questo utente non ha ancora partecipato a nessuna riunione.
+          next_level_in: Partecipa a %{score} altri incontri per raggiungere il livello successivo!
+          unearned_another: Questo utente non ha ancora partecipato a nessuna riunione.
           unearned_own: Non hai ancora partecipato a nessuna riunione.
     meetings:
       actions:
