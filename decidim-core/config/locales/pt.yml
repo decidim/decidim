@@ -161,8 +161,29 @@ pt:
       started_at: Iniciado em %{timestamp}
     authorization_modals:
       show:
+        expired:
+          authorize: Reautorizar com "%{authorization}"
+          explanation: Sua autorização expirou. Para executar essa ação, você precisa ser reautorizado com "%{authorization}".
+          title: Autorização expirou
         incomplete:
           cancel: Cancelar
+          explanation: 'Mesmo que você esteja atualmente autorizado com "%{authorization}", precisamos reautorizar porque não temos os seguintes dados:'
+          invalid_field: "%{field}"
+          reauthorize: Reautorizar
+          title: Por favor, reautorize
+        missing:
+          authorize: Autorizar com "%{authorization}"
+          explanation: Para executar esta ação, você precisa estar autorizado com "%{authorization}".
+          title: Autorização necessária
+        pending:
+          explanation: Para realizar esta ação, você precisa estar autorizado com "%{authorization}", mas sua autorização ainda está em andamento
+          resume: Verifique o seu progresso de autorização "%{authorization}"
+          title: A autorização ainda está em andamento
+        unauthorized:
+          explanation: Desculpe, você não pode realizar esta ação, pois alguns dados de sua autorização não correspondem.
+          invalid_field: "%{field} valor %{value} não é válido."
+          ok: Está bem
+          title: Não autorizado
     collapsible_list:
       hidden_elements_count:
         one: e mais 1
@@ -327,6 +348,7 @@ pt:
       linked_classes:
         all: Todos
         collaborative_draft: Rascunho colaborativo
+        dummy_resource: Recursos fictícios
         meeting: Reuniões
         project: Projetos
         proposal: Propostas
@@ -427,6 +449,7 @@ pt:
           no_conversations: Ainda não há conversas
         show:
           conversation_with_html: Conversa com <strong>%{name}</strong>
+          reply: Resposta
           send: Enviar
         start:
           send: Enviar
@@ -459,6 +482,8 @@ pt:
         greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Olá,
         subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
+    notifications:
+      no_notifications: Nenhuma notificação ainda.
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
@@ -475,13 +500,41 @@ pt:
     pages:
       home:
         extended:
+          debates: Debates
+          debates_explanation: Debata e discuta, compartilhe seus pontos de vista e enriqueça os tópicos relevantes.
+          how_to_participate: Como faço para participar de um processo?
           meetings: Reuniões
+          meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
+          more_info: Mais informações
           proposals: Propostas
+          proposals_explanation: Faça propostas, dê suporte às existentes e promova as alterações que você deseja ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
+          footer_sub_hero_headline: Bem vindo a %{organization} plataforma participativa.
+          register: registo
+        hero:
+          participate: Participar
+          welcome: Bem vindo a %{organization}!
         statistics:
+          answers_count: Pesquisas concluídas
+          assemblies_count: Assemblies
+          comments_count: Comentários
+          debates_count: Debates
+          endorsements_count: Endossos
+          headline: Estado atual de %{organization}
           meetings_count: Reuniões
+          orders_count: Votos
+          pages_count: Páginas
+          processes_count: Processos
           projects_count: Projetos
+          proposals_accepted: Propostas aceitas
           proposals_count: Propostas
           results_count: Resultados
+          surveys_count: pesquisas
+          users_count: Participantes
+          votes_count: Votos
+        sub_hero:
+          register: registo
       index:
         title: Mais informação
       terms_and_conditions:
