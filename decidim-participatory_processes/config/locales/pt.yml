@@ -35,6 +35,8 @@ pt:
         name: Nome
         participatory_process_ids: Processos relacionados
       participatory_process_step:
+        cta_path: Caminho de chamada para ação
+        cta_text: Texto de call to action
         description: Descrição
         end_date: Data final
         short_description: Pequena descrição
@@ -273,6 +275,10 @@ pt:
         participatory_process_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. Se não estiver definido, o botão não será mostrado. Exemplo: %{url}'
+            cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
             announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.
