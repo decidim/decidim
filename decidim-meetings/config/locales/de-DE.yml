@@ -128,7 +128,7 @@ de:
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
           explanation: Benutzer erhalten dieses Abzeichen, indem sie an Meetings teilnehmen.
           name: Besuchte Sitzungen
-          next_level_in: Attent %{score} weitere Treffen das nächste Level zu erreichen!
+          next_level_in: Nimm an %{score} weiteren Treffen teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch kein Meeting besucht.
           unearned_own: Sie haben noch kein Meeting besucht.
     meetings:
