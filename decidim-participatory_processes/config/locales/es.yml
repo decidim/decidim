@@ -278,6 +278,7 @@ es:
         participatory_process_steps:
           form:
             cta_path_help: 'Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no está configurado, el botón no se mostrará. Ejemplo: %{url}'
+            cta_text_help: Si no está configurado, el botón no se mostrará.
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
