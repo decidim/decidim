@@ -1,0 +1,213 @@
+de:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Kategorie
+        decidim_scope_id: Umfang
+        description: Beschreibung
+        end_date: Endtermin
+        progress: Fortschritt
+        project_ids: Enthaltene Projekte
+        proposals: Enthaltene Vorschläge
+        start_date: Anfangsdatum
+        title: Titel
+        updated_at: Aktualisiert am
+      status:
+        description: Beschreibung
+        key: Schlüssel
+        name: Name
+        progress: Fortschritt
+      timeline_entry:
+        description: Beschreibung
+        entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Vorschlag in einem Ergebnis enthalten
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Ergebnis
+        other: Ergebnisse
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
+        destroy: Löschen
+        edit: Bearbeiten
+        new: Neu %{name}
+        preview: Vorschau
+        timeline_entries: Projektentwicklung
+        title: Aktionen
+      admin:
+        exports:
+          results: Ergebnisse
+        models:
+          result:
+            name: Ergebnis
+          status:
+            name: Status
+          timeline_entry:
+            name: Zeitachseneintrag
+        results:
+          create:
+            invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten
+            success: Ergebnis erfolgreich erstellt
+          destroy:
+            success: Ergebnis erfolgreich gelöscht
+          edit:
+            title: Ergebnis bearbeiten
+            update: Ergebnis aktualisieren
+          form:
+            add_proposal: Vorschlag hinzufügen
+          index:
+            title: Ergebnisse
+          new:
+            create: Ergebnis erstellen
+            title: Neues Ergebnis
+          proposals:
+            close: Schließen
+            current_selection: Aktuelle Auswahl
+            select: Wählen
+          update:
+            invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten
+            success: Ergebnis erfolgreich aktualisiert
+        shared:
+          subnav:
+            statuses: Status
+        statuses:
+          create:
+            invalid: Beim Erstellen dieses Status ist ein Problem aufgetreten
+            success: Status erfolgreich erstellt
+          destroy:
+            success: Status erfolgreich gelöscht
+          edit:
+            title: Status bearbeiten
+            update: Update Status
+          index:
+            title: Status
+          new:
+            create: Status erstellen
+            title: Neuer Status
+          update:
+            invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
+            success: Status erfolgreich aktualisiert
+        timeline_entries:
+          create:
+            invalid: Beim Erstellen dieses Eintrags ist ein Problem aufgetreten
+            success: Der Eintrag wurde erfolgreich erstellt
+          destroy:
+            success: Der Eintrag wurde erfolgreich gelöscht
+          edit:
+            title: Eintrag bearbeiten
+            update: Eintrag aktualisieren
+          index:
+            title: Projektzeitplaneinträge
+          new:
+            create: Eintrag erstellen
+            title: Neuer Eintrag
+          update:
+            invalid: Beim Aktualisieren dieses Eintrags ist ein Problem aufgetreten
+            success: Eintrag erfolgreich aktualisiert
+      admin_log:
+        result:
+          create: "%{user_name} erstellt Ergebnis %{resource_name} in %{space_name}"
+          delete: "%{user_name} löschte das %{resource_name} Ergebnis in %{space_name}"
+          update: "%{user_name} aktualisiert Ergebnis %{resource_name} in %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Der Elternteil wurde nicht in der Datenbank gefunden (ID: %{id})'
+      models:
+        result:
+          fields:
+            end_date: Endtermin
+            progress: Fortschritt
+            start_date: Anfangsdatum
+            status: Status
+            title: Titel
+        status:
+          fields:
+            description: Beschreibung
+            key: Schlüssel
+            name: Name
+            progress: Fortschritt
+        timeline_entry:
+          fields:
+            description: Beschreibung
+            entry_date: Datum
+      results:
+        count:
+          results_count:
+            one: 1 Ergebnis
+            other: "%{count} Ergebnisse"
+        filters:
+          all: Alle
+          scopes: Bereiche
+        home:
+          categories_label: Kategorien
+          subcategories_label: Unterkategorien
+        home_header:
+          global_status: Globaler Ausführungsstatus
+        nav_breadcrumb:
+          global: Globale Ausführung
+        search:
+          search: Suche nach Aktionen
+        show:
+          stats:
+            attendees: Teilnehmer
+            back_to_result: Gehe zurück zum Ergebnis
+            comments: Bemerkungen
+            contributions: Beiträge
+            last_edited_by: Zuletzt bearbeitet von
+            last_updated_at: Zuletzt aktualisiert um
+            meetings: Meetings
+            number_of_versions: Versionen
+            proposals: Vorschläge
+            show_all_versions: Zeige alle Versionen
+            version_author: Versionsautor
+            version_created_at: Version erstellt um
+            version_number: Versionsnummer
+            version_number_out_of_total: "%{current_version} von %{total_count}"
+            votes: Unterstützt
+        timeline:
+          title: Projektentwicklung
+      versions:
+        index:
+          changes_at_title: Änderungen bei "%{title}"
+          title: Versionen
+        show:
+          changes_at_title: Änderungen bei "%{title}"
+        version:
+          version_index: Version %{index}
+    components:
+      accountability:
+        name: Rechenschaftspflicht
+        settings:
+          global:
+            categories_label: Name für "Kategorien"
+            comments_enabled: Kommentare aktiviert
+            display_progress_enabled: Fortschritt anzeigen
+            heading_leaf_level_results: Name für "Projekte"
+            heading_parent_level_results: Name für "Ergebnisse"
+            intro: Einführung
+            subcategories_label: Name für "Unterkategorien"
+          step:
+            comments_blocked: Kommentare blockiert
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Der Vorschlag "%{proposal_title}" wurde in ein Ergebnis aufgenommen. Sie können es von dieser Seite sehen:'
+          email_subject: Ein Update auf %{proposal_title}
+          notification_title: Der Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> wurde in das Ergebnis <a href="%{resource_path}">%{resource_title}</a>.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Ergebnisse
+    participatory_spaces:
+      highlighted_results:
+        results: Ergebnisse
+        see_all_results: Alle Ergebnisse anzeigen
+    resource_links:
+      included_projects:
+        result_project: Projekte in diesem Ergebnis enthalten
+      included_proposals:
+        result_proposal: Vorschläge in diesem Ergebnis enthalten

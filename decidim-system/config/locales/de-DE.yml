@@ -1,0 +1,71 @@
+de:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Möchtest du das wirklich löschen?
+        destroy: Löschen
+        edit: Bearbeiten
+        new: Neu
+        save: sparen
+        title: Aktionen
+      admins:
+        create:
+          error: Beim Erstellen eines neuen Administrators ist ein Fehler aufgetreten.
+          success: Administrator erfolgreich erstellt
+        destroy:
+          success: Der Administrator wurde erfolgreich gelöscht
+        edit:
+          title: Administrator bearbeiten
+          update: Aktualisieren
+        index:
+          title: Admins
+        new:
+          create: Erstellen
+          title: Neuer Administrator
+        update:
+          error: Beim Aktualisieren dieses Administrators ist ein Fehler aufgetreten.
+          success: Administrator wurde erfolgreich aktualisiert
+      default_pages:
+        placeholders:
+          content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
+          title: Standardtitel für %{page}
+      menu:
+        admins: Admins
+        dashboard: Instrumententafel
+        organizations: Organisationen
+      models:
+        admin:
+          fields:
+            created_at: Hergestellt in
+            email: Email
+          name: Administrator
+          validations:
+            email_uniqueness: ein anderer Administrator mit der gleichen E-Mail existiert bereits
+        organization:
+          actions:
+            save_and_invite: Organisieren & einladen admin erstellen
+          fields:
+            created_at: Hergestellt in
+            name: Name
+          name: Organisation
+      organizations:
+        create:
+          error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
+          success: Organisation erfolgreich erstellt
+        edit:
+          secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
+        index:
+          title: Organisationen
+        new:
+          reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet
+          secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
+          title: Neue Organisation
+        update:
+          error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
+          success: Die Organisation wurde erfolgreich aktualisiert.
+      shared:
+        notices:
+          no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.
+          our_getting_started_guide: unser Leitfaden für Anfänger
+      titles:
+        dashboard: Instrumententafel
