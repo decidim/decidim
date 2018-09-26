@@ -161,8 +161,29 @@ eu:
       started_at: Hasi zen %{timestamp}
     authorization_modals:
       show:
+        expired:
+          authorize: Errebalorizatu "%{authorization}" rekin
+          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berriro baimendu behar duzu.
+          title: Baimena iraungi da
         incomplete:
           cancel: Utzi
+          explanation: 'Oraindik "%{authorization}" baimenduta egonez gero, berrargitaratu egin behar da datuak falta zaizkigulako:'
+          invalid_field: "%{field}"
+          reauthorize: Reauthorize
+          title: Berretsi berriro
+        missing:
+          authorize: Egiaztatu "%{authorization}"
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimendu behar duzu.
+          title: Baimena behar da
+        pending:
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimendu behar duzu, baina zure baimena oraindik ere egiten ari da
+          resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
+          title: Baimena oraindik ere egiten ari da
+        unauthorized:
+          explanation: Barkatu, ezin duzu ekintza hau burutu, zure baimenen datu batzuk ez datoz bat bezala.
+          invalid_field: "%{field} balio %{value} ez da baliozkoa."
+          ok: Ados
+          title: Ez da baimenik
     collapsible_list:
       hidden_elements_count:
         one: eta beste bat
@@ -327,6 +348,7 @@ eu:
       linked_classes:
         all: Guztiak
         collaborative_draft: Zirriborro kolaboratzailea
+        dummy_resource: Dummy baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
         proposal: Proposamenak
@@ -427,6 +449,7 @@ eu:
           no_conversations: Oraindik ez duzu elkarrizketarik
         show:
           conversation_with_html: Elkarrizketa <strong>%{name}</strong>
+          reply: Erantzun
           send: Bidali
         start:
           send: Bidali
@@ -459,6 +482,8 @@ eu:
         greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
         subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
+    notifications:
+      no_notifications: Ez dago jakinarazpenik oraindik.
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
@@ -475,13 +500,41 @@ eu:
     pages:
       home:
         extended:
+          debates: eztabaidak
+          debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
+          how_to_participate: Nola parte hartzen dut prozesu batean?
           meetings: Bilerak
+          meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
+          more_info: Informazio gehiago
           proposals: proposamenak
+          proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
+        footer_sub_hero:
+          footer_sub_hero_body: Gizarte irekia, gardenagoa eta lankidetzarakoagoa da.<br /> Parte hartu, parte hartu eta erabaki.
+          footer_sub_hero_headline: Ongi etorri %{organization} parte hartzaileentzako plataforma.
+          register: Eman izena
+        hero:
+          participate: Parte hartu
+          welcome: Ongi etorri %{organization}!
         statistics:
+          answers_count: Amaitutako inkestak
+          assemblies_count: Batzar
+          comments_count: Oharrak
+          debates_count: eztabaidak
+          endorsements_count: Oniritziak
+          headline: Uneko egoera %{organization}
           meetings_count: Bilerak
+          orders_count: Botoak
+          pages_count: orrialdeak
+          processes_count: Prozesuak
           projects_count: Proiektuak
+          proposals_accepted: Onartutako proposamenak
           proposals_count: proposamenak
           results_count: Emaitzak
+          surveys_count: Inkestak
+          users_count: Parte-hartzaileak
+          votes_count: Botoak
+        sub_hero:
+          register: Eman izena
       index:
         title: Argibide gehiago
       terms_and_conditions:
