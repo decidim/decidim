@@ -488,8 +488,16 @@ es:
     pages:
       home:
         extended:
+          debates: Debates
+          debates_explanation: Debate y debate, comparte tus puntos de vista y enriquece los temas relevantes.
+          how_to_participate: '¿Cómo participo en un proceso?'
           meetings: Encuentros
+          meetings_explanation: Averigüe dónde y cuándo puede participar en reuniones públicas.
+          more_info: Más información
           proposals: Propuestas
+          proposals_explanation: Haga propuestas, respalde las existentes y promueva los cambios que desea ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa.<br /> Únete, participa y decide.
         statistics:
           conferences_count: Conferencias
           meetings_count: Encuentros
