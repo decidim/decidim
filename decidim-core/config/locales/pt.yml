@@ -219,6 +219,8 @@ pt:
       html:
         html_content: Conteúdo HTML
         name: Bloco HTML
+      metrics:
+        name: Métricas da organização
       stats:
         name: Estatísticas da organização
       sub_hero:
@@ -353,6 +355,7 @@ pt:
       linked_classes:
         all: Todos
         collaborative_draft: Rascunho colaborativo
+        dummy_resource: Recursos fictícios
         meeting: Reuniões
         project: Projetos
         proposal: Propostas
@@ -461,12 +464,17 @@ pt:
           no_conversations: Ainda não há conversas
         show:
           conversation_with_html: Conversa com <strong>%{name}</strong>
+          reply: Resposta
           send: Enviar
         start:
           send: Enviar
           title: Comece uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
+    metrics:
+      users:
+        object: Comercial
+        title: Comercial
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
@@ -526,6 +534,8 @@ pt:
         hero:
           participate: Participar
           welcome: Bem vindo a %{organization}!
+        metrics:
+          headline: Participação em números
         statistics:
           answers_count: Pesquisas concluídas
           assemblies_count: Assemblies
@@ -747,6 +757,7 @@ pt:
         change_my_password: Mudar minha senha
         change_your_password: Mude sua senha
         confirm_new_password: Confirme a nova senha
+        new_password: Nova senha
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
