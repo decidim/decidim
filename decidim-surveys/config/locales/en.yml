@@ -55,8 +55,6 @@ en:
         survey_answer:
           body: Body can't be blank
     surveys:
-      last_activity:
-        new_survey_at_html: <span>New survey at %{link}</span>
       admin:
         exports:
           survey_user_answers: Survey user answers
@@ -88,6 +86,8 @@ en:
           update:
             invalid: There's been errors when saving the survey.
             success: Survey saved successfully.
+      last_activity:
+        new_survey_at_html: "<span>New survey at %{link}</span>"
       question_types:
         long_answer: Long answer
         multiple_option: Multiple option

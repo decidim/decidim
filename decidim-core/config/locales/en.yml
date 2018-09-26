@@ -208,13 +208,6 @@ en:
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
-    last_activities:
-      index:
-        last_activity: Last activity
-        search: Search
-        resource_type: Type
-      activities:
-        no_activities_warning: No activity
     content_blocks:
       footer_sub_hero:
         name: Footer sub hero banner
@@ -459,6 +452,13 @@ en:
         invitations_title: Do you think more voices should be heard in %{organization_name}?
         invite: Invite
         visit_your_profile: Visit your profile
+    last_activities:
+      activities:
+        no_activities_warning: No activity
+      index:
+        last_activity: Last activity
+        resource_type: Type
+        search: Search
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"

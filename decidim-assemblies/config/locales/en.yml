@@ -211,8 +211,6 @@ en:
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} assembly"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} assembly"
     assemblies:
-      last_activity:
-        new_assembly: New assembly
       admin:
         assemblies:
           form:
@@ -264,6 +262,8 @@ en:
         public: Public
       index:
         title: Assemblies
+      last_activity:
+        new_assembly: New assembly
       pages:
         home:
           highlighted_assemblies:

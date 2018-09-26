@@ -239,8 +239,6 @@ en:
         proposals: Proposals
         see_all_proposals: See all proposals
     proposals:
-      last_activity:
-        new_proposal_at_html: <span>New proposal at %{link}</span>
       actions:
         answer: Answer
         edit_proposal: Edit proposal
@@ -449,6 +447,8 @@ en:
       destroy_draft:
         error: There's been errors deleting the proposal draft.
         success: Proposal draft was successfully deleted.
+      last_activity:
+        new_proposal_at_html: "<span>New proposal at %{link}</span>"
       models:
         collaborative_draft:
           fields:

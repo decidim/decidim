@@ -36,8 +36,6 @@ en:
             comments_blocked: Comments blocked
             creation_enabled: Debate creation by users enabled
     debates:
-      last_activity:
-        new_debate_at_html: <span>New debate at %{link}</span>
       actions:
         confirm_destroy: Are you sure?
         destroy: Delete
@@ -103,6 +101,8 @@ en:
           close_window: Close window
           share: Share
           share_link: Share link
+      last_activity:
+        new_debate_at_html: "<span>New debate at %{link}</span>"
       models:
         debate:
           fields:

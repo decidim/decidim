@@ -269,8 +269,6 @@ en:
         process_steps: Process steps
         title: Participatory process steps
     participatory_processes:
-      last_activity:
-        new_participatory_process: New participatory process
       admin:
         content_blocks:
           highlighted_processes:
@@ -291,6 +289,8 @@ en:
           name: Highlighted processes
       index:
         title: Participatory processes
+      last_activity:
+        new_participatory_process: New participatory process
       pages:
         home:
           highlighted_processes:
