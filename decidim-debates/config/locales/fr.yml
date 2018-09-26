@@ -141,4 +141,4 @@ fr:
           name: Des débats
           next_level_in: Participez à %{score} autres débats pour atteindre le prochain niveau!
           unearned_another: Cet utilisateur n'a encore participé à aucun débat.
-          unearned_own: Vous avez déjà participé à des débats.
+          unearned_own: Vous n'avez encore participé à aucun débat.
