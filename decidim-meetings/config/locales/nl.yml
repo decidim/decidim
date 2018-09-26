@@ -129,8 +129,8 @@ nl:
           description_own: U hebt %{score} vergaderingen bijgewoond.
           explanation: Gebruikers krijgen deze badge door deel te nemen aan vergaderingen.
           name: Bijgewoond vergaderingen
-          next_level_in: Ga nog %{score} vergaderingen bij om het volgende niveau te bereiken!
-          unearned_another: deze gebruiker heeft nog geen enkele vergadering bijgewoond.
+          next_level_in: Woon nog %{score} vergaderingen bij om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen enkele vergadering bijgewoond.
           unearned_own: U hebt nog geen vergadering bijgewoond.
     meetings:
       actions:
