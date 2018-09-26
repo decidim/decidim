@@ -6,8 +6,6 @@ de:
         description: Beschreibung
         offline_votes: Face-to-Face-Unterstützung
         scope_id: Umfang
-        signature_end_date: Ende der Unterschriftensammlung
-        signature_start_date: Beginn der Unterschriftensammlung
         signature_type: Signatursammeltyp
         signature_type_values:
           any: Gemischt
