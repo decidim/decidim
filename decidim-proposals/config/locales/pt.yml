@@ -210,6 +210,16 @@ pt:
           next_level_in: Crie mais %{score} propostas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não criou nenhuma proposta.
           unearned_own: Você não criou nenhuma proposta ainda.
+    metrics:
+      accepted_proposals:
+        object: proposta
+        title: Propostas aceitas
+      proposals:
+        object: proposta
+        title: Propostas
+      votes:
+        object: votos
+        title: Votos
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -540,6 +550,7 @@ pt:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_list: Lista de endossos
           hidden_endorsers_count:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
@@ -616,3 +627,11 @@ pt:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versão %{index}
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Propostas relacionadas
+      included_projects:
+        project_result: 'Resultados que aparecem neste projeto:'
+      included_proposals:
+        proposal_project: 'Proposta aparecendo nestes projetos:'
+        proposal_result: 'Proposta aparecendo nestes resultados:'
