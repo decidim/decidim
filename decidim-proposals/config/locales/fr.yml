@@ -210,6 +210,16 @@ fr:
           next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
+    metrics:
+      accepted_proposals:
+        object: proposition
+        title: Propositions Acceptées
+      proposals:
+        object: proposition
+        title: Les propositions
+      votes:
+        object: votes
+        title: Votes
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -618,7 +628,10 @@ fr:
         version:
           version_index: Version %{index}
     resource_links:
+      copied_from_component:
+        proposal_proposal: Propositions connexes
       included_projects:
         project_result: 'Réalisations apparaissant dans ce projet :'
       included_proposals:
+        proposal_project: 'Proposition figurant dans ces projets:'
         proposal_result: 'Proposition figurant dans ces réalisations :'
