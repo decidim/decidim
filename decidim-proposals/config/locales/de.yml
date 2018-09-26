@@ -206,6 +206,16 @@ de:
           next_level_in: Erstellen Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Vorschläge erstellt.
           unearned_own: Sie haben noch keine Vorschläge erstellt.
+    metrics:
+      accepted_proposals:
+        object: Vorschlag
+        title: Akzeptierte Vorschläge
+      proposals:
+        object: Vorschlag
+        title: Vorschläge
+      votes:
+        object: Stimmen
+        title: Stimmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -217,6 +227,7 @@ de:
     proposals:
       actions:
         answer: Antworten
+        edit_proposal: Angebot bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
         private_notes: Private Notizen
@@ -253,6 +264,9 @@ de:
           create:
             invalid: Beim Erstellen dieses Angebots ist ein Problem aufgetreten
             success: Angebot erfolgreich erstellt
+          edit:
+            title: Angebot aktualisieren
+            update: Aktualisieren
           form:
             attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
             select_a_category: Wählen Sie eine Kategorie
