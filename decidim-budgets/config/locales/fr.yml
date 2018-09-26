@@ -145,9 +145,6 @@ fr:
       destroy:
         error: Une erreur s'est produite lors de l'annulation de votre vote
         success: Votre vote a été annulé avec succès
-    resource_links:
-      included_proposals:
-        project_proposal: 'Propositions incluses dans ce projet:'
   index:
     confirmed_orders_count: Nombre de votes
   total_budget: Budget total
