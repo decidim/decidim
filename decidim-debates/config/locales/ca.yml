@@ -141,4 +141,4 @@ ca:
           name: Debats
           next_level_in: Participa en %{score} debats més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha participat en cap debat.
-          unearned_own: Has participat en qualsevol debat encara.
+          unearned_own: Encara no has participat en cap debat.
