@@ -25,10 +25,8 @@ de:
     pages:
       home:
         statistics:
-          bar: Bar
           dummies_count_high: Dummies hoch
           dummies_count_medium: Dummies mittel
-          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies hoch
