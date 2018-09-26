@@ -162,27 +162,27 @@ hu:
     authorization_modals:
       show:
         expired:
-          authorize: 'Újra engedélyezni ezt: "%{authorization}"'
-          explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
-          title: Az engedélyed lejárt
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Engedélye lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a "%{authorization}" -ot.
+          title: Az engedélyezés lejárt
         incomplete:
           cancel: Mégse
-          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
+          explanation: 'Annak ellenére, hogy jelenleg "%{authorization}" -al engedélyezett, újra engedélyezni kell, mert nem rendelkezünk az alábbi adatokkal:'
           invalid_field: "%{field}"
           reauthorize: Újraengedélyezés
-          title: Kérjük, engedélyezd újra
+          title: Kérjük, engedélyezze újra
         missing:
-          authorize: 'Engedélyezés ezzel: "%{authorization}"'
-          explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
+          authorize: Engedélyezzen a "%{authorization}"
+          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al.
           title: Engedély szükséges
         pending:
-          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
-          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
-          title: Engedélyezés folyamatban
+          explanation: Ennek a műveletnek a végrehajtásához engedélyt kell kapnia "%{authorization}" -al, de engedélye még folyamatban van
+          resume: Ellenőrizze a "%{authorization}" engedélyezés előrehaladását
+          title: Az engedélyezés még folyamatban van
         unauthorized:
-          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
-          ok: Ok
+          explanation: Sajnáljuk, ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
+          invalid_field: "%{field} érték %{value} nem érvényes."
+          ok: Rendben
           title: Nem engedélyezett
     collapsible_list:
       hidden_elements_count:
@@ -219,6 +219,8 @@ hu:
       html:
         html_content: HTML tartalom
         name: HTML blokk
+      metrics:
+        name: Szervezeti mutatók
       stats:
         name: Szervezeti statisztikák
       sub_hero:
@@ -468,6 +470,10 @@ hu:
           title: Beszélgetés indítása
         update:
           error: Üzenet elküldése sikertelen. Próbáld újra később
+    metrics:
+      users:
+        object: felhasználók
+        title: felhasználók
     newsletter_mailer:
       newsletter:
         note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
@@ -512,40 +518,42 @@ hu:
     pages:
       home:
         extended:
-          debates: Viták
-          debates_explanation: Vitasd meg, véleményezd és tegyél hozzá Te is a releváns témákhoz.
+          debates: viták
+          debates_explanation: Vitassák meg és vitassák meg, osszák meg nézeteiket, és gazdagítsák a releváns témákat.
           how_to_participate: Hogyan vehetek részt egy folyamatban?
           meetings: Találkozók
-          meetings_explanation: Tudd meg, hol és mikor vehetsz részt a nyilvános találkozókon.
+          meetings_explanation: Tudja meg, hol és mikor részt vehet a nyilvános találkozókon.
           more_info: Több információ
           proposals: Javaslatok
-          proposals_explanation: Tegyél javaslatot, támogasd a már meglévőket, legyél Te a változás motorja.
+          proposals_explanation: Tegyen javaslatokat, támogassa a meglévőket és előmozdítsa a látni kívánt változásokat.
         footer_sub_hero:
-          footer_sub_hero_body: Egy nyitottabb, átláthatóbb és együttműködőbb társadalomért.<br /> Csatlakozz, szervezz és dönts.
-          footer_sub_hero_headline: Üdvözöljük a %{organization} részvételi platformján.
+          footer_sub_hero_body: Építsünk egy nyitottabb, átláthatóbb és együttműködő társadalmat.<br /> Csatlakozz, vegyen részt és döntsön.
+          footer_sub_hero_headline: Üdvözöljük a %{organization} részvételi platformon.
           register: Regisztráció
         hero:
-          participate: Részvétel
-          welcome: Üdvözöli a %{organization}!
+          participate: Részt venni
+          welcome: Üdvözöljük a %{organization}!
+        metrics:
+          headline: Részvétel számokban
         statistics:
           answers_count: Befejezett felmérések
-          assemblies_count: Gyűlések
+          assemblies_count: szerelvények
           comments_count: Hozzászólások
           conferences_count: Konferenciák
-          debates_count: Viták
-          endorsements_count: Jóváhagyások
-          headline: A %{organization} jelenlegi állapota
+          debates_count: viták
+          endorsements_count: Elismerések
+          headline: A jelenlegi állapot %{organization}
           meetings_count: Találkozók
-          orders_count: Szavazatok
+          orders_count: szavazatok
           pages_count: Oldalak
-          processes_count: Folyamatok
+          processes_count: Eljárások
           projects_count: Projektek
           proposals_accepted: Elfogadott javaslatok
           proposals_count: Javaslatok
           results_count: Eredmények
           surveys_count: Felmérések
-          users_count: Résztvevők
-          votes_count: Szavazatok
+          users_count: résztvevők
+          votes_count: szavazatok
         sub_hero:
           register: Regisztráció
       index:
