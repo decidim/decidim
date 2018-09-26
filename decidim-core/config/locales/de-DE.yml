@@ -505,22 +505,32 @@ de:
       home:
         extended:
           debates: Diskussionen
+          debates_explanation: Debate und diskutieren, teilen Sie Ihre Ansichten und bereichern Sie die relevanten Themen.
+          how_to_participate: Wie nehme ich an einem Prozess teil?
           meetings: Meetings
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
+          more_info: Mehr Info
           proposals: Vorschläge
+          proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
+          footer_sub_hero_body: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
+          footer_sub_hero_headline: Willkommen bei %{organization} partizipativen Plattform.
           register: Registrieren
         hero:
           participate: Teilnehmen
+          welcome: Willkommen bei %{organization}!
         statistics:
+          answers_count: Abgeschlossene Umfragen
           assemblies_count: Versammlungen
           comments_count: Kommentare
           conferences_count: Konferenzen
           debates_count: Diskussionen
           endorsements_count: Unterstützungen
+          headline: Aktueller Zustand von %{organization}
           meetings_count: Meetings
           orders_count: Stimmen
           pages_count: Seiten
+          processes_count: Prozesse
           projects_count: Projekte
           proposals_accepted: Akzeptierte Vorschläge
           proposals_count: Vorschläge
