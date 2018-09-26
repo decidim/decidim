@@ -36,6 +36,8 @@ en:
         name: Name
         participatory_process_ids: Related processes
       participatory_process_step:
+        cta_path: Call to Action path
+        cta_text: Call to Action text
         description: Description
         end_date: End date
         short_description: Short description
@@ -274,6 +276,10 @@ en:
         participatory_process_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.

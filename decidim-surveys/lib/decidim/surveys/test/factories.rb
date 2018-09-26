@@ -11,13 +11,13 @@ FactoryBot.define do
   end
 
   factory :survey, class: Decidim::Surveys::Survey do
-    title { Decidim::Faker::Localized.sentence }
+    title { generate_localized_title }
     description do
       Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.sentence(4)
+        generate_localized_title
       end
     end
-    tos { Decidim::Faker::Localized.sentence(4) }
+    tos { generate_localized_title }
     component { build(:surveys_component) }
   end
 
@@ -26,7 +26,7 @@ FactoryBot.define do
       answer_options { [] }
     end
 
-    body { Decidim::Faker::Localized.sentence }
+    body { generate_localized_title }
     mandatory { false }
     position { 0 }
     question_type { Decidim::Surveys::SurveyQuestion::TYPES.first }
@@ -50,7 +50,7 @@ FactoryBot.define do
   end
 
   factory :survey_answer_option, class: Decidim::Surveys::SurveyAnswerOption do
-    body { Decidim::Faker::Localized.sentence }
+    body { generate_localized_title }
   end
 
   factory :survey_answer_choice, class: Decidim::Surveys::SurveyAnswerChoice do

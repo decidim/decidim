@@ -15,9 +15,9 @@ FactoryBot.define do
   factory :consultation, class: "Decidim::Consultation" do
     organization
     slug { generate(:consultation_slug) }
-    title { Decidim::Faker::Localized.sentence(3) }
-    subtitle { Decidim::Faker::Localized.sentence(1) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    subtitle { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     start_voting_date { Time.zone.today }
@@ -63,12 +63,12 @@ FactoryBot.define do
     organization { consultation.organization }
     scope { create(:scope, organization: consultation.organization) }
     slug { generate(:question_slug) }
-    title { Decidim::Faker::Localized.sentence(3) }
-    subtitle { Decidim::Faker::Localized.sentence(3) }
-    promoter_group { Decidim::Faker::Localized.sentence(3) }
-    participatory_scope { Decidim::Faker::Localized.sentence(3) }
-    question_context { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    what_is_decided { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    subtitle { generate_localized_title }
+    promoter_group { generate_localized_title }
+    participatory_scope { generate_localized_title }
+    question_context { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    what_is_decided { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     published_at { Time.current }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
@@ -93,7 +93,7 @@ FactoryBot.define do
 
   factory :response, class: "Decidim::Consultations::Response" do
     question
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate_localized_title }
   end
 
   factory :vote, class: "Decidim::Consultations::Vote" do
