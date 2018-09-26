@@ -135,8 +135,8 @@ pl:
           description_own: Brałeś udział w %{score} spotkaniach.
           explanation: Użytkownicy otrzymują tę odznakę, uczestnicząc w spotkaniach.
           name: Udział w spotkaniach
-          next_level_in: Uznaj %{score} dodatkowych spotkań, aby przejść do następnego poziomu!
-          unearned_another: ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
+          next_level_in: Weź udział w %{score} dodatkowych spotkaniach, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
           unearned_own: Nie uczestniczyłeś jeszcze w żadnym spotkaniu.
     meetings:
       actions:
