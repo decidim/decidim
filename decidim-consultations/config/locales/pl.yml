@@ -188,6 +188,10 @@ pl:
         questions: pytania
         responses: Odpowiedzi
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maksymalna ilość elementów do pokazania
       consultation:
         start_voting_date: Rozpocznie się głosowanie
         view_results: Pokaż wyniki
@@ -198,6 +202,9 @@ pl:
           label: 'Sortuj konsultacje według:'
           random: Losowy
           recent: Najnowszy
+      content_blocks:
+        highlighted_consultations:
+          name: Wyróżnione konsultacje
       count:
         title:
           one: "%{count} konsultacja"
@@ -220,6 +227,17 @@ pl:
         title: Pytania od %{scope_name}
       index:
         title: Konsultacje
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktywne konsultacje
+            see_all_consultations: Zobacz wszystkie konsultacje
+            voting_ends_in:
+              one: Głosowanie kończy się na <strong>jutro</strong>
+              few: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
+              many: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
+              other: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
+            voting_ends_today: Głosowanie kończy się dzisiaj <strong></strong>
       question:
         take_part: Wziąć udział
         view_results: Pokaż wyniki

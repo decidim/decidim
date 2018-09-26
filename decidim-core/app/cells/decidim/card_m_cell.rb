@@ -10,6 +10,7 @@ module Decidim
     include Decidim::SanitizeHelper
     include Decidim::CardHelper
     include Decidim::LayoutHelper
+    include Decidim::SearchesHelper
 
     def show
       render
@@ -52,10 +53,6 @@ module Decidim
       text = translated_attribute(attribute)
 
       decidim_sanitize(html_truncate(text, length: 100))
-    end
-
-    def decidim
-      Decidim::Core::Engine.routes.url_helpers
     end
 
     def has_authors?
@@ -131,6 +128,14 @@ module Decidim
 
     def render_authorship
       cell("decidim/coauthorships", model, extra_small: true, has_actions: has_actions?)
+    end
+
+    def render_space?
+      context[:show_space].presence && model.respond_to?(:participatory_space)
+    end
+
+    def render_top?
+      render_space?
     end
   end
 end

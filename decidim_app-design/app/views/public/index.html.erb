@@ -14,12 +14,14 @@
         <h2 class="section-heading">Vistas principales</h2>
         <ul>
           <li><%= link_to "Home", page_path("home") %></li>
+          <li><%= link_to "Home - proceso único", page_path("home-single-process") %></li>
+          <li><%= link_to "Home con tooltips de ayuda", page_path("home-with-helpers") %></li>
           <li><%= link_to "Estadísticas", page_path("stats") %></li>
         </ul>
         <h2 class="section-heading">Process</h2>
         <ul>
-          <li><%= link_to "Listado de procesos", page_path("processes") %></li>
-          <li><%= link_to "Estadísticas del proceso", page_path("process-stats") %></li>
+          <li><%= link_to "Listado de procesos", page_path("processes/processes") %></li>
+          <li><%= link_to "Estadísticas del proceso", page_path("processes/process-stats") %></li>
           <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
           <li><%= link_to "Proceso - Fases", page_path("phases") %></li>
           <li><%= link_to "Debates - Lista", page_path("debates") %></li>
@@ -100,6 +102,13 @@
             <li><%= link_to "Espacio colaborativo - propuesta final", page_path("collaborative-drafts/collaborative-draft-view-final-proposal") %></li>
           </ul>
         </ul>
+        <h2 class="section-heading">Conferences</h2>
+        <ul>
+          <li><%= link_to "Conferencias - Home", page_path("conferences/conference-view") %></li>
+          <li><%= link_to "Conferencias - Programa", page_path("conferences/conference-view-programme") %></li>
+          <li><%= link_to "Conferencias - Ponentes", page_path("conferences/conference-view-speakers") %></li>
+          <li><%= link_to "Conferencias - Registro", page_path("conferences/conference-view-registration") %></li>
+        </ul>
         <h2 class="section-heading">Assemblies</h2>
         <ul>
           <li><%= link_to "Asambleas - Listado", page_path("assemblies/assemblies") %></li>
@@ -122,11 +131,40 @@
             </ul>
           </li>
         </ul>
+        <h2 class="section-heading">Participatory texts</h2>
+        <ul>
+          <li><%= link_to "Textos participativos - Índice", page_path("participatory/participatory-texts-index") %></li>
+          <li><%= link_to "Textos participativos - Sección", page_path("participatory/participatory-texts-view") %></li>
+          <li><%= link_to "Textos participativos - Edición", page_path("participatory/participatory-texts-draft") %></li>
+        </ul>
         <h2 class="section-heading">Blog</h2>
         <ul>
           <li><%= link_to "Blog home", page_path("blog/blog") %></li>
           <li><%= link_to "Blog post", page_path("blog/blog-view") %></li>
           <li><%= link_to "Blog archives", page_path("blog/blog-archives") %></li>
+        </ul>
+        <h2 class="section-heading">Profile</h2>
+        <ul>
+          <li>
+            <%= link_to "Perfil de usuario - vista privada - timeline (default)", page_path("profile/user-profile")+ "#timeline" %>
+            <ul>
+              <li><%= link_to "Perfil de usuario - vista privada - notificaciones", page_path("profile/user-profile") + "#notifications" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversaciones", page_path("profile/user-profile") + "#conversations" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversacion", page_path("profile/user-profile") + "#conversation" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - followers", page_path("profile/user-profile") + "#followers" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - following", page_path("profile/user-profile") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - badges", page_path("profile/user-profile") + "#badges" %></li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Perfil de usuario - vista pública - followers (default)", page_path("profile/user-profile-public") + "#followers" %>
+            <ul>
+              <li><%= link_to "Perfil de usuario - vista pública - following", page_path("profile/user-profile-public") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista pública - badges", page_path("profile/user-profile-public") + "#badges" %></li>
+            </ul>
+          </li>
+          <li><%= link_to "Información sobre badges", page_path("profile/user-badges-info") %></li>
+          <li><%= link_to "Perfil de usuario admin - gestión de grupos", page_path("profile/user-profile-manage") %></li>
         </ul>
         <h2 class="section-heading">User</h2>
         <ul>
@@ -148,12 +186,6 @@
             <ul>
               <li><%= link_to "Login rápido: Usuario no registrado", page_path("user/user-profile-fast-login-user-new") %></li>
               <li><%= link_to "Login rápido: Usuario registrado", page_path("user/user-profile-fast-login-user-existent") %></li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to "Gamification - mi perfil", page_path("user/user-profile") %>
-            <ul>
-              <li><%= link_to "Gamification - perfil de otro", page_path("user/user-profile-others") %></li>
             </ul>
           </li>
           <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>

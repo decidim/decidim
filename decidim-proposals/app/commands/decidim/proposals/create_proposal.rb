@@ -4,13 +4,16 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Rectify::Command
+      include AttachmentMethods
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
       # current_user - The current user.
-      def initialize(form, current_user)
+      # coauthorships - The coauthorships of the proposal.
+      def initialize(form, current_user, coauthorships = nil)
         @form = form
         @current_user = current_user
+        @coauthorships = coauthorships
       end
 
       # Executes the command. Broadcasts these events:
@@ -27,14 +30,8 @@ module Decidim
           return broadcast(:invalid)
         end
 
-        if process_attachments?
-          build_attachment
-          return broadcast(:invalid) if attachment_invalid?
-        end
-
         transaction do
           create_proposal
-          create_attachment if process_attachments?
         end
 
         broadcast(:ok, proposal)
@@ -45,52 +42,20 @@ module Decidim
       attr_reader :form, :proposal, :attachment
 
       def create_proposal
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+
         @proposal = Proposal.create!(
-          title: form.title,
-          body: form.body,
-          category: form.category,
-          scope: form.scope,
-          component: form.component,
-          address: form.address,
-          latitude: form.latitude,
-          longitude: form.longitude
+          title: parsed_title,
+          body: parsed_body,
+          component: form.component
         )
-        proposal.add_coauthor(@current_user, decidim_user_group_id: form.user_group_id)
-      end
-
-      def build_attachment
-        @attachment = Attachment.new(
-          title: form.attachment.title,
-          file: form.attachment.file,
-          attached_to: @proposal
-        )
-      end
-
-      def attachment_invalid?
-        if attachment.invalid? && attachment.errors.has_key?(:file)
-          form.attachment.errors.add :file, attachment.errors[:file]
-          true
-        end
-      end
-
-      def attachment_present?
-        form.attachment.file.present?
-      end
-
-      def create_attachment
-        attachment.attached_to = proposal
-        attachment.save!
-      end
-
-      def attachments_allowed?
-        form.current_component.settings.attachments_allowed?
-      end
-
-      def process_attachments?
-        attachments_allowed? && attachment_present?
+        proposal.add_coauthor(@current_user, user_group: user_group)
       end
 
       def proposal_limit_reached?
+        return false if @coauthorships.present?
+
         proposal_limit = form.current_component.settings.proposal_limit
 
         return false if proposal_limit.zero?

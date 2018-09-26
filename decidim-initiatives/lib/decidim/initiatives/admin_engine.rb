@@ -11,6 +11,7 @@ module Decidim
       isolate_namespace Decidim::Initiatives::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :initiatives_types, except: :show do

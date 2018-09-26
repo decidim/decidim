@@ -8,7 +8,7 @@ module Devise
     # Validates that all users with notifications activated have Opt-in in
     # some time
     module DecidimNewsletterable
-      GDPR_DATE = Time.zone.parse("2018-05-25 00:00 +02:00")
+      GDPR_DATE = "2018-05-25 00:00 +02:00"
 
       def newsletter_opt_in_notify
         unless newsletter_opt_in_valid?
@@ -26,7 +26,7 @@ module Devise
       # Checks if Opt-in is valid or not
       # An user with notifications activated, must have an Opt-in
       def newsletter_opt_in_valid?
-        newsletter_notifications_at > GDPR_DATE
+        newsletter_notifications_at > Time.zone.parse(GDPR_DATE)
       end
 
       # Fill token value with some random value
@@ -46,7 +46,7 @@ module Devise
       # Fill Opt-in value with current time &
       # removes any token involved
       def set_newsletter_opt_in
-        self.newsletter_notifications_at = Time.zone.now
+        self.newsletter_notifications_at = Time.current
         self.newsletter_token = ""
       end
 

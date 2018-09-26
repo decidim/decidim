@@ -17,10 +17,11 @@ fr:
     budgets:
       actions:
         attachment_collections: Dossiers
-        attachments: Pièces jointes
+        attachments: Documents liés
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
         edit: Modifier
+        import: Importer des propositions dans des projets
         new: Nouveau projet
         preview: Aperçu
         title: Actions
@@ -47,6 +48,14 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet
             success: Projet mis à jour avec succès
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l'importation des propositions dans des projets
+            success: "%{number} propositions importées avec succès dans des projets"
+          new:
+            create: Importer des propositions dans des projets
+            no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
+            select_component: Veuillez sélectionner un module
       admin_log:
         project:
           create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
@@ -58,7 +67,7 @@ fr:
             title: Titre
       projects:
         budget_confirm:
-          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, vous ne pourrez plus le modifier.
+          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, si vous changez d'avis, vous devrez tout annuler et recommencer de zéro.
           cancel: Annuler
           confirm: Confirmer
           description: Voici les projets que vous avez choisis pour le budget.
@@ -89,7 +98,7 @@ fr:
           close_modal: Fermez la fenêtre
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Dérouler
+          unfold: Voir la suite
         order_progress:
           vote: Voter
         order_selected_projects:
@@ -118,14 +127,15 @@ fr:
         name: Budgets
         settings:
           global:
-            announcement: Message d'annonce
+            announcement: Annonce
             comments_enabled: Activer le module de commentaire
             projects_per_page: Projets par page
+            resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             total_budget: Budget total
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
             announcement: Annonce
-            comments_blocked: Bloquer la création de nouveaux commentaires
+            comments_blocked: Commentaires bloqués
             show_votes: Afficher les votes
             votes_enabled: Votes activés
     orders:

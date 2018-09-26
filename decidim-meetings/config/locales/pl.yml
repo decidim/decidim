@@ -20,6 +20,7 @@ pl:
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        organizer_id: Organizator
         private_meeting: Prywatne spotkanie
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracje włączone
@@ -38,6 +39,10 @@ pl:
             base:
               too_many_minutes: Czas trwania przedmiotów przekracza czas trwania spotkania o %{count} minut
               too_many_minutes_child: Czas trwania elementów potomnych przekracza czas trwania okresu rodzicielskiego "%{parent_title}" w porządku obrad o %{count} minutę
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Ten e-mail został już zaproszony
     models:
       decidim/meetings/close_meeting_event: Spotkanie zamknięte
       decidim/meetings/create_meeting_event: Spotkanie
@@ -82,6 +87,7 @@ pl:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
             default_registration_terms: Domyślne warunki rejestracji
+            resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -107,6 +113,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Spotkanie "%{resource_title}" zostało zaktualizowane
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zaktualizowane.
+        registration_code_validated:
+          email_intro: Twój kod rejestracyjny "%{registration_code}" został zatwierdzony.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twój kod rejestracyjny spotkania "%{resource_title}" został zatwierdzony.
+          email_subject: Twój kod rejestracyjny "%{registration_code}" został zatwierdzony
+          notification_title: Twój kod rejestracyjny "%{registration_code}" dla spotkania <a href="%{resource_path}">%{resource_title}</a> został zatwierdzony.
         registrations_enabled:
           email_intro: 'Spotkanie "%{resource_title}" umożliwiło rejestrację. Możesz zarejestrować się na swojej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
@@ -166,16 +177,31 @@ pl:
           registrations: Rejestracje
         invite_join_meeting_mailer:
           invite:
+            decline: Odrzuć zaproszenie
             invited_you_to_join_a_meeting: "%{invited_by} zaprosił_a Cię do udziału w spotkaniu w %{application}. Możesz to zaakceptować za pomocą poniższego linku."
             join: Dołącz do spotkania "%{meeting_title}"
         invites:
           create:
             error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
             success: Udało się zaprosić użytkownika do udziału w spotkaniu.
-          new:
-            explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli jego adres e-mail nie jest zarejestrowany, zostanie zaproszony do organizacji.
+          form:
+            attendee_type: Typ uczestnika
+            existing_user: Istniejący użytkownik
             invite: Zaproś
-            new_invite: Zaproś użytkownika
+            invite_explanation: Użytkownik zostanie zaproszony do przyłączenia się do spotkania i do organizacji.
+            non_user: Nieistniejący użytkownik
+            select_user: Wybierz użytkownika
+          index:
+            filter:
+              accepted: Przyjęty
+              all: Wszystko
+              rejected: Odrzucono
+              sent: Wysłane
+            filter_by: Filtruj według
+            invite_attendee: Zaproś uczestnika
+            invites: Zaprasza
+            registrations_disabled: Nie możesz zaprosić uczestnika, ponieważ rejestracje są wyłączone.
+            search: Szukaj
         meeting_closes:
           edit:
             close: Zamknij
@@ -232,9 +258,11 @@ pl:
         registrations:
           edit:
             save: Zapisać
+            validate: Uprawomocnić
+            validate_registration_code: Zatwierdź kod rejestracyjny
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
-            invite_user: Zaproś użytkownika
+            invites: Zaprasza
             registrations_count:
               one: Została 1 rejestracja.
               few: Rejestrowano %{count}.
@@ -245,7 +273,14 @@ pl:
           update:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
+          validate_registration_code:
+            invalid: Ten kod rejestracyjny jest nieprawidłowy.
+            success: Kod rejestracyjny pomyślnie sprawdzony.
       admin_log:
+        invite:
+          create: "%{user_name} zaproszono %{attendee_name} aby dołączyć %{resource_name} spotkania na %{space_name} przestrzeni"
+          deleted: "%{user_name} niezaproszone %{attendee_name} z dołączenia %{resource_name} spotkania na %{space_name} spacje"
+          update: "%{user_name} zaproszono %{attendee_name} aby dołączyć %{resource_name} spotkania na %{space_name} przestrzeni"
         meeting:
           close: "%{user_name} zamknął spotkanie %{resource_name} na przestrzeni %{space_name}"
           create: "%{user_name} utworzył spotkanie %{resource_name} na przestrzeni %{space_name}"
@@ -258,6 +293,22 @@ pl:
         minutes:
           create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+      conference_venues: Sale konferencyjne
+      content_blocks:
+        upcoming_events:
+          name: Nadchodzące wydarzenia
+          upcoming_events: Nadchodzące spotkania
+          view_all_events: Pokaż wszystkie
+      directory:
+        meetings:
+          index:
+            all: Wszystko
+            date: Data
+            meetings: Spotkania
+            past: Przeszłość
+            search: Szukaj
+            space_type: Przestrzeń uczestnicząca
+            upcoming: Nadchodzące
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -280,8 +331,6 @@ pl:
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
-        index:
-          view_meeting: Pokaż spotkanie
         meeting_minutes:
           meeting_minutes: Protokół ze spotkań
           related_information: Powiązana informacja
@@ -305,7 +354,19 @@ pl:
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count}"
           view: Widok
+      meetings_map:
+        view_meeting: Pokaż spotkanie
       models:
+        invite:
+          fields:
+            email: E-mail
+            name: Nazwa
+            sent_at: Wysłane pod adresem
+            status: Status
+          status:
+            accepted: Zaakceptowano (%{at})
+            rejected: Odrzucony (%{at})
+            sent: Wysłane
         meeting:
           fields:
             closed: Zamknięte
@@ -318,10 +379,14 @@ pl:
         confirmation:
           confirmed_html: Rejestracji dla <a href="%{url}">%{title}</a> spotkanie zostało potwierdzone.
           details: Szczegóły spotkania znajdą Państwo w załączniku.
+          registration_code: Twój kod rejestracyjny to %{code}.
       registrations:
         create:
           invalid: Wystąpił problem z dołączeniem tego spotkania.
           success: Dołączyłeś do tego spotkanie.
+        decline_invitation:
+          invalid: Wystąpił problem z odrzuceniem zaproszenia.
+          success: Odrzuciłeś zaproszenie z powodzeniem.
         destroy:
           invalid: Wystąpił problem z tym spotkaniem.
           success: Opuściłeś spotkanie pomyślnie.

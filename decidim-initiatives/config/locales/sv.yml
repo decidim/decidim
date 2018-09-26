@@ -6,8 +6,8 @@ sv:
         description: Beskrivning
         offline_votes: Ansikte mot ansikte stöd
         scope_id: Omfattning
-        signature_end_time: Slutet på signaturuppsamlingsperioden
-        signature_start_time: Början av signaturuppsamlingsperioden
+        signature_end_date: Slutet på signaturuppsamlingsperioden
+        signature_start_date: Början av signaturuppsamlingsperioden
         signature_type: Signaturuppsamlingstyp
         signature_type_values:
           any: Blandad
@@ -82,6 +82,16 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Ny milstolpe färdigställd!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har uppnått %{percentage}% av underskrifterna.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Den här användaren har fått %{score} initiativ publicerade.
+          description_own: Du har %{score} initiativ publicerade.
+          explanation: Användare får detta märke genom att få sina initiativ publicerade.
+          name: Publicerade initiativ
+          next_level_in: Få %{score} fler initiativ publicerade för att nå nästa nivå!
+          unearned_another: Den här användaren har inte fått några initiativ publicerade än.
+          unearned_own: Du har ännu inte publicerat några initiativ.
     initiatives:
       admin:
         committee_requests:
@@ -92,6 +102,9 @@ sv:
             no_members_yet: Det finns inga medlemmar i promotorkommittén
             revoke: Återkalla
             title: kommittémedlemmar
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximal mängd element att visa
         initiatives:
           edit:
             accept: Acceptera initiativ
@@ -181,6 +194,9 @@ sv:
           help_text: Du är på väg att begära att bli medlem av promotorutskottet för detta initiativ
         spawn:
           success: Din förfrågan har skickats till initiativtagaren.
+      content_blocks:
+        highlighted_initiatives:
+          name: Markerade initiativ
       create_initiative:
         fill_data:
           back: Tillbaka

@@ -29,11 +29,12 @@ pl:
         instagram: Instagram
         internal_organisation: Organizacja wewnętrzna
         is_transparent: Jest przezroczysty
-        local_area: Okolica
+        local_area: Obszar organizacji
         meta_scope: Zakres metadanych
+        parent_id: Montaż rodziców
         participatory_processes_ids: Powiązane procesy uczestnictwa
-        participatory_scope: Zakres partycypacji
-        participatory_structure: Struktura partycypacji
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
         private_space: Prywatna przestrzeń
         promoted: Lansowany
         published_at: Opublikowano na
@@ -45,7 +46,7 @@ pl:
         slug: Ślimak URL
         special_features: Cechy szczególne
         subtitle: Podtytuł
-        target: Cel
+        target: Kto uczestniczy
         title: Tytuł
         twitter: Świergot
         youtube: Youtube
@@ -223,6 +224,7 @@ pl:
             select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz obszar
             select_an_assembly_type: Wybierz typ zespołu
+            select_parent_assembly: Wybierz zespół macierzysty
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Społeczny
         assembly_copies:
@@ -242,6 +244,9 @@ pl:
               not_ceased: Nie przestał
             filter_by: Filtruj według
             search: Szukaj
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maksymalna ilość elementów do pokazania
       assembly_members:
         index:
           members: Członkowie
@@ -253,6 +258,9 @@ pl:
         others: Inni
         participatory: Uczestniczy
         working_group: Grupa robocza
+      content_blocks:
+        highlighted_assemblies:
+          name: Wyróżnione złożenia
       created_by:
         city_council: Rada Miejska
         others: Inni
@@ -283,9 +291,9 @@ pl:
         is_transparent:
           'false': nieprzezroczysty
           'true': przezroczysty
-        local_area: Okolica
-        participatory_scope: Zakres partycypacji
-        participatory_structure: Struktura partycypacji
+        local_area: Obszar organizacji
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
         private_space: To jest prywatne zgromadzenie
         purpose_of_action: Cel działania
         read_less: Mniej czytać
@@ -293,7 +301,7 @@ pl:
         related_participatory_processes: Powiązane procesy uczestnictwa
         scope: Zakres
         social_networks: Portale społecznościowe
-        target: Cel
+        target: Kto uczestniczy
       statistics:
         answers_count: Odpowiedzi
         assemblies_count: Zespoły
@@ -330,7 +338,9 @@ pl:
         assembly:
           take_part: Wziąć udział
         index:
+          organizational_chart: Schemat organizacyjny
           promoted_assemblies: Podświetlone zespoły
+          reset_chart: Nastawić
         order_by_assemblies:
           assemblies:
             one: "%{count} montaż"

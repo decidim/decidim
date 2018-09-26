@@ -44,7 +44,7 @@ module Decidim
     end
 
     def following_count
-      __getobj__.following_follows.count
+      __getobj__.following_users.count
     end
   end
 end

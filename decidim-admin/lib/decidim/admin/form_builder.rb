@@ -16,6 +16,7 @@ module Decidim
       #   - :label (boolean|string) (optional) You can disable the creation of the input label passing false,
       #       or override the default label passing a string (default: name of the input)
       #   - :name (string) You can provide a custom name for the field to be submitted
+      #   - :class (string) You can provide custom class name for the container (ex. autocomplete-field--results-inline)
       # @param [Hash] prompt_options
       #   Prompt configuration. A hash with options:
       #   - :url (String) The url where the ajax endpoint to fill the select
@@ -43,7 +44,7 @@ module Decidim
 
         template = ""
         template += label(attribute, (options[:label] || label_for(attribute)) + required_for_attribute(attribute)) unless options[:label] == false
-        template += content_tag(:div, nil, data: {
+        template += content_tag(:div, nil, class: options[:class], data: {
                                   autocomplete: {
                                     name: options[:name] || "#{@object_name}[#{attribute}]",
                                     options: [selected].compact,

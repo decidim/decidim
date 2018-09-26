@@ -13,8 +13,8 @@ module Decidim::Meetings::Admin
     describe "when the list is not filtered" do
       let!(:invites) { create_list(:invite, 3) }
 
-      it "returns all the assembly members" do
-        expect(subject).to eq invites
+      it "returns all invites" do
+        expect(subject).to match_array invites
       end
     end
 
@@ -29,7 +29,7 @@ module Decidim::Meetings::Admin
         context "with regular characters" do
           let(:search) { "Argo" }
 
-          it "returns all matching assembly members" do
+          it "returns all matching invites" do
             expect(subject).to match_array([invites[1], invites[2]])
           end
         end
@@ -52,7 +52,7 @@ module Decidim::Meetings::Admin
           let(:filter) { "sent" }
 
           it "returns all the sent invites, not accepted or rejected" do
-            expect(subject).to eq(sent_invites)
+            expect(subject).to match_array(sent_invites)
           end
         end
 
@@ -60,7 +60,7 @@ module Decidim::Meetings::Admin
           let(:filter) { "accepted" }
 
           it "returns all the accepted invites" do
-            expect(subject).to eq(accepted_invites)
+            expect(subject).to match_array(accepted_invites)
           end
         end
 
@@ -68,7 +68,7 @@ module Decidim::Meetings::Admin
           let(:filter) { "rejected" }
 
           it "returns all the rejected invites" do
-            expect(subject).to eq(rejected_invites)
+            expect(subject).to match_array(rejected_invites)
           end
         end
       end

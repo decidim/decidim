@@ -9,14 +9,16 @@ module Decidim
       isolate_namespace Decidim::Meetings::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :meetings do
           resources :meeting_closes, only: [:edit, :update]
           resource :registrations, only: [:edit, :update] do
-            resources :invites, only: [:index, :new, :create]
+            resources :invites, only: [:index, :create]
             collection do
               get :export
+              post :validate_registration_code
             end
           end
           resources :agenda, except: [:index, :destroy]

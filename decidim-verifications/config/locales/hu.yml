@@ -1,0 +1,137 @@
+hu:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Dokumentum száma (betűvel)
+        document_type: A dokumentum típusa
+      id_document_upload:
+        document_number: Dokumentum száma (betűvel)
+        document_type: Dokumentumod típusa
+        user: Felhasználó
+        verification_attachment: Dokumentumod szkennelt példánya
+      postal_letter_address:
+        full_address: Teljes lakcím
+      postal_letter_confirmation:
+        verification_code: Ellenőrző kód
+      postal_letter_postage:
+        full_address: Teljes lakcím
+        verification_code: Ellenőrző kód
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Ellenőrzések
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
+            - Töltsd ki a feltöltött képen található információkkal.
+            - Az információknak meg kell egyeznie a kitöltött adatokkal.
+            - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
+        postal_letter:
+          help:
+            - A felhasználók a lakcímükre kérik az ellenőrző kódot.
+            - A kódot tartalmazó levelet a lakcímükre küldöd el.
+            - Levél elküldöttként megjelölve.
+            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
+      direct: Közvetlen
+      help: Segítség
+      id_documents:
+        explanation: Töltsd fel személyazonosító okmányaid, hogy ellenőrizzük a személyazonosságod
+        name: Személyazonosító okmányok
+      multistep: Több lépéses
+      name: Név
+      postal_letter:
+        explanation: Küldünk egy levelet postán a kóddal, amelyet aztán a lakcím ellenőrzéséhez tudsz majd használni
+        name: Kód postai levéllel
+    verifications:
+      authorizations:
+        create:
+          error: Hiba történt az engedélyezés létrehozása során.
+          success: Az engedélyezésed sikeres volt.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
+            dummy_authorization_handler: Ellenőrizze a példakezelési engedélyezőt
+            dummy_authorization_workflow: Ellenőrizd az engedélykezelő munkafolyamatát
+            id_documents: Töltsd fel személyazonosító okmányod az ellenőrzéshez
+            postal_letter: Igazold magad egy postai levél útján elküldött kód segítségével
+          title: Igazold személyazonosságod
+          verify_with_these_options: 'Személyazonosságod ellenőrzésének különféle lehetőségei:'
+        new:
+          authorize: Küldés
+          authorize_with: 'Ellenőrizd ezzel: %{authorizer}'
+        skip_verification: Most hagyd ki ezt a lépést és %{link}
+        start_exploring: felfedezés indul
+      dummy_authorization:
+        extra_explanation:
+          one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
+          other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Az ellenőrzés nem sikerült. Próbáld újra vagy utasítsd el az ellenőrzést, így a felhasználó kijavíthatja
+              success: Felhasználó ellenőrzése sikeres
+            new:
+              introduce_user_data: Add meg a képen látható adatokat
+              reject: Elutasít
+              verify: Ellenőrzés
+          pending_authorizations:
+            index:
+              title: Folyamatban lévő ellenőrzések
+              verification_number: 'Ellenőrzés #%{n}'
+          rejections:
+            create:
+              success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
+        authorizations:
+          create:
+            error: Hiba történt a dokumentum feltöltése során
+            success: Dokumentum feltöltése sikeres
+          edit:
+            being_reviewed: Megvizsgáljuk a dokumentumokat. Hamarosan jelentkezünk
+            rejection_clarity: Győződj meg, hogy az információk jól láthatóak a feltöltött képen
+            rejection_correctness: Győződjön meg a megadott adatok helyességéről
+            rejection_notice: Hiba történt az ellenőrzés során. Kérlek próbáld újra
+            send: Újbóli ellenőrzés kérése
+          new:
+            send: Ellenőrzés kérelem
+            title: Személyi igazolvány feltöltése
+          update:
+            error: Probléma volt a dokumentum újbóli feltöltésekor
+            success: Dokumentum újbóli feltöltése sikeres
+        dni: Szig.
+        nie: Lakcím kártya
+        passport: Útlevél
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Lakcím
+              letter_sent_at: 'Levél elküldve:'
+              mark_as_sent: Megjelölés elküldöttként
+              not_yet_sent: Még nincs elküldve
+              title: Folyamatban lévő ellenőrzések
+              username: Felhasználónév
+              verification_code: Ellenőrző kód
+          postages:
+            create:
+              error: Hiba a levél megjelölésekor
+              success: Levél megjelölés elküldöttként sikeres
+        authorizations:
+          create:
+            error: Probléma történt a kérésed kapcsán
+            success: Köszönjük! Az ellenőrző kódot elküldünk a lakcímedre
+          edit:
+            send: Megerősítés
+            title: Írd be az ellenőrző kódot
+            waiting_for_letter: Az ellenőrző kódot tartalmazó levelet hamarosan elküldjük a címedre
+          new:
+            send: Küldjetek levelet
+            title: Kérj ellenőrző kódot magadnak
+          update:
+            error: Az ellenőrző kód nem egyezik a miénkkel. Kérlek, nézd át mégegyszer az elküldött levelet
+            success: Gratulálunk. Az ellenőrzésed sikeres volt
+  errors:
+    messages:
+      uppercase_only_letters_numbers: kizárólag nagybetűt és/vagy számokat használhatsz

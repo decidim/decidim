@@ -101,6 +101,10 @@ bundle exec rubocop
 bundle exec rubocop -a
 ```
 
+### Markdown linter
+
+This project uses [markdownlint](https://github.com/markdownlint/markdownlint) to check markdown files and flag style issues.
+
 ## Good to know
 
 - There is an application with current designs at: https://decidim-design.herokuapp.com/

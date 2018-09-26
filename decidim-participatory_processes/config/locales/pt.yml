@@ -13,11 +13,11 @@ pt:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área Local
+        local_area: Área de organização
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
         promoted: Destacado
         published_at: Publicado em
         scope_id: Âmbito
@@ -27,7 +27,7 @@ pt:
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
-        target: Alvo
+        target: Quem participa
         title: Título
       participatory_process_group:
         description: Descrição
@@ -257,7 +257,9 @@ pt:
       processes: Processos
     participatory_process_groups:
       show:
-        group_participatory_processes: Processos para %{group}
+        group_participatory_processes:
+          one: 1 processos para %{group}
+          other: "%{count} processos para %{group}"
         title: Grupos de processos participativos
     participatory_process_steps:
       index:
@@ -265,6 +267,9 @@ pt:
         title: Etapas do processo participativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantidade máxima de elementos para mostrar
         participatory_process_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -272,22 +277,46 @@ pt:
           form:
             announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processos destacados
       index:
         title: Processos participativos
-      order_by_processes:
-        active: Ativo
-        all: Todos
-        past: Passado
-        upcoming: próximos
       pages:
         home:
           highlighted_processes:
             active_processes: Processos ativos
             active_step: Passo ativo
+            more_information: Mais Informações
+            participate: Participar
             see_all_processes: Ver todos os processos
       participatory_process_groups:
         none: Nenhum
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 processo ativo
+              other: "%{count} processos ativos"
+            all:
+              one: 1 processo
+              other: "%{count} processos"
+            past:
+              one: 1 processo passado
+              other: "%{count} processos passados"
+            upcoming:
+              one: 1 processo futuro
+              other: "%{count} processos futuros"
+          explanations:
+            no_active: Nenhum processo ativo
+            no_active_nor_upcoming: Não há processos ativos nem futuros
+            no_active_nor_upcoming_callout: Não há processos ativos nem futuros. Aqui está uma lista dos últimos.
+          names:
+            active: Ativo
+            all: Todos
+            past: Passado
+            upcoming: próximos
+          see: Vejo
         index:
           loading: Carregando os resultados ...
       show:
@@ -330,10 +359,6 @@ pt:
       participatory_processes:
         index:
           promoted_processes: Processos destacados
-        order_by_processes:
-          processes:
-            one: "Processo %{count}"
-            other: "%{count} processos"
         participatory_process:
           active_step: 'Etapa atual:'
           take_part: Participar

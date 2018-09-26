@@ -53,6 +53,9 @@ module Decidim
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
 
+    scope :confirmed, -> { where.not(confirmed_at: nil) }
+    scope :not_confirmed, -> { where(confirmed_at: nil) }
+
     attr_accessor :newsletter_notifications
 
     searchable_fields({
@@ -134,6 +137,12 @@ module Decidim
                      end
     end
 
+    def following_users
+      @following_users ||= following.select do |f|
+        f.is_a?(Decidim::User)
+      end
+    end
+
     def unread_conversations
       Decidim::Messaging::Conversation.unread_by(self)
     end
@@ -165,7 +174,7 @@ module Decidim
     end
 
     def tos_accepted?
-      return true if managed
+      return true if managed || organization.tos_version.nil?
       return false if accepted_tos_version.nil?
       accepted_tos_version >= organization.tos_version
     end

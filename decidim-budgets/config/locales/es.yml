@@ -21,6 +21,7 @@ es:
         confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
+        import: Importar propuestas a proyectos
         new: Nuevo proyecto
         preview: Previsualizar
         title: Acciones
@@ -47,6 +48,14 @@ es:
           update:
             invalid: Ha habido un problema al actualizar este proyecto
             success: Proyecto actualizado correctamente
+        proposals_imports:
+          create:
+            invalid: Ha habido un problema al importar las propuestas en proyectos
+            success: "%{number} propuestas importadas con éxito en proyectos"
+          new:
+            create: Importar propuestas a proyectos
+            no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
+            select_component: Por favor seleccione un componente
       admin_log:
         project:
           create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
@@ -121,6 +130,7 @@ es:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             projects_per_page: Proyectos por página
+            resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
             total_budget: Presupuesto total
             vote_threshold_percent: Porcentaje de votos
           step:

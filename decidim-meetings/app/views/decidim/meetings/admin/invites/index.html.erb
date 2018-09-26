@@ -1,5 +1,24 @@
-<div class="filters row">
-  <div class="column medium-3">
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".invite_attendee") %></h2>
+  </div>
+  <div class="card-section">
+    <%= decidim_form_for(@form, url: meeting_registrations_invites_path, method: :post, html: { class: "form new_meeting_registration_invite" }) do |f| %>
+      <% disable_form = !allowed_to?(:invite_attendee, :meeting, meeting: meeting) %>
+
+      <%= render partial: "form", object: f, locals: { disabled: disable_form } %>
+
+      <% unless meeting.registrations_enabled? %>
+        <div class="text-alert">
+          <p><%= t(".registrations_disabled") %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="filters grid-x mt-m">
+  <div class="medium-7">
     <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
     <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-click-open="true" data-close-on-click-inside="false">
       <li class="is-dropdown-submenu-parent">
@@ -19,7 +38,7 @@
       </li>
     </ul>
   </div>
-  <div class="column medium-4">
+  <div class="medium-5">
     <%= form_tag "", method: :get do %>
       <div class="filters__search">
         <div class="input-group">
@@ -38,10 +57,7 @@
 
 <div class="card" id="meeting-invites">
   <div class="card-divider">
-    <h2 class="card-title">
-      <%= title %> - <%= t(".invites") %>
-      <%= link_to t(".invite_attendee"), meeting.registrations_enabled ? new_meeting_registrations_invite_path(meeting) : "#", class: "button tiny button--title #{'disabled' unless allowed_to? :invite_attendee, :meeting, meeting: meeting}" %>
-    </h2>
+    <h2 class="card-title"><%= title %> - <%= t(".invites") %></h2>
   </div>
 
   <div class="card-section">
@@ -56,7 +72,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @invites.each do |invite| %>
+          <% invites.each do |invite| %>
             <% presenter = Decidim::Meetings::InvitePresenter.new(invite) %>
             <tr data-id="<%= invite.id %>">
               <td>
@@ -77,7 +93,7 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @invites, theme: "decidim" %>
+      <%= paginate invites, theme: "decidim" %>
     </div>
   </div>
 </div>

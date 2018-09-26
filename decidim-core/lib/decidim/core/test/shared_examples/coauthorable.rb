@@ -72,6 +72,7 @@ shared_examples_for "coauthorable" do
           expect(coauthorable.authored_by?(creator_author)).to be(false)
         end
       end
+
       context "when the checked user is one of the coauthors" do
         before do
           other_authors.each { |author| coauthorable.authors << author }
@@ -92,6 +93,7 @@ shared_examples_for "coauthorable" do
         it "returns an empty list" do
         end
       end
+
       context "when there are many coauthors of both types" do
         before do
           other_authors.each { |author| coauthorable.authors << author }
@@ -99,6 +101,7 @@ shared_examples_for "coauthorable" do
             Decidim::Coauthorship.create(author: user_group.memberships.first.user, user_group: user_group, coauthorable: coauthorable)
           end
         end
+
         it "returns an array of identities" do
           identities = [creator_author]
           identities += other_authors

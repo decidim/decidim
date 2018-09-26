@@ -1,0 +1,58 @@
+<%
+@title = "Decidim Admin"
+@activesection = "settings"
+@activepage = "settings-participatory-texts"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "settings_nav" %>
+</div>
+<div class="layout-content">
+  <div class="container">
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Añadir documento</h2>
+      </div>
+      <div class="card-section">
+        <form class="form grid-container">
+          <div class="grid-x">
+            <div class="cell">
+              <% content_for :label, flush: true do %>
+                <label for="">Title *</label>
+              <% end %>
+              <% content_for :content, flush: true do %>
+                <input type="text" />
+              <% end %>
+              <%= render layout: "admin/components/lang-tabs" do %><% end %>
+            </div>
+          </div>
+          <div class="grid-x">
+            <div class="cell">
+              <% content_for :label, flush: true do %>
+                <label for="">Description *</label>
+              <% end %>
+              <% content_for :content, flush: true do %>
+                <textarea rows="6"></textarea>
+              <% end %>
+              <%= render layout: "admin/components/lang-tabs" do %><% end %>
+            </div>
+          </div>
+          <div class="grid-x">
+            <div class="cell">
+              <label>Fichero</label>
+              <input type="file" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="grid-x align-center mt-sm">
+      <button class="button">Subir documento</button>
+    </div>
+    <div class="grid-x align-center">
+      (Podrás previsualizar y ordenar las secciones)
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

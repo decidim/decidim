@@ -18,11 +18,12 @@ pt-BR:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
-        confirm_destroy: Tem certeza de que deseja excluir esse projeto?
+        confirm_destroy: Deseja mesmo excluir este projeto?
         destroy: Excluir
         edit: Editar
+        import: Importar propostas para os projetos
         new: Novo projeto
-        preview: Visualização
+        preview: Pré-visualização
         title: Ações
       admin:
         models:
@@ -45,8 +46,16 @@ pt-BR:
             create: Criar
             title: Novo projeto
           update:
-            invalid: Ocorreu um problema ao atualizar este projeto
+            invalid: Houve um problema ao atualizar este projeto
             success: Projeto atualizado com sucesso
+        proposals_imports:
+          create:
+            invalid: Houve um problema ao importar as propostas para projetos
+            success: "%{number} propostas importadas para projetos"
+          new:
+            create: Importar propostas para projetos
+            no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
+            select_component: Selecione um componente
       admin_log:
         project:
           create: "%{user_name} criou o projeto %{resource_name} no espaço %{space_name}"
@@ -69,7 +78,7 @@ pt-BR:
           ok: OK
           title: O orçamento máximo excedeu
         budget_summary:
-          are_you_sure: Tem certeza de que deseja cancelar o seu voto?
+          are_you_sure: Deseja mesmo cancelar o seu voto?
           assigned: 'Atribuído:'
           cancel_order: exclua seu voto e comece de novo
           checked_out:
@@ -109,7 +118,7 @@ pt-BR:
           add: Adicionar
           added: Adicionado
         show:
-          budget: Despesas
+          budget: Orçamento
           view_all_projects: Ver todos os projetos
     components:
       budgets:
@@ -121,6 +130,7 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             projects_per_page: Projetos por página
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
             total_budget: Orçamento total
             vote_threshold_percent: Porcentagem do limiar de voto
           step:

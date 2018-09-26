@@ -24,6 +24,7 @@ module Decidim
           accept_invitation
           send_email_confirmation
           send_notification
+          increment_score
         end
         broadcast(:ok)
       end
@@ -68,6 +69,10 @@ module Decidim
             percentage: percentage
           }
         )
+      end
+
+      def increment_score
+        Decidim::Gamification.increment_score(user, :attended_meetings)
       end
 
       def occupied_slots_over?(percentage)

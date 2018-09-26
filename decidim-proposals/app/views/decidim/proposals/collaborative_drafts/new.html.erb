@@ -1,0 +1,28 @@
+<div class="row">
+  <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
+
+  <div class="columns large-6">
+    <%= render partial: "decidim/proposals/proposals/wizard_header" %>
+
+    <div class="card">
+      <div class="card__content">
+        <%= decidim_form_for(@form, url: compare_collaborative_drafts_path, method: :get) do |form| %>
+          <div class="field">
+            <%= form.text_field :title %>
+          </div>
+
+          <div class="field">
+            <%= form.text_area :body, rows: 10 %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit t("decidim.proposals.collaborative_drafts.new.send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="columns large-3"></div>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/add_proposal" %>

@@ -4,12 +4,14 @@ files:
     languages_mapping:
       locale:
         ca: ca
+        de-DE: de
         es-ES: es
         es-PY: es-PY
         eu: eu
         fi: fi
         fr: fr
         gl: gl
+        hu: hu
         it: it
         nl: nl
         pl: pl

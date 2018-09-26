@@ -22,7 +22,7 @@ ru:
         origin_scope: Охват
         origin_title: Источник
         origin_url: Веб-адрес источника
-        participatory_scope: Охват соучастия
+        participatory_scope: Что решается
         promoter_group: Рабочая группа по продвижению
         question_context: Контекст
         reference: Ссылка на источник
@@ -220,6 +220,10 @@ ru:
         title: Вопросы из %{scope_name}
       index:
         title: Консультации
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Действующие консультации
       question:
         take_part: Принять участие
         view_results: Посмотреть итоги
@@ -281,7 +285,7 @@ ru:
       admin:
         question:
           attachments: Прикрепленные файлы
-          categories: Разряды
+          categories: Категории
       consultation_voting_data:
         start_voting_date: Голосование начинается
       question_components:

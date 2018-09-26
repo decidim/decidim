@@ -52,7 +52,6 @@ gl:
         highlighted_content_banner_image: Imaxe
         highlighted_content_banner_short_description: Descrición curta
         highlighted_content_banner_title: Título
-        homepage_image: Imaxe da páxina de inicio
         instagram_handler: Administrador de Instagram
         logo: Logo
         name: Nome
@@ -66,7 +65,6 @@ gl:
         show_statistics: Amosar estatísticas
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
-        welcome_text: Texto de benvida
         youtube_handler: Xestor de YouTube
       scope:
         code: Código
@@ -93,34 +91,6 @@ gl:
               must_be_ssl: O URI de redirección debe ser un URI de SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imaxe do banner
-        description: Descrición
-        developer_group: Grupo promotor
-        domain: Dominio
-        end_date: Data de finalización
-        hashtag: Etiqueta
-        hero_image: Imaxe na casa
-        local_area: Área local
-        meta_scope: Metadatos de ámbito
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
-        promoted: Promocionado
-        scope: Alcance
-        short_description: Descrición curta
-        slug: URL slug
-        start_date: Data de inicio
-        subtitle: Subtítulo
-        target: Obxectivo
-        title: Título
-      decidim/participatory_process_group:
-        description: Descrición
-        hero_image: Imaxe na casa
-        name: Nome
-        participatory_processes: Procesos participativos
-      decidim/participatory_process_step:
-        end_date: Data de finalización
-        start_date: Data de inicio
       decidim/static_page:
         content: Contido
         slug: URL slug
@@ -133,9 +103,6 @@ gl:
         organization_url: URL da organización
         redirect_uri: Redirixir URI
         site: Sitio web
-  date:
-    formats:
-      datepicker: "%m / %d / %Y"
   decidim:
     admin:
       actions:
@@ -333,6 +300,7 @@ gl:
         areas: Campos
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
+        homepage: Páxina de inicio
         impersonations: Impersonacións
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
@@ -526,6 +494,13 @@ gl:
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
           omnipresent_banner_appearance_title: Editar o banner omnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloques de contido activo
+          inactive_content_blocks: Bloques de contido inactivo
+      organization_homepage_content_blocks:
+        edit:
+          update: Actualización
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -636,6 +611,7 @@ gl:
         new:
           create: Invitar
           title: Convidar ao usuario como administrador
+      view_public_page: Ver páxina pública
     forms:
       errors:
         impersonate_user:
@@ -676,7 +652,3 @@ gl:
           title: Configuración
         users:
           title: Usuarios
-  time:
-    formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"

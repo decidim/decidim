@@ -14,5 +14,11 @@ module Decidim
     def current_user
       context[:current_user]
     end
+
+    private
+
+    def decidim
+      Decidim::Core::Engine.routes.url_helpers
+    end
   end
 end

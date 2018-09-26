@@ -64,7 +64,7 @@ shared_examples "manage projects" do
   end
 
   it "creates a new project", :slow do
-    find(".card-title a.button").click
+    find(".card-title a.button.new").click
 
     within ".new_project" do
       fill_in_i18n(

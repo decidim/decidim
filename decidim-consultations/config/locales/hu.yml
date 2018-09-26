@@ -1,0 +1,289 @@
+hu:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banner kép
+        decidim_highlighted_scope_id: Kiemelt hatáskör
+        description: Leírás
+        end_voting_date: Szavazás vége
+        introductory_image: Bevezető kép
+        introductory_video_url: Bevezető videó URL
+        questions: Kérdések
+        slug: URL slug
+        start_voting_date: Szavazás kezdése
+        subtitle: Felirat
+        title: Cím
+      question:
+        banner_image: Banner kép
+        decidim_scope_id: Helyhatósági terület
+        hashtag: Kettőskereszt
+        hero_image: Kezdő kép
+        i_frame_url: Külső szavazási rendszer URL
+        origin_scope: Hatáskör
+        origin_title: Kiindulópont
+        origin_url: Kiindulópont URL
+        participatory_scope: Részvétel hatásköre
+        promoter_group: Promóciós csoport
+        question_context: Kontextus
+        reference: Hivatkozás
+        scope: Helyhatósági terület
+        slug: URL slug
+        subtitle: Felirat
+        title: Cím
+        vote: Külső szavazási rendszer
+        what_is_decided: Mi a döntés
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Válasz nem található.
+  activerecord:
+    models:
+      decidim/consultations:
+        one: Konzultáció
+        other: Konzultációk
+      decidim/consultations/question:
+        one: Kérdés
+        other: Kérdések
+      decidim/consultations/response:
+        one: Válasz
+        other: Válaszok
+      decidim/consultations/vote:
+        one: Szavazat
+        other: Szavazatok
+  decidim:
+    admin:
+      actions:
+        new_consultation: Új konzultáció
+        new_question: Új kérdés
+        new_response: Új válasz
+        publish_results: Eredmények közzététele
+        unpublish_results: Eredmények visszavonása
+      consultation_publications:
+        create:
+          error: Hiba történt a konzultáció közzététele során.
+          success: Konzultáció sikeresen közzétéve.
+        destroy:
+          error: Hiba történt a konzultáció közzétételének visszavonásakor.
+          success: Konzultáció közzététele sikeresen visszavonva.
+      consultation_results_publications:
+        create:
+          error: Hiba történt a konzultáció eredményeinek közzététele során.
+          success: Konzultáció eredményei sikeresen közzétéve.
+        destroy:
+          error: Hiba történt a konzultáció eredményeinek közzététele során.
+          success: Konzultáció eredményeinek közzététele visszavonva.
+      consultations:
+        create:
+          error: Hiba történt az új konzultáció létrehozása során.
+          success: Konzultáció létrehozása sikeres.
+        destroy:
+          success: Konzultáció törlése sikeres.
+        edit:
+          update: Frissítés
+        form:
+          slug_help: 'Az URL slugok a konzultáció linkjének generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdődnie. Példa: %{url}'
+          title: Általános információk
+        index:
+          not_published: Nincs közzétéve
+          published: Közzétéve
+        new:
+          create: Létrehozás
+          title: Új konzultáció
+        update:
+          error: Hiba történt a konzultáció frissítése során.
+          success: A konzultáció frissítése sikeres.
+      menu:
+        consultations: Konzultációk
+        consultations_submenu:
+          info: Információ
+          questions: Kérdések
+        questions_submenu:
+          components: Elemek
+          consultation: Konzultáció
+          info: Információ
+          responses: Válaszok
+      models:
+        consultation:
+          fields:
+            created_at: 'Létrehozva:'
+            published: Közzétéve
+            title: Cím
+          name:
+            one: Konzultáció
+            other: Konzultációk
+        question:
+          fields:
+            created_at: 'Létrehozva:'
+            published: Közzétéve
+            title: Cím
+          name:
+            one: Kérdés
+            other: Kérdések
+        response:
+          fields:
+            created_at: 'Létrehozva:'
+            title: Cím
+          name:
+            one: Válasz
+            other: Válaszok
+      question_publications:
+        create:
+          error: Hiba történt a kérdés közzététele során.
+          success: Kérdés sikeresen közzétéve.
+        destroy:
+          error: Hiba történt a kérdés közzétételének visszavonásakor.
+          success: Kérdés közzététele visszavonva.
+      questions:
+        create:
+          error: Hiba történt az új kérdés létrehozása során.
+          success: Kérdés létrehozása sikeres.
+        destroy:
+          success: Kérdés törlése sikeres.
+        edit:
+          update: Frissítés
+        form:
+          title: Általános információk
+        index:
+          not_published: Nincs közzétéve
+          published: Közzétéve
+        new:
+          create: Létrehozás
+          title: Új kérdés
+        update:
+          error: Hiba történt a kérdés frissítése során.
+          success: Kérdés frissítése sikeres.
+      responses:
+        create:
+          error: Hiba történt az új válasz létrehozása során.
+          success: Válasz létrehozása sikeres.
+        destroy:
+          error: Hiba történt a válasz eltávolítása során.
+          success: Válasz törlése sikeres.
+        edit:
+          update: Frissítés
+        form:
+          title: Általános információk
+        new:
+          create: Létrehozás
+          title: Új válasz
+        update:
+          error: Hiba történt a válasz frissítése során.
+          success: Válasz frissítése sikeres.
+      titles:
+        consultations: Konzultációk
+        questions: Kérdések
+        responses: Válaszok
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: A megjelenítendő elemek maximális száma
+      consultation:
+        start_voting_date: Szavazás kezdése
+        view_results: Eredmények megtekintése
+      consultation_card:
+        view_results: Eredmények megtekintése
+      consultations:
+        orders:
+          label: 'Konzultációk rendezése:'
+          random: Véletlenszerű
+          recent: Legutóbbi
+      content_blocks:
+        highlighted_consultations:
+          name: Kiemelt konzultációk
+      count:
+        title:
+          one: "%{count} konzultáció"
+          other: "%{count} konzultáció"
+      filters:
+        active: Aktív
+        all: Összes
+        finished: Befejezett
+        search: Keresés
+        state: Állapot
+        upcoming: Közelgő
+      filters_small_view:
+        close_modal: Ablak bezárása
+        filter: Szűrés
+        filter_by: 'Szűrés ez alapján:'
+        unfold: Kibont
+      highlighted_questions:
+        title: '%{scope_name} kérdések'
+      index:
+        title: Konzultációk
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktív konzultációk
+            see_all_consultations: Lásd az összes konzultációt
+            voting_ends_in:
+              one: Szavazás <strong>vége <strong> holnap</strong>
+              other: A szavazás végződik <strong>%{count} nap</strong>
+            voting_ends_today: A szavazás végeredménye <strong>ma</strong>
+      question:
+        take_part: Vegyél részt
+        view_results: Eredmények megtekintése
+        votes_out_of:
+          one: 'szavazat ennyiből:'
+          other: szavazatok
+      question_votes:
+        create:
+          error: Hiba történt a kérdésre való szavazás során
+      regular_questions:
+        title: Konzultációra vonatkozó kérdések
+      show:
+        badge_name:
+          finished: Befejezett
+          open: Megnyitás
+          open_votes: Nyílt szavazatok
+          published_results: Közzétett eredmények
+        footer_button_text:
+          debate: Vita
+          view: Nézet
+          view_results: Eredmények megtekintése
+          vote: Szavazás
+        unspecified: Nem meghatározott
+    menu:
+      consultations: Konzultációk
+    pages:
+      home:
+        statistics:
+          consultations_count: Konzultációk
+    questions:
+      results:
+        title: Eredmények
+      show:
+        read_more: Bővebben
+      statistics:
+        assistants_count_title: Segítség
+        comments_count_title: Hozzászólások
+        meetings_count_title: Találkozók
+        supports_count_title: Támogatások
+      technical_info:
+        technical_data: Technikai részletek
+      vote_button:
+        already_voted: Már szavaztál
+        already_voted_hover: Támogatás visszavonása
+        starting_from: '%{date} óta'
+        vote: Szavazás
+      vote_modal:
+        contextual_help: Válassz az opciók közül.
+        title: 'Konzultáció: kérdés-támogatás'
+      vote_modal_confirm:
+        change: Módosítás
+        confirm: Megerősítés
+        contextual_help: Erősítsd meg a kiválasztott opciót.
+        title: 'Konzultáció: erősítsd meg a támogatást'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Mellékletek
+          categories: Kategóriák
+      consultation_voting_data:
+        start_voting_date: Szavazás kezdése
+      question_components:
+        question_menu_item: A kérdés
+        unfold: Kibontás
+      question_header:
+        back_to_consultation: Összes konzultáció megtekintése

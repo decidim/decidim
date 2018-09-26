@@ -126,7 +126,7 @@ describe "Admin manages questions", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(page).to have_i18n_content("My new title")
+        expect(page).to have_content("My new title")
         expect(page).not_to have_css("img[src*='#{image2_filename}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end

@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Créée le
+        created_at: Créé le
         field: Champ
         start_date: Date de début
         title: Titre
@@ -12,6 +12,16 @@ fr:
       admin:
         exports:
           dummies: Référence de test
+    gamification:
+      badges:
+        test:
+          description_another: Cet utilisateur a créé %{score} tests.
+          description_own: Vous avez créé %{score} tests.
+          explanation: Les utilisateurs obtiennent ce badge en créant des tests.
+          name: Tests
+          next_level_in: Créez %{score} autres tests pour atteindre le niveau suivant !
+          unearned_another: Cet utilisateur n'a pas encore créé de test.
+          unearned_own: Vous n'avez créé aucun test pour le moment.
     pages:
       home:
         statistics:

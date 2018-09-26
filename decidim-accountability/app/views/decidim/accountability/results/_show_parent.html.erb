@@ -12,7 +12,7 @@
           <div class="description">
             <%== translated_attribute result.description %>
           </div>
-          <%= cell "decidim/tags", result, context: {extra_classes: ["tags--result"]} %>
+          <%= cell "decidim/tags", result, context: { extra_classes: ["tags--result"] } %>
 
           <%= render partial: "results_leaf", locals: { results: result.children.page(1).per(result.children_count), total_count: result.children_count } %>
         </div>

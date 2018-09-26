@@ -62,13 +62,14 @@ module Decidim
       end
 
       html_options ||= {}
+      resource = html_options.delete(:resource)
 
       if !current_user
         html_options["data-open"] = "loginModal"
         url = ""
-      elsif action && !action_authorized_to(action).ok?
+      elsif action && !action_authorized_to(action, resource: resource).ok?
         html_options["data-open"] = "authorizationModal"
-        html_options["data-open-url"] = modal_path(action)
+        html_options["data-open-url"] = modal_path(action, resource)
         url = ""
       end
 
@@ -81,8 +82,13 @@ module Decidim
       end
     end
 
-    def modal_path(action)
-      decidim.authorization_modal_path(authorization_action: action, component_id: current_component.id)
+    def modal_path(action, resource)
+      resource_params = if resource
+                          { resource_name: resource.resource_manifest.name, resource_id: resource.id }
+                        else
+                          {}
+                        end
+      decidim.authorization_modal_path(authorization_action: action, component_id: current_component.id, **resource_params)
     end
   end
 end

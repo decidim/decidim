@@ -3,11 +3,11 @@ sv:
     attributes:
       assembly:
         area_id: Område
-        assembly_type: Monteringstyp
-        assembly_type_other: Monteringstyp annat
+        assembly_type: Sammankomststyp
+        assembly_type_other: Sammankomsttyp annat
         banner_image: Bannerbild
-        closing_date: Slutdatum
-        closing_date_reason: Slutdatum årsskäl
+        closing_date: Stängningsdatum
+        closing_date_reason: Stängningsdatum orsak
         composition: Sammansättning
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
@@ -18,26 +18,27 @@ sv:
         decidim_area_id: Område
         decidim_scope_id: Omfattning
         description: Beskrivning
-        developer_group: Promotorgrupp
+        developer_group: Främjandegrupp
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Hembild
-        included_at: Ingår på
+        included_at: Inkluderad vid
         instagram: Instagram
         internal_organisation: Intern organisation
         is_transparent: Är transparent
-        local_area: Lokalt område
+        local_area: Organisationsområde
         meta_scope: Omfattning metadata
-        participatory_processes_ids: Relaterade deltagande processer
-        participatory_scope: Deltagande räckvidd
-        participatory_structure: Deltagande struktur
+        parent_id: Föräldrasammankomst
+        participatory_processes_ids: Relaterade deltagandeprocesser
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur bestäms det
         private_space: Privat utrymme
-        promoted: främjas
+        promoted: Främjad
         published_at: Publicerad på
-        purpose_of_action: Syftet med åtgärden
+        purpose_of_action: Syfte med åtgärden
         scope_id: Omfattning
         scopes_enabled: Omfattningar aktiverade
         short_description: Kort beskrivning
@@ -45,19 +46,19 @@ sv:
         slug: URL slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
-        target: Mål
+        target: Vem deltar
         title: Titel
         twitter: Twitter
-        youtube: Youtube
+        youtube: YouTube
       assembly_member:
         birthday: Födelsedag
         birthplace: Födelseort
-        ceased_date: Upphämtat datum
-        designation_date: Beteckning datum
-        designation_mode: Beteckningsläge
-        full_name: Fullständiga namn
+        ceased_date: Upphört datum
+        designation_date: Utnämningsdatum
+        designation_mode: Utnämningsläge
+        full_name: Fullständigt namn
         gender: Kön
-        position: Placera
+        position: Position
       assembly_user_role:
         email: E-post
         name: Namn
@@ -65,24 +66,24 @@ sv:
   activerecord:
     models:
       decidim/assembly:
-        one: hopsättning
-        other: Assemblies
+        one: Möte
+        other: Möten
       decidim/assembly_member:
-        one: Församlingsmedlem
-        other: Församlingsmedlemmar
+        one: Mötesmedlem
+        other: Mötesmedlemmar
       decidim/assembly_user_role:
-        one: Montering användarroll
-        other: Montera användarroller
+        one: Mötesanvändarroll
+        other: Mötesanvändarroller
   decidim:
     admin:
       actions:
-        new_assembly: Ny sammansättning
+        new_assembly: Nytt möte
       assemblies:
         create:
-          error: Det uppstod ett fel vid att skapa en ny enhet.
-          success: Församlingen skapades framgångsrikt.
+          error: Det uppstod ett fel när ett nytt möte skulle skapas.
+          success: Mötet skapades framgångsrikt.
         destroy:
-          success: Sammansättning raderas framgångsrikt.
+          success: Mötes raderades framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -94,66 +95,66 @@ sv:
           published: Publicerad
         new:
           create: Skapa
-          title: Ny sammansättning
+          title: Nytt möte
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här enheten.
-          success: Församlingen uppdaterades framgångsrikt.
+          error: Det uppstod ett fel vid uppdateringen av detta möte.
+          success: Mötet uppdaterades framgångsrikt.
       assemblies_copies:
         create:
-          error: Det uppstod ett fel vid duplicering av den här enheten.
-          success: Sammansättning dupliceras framgångsrikt.
+          error: Det uppstod ett fel vid dupliceringen av detta möte.
+          success: Mötet duplicerades framgångsrikt.
       assembly_copies:
         new:
           copy: Kopiera
-          select: Välj vilken data du vill duplicera
-          title: Duplikat montering
+          select: Välj vilken data du skulle vilja duplicera
+          title: Duplicera möte
       assembly_members:
         create:
-          error: Det gick inte att lägga till en medlem för den här enheten.
-          success: Medlem skapades framgångsrikt för denna församling.
+          error: Det gick inte att lägga till en medlem för detta möte.
+          success: Medlem skapades framgångsrikt för detta möte.
         destroy:
-          success: Medlemmen har tagits bort framgångsrikt för denna sammansättning.
+          success: Medlem skapades framgångsrikt för detta möte.
         edit:
-          title: Uppdatera monteringsmedlem.
-          update: Uppdatering
-        index:
-          assembly_members_title: Församlingsmedlemmar
-        new:
-          create: Skapa
-          title: Ny monteringsdel.
-        update:
-          error: Det uppstod ett fel vid uppdatering av medlemmen för den här enheten.
-          success: Medlem uppdaterad framgångsrikt för denna samling.
-      assembly_publications:
-        create:
-          error: Det uppstod ett fel vid publicering av denna montering.
-          success: Församling publiceras framgångsrikt.
-        destroy:
-          error: Ett fel uppstod vid publicering av denna montering.
-          success: Sammansättningen avpubliceras framgångsrikt.
-      assembly_user_roles:
-        create:
-          error: Det gick inte att lägga till en användare för den här enheten.
-          success: Användaren har tillagts med framgång till den här enheten.
-        destroy:
-          success: Användaren avlägsnades framgångsrikt från den här enheten.
-        edit:
-          title: Uppdatera monteringsanvändaren.
+          title: Uppdatera mötesmedlem.
           update: Uppdatera
         index:
-          assembly_admins_title: Monteringsanvändare
+          assembly_members_title: Mötesmedlemmar
         new:
           create: Skapa
-          title: Ny monteringsanvändare.
+          title: Ny mötesmedlem.
         update:
-          error: Det uppstod ett fel som uppdaterade en användare för den här enheten.
-          success: Användaren uppdaterades framgångsrikt för denna montering.
+          error: Det uppstod ett fel vid uppdatering av medlemmen för detta möte.
+          success: Medlem uppdaterad framgångsrikt för detta möte.
+      assembly_publications:
+        create:
+          error: Det uppstod ett fel vid publicering av detta möte.
+          success: Mötet publicerades framgångsrikt.
+        destroy:
+          error: Ett fel uppstod vid publicering av detta möte.
+          success: Mötet avpublicerades framgångsrikt.
+      assembly_user_roles:
+        create:
+          error: Ett fel uppstod när en användare skulle läggas till detta möte.
+          success: Användaren har lagts till med framgång till detta möte.
+        destroy:
+          success: Användaren avlägsnades framgångsrikt från detta möte.
+        edit:
+          title: Uppdatera mötesanvändaren.
+          update: Uppdatera
+        index:
+          assembly_admins_title: Sammanskomstanvändare
+        new:
+          create: Skapa
+          title: Ny sammankomstsanvändare.
+        update:
+          error: Det uppstod ett fel vid uppdatering av en användare för den här sammankomsten.
+          success: Användaren uppdaterades framgångsrikt för denna sammankomst.
       menu:
-        assemblies: Assemblies
+        assemblies: Sammankomst
         assemblies_submenu:
-          assembly_admins: Monteringsanvändare
-          assembly_members: medlemmar
-          attachment_collections: mappar
+          assembly_admins: Mötesanvändare
+          assembly_members: Medlemmar
+          attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bifogade filer
           categories: Kategorier
@@ -169,59 +170,60 @@ sv:
             promoted: Markerad
             published: Publicerad
             title: Titel
-          name: hopsättning
+          name: Möte
         assembly_member:
           fields:
-            ceased_date: Upphämtat datum
-            designation_date: Beteckning datum
-            full_name: namn
-            position: Placera
+            ceased_date: Upphört datum
+            designation_date: Utnämningsdatum
+            full_name: Namn
+            position: Position
           name: Medlem
           positions:
             other: Andra
-            president: President
+            president: Ordförande
             secretary: Sekreterare
-            vice_president: Vice President
+            vice_president: Vice ordförande
         assembly_user_role:
           fields:
             email: E-post
             name: Namn
             role: Roll
-          name: Monteringsanvändare
+          name: Mötesanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
       titles:
-        assemblies: Assemblies
+        assemblies: Möten
     admin_log:
       assembly:
-        create: "%{user_name} skapade %{resource_name} -enheten"
-        publish: "%{user_name} publicerade %{resource_name} -enheten"
-        unpublish: "%{user_name} upublicerade %{resource_name} -enheten"
-        update: "%{user_name} uppdaterade %{resource_name} -enheten"
+        create: "%{user_name} skapade mötet %{resource_name}"
+        publish: "%{user_name} publicerade mötet %{resource_name}"
+        unpublish: "%{user_name} avpublicerade mötet %{resource_name}"
+        update: "%{user_name} uppdaterade mötet %{resource_name}"
       assembly_member:
-        create: "%{user_name} skapade %{resource_name} medlem i %{space_name} enheten"
-        delete: "%{user_name} bort %{resource_name} medlem från %{space_name} enheten"
-        update: "%{user_name} uppdaterade %{resource_name} medlem i %{space_name} enheten"
+        create: "%{user_name} skapade %{resource_name} medlem i mötet %{space_name}"
+        delete: "%{user_name} bort %{resource_name} medlem från mötet %{space_name}"
+        update: "%{user_name} uppdaterade %{resource_name} medlem i mötet %{space_name}"
       assembly_user_role:
-        create: "%{user_name} inbjudna %{resource_name} till sammansättningen %{space_name}"
-        delete: "%{user_name} tog bort användaren %{resource_name} från enheten %{space_name}"
-        update: "%{user_name} ändrade rollen som %{resource_name} i sammansättningen %{space_name}"
+        create: "%{user_name} inbjudna %{resource_name} till mötet %{space_name}"
+        delete: "%{user_name} tog bort användaren %{resource_name} från mötet %{space_name}"
+        update: "%{user_name} ändrade rollen som %{resource_name} i mötet %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Om varaktigheten för denna montering är begränsad, välj slutdatum. Annars kommer det att visas som obestämt.
-            included_at_help: Välj datum då denna montering lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som skapningsdatumet.
+            duration_help: Om varaktigheten för detta möte är begränsat, välj slutdatum. Annars kommer det att visas som obestämt.
+            included_at_help: Välj datum då denna möte lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
-            select_an_assembly_type: Välj en monterings typ
-            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            select_an_assembly_type: Välj en mötestyp
+            select_parent_assembly: Välj överordnat möte
+            slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Social
         assembly_copies:
           form:
-            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med ett bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Existerande användare
@@ -232,68 +234,74 @@ sv:
           index:
             filter:
               all: Allt
-              ceased: upphörde
+              ceased: Upphört
               not_ceased: Inte upphört
             filter_by: Filtrera efter
             search: Sök
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximal mängd element att visa
       assembly_members:
         index:
-          members: medlemmar
+          members: Medlemmar
       assembly_types:
-        commission: Comission
+        commission: Kommission
         consultative_advisory: Rådgivande / rådgivande
         executive: Verkställande
         government: Regering
         others: Övriga
         participatory: Deltagande
         working_group: Arbetsgrupp
+      content_blocks:
+        highlighted_assemblies:
+          name: Markerade möten
       created_by:
-        city_council: Statsråd
+        city_council: Stadsfullmäktige
         others: Övriga
-        public: offentlig
+        public: Offentligt
       index:
-        title: Assemblies
+        title: Möten
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiva aggregat
-            see_all_assemblies: Se alla församlingar
+            active_assemblies: Aktiva möten
+            see_all_assemblies: Se alla möten
         user_profile:
           member_of:
-            member_of: Medlem i
+            member_of: Medlem av
       show:
         area: Område
-        assembly_type: Monteringstyp
-        children: Assemblies
-        closing_date: Slutdatum
+        assembly_type: Mötestyp
+        children: Möten
+        closing_date: Stängningsdatum
         composition: Sammansättning
         created_by: Skapad av
         creation_date: Skapat datum
-        developer_group: Promotorgrupp
+        developer_group: Främjandegrupp
         duration: Varaktighet
-        included_at: Ingår på
+        included_at: Ingår vid
         indefinite_duration: Obestämd
         internal_organisation: Intern organisation
         is_transparent:
           'false': ogenomskinlig
           'true': transparent
-        local_area: Lokalt område
-        participatory_scope: Deltagande räckvidd
-        participatory_structure: Deltagande struktur
-        private_space: Detta är en privat sammansättning
+        local_area: Organisationsområde
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur det bestäms
+        private_space: Detta är ett privat möte
         purpose_of_action: Syftet med åtgärden
         read_less: Läs mindre
         read_more: Läs mer
-        related_participatory_processes: Relaterade deltagande processer
+        related_participatory_processes: Relaterade deltagandeprocesser
         scope: Omfattning
         social_networks: Sociala nätverk
-        target: Mål
+        target: Vem deltar
       statistics:
         answers_count: Svar
-        assemblies_count: Assemblies
+        assemblies_count: Möten
         comments_count: Kommentarer
         debates_count: Debatter
-        endorsements_count: påskrifter
+        endorsements_count: Påskrifter
         headline: Aktivitet
         meetings_count: Möten
         orders_count: Röster
@@ -306,35 +314,37 @@ sv:
         votes_count: Röster
     assembly_members:
       assembly_member:
-        designated_on: Anges den
+        designated_on: Betecknad den
       index:
-        title: medlemmar
+        title: Medlemmar
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Samlingen hittades inte i databasen (ID: %{id})'
+          not_found: 'Mötet hittades inte i databasen (ID: %{id})'
     menu:
-      assemblies: Assemblies
+      assemblies: Möten
   errors:
     messages:
-      cannot_be_blank: kan inte vara tom
+      cannot_be_blank: kan inte vara tomt
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Delta
         index:
-          promoted_assemblies: Utrustade församlingar
+          organizational_chart: Organisationsschema
+          promoted_assemblies: Markerade möten
+          reset_chart: Återställ
         order_by_assemblies:
           assemblies:
-            one: "%{count} montering"
-            other: "%{count} sammansättningar"
+            one: "%{count} möte"
+            other: "%{count} möten"
         promoted_assembly:
           more_info: Mer information
           take_part: Delta
       assembly_header:
-        assembly_member_menu_item: medlemmar
-        assembly_menu_item: Sammansättningen
+        assembly_member_menu_item: Medlemmar
+        assembly_menu_item: Mötet
         unfold: Veckla ut
       assembly_widgets:
         show:

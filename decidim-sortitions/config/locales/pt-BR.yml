@@ -15,11 +15,11 @@ pt-BR:
     models:
       decidim/sortitions/sortition:
         one: Sorteio
-        other: Sortitions
+        other: Sorteios
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Sorteios
         settings:
           global:
             comments_enabled: Comentários ativados
@@ -33,10 +33,10 @@ pt-BR:
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Sorteios
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Sorteios
     sortitions:
       admin:
         actions:
@@ -58,10 +58,10 @@ pt-BR:
               title: Título
             name:
               one: Sorteio
-              other: Sortitions
+              other: Sorteios
         sortitions:
           confirm_destroy:
-            confirm_destroy: Tem certeza de que deseja cancelar essa classificação?
+            confirm_destroy: Deseja mesmo cancelar este sorteio?
             destroy: Cancelar ordenação
             title: Cancelamento da classificação
           create:
@@ -78,7 +78,7 @@ pt-BR:
             select_proposal_component: Selecione o conjunto de propostas
             title: Nova classificação para propostas
           index:
-            title: Sortitions
+            title: Sorteios
           new:
             confirm: Ao pressionar o botão seguinte, o Decidim registrará a data e a hora (com precisão de segundos) e, junto com o lançamento de dados, essa informação será usada para gerar uma seleção aleatória. A ação será irreversível, uma vez que o botão é clicado o resultado deste sorteio será publicado, juntamente com os dados inseridos neste formulário e não podem ser modificados, por favor, verifique o conteúdo cuidadosamente
             create: Criar
@@ -103,8 +103,8 @@ pt-BR:
           all: Todos
           cancelled: Cancelado
           category: Categoria
-          category_prompt: Selecione uma categoria
-          search: Pesquisa
+          category_prompt: Selecionar uma categoria
+          search: Pesquisar
           state: Estado
         filters_small_view:
           close_modal: Fechar modal
@@ -115,7 +115,7 @@ pt-BR:
           selected_proposals: Propostas selecionadas
         orders:
           label: 'Ordenar ordenações por:'
-          random: Aleatória
+          random: Aleatório
           recent: Recente
         results_count:
           count:
@@ -142,9 +142,9 @@ pt-BR:
             other: '%{count} propostas selecionadas'
           view: Visão
         sortition_author:
-          deleted: Usuário deletado
+          deleted: Usuário excluído
         sortition_cancel_author:
-          deleted: Usuário deletado
+          deleted: Usuário excluído
         sortitions_count:
           count:
             one: 1 ordenação

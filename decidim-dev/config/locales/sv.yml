@@ -12,6 +12,16 @@ sv:
       admin:
         exports:
           dummies: Dummies
+    gamification:
+      badges:
+        test:
+          description_another: Den här användaren har skapat %{score} tester.
+          description_own: Du har skapat %{score} tester.
+          explanation: Användare får detta märke genom att skapa test.
+          name: tester
+          next_level_in: Skapa %{score} fler tester för att nå nästa nivå!
+          unearned_another: Den här användaren har inte skapat några tester än.
+          unearned_own: Du har inte skapat några tester än.
     pages:
       home:
         statistics:

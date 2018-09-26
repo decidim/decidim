@@ -2,27 +2,37 @@ fi:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Luotu osoitteessa
+        created_at: Luontiaika
         field: Oma kenttä
-        start_date: Aloituspäivämäärä
-        title: otsikko
-        updated_at: Päivitetty klo
+        start_date: Alkamispäivä
+        title: Otsikko
+        updated_at: Päivitysaika
   decidim:
     dummy:
       admin:
         exports:
           dummies: Esimerkkitiedot
+    gamification:
+      badges:
+        test:
+          description_another: Tämä käyttäjä on luonut %{score} testiä.
+          description_own: Olet luonut %{score} testiä.
+          explanation: Käyttäjät saavat tämän kunniamerkin luomalla testejä.
+          name: Testit
+          next_level_in: Luo vielä %{score} testiä seuraavan tason saavuttamiseksi!
+          unearned_another: Tämä käyttäjä ei ole vielä luonut testejä.
+          unearned_own: Et ole vielä luonut testejä.
     pages:
       home:
         statistics:
           bar: Palkki
-          dummies_count_high: Dummies korkea
-          dummies_count_medium: Dummies medium
+          dummies_count_high: Esimerkkiluku, korkea
+          dummies_count_medium: Esimerkkiluku, keskitaso
           foo: Foo
     participatory_processes:
       statistics:
-        dummies_count_high: Esimerkkitilastojen korkein arvo
-        dummies_count_medium: Esimerkkitilastojen keskimääräinen arvo
+        dummies_count_high: Esimerkkiluku, korkea
+        dummies_count_medium: Esimerkkiluku, keskitaso
     resource_links:
       test_link:
         dummy_resource_dummy: Liittyvät esimerkkitiedot

@@ -7,14 +7,16 @@ module Decidim
     #
     # Initializes the ActionAuthorizer.
     #
-    # user    - The user to authorize against.
+    # user      - The user to authorize against.
+    # action    - The action to authenticate.
     # component - The component to authenticate against.
-    # action  - The action to authenticate.
+    # resource  - The resource to authenticate against. Can be nil.
     #
-    def initialize(user, component, action)
+    def initialize(user, action, component, resource)
       @user = user
-      @component = component
       @action = action.to_s if action
+      @component = resource&.component || component
+      @resource = resource
     end
 
     #
@@ -28,7 +30,7 @@ module Decidim
       raise AuthorizationError, "Missing data" unless component && action
 
       status_code, data = if authorization_handler_name
-                            authorization_handler.authorize(authorization, permission_options, component)
+                            authorization_handler.authorize(authorization, permission_options, component, resource)
                           else
                             [:ok, {}]
                           end
@@ -38,7 +40,7 @@ module Decidim
 
     private
 
-    attr_reader :user, :component, :action
+    attr_reader :user, :component, :resource, :action
 
     def authorization
       return nil unless user && authorization_handler_name
@@ -62,8 +64,7 @@ module Decidim
 
     def permission
       return nil unless component && action
-
-      @permission ||= component.permissions&.fetch(action, nil)
+      @permission ||= resource&.permissions&.fetch(action, nil) || component.permissions&.fetch(action, nil)
     end
 
     class AuthorizationStatus

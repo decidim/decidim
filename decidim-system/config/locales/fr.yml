@@ -2,7 +2,7 @@ fr:
   decidim:
     system:
       actions:
-        confirm_destroy: Êtes-vous sûr de vouloir supprimer cela?
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cela ?
         destroy: Supprimer
         edit: Modifier
         new: Nouvelle

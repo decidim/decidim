@@ -54,13 +54,13 @@ fr:
             another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
             dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
             dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
-            id_documents: Soyez vérifié en téléchargeant votre document d'identité
-            postal_letter: Faites-vous vérifier en recevant un code de vérification par courrier postal
+            id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
+            postal_letter: Vérifiez votre identité en recevant un code de vérification par courrier postal
           title: Vérifier votre Identité
-          verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité:'
+          verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
         new:
           authorize: Envoyer
-          authorize_with: Vérifier avec %{authorizer}
+          authorize_with: Vérifier votre identité avec %{authorizer}
         skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
         start_exploring: commencer à explorer
       dummy_authorization:
@@ -121,7 +121,7 @@ fr:
         authorizations:
           create:
             error: Il y a eu un problème avec votre demande
-            success: Merci! Nous enverrons un code de vérification à votre adresse
+            success: Merci ! Nous enverrons un code de vérification à votre adresse
           edit:
             send: Confirmer
             title: Introduisez le code de vérification que vous avez reçu
@@ -131,7 +131,7 @@ fr:
             title: Demandez votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée
-            success: Toutes nos félicitations. Vous avez été vérifié avec succès
+            success: Félicitations, votre identité a été vérifiée avec succès
   errors:
     messages:
-      uppercase_only_letters_numbers: tout doit être en majuscule et ne contenir que des lettres et / ou des chiffres
+      uppercase_only_letters_numbers: à saisir en majuscule avec uniquement des lettres et / ou des chiffres

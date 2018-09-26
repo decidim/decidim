@@ -12,6 +12,7 @@ module Decidim
       isolate_namespace Decidim::Assemblies::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :assemblies, param: :slug, except: :show do

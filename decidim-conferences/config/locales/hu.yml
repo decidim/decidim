@@ -1,0 +1,349 @@
+hu:
+  activemodel:
+    attributes:
+      conference:
+        banner_image: Banner kép
+        copy_categories: Másolási kategóriák
+        copy_components: Másoljon komponenseket
+        copy_features: Másolási funkciók
+        decidim_scope_id: terület
+        description: Leírás
+        hashtag: Kettőskereszt
+        hero_image: Kezdő kép
+        promoted: promotált
+        published_at: Megjelent a
+        scope_id: terület
+        scopes_enabled: A hatókör engedélyezett
+        short_description: Rövid leírás
+        show_statistics: Statisztikák megjelenítése
+        slogan: Szlogen
+        slug: URL slug
+        title: Cím
+      conference_speaker:
+        full_name: Teljes név
+      conference_user_role:
+        email: Email
+        name: Név
+        role: Szerep
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Ezt az e-mailt már meghívták
+  activerecord:
+    models:
+      decidim/conference:
+        one: konferencia
+        other: Konferenciák
+      decidim/conference_speaker:
+        one: Konferencia hangszóró
+        other: Konferencia hangszórók
+      decidim/conference_user_role:
+        one: Konferencia felhasználói szerepkör
+        other: Konferencia felhasználói szerepkörök
+  decidim:
+    admin:
+      actions:
+        new_conference: Új konferencia
+      conference_copies:
+        new:
+          copy: Másolat
+          select: Válassza ki, mely adatokat szeretné megismételni
+          title: Duplikált konferencia
+      conference_publications:
+        create:
+          error: Hiba történt a konferencia közzétételében.
+          success: A konferencia sikeresen jelent meg.
+        destroy:
+          error: Hiba történt a konferencia közzétételének közzétételénél.
+          success: A konferencia sikeresen közzétett.
+      conference_speakers:
+        create:
+          error: Hiba történt a konferencia hangszórójának hozzáadásával.
+          success: A konferencia sikeresen létrehozta a hangszórót.
+        destroy:
+          success: A hangszóró sikeresen törölve lett a konferencia számára.
+        edit:
+          title: A konferencia hangszóró frissítése.
+          update: frissítés
+        index:
+          conference_speakers_title: Konferencia hangszórók
+        new:
+          create: Teremt
+          title: Új konferencia hangszóró.
+        update:
+          error: Hiba történt a konferencia hangszórójának frissítéséhez.
+          success: A hangszóró sikeresen frissült a konferencia számára.
+      conference_user_roles:
+        create:
+          error: Hiba történt egy felhasználó hozzáadásával a konferencia számára.
+          success: A felhasználó sikeresen csatlakozott ehhez a konferenciához.
+        destroy:
+          success: A felhasználó sikeresen eltávolította ezt a konferenciát.
+        edit:
+          title: A konferencia felhasználó frissítése.
+          update: frissítés
+        index:
+          conference_admins_title: konferencia felhasználók számára
+        new:
+          create: Teremt
+          title: Új konferencia felhasználó.
+        update:
+          error: Hiba történt a konferencia felhasználójának frissítéséhez.
+          success: A felhasználó sikeresen frissítette ezt a konferenciát.
+      conferences:
+        create:
+          error: Hiba történt egy új konferencia létrehozásakor.
+          success: A konferencia sikeresen létrejött.
+        destroy:
+          success: A konferencia sikeresen törölve.
+        edit:
+          update: frissítés
+        exports:
+          registrations: regisztrációk
+        form:
+          title: Általános információ
+        index:
+          not_published: Nem publikált
+          published: Közzétett
+        new:
+          create: Teremt
+          title: konferencia
+        update:
+          error: Hiba történt a konferencia frissítésekor.
+          success: A konferencia sikeresen frissült.
+      conferences_copies:
+        create:
+          error: Hiba történt a konferencia másolása során.
+          success: A konferencia sikeresen megismétlődött.
+      menu:
+        conferences: Konferenciák
+        conferences_submenu:
+          attachment_collections: mappák
+          attachment_files: Files
+          attachments: Mellékletek
+          categories: Kategóriák
+          components: Alkatrészek
+          conference_admins: Konferencia adminisztrátorok
+          conference_invites: Konferenciahívások
+          conference_registrations: Konferencia regisztrációk
+          conference_speakers: Konferencia hangszórók
+          info: Info
+          moderations: moderálások
+      models:
+        conference:
+          fields:
+            created_at: 'Létrehozva:'
+            promoted: promotált
+            published: Közzétett
+            title: Cím
+        conference_speaker:
+          fields:
+            affiliation: Munkahely
+            full_name: Teljes név
+            position: Pozíció
+          name: Konferencia hangszóró
+        conference_user_role:
+          fields:
+            email: Email
+            name: Név
+            role: Szerep
+          name: Konferencia felhasználó
+          roles:
+            admin: Adminisztrátor
+            collaborator: Együttműködő
+            moderator: moderátor
+      titles:
+        conferences: Konferenciák
+    conference_speakers:
+      index:
+        title: Hangszórók
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+        conference_invites:
+          create:
+            error: Probléma merült fel a felhasználó csatlakozásakor.
+            success: A felhasználó sikeresen felkereste a konferenciát.
+          form:
+            attendee_type: A résztvevő típusa
+            existing_user: Létező felhasználó
+            invite_explanation: A felhasználót meghívják a konferenciára és a szervezetre is.
+            non_user: Nem létező felhasználó
+            select_user: Felhasználó kiválasztása
+          index:
+            filter:
+              accepted: Elfogadott
+              all: Minden
+              rejected: Elutasítva
+              sent: Küldött
+            filter_by: Szűrés vlami alapján
+            invite_attendee: Hívja meg a résztvevőt
+            invites: Meghívottak
+            search: Keresés
+          new:
+            explanation: A felhasználó meghívást kap egy konferenciára. Ha az e-mail nincs regisztrálva, akkor a szervezet is meghívást kap.
+            invite: Meghívás
+            new_invite: Felhasználó meghívása
+        conference_registrations:
+          index:
+            registrations: regisztrációk
+        conference_speakers:
+          form:
+            existing_user: Létező felhasználó
+            non_user: Nem felhasználó
+            select_user: Felhasználó kiválasztása
+            user_type: Felhasználó típusa
+          index:
+            search: Keresés
+        conferences:
+          form:
+            available_slots_help: Hagyja 0-ra, ha van korlátlan slot.
+            registrations_count:
+              one: 1 regisztráció volt.
+              other: '%{count} regisztráció volt.'
+            slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+        invite_join_conference_mailer:
+          invite:
+            decline: A "%{conference_title}" meghívása
+            invited_you_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
+            join: Csatlakozzon a "%{conference_title}"
+      conference:
+        registration_confirm:
+          cancel: Megszünteti
+          confirm: megerősít
+        show:
+          going: Haladó
+          join: Csatlakozzon a konferenciához
+          no_slots_available: Nincs szabad hely
+          remaining_slots:
+            one: 1 hely marad
+            other: "%{count} hely marad"
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
+          details: A konferencia részleteit megtalálja a mellékletben.
+      conference_registrations:
+        create:
+          invalid: Probléma merült fel a konferencián.
+          success: A konferencia sikeresen csatlakozott.
+        decline_invitation:
+          invalid: Hiba történt a meghívás visszautasításában.
+          success: Elutasította a meghívást sikeresen.
+        destroy:
+          invalid: Probléma merült fel a konferencián.
+          success: A konferencia sikeres volt.
+      conference_speaker:
+        show:
+          affiliation: Munkahely
+          personal_url: Személyes URL
+          position: Pozíció
+          short_bio: Rövid Önéletrajz
+          twitter_handle: Twitter
+      conference_speakers:
+        index:
+          speakers: Hangszórók
+      content_blocks:
+        highlighted_conferences:
+          name: Kiemelt konferenciák
+      index:
+        title: Konferenciák
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: A konferencia regisztrációja megerősítést nyert
+        invite_join_conference_mailer:
+          invite:
+            subject: Meghívás egy konferenciára való belépéshez
+      models:
+        conference_invite:
+          fields:
+            email: Email
+            name: Név
+            sent_at: Elküldve
+            status: Állapot
+          status:
+            accepted: Elfogadva (%{at})
+            rejected: Elutasítva (%{at})
+            sent: Küldött
+        conference_registration:
+          fields:
+            email: Email
+            name: Név
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktív konferenciák
+            see_all_conferences: Lásd az összes konferenciát
+      show:
+        end_date: Befejezés dátuma
+        objectives: célok
+        start_date: Kezdő dátum
+      statistics:
+        answers_count: válaszok
+        comments_count: Hozzászólások
+        conference_count: Konferenciák
+        debates_count: viták
+        endorsements_count: Elismerések
+        headline: Tevékenység
+        meetings_count: találkozók
+        orders_count: szavazatok
+        pages_count: Oldalak
+        posts_count: Hozzászólások
+        projects_count: projektek
+        proposals_count: javaslatok
+        results_count: Eredmények
+        surveys_count: Felmérések
+        users_count: résztvevők
+        votes_count: szavazatok
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_intro: A "%{resource_title}" konferencia foglalt rések több mint %{percentage}%.
+          email_outro: Ezt az értesítést megkaptuk, mert Ön a konferencia részvételi helyének adminisztrátora.
+          email_subject: A "%{resource_title}" konferencia foglalt rések több mint %{percentage}%
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia foglalt rések több mint %{percentage}%.
+        conference_updated:
+          email_intro: 'A "%{resource_title}" konferenciát frissítettük. Az új verzió az oldaláról olvasható:'
+          email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" konferenciát követi. Leiratkozhat az előző linkről.
+          email_subject: A "%{resource_title}" konferenciát frissítettük
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferenciát frissítettük.
+        registrations_enabled:
+          email_intro: 'A "%{resource_title}" konferencia lehetővé tette a regisztrációt. Regisztrálhatja magát az oldalán:'
+          email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" konferenciát követi. Leiratkozhat az előző linkről.
+          email_subject: A "%{resource_title}" konferencia lehetővé tette a regisztrációt.
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia engedélyezte a regisztrációkat.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'A konferencia nem található az adatbázisban (ID: %{id})'
+    menu:
+      conferences: Konferenciák
+  devise:
+    mailer:
+      join_conference:
+        subject: Meghívás egy konferenciára való belépéshez
+  layouts:
+    decidim:
+      conference_header:
+        conference_menu_item: A konferencia
+        conference_speaker_menu_item: Hangszórók
+        unfold: kibontakozik
+      conference_widgets:
+        show:
+          take_part: Részt vesz
+      conferences:
+        conference:
+          take_part: Részt vesz
+        index:
+          promoted_conferences: Támogatott konferenciák
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferencia"
+            other: "%{count} konferencia"
+        promoted_conference:
+          more_info: Több információ
+          take_part: Részt vesz

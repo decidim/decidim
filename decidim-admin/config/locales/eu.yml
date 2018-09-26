@@ -52,7 +52,6 @@ eu:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Deskribapen laburra
         highlighted_content_banner_title: Izenburua
-        homepage_image: Irudiaren irudia
         instagram_handler: Instagram kudeatzailea
         logo: Logotipo
         name: Izena
@@ -66,7 +65,6 @@ eu:
         show_statistics: Erakutsi estatistikak
         tos_version: Zerbitzu-baldintzak bertsioa
         twitter_handler: Twitter kudeatzailea
-        welcome_text: Ongietorri testua
         youtube_handler: YouTube kudeatzailea
       scope:
         code: Kodea
@@ -93,34 +91,6 @@ eu:
               must_be_ssl: Birbideratze URI SSL URI izan behar du
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Iragarki-bandako irudia
-        description: Descripción
-        developer_group: Sustatzailearen taldea
-        domain: Domeinua
-        end_date: Bukaera-data
-        hashtag: Traola
-        hero_image: Orri nagusiko irudia
-        local_area: Udal-alorrak
-        meta_scope: 'Metadatuak: esparrua'
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
-        promoted: Nabarmendua
-        scope: Esparrua
-        short_description: Deskribapen laburra
-        slug: URL testu laburra
-        start_date: Hasiera-data
-        subtitle: Azpititulua
-        target: Nori zuzentzen zaio?
-        title: Titulua
-      decidim/participatory_process_group:
-        description: Deskribapena
-        hero_image: Orri nagusiko irudia
-        name: Izena
-        participatory_processes: Prozesu partizipatiboak
-      decidim/participatory_process_step:
-        end_date: Bukaera-data
-        start_date: Hasiera-data
       decidim/static_page:
         content: Contenido
         slug: URL laburra
@@ -133,9 +103,6 @@ eu:
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
         site: Web
-  date:
-    formats:
-      datepicker: "%Y/%m/%d"
   decidim:
     admin:
       actions:
@@ -333,6 +300,7 @@ eu:
         areas: Arloak
         configuration: konfigurazioa
         dashboard: Kontrol-panela
+        homepage: Hasiera
         impersonations: impersonations
         newsletters: Buletinak
         oauth_applications: OAuth aplikazioak
@@ -526,6 +494,13 @@ eu:
           homepage_highlighted_content_banner_title: Highligted edukien banner
           layout_appearance_title: Editatu itxura diseinua
           omnipresent_banner_appearance_title: Editatu omnipresent banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Eduki bloke aktiboak
+          inactive_content_blocks: Eduki eduki gabeko blokeak
+      organization_homepage_content_blocks:
+        edit:
+          update: eguneratzearen
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
@@ -636,6 +611,7 @@ eu:
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa
+      view_public_page: Ikusi orri publikoa
     forms:
       errors:
         impersonate_user:
@@ -676,7 +652,3 @@ eu:
           title: Ezarpenak
         users:
           title: Erabiltzaileak
-  time:
-    formats:
-      datepicker: "%Y/%m/%d"
-      timepicker: "%d/%m/%Y %H:%M"

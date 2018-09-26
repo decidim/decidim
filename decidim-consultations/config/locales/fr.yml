@@ -3,7 +3,7 @@ fr:
     attributes:
       consultation:
         banner_image: Image de la bannière
-        decidim_highlighted_scope_id: Périmètre mis en valeur
+        decidim_highlighted_scope_id: Périmètre d'application mis en avant
         description: Description
         end_voting_date: Le vote prend fin le
         introductory_image: Image d'introduction
@@ -15,7 +15,7 @@ fr:
         title: Titre
       question:
         banner_image: Image de la bannière
-        decidim_scope_id: Périmètre municipal
+        decidim_scope_id: Périmètre d'application
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
@@ -26,12 +26,12 @@ fr:
         promoter_group: Organisateur
         question_context: Contexte
         reference: Référence
-        scope: Périmètre municipal
+        scope: Périmètre d'application
         slug: Identifiant
         subtitle: Sous-titre
         title: Titre
         vote: Système de vote externe
-        what_is_decided: Ce qui doit être décidé
+        what_is_decided: Objectifs
     errors:
       vote:
         decidim_consultations_response_id:
@@ -39,8 +39,8 @@ fr:
   activerecord:
     models:
       decidim/consultations:
-        one: Consultation
-        other: Consultations
+        one: Votation
+        other: Votations
       decidim/consultations/question:
         one: Question
         other: Questions
@@ -53,53 +53,53 @@ fr:
   decidim:
     admin:
       actions:
-        new_consultation: Nouvelle consultation
+        new_consultation: Nouvelle votation
         new_question: Nouvelle question
         new_response: Nouvelle réponse
         publish_results: Publier les résultats
         unpublish_results: Dépublier des résultats
       consultation_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cette consultation.
-          success: La consultation a été publiée avec succès.
+          error: Une erreur s'est produite lors de la publication de cette votation.
+          success: La votation a été publiée avec succès.
         destroy:
-          error: Il y a eu une erreur lors de la dépublication de cette consultation.
-          success: La consultation a été dépubliée avec succès.
+          error: Il y a eu une erreur lors de la dépublication de cette votation.
+          success: La votation a été dépubliée avec succès.
       consultation_results_publications:
         create:
-          error: Une erreur s'est produite lors de la publication des résultats de cette consultation.
-          success: Les résultats de la consultation ont été publiés avec succès.
+          error: Une erreur s'est produite lors de la publication des résultats de cette votation.
+          success: Les résultats de la votation ont été publiés avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la dépublication des résultats de cette consultation.
-          success: Les résultats de la consultation ont été dépubliés avec succès.
+          error: Une erreur s'est produite lors de la dépublication des résultats de cette votation.
+          success: Les résultats de la votation ont été dépubliés avec succès.
       consultations:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle consultation.
-          success: La consultation a été créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle votation.
+          success: La votation a été créée avec succès.
         destroy:
-          success: La consultation a été supprimée avec succès.
+          success: La votation a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
-          slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui amènent à cette consultation. Ils n''acceptent que les lettres, les chiffres et les tirets et doivent commencer par une lettre. Exemple : %{url}'
+          slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui amènent à cette votation. Ils n''acceptent que les lettres, les chiffres et les tirets et doivent commencer par une lettre. Exemple : %{url}'
           title: Informations générales
         index:
-          not_published: Non publié
-          published: Publié
+          not_published: Non publiée
+          published: Publiée
         new:
           create: Créer
-          title: Nouvelle consultation
+          title: Nouvelle votation
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette consultation.
-          success: Consultation mise à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de cette votation.
+          success: Votation mise à jour avec succès.
       menu:
-        consultations: Consultations
+        consultations: Votations
         consultations_submenu:
           info: Informations
           questions: Questions
         questions_submenu:
           components: Fonctionnalités
-          consultation: Consultation
+          consultation: Votation
           info: Informations
           responses: Réponses
       models:
@@ -109,8 +109,8 @@ fr:
             published: Publiée
             title: Titre
           name:
-            one: Consultation
-            other: Consultations
+            one: Votation
+            other: Votations
         question:
           fields:
             created_at: Créée le
@@ -144,8 +144,8 @@ fr:
         form:
           title: Informations générales
         index:
-          not_published: Non publiées
-          published: Publiées
+          not_published: Non publiée
+          published: Publiée
         new:
           create: Créer
           title: Nouvelle question
@@ -170,10 +170,14 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette réponse.
           success: Réponse mise à jour avec succès.
       titles:
-        consultations: Consultations
+        consultations: Votations
         questions: Questions
         responses: Réponses
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantité maximale d'éléments à afficher
       consultation:
         start_voting_date: Le vote commence le
         view_results: Voir les résultats
@@ -181,17 +185,20 @@ fr:
         view_results: Voir les résultats
       consultations:
         orders:
-          label: 'Trier les consultations par :'
-          random: Au hasard
+          label: 'Trier les votations par :'
+          random: Aléatoire
           recent: Les plus récentes
+      content_blocks:
+        highlighted_consultations:
+          name: Consultations surlignées
       count:
         title:
-          one: "%{count} consultation"
-          other: "%{count} consultations"
+          one: "%{count} votation"
+          other: "%{count} votations"
       filters:
-        active: Actifs
-        all: Tous
-        finished: Terminées
+        active: Actives
+        all: Tout
+        finished: Passées
         search: Rechercher
         state: État
         upcoming: À venir
@@ -199,11 +206,20 @@ fr:
         close_modal: Fermer la fenêtre
         filter: Filtre
         filter_by: Filtrer par
-        unfold: Dérouler
+        unfold: Voir la suite
       highlighted_questions:
         title: Questions de %{scope_name}
       index:
-        title: Consultations
+        title: Votations
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultations actives
+            see_all_consultations: Voir toutes les consultations
+            voting_ends_in:
+              one: Le vote se termine <strong>demain</strong>
+              other: Le vote prend fin à <strong>%{count} jour</strong>
+            voting_ends_today: Fin du vote <strong>aujourd'hui</strong>
       question:
         take_part: Participer
         view_results: Voir les résultats
@@ -214,11 +230,11 @@ fr:
         create:
           error: Il y a eu des erreurs lors du vote sur la question
       regular_questions:
-        title: Questions pour cette consultation
+        title: Questions pour cette votation
       show:
         badge_name:
           finished: Terminées
-          open: Ouvrir
+          open: Ouverte
           open_votes: Votes ouverts
           published_results: Résultats publiés
         footer_button_text:
@@ -228,16 +244,16 @@ fr:
           vote: Voter
         unspecified: Non précisé
     menu:
-      consultations: Consultations
+      consultations: Votations
     pages:
       home:
         statistics:
-          consultations_count: Consultations
+          consultations_count: Votations
     questions:
       results:
         title: Résultats
       show:
-        read_more: En voir plus
+        read_more: Voir la suite
       statistics:
         assistants_count_title: Assistants
         comments_count_title: Commentaires
@@ -247,12 +263,12 @@ fr:
         technical_data: Données techniques
       vote_button:
         already_voted: Déjà voté
-        already_voted_hover: Retirer le soutien
+        already_voted_hover: Retirer le vote
         starting_from: À partir de %{date}
         vote: Voter
       vote_modal:
         contextual_help: Veuillez sélectionner une option.
-        title: 'Consultation: soutien aux questions'
+        title: 'Votation : soutien aux questions'
       vote_modal_confirm:
         change: Modifier
         confirm: Confirmer
@@ -268,6 +284,6 @@ fr:
         start_voting_date: Le vote commence le
       question_components:
         question_menu_item: La question
-        unfold: Dérouler
+        unfold: Voir la suite
       question_header:
-        back_to_consultation: Voir toutes les consultations
+        back_to_consultation: Voir toutes les votations

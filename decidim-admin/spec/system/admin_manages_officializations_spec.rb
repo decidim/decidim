@@ -18,6 +18,11 @@ describe "Admin manages officializations", type: :system do
     let!(:officialized) { create(:user, :officialized, organization: organization) }
 
     let!(:not_officialized) { create(:user, organization: organization) }
+    let!(:deleted) do
+      user = create(:user, organization: organization)
+      result = Decidim::DestroyAccount.call(user, OpenStruct.new(valid?: true, delete_reason: "Testing"))
+      result["ok"]
+    end
     let!(:external_not_officialized) { create(:user) }
 
     before do
@@ -129,6 +134,51 @@ describe "Admin manages officializations", type: :system do
       within "tr[data-user-id=\"#{user.id}\"]" do
         expect(page).to have_content("Not officialized")
       end
+    end
+  end
+
+  describe "contacting the user" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to conversation path" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link "Contact"
+      end
+      expect(page).to have_current_path decidim.new_conversation_path(recipient_id: user.id)
+    end
+  end
+
+  describe "clicking on user name" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to user profile page" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link user.name
+      end
+      expect(page).to have_current_path decidim.profile_path(user.nickname)
+    end
+  end
+
+  describe "clicking on user nickname" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      click_link "Officializations"
+    end
+
+    it "redirect to user profile page" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        click_link user.nickname
+      end
+      expect(page).to have_current_path decidim.profile_path(user.nickname)
     end
   end
 end

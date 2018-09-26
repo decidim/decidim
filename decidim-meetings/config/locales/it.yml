@@ -20,6 +20,7 @@ it:
         end_time: Orario fine
         location: Luogo
         location_hints: Informazione sul luogo
+        organizer_id: Organizzatore
         private_meeting: Incontro privato
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
@@ -38,6 +39,10 @@ it:
             base:
               too_many_minutes: La durata degli articoli supera la durata della riunione di %{count} minuti
               too_many_minutes_child: La durata dell'elemento child supera la durata del genitore "%{parent_title}" dell'ordine del giorno di %{count} minuto
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Questa email è già stata invitata
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
       decidim/meetings/create_meeting_event: Incontro
@@ -76,6 +81,7 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             default_registration_terms: Termini di registrazione predefiniti
+            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
@@ -101,6 +107,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" è stata aggiornata
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
+        registration_code_validated:
+          email_intro: Il tuo codice di registrazione "%{registration_code}" è stato convalidato.
+          email_outro: Hai ricevuto questa notifica perché il codice di registrazione per la riunione "%{resource_title}" è stato convalidato.
+          email_subject: Il tuo codice di registrazione "%{registration_code}" è stato convalidato
+          notification_title: Il tuo codice di registrazione "%{registration_code}" per la riunione <a href="%{resource_path}">%{resource_title}</a> è stato convalidato.
         registrations_enabled:
           email_intro: 'La riunione "%{resource_title}" ha abilitato le registrazioni. Puoi registrarti sulla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
@@ -160,16 +171,31 @@ it:
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
+            decline: Rifiuta l'invito
             invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il link sottostante."
             join: Partecipa alla riunione '%{meeting_title}'
         invites:
           create:
             error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
             success: L'utente è stato invitato a partecipare alla riunione.
-          new:
-            explanation: L'utente sarà invitato a partecipare a una riunione. Se l'indirizzo email non è registrato, saranno anche invitati all'organizzazione.
+          form:
+            attendee_type: Tipo di partecipante
+            existing_user: Utente esistente
             invite: Invita
-            new_invite: Invita un utente
+            invite_explanation: L'utente sarà invitato a partecipare alla riunione e all'organizzazione.
+            non_user: Utente non esistente
+            select_user: Seleziona utente
+          index:
+            filter:
+              accepted: Accettato
+              all: Tutti
+              rejected: Respinto
+              sent: Inviato
+            filter_by: Filtra per
+            invite_attendee: Invita il partecipante
+            invites: Inviti
+            registrations_disabled: Non puoi invitare un partecipante perché le registrazioni sono disabilitate.
+            search: Ricerca
         meeting_closes:
           edit:
             close: Chiudi
@@ -226,9 +252,11 @@ it:
         registrations:
           edit:
             save: Salva
+            validate: Convalidare
+            validate_registration_code: Convalida il codice di registrazione
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
-            invite_user: Invita un utente
+            invites: Inviti
             registrations_count:
               one: Si è registrato un'iscrizione.
               other: Si sono registrate %{count} iscrizione.
@@ -237,7 +265,14 @@ it:
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
+          validate_registration_code:
+            invalid: Questo codice di registrazione non è valido.
+            success: Codice di registrazione validato con successo.
       admin_log:
+        invite:
+          create: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"
+          deleted: "%{user_name} non invitato %{attendee_name} dall'unire %{resource_name} incontri nello spazio %{space_name}"
+          update: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"
         meeting:
           close: "%{user_name} ha chiuso la riunione %{resource_name} sullo spazio %{space_name}"
           create: "%{user_name} ha creato la riunione %{resource_name} nello spazio %{space_name}"
@@ -250,6 +285,22 @@ it:
         minutes:
           create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
+      conference_venues: Sale per conferenze
+      content_blocks:
+        upcoming_events:
+          name: Prossimi eventi
+          upcoming_events: Prossimi incontri
+          view_all_events: Guarda tutto
+      directory:
+        meetings:
+          index:
+            all: Tutti
+            date: Data
+            meetings: incontri
+            past: Passato
+            search: Ricerca
+            space_type: Spazio partecipativo
+            upcoming: Prossime
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -272,8 +323,6 @@ it:
           filter: Filtra
           filter_by: Filtra per
           unfold: Espandi
-        index:
-          view_meeting: Visualizza meeting
         meeting_minutes:
           meeting_minutes: Riunione dei verbali
           related_information: Informazioni correlate
@@ -295,7 +344,19 @@ it:
             one: 1 slot restanti
             other: "%{count} slot rimanenti"
           view: vista
+      meetings_map:
+        view_meeting: Visualizza meeting
       models:
+        invite:
+          fields:
+            email: E-mail
+            name: Nome
+            sent_at: Inviato a
+            status: Stato
+          status:
+            accepted: Accettato (%{at})
+            rejected: Rifiutato (%{at})
+            sent: Inviato
         meeting:
           fields:
             closed: Chiuso
@@ -308,10 +369,14 @@ it:
         confirmation:
           confirmed_html: La registrazione per il <a href="%{url}">%{title}</a> di riunione è stata confermata.
           details: Puoi trovare i dettagli della riunione in allegato.
+          registration_code: Il tuo codice di registrazione è %{code}.
       registrations:
         create:
           invalid: C'è stato un problema a partecipare a questa riunione.
           success: Hai partecipato alla riunione con successo.
+        decline_invitation:
+          invalid: C'è stato un problema a rifiutare l'invito.
+          success: Hai rifiutato l'invito con successo.
         destroy:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.

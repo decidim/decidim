@@ -50,11 +50,17 @@ $datetime-bg: $primary;
 
 .card__content{
   padding: $card-padding-small;
-  padding-bottom: $card-padding-small / 2;
+
+  &:not(:only-child){
+    padding-bottom: $card-padding-small / 2;
+  }
 
   @include breakpoint(medium){
     padding: $card-padding;
-    padding-bottom: $card-padding / 2;
+
+    &:not(:only-child){
+      padding-bottom: $card-padding / 2;
+    }
   }
 }
 
@@ -754,6 +760,7 @@ $datetime-bg: $primary;
   }
 
   .card.success &,
+  .card.secondary &,
   .card.muted &,
   .card.warning &,
   .card.alert &{
@@ -906,6 +913,20 @@ $datetime-bg: $primary;
           @include absolute-center;
         }
       }
+    }
+  }
+}
+
+// card - participatory space
+.card__top{
+  @extend .card__footer;
+
+  .card__content{
+    line-height: $global-lineheight;
+    padding: $card-padding-small / 4 $card-padding-small;
+
+    @include breakpoint(medium){
+      padding: $card-padding / 4 $card-padding;
     }
   }
 }

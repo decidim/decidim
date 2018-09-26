@@ -3,7 +3,7 @@ pt-BR:
     attributes:
       consultation:
         banner_image: Imagem de banner
-        decidim_highlighted_scope_id: Escopo destacado
+        decidim_highlighted_scope_id: Âmbito em destaque
         description: Descrição
         end_voting_date: Votação termina
         introductory_image: Imagem introdutória
@@ -19,10 +19,10 @@ pt-BR:
         hashtag: Hashtag
         hero_image: Imagem inicial
         i_frame_url: URL do sistema de votação externa
-        origin_scope: Escopo
+        origin_scope: Âmbito
         origin_title: Origem
         origin_url: URL de origem
-        participatory_scope: Escopo participativo
+        participatory_scope: Âmbito participativo
         promoter_group: Grupo promotor
         question_context: Contexto
         reference: Referência
@@ -174,6 +174,10 @@ pt-BR:
         questions: Questões
         responses: Respostas
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantidade máxima de elementos para mostrar
       consultation:
         start_voting_date: A votação começa
         view_results: Ver resultados
@@ -182,8 +186,11 @@ pt-BR:
       consultations:
         orders:
           label: 'Ordenar consultas por:'
-          random: Aleatória
+          random: Aleatório
           recent: Mais recente
+      content_blocks:
+        highlighted_consultations:
+          name: Consultas destacadas
       count:
         title:
           one: "%{count} consulta"
@@ -204,6 +211,15 @@ pt-BR:
         title: Perguntas de %{scope_name}
       index:
         title: Consultas
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultas ativas
+            see_all_consultations: Veja todas as consultas
+            voting_ends_in:
+              one: A votação termina <strong>amanhã</strong>
+              other: A votação termina em <strong>%{count} dia</strong>
+            voting_ends_today: A votação termina <strong>hoje</strong>
       question:
         take_part: Participar
         view_results: Ver resultados
@@ -237,11 +253,11 @@ pt-BR:
       results:
         title: Resultados
       show:
-        read_more: Consulte Mais informação
+        read_more: Ver mais
       statistics:
         assistants_count_title: Assistentes
         comments_count_title: Comentários
-        meetings_count_title: Reuniões
+        meetings_count_title: Encontros
         supports_count_title: Suporta
       technical_info:
         technical_data: Dados técnicos

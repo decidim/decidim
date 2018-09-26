@@ -53,7 +53,6 @@ en:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Short description
         highlighted_content_banner_title: Title
-        homepage_image: Homepage image
         instagram_handler: Instagram handler
         logo: Logo
         name: Name
@@ -67,7 +66,6 @@ en:
         show_statistics: Show statistics
         tos_version: Terms of service version
         twitter_handler: Twitter handler
-        welcome_text: Welcome text
         youtube_handler: YouTube handler
       scope:
         code: Code
@@ -94,34 +92,6 @@ en:
               must_be_ssl: The redirect URI must be a SSL URI
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Banner image
-        description: Description
-        developer_group: Promoter group
-        domain: Domain
-        end_date: End date
-        hashtag: Hashtag
-        hero_image: Home image
-        local_area: Local area
-        meta_scope: Scope metadata
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        promoted: Promoted
-        scope: Scope
-        short_description: Short description
-        slug: URL slug
-        start_date: Start date
-        subtitle: Subtitle
-        target: Target
-        title: Title
-      decidim/participatory_process_group:
-        description: Description
-        hero_image: Home image
-        name: Name
-        participatory_processes: Participatory processes
-      decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
       decidim/static_page:
         content: Content
         slug: URL slug
@@ -134,9 +104,6 @@ en:
         organization_url: Organization URL
         redirect_uri: Redirect URI
         site: Website
-  date:
-    formats:
-      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -334,6 +301,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        homepage: Homepage
         impersonations: Impersonations
         newsletters: Newsletters
         oauth_applications: OAuth applications
@@ -527,6 +495,13 @@ en:
           homepage_highlighted_content_banner_title: Highligted content banner
           layout_appearance_title: Edit layout appearance
           omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+      organization_homepage_content_blocks:
+        edit:
+          update: Update
       participatory_space_private_users:
         create:
           error: There was an error adding a private user for this participatory space.
@@ -637,6 +612,7 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
@@ -677,7 +653,3 @@ en:
           title: Settings
         users:
           title: Users
-  time:
-    formats:
-      datepicker: "%m/%d/%Y"
-      timepicker: "%m/%d/%Y %H:%M"

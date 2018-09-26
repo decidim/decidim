@@ -4,167 +4,122 @@ require "spec_helper"
 
 module Decidim
   describe ActionAuthorizationHelper do
-    let!(:component) { create(:component) }
+    let(:component) { create(:component) }
+    let(:resource) { nil }
     let(:user) { create(:user) }
     let(:action) { "foo" }
     let(:status) { double(ok?: authorized) }
     let(:authorized) { true }
 
+    let(:widget_text) { "Link" }
+    let(:path) { "fake_path" }
+
     before do
       allow(helper).to receive(:current_component).and_return(component)
       allow(helper).to receive(:current_user).and_return(user)
-      allow(helper).to receive(:action_authorized_to).with(action).and_return(status)
-      allow(helper).to receive(:action_authorized_to).with(nil).and_return(status)
+      allow(helper).to receive(:action_authorized_to).with(action, resource: resource).and_return(status)
     end
 
-    describe "action_authorized_link_to" do
-      context "when the action is authorized" do
-        it "renders a regular link" do
-          rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
-          expect(rendered).not_to include("data-open")
-          expect(rendered).to include("<a")
-          expect(rendered).to include("Link")
+    shared_examples "an action authorization widget helper" do |params|
+      if params[:has_action]
+        context "when the action is not authorized" do
+          let(:authorized) { false }
+
+          it "renders a widget toggling the authorization modal" do
+            expect(subject).not_to include(path)
+            expect(subject).to include('data-open="authorizationModal"')
+            expect(subject).to include("data-open-url=\"/authorization_modals/#{action}/f/#{component.id}\"")
+            expect(subject).to include(*params[:widget_parts])
+          end
+
+          context "when called with a resource" do
+            let(:resource) { create(:dummy_resource, component: component) }
+
+            it "renders a widget toggling the authorization modal" do
+              expect(subject).not_to include(path)
+              expect(subject).to include('data-open="authorizationModal"')
+              expect(subject).to include("data-open-url=\"/authorization_modals/#{action}/f/#{component.id}/#{resource.resource_manifest.name}/#{resource.id}\"")
+              expect(subject).to include(*params[:widget_parts])
+            end
+          end
         end
 
-        it "renders with a block" do
-          rendered = helper.action_authorized_link_to("foo", "fake_path") { "Link" }
-
-          expect(rendered).not_to include("data-open")
-          expect(rendered).to include("<a")
-          expect(rendered).to include("Link")
-        end
+      else
+        let(:action) { nil }
       end
 
-      context "when the action is not authorized" do
-        let(:authorized) { false }
-
-        it "renders a link toggling the authorization modal" do
-          rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
-          expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-open="authorizationModal"')
-          expect(rendered).to include("data-open-url=\"/authorization_modals/foo/f/#{component.id}\"")
-          expect(rendered).to include("<a")
+      context "when #{params[:has_action] ? "the action is authorized" : "the user is logged"}" do
+        it "renders a regular widget" do
+          expect(subject).not_to include("data-open")
+          expect(subject).to include(path)
+          expect(subject).to include(*params[:widget_parts])
         end
       end
 
       context "when there is not a logged user" do
         let(:user) { nil }
 
-        it "renders a link toggling the login modal" do
-          rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
-          expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-open="loginModal"')
-          expect(rendered).to include("<a")
+        it "renders a widget toggling the login modal" do
+          expect(subject).not_to include(path)
+          expect(subject).to include('data-open="loginModal"')
+          expect(subject).to include(*params[:widget_parts])
         end
+      end
+    end
+
+    describe "action_authorized_link_to" do
+      context "when called with text" do
+        subject(:rendered) { helper.action_authorized_link_to(action, widget_text, path, resource: resource) }
+
+        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a)
+      end
+
+      context "when called with a block" do
+        subject(:rendered) { helper.action_authorized_link_to(action, path, resource: resource) { widget_text } }
+
+        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a)
       end
     end
 
     describe "action_authorized_button_to" do
-      context "when the action is authorized" do
-        it "renders a regular button" do
-          rendered = helper.action_authorized_button_to("foo", "Link", "fake_path")
-          expect(rendered).not_to include("data-open")
-          expect(rendered).to include("<input")
-          expect(rendered).to include("type=\"submit\"")
-          expect(rendered).to include("Link")
-        end
+      context "when called with text" do
+        subject(:rendered) { helper.action_authorized_button_to(action, widget_text, path, resource: resource) }
 
-        it "renders with a block" do
-          rendered = helper.action_authorized_button_to("foo", "fake_path") { "Link" }
-
-          expect(rendered).not_to include("data-open")
-          expect(rendered).to include("<button")
-          expect(rendered).to include("type=\"submit\"")
-          expect(rendered).to include("Link")
-        end
+        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<input type="submit")
       end
 
-      context "when the action is not authorized" do
-        let(:authorized) { false }
+      context "when called with a block" do
+        subject(:rendered) { helper.action_authorized_button_to(action, path, resource: resource) { widget_text } }
 
-        it "renders a button toggling the authorization modal" do
-          rendered = helper.action_authorized_button_to("foo", "Link", "fake_path")
-          expect(rendered).to include("<input")
-          expect(rendered).to include("type=\"submit\"")
-          expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-open="authorizationModal"')
-          expect(rendered).to include("data-open-url=\"/authorization_modals/foo/f/#{component.id}\"")
-        end
-      end
-
-      context "when there is not a logged user" do
-        let(:user) { nil }
-
-        it "renders a button toggling the login modal" do
-          rendered = helper.action_authorized_button_to("foo", "Link", "fake_path")
-          expect(rendered).to include("<input")
-          expect(rendered).to include("type=\"submit\"")
-          expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-open="loginModal"')
-        end
+        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<button type="submit")
       end
     end
 
     describe "logged_link_to" do
-      context "when there is a logged user" do
-        it "renders a regular link" do
-          rendered = helper.logged_link_to("Link", "fake_path")
-          expect(rendered).not_to include("data-open")
-          expect(rendered).to include("<a")
-          expect(rendered).to include("Link")
-        end
+      context "when called with text" do
+        subject(:rendered) { helper.logged_link_to(widget_text, path, resource: resource) }
 
-        it "renders with a block" do
-          rendered = helper.logged_link_to("fake_path") { "Link" }
-
-          expect(rendered).not_to include("data-open")
-          expect(rendered).to include("<a")
-          expect(rendered).to include("Link")
-        end
+        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a)
       end
 
-      context "when there is not a logged user" do
-        let(:user) { nil }
+      context "when called with a block" do
+        subject(:rendered) { helper.logged_link_to(path, resource: resource) { widget_text } }
 
-        it "renders a link toggling the login modal" do
-          rendered = helper.logged_link_to("Link", "fake_path")
-          expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-open="loginModal"')
-          expect(rendered).to include("<a")
-        end
+        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a)
       end
     end
 
     describe "logged_button_to" do
-      context "when there is a logged user" do
-        it "renders a regular button" do
-          rendered = helper.logged_button_to("Link", "fake_path")
-          expect(rendered).not_to include("data-open")
-          expect(rendered).to include("<input")
-          expect(rendered).to include("type=\"submit\"")
-          expect(rendered).to include("Link")
-        end
+      context "when called with text" do
+        subject(:rendered) { helper.logged_button_to(widget_text, path, resource: resource) }
 
-        it "renders with a block" do
-          rendered = helper.logged_button_to("fake_path") { "Link" }
-
-          expect(rendered).not_to include("data-open")
-          expect(rendered).to include("<button")
-          expect(rendered).to include("type=\"submit\"")
-          expect(rendered).to include("Link")
-        end
+        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<input type="submit")
       end
 
-      context "when there is not a logged user" do
-        let(:user) { nil }
+      context "when called with a block" do
+        subject(:rendered) { helper.logged_button_to(path, resource: resource) { widget_text } }
 
-        it "renders a button toggling the login modal" do
-          rendered = helper.logged_button_to("Link", "fake_path")
-          expect(rendered).to include("<input")
-          expect(rendered).to include("type=\"submit\"")
-          expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-open="loginModal"')
-        end
+        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<button type="submit")
       end
     end
   end

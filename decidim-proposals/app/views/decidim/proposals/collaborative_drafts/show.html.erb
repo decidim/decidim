@@ -1,0 +1,136 @@
+<% add_decidim_meta_tags({
+  description: @collaborative_draft.body,
+  title: @collaborative_draft.title,
+  url: collaborative_draft_url(@collaborative_draft.id)
+}) %>
+
+<% if current_user.nil? || allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+  <div class="row">
+    <div class="columns">
+      <div class="callout secondary"><%= t(".info-message").html_safe %></div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row column view-header">
+  <%= link_to collaborative_drafts_path do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+
+  <h2 class="heading2">
+    <%= @collaborative_draft.title %>
+  </h2>
+
+  <%= cell("decidim/coauthorships", @collaborative_draft, has_actions: true, size: 3) %>
+</div>
+
+<div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+      <div class="card text-center" id="collaborative_draft_publish">
+        <div class="card__content">
+          <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :publish %>
+          <small>
+            <%= t("publish_info", scope:"decidim.proposals.collaborative_drafts.show") %>
+            <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :withdraw %>
+          </small>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="card text-center">
+      <div class="card__content">
+        <% if @collaborative_draft.published? %>
+          <%= cell "decidim/proposals/collaborative_draft_link_to_proposal", @collaborative_draft %>
+        <% else %>
+          <div>
+            <strong class="text-large text-uppercase">
+              <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
+            </strong>
+            <small class="text-medium">
+              <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: "#{@collaborative_draft.versions_count}") %>
+            </small>
+          </div>
+
+          <div>
+            <span class="text-medium">
+              <%= link_to t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), collaborative_draft_versions_path(@collaborative_draft) %>
+            </span>
+          </div>
+        <% end %>
+
+        <% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+          <%= link_to t("edit", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button secondary hollow expanded button--sc mt-s", id: "collaborative_draft_edit" %>
+        <% end %>
+
+        <%= render "request_access_form" %>
+
+        <% if @collaborative_draft.requesters.include? current_user %>
+          <button type="button" class="button secondary light expanded button--sc mt-s">
+            <%= t("requested_access", scope:"decidim.proposals.collaborative_drafts.show") %>
+          </button>
+        <% end %>
+      </div>
+
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item authors_status">
+            <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.authors") do %>
+              <%= icon("people", class: "icon--small") + " " + "#{@collaborative_draft.versions.group_by(&:whodunnit).size}" %>
+            <% end %>
+          </li>
+
+          <li class="card-data__item versions_status">
+            <%= link_to collaborative_draft_versions_path(@collaborative_draft) do %>
+              <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.contributions") do %>
+                <%= icon("pencil", class: "icon--small") + " " + "#{@collaborative_draft.versions.count}" %>
+              <% end %>
+            <% end %>
+          </li>
+          <li class="card-data__item">
+            <%= link_to "#comments" do %>
+              <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.comments") do %>
+                <%= icon("comment-square", class: "icon--small") + " " + "#{@collaborative_draft.comments.count}" %>
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <%= render partial: "collaborator_requests" %>
+
+    <%= resource_reference(@collaborative_draft) %>
+
+    <%= render partial: "decidim/shared/share_modal" %>
+  </div>
+
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <%== cell("decidim/proposals/collaborative_draft_m", @collaborative_draft, full_badge: true).badge %>
+
+      <%= simple_format @collaborative_draft.body %>
+
+      <% if component_settings.geocoding_enabled? %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
+      <% end %>
+
+      <%= cell "decidim/tags", @collaborative_draft, context: { extra_classes: ["tags--collaborative-draft"] } %>
+    </div>
+  </div>
+</div>
+
+<%= attachments_for @collaborative_draft %>
+<%= comments_for @collaborative_draft %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>
+
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: @collaborative_draft,
+    form: @report_form,
+    url: decidim.report_path(sgid: @collaborative_draft.to_sgid.to_s)
+  }
+%>

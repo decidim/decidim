@@ -13,11 +13,11 @@ nl:
         end_date: Einddatum
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        local_area: Lokaal gebied
+        local_area: Organisatiegebied
         meta_scope: Omvang metadata
         participatory_process_group_id: Groep thema's
-        participatory_scope: Participatief toepassingsgebied
-        participatory_structure: Participatieve structuur
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Scope
@@ -27,7 +27,7 @@ nl:
         slug: URL slak
         start_date: Startdatum
         subtitle: Ondertiteling
-        target: Doel
+        target: Wie doet mee
         title: Titel
       participatory_process_group:
         description: Beschrijving
@@ -257,7 +257,9 @@ nl:
       processes: Thema's
     participatory_process_groups:
       show:
-        group_participatory_processes: Thema's voor %{group}
+        group_participatory_processes:
+          one: 1 processen voor %{group}
+          other: "%{count} processen voor %{group}"
         title: Participerende procesgroepen
     participatory_process_steps:
       index:
@@ -265,6 +267,9 @@ nl:
         title: Participatieve processtappen
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
@@ -272,22 +277,46 @@ nl:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Gemarkeerde processen
       index:
         title: Burgerinspraak
-      order_by_processes:
-        active: Actief
-        all: Alle
-        past: Archief
-        upcoming: Aankomende
       pages:
         home:
           highlighted_processes:
             active_processes: Actieve thema's
             active_step: Actieve stap
+            more_information: Meer informatie
+            participate: Deelnemen
             see_all_processes: Bekijk alle thema's
       participatory_process_groups:
         none: Geen
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 actief proces
+              other: "%{count} actieve processen"
+            all:
+              one: 1 proces
+              other: "%{count} processen"
+            past:
+              one: 1 proces uit het verleden
+              other: "%{count} eerdere processen"
+            upcoming:
+              one: 1 aanstaande proces
+              other: "%{count} aankomende processen"
+          explanations:
+            no_active: Geen actieve processen
+            no_active_nor_upcoming: Geen actieve of aankomende processen
+            no_active_nor_upcoming_callout: Er zijn geen actieve of aankomende processen. Hier is een lijst met de vorige.
+          names:
+            active: Actief
+            all: Alle
+            past: Archief
+            upcoming: Aankomende
+          see: Zien
         index:
           loading: Laden van resultaten...
       show:
@@ -330,10 +359,6 @@ nl:
       participatory_processes:
         index:
           promoted_processes: Uitgelichte thema’s
-        order_by_processes:
-          processes:
-            one: "%{count} thema"
-            other: "%{count} thema's"
         participatory_process:
           active_step: 'Huidige stap:'
           take_part: Deelnemen

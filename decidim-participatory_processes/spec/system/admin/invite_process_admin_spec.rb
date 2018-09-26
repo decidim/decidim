@@ -38,7 +38,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "Info\nSteps\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess users\nModerations"
+        expect(page.text).to eq "View public page\nInfo\nSteps\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess users\nModerations"
       end
     end
   end
@@ -68,7 +68,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "Info\nSteps\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess users\nModerations"
+        expect(page.text).to eq "View public page\nInfo\nSteps\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess users\nModerations"
       end
     end
   end

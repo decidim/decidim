@@ -5,7 +5,7 @@ fr:
         additional_info: Information sur le tirage au sort
         decidim_category_id: Catégories des propositions sur lesquelles vous souhaitez appliquer le tirage au sort
         decidim_proposals_component_id: Ensemble de propositions
-        dice: Résultat de votre tirage au dé. Tirez au sort un nombre de 1 à 6, soit à l'aide d'un dé à 6 faces soit par tout autre moyen, et entrez ici le nombre obtenu devant témoin(s). Cette procédure contribue à garantir la sincérité et le caractère aléatoire du résultat
+        dice: Résultat de votre tirage au dé. Tirez au sort un nombre de 1 à 6, soit à l'aide d'un dé à 6 faces soit par tout autre moyen, et entrez ici le nombre obtenu devant témoin(s). Cette procédure contribue à garantir la sincérité et le caractère aléatoire du résultat.
         target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez tirer au sort parmi celles du groupe de propositions que vous avez choisi précédemment)
         title: Titre
         witnesses: Témoins
@@ -49,12 +49,12 @@ fr:
             fields:
               category: Catégorie
               created_at: Date de création
-              decidim_proposals_component: Fonctionnalité (Propositions)
+              decidim_proposals_component: Module de propositions
               dice: Dé
               reference: Référence
-              request_timestamp: Date et Heure
+              request_timestamp: Date et heure
               seed: Valeur aléatoire
-              target_items: Eléments à sélectionner
+              target_items: Éléments à sélectionner
               title: Titre
             name:
               one: Tirage au sort
@@ -104,8 +104,8 @@ fr:
           cancelled: Annulé
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          search: Chercher
-          state: Etat
+          search: Rechercher
+          state: État
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -140,7 +140,7 @@ fr:
           selected_proposals:
             one: proposition sélectionnée
             other: '%{count} propositions sélectionnées'
-          view: Vue
+          view: Voir
         sortition_author:
           deleted: Utilisateur supprimé
         sortition_cancel_author:
@@ -148,4 +148,4 @@ fr:
         sortitions_count:
           count:
             one: 1 tirage au sort
-            other: "%{count} tirage(s) au sort"
+            other: "%{count} tirages au sort"

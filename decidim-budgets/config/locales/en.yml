@@ -22,6 +22,7 @@ en:
         confirm_destroy: Are you sure you want to delete this project?
         destroy: Delete
         edit: Edit
+        import: Import proposals to projects
         new: New project
         preview: Preview
         title: Actions
@@ -48,6 +49,14 @@ en:
           update:
             invalid: There's been a problem updating this project
             success: Project successfully updated
+        proposals_imports:
+          create:
+            invalid: There's been a problem importing the proposals into projects
+            success: "%{number} proposals successfully imported into projects"
+          new:
+            create: Import proposals to projects
+            no_components: There are no other proposal components in this participatory space to import the proposals into projects.
+            select_component: Please select a component
       admin_log:
         project:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
@@ -122,6 +131,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             projects_per_page: Projects per page
+            resources_permissions_enabled: Actions permissions can be set for each meeting
             total_budget: Total budget
             vote_threshold_percent: Vote threshold percent
           step:

@@ -29,11 +29,12 @@ es-PY:
         instagram: Instagram
         internal_organisation: Organización interna
         is_transparent: Es transparente
-        local_area: Áreas municipales
+        local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
+        parent_id: Asamblea principal
         participatory_processes_ids: Procesos participativos relacionados
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         private_space: Espacio privado
         promoted: Destacado
         published_at: Publicado
@@ -45,7 +46,7 @@ es-PY:
         slug: Texto corto de URL
         special_features: Características especiales
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
+        target: Quién participa
         title: Título
         twitter: Twitter
         youtube: Youtube
@@ -59,7 +60,7 @@ es-PY:
         gender: Género
         position: Posición
       assembly_user_role:
-        email: Email
+        email: Correo electrónico
         name: Nombre
         role: Rol de usuario
   activerecord:
@@ -217,6 +218,7 @@ es-PY:
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de asamblea
+            select_parent_assembly: Seleccionar ensamblaje principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -236,6 +238,9 @@ es-PY:
               not_ceased: No cesado
             filter_by: Filtrado por
             search: Buscar
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Cantidad máxima de elementos para mostrar
       assembly_members:
         index:
           members: Miembros
@@ -247,6 +252,9 @@ es-PY:
         others: Otros
         participatory: Participativo
         working_group: Grupo de trabajo
+      content_blocks:
+        highlighted_assemblies:
+          name: Asambleas destacadas
       created_by:
         city_council: Ayuntamiento
         others: Otros
@@ -277,9 +285,9 @@ es-PY:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Áreas municipales
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        local_area: Área de organización
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         private_space: Esta es una asamblea privada
         purpose_of_action: Propósito de la acción
         read_less: Leer menos
@@ -287,7 +295,7 @@ es-PY:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        target: '¿A quién va dirigida?'
+        target: Quién participa
       statistics:
         answers_count: Respuestas
         assemblies_count: Asambleas
@@ -324,7 +332,9 @@ es-PY:
         assembly:
           take_part: Participa
         index:
+          organizational_chart: Organigrama
           promoted_assemblies: Asambleas destacadas
+          reset_chart: Reiniciar
         order_by_assemblies:
           assemblies:
             one: "%{count} asamblea"

@@ -4,7 +4,7 @@ uk:
       participatory_process:
         announcement: Оголошення
         banner_image: Банерне зображення
-        copy_categories: Скопіювати розряди
+        copy_categories: Скопіювати категорії
         copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
@@ -13,12 +13,12 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцева дільниця
+        local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
         participatory_process_group_id: Сукупність рухів
-        participatory_scope: Обсяг співучасті
-        participatory_structure: Структура співучасті
-        promoted: Рекламується
+        participatory_scope: Що вирішується
+        participatory_structure: Як це вирішується
+        promoted: Висвітлено
         published_at: 'Оприлюднено:'
         scope_id: Обсяг
         scopes_enabled: Обсяги увімкнено
@@ -27,7 +27,7 @@ uk:
         slug: Скорочена веб-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
-        target: Мета
+        target: Хто бере участь
         title: Назва
       participatory_process_group:
         description: Опис
@@ -88,7 +88,7 @@ uk:
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
-          categories: Розряди
+          categories: Категорії
           components: Складові
           info: Відомості
           moderations: Дії з модерації
@@ -263,7 +263,11 @@ uk:
       processes: Рухи
     participatory_process_groups:
       show:
-        group_participatory_processes: Рухи для %{group}
+        group_participatory_processes:
+          one: 1 рух у %{group}
+          few: "%{count} рухи у %{group}"
+          many: "%{count} рухів у %{group}"
+          other: "%{count} рухів у %{group}"
         title: Сукупності рухів співучасті
     participatory_process_steps:
       index:
@@ -278,24 +282,56 @@ uk:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Висвітлені рухи
       index:
         title: Рухи співучасті
-      order_by_processes:
-        active: Діючі
-        all: Усі
-        past: Минулі
-        upcoming: Прийдешні
       pages:
         home:
           highlighted_processes:
             active_processes: Діючі рухи
             active_step: Діючий крок
+            more_information: Додаткові відомості
+            participate: Взяти участь
             see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 діючий рух
+              few: "%{count} діючих рухи"
+              many: "%{count} діючих рухів"
+              other: "%{count} діючих рухів"
+            all:
+              one: 1 рух
+              few: "%{count} рухи"
+              many: "%{count} рухів"
+              other: "%{count} рухів"
+            past:
+              one: 1 минулий рух
+              few: "%{count} минулі рухи"
+              many: "%{count} минулих рухів"
+              other: "%{count} минулих рухів"
+            upcoming:
+              one: 1 прийдешній рух
+              few: "%{count} прийдешні рухи"
+              many: "%{count} прийдешніх рухів"
+              other: "%{count} прийдешніх рухів"
+          explanations:
+            no_active: Нема діючих рухів
+            no_active_nor_upcoming: Немає діючих чи прийдешніх рухів
+            no_active_nor_upcoming_callout: Немає ні діючих, ні прийдешніх процесів. Ось список минулих.
+          names:
+            active: Діючі
+            all: Усі
+            past: Минулі
+            upcoming: Прийдешні
+          see: Подивитися
         index:
-          loading: Завантаження підсумків...
+          loading: Завантаження результатів...
       show:
         developer_group: Робочий гурт з просування
         end_date: Дата закінчення
@@ -317,7 +353,7 @@ uk:
         orders_count: Голосів
         pages_count: Сторінок
         processes_count: Рухів
-        projects_count: Задумів
+        projects_count: Проектів
         proposals_count: Пропозицій
         results_count: Підсумків
         surveys_count: Опитувань
@@ -336,12 +372,6 @@ uk:
       participatory_processes:
         index:
           promoted_processes: Висвітлені рухи
-        order_by_processes:
-          processes:
-            one: "%{count} рух"
-            few: "%{count} рухи"
-            many: "%{count} рухів"
-            other: "%{count} рухів"
         participatory_process:
           active_step: 'Поточний крок:'
           take_part: Взяти участь

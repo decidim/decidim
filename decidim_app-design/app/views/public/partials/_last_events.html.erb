@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="columns medium-6">
+    <% 4.times do %>
+    <article class="card">
+      <div class="p-s">
+        <div class="card__header">
+          <%= link_to page_path("meetings/meeting-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::Lorem.sentence %>
+            </h5>
+          <% end %>
+        </div>
+        <div class="card__text">
+          <div class="row collapse text-medium">
+            <span class="column medium-4 icon--container"><%= icon "datetime", class: "primary" %>&nbsp;<%= Faker::Time.forward(Faker::Number.non_zero_digit.to_i, :afternoon).strftime("%e %^b %Y · %k:%M") %></span>
+            <span class="column medium-8">PROCESO&nbsp;<%= link_to "Plan de Equipamentos de Nou Barris", page_path("meetings/meeting-view") %></span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <% end %>
+  </div>
+  <div class="columns medium-6">
+    <% geolocation_enabled = true %>
+    <% if geolocation_enabled %>
+      <%= partial "meetings_map" %>
+    <% else %>
+    <% 4.times do %>
+    <article class="card">
+      <div class="p-s">
+        <div class="card__header">
+          <%= link_to page_path("meetings/meeting-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::Lorem.sentence %>
+            </h5>
+          <% end %>
+        </div>
+        <div class="card__text">
+          <div class="row collapse text-medium">
+            <span class="column medium-4 icon--container"><%= icon "datetime", class: "primary" %>&nbsp;<%= Faker::Time.forward(Faker::Number.non_zero_digit.to_i, :afternoon).strftime("%e %^b %Y · %k:%M") %></span>
+            <span class="column medium-8">PROCESO&nbsp;<%= link_to "Plan de Equipamentos de Nou Barris", page_path("meetings/meeting-view") %></span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="column">
+    <button type="button" class="button hollow button--sc pull-right">Ver todos</button>
+  </div>
+</div>

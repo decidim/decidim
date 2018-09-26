@@ -13,11 +13,11 @@ it:
         end_date: Data di fine
         hashtag: Hashtag
         hero_image: Immagine della Home Page
-        local_area: Municipi
+        local_area: Area organizzativa
         meta_scope: Metadati di ambito
         participatory_process_group_id: Gruppo di processi
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         promoted: Promossa
         published_at: Pubblicato a
         scope_id: Objetivos
@@ -27,7 +27,7 @@ it:
         slug: URL slug
         start_date: Date di inizio
         subtitle: Sottotitolo
-        target: A chi è destinato il processo?
+        target: Chi partecipa
         title: Nome
       participatory_process_group:
         description: Descrizione
@@ -257,7 +257,9 @@ it:
       processes: Processi
     participatory_process_groups:
       show:
-        group_participatory_processes: Processi per %{group}
+        group_participatory_processes:
+          one: 1 processi per %{group}
+          other: "%{count} processi per %{group}"
         title: Gruppi di processi partecipativi
     participatory_process_steps:
       index:
@@ -265,6 +267,9 @@ it:
         title: Fasi del processo partecipativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantità massima di elementi da mostrare
         participatory_process_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
@@ -272,22 +277,46 @@ it:
           form:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processi evidenziati
       index:
         title: Processi partecipativi
-      order_by_processes:
-        active: Attivo
-        all: Tutti
-        past: Passato
-        upcoming: Imminenti
       pages:
         home:
           highlighted_processes:
             active_processes: Processi attivi
             active_step: Passo attivo
+            more_information: Maggiori informazioni
+            participate: Partecipare
             see_all_processes: Vedere tutti i processi
       participatory_process_groups:
         none: Nessuno
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 processo attivo
+              other: "%{count} processi attivi"
+            all:
+              one: 1 processo
+              other: "%{count} processi"
+            past:
+              one: 1 processo passato
+              other: "%{count} processi passati"
+            upcoming:
+              one: 1 processo imminente
+              other: "%{count} processi imminenti"
+          explanations:
+            no_active: Nessun processo attivo
+            no_active_nor_upcoming: Nessun processo attivo o imminente
+            no_active_nor_upcoming_callout: Non ci sono processi attivi o imminenti. Ecco una lista di quelli passati.
+          names:
+            active: Attivo
+            all: Tutti
+            past: Passato
+            upcoming: Imminenti
+          see: Vedere
         index:
           loading: Caricamento risultati...
       show:
@@ -330,10 +359,6 @@ it:
       participatory_processes:
         index:
           promoted_processes: Processi evidenziati
-        order_by_processes:
-          processes:
-            one: "%{count} processo"
-            other: "%{count} processi"
         participatory_process:
           active_step: 'Fase attuale:'
           take_part: Partecipa

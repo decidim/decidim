@@ -4,7 +4,7 @@ ru:
       participatory_process:
         announcement: Объявление
         banner_image: Изображение баннера
-        copy_categories: Скопировать разряды
+        copy_categories: Скопировать категории
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
@@ -13,12 +13,12 @@ ru:
         end_date: Дата окончания
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Местный участок
+        local_area: Участок организации
         meta_scope: Метаданные охвата
         participatory_process_group_id: Группа движений
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
-        promoted: Рекламируется
+        participatory_scope: Что решается
+        participatory_structure: Как это решается
+        promoted: Рекомендуется
         published_at: 'Обнародовано:'
         scope_id: Охват
         scopes_enabled: Охваты включены
@@ -27,7 +27,7 @@ ru:
         slug: Сокращенный веб-адрес
         start_date: Дата начала
         subtitle: Подзаголовок
-        target: Цель
+        target: Кто участвует
         title: Название
       participatory_process_group:
         description: Описание
@@ -88,7 +88,7 @@ ru:
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
-          categories: Разряды
+          categories: Категории
           components: Составляющие
           info: Сведения
           moderations: Действия по модерации
@@ -263,7 +263,11 @@ ru:
       processes: Движения
     participatory_process_groups:
       show:
-        group_participatory_processes: Движения для %{group}
+        group_participatory_processes:
+          one: 1 движение у %{group}
+          few: "%{count} движения у %{group}"
+          many: "%{count} движений у %{group}"
+          other: "%{count} движений у %{group}"
         title: Группы движений соучастия
     participatory_process_steps:
       index:
@@ -278,22 +282,54 @@ ru:
           form:
             announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Рекомендуемые движения
       index:
         title: Движения соучастия
-      order_by_processes:
-        active: Действующие
-        all: Все
-        past: Прошедшие
-        upcoming: Предстоящие
       pages:
         home:
           highlighted_processes:
             active_processes: Действующие движения
             active_step: Действующий шаг
+            more_information: Дополнительные сведения
+            participate: Принять участие
             see_all_processes: Просмотреть все движения
       participatory_process_groups:
         none: Нет
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 идущее движение
+              few: "%{count} идущих движения"
+              many: "%{count} идущих движений"
+              other: "%{count} идущих движений"
+            all:
+              one: 1 движение
+              few: "%{count} движения"
+              many: "%{count} движений"
+              other: "%{count} движений"
+            past:
+              one: 1 прошедшее движение
+              few: "%{count} прошедших движения"
+              many: "%{count} прошедших движений"
+              other: "%{count} прошедших движений"
+            upcoming:
+              one: 1 грядущее движение
+              few: "%{count} грядущих движения"
+              many: "%{count} грядущих движений"
+              other: "%{count} грядущих движений"
+          explanations:
+            no_active: Нет идущих движений
+            no_active_nor_upcoming: Нет идущих или грядущих движений
+            no_active_nor_upcoming_callout: Нет ни идущих, ни грядущих движений. Вот список прошедших.
+          names:
+            active: Действующие
+            all: Все
+            past: Прошедшие
+            upcoming: Грядущие
+          see: Посмотреть
         index:
           loading: Загрузка результатов...
       show:
@@ -336,12 +372,6 @@ ru:
       participatory_processes:
         index:
           promoted_processes: Рекомендуемые движения
-        order_by_processes:
-          processes:
-            one: "%{count} движение"
-            few: "%{count} движения"
-            many: "%{count} движений"
-            other: "%{count} движений"
         participatory_process:
           active_step: 'Текущий шаг:'
           take_part: Принять участие

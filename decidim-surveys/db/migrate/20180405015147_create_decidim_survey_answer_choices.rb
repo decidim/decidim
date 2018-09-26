@@ -32,7 +32,7 @@ class CreateDecidimSurveyAnswerChoices < ActiveRecord::Migration[5.1]
         answer_options = SurveyAnswerOption.where(decidim_survey_question_id: question.id)
 
         answer_option = answer_options.find do |option|
-          option.body.values.include?(answer_choice)
+          option.body.has_value?(answer_choice)
         end
 
         SurveyAnswerChoice.create!(

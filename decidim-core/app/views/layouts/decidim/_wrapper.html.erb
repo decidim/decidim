@@ -1,3 +1,15 @@
+<%
+if respond_to?(:current_component) && current_component
+  edit_link(
+    manage_component_path(current_component),
+    :read,
+    :component,
+    component: current_component,
+    current_participatory_space: current_participatory_space
+  )
+end
+%>
+
 <div class="off-canvas-wrapper">
   <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
     <div class="off-canvas position-right hide-for-large" data-position="right"
@@ -37,7 +49,7 @@
             </div>
             <% if current_user %>
               <div class="topbar__dropmenu topbar__user__logged">
-                <%= link_to decidim.profile_notifications_path(current_user.nickname), class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
+                <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
                   <%= icon "bell" %>
                 <% end %>
                 <%= link_to decidim.conversations_path, class: "topbar__conversations #{current_user.unread_conversations.any? ? "is-active" : ""}" do %>
@@ -66,6 +78,7 @@
                 </div>
               </div>
             <% end %>
+            <%= render partial: "layouts/decidim/edit_link" %>
           </div>
         </div>
         <div class="show-for-medium" data-set="nav-holder">

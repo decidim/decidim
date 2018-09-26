@@ -71,6 +71,7 @@ describe "Profile", type: :system do
     context "when displaying followers and following" do
       let(:other_user) { create(:user, organization: user.organization) }
       let(:user_to_follow) { create(:user, organization: user.organization) }
+      let!(:something_that_should_not_be_counted) { create(:follow, user: user, followable: build(:dummy_resource)) }
 
       before do
         create(:follow, user: user, followable: other_user)
@@ -103,7 +104,7 @@ describe "Profile", type: :system do
     before do
       allow(Decidim.view_hooks)
         .to receive(:render)
-        .with(a_kind_of(Symbol), a_kind_of(ActionView::Base))
+        .with(a_kind_of(Symbol), a_kind_of(Decidim::ProfileSidebarCell))
         .and_return("Rendered from #{view_hook} view hook")
 
       visit decidim.profile_path(user.nickname)
@@ -113,7 +114,7 @@ describe "Profile", type: :system do
       let(:view_hook) { :user_profile_bottom }
 
       it "renders the view hook" do
-        expect(Decidim.view_hooks).to have_received(:render).with(:user_profile_bottom, a_kind_of(ActionView::Base))
+        expect(Decidim.view_hooks).to have_received(:render).with(:user_profile_bottom, a_kind_of(Decidim::ProfileSidebarCell))
         expect(page).to have_content("Rendered from user_profile_bottom view hook")
       end
     end

@@ -14,11 +14,11 @@ en:
         end_date: End date
         hashtag: Hashtag
         hero_image: Home image
-        local_area: Local area
+        local_area: Organization area
         meta_scope: Scope metadata
         participatory_process_group_id: Processes group
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         promoted: Promoted
         published_at: Published at
         scope_id: Scope
@@ -28,7 +28,7 @@ en:
         slug: URL slug
         start_date: Start date
         subtitle: Subtitle
-        target: Target
+        target: Who participates
         title: Title
       participatory_process_group:
         description: Description
@@ -268,6 +268,9 @@ en:
         title: Participatory process steps
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum amount of elements to show
         participatory_process_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -275,6 +278,9 @@ en:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Highlighted processes
       index:
         title: Participatory processes
       pages:
@@ -282,6 +288,8 @@ en:
           highlighted_processes:
             active_processes: Active processes
             active_step: Active step
+            more_information: More information
+            participate: Participate
             see_all_processes: See all processes
       participatory_process_groups:
         none: None

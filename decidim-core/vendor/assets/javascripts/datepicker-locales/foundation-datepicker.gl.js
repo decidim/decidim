@@ -7,7 +7,6 @@
 		monthsShort: ["Xan", "Feb", "Mar", "Abr", "Mai", "Xun", "Xul", "Ago", "Sep", "Out", "Nov", "Dec"],
 		today: "Hoxe",
 		clear: "Limpar",
-		weekStart: 1,
-		format: "dd/mm/yyyy"
+		weekStart: 1
 	};
 }(jQuery));

@@ -6,13 +6,13 @@ fr:
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
-        end_date: Date et heure de fin
+        end_date: Date de fin
         progress: Avancement
         project_ids: Projets inclus
         proposals: Propositions incluses
         start_date: Date de début
         title: Titre
-        updated_at: Mis à jour à
+        updated_at: Mise à jour à
       status:
         description: Description
         key: Clé
@@ -22,7 +22,7 @@ fr:
         description: Description
         entry_date: Date
     models:
-      decidim/accountability/proposal_linked_event: Proposition incluse dans un résultat
+      decidim/accountability/proposal_linked_event: Proposition incluse dans une réalisation
   activerecord:
     models:
       decidim/accountability/result:
@@ -36,7 +36,7 @@ fr:
         edit: Modifier
         new: Nouveau %{name}
         preview: Aperçu
-        timeline_entries: Evolution du projet
+        timeline_entries: Évolution du projet
         title: Actions
       admin:
         exports:
@@ -47,10 +47,10 @@ fr:
           status:
             name: Statut
           timeline_entry:
-            name: Elément de chronologie
+            name: Élément de chronologie
         results:
           create:
-            invalid: Un problème est survenu lors de la création de ce résultat
+            invalid: Un problème est survenu lors de la création de cette réalisation
             success: Réalisation créée avec succès
           destroy:
             success: Réalisation supprimée avec succès
@@ -137,8 +137,8 @@ fr:
       results:
         count:
           results_count:
-            one: 1 résultat
-            other: "%{count} résultats"
+            one: 1 réalisation
+            other: "%{count} réalisations"
         filters:
           all: Tous
           scopes: Périmètre d'application
@@ -146,7 +146,7 @@ fr:
           categories_label: Catégories
           subcategories_label: Sous-catégories
         home_header:
-          global_status: État d'exécution globale
+          global_status: État d'exécution global
         nav_breadcrumb:
           global: Exécution globale
         search:
@@ -167,9 +167,9 @@ fr:
             version_created_at: Version créée le
             version_number: Numéro de version
             version_number_out_of_total: "%{current_version} sur %{total_count}"
-            votes: Soutiens
+            votes: Votes
         timeline:
-          title: Evolution du projet
+          title: Évolution du projet
       versions:
         index:
           changes_at_title: Changements à "%{title}"
@@ -195,10 +195,10 @@ fr:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'La proposition "%{proposal_title}" a été incluse dans un résultat. Vous pouvez le voir sur cette page :'
+          email_intro: 'La proposition "%{proposal_title}" a été incluse dans une réalisation. Vous pouvez le voir sur cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Une mise à jour de %{proposal_title}
-          notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans le résultat <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans la réalisation <a href="%{resource_path}">%{resource_title}</a>.
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

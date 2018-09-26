@@ -43,6 +43,10 @@ module Decidim::Meetings
         expect(attachment.filename).to match(/meeting-calendar-info.ics/)
       end
 
+      it "increases the user's score" do
+        expect { subject.call }.to change { Decidim::Gamification.status_for(user, :attended_meetings).score }.from(0).to(1)
+      end
+
       context "and exists and invite for the user" do
         let!(:invite) { create(:invite, meeting: meeting, user: user) }
 
@@ -67,7 +71,13 @@ module Decidim::Meetings
               extra: {
                 percentage: 0.5
               }
-            )
+            ).ordered
+
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              hash_including(event: "decidim.events.gamification.badge_earned")
+            ).ordered
 
           subject.call
         end
@@ -80,6 +90,9 @@ module Decidim::Meetings
           it "doesn't notify it twice" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
+              .with(
+                hash_including(event: "decidim.events.meetings.meeting_registrations_over_percentage")
+              )
 
             subject.call
           end
@@ -104,6 +117,12 @@ module Decidim::Meetings
               }
             )
 
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              hash_including(event: "decidim.events.gamification.badge_earned")
+            ).ordered
+
           subject.call
         end
 
@@ -115,6 +134,9 @@ module Decidim::Meetings
           it "doesn't notify it twice" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
+              .with(
+                hash_including(event: "decidim.events.meetings.meeting_registrations_over_percentage")
+              )
 
             subject.call
           end
@@ -138,6 +160,12 @@ module Decidim::Meetings
                 percentage: 1
               }
             )
+
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              hash_including(event: "decidim.events.gamification.badge_earned")
+            ).ordered
 
           subject.call
         end

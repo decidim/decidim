@@ -4,6 +4,12 @@ require: rubocop-rspec
 AllCops:
   Include:
     - .simplecov
+    - "**/*.rb"
+    - "**/*.rake"
+    - "**/*.gemspec"
+    - "**/*.ru"
+    - "**/Gemfile"
+    - "**/Rakefile"
   Exclude:
     - "**/vendor/**/*"
     - "development_app/**/*"
@@ -805,7 +811,7 @@ Style/PreferredHashMethods:
   EnforcedStyle: verbose
 
 Style/DateTime:
-  Enabled: false
+  Enabled: true
 
 Style/Documentation:
   Enabled: false
@@ -950,6 +956,9 @@ Layout/SpaceInsideStringInterpolation:
     - space
     - no_space
 
+Style/AccessModifierDeclarations:
+  Enabled: false
+
 Style/SymbolArray:
   EnforcedStyle: brackets
   SupportedStyles:
@@ -1063,7 +1072,7 @@ Style/WordArray:
   # The MinSize option causes the WordArray rule to be ignored for arrays
   # smaller than a certain size.  The rule is only applied to arrays
   # whose element count is greater than or equal to MinSize.
-  MinSize: 0
+  MinSize: 2
   # The regular expression WordRegex decides what is considered a word.
   WordRegex: !ruby/regexp '/\A[\p{Word}\n\t]+\z/'
 
@@ -1188,9 +1197,6 @@ Performance/RedundantMerge:
 Metrics/BlockLength:
   Enabled: false
 
-FactoryBot/StaticAttributeDefinedDynamically:
-  Enabled: false
-
 RSpec/BeforeAfterAll:
   Enabled: true
 
@@ -1204,11 +1210,12 @@ RSpec/ContextWording:
 
 RSpec/DescribeClass:
   Exclude:
-    - spec/bundle_spec.rb
+    - spec/gemfiles_spec.rb
+    - spec/js_bundles_spec.rb
     - spec/i18n_spec.rb
-    - decidim-admin/spec/bundles_spec.rb
-    - decidim-comments/spec/bundle_spec.rb
+    - "**/*/spec/**/*_badge_spec.rb"
     - decidim-core/spec/lib/global_engines_spec.rb
+    - "**/tasks/**/*"
 
 RSpec/EmptyExampleGroup:
   Exclude:

@@ -29,6 +29,14 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
     organization = Decidim::Organization.first
 
+    Decidim::ContentBlock.create(
+      organization: organization,
+      weight: 33,
+      scope: :homepage,
+      manifest_name: :highlighted_initiatives,
+      published_at: Time.current
+    )
+
     3.times do |n|
       type = Decidim::InitiativesType.create!(
         title: Decidim::Faker::Localized.sentence(5),
@@ -56,9 +64,9 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
         state: state,
         signature_type: "online",
-        signature_start_time: DateTime.current - 7.days,
-        signature_end_time:  DateTime.current + 7.days,
-        published_at: DateTime.current - 7.days,
+        signature_start_date: Date.current - 7.days,
+        signature_end_date:  Date.current + 7.days,
+        published_at: Time.current - 7.days,
         author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
         organization: organization
       )

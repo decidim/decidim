@@ -6,8 +6,8 @@ pl:
         description: Opis
         offline_votes: Wsparcie twarzą w twarz
         scope_id: Zakres
-        signature_end_time: Koniec okresu zbierania podpisu
-        signature_start_time: Początek okresu zbierania podpisu
+        signature_end_date: Koniec okresu zbierania podpisu
+        signature_start_date: Początek okresu zbierania podpisu
         signature_type: Typ kolekcji podpisu
         signature_type_values:
           any: Mieszany
@@ -88,6 +88,16 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowy kamień milowy zakończony!
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Ten użytkownik otrzymał %{score} opublikowanych inicjatyw.
+          description_own: Masz opublikowanych %{score} inicjatyw.
+          explanation: Użytkownicy otrzymują tę odznakę, publikując swoje inicjatywy.
+          name: Opublikowane inicjatywy
+          next_level_in: Uzyskaj %{score} dodatkowych inicjatyw opublikowanych, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych inicjatyw.
+          unearned_own: Nie opublikowano jeszcze żadnych inicjatyw.
     initiatives:
       admin:
         committee_requests:
@@ -98,6 +108,9 @@ pl:
             no_members_yet: W komisji promotorskiej nie ma członków
             revoke: Unieważnić
             title: członkowie Komitetu
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maksymalna ilość elementów do pokazania
         initiatives:
           edit:
             accept: Przyjmij inicjatywę
@@ -187,6 +200,9 @@ pl:
           help_text: Zamierzasz poprosić o członkostwo w komitecie promującym tę inicjatywę
         spawn:
           success: Twoja prośba została wysłana do autora inicjatywy.
+      content_blocks:
+        highlighted_initiatives:
+          name: Wyróżnione inicjatywy
       create_initiative:
         fill_data:
           back: Plecy

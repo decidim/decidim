@@ -1,7 +1,36 @@
-<div class="row column">
-  <%= form.text_field :name %>
+<div class="attendee-fields">
+  <div class="row column">
+    <fieldset class="check-radio-collection">
+      <legend><%= t(".attendee_type") %></legend>
+      <%= form.collection_radio_buttons(:existing_user, [[t(".non_user"), false], [t(".existing_user"), true]], :last, :first) %>
+    </fieldset>
+  </div>
+
+  <div class="text-warning attendee-fields--new-user">
+    <p><%= t(".invite_explanation") %></p>
+  </div>
+
+  <div class="grid-x grid-margin-x">
+    <div class="auto cell attendee-fields--new-user">
+      <%= form.text_field :name, disabled: disabled %>
+    </div>
+    <div class="auto cell attendee-fields--new-user">
+      <%= form.text_field :email, disabled: disabled %>
+    </div>
+
+    <div class="auto cell attendee-fields--user-picker">
+        <% prompt_options = { url: decidim_admin.users_organization_url, placeholder: t(".select_user") } %>
+        <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, class: "autocomplete-field--results-inline" }, prompt_options) do |user|
+          { value: user.id, label: "#{user.name} (@#{user.nickname})" }
+        end %>
+    </div>
+
+    <div class="shrink cell">
+      <div class="text-center mt-sm">
+        <%= form.submit t(".invite"), disabled: disabled %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="row column">
-  <%= form.text_field :email %>
-</div>
+<%= javascript_include_tag "decidim/meetings/admin/registrations_invite_form" %>

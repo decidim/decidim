@@ -1,0 +1,143 @@
+<svg version="1.1" id="diffusion-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+         y="0px" width="1080px" height="1080px" viewBox="0 0 1080 1080" enable-background="new 0 0 1080 1080" xml:space="preserve">
+    <g id="diffusion" class="stroke-primary">
+        <g id="box">
+
+                <rect class="fill-primary" id="_x32_5pct" x="243.5" y="501.5" fill="#31536E" fill-opacity="0.25" stroke="#31536E" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="594" height="119"/>
+
+                <rect x="268.5" y="620.5" fill="none" stroke="#31536E" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="544" height="319"/>
+            <rect class="fill-primary" id="_x35_0-pct_21_" x="268.5" y="620.5" fill="#31536E" fill-opacity="0.5" width="544" height="44.115"/>
+        </g>
+        <g id="share-icon">
+            <circle class="fill-primary" fill="#31536E" cx="508.369" cy="780" r="39.703"/>
+            <circle class="fill-primary" fill="#31536E" cx="587.369" cy="715" r="24.965"/>
+            <circle class="fill-primary" fill="#31536E" cx="587.369" cy="845" r="24.965"/>
+            <line fill="none" stroke="#31536E" stroke-width="16" stroke-miterlimit="10" x1="508.369" y1="780" x2="587.368" y2="715"/>
+            <line fill="none" stroke="#31536E" stroke-width="16" stroke-miterlimit="10" x1="508.369" y1="780" x2="587.368" y2="845"/>
+        </g>
+        <g id="facebook">
+            <g>
+                <path class="fill-primary" fill="#31536E" d="M500.775,501.501l-31.699-91.689c-13.864-40.101-24.177-82.081-5.92-117.424
+                    c18.615-36.04,60.24-52.329,98.499-63.511l18.795,64.31c-33.052,9.66-52.49,19.737-57.768,29.95
+                    c-6.81,13.183,2.283,43.287,9.716,64.784l39.27,113.582"/>
+            </g>
+            <g>
+
+                    <rect class="fill-primary" x="532.117" y="373.144" transform="matrix(-0.9451 0.3267 -0.3267 -0.9451 1226.2412 607.3229)" fill="#31536E" width="59.998" height="66.998"/>
+            </g>
+        </g>
+        <g id="sparks">
+            <polygon class="fill-primary" id="_x35_0-pct_22_" fill="#31536E" fill-opacity="0.5" points="764.472,317.512 774.339,362.623 817.096,380.067
+                777.242,403.393 773.864,449.447 739.364,418.752 694.521,429.77 713.053,387.474 688.716,348.23 734.669,352.785 		"/>
+            <g>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="362.385" y1="424.678" x2="387.134" y2="449.426"/>
+                <path fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+                    M344.707,407"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="327.029" y1="389.322" x2="301.574" y2="363.867"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="362.385" y1="389.322" x2="387.133" y2="364.574"/>
+                <path fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+                    M344.707,407"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="327.029" y1="424.678" x2="301.574" y2="450.133"/>
+
+                    <circle fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="345.167" cy="406.865" r="14.253"/>
+            </g>
+            <g>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="377.5" y1="223.5" x2="377.5" y2="258.5"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="377.5" y1="173.5" x2="377.5" y2="137.5"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="402.5" y1="198.5" x2="437.5" y2="198.5"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="352.5" y1="198.5" x2="316.5" y2="198.5"/>
+            </g>
+            <g>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="695.86" y1="216.885" x2="671.111" y2="241.634"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="731.216" y1="181.529" x2="756.672" y2="156.074"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="731.216" y1="216.885" x2="755.965" y2="241.633"/>
+
+                    <line fill="none" stroke="#31536E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="695.86" y1="181.529" x2="670.404" y2="156.074"/>
+            </g>
+        </g>
+        <g id="stars_11" class="stars">
+
+            <path fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+M704.425,997.248c0-10.217-12.985-24.594-24.595-24.594c10.683,0,24.595-14.145,24.595-24.594
+c0,10.449,11.595,24.594,24.595,24.594C715.786,972.654,704.425,987.031,704.425,997.248z"/>
+            <g>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="908.305" cy="433.369" r="13.5"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="891.806" y1="416.634" x2="870.593" y2="395.421"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="925.747" y1="450.575" x2="946.96" y2="471.788"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="925.04" y1="417.341" x2="946.253" y2="396.128"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="891.806" y1="450.575" x2="870.593" y2="471.788"/>
+            </g>
+            <g>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="961.78" y1="805.535" x2="935.619" y2="831.699"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="926.426" y1="840.891" x2="900.264" y2="867.055"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="961.073" y1="867.055" x2="934.91" y2="840.891"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="925.719" y1="831.699" x2="899.557" y2="805.535"/>
+            </g>
+
+            <path fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+M679.83,152.911c0,0-21.565,4.033-26.516,8.981c-4.948,4.948-8.982,26.517-8.982,26.517s-4.035-21.566-8.983-26.517
+c-4.947-4.948-26.515-8.981-26.515-8.981s22.077-4.547,26.515-8.983c4.438-4.438,8.983-26.515,8.983-26.515
+s4.034,21.564,8.982,26.515C658.264,148.876,679.83,152.911,679.83,152.911z"/>
+            <g>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="191.325" cy="948.061" r="16.604"/>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="155.423" cy="948.061" r="6.432"/>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="191.325" cy="983.962" r="6.433"/>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="227.226" cy="948.061" r="6.432"/>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="191.325" cy="912.16" r="6.432"/>
+            </g>
+            <g>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="157.11" y1="627.473" x2="212.013" y2="682.377"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="212.013" y1="627.473" x2="157.11" y2="682.377"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="166.364" y1="654.5" x2="139.364" y2="654.5"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="204.364" y1="654.5" x2="231.364" y2="654.5"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="185.364" y1="673.5" x2="185.364" y2="700.5"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="185.364" y1="635.5" x2="185.364" y2="608.5"/>
+            </g>
+            <g>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="218.364" y1="214.377" x2="218.364" y2="293.377"/>
+
+                <line fill="none" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="257.364" y1="254.377" x2="178.364" y2="254.377"/>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="198.364" cy="273.877" r="7.039"/>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="198.364" cy="233.877" r="7.039"/>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="238.364" cy="273.877" r="7.039"/>
+
+                <circle fill="#FFD92B" stroke="#31536E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="238.364" cy="233.877" r="7.039"/>
+            </g>
+        </g>
+    </g>
+</svg>

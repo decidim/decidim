@@ -21,6 +21,8 @@ en:
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
+      decidim/gamification/badge_earned_event: Badge earned
+      decidim/gamification/level_up_event: You've leveled up
       decidim/profile_updated_event: Profile updated
   activerecord:
     attributes:
@@ -200,11 +202,30 @@ en:
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Resources permissions enabled
           step:
             comments_blocked: Comments blocked
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      hero:
+        name: Hero image
+      highlighted_content_banner:
+        name: Highlighted content banner
+      how_to_participate:
+        name: How to participate
+      html:
+        html_content: HTML content
+        name: HTML block
+      metrics:
+        name: Organization metrics
+      stats:
+        name: Organization stats
+      sub_hero:
+        name: Sub hero banner
     core:
       actions:
         unauthorized: You are not authorized to perform this action
@@ -215,6 +236,8 @@ en:
         download_data: Download the data
         download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
         request_data: Request data
+    datepicker:
+      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -307,6 +330,17 @@ en:
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
         email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
         email_subject: An update to %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Great job! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: 'You''ve earned a new badge: %{badge_name}!'
+          notification_title: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+        level_up:
+          email_intro: Great job! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -325,7 +359,8 @@ en:
     filters:
       linked_classes:
         all: All
-        dummyresource: Dummy resources
+        collaborative_draft: Collaborative draft
+        dummy_resource: Dummy resources
         meeting: Meetings
         project: Projects
         proposal: Proposals
@@ -356,6 +391,27 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
+    gamification:
+      badges:
+        followers:
+          description_another: This user has %{score} followers.
+          description_own: "%{score} users are following you."
+          explanation: Users get this badge by getting followed by other users.
+          name: Followers
+          next_level_in: Get %{score} more users to follow you to reach the next level!
+          unearned_another: This user doesn't have any followers yet.
+          unearned_own: You've got no followers yet.
+        invitations:
+          description_another: This user has invited %{score} users.
+          description_own: You have invited %{score} users.
+          explanation: Users get this badge by inviting other users.
+          name: Invitations
+          next_level_in: Invite %{score} more users to reach the next level!
+          unearned_another: This user hasn't invited any user yet.
+          unearned_own: You have invited no users yet.
+      description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
+      level: Level %{level}
+      reached_top: You've reached the top level for this badge.
     invitations:
       create:
         error: There were some problems while inviting your friends
@@ -408,18 +464,22 @@ en:
         create:
           error: Conversation not started. Try again later
         index:
+          from: From
+          last_message_html: Last message <strong>%{time} ago</strong>
           no_conversations: You have no conversations yet
-          title: Conversations
-        reply:
-          send: Send
-          title: Reply
         show:
-          title: Conversation with %{usernames}
+          conversation_with_html: Conversation with <strong>%{name}</strong>
+          reply: Reply
+          send: Send
         start:
           send: Send
           title: Start a conversation
         update:
           error: Message not sent. Try again later
+    metrics:
+      users:
+        object: users
+        title: Users
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
@@ -479,10 +539,13 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
+        metrics:
+          headline: Participation in figures
         statistics:
           answers_count: Completed Surveys
           assemblies_count: Assemblies
           comments_count: Comments
+          conferences_count: Conferences
           debates_count: Debates
           endorsements_count: Endorsements
           headline: Current state of %{organization}
@@ -527,9 +590,15 @@ en:
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
+        badges: Badges
+        conversations: Conversations
         followers: Followers
         following: Follows
         notifications: Notifications
+      sidebar:
+        badges:
+          info: Badges are earned by performing specific activity in the platform.
+          title: Badges
       user:
         edit_profile: Edit profile
     reported_mailer:
@@ -599,13 +668,48 @@ en:
       version_author:
         deleted: Deleted user
   devise:
+    confirmations:
+      confirmed: Your email address has been successfully confirmed.
+      new:
+        resend_confirmation_instructions: Resend confirmation instructions
+      send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
+    failure:
+      already_authenticated: You are already signed in.
+      inactive: Your account is not activated yet.
+      invalid: Invalid %{authentication_keys} or password.
+      invited: You have a pending invitation, accept it to finish creating your account.
+      last_attempt: You have one more attempt before your account is locked.
+      locked: Your account is locked.
+      not_found_in_database: Invalid %{authentication_keys} or password.
+      timeout: Your session expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
+      unconfirmed: You have to confirm your email address before continuing.
     invitations:
       edit:
         header: Finish creating your account
         nickname_help: Your unique identifier in %{organization}.
         submit_button: Save
         subtitle: If you accept the invitation please set your nickname and password.
+      invitation_removed: Your invitation was removed.
+      invitation_token_invalid: The invitation token provided is not valid!
+      new:
+        header: Send invitation
+        submit_button: Send an invitation
+      no_invitations_remaining: No invitations remaining
+      send_instructions: An invitation email has been sent to %{email}.
+      updated: Your password was set successfully. You are now signed in.
+      updated_not_active: Your password was set successfully.
     mailer:
+      confirmation_instructions:
+        action: Confirm my account
+        greeting: Welcome %{recipient}!
+        instruction: 'You can confirm your account email through the link below:'
+        subject: Confirmation instructions
+      email_changed:
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your email is being changed to %{email}.
+        subject: Email Changed
       invitation_instructions:
         accept: Accept invitation
         accept_until: This invitation will be due in %{due_date}.
@@ -620,6 +724,7 @@ en:
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
         someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
+        subject: Invitation instructions
       invite_admin:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
@@ -636,20 +741,101 @@ en:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
         subject: Password changed
+      reset_password_instructions:
+        action: Change my password
+        greeting: Hello %{recipient}!
+        instruction: Someone has requested a link to change your password, and you can do this through the link below.
+        instruction_2: If you didn't request this, please ignore this email.
+        instruction_3: Your password won't change until you access the link above and create a new one.
+        subject: Reset password instructions
+      unlock_instructions:
+        action: Unlock my account
+        greeting: Hello %{recipient}!
+        instruction: 'Click the link below to unlock your account:'
+        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        subject: Unlock instructions
+    omniauth_callbacks:
+      failure: Could not authenticate you from %{kind} because "%{reason}".
+      success: Successfully authenticated from %{kind} account.
+    passwords:
+      edit:
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
+      new:
+        forgot_your_password: Forgot your password?
+        send_me_reset_password_instructions: Send me reset password instructions
+      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Your password has been changed successfully.
+    registrations:
+      destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
+      edit:
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+        title: Edit %{resource}
+        unhappy: Unhappy?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+      new:
+        sign_up: Sign up
+      signed_up: Welcome! You have signed up successfully.
+      signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
+      signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
+      updated: Your account has been updated successfully.
+    sessions:
+      already_signed_out: Signed out successfully.
+      new:
+        sign_in: Log in
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        forgot_your_password: Forgot your password?
+        sign_in: Log in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Sign up
+      minimum_password_length:
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Resend unlock instructions
+      send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
+      send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
   doorkeeper:
     scopes:
       public: Your public information.
   errors:
     messages:
+      already_confirmed: was already confirmed, please try signing in
+      confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
       content_type_whitelist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
+      expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
-      long_words: contains words that are too long
-      must_start_with_caps: must start with caps
+      long_words: contains words that are too long (over 35 characters)
+      must_start_with_caps: must start with a capital letter
       nesting_too_deep: can't be inside of a subcategory
-      too_many_marks: is using too many marks
-      too_much_caps: is using too much caps
-      too_short: is too short
+      not_found: not found
+      not_locked: was not locked
+      not_saved:
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
+      too_much_caps: is using too many capital letters (over 25% of the text)
+      too_short: is too short (under 15 characters)
   forms:
     required: Required
   invisible_captcha:
@@ -661,6 +847,8 @@ en:
         description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
         link_label: here
         ok: I agree
+      edit_link:
+        edit: Edit
       footer:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
@@ -728,9 +916,14 @@ en:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

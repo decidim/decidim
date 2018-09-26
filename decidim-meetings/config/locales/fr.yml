@@ -20,9 +20,10 @@ fr:
         end_time: Heure de fin
         location: Lieu
         location_hints: Données de localisation
+        organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
-        registrations_enabled: Inscriptions activées
+        registrations_enabled: Inscriptions ouvertes
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
@@ -36,8 +37,12 @@ fr:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: La durée des éléments dépasse la durée de la réunion de %{count} minute
-              too_many_minutes_child: La durée du sous-événement dépasse la durée de l'événement concerné "%{parent_title}" de %{count} minute
+              too_many_minutes: La durée des éléments dépasse la durée de la réunion de %{count} minutes
+              too_many_minutes_child: La durée du sous-événement dépasse la durée de l'événement concerné "%{parent_title}" de %{count} minutes
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Rencontre terminée
       decidim/meetings/create_meeting_event: Rencontre
@@ -51,8 +56,8 @@ fr:
         one: Rencontre
         other: Rencontres
       decidim/meetings/minutes:
-        one: Compte-rendu
-        other: Comptes-rendus
+        one: Compte rendu
+        other: Comptes rendus
       decidim/meetings/registration:
         one: Inscription
         other: Inscriptions
@@ -74,15 +79,16 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             default_registration_terms: Conditions d'inscription par défaut
+            resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
           step:
             announcement: Annonce
-            comments_blocked: Bloquer la création de nouveaux commentaires
+            comments_blocked: Commentaires bloqués
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte-rendu sur sa page :'
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" est terminée
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
@@ -101,6 +107,11 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
+        registration_code_validated:
+          email_intro: Votre code d'enregistrement "%{registration_code}" a été validé.
+          email_outro: Vous avez reçu cette notification parce que votre code d'enregistrement pour la réunion "%{resource_title}" a été validé.
+          email_subject: Votre code d'enregistrement "%{registration_code}" a été validé
+          notification_title: Votre code d'enregistrement "%{registration_code}" pour la réunion <a href="%{resource_path}">%{resource_title}</a> a été validé.
         registrations_enabled:
           email_intro: 'Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes. Vous pouvez vous inscrire sur sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
@@ -120,7 +131,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
-        minutes: Compte-rendu
+        minutes: Compte rendu
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
@@ -131,7 +142,7 @@ fr:
             add_agenda_item_child: Ajouter un point d'ordre du jour
             agenda_item: Point d'ordre du jour
             agenda_item_children: Points de l'ordre du jour
-            down: Descendre
+            down: Vers le bas
             remove: Retirer
             up: Vers le haut
           agenda_item_child:
@@ -160,16 +171,31 @@ fr:
           registrations: Inscriptions
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre à %{application}. Vous pouvez confirmer votre présence par le lien ci-dessous."
+            decline: Refuser l'invitation
+            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre sur %{application}. Vous pouvez confirmer votre présence en cliquant sur le lien ci-dessous."
             join: Rejoignez la rencontre '%{meeting_title}'
         invites:
           create:
             error: Il y a eu un problème lors de l'invitation à une rencontre.
             success: L'utilisateur a rejoint la rencontre.
-          new:
-            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son adresse de courriel n'est pas enregistrée, il sera également invité à s'inscrire à l'organisation.
+          form:
+            attendee_type: Type de participant
+            existing_user: Utilisateur existant
             invite: Inviter
-            new_invite: Inviter un utilisateur
+            invite_explanation: L'utilisateur sera invité à se joindre à la réunion et à l'organisation.
+            non_user: Utilisateur non existant
+            select_user: Sélectionner un utilisateur
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invitations
+            registrations_disabled: Vous ne pouvez pas inviter un participant car les invitations sont désactivées.
+            search: Chercher
         meeting_closes:
           edit:
             close: Clore
@@ -211,24 +237,26 @@ fr:
         minutes:
           create:
             invalid: Un problème est survenu lors de la création de ce compte rendu
-            success: Compte-rendu créé avec succès
+            success: Compte rendu créé avec succès
           edit:
             update: Mettre à jour
           new:
             create: Créer
-            title: Créer un compte-rendu
+            title: Créer un compte rendu
           update:
-            invalid: Un problème est survenu lors de la mise à jour de ce compte-rendu
-            success: Compte-rendu mis à jour avec succès
+            invalid: Un problème est survenu lors de la mise à jour de ce compte rendu
+            success: Compte rendu mis à jour avec succès
         models:
           meeting:
             name: Rencontre
         registrations:
           edit:
             save: Sauvegarder
+            validate: Valider
+            validate_registration_code: Valider le code d'enregistrement
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
-            invite_user: Inviter un utilisateur
+            invites: Invitations
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
@@ -236,20 +264,43 @@ fr:
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
           update:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
-            success: Les paramètres d'inscriptions ont été enregistrés avec succès.
+            success: Les paramètres d'inscription ont été enregistrés avec succès.
+          validate_registration_code:
+            invalid: Ce code d'enregistrement est invalide.
+            success: Le code d'enregistrement a été validé avec succès.
       admin_log:
+        invite:
+          create: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
+          deleted: "%{user_name} a supprimé l'invitation de %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} a fermé la rencontre %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la rencontre %{resource_name} sur l'espace %{space_name}"
           delete: "%{user_name} a supprimé la rencontre %{resource_name} sur l'espace %{space_name}"
-          export_registrations: "%{user_name} a exporté les enregistrements de la rencontre %{resource_name} sur l'espace %{space_name}"
+          export_registrations: "%{user_name} a exporté les inscriptions de la rencontre %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour la rencontre %{resource_name} sur l'espace %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
         minutes:
-          create: "%{user_name} a créé le compte-rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
-          update: "%{user_name} a mis à jour le compte-rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+          create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+      conference_venues: Salles de conférence
+      content_blocks:
+        upcoming_events:
+          name: Évènements à venir
+          upcoming_events: Rencontres à venir
+          view_all_events: Voir tout
+      directory:
+        meetings:
+          index:
+            all: Tout
+            date: Rendez-vous amoureux
+            meetings: Rencontres
+            past: Passées
+            search: Rechercher
+            space_type: Espace participatif
+            upcoming: À venir
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -271,15 +322,13 @@ fr:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
-          unfold: Dérouler
-        index:
-          view_meeting: Voir la rencontre
+          unfold: Voir la suite
         meeting_minutes:
-          meeting_minutes: Comptes-rendus des rencontres
-          related_information: Informations connexes
+          meeting_minutes: Comptes rendus des rencontres
+          related_information: Informations liées
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
-          upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées, mais ici, vous trouverez une liste de toutes les rencontres passées.
+          upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -295,10 +344,22 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
+      meetings_map:
+        view_meeting: Voir la rencontre
       models:
+        invite:
+          fields:
+            email: Email
+            name: Titre
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
         meeting:
           fields:
-            closed: Clos
+            closed: Close
             end_time: Heure de fin
             map: Carte
             start_time: Date de début
@@ -308,10 +369,14 @@ fr:
         confirmation:
           confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
           details: Vous trouverez les détails de la rencontre dans la pièce jointe.
+          registration_code: Votre code d'enregistrement est %{code}.
       registrations:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
           success: Vous avez rejoint la rencontre avec succès.
+        decline_invitation:
+          invalid: Un problème est survenu lors du refus de l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
         destroy:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.

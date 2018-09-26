@@ -14,7 +14,7 @@ module Decidim
       # multiple locales.
       #
       # name - The attribute's name
-      # type - The attribute's Type
+      # type - The attribute's type
       #
       # Example:
       #
@@ -32,14 +32,13 @@ module Decidim
           attribute attribute_name, type, *options
 
           define_method attribute_name do
-            translatable_attribute_getter(name, locale)
+            field = public_send(name) || {}
+            field[locale.to_s] || field[locale.to_sym]
           end
 
-          alias_method "#{attribute_name}_virtus=", "#{attribute_name}="
-
           define_method "#{attribute_name}=" do |value|
-            new_value = send("#{attribute_name}_virtus=", value)
-            translatable_attribute_setter(name, locale, new_value)
+            field = public_send(name) || {}
+            public_send("#{name}=", field.merge(locale => super(value)))
           end
         end
       end
@@ -63,6 +62,7 @@ module Decidim
         return "" if attribute.nil?
         return attribute unless attribute.is_a?(Hash)
 
+        attribute = attribute.dup.stringify_keys
         organization ||= try(:current_organization)
         organization_locale = organization.try(:default_locale)
 
@@ -71,18 +71,6 @@ module Decidim
           attribute[attribute.keys.first].presence ||
           ""
       end
-    end
-
-    private
-
-    def translatable_attribute_setter(name, locale, value)
-      public_send("#{name}=", (public_send(name) || {}).merge(locale => value))
-    end
-
-    def translatable_attribute_getter(name, locale)
-      field = public_send(name) || {}
-      corrected_locale = locale.to_s.gsub("__", "-")
-      field[corrected_locale] || field[corrected_locale.to_sym]
     end
   end
 end

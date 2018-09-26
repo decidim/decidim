@@ -70,6 +70,11 @@
               <!-- If you append .collapse, you'll hide those as well -->
               <div class="column collapse">
                 <article class="card card--proposal warning">
+                  <div class="card__top">
+                    <div class="card__content text-small">
+                      <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+                    </div>
+                  </div>
                   <div class="card__content">
                     <div class="card__header">
                       <%= link_to page_path("proposal-view"), class: "card__link" do %>

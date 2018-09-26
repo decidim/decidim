@@ -19,7 +19,7 @@ module Decidim
 
       # rubocop:disable Rails/SkipsModelValidations
       def self.mark_as_read(user)
-        recipient(user).update_all(read_at: Time.zone.now)
+        recipient(user).update_all(read_at: Time.current)
       end
       # rubocop:enable Rails/SkipsModelValidations
     end

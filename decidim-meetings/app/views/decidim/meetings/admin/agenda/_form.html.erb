@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <div class="flex--sbc">
         <div class="grid-x align-middle">
-          <u> <%= translated_attribute(meeting.title) %> </u> &nbsp;<%= icon "arrow-right" %>&nbsp;<%= title %>
+          <u> <%= present(@meeting).title %> </u> &nbsp;<%= icon "arrow-right" %>&nbsp;<%= title %>
         </div>
       </div>
     </h2>

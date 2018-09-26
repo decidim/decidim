@@ -8,17 +8,13 @@ module Decidim
       # Controller that allows inviting users to join a meeting.
       #
       class InvitesController < Admin::ApplicationController
+        helper_method :invites
+
         def index
           enforce_permission_to :read_invites, :meeting, meeting: meeting
 
           @query = params[:q]
           @status = params[:status]
-
-          @invites = Decidim::Meetings::Admin::Invites.for(meeting.invites, @query, @status).page(params[:page]).per(15)
-        end
-
-        def new
-          enforce_permission_to :invite_attendee, :meeting, meeting: meeting
 
           @form = form(MeetingRegistrationInviteForm).instance
         end
@@ -36,7 +32,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("invites.create.error", scope: "decidim.meetings.admin")
-              render :new
+              render :index
             end
           end
         end
@@ -45,6 +41,10 @@ module Decidim
 
         def meeting
           @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
+        end
+
+        def invites
+          @invites ||= Decidim::Meetings::Admin::Invites.for(meeting.invites, @query, @status).page(params[:page]).per(15)
         end
       end
     end

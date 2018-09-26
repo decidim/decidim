@@ -1,0 +1,11 @@
+<h2 class="conference-title-summary">
+  <%= t "conferences.new.title", scope: "decidim.admin" %>
+</h2>
+
+<%= decidim_form_for(@form, html: { class: "form new_conference conference_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("conferences.new.create", scope: "decidim.admin") %>
+  </div>
+<% end %>

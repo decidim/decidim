@@ -23,6 +23,7 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: <%%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+  port: <%%= ENV.fetch("DATABASE_PORT") { "5432" } %>
   username: <%%= ENV.fetch("DATABASE_USERNAME") { "" } %>
   password: <%%= ENV.fetch("DATABASE_PASSWORD") { "" } %>
 
@@ -82,6 +83,7 @@ test:
 #
 #   production:
 #     url: <%%= ENV['DATABASE_URL'] %>
-#
+
 production:
+  <<: *default
   url: <%%= ENV['DATABASE_URL'] %>

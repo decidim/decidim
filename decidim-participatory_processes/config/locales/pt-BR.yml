@@ -4,7 +4,7 @@ pt-BR:
       participatory_process:
         announcement: Anúncio
         banner_image: Imagem da bandeira
-        copy_categories: Cópiar categorias
+        copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_steps: Copie etapas
         description: Descrição
@@ -13,21 +13,21 @@ pt-BR:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área Local
+        local_area: Área da organização
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
         promoted: Destacado
         published_at: Publicado em
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
-        short_description: Pequena descrição
-        show_statistics: Mostre estatisticas
+        short_description: Descrição curta
+        show_statistics: Mostrar estatísticas
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
-        target: Alvo
+        target: Quem participa
         title: Título
       participatory_process_group:
         description: Descrição
@@ -63,7 +63,7 @@ pt-BR:
       actions:
         activate: Ativar
         configure: Configurar
-        confirm_destroy: Confirme a exclusão
+        confirm_destroy: Confirmar exclusão
         destroy: Excluir
         duplicate: Duplicar
         edit: Editar
@@ -110,7 +110,7 @@ pt-BR:
           name: Etapa do processo participativo
         participatory_process_user_role:
           fields:
-            email: O email
+            email: Endereço de e-mail
             name: Nome
             role: Cargo
           name: Usuário do processo participativo
@@ -257,7 +257,9 @@ pt-BR:
       processes: Processos
     participatory_process_groups:
       show:
-        group_participatory_processes: Processos para %{group}
+        group_participatory_processes:
+          one: 1 processo para %{group}
+          other: "%{count} processos para %{group}"
         title: Grupos de processos participativos
     participatory_process_steps:
       index:
@@ -265,6 +267,9 @@ pt-BR:
         title: Etapas do processo participativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantidade máxima de elementos para mostrar
         participatory_process_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -272,22 +277,46 @@ pt-BR:
           form:
             announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processos em destaque
       index:
         title: Processos participativos
-      order_by_processes:
-        active: Ativo
-        all: Todos
-        past: Passado
-        upcoming: próximos
       pages:
         home:
           highlighted_processes:
             active_processes: Processos ativos
             active_step: Passo ativo
+            more_information: Mais Informações
+            participate: Participar
             see_all_processes: Ver todos os processos
       participatory_process_groups:
         none: Nenhum
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 processo ativo
+              other: "%{count} processos ativos"
+            all:
+              one: 1 processo
+              other: "%{count} processos"
+            past:
+              one: 1 processo passado
+              other: "%{count} processos passados"
+            upcoming:
+              one: 1 processo futuro
+              other: "%{count} processos futuros"
+          explanations:
+            no_active: Nenhum processo ativo
+            no_active_nor_upcoming: Não há processos ativos nem futuros
+            no_active_nor_upcoming_callout: Não há processos ativos nem futuros. Aqui está uma lista dos últimos.
+          names:
+            active: Ativo
+            all: Todos
+            past: Passado
+            upcoming: próximos
+          see: Ver
         index:
           loading: Carregando os resultados ...
       show:
@@ -321,7 +350,7 @@ pt-BR:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Squeaky toy
+          browse: Navegar
           processes_count: 'Processos:'
       participatory_process_widgets:
         show:
@@ -330,10 +359,6 @@ pt-BR:
       participatory_processes:
         index:
           promoted_processes: Processos destacados
-        order_by_processes:
-          processes:
-            one: "Processo %{count}"
-            other: "%{count} processos"
         participatory_process:
           active_step: 'Etapa atual:'
           take_part: Participar

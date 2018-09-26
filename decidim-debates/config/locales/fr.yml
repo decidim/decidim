@@ -80,15 +80,15 @@ fr:
           all: Tout
           category: Catégorie
           category_prompt: Choisir une catégorie
-          citizens: Citoyens
-          official: Officiel
+          citizens: Citoyenne
+          official: Officielle
           origin: Origine
-          search: Chercher
+          search: Rechercher
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtre
           filter_by: Filtrer par
-          unfold: Dérouler
+          unfold: Voir la suite
         index:
           new_debate: Nouveau débat
         new:
@@ -112,8 +112,8 @@ fr:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Bonjour, un nouveau débat a été créé sur la concertation %{space_title}, consultez-le et contribuez :
-            email_outro: Vous avez reçu cette notification parce que vous suivez la concertation %{space_title}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
+              Bonjour, un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez :
+            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
             email_subject: Nouveau débat sur %{space_title}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
           user_followers:
@@ -132,3 +132,13 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
           notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Cet utilisateur a participé à %{score} débats.
+          description_own: Vous avez participé à %{score} débats.
+          explanation: Les utilisateurs obtiennent ce badge en participant aux débats.
+          name: Des débats
+          next_level_in: Participez à %{score} autres débats pour atteindre le prochain niveau!
+          unearned_another: Cet utilisateur n'a encore participé à aucun débat.
+          unearned_own: Vous avez déjà participé à des débats.

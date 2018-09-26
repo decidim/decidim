@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       consultation:
-        banner_image: Банер зображення
+        banner_image: Банерне зображення
         decidim_highlighted_scope_id: Виcвітлений обсяг
         description: Опис
         end_voting_date: Голосування закінчується
@@ -22,7 +22,7 @@ uk:
         origin_scope: Обсяг
         origin_title: Джерело
         origin_url: Веб-адреса джерела
-        participatory_scope: Обсяг співучасті
+        participatory_scope: Що вирішується
         promoter_group: Робочий гурт з просування
         question_context: Контекст
         reference: Посилання на джерело
@@ -220,6 +220,10 @@ uk:
         title: Питання з %{scope_name}
       index:
         title: Консультації
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Діючі консультації
       question:
         take_part: Взяти участь
         view_results: Переглянути підсумки
@@ -281,7 +285,7 @@ uk:
       admin:
         question:
           attachments: Вкладені файли
-          categories: Розряди
+          categories: Категорії
       consultation_voting_data:
         start_voting_date: Голосування починається
       question_components:

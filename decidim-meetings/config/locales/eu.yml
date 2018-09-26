@@ -20,6 +20,7 @@ eu:
         end_time: Amaiera-ordua
         location: Kokapena
         location_hints: Kokapen-argibideak
+        organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
         registration_terms: Izen-emateak
         registrations_enabled: Erregistroak gaituta
@@ -38,6 +39,10 @@ eu:
             base:
               too_many_minutes: Elementuen iraupena %{count} minutuko iraupena gainditzen du
               too_many_minutes_child: Elementuaren haurraren iraupena "%{parent_title}" gurasoaren iraupena gainditzen du %{count} minutuko agendako elementua
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Mezu hau dagoeneko gonbidatu da
     models:
       decidim/meetings/close_meeting_event: Bilera itxia
       decidim/meetings/create_meeting_event: Bilera
@@ -76,6 +81,7 @@ eu:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
             default_registration_terms: Izen-emate baldintzak lehenetsiak
+            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
@@ -101,6 +107,11 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" bilera eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
+        registration_code_validated:
+          email_intro: Zure izena emateko kodea "%{registration_code}" balidatu da.
+          email_outro: Jakinarazpen hau jaso duzu zure "%{resource_title}" bilera-kodearen kodea erregistratu delako.
+          email_subject: Zure izena emateko kodea "%{registration_code}" balidatu da
+          notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> bilerako balioztatu da.
         registrations_enabled:
           email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
@@ -160,16 +171,31 @@ eu:
           registrations: Izen-emateak
         invite_join_meeting_mailer:
           invite:
+            decline: Deuseztatu gonbidapena
             invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} bileran. Beheko estekan onartu dezakezu."
             join: Erregistratu bilera '%{meeting_title}'
         invites:
           create:
             error: Arazo bat izan da erabiltzaileak bileran sartzeko gonbita emanda.
             success: Erabiltzailea behar bezala gonbidatu bilera batera.
-          new:
-            explanation: Erabiltzailea bilera batera gonbidatuko zaizu. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
+          form:
+            attendee_type: Parte-hartzaile mota
+            existing_user: Erabiltzaile existentea
             invite: Gonbit egin
-            new_invite: Gonbidatu erabiltzailea
+            invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
+            non_user: Erabiltzailea ez dago
+            select_user: Aukeratu erabiltzailea
+          index:
+            filter:
+              accepted: Onartu
+              all: guztiak
+              rejected: Baztertuta
+              sent: bidalia
+            filter_by: Iragazi arabera
+            invite_attendee: Gonbidatu gonbidatua
+            invites: Gonbidapenak
+            registrations_disabled: Ezin duzu parte-hartzaile bat gonbidatu erregistrazioek desgaituta egon direlako.
+            search: Search
         meeting_closes:
           edit:
             close: Itxi
@@ -226,9 +252,11 @@ eu:
         registrations:
           edit:
             save: Gorde
+            validate: Balidatu
+            validate_registration_code: Baliozkotzeko inskripzio kodea
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
-            invite_user: Gonbidatu erabiltzailea
+            invites: Gonbidapenak
             registrations_count:
               one: Izen-emate bat egin da.
               other: '%{count} izen-emate egin dira.'
@@ -237,7 +265,14 @@ eu:
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
+          validate_registration_code:
+            invalid: Izena emateko kode hau baliogabea da.
+            success: Izen-ematearen kodea behar bezala balioztatu da.
       admin_log:
+        invite:
+          create: "%{user_name} gonbidatu %{attendee_name} batzeko %{resource_name} buruzko bilera %{space_name} espazio"
+          deleted: "%{user_name} gabeko %{attendee_name} batu batetik %{resource_name} bileraren on %{space_name} espazio"
+          update: "%{user_name} gonbidatu %{attendee_name} batzeko %{resource_name} buruzko bilera %{space_name} espazio"
         meeting:
           close: "%{user_name} %{resource_name} bilera %{space_name} espazioan itxi zen"
           create: "%{user_name} %{resource_name} bilera sortu zen %{space_name} espazioan"
@@ -250,6 +285,22 @@ eu:
         minutes:
           create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
           update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+      conference_venues: Hitzaldi aretoak
+      content_blocks:
+        upcoming_events:
+          name: Hurrengo ekitaldiak
+          upcoming_events: Hurrengo topaketak
+          view_all_events: Ikusi dena
+      directory:
+        meetings:
+          index:
+            all: guztiak
+            date: data
+            meetings: Bilerak
+            past: Iragana
+            search: Search
+            space_type: Partaidetza espazioa
+            upcoming: Datozen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -272,8 +323,6 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
-        index:
-          view_meeting: Ikusi topaketa
         meeting_minutes:
           meeting_minutes: Bilera Minutes
           related_information: Lotutako informazioa
@@ -295,7 +344,19 @@ eu:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
           view: ikusi
+      meetings_map:
+        view_meeting: Ikusi topaketa
       models:
+        invite:
+          fields:
+            email: Emaila
+            name: izena
+            sent_at: Bidalitakoan
+            status: Egoera
+          status:
+            accepted: Onartuta (%{at})
+            rejected: Baztertua (%{at})
+            sent: bidalia
         meeting:
           fields:
             closed: Itxita
@@ -308,10 +369,14 @@ eu:
         confirmation:
           confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
           details: Topaketaren xehetasunak aurkituko dituzu eranskinean.
+          registration_code: Zure izena emateko kodea %{code}.
       registrations:
         create:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu.
+        decline_invitation:
+          invalid: Arazo bat izan da gonbidapena gaindituz gero.
+          success: Gonbidapena ongi egin du.
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.

@@ -78,12 +78,13 @@ module Decidim
       #
       # authorization - The existing authorization record to be evaluated. Can be nil.
       # options       - A hash with options related only to the current authorization process.
-      # component     - The component where the authorization is taking place
+      # component     - The component where the authorization is taking place.
+      # resource      - The resource where the authorization is taking place. Can be nil.
       #
       # Returns the result of authorization handler check. Check Decidim::Verifications::DefaultActionAuthorizer class docs.
       #
-      def authorize(authorization, options, component)
-        @action_authorizer = @manifest.action_authorizer_class.new(authorization, options, component)
+      def authorize(authorization, options, component, resource)
+        @action_authorizer = @manifest.action_authorizer_class.new(authorization, options, component, resource)
         @action_authorizer.authorize
       end
 

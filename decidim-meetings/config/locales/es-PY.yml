@@ -20,6 +20,7 @@ es-PY:
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        organizer_id: Organizador
         private_meeting: Encuentro privado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
@@ -38,6 +39,10 @@ es-PY:
             base:
               too_many_minutes: La duración de los ítems supera la duración del encuentro en %{count} minutos
               too_many_minutes_child: La duración de los sub-ítems excede el punto "%{parent_title}" del orden del dia en %{count} minuto
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Esta persona ya ha sido invitada
     models:
       decidim/meetings/close_meeting_event: Encuentro cerrado
       decidim/meetings/create_meeting_event: Encuentro
@@ -76,6 +81,7 @@ es-PY:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de registro predeterminados
+            resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -101,6 +107,11 @@ es-PY:
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Se ha actualizado el encuentro "%{resource_title}"
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
+        registration_code_validated:
+          email_intro: Su código de registro "%{registration_code}" ha sido validado.
+          email_outro: Recibió esta notificación porque su código de registro para el encuentro "%{resource_title}" ha sido validado.
+          email_subject: Su código de registro "%{registration_code}" ha sido validado
+          notification_title: Su código de registro "%{registration_code}" para el encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido validado.
         registrations_enabled:
           email_intro: 'El encuentro "%{resource_title}" ha ha abierto las inscripciones. Puedes inscribirte en su página:'
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -160,16 +171,31 @@ es-PY:
           registrations: Inscripciones
         invite_join_meeting_mailer:
           invite:
+            decline: Rechazar invitación
             invited_you_to_join_a_meeting: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Puedes aceptarlo a través del siguiente enlace."
             join: Únete al encuentro '%{meeting_title}'
         invites:
           create:
             error: Ha habido un problema al invitar al usuario a unirse al encuentro.
             success: El usuario ha sido invitado con éxito a unirse al encuentro.
-          new:
-            explanation: El usuario será invitado a unirse a un encuentro. Si el correo electrónico no está registrado, será invitado a la organización también.
+          form:
+            attendee_type: Tipo de asistente
+            existing_user: Usuario existente
             invite: Invitar
-            new_invite: Invitar usuario
+            invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
+            non_user: Usuario no existente
+            select_user: Selecciona un usuario
+          index:
+            filter:
+              accepted: Aceptada
+              all: Todas
+              rejected: Rechazada
+              sent: Enviadas
+            filter_by: Filtrar por
+            invite_attendee: Invitar asistente
+            invites: Invitaciones
+            registrations_disabled: No puedes invitar al asistente porque las inscripciones están deshabilitadas.
+            search: Buscar
         meeting_closes:
           edit:
             close: Cerrar
@@ -226,9 +252,11 @@ es-PY:
         registrations:
           edit:
             save: Guardar
+            validate: Validar
+            validate_registration_code: Validar el código de registro
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
-            invite_user: Invitar usuario
+            invites: Invitaciones
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
@@ -237,7 +265,14 @@ es-PY:
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
+          validate_registration_code:
+            invalid: Este código de registro no es válido.
+            success: Código de registro validado con éxito.
       admin_log:
+        invite:
+          create: "%{user_name} ha invitado a %{attendee_name} a unirse a la reunión %{resource_name} en el espacio %{space_name}"
+          deleted: "%{user_name} ha eliminado la invitación de %{attendee_name} de unirse a la reunión %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} ha invitado a %{attendee_name} a unirse a la reunión %{resource_name} en el espacio %{space_name}"
         meeting:
           close: "%{user_name} cerró el encuentro %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó el encuentro %{resource_name} en el espacio %{space_name}"
@@ -250,6 +285,22 @@ es-PY:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      conference_venues: Lugares de conferencia
+      content_blocks:
+        upcoming_events:
+          name: Próximos Eventos
+          upcoming_events: Próximas reuniones
+          view_all_events: Ver todo
+      directory:
+        meetings:
+          index:
+            all: Todas
+            date: Fecha
+            meetings: Reuniones
+            past: Pasado
+            search: Buscar
+            space_type: Espacio participativo
+            upcoming: Próximo
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -272,8 +323,6 @@ es-PY:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
-        index:
-          view_meeting: Ver encuentro
         meeting_minutes:
           meeting_minutes: Acta del encuentro
           related_information: Información relacionada
@@ -295,7 +344,19 @@ es-PY:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
           view: Ver
+      meetings_map:
+        view_meeting: Ver encuentro
       models:
+        invite:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            sent_at: Enviado el
+            status: Estado
+          status:
+            accepted: Aceptada (%{at})
+            rejected: Rechazada (%{at})
+            sent: Enviadas
         meeting:
           fields:
             closed: Cerrado
@@ -308,10 +369,14 @@ es-PY:
         confirmation:
           confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
           details: Encontrarás detalles del encuentro en el archivo adjunto.
+          registration_code: Tu código de registro es %{code}.
       registrations:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.
           success: Te has inscrito al encuentro con éxito.
+        decline_invitation:
+          invalid: Ha habido un problema al rechazar la invitación.
+          success: Has rechazado la invitación con éxito.
         destroy:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.

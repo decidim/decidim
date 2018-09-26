@@ -1,0 +1,39 @@
+<% process = highlighted_processes.first %>
+<section class="wrapper-home home-section">
+  <div class="row" id="highlighted-processes">
+    <h3 class="section-heading"><%= t("active_processes", scope: i18n_scope) %></h3>
+    <div class="row collapse">
+      <article class="card card--full card--process">
+        <div class="row collapse card--process__row">
+          <div class="column large-6 card--process__column">
+            <div class="card__content">
+              <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "card__link" do %>
+                <h2 class="card__title"><%= translated_attribute process.title %></h2>
+              <% end %>
+              <%= decidim_sanitize translated_attribute(process.description) %>
+              <%= link_to t("more_information", scope: i18n_scope), decidim_participatory_processes.participatory_process_path(process), class: "button secondary small hollow" %>
+            </div>
+          </div>
+          <div class="column large-6 card--process__column">
+            <div class="card--full__image" style="background-image:url(<%= process.hero_image.url %>)">
+              <div class="card__content row collapse">
+                <div class="large-6 large-offset-6 columns">
+                  <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "button expanded button--sc" do %>
+                    <%= t("participate", scope: i18n_scope) %>
+                    <% if process.active_step %>
+                      <span class="button__info">
+                        <%= t("active_step", scope: i18n_scope) %>
+                        <strong><%= translated_attribute process.active_step.title %></strong>
+                      </span>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+  <%= render "_all_processes" %>
+</section>

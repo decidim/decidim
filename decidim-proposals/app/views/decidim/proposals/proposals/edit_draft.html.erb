@@ -7,40 +7,7 @@
     <div class="card">
       <div class="card__content">
         <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
-          <div class="field">
-            <%= form.text_field :title %>
-          </div>
-
-          <div class="field">
-            <%= form.text_area :body, rows: 10 %>
-          </div>
-
-          <% if component_settings.geocoding_enabled? %>
-            <div class="field">
-              <%= form.check_box :has_address %>
-            </div>
-            <div class="field" id="address_input">
-              <%= form.text_field :address %>
-            </div>
-          <% end %>
-
-          <% if @form.categories&.any? %>
-            <div class="field">
-              <%= form.categories_select :category_id, @form.categories, prompt: t("decidim.proposals.proposals.edit.select_a_category") %>
-            </div>
-          <% end %>
-
-          <% if current_participatory_space.has_subscopes? %>
-            <div class="field">
-              <%= scopes_picker_field form, :scope_id %>
-            </div>
-          <% end %>
-
-          <% if current_user.user_groups.verified.any? %>
-            <div class="field">
-              <%= user_group_select_field form, :user_group_id %>
-            </div>
-          <% end %>
+          <%= render partial: "edit_form_fields", locals: { form: form } %>
 
           <div class="row column flex-center">
             <%= link_to t(".discard"), destroy_draft_proposal_path(@proposal), method: :delete, data: { confirm: t(".discard_confirmation") } %>

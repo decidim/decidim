@@ -1,0 +1,145 @@
+hu:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategória
+        decidim_category_id: Kategória
+        description: Leírás
+        end_time: Lejár ekkor
+        information_updates: Információ frissítések
+        instructions: Útmutató a részvételhez
+        start_time: Kezdődik
+        title: Cím
+        user_group_id: Vita létrehozása
+    models:
+      decidim/debates/create_debate_event: Vita
+      decidim/debates/creation_disabled_event: Viták letiltva
+      decidim/debates/creation_enabled_event: Viták engedélyezve
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Vita
+        other: Viták
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Létrehozás
+        name: Viták
+        settings:
+          global:
+            announcement: Közlemény
+            comments_enabled: Megjegyzések engedélyezve
+          step:
+            announcement: Közlemény
+            comments_blocked: Megjegyzések letiltva
+            creation_enabled: Felhasználók általi viták létrehozása engedélyezve
+    debates:
+      actions:
+        confirm_destroy: Biztos vagy benne?
+        destroy: Törlés
+        edit: Szerkesztés
+        new: Új %{name}
+        title: Műveletek
+      admin:
+        debates:
+          create:
+            invalid: Probléma merült fel a vita létrehozása során.
+            success: Vita létrehozása sikeres.
+          destroy:
+            success: Vita törlése sikeres.
+          edit:
+            title: Vita szerkesztése
+            update: Vita frissítése
+          index:
+            title: Viták
+          new:
+            create: Vita létrehozása
+            title: Új vita
+          update:
+            invalid: Probléma merült fel a vita frissítése során.
+            success: A vita sikeresen frissült.
+        models:
+          debate:
+            name: Vita
+      admin_log:
+        debate:
+          create: "%{user_name} létrehozta a(z) %{resource_name} vitát itt: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} vitát itt: %{space_name}"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} vita"
+            other: "%{count} vita"
+        create:
+          invalid: Probléma merült fel a vita létrehozása során.
+          success: Vita létrehozása sikeres.
+        debate:
+          participate: Részvétel
+        filters:
+          all: Összes
+          category: Kategória
+          category_prompt: Válassz kategóriát
+          citizens: Állampolgárok
+          official: Hivatalos
+          origin: Kiindulópont
+          search: Keresés
+        filters_small_view:
+          close_modal: Modal bezárása
+          filter: Szűrő
+          filter_by: 'Szűrés ez alapján:'
+          unfold: Kibont
+        index:
+          new_debate: Új vita
+        new:
+          back: Vissza
+          create: Létrehozás
+          select_a_category: Válassz kategóriát
+          title: Új vita
+        share:
+          close_window: Ablak bezárása
+          share: Megosztás
+          share_link: Link megosztása
+      models:
+        debate:
+          fields:
+            end_time: Befejezés dátuma
+            official_debate: Hivatalos vita
+            start_time: Kezdő dátum
+            title: Cím
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Szia, új vita található itt: %{space_title}, nézd rá és tegyél hozzá te is valamit:
+            email_outro: 'Ezt az értesítést azért kaptad, mert ezt a részvételi helyet követed: "%{space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+            email_subject: 'Új vita itt: %{space_title}'
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt:<a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Szia,
+              %{author_name} %{author_nickname} (akit követsz) új vitát hozott létre, nézd meg és tegyél hozzá te is valamit:
+            email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+            email_subject: '%{author_nickname} új vitát indított'
+            notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt, általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
+        creation_disabled:
+          email_intro: 'Vita létrehozása már nem lehetséges itt: %{participatory_space_title}. A nyitott vitákban azonban továbbra is részt vehetsz itt:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Viták létrehozása letiltva itt: %{participatory_space_title}'
+          notification_title: 'Viták létrehozása letiltva itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
+        creation_enabled:
+          email_intro: 'Indíts új vitákat itt: %{participatory_space_title}! Te is részt vehetsz bennük ezen az oldalon:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Viták létrehozása lehetséges itt: %{participatory_space_title}'
+          notification_title: a href="%{resource_path}">Kezd új vitát</a> a(z) <a href="%{participatory_space_url}">%{participatory_space_title}</a> helyen
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Ez a felhasználó %{score} vitában vett részt.
+          description_own: Vettél részt %{score} vitában.
+          explanation: A felhasználók megkapják ezt a jelvényt a vitákban való részvétellel.
+          name: viták
+          next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
+          unearned_another: Ez a felhasználó még nem vett részt vitában.
+          unearned_own: Vannak résztvevők a vitákban.

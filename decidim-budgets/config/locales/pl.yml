@@ -23,6 +23,7 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
         destroy: Kasować
         edit: Edytować
+        import: Importuj propozycje do projektów
         new: Nowy projekt
         preview: Zapowiedź
         title: działania
@@ -49,6 +50,14 @@ pl:
           update:
             invalid: Wystąpił problem z aktualizacją tego projektu
             success: Zaktualizowano projekt
+        proposals_imports:
+          create:
+            invalid: Wystąpił problem podczas importowania propozycji do projektów
+            success: "%{number} propozycji pomyślnie zaimportowanych do projektów"
+          new:
+            create: Importuj propozycje do projektów
+            no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do importowania propozycji do projektów.
+            select_component: Wybierz komponent
       admin_log:
         project:
           create: "%{user_name} utworzył projekt %{resource_name} w przestrzeni %{space_name}"
@@ -129,6 +138,7 @@ pl:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
             projects_per_page: Projekty na stronę
+            resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
             total_budget: Cały budżet
             vote_threshold_percent: Procent progu głosowania
           step:

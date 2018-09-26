@@ -55,7 +55,8 @@ module Decidim::Meetings
         transparent: transparent,
         services_to_persist: services_to_persist,
         current_user: current_user,
-        current_component: current_component
+        current_component: current_component,
+        current_organization: organization
       )
     end
 

@@ -35,6 +35,7 @@
 @import "tags";
 @import "input-tags";
 @import "input-mentions";
+@import "input-hashtags";
 @import "list-docs";
 @import "datepicker";
 @import "pagination";
@@ -43,6 +44,10 @@
 @import "docs-manager";
 @import "horizontal-tabs";
 @import "conversation";
+@import "orgchart";
+@import "badges";
+@import "hover-section";
+@import "list-request";
 
 //Process elements
 @import "process-header";
@@ -56,9 +61,20 @@
 @import "reference";
 @import "status-labels";
 
+//Conference elements
+@import "conference-nav";
+@import "conference-speaker";
+@import "conference-programme";
+@import "conference-registration";
+
 //User interface
 @import "user-form";
 @import "signup";
+
+//Visualizations
+@import "areachart";
+@import "chart-tooltip";
+@import "metrics";
 
 //Additional elements
 @import "share";

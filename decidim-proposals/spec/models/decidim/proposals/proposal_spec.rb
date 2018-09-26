@@ -54,7 +54,7 @@ module Decidim
         end
 
         context "with Organization endorsement" do
-          let!(:user_group) { create(:user_group, verified_at: DateTime.current, organization: user.organization) }
+          let!(:user_group) { create(:user_group, verified_at: Time.current, organization: user.organization) }
           let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
 
           before { user_group.reload }
@@ -189,6 +189,7 @@ module Decidim
 
           it { is_expected.to be_withdrawn }
         end
+
         context "when proposal is not withdrawn" do
           let(:proposal) { build :proposal }
 

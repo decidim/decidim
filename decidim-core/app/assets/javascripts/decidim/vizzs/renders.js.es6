@@ -1,18 +1,11 @@
-/* global renderAreaCharts, renderRowCharts, renderLineCharts */
-$(() => {
-  const render = () => {
-    renderAreaCharts()
-    renderRowCharts()
-    renderLineCharts()
+((exports) => {
+  const RenderChart = (chart) => {
+    chart()
+    $(document).on("change.zf.tabs", () => {
+      chart()
+    });
   }
 
-  // init
-  render()
-  // only for pattern-library
-  $(document).on("change.zf.tabs", () => {
-    render()
-  });
-  $(document).on("down.zf.accordion", () => {
-    render()
-  });
-});
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.Visualizations = RenderChart;
+})(window)

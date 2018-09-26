@@ -21,6 +21,7 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        organizer_id: Organizer
         private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
@@ -81,6 +82,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
+            resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -106,6 +108,11 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+        registration_code_validated:
+          email_intro: Your registration code "%{registration_code}" has been validated.
+          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
+          email_subject: Your registration code "%{registration_code}" has been validated
+          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
@@ -116,6 +123,16 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: This user has attended %{score} meetings.
+          description_own: You have attended %{score} meetings.
+          explanation: Users get this badge by attending meetings.
+          name: Attended meetings
+          next_level_in: Attend %{score} more meetings to reach the next level!
+          unearned_another: This user hasn't attended any meeting yet.
+          unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
         agenda: Agenda
@@ -172,6 +189,13 @@ en:
           create:
             error: There's been a problem while inviting the user to join the meeting.
             success: User successfully invited to join the meeting.
+          form:
+            attendee_type: Attendee type
+            existing_user: Existing user
+            invite: Invite
+            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            non_user: Non existing user
+            select_user: Select user
           index:
             filter:
               accepted: Accepted
@@ -181,11 +205,8 @@ en:
             filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
             search: Search
-          new:
-            explanation: The user will be invited to join a meeting. If the email is not registered they will be invited to the organization as well.
-            invite: Invite
-            new_invite: Invite user
         meeting_closes:
           edit:
             close: Close
@@ -242,6 +263,8 @@ en:
         registrations:
           edit:
             save: Save
+            validate: Validate
+            validate_registration_code: Validate registration code
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
@@ -254,6 +277,9 @@ en:
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+          validate_registration_code:
+            invalid: This registration code is invalid.
+            success: Registration code successfully validated.
       admin_log:
         invite:
           create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
@@ -271,6 +297,22 @@ en:
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+      conference_venues: Conference Venues
+      content_blocks:
+        upcoming_events:
+          name: Upcoming events
+          upcoming_events: Upcoming meetings
+          view_all_events: View all
+      directory:
+        meetings:
+          index:
+            all: All
+            date: Date
+            meetings: Meetings
+            past: Past
+            search: Search
+            space_type: Participatory space
+            upcoming: Upcoming
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -293,8 +335,6 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
-        index:
-          view_meeting: View meeting
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Related Information
@@ -317,6 +357,8 @@ en:
             other: "%{count} slots remaining"
             zero: No slots remaining
           view: View
+      meetings_map:
+        view_meeting: View meeting
       models:
         invite:
           fields:

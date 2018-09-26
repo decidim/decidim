@@ -1,0 +1,57 @@
+<div class="field hashtags__container">
+  <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: present(@proposal).title %>
+</div>
+
+<div class="field hashtags__container">
+  <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: present(@proposal).body %>
+</div>
+
+<% if component_settings.geocoding_enabled? %>
+  <div class="field">
+    <%= form.check_box :has_address, checked: form_has_address? %>
+  </div>
+
+  <div class="field" id="address_input">
+    <%= form.text_field :address %>
+  </div>
+<% end %>
+
+<% if @form.categories&.any? %>
+  <div class="field">
+    <%= form.categories_select :category_id, @form.categories, prompt: t("decidim.proposals.proposals.edit.select_a_category") %>
+  </div>
+<% end %>
+
+<% if current_participatory_space.has_subscopes? %>
+  <div class="field">
+    <%= scopes_picker_field form, :scope_id %>
+  </div>
+<% end %>
+
+<% if current_user.user_groups.verified.any? %>
+  <div class="field">
+    <%= user_group_select_field form, :user_group_id %>
+  </div>
+<% end %>
+
+<% if component_settings.attachments_allowed? && @proposal %>
+  <fieldset>
+    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+    <%= form.fields_for :attachment, @form.attachment do |nested_form| %>
+      <div class="field">
+        <%= nested_form.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= nested_form.upload :file, optional: false %>
+        <% if @form.errors[:attachment].present? %>
+          <% @form.errors[:attachment].each do |message| %>
+            <small class="form-error is-visible">
+              <%= message %>
+            </small>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </fieldset>
+<% end %>

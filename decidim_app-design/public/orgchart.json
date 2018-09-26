@@ -1,0 +1,263 @@
+[
+  {
+    "name": "Equatorial Guinea",
+    "children": [
+      {
+        "name": "Many childs",
+        "children": [
+          {
+            "name": "Croton Loop"
+          },
+          {
+            "name": "Banker Street"
+          },
+          {
+            "name": "Colonial Court"
+          },
+          {
+            "name": "Banker Street"
+          },
+          {
+            "name": "Colonial Court"
+          },
+          {
+            "name": "Banker Street"
+          },
+          {
+            "name": "Colonial Court"
+          },
+          {
+            "name": "Banker Street"
+          },
+          {
+            "name": "Colonial Court"
+          },
+          {
+            "name": "Banker Street"
+          },
+          {
+            "name": "Colonial Court"
+          },
+          {
+            "name": "Banker Street"
+          },
+          {
+            "name": "Colonial Court"
+          },
+          {
+            "name": "Havens Place"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "US Minor Outlying Islands",
+    "children": [
+      {
+        "name": "Tennessee",
+        "children": [
+          {
+            "name": "Chaparrito",
+            "children": [
+              {
+                "name": "Croton Loop"
+              },
+              {
+                "name": "Banker Street"
+              },
+              {
+                "name": "Colonial Court"
+              },
+              {
+                "name": "Havens Place"
+              }
+            ]
+          },
+          {
+            "name": "Jamestown",
+            "children": []
+          },
+          {
+            "name": "Ypsilanti",
+            "children": [
+              {
+                "name": "Lexington Avenue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Wisconsin",
+        "children": [
+          {
+            "name": "Hayes",
+            "children": [
+              {
+                "name": "Judge Street"
+              },
+              {
+                "name": "Pooles Lane"
+              },
+              {
+                "name": "Ross Street"
+              },
+              {
+                "name": "Saratoga Avenue"
+              },
+              {
+                "name": "Joval Court"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Estonia",
+    "children": [
+      {
+        "name": "South Carolina",
+        "children": [
+          {
+            "name": "Motley",
+            "children": [
+              {
+                "name": "Ridgewood Place"
+              },
+              {
+                "name": "Meeker Avenue"
+              }
+            ]
+          },
+          {
+            "name": "Urie",
+            "children": [
+              {
+                "name": "Greenpoint Avenue"
+              },
+              {
+                "name": "Kermit Place"
+              },
+              {
+                "name": "Ellery Street"
+              }
+            ]
+          },
+          {
+            "name": "Stagecoach",
+            "children": [
+              {
+                "name": "Bushwick Place"
+              },
+              {
+                "name": "Chester Avenue"
+              }
+            ]
+          },
+          {
+            "name": "Caledonia",
+            "children": [
+              {
+                "name": "Baycliff Terrace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Alaska",
+        "children": [
+          {
+            "name": "Boomer",
+            "children": [
+              {
+                "name": "Hanson Place"
+              },
+              {
+                "name": "College Place"
+              },
+              {
+                "name": "Linwood Street"
+              },
+              {
+                "name": "Williams Court"
+              }
+            ]
+          },
+          {
+            "name": "Vivian",
+            "children": [
+              {
+                "name": "Woodruff Avenue"
+              },
+              {
+                "name": "Nichols Avenue"
+              },
+              {
+                "name": "Bath Avenue"
+              }
+            ]
+          },
+          {
+            "name": "Summerset",
+            "children": [
+              {
+                "name": "Beekman Place"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Marshall Islands",
+        "children": [
+          {
+            "name": "Santel",
+            "children": [
+              {
+                "name": "Lincoln Road"
+              },
+              {
+                "name": "Logan Street"
+              }
+            ]
+          },
+          {
+            "name": "Witmer",
+            "children": [
+              {
+                "name": "Forrest Street"
+              },
+              {
+                "name": "Bergen Place"
+              },
+              {
+                "name": "Robert Street"
+              }
+            ]
+          },
+          {
+            "name": "Hailesboro",
+            "children": [
+              {
+                "name": "Fleet Place"
+              },
+              {
+                "name": "Cherry Street"
+              },
+              {
+                "name": "Wyona Street"
+              },
+              {
+                "name": "Dekoven Court"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

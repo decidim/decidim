@@ -54,6 +54,7 @@ module Decidim::Assemblies::Admin
             expect(subject).to eq(ceased_assembly_members)
           end
         end
+
         context 'when the user filters by "Not ceased"' do
           let(:filter) { "not_ceased" }
 

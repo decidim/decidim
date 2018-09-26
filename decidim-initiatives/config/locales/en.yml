@@ -7,8 +7,8 @@ en:
         description: Description
         offline_votes: Face-to-face supports
         scope_id: Scope
-        signature_end_time: End of signature collection period
-        signature_start_time: Start of signature collection period
+        signature_end_date: End of signature collection period
+        signature_start_date: Start of signature collection period
         signature_type: Signature collection type
         signature_type_values:
           any: Mixed
@@ -83,6 +83,16 @@ en:
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
           email_subject: New milestone completed!
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+    gamification:
+      badges:
+        initiatives:
+          description_another: This user has gotten %{score} initiatives published.
+          description_own: You've got %{score} initiatives published.
+          explanation: Users get this badge by getting their initiatives published.
+          name: Published initiatives
+          next_level_in: Get %{score} more initiatives published to reach the next level!
+          unearned_another: This user hasn't gotten any initiatives published yet.
+          unearned_own: You got no initiatives published yet.
     initiatives:
       admin:
         committee_requests:
@@ -93,6 +103,9 @@ en:
             no_members_yet: There are no members in the promoter committee
             revoke: Revoke
             title: Committee members
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum amount of elements to show
         initiatives:
           edit:
             accept: Accept initiative
@@ -182,6 +195,9 @@ en:
           help_text: You are about to request becoming a member of the promoter committee of this initiative
         spawn:
           success: Your request has been sent to the initiative author.
+      content_blocks:
+        highlighted_initiatives:
+          name: Highlighted initiatives
       create_initiative:
         fill_data:
           back: Back

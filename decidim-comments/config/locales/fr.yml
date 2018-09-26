@@ -11,14 +11,14 @@ fr:
         one: Commentaire
         other: Commentaires
       decidim/comments/comment_vote:
-        one: Soutien
-        other: Soutiens
+        one: Vote
+        other: Votes
   decidim:
     comments:
       comments: Commentaires
       votes:
         create:
-          error: Une erreur s'est produite lors du soutien de ce commentaire.
+          error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
         account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
@@ -45,7 +45,7 @@ fr:
           action: Signaler
           already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
           close: Fermer
-          description: Ce contenu est-il inapproprié?
+          description: Ce contenu est-il inapproprié ?
           details: Commentaires additionnels
           reasons:
             does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
@@ -57,7 +57,7 @@ fr:
           best_rated: Les mieux notés
           most_discussed: Les plus débattus
           older: Les plus anciens
-          recent: Les plus récentes
+          recent: Les plus récents
         title: 'Classement par :'
       comment_thread:
         title: Conversation avec %{authorName}
@@ -69,11 +69,11 @@ fr:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} a laissé un commentaire dans %{resource_title}. Vous pouvez le lire sur la page suivante :"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez désabonner de cet utilisateur depuis sa page de profil.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa page de profil.
           email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "%{resource_title} a été commenté. Vous pouvez lire le commentaire sur cette page:"
+          email_intro: "%{resource_title} a été commenté. Vous pouvez lire le commentaire sur cette page :"
           email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner à partir du lien précédant.
           email_subject: Un nouveau commentaire vient d'être publié par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> vient d'être publié dans <a href="%{resource_path}">%{resource_title}</a>
@@ -81,7 +81,7 @@ fr:
           email_intro: "%{author_name} a répondu à votre commentaire dans %{resource_title}. Vous pouvez le lire depuis la page suivante :"
           email_outro: Vous venez de recevoir une notification à votre commentaire.
           email_subject: "%{author_name} a répondu à votre commentaire dans %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a réagit à votre commentaire sur <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a réagi à votre commentaire sur <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Vous avez été mentionné
           email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}.

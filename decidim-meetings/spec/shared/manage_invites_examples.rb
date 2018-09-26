@@ -8,17 +8,45 @@ def visit_meeting_invites_page
   page.click_link "Invites"
 end
 
-def fill_in_meeting_registration_invite(name:, email:)
-  click_link "Invite attendee"
+def invite_unregistered_user(name:, email:)
+  visit_meeting_invites_page
 
   within "form.new_meeting_registration_invite" do
+    choose "Non existing user", name: "meeting_registration_invite[existing_user]"
     fill_in :meeting_registration_invite_name, with: name
     fill_in :meeting_registration_invite_email, with: email
+
+    perform_enqueued_jobs do
+      click_button "Invite"
+    end
   end
 
-  click_button "Invite"
+  expect(page).to have_content("successfully")
+
+  within "#meeting-invites table" do
+    expect(page).to have_content(name)
+    expect(page).to have_content(email)
+  end
+end
+
+def invite_existing_user(user)
+  visit_meeting_invites_page
+
+  within "form.new_meeting_registration_invite" do
+    choose "Existing user", name: "meeting_registration_invite[existing_user]"
+    autocomplete_select "#{user.name} (@#{user.nickname})", from: :user_id
+
+    perform_enqueued_jobs do
+      click_button "Invite"
+    end
+  end
 
   expect(page).to have_content("successfully")
+
+  within "#meeting-invites table" do
+    expect(page).to have_content(registered_user.name)
+    expect(page).to have_content(registered_user.email)
+  end
 end
 
 shared_examples "manage invites" do
@@ -26,7 +54,12 @@ shared_examples "manage invites" do
     context "when registrations are not enabled" do
       it "cannot invite people to join a meeting" do
         visit_meeting_invites_page
-        expect(page).to have_selector("a.disabled", text: "INVITE ATTENDEE")
+
+        expect(page).to have_content("registrations are disabled")
+
+        within "form.new_meeting_registration_invite" do
+          expect(page).to have_selector("button[disabled]", text: "Invite")
+        end
       end
     end
 
@@ -35,16 +68,7 @@ shared_examples "manage invites" do
 
       context "when inviting a unregistered user" do
         it "the invited user sign up into the application and joins the meeting" do
-          visit_meeting_invites_page
-
-          perform_enqueued_jobs do
-            fill_in_meeting_registration_invite name: "Foo", email: "foo@example.org"
-          end
-
-          within "#meeting-invites table" do
-            expect(page).to have_content("Foo")
-            expect(page).to have_content("foo@example.org")
-          end
+          invite_unregistered_user name: "Foo", email: "foo@example.org"
 
           logout :user
 
@@ -66,16 +90,7 @@ shared_examples "manage invites" do
         end
 
         it "the invited user sign up into the application and declines the invitation" do
-          visit_meeting_invites_page
-
-          perform_enqueued_jobs do
-            fill_in_meeting_registration_invite name: "Foo", email: "foo@example.org"
-          end
-
-          within "#meeting-invites table" do
-            expect(page).to have_content("Foo")
-            expect(page).to have_content("foo@example.org")
-          end
+          invite_unregistered_user name: "Foo", email: "foo@example.org"
 
           logout :user
 
@@ -101,16 +116,7 @@ shared_examples "manage invites" do
         let!(:registered_user) { create(:user, :confirmed, organization: organization) }
 
         it "the invited user joins the meeting" do
-          visit_meeting_invites_page
-
-          perform_enqueued_jobs do
-            fill_in_meeting_registration_invite name: registered_user.name, email: registered_user.email
-          end
-
-          within "#meeting-invites table" do
-            expect(page).to have_content(registered_user.name)
-            expect(page).to have_content(registered_user.email)
-          end
+          invite_existing_user registered_user
 
           relogin_as registered_user
 
@@ -122,16 +128,35 @@ shared_examples "manage invites" do
         end
 
         it "the invited user declines the invitation" do
-          visit_meeting_invites_page
+          invite_existing_user registered_user
 
-          perform_enqueued_jobs do
-            fill_in_meeting_registration_invite name: registered_user.name, email: registered_user.email
-          end
+          relogin_as registered_user
 
-          within "#meeting-invites table" do
-            expect(page).to have_content(registered_user.name)
-            expect(page).to have_content(registered_user.email)
+          visit last_email_first_link
+
+          within ".card.extra" do
+            expect(page).to have_css(".button", text: "JOIN MEETING")
           end
+        end
+      end
+
+      context "when inviting a registered user as if not registered" do
+        let!(:registered_user) { create(:user, :confirmed, organization: organization) }
+
+        it "the invited user joins the meeting" do
+          invite_unregistered_user name: registered_user.name, email: registered_user.email
+
+          relogin_as registered_user
+
+          visit last_email_link
+
+          within ".card.extra" do
+            expect(page).to have_css(".button", text: "GOING")
+          end
+        end
+
+        it "the invited user declines the invitation" do
+          invite_unregistered_user name: registered_user.name, email: registered_user.email
 
           relogin_as registered_user
 

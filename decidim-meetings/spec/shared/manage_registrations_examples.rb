@@ -63,4 +63,30 @@ shared_examples "manage registrations" do
       expect(page.response_headers["Content-Disposition"]).to match(/attachment; filename=.*\.json/)
     end
   end
+
+  context "when validating registration codes" do
+    let!(:registration) { create :registration, meeting: meeting, code: "QW12ER34" }
+
+    it "can validate a valid registration code" do
+      visit_edit_registrations_page
+
+      within ".validate_meeting_registration_code" do
+        fill_in :validate_registration_code_code, with: "QW12ER34"
+        click_button "Validate"
+      end
+
+      expect(page).to have_admin_callout("Registration code successfully validated")
+    end
+
+    it "can't validate an invalid registration code" do
+      visit_edit_registrations_page
+
+      within ".validate_meeting_registration_code" do
+        fill_in :validate_registration_code_code, with: "NOT-GOOD"
+        click_button "Validate"
+      end
+
+      expect(page).to have_admin_callout("This registration code is invalid")
+    end
+  end
 end

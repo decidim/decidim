@@ -1,0 +1,349 @@
+ca:
+  activemodel:
+    attributes:
+      conference:
+        banner_image: Imatge del bàner
+        copy_categories: Copiar categories
+        copy_components: Copiar components
+        copy_features: Funcions de còpia
+        decidim_scope_id: Abast
+        description: Descripció
+        hashtag: Etiqueta
+        hero_image: Imatge inicial
+        promoted: Promocionat
+        published_at: Publicat a
+        scope_id: Abast
+        scopes_enabled: Àmbit habilitat
+        short_description: Descripció breu
+        show_statistics: Mostra estadístiques
+        slogan: Eslògan
+        slug: URL slug
+        title: Títol
+      conference_speaker:
+        full_name: Nom complet
+      conference_user_role:
+        email: Correu electrònic
+        name: Nom
+        role: Paper
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Aquest correu electrònic ja ha estat convidat
+  activerecord:
+    models:
+      decidim/conference:
+        one: Conferència
+        other: Conferències
+      decidim/conference_speaker:
+        one: Conferenciant de conferències
+        other: Conferenciants de conferències
+      decidim/conference_user_role:
+        one: Funció d'usuari de la conferència
+        other: Funcions d'usuari de la conferència
+  decidim:
+    admin:
+      actions:
+        new_conference: Nova conferència
+      conference_copies:
+        new:
+          copy: Copia
+          select: Selecciona quines dades vols duplicar
+          title: Conferència duplicada
+      conference_publications:
+        create:
+          error: S'ha produït un error en publicar aquesta conferència.
+          success: La conferència s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en publicar aquesta conferència.
+          success: La conferència no s'ha publicat correctament.
+      conference_speakers:
+        create:
+          error: S'ha produït un error en afegir un parlant per a aquesta conferència.
+          success: Ponent creat amb èxit per a aquesta conferència.
+        destroy:
+          success: El parlant s'ha eliminat correctament per a aquesta conferència.
+        edit:
+          title: Actualitza l'altaveu de la conferència.
+          update: Actualització
+        index:
+          conference_speakers_title: Conferenciants de conferències
+        new:
+          create: Crear
+          title: Nou conferenciant de conferències.
+        update:
+          error: S'ha produït un error en actualitzar el parlant d'aquesta conferència.
+          success: Ponent actualitzat amb èxit per a aquesta conferència.
+      conference_user_roles:
+        create:
+          error: S'ha produït un error en afegir un usuari a aquesta conferència.
+          success: L'usuari s'ha afegit amb èxit a aquesta conferència.
+        destroy:
+          success: L'usuari s'ha eliminat correctament d'aquesta conferència.
+        edit:
+          title: Actualitza l'usuari de la conferència.
+          update: Actualització
+        index:
+          conference_admins_title: usuaris de conferències
+        new:
+          create: Crear
+          title: Nou usuari de la conferència.
+        update:
+          error: S'ha produït un error en l'actualització d'un usuari per a aquesta conferència.
+          success: L'usuari s'ha actualitzat amb èxit per a aquesta conferència.
+      conferences:
+        create:
+          error: S'ha produït un error en crear una nova conferència.
+          success: La conferència s'ha creat correctament.
+        destroy:
+          success: La conferència s'ha suprimit correctament.
+        edit:
+          update: Actualització
+        exports:
+          registrations: Inscripcions
+        form:
+          title: Informació general
+        index:
+          not_published: No s'ha publicat
+          published: Publicat
+        new:
+          create: Crear
+          title: Conferència
+        update:
+          error: S'ha produït un error en actualitzar aquesta conferència.
+          success: S'ha actualitzat la conferència amb èxit.
+      conferences_copies:
+        create:
+          error: S'ha produït un error en duplicar aquesta conferència.
+          success: La conferència s'ha duplicat correctament.
+      menu:
+        conferences: Conferències
+        conferences_submenu:
+          attachment_collections: Carpetes
+          attachment_files: Fitxers
+          attachments: Fitxers adjunts
+          categories: Categories
+          components: Components
+          conference_admins: Administradors de conferències
+          conference_invites: Conferència convida
+          conference_registrations: Registre de conferències
+          conference_speakers: Conferenciants de conferències
+          info: Info
+          moderations: Moderacions
+      models:
+        conference:
+          fields:
+            created_at: Creat a
+            promoted: Promocionat
+            published: Publicat
+            title: Títol
+        conference_speaker:
+          fields:
+            affiliation: Afiliació
+            full_name: Nom complet
+            position: Posició
+          name: Conferència de conferències
+        conference_user_role:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            role: Paper
+          name: Usuari de la conferència
+          roles:
+            admin: Administrador
+            collaborator: Col·laborador
+            moderator: Moderador
+      titles:
+        conferences: Conferències
+    conference_speakers:
+      index:
+        title: Ponents
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'Les barraques d''URL s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        conference_invites:
+          create:
+            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la conferència.
+            success: S'ha convidat a l'usuari a participar a la conferència.
+          form:
+            attendee_type: Tipus d'assistent
+            existing_user: Usuari existent
+            invite_explanation: L'usuari també serà convidat a participar a la conferència ia l'organització.
+            non_user: Usuari no existent
+            select_user: Seleccioneu l'usuari
+          index:
+            filter:
+              accepted: Acceptat
+              all: Tots
+              rejected: Rebutjada
+              sent: Enviat
+            filter_by: Filtra per
+            invite_attendee: Convida l'assistent
+            invites: Convida
+            search: Cerca
+          new:
+            explanation: L'usuari serà convidat a participar en una conferència. Si el correu electrònic no està registrat, també se us convidarà a l'organització.
+            invite: Convidar
+            new_invite: Convida l'usuari
+        conference_registrations:
+          index:
+            registrations: Inscripcions
+        conference_speakers:
+          form:
+            existing_user: Usuari existent
+            non_user: No usuari
+            select_user: Seleccioneu l'usuari
+            user_type: Tipus d'usuari
+          index:
+            search: Cerca
+        conferences:
+          form:
+            available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
+            registrations_count:
+              one: S'ha registrat 1 registre.
+              other: S'han registrat %{count} registres.
+            slug_help: 'Les barraques d''URL s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        invite_join_conference_mailer:
+          invite:
+            decline: Rebutja la invitació '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l' %{application}. Podeu rebuig o acceptar-lo a través dels enllaços a continuació."
+            join: Uneix-te a la conferència '%{conference_title}'
+      conference:
+        registration_confirm:
+          cancel: Cancel · lar
+          confirm: Confirma
+        show:
+          going: Anant
+          join: Participa en la conferència
+          no_slots_available: No hi ha ranures disponibles
+          remaining_slots:
+            one: 1 espai disponible
+            other: "%{count} places restants restants"
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: S'ha confirmat el registre de la conferència <a href="%{url}">%{title}</a>.
+          details: Trobareu les dades de la conferència al fitxer adjunt.
+      conference_registrations:
+        create:
+          invalid: Hi ha hagut un problema en unir-se a aquesta conferència.
+          success: Has entrat a la conferència amb èxit.
+        decline_invitation:
+          invalid: Hi ha hagut un problema en disminuir la invitació.
+          success: Has rebutjat la invitació amb èxit.
+        destroy:
+          invalid: Hi ha hagut un problema en deixar aquesta conferència.
+          success: Heu deixat la conferència amb èxit.
+      conference_speaker:
+        show:
+          affiliation: Afiliació
+          personal_url: Url personal
+          position: Posició
+          short_bio: Bio curt
+          twitter_handle: Twitter
+      conference_speakers:
+        index:
+          speakers: Ponents
+      content_blocks:
+        highlighted_conferences:
+          name: Conferències destacades
+      index:
+        title: Conferències
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: S'ha confirmat la inscripció de la vostra conferència
+        invite_join_conference_mailer:
+          invite:
+            subject: Invitació per participar en una conferència
+      models:
+        conference_invite:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            sent_at: Enviat a
+            status: Estat
+          status:
+            accepted: Acceptat (%{at})
+            rejected: Rebutjat (%{at})
+            sent: Enviat
+        conference_registration:
+          fields:
+            email: Correu electrònic
+            name: Nom
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Conferències actives
+            see_all_conferences: Veure totes les conferències
+      show:
+        end_date: Data de finalització
+        objectives: Objectius
+        start_date: Data d'inici
+      statistics:
+        answers_count: Respostes
+        comments_count: Comentaris
+        conference_count: Conferències
+        debates_count: Debats
+        endorsements_count: Aprovacions
+        headline: Activitat
+        meetings_count: Reunions
+        orders_count: Vots
+        pages_count: Pàgines
+        posts_count: Publicacions
+        projects_count: Projectes
+        proposals_count: Propostes
+        results_count: Resultats
+        surveys_count: Enquestes
+        users_count: Participants
+        votes_count: Vots
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_intro: Les places tragamonedas "%{resource_title}" ocupen més de l' %{percentage}%.
+          email_outro: Heu rebut aquesta notificació perquè sou administrador de l'espai participatiu de la conferència.
+          email_subject: Les ranures ocupades per la conferència "%{resource_title}" superen l' %{percentage}%
+          notification_title: Les places tragamonedas de <a href="%{resource_path}">%{resource_title}</a> ocupen més del %{percentage}%.
+        conference_updated:
+          email_intro: 'S''ha actualitzat la conferència "%{resource_title}". Podeu llegir la nova versió des de la seva pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: S'ha actualitzat la conferència "%{resource_title}"
+          notification_title: S'ha actualitzat la conferència <a href="%{resource_path}">%{resource_title}</a>.
+        registrations_enabled:
+          email_intro: 'La conferència "%{resource_title}" ha permès registres. Podeu registrar-vos a la vostra pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: La conferència "%{resource_title}" ha permès registres.
+          notification_title: La conferència <a href="%{resource_path}">%{resource_title}</a> ha permès registres.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'La conferència no es va trobar a la base de dades (ID: %{id})'
+    menu:
+      conferences: Conferències
+  devise:
+    mailer:
+      join_conference:
+        subject: Invitació per participar en una conferència
+  layouts:
+    decidim:
+      conference_header:
+        conference_menu_item: La conferència
+        conference_speaker_menu_item: Ponents
+        unfold: Desplegar
+      conference_widgets:
+        show:
+          take_part: Formar part
+      conferences:
+        conference:
+          take_part: Formar part
+        index:
+          promoted_conferences: Conferències promocionades
+        order_by_conferences:
+          conferences:
+            one: "%{count} conferències"
+            other: "%{count} conferències"
+        promoted_conference:
+          more_info: Més informació
+          take_part: Formar part

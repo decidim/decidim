@@ -13,11 +13,11 @@ pl:
         end_date: Data zakończenia
         hashtag: Hasztag
         hero_image: Obraz w domu
-        local_area: Okolica
+        local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
-        participatory_scope: Zakres partycypacji
-        participatory_structure: Struktura partycypacji
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
         promoted: Lansowany
         published_at: Opublikowano na
         scope_id: Zakres
@@ -27,7 +27,7 @@ pl:
         slug: Ślimak URL
         start_date: Data rozpoczęcia
         subtitle: Podtytuł
-        target: Cel
+        target: Kto uczestniczy
         title: Tytuł
       participatory_process_group:
         description: Opis
@@ -263,7 +263,11 @@ pl:
       processes: Procesy
     participatory_process_groups:
       show:
-        group_participatory_processes: Procesy %{group}
+        group_participatory_processes:
+          one: 1 procesy dla %{group}
+          few: "%{count} procesów dla %{group}"
+          many: "%{count} procesów dla %{group}"
+          other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
     participatory_process_steps:
       index:
@@ -271,6 +275,9 @@ pl:
         title: Etapy procesu partycypacyjnego
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maksymalna ilość elementów do pokazania
         participatory_process_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
@@ -278,22 +285,54 @@ pl:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Wyróżnione procesy
       index:
         title: Procesy partycypacyjne
-      order_by_processes:
-        active: Aktywne
-        all: Wszystko
-        past: Przeszłe
-        upcoming: Nadchodzące
       pages:
         home:
           highlighted_processes:
             active_processes: Aktywne procesy
             active_step: Aktywny krok
+            more_information: Więcej informacji
+            participate: Uczestniczyć
             see_all_processes: Zobacz wszystkie procesy
       participatory_process_groups:
         none: Brak
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktywny proces
+              few: "%{count} aktywnych procesów"
+              many: "%{count} aktywnych procesów"
+              other: "%{count} aktywnych procesów"
+            all:
+              one: 1 proces
+              few: "%{count} procesów"
+              many: "%{count} procesów"
+              other: "%{count} procesów"
+            past:
+              one: 1 przeszły proces
+              few: "%{count} przeszłych procesów"
+              many: "%{count} przeszłych procesów"
+              other: "%{count} przeszłych procesów"
+            upcoming:
+              one: 1 nadchodzący proces
+              few: "%{count} nadchodzących procesów"
+              many: "%{count} nadchodzących procesów"
+              other: "%{count} nadchodzących procesów"
+          explanations:
+            no_active: Brak aktywnych procesów
+            no_active_nor_upcoming: Brak aktywnych i nadchodzących procesów
+            no_active_nor_upcoming_callout: Nie ma aktywnych ani nadchodzących procesów. Oto lista poprzednich.
+          names:
+            active: Aktywne
+            all: Wszystko
+            past: Przeszłe
+            upcoming: Nadchodzące
+          see: Widzieć
         index:
           loading: Wyniki wyszukiwania...
       show:
@@ -336,12 +375,6 @@ pl:
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
-        order_by_processes:
-          processes:
-            one: "%{count} proces"
-            few: "%{count} procesów"
-            many: "%{count} procesów"
-            other: "%{count} procesów"
         participatory_process:
           active_step: 'Aktualny krok:'
           take_part: Wziąć udział

@@ -19,10 +19,6 @@ module Decidim
         def meeting
           @meeting ||= meetings.find(params[:meeting_id])
         end
-
-        def authorization_object
-          meeting.component
-        end
       end
     end
   end

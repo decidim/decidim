@@ -14,13 +14,13 @@ shared_examples "update an initiative" do
     )
   end
 
-  let(:signature_end_time) { Time.zone.today + 130.days }
+  let(:signature_end_date) { Date.current + 130.days }
   let(:form_params) do
     {
       title: { en: "A reasonable initiative title" },
       description: { en: "A reasonable initiative description" },
-      signature_start_time: Time.zone.today + 10.days,
-      signature_end_time: signature_end_time,
+      signature_start_date: Date.current + 10.days,
+      signature_end_date: signature_end_date,
       signature_type: "any",
       type_id: initiative.type.id,
       decidim_scope_id: initiative.scope.id,
@@ -86,7 +86,7 @@ shared_examples "update an initiative" do
         command.call
         initiative.reload
 
-        [:signature_start_time, :signature_end_time].each do |key|
+        [:signature_start_date, :signature_end_date].each do |key|
           expect(initiative[key]).not_to eq(form_params[key])
         end
       end
@@ -108,7 +108,7 @@ shared_examples "update an initiative" do
           command.call
           initiative.reload
 
-          [:signature_start_time, :signature_end_time].each do |key|
+          [:signature_start_te, :signature_end_date].each do |key|
             expect(initiative[key]).to eq(form_params[key])
           end
         end

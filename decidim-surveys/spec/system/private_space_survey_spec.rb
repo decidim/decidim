@@ -66,6 +66,7 @@ describe "Private Space Answer a survey", type: :system do
         before do
           login_as other_user, scope: :user
         end
+
         it "allows answering the survey" do
           visit_component
 

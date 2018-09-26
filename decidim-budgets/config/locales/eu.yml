@@ -21,6 +21,7 @@ eu:
         confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        import: Inportatu proposamenak proiektuetarako
         new: Proiektu berria
         preview: Aurreikusi
         title: Ekintzak
@@ -47,6 +48,14 @@ eu:
           update:
             invalid: Arazo bat izan da proiektu hau eguneratzean
             success: Proiektua zuzen eguneratu da
+        proposals_imports:
+          create:
+            invalid: Arazo bat izan da proiektuen proposamenak inportatzea
+            success: "%{number} proposamen arrakastaz proiektuak inportatu"
+          new:
+            create: Inportatu proposamenak proiektuetarako
+            no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            select_component: Hautatu osagaia
       admin_log:
         project:
           create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
@@ -121,6 +130,7 @@ eu:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
             projects_per_page: Orrialde bakoitzeko proiektuak
+            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
             total_budget: Aurrekontu osoa
             vote_threshold_percent: Votuen ehuneko atalasea
           step:

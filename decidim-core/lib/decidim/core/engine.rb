@@ -140,7 +140,7 @@ module Decidim
 
           menu.item I18n.t("menu.more_information", scope: "decidim"),
                     decidim.pages_path,
-                    position: 3,
+                    position: 7,
                     active: :inclusive
         end
       end
@@ -200,7 +200,7 @@ module Decidim
 
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user]
+          config.content_processors += [:user, :hashtag]
         end
       end
 
@@ -273,6 +273,92 @@ module Decidim
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"
+        end
+      end
+
+      initializer "decidim.core.register_metrics" do
+        Decidim.metrics_registry.register(
+          :users,
+          "Decidim::Metrics::UsersMetricManage",
+          Decidim::MetricRegistry::HIGHLIGHTED
+        )
+      end
+
+      initializer "decidim.core.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :hero) do |content_block|
+          content_block.cell = "decidim/content_blocks/hero"
+          content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.hero.name"
+
+          content_block.images = [
+            {
+              name: :background_image,
+              uploader: "Decidim::HomepageImageUploader"
+            }
+          ]
+
+          content_block.settings do |settings|
+            settings.attribute :welcome_text, type: :text, translated: true
+          end
+
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
+          content_block.cell = "decidim/content_blocks/sub_hero"
+          content_block.public_name_key = "decidim.content_blocks.sub_hero.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :highlighted_content_banner) do |content_block|
+          content_block.cell = "decidim/content_blocks/highlighted_content_banner"
+          content_block.public_name_key = "decidim.content_blocks.highlighted_content_banner.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :how_to_participate) do |content_block|
+          content_block.cell = "decidim/content_blocks/how_to_participate"
+          content_block.public_name_key = "decidim.content_blocks.how_to_participate.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :stats) do |content_block|
+          content_block.cell = "decidim/content_blocks/stats"
+          content_block.public_name_key = "decidim.content_blocks.stats.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
+          content_block.cell = "decidim/content_blocks/metrics"
+          content_block.public_name_key = "decidim.content_blocks.metrics.name"
+        end
+
+        Decidim.content_blocks.register(:homepage, :footer_sub_hero) do |content_block|
+          content_block.cell = "decidim/content_blocks/footer_sub_hero"
+          content_block.public_name_key = "decidim.content_blocks.footer_sub_hero.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :html) do |content_block|
+          content_block.cell = "decidim/content_blocks/html"
+          content_block.public_name_key = "decidim.content_blocks.html.name"
+          content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :html_content, type: :text, translated: true
+          end
+        end
+      end
+
+      initializer "decidim.core.add_badges" do
+        Decidim::Gamification.register_badge(:invitations) do |badge|
+          badge.levels = [1, 5, 10, 30, 50]
+          badge.reset = ->(user) { Decidim::User.where(invited_by: user.id).count }
+        end
+
+        Decidim::Gamification.register_badge(:followers) do |badge|
+          badge.levels = [1, 15, 30, 60, 100]
+          badge.reset = ->(user) { user.followers.count }
         end
       end
     end

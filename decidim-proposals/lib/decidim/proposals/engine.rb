@@ -20,9 +20,9 @@ module Decidim
           resource :proposal_endorsement, only: [:create, :destroy] do
             get :identities, on: :collection
           end
-          get :compare, on: :collection
-          get :complete, on: :collection
           member do
+            get :compare
+            get :complete
             get :edit_draft
             patch :update_draft
             get :preview
@@ -32,6 +32,18 @@ module Decidim
           end
           resource :proposal_vote, only: [:create, :destroy]
           resource :proposal_widget, only: :show, path: "embed"
+        end
+        resources :collaborative_drafts, except: [:destroy] do
+          get :compare, on: :collection
+          get :complete, on: :collection
+          member do
+            post :request_access, controller: "collaborative_draft_collaborator_requests"
+            post :request_accept, controller: "collaborative_draft_collaborator_requests"
+            post :request_reject, controller: "collaborative_draft_collaborator_requests"
+            post :withdraw
+            post :publish
+          end
+          resources :versions, only: [:show, :index]
         end
         root to: "proposals#index"
       end
@@ -122,6 +134,60 @@ module Decidim
       initializer "decidim_proposals.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
+      end
+
+      initializer "decidim_proposals.add_badges" do
+        Decidim::Gamification.register_badge(:proposals) do |badge|
+          badge.levels = [1, 5, 10, 30, 60]
+
+          badge.reset = lambda { |user|
+            Decidim::Coauthorship.where(
+              coauthorable_type: "Decidim::Proposals::Proposal",
+              author: user
+            ).count
+          }
+        end
+
+        Decidim::Gamification.register_badge(:accepted_proposals) do |badge|
+          badge.levels = [1, 5, 15, 30, 50]
+
+          badge.reset = lambda { |user|
+            proposal_ids = Decidim::Coauthorship.where(
+              coauthorable_type: "Decidim::Proposals::Proposal",
+              author: user
+            ).select(:coauthorable_id)
+
+            Decidim::Proposals::Proposal.where(id: proposal_ids).accepted.count
+          }
+        end
+
+        Decidim::Gamification.register_badge(:proposal_votes) do |badge|
+          badge.levels = [5, 15, 50, 100, 500]
+
+          badge.reset = lambda { |user|
+            Decidim::Proposals::ProposalVote.where(author: user).select(:decidim_proposal_id).distinct.count
+          }
+        end
+      end
+
+      initializer "decidim_proposals.register_metrics" do
+        Decidim.metrics_registry.register(
+          :proposals,
+          "Decidim::Proposals::Metrics::ProposalsMetricManage",
+          Decidim::MetricRegistry::HIGHLIGHTED
+        )
+
+        Decidim.metrics_registry.register(
+          :accepted_proposals,
+          "Decidim::Proposals::Metrics::AcceptedProposalsMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+        )
+
+        Decidim.metrics_registry.register(
+          :votes,
+          "Decidim::Proposals::Metrics::VotesMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+        )
       end
     end
   end

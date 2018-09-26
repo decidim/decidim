@@ -133,3 +133,13 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Debatten zijn nu beschikbaar in %{participatory_space_title}
           notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          description_own: Je hebt deelgenomen aan %{score} debatten.
+          explanation: Gebruikers krijgen deze badge door deel te nemen aan debatten.
+          name: debatten
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
+          unearned_own: Je hebt nog deelgenomen aan debatten.

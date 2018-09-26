@@ -16,8 +16,9 @@
 // = require decidim/append_redirect_url_to_modals
 // = require decidim/editor
 // = require decidim/input_tags
-// = require decidim/input_mentions
+// = require decidim/input_hashtags
 // = require decidim/ajax_modals
+// = require decidim/conferences
 // = require_tree ./decidim/vizzs
 
 /* globals svg4everybody */

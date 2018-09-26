@@ -1,11 +1,16 @@
 <section id="components">
   <div class="row">
     <div class="columns">
-      <h3><%= t(".title") %></h3>
+      <h3>
+        <%= t(".title") %>
+        <% if resource %>
+          -
+          <%= link_to(resource_title(resource), resource_locator(resource).path) %>
+        <% end %>
+      </h3>
     </div>
   </div>
-
-  <%= form_for @permissions_form, url: url_for(action: :update), method: "put" do |permissions_form| %>
+  <%= form_for @permissions_form, url: url_for(action: :update, **resource_params), method: "put" do |permissions_form| %>
     <%= permissions_form.fields_for :permissions, permissions_form.object do |action_permission_form| %>
       <% action_permission_form.object.permissions.each do |action, permission| %>
         <fieldset class="card <%= action %>-permission">

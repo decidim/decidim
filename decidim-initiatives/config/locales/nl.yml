@@ -6,8 +6,8 @@ nl:
         description: Beschrijving
         offline_votes: Face-to-face ondersteuning
         scope_id: Bereik
-        signature_end_time: Einde van de periode om handtekeningen te verzamelen
-        signature_start_time: Begin van de periode om handtekeningen te verzamelen
+        signature_end_date: Einde van de periode om handtekeningen te verzamelen
+        signature_start_date: Begin van de periode om handtekeningen te verzamelen
         signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd
@@ -82,6 +82,16 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{resource_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Nieuwe mijlpaal voltooid!
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
+    gamification:
+      badges:
+        initiatives:
+          description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
+          description_own: Je hebt %{score} initiatieven gepubliceerd.
+          explanation: Gebruikers krijgen deze badge door hun initiatieven gepubliceerd te krijgen.
+          name: Gepubliceerde initiatieven
+          next_level_in: Ontvang nog %{score} initiatieven die zijn gepubliceerd om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen initiatieven gepubliceerd.
+          unearned_own: Je hebt nog geen initiatieven gepubliceerd.
     initiatives:
       admin:
         committee_requests:
@@ -92,6 +102,9 @@ nl:
             no_members_yet: Er zijn geen leden in de promotieraad
             revoke: Intrekken
             title: Commissieleden
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
         initiatives:
           edit:
             accept: Accepteer initiatief
@@ -181,6 +194,9 @@ nl:
           help_text: U staat op het punt lid te worden van de promotieraad van dit initiatief
         spawn:
           success: Je verzoek is verzonden aan de auteur van het initiatief.
+      content_blocks:
+        highlighted_initiatives:
+          name: Gemarkeerde initiatieven
       create_initiative:
         fill_data:
           back: Terug

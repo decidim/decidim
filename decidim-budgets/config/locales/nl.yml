@@ -21,6 +21,7 @@ nl:
         confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
+        import: Voorstellen importeren in projecten
         new: Nieuw project
         preview: Voorbeeld
         title: Acties
@@ -47,6 +48,14 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit project
             success: Project succesvol bijgewerkt
+        proposals_imports:
+          create:
+            invalid: Er is een probleem opgetreden bij het importeren van de voorstellen in projecten
+            success: "%{number} voorstellen succesvol geïmporteerd in projecten"
+          new:
+            create: Voorstellen importeren in projecten
+            no_components: Er zijn geen andere voorstelcomponenten in deze participatieruimte om de voorstellen in projecten te importeren.
+            select_component: Selecteer een component
       admin_log:
         project:
           create: "%{user_name} heeft het project %{resource_name} in de ruimte %{space_name} gemaakt"
@@ -121,6 +130,7 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             projects_per_page: Projecten per pagina
+            resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             total_budget: Totale budget
             vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
           step:
