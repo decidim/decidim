@@ -254,7 +254,7 @@ FactoryBot.define do
       organization { create(:organization) }
     end
 
-    name { Decidim::Faker::Localized.sentence(3) }
+    name { generate_localized_title }
     participatory_space { create(:participatory_process, organization: organization) }
     manifest_name { "dummy" }
     published_at { Time.current }

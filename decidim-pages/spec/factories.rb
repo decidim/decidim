@@ -11,7 +11,7 @@ FactoryBot.define do
   end
 
   factory :page, class: "Decidim::Pages::Page" do
-    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:component, manifest_name: "pages") }
   end
 end
