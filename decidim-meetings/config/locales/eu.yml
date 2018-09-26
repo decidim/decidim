@@ -129,8 +129,8 @@ eu:
           description_own: '%{score} bileretan parte hartu duzu.'
           explanation: Erabiltzaileek txapela lortzen dute bilerak bertaratu direnean.
           name: Bilera parte hartzera
-          next_level_in: Aurreratua %{score} bilera gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek ez du oraindik bilerarako parte hartu.
+          next_level_in: '%{score} topaketa gehiago parte hartzeko hurrengo mailara iristeko!'
+          unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
           unearned_own: Oraindik ez duzu bilerarako parte hartu.
     meetings:
       actions:
