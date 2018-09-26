@@ -129,8 +129,8 @@ gl:
           description_own: Atendeu %{score} reunións.
           explanation: Os usuarios obtén esta insignia ao asistir a reunións.
           name: Reunións asistidas
-          next_level_in: Atente a %{score} reunións máis para alcanzar o seguinte nivel!
-          unearned_another: este usuario aínda non asistiu a ningunha reunión.
+          next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
+          unearned_another: Este usuario aínda non asistiu a ningunha reunión.
           unearned_own: Aínda non asistiu a ningunha reunión.
     meetings:
       actions:
