@@ -162,28 +162,28 @@ eu:
     authorization_modals:
       show:
         expired:
-          authorize: Errebokatu "%{authorization}" rekin
-          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
+          authorize: Errebalorizatu "%{authorization}" rekin
+          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berriro baimendu behar duzu.
           title: Baimena iraungi da
         incomplete:
           cancel: Utzi
-          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
+          explanation: 'Oraindik "%{authorization}" baimenduta egonez gero, berrargitaratu egin behar da datuak falta zaizkigulako:'
           invalid_field: "%{field}"
-          reauthorize: Berriz eskuratu baimena
-          title: Mesedez, eskura ezazu berriz baimena
+          reauthorize: Reauthorize
+          title: Berretsi berriro
         missing:
-          authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
-          explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
+          authorize: Egiaztatu "%{authorization}"
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimendu behar duzu.
           title: Baimena behar da
         pending:
-          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimendu behar duzu, baina zure baimena oraindik ere egiten ari da
           resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
           title: Baimena oraindik ere egiten ari da
         unauthorized:
-          explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
+          explanation: Barkatu, ezin duzu ekintza hau burutu, zure baimenen datu batzuk ez datoz bat bezala.
           invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
-          title: Ez dago baimenduta
+          title: Ez da baimenik
     collapsible_list:
       hidden_elements_count:
         one: eta beste bat
@@ -219,6 +219,8 @@ eu:
       html:
         html_content: HTML edukia
         name: HTML blokea
+      metrics:
+        name: Erakundearen metrika
       stats:
         name: Erakundearen estatistikak
       sub_hero:
@@ -469,6 +471,10 @@ eu:
           title: Hasi elkarrizketa bat
         update:
           error: Mezua ez da bidali. Saiatu berriro geroago
+    metrics:
+      users:
+        object: erabiltzaile
+        title: erabiltzaileak
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
@@ -496,7 +502,7 @@ eu:
         hello: Kaixo,
         subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
     notifications:
-      no_notifications: Oraindik ez dago jakinarazpenik.
+      no_notifications: Ez dago jakinarazpenik oraindik.
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
@@ -513,32 +519,34 @@ eu:
     pages:
       home:
         extended:
-          debates: Eztabaidak
+          debates: eztabaidak
           debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
-          how_to_participate: Nola har dezaket parte prozesu batean?
+          how_to_participate: Nola parte hartzen dut prozesu batean?
           meetings: Bilerak
           meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
-          more_info: Argibide gehiago
+          more_info: Informazio gehiago
           proposals: proposamenak
           proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
         footer_sub_hero:
-          footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
-          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
-          register: Erregistroa
+          footer_sub_hero_body: Gizarte irekia, gardenagoa eta lankidetzarakoagoa da.<br /> Parte hartu, parte hartu eta erabaki.
+          footer_sub_hero_headline: Ongi etorri %{organization} parte hartzaileentzako plataforma.
+          register: Eman izena
         hero:
           participate: Parte hartu
-          welcome: Ongi etorri %{organization} erakundera!
+          welcome: Ongi etorri %{organization}!
+        metrics:
+          headline: Zifretan parte hartzea
         statistics:
           answers_count: Amaitutako inkestak
           assemblies_count: Batzar
-          comments_count: Iruzkinak
+          comments_count: Oharrak
           conferences_count: Jardunaldiak
-          debates_count: Eztabaidak
+          debates_count: eztabaidak
           endorsements_count: Oniritziak
-          headline: '%{organization} erakundearen egungo egoera'
+          headline: Uneko egoera %{organization}
           meetings_count: Bilerak
-          orders_count: Euskarriak
-          pages_count: Orriak
+          orders_count: Botoak
+          pages_count: orrialdeak
           processes_count: Prozesuak
           projects_count: Proiektuak
           proposals_accepted: Onartutako proposamenak
@@ -546,9 +554,9 @@ eu:
           results_count: Emaitzak
           surveys_count: Inkestak
           users_count: Parte-hartzaileak
-          votes_count: Euskarriak
+          votes_count: Botoak
         sub_hero:
-          register: Erregistroa
+          register: Eman izena
       index:
         title: Argibide gehiago
       terms_and_conditions:
@@ -749,7 +757,7 @@ eu:
         change_my_password: Aldatu nire pasahitza
         change_your_password: Aldatu zure pasahitza
         confirm_new_password: Berretsi pasahitz berria
-        new_password: Pasahitza
+        new_password: Pasahitz berria
       new:
         forgot_your_password: Zure pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali berrezarri pasahitzaren argibideak
