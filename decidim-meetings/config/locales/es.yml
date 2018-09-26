@@ -129,8 +129,8 @@ es:
           description_own: Usted ha asistido a %{score} reuniones.
           explanation: Los usuarios obtienen esta insignia asistiendo a las reuniones.
           name: Reuniones asistidas
-          next_level_in: Attent %{score} reuniones más para llegar al siguiente nivel!
-          unearned_another: este usuario no ha asistido a ninguna reunión aún.
+          next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha asistido a ninguna reunión.
           unearned_own: No has asistido a ninguna reunión todavía.
     meetings:
       actions:
