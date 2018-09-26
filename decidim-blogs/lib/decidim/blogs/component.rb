@@ -54,7 +54,7 @@ Decidim.register_component(:blogs) do |component|
       step_settings: step_settings
     }
 
-    Decidim.traceability.create!(
+    component = Decidim.traceability.create!(
       Decidim::Component,
       admin_user,
       params,
@@ -73,7 +73,7 @@ Decidim.register_component(:blogs) do |component|
         author: author
       }
 
-      Decidim.traceability.create!(
+      post = Decidim.traceability.create!(
         Decidim::Blogs::Post,
         author,
         params,

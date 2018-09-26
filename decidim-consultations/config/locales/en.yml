@@ -175,6 +175,9 @@ en:
         questions: Questions
         responses: Responses
     consultations:
+      last_activity:
+        new_consultation: New consultation
+        new_question_at_html: <span>New question at %{link}</span>
       admin:
         content_blocks:
           highlighted_consultations:

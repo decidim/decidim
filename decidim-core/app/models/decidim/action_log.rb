@@ -99,6 +99,10 @@ module Decidim
                   scope.where(id: relation_ids).includes(:component).where.not(decidim_components: { published_at: nil })
                 elsif klass.reflect_on_association(:organization)
                   scope.where(id: relation_ids).includes(:organization)
+                elsif klass_name == "Decidim::Comments::Comment"
+                  scope.where(id: relation_ids).includes(commentable: :organization)
+                else
+                  scope
                 end
 
         scope = scope.published if klass.include?(Decidim::Publicable)

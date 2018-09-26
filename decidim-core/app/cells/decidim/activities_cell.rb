@@ -10,14 +10,13 @@ module Decidim
 
     def show
       return if activities.blank?
+
       activities.map do |activity|
         activity.organization_lazy
         activity.resource_lazy
         activity.participatory_space_lazy
         activity.component_lazy
       end
-
-      puts "RENDERING ACTIVITIEIEIEIEIEIEIEIEIEIIEIEIEIES"
 
       render
     end

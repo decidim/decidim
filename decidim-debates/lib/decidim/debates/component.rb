@@ -49,7 +49,7 @@ Decidim.register_component(:debates) do |component|
       participatory_space: participatory_space
     }
 
-    Decidim.traceability.create!(
+    component = Decidim.traceability.create!(
       Decidim::Component,
       admin_user,
       params,
@@ -71,7 +71,7 @@ Decidim.register_component(:debates) do |component|
         end_time: 3.weeks.from_now + 4.hours
       }
 
-      Decidim.traceability.create!(
+      debate = Decidim.traceability.create!(
         Decidim::Debates::Debate,
         admin_user,
         params,

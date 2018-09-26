@@ -56,7 +56,7 @@ Decidim.register_component(:meetings) do |component|
       participatory_space: participatory_space
     }
 
-    Decidim.traceability.create!(
+    component = Decidim.traceability.create!(
       Decidim::Component,
       admin_user,
       params,
@@ -98,7 +98,7 @@ Decidim.register_component(:meetings) do |component|
         ]
       }
 
-      Decidim.traceability.create!(
+      meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
         admin_user,
         params,

@@ -74,7 +74,7 @@ Decidim.register_component(:surveys) do |component|
       participatory_space: participatory_space
     }
 
-    Decidim.traceability.create!(
+    component = Decidim.traceability.create!(
       Decidim::Component,
       admin_user,
       params,
@@ -92,7 +92,7 @@ Decidim.register_component(:surveys) do |component|
       end
     }
 
-    Decidim.traceability.create!(
+    survey = Decidim.traceability.create!(
       Decidim::Surveys::Survey,
       admin_user,
       params,

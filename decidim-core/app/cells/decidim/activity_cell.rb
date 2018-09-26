@@ -4,6 +4,7 @@ module Decidim
   class ActivityCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include Decidim::IconHelper
+    include Decidim::ApplicationHelper
 
     def show
       return unless valid?
@@ -45,6 +46,8 @@ module Decidim
     end
 
     def participatory_space
+      return resource if resource.is_a?(Decidim::Participable)
+
       model.participatory_space_lazy
     end
 

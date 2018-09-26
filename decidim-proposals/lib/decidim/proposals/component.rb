@@ -133,7 +133,7 @@ Decidim.register_component(:proposals) do |component|
       step_settings: step_settings
     }
 
-    Decidim.traceability.create!(
+    component = Decidim.traceability.create!(
       Decidim::Component,
       admin_user,
       params,

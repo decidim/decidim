@@ -49,6 +49,8 @@ module Decidim
       delegate :end_voting_date, to: :consultation
       delegate :results_published?, to: :consultation
 
+      alias participatory_space consultation
+
       # Sorted results for the given question.
       def sorted_results
         responses.order(votes_count: :desc)

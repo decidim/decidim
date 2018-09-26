@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:initiatives) do |participatory_space|
+  participatory_space.icon = "decidim/initiatives/icon.svg"
   participatory_space.stylesheet = "decidim/initiatives/initiatives"
 
   participatory_space.context(:public) do |context|

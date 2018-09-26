@@ -97,6 +97,8 @@ en:
           unearned_another: This user hasn't gotten any initiatives published yet.
           unearned_own: You got no initiatives published yet.
     initiatives:
+      last_activity:
+        new_initiative: New initiative
       admin:
         committee_requests:
           index:

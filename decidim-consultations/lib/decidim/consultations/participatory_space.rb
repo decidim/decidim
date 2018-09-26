@@ -123,7 +123,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
           organization: organization
         }
 
-        active_consultation = Decidim.traceability.create!(
+        question = Decidim.traceability.create!(
           Decidim::Consultations::Question,
           organization.users.first,
           params,

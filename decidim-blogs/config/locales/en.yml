@@ -10,6 +10,8 @@ en:
         other: Posts
   decidim:
     blogs:
+      last_activity:
+        new_post_at_html: New post at %{link}
       actions:
         confirm_destroy: Are you sure you want to delete this post?
         destroy: Delete

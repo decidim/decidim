@@ -67,7 +67,7 @@ Decidim.register_component(:accountability) do |component|
       }
     }
 
-    Decidim.traceability.create!(
+    component = Decidim.traceability.create!(
       Decidim::Component,
       admin_user,
       params,

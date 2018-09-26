@@ -3,13 +3,8 @@
 module Decidim
   class ActivitySearch < ResourceSearch
     def initialize(options = {})
-      scope = options[:scope]
-      scope ||= ActionLog
-                .public
-                .where(organization: options.fetch(:organization))
-                .where(action: "create")
-                .order(created_at: :desc)
-
+      @organization = options.fetch(:organization)
+      scope = options[:scope] || default_scope
       super(scope, options)
     end
 
@@ -26,16 +21,27 @@ module Decidim
 
     def resource_types
       %w(
-        Decidim::Proposals::Proposal
-        Decidim::Meetings::Meeting
         Decidim::Accountability::Result
+        Decidim::Blogs::Post
+        Decidim::Comments::Comment
+        Decidim::Consultations::Question
         Decidim::Debates::Debate
-        Decidim::Initiative
-        Decidim::ParticipatoryProcess
+        Decidim::Meetings::Meeting
+        Decidim::Proposals::Proposal
+        Decidim::Surveys::Survey
         Decidim::Assembly
         Decidim::Consultation
-        Decidim::Comments::Comment
+        Decidim::Initiative
+        Decidim::ParticipatoryProcess
       )
+    end
+
+    def default_scope
+      ActionLog
+        .public
+        .where(organization: @organization)
+        .where(action: "create")
+        .order(created_at: :desc)
     end
   end
 end

@@ -12,6 +12,8 @@ module Decidim
       #
       # Returns nothing.
       def self.comments_for(resource)
+        return unless resource.accepts_new_comments?
+
         organization = resource.organization
 
         2.times do
@@ -21,7 +23,7 @@ module Decidim
           params = {
             commentable: resource,
             root_commentable: resource,
-            body: ::Faker::Lorem.sentence,
+            body: ::Faker::Lorem.sentence(50),
             author: author,
             user_group: user_group
           }
