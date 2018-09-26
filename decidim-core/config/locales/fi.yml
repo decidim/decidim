@@ -219,6 +219,8 @@ fi:
       html:
         html_content: HTML-sisältö
         name: HTML-lohko
+      metrics:
+        name: Organisaation mittarit
       stats:
         name: Organisaation tilastot
       sub_hero:
@@ -469,6 +471,10 @@ fi:
           title: Aloita keskustelu
         update:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
+    metrics:
+      users:
+        object: käyttäjät
+        title: käyttäjät
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
@@ -528,6 +534,8 @@ fi:
         hero:
           participate: Osallistu
           welcome: Tervetuloa organisaatioon %{organization}!
+        metrics:
+          headline: Osallistuminen lukuihin
         statistics:
           answers_count: Kyselyiden vastauksia
           assemblies_count: Kehitysryhmää
