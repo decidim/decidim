@@ -324,6 +324,11 @@ uk:
             no_active: Нема діючих рухів
             no_active_nor_upcoming: Немає діючих чи прийдешніх рухів
             no_active_nor_upcoming_callout: Немає ні діючих, ні прийдешніх процесів. Ось список минулих.
+          names:
+            active: Діючі
+            all: Усі
+            past: Минулі
+            upcoming: Прийдешні
           see: Подивитися
         index:
           loading: Завантаження результатів...
