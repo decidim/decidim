@@ -162,27 +162,27 @@ pt-BR:
     authorization_modals:
       show:
         expired:
-          authorize: Reautorizar com "%{authorization}"
-          explanation: Sua autorização expirou. Para executar essa ação, você precisa ser reautorizado com "%{authorization}".
-          title: Autorização expirou
+          authorize: Reautorize com "%{authorization}"
+          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
+          title: A autorização expirou
         incomplete:
           cancel: Cancelar
-          explanation: 'Mesmo que você esteja atualmente autorizado com "%{authorization}", precisamos reautorizar porque não temos os seguintes dados:'
+          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
           invalid_field: "%{field}"
           reauthorize: Reautorizar
           title: Reautorize
         missing:
           authorize: Autorizar com "%{authorization}"
-          explanation: Para executar esta ação, você precisa estar autorizado com "%{authorization}".
+          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
           title: Autorização necessária
         pending:
-          explanation: Para realizar esta ação, você precisa estar autorizado com "%{authorization}", mas sua autorização ainda está em andamento
+          explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
           resume: Verifique o seu progresso de autorização "%{authorization}"
-          title: A autorização ainda está em andamento
+          title: A autorização ainda está em progresso
         unauthorized:
-          explanation: Desculpe, você não pode realizar esta ação, pois alguns dados de sua autorização não correspondem.
+          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid_field: "%{field} valor %{value} não é válido."
-          ok: Está bem
+          ok: OK
           title: Não autorizado
     collapsible_list:
       hidden_elements_count:
@@ -355,7 +355,7 @@ pt-BR:
       linked_classes:
         all: Todos
         collaborative_draft: Rascunho colaborativo
-        dummy_resource: Recursos fictícios
+        dummy_resource: Recursos falsos
         meeting: Encontros
         project: Projetos
         proposal: Propostas
@@ -502,7 +502,7 @@ pt-BR:
         hello: Olá,
         subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
     notifications:
-      no_notifications: Nenhuma notificação ainda.
+      no_notifications: Não há notificações.
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
@@ -520,29 +520,29 @@ pt-BR:
       home:
         extended:
           debates: Debates
-          debates_explanation: Debata e discuta, compartilhe seus pontos de vista e enriqueça os tópicos relevantes.
-          how_to_participate: Como faço para participar de um processo?
+          debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
+          how_to_participate: Como faço parte de um processo?
           meetings: Encontros
           meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
-          more_info: Mais informações
+          more_info: Saiba mais
           proposals: Propostas
-          proposals_explanation: Faça propostas, dê suporte às existentes e promova as alterações que você deseja ver.
+          proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
           footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
-          footer_sub_hero_headline: Bem vindo a %{organization} plataforma participativa.
-          register: registo
+          footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
+          register: Registrar-se
         hero:
           participate: Participar
-          welcome: Bem vindo a %{organization}!
+          welcome: Bem-vindo ao %{organization}!
         metrics:
           headline: Participação em números
         statistics:
-          answers_count: Pesquisas concluídas
-          assemblies_count: Assemblies
+          answers_count: Inquéritos concluídos
+          assemblies_count: Assembleias
           comments_count: Comentários
           conferences_count: Conferências
           debates_count: Debates
-          endorsements_count: Endossos
+          endorsements_count: Avais
           headline: Estado atual de %{organization}
           meetings_count: Encontros
           orders_count: Votos
@@ -556,7 +556,7 @@ pt-BR:
           users_count: Participantes
           votes_count: Votos
         sub_hero:
-          register: registo
+          register: Registrar-se
       index:
         title: Mais informações
       terms_and_conditions:
