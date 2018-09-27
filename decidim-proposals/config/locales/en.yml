@@ -238,6 +238,17 @@ en:
         models:
           proposal:
             name: Proposal
+        participatory_texts:
+          bulk-actions:
+            import_doc: Import document
+          index:
+            title: PREVIEW PARTICIPATORY TEXT
+            info_1: The following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
+          new_import:
+            bottom_hint: "(You will be able to preview and sort document sections)"
+            document_legend: "Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: Markdown"
+            title: ADD DOCUMENT
+            upload_document: Upload document
         proposal_answers:
           edit:
             accepted: Accepted

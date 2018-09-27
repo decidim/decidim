@@ -1,0 +1,41 @@
+<%= decidim_form_for(@import, url: import_participatory_texts_path) do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t(".title") %></h2>
+    </div>
+    <div class="card-section">
+      <form class="form grid-container">
+        <div class="grid-x">
+          <div class="cell">
+            <div id="import-title" class="row column">
+              <%= form.translated :text_field, :title, autofocus: true %>
+            </div>
+          </div>
+        </div>
+        <div class="grid-x">
+          <div class="cell">
+            <div id="import-desc" class="row column">
+              <%= form.translated :text_area, :description %>
+            </div>
+          </div>
+        </div>
+        <div class="grid-x">
+          <div class="cell">
+            <fieldset>
+              <legend><%= t(".document_legend") %></legend>
+                <div class="row column">
+                  <%= form.upload :document, optional: false %>
+                </div>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="grid-x align-center mt-sm">
+    <%= form.submit t(".upload_document") %>
+  </div>
+  <div class="grid-x align-center">
+    <%= t(".bottom_hint") %>
+  </div>
+<% end -%>

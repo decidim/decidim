@@ -3,7 +3,7 @@
 
   <div id="js-other-actions-wrapper">
     <% if component_settings.participatory_texts_enabled? %>
-    <%= link_to t("actions.participatory_texts", scope: "decidim.proposals"), participatory_texts_path, class: "button tiny button--simple" %>
+    <%= link_to t("actions.participatory_texts", scope: "decidim.proposals"), participatory_texts_path, id: "participatory_texts", class: "button tiny button--simple" %>
     <% end %>
     <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path, class: "button tiny button--simple" if allowed_to? :import, :proposals %>
 
