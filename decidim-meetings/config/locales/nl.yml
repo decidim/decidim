@@ -191,7 +191,7 @@ nl:
           form:
             attendee_type: Type deelnemer
             existing_user: Bestaande gebruiker
-            invite: Nodig uit
+            invite: Uitnodigen
             invite_explanation: De gebruiker wordt ook uitgenodigd om deel te nemen aan de vergadering en aan de organisatie.
             non_user: Niet bestaande gebruiker
             select_user: Selecteer gebruiker
@@ -406,10 +406,10 @@ nl:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Gerelateerde resultaten:'
-        result_meeting: 'Gerelateerde bijeenkomsten:'
+        result_meeting: 'Gerelateerde vergaderingen:'
       proposals_from_meeting:
         meeting_proposal: 'Gerelateerde voorstellen:'
-        proposal_meeting: 'Gerelateerde bijeenkomsten:'
+        proposal_meeting: 'Gerelateerde vergaderingen:'
   devise:
     mailer:
       join_meeting:
