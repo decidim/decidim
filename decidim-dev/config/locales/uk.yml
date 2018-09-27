@@ -15,8 +15,10 @@ uk:
     pages:
       home:
         statistics:
+          bar: Приклад змінної 1
           dummies_count_high: Приклад найвищої кількості
           dummies_count_medium: Приклад середньої кількості
+          foo: Приклад змінної 2
     participatory_processes:
       statistics:
         dummies_count_high: Приклад найвищої кількості
