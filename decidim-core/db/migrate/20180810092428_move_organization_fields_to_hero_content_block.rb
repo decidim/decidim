@@ -16,6 +16,8 @@ class MoveOrganizationFieldsToHeroContentBlock < ActiveRecord::Migration[5.2]
 
       content_block.settings = settings
       content_block.images_container.background_image = organization.homepage_image.file
+      content_block.settings_will_change!
+      content_block.images_will_change!
       content_block.save!
     end
 
