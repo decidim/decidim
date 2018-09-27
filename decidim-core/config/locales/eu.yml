@@ -162,28 +162,28 @@ eu:
     authorization_modals:
       show:
         expired:
-          authorize: Errebalorizatu "%{authorization}" rekin
-          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berriro baimendu behar duzu.
+          authorize: Errebokatu "%{authorization}" rekin
+          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
           title: Baimena iraungi da
         incomplete:
           cancel: Utzi
-          explanation: 'Oraindik "%{authorization}" baimenduta egonez gero, berrargitaratu egin behar da datuak falta zaizkigulako:'
+          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
           invalid_field: "%{field}"
-          reauthorize: Reauthorize
-          title: Berretsi berriro
+          reauthorize: Berriz eskuratu baimena
+          title: Mesedez, eskura ezazu berriz baimena
         missing:
-          authorize: Egiaztatu "%{authorization}"
-          explanation: Ekintza hau burutzeko, "%{authorization}" baimendu behar duzu.
+          authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
+          explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
           title: Baimena behar da
         pending:
-          explanation: Ekintza hau burutzeko, "%{authorization}" baimendu behar duzu, baina zure baimena oraindik ere egiten ari da
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
           resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
           title: Baimena oraindik ere egiten ari da
         unauthorized:
-          explanation: Barkatu, ezin duzu ekintza hau burutu, zure baimenen datu batzuk ez datoz bat bezala.
+          explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
           invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
-          title: Ez da baimenik
+          title: Ez dago baimenduta
     collapsible_list:
       hidden_elements_count:
         one: eta beste bat
@@ -502,7 +502,7 @@ eu:
         hello: Kaixo,
         subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
     notifications:
-      no_notifications: Ez dago jakinarazpenik oraindik.
+      no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
@@ -519,34 +519,34 @@ eu:
     pages:
       home:
         extended:
-          debates: eztabaidak
+          debates: Eztabaidak
           debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
-          how_to_participate: Nola parte hartzen dut prozesu batean?
+          how_to_participate: Nola har dezaket parte prozesu batean?
           meetings: Bilerak
           meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
-          more_info: Informazio gehiago
+          more_info: Argibide gehiago
           proposals: proposamenak
           proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
         footer_sub_hero:
-          footer_sub_hero_body: Gizarte irekia, gardenagoa eta lankidetzarakoagoa da.<br /> Parte hartu, parte hartu eta erabaki.
-          footer_sub_hero_headline: Ongi etorri %{organization} parte hartzaileentzako plataforma.
-          register: Eman izena
+          footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
+          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
+          register: Erregistroa
         hero:
           participate: Parte hartu
-          welcome: Ongi etorri %{organization}!
+          welcome: Ongi etorri %{organization} erakundera!
         metrics:
           headline: Zifretan parte hartzea
         statistics:
           answers_count: Amaitutako inkestak
           assemblies_count: Batzar
-          comments_count: Oharrak
+          comments_count: Iruzkinak
           conferences_count: Jardunaldiak
-          debates_count: eztabaidak
+          debates_count: Eztabaidak
           endorsements_count: Oniritziak
-          headline: Uneko egoera %{organization}
+          headline: '%{organization} erakundearen egungo egoera'
           meetings_count: Bilerak
-          orders_count: Botoak
-          pages_count: orrialdeak
+          orders_count: Euskarriak
+          pages_count: Orriak
           processes_count: Prozesuak
           projects_count: Proiektuak
           proposals_accepted: Onartutako proposamenak
@@ -554,9 +554,9 @@ eu:
           results_count: Emaitzak
           surveys_count: Inkestak
           users_count: Parte-hartzaileak
-          votes_count: Botoak
+          votes_count: Euskarriak
         sub_hero:
-          register: Eman izena
+          register: Erregistroa
       index:
         title: Argibide gehiago
       terms_and_conditions:
@@ -757,7 +757,7 @@ eu:
         change_my_password: Aldatu nire pasahitza
         change_your_password: Aldatu zure pasahitza
         confirm_new_password: Berretsi pasahitz berria
-        new_password: Pasahitz berria
+        new_password: Pasahitza
       new:
         forgot_your_password: Zure pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali berrezarri pasahitzaren argibideak
