@@ -272,8 +272,6 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
-        index:
-          view_meeting: Bekijk de vergadering
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Gerelateerde informatie
