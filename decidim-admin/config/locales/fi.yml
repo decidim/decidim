@@ -4,10 +4,10 @@ fi:
       area:
         area_type: Alueen tyyppi
         name: Nimi
-        organization: organisaatio
+        organization: Organisaatio
       area_type:
         name: Nimi
-        organization: organisaatio
+        organization: Organisaatio
         plural: Monikko
       attachment:
         attachment_collection_id: Kokoelma
@@ -133,9 +133,6 @@ fi:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjausosoite (URI)
         site: paikka
-  date:
-    formats:
-      datepicker: "%d. %m. %Y"
   decidim:
     admin:
       actions:
@@ -675,7 +672,3 @@ fi:
           title: Asetukset
         users:
           title: Käyttäjät
-  time:
-    formats:
-      datepicker: "%d. %m. %Y"
-      timepicker: "%d/%m/%Y %H:%M"
