@@ -161,8 +161,29 @@ gl:
       started_at: Comezou en %{timestamp}
     authorization_modals:
       show:
+        expired:
+          authorize: Reautorizar con "%{authorization}"
+          explanation: A túa autorización caducou. Para realizar esta acción, necesitas ser autorizado de novo con "%{authorization}".
+          title: A autorización caducou
         incomplete:
           cancel: Cancelar
+          explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que reautoresas porque falta os seguintes datos:'
+          invalid_field: "%{field}"
+          reauthorize: Reautorizar
+          title: Reautoralizar
+        missing:
+          authorize: Autorízase con "%{authorization}"
+          explanation: Para realizar esta acción, necesitas estar autorizado con "%{authorization}".
+          title: Requírese a autorización
+        pending:
+          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero a túa autorización aínda está en progreso.
+          resume: Verifica o progreso da túa autorización "%{authorization}"
+          title: A autorización aínda está en progreso
+        unauthorized:
+          explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
+          invalid_field: "O %{field} valor %{value} non é válido."
+          ok: Ok
+          title: Non autorizado
     collapsible_list:
       hidden_elements_count:
         one: e 1 máis
@@ -327,6 +348,7 @@ gl:
       linked_classes:
         all: Todo
         collaborative_draft: Proxecto colaborativo
+        dummy_resource: Recursos maniquís
         meeting: Reunións
         project: Proxectos
         proposal: Propostas
@@ -427,6 +449,7 @@ gl:
           no_conversations: Aínda non tes conversas
         show:
           conversation_with_html: Conversa con <strong>%{name}</strong>
+          reply: Responder
           send: Enviar
         start:
           send: Enviar
@@ -459,6 +482,8 @@ gl:
         greetings: Saúdos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ola,
         subject: Queres seguir recibindo información relevante sobre %{organization_name}?
+    notifications:
+      no_notifications: Aínda non hai notificacións.
     notifications_settings:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
@@ -475,13 +500,41 @@ gl:
     pages:
       home:
         extended:
+          debates: Debates
+          debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
+          how_to_participate: '¿Como participo nun proceso?'
           meetings: Reunións
+          meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
+          more_info: Máis información
           proposals: Propostas
+          proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
+          footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
+          register: Rexistrarse
+        hero:
+          participate: Participar
+          welcome: Benvido a %{organization}.
         statistics:
+          answers_count: Enquisas concluídas
+          assemblies_count: Asembleas
+          comments_count: Comentarios
+          debates_count: Debates
+          endorsements_count: Aprobacións
+          headline: Estado actual de %{organization}
           meetings_count: Reunións
+          orders_count: Votos
+          pages_count: Páxinas
+          processes_count: Procesos
           projects_count: Proxectos
+          proposals_accepted: Propostas aceptadas
           proposals_count: Propostas
           results_count: Resultados
+          surveys_count: Enquisas
+          users_count: Participantes
+          votes_count: Votos
+        sub_hero:
+          register: Rexistrarse
       index:
         title: Máis información
       terms_and_conditions:
