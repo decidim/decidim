@@ -72,7 +72,7 @@ es:
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
             proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
-            proposal_wizard_step_4_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
+            proposal_wizard_step_4_help_text: 'Asistente de propuesta: texto de ayuda paso "Publicar"'
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por usuario
           step:
