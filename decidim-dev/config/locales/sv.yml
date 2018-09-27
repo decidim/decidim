@@ -15,10 +15,8 @@ sv:
     pages:
       home:
         statistics:
-          bar: Bar
           dummies_count_high: Dummies höga
           dummies_count_medium: Dummies medium
-          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies höga
