@@ -145,6 +145,9 @@ gl:
       destroy:
         error: Produciuse un erro ao cancelar o teu voto
         success: O teu voto foi cancelado correctamente
+    resource_links:
+      included_proposals:
+        project_proposal: 'Propostas incluídas neste proxecto:'
   index:
     confirmed_orders_count: Reconto de votos
   total_budget: Orzamento total
