@@ -20,6 +20,7 @@ ca:
         end_time: Hora de finalització
         location: Ubicació
         location_hints: Detalls d'ubicació
+        organizer_id: Organitzador
         private_meeting: Trobada privada
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
@@ -284,6 +285,7 @@ ca:
         minutes:
           create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} va ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
+      conference_venues: Llocs de conferències
       content_blocks:
         upcoming_events:
           name: Pròxims esdeveniments

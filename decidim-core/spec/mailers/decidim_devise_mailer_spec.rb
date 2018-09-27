@@ -19,7 +19,7 @@ module Decidim
       let(:mail) { described_class.reset_password_instructions(user, "foo", {}) }
 
       let(:subject) { "Instruccions de regeneració de contrasenya" }
-      let(:body) { "Algú ha sol·licitat un enllaç per a canviar la teva contrasenya" }
+      let(:body) { "Algú ha demanat un enllaç per canviar la teva contrasenya" }
       let(:default_subject) { "Reset password instructions" }
       let(:default_body) { "Someone has requested a link to change your password" }
 

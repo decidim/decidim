@@ -267,6 +267,9 @@ gl:
         title: Pasos de proceso participativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Cantidade máxima de elementos para mostrar
         participatory_process_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'

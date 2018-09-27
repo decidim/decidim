@@ -20,6 +20,7 @@ it:
         end_time: Orario fine
         location: Luogo
         location_hints: Informazione sul luogo
+        organizer_id: Organizzatore
         private_meeting: Incontro privato
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
@@ -284,6 +285,7 @@ it:
         minutes:
           create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
+      conference_venues: Sale per conferenze
       content_blocks:
         upcoming_events:
           name: Prossimi eventi

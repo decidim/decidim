@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       assembly:
-        area_id: alue
+        area_id: Alue
         assembly_type: Ryhmän tyyppi
         assembly_type_other: Muu ryhmän tyyppi
         banner_image: Bannerikuva
@@ -37,7 +37,7 @@ fi:
         participatory_structure: Miten päätetään
         private_space: Yksityinen tila
         promoted: Korostettu
-        published_at: Julkaistu osoitteessa
+        published_at: Julkaisuaika
         purpose_of_action: Toiminnan tarkoitus
         scope_id: Teema
         scopes_enabled: Teemat käytössä
@@ -130,7 +130,7 @@ fi:
           error: Kehitysryhmän julkaisussa tapahtui virhe.
           success: Kehitysryhmä julkaistiin onnistuneesti.
         destroy:
-          error: Kehitysryhmän julkaisun lopettamisessa tapahtui virhe.
+          error: Kehitysryhmän julkaisun perumisessa tapahtui virhe.
           success: Kehitysryhmän julkaisu lopetettu onnistuneesti.
       assembly_user_roles:
         create:
@@ -192,7 +192,7 @@ fi:
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
-            moderator: Moderaattori
+            moderator: Moderoija
       titles:
         assemblies: Kehitysryhmät
     admin_log:
@@ -238,6 +238,9 @@ fi:
               not_ceased: Ei lakkautettu
             filter_by: Suodata
             search: Hae
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Näytettävien elementtien enimmäismäärä
       assembly_members:
         index:
           members: Jäsenet

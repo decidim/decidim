@@ -174,6 +174,10 @@ nl:
         questions: vragen
         responses: Antwoorden
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
       consultation:
         start_voting_date: Stemmen begint
         view_results: Bekijk resultaten
@@ -184,6 +188,9 @@ nl:
           label: 'Sorteer door:'
           random: Willekeurig
           recent: Meest recent
+      content_blocks:
+        highlighted_consultations:
+          name: Gemarkeerd consulten
       count:
         title:
           one: "%{count} overleg"
@@ -204,6 +211,15 @@ nl:
         title: Vragen vanaf %{scope_name}
       index:
         title: Burgerinspraak
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Huidige burgerinspraak
+            see_all_consultations: Zie alle raadplegingen
+            voting_ends_in:
+              one: Stemmen eindigt morgen <strong></strong>
+              other: Stemmen eindigt over <strong>%{count} dagen</strong>
+            voting_ends_today: Stemmen eindigt <strong>vandaag</strong>
       question:
         take_part: Neem deel
         view_results: Bekijk resultaten

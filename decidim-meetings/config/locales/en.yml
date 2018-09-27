@@ -21,6 +21,7 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        organizer_id: Organizer
         private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
@@ -122,6 +123,16 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: This user has attended %{score} meetings.
+          description_own: You have attended %{score} meetings.
+          explanation: Users get this badge by attending meetings.
+          name: Attended meetings
+          next_level_in: Attend %{score} more meetings to reach the next level!
+          unearned_another: This user hasn't attended any meeting yet.
+          unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
         agenda: Agenda

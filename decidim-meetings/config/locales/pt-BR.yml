@@ -20,6 +20,7 @@ pt-BR:
         end_time: Fim do tempo
         location: Localização
         location_hints: Dicas de localização
+        organizer_id: Organizador
         private_meeting: Reunião privada
         registration_terms: Termos de registro
         registrations_enabled: Registos habilitados
@@ -284,6 +285,7 @@ pt-BR:
         minutes:
           create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
+      conference_venues: Locais de conferência
       content_blocks:
         upcoming_events:
           name: Próximos eventos

@@ -56,6 +56,18 @@ shared_examples "a proposal form" do |options|
     end
   end
 
+  context "when the title is too long" do
+    let(:body) { "A" * 200 }
+
+    it { is_expected.to be_invalid }
+  end
+
+  context "when the body is not etiquette-compliant" do
+    let(:body) { "A" }
+
+    it { is_expected.to be_invalid }
+  end
+
   context "when there's no body" do
     let(:body) { nil }
 

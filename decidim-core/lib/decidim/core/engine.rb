@@ -276,6 +276,14 @@ module Decidim
         end
       end
 
+      initializer "decidim.core.register_metrics" do
+        Decidim.metrics_registry.register(
+          :users,
+          "Decidim::Metrics::UsersMetricManage",
+          Decidim::MetricRegistry::HIGHLIGHTED
+        )
+      end
+
       initializer "decidim.core.content_blocks" do
         Decidim.content_blocks.register(:homepage, :hero) do |content_block|
           content_block.cell = "decidim/content_blocks/hero"
@@ -318,6 +326,11 @@ module Decidim
           content_block.cell = "decidim/content_blocks/stats"
           content_block.public_name_key = "decidim.content_blocks.stats.name"
           content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
+          content_block.cell = "decidim/content_blocks/metrics"
+          content_block.public_name_key = "decidim.content_blocks.metrics.name"
         end
 
         Decidim.content_blocks.register(:homepage, :footer_sub_hero) do |content_block|

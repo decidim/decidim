@@ -1,0 +1,38 @@
+de:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Hergestellt in
+        field: Mein Feld
+        start_date: Anfangsdatum
+        title: Titel
+        updated_at: Aktualisiert am
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    gamification:
+      badges:
+        test:
+          description_another: Dieser Benutzer hat %{score} Tests erstellt.
+          description_own: Sie haben %{score} Tests erstellt.
+          explanation: Benutzer erhalten dieses Badge, indem sie Tests erstellen.
+          name: Tests
+          next_level_in: Erstellen Sie %{score} weitere Tests, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Tests erstellt.
+          unearned_own: Sie haben noch keine Tests erstellt.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Dummies hoch
+          dummies_count_medium: Dummies mittel
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies hoch
+        dummies_count_medium: Dummies mittel
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Verwandter Dummy

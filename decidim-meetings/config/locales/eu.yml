@@ -20,6 +20,7 @@ eu:
         end_time: Amaiera-ordua
         location: Kokapena
         location_hints: Kokapen-argibideak
+        organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
         registration_terms: Izen-emateak
         registrations_enabled: Erregistroak gaituta
@@ -284,6 +285,7 @@ eu:
         minutes:
           create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
           update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+      conference_venues: Hitzaldi aretoak
       content_blocks:
         upcoming_events:
           name: Hurrengo ekitaldiak

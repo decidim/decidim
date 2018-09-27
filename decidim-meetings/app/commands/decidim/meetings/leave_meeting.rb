@@ -21,6 +21,7 @@ module Decidim
         @meeting.with_lock do
           return broadcast(:invalid) unless registration
           destroy_registration
+          decrement_score
         end
         broadcast(:ok)
       end
@@ -33,6 +34,10 @@ module Decidim
 
       def destroy_registration
         registration.destroy!
+      end
+
+      def decrement_score
+        Decidim::Gamification.decrement_score(@user, :attended_meetings)
       end
     end
   end

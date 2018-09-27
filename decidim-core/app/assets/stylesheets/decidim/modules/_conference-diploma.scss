@@ -1,0 +1,75 @@
+.conference-diploma{
+  text-align: center;
+
+  .diploma__border{
+    margin: 4 * $global-margin;
+
+    /* Border pattern */
+    // $motif_frontcolor: #979797;
+    // $motif_backcolor: $white;
+    //
+    // background-color: $motif_frontcolor;
+    // background-image:
+    //   radial-gradient(circle at 100% 150%, $motif_frontcolor 24%, $motif_backcolor 25%, $motif_backcolor 28%, $motif_frontcolor 29%, $motif_frontcolor 36%, $motif_backcolor 36%, $motif_backcolor 40%, transparent 40%, transparent),
+    //   radial-gradient(circle at 0    150%, $motif_frontcolor 24%, $motif_backcolor 25%, $motif_backcolor 28%, $motif_frontcolor 29%, $motif_frontcolor 36%, $motif_backcolor 36%, $motif_backcolor 40%, transparent 40%, transparent),
+    //   radial-gradient(circle at 50%  100%, $motif_backcolor 10%, $motif_frontcolor 11%, $motif_frontcolor 23%, $motif_backcolor 24%, $motif_backcolor 30%, $motif_frontcolor 31%, $motif_frontcolor 43%, $motif_backcolor 44%, $motif_backcolor 50%, $motif_frontcolor 51%, $motif_frontcolor 63%, $motif_backcolor 64%, $motif_backcolor 71%, transparent 71%, transparent),
+    //   radial-gradient(circle at 100% 50%, $motif_backcolor 5%, $motif_frontcolor 6%, $motif_frontcolor 15%, $motif_backcolor 16%, $motif_backcolor 20%, $motif_frontcolor 21%, $motif_frontcolor 30%, $motif_backcolor 31%, $motif_backcolor 35%, $motif_frontcolor 36%, $motif_frontcolor 45%, $motif_backcolor 46%, $motif_backcolor 49%, transparent 50%, transparent),
+    //   radial-gradient(circle at 0    50%, $motif_backcolor 5%, $motif_frontcolor 6%, $motif_frontcolor 15%, $motif_backcolor 16%, $motif_backcolor 20%, $motif_frontcolor 21%, $motif_frontcolor 30%, $motif_backcolor 31%, $motif_backcolor 35%, $motif_frontcolor 36%, $motif_frontcolor 45%, $motif_backcolor 46%, $motif_backcolor 49%, transparent 50%, transparent);
+    // background-size: 16px 8px;
+
+    -moz-border-image: image-url("pattern.png") 20 repeat;
+    -webkit-border-image: image-url("pattern.png") 20 repeat;
+    -o-border-image: image-url("pattern.png") 20 repeat;
+    border-image: image-url("pattern.png") 20 repeat;
+    border-style: solid;
+    border-width: 1rem;
+
+    .diploma__content{
+      padding: 3 * $global-padding;
+    }
+  }
+
+  .diploma__attendance{
+    > *{
+      display: block;
+    }
+
+    text-align: center;
+    font-size: rem-calc(14);
+  }
+
+  .diploma__name{
+    margin-top: 4 * $global-margin;
+    font-size: rem-calc(18);
+
+    p{
+      margin-top: $global-margin;
+    }
+  }
+
+  .diploma__logo{
+    border: $border;
+    padding: 2 * $global-padding;
+  }
+}
+
+@media print{
+  @page{
+    size: A4 landscape;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .conference-diploma{
+    .diploma__border{
+      margin: 0;
+      -moz-border-image: image-url("pattern.png") 20 repeat;
+      -webkit-border-image: image-url("pattern.png") 20 repeat;
+      -o-border-image: image-url("pattern.png") 20 repeat;
+      border-image: image-url("pattern.png") 20 repeat;
+      border-style: solid;
+      border-width: 1rem;
+    }
+  }
+}

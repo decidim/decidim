@@ -20,6 +20,7 @@ hu:
         end_time: Záró időpont
         location: Helye
         location_hints: Tippek a helyre
+        organizer_id: Szervező
         private_meeting: Privát találkozó
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Regisztráció engedélyezve
@@ -284,6 +285,7 @@ hu:
         minutes:
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
+      conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_events:
           name: Közelgő események

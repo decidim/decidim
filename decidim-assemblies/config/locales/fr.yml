@@ -238,6 +238,9 @@ fr:
               not_ceased: Validité en cours
             filter_by: Filtrer par
             search: Rechercher
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantité maximale d'éléments à afficher
       assembly_members:
         index:
           members: Membres

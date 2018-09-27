@@ -20,6 +20,7 @@ sv:
         end_time: Sluttid
         location: Plats
         location_hints: Platstips
+        organizer_id: Arrangör
         private_meeting: Privat möte
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
@@ -284,6 +285,7 @@ sv:
         minutes:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
+      conference_venues: Konferenslokaler
       content_blocks:
         upcoming_events:
           name: Uppkommande händelser

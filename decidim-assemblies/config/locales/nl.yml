@@ -238,6 +238,9 @@ nl:
               not_ceased: Niet opgehouden
             filter_by: Filteren op
             search: Zoeken
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
       assembly_members:
         index:
           members: leden

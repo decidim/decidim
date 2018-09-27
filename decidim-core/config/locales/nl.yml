@@ -216,6 +216,9 @@ nl:
         name: Gemarkeerde inhoudsbanner
       how_to_participate:
         name: Hoe deel te nemen
+      html:
+        html_content: HTML-inhoud
+        name: HTML-blok
       stats:
         name: Organisatie statistieken
       sub_hero:
@@ -230,6 +233,8 @@ nl:
         download_data: Download de gegevens
         download_data_description: Een bestand met alle informatie die aan het account is gekoppeld, wordt naar <strong>%{user_email}</strong>gestuurd
         request_data: Gegevens aanvragen
+    datepicker:
+      help_text: 'Verwacht formaat: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -527,6 +532,7 @@ nl:
           answers_count: Voltooide enquêtes
           assemblies_count: Events
           comments_count: Reacties
+          conferences_count: conferenties
           debates_count: Debatten
           endorsements_count: Aanbevelingen
           headline: Huidige stand van %{organization}
@@ -649,13 +655,48 @@ nl:
       version_author:
         deleted: Verwijderde gebruiker
   devise:
+    confirmations:
+      confirmed: Uw e-mailadres is succesvol bevestigd.
+      new:
+        resend_confirmation_instructions: Verzend bevestigingsinstructies opnieuw
+      send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het bevestigen van uw e-mailadres.
+      send_paranoid_instructions: Als uw e-mailadres in onze database staat, ontvangt u binnen enkele minuten een e-mail met instructies voor het bevestigen van uw e-mailadres.
+    failure:
+      already_authenticated: Je bent al ingelogd.
+      inactive: Jouw account is nog niet geactiveerd.
+      invalid: Ongeldige %{authentication_keys} of wachtwoord.
+      invited: Je hebt een openstaande uitnodiging, accepteer deze om het maken van je account te voltooien.
+      last_attempt: Je hebt nog een poging voordat je account is vergrendeld.
+      locked: Je account is geblokkeerd.
+      not_found_in_database: Ongeldige %{authentication_keys} of wachtwoord.
+      timeout: Je sessie is verlopen. Log opnieuw in om door te gaan.
+      unauthenticated: U moet inloggen of aanmelden voordat u doorgaat.
+      unconfirmed: U moet uw e-mailadres bevestigen voordat u verdergaat.
     invitations:
       edit:
         header: Eindig met het maken van je account
         nickname_help: Jouw unieke ID op %{organization}.
         submit_button: Opslaan
         subtitle: Als u de uitnodiging accepteert, stelt u uw bijnaam en wachtwoord in.
+      invitation_removed: Je uitnodiging is verwijderd.
+      invitation_token_invalid: Het verstrekte uitnodigingskenmerk is niet geldig!
+      new:
+        header: Verstuur uitnodiging
+        submit_button: Een uitnodiging sturen
+      no_invitations_remaining: Er zijn nog geen uitnodigingen
+      send_instructions: Er is een uitnodigingsmail verzonden naar %{email}.
+      updated: Uw wachtwoord is succesvol ingesteld. U bent nu ingelogd.
+      updated_not_active: Uw wachtwoord is succesvol ingesteld.
     mailer:
+      confirmation_instructions:
+        action: Bevestig mijn account
+        greeting: Welkom %{recipient}!
+        instruction: 'U kunt het e-mailadres van uw account bevestigen via de onderstaande link:'
+        subject: Instructies ter bevestiging
+      email_changed:
+        greeting: Hallo %{recipient}!
+        message: We nemen contact met u op om u te laten weten dat uw e-mailadres wordt gewijzigd in %{email}.
+        subject: Email gewijzigd
       invitation_instructions:
         accept: Accepteer uitnodiging
         accept_until: Deze uitnodiging zal verlopen op %{due_date}.
@@ -670,6 +711,7 @@ nl:
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
         someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privégebruiker van %{application}, je kan accepteren via onderstaande link.
+        subject: Instructies voor de uitnodiging
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
@@ -686,20 +728,101 @@ nl:
         greeting: Hallo %{recipient}!
         message: Wij informeren u dat uw wachtwoord is gewijzigd.
         subject: Wachtwoord is veranderd
+      reset_password_instructions:
+        action: Verander mijn wachtwoord
+        greeting: Hallo %{recipient}!
+        instruction: Iemand heeft om een ​​link gevraagd om uw wachtwoord te wijzigen en u kunt dit doen via de onderstaande link.
+        instruction_2: Als u dit niet heeft aangevraagd, negeert u deze e-mail.
+        instruction_3: Uw wachtwoord verandert niet totdat u de bovenstaande link opent en een nieuwe maakt.
+        subject: Reset wachtwoordinstructies
+      unlock_instructions:
+        action: Ontgrendel mijn account
+        greeting: Hallo %{recipient}!
+        instruction: 'Klik op de onderstaande link om uw account te ontgrendelen:'
+        message: Uw account is vergrendeld vanwege een overmatig aantal mislukte aanmeldingspogingen.
+        subject: Ontgrendel instructies
+    omniauth_callbacks:
+      failure: Kon u niet authenticeren van %{kind} omdat "%{reason}".
+      success: Met succes geverifieerd vanaf %{kind} account.
+    passwords:
+      edit:
+        change_my_password: Verander mijn wachtwoord
+        change_your_password: Verander uw wachtwoord
+        confirm_new_password: Bevestig nieuw wachtwoord
+        new_password: Nieuw wachtwoord
+      new:
+        forgot_your_password: Je wachtwoord vergeten?
+        send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
+      no_token: U hebt geen toegang tot deze pagina zonder afkomstig te zijn van een e-mail voor het opnieuw instellen van uw wachtwoord. Als u wel een e-mail ontvangt voor het opnieuw instellen van uw wachtwoord, moet u ervoor zorgen dat u de volledige URL heeft gebruikt.
+      send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het opnieuw instellen van uw wachtwoord.
+      send_paranoid_instructions: Als uw e-mailadres in onze database staat, ontvangt u binnen enkele minuten een wachtwoordherstellink op uw e-mailadres.
+      updated: Je wachtwoord is met succes veranderd. U bent nu ingelogd.
+      updated_not_active: Je wachtwoord is met succes veranderd.
+    registrations:
+      destroyed: Doei! Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
+      edit:
+        are_you_sure: Weet je het zeker?
+        cancel_my_account: Annuleer mijn account
+        currently_waiting_confirmation_for_email: 'Momenteel wachtende bevestiging voor: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: laat leeg als je het niet wilt wijzigen
+        title: Bewerk %{resource}
+        unhappy: Ongelukkig?
+        update: Bijwerken
+        we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen
+      new:
+        sign_up: Aanmelden
+      signed_up: Welkom! Je hebt je succesvol aangemeld.
+      signed_up_but_inactive: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account nog niet is geactiveerd.
+      signed_up_but_locked: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account is vergrendeld.
+      signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar uw e-mailadres. Volg de link om uw account te activeren.
+      update_needs_confirmation: Je hebt je account bijgewerkt, maar we moeten je nieuwe e-mailadres verifiëren. Controleer uw e-mail en volg de bevestigingslink om uw nieuwe e-mailadres te bevestigen.
+      updated: Uw account is succesvol bijgewerkt.
+    sessions:
+      already_signed_out: Succesvol ondertekend.
+      new:
+        sign_in: Log in
+      signed_in: Ingelogd.
+      signed_out: Succesvol ondertekend.
+    shared:
+      links:
+        back: Terug
+        didn_t_receive_confirmation_instructions: Geen bevestigingsinstructies ontvangen?
+        didn_t_receive_unlock_instructions: Geen ontgrendelingsinstructies ontvangen?
+        forgot_your_password: Je wachtwoord vergeten?
+        sign_in: Log in
+        sign_in_with_provider: Log in met %{provider}
+        sign_up: Aanmelden
+      minimum_password_length:
+        one: "(Minimaal%{count} tekens)"
+        other: "(Minimaal%{count} tekens)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Verzend ontgrendel-instructies opnieuw
+      send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het ontgrendelen van uw account.
+      send_paranoid_instructions: Als uw account bestaat, ontvangt u een e-mail met instructies voor het ontgrendelen binnen een paar minuten.
+      unlocked: Uw account is succesvol ontgrendeld. Log alstublieft in om verder te gaan.
   doorkeeper:
     scopes:
       public: Jouw openbare informatie.
   errors:
     messages:
+      already_confirmed: was al bevestigd, probeer je aan te melden
+      confirmation_period_expired: moet worden bevestigd binnen %{period}, vraag een nieuwe aan
       content_type_whitelist_error: het bestandstype is niet geldig
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
+      expired: is verlopen, vraag een nieuwe aan
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
-      long_words: bevat woorden die te lang zijn
-      must_start_with_caps: moet beginnen met caps
+      long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
+      must_start_with_caps: moet beginnen met een hoofdletter
       nesting_too_deep: kan niet binnen een subcategorie zijn
-      too_many_marks: gebruikt te veel markeringen
-      too_much_caps: gebruikt te veel caps
-      too_short: is te kort
+      not_found: niet gevonden
+      not_locked: was niet op slot
+      not_saved:
+        one: '1 fout is verhinderd dat deze %{resource} wordt opgeslagen:'
+        other: "%{count} fouten om te voorkomen dat deze %{resource} wordt opgeslagen:"
+      too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld! en?)
+      too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
+      too_short: is te kort (minder dan 15 tekens)
   forms:
     required: Vereist
   invisible_captcha:
@@ -784,6 +907,10 @@ nl:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
