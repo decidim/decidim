@@ -605,8 +605,8 @@ fi:
       report:
         hello: Hei %{name},
         manage_moderations: Hallitse moderointeja
-        report_html: <p>Tämä <a href="%{url}">sisältö</a> on raportoitu.</p>
-        subject: Resurssi on raportoitu
+        report_html: <p>Tämä <a href="%{url}">sisältö</a> on ilmoitettu.</p>
+        subject: Resurssi on ilmoitettu
     reports:
       create:
         error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
@@ -642,11 +642,11 @@ fi:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
         description: Onko tämä sisältö epäasiallista?
-        does_not_belong: Tämä ehdotus sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
-        offensive: Tämä ehdotus sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
+        does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+        offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Raportoi ongelma
+        title: Ilmoita ongelmasta
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
