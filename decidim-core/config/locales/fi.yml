@@ -10,7 +10,7 @@ fi:
         email: Sähköpostiosoitteesi
         name: Nimesi
         nickname: Oma yksilöllinen käyttäjätunnuksesi
-        password: Salasanasi
+        password: Uusi salasana
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
@@ -244,13 +244,13 @@ fi:
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit nähdä sen täältä:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteeseen %{resource_title}
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: '%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
-          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä mainitun linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: '%{resource_title} -komponentti on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
@@ -263,7 +263,7 @@ fi:
       users:
         profile_updated:
           email_intro: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_url}">profiilisivua</a> on päivitetty.
-          email_outro: Saat tämän ilmoituksen, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: "%{nickname} päivitti profiiliaan"
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
     export_mailer:
@@ -386,7 +386,7 @@ fi:
     pages:
       home:
         extended:
-          debates: Väittelyt
+          debates: Keskustelut
           debates_explanation: Väittele, keskustele ja jaa näkemyksesi rikastuttaaksesi sinua koskettavia aiheita.
           how_to_participate: Kuinka osallistun prosessiin?
           meetings: Tapahtumat
@@ -402,23 +402,23 @@ fi:
           participate: Osallistu
           welcome: Tervetuloa organisaatioon %{organization}!
         statistics:
-          answers_count: Valmistuneet kyselyt
-          assemblies_count: Kehitysryhmät
-          comments_count: Kommentit
-          debates_count: Väittelyt
-          endorsements_count: merkintöjen
+          answers_count: Kyselyiden vastauksia
+          assemblies_count: Kehitysryhmää
+          comments_count: Kommenttia
+          debates_count: Keskustelua
+          endorsements_count: Suosituksia
           headline: Tämänhetkinen tila organisaatiolle %{organization}
           meetings_count: Tapahtumat
-          orders_count: Äänet
-          pages_count: Sivut
-          processes_count: Prosessit
+          orders_count: Ääntä
+          pages_count: Sivua
+          processes_count: Prosessia
           projects_count: Projektit
-          proposals_accepted: Hyväksytyt ehdotukset
+          proposals_accepted: Hyväksyttyä ehdotusta
           proposals_count: Ehdotukset
           results_count: Tulokset
-          surveys_count: Kyselyt
-          users_count: Osallistujat
-          votes_count: Äänet
+          surveys_count: Kyselyä
+          users_count: Osallistujia
+          votes_count: Ääntä
         sub_hero:
           register: Rekisteröidy
       index:
@@ -493,9 +493,9 @@ fi:
     shared:
       action_authorization_modal:
         expired:
-          authorize: Valtuuta uudestaan palvelulla "%{authorization}"
-          explanation: Valtuutuksesi on umpeutunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettava itsesi uudestaan palvelulla "%{authorization}".
-          title: Valtuutus on umpeutunut
+          authorize: Varmenna varmennustavalla "%{authorization}"
+          explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
+          title: Varmennus on vanhentunut
         incomplete:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
@@ -507,12 +507,12 @@ fi:
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
         pending:
-          explanation: Tämän toiminnon suorittamiseksi sinun valtuutettava itsesi palvelulla "%{authorization}", mutta valtuutuksesi on edelleen kesken
-          resume: Tarkista "%{authorization}" valtuutuksen eteneminen
-          title: Valtuutus on edelleen kesken
+          explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
+          resume: Tarkista "%{authorization}" varmennuksen eteneminen
+          title: Varmennus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei varmennettu
       embed_modal:
