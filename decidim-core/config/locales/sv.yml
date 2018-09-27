@@ -162,27 +162,27 @@ sv:
     authorization_modals:
       show:
         expired:
-          authorize: Reauthorize med "%{authorization}"
-          explanation: Ditt godkännande har löpt ut. För att utföra den här åtgärden måste du vara auktoriserad med "%{authorization}".
-          title: Godkännandet har löpt ut
+          authorize: Återauktorisera med "%{authorization}"
+          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
+          title: Auktoriseringen har löpt ut
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att återauktorisera eftersom vi saknar följande data:'
           invalid_field: "%{field}"
-          reauthorize: reauthorize
-          title: Vänligen reauthorize
+          reauthorize: Omauktorisera
+          title: Vänligen omauktorisera
         missing:
           authorize: Godkänn med "%{authorization}"
-          explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
+          explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
           title: Godkännande krävs
         pending:
-          explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisation är fortfarande på gång
-          resume: Kolla din "%{authorization}" -tillståndsframsteg
+          explanation: För att kunna utföra denna åtgärd måste du auktoriseras med "%{authorization}", men din auktorisering är fortfarande på gång
+          resume: Kolla din "%{authorization}" auktoriseringsprocess
           title: Godkännandet är fortfarande på gång
         unauthorized:
-          explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
+          explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
           invalid_field: "%{field} värde %{value} är inte giltigt."
-          ok: Ok
+          ok: Okej
           title: Inte behörig
     collapsible_list:
       hidden_elements_count:
@@ -464,7 +464,7 @@ sv:
           no_conversations: Du har inga konversationer än
         show:
           conversation_with_html: Samtal med <strong>%{name}</strong>
-          reply: Svar
+          reply: Svara
           send: Skicka
         start:
           send: Skicka
@@ -502,7 +502,7 @@ sv:
         hello: Hallå,
         subject: Vill du fortsätta att få relevant information om %{organization_name}?
     notifications:
-      no_notifications: Inga meddelanden ännu.
+      no_notifications: Inga notiser ännu.
     notifications_settings:
       show:
         email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
@@ -519,16 +519,16 @@ sv:
     pages:
       home:
         extended:
-          debates: debatter
-          debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
-          how_to_participate: Hur tar jag del i en process?
+          debates: Debatter
+          debates_explanation: Debattera och diskutera, dela dina åsikter och berika relevanta ämnen.
+          how_to_participate: Hur deltar jag i en process?
           meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information
           proposals: Förslag
-          proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
+          proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
+          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och bestäm.
           footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
           register: Registrera
         hero:
@@ -537,24 +537,24 @@ sv:
         metrics:
           headline: Deltagande i siffror
         statistics:
-          answers_count: Avslutade undersökningar
-          assemblies_count: Assemblies
-          comments_count: kommentarer
+          answers_count: Avslutade Undersökningar
+          assemblies_count: Församlingar
+          comments_count: Kommentarer
           conferences_count: konferenser
-          debates_count: debatter
-          endorsements_count: påskrifter
-          headline: Nuvarande tillstånd av %{organization}
+          debates_count: Debatter
+          endorsements_count: Påskrifter
+          headline: Aktuellt läge för %{organization}
           meetings_count: Möten
-          orders_count: röster
-          pages_count: sidor
-          processes_count: processer
+          orders_count: Röster
+          pages_count: Sidor
+          processes_count: Processer
           projects_count: Projekt
-          proposals_accepted: Godkända förslag
+          proposals_accepted: Godkända Förslag
           proposals_count: Förslag
           results_count: Resultat
           surveys_count: Undersökningar
           users_count: Deltagare
-          votes_count: röster
+          votes_count: Röster
         sub_hero:
           register: Registrera
       index:
