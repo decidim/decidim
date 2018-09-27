@@ -501,7 +501,7 @@ pt-BR:
           explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
           invalid_field: "%{field}"
           reauthorize: Reautorizar
-          title: Por favor reautorize
+          title: Reautorize
         missing:
           authorize: Autorizar com "%{authorization}"
           explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
@@ -513,7 +513,7 @@ pt-BR:
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid_field: "%{field} valor %{value} não é válido."
-          ok: Ok
+          ok: OK
           title: Não autorizado
       embed_modal:
         close_window: Fechar janela
