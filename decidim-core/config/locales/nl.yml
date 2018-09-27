@@ -513,7 +513,7 @@ nl:
         unauthorized:
           explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
           invalid_field: "%{field} waarde %{value} is niet geldig."
-          ok: Ok
+          ok: OK
           title: Niet geautoriseerd
       embed_modal:
         close_window: Sluit venster
