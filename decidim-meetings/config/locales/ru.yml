@@ -280,8 +280,6 @@ ru:
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
-        index:
-          view_meeting: Посмотреть встречу
         meeting_minutes:
           meeting_minutes: Протокол встречи
           related_information: Сопутствующие сведения
