@@ -145,4 +145,4 @@ pl:
           name: Debaty
           next_level_in: Weź udział w %{score} kolejnych debatach, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnej debacie.
-          unearned_own: Nie uczestniczyłeś jeszcze w żadnych debatach.
+          unearned_own: Brałeś już udział w jakichkolwiek debatach.
