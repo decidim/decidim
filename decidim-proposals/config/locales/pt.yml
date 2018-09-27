@@ -633,5 +633,5 @@ pt:
       included_projects:
         project_result: 'Resultados que aparecem neste projeto:'
       included_proposals:
-        proposal_project: 'Proposta aparecendo nestes projetos:'
-        proposal_result: 'Proposta aparecendo nestes resultados:'
+        proposal_project: 'Proposta que aparece nesses projetos:'
+        proposal_result: 'Proposta que aparece nesses resultados:'
