@@ -272,8 +272,6 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
-        index:
-          view_meeting: Ikusi topaketa
         meeting_minutes:
           meeting_minutes: Bilera Minutes
           related_information: Lotutako informazioa
