@@ -135,7 +135,7 @@ shared_examples "manage conferences" do
           click_link "Preview"
         end
 
-        expect(page).to have_css(".process-header")
+        expect(page).to have_css(".process-nav")
         expect(page).to have_content(translated(conference.title))
       end
     end

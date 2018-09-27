@@ -1,6 +1,10 @@
 <% add_decidim_meta_tags(title: t("conference_speakers.index.title", scope: "decidim")) %>
 
-<h2 class="section-heading"><%= t(".speakers") %></h2>
-<div class="row small-up-2 medium-up-4 mb-l">
-  <%= render(collection) %>
-</div>
+<section class="wrapper" id="conference_speakers-grid">
+  <div class="row column">
+    <h2 class="section-heading"><%= t(".speakers") %></h2>
+    <div class="row small-up-2 medium-up-5 mb-l">
+      <%= render(collection) %>
+    </div>
+  </div>
+</section>

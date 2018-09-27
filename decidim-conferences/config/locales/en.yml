@@ -239,13 +239,6 @@ en:
         destroy:
           invalid: There's been a problem leaving this conference.
           success: You have left the conference successfully.
-      conference_speaker:
-        show:
-          affiliation: Affiliation
-          personal_url: Personal Url
-          position: Position
-          short_bio: Short bio
-          twitter_handle: Twitter
       conference_speakers:
         index:
           speakers: Speakers
@@ -253,7 +246,7 @@ en:
         show:
           already_account: Do you already have an account in decidim?
           login_as: You are login as %{name} <%{email}>
-          make_conference_registration: "Make your registration in the conference:"
+          make_conference_registration: 'Make your registration in the conference:'
           new_user: New user?
           register: Register
           sign_in: Login to register at this conference
@@ -340,11 +333,6 @@ en:
         subject: Invitation to join a conference
   layouts:
     decidim:
-      conferences_nav:
-        conference_menu_item: Information
-        conference_speaker_menu_item: Speakers
-        unfold: Unfold
-        venues: Venues
       conference_widgets:
         show:
           take_part: Take part
@@ -360,3 +348,8 @@ en:
         promoted_conference:
           more_info: More info
           take_part: Take part
+      conferences_nav:
+        conference_menu_item: Information
+        conference_speaker_menu_item: Speakers
+        unfold: Unfold
+        venues: Venues

@@ -1,11 +1,7 @@
 <div class="column conference-speaker js-conference">
   <div class="speaker-img-wrapper">
     <div class="speaker-img">
-      <% if model.avatar.presence %>
-        <%= image_tag model.avatar_url %>
-      <% else %>
-        <%= image_tag model.user.avatar_url(:big) %>
-      <% end %>
+      <%= image_tag avatar.url %>
     </div>
   </div>
   <div class="speaker-data">
@@ -30,11 +26,7 @@
       <div class="column medium-6">
         <div class="speaker-img-wrapper">
           <div class="speaker-img">
-            <% if model.avatar.presence %>
-              <%= image_tag model.avatar_url %>
-            <% else %>
-              <%= image_tag model.user.avatar_url(:big) %>
-            <% end %>
+            <%= image_tag avatar.url %>
           </div>
         </div>
         <div class="speaker-data">

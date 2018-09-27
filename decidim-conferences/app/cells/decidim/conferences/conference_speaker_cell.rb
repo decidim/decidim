@@ -7,9 +7,13 @@ module Decidim
       property :name
       property :nickname
       property :profile_path
-      property :avatar
 
       private
+
+      def avatar
+        return model.user.avatar unless model.avatar.presence
+        model.avatar
+      end
 
       def has_profile?
         model.profile_path.present?
