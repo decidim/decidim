@@ -318,10 +318,10 @@ es-PY:
             no_active_nor_upcoming: Sin procesos activos ni futuros
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           names:
-            active: Activo
-            all: Todas
-            past: Pasado
-            upcoming: Próximo
+            active: Activa
+            all: Todos
+            past: Pasadas
+            upcoming: Próximas
           see: Ver
         index:
           loading: Cargando resultados...
