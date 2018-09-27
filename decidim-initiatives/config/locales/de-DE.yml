@@ -1,0 +1,342 @@
+de:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Beschreibung
+        offline_votes: Face-to-Face-Unterstützung
+        scope_id: Umfang
+        signature_end_time: Ende der Unterschriftensammlung
+        signature_start_time: Beginn der Unterschriftensammlung
+        signature_type: Signaturtyp
+        signature_type_values:
+          any: Gemischt
+          offline: Angesicht zu Angesicht
+          online: Online
+        title: Titel
+      initiative_author:
+        address: Adresse
+        city: Stadt
+        id_document: DNI / NIE
+        name: Name und Nachname
+        phone_number: Telefonnummer
+        post_code: Postleitzahl
+        province: Provinz
+      initiatives_committee_member:
+        user: Ausschussmitglied
+      initiatives_type:
+        banner_image: Bannerbild
+        description: Beschreibung
+        title: Titel
+      organization_data:
+        address: Adresse
+        id_document: CIF
+        name: Vollständiger Name
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initativ
+        other: Initiativen
+      decidim/initiative_comittee:
+        one: Komitee
+        other: Ausschüsse
+      decidim/initiative_vote:
+        one: Unterschrift
+        other: Unterschriften
+  decidim:
+    admin:
+      menu:
+        initiatives: Initiativen
+        initiatives_types: Arten von Initiativen
+      models:
+        initiatives:
+          fields:
+            created_at: Hergestellt in
+            state: Zustand
+            supports_count: Unterstützt
+            title: Initiativen
+        initiatives_type_scope:
+          fields:
+            scope: Umfang
+            supports_required: Unterstützungen erforderlich
+          name: Typ der Initiative
+        initiatives_types:
+          fields:
+            created_at: Hergestellt in
+            title: Arten von Initiativen
+          name: Art der Initiative
+      titles:
+        initiatives: Initiativen
+        initiatives_types: Arten von Initiativen
+    events:
+      initiatives:
+        milestone_completed:
+          email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Neuer Meilenstein abgeschlossen!
+          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+    initiatives:
+      admin:
+        committee_requests:
+          index:
+            approve: Genehmigen
+            confirm_revoke: Bist du sicher?
+            invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
+            no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
+            revoke: Widerrufen
+            title: Ausschussmitglieder
+        initiatives:
+          edit:
+            accept: Initiative akzeptieren
+            confirm: Bist du sicher?
+            discard: Verwerfen Sie die Initiative
+            export_votes: Export unterstützt
+            reject: Initiative ablehnen
+            send_to_technical_validation: An technische Validierung senden
+            success: Die Initiative wurde an die technische Validierung gesendet
+            update: Aktualisieren
+          form:
+            title: Allgemeine Information
+          index:
+            actions_title: Aktion
+            filter:
+              accepted: Akzeptiert
+              all: Alle
+              created: Erstellt
+              discarded: Verworfen
+              published: Veröffentlicht
+              rejected: Abgelehnt
+              validating: Technische Validierung
+            filter_by: Filtern nach
+            preview: Vorschau
+            print: Drucken
+            search: Busca
+          show:
+            print: Drucken
+          update:
+            error: Ein Fehler ist aufgetreten
+            success: Die Bürgerinitiative wurde erfolgreich aktualisiert
+        initiatives_type_scopes:
+          create:
+            error: Ein Fehler ist aufgetreten
+            success: Ein neuer Bereich für den angegebenen Initiativentyp wurde erstellt
+          destroy:
+            success: Der Bereich wurde erfolgreich entfernt
+          edit:
+            back: Zurück
+            confirm_destroy: Bist du sicher?
+            destroy: Zerstören
+            title: Initiativentyp bearbeiten
+            update: Aktualisieren
+          new:
+            back: Zurück
+            create: Erstellen
+            title: Initiativentypbereich erstellen
+          update:
+            error: Ein Fehler ist aufgetreten
+            success: Der Bereich wurde erfolgreich aktualisiert
+        initiatives_types:
+          create:
+            error: Ein Fehler ist aufgetreten
+            success: Ein neuer Initiativentyp wurde erfolgreich erstellt
+          destroy:
+            success: Der Initiativentyp wurde erfolgreich entfernt
+          edit:
+            confirm_destroy: Bist du sicher?
+            destroy: Zerstören
+            update: Aktualisieren
+          form:
+            title: Allgemeine Information
+          initiative_type_scopes:
+            title: Bereiche für den Typ der Initiative
+          new:
+            create: Erstellen
+            title: Neuer Initiativentyp
+          update:
+            error: Ein Fehler ist aufgetreten
+            success: Die angegebene Initiative wurde erfolgreich aktualisiert
+      admin_log:
+        initiative:
+          publish: "%{user_name} veröffentlichte die %{resource_name} Initiative"
+          send_to_technical_validation: "%{user_name} schickte die %{resource_name} Initiative zur technischen Validierung"
+          unpublish: "%{user_name} verworfen die %{resource_name} Initiative"
+          update: "%{user_name} aktualisierte die %{resource_name} Initiative"
+      admin_states:
+        accepted: Akzeptiert
+        created: Erstellt
+        discarded: Verworfen
+        published: Veröffentlicht
+        rejected: Abgelehnt
+        validating: Technische Validierung
+      committee_requests:
+        new:
+          continue: Fortsetzen
+          help_text: Sie sind dabei, eine Mitgliedschaft im Promoter-Komitee dieser Initiative zu beantragen
+        spawn:
+          success: Ihre Anfrage wurde an den Initiativautor gesendet.
+      create_initiative:
+        fill_data:
+          back: Zurück
+          continue: Fortsetzen
+          fill_data_help: "<ul> <li>Überarbeiten Sie den Inhalt Ihrer Initiative. Ist dein Titel leicht zu verstehen? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Welche geografische Reichweite hat die Initiative? Stadtteil?</li> </ul>"
+          initiative_type: Art der Initiative
+          more_information: "(Mehr Informationen)"
+          select_scope: Wählen Sie einen Bereich aus
+        finish:
+          back: Zurück
+          back_to_initiatives: Zurück zu den Initiativen
+          callout_text: Herzliche Glückwünsche! Ihre Bürgerinitiative wurde erfolgreich erstellt.
+          go_to_my_initiatives: Geh zu meinen Initiativen
+          more_information: "(Mehr Informationen)"
+        finish_help:
+          access_reminder: Denken Sie daran, dass Sie immer über das Benutzermenü auf Ihre Initiativen zugreifen können.
+          help_for_organizations: Wenn Sie eine Vereinigung sind, müssen Sie die Protokolle des Vorstandes aller Organisationen hochladen, die der Promotionskommission entsprechen
+          help_in_person_signatures: Wenn Sie sich entschieden haben, die Unterschriften persönlich oder in Verbindung mit Online zu sammeln, müssen Sie die erforderlichen Informationen hochladen.
+          help_text: Denken Sie daran, dass Sie zur ordnungsgemäßen Verarbeitung der Initiative auf das Administrationsfenster zugreifen müssen, in dem Sie das Benutzermenü finden, laden Sie die erforderlichen Informationen hoch und senden Sie sie an die Prozedur.
+          initiatives_page_link: Sie können alle diese Informationen auf der %{link} gewidmet ist, um über Initiativen zu informieren.
+          page: Seite
+        previous_form:
+          back: Zurück
+          continue: Fortsetzen
+          help: Woraus besteht die Initiative? Schreiben Sie den Titel und die Beschreibung auf. Wir empfehlen einen kurzen und prägnanten Titel und eine Beschreibung der vorgeschlagenen Lösung.
+          more_information: "(Mehr Informationen)"
+        promotal_committee:
+          back: Zurück
+          individual_help_text: Bürgerinitiativen benötigen eine Förderkommission, die aus mindestens drei Personen besteht (Attestierer). Sie müssen den folgenden Link mit den anderen Personen teilen, die Teil dieser Initiative sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
+          more_information: "(Mehr Informationen)"
+        select_initiative_type:
+          back: Zurück
+          more_information: "(Mehr Informationen)"
+          select: Wählen
+          select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürgerschaft eingreifen kann, so dass der Stadtrat Maßnahmen zur Verteidigung des allgemeinen Interesses ergreifen kann, die in Bereichen der kommunalen Gerichtsbarkeit liegen. Welche Initiative möchten Sie starten?
+        share_committee_link:
+          continue: Fortsetzen
+          invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
+        show_similar_initiatives:
+          back: Zurück
+          compare_help: Wenn eine der folgenden Initiativen Ihrer ähnelt, empfehlen wir Ihnen, sie zu unterstützen. Ihr Vorschlag wird mehr Möglichkeiten haben, erledigt zu werden.
+          continue: Meine Initiative ist anders
+          more_information: "(Mehr Informationen)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat eine neue Initiative erstellt, überprüfe es und trage dazu bei:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Neue Initiative von %{author_nickname}
+          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat die folgende Initiative unterstützt, vielleicht möchtest du zur Konversation beitragen:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Initiative mit %{author_nickname}befürwortet
+          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Initiativen
+      initiative_votes:
+        create:
+          error: Beim Signieren der Initiative sind Fehler aufgetreten.
+      initiatives:
+        author:
+          deleted: Gelöscht
+        author_list:
+          hidden_authors_count:
+            one: und 1 weitere Person
+            other: und %{count} weitere Leute
+        count:
+          title:
+            one: "%{count} Initiative"
+            other: "%{count} Initiativen"
+        filters:
+          any: Irgendein
+          author: Autor
+          closed: Geschlossen
+          myself: Meine Initiativen
+          open: Öffnen
+          search: Suche
+          state: Zustand
+          type: Art
+          type_prompt: Wählen Sie einen Typ aus
+        filters_small_view:
+          close_modal: Fenster schließen
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Entfalten
+        index_header:
+          new_initiative: Neue Initiative
+        orders:
+          label: 'Initiativen sortieren nach:'
+          most_commented: Am meisten kommentiert
+          most_voted: Am meisten unterzeichnet
+          random: Zufällig
+          recent: Neueste
+        result:
+          initiative_accepted_reason: Diese Initiative wurde angenommen, weil
+          initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
+        show:
+          any_vote_method: Diese Bürgerinitiative sammelt Online-Unterstützung sowie von Angesicht zu Angesicht.
+          offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterstützung.
+        signature_identities:
+          select_identity: Wählen Sie die Benutzeridentität
+        signatures_count:
+          one: " Unterschrift"
+          other: " Signaturen"
+        statistics:
+          assistants_count_title: Assistenten
+          comments_count_title: Bemerkungen
+          meetings_count_title: Meetings
+          supports_count_title: Unterschriften
+        supports:
+          title: Auflistung der Signaturen
+        vote_cabin:
+          already_voted: Schon unterschrieben
+          supports_required: "%{total_supports} Signaturen erforderlich"
+          vote: Schild
+          votes_blocked: Die Anmeldung ist deaktiviert
+        votes_count:
+          count:
+            one: UNTERSCHRIFT
+            other: Unterschriften
+      initiatives_mailer:
+        creation_subject: Ihre Bürgerinitiative '%{title}' wurde erstellt
+        initiative_link:
+          check_initiative_details: Sie können die Initiativendetails sehen
+          here: Hier
+        more_information: Hier finden Sie weitere Informationen zum Initiativstellungsprozess.
+        progress_report_body_for: Die Initiative %{title} hat die %{percentage}% der erforderlichen Unterstützung erreicht.
+        progress_report_for: 'Resume über die Initiative: %{title}'
+        promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promote Committee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promote Committee einzuladen
+        status_change_for: Die Initiative %{title} hat ihren Status geändert
+        technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
+        technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktive Initiativen
+            see_all_initiatives: Sehen Sie alle Initiativen
+      states:
+        accepted: Akzeptiert
+        expired: Abgelaufen
+    menu:
+      initiatives: Initiativen
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Anlagen
+          committee_members: Ausschussmitglieder
+          components: Komponenten
+          information: Information
+      initiative_creation_header:
+        fill_data: Erstellen
+        finish: Fertig
+        previous_form: Anfang
+        promotal_committee: Promotekomitee
+        select_initiative_type: Wählen
+        show_similar_initiatives: Vergleichen
+      initiative_header:
+        initiative_menu_item: Initiative
+        unfold: Entfalten
+      initiatives:
+        initiative:
+          check: Hör zu
+          check_and_support: Überprüfe es und unterschreibe es
+        no_initiatives_yet:
+          no_initiatives_yet: Keine Initiativen bisher!

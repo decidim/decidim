@@ -272,8 +272,6 @@ hu:
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
-        index:
-          view_meeting: Találkozó megtekintése
         meeting_minutes:
           meeting_minutes: Találkozó jegyzőkönyve
           related_information: Kapcsolódó információ

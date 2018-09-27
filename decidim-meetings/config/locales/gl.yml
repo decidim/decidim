@@ -272,8 +272,6 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
-        index:
-          view_meeting: Ver reunión
         meeting_minutes:
           meeting_minutes: Minutos de reunión
           related_information: Información relacionada

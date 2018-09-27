@@ -15,10 +15,8 @@ gl:
     pages:
       home:
         statistics:
-          bar: Bar
           dummies_count_high: Maniquís de alta
           dummies_count_medium: Dummies medio
-          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Maniquís de alta

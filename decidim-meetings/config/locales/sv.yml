@@ -272,8 +272,6 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
-        index:
-          view_meeting: Visa möte
         meeting_minutes:
           meeting_minutes: Mötesprotokoll
           related_information: Relaterad information

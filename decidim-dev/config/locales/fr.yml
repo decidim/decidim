@@ -15,7 +15,7 @@ fr:
     pages:
       home:
         statistics:
-          bar: Machin
+          bar: Seuil
           dummies_count_high: Référence de test haute
           dummies_count_medium: Référence de test moyenne
           foo: Truc
