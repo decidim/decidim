@@ -20,6 +20,7 @@ ru:
         end_time: Время окончания
         location: Место
         location_hints: Как добраться
+        organizer_id: Организация
         private_meeting: Частная встреча
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
@@ -186,6 +187,7 @@ ru:
           form:
             attendee_type: Вид участника
             existing_user: Существующий участник
+            invite: Пригласить
             invite_explanation: Участнику будет предложено присоединиться к встрече и к организации.
             non_user: Не существующий участник
             select_user: Выберите участника
@@ -385,6 +387,13 @@ ru:
         upcoming_meetings: Предстоящие встречи
       upcoming_meeting_for_card:
         upcoming_meeting: Предстоящая встреча
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Подобные итоги:'
+        result_meeting: 'Подобные встречи:'
+      proposals_from_meeting:
+        meeting_proposal: 'Подобные предложения:'
+        proposal_meeting: 'Подобные встречи:'
   devise:
     mailer:
       join_meeting:
