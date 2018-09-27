@@ -550,7 +550,7 @@ ca:
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Llista d'aprovacions
+          endorsements_list: Llista d'adhesions
           hidden_endorsers_count:
             one: i 1 persona més
             other: i %{count} persones més
@@ -633,5 +633,5 @@ ca:
       included_projects:
         project_result: 'Resultats que apareixen en aquest projecte:'
       included_proposals:
-        proposal_project: 'Proposta que apareix en aquests projectes:'
-        proposal_result: 'Proposta que apareix en aquests resultats:'
+        proposal_project: 'Proposta formulada en aquests projectes:'
+        proposal_result: 'La proposta apareix en aquests resultats:'
