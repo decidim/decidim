@@ -99,7 +99,7 @@ sv:
         developer_group: Promotorgrupp
         domain: Domän
         end_date: Slutdatum
-        hashtag: Hashtag
+        hashtag: hashtag
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
@@ -133,9 +133,6 @@ sv:
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
         site: Hemsida
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -676,7 +673,3 @@ sv:
           title: inställningar
         users:
           title: Användare
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

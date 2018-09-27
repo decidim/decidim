@@ -133,9 +133,6 @@ gl:
         organization_url: URL da organización
         redirect_uri: Redirixir URI
         site: Sitio web
-  date:
-    formats:
-      datepicker: "%m / %d / %Y"
   decidim:
     admin:
       actions:
@@ -676,7 +673,3 @@ gl:
           title: Configuración
         users:
           title: Usuarios
-  time:
-    formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"

@@ -280,8 +280,6 @@ pl:
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
-        index:
-          view_meeting: Pokaż spotkanie
         meeting_minutes:
           meeting_minutes: Protokół ze spotkań
           related_information: Powiązana informacja
