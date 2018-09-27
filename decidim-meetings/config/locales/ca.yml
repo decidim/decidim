@@ -272,8 +272,6 @@ ca:
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar
-        index:
-          view_meeting: Veure trobada
         meeting_minutes:
           meeting_minutes: Minuts de trobada
           related_information: Informació relacionada
