@@ -54,12 +54,14 @@ Decidim.register_component(:blogs) do |component|
       step_settings: step_settings
     }
 
-    component = Decidim.traceability.create!(
+    component = Decidim.traceability.perform_action!(
+      "publish",
       Decidim::Component,
       admin_user,
-      params,
       visibility: "all"
-    )
+    ) do
+      Decidim::Component.create!(params)
+    end
 
     5.times do
       author = Decidim::User.where(organization: component.organization).all.first

@@ -86,12 +86,14 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
       }
 
-      process = Decidim.traceability.create!(
+      process = Decidim.traceability.perform_action!(
+        "publish",
         Decidim::ParticipatoryProcess,
         organization.users.first,
-        params,
         visibility: "all"
-      )
+      ) do
+        Decidim::ParticipatoryProcess.create!(params)
+      end
 
       Decidim::ParticipatoryProcessStep.find_or_initialize_by(
         participatory_process: process,

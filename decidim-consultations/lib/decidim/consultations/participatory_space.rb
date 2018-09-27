@@ -47,12 +47,14 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       organization: organization
     }
 
-    active_consultation = Decidim.traceability.create!(
+    active_consultation = Decidim.traceability.perform_action!(
+      "publish",
       Decidim::Consultation,
       organization.users.first,
-      active_consultation_params,
       visibility: "all"
-    )
+    ) do
+      Decidim::Consultation.create!(active_consultation_params)
+    end
 
     finished_consultation_params = {
       slug: Faker::Internet.unique.slug(nil, "-"),
@@ -71,12 +73,14 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       organization: organization
     }
 
-    finished_consultation = Decidim.traceability.create!(
+    finished_consultation = Decidim.traceability.perform_action!(
+      "publish",
       Decidim::Consultation,
       organization.users.first,
-      finished_consultation_params,
       visibility: "all"
-    )
+    ) do
+      Decidim::Consultation.create!(finished_consultation_params)
+    end
 
     upcoming_consultation_params = {
       slug: Faker::Internet.unique.slug(nil, "-"),
@@ -94,12 +98,14 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       organization: organization
     }
 
-    upcoming_consultation = Decidim.traceability.create!(
+    upcoming_consultation = Decidim.traceability.perform_action!(
+      "publish",
       Decidim::Consultation,
       organization.users.first,
-      upcoming_consultation_params,
       visibility: "all"
-    )
+    ) do
+      Decidim::Consultation.create!(upcoming_consultation_params)
+    end
 
     [finished_consultation, active_consultation, upcoming_consultation].each do |consultation|
       4.times do
@@ -123,12 +129,14 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
           organization: organization
         }
 
-        question = Decidim.traceability.create!(
+        question = Decidim.traceability.perform_action!(
+          "publish",
           Decidim::Consultations::Question,
           organization.users.first,
-          params,
           visibility: "all"
-        )
+        ) do
+          Decidim::Consultations::Question.create!(params)
+        end
 
         2.times do
           Decidim::Consultations::Response.create(

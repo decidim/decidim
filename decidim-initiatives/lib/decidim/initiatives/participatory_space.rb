@@ -72,12 +72,14 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         organization: organization
       }
 
-      initiative = Decidim.traceability.create!(
+      initiative = Decidim.traceability.perform_action!(
+        "publish",
         Decidim::Initiative,
         organization.users.first,
-        params,
         visibility: "all"
-      )
+      ) do
+        Decidim::Initiative.create!(params)
+      end
 
       Decidim::Comments::Seed.comments_for(initiative)
 

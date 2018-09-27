@@ -133,12 +133,14 @@ Decidim.register_component(:proposals) do |component|
       step_settings: step_settings
     }
 
-    component = Decidim.traceability.create!(
+    component = Decidim.traceability.perform_action!(
+      "publish",
       Decidim::Component,
       admin_user,
-      params,
       visibility: "all"
-    )
+    ) do
+      Decidim::Component.create!(params)
+    end
 
     if participatory_space.scope
       scopes = participatory_space.scope.descendants
@@ -171,12 +173,14 @@ Decidim.register_component(:proposals) do |component|
         published_at: Time.current
       }
 
-      proposal = Decidim.traceability.create!(
+      proposal = Decidim.traceability.perform_action!(
+        "publish",
         Decidim::Proposals::Proposal,
         admin_user,
-        params,
         visibility: "all"
-      )
+      ) do
+        Decidim::Proposals::Proposal.create!(params)
+      end
 
       if n.positive?
         Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample(n).each do |author|

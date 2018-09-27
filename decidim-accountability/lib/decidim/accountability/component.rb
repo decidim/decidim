@@ -67,12 +67,9 @@ Decidim.register_component(:accountability) do |component|
       }
     }
 
-    component = Decidim.traceability.create!(
-      Decidim::Component,
-      admin_user,
-      params,
-      visibility: "all"
-    )
+    component = Decidim.traceability.perform_action!("publish", Decidim::Component, admin_user, visibility: "all") do
+      Decidim::Component.create!(params)
+    end
 
     5.times do |i|
       Decidim::Accountability::Status.create!(

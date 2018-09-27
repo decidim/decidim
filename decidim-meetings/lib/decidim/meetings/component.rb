@@ -56,12 +56,14 @@ Decidim.register_component(:meetings) do |component|
       participatory_space: participatory_space
     }
 
-    component = Decidim.traceability.create!(
+    component = Decidim.traceability.perform_action!(
+      "publish",
       Decidim::Component,
       admin_user,
-      params,
       visibility: "all"
-    )
+    ) do
+      Decidim::Component.create!(params)
+    end
 
     if participatory_space.scope
       scopes = participatory_space.scope.descendants

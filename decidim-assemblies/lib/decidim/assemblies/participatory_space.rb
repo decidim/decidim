@@ -90,12 +90,14 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         github_handler: Faker::Lorem.word
       }
 
-      assembly = Decidim.traceability.create!(
+      assembly = Decidim.traceability.perform_action!(
+        "publish",
         Decidim::Assembly,
         organization.users.first,
-        params,
         visibility: "all"
-      )
+      ) do
+        Decidim::Assembly.create!(params)
+      end
 
       # Create users with specific roles
       Decidim::AssemblyUserRole::ROLES.each do |role|
