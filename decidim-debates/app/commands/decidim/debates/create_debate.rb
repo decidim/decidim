@@ -37,13 +37,20 @@ module Decidim
       end
 
       def create_debate
-        @debate = Debate.create!(
+        params = {
           author: form.current_user,
           decidim_user_group_id: form.user_group_id,
           category: form.category,
           title: i18n_field(form.title),
           description: i18n_field(form.description),
           component: form.current_component
+        }
+
+        @debate = Decidim.traceability.create!(
+          Debate,
+          form.current_user,
+          params,
+          visibility: "public-only"
         )
       end
 
