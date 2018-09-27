@@ -406,10 +406,10 @@ ca:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultats relacionats:'
-        result_meeting: 'Reunions relacionades:'
+        result_meeting: 'Trobades relacionades:'
       proposals_from_meeting:
         meeting_proposal: 'Propostes relacionades:'
-        proposal_meeting: 'Reunions relacionades:'
+        proposal_meeting: 'Trobades relacionades:'
   devise:
     mailer:
       join_meeting:
