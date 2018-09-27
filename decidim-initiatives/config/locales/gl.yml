@@ -6,6 +6,8 @@ gl:
         description: Descrición
         offline_votes: Soportes cara a cara
         scope_id: Alcance
+        signature_end_date: Fin do período de recadación de sinaturas
+        signature_start_date: Inicio do período de recollida de sinaturas
         signature_type: Tipo de recadación de sinatura
         signature_type_values:
           any: Mesturado
