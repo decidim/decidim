@@ -629,9 +629,9 @@ nl:
           version_index: Versie %{index}
     resource_links:
       copied_from_component:
-        proposal_proposal: Gerelateerde voorstellen
+        proposal_proposal: Verwante voorstellen
       included_projects:
         project_result: 'Resultaten die in dit project verschijnen:'
       included_proposals:
         proposal_project: 'Voorstel in deze projecten:'
-        proposal_result: 'Voorstel in deze resultaten:'
+        proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
