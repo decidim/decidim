@@ -141,4 +141,4 @@ it:
           name: dibattiti
           next_level_in: Partecipa a %{score} altri dibattiti per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessun dibattito.
-          unearned_own: Non hai ancora partecipato a nessun dibattito.
+          unearned_own: Hai partecipato a qualche dibattito ancora.
