@@ -550,7 +550,7 @@ sv:
           view_proposal: Visa förslag
         show:
           edit_proposal: Redigera förslag
-          endorsements_list: Förteckning över godkännanden
+          endorsements_list: Förteckning över Stöd
           hidden_endorsers_count:
             one: och ytterligare 1 person
             other: och %{count} fler personer
@@ -633,5 +633,5 @@ sv:
       included_projects:
         project_result: 'Resultat som visas i detta projekt:'
       included_proposals:
-        proposal_project: 'Förslag som framgår av dessa projekt:'
+        proposal_project: 'Förslag som framgår i dessa projekt:'
         proposal_result: 'Förslag som visas i dessa resultat:'
