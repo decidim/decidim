@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MoveOrganizationFieldsToHeroContentBlock < ActiveRecord::Migration[5.2]
-  class ::Decidim::Organization < ApplicationRecord
+  class ::Decidim::Organization < Decidim::ApplicationRecord
     mount_uploader :homepage_image, ::Decidim::HomepageImageUploader
   end
 
@@ -14,6 +14,8 @@ class MoveOrganizationFieldsToHeroContentBlock < ActiveRecord::Migration[5.2]
 
       content_block.settings = settings
       content_block.images_container.background_image = organization.homepage_image.file
+      content_block.settings_will_change!
+      content_block.images_will_change!
       content_block.save!
     end
 
