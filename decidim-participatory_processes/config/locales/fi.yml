@@ -277,8 +277,8 @@ fi:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Käytä osittaisia ​​polkuja, ei täysiä URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja viivat, ja sen täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näy. Esimerkki: %{url}'
-            cta_text_help: Jos asetusta ei ole asetettu, painiketta ei näy.
+            cta_path_help: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
+            cta_text_help: Jos asetusta ei ole asetettu, painiketta ei näytetä.
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
