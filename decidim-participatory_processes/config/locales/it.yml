@@ -321,7 +321,7 @@ it:
             active: Attivo
             all: Tutti
             past: Passato
-            upcoming: Prossime
+            upcoming: Imminenti
           see: Vedere
         index:
           loading: Caricamento risultati...
