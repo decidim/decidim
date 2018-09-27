@@ -550,7 +550,7 @@ pt-BR:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Lista de endossos
+          endorsements_list: Lista de avais
           hidden_endorsers_count:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
@@ -633,5 +633,5 @@ pt-BR:
       included_projects:
         project_result: 'Resultados que aparecem neste projeto:'
       included_proposals:
-        proposal_project: 'Proposta aparecendo nestes projetos:'
-        proposal_result: 'Proposta aparecendo nestes resultados:'
+        proposal_project: 'Proposta que aparece nesses projetos:'
+        proposal_result: 'Proposta que aparece nesses resultados:'
