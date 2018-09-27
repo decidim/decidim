@@ -6,6 +6,8 @@ hu:
         description: Leírás
         offline_votes: Támogatás szemtől szembe
         scope_id: Hatáskör
+        signature_end_date: Az aláírásgyűjtési időszak vége
+        signature_start_date: Az aláírásgyűjtési időszak kezdete
         signature_type: Aláírásgyűjtés típusa
         signature_type_values:
           any: Vegyes
