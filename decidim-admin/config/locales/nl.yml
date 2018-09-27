@@ -133,9 +133,6 @@ nl:
         organization_url: URL van de organisatie
         redirect_uri: URI doorsturen
         site: plaats
-  date:
-    formats:
-      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -675,7 +672,3 @@ nl:
           title: Instellingen
         users:
           title: Gebruikers
-  time:
-    formats:
-      datepicker: "%m/%d/%Y"
-      timepicker: "%d/%m/%Y %H:%M"
