@@ -139,7 +139,7 @@ fr:
         success: Votre vote a été annulé avec succès
     resource_links:
       included_proposals:
-        project_proposal: 'Propositions inspirant le projet :'
+        project_proposal: 'Propositions inspirant le projet'
   index:
     confirmed_orders_count: Nombre de votes
   total_budget: Budget total
