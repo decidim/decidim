@@ -18,7 +18,6 @@ hu:
           bar: Oszlop
           dummies_count_high: Dummies high
           dummies_count_medium: Dummies medium
-          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies high
