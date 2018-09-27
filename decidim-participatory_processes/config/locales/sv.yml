@@ -35,8 +35,8 @@ sv:
         name: Namn
         participatory_process_ids: Relaterade processer
       participatory_process_step:
-        cta_path: Call to Action-sökväg
-        cta_text: Ring till Action text
+        cta_path: Uppmaning till handling-sökväg
+        cta_text: Uppmaning till handling-text
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
@@ -277,7 +277,7 @@ sv:
             slug_help: 'Rena URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Om den inte är inställd kommer inte knappen att visas. Exempel: %{url}'
+            cta_path_help: 'Använd partiella sökvägar och inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck och måste börja med en bokstav. Om den inte är inställd kommer inte knappen att visas. Exempel: %{url}'
             cta_text_help: Om den inte är inställd kommer inte knappen att visas.
         participatory_processes:
           form:
@@ -319,9 +319,9 @@ sv:
             no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över de förflutna.
           names:
             active: Aktiva
-            all: Allt
-            past: Dåtid
-            upcoming: kommande
+            all: Alla
+            past: Tidigare
+            upcoming: Kommande
           see: Se
         index:
           loading: Laddar resultat...
