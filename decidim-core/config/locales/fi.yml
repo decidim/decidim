@@ -473,8 +473,8 @@ fi:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     metrics:
       users:
-        object: käyttäjät
-        title: käyttäjät
+        object: käyttäjää
+        title: Käyttäjiä
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
@@ -535,7 +535,7 @@ fi:
           participate: Osallistu
           welcome: Tervetuloa organisaatioon %{organization}!
         metrics:
-          headline: Osallistuminen lukuihin
+          headline: Osallistuminen lukuina
         statistics:
           answers_count: Kyselyiden vastauksia
           assemblies_count: Kehitysryhmää
