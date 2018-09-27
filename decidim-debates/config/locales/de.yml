@@ -143,4 +143,4 @@ de:
           name: Debatten
           next_level_in: Nimm an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.
-          unearned_own: Sie haben noch nicht an Debatten teilgenommen.
+          unearned_own: Sie haben bereits an Debatten teilgenommen.
