@@ -272,8 +272,6 @@ it:
           filter: Filtra
           filter_by: Filtra per
           unfold: Espandi
-        index:
-          view_meeting: Visualizza meeting
         meeting_minutes:
           meeting_minutes: Riunione dei verbali
           related_information: Informazioni correlate
