@@ -550,7 +550,7 @@ es-PY:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
-          endorsements_list: Lista de Endosos
+          endorsements_list: Lista de adhesiones
           hidden_endorsers_count:
             one: y 1 persona más
             other: y %{count} personas más
@@ -633,5 +633,5 @@ es-PY:
       included_projects:
         project_result: 'Resultados que aparecen en este proyecto:'
       included_proposals:
-        proposal_project: 'Propuesta que aparece en estos proyectos:'
-        proposal_result: 'Propuesta que aparece en estos resultados:'
+        proposal_project: 'Propuesta formulada en estos proyectos:'
+        proposal_result: 'Propuesta formulada en estos resultados:'
