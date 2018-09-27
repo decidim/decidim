@@ -125,13 +125,13 @@ fi:
     gamification:
       badges:
         attended_meetings:
-          description_another: Tämä käyttäjä on osallistunut %{score} kokoukseen.
-          description_own: Olet osallistunut %{score} kokoukseen.
-          explanation: Käyttäjät saavat tämän tunnuksen osallistumalla kokouksiin.
-          name: Osallistui kokouksiin
-          next_level_in: Osallistu %{score} lisää tapaamisia päästä seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole vielä osallistunut kokoukseen.
-          unearned_own: Et ole vielä osallistunut mihinkään kokoukseen.
+          description_another: Tämä käyttäjä on osallistunut %{score} tapaamiseen.
+          description_own: Olet osallistunut %{score} tapaamiseen.
+          explanation: Käyttäjät saavat tämän tunnuksen osallistumalla tapaamisiin.
+          name: Tapaamisiin osallistuminen
+          next_level_in: Osallistu %{score} uuteen tapaamiseen seuraavan tason saavuttamiseksi!
+          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapaamiseen.
+          unearned_own: Et ole vielä osallistunut yhteenkään tapaamiseen.
     meetings:
       actions:
         agenda: esityslista
