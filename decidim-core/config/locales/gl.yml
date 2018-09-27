@@ -167,21 +167,21 @@ gl:
           title: A autorización caducou
         incomplete:
           cancel: Cancelar
-          explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que a reautorite porque nos faltan os seguintes datos:'
+          explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que reautoresas porque falta os seguintes datos:'
           invalid_field: "%{field}"
           reauthorize: Reautorizar
           title: Reautoralizar
         missing:
-          authorize: Autorizar con "%{authorization}"
+          authorize: Autorízase con "%{authorization}"
           explanation: Para realizar esta acción, necesitas estar autorizado con "%{authorization}".
           title: Requírese a autorización
         pending:
-          explanation: Para realizar esta acción, necesitas estar autorizado con "%{authorization}", pero a túa autorización aínda está en curso
-          resume: Comprobe o progreso da autorización "%{authorization}"
+          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero a túa autorización aínda está en progreso.
+          resume: Verifica o progreso da túa autorización "%{authorization}"
           title: A autorización aínda está en progreso
         unauthorized:
           explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
-          invalid_field: "%{field} valor %{value} non é válido."
+          invalid_field: "O %{field} valor %{value} non é válido."
           ok: Ok
           title: Non autorizado
     collapsible_list:
@@ -528,7 +528,7 @@ gl:
           proposals: Propostas
           proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construiremos unha sociedade máis aberta, transparente e colaborativa.<br /> Únete, participa e decide.
+          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
           footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
           register: Rexistrarse
         hero:
