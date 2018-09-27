@@ -642,7 +642,7 @@ es:
       nesting_too_deep: no puede estar dentro de una subcategoría
       too_many_marks: hay demasiados signos de puntuación
       too_much_caps: hay demasiadas mayúsculas
-      too_short: es demasiado corto
+      too_short: Es demasiado corto
   forms:
     required: Obligatorio
   invisible_captcha:
