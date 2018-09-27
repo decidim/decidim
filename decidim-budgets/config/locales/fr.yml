@@ -102,9 +102,9 @@ fr:
         project:
           add: Ajouter
           count:
-            one: 1 soutien
-            other: "%{count} soutiens"
-            zero: 0 soutien
+            zero: "%{count} vote"
+            one: "%{count} vote"
+            other: "%{count} votes"
           remove: Supprimer
           view: Voir
         project_budget_button:
