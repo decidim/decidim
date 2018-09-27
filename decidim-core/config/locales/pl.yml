@@ -170,25 +170,25 @@ pl:
     authorization_modals:
       show:
         expired:
-          authorize: Ponownie autoryzuj z "%{authorization}"
-          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację z "%{authorization}".
+          authorize: Ponownie autoryzuj, używając "%{authorization}"
+          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
           title: Upoważnienie wygasło
         incomplete:
           cancel: Anuluj
-          explanation: 'Mimo że masz obecnie autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
+          explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
           invalid_field: "%{field}"
-          reauthorize: Ponownie autoryzuj
+          reauthorize: Ponów autoryzację
           title: Proszę ponownie autoryzować
         missing:
-          authorize: Autoryzuj za pomocą "%{authorization}"
-          explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}".
+          authorize: Zezwól na "%{authorization}"
+          explanation: Aby wykonać tę czynność, musisz być autoryzowanym przez "%{authorization}".
           title: Wymagana Autoryzacja
         pending:
           explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}", ale twoja autoryzacja jest nadal w toku
-          resume: Sprawdź postęp autoryzacji "%{authorization}"
+          resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
           title: Autoryzacja jest nadal w toku
         unauthorized:
-          explanation: Niestety, nie możesz wykonać tej czynności, ponieważ niektóre dane autoryzacji nie pasują do siebie.
+          explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
           invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
           ok: Ok
           title: Nieautoryzowany
@@ -365,7 +365,7 @@ pl:
       linked_classes:
         all: Wszystkie
         collaborative_draft: Wspólny projekt
-        dummy_resource: Zasoby manekinowe
+        dummy_resource: Dummy zasobów
         meeting: Spotkania
         project: Projekty
         proposal: Propozycje
@@ -512,7 +512,7 @@ pl:
         hello: Cześć,
         subject: Czy chcesz nadal otrzymywać odpowiednie informacje o %{organization_name}?
     notifications:
-      no_notifications: Brak powiadomień.
+      no_notifications: Nie powiadomienia.
     notifications_settings:
       show:
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.
@@ -530,16 +530,16 @@ pl:
       home:
         extended:
           debates: Debaty
-          debates_explanation: Debatuj i dyskutuj, dziel się swoimi poglądami i wzbogacaj odpowiednie tematy.
+          debates_explanation: Debata i dyskutuj, podziel się swoimi poglądami i wzbogacaj odpowiednie tematy.
           how_to_participate: Jak wziąć udział w procesie?
           meetings: Spotkania
           meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
           more_info: Więcej informacji
           proposals: Propozycje
-          proposals_explanation: Twórz propozycje, wspieraj już istniejące i promuj zmiany, które chcesz zobaczyć.
+          proposals_explanation: Zrób propozycje, wspieraj istniejące i promuj zmiany, które chcesz zobaczyć.
         footer_sub_hero:
-          footer_sub_hero_body: Stwórzmy bardziej otwarte, przejrzyste i oparte na współpracy społeczeństwo.<br /> Dołącz, weź udział i decyduj.
-          footer_sub_hero_headline: Witamy w %{organization} platformie uczestniczącej.
+          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz się i decyduj.
+          footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
           register: Zarejestrować
         hero:
           participate: Uczestniczyć
@@ -553,9 +553,9 @@ pl:
           conferences_count: Konferencje
           debates_count: Debaty
           endorsements_count: Adnotacje
-          headline: Obecny stan %{organization}
+          headline: Aktualny stan %{organization}
           meetings_count: Spotkania
-          orders_count: Głosy
+          orders_count: Głosowania
           pages_count: Strony
           processes_count: Procesy
           projects_count: Projektowanie
@@ -564,7 +564,7 @@ pl:
           results_count: Wyniki
           surveys_count: Ankiety
           users_count: Uczestnicy
-          votes_count: Głosy
+          votes_count: Głosowania
         sub_hero:
           register: Zarejestrować
       index:
