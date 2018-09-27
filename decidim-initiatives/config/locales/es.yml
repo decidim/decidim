@@ -6,6 +6,8 @@ es:
         description: Descripción
         offline_votes: Apoyo cara a cara
         scope_id: Alcance
+        signature_end_date: Fin del período de recolección de firmas
+        signature_start_date: Inicio del período de recolección de firmas
         signature_type: Tipo de colección de firma
         signature_type_values:
           any: Mezclado
