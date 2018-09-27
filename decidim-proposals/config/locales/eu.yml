@@ -633,5 +633,5 @@ eu:
       included_projects:
         project_result: 'Proiektu honetan agertzen diren emaitzak:'
       included_proposals:
-        proposal_project: 'Proiektu hauetan agertzen den proposamena:'
-        proposal_result: 'Emaitza hauek agertzen diren proposamena:'
+        proposal_project: 'Proiektu hauetatik sortutako proposamena:'
+        proposal_result: 'Emaitza hauetatik sortutako proposamena:'
