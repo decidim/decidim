@@ -99,7 +99,7 @@ ca:
         developer_group: Grup promotor
         domain: Àrees municipals
         end_date: Data de finalització
-        hashtag: Hashtag
+        hashtag: Etiqueta
         hero_image: Imatge de portada
         local_area: Àrea municipal
         meta_scope: 'Metadades: àmbit'
@@ -133,9 +133,6 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
         site: Lloc web
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -676,7 +673,3 @@ ca:
           title: Configuració
         users:
           title: Usuaris
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"
