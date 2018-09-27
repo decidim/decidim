@@ -212,14 +212,14 @@ fi:
           unearned_own: Et ole vielä luonut ehdotuksia.
     metrics:
       accepted_proposals:
-        object: ehdotus
-        title: Hyväksytyt ehdotukset
+        object: ehdotusta
+        title: Hyväksyttyjä ehdotuksia
       proposals:
         object: ehdotus
-        title: ehdotukset
+        title: Ehdotuksia
       votes:
         object: ääntä
-        title: ääntä
+        title: Ääniä
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
