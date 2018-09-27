@@ -609,8 +609,8 @@ fi:
         subject: Resurssi on ilmoitettu
     reports:
       create:
-        error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
-        success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+        error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
+        success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     scopes:
       global: Yleinen teema
       picker:
