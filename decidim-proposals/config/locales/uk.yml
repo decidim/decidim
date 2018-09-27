@@ -361,6 +361,7 @@ uk:
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію
+          endorsements_list: Перелік тих, хто підтримав
           hidden_endorsers_count:
             one: і ще 1 особа
             few: і ще %{count} людей
@@ -425,3 +426,11 @@ uk:
       update_draft:
         error: При спробі збереження чернетки цієї пропозиції сталися помилки.
         success: Чернетку пропозиції успішно оновлено.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Супутні пропозиції
+      included_projects:
+        project_result: 'Підсумки, згадані у цьому проекті:'
+      included_proposals:
+        proposal_project: 'Пропозиція згадується в таких проектах:'
+        proposal_result: 'Пропозиція є в таких підсумках:'
