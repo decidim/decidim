@@ -27,7 +27,7 @@ fi:
       sortitions:
         sortition_created:
           email_intro: Satunnaisvalinta "%{resource_title}" on lisätty kohteeseen "%{participatory_space_title}" jota sinä seuraat.
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi satunnaistaminen lisättiin kohteeseen %{participatory_space_title}
           notification_title: Satunnaistaminen <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
     pages:
@@ -126,10 +126,10 @@ fi:
           any_category: kaikista aihepiireistä
           cancelled: Peruttu satunnaisvalinta
           candidate_proposal_ids: Satunnaisvalintaehdotusten järjestys ja tunnukset
-          candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (lihavoituna valitut ehdotukset)  '
+          candidate_proposals_info: 'Valinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (valitut ehdotukset lihavoituna) '
           category: aihepiiristä %{category}
           dice_result: "(1) Noppatulos"
-          introduction: 'Tämä sivu sisältää satunnaisvalinnan tulokset %{reference}. Tämän satunnaisvalinnan avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtäläisellä todennäköisyysjakaumalla alla esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten toisintamiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppan heitto (todistajien todistama) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-jako on niin tarkka (sekuntia), että ihmisten on mahdotonta hallita sitä, jolloin saadaan kaksinkertainen "hallitsematon" syöte oikeudenmukaisen tuloksen takaamiseksi.  '
+          introduction: 'Tämä sivu sisältää satunnaisvalinnan tulokset %{reference}. Tämän satunnaisvalinnan avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtäläisellä todennäköisyysjakaumalla alla esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten toisintamiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppan heitto (todistajien todistama) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Satunnaisvalinnan aika-jako on niin tarkka (sekuntia), että ihmisen on mahdotonta hallita sitä, jolloin saadaan kaksinkertainen "hallitsematon" syöte oikeudenmukaisen tuloksen takaamiseksi. '
           mathematical_result: Tulos (1) x (2)
           proposals_selected_by_sortition: Ehdotukset, jotka on valittu satunnaisvalinnassa
           sortition_reproducibility_details: Satunnaisvalinnan toisinnettavuustiedot
