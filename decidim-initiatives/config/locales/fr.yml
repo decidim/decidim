@@ -6,6 +6,8 @@ fr:
         description: Description
         offline_votes: Votes en présentiel
         scope_id: Périmètre d'application
+        signature_end_date: Fin de la période de collecte des signatures
+        signature_start_date: Début de la période de collecte des signatures
         signature_type: Type de collecte des signatures
         signature_type_values:
           any: Mixte
