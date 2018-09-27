@@ -197,7 +197,7 @@ pl:
           form:
             attendee_type: Typ uczestnika
             existing_user: Istniejący użytkownik
-            invite: Zapraszam
+            invite: Zaproś
             invite_explanation: Użytkownik zostanie zaproszony do przyłączenia się do spotkania i do organizacji.
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
