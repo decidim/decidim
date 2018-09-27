@@ -163,27 +163,27 @@ nl:
       show:
         expired:
           authorize: Opnieuw autoriseren met "%{authorization}"
-          explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw toestemming krijgen met '%{authorization}'.
+          explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw gemachtigd worden met '%{authorization}'.
           title: Autorisatie is verlopen
         incomplete:
           cancel: Annuleer
-          explanation: 'Hoewel u momenteel geautoriseerd bent met ''%{authorization}'', moeten we opnieuw autoriseren omdat we de volgende gegevens missen:'
+          explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
           invalid_field: "%{field}"
-          reauthorize: reauthorize
-          title: Voer de autorisatie opnieuw in
+          reauthorize: Opnieuw autoriseren
+          title: Autoriseert u opnieuw alstublieft
         missing:
           authorize: Autoriseren met "%{authorization}"
-          explanation: Om deze actie uit te voeren, moet u gemachtigd zijn met "%{authorization}".
+          explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
           title: Autorisatie vereist
         pending:
-          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw machtiging is nog aan de gang
-          resume: Controleer de voortgang van uw autorisatie "%{authorization}"
+          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
+          resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
           title: Autorisatie is nog bezig
         unauthorized:
-          explanation: Sorry, u kunt deze actie niet uitvoeren omdat sommige van uw autorisatiegegevens niet overeenkomen.
+          explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
           invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: OK
-          title: Geen bevoegdheid
+          title: Niet geautoriseerd
     collapsible_list:
       hidden_elements_count:
         one: en nog 1
@@ -355,7 +355,7 @@ nl:
       linked_classes:
         all: Alle
         collaborative_draft: Samenwerkingsconcept
-        dummy_resource: Dummy-hulpmiddelen
+        dummy_resource: Dummy middelen
         meeting: Vergaderingen
         project: Projecten
         proposal: Voorstellen
@@ -464,7 +464,7 @@ nl:
           no_conversations: Je hebt nog geen gesprekken
         show:
           conversation_with_html: Gesprek met <strong>%{name}</strong>
-          reply: Antwoord
+          reply: Beantwoorden
           send: Sturen
         start:
           send: Verzenden
@@ -519,40 +519,40 @@ nl:
     pages:
       home:
         extended:
-          debates: debatten
-          debates_explanation: Debat en bespreek, deel uw mening en verrijk de relevante onderwerpen.
-          how_to_participate: Hoe neem ik deel aan een proces?
+          debates: Debatten
+          debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
+          how_to_participate: Hoe neem ik deel?
           meetings: vergaderingen
-          meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
+          meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
           more_info: Meer informatie
           proposals: voorstellen
-          proposals_explanation: Doe voorstellen, ondersteun bestaande en promoot de veranderingen die u wilt zien.
+          proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
-          footer_sub_hero_body: Laten we een meer open, transparante en samenwerkende samenleving bouwen.<br /> Doe mee, neem deel en beslis.
+          footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
           register: Registreren
         hero:
           participate: Deelnemen
-          welcome: Welkom bij %{organization}!
+          welcome: Welkom op het portaal van de burgerinspraak %{organization}!
         metrics:
           headline: Deelname aan cijfers
         statistics:
           answers_count: Voltooide enquêtes
-          assemblies_count: Assemblies
-          comments_count: Comments
+          assemblies_count: Events
+          comments_count: Reacties
           conferences_count: conferenties
-          debates_count: debatten
-          endorsements_count: Endorsements
-          headline: Huidige status van %{organization}
+          debates_count: Debatten
+          endorsements_count: Aanbevelingen
+          headline: Huidige stand van %{organization}
           meetings_count: vergaderingen
           orders_count: stemmen
           pages_count: Pages
-          processes_count: Processen
+          processes_count: Thema's
           projects_count: projecten
           proposals_accepted: Aanvaarde voorstellen
           proposals_count: voorstellen
           results_count: resultaten
-          surveys_count: onderzoeken
+          surveys_count: Enquête
           users_count: Deelnemers
           votes_count: stemmen
         sub_hero:
@@ -757,7 +757,7 @@ nl:
         change_my_password: Verander mijn wachtwoord
         change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
-        new_password: Nieuw paswoord
+        new_password: Nieuw wachtwoord
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
