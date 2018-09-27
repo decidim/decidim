@@ -162,25 +162,25 @@ it:
     authorization_modals:
       show:
         expired:
-          authorize: Riautorizza con "%{authorization}"
+          authorize: Rinnova con "%{authorization}"
           explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
           title: L'autorizzazione è scaduta
         incomplete:
           cancel: Annulla
-          explanation: 'Anche se al momento sei autorizzato con "%{authorization}", abbiamo bisogno che tu rinnovi l''autorizzazione perché mancano i seguenti dati:'
+          explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
           invalid_field: "%{field}"
-          reauthorize: ri-autorizzare
-          title: Si prega di ri-autorizzare
+          reauthorize: Ri-autorizzare
+          title: Per favore, occorre una nuova autorizzazione
         missing:
-          authorize: Autorizza con "%{authorization}"
-          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}".
-          title: Autorizzazione Richiesta
+          authorize: Autorizzare con "%{authorization}"
+          explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
+          title: Autorizzazione richiesta
         pending:
           explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
           resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
           title: L'autorizzazione è ancora in corso
         unauthorized:
-          explanation: Spiacenti, non puoi eseguire questa azione poiché alcuni dati di autorizzazione non corrispondono.
+          explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
           invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
@@ -464,7 +464,7 @@ it:
           no_conversations: Non hai ancora conversazioni
         show:
           conversation_with_html: Conversazione con <strong>%{name}</strong>
-          reply: rispondere
+          reply: Rispondi
           send: Inviare
         start:
           send: Invia
@@ -502,7 +502,7 @@ it:
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
     notifications:
-      no_notifications: Nessuna notifica ancora.
+      no_notifications: Nessuna notifica.
     notifications_settings:
       show:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
@@ -519,20 +519,20 @@ it:
     pages:
       home:
         extended:
-          debates: dibattiti
-          debates_explanation: Dibattiti e discuti, condividi le tue opinioni e arricchisci gli argomenti pertinenti.
-          how_to_participate: Come partecipare a un processo?
+          debates: Dibattiti
+          debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
+          how_to_participate: Come posso partecipare ad un processo?
           meetings: incontri
-          meetings_explanation: Scopri dove e quando puoi partecipare agli incontri pubblici.
-          more_info: Ulteriori informazioni
+          meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
+          more_info: Maggiori informazioni
           proposals: proposte
-          proposals_explanation: Fai proposte, supporta quelli esistenti e promuovi i cambiamenti che vuoi vedere.
+          proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
         footer_sub_hero:
-          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Iscriviti, partecipa e decidi.
-          footer_sub_hero_headline: Benvenuti su %{organization} piattaforma partecipativa.
-          register: Registrare
+          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
+          footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
+          register: Registrati
         hero:
-          participate: Partecipare
+          participate: Partecipa
           welcome: Benvenuto su %{organization}!
         metrics:
           headline: Partecipazione in cifre
@@ -541,22 +541,22 @@ it:
           assemblies_count: assemblee
           comments_count: Commenti
           conferences_count: conferenze
-          debates_count: dibattiti
+          debates_count: Dibattiti
           endorsements_count: Riconoscimenti
-          headline: Stato attuale di %{organization}
+          headline: Stato attuale dell'organizzazione %{organization}
           meetings_count: incontri
-          orders_count: voti
-          pages_count: pagine
+          orders_count: Voti
+          pages_count: Pagine
           processes_count: Processi
           projects_count: progetti
           proposals_accepted: Proposte accettate
           proposals_count: proposte
           results_count: risultati
           surveys_count: indagini
-          users_count: I partecipanti
-          votes_count: voti
+          users_count: Partecipanti
+          votes_count: Voti
         sub_hero:
-          register: Registrare
+          register: Registrati
       index:
         title: Informazione
       terms_and_conditions:
