@@ -319,9 +319,9 @@ hu:
             no_active_nor_upcoming_callout: Nincs sem aktív, sem közelgő folyamat. A korrábbiakat itt nézheted meg.
           names:
             active: Aktív
-            all: Minden
-            past: Múlt
-            upcoming: közelgő
+            all: Összes
+            past: Előzmények
+            upcoming: Közelgő
           see: Lásd
         index:
           loading: Eredmények betöltése...
