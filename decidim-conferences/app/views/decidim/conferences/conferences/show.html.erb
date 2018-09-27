@@ -5,6 +5,15 @@
   twitter_handler: current_organization.twitter_handler
 }) %>
 
+<%
+edit_link(
+  resource_locator(current_participatory_space).edit,
+  :update,
+  :conference,
+  conference: current_participatory_space
+)
+%>
+
 <section>
   <div class="wrapper">
     <div class="row">
