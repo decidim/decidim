@@ -332,7 +332,7 @@ sv:
           promoted_processes: Markerade processer
         order_by_processes:
           processes:
-            one: "%{count} process"
+            one: "%{count} processen"
             other: "%{count} processer"
         participatory_process:
           active_step: 'Nuvarande steg:'
