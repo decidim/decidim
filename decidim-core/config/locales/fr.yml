@@ -162,28 +162,28 @@ fr:
     authorization_modals:
       show:
         expired:
-          authorize: Réautoriser avec "%{authorization}"
-          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez être à nouveau autorisé avec "%{authorization}".
-          title: L'autorisation a expiré
+          authorize: Autoriser de nouveau avec "%{authorization}"
+          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
+          title: Autorisation expirée
         incomplete:
           cancel: Annuler
-          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de votre autorisation car nous manquons des données suivantes:'
+          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
           invalid_field: "%{field}"
-          reauthorize: Réautoriser
-          title: Veuillez réautoriser
+          reauthorize: Autoriser de nouveau
+          title: Veuillez autoriser de nouveau
         missing:
           authorize: Autoriser avec "%{authorization}"
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
         pending:
-          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours.
-          resume: Vérifiez votre progression de l'autorisation "%{authorization}"
-          title: L'autorisation est toujours en cours
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
+          resume: Vérifiez votre progression d'autorisation "%{authorization}"
+          title: L'autorisation est toujours en cours de validation
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
           invalid_field: "%{field} valeur %{value} n'est pas valide."
           ok: D'accord
-          title: Pas autorisé
+          title: Non autorisé
     collapsible_list:
       hidden_elements_count:
         one: et 1 de plus
@@ -355,7 +355,7 @@ fr:
       linked_classes:
         all: Tout
         collaborative_draft: Projet de collaboration
-        dummy_resource: Ressources factices
+        dummy_resource: Exemple factice
         meeting: Rencontres
         project: Projets
         proposal: Propositions
@@ -502,7 +502,7 @@ fr:
         hello: Bonjour,
         subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
     notifications:
-      no_notifications: Aucune notification pour le moment.
+      no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
@@ -519,44 +519,44 @@ fr:
     pages:
       home:
         extended:
-          debates: Des débats
-          debates_explanation: Débattre et discuter, partager vos points de vue et enrichir les sujets pertinents.
-          how_to_participate: Comment puis-je participer à un processus?
+          debates: Débats
+          debates_explanation: Débattez, discutez et enrichissez les échanges de vos points de vue.
+          how_to_participate: Comment participer ?
           meetings: Rencontres
           meetings_explanation: Découvrez où et quand vous pouvez participer à des rencontres publiques.
           more_info: En savoir plus
           proposals: Propositions
-          proposals_explanation: Faire des propositions, soutenir celles qui existent déjà et promouvoir les changements que vous souhaitez voir.
+          proposals_explanation: Faites des propositions, appuyez les projets existants et soutenez les idées que vous souhaitez voir advenir.
         footer_sub_hero:
-          footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez, participez et décidez.
-          footer_sub_hero_headline: Bienvenue sur %{organization} plateforme participative.
-          register: registre
+          footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
+          footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
+          register: S'inscrire
         hero:
-          participate: Participer
-          welcome: Bienvenue à %{organization}!
+          participate: Participez
+          welcome: Bienvenue sur %{organization} !
         metrics:
           headline: Participation aux chiffres
         statistics:
           answers_count: Enquêtes terminées
-          assemblies_count: Assemblages
-          comments_count: commentaires
+          assemblies_count: Agora
+          comments_count: Commentaires
           conferences_count: Conférences
-          debates_count: Des débats
-          endorsements_count: Avenants
-          headline: Etat actuel de %{organization}
+          debates_count: Débats
+          endorsements_count: Soutiens
+          headline: État actuel de %{organization}
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
-          processes_count: Processus
+          processes_count: Processus participatifs
           projects_count: Projets
-          proposals_accepted: Propositions Acceptées
+          proposals_accepted: Propositions acceptées
           proposals_count: Propositions
           results_count: Réalisations
           surveys_count: Enquêtes
           users_count: Participants
           votes_count: Votes
         sub_hero:
-          register: registre
+          register: S'inscrire
       index:
         title: Plus d'informations
       terms_and_conditions:
@@ -757,7 +757,7 @@ fr:
         change_my_password: Changer mon mot de passe
         change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
-        new_password: Nouveau mot de passe
+        new_password: Votre mot de passe
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
