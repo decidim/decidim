@@ -191,7 +191,7 @@ es-PY:
           form:
             attendee_type: Tipo de asistente
             existing_user: Usuario existente
-            invite: Invitación
+            invite: Invitar
             invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
             non_user: Usuario no existente
             select_user: Selecciona un usuario
@@ -406,10 +406,10 @@ es-PY:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
-        result_meeting: 'Reuniones relacionadas:'
+        result_meeting: 'Encuentros relacionados:'
       proposals_from_meeting:
         meeting_proposal: 'Propuestas relacionadas:'
-        proposal_meeting: 'Reuniones relacionadas:'
+        proposal_meeting: 'Encuentros relacionados:'
   devise:
     mailer:
       join_meeting:
