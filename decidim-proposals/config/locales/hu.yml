@@ -550,7 +550,7 @@ hu:
           view_proposal: Javaslat megtekintése
         show:
           edit_proposal: Javaslat szerkesztése
-          endorsements_list: A jóváhagyások listája
+          endorsements_list: Jóváhagyások listája
           hidden_endorsers_count:
             one: és még 1 ember
             other: és még %{count} ember
@@ -631,7 +631,7 @@ hu:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok
       included_projects:
-        project_result: 'A projektben megjelenő eredmények:'
+        project_result: 'Projektben megjelenő eredmények:'
       included_proposals:
-        proposal_project: 'E projektekben megjelenő javaslat:'
-        proposal_result: 'Az eredmények az alábbi eredmények között jelennek meg:'
+        proposal_project: 'Ezen projektekben megjelenő javaslat:'
+        proposal_result: 'Az eredményekben megjelenő javaslat:'
