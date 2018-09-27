@@ -513,7 +513,7 @@ hu:
         unauthorized:
           explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
           invalid_field: "A(z) %{field} %{value} érték nem érvényes."
-          ok: Ok
+          ok: Rendben
           title: Nem engedélyezett
       embed_modal:
         close_window: Ablak bezárása
