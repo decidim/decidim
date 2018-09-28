@@ -11,6 +11,7 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
+        translatable_attribute :action_btn_text, String
 
         mimic :participatory_process_step
 
@@ -18,6 +19,7 @@ module Decidim
         attribute :end_date, DateTime
 
         validates :title, translatable_presence: true
+        validates :action_btn_text, presence: true
 
         validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
         validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }

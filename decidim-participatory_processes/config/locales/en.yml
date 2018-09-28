@@ -41,6 +41,7 @@ en:
         short_description: Short description
         start_date: Start date
         title: Title
+        action_btn_text: Action bouton text
       participatory_process_user_role:
         email: Email
         name: Name
