@@ -36,6 +36,11 @@ module Decidim
         model.hero_image.url
       end
 
+      def step_action_btn_text
+        translated_attribute(model.active_step.action_btn_text) ||
+        t("participatory_processes.participatory_process.take_part", scope: "layouts.decidim")
+      end
+
       def step_title
         translated_attribute model.active_step.title
       end

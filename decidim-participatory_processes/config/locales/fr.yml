@@ -154,6 +154,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle étape de la concertation.
           success: Étape de la concertation créée avec succès.
+          action_btn_text_help: Par défaut, le texte du bouton d'action est "Participer"
         default_title: Introduction
         destroy:
           error:

@@ -154,6 +154,7 @@ en:
         create:
           error: There was an error creating a new participatory process step.
           success: Participatory process step created successfully.
+          action_btn_text_help: By default, the action button text is "Take part"
         default_title: Introduction
         destroy:
           error:
