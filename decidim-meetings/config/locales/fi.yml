@@ -306,6 +306,8 @@ fi:
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        index:
+          view_meeting: Näytä tapaaminen
         meeting_minutes:
           meeting_minutes: Tapahtumapöytäkirja
           related_information: Liittyviä tietoja
