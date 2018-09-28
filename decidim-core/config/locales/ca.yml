@@ -739,7 +739,7 @@ ca:
       reset_password_instructions:
         action: Canvia la meva contrasenya
         greeting: Hola %{recipient}
-        instruction: Algú ha demanat un enllaç per canviar la contrasenya, i ho pots fer a través de l'enllaç següent.
+        instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, i ho pots fer a través de l'enllaç següent.
         instruction_2: Si no ho heu sol·licitat, ignoreu aquest correu electrònic.
         instruction_3: La vostra contrasenya no canviarà fins que accediu a l'enllaç de dalt i creeu-ne un de nou.
         subject: Instruccions de regeneració de contrasenya
