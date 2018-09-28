@@ -122,6 +122,16 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
+          description_own: U hebt %{score} vergaderingen bijgewoond.
+          explanation: Gebruikers krijgen deze badge door deel te nemen aan vergaderingen.
+          name: Bijgewoond vergaderingen
+          next_level_in: Woon nog %{score} vergaderingen bij om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen enkele vergadering bijgewoond.
+          unearned_own: U hebt nog geen vergadering bijgewoond.
     meetings:
       actions:
         agenda: Agenda
@@ -344,8 +354,6 @@ nl:
             one: 1 plaats resterend
             other: "%{count} resterende plaatsen"
           view: Uitzicht
-      meetings_map:
-        view_meeting: Bekijk de vergadering
       models:
         invite:
           fields:

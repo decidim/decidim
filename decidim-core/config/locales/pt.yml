@@ -219,6 +219,8 @@ pt:
       html:
         html_content: Conteúdo HTML
         name: Bloco HTML
+      metrics:
+        name: Métricas da organização
       stats:
         name: Estatísticas da organização
       sub_hero:
@@ -469,6 +471,10 @@ pt:
           title: Comece uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
+    metrics:
+      users:
+        object: Comercial
+        title: Comercial
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
@@ -528,6 +534,8 @@ pt:
         hero:
           participate: Participar
           welcome: Bem-vindo ao %{organization}!
+        metrics:
+          headline: Participação em números
         statistics:
           answers_count: Inquéritos concluídos
           assemblies_count: Assembléias

@@ -122,6 +122,16 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Aquest usuari ha assistit a %{score} reunions.
+          description_own: Has assistit a %{score} reunions.
+          explanation: Els usuaris obtenen aquesta distinció assistint a reunions.
+          name: Reunions assistides
+          next_level_in: Assistiu a més de %{score} reunions per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha assistit a cap reunió.
+          unearned_own: Encara no heu assistit a cap reunió.
     meetings:
       actions:
         agenda: Ordre del dia
@@ -344,8 +354,6 @@ ca:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"
           view: Veure
-      meetings_map:
-        view_meeting: Veure trobada
       models:
         invite:
           fields:

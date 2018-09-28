@@ -182,7 +182,7 @@ nl:
         unauthorized:
           explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
           invalid_field: "%{field} waarde %{value} is niet geldig."
-          ok: Ok
+          ok: OK
           title: Niet geautoriseerd
     collapsible_list:
       hidden_elements_count:
@@ -219,6 +219,8 @@ nl:
       html:
         html_content: HTML-inhoud
         name: HTML-blok
+      metrics:
+        name: Organisatie statistieken
       stats:
         name: Organisatie statistieken
       sub_hero:
@@ -469,6 +471,10 @@ nl:
           title: Een gesprek beginnen
         update:
           error: Bericht niet verzonden. Probeer het later nogmaals
+    metrics:
+      users:
+        object: gebruikers
+        title: gebruikers
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -528,6 +534,8 @@ nl:
         hero:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
+        metrics:
+          headline: Deelname aan cijfers
         statistics:
           answers_count: Voltooide enquêtes
           assemblies_count: Events

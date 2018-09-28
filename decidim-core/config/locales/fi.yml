@@ -162,9 +162,9 @@ fi:
     authorization_modals:
       show:
         expired:
-          authorize: Valtuuta uudestaan palvelulla "%{authorization}"
-          explanation: Valtuutuksesi on umpeutunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettava itsesi uudestaan palvelulla "%{authorization}".
-          title: Valtuutus on umpeutunut
+          authorize: Varmenna varmennustavalla "%{authorization}"
+          explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
+          title: Varmennus on vanhentunut
         incomplete:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
@@ -176,12 +176,12 @@ fi:
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
         pending:
-          explanation: Tämän toiminnon suorittamiseksi sinun valtuutettava itsesi palvelulla "%{authorization}", mutta valtuutuksesi on edelleen kesken
-          resume: Tarkista "%{authorization}" valtuutuksen eteneminen
-          title: Valtuutus on edelleen kesken
+          explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
+          resume: Tarkista "%{authorization}" varmennuksen eteneminen
+          title: Varmennus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei varmennettu
     collapsible_list:
@@ -219,6 +219,8 @@ fi:
       html:
         html_content: HTML-sisältö
         name: HTML-lohko
+      metrics:
+        name: Organisaation mittarit
       stats:
         name: Organisaation tilastot
       sub_hero:
@@ -469,6 +471,10 @@ fi:
           title: Aloita keskustelu
         update:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
+    metrics:
+      users:
+        object: käyttäjää
+        title: Käyttäjiä
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
@@ -513,7 +519,7 @@ fi:
     pages:
       home:
         extended:
-          debates: Väittelyt
+          debates: Keskustelut
           debates_explanation: Väittele, keskustele ja jaa näkemyksesi rikastuttaaksesi sinua koskettavia aiheita.
           how_to_participate: Kuinka osallistun prosessiin?
           meetings: Tapahtumat
@@ -528,25 +534,27 @@ fi:
         hero:
           participate: Osallistu
           welcome: Tervetuloa organisaatioon %{organization}!
+        metrics:
+          headline: Osallistuminen lukuina
         statistics:
-          answers_count: Valmistuneet kyselyt
-          assemblies_count: Kehitysryhmät
-          comments_count: Kommentit
+          answers_count: Kyselyiden vastauksia
+          assemblies_count: Kehitysryhmää
+          comments_count: Kommenttia
           conferences_count: Konferenssit
-          debates_count: Väittelyt
-          endorsements_count: merkintöjen
+          debates_count: Keskustelua
+          endorsements_count: Suosituksia
           headline: Tämänhetkinen tila organisaatiolle %{organization}
           meetings_count: Tapahtumat
-          orders_count: Äänet
-          pages_count: Sivut
-          processes_count: Prosessit
+          orders_count: Ääntä
+          pages_count: Sivua
+          processes_count: Prosessia
           projects_count: Projektit
-          proposals_accepted: Hyväksytyt ehdotukset
+          proposals_accepted: Hyväksyttyä ehdotusta
           proposals_count: Ehdotukset
           results_count: Tulokset
-          surveys_count: Kyselyt
-          users_count: Osallistujat
-          votes_count: Äänet
+          surveys_count: Kyselyä
+          users_count: Osallistujia
+          votes_count: Ääntä
         sub_hero:
           register: Rekisteröidy
       index:
@@ -597,12 +605,12 @@ fi:
       report:
         hello: Hei %{name},
         manage_moderations: Hallitse moderointeja
-        report_html: <p>Tämä <a href="%{url}">sisältö</a> on raportoitu.</p>
-        subject: Resurssi on raportoitu
+        report_html: <p>Tämä <a href="%{url}">sisältö</a> on ilmoitettu.</p>
+        subject: Resurssi on ilmoitettu
     reports:
       create:
-        error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
-        success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+        error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
+        success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     scopes:
       global: Yleinen teema
       picker:
@@ -634,11 +642,11 @@ fi:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
         description: Onko tämä sisältö epäasiallista?
-        does_not_belong: Tämä ehdotus sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
-        offensive: Tämä ehdotus sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
+        does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+        offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Raportoi ongelma
+        title: Ilmoita ongelmasta
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
@@ -749,7 +757,7 @@ fi:
         change_my_password: Vaihda salasanani
         change_your_password: Vaihda salasanasi
         confirm_new_password: Vahvista uusi salasana
-        new_password: Salasanasi
+        new_password: Uusi salasana
       new:
         forgot_your_password: Unohditko salasanasi?
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
@@ -812,17 +820,17 @@ fi:
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
-      long_words: sisältää liian pitkät sanat (yli 35 merkkiä)
-      must_start_with_caps: on aloitettava pääkirjeellä
+      long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
+      must_start_with_caps: tulee alkaa isolla kirjaimella
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
       not_found: ei löydy
       not_locked: ei lukittu
       not_saved:
         one: '1 virhe esti %{resource} tallentamisen:'
         other: "%{count} virhettä esti %{resource} tallentamisen:"
-      too_many_marks: käyttää liian monia peräkkäisiä välimerkkejä (esim.! ja?)
-      too_much_caps: käyttää liian monia isoja kirjaimia (yli 25 prosenttia tekstistä)
-      too_short: on liian lyhyt (alle 15 merkkiä)
+      too_many_marks: sisältää liian monta välimerkkiä peräkkäin (esim. ! ja ?)
+      too_much_caps: sisältää liian monta isoa kirjainta (yli 25% tekstistä)
+      too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     required: Vaadittu
   invisible_captcha:

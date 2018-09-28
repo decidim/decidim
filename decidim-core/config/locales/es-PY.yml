@@ -219,6 +219,8 @@ es-PY:
       html:
         html_content: Contenido HTML
         name: Bloque de HTML
+      metrics:
+        name: Métricas de la organización
       stats:
         name: Estadísticas de la organización
       sub_hero:
@@ -469,6 +471,10 @@ es-PY:
           title: Iniciar una conversación
         update:
           error: Mensaje no enviado. Inténtalo más tarde
+    metrics:
+      users:
+        object: usuarios
+        title: Usuarios
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
@@ -528,6 +534,8 @@ es-PY:
         hero:
           participate: Participar
           welcome: Bienvenido a %{organization}!
+        metrics:
+          headline: Participación en figuras
         statistics:
           answers_count: Encuestas completadas
           assemblies_count: Asambleas

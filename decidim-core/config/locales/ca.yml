@@ -219,6 +219,8 @@ ca:
       html:
         html_content: Contingut HTML
         name: Bloc HTML
+      metrics:
+        name: Mètriques de l'organització
       stats:
         name: Estadístiques de l'organització
       sub_hero:
@@ -469,6 +471,10 @@ ca:
           title: Comença una conversa
         update:
           error: Missatge no enviat. Torna-ho a provar més tard
+    metrics:
+      users:
+        object: usuaris
+        title: Usuaris
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
@@ -528,6 +534,8 @@ ca:
         hero:
           participate: Participa
           welcome: Benvingut a %{organization}!
+        metrics:
+          headline: Participació en xifres
         statistics:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees

@@ -182,7 +182,7 @@ hu:
         unauthorized:
           explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
           invalid_field: "A(z) %{field} %{value} érték nem érvényes."
-          ok: Ok
+          ok: Rendben
           title: Nem engedélyezett
     collapsible_list:
       hidden_elements_count:
@@ -219,6 +219,8 @@ hu:
       html:
         html_content: HTML tartalom
         name: HTML blokk
+      metrics:
+        name: Szervezeti mutatók
       stats:
         name: Szervezeti statisztikák
       sub_hero:
@@ -468,6 +470,10 @@ hu:
           title: Beszélgetés indítása
         update:
           error: Üzenet elküldése sikertelen. Próbáld újra később
+    metrics:
+      users:
+        object: felhasználók
+        title: felhasználók
     newsletter_mailer:
       newsletter:
         note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
@@ -527,6 +533,8 @@ hu:
         hero:
           participate: Részvétel
           welcome: Üdvözöli a %{organization}!
+        metrics:
+          headline: Részvétel számokban
         statistics:
           answers_count: Befejezett felmérések
           assemblies_count: Gyűlések

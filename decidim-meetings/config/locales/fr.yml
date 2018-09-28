@@ -122,6 +122,16 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Cet utilisateur a participé à %{score} réunions.
+          description_own: Vous avez assisté à %{score} réunions.
+          explanation: Les utilisateurs obtiennent ce badge en assistant aux réunions.
+          name: Assister aux réunions
+          next_level_in: Assister à %{score} plus de réunions pour atteindre le prochain niveau!
+          unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.
+          unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
       actions:
         agenda: Ordre du jour
@@ -344,8 +354,6 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
-      meetings_map:
-        view_meeting: Voir la rencontre
       models:
         invite:
           fields:

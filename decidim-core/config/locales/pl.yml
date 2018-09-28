@@ -229,6 +229,8 @@ pl:
       html:
         html_content: Treść HTML
         name: Blok HTML
+      metrics:
+        name: Dane organizacji
       stats:
         name: Statystyki organizacji
       sub_hero:
@@ -479,6 +481,10 @@ pl:
           title: Zacząć rozmowę
         update:
           error: Wiadomość nie została wysłana. Spróbuj ponownie później
+    metrics:
+      users:
+        object: użytkowników
+        title: Użytkownicy
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
@@ -538,6 +544,8 @@ pl:
         hero:
           participate: Uczestniczyć
           welcome: Witamy w %{organization}!
+        metrics:
+          headline: Udział w liczbach
         statistics:
           answers_count: Ankiety zakończone
           assemblies_count: Złożenia
