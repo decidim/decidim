@@ -6,6 +6,7 @@ module Decidim
       # A form object used to create conference members from the admin dashboard.
       class ConferenceSpeakerForm < Form
         include TranslatableAttributes
+        include Decidim::ApplicationHelper
 
         translatable_attribute :position, String
         translatable_attribute :affiliation, String
@@ -21,6 +22,7 @@ module Decidim
         attribute :personal_url
         attribute :user_id, Integer
         attribute :existing_user, Boolean, default: false
+        attribute :meeting_ids, Array[Integer]
 
         validates :full_name, presence: true, unless: proc { |object| object.existing_user }
         validates :user, presence: true, if: proc { |object| object.existing_user }
@@ -43,6 +45,15 @@ module Decidim
 
         def user
           @user ||= current_organization.users.find_by(id: user_id)
+        end
+
+        def meetings
+          meeting_components = current_participatory_space.components.where(manifest_name: "meetings")
+
+          @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_components)
+                                                  &.order(title: :asc)
+                                                  &.map { |meeting| [present(meeting).title, meeting.id] }
+
         end
 
         private

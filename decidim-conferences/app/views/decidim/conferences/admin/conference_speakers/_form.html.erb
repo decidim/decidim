@@ -24,6 +24,15 @@
     </div>
 
     <div class="row column">
+      <% if @form.meetings %>
+        <%= form.select :meeting_ids,
+                        @form.meetings,
+                        {},
+                        { multiple: true, class: "chosen-select" } %>
+      <% end %>
+    </div>
+
+    <div class="row column">
       <%= form.translated :text_field, :position %>
     </div>
 

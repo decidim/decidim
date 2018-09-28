@@ -25,7 +25,11 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
           return broadcast(:invalid) unless conference_speaker
 
-          update_conference_speaker!
+          transaction do
+            update_conference_speaker!
+            link_meetings
+          end
+
           broadcast(:ok)
         end
 
@@ -60,6 +64,23 @@ module Decidim
             ),
             log_info
           )
+        end
+
+        def meetings
+          # raise
+
+          meeting_components = current_participatory_space.components.where(manifest_name: "meetings")
+          #
+          @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_components).where(id: form.meeting_ids)
+
+          # @meetings ||= conference_speaker.sibling_scope(:meetings).where(id: form.meeting_ids)
+
+          # @meetings ||= conference_speaker.participatory_space_sibling_scope(:meetings).where(id: form.meeting_ids)
+        end
+
+        def link_meetings
+          # raise
+          conference_speaker.link_resources(meetings, "speaking_meetings")
         end
       end
     end
