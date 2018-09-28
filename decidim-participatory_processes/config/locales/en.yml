@@ -36,12 +36,12 @@ en:
         name: Name
         participatory_process_ids: Related processes
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Description
         end_date: End date
         short_description: Short description
         start_date: Start date
         title: Title
-        action_btn_text: Action bouton text
       participatory_process_user_role:
         email: Email
         name: Name
@@ -152,9 +152,9 @@ en:
           success: Participatory process step activated successfully.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: There was an error creating a new participatory process step.
           success: Participatory process step created successfully.
-          action_btn_text_help: By default, the action button text is "Take part"
         default_title: Introduction
         destroy:
           error:

@@ -24,6 +24,12 @@ module Decidim
         end
         let(:start_date) {}
         let(:end_date) {}
+        let(:action_btn_text) do
+          {
+            en: "See",
+            es: "Ver",
+            ca: "Veure"
+          }
         let(:attributes) do
           {
             "participatory_process_step" => {
@@ -34,7 +40,10 @@ module Decidim
               "description_es" => description[:es],
               "description_ca" => description[:ca],
               "start_date" => start_date,
-              "end_date" => end_date
+              "end_date" => end_date,
+              "action_btn_text_en" => action_btn_text[:en],
+              "action_btn_text_es" => action_btn_text[:es],
+              "action_btn_text_ca" => action_btn_text[:ca],
             }
           }
         end

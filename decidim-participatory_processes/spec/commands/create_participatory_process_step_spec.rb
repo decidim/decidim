@@ -16,6 +16,7 @@ module Decidim::ParticipatoryProcesses
         description: { en: "description" },
         start_date: Time.current,
         end_date: Time.current + 1.week,
+        action_btn_text: { en: "see" }
         invalid?: invalid
       )
     end
@@ -41,7 +42,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :participatory_process, :active))
+          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :action_btn_text, :participatory_process, :active))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
