@@ -36,12 +36,6 @@ The `label` option accepts this arguments:
   s.add_dependency "cells-rails", "~> 0.0.9"
   ```
 
-- **autoload** view_model to module `decidim-<module>/lib/decidim/<module>.rb`
-
-  ```rb
-  autoload :ViewModel, "decidim/<module>/view_model"
-  ```
-
 - **require** cells in `decidim-<module>/lib/decidim/<module>/engine.rb`
 
   ```rb
@@ -61,13 +55,24 @@ The `label` option accepts this arguments:
   attribute :card, String
   ```
 
-  In your `decidim-<component>/lib/decidim/<component>/component.rb` register the resource and set the card value:
+  In your `decidim-<component>/lib/decidim/<component>/component.rb` register the resource and set the card value. Note that the model class for your resource must include the `Decidim::Resourceable` concern for this to work:
 
   ```rb
   component.register_resource(:<my_resource>) do |resource|
     resource.class = "Decidim::<Component>/<MyResource>" # eg. "Decidim::Proposals::ProposalDraft
     resource.card = "decidim/<component>/<my_resource>" # eg. "decidim/proposals/proposal_draft"
     resource.component_manifest = component
+  end
+  ```
+
+  ```rb
+  module Decidim
+    module <Component>
+      class <MyResource> < Decidim::ApplicationRecord
+        include Decidim::Resourceable
+        # ...
+      end
+    end
   end
   ```
 

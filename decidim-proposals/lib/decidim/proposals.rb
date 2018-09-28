@@ -12,7 +12,6 @@ module Decidim
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
     autoload :CommentableProposal, "decidim/proposals/commentable_proposal"
     autoload :CommentableCollaborativeDraft, "decidim/proposals/commentable_collaborative_draft"
-    autoload :ViewModel, "decidim/proposals/view_model"
 
     include ActiveSupport::Configurable
 
