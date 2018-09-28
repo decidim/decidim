@@ -6,6 +6,8 @@ nl:
         description: Beschrijving
         offline_votes: Face-to-face ondersteuning
         scope_id: Bereik
+        signature_end_date: Einde van de periode om handtekeningen te verzamelen
+        signature_start_date: Begin van de periode om handtekeningen te verzamelen
         signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd

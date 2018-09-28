@@ -27,6 +27,7 @@ pl:
         statistics:
           dummies_count_high: Atrapy wysokie
           dummies_count_medium: Średni manekin
+          foo: bla
     participatory_processes:
       statistics:
         dummies_count_high: Atrapy wysokie

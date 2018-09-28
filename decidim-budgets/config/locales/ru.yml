@@ -153,6 +153,9 @@ ru:
       destroy:
         error: При отмене вашего голоса произошла ошибка
         success: Ваш голос успешно отменен
+    resource_links:
+      included_proposals:
+        project_proposal: 'Предложения, включенные в этот проект:'
   index:
     confirmed_orders_count: Количество голосов
   total_budget: Общий бюджет

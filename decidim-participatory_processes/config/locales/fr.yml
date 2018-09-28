@@ -308,6 +308,11 @@ fr:
             no_active: Aucune concertation active
             no_active_nor_upcoming: Aucune concertation active ni à venir
             no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+          names:
+            active: Actifs
+            all: Tous
+            past: Passés
+            upcoming: À venir
           see: Voir
         index:
           loading: Chargement des résultats...

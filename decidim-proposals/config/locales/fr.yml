@@ -613,7 +613,10 @@ fr:
         version:
           version_index: Version %{index}
     resource_links:
+      copied_from_component:
+        proposal_proposal: Propositions associées
       included_projects:
         project_result: 'Réalisations apparaissant dans ce projet :'
       included_proposals:
+        proposal_project: 'Proposition figurant dans ces projets :'
         proposal_result: 'Proposition figurant dans ces réalisations :'

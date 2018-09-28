@@ -324,6 +324,11 @@ pl:
             no_active: Brak aktywnych procesów
             no_active_nor_upcoming: Brak aktywnych i nadchodzących procesów
             no_active_nor_upcoming_callout: Nie ma aktywnych ani nadchodzących procesów. Oto lista poprzednich.
+          names:
+            active: Aktywne
+            all: Wszystko
+            past: Przeszłe
+            upcoming: Nadchodzące
           see: Widzieć
         index:
           loading: Wyniki wyszukiwania...

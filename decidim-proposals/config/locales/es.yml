@@ -535,6 +535,7 @@ es:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
+          endorsements_list: Lista de adhesiones
           hidden_endorsers_count:
             one: y 1 persona más
             other: y %{count} persona/s más
@@ -611,3 +612,11 @@ es:
           version_number_out_of_total: "%{current_version} de %{total_count}"
         version:
           version_index: Versión %{index}
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Propuestas relacionadas
+      included_projects:
+        project_result: 'Resultados que aparecen en este proyecto:'
+      included_proposals:
+        proposal_project: 'Propuesta formulada en estos proyectos:'
+        proposal_result: 'Propuesta formulada en estos resultados:'

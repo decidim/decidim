@@ -378,11 +378,11 @@ fr:
         upcoming_meeting: Prochaine rencontre
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Résultats liés:'
-        result_meeting: 'Réunions connexes:'
+        meeting_result: 'Résultats associés :'
+        result_meeting: 'Rencontres associées :'
       proposals_from_meeting:
-        meeting_proposal: 'Propositions connexes:'
-        proposal_meeting: 'Réunions connexes:'
+        meeting_proposal: 'Propositions créées lors de cette rencontre :'
+        proposal_meeting: 'Rencontres associées :'
   devise:
     mailer:
       join_meeting:

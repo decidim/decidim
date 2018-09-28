@@ -308,6 +308,11 @@ it:
             no_active: Nessun processo attivo
             no_active_nor_upcoming: Nessun processo attivo o imminente
             no_active_nor_upcoming_callout: Non ci sono processi attivi o imminenti. Ecco una lista di quelli passati.
+          names:
+            active: Attivo
+            all: Tutti
+            past: Passato
+            upcoming: Imminenti
           see: Vedere
         index:
           loading: Caricamento risultati...
