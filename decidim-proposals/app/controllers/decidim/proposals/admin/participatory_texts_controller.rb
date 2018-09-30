@@ -29,7 +29,7 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_texts.imports.invalid", scope: "decidim.proposals.admin")
               render action: "new_import"
-            end            
+            end
           end
         end
       end

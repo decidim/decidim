@@ -22,14 +22,22 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          broadcast(:ok, import_proposals)
+          participatory_text = save_participatory_text
+          parse_participatory_text(participatory_text)
+
+          broadcast(:ok)
         end
 
         private
 
         attr_reader :form
 
-        def import_proposals
+        def save_participatory_text
+          document = ParticipatoryText.find_or_initialize_by(component: @form.current_component)
+          document.update!(title: form.title, description: form.description)
+        end
+
+        def parse_participatory_text(participatory_text)
           # proposals.map do |original_proposal|
           #   next if proposal_already_copied?(original_proposal, target_component)
 

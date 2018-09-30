@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 module Decidim
@@ -17,6 +19,7 @@ module Decidim
               ImportParticipatoryTextForm,
               current_component: current_component,
               title: {},
+              description: {},
               valid?: valid
             )
           end
@@ -40,9 +43,10 @@ module Decidim
             let(:valid) { true }
 
             it "broadcasts ok and creates the proposals" do
-              expect { command.call }.to (
+              expect { command.call }.to(
                 broadcast(:ok) &&
-                change { Proposal.where(component: current_component).count }.by(1)
+                change { ParticipatoryText.where(component: current_component).count }.by(1) &&
+                change { Proposal.where(component: current_component).count }.by(26)
               )
             end
           end

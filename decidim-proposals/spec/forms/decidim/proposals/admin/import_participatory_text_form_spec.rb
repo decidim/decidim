@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 module Decidim
@@ -11,7 +13,7 @@ module Decidim
           {
             ca: "Yes very good, patates amb suc",
             en: "Si molt bé, potatoes with sauce",
-            es: "Ya para ser feliz quiero un camión",
+            es: "Ya para ser feliz quiero un camión"
           }
         end
         let(:description) {}
