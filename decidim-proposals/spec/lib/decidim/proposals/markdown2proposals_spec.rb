@@ -7,8 +7,8 @@ module Decidim
     describe Markdown2Proposals do
 
       def should_have_expected_states(proposal)
-        expect(proposal.draft?).to be_true
-        expect(proposal.official?).to be_true
+        expect(proposal.draft?).to be true
+        expect(proposal.official?).to be true
       end
 
       let!(:component) { create(:proposal_component) }
@@ -32,7 +32,7 @@ module Decidim
             expect(proposal.title).to eq(title)
             expect(proposal.body).to eq(title)
             expect(proposal.position).to eq(1)
-            expect(proposal.participatory_text_type).to eq('section')
+            expect(proposal.participatory_text_level).to eq(Proposal::PARTICIPATORY_TEXT_LEVEL[:section])
             should_have_expected_states(proposal)
           end
         end

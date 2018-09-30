@@ -41,6 +41,8 @@ module Decidim
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where.not(published_at: nil) }
 
+      acts_as_list scope: :decidim_component_id
+
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: { component: :participatory_space },
@@ -50,6 +52,10 @@ module Decidim
                         },
                         index_on_create: false,
                         index_on_update: ->(proposal) { proposal.visible? })
+
+      PARTICIPATORY_TEXT_LEVEL = {
+        section: 'section', subsection: 'sub-section', article: 'article'
+      }
 
       def self.order_randomly(seed)
         transaction do

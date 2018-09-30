@@ -65,8 +65,9 @@ module Decidim
         Decidim::Proposals::Proposal.create!(
           component: @component,
           title: title,
-          body: title
-          )
+          body: title,
+          participatory_text_level: Decidim::Proposals::Proposal::PARTICIPATORY_TEXT_LEVEL[:section]
+        )
         # if level == 1
         #   parent= @doc_part
         #   @doc_part= DocPart.new(:header, level, title, parent)
