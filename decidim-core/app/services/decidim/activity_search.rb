@@ -1,22 +1,36 @@
 # frozen_string_literal: true
 
 module Decidim
-  class ActivitySearch < ResourceSearch
-    def initialize(options = {})
-      @organization = options.fetch(:organization)
-      scope = options[:scope] || default_scope
-      super(scope, options)
+  class ActivitySearch < Searchlight::Search
+    def base_query
+      ActionLog
+        .public
+        .where(organization: options.fetch(:organization))
     end
 
-    def base_query
-      @scope
+    def run
+      super.order(created_at: :desc)
     end
 
     def search_resource_type
-      resource_type = options[:resource_type]
-      return query.where(resource_type: resource_type) if resource_type.present? && resource_types.include?(resource_type)
+      if resource_types.include?(resource_type)
+        action = if publicable_resource_types.include?(resource_type)
+                   "publish"
+                 else
+                   "create"
+                 end
 
-      query.where(resource_type: resource_types)
+        query.where(resource_type: resource_type, action: action)
+      else
+        query
+          .where(
+            "(action = ? AND resource_type IN (?)) OR (action = ? AND resource_type IN (?))",
+            "publish",
+            publicable_resource_types,
+            "create",
+            (resource_types - publicable_resource_types)
+          )
+      end
     end
 
     def resource_types
@@ -36,12 +50,8 @@ module Decidim
       )
     end
 
-    def default_scope
-      ActionLog
-        .public
-        .where(organization: @organization)
-        .where(action: "create")
-        .order(created_at: :desc)
+    def publicable_resource_types
+      @publicable_resource_types ||= resource_types.select { |klass| klass.constantize.column_names.include?("published_at") }
     end
   end
 end
