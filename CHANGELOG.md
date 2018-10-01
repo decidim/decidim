@@ -179,8 +179,8 @@
 - **decidim-core**: Fix default content block creation migration [\#4100](https://github.com/decidim/decidim/pull/4100)
 - **decidim-core**: Fix default content block creation migration [\#4084](https://github.com/decidim/decidim/pull/4084)
 - **decidim-generators**: Bootsnap warnings when generating test applications [\#4098](https://github.com/decidim/decidim/pull/4098)
-- **decidim-admin**: Don't list deleted users at officialized list. [\#4139](https://github.com/decidim/decidim/pull/4139)
-- **decidim-participayory_processes**: Copy categories and subcategories to the new process. [\#4143](https://github.com/decidim/decidim/pull/4143)
+- **decidim-admin**: Don't list deleted users at officialized list. [\#4203](https://github.com/decidim/decidim/pull/4203)
+- **decidim-participayory_processes**: Copy categories and subcategories to the new process. [\#4203](https://github.com/decidim/decidim/pull/4203)
 
 **Removed**:
 
