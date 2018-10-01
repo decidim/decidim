@@ -35,9 +35,9 @@ module Decidim
             decidim_author_id: @current_user.id
           }
 
-          @proposal = Decidim.traceability.create!(
+          @post = Decidim.traceability.create!(
             Post,
-            current_user,
+            @current_user,
             attributes,
             visibility: "all"
           )

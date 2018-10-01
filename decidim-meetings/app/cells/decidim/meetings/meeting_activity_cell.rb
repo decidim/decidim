@@ -2,6 +2,7 @@
 
 module Decidim
   module Meetings
+    # A cell to display when a meeting has been created.
     class MeetingActivityCell < ActivityCell
       def title
         I18n.t(
