@@ -458,7 +458,6 @@ en:
       index:
         last_activity: Last activity
         resource_type: Type
-        search: Search
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
