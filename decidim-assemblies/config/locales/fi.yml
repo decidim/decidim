@@ -168,7 +168,6 @@ fi:
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
-          name: Kehitysryhmä
         assembly_member:
           fields:
             ceased_date: Viivästynyt päivämäärä

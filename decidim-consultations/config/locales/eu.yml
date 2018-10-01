@@ -106,9 +106,6 @@ eu:
             created_at: Sortutako at
             published: Argitaratutako
             title: Izenburua
-          name:
-            one: Consulta
-            other: kontsultak
         question:
           fields:
             created_at: Sortutako at

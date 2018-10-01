@@ -102,14 +102,14 @@ fr:
         project:
           add: Ajouter
           count:
-            zero: 0 soutien
-            one: 1 soutien
-            other: "%{count} soutiens"
+            zero: "%{count} vote"
+            one: "%{count} vote"
+            other: "%{count} votes"
           remove: Supprimer
           view: Voir
         project_budget_button:
-          add: Ajouter
-          added: Ajouté
+          add: Voter pour ce projet
+          added: Vous avez déjà voté
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
@@ -139,7 +139,7 @@ fr:
         success: Votre vote a été annulé avec succès
     resource_links:
       included_proposals:
-        project_proposal: 'Propositions incluses dans ce projet:'
+        project_proposal: 'Propositions inspirant le projet'
   index:
     confirmed_orders_count: Nombre de votes
   total_budget: Budget total

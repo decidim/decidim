@@ -95,7 +95,6 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
-          name: Processo partecipativo
         participatory_process_group:
           fields:
             name: Nome

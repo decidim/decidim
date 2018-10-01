@@ -26,7 +26,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New"
+      click_link "new participatory process"
     end
 
     it "creates a new participatory process" do

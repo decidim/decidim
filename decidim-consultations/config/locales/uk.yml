@@ -114,11 +114,6 @@ uk:
             created_at: 'Створено:'
             published: Оприлюднено
             title: Назва
-          name:
-            few: Консультації
-            many: Консультацій
-            one: Консультація
-            other: Консультацій
         question:
           fields:
             created_at: 'Створено:'

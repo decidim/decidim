@@ -69,6 +69,8 @@ es:
         duplicate: Duplicar
         edit: Editar
         new: Nuevo/a
+        participatory_process:
+          new: nuevo proceso participativo
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -95,7 +97,6 @@ es:
             promoted: Destacado
             published: Publicada
             title: Título
-          name: Proceso participativo
         participatory_process_group:
           fields:
             name: Nombre

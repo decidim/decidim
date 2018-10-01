@@ -5,7 +5,7 @@
         <%= link_to "#{translated_attribute(assembly.title)} > ", edit_assembly_path(assembly) %>
       <% end if parent_assembly %>
       <%= t "decidim.admin.titles.assemblies" %>
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly.name", scope: "decidim.admin")), new_assembly_path(parent_id: parent_assembly&.id), class: "button tiny button--title" if allowed_to? :create, :assembly %>
+      <%= link_to t("actions.assembly.new", scope: "decidim.admin"), new_assembly_path(parent_id: parent_assembly&.id), class: "button tiny button--title" if allowed_to? :create, :assembly %>
     </h2>
   </div>
   <div class="card-section">

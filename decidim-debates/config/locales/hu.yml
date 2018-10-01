@@ -117,10 +117,8 @@ hu:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Szia, Új vita született a %{space_title} részvételi téren,
-              nézd meg és járuljon hozzá:'
-            email_outro: Ezt az értesítést azért kapta, mert a %{space_title} részvételi
-              helyet követi. Leállíthatja az értesítések fogadását az előző link után.
+            email_intro: 'Szia, Új vita született a %{space_title} részvételi téren, nézd meg és járuljon hozzá:'
+            email_outro: Ezt az értesítést azért kapta, mert a %{space_title} részvételi helyet követi. Leállíthatja az értesítések fogadását az előző link után.
             email_subject: Új vita a %{space_title}
             notification_title: A <a href="%{resource_path}">%{resource_title}</a>
               vitát <a href="%{space_path}">%{space_title}</a>ben hozták létre.
