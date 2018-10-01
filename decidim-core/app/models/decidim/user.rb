@@ -45,6 +45,10 @@ module Decidim
 
     mount_uploader :avatar, Decidim::AvatarUploader
 
+    def self.default_scope
+      where(type: name)
+    end
+
     scope :not_deleted, -> { where(deleted_at: nil) }
 
     scope :managed, -> { where(managed: true) }
