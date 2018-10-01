@@ -5,12 +5,12 @@ module Decidim
   class ProfilesController < Decidim::ApplicationController
     helper Decidim::Messaging::ConversationHelper
 
-    helper_method :user, :active_content
+    helper_method :profile_holder, :active_content
 
     before_action :ensure_profile_holder
 
     def show
-      return redirect_to notifications_path if current_user == user
+      return redirect_to notifications_path if current_user == profile_holder
       @content_cell = "decidim/following"
     end
 
@@ -32,11 +32,11 @@ module Decidim
     private
 
     def ensure_profile_holder
-      raise ActionController::RoutingError unless user
+      raise ActionController::RoutingError unless profile_holder
     end
 
-    def user
-      @user ||= Decidim::User.find_by(
+    def profile_holder
+      @profile_holder ||= Decidim::User.find_by(
         nickname: params[:nickname],
         organization: current_organization
       ) || Decidim::UserGroup.find_by(
