@@ -24,9 +24,9 @@ module Decidim
 
         transaction do
           Decidim.traceability.perform_action!(
-            :publish,
+            "publish",
             @proposal,
-            current_user,
+            @current_user,
             visibility: "public-only"
           ) do
             @proposal.update published_at: Time.current

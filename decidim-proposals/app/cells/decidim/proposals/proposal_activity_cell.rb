@@ -2,6 +2,7 @@
 
 module Decidim
   module Proposals
+    # A cell to display when a proposal has been published.
     class ProposalActivityCell < ActivityCell
       def title
         I18n.t(

@@ -453,6 +453,7 @@ en:
         invite: Invite
         visit_your_profile: Visit your profile
     last_activities:
+      all: "All activity types"
       activities:
         no_activities_warning: No activity
       index:

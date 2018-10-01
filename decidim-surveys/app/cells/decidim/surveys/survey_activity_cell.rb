@@ -2,6 +2,7 @@
 
 module Decidim
   module Surveys
+    # A cell to display when a Survey has been published.
     class SurveyActivityCell < ActivityCell
       include Decidim::ComponentPathHelper
 

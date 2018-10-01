@@ -5,15 +5,15 @@ module Decidim
     class CommentActivityCell < ActivityCell
       delegate :commentable, to: :comment
 
-      def valid?
+      def renderable?
         comment.present? && commentable.present?
       end
 
-      def activity_link_text
+      def resource_link_text
         comment.body
       end
 
-      def activity_link_path
+      def resource_link_path
         resource_locator(commentable).path(url_params)
       end
 

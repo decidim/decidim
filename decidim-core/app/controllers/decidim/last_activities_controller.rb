@@ -19,7 +19,7 @@ module Decidim
       @resource_types = @resource_types.map do |klass|
         [klass, klass.constantize.model_name.human]
       end
-      @resource_types << ["all", "All"]
+      @resource_types << ["all", I18n.t("decidim.last_activities.all")]
     end
 
     def activities
