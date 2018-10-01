@@ -151,9 +151,14 @@ FactoryBot.define do
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
+    transient do
+      document_number { Faker::Number.number(8) + "X" }
+      phone { Faker::PhoneNumber.phone_number }
+      rejected_at { nil }
+      verified_at { nil }
+    end
+
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
-    document_number { Faker::Number.number(8) + "X" }
-    phone { Faker::PhoneNumber.phone_number }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     organization
 
@@ -167,6 +172,15 @@ FactoryBot.define do
 
     trait :rejected do
       rejected_at { Time.current }
+    end
+
+    after(:build) do |user_group, evaluator|
+      user_group.extended_data = {
+        document_number: evaluator.document_number,
+        phone: evaluator.phone,
+        rejected_at: evaluator.rejected_at,
+        verified_at: evaluator.verified_at
+      }
     end
 
     after(:create) do |user_group, evaluator|
