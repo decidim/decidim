@@ -4,11 +4,7 @@ module Decidim
   #
   # Decorator for user groups
   #
-  class UserGroupPresenter < SimpleDelegator
-    def nickname
-      ""
-    end
-
+  class UserGroupPresenter < UserPresenter
     def deleted?
       false
     end
@@ -17,10 +13,6 @@ module Decidim
       return "" unless verified?
 
       "verified-badge"
-    end
-
-    def profile_path
-      ""
     end
 
     delegate :url, to: :avatar, prefix: true
