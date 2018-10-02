@@ -12,7 +12,6 @@ FactoryBot.define do
   end
 
   factory :survey, class: Decidim::Surveys::Survey do
-    title { generate_localized_title }
     questionnaire { build(:questionnaire) }
     component { build(:surveys_component) }
   end
