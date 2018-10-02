@@ -2,30 +2,24 @@
 
 module Decidim
   # A UserGroup is an organization of citizens
-  class UserGroup < User
+  class UserGroup < UserBaseEntity
     include Decidim::Traceable
 
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
 
     validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
-    validates :document_number, presence: true, uniqueness: { scope: :decidim_organization_id }
+    validates :document_number, presence: true
     validates :phone, presence: true
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
 
     validate :correct_state
+    validate :unique_document_number
 
-    mount_uploader :avatar, Decidim::AvatarUploader
-
-    scope :verified, -> { where.not(verified_at: nil) }
-    scope :rejected, -> { where.not(rejected_at: nil) }
+    scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
+    scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserGroupPresenter
-    end
-
-    def self.default_scope
-      unscoped
     end
 
     # Public: Checks if the user group is verified.
@@ -51,11 +45,38 @@ module Decidim
       Decidim::DataPortabilitySerializers::DataPortabilityUserGroupSerializer
     end
 
+    def document_number
+      extended_data["document_number"]
+    end
+
+    def phone
+      extended_data["phone"]
+    end
+
+    def rejected_at
+      extended_data["rejected_at"]
+    end
+
+    def verified_at
+      extended_data["verified_at"]
+    end
+
     private
 
     # Private: Checks if the state user group is correct.
     def correct_state
       errors.add(:base, :invalid) if verified? && rejected?
+    end
+
+    def unique_document_number
+      is_repeated = self
+                    .class
+                    .where(decidim_organization_id: decidim_organization_id)
+                    .where("extended_data->>'document_number' = ?", document_number)
+                    .where.not(id: id)
+                    .any?
+
+      errors.add(:document_number, :taken) if is_repeated
     end
   end
 end
