@@ -18,5 +18,33 @@ module Decidim
 
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
     mount_uploader :avatar, Decidim::AvatarUploader
+
+    # Public: Returns a collection with all the entities this user is following.
+    #
+    # This can't be done as with a `has_many :following, through: :following_follows`
+    # since it's a polymorphic relation and Rails doesn't know how to load it. With
+    # this implementation we only query the database once for each kind of following.
+    #
+    # Returns an Array of Decidim::Followable
+    def following
+      @following ||= begin
+                       followings = following_follows.pluck(:decidim_followable_type, :decidim_followable_id)
+                       grouped_followings = followings.each_with_object({}) do |(type, following_id), all|
+                         all[type] ||= []
+                         all[type] << following_id
+                         all
+                       end
+
+                       grouped_followings.flat_map do |type, ids|
+                         type.constantize.where(id: ids)
+                       end
+                     end
+    end
+
+    def following_users
+      @following_users ||= following.select do |f|
+        f.is_a?(Decidim::User) || f.is_a?(Decidim::UserGroup)
+      end
+    end
   end
 end

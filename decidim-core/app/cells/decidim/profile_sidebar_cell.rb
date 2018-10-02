@@ -5,6 +5,7 @@ module Decidim
     include Decidim::Messaging::ConversationHelper
     include Decidim::IconHelper
     include Decidim::ViewHooksHelper
+    include Decidim::ApplicationHelper
 
     helper_method :profile_user, :logged_in?, :current_user
 
@@ -21,7 +22,7 @@ module Decidim
     end
 
     def profile_user
-      @profile_user ||= Decidim::UserPresenter.new(model)
+      @profile_user ||= present(model)
     end
 
     def can_contact_user?
