@@ -17,6 +17,7 @@ class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
     self.table_name = "decidim_user_group_memberships"
   end
 
+  # rubocop:disable Rails/SkipsModelValidations
   def change
     add_column :decidim_users, :type, :string
     User.update_all(type: "Decidim::User")
@@ -25,7 +26,13 @@ class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
     add_column :decidim_users, :extended_data, :jsonb, default: {}
 
     remove_index :decidim_users, %w(email decidim_organization_id)
-    add_index :decidim_users, %w(email decidim_organization_id), where: "(deleted_at IS NULL AND type = 'Decidim::User')", name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true
+    add_index(
+      :decidim_users,
+      %w(email decidim_organization_id),
+      where: "(deleted_at IS NULL AND type = 'Decidim::User')",
+      name: "index_decidim_users_on_email_and_decidim_organization_id",
+      unique: true
+    )
 
     User.reset_column_information
     NewUserGroup.reset_column_information
@@ -61,4 +68,5 @@ class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
 
     drop_table :decidim_user_groups
   end
+  # rubocop:enable Rails/SkipsModelValidations
 end
