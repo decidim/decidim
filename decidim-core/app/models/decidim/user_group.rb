@@ -69,14 +69,14 @@ module Decidim
     end
 
     def reject!
-      self.extended_data["verified_at"] = nil
-      self.extended_data["rejected_at"] = Time.current
+      extended_data["verified_at"] = nil
+      extended_data["rejected_at"] = Time.current
       save!
     end
 
     def verify!
-      self.extended_data["verified_at"] = Time.current
-      self.extended_data["rejected_at"] = nil
+      extended_data["verified_at"] = Time.current
+      extended_data["rejected_at"] = nil
       save!
     end
 
