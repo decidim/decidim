@@ -21,6 +21,7 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        organizer_id: Organizer
         private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
@@ -122,6 +123,16 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: This user has attended %{score} meetings.
+          description_own: You have attended %{score} meetings.
+          explanation: Users get this badge by attending meetings.
+          name: Attended meetings
+          next_level_in: Attend %{score} more meetings to reach the next level!
+          unearned_another: This user hasn't attended any meeting yet.
+          unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
         agenda: Agenda
@@ -286,6 +297,22 @@ en:
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+      conference_venues: Conference Venues
+      content_blocks:
+        upcoming_events:
+          name: Upcoming events
+          upcoming_events: Upcoming meetings
+          view_all_events: View all
+      directory:
+        meetings:
+          index:
+            all: All
+            date: Date
+            meetings: Meetings
+            past: Past
+            search: Search
+            space_type: Participatory space
+            upcoming: Upcoming
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -308,8 +335,6 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
-        index:
-          view_meeting: View meeting
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Related Information
@@ -332,6 +357,8 @@ en:
             other: "%{count} slots remaining"
             zero: No slots remaining
           view: View
+      meetings_map:
+        view_meeting: View meeting
       models:
         invite:
           fields:

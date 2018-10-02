@@ -20,6 +20,7 @@ nl:
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
+        organizer_id: Organisator
         private_meeting: Privé vergadering
         registration_terms: Registratievoorwaarden
         registrations_enabled: Registraties geactiveerd
@@ -121,6 +122,16 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
+          description_own: U hebt %{score} vergaderingen bijgewoond.
+          explanation: Gebruikers krijgen deze badge door deel te nemen aan vergaderingen.
+          name: Bijgewoond vergaderingen
+          next_level_in: Woon nog %{score} vergaderingen bij om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen enkele vergadering bijgewoond.
+          unearned_own: U hebt nog geen vergadering bijgewoond.
     meetings:
       actions:
         agenda: Agenda
@@ -284,6 +295,22 @@ nl:
         minutes:
           create: "%{user_name} heeft de minuten van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
           update: "%{user_name} heeft de notulen van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
+      conference_venues: Conferentie locaties
+      content_blocks:
+        upcoming_events:
+          name: Aankomende evenementen
+          upcoming_events: Komende vergaderingen
+          view_all_events: Bekijk alles
+      directory:
+        meetings:
+          index:
+            all: Alle
+            date: Datum
+            meetings: vergaderingen
+            past: Verleden
+            search: Zoeken
+            space_type: Participatieve ruimte
+            upcoming: Aankomende
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +333,6 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
-        index:
-          view_meeting: Bekijk de vergadering
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Gerelateerde informatie

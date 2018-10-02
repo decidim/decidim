@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 defaults: &defaults
   docker:
@@ -119,8 +119,8 @@ jobs:
           name: Run rubocop
           command: bundle exec rubocop
       - run:
-          name: Run erb_lint
-          command: bundle exec erblint **/app/{cells,views}/**/*.erb
+          name: Run erblint
+          command: /app/.circleci/run_erblint.sh
       - *store_test_results
   generators:
     <<: *defaults
@@ -151,6 +151,20 @@ jobs:
       - *store_test_results
       - *persist_coverage_to_workspace
   assemblies:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - *restore_ruby_cache
+      - *wait_for_db
+      - *create_test_db
+      - *run_rspec
+      - *format_test_coverage
+      - *extract_failure_logs
+      - *store_screenshot_artifacts
+      - *store_log_artifacts
+      - *store_test_results
+      - *persist_coverage_to_workspace
+  conferences:
     <<: *defaults
     steps:
       - *attach_workspace
@@ -430,45 +444,25 @@ jobs:
   upload-coverage:
     <<: *defaults
     environment:
-      - CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
+      CC_TEST_REPORTER_ID: 148648277beffae5e8707dac3b5c0df89bf6d5cf44c696e06c82cdfc87473520
     steps:
       - *attach_workspace
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 20 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 21 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
   version: 2
   build_and_test:
     jobs:
+      - build_test_app
+      - main
       - build_design_app:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
           requires:
             - main
-      - build_test_app:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
-      - main:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
       - generators:
-          filters:
-            branches:
-              ignore:
-                - l10n_master
-                - l10n_0.12-stable
           requires:
             - main
       - core:
@@ -476,6 +470,10 @@ workflows:
             - build_test_app
             - main
       - assemblies:
+          requires:
+            - build_test_app
+            - main
+      - conferences:
           requires:
             - build_test_app
             - main
@@ -573,3 +571,4 @@ workflows:
             - sortitions
             - consultations
             - blogs
+            - conferences

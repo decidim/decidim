@@ -226,6 +226,11 @@ pl:
         name: Wyróżniony baner treści
       how_to_participate:
         name: Jak uczestniczyć
+      html:
+        html_content: Treść HTML
+        name: Blok HTML
+      metrics:
+        name: Dane organizacji
       stats:
         name: Statystyki organizacji
       sub_hero:
@@ -240,6 +245,8 @@ pl:
         download_data: Pobierz dane
         download_data_description: Plik zawierający wszystkie informacje powiązane z kontem zostanie wysłany na <strong>%{user_email}</strong>
         request_data: Poproś o dane
+    datepicker:
+      help_text: 'Oczekiwany format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -391,6 +398,14 @@ pl:
       remove_this_file: Usuń ten plik
     gamification:
       badges:
+        followers:
+          description_another: Ten użytkownik ma %{score} obserwujących.
+          description_own: "%{score} użytkowników obserwuje Ciebie."
+          explanation: Użytkownicy otrzymują tę plakietkę, obserwując innych użytkowników.
+          name: Obserwujący
+          next_level_in: Uzyskaj %{score} innych użytkowników, którzy obserwują Cię, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie ma jeszcze żadnych obserwujących.
+          unearned_own: Nie masz jeszcze żadnych obserwujących.
         invitations:
           description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
           description_own: Zaprosiłeś %{score} użytkowników.
@@ -466,6 +481,10 @@ pl:
           title: Zacząć rozmowę
         update:
           error: Wiadomość nie została wysłana. Spróbuj ponownie później
+    metrics:
+      users:
+        object: użytkowników
+        title: Użytkownicy
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
@@ -525,10 +544,13 @@ pl:
         hero:
           participate: Uczestniczyć
           welcome: Witamy w %{organization}!
+        metrics:
+          headline: Udział w liczbach
         statistics:
           answers_count: Ankiety zakończone
           assemblies_count: Złożenia
           comments_count: Komentarze
+          conferences_count: Konferencje
           debates_count: Debaty
           endorsements_count: Adnotacje
           headline: Aktualny stan %{organization}
@@ -578,6 +600,10 @@ pl:
         followers: Obserwujący
         following: Podąża
         notifications: Powiadomienia
+      sidebar:
+        badges:
+          info: Odznaki zdobywa się, wykonując określoną czynność na platformie.
+          title: Odznaki
       user:
         edit_profile: Edytuj profil
     reported_mailer:
@@ -647,13 +673,48 @@ pl:
       version_author:
         deleted: Usunięty użytkownik
   devise:
+    confirmations:
+      confirmed: Twój adres e-mail został pomyślnie potwierdzony.
+      new:
+        resend_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia
+      send_instructions: Otrzymasz wiadomość e-mail z instrukcjami, jak potwierdzić swój adres e-mail w ciągu kilku minut.
+      send_paranoid_instructions: Jeśli Twój adres e-mail istnieje w naszej bazie danych, otrzymasz wiadomość e-mail z instrukcjami, jak potwierdzić swój adres e-mail w ciągu kilku minut.
+    failure:
+      already_authenticated: Jesteś już zalogowany.
+      inactive: Twoje konto nie zostało jeszcze aktywowane.
+      invalid: Nieprawidłowe %{authentication_keys} lub hasło.
+      invited: Masz oczekujące zaproszenia, zaakceptuj je, aby zakończyć tworzenie konta.
+      last_attempt: Masz jeszcze jedną próbę, zanim Twoje konto zostanie zablokowane.
+      locked: Twoje konto jest zablokowane.
+      not_found_in_database: Nieprawidłowe %{authentication_keys} lub hasło.
+      timeout: Twoja sesja wygasła. Zaloguj się ponownie, aby kontynuować.
+      unauthenticated: Zanim przejdziesz dalej, musisz się zalogować lub zarejestrować.
+      unconfirmed: Przed kontynuowaniem musisz potwierdzić swój adres e-mail.
     invitations:
       edit:
         header: Zakończ tworzenie konta
         nickname_help: Twój unikalny identyfikator w %{organization}.
         submit_button: Zapisać
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
+      invitation_removed: Twoje zaproszenie zostało usunięte.
+      invitation_token_invalid: Podany token zaproszenia jest nieprawidłowy!
+      new:
+        header: Wyślij zaproszenie
+        submit_button: Wysłać zaproszenie
+      no_invitations_remaining: Brak pozostałych zaproszeń
+      send_instructions: Wiadomość e-mail z zaproszeniem została wysłana na adres %{email}.
+      updated: Twoje hasło zostało pomyślnie ustawione. Jesteś teraz zalogowany.
+      updated_not_active: Twoje hasło zostało pomyślnie ustawione.
     mailer:
+      confirmation_instructions:
+        action: Potwierdź moje konto
+        greeting: Witamy %{recipient}!
+        instruction: 'Możesz potwierdzić swój adres e-mail konta za pomocą poniższego linku:'
+        subject: Instrukcje potwierdzające
+      email_changed:
+        greeting: Witaj, %{recipient}!
+        message: Skontaktujemy się z Tobą, aby powiadomić Cię o zmianie adresu e-mail na %{email}.
+        subject: Zmieniono e-mail
       invitation_instructions:
         accept: Przyjąć zaproszenie
         accept_until: To zaproszenie zostanie złożone w %{due_date}.
@@ -668,6 +729,7 @@ pl:
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz to zaakceptować za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administrator o numerze %{application}, możesz go zaakceptować za pomocą poniższego linku.
         someone_invited_you_as_private_user: Ktoś zaprosił Cię jako private_user z adresu %{application}, możesz go zaakceptować, klikając poniższy link.
+        subject: Instrukcje dotyczące zaproszenia
       invite_admin:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
@@ -684,20 +746,105 @@ pl:
         greeting: Witaj %{recipient}!
         message: Kontaktujemy się z Tobą, aby powiadomić Cię, że Twoje hasło zostało zmienione.
         subject: Hasło zostało zmienione
+      reset_password_instructions:
+        action: Zmień moje hasło
+        greeting: Witaj, %{recipient}!
+        instruction: Ktoś poprosił o link, aby zmienić hasło, i możesz to zrobić za pomocą poniższego linku.
+        instruction_2: Jeśli nie poprosiłeś o to, zignoruj ​​tego e-maila.
+        instruction_3: Twoje hasło nie zmieni się, dopóki nie uzyskasz dostępu do powyższego linku i nie utworzysz nowego.
+        subject: Zresetuj instrukcje dotyczące hasła
+      unlock_instructions:
+        action: Odblokuj moje konto
+        greeting: Witaj, %{recipient}!
+        instruction: 'Kliknij poniższy link, aby odblokować konto:'
+        message: Twoje konto zostało zablokowane z powodu nadmiernej liczby nieudanych prób logowania.
+        subject: Odblokuj instrukcje
+    omniauth_callbacks:
+      failure: Nie można uwierzytelnić użytkownika od %{kind} ponieważ "%{reason}".
+      success: Pomyślnie uwierzytelnione z konta %{kind}.
+    passwords:
+      edit:
+        change_my_password: Zmień moje hasło
+        change_your_password: Zmień swoje hasło
+        confirm_new_password: Potwierdź nowe hasło
+        new_password: Nowe hasło
+      new:
+        forgot_your_password: Zapomniałeś hasła?
+        send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
+      no_token: Nie możesz uzyskać dostępu do tej strony bez adresu e-mail służącego do resetowania hasła. Jeśli otrzymasz e-maila z resetem hasła, upewnij się, że podałeś pełny adres URL.
+      send_instructions: Otrzymasz wiadomość e-mail z instrukcjami, jak zresetować hasło w kilka minut.
+      send_paranoid_instructions: Jeśli Twój adres e-mail istnieje w naszej bazie danych, w ciągu kilku minut otrzymasz link do odzyskiwania hasła na swój adres e-mail.
+      updated: Twoje hasło zostało zmienione. Jesteś teraz zalogowany.
+      updated_not_active: Twoje hasło zostało zmienione.
+    registrations:
+      destroyed: PA! Twoje konto zostało pomyślnie anulowane. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
+      edit:
+        are_you_sure: Jesteś pewny?
+        cancel_my_account: Anuluj moje konto
+        currently_waiting_confirmation_for_email: 'Obecnie czeka potwierdzenie dla: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: pozostaw puste, jeśli nie chcesz tego zmieniać
+        title: Edytuj %{resource}
+        unhappy: Nieszczęśliwy?
+        update: Aktualizacja
+        we_need_your_current_password_to_confirm_your_changes: potrzebujemy Twojego obecnego hasła, aby potwierdzić twoje zmiany
+      new:
+        sign_up: Zapisz się
+      signed_up: Witamy! Zapisałeś się pomyślnie.
+      signed_up_but_inactive: Zapisałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane.
+      signed_up_but_locked: Zapisałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto jest zablokowane.
+      signed_up_but_unconfirmed: Wiadomość z linkiem potwierdzającym została wysłana na Twój adres e-mail. Kliknij link, aby aktywować swoje konto.
+      update_needs_confirmation: Twoje konto zostało pomyślnie zaktualizowane, ale musimy zweryfikować Twój nowy adres e-mail. Sprawdź pocztę i kliknij link potwierdzenia, by potwierdzić swój nowy adres e-mail.
+      updated: Twoje konto zostało pomyślnie zaktualizowane.
+    sessions:
+      already_signed_out: Wylogowano pomyślnie.
+      new:
+        sign_in: Zaloguj Się
+      signed_in: Zalogowano pomyślnie.
+      signed_out: Wylogowano pomyślnie.
+    shared:
+      links:
+        back: Plecy
+        didn_t_receive_confirmation_instructions: Nie otrzymałeś instrukcji potwierdzających?
+        didn_t_receive_unlock_instructions: Nie otrzymałeś instrukcji odblokowania?
+        forgot_your_password: Zapomniałeś hasła?
+        sign_in: Zaloguj Się
+        sign_in_with_provider: Zaloguj się, używając %{provider}
+        sign_up: Zapisz się
+      minimum_password_length:
+        one: "(Minimum%{count} znaków)"
+        few: "(Minimum%{count} znaków)"
+        many: "(Minimum%{count} znaków)"
+        other: "(Minimum%{count} znaków)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Wyślij ponownie instrukcje odblokowania
+      send_instructions: Otrzymasz wiadomość e-mail z instrukcjami, jak odblokować konto w ciągu kilku minut.
+      send_paranoid_instructions: Jeśli Twoje konto istnieje, otrzymasz e-mail z instrukcjami, jak je odblokować w ciągu kilku minut.
+      unlocked: Twoje konto zostało odblokowane pomyślnie. Zaloguj się, aby kontynuować.
   doorkeeper:
     scopes:
       public: Twoje informacje publiczne.
   errors:
     messages:
+      already_confirmed: zostało już potwierdzone, spróbuj się zalogować
+      confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_whitelist_error: typ pliku jest nieprawidłowy
       cycle_detected: Rodzicem zakresu nie może być jeden z jego potomków
+      expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: Rozmiar pliku musi być mniejszy lub równy %{count}
-      long_words: zawiera słowa, które są zbyt długie
-      must_start_with_caps: musi zaczynać się od czapek
+      long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
+      must_start_with_caps: musi zaczynać się od dużej litery
       nesting_too_deep: Nie może być wewnątrz podkategorii
-      too_many_marks: używa zbyt wielu znaków
-      too_much_caps: używa za dużo kapsli
-      too_short: jest za krótki
+      not_found: nie znaleziono
+      not_locked: nie był zablokowany
+      not_saved:
+        one: '1 błąd uniemożliwił zapisanie tego %{resource}:'
+        few: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
+        many: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
+        other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
+      too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
+      too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
+      too_short: jest za krótki (poniżej 15 znaków)
   forms:
     required: wymagany
   invisible_captcha:
@@ -782,6 +929,10 @@ pl:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

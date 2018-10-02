@@ -90,6 +90,8 @@ sv:
           explanation: Användare får detta märke genom att få sina initiativ publicerade.
           name: Publicerade initiativ
           next_level_in: Få %{score} fler initiativ publicerade för att nå nästa nivå!
+          unearned_another: Den här användaren har inte fått några initiativ publicerade än.
+          unearned_own: Du har ännu inte publicerat några initiativ.
     initiatives:
       admin:
         committee_requests:
@@ -100,6 +102,9 @@ sv:
             no_members_yet: Det finns inga medlemmar i promotorkommittén
             revoke: Återkalla
             title: kommittémedlemmar
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximal mängd element att visa
         initiatives:
           edit:
             accept: Acceptera initiativ

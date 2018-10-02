@@ -13,11 +13,11 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Zone d'organisation
+        local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
-        participatory_scope: Ce qui est décidé
-        participatory_structure: Comment est-il décidé
+        participatory_scope: Objectif
+        participatory_structure: Modalités
         promoted: Mise en avant
         published_at: Publiée à
         scope_id: Périmètre d'application
@@ -27,7 +27,7 @@ fr:
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
-        target: Qui participe
+        target: Participants
         title: Titre
       participatory_process_group:
         description: Description
@@ -35,6 +35,8 @@ fr:
         name: Nom
         participatory_process_ids: Concertations liées
       participatory_process_step:
+        cta_path: Chemin d'accès à l'action
+        cta_text: Texte d'appel à l'action
         description: Description
         end_date: Date de fin
         short_description: Résumé
@@ -267,16 +269,23 @@ fr:
         title: Étapes de la concertation
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantité maximale d'éléments à afficher
         participatory_process_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
+            cta_text_help: Si non défini, le bouton ne sera pas affiché.
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
       content_blocks:
         highlighted_processes:
-          name: Processus mis en évidence
+          name: Concertations mises en avant
       index:
         title: Concertations
       pages:
@@ -284,7 +293,7 @@ fr:
           highlighted_processes:
             active_processes: Concertations actives
             active_step: Étape active
-            more_information: Plus d'information
+            more_information: Plus d'informations
             participate: Participer
             see_all_processes: Voir toutes les concertations
       participatory_process_groups:

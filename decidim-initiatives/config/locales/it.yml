@@ -90,6 +90,8 @@ it:
           explanation: Gli utenti ottengono questo badge pubblicando le loro iniziative.
           name: Iniziative pubblicate
           next_level_in: Ricevi altre %{score} iniziative pubblicate per raggiungere il livello successivo!
+          unearned_another: Questo utente non ha ancora ottenuto alcuna iniziativa pubblicata.
+          unearned_own: Non hai ancora pubblicato nessuna iniziativa.
     initiatives:
       admin:
         committee_requests:
@@ -100,6 +102,9 @@ it:
             no_members_yet: Non ci sono membri nel comitato promotore
             revoke: Revocare
             title: membri del Comitato
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantità massima di elementi da mostrare
         initiatives:
           edit:
             accept: Accetta l'iniziativa

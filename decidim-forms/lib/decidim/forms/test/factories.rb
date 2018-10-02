@@ -5,24 +5,24 @@ require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
   factory :questionnaire, class: Decidim::Forms::Questionnaire do
-    title { Decidim::Faker::Localized.sentence }
+    title { generate_localized_title }
     description do
       Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.sentence(4)
+        generate_localized_title
       end
     end
-    tos { Decidim::Faker::Localized.sentence(4) }
+    tos { generate_localized_title }
     questionnaire_for { build(:participatory_process) }
   end
 
   factory :question, class: Decidim::Forms::Question do
     transient do
-      answer_options []
+      answer_options { [] }
     end
 
-    body { Decidim::Faker::Localized.sentence }
-    mandatory false
-    position 0
+    body { generate_localized_title }
+    mandatory { false }
+    position { 0 }
     question_type { Decidim::Forms::Question::TYPES.first }
     questionnaire
 
@@ -44,7 +44,7 @@ FactoryBot.define do
   end
 
   factory :answer_option, class: Decidim::Forms::AnswerOption do
-    body { Decidim::Faker::Localized.sentence }
+    body { generate_localized_title }
   end
 
   factory :answer_choice, class: Decidim::Forms::AnswerChoice do

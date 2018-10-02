@@ -52,7 +52,6 @@ pt-BR:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Descrição curta
         highlighted_content_banner_title: Título
-        homepage_image: Imagem da página inicial
         instagram_handler: Instagram handler
         logo: Logotipo
         name: Nome
@@ -66,7 +65,6 @@ pt-BR:
         show_statistics: Exibir estatisticas
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
-        welcome_text: Texto de boas-vindas
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -105,9 +103,6 @@ pt-BR:
         organization_url: URL da organização
         redirect_uri: Redirecionar URI
         site: Site
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -503,6 +498,9 @@ pt-BR:
         edit:
           active_content_blocks: Blocos de conteúdo ativo
           inactive_content_blocks: Blocos de conteúdo inativo
+      organization_homepage_content_blocks:
+        edit:
+          update: Atualizar
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
@@ -613,6 +611,7 @@ pt-BR:
         new:
           create: Convite
           title: Convide o usuário como administrador
+      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
@@ -653,7 +652,3 @@ pt-BR:
           title: Configurações
         users:
           title: Usuários
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

@@ -52,7 +52,6 @@ ca:
         highlighted_content_banner_image: Imatge
         highlighted_content_banner_short_description: Descripció breu
         highlighted_content_banner_title: Títol
-        homepage_image: Imatge de la pàgina d'inici
         instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
         name: Nom
@@ -66,7 +65,6 @@ ca:
         show_statistics: Mostra estadístiques
         tos_version: Versió del Termes de Servei
         twitter_handler: Nom d'usuari de Twitter
-        welcome_text: Text de benvinguda
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
@@ -105,9 +103,6 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
         site: Lloc web
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -503,6 +498,9 @@ ca:
         edit:
           active_content_blocks: Blocs de contingut actiu
           inactive_content_blocks: Blocs de contingut inactiu
+      organization_homepage_content_blocks:
+        edit:
+          update: Actualitza
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
@@ -613,6 +611,7 @@ ca:
         new:
           create: Convidar
           title: Convidar un usuari com a administrador
+      view_public_page: Mostra la pàgina pública
     forms:
       errors:
         impersonate_user:
@@ -653,7 +652,3 @@ ca:
           title: Configuració
         users:
           title: Usuaris
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

@@ -20,6 +20,7 @@ eu:
         end_time: Amaiera-ordua
         location: Kokapena
         location_hints: Kokapen-argibideak
+        organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
         registration_terms: Izen-emateak
         registrations_enabled: Erregistroak gaituta
@@ -121,6 +122,16 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Erabiltzaile honek %{score} bileratan parte hartu du.
+          description_own: '%{score} bileretan parte hartu duzu.'
+          explanation: Erabiltzaileek txapela lortzen dute bilerak bertaratu direnean.
+          name: Bilera parte hartzera
+          next_level_in: '%{score} topaketa gehiago parte hartzeko hurrengo mailara iristeko!'
+          unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
+          unearned_own: Oraindik ez duzu bilerarako parte hartu.
     meetings:
       actions:
         agenda: Agenda
@@ -284,6 +295,22 @@ eu:
         minutes:
           create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
           update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+      conference_venues: Hitzaldi aretoak
+      content_blocks:
+        upcoming_events:
+          name: Hurrengo ekitaldiak
+          upcoming_events: Hurrengo topaketak
+          view_all_events: Ikusi dena
+      directory:
+        meetings:
+          index:
+            all: guztiak
+            date: data
+            meetings: Bilerak
+            past: Iragana
+            search: Search
+            space_type: Partaidetza espazioa
+            upcoming: Datozen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +333,6 @@ eu:
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
-        index:
-          view_meeting: Ikusi topaketa
         meeting_minutes:
           meeting_minutes: Bilera Minutes
           related_information: Lotutako informazioa

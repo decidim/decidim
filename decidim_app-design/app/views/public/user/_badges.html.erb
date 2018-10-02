@@ -1,8 +1,0 @@
-<p>Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.  </p>
-<div class="row small-up-2 medium-up-4 card-grid">
-  <% @files.each do |i| %>
-    <div class="column">
-      <%= render partial: page_path("user") + "/badge", locals: { template: File.basename(i, ".svg") } %>
-    </div>
-  <% end %>
-</div>

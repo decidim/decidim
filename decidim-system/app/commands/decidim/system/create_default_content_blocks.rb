@@ -6,7 +6,7 @@ module Decidim
     # for a newly-created organization.
     class CreateDefaultContentBlocks < Rectify::Command
       DEFAULT_CONTENT_BLOCKS =
-        [:hero, :sub_hero, :highlighted_content_banner, :how_to_participate, :stats, :footer_sub_hero].freeze
+        [:hero, :sub_hero, :highlighted_content_banner, :how_to_participate, :stats, :metrics, :footer_sub_hero].freeze
 
       # Public: Initializes the command.
       #
@@ -19,19 +19,23 @@ module Decidim
       #
       # Returns nothing.
       def call
-        DEFAULT_CONTENT_BLOCKS.each_with_index do |manifest_name, index|
+        content_blocks.each_with_index do |manifest, index|
           weight = (index + 1) * 10
           Decidim::ContentBlock.create(
             decidim_organization_id: organization.id,
             weight: weight,
             scope: :homepage,
-            manifest_name: manifest_name,
+            manifest_name: manifest.name,
             published_at: Time.current
           )
         end
       end
 
       private
+
+      def content_blocks
+        Decidim.content_blocks.for(:homepage).select(&:default)
+      end
 
       attr_reader :organization
     end

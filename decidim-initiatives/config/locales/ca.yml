@@ -85,13 +85,13 @@ ca:
     gamification:
       badges:
         initiatives:
-          description_another: Aquest usuari ha obtingut %{score} iniciatives publicades.
+          description_another: Aquest usuari ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
           explanation: Els usuaris obtenen aquesta distinció mitjançant la publicació de les seves iniciatives.
           name: Iniciatives publicades
-          next_level_in: Obteniu %{score} iniciatives més publicades per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha aconseguit cap iniciativa publicada.
-          unearned_own: Encara no has iniciat cap publicació.
+          next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha publicat cap iniciativa.
+          unearned_own: Encara no has publicat cap iniciativa.
     initiatives:
       admin:
         committee_requests:
@@ -102,6 +102,9 @@ ca:
             no_members_yet: No hi ha membres al comitè promotor
             revoke: Revocar
             title: Membres del comitè
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantitat màxima d'elements que es mostraran
         initiatives:
           edit:
             accept: Accepta la iniciativa

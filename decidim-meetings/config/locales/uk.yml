@@ -20,6 +20,7 @@ uk:
         end_time: Час завершення
         location: Розташування
         location_hints: Як дістатися до цього місця
+        organizer_id: Організатор
         private_meeting: Приватна зустріч
         registration_terms: Умови реєстрації
         registrations_enabled: Реєстрацію відкрито
@@ -314,8 +315,6 @@ uk:
           filter: Відібрати
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
-        index:
-          view_meeting: Переглянути зустріч
         meeting_minutes:
           meeting_minutes: Протокол зустрічі
           related_information: Супутні відомості

@@ -52,7 +52,6 @@ fr:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
-        homepage_image: Image de la page d'accueil
         instagram_handler: Gestionnaire Instagram
         logo: Logo
         name: Nom
@@ -66,7 +65,6 @@ fr:
         show_statistics: Montrer les statistiques
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
-        welcome_text: Texte de bienvenue
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -105,9 +103,6 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
         site: Site Internet
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -305,7 +300,7 @@ fr:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
-        homepage: Homepage
+        homepage: Page d'accueil
         impersonations: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
@@ -501,8 +496,11 @@ fr:
           omnipresent_banner_appearance_title: Modifier la bannière permanente
       organization_homepage:
         edit:
-          active_content_blocks: Blocs de contenu actifs
-          inactive_content_blocks: Blocs de contenu inactifs
+          active_content_blocks: Blocs de contenu actif
+          inactive_content_blocks: Blocs de contenu inactif
+      organization_homepage_content_blocks:
+        edit:
+          update: Mettre à jour
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -613,6 +611,7 @@ fr:
         new:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
+      view_public_page: Voir la page publique
     forms:
       errors:
         impersonate_user:
@@ -653,7 +652,3 @@ fr:
           title: Paramètres
         users:
           title: Utilisateurs
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

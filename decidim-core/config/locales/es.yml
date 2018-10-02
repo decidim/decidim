@@ -216,6 +216,11 @@ es:
         name: Banner de contenido resaltado
       how_to_participate:
         name: Como participar
+      html:
+        html_content: Contenido HTML
+        name: Bloque de HTML
+      metrics:
+        name: Métricas de la organización
       stats:
         name: Estadísticas de la organización
       sub_hero:
@@ -230,6 +235,8 @@ es:
         download_data: Descargar los datos
         download_data_description: Un archivo con toda la información asociada con la cuenta se enviará a <strong>%{user_email}</strong>
         request_data: Solicitar datos
+    datepicker:
+      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -320,12 +327,12 @@ es:
         email_subject: Una actualización de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: '¡Enhorabuena! Has obtenido <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).'
+          email_intro: '¡Gran trabajo! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
           email_subject: '¡Has ganado una nueva insignia: %{badge_name}!'
           notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
-          email_intro: '¡Enhorabuena! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+          email_intro: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
           email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
           notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
@@ -381,6 +388,14 @@ es:
       remove_this_file: Eliminar este archivo
     gamification:
       badges:
+        followers:
+          description_another: Este usuario tiene %{score} seguidores.
+          description_own: "%{score} usuarios te están siguiendo."
+          explanation: Los usuarios obtienen esta insignia al ser seguidos por otros usuarios.
+          name: Seguidores
+          next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
+          unearned_another: Este usuario no tiene seguidores todavía.
+          unearned_own: Aún no tienes seguidores
         invitations:
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
@@ -456,6 +471,10 @@ es:
           title: Iniciar una conversación
         update:
           error: Mensaje no enviado. Inténtalo más tarde
+    metrics:
+      users:
+        object: usuarios
+        title: Usuarios
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
@@ -515,10 +534,13 @@ es:
         hero:
           participate: Participar
           welcome: Bienvenido a %{organization}!
+        metrics:
+          headline: Participación en figuras
         statistics:
           answers_count: Encuestas completadas
           assemblies_count: Asambleas
           comments_count: Comentarios
+          conferences_count: Conferencias
           debates_count: Debates
           endorsements_count: Adhesiones
           headline: Estado actual de %{organization}
@@ -568,6 +590,10 @@ es:
         followers: Seguidores
         following: Sigue
         notifications: Notificaciones
+      sidebar:
+        badges:
+          info: Las insignias se obtienen realizando una actividad específica en la plataforma.
+          title: Insignias
       user:
         edit_profile: Editar perfil
     reported_mailer:
@@ -637,13 +663,48 @@ es:
       version_author:
         deleted: Usuario eliminado
   devise:
+    confirmations:
+      confirmed: Su dirección de correo electrónico ha sido confirmada con éxito.
+      new:
+        resend_confirmation_instructions: Reenviar las instrucciones de confirmación
+      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos minutos.
+      send_paranoid_instructions: Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos minutos.
+    failure:
+      already_authenticated: Ya has iniciado sesión.
+      inactive: Tu cuenta aún no está activada.
+      invalid: '%{authentication_keys} inválido o contraseña.'
+      invited: Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.
+      last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
+      locked: Tu cuenta esta bloqueada.
+      not_found_in_database: '%{authentication_keys} inválido o contraseña.'
+      timeout: Su sesión expiró Por favor, inicia sesión de nuevo para continuar.
+      unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
+      unconfirmed: Debes confirmar tu dirección de correo electrónico antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
         nickname_help: Tu identificador único en %{organization}.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
+      invitation_removed: Tu invitación fue eliminada.
+      invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
+      new:
+        header: Enviar invitacion
+        submit_button: Envia una invitacion
+      no_invitations_remaining: No quedan invitaciones
+      send_instructions: Se envió un correo electrónico de invitación a %{email}.
+      updated: Su contraseña fue establecida exitosamente Ya has iniciado sesión.
+      updated_not_active: Su contraseña fue establecida exitosamente
     mailer:
+      confirmation_instructions:
+        action: Confirmar mi cuenta
+        greeting: Bienvenido %{recipient}!
+        instruction: 'Puede confirmar el correo electrónico de su cuenta a través del siguiente enlace:'
+        subject: Instrucciones de confirmación
+      email_changed:
+        greeting: Hola %{recipient}!
+        message: Nos contactamos para notificarle que su correo electrónico se cambiará a %{email}.
+        subject: Correo electrónico cambiado
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación caducará el día %{due_date}.
@@ -658,6 +719,7 @@ es:
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
         someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
+        subject: Instrucciones de invitación
       invite_admin:
         subject: Has sido invitado para gestionar %{organization}
       invite_collaborator:
@@ -674,20 +736,101 @@ es:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
+      reset_password_instructions:
+        action: Cambiar mi contraseña
+        greeting: Hola %{recipient}!
+        instruction: Alguien ha solicitado un enlace para cambiar su contraseña, y puede hacerlo a través del siguiente enlace.
+        instruction_2: Si no lo solicitó, ignore este correo electrónico.
+        instruction_3: Su contraseña no cambiará hasta que acceda al enlace de arriba y cree una nueva.
+        subject: Restablecer instrucciones de contraseña
+      unlock_instructions:
+        action: Desbloquear mi cuenta
+        greeting: Hola %{recipient}!
+        instruction: 'Haga clic en el siguiente enlace para desbloquear su cuenta:'
+        message: Su cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de inicio de sesión infructuosos.
+        subject: Desbloquear instrucciones
+    omniauth_callbacks:
+      failure: No se pudo autenticar desde %{kind} porque "%{reason}".
+      success: Se ha autenticado correctamente desde la cuenta %{kind}.
+    passwords:
+      edit:
+        change_my_password: Cambiar mi contraseña
+        change_your_password: cambia tu contraseña
+        confirm_new_password: Confirmar nueva contraseña
+        new_password: Contraseña
+      new:
+        forgot_your_password: '¿Olvidaste tu contraseña?'
+        send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
+      no_token: No puede acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si proviene de un correo electrónico de restablecimiento de contraseña, asegúrese de haber utilizado la URL completa provista.
+      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo restablecer su contraseña en unos minutos.
+      send_paranoid_instructions: Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un enlace de recuperación de contraseña en su dirección de correo electrónico en unos minutos.
+      updated: Tu contraseña ha sido cambiada exitosamente. Ya has iniciado sesión.
+      updated_not_active: Tu contraseña ha sido cambiada exitosamente.
+    registrations:
+      destroyed: '¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto.'
+      edit:
+        are_you_sure: '¿Estás seguro?'
+        cancel_my_account: Cancelar mi cuenta
+        currently_waiting_confirmation_for_email: 'En espera de confirmación para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: déjelo en blanco si no quiere cambiarlo
+        title: Editar %{resource}
+        unhappy: '¿Infeliz?'
+        update: Actualizar
+        we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar sus cambios
+      new:
+        sign_up: Regístrate
+      signed_up: '¡Bienvenido! Usted se ha registrado exitosamente.'
+      signed_up_but_inactive: Usted se ha registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta aún no está activada.
+      signed_up_but_locked: Usted se ha registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta está bloqueada.
+      signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a su dirección de correo electrónico. Por favor, siga el enlace para activar su cuenta.
+      update_needs_confirmation: Actualizó su cuenta con éxito, pero necesitamos verificar su nueva dirección de correo electrónico. Verifique su correo electrónico y siga el enlace confirmar para confirmar su nueva dirección de correo electrónico.
+      updated: Su cuenta ha sido actualizada con éxito.
+    sessions:
+      already_signed_out: Firmado con éxito.
+      new:
+        sign_in: Iniciar sesión
+      signed_in: Firmado con éxito
+      signed_out: Firmado con éxito.
+    shared:
+      links:
+        back: Espalda
+        didn_t_receive_confirmation_instructions: '¿No recibió las instrucciones de confirmación?'
+        didn_t_receive_unlock_instructions: '¿No recibió instrucciones de desbloqueo?'
+        forgot_your_password: '¿Olvidaste tu contraseña?'
+        sign_in: Iniciar sesión
+        sign_in_with_provider: Inicia sesión con %{provider}
+        sign_up: Regístrate
+      minimum_password_length:
+        one: "(%{count} caracteres como mínimo)"
+        other: "(%{count} caracteres como mínimo)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenviar instrucciones de desbloqueo
+      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo desbloquear su cuenta en unos minutos.
+      send_paranoid_instructions: Si su cuenta existe, recibirá un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
+      unlocked: Su cuenta ha sido desbloqueada con éxito. Por favor inicie sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
   errors:
     messages:
+      already_confirmed: ya fue confirmado, intente iniciar sesión
+      confirmation_period_expired: necesita ser confirmado dentro de %{period}, por favor solicite uno nuevo
       content_type_whitelist_error: el tipo de archivo no es válido
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
+      expired: ha expirado, solicite uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
-      long_words: contiene palabras que son demasiado largas
-      must_start_with_caps: debe comenzar con mayúsculas
+      long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
+      must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
-      too_many_marks: hay demasiados signos de puntuación
-      too_much_caps: hay demasiadas mayúsculas
-      too_short: es demasiado corto
+      not_found: extraviado
+      not_locked: no estaba bloqueado
+      not_saved:
+        one: '1 error ha impedido que se guarde este %{resource}:'
+        other: "%{count} errores prohibieron que se guarde este %{resource}:"
+      too_many_marks: está usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
+      too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
+      too_short: es demasiado corto (menos de 15 caracteres)
   forms:
     required: Obligatorio
   invisible_captcha:
@@ -772,6 +915,10 @@ es:
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

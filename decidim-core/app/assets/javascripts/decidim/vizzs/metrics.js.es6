@@ -1,26 +1,36 @@
-/* eslint-disable no-unused-vars */
+/* global areachart */
 
-// Outside of the closure to make it public
-let DATACHARTS = null;
+$(() => {
+  const query = (metrics) => {
+    let metricsQuery = `metrics(names: [${metrics.join(" ")}]) { name history { key value } }`;
+    return {query: `{ ${metricsQuery} }`};
+  }
 
-const fetchDatacharts = () => {
+  const fetch = (metrics) => $.post("api", query(metrics))
 
-  const metrics = [{
-    key: "NAME_TO_BE_IN_THE_HTML-1",
-    query: "GRAPHQL_QUERY-1"
-  }, {
-    key: "NAME_TO_BE_IN_THE_HTML-2",
-    query: "GRAPHQL_QUERY-2"
-  }]
+  const metrics = {};
 
-  const fetch = (query) => $.post("<-- GRAPHQL_URL -->", query)
+  $(".metric-chart:visible").each((index, container) => {
+    metrics[$(container).data("metric")] = container;
+  });
 
-  const promises = metrics.map((metric) => fetch(metric.query).then((response) => {
-    DATACHARTS[metric.key] = response
+  if (!$.isEmptyObject(metrics)) {
+    fetch(Object.keys(metrics)).then((response) => {
+      $.each(response.data.metrics, (_index, metricData) => {
+        let container = metrics[metricData.name];
+        if (metricData.history.length === 0) {
+          $(container).remove();
+          return;
+        }
+        let info = $(container).data("info");
 
-    return DATACHARTS
-  }))
-
-  Promise.all(promises).then(() => DATACHARTS)
-
-}
+        areachart({
+          container: `#${container.id}`,
+          data: metricData.history,
+          title: info.title,
+          objectName: info.object
+        });
+      });
+    });
+  }
+});

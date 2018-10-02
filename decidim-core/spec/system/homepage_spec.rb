@@ -24,6 +24,7 @@ describe "Homepage", type: :system do
       create :content_block, organization: organization, scope: :homepage, manifest_name: :highlighted_content_banner
       create :content_block, organization: organization, scope: :homepage, manifest_name: :how_to_participate
       create :content_block, organization: organization, scope: :homepage, manifest_name: :stats
+      create :content_block, organization: organization, scope: :homepage, manifest_name: :metrics
       create :content_block, organization: organization, scope: :homepage, manifest_name: :footer_sub_hero
 
       switch_to_host(organization.host)
@@ -215,6 +216,70 @@ describe "Homepage", type: :system do
 
           within ".processes_count" do
             expect(page).to have_content("2")
+          end
+        end
+      end
+    end
+
+    describe "includes metrics" do
+      context "when organization show_statistics attribute is false" do
+        let(:organization) { create(:organization, show_statistics: false) }
+
+        it "does not show the statistics block" do
+          expect(page).to have_no_content("Participation in figures")
+        end
+      end
+
+      context "when organization show_statistics attribute is true" do
+        let(:organization) { create(:organization, show_statistics: true) }
+        let(:metrics) do
+          Decidim.metrics_registry.all.each do |metric_registry|
+            create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today, organization: organization, cumulative: 5, quantity: 2)
+          end
+        end
+
+        context "and have metric records" do
+          before do
+            metrics
+            visit current_path
+          end
+
+          it "shows the metrics block" do
+            within "#metrics" do
+              expect(page).to have_content("Participation in figures")
+              within ".metric-charts:first-child" do
+                Decidim.metrics_registry.highlighted.each do |metric_registry|
+                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
+                end
+              end
+              within ".metric-charts.small-charts" do
+                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
+                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
+                end
+              end
+            end
+          end
+        end
+
+        context "and not have metric records" do
+          before do
+            visit current_path
+          end
+
+          it "shows the metrics block empty" do
+            within "#metrics" do
+              expect(page).to have_content("Participation in figures")
+              within ".metric-charts:first-child" do
+                Decidim.metrics_registry.highlighted.each do |metric_registry|
+                  expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
+                end
+              end
+              within ".metric-charts.small-charts" do
+                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
+                  expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
+                end
+              end
+            end
           end
         end
       end

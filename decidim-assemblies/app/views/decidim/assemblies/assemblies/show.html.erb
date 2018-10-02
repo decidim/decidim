@@ -75,7 +75,7 @@ edit_link(
         </div>
       <% end %>
 
-      <%= render_hook(:assembly_meetings) %>
+      <%= render_hook(:current_participatory_space_meetings) %>
 
       <%= attachments_for current_participatory_space %>
       <% if current_participatory_space.children_count > 0 %>
@@ -160,7 +160,7 @@ edit_link(
         <% if current_participatory_space.creation_date.presence %>
           <div class="definition-data__item creation_date">
             <span class="definition-data__title"><%= t("assemblies.show.creation_date", scope: "decidim") %></span>
-            <%= l current_participatory_space.creation_date, format: :datepicker %>
+            <%= l current_participatory_space.creation_date, format: :decidim_short %>
           </div>
         <% end %>
 
@@ -178,7 +178,7 @@ edit_link(
         <div class="definition-data__item duration">
           <span class="definition-data__title"><%= t("assemblies.show.duration", scope: "decidim") %></span>
           <% if current_participatory_space.duration.presence %>
-            <%= l current_participatory_space.duration, format: :datepicker %>
+            <%= l current_participatory_space.duration, format: :decidim_short %>
           <% else %>
             <%= t("assemblies.show.indefinite_duration", scope: "decidim") %>
           <% end %>
@@ -187,14 +187,14 @@ edit_link(
         <% if current_participatory_space.included_at.presence %>
           <div class="definition-data__item included_at">
             <span class="definition-data__title"><%= t("assemblies.show.included_at", scope: "decidim") %></span>
-            <%= l current_participatory_space.included_at, format: :datepicker %>
+            <%= l current_participatory_space.included_at, format: :decidim_short %>
           </div>
         <% end %>
 
         <% if current_participatory_space.closing_date.presence %>
           <div class="definition-data__item closing_date">
             <span class="definition-data__title"><%= t("assemblies.show.closing_date", scope: "decidim") %></span>
-            <%= l current_participatory_space.closing_date, format: :datepicker %>
+            <%= l current_participatory_space.closing_date, format: :decidim_short %>
             <br />
             <%= decidim_sanitize translated_attribute(current_participatory_space.closing_date_reason) %>
           </div>

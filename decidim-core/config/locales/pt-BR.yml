@@ -182,7 +182,7 @@ pt-BR:
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid_field: "%{field} valor %{value} não é válido."
-          ok: Ok
+          ok: OK
           title: Não autorizado
     collapsible_list:
       hidden_elements_count:
@@ -216,6 +216,11 @@ pt-BR:
         name: Banner de conteúdo destacado
       how_to_participate:
         name: Como participar
+      html:
+        html_content: Conteúdo HTML
+        name: Bloco HTML
+      metrics:
+        name: Métricas da organização
       stats:
         name: Estatísticas da organização
       sub_hero:
@@ -230,6 +235,8 @@ pt-BR:
         download_data: Baixe os dados
         download_data_description: Um arquivo com todas as informações associadas à conta será enviado para <strong>%{user_email}</strong>
         request_data: Solicitar dados
+    datepicker:
+      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -381,6 +388,14 @@ pt-BR:
       remove_this_file: Remover este ficheiro
     gamification:
       badges:
+        followers:
+          description_another: Esse usuário possui %{score} seguidores.
+          description_own: "%{score} usuários estão seguindo você."
+          explanation: Os usuários recebem esse selo ao serem seguidos por outros usuários.
+          name: Seguidores
+          next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não possui seguidores.
+          unearned_own: Você ainda não tem seguidores.
         invitations:
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
@@ -456,6 +471,10 @@ pt-BR:
           title: Comece uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
+    metrics:
+      users:
+        object: Comercial
+        title: Comercial
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
@@ -515,10 +534,13 @@ pt-BR:
         hero:
           participate: Participar
           welcome: Bem-vindo ao %{organization}!
+        metrics:
+          headline: Participação em números
         statistics:
           answers_count: Inquéritos concluídos
           assemblies_count: Assembleias
           comments_count: Comentários
+          conferences_count: Conferências
           debates_count: Debates
           endorsements_count: Avais
           headline: Estado atual de %{organization}
@@ -568,6 +590,10 @@ pt-BR:
         followers: Seguidores
         following: Segue
         notifications: Notificações
+      sidebar:
+        badges:
+          info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
+          title: Distintivos
       user:
         edit_profile: Editar perfil
     reported_mailer:
@@ -637,13 +663,48 @@ pt-BR:
       version_author:
         deleted: Usuário excluído
   devise:
+    confirmations:
+      confirmed: Seu endereço de e-mail foi confirmado com sucesso.
+      new:
+        resend_confirmation_instructions: Reenviar instruções de confirmação
+      send_instructions: Você receberá um e-mail com instruções sobre como confirmar seu endereço de e-mail em alguns minutos.
+      send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um e-mail com instruções sobre como confirmar seu endereço de e-mail em alguns minutos.
+    failure:
+      already_authenticated: Você já está inscrito.
+      inactive: Sua conta Ainda não esta ativada.
+      invalid: '%{authentication_keys} inválido ou senha.'
+      invited: Você tem um convite pendente, aceite-o para concluir a criação da sua conta.
+      last_attempt: Você tem mais uma tentativa antes que sua conta seja bloqueada.
+      locked: Sua conta está bloqueada.
+      not_found_in_database: '%{authentication_keys} inválido ou senha.'
+      timeout: Sua sessão expirou. Por favor, entre novamente para continuar.
+      unauthenticated: Você precisa fazer login ou se inscrever antes de continuar.
+      unconfirmed: Você precisa confirmar seu endereço de e-mail antes de continuar.
     invitations:
       edit:
         header: Termine de criar sua conta
         nickname_help: Seu identificador exclusivo em %{organization}.
         submit_button: Salvar
         subtitle: Se você aceitar o convite, defina seu apelido e senha.
+      invitation_removed: Seu convite foi removido.
+      invitation_token_invalid: O token de convite fornecido não é válido!
+      new:
+        header: Enviar convite
+        submit_button: Envie um convite
+      no_invitations_remaining: Nenhum convite restante
+      send_instructions: Um email de convite foi enviado para %{email}.
+      updated: Sua senha foi configurada com sucesso. Agora você está conectado.
+      updated_not_active: Sua senha foi configurada com sucesso.
     mailer:
+      confirmation_instructions:
+        action: Confirme minha conta
+        greeting: Bem-vindo %{recipient}!
+        instruction: 'Pode confirmar o email da sua conta através do link abaixo:'
+        subject: Instruções de confirmação
+      email_changed:
+        greeting: Olá %{recipient}!
+        message: Estamos entrando em contato para notificá-lo de que seu e-mail está sendo alterado para %{email}.
+        subject: E-mail alterado
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
@@ -658,6 +719,7 @@ pt-BR:
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_private_user: Alguém convidou você como usuário privado de %{application}, você pode aceitá-lo através do link abaixo.
+        subject: Instruções de convite
       invite_admin:
         subject: Você foi convidado a gerenciar %{organization}
       invite_collaborator:
@@ -674,20 +736,101 @@ pt-BR:
         greeting: Olá %{recipient}!
         message: Estamos nos comunicando com você para notificá-lo de que sua senha foi alterada.
         subject: A senha mudou
+      reset_password_instructions:
+        action: Mudar minha senha
+        greeting: Olá %{recipient}!
+        instruction: Alguém solicitou um link para alterar sua senha, e você pode fazer isso através do link abaixo.
+        instruction_2: Se você não solicitou isso, ignore este e-mail.
+        instruction_3: Sua senha não será alterada até que você acesse o link acima e crie um novo.
+        subject: Redefinir instruções de senha
+      unlock_instructions:
+        action: Desbloquear minha conta
+        greeting: Olá %{recipient}!
+        instruction: 'Clique no link abaixo para desbloquear sua conta:'
+        message: Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de login malsucedidas.
+        subject: Desbloquear instruções
+    omniauth_callbacks:
+      failure: Não foi possível autenticá-lo de %{kind} porque "%{reason}".
+      success: Autenticado com êxito a partir de %{kind} conta.
+    passwords:
+      edit:
+        change_my_password: Mudar minha senha
+        change_your_password: Mude sua senha
+        confirm_new_password: Confirme a nova senha
+        new_password: Nova senha
+      new:
+        forgot_your_password: Esqueceu sua senha?
+        send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
+      no_token: Você não pode acessar esta página sem receber um e-mail de redefinição de senha. Se você receber um e-mail de redefinição de senha, verifique se usou o URL completo fornecido.
+      send_instructions: Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos.
+      send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um link de recuperação de senha em seu endereço de e-mail em alguns minutos.
+      updated: Sua senha foi alterada com sucesso. Agora você está conectado.
+      updated_not_active: Sua senha foi alterada com sucesso.
+    registrations:
+      destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
+      edit:
+        are_you_sure: Você tem certeza?
+        cancel_my_account: Cancelar minha conta
+        currently_waiting_confirmation_for_email: 'Atualmente aguardando confirmação para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se você não quiser mudá-lo
+        title: Editar %{resource}
+        unhappy: Infeliz?
+        update: Atualizar
+        we_need_your_current_password_to_confirm_your_changes: Precisamos da sua senha atual para confirmar suas alterações
+      new:
+        sign_up: inscrever-se
+      signed_up: Bem vinda! Você se inscreveu com sucesso.
+      signed_up_but_inactive: Você se inscreveu com sucesso. No entanto, não poderíamos fazer o seu login porque sua conta ainda não está ativada.
+      signed_up_but_locked: Você se inscreveu com sucesso. No entanto, não poderíamos fazer login porque sua conta está bloqueada.
+      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga o link para ativar sua conta.
+      update_needs_confirmation: Você atualizou sua conta com sucesso, mas precisamos confirmar seu novo endereço de e-mail. Por favor, verifique seu e-mail e siga o link de confirmação para confirmar seu novo endereço de e-mail.
+      updated: Sua conta foi atualizada com sucesso.
+    sessions:
+      already_signed_out: Saiu com sucesso.
+      new:
+        sign_in: Entrar
+      signed_in: Conectado com sucesso.
+      signed_out: Saiu com sucesso.
+    shared:
+      links:
+        back: Costas
+        didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
+        didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
+        forgot_your_password: Esqueceu sua senha?
+        sign_in: Entrar
+        sign_in_with_provider: Entrar com %{provider}
+        sign_up: inscrever-se
+      minimum_password_length:
+        one: "(Mínimo de%{count} caracteres)"
+        other: "(%{count} caracteres no mínimo)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenvie as instruções de desbloqueio
+      send_instructions: Você receberá um e-mail com instruções sobre como desbloquear sua conta em alguns minutos.
+      send_paranoid_instructions: Se a sua conta existir, você receberá um e-mail com instruções sobre como desbloqueá-lo em alguns minutos.
+      unlocked: Sua conta foi desbloqueada com sucesso. Por favor, entre para continuar.
   doorkeeper:
     scopes:
       public: Sua informação pública.
   errors:
     messages:
+      already_confirmed: já foi confirmado, por favor, tente entrar
+      confirmation_period_expired: precisa ser confirmado dentro de %{period}, solicite um novo
       content_type_whitelist_error: o tipo de arquivo não é válido
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
+      expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
-      long_words: contém palavras que são muito longas
-      must_start_with_caps: deve começar com bonés
+      long_words: contém palavras muito longas (mais de 35 caracteres)
+      must_start_with_caps: deve começar com letra maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria
-      too_many_marks: está usando muitas marcas
-      too_much_caps: está usando bonés demais
-      too_short: é muito curto
+      not_found: não encontrado
+      not_locked: não estava trancado
+      not_saved:
+        one: '1 erro proibiu que este %{resource} fosse salvo:'
+        other: "%{count} erros proibiram este %{resource} de ser salvo:"
+      too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
+      too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
+      too_short: é muito curto (menos de 15 caracteres)
   forms:
     required: Requeridos
   invisible_captcha:
@@ -772,6 +915,10 @@ pt-BR:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

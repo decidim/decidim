@@ -5,7 +5,7 @@ module Decidim
   class PagesController < Decidim::ApplicationController
     layout "layouts/decidim/application"
 
-    helper_method :page, :stats
+    helper_method :page
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
     skip_before_action :store_current_location

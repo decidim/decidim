@@ -1,0 +1,55 @@
+<%
+@title = "Decidim Admin"
+@activesection = "settings"
+@activepage = "settings-participatory-texts"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "settings_nav" %>
+</div>
+<div class="layout-content">
+  <div class="container">
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Previsualització del text</h2>
+      </div>
+      <div class="card-section">
+        <p>S'han detectat les següents seccions en aquest text. Seràn convertides a propostes. Des d'aquí pots revisar i ajustar el que necessitis.</p>
+        <p><strong>Atenció:&nbsp;</strong>aquest text encara no ha estat guardat. No t'oblidis de fer-ho fent click al butó al final d'aquesta pàgina.</p>
+        <ul class="accordion js-sortable mb-m"
+          data-accordion
+          data-multi-expand="true"
+          data-allow-all-closed="true">
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title flex--sbc">Secció&nbsp;<span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
+
+            <div class="accordion-content" data-tab-content>
+              <%= partial "participatory-article", { desc: false, placeholder: "Secció" } %>
+            </div>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title flex--sbc">Subsecció&nbsp;<span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
+
+            <div class="accordion-content" data-tab-content>
+              <%= partial "participatory-article", { desc: false, placeholder: "Subsecció" } %>
+            </div>
+          </li>
+          <% 3.times do |i| %>
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title flex--sbc">Article&nbsp;<span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
+
+            <div class="accordion-content" data-tab-content>
+              <%= partial "participatory-article", { placeholder: "Article" } %>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="grid-x align-center mt-sm">
+      <button class="button">Subir documento</button>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

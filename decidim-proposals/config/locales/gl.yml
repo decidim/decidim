@@ -210,6 +210,16 @@ gl:
           next_level_in: Crea %{score} propostas para chegar ao seguinte nivel!
           unearned_another: Este usuario aínda non creou ningunha proposta.
           unearned_own: Aínda non creaches propostas.
+    metrics:
+      accepted_proposals:
+        object: proposta
+        title: Propostas aceptadas
+      proposals:
+        object: proposta
+        title: Propostas
+      votes:
+        object: votos
+        title: Votos
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ gl:
     proposals:
       actions:
         answer: Resposta
+        edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
         private_notes: Notas privadas
@@ -257,6 +268,9 @@ gl:
           create:
             invalid: Produciuse un problema ao crear esta proposta
             success: Creouse a proposta correctamente
+          edit:
+            title: Actualizar a proposta
+            update: Actualización
           form:
             attachment_legend: "(Opcional) Engada un anexo"
             select_a_category: Selecciona unha categoría
@@ -294,6 +308,7 @@ gl:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
           create: "%{user_name} creou a proposta %{resource_name} no espazo %{space_name} como proposta oficial"
+          update: "%{user_name} actualizou a %{resource_name} proposta oficial sobre o espazo %{space_name}"
         proposal_note:
           create: "%{user_name} deixou unha nota privada na proposta %{resource_name} no espazo %{space_name}"
       answers:

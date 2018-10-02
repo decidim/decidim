@@ -186,6 +186,22 @@ es-PY:
           notification_title: Ahora puedes comenzar <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
+        accepted_proposals:
+          description_another: '%{score} propuestas de este usuario han sido aceptadas.'
+          description_own: '%{score} de tus propuestas han sido aceptadas.'
+          explanation: Los usuarios obtienen esta insignia al conseguir que se acepten sus propuestas.
+          name: Propuestas aceptadas
+          next_level_in: '¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha conseguido ninguna propuesta aceptada.
+          unearned_own: Aún no tienes ninguna propuesta aceptada.
+        proposal_votes:
+          description_another: Este usuario ha dado soporte a %{score} propuestas.
+          description_own: Has dado soporte a %{score} propuestas.
+          explanation: Los usuarios obtienen esta insignia dando soporte a las propuestas.
+          name: Apoyos a propuestas
+          next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
+          unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
@@ -194,6 +210,16 @@ es-PY:
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
+    metrics:
+      accepted_proposals:
+        object: propuesta
+        title: Propuestas aceptadas
+      proposals:
+        object: propuesta
+        title: Propuestas
+      votes:
+        object: votos
+        title: Votos
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -205,6 +231,7 @@ es-PY:
     proposals:
       actions:
         answer: Respuesta
+        edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
         private_notes: Notas privadas
@@ -241,6 +268,9 @@ es-PY:
           create:
             invalid: Ha habido un problema al crear esta propuesta
             success: Propuesta creada correctamente
+          edit:
+            title: Actualizar propuesta
+            update: Actualizar
           form:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             select_a_category: Seleccione una categoría
@@ -278,6 +308,7 @@ es-PY:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
+          update: "%{user_name} actualizó la %{resource_name} propuesta oficial en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
       answers:

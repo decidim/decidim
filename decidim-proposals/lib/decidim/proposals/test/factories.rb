@@ -6,7 +6,7 @@ require "decidim/participatory_processes/test/factories"
 FactoryBot.define do
   factory :proposal_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
-    manifest_name :proposals
+    manifest_name { :proposals }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
     trait :with_endorsements_enabled do
@@ -51,7 +51,7 @@ FactoryBot.define do
 
     trait :with_vote_limit do
       transient do
-        vote_limit 10
+        vote_limit { 10 }
       end
 
       settings do
@@ -63,7 +63,7 @@ FactoryBot.define do
 
     trait :with_proposal_limit do
       transient do
-        proposal_limit 1
+        proposal_limit { 1 }
       end
 
       settings do
@@ -75,7 +75,7 @@ FactoryBot.define do
 
     trait :with_proposal_length do
       transient do
-        proposal_length 500
+        proposal_length { 500 }
       end
 
       settings do
@@ -133,7 +133,7 @@ FactoryBot.define do
 
     trait :with_threshold_per_proposal do
       transient do
-        threshold_per_proposal 1
+        threshold_per_proposal { 1 }
       end
 
       settings do
@@ -162,12 +162,12 @@ FactoryBot.define do
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
     transient do
-      users nil
+      users { nil }
       # user_groups correspondence to users is by sorting order
-      user_groups []
+      user_groups { [] }
     end
 
-    title { Faker::Lorem.sentence }
+    title { generate(:title) }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     published_at { Time.current }
@@ -183,6 +183,10 @@ FactoryBot.define do
       end
     end
 
+    trait :published do
+      published_at { Time.current }
+    end
+
     trait :official do
       after :build do |proposal|
         proposal.coauthorships.clear
@@ -190,32 +194,32 @@ FactoryBot.define do
     end
 
     trait :evaluating do
-      state "evaluating"
+      state { "evaluating" }
       answered_at { Time.current }
     end
 
     trait :accepted do
-      state "accepted"
+      state { "accepted" }
       answered_at { Time.current }
     end
 
     trait :rejected do
-      state "rejected"
+      state { "rejected" }
       answered_at { Time.current }
     end
 
     trait :withdrawn do
-      state "withdrawn"
+      state { "withdrawn" }
     end
 
     trait :with_answer do
-      state "accepted"
-      answer { Decidim::Faker::Localized.sentence }
+      state { "accepted" }
+      answer { generate_localized_title }
       answered_at { Time.current }
     end
 
     trait :draft do
-      published_at nil
+      published_at { nil }
     end
 
     trait :hidden do
@@ -261,12 +265,12 @@ FactoryBot.define do
 
   factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
     transient do
-      users nil
+      users { nil }
       # user_groups correspondence to users is by sorting order
-      user_groups []
+      user_groups { [] }
     end
 
-    title { Faker::Lorem.sentence }
+    title { generate(:title) }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
@@ -283,16 +287,16 @@ FactoryBot.define do
     end
 
     trait :published do
-      state "published"
+      state { "published" }
       published_at { Time.current }
     end
 
     trait :open do
-      state "open"
+      state { "open" }
     end
 
     trait :withdrawn do
-      state "withdrawn"
+      state { "withdrawn" }
     end
   end
 end

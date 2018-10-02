@@ -1,0 +1,349 @@
+fr:
+  activemodel:
+    attributes:
+      conference:
+        banner_image: Image de bannière
+        copy_categories: Copier des catégories
+        copy_components: Copier des composants
+        copy_features: Fonctions de copie
+        decidim_scope_id: Portée
+        description: La description
+        hashtag: Hashtag
+        hero_image: Image de la maison
+        promoted: Promu
+        published_at: Publié à
+        scope_id: Portée
+        scopes_enabled: Scopes activés
+        short_description: Brève description
+        show_statistics: Montrez les statistiques
+        slogan: Slogan
+        slug: Slug URL
+        title: Titre
+      conference_speaker:
+        full_name: Nom complet
+      conference_user_role:
+        email: Email
+        name: prénom
+        role: Rôle
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Cet email a déjà été invité
+  activerecord:
+    models:
+      decidim/conference:
+        one: Conférence
+        other: Conférences
+      decidim/conference_speaker:
+        one: Conférencier
+        other: Conférenciers
+      decidim/conference_user_role:
+        one: Rôle utilisateur de la conférence
+        other: Rôles d'utilisateur de conférence
+  decidim:
+    admin:
+      actions:
+        new_conference: Nouvelle conférence
+      conference_copies:
+        new:
+          copy: Copie
+          select: Sélectionnez les données que vous souhaitez dupliquer
+          title: Conférence en double
+      conference_publications:
+        create:
+          error: Une erreur s'est produite lors de la publication de cette conférence.
+          success: Conférence publiée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la publication de cette conférence.
+          success: Conférence inédite avec succès.
+      conference_speakers:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un haut-parleur pour cette conférence.
+          success: Conférencier créé avec succès pour cette conférence.
+        destroy:
+          success: Haut-parleur supprimé avec succès pour cette conférence.
+        edit:
+          title: Mettre à jour le conférencier.
+          update: Mettre à jour
+        index:
+          conference_speakers_title: Conférenciers
+        new:
+          create: Créer
+          title: Nouveau conférencier
+        update:
+          error: Une erreur s'est produite lors de la mise à jour du haut-parleur pour cette conférence.
+          success: Président mis à jour avec succès pour cette conférence.
+      conference_user_roles:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette conférence.
+          success: Utilisateur ajouté avec succès à cette conférence.
+        destroy:
+          success: Utilisateur supprimé de cette conférence.
+        edit:
+          title: Mettre à jour l'utilisateur de la conférence.
+          update: Mettre à jour
+        index:
+          conference_admins_title: utilisateurs de la conférence
+        new:
+          create: Créer
+          title: Nouvel utilisateur de conférence
+        update:
+          error: Il y avait une erreur mise à jour d'un utilisateur pour cette conférence.
+          success: Utilisateur mis à jour avec succès pour cette conférence.
+      conferences:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle conférence.
+          success: Conférence créée avec succès.
+        destroy:
+          success: Conférence supprimée avec succès.
+        edit:
+          update: Mettre à jour
+        exports:
+          registrations: Inscriptions
+        form:
+          title: Informations générales
+        index:
+          not_published: Non publié
+          published: Publié
+        new:
+          create: Créer
+          title: Conférence
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette conférence.
+          success: Conférence mise à jour avec succès.
+      conferences_copies:
+        create:
+          error: Une erreur s'est produite lors de la duplication de cette conférence.
+          success: Conférence dupliquée avec succès.
+      menu:
+        conferences: Conférences
+        conferences_submenu:
+          attachment_collections: Dossiers
+          attachment_files: Des dossiers
+          attachments: Pièces jointes
+          categories: Catégories
+          components: Composants
+          conference_admins: Administrateurs de conférence
+          conference_invites: Invitations à la conférence
+          conference_registrations: Inscriptions à la conférence
+          conference_speakers: Conférenciers
+          info: Info
+          moderations: Modération
+      models:
+        conference:
+          fields:
+            created_at: Créé à
+            promoted: Promu
+            published: Publié
+            title: Titre
+        conference_speaker:
+          fields:
+            affiliation: Affiliation
+            full_name: Nom complet
+            position: Position
+          name: Conférencier
+        conference_user_role:
+          fields:
+            email: Email
+            name: prénom
+            role: Rôle
+          name: Utilisateur de la conférence
+          roles:
+            admin: Administrateur
+            collaborator: Collaborateur
+            moderator: Modérateur
+      titles:
+        conferences: Conférences
+    conference_speakers:
+      index:
+        title: Haut-parleurs
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
+        conference_invites:
+          create:
+            error: Un problème est survenu lors de l'invitation de l'utilisateur à rejoindre la conférence.
+            success: Utilisateur invité à rejoindre la conférence.
+          form:
+            attendee_type: Type de participant
+            existing_user: Utilisateur existant
+            invite_explanation: L'utilisateur sera invité à se joindre à la conférence et à l'organisation.
+            non_user: Utilisateur non existant
+            select_user: Sélectionnez l'utilisateur
+          index:
+            filter:
+              accepted: Accepté
+              all: Tout
+              rejected: Rejeté
+              sent: Envoyé
+            filter_by: Filtrer par
+            invite_attendee: Inviter un participant
+            invites: Invite
+            search: Chercher
+          new:
+            explanation: L'utilisateur sera invité à participer à une conférence. Si l'e-mail n'est pas enregistré, ils seront également invités à l'organisation.
+            invite: Inviter
+            new_invite: Inviter un utilisateur
+        conference_registrations:
+          index:
+            registrations: Inscriptions
+        conference_speakers:
+          form:
+            existing_user: Utilisateur existant
+            non_user: Non utilisateur
+            select_user: Sélectionnez l'utilisateur
+            user_type: Type d'utilisateur
+          index:
+            search: Chercher
+        conferences:
+          form:
+            available_slots_help: Laissez-le à 0 si vous avez un nombre illimité d'emplacements disponibles.
+            registrations_count:
+              one: Il y a eu 1 enregistrement.
+              other: Il y a eu %{count} inscriptions.
+            slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
+        invite_join_conference_mailer:
+          invite:
+            decline: Refuser l'invitation '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} a invité à participer à une conférence à %{application}. Vous pouvez refuser ou l'accepter via les liens ci-dessous."
+            join: Rejoindre la conférence '%{conference_title}'
+      conference:
+        registration_confirm:
+          cancel: Annuler
+          confirm: Confirmer
+        show:
+          going: Aller
+          join: Rejoindre la conférence
+          no_slots_available: Aucun emplacement disponible
+          remaining_slots:
+            one: 1 emplacement restant
+            other: "%{count} créneaux restants"
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Votre inscription à la conférence <a href="%{url}">%{title}</a> a été confirmée.
+          details: Vous trouverez les détails de la conférence dans la pièce jointe.
+      conference_registrations:
+        create:
+          invalid: Il y a eu un problème pour rejoindre cette conférence.
+          success: Vous avez rejoint la conférence avec succès.
+        decline_invitation:
+          invalid: Il y a eu un problème pour refuser l'invitation.
+          success: Vous avez refusé l'invitation avec succès.
+        destroy:
+          invalid: Il y a eu un problème pour quitter cette conférence.
+          success: Vous avez quitté la conférence avec succès.
+      conference_speaker:
+        show:
+          affiliation: Affiliation
+          personal_url: URL personnelle
+          position: Position
+          short_bio: Courte biographie
+          twitter_handle: Gazouillement
+      conference_speakers:
+        index:
+          speakers: Haut-parleurs
+      content_blocks:
+        highlighted_conferences:
+          name: Des conférences surlignées
+      index:
+        title: Conférences
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: L'enregistrement de votre conférence a été confirmé
+        invite_join_conference_mailer:
+          invite:
+            subject: Invitation à participer à une conférence
+      models:
+        conference_invite:
+          fields:
+            email: Email
+            name: prénom
+            sent_at: Envoyé à
+            status: Statut
+          status:
+            accepted: Accepté (%{at})
+            rejected: Rejeté (%{at})
+            sent: Envoyé
+        conference_registration:
+          fields:
+            email: Email
+            name: prénom
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Conférences actives
+            see_all_conferences: Voir toutes les conférences
+      show:
+        end_date: Date de fin
+        objectives: Objectifs
+        start_date: Date de début
+      statistics:
+        answers_count: Réponses
+        comments_count: commentaires
+        conference_count: Conférences
+        debates_count: Des débats
+        endorsements_count: Avenants
+        headline: Activité
+        meetings_count: Réunions
+        orders_count: Votes
+        pages_count: Pages
+        posts_count: Des postes
+        projects_count: Projets
+        proposals_count: Les propositions
+        results_count: Résultats
+        surveys_count: Enquêtes
+        users_count: Participants
+        votes_count: Votes
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_intro: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%.
+          email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence.
+          email_subject: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%
+          notification_title: Les créneaux occupés par la conférence <a href="%{resource_path}">%{resource_title}</a> sont supérieurs à %{percentage}%.
+        conference_updated:
+          email_intro: 'La conférence "%{resource_title}" a été mise à jour. Vous pouvez lire la nouvelle version depuis sa page:'
+          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: La conférence "%{resource_title}" a été mise à jour
+          notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> été mise à jour.
+        registrations_enabled:
+          email_intro: 'La conférence "%{resource_title}" a permis les enregistrements. Vous pouvez vous inscrire sur sa page:'
+          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: La conférence "%{resource_title}" a permis les enregistrements.
+          notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> a permis les enregistrements.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'La conférence n''a pas été trouvée sur la base de données (ID: %{id})'
+    menu:
+      conferences: Conférences
+  devise:
+    mailer:
+      join_conference:
+        subject: Invitation à participer à une conférence
+  layouts:
+    decidim:
+      conference_header:
+        conference_menu_item: La conférence
+        conference_speaker_menu_item: Haut-parleurs
+        unfold: Se dérouler
+      conference_widgets:
+        show:
+          take_part: Prendre part
+      conferences:
+        conference:
+          take_part: Prendre part
+        index:
+          promoted_conferences: Conférences promues
+        order_by_conferences:
+          conferences:
+            one: "%{count} conférence"
+            other: "%{count} conférences"
+        promoted_conference:
+          more_info: Plus d'informations
+          take_part: Prendre part

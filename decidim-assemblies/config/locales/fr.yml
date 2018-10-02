@@ -31,6 +31,7 @@ fr:
         is_transparent: Visible par les non-membres
         local_area: Zone d'organisation
         meta_scope: Échelle
+        parent_id: Assemblée parentale
         participatory_processes_ids: Concertations associées
         participatory_scope: Ce qui est décidé
         participatory_structure: Comment est-il décidé
@@ -217,6 +218,7 @@ fr:
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
+            select_parent_assembly: Sélectionner l'assemblage parent
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             social_handlers: Réseaux sociaux
         assembly_copies:
@@ -236,6 +238,9 @@ fr:
               not_ceased: Validité en cours
             filter_by: Filtrer par
             search: Rechercher
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantité maximale d'éléments à afficher
       assembly_members:
         index:
           members: Membres
@@ -327,7 +332,9 @@ fr:
         assembly:
           take_part: Participer
         index:
+          organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
+          reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"

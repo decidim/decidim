@@ -4,7 +4,7 @@
 module Decidim
   module Generators
     def self.version
-      "0.14.0.dev"
+      "0.15.0.dev"
     end
   end
 end

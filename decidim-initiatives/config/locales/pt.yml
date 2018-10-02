@@ -90,6 +90,8 @@ pt:
           explanation: Os usuários recebem esse selo ao publicar suas iniciativas.
           name: Iniciativas publicadas
           next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não publicou nenhuma iniciativa.
+          unearned_own: Você não tem iniciativas publicadas ainda.
     initiatives:
       admin:
         committee_requests:
@@ -100,6 +102,9 @@ pt:
             no_members_yet: Não há membros no comitê de promotores
             revoke: Revogar
             title: membros do Comitê
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantidade máxima de elementos para mostrar
         initiatives:
           edit:
             accept: Aceitar iniciativa

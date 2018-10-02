@@ -20,6 +20,7 @@ pl:
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        organizer_id: Organizator
         private_meeting: Prywatne spotkanie
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracje włączone
@@ -127,6 +128,16 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
+          description_own: Brałeś udział w %{score} spotkaniach.
+          explanation: Użytkownicy otrzymują tę odznakę, uczestnicząc w spotkaniach.
+          name: Udział w spotkaniach
+          next_level_in: Weź udział w %{score} dodatkowych spotkaniach, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
+          unearned_own: Nie uczestniczyłeś jeszcze w żadnym spotkaniu.
     meetings:
       actions:
         agenda: Program
@@ -292,6 +303,22 @@ pl:
         minutes:
           create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+      conference_venues: Sale konferencyjne
+      content_blocks:
+        upcoming_events:
+          name: Nadchodzące wydarzenia
+          upcoming_events: Nadchodzące spotkania
+          view_all_events: Pokaż wszystkie
+      directory:
+        meetings:
+          index:
+            all: Wszystko
+            date: Data
+            meetings: Spotkania
+            past: Przeszłość
+            search: Szukaj
+            space_type: Przestrzeń uczestnicząca
+            upcoming: Nadchodzące
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -314,8 +341,6 @@ pl:
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
-        index:
-          view_meeting: Pokaż spotkanie
         meeting_minutes:
           meeting_minutes: Protokół ze spotkań
           related_information: Powiązana informacja

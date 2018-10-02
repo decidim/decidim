@@ -60,8 +60,19 @@ module Decidim
 
       initializer "decidim_participatory_processes.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_processes) do |content_block|
-          content_block.cell "decidim/participatory_processes/content_blocks/highlighted_processes"
-          content_block.public_name_key "decidim.participatory_processes.content_blocks.highlighted_processes.name"
+          content_block.cell = "decidim/participatory_processes/content_blocks/highlighted_processes"
+          content_block.public_name_key = "decidim.participatory_processes.content_blocks.highlighted_processes.name"
+          content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 4
+          end
+        end
+      end
+
+      initializer "decidim_participatory_processes.query_extensions" do
+        Decidim::Api::QueryType.define do
+          QueryExtensions.define(self)
         end
       end
     end

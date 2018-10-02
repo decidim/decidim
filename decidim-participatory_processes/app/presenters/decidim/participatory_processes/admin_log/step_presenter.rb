@@ -17,6 +17,8 @@ module Decidim
 
         def diff_fields_mapping
           {
+            cta_path: :string,
+            cta_text: :i18n,
             description: :i18n,
             title: :i18n
           }

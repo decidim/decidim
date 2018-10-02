@@ -20,6 +20,7 @@ fr:
         end_time: Heure de fin
         location: Lieu
         location_hints: Données de localisation
+        organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions ouvertes
@@ -121,6 +122,16 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Cet utilisateur a participé à %{score} réunions.
+          description_own: Vous avez assisté à %{score} réunions.
+          explanation: Les utilisateurs obtiennent ce badge en assistant aux réunions.
+          name: Assister aux réunions
+          next_level_in: Assister à %{score} plus de réunions pour atteindre le prochain niveau!
+          unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.
+          unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
       actions:
         agenda: Ordre du jour
@@ -171,7 +182,7 @@ fr:
         invite_join_meeting_mailer:
           invite:
             decline: Refuser l'invitation
-            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre à %{application}. Vous pouvez confirmer votre présence par le lien ci-dessous."
+            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre sur %{application}. Vous pouvez confirmer votre présence en cliquant sur le lien ci-dessous."
             join: Rejoignez la rencontre '%{meeting_title}'
         invites:
           create:
@@ -192,8 +203,8 @@ fr:
               sent: Envoyé
             filter_by: Filtrer par
             invite_attendee: Inviter un participant
-            invites: Invite
-            registrations_disabled: Vous ne pouvez pas inviter un participant car les enregistrements sont désactivés.
+            invites: Invitations
+            registrations_disabled: Vous ne pouvez pas inviter un participant car les invitations sont désactivées.
             search: Chercher
         meeting_closes:
           edit:
@@ -255,7 +266,7 @@ fr:
             validate_registration_code: Valider le code d'enregistrement
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
-            invites: Invite
+            invites: Invitations
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
@@ -269,9 +280,9 @@ fr:
             success: Le code d'enregistrement a été validé avec succès.
       admin_log:
         invite:
-          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
-          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
-          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          create: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
+          deleted: "%{user_name} a supprimé l'invitation de %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
         meeting:
           close: "%{user_name} a fermé la rencontre %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la rencontre %{resource_name} sur l'espace %{space_name}"
@@ -284,6 +295,22 @@ fr:
         minutes:
           create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+      conference_venues: Salles de conférence
+      content_blocks:
+        upcoming_events:
+          name: Évènements à venir
+          upcoming_events: Rencontres à venir
+          view_all_events: Voir tout
+      directory:
+        meetings:
+          index:
+            all: Tout
+            date: Rendez-vous amoureux
+            meetings: Rencontres
+            past: Passées
+            search: Rechercher
+            space_type: Espace participatif
+            upcoming: À venir
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +333,6 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite
-        index:
-          view_meeting: Voir la rencontre
         meeting_minutes:
           meeting_minutes: Comptes rendus des rencontres
           related_information: Informations liées
@@ -333,7 +358,7 @@ fr:
         invite:
           fields:
             email: Email
-            name: prénom
+            name: Titre
             sent_at: Envoyé à
             status: Statut
           status:

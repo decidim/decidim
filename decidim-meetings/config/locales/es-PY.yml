@@ -20,6 +20,7 @@ es-PY:
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        organizer_id: Organizador
         private_meeting: Encuentro privado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
@@ -121,6 +122,16 @@ es-PY:
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Este usuario asistió a %{score} encuentros.
+          description_own: Usted ha asistido a %{score} reuniones.
+          explanation: Los usuarios obtienen esta insignia asistiendo a las reuniones.
+          name: Reuniones asistidas
+          next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha asistido a ninguna reunión.
+          unearned_own: No has asistido a ninguna reunión todavía.
     meetings:
       actions:
         agenda: Orden del día
@@ -284,6 +295,22 @@ es-PY:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      conference_venues: Lugares de conferencia
+      content_blocks:
+        upcoming_events:
+          name: Próximos Eventos
+          upcoming_events: Próximas reuniones
+          view_all_events: Ver todo
+      directory:
+        meetings:
+          index:
+            all: Todas
+            date: Fecha
+            meetings: Reuniones
+            past: Pasado
+            search: Buscar
+            space_type: Espacio participativo
+            upcoming: Próximo
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +333,6 @@ es-PY:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
-        index:
-          view_meeting: Ver encuentro
         meeting_minutes:
           meeting_minutes: Acta del encuentro
           related_information: Información relacionada

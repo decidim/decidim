@@ -20,6 +20,7 @@ ca:
         end_time: Hora de finalització
         location: Ubicació
         location_hints: Detalls d'ubicació
+        organizer_id: Organitzador
         private_meeting: Trobada privada
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
@@ -121,6 +122,16 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
+    gamification:
+      badges:
+        attended_meetings:
+          description_another: Aquest usuari ha assistit a %{score} reunions.
+          description_own: Has assistit a %{score} reunions.
+          explanation: Els usuaris obtenen aquesta distinció assistint a reunions.
+          name: Reunions assistides
+          next_level_in: Assistiu a més de %{score} reunions per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha assistit a cap reunió.
+          unearned_own: Encara no heu assistit a cap reunió.
     meetings:
       actions:
         agenda: Ordre del dia
@@ -284,6 +295,22 @@ ca:
         minutes:
           create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} va ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
+      conference_venues: Llocs de conferències
+      content_blocks:
+        upcoming_events:
+          name: Pròxims esdeveniments
+          upcoming_events: Propers reunions
+          view_all_events: Veure tot
+      directory:
+        meetings:
+          index:
+            all: Tots
+            date: Data
+            meetings: Reunions
+            past: Passat
+            search: Cerca
+            space_type: Espai participatiu
+            upcoming: Proper
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -306,8 +333,6 @@ ca:
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar
-        index:
-          view_meeting: Veure trobada
         meeting_minutes:
           meeting_minutes: Minuts de trobada
           related_information: Informació relacionada

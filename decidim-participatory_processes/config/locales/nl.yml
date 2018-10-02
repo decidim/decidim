@@ -35,6 +35,8 @@ nl:
         name: Naam
         participatory_process_ids: Verwante thema's
       participatory_process_step:
+        cta_path: Call to Action-pad
+        cta_text: Call to Action-tekst
         description: Beschrijving
         end_date: Einddatum
         short_description: Korte beschrijving
@@ -267,9 +269,16 @@ nl:
         title: Participatieve processtappen
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Gebruik hier gedeeltelijke paden, niet volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
+            cta_text_help: Als dit niet is ingesteld, wordt de knop niet weergegeven.
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.

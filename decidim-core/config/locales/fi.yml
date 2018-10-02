@@ -9,20 +9,20 @@ fi:
         about: Noin
         email: Sähköpostiosoitteesi
         name: Nimesi
-        nickname: Lyhyt, ainutkertainen tunniste
+        nickname: Oma yksilöllinen käyttäjätunnuksesi
         password: Salasana
-        password_confirmation: Vahvista salasana
+        password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         user_group_document_number: Organisaation asiakirjanumero
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
     models:
-      decidim/attachment_created_event: liite
+      decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
       decidim/gamification/badge_earned_event: Ansiomerkki
-      decidim/gamification/level_up_event: Olet tasoittunut
-      decidim/profile_updated_event: profiili päivitetty
+      decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
+      decidim/profile_updated_event: Profiili päivitetty
   activerecord:
     attributes:
       decidim/user:
@@ -37,8 +37,8 @@ fi:
         user_group_phone: Organisaation puhelinnumero
     models:
       decidim/user:
-        one: käyttäjä
-        other: käyttäjät
+        one: Käyttäjä
+        other: Käyttäjät
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
@@ -50,15 +50,15 @@ fi:
       image_too_big: Kuva on liian suuri
   date:
     formats:
-      decidim_short: "%d/%m/%Y"
-      decidim_with_month_name: "%d %B %Y"
+      decidim_short: "%d.%m.%Y"
+      decidim_with_month_name: "%B %d. %Y"
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Tiedostoa ei ole
-        invalid_token: Varattu token on virheellinen.
-        no_token: Ei merkintää
-        notice: Tietosi on parhaillaan käynnissä. Saat sähköpostiviestin, kun se on valmis.
+        file_no_exists: Tiedostoa ei ole olemassa
+        invalid_token: Varmennustunniste ei kelpaa.
+        no_token: Varmennustunniste puuttuu
+        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
         confirm:
@@ -79,53 +79,53 @@ fi:
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
     admin_log:
       area:
-        create: "%{user_name} luonut %{resource_name} -alueen"
-        delete: "%{user_name} poistanut %{resource_name} -alueen"
+        create: "%{user_name} loi %{resource_name} alueen"
+        delete: "%{user_name} poisti %{resource_name} -alueen"
         update: "%{user_name} päivitti %{resource_name} -alueen"
       component:
-        create: "%{user_name} lisäsi %{resource_name} -osion %{space_name} -tilaan"
-        delete: "%{user_name} poistanut %{resource_name} -komponentin %{space_name} -tilasta"
+        create: "%{user_name} lisäsi %{resource_name} -komponentin %{space_name} -tilaan"
+        delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
-        unpublish: "%{user_name} julkaisematon %{resource_name} -komponentti %{space_name} -tilasta"
+        unpublish: "%{user_name} lopetti %{resource_name} -komponentin julkaisemisen %{space_name} -tilassa"
       moderation:
-        hide: "%{user_name} kätki tyypin %{resource_type} resurssin %{space_name} -tilaan"
-        unreport: "%{user_name} ilmoitti tyypin %{resource_type} resurssin %{space_name} tilassa"
+        hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin %{space_name} -tilaan"
+        unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen %{space_name} tilassa"
       newsletter:
-        create: "%{user_name} luonut %{resource_name} tiedote"
-        delete: "%{user_name} poistettu %{resource_name} tiedote"
-        deliver: "%{user_name} toimitti %{resource_name} tiedote"
-        update: "%{user_name} päivitti %{resource_name} tiedote"
+        create: "%{user_name} loi %{resource_name} uutiskirjeen"
+        delete: "%{user_name} poisti %{resource_name} uutiskirjeen"
+        deliver: "%{user_name} toimitti %{resource_name} uutiskirjeen"
+        update: "%{user_name} päivitti %{resource_name} uutiskirjeen"
       oauth_application:
         create: "%{user_name} loi %{resource_name} OAuth-sovelluksen"
-        delete: "%{user_name} poistanut %{resource_name} OAuth-sovelluksen"
-        update: "%{user_name} päivitti %{resource_name} OAuth-sovelluksen"
+        delete: "%{user_name} poisti %{resource_name} OAuth-sovelluksen"
+        update: "%{user_name} päivitti %{resource_name} OAuth-sovellusta"
       organization:
-        update: "%{user_name} päivitti organisaation asetukset"
+        update: "%{user_name} päivitti organisaation asetuksia"
       scope:
-        create: "%{user_name} loi %{resource_name} soveltamisalaa"
-        create_with_parent: "%{user_name} loi %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
-        delete: "%{user_name} poistanut %{resource_name} soveltamisalaa"
-        delete_with_parent: "%{user_name} poistanut %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
-        update: "%{user_name} päivitti %{resource_name} soveltamisalaa"
-        update_with_parent: "%{user_name} päivitti %{resource_name} soveltamisalan %{parent_scope} soveltamisalueen sisällä"
+        create: "%{user_name} loi %{resource_name} teeman"
+        create_with_parent: "%{user_name} loi %{resource_name} teeman %{parent_scope} teeman alle"
+        delete: "%{user_name} poisti %{resource_name} teeman"
+        delete_with_parent: "%{user_name} poisti %{resource_name} teeman %{parent_scope} teeman alta"
+        update: "%{user_name} päivitti %{resource_name} teemaa"
+        update_with_parent: "%{user_name} päivitti %{resource_name} teemaa %{parent_scope} teeman alla"
       static_page:
-        create: "%{user_name} luonut %{resource_name} staattinen sivu"
-        delete: "%{user_name} poistettu %{resource_name} staattinen sivu"
-        update: "%{user_name} päivitti %{resource_name} staattinen sivu"
+        create: "%{user_name} loi staattisen sivun %{resource_name}"
+        delete: "%{user_name} poisti staattisen sivun %{resource_name}"
+        update: "%{user_name} päivitti staattista sivua %{resource_name}"
       user:
-        invite: "%{user_name} kutsui käyttäjää %{resource_name} roolilla: %{role}"
-        officialize: "%{user_name} virallistettu käyttäjä %{resource_name}"
-        remove_from_admin: "%{user_name} poistanut käyttäjän %{resource_name} roolilla: %{role}"
-        unofficialize: "%{user_name} epävirallinen käyttäjä %{resource_name}"
+        invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
+        officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
+        remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
+        unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
-        reject: "%{user_name} hylkäsi %{resource_name} käyttäjäryhmän vahvistaminen"
-        verify: "%{user_name} vahvistanut %{resource_name} käyttäjäryhmä"
+        reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
+        verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
     anonymous_user: Anonyymi
     application:
       collection:
         documents:
           one: Asiakirja
-          other: asiakirjat
+          other: Asiakirjat
       documents:
         related_documents: Liittyvät dokumentit
       photos:
@@ -136,18 +136,18 @@ fi:
         other: kommentit
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Vahvista avaamalla passi numerosta "A"
+        explanation: Vahvista tilisi syöttämällä passin numero, joka alkaa kirjaimella "A"
         fields:
           passport_number: Passin numero
-        name: Toinen esimerkki valtuutuksesta
+        name: Toinen esimerkkivarmennustapa
       dummy_authorization_handler:
-        explanation: Varmenna itsesi esittämällä asiakirjan numero, joka päättyy merkkiin "X"
+        explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
           document_number: Asiakirjan numero
           postal_code: Postinumero
-        name: Esimerkkivaltuutus
+        name: Esimerkkivarmennus
       dummy_authorization_workflow:
-        name: Dummy-valtuutuksen työnkulku
+        name: Dummy-varmennuksen työnkulku
       errors:
         duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
       expired_at: Umpeutuu %{timestamp}
@@ -156,15 +156,15 @@ fi:
         fields:
           bar: Bar
           foo: Foo
-        name: Foo-tunnistautuminen
+        name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       show:
         expired:
-          authorize: Valtuuta uudestaan palvelulla "%{authorization}"
-          explanation: Valtuutuksesi on umpeutunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettava itsesi uudestaan palvelulla "%{authorization}".
-          title: Valtuutus on umpeutunut
+          authorize: Varmenna varmennustavalla "%{authorization}"
+          explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
+          title: Varmennus on vanhentunut
         incomplete:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
@@ -176,83 +176,90 @@ fi:
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
         pending:
-          explanation: Tämän toiminnon suorittamiseksi sinun valtuutettava itsesi palvelulla "%{authorization}", mutta valtuutuksesi on edelleen kesken
-          resume: Tarkista "%{authorization}" valtuutuksen eteneminen
-          title: Valtuutus on edelleen kesken
+          explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
+          resume: Tarkista "%{authorization}" varmennuksen eteneminen
+          title: Varmennus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei varmennettu
     collapsible_list:
       hidden_elements_count:
-        one: ja vielä 1
-        other: ja vielä %{count}
-      see_less: "(katso vähemmän)"
-      see_more: "(Katso lisää)"
+        one: ja 1 lisää
+        other: ja %{count} lisää
+      see_less: "(näytä vähemmän)"
+      see_more: "(näytä enemmän)"
     components:
       dummy:
         actions:
-          bar: Baari
-          foo: foo
-        name: Dummy komponentti
+          bar: Bar
+          foo: Foo
+        name: Esimerkkikomponentti
         settings:
           global:
-            comments_enabled: Kommentit ovat käytössä
-            dummy_global_attribute_1: Dummy-ominaisuus 1
-            dummy_global_attribute_2: Dummy-ominaisuus 2
+            comments_enabled: Kommentit käytössä
+            dummy_global_attribute_1: Esimerkkitietue 1
+            dummy_global_attribute_2: Esimerkkitietue 2
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
           step:
-            comments_blocked: Kommentit on estetty
-            dummy_step_attribute_1: Dummy Step -ominaisuus 1
-            dummy_step_attribute_2: Dummy Step -ominaisuus 2
+            comments_blocked: Kommentit estetty
+            dummy_step_attribute_1: Esimerkkivaiheen tietue 1
+            dummy_step_attribute_2: Esimerkkivaiheen tietue 2
     contact: Ota yhteyttä
     content_blocks:
       footer_sub_hero:
-        name: Footer sub sankari banneri
+        name: Alaosion esialueen banneri
       hero:
-        name: Hero kuva
+        name: Hero-kuva
       highlighted_content_banner:
-        name: Korostettu sisältö banneri
+        name: Korostettu sisältöbanneri
       how_to_participate:
-        name: Miten osallistua
+        name: Kuinka osallistua
+      html:
+        html_content: HTML-sisältö
+        name: HTML-lohko
+      metrics:
+        name: Organisaation mittarit
       stats:
-        name: Organisaatiotilastot
+        name: Organisaation tilastot
       sub_hero:
-        name: Sub sankari banneri
+        name: Hero-kuvan alabanneri
     core:
       actions:
-        unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
+        unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
     data_portability:
       export:
         ready: Valmis
       show:
         download_data: Lataa tiedot
-        download_data_description: Tiedosto, johon kaikki tiliin liittyvät tiedot lähetetään <strong>%{user_email}</strong>
+        download_data_description: Kaikki tiliisi liittyvät tiedot sisältävä tiedosto lähetetään sähköpostiosoitteeseen <strong>%{user_email}</strong>
         request_data: Pyydä tietoja
+    datepicker:
+      help_text: 'Odotettu muoto: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Lyhyt, yksilöllinen tunniste %{organization}
+          nickname_help: Lyhyt, yksilöivä käyttäjätunnus organisaatiossa %{organization}
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       registrations:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
-          newsletter: Saada satunnaisen uutiskirjeen, jossa on tarvittavat tiedot
+          newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
-          nickname_help: Lyhyt, yksilöllinen tunniste %{organization}
+          nickname_help: Lyhyt, yksilöivä käyttäjätunnus organisaatiossa %{organization}
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
             legend: Rekisteröidy
             user: Yksityishenkilönä
             user_group: Organisaationa/yhteisönä
-          subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja tukeaksesi ehdotuksia.
+          subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
           terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
           tos_title: Käyttöehdot
@@ -264,33 +271,33 @@ fi:
       shared:
         newsletter_modal:
           buttons:
-            check: Tarkista ja jatka
-            close_modal: Sulje modeemi
-            uncheck: Poista valinta
+            check: Hyväksy yhteydenotto ja jatka
+            close_modal: Sulje ikkuna
+            uncheck: En halua uutiskirjeitä
           notice: |-
             <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
-            Ole hyvä ja harkitse uudelleen ruutua uutiskirjeen valintaruutu alla.<br>
-            Meille on erittäin tärkeää, että voit vastaanottaa satunnaisia ​​sähköposteja tärkeiden ilmoitusten tekemiseen. Voit aina muuttaa ilmoituksesi asetussivulla.</p>
-            <p>Jos et rasti laatikosta, saatat puuttua asiaan liittyvistä uusista osallistumismahdollisuuksista alustalla.<br>
-            Jos haluat edelleen välttää uutiskirjeitä, ymmärrämme täysin päätöksesi.</p>
-            <p>Kiitos lukemisesta!</p>
-          title: Ilmoitusten ilmoitukset
+            Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
+            Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta alustan uusista osallistumismahdollisuuksista.<br>
+            Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
+            <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
+          title: Uutiskirjeitä koskeva ilmoitus
         omniauth_buttons:
           or: Tai
     doorkeeper:
       authorizations:
         new:
-          authorize: Hyväksy hakemus
-          by_organization_link_html: <small class="heading-small">mennessä %{link}</small>
-          cancel: Peruuttaa
-          connect_your_account_html: Liitä tili kirjautumalla sisään <strong>%{organization}</strong>
-          publish_content: Julkaise sisältöä sinulle
-          see_email: Katso sähköpostiosoitteesi
-          see_name: Katso nimesi
-          see_username: Näe käyttäjätunnuksesi
-          this_application_will_be_able_to: 'Tämä sovellus pystyy:'
-          this_application_will_not_be_able_to: 'Tämä sovellus ei pysty'
-          update_profile: Päivitä profiili
+          authorize: Hyväksyn tietojeni käytön
+          by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
+          cancel: Peruuta
+          connect_your_account_html: Yhdistä tilisi kirjautumalla sisään organisaatioon <strong>%{organization}</strong>
+          publish_content: Julkaista sisältöä puolestasi
+          see_email: Nähdä sähköpostiosoitteesi
+          see_name: Nähdä nimesi
+          see_username: Nähdä käyttäjätunnuksesi
+          this_application_will_be_able_to: 'Tämä sovellus voi:'
+          this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
+          update_profile: Päivittää profiiliasi
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     errors:
       internal_server_error:
@@ -304,15 +311,15 @@ fi:
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit nähdä sen täältä:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteeseen %{resource_title}
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Päivitys %{participatory_space_title}
-          notification_title: '%{resource_title} -komponentti on nyt käytössä <a href="%{resource_path}">%{participatory_space_title}</a>'
+          email_intro: '%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Päivitys kohteessa %{participatory_space_title}
+          notification_title: '%{resource_title} -komponentti on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Hei %{user_name},
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
@@ -320,34 +327,34 @@ fi:
         email_subject: Kohteen %{resource_title} päivitys
       gamification:
         badge_earned:
-          email_intro: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
-          email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
-          email_subject: 'Olet ansainnut uuden merkin: %{badge_name}!'
-          notification_title: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} merkin</a> (taso %{current_level}).
+          email_intro: Hyvää työtä! Olet ansainnut <a href="%{resource_url}">%{badge_name} -kunniamerkin</a> (taso %{current_level}).
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
+          email_subject: 'Olet ansainnut uuden kunniamerkin: %{badge_name}!'
+          notification_title: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} -kunniamerkin</a> (taso %{current_level}).
         level_up:
-          email_intro: Hyvää työtä! Olet saavuttanut tasolle %{current_level} <a href="%{resource_path}">%{badge_name} -merkillä</a>!
-          email_outro: Olet saanut tämän ilmoituksen, koska olet tehnyt toimintaa verkkosivustollamme.
-          email_subject: Olet saavuttanut tasolle %{current_level} %{badge_name} merkkillä!
-          notification_title: Hyvää työtä! Olet saavuttanut tasolle %{current_level} <a href="%{resource_path}">%{badge_name} -merkillä</a>!
+          email_intro: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_url}">%{badge_name} -kunniamerkille</a>!
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
+          email_subject: Olet saavuttanut tason %{current_level} %{badge_name} -kunniamerkkille!
+          notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
         profile_updated:
-          email_intro: <a href="%{resource_url}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: "%{nickname} päivitti profiilinsa"
-          notification_title: <a href="%{resource_path}">profile sivu</a> %{name} (%{nickname}), jota seuraat, on päivitetty.
+          email_intro: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_url}">profiilisivua</a> on päivitetty.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: "%{nickname} päivitti profiiliaan"
+          notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
     export_mailer:
       data_portability_export:
-        click_button: Napsauta seuraavaa painiketta, jos haluat ladata tietosi. <br/> Tiedosto on käytettävissä %{date}.
-        download: ladata
+        click_button: Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.
+        download: Lataa
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
       subject: Tietojen vienti "%{name}" on valmis
     filters:
       linked_classes:
         all: Kaikki
-        collaborative_draft: Yhteistyöluonnos
+        collaborative_draft: Yhdessä koostettu luonnos
         dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
@@ -355,16 +362,16 @@ fi:
         result: Tulokset
     fingerprint:
       check: Tarkista sormenjälki
-      explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. On hyödyllistä varmistaa, että sisältöä ei ole muokattu, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
-      online_calculator_name: MD5 laskin verkossa
-      replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat kopioida sen itse, voit käyttää %{online_calculator_link} -koodia ja kopioida liittää lähdetiedot.
+      explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. Tämä on hyödyllinen varmentaaksesi, että sisältöä ei ole muokattu kenenkään toimesta, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
+      online_calculator_name: MD5-verkkolaskuri
+      replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat tuottaa sormenjäljen itse, voit käyttää %{online_calculator_link} -palvelua ja liittää lähdetiedot kyseiseen palveluun.
       source: Lähde
       title: Sormenjälki
       value: Arvo
     followers:
-      no_followers: Ei seuraajia vielä.
+      no_followers: Ei vielä seuraajia.
     following:
-      no_followings: Ei seuraa ketään tai mitään vielä.
+      no_followings: Ei vielä seuraa ketään tai mitään.
     follows:
       create:
         button: Seuraa
@@ -381,48 +388,56 @@ fi:
       remove_this_file: Poista tiedosto
     gamification:
       badges:
+        followers:
+          description_another: Tällä käyttäjällä on %{score} seuraajaa.
+          description_own: "%{score} käyttäjää seuraa sinua."
+          explanation: Käyttäjät saavat tämän kunniamerkin kun heillä on seuraajia.
+          name: Seuraajat
+          next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
+          unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
+          unearned_own: Sinulla ei ole vielä seuraajia.
         invitations:
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
-          explanation: Käyttäjät saavat tämän tunnuksen kutsumalla muita käyttäjiä.
-          name: kutsut
-          next_level_in: Kutsu %{score} käyttäjää päästäksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole vielä kutsunut käyttäjää.
-          unearned_own: Et ole vielä kutsunut käyttäjiä.
-      description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä.
+          explanation: Käyttäjät saavat tämän kunniamerkin kutsumalla muita käyttäjiä.
+          name: Kutsut
+          next_level_in: Kutsu %{score} käyttäjää lisää päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole vielä kutsunut yhtään käyttäjää.
+          unearned_own: Et ole vielä kutsunut yhtään käyttäjää.
+      description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
-      reached_top: Olet saavuttanut tämän tunnuksen korkeimman tason.
+      reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     invitations:
       create:
-        error: Ongelmia ongelmia haettaessa ystäviäsi
-        error_empty_form: Anna joitain sähköpostiosoitteita
-        success: Olemme lähettäneet kutsuja ystävillesi!
+        error: Kutsuttaessa ystäviäsi tapahtui virheitä
+        error_empty_form: Syötä sähköpostiosoitteita
+        success: Olemme lähettäneet kutsut ystävillesi!
       index:
-        customize_message: Muokkaa kutsuviesti
-        friend_email: 'Ystävä #%{index} sähköposti'
+        customize_message: Muokkaa kutsuviestiä
+        friend_email: 'Ystävän #%{index} sähköposti'
         invitations_subtitle: Kerro ystävillesi tästä sivustosta
-        invitations_title: Luuletko, että enemmän ääniä pitäisi kuulla %{organization_name}?
-        invite: kutsu
-        visit_your_profile: Käy profiilissasi
+        invitations_title: Pitäisikö sinun mielestäsi %{organization_name} -organisaatiossa kuulla enemmän ääniä?
+        invite: Kutsu
+        visit_your_profile: Siirry profiiliisi
     log:
       base_presenter:
-        create: "%{user_name} luotu %{resource_name}"
-        create_with_space: "%{user_name} luotu %{resource_name} vuonna %{space_name}"
-        delete: "%{user_name} poistettu %{resource_name}"
-        delete_with_space: "%{user_name} poistettu %{resource_name} vuonna %{space_name}"
-        unknown_action: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name}"
-        unknown_action_with_space: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name} vuonna %{space_name}"
-        update: "%{user_name} päivitetty %{resource_name}"
-        update_with_space: "%{user_name} päivitetty %{resource_name} vuonna %{space_name}"
+        create: "%{user_name} loi %{resource_name}"
+        create_with_space: "%{user_name} loi %{resource_name} tilassa %{space_name}"
+        delete: "%{user_name} poisti %{resource_name}"
+        delete_with_space: "%{user_name} poisti %{resource_name} tilassa %{space_name}"
+        unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
+        unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} tilassa %{space_name}"
+        update: "%{user_name} päivitti %{resource_name}"
+        update_with_space: "%{user_name} päivitti %{resource_name} tilassa %{space_name}"
       value_types:
         area_presenter:
           not_found: 'Aluetta ei löytynyt tietokannasta (ID: %{id})'
         area_type_presenter:
           not_found: 'Aluetyyppiä ei löytynyt tietokannasta (ID: %{id})'
         scope_presenter:
-          not_found: 'Soveltamisalaa ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Soveltamis tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     menu:
@@ -444,18 +459,22 @@ fi:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
-          from: alkaen
-          last_message_html: Viimeisin viesti <strong>%{time} ago</strong>
+          from: Lähettäjä
+          last_message_html: Viimeisin viesti <strong>%{time} sitten</strong>
           no_conversations: Sinulla ei vielä ole keskusteluja
         show:
-          conversation_with_html: Keskustelu <strong>%{name}</strong>
+          conversation_with_html: Keskustelu käyttäjän <strong>%{name}</strong> kanssa
           reply: Vastaa
-          send: Lähettää
+          send: Lähetä
         start:
           send: Lähetä
           title: Aloita keskustelu
         update:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
+    metrics:
+      users:
+        object: käyttäjää
+        title: Käyttäjiä
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
@@ -471,17 +490,17 @@ fi:
     newsletters_opt_in:
       unathorized: Valitettavasti tämä linkki ei ole enää käytettävissä
       update:
-        error: Jotain vikaa tapahtui
-        success: Uutisten asetukset päivitettiin onnistuneesti
+        error: Jotain meni vikaan
+        success: Uutiskirjeiden asetukset päivitetty onnistuneesti
     newsletters_opt_in_mailer:
       notify:
-        body_1: Henkilötietojen käsittely ja sen suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuojasäännöstön (GDPR) 25.5.2018 henkilöillä on paremmat mahdollisuudet valvoa henkilötietojaan. Tästä syystä tarvitsemme "OK" jatkaaksesi lähettämistä %{organization_name}.
-        body_2: 'Miten voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
-        body_3: Tämän suostumuksen avulla voit edelleen saada tietoja alustan palveluista. Jos päinvastoin emme saa sinulle positiivista vahvistusta, emme lopeta viestiesi lähettämistä. Jos vahvistat, että haluat jatkaa ilmoittamista, sinulla on aina mahdollisuus peruuttaa milloin tahansa.
-        button: Kyllä, haluan jatkaa asiaankuuluvien tietojen saamista
+        body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
+        body_2: 'Kuinka voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
+        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja alustan palveluista. Jos päinvastoin emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
+        button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
-        subject: Haluatko saada jatkuvasti tietoja %{organization_name}?
+        subject: Haluatko jatkaa olennaisen tiedon vastaanottamista koskien %{organization_name} -palvelua?
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
@@ -500,13 +519,13 @@ fi:
     pages:
       home:
         extended:
-          debates: Väittelyt
+          debates: Keskustelut
           debates_explanation: Väittele, keskustele ja jaa näkemyksesi rikastuttaaksesi sinua koskettavia aiheita.
           how_to_participate: Kuinka osallistun prosessiin?
-          meetings: kokoukset
+          meetings: Tapahtumat
           meetings_explanation: Selvitä missä ja milloin voit osallistua julkisiin tapahtumiin.
           more_info: Lisätietoja
-          proposals: ehdotukset
+          proposals: Ehdotukset
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
           footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
@@ -515,59 +534,66 @@ fi:
         hero:
           participate: Osallistu
           welcome: Tervetuloa organisaatioon %{organization}!
+        metrics:
+          headline: Osallistuminen lukuina
         statistics:
-          answers_count: Valmistuneet kyselyt
-          assemblies_count: Kehitysryhmät
-          comments_count: Kommentit
-          debates_count: Väittelyt
-          endorsements_count: merkintöjen
+          answers_count: Kyselyiden vastauksia
+          assemblies_count: Kehitysryhmää
+          comments_count: Kommenttia
+          conferences_count: Konferenssit
+          debates_count: Keskustelua
+          endorsements_count: Suosituksia
           headline: Tämänhetkinen tila organisaatiolle %{organization}
-          meetings_count: kokoukset
-          orders_count: Äänet
-          pages_count: Sivut
-          processes_count: Prosessit
-          projects_count: projektit
-          proposals_accepted: Hyväksytyt ehdotukset
-          proposals_count: ehdotukset
-          results_count: tulokset
-          surveys_count: Kyselyt
-          users_count: Osallistujat
-          votes_count: Äänet
+          meetings_count: Tapahtumat
+          orders_count: Ääntä
+          pages_count: Sivua
+          processes_count: Prosessia
+          projects_count: Projektit
+          proposals_accepted: Hyväksyttyä ehdotusta
+          proposals_count: Ehdotukset
+          results_count: Tulokset
+          surveys_count: Kyselyä
+          users_count: Osallistujia
+          votes_count: Ääntä
         sub_hero:
           register: Rekisteröidy
       index:
         title: Lisätietoa
       terms_and_conditions:
         accept:
-          error: Hyväksytessämme ehtoja on tapahtunut virhe.
-          success: Loistava! Olet hyväksynyt käyttöehdot.
+          error: Ehtojen hyväksymisessä tapahtui virhe.
+          success: Hienoa! Olet hyväksynyt käyttöehdot.
         form:
-          agreement: Hyväksyn ehdot
+          agreement: Hyväksyn nämä ehdot
           legend: Hyväksy käyttöehdot
         refuse:
-          modal_body: Jos kieltäydyt, et voi käyttää alustan, voit <a href="%{data_portability_path}">ladata tiedot</a> ja / tai <a href="%{delete_path}">poistaa tilin</a>.
+          modal_body: Jos kieltäydyt, et voi käyttää alustaa. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
           modal_btn_continue: Hyväksy ehdot ja jatka
-          modal_btn_exit: Tarkastelen sitä myöhemmin
-          modal_button: Kieltää ehdot
-          modal_close: Sulje modeemi
-          modal_title: Odotatko todella päivitetyt käyttöehdot?
+          modal_btn_exit: Tarkastan ne myöhemmin
+          modal_button: Kieltäydy hyväksymästä ehtoja
+          modal_close: Sulje ikkuna
+          modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
         required_review:
-          alert: Olemme päivittäneet käyttöehtojamme ja tarkistamme ne.
-          body: Odota hetki tarkistaa Palveluehtojen päivitykset. Muuten et voi käyttää alustaa.
-          title: 'Pakollinen: Tarkista päivitykset käyttöehdoissamme'
+          alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
+          body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi alustan käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
+          title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
     profile:
       deleted: Poistettu käyttäjä
-      view: näkymä
+      view: Näytä
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
-        badges: Merkit
-        conversations: keskustelut
-        followers: seuraajaa
-        following: seuraa
-        notifications: ilmoitukset
+        badges: Kunniamerkit
+        conversations: Keskustelut
+        followers: Seuraajat
+        following: Seuraa
+        notifications: Ilmoitukset
+      sidebar:
+        badges:
+          info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
+          title: Kunniamerkit
       user:
         edit_profile: Muokkaa profiilia
     reported_mailer:
@@ -579,34 +605,34 @@ fi:
       report:
         hello: Hei %{name},
         manage_moderations: Hallitse moderointeja
-        report_html: <p>Tämä <a href="%{url}">sisältö</a> on raportoitu.</p>
-        subject: Resurssi on raportoitu
+        report_html: <p>Tämä <a href="%{url}">sisältö</a> on ilmoitettu.</p>
+        subject: Resurssi on ilmoitettu
     reports:
       create:
-        error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
-        success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+        error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
+        success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     scopes:
-      global: Yleinen konteksti
+      global: Yleinen teema
       picker:
         cancel: Peruuta
         choose: Valitse
         title: Valitse %{field}
-      prompt: Valitse konteksti
-      scopes: Kontekstit
+      prompt: Valitse teema
+      scopes: Teemat
     search:
       filter:
         all: Kaikki
-        component: komponentti
-      results_found_for_term: '%{count} Tulokset haulle: "%{term}"'
+        component: Komponentti
+      results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
       filters:
         search: Hae
       filters_small_view:
-        close_modal: Sulje modeemi
-        filter: Suodattaa
+        close_modal: Sulje ikkuna
+        filter: Suodata
         filter_by: Suodata
-        unfold: avautua
+        unfold: Avaa
     shared:
       embed_modal:
         close_window: Sulje ikkuna
@@ -616,11 +642,11 @@ fi:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
         description: Onko tämä sisältö epäasiallista?
-        does_not_belong: Tämä ehdotus sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
-        offensive: Tämä ehdotus sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
+        does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+        offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Raportoi ongelma
+        title: Ilmoita ongelmasta
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
@@ -637,57 +663,174 @@ fi:
       version_author:
         deleted: Käyttäjä poistettu
   devise:
+    confirmations:
+      confirmed: Sähköpostiosoitteesi on vahvistettu.
+      new:
+        resend_confirmation_instructions: Lähetä vahvistusohjeet uudelleen
+      send_instructions: Saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi on tietokannassamme, saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.
+    failure:
+      already_authenticated: Olet jo kirjautunut sisään.
+      inactive: Tilisi ei ole vielä aktivoitu.
+      invalid: Virheellinen %{authentication_keys} tai salasana.
+      invited: Sinulla on odottava kutsu, hyväksy se ja viimeistele tilin luominen.
+      last_attempt: Sinulla on vielä yksi yritys ennen kuin tunnuksesi lukitaan.
+      locked: Tunnuksesi on lukittu.
+      not_found_in_database: Virheellinen %{authentication_keys} tai salasana.
+      timeout: Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.
+      unauthenticated: Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.
+      unconfirmed: Sinun on vahvistettava sähköpostiosoitteesi ennen jatkamista.
     invitations:
       edit:
-        header: Lopeta tilisi luominen
-        nickname_help: Ainutlaatuinen tunniste %{organization}.
+        header: Viimeistele tilisi
+        nickname_help: Yksilöllinen käyttäjänimesi organisaatiossa %{organization}.
         submit_button: Tallenna
-        subtitle: Jos hyväksyt kutsun, aseta lempinimi ja salasana.
+        subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
+      invitation_removed: Kutsusi peruutettiin.
+      invitation_token_invalid: Käyttämäsi kutsuavain ei ole voimassa!
+      new:
+        header: Lähetä kutsu
+        submit_button: Lähetä kutsu
+      no_invitations_remaining: Ei kutsuja jäljellä
+      send_instructions: Kutsuviesti on lähetetty %{email}.
+      updated: Salasanasi on asetettu onnistuneesti. Olet nyt kirjautunut sisään.
+      updated_not_active: Salasanasi on asetettu onnistuneesti.
     mailer:
+      confirmation_instructions:
+        action: Vahvista käyttäjätilini
+        greeting: Tervetuloa %{recipient}!
+        instruction: 'Voit vahvistaa käyttäjätiliisi kytketyn sähköpostiosoitteen alla olevan linkin kautta.'
+        subject: Vahvistusohjeet
+      email_changed:
+        greeting: Hei %{recipient}!
+        message: Ilmoitamme sinulle, että  käyttäjätilisi sähköpostiosoitteeksi on vaihdettu %{email}.
+        subject: Sähköposti vaihdettu
       invitation_instructions:
         accept: Hyväksy kutsu
         accept_until: Tämä kutsu erääntyy %{due_date}.
         decline: Hylkää kutsu
         hello: Hei %{email},
         ignore: |-
-          Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
-          Tilisi ei ole luotu, ennen kuin käytät yllä olevaa linkkiä ja määrität lempinimen ja salasanasi.
+          Jos et halua hyväksyä kutsua, jätä tämä viesti huomioimatta.<br />
+          Sinulle ei luoda tiliä ennen kuin seuraat yllä olevaa linkkiä ja asetat käyttäjänimen sekä salasanan.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-        invited_you_as_friend: "%{invited_by} on kutsunut sinut %{application}."
-        invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+        invited_you_as_friend: "%{invited_by} on kutsunut sinut %{application} -nimiseen palveluun."
+        invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
-        someone_invited_you_as_private_user: Joku on kutsunut sinut %{application}-palveluntarjoajaksi, voit hyväksyä sen alla olevan linkin kautta.
+        someone_invited_you_as_private_user: Joku on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta.
+        subject: Kutsuohjeet
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
       invite_friend:
-        accept_invitation: 'Voit hyväksyä kutsun seuraavalla linkillä:'
-        friend_custom_text: 'He jättivät tämän viestin sinulle:'
-        subject: Sinut on kutsuttu %{organization}
+        accept_invitation: 'Voit hyväksyä kutsun seuraavan linkin kautta:'
+        friend_custom_text: 'Sinulle lähetettiin seuraavan viesti kutsun yhteydessä:'
+        subject: Sinut on kutsuttu organisaatioon %{organization}
       invite_private_user:
-        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin %{organization}
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin organisaatiossa %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
         greeting: Hei %{recipient}!
         message: Tämä on ilmoitus siitä, että salasanasi on nyt vaihdettu.
         subject: Salasana vaihdettu
+      reset_password_instructions:
+        action: Vaihda salasanani
+        greeting: Hei %{recipient}!
+        instruction: Joku on pyytänyt linkin käyttäjätilisi salasanan vaihtamiseen, ja voit tehdä sen alla olevan linkin kautta.
+        instruction_2: Jos et ole pyytänyt tätä, ohita tämä viesti.
+        instruction_3: Salasanasi ei muutu, ennen kuin klikkaat yllä olevaa linkkiä ja luot uuden.
+        subject: Ohjeet salasanan nollaukseen
+      unlock_instructions:
+        action: Avaa tilini
+        greeting: Hei %{recipient}!
+        instruction: 'Napsauttamalla seuraavaa linkkiä voit avata tilisi:'
+        message: Käyttäjätilisi on lukittu, koska epäonnistuneita kirjautumisyrityksiä oli liian monta.
+        subject: Avaa ohjeet
+    omniauth_callbacks:
+      failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
+      success: Kirjauduit onnistuneesti sisään %{kind} -tilillä.
+    passwords:
+      edit:
+        change_my_password: Vaihda salasanani
+        change_your_password: Vaihda salasanasi
+        confirm_new_password: Vahvista uusi salasana
+        new_password: Uusi salasana
+      new:
+        forgot_your_password: Unohditko salasanasi?
+        send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
+      no_token: Et pääse sivulle, ellet käytä sähköpostiisi lähtettyä salasanan vaihtamiseen liittyvää linkkiä. Mikäli käytit sähköpostissa olevaa linkkiä, varmista, että käytät täysin samaa URL-osoitetta, joka näkyy lähetetyssä viestissä.
+      send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutaman minuutin kuluessa.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat ohjeet salasanan vaihtamiseesi sähköpostiisi muutaman minuutin kuluessa.
+      updated: Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään.
+      updated_not_active: Salasanasi on vaihdettu onnistuneesti.
+    registrations:
+      destroyed: Hei hei! Tilisi on poistettu onnistuneesti. Toivomme näkevämme sinut pian uudelleen.
+      edit:
+        are_you_sure: Oletko varma?
+        cancel_my_account: Poista tilini
+        currently_waiting_confirmation_for_email: 'Odottaa varmistusta sähköpostista: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: jätä tyhjäksi, jos et halua muuttaa
+        title: Muokkaa %{resource}
+        unhappy: Oletko tyytymätön?
+        update: Päivitä
+        we_need_your_current_password_to_confirm_your_changes: tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset
+      new:
+        sign_up: Rekisteröidy
+      signed_up: Tervetuloa! Olet kirjautunut sisään onnistuneesti.
+      signed_up_but_inactive: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi ei ole vielä aktivoitu.
+      signed_up_but_locked: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi on lukittu.
+      signed_up_but_unconfirmed: Sähköpostiosoitteesi on lähetetty vahvistuslinkin sisältävä viesti. Aktivoi tilisi käyttämällä kyseistä linkkiä.
+      update_needs_confirmation: Tilisi on päivitetty onnistuneesti, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostisi ja vahvista sähköpostiosoitteesi käyttämällä sähköpostissa näkyvää linkkiä.
+      updated: Tilisi on päivitetty onnistuneesti.
+    sessions:
+      already_signed_out: Kirjaudut ulos onnistuneesti.
+      new:
+        sign_in: Kirjaudu sisään
+      signed_in: Kirjauduit sisään onnistuneesti.
+      signed_out: Kirjauduit ulos onnistuneesti.
+    shared:
+      links:
+        back: Takaisin
+        didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
+        didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
+        forgot_your_password: Unohditko salasanasi?
+        sign_in: Kirjaudu sisään
+        sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
+        sign_up: Rekisteröidy
+      minimum_password_length:
+        one: "(vähintään %{count} merkki)"
+        other: "(vähintään %{count} merkkiä)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon
+      send_instructions: Saat muutaman minuutin kuluessa sähköpostiviestin, jossa on ohjeet tilin lukituksen poistoon.
+      send_paranoid_instructions: Jos tilisi on olemassa, saat muutaman minuutin kuluessa sähköpostiisi ohjeet tilin lukituksen poistoon.
+      unlocked: Tilisi lukitus on poistettu onnistuneesti. Kirjaudu sisään jatkaaksesi.
   doorkeeper:
     scopes:
-      public: Julkiset tiedot.
+      public: Julkiset tietosi.
   errors:
     messages:
-      content_type_whitelist_error: tiedostotyyppi ei ole kelvollinen
-      cycle_detected: kontekstin isäntä ei voi olla sen jälkeläinen
+      already_confirmed: on jo vahvistettu, yritä kirjautua sisään
+      confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
+      content_type_whitelist_error: tiedostotyyppi ei kelpaa
+      cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
+      expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
-      long_words: sisältää liian pitkät sanat
-      must_start_with_caps: täytyy alkaa korkilla
+      long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
+      must_start_with_caps: tulee alkaa isolla kirjaimella
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
-      too_many_marks: käyttää liian monia merkkejä
-      too_much_caps: käyttää liikaa korkkeja
-      too_short: on liian lyhyt
+      not_found: ei löydy
+      not_locked: ei lukittu
+      not_saved:
+        one: '1 virhe esti %{resource} tallentamisen:'
+        other: "%{count} virhettä esti %{resource} tallentamisen:"
+      too_many_marks: sisältää liian monta välimerkkiä peräkkäin (esim. ! ja ?)
+      too_much_caps: sisältää liian monta isoa kirjainta (yli 25% tekstistä)
+      too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     required: Vaadittu
   invisible_captcha:
@@ -700,9 +843,9 @@ fi:
         link_label: täältä
         ok: Hyväksyn
       edit_link:
-        edit: Muokata
+        edit: Muokkaa
       footer:
-        made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.
+        made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
         navigation: Navigaatio
@@ -717,7 +860,7 @@ fi:
       user_menu:
         admin_dashboard: Hallintapaneeli
         conversations: Keskustelut
-        invite_friends: Kutsua ystäviä
+        invite_friends: Kutsu ystäviä
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -735,13 +878,13 @@ fi:
   locale:
     name: Suomi
   password_validator:
-    domain_included_in_password: on liian samankaltainen kuin tämä verkkotunnus
-    email_included_in_password: on liian samankaltainen kuin sähköpostisi
-    fallback: ei ole voimassa
-    name_included_in_password: on liian samankaltainen kuin nimesi
-    not_enough_unique_characters: ei ole tarpeeksi ainutlaatuisia merkkejä
+    domain_included_in_password: on liian samankaltainen palvelun verkko-osoitteen kanssa
+    email_included_in_password: on liian samankaltainen sähköpostisi kanssa
+    fallback: ei ole hyväksytyn muotoinen
+    name_included_in_password: on liian samankaltainen nimesi kanssa
+    not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
     password_not_allowed: ei ole sallittu
-    password_too_common: on liian yleistä
+    password_too_common: on liian yleinen
     password_too_long: on liian pitkä
     password_too_short: on liian lyhyt
   social_share_button:
@@ -768,10 +911,14 @@ fi:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
-      day_of_week_long: "%a %e"
+      day_of_week_long: "%a %e."
       day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "%d %B %Y"
+      decidim_day_of_year: "%B %d. %Y"
       decidim_short: "%d.%m.%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y klo %k:%M"
       time_of_day: "%H:%M"
   views:
     pagination:

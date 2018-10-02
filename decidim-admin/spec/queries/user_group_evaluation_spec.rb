@@ -14,7 +14,7 @@ module Decidim::Admin
       let!(:user_groups) { create_list(:user_group, 3, users: [create(:user, organization: organization)]) }
 
       it "returns all the user groups" do
-        expect(subject.query).to eq user_groups
+        expect(subject.query).to match_array(user_groups)
       end
     end
 
@@ -53,7 +53,7 @@ module Decidim::Admin
           let(:filter) { "verified" }
 
           it "returns all the verified user groups" do
-            expect(subject.query).to eq(verified_user_groups)
+            expect(subject.query).to match_array(verified_user_groups)
           end
         end
 
@@ -61,7 +61,7 @@ module Decidim::Admin
           let(:filter) { "rejected" }
 
           it "returns all the verified user groups" do
-            expect(subject.query).to eq(rejected_user_groups)
+            expect(subject.query).to match_array(rejected_user_groups)
           end
         end
 
@@ -69,7 +69,7 @@ module Decidim::Admin
           let(:filter) { "pending" }
 
           it "returns all the verified user groups" do
-            expect(subject.query).to eq(pending_user_groups)
+            expect(subject.query).to match_array(pending_user_groups)
           end
         end
       end

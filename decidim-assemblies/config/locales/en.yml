@@ -32,6 +32,7 @@ en:
         is_transparent: Is transparent
         local_area: Organization area
         meta_scope: Scope metadata
+        parent_id: Parent assembly
         participatory_processes_ids: Related Participatory processes
         participatory_scope: What is decided
         participatory_structure: How is it decided
@@ -218,6 +219,7 @@ en:
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
+            select_parent_assembly: Select parent assembly
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -237,6 +239,9 @@ en:
               not_ceased: Not ceased
             filter_by: Filter by
             search: Search
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximum amount of elements to show
       assembly_members:
         index:
           members: Members
@@ -328,7 +333,9 @@ en:
         assembly:
           take_part: Take part
         index:
+          organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
+          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} assembly"

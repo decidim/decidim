@@ -52,7 +52,6 @@ es:
         highlighted_content_banner_image: Imagen
         highlighted_content_banner_short_description: Descripción breve
         highlighted_content_banner_title: Título
-        homepage_image: Imagen de portada
         instagram_handler: Nombre de Instagram
         logo: Logo
         name: Nombre
@@ -66,7 +65,6 @@ es:
         show_statistics: Mostrar estadísticas
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
-        welcome_text: Texto de bienvenida
         youtube_handler: Nombre de YouTube
       scope:
         code: Código
@@ -105,9 +103,6 @@ es:
         organization_url: URL de organización
         redirect_uri: Redirigir URI
         site: Sitio web
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -503,6 +498,9 @@ es:
         edit:
           active_content_blocks: Bloques de contenido activos
           inactive_content_blocks: Bloques de contenido inactivos
+      organization_homepage_content_blocks:
+        edit:
+          update: Actualizar
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
@@ -613,6 +611,7 @@ es:
         new:
           create: Invitar
           title: Invitar a un usuario como administrador
+      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
@@ -653,7 +652,3 @@ es:
           title: Ajustes
         users:
           title: Usuarios
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

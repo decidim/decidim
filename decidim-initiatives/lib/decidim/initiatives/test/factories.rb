@@ -5,8 +5,8 @@ require "decidim/dev"
 
 FactoryBot.define do
   factory :initiatives_type, class: Decidim::InitiativesType do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
   end
@@ -14,17 +14,17 @@ FactoryBot.define do
   factory :initiatives_type_scope, class: Decidim::InitiativesTypeScope do
     type { create(:initiatives_type) }
     scope { create(:scope, organization: type.organization) }
-    supports_required 1000
+    supports_required { 1000 }
   end
 
   factory :initiative, class: Decidim::Initiative do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
     author { create(:user, :confirmed, organization: organization) }
     published_at { Time.current }
-    state "published"
-    signature_type "online"
+    state { "published" }
+    signature_type { "online" }
     signature_start_date { Date.current - 1.day }
     signature_end_date { Date.current + 120.days }
 
@@ -39,47 +39,47 @@ FactoryBot.define do
     end
 
     trait :created do
-      state "created"
-      published_at nil
-      signature_start_date nil
-      signature_end_date nil
+      state { "created" }
+      published_at { nil }
+      signature_start_date { nil }
+      signature_end_date { nil }
     end
 
     trait :validating do
-      state "validating"
-      published_at nil
-      signature_start_date nil
-      signature_end_date nil
+      state { "validating" }
+      published_at { nil }
+      signature_start_date { nil }
+      signature_end_date { nil }
     end
 
     trait :published do
-      state "published"
+      state { "published" }
     end
 
     trait :accepted do
-      state "accepted"
+      state { "accepted" }
     end
 
     trait :discarded do
-      state "discarded"
+      state { "discarded" }
     end
 
     trait :rejected do
-      state "rejected"
+      state { "rejected" }
     end
 
     trait :online do
-      signature_type "online"
+      signature_type { "online" }
     end
 
     trait :offline do
-      signature_type "offline"
+      signature_type { "offline" }
     end
 
     trait :acceptable do
       signature_start_date { Date.current - 3.months }
       signature_end_date { Date.current - 2.months }
-      signature_type "online"
+      signature_type { "online" }
 
       after(:build) do |initiative|
         initiative.initiative_votes_count = initiative.scoped_type.supports_required + 1
@@ -89,7 +89,7 @@ FactoryBot.define do
     trait :rejectable do
       signature_start_date { Date.current - 3.months }
       signature_end_date { Date.current - 2.months }
-      signature_type "online"
+      signature_type { "online" }
 
       after(:build) do |initiative|
         initiative.initiative_votes_count = initiative.scoped_type.supports_required - 1
@@ -114,18 +114,18 @@ FactoryBot.define do
   factory :initiatives_committee_member, class: Decidim::InitiativesCommitteeMember do
     initiative { create(:initiative) }
     user { create(:user, :confirmed, organization: initiative.organization) }
-    state "accepted"
+    state { "accepted" }
 
     trait :accepted do
-      state "accepted"
+      state { "accepted" }
     end
 
     trait :requested do
-      state "requested"
+      state { "requested" }
     end
 
     trait :rejected do
-      state "rejected"
+      state { "rejected" }
     end
   end
 end

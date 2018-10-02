@@ -4,7 +4,7 @@ fi:
       project:
         budget: Määräraha
         decidim_category_id: Aihepiiri
-        decidim_scope_id: Soveltamisala
+        decidim_scope_id: Teema
         description: Kuvaus
         proposal_ids: Liittyvät ehdotukset
         title: Otsikko
@@ -147,7 +147,7 @@ fi:
         success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:
-        project_proposal: 'Tähän projektiin liittyvät ehdotukset:'
+        project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
   index:
     confirmed_orders_count: Äänten määrä
   total_budget: Koko budjetti

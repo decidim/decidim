@@ -14,6 +14,7 @@ namespace :decidim do
       decidim_blogs
       decidim_budgets
       decidim_comments
+      decidim_conferences
       decidim_consultations
       decidim_debates
       decidim_forms

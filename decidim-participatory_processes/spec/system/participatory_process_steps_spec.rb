@@ -24,13 +24,36 @@ describe "Participatory Process Steps", type: :system do
 
     before do
       participatory_process.steps.first.update!(active: true)
-      visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
     end
 
     it "lists all the steps" do
+      visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
+
       expect(page).to have_css(".timeline__item", count: 3)
       steps.each do |step|
         expect(page).to have_content(/#{translated(step.title)}/i)
+      end
+    end
+
+    it "does not show a CTA button" do
+      visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
+
+      within ".process-phase" do
+        expect(page).to have_no_css(".process-header__button")
+      end
+    end
+
+    context "when the active step has CTA text and url set" do
+      before do
+        participatory_process.steps.first.update!(cta_path: "my_path", cta_text: { en: "Take action!" })
+      end
+
+      it "shows a CTA button" do
+        visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
+
+        within ".process-phase" do
+          expect(page).to have_link("Take action!")
+        end
       end
     end
   end

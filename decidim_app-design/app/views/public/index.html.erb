@@ -107,6 +107,8 @@
           <li><%= link_to "Conferencias - Home", page_path("conferences/conference-view") %></li>
           <li><%= link_to "Conferencias - Programa", page_path("conferences/conference-view-programme") %></li>
           <li><%= link_to "Conferencias - Ponentes", page_path("conferences/conference-view-speakers") %></li>
+          <li><%= link_to "Conferencias - Registro", page_path("conferences/conference-view-registration") %></li>
+          <li><%= link_to "Conferencias - Diploma", page_path("conferences/conference-view-diploma") %></li>
         </ul>
         <h2 class="section-heading">Assemblies</h2>
         <ul>
@@ -142,6 +144,29 @@
           <li><%= link_to "Blog post", page_path("blog/blog-view") %></li>
           <li><%= link_to "Blog archives", page_path("blog/blog-archives") %></li>
         </ul>
+        <h2 class="section-heading">Profile</h2>
+        <ul>
+          <li>
+            <%= link_to "Perfil de usuario - vista privada - timeline (default)", page_path("profile/user-profile")+ "#timeline" %>
+            <ul>
+              <li><%= link_to "Perfil de usuario - vista privada - notificaciones", page_path("profile/user-profile") + "#notifications" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversaciones", page_path("profile/user-profile") + "#conversations" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversacion", page_path("profile/user-profile") + "#conversation" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - followers", page_path("profile/user-profile") + "#followers" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - following", page_path("profile/user-profile") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - badges", page_path("profile/user-profile") + "#badges" %></li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Perfil de usuario - vista pública - followers (default)", page_path("profile/user-profile-public") + "#followers" %>
+            <ul>
+              <li><%= link_to "Perfil de usuario - vista pública - following", page_path("profile/user-profile-public") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista pública - badges", page_path("profile/user-profile-public") + "#badges" %></li>
+            </ul>
+          </li>
+          <li><%= link_to "Información sobre badges", page_path("profile/user-badges-info") %></li>
+          <li><%= link_to "Perfil de usuario admin - gestión de grupos", page_path("profile/user-profile-manage") %></li>
+        </ul>
         <h2 class="section-heading">User</h2>
         <ul>
           <li>
@@ -164,25 +189,6 @@
               <li><%= link_to "Login rápido: Usuario registrado", page_path("user/user-profile-fast-login-user-existent") %></li>
             </ul>
           </li>
-          <li>
-            <%= link_to "Perfil de usuario - vista privada - timeline (default)", page_path("user/user-profile")+ "#timeline" %>
-            <ul>
-              <li><%= link_to "Perfil de usuario - vista privada - notificaciones", page_path("user/user-profile") + "#notifications" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - conversaciones", page_path("user/user-profile") + "#conversations" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - conversacion", page_path("user/user-profile") + "#conversation" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - followers", page_path("user/user-profile") + "#followers" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - following", page_path("user/user-profile") + "#following" %></li>
-              <li><%= link_to "Perfil de usuario - vista privada - badges", page_path("user/user-profile") + "#badges" %></li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to "Perfil de usuario - vista pública - followers (default)", page_path("user/user-profile-public") + "#followers" %>
-            <ul>
-              <li><%= link_to "Perfil de usuario - vista pública - following", page_path("user/user-profile-public") + "#following" %></li>
-              <li><%= link_to "Perfil de usuario - vista pública - badges", page_path("user/user-profile-public") + "#badges" %></li>
-            </ul>
-          </li>
-          <li><%= link_to "Información sobre badges", page_path("user/user-badges-info") %></li>
           <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
           <li>
             <%= link_to "Usuario - perfil (versión antigua)", page_path("user/user-profile-old") %>

@@ -79,12 +79,12 @@ describe "Notifications", type: :system do
   end
 
   context "with notifications" do
-    it "shows the notifications" do
-      expect(page).to have_selector(".card.card--widget")
-    end
-
     before do
       page.visit decidim.notifications_path
+    end
+
+    it "shows the notifications" do
+      expect(page).to have_selector(".card.card--widget")
     end
 
     context "when setting a single notification as read" do

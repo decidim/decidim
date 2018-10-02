@@ -64,10 +64,10 @@ fi:
     events:
       blogs:
         post_created:
-          email_intro: Viesti "%{resource_title}" on julkaistu "%{participatory_space_title}", jota seuraat.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit lopettaa seuraamisen edellisen linkin kautta.
+          email_intro: Kohteessa "%{participatory_space_title}", jota seuraat, on julkaistu viesti "%{resource_title}".
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi viesti julkaistiin %{participatory_space_title}
-          notification_title: Viesti <a href="%{resource_path}">%{resource_title}</a> on julkaistu %{participatory_space_title}
+          notification_title: Kohteessa %{participatory_space_title} on julkaistu viesti <a href="%{resource_path}">%{resource_title}</a>
     pages:
       home:
         statistics:

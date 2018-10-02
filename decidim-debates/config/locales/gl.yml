@@ -132,3 +132,13 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Os debates agora están dispoñibles en %{participatory_space_title}
           notification_title: Agora podes comezar <a href="%{resource_path}">novos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          description_another: Este usuario participou en %{score} debates.
+          description_own: Participaches en %{score} debates.
+          explanation: Os usuarios obtén esta insignia participando en debates.
+          name: Debates
+          next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
+          unearned_another: Este usuario aínda non participou en ningún debate.
+          unearned_own: Participaches nos debates aínda.

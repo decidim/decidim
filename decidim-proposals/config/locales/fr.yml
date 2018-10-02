@@ -5,8 +5,8 @@ fr:
         body: Corps
         category_id: Catégorie
         decidim_scope_id: Portée
-        has_address: A l'adresse
-        state: Etat
+        has_address: Renseigner une adresse
+        state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
       proposal:
@@ -187,29 +187,39 @@ fr:
     gamification:
       badges:
         accepted_proposals:
-          description_another: Cet utilisateur a reçu %{score} propositions acceptées.
-          description_own: Vous avez %{score} propositions acceptées.
-          explanation: Les utilisateurs obtiennent ce badge en faisant accepter leurs propositions.
+          description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
+          description_own: '%{score} de vos propositions ont été acceptées.'
+          explanation: Les utilisateurs obtiennent ce badge lorsque leurs propositions sont acceptées.
           name: Propositions acceptées
-          next_level_in: Recevez %{score} propositions supplémentaires pour atteindre le niveau suivant!
-          unearned_another: Cet utilisateur n'a encore reçu aucune proposition.
-          unearned_own: Vous n'avez pas encore de propositions acceptées.
+          next_level_in: Vous atteindrez le niveau suivant lorsque %{score} propositions supplémentaires seront acceptés !
+          unearned_another: Aucune proposition de cet auteur n'a encore été acceptée.
+          unearned_own: Aucune de vos propositions n'a encore été acceptée.
         proposal_votes:
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
           explanation: Les utilisateurs obtiennent ce badge en soutenant les propositions.
           name: Supports de proposition
           next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a encore apporté son soutien à aucune proposition.
+          unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
           description_another: Cet utilisateur a créé %{score} propositions.
           description_own: Vous avez créé %{score} propositions.
           explanation: Les utilisateurs obtiennent ce badge en créant des propositions.
-          name: Les propositions
-          next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant!
+          name: Propositions
+          next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
+    metrics:
+      accepted_proposals:
+        object: proposition
+        title: Propositions Acceptées
+      proposals:
+        object: proposition
+        title: Les propositions
+      votes:
+        object: votes
+        title: Votes
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ fr:
     proposals:
       actions:
         answer: Répondre
+        edit_proposal: Modifier la proposition
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
         private_notes: Notes privées
@@ -257,6 +268,9 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
             success: Proposition créée avec succès
+          edit:
+            title: Mise à jour de la proposition
+            update: Mettre à jour
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
@@ -294,6 +308,7 @@ fr:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
+          update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
           create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
       answers:
@@ -338,22 +353,22 @@ fr:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
           success: Projet collaboratif créé avec succès.
         edit:
-          back: Arrière
+          back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier un brouillon collaboratif
         filters:
           all: Tout
           category: Catégorie
-          category_prompt: Invite de catégorie
+          category_prompt: Catégories
           open: Ouvrir
           published: Publié
-          related_to: Relatif à
+          related_to: Lié à
           search: Chercher
-          state: Etat
+          state: État
           withdrawn: Retiré
         filters_small_view:
-          close_modal: Fermer modal
+          close_modal: Fermer la fenêtre
           filter: Filtre
           filter_by: Filtrer par
           unfold: Se dérouler
@@ -365,7 +380,7 @@ fr:
         orders:
           label: 'Ordre des brouillons par:'
           most_contributed: La plupart ont contribué
-          random: au hasard
+          random: Aléatoire
           recent: Récent
         requests:
           accepted_request:
@@ -375,14 +390,14 @@ fr:
             error: Votre demande n'a pas pu être complétée, réessayez plus tard.
             success: Votre demande de collaboration a été envoyée avec succès
           collaboration_requests:
-            accept_request: Acceptez
-            reject_request: Rejeter
+            accept_request: Accepté
+            reject_request: Rejeté
             title: Demandes de collaboration
           rejected_request:
             error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
             success: "@%{user} a été rejeté en tant que collaborateur avec succès"
         show:
-          back: Arrière
+          back: Retour
           edit: Modifier un brouillon collaboratif
           final_proposal: proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée

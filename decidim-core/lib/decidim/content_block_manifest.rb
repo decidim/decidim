@@ -23,31 +23,21 @@ module Decidim
     include Virtus.model
 
     attribute :name, Symbol
-    attribute :i18n_name_key, String
-    attribute :cell_name, String, writer: :private
-    attribute :image_names, Array[Symbol]
+    attribute :public_name_key, String
+    attribute :cell, String
+    attribute :settings_form_cell, String
+    attribute :images, Array[Hash]
+    attribute :default, Boolean, default: false
 
-    validates :name, :cell_name, :i18n_name_key, presence: true
+    validates :name, :cell, :public_name_key, presence: true
+    validates :settings_form_cell, presence: true, if: :has_settings?
     validate :image_names_are_unique
+    validate :images_have_an_uploader
 
-    # Public: Registers an image with a given name. Use `#images` to retrieve
-    # them all.
-    def image(name)
-      raise ImageNameCannotBeBlank if name.blank?
-
-      image_names << name
-    end
-
-    # Public: Registers the cell this content block will use to render itself.
-    # Use `#cell_name` to retrieve it.
-    def cell(cell_name)
-      self.cell_name = cell_name
-    end
-
-    # Public: Registers the I18n key this contnt block will use to retrieve its
-    # public name. Use `#i18n_name_key` to retrieve it.
-    def public_name_key(i18n_key)
-      self.i18n_name_key = i18n_key
+    # Public: Registers whether this content block should be shown by default
+    # when creating an organization. Use `#default` to retrieve it.
+    def default!
+      self.default = true
     end
 
     def has_settings?
@@ -63,9 +53,13 @@ module Decidim
     private
 
     def image_names_are_unique
-      errors.add(:image_names, :invalid) if image_names.count != image_names.uniq.count
+      image_names = images.map { |image| image[:name] }
+      errors.add(:images, "names must be unique per manifest") if image_names.count != image_names.uniq.count
     end
 
-    class ImageNameCannotBeBlank < StandardError; end
+    def images_have_an_uploader
+      uploaders = images.map { |image| image[:uploader].presence }
+      errors.add(:images, "must have an uploader") if uploaders.compact.count != images.count
+    end
   end
 end
