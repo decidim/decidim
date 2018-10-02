@@ -159,6 +159,7 @@ FactoryBot.define do
     end
 
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
+    nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     organization
 

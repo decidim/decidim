@@ -4,6 +4,7 @@ module Decidim
   # A UserGroup is an organization of citizens
   class UserGroup < UserBaseEntity
     include Decidim::Traceable
+    include Decidim::DataPortability
 
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
