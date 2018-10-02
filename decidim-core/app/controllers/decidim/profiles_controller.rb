@@ -32,7 +32,7 @@ module Decidim
     private
 
     def ensure_profile_holder
-      raise ActionController::RoutingError.new("No user or user group with the given nickname") unless profile_holder
+      raise ActionController::RoutingError, "No user or user group with the given nickname" unless profile_holder
     end
 
     def profile_holder
