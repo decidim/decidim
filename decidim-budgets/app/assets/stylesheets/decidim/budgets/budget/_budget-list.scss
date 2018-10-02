@@ -37,12 +37,12 @@
 
 .budget-list__data_votes{
   @include breakpoint(medium){
-    flex-basis: 21rem !important;
+    flex-basis: 21rem;
   }
 }
 
 .budget-list__number_votes{
   @include breakpoint(medium){
-    font-size: 1.3rem !important;
+    font-size: 1.3rem;
   }
 }
