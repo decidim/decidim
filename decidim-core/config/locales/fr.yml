@@ -577,12 +577,12 @@ fr:
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
-        hello: Bonjour %{user_name},
+        hello: Bonjour %{email},
         ignore: |-
           Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
-        someone_invited_you: "Vous avez été invité-e à participer sur la plateforme de %{organization}. Vous pouvez accepter cette invitation grâce au lien ci-dessous :"
+        someone_invited_you: "Vous avez été invité-e à participer sur la plateforme de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous :"
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         someone_invited_you_as_private_user: Vous avez été invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
       invite_admin:
