@@ -23,7 +23,7 @@ module Decidim
       end
     end
 
-    def dynamic_map_for(markers_data)
+    def dynamic_map_for(markers_data, css_class = "row column")
       return if Decidim.geocoder.blank?
 
       map_html_options = {
@@ -34,7 +34,7 @@ module Decidim
         "data-here-app-code" => Decidim.geocoder[:here_app_code]
       }
       content = capture { yield }
-      content_tag :div, class: "row column" do
+      content_tag :div, class: css_class do
         content_tag(:div, "", map_html_options) + content
       end
     end

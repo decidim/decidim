@@ -2,10 +2,18 @@
   <%= render partial: "wizard_aside" %>
 
   <div class="columns large-6">
-    <%= render partial: "wizard_header", locals: {callout_help_text_class: "warning"} %>
+    <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
     <div class="card">
       <div class="p-l">
-        <%= render partial: "proposal_preview", locals: {proposal: @proposal} %>
+        <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
+
+        <% if component_settings.geocoding_enabled? && (@proposal.latitude && @proposal.longitude) %>
+          <%= dynamic_map_for proposal_preview_data_for_map(@proposal), "column" do %>
+            <%= stylesheet_link_tag "decidim/map" %>
+            <%= javascript_include_tag "decidim/map" %>
+          <% end %>
+        <% end %>
+
         <div class="row column flex-center">
           <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
 
