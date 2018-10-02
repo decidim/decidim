@@ -17,6 +17,10 @@ class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
     self.table_name = "decidim_user_group_memberships"
   end
 
+  class Coauthorship < ApplicationRecord
+    self.table_name = "decidim_coauthorships"
+  end
+
   # rubocop:disable Rails/SkipsModelValidations
   def change
     add_column :decidim_users, :type, :string
@@ -47,6 +51,7 @@ class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
         "verified_at"
       )
       extended_data = {
+        old_user_group_id: old_user_group.id,
         document_number: old_user_group.document_number,
         phone: old_user_group.phone,
         rejected_at: old_user_group.rejected_at,
@@ -64,6 +69,7 @@ class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
 
     new_ids.each do |old_id, new_id|
       Membership.where(decidim_user_group_id: old_id).update_all(decidim_user_group_id: new_id)
+      Coauthorship.where(decidim_user_group_id: old_id).update_all(decidim_user_group_id: new_id)
     end
 
     drop_table :decidim_user_groups
