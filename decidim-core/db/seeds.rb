@@ -133,7 +133,7 @@ if !Rails.env.production? || ENV["SEED"]
         extended_data: {
           document_number: Faker::Number.number(10),
           phone: Faker::PhoneNumber.phone_number,
-          verified_at: verified_at,
+          verified_at: verified_at
         },
         decidim_organization_id: user.organization.id
       )

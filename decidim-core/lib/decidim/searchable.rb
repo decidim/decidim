@@ -94,7 +94,7 @@ module Decidim
           decidim_participatory_space_id: fields[:decidim_participatory_space_id],
           decidim_participatory_space_type: fields[:decidim_participatory_space_type],
           decidim_organization_id: fields[:decidim_organization_id],
-          resource_id: self.id,
+          resource_id: id,
           resource_type: self.class.name
         }
       end
