@@ -18,6 +18,11 @@ module Decidim
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
 
+    def self.with_document_number(organization, number)
+      where(decidim_organization_id: organization.id)
+        .where("extended_data->>'document_number' = ?", number)
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserGroupPresenter
     end
@@ -71,8 +76,7 @@ module Decidim
     def unique_document_number
       is_repeated = self
                     .class
-                    .where(decidim_organization_id: decidim_organization_id)
-                    .where("extended_data->>'document_number' = ?", document_number)
+                    .with_document_number(organization, document_number)
                     .where.not(id: id)
                     .any?
 
