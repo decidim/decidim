@@ -87,6 +87,16 @@
 
   After this change you'll be able to safely migrate your database.
 
+- **Newsletter OptIn migration**: *Only for upgrades from 0.13 version* With the
+  0.13 version, User's field `newsletter_notifications_at` could had not been correctly
+  filled for subscribed users with `ChangeNewsletterNotificationTypeValue` migration.
+  To solve it, and in case you have an updated list of old subscribed users, you could
+  execute the following command in Rails console.
+
+   ```ruby
+  Decidim::User.where(**search for old subscribed users**).update(newsletter_notifications_at: Time.zone.parse("2018-05-24 00:00 +02:00"))
+  ```
+
 **Added**:
 
 - **decidim-proposals**: Apply hashtags to Proposals. [\#3959](https://github.com/decidim/decidim/pull/3959)
@@ -181,6 +191,7 @@
 - **decidim-generators**: Bootsnap warnings when generating test applications [\#4098](https://github.com/decidim/decidim/pull/4098)
 - **decidim-admin**: Don't list deleted users at officialized list. [\#4203](https://github.com/decidim/decidim/pull/4203)
 - **decidim-participayory_processes**: Copy categories and subcategories to the new process. [\#4203](https://github.com/decidim/decidim/pull/4203)
+- **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4218)
 
 **Removed**:
 
