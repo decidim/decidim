@@ -104,6 +104,7 @@ end
 - **decidim-generators**: Generated application not including bootsnap.
 - **decidim-generators**: Generated application not including optional gems.
 - **decidim-core**: Fix invitations form newsletter optin [\#3789](https://github.com/decidim/decidim/issues/3789)
+- **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4219)
 
 **Removed**:
 
