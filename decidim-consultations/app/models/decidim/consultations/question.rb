@@ -11,6 +11,8 @@ module Decidim
       include Decidim::Followable
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       belongs_to :consultation,
                  foreign_key: "decidim_consultation_id",

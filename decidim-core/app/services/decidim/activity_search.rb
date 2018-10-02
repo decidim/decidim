@@ -4,7 +4,7 @@ module Decidim
   class ActivitySearch < Searchlight::Search
     def base_query
       ActionLog
-        .public
+        .where(visibility: %w(public-only all))
         .where(organization: options.fetch(:organization))
     end
 

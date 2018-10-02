@@ -23,7 +23,7 @@ module Decidim
         def call
           return broadcast(:invalid) if question.nil? || question.published?
 
-          Decidim.traceability.perform_action!("publish", question, current_user, visibility: "all") do
+          Decidim.traceability.perform_action!("publish", question, @current_user, visibility: "all") do
             question.publish!
           end
 

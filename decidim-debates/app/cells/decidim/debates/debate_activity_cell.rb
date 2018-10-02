@@ -2,6 +2,7 @@
 
 module Decidim
   module Debates
+    # A cell to display when Debate has been created.
     class DebateActivityCell < ActivityCell
       def title
         I18n.t(
