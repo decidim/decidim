@@ -18,6 +18,7 @@ module Decidim
 
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
+    scope :pending, -> { where("extended_data->>'rejected_at' IS ? AND extended_data->>'verified_at' IS ?", nil, nil) }
 
     def self.with_document_number(organization, number)
       where(decidim_organization_id: organization.id)
@@ -65,6 +66,18 @@ module Decidim
 
     def verified_at
       extended_data["verified_at"]
+    end
+
+    def reject!
+      self.extended_data["verified_at"] = nil
+      self.extended_data["rejected_at"] = Time.current
+      save!
+    end
+
+    def verify!
+      self.extended_data["verified_at"] = Time.current
+      self.extended_data["rejected_at"] = nil
+      save!
     end
 
     private
