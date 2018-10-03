@@ -4,7 +4,6 @@ module Decidim
   # This cell renders the profile of the given user.
   class UserProfileCell < Decidim::CardMCell
     property :name
-    property :nickname
     property :officialized?
 
     def resource_path
@@ -12,7 +11,11 @@ module Decidim
     end
 
     def nickname
-      "@" + model.nickname
+      presented_resource.nickname
+    end
+
+    def badge
+      presented_resource.badge
     end
 
     def description
@@ -21,6 +24,10 @@ module Decidim
 
     def avatar
       model.avatar_url(:big)
+    end
+
+    def presented_resource
+      @presented_resource ||= present(model)
     end
   end
 end
