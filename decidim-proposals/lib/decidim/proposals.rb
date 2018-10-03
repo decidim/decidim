@@ -4,7 +4,7 @@ require "decidim/proposals/admin"
 require "decidim/proposals/engine"
 require "decidim/proposals/admin_engine"
 require "decidim/proposals/component"
-require 'acts_as_list'
+require "acts_as_list"
 
 module Decidim
   # This namespace holds the logic of the `Proposals` component. This component
