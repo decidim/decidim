@@ -7,6 +7,7 @@ module Decidim
   class UserPresenter < SimpleDelegator
     include Rails.application.routes.mounted_helpers
     include ActionView::Helpers::UrlHelper
+    include Decidim::TranslatableAttributes
 
     #
     # nickname presented in a twitter-like style
