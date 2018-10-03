@@ -201,7 +201,7 @@ module Decidim
       end
 
       def self.data_portability_images(user)
-        user_collection(user).map { |p| p.attachments.collect(&:file_url) }
+        user_collection(user).map { |p| p.attachments.collect(&:file) }
       end
 
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.

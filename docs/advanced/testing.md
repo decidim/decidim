@@ -27,3 +27,7 @@ bundle exec rake test_all
 ```
 
 But beware, it takes a long time... :)
+
+# Make CircleCI not run tests for a specific commit
+
+If you want that CircleCI no run tests for a specific commit, add this in your commit message `[ci_skip]`
