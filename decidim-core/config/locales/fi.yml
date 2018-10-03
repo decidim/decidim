@@ -6,7 +6,7 @@ fi:
       report:
         details: Lisätiedot
       user:
-        about: Noin
+        about: Profiilikuvaus
         email: Sähköpostiosoitteesi
         name: Nimesi
         nickname: Oma yksilöllinen käyttäjätunnuksesi
@@ -828,8 +828,8 @@ fi:
       not_saved:
         one: '1 virhe esti %{resource} tallentamisen:'
         other: "%{count} virhettä esti %{resource} tallentamisen:"
-      too_many_marks: sisältää liian monta välimerkkiä peräkkäin (esim. ! ja ?)
-      too_much_caps: sisältää liian monta isoa kirjainta (yli 25% tekstistä)
+      too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
+      too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     required: Vaadittu
@@ -878,10 +878,10 @@ fi:
   locale:
     name: Suomi
   password_validator:
-    domain_included_in_password: on liian samankaltainen palvelun verkko-osoitteen kanssa
-    email_included_in_password: on liian samankaltainen sähköpostisi kanssa
+    domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
+    email_included_in_password: liian samankaltainen sähköpostisi kanssa
     fallback: ei ole hyväksytyn muotoinen
-    name_included_in_password: on liian samankaltainen nimesi kanssa
+    name_included_in_password: liian samankaltainen nimesi kanssa
     not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
     password_not_allowed: ei ole sallittu
     password_too_common: on liian yleinen
