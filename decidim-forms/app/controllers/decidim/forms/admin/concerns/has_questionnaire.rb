@@ -33,12 +33,14 @@ module Decidim
 
               Admin::UpdateQuestionnaire.call(@form, questionnaire) do
                 on(:ok) do
-                  flash[:notice] = I18n.t("questionnaires.update.success", scope: "decidim.forms.admin")
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.success")
+                  flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
                   redirect_to parent_path
                 end
 
                 on(:invalid) do
-                  flash.now[:alert] = I18n.t("questionnaires.update.invalid", scope: "decidim.forms.admin")
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
+                  flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
                   render template: "decidim/forms/admin/questionnaires/edit"
                 end
               end
@@ -51,6 +53,10 @@ module Decidim
             end
 
             private
+
+            def i18n_flashes_scope
+              "decidim.forms.admin.questionnaires"
+            end
 
             def questionnaire
               @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)

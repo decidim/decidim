@@ -29,12 +29,14 @@ module Decidim
 
             Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire) do
               on(:ok) do
-                flash[:notice] = I18n.t("questionnaires.answer.success", scope: "decidim.forms")
+                # i18n-tasks-use t("decidim.forms.questionnaires.answer.success")
+                flash[:notice] = I18n.t("answer.success", scope: i18n_flashes_scope)
                 redirect_to after_answer_path
               end
 
               on(:invalid) do
-                flash.now[:alert] = I18n.t("questionnaires.answer.invalid", scope: "decidim.forms")
+                # i18n-tasks-use t("decidim.forms.questionnaires.answer.invalid")
+                flash.now[:alert] = I18n.t("answer.invalid", scope: i18n_flashes_scope)
                 render template: "decidim/forms/questionnaires/show"
               end
             end
@@ -55,6 +57,10 @@ module Decidim
           end
 
           private
+
+          def i18n_flashes_scope
+            "decidim.forms.questionnaires"
+          end
 
           def questionnaire
             @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(questionnaire_for: questionnaire_for)

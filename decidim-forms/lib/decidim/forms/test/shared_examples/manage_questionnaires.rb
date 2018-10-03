@@ -345,7 +345,7 @@ shared_examples_for "manage questionnaires" do
           click_button "Save"
         end
 
-        expect(page).to have_admin_callout("There's been errors when saving the questionnaire")
+        expect(page).to have_admin_callout("There's been errors")
         expect(page).to have_content("can't be blank", count: 3) # emtpy question, 2 empty default answer options
 
         expect(page).to have_selector("input[value='']")

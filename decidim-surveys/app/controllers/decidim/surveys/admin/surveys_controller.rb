@@ -13,6 +13,10 @@ module Decidim
 
         private
 
+        def i18n_flashes_scope
+          "decidim.surveys.admin.surveys"
+        end
+
         def survey
           @survey ||= Survey.find_by(component: current_component)
         end

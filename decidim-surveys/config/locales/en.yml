@@ -40,3 +40,11 @@ en:
       admin:
         exports:
           survey_user_answers: Survey user answers
+        surveys:
+          update:
+            invalid: There's been errors when saving the survey.
+            success: Survey saved successfully.
+      surveys:
+        answer:
+          invalid: There's been errors when answering the survey.
+          success: Survey answered successfully.
