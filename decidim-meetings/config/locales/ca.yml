@@ -354,6 +354,8 @@ ca:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"
           view: Veure
+      meetings_map:
+        view_meeting: Veure trobada
       models:
         invite:
           fields:
