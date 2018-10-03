@@ -11,7 +11,7 @@ module Decidim
 
     def show
       return redirect_to notifications_path if current_user == profile_holder
-      @content_cell = "decidim/following"
+      redirect_to profile_following_path
     end
 
     def following
