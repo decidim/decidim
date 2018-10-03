@@ -324,6 +324,10 @@ en:
           not_found: 'The assembly was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
+    metrics:
+      assemblies:
+        object: assembly
+        title: Assemblies
   errors:
     messages:
       cannot_be_blank: can not be blank

@@ -186,7 +186,7 @@ module Decidim
         Decidim.metrics_registry.register(
           :votes,
           "Decidim::Proposals::Metrics::VotesMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+          Decidim::MetricRegistry::HIGHLIGHTED
         )
       end
     end
