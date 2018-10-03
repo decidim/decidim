@@ -354,6 +354,8 @@ es-PY:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
           view: Ver
+      meetings_map:
+        view_meeting: Ver encuentro
       models:
         invite:
           fields:
