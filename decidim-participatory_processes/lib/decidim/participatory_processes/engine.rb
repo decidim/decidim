@@ -75,6 +75,14 @@ module Decidim
           QueryExtensions.define(self)
         end
       end
+
+      initializer "decidim_participatory_processes.register_metrics" do
+        Decidim.metrics_registry.register(
+          :participatory_processes,
+          "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+        )
+      end
     end
   end
 end
