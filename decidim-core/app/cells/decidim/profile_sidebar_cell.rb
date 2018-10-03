@@ -26,7 +26,7 @@ module Decidim
     end
 
     def can_contact_user?
-      !current_user || (current_user && current_user != model)
+      !current_user || (current_user && current_user != model && profile_user.can_be_contacted?)
     end
   end
 end

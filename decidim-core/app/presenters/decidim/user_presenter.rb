@@ -46,5 +46,9 @@ module Decidim
     def following_count
       __getobj__.following_users.count
     end
+
+    def can_be_contacted?
+      true
+    end
   end
 end

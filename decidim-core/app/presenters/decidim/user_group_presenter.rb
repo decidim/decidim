@@ -16,5 +16,9 @@ module Decidim
     end
 
     delegate :url, to: :avatar, prefix: true
+
+    def can_be_contacted?
+      false
+    end
   end
 end
