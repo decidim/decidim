@@ -68,16 +68,17 @@ Decidim.register_component(:surveys) do |component|
       participatory_space: participatory_space
     )
 
-    questionnaire = Decidim::Forms::Questionnaire.create!(
+    questionnaire = Decidim::Forms::Questionnaire.new(
       title: Decidim::Faker::Localized.paragraph,
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
       end,
       tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(2)
-      end,
-      questionnaire_for: Decidim::Surveys::Survey.new(component: component)
+      end
     )
+
+    Decidim::Surveys::Survey.create!(component: component, questionnaire: questionnaire)
 
     %w(short_answer long_answer).each do |text_question_type|
       Decidim::Forms::Question.create!(
