@@ -54,7 +54,7 @@ module Decidim
                         index_on_update: ->(proposal) { proposal.visible? })
 
       PARTICIPATORY_TEXT_LEVEL = {
-        section: 'section', subsection: 'sub-section', article: 'article'
+        section: 'section', sub_section: 'sub-section', article: 'article'
       }
 
       def self.order_randomly(seed)

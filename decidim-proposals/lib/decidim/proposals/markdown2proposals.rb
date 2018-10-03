@@ -11,13 +11,12 @@ module Decidim
       def initialize(component)
         super()
         @component = component
+        @last_position = 0
       end
 
       def parse(document)
         puts "docIS: #{document}\n---------------------"
         renderer= self
-        # require 'redcarpet/render_man'
-        # renderer= Redcarpet::Render::ManPage
         parser = ::Redcarpet::Markdown.new(renderer)
         str= parser.render(document)
         puts "document PARSED.: #{str}"
@@ -29,19 +28,15 @@ module Decidim
       ##########################################
 
       def preprocess(full_document)
-        puts "DOC PREPROC"
         full_document
       end
       def postprocess(full_document)
-        puts "DOC POSTPROC"
         full_document
       end
 
       def doc_header
-        puts "DOC HEADER"
       end
       def doc_footer
-        puts "DOC FOOTER"
       end
 
       # def normal_text(text)
@@ -60,49 +55,29 @@ module Decidim
       # end
 
       def header(title, level)
-         puts "header #{title} / #{level}"
+        puts "header #{title} / #{level}"
 
-        Decidim::Proposals::Proposal.create!(
+        pt_level= level > 1 ?
+          Decidim::Proposals::Proposal::PARTICIPATORY_TEXT_LEVEL[:sub_section] :
+          Decidim::Proposals::Proposal::PARTICIPATORY_TEXT_LEVEL[:section]
+        proposal= Decidim::Proposals::Proposal.create!(
           component: @component,
           title: title,
           body: title,
-          participatory_text_level: Decidim::Proposals::Proposal::PARTICIPATORY_TEXT_LEVEL[:section]
+          participatory_text_level: pt_level
         )
-        # if level == 1
-        #   parent= @doc_part
-        #   @doc_part= DocPart.new(:header, level, title, parent)
-        #   parent.add(@doc_part)
-        # else #same level
-        #   parent= @doc_part.parent
-        #   @doc_part= DocPart.new(:header, level, title, parent)
-        #   parent.add(@doc_part)
-        # end
-         "header #{title} / #{level}"
+        @last_position = proposal.position
+        title
       end
 
-      # # def double_emphasis(text)
-      # #   puts "double_emphasis #{double_emphasis}"
-      # #   "double_emphasis #{double_emphasis}"
-      # # end
-
-      # # def emphasis(text)
-      # #   puts "emphasis #{text}"
-      # #   "emphasis #{text}"
-      # # end
-
-      # def linebreak
-      #   puts "linebreak\n"
-      #   "linebreak\n"
-      # end
-
       def paragraph(text)
-        puts "paragraph (#{text})"
-        Decidim::Proposals::Proposal.create!(
+        proposal= Decidim::Proposals::Proposal.create!(
           component: @component,
-          title: title,
-          body: text
-          )
-        # @doc_part.add(DocPart.new(:paragraph, @doc_part.level, text, @doc_part))
+          title: (@last_position+1).to_s,
+          body: text,
+          participatory_text_level: Decidim::Proposals::Proposal::PARTICIPATORY_TEXT_LEVEL[:article]
+        )
+        @last_position = proposal.position
         text
       end
 
