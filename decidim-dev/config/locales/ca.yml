@@ -25,8 +25,10 @@ ca:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Fals alt
           dummies_count_medium: Fals mitjà
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Prova alt
