@@ -72,7 +72,7 @@ module Decidim
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
                 .to receive(:create!)
-                .with(Decidim::Proposals::Proposal, kind_of(Decidim::User), kind_of(Hash))
+                .with(Decidim::Proposals::Proposal, kind_of(Decidim::User), kind_of(Hash), visibility: "all")
                 .and_call_original
 
               expect { command.call }.to change(Decidim::ActionLog, :count)
