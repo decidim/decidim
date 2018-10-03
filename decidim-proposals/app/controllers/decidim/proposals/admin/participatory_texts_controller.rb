@@ -18,9 +18,9 @@ module Decidim
 
         def import
           enforce_permission_to :import, :participatory_texts
-          @import = form(Admin::ImportParticipatoryTextForm).instance
+          @import = form(Admin::ImportParticipatoryTextForm).from_params(params)
 
-          Admin::ImportParticipatoryText.call(@form) do
+          Admin::ImportParticipatoryText.call(@import) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_texts.import.success", scope: "decidim.proposals.admin")
               redirect_to proposals_path
