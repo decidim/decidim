@@ -23,7 +23,7 @@ module Decidim
     end
 
     def presented_resource
-      @presented_resource ||= present(model)
+      @presented_resource ||= model.class.name.include?("Presenter") ? model : present(model)
     end
   end
 end
