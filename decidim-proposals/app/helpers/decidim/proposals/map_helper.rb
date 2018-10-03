@@ -23,6 +23,10 @@ module Decidim
       def proposal_preview_data_for_map(proposal)
         [proposal_data_for_map(proposal)]
       end
+
+      def has_position?(proposal)
+        proposal.latitude.present? && proposal.longitude.present?
+      end
     end
   end
 end

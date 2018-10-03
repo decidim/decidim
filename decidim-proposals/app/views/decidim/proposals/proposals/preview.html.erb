@@ -7,13 +7,19 @@
       <div class="p-l">
         <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
 
-        <% if component_settings.geocoding_enabled? && (@proposal.latitude && @proposal.longitude) %>
-          <%= dynamic_map_for proposal_preview_data_for_map(@proposal), "column" do %>
-            <%= stylesheet_link_tag "decidim/map" %>
-            <%= javascript_include_tag "decidim/map" %>
+        <% if component_settings.geocoding_enabled? %>
+          <% if has_position?(@proposal) %>
+            <%= dynamic_map_for proposal_preview_data_for_map(@proposal), "column" do %>
+              <%= stylesheet_link_tag "decidim/map" %>
+              <%= javascript_include_tag "decidim/map" %>
+            <% end %>
+          <% else %>
+            <div class="column text-center">
+              <p><%= t(".not_geocoded") %></p>
+              <p><%= t(".address", address: @proposal.address) %></p>
+            </div>
           <% end %>
         <% end %>
-
         <div class="row column flex-center">
           <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
 
