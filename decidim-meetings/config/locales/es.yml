@@ -306,6 +306,8 @@ es:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        index:
+          view_meeting: Ver encuentro
         meeting_minutes:
           meeting_minutes: Acta del encuentro
           related_information: Información relacionada
