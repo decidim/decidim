@@ -20,5 +20,9 @@ module Decidim
     def can_be_contacted?
       false
     end
+
+    def officialization_text
+      I18n.t("decidim.profiles.default_officialization_text_for_user_groups")
+    end
   end
 end

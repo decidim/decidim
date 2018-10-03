@@ -10,13 +10,9 @@ module Decidim
       decidim.profile_path(model.nickname)
     end
 
-    def nickname
-      presented_resource.nickname
-    end
+    delegate :nickname, to: :presented_resource
 
-    def badge
-      presented_resource.badge
-    end
+    delegate :badge, to: :presented_resource
 
     def description
       html_truncate(model.about.to_s, length: 100)

@@ -21,7 +21,7 @@
         <%= icon profile_user.badge, class: "author__verified" %>
       </span>
       <span>
-        <%= translated_attribute(profile_user.officialized_as).presence || t("decidim.profiles.default_officialization_text") %>
+        <%= officialization_text %>
       </span>
     </div>
   <% end %>

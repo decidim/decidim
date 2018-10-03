@@ -28,5 +28,9 @@ module Decidim
     def can_contact_user?
       !current_user || (current_user && current_user != model && profile_user.can_be_contacted?)
     end
+
+    def officialization_text
+      profile_user.officialization_text
+    end
   end
 end
