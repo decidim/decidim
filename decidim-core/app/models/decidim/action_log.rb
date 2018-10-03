@@ -49,18 +49,26 @@ module Decidim
       !new_record?
     end
 
+    # Lazy loads the `component` association through BatchLoader, can be used
+    # as a regular object.
     def component_lazy(cache: true)
       self.class.lazy_relation(decidim_component_id, "Decidim::Component", cache)
     end
 
+    # Lazy loads the `organization` association through BatchLoader, can be used
+    # as a regular object.
     def organization_lazy(cache: true)
       self.class.lazy_relation(decidim_organization_id, "Decidim::Organization", cache)
     end
 
+    # Lazy loads the `user` association through BatchLoader, can be used
+    # as a regular object.
     def user_lazy(cache: true)
       self.class.lazy_relation(decidim_user_id, "Decidim::User", cache)
     end
 
+    # Lazy loads the `participatory_space` association through BatchLoader, can be used
+    # as a regular object.
     def participatory_space_lazy(cache: true)
       return if participatory_space_id.blank? || participatory_space_type.blank?
       return resouce_lazy if participatory_space_id == resource_id && participatory_space_type == resource_type
@@ -68,6 +76,8 @@ module Decidim
       self.class.lazy_relation(participatory_space_id, participatory_space_type, cache)
     end
 
+    # Lazy loads the `resource` association through BatchLoader, can be used
+    # as a regular object.
     def resource_lazy(cache: true)
       self.class.lazy_relation(resource_id, resource_type, cache)
     end
@@ -85,6 +95,12 @@ module Decidim
       Decidim::Log::BasePresenter
     end
 
+    # Returns a Batchloader for a given class to avoid N+1 queries.
+    #
+    # Since ActionLogs are related to many different resources, loading a collection
+    # of them would trigger a lot of N+1 queries. We're using BatchLoader to
+    # accumulate and group all the resource by their class and only loading them
+    # when it's necessary.
     def self.lazy_relation(id_method, klass_name, cache)
       klass = klass_name.constantize
       BatchLoader.for(id_method).batch(cache: cache, key: klass.name.underscore) do |relation_ids, loader|

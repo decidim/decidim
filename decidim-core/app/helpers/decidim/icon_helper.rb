@@ -40,7 +40,7 @@ module Decidim
     #
     # Returns an HTML tag with the icon.
     def resource_icon(resource, options = {})
-      if resource.is_a?(Decidim::Comments::Comment)
+      if resource.class.name == "Decidim::Comments::Comment"
         icon "comment-square", options
       elsif resource.respond_to?(:component)
         component_icon(resource.component, options)
