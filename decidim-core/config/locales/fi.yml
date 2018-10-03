@@ -266,8 +266,8 @@ fi:
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       sessions:
         new:
-          are_you_new?: Alustan uusi käyttäjä?
-          register: Luo käyttäjätili
+          are_you_new?: Uusi käyttäjä?
+          register: Rekisteröidy
       shared:
         newsletter_modal:
           buttons:
