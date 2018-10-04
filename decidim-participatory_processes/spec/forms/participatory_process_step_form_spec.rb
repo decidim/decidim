@@ -30,6 +30,7 @@ module Decidim
             es: "Ver",
             ca: "Veure"
           }
+        end
         let(:attributes) do
           {
             "participatory_process_step" => {
