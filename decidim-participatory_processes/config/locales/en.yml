@@ -260,7 +260,7 @@ en:
       processes: Processes
     metrics:
       participatory_processes:
-        object: participatory process
+        object: participatory processes
         title: Participatory processes
     participatory_process_groups:
       show:

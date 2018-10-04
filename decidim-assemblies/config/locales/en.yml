@@ -326,7 +326,7 @@ en:
       assemblies: Assemblies
     metrics:
       assemblies:
-        object: assembly
+        object: assemblies
         title: Assemblies
   errors:
     messages:

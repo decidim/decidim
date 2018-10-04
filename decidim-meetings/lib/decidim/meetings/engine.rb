@@ -120,6 +120,14 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_meetings.register_metrics" do
+        Decidim.metrics_registry.register(
+          :meetings,
+          "Decidim::Meetings::Metrics::MeetingsMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+        )
+      end
     end
   end
 end
