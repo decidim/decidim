@@ -157,6 +157,20 @@ en:
             moderator: Moderator
       titles:
         conferences: Conferences
+    admin_log:
+      conference:
+        create: "%{user_name} created the %{resource_name} conference"
+        publish: "%{user_name} published the %{resource_name} conference"
+        unpublish: "%{user_name} unpublished the %{resource_name} conference"
+        update: "%{user_name} updated the %{resource_name} conference"
+      conference_speaker:
+        create: "%{user_name} created the %{resource_name} speaker in the %{space_name} conference"
+        delete: "%{user_name} removed the %{resource_name} speaker from the %{space_name} conference"
+        update: "%{user_name} updated the %{resource_name} speaker in the %{space_name} conference"
+      conference_user_role:
+        create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
     conference_speakers:
       index:
         title: Speakers

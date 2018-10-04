@@ -4,7 +4,7 @@ module Decidim
   # It represents a speaker of the conference
   # Can be linked to an existent user in the platform
   class ConferenceSpeaker < ApplicationRecord
-    include Decidim::Resourceable
+    include Decidim::ParticipatorySpaceResourceable
     include Decidim::Traceable
     include Decidim::Loggable
 
@@ -17,6 +17,8 @@ module Decidim
 
     mount_uploader :avatar, Decidim::AvatarUploader
 
+    delegate :organization, to: :conference
+
     alias participatory_space conference
 
     def self.log_presenter_class_for(_log)
@@ -25,6 +27,10 @@ module Decidim
 
     def twitter_handle
       attributes["twitter_handle"].to_s.delete("@")
+    end
+
+    def conference_speaker_meetings
+      Decidim::ParticipatorySpaceLink.where(from: self, name: "speaking_meetings")
     end
   end
 end

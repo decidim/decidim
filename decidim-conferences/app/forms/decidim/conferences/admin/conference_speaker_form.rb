@@ -41,6 +41,7 @@ module Decidim
         def map_model(model)
           self.user_id = model.decidim_user_id
           self.existing_user = user_id.present?
+          self.meeting_ids = model.linked_participatory_space_resources(:conference_speakers, "speaking_meetings").pluck(:id)
         end
 
         def user
@@ -49,11 +50,13 @@ module Decidim
 
         def meetings
           meeting_components = current_participatory_space.components.where(manifest_name: "meetings")
-
           @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_components)
                                                   &.order(title: :asc)
                                                   &.map { |meeting| [present(meeting).title, meeting.id] }
+        end
 
+        def meetings_selected
+          Decidim::ParticipatorySpaceLink.where(from: conference_speaker, name: "speaking_meetings")
         end
 
         private
