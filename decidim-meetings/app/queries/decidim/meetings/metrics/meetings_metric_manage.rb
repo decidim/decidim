@@ -4,9 +4,8 @@ module Decidim
   module Meetings
     module Metrics
       class MeetingsMetricManage < Decidim::MetricManage
-        def initialize(day_string, organization)
-          super(day_string, organization)
-          @metric_name = "meetings"
+        def metric_name
+          "meetings"
         end
 
         def save

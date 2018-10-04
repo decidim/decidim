@@ -13,7 +13,11 @@ module Decidim
       raise ArgumentError, "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past" if @day > Time.zone.today
       @day ||= Time.zone.today - 1.day
       @organization = organization
-      @metric_name = ""
+      @metric_name = metric_name
+    end
+
+    def metric_name
+      raise "Not implemented"
     end
 
     def valid?

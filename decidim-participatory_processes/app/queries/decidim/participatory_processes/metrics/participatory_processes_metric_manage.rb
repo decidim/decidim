@@ -4,9 +4,8 @@ module Decidim
   module ParticipatoryProcesses
     module Metrics
       class ParticipatoryProcessesMetricManage < Decidim::MetricManage
-        def initialize(day_string, organization)
-          super(day_string, organization)
-          @metric_name = "participatory_processes"
+        def metric_name
+          "participatory_processes"
         end
 
         private
