@@ -58,6 +58,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-participayory_processes**: Copy categories and subcategories to the new process. [\#4143](https://github.com/decidim/decidim/pull/4143)
 - **decidim-participayory_processes**: Fix Internet Explorer 11 related issues in process filtering. [\#4166](https://github.com/decidim/decidim/pull/4166)
 - **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4198)
+- **decidim-core**: Hide weird flash message [\#4235](https://github.com/decidim/decidim/pull/4235)
 
 **Removed**:
 
