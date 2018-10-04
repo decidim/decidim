@@ -583,7 +583,8 @@ sv:
       deleted: Ta bort användare
       view: Se
     profiles:
-      default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
+      default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
+      default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         badges: Emblem
         conversations: Samtal
