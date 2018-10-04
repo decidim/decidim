@@ -583,7 +583,8 @@ fi:
       deleted: Poistettu käyttäjä
       view: Näytä
     profiles:
-      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
+      default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu, sen nimi on vahvistettu vastaamaan sen oikeaa nimeä
+      default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
         badges: Kunniamerkit
         conversations: Keskustelut
