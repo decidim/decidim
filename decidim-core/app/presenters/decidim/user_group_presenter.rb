@@ -4,11 +4,7 @@ module Decidim
   #
   # Decorator for user groups
   #
-  class UserGroupPresenter < SimpleDelegator
-    def nickname
-      ""
-    end
-
+  class UserGroupPresenter < UserPresenter
     def deleted?
       false
     end
@@ -19,10 +15,14 @@ module Decidim
       "verified-badge"
     end
 
-    def profile_path
-      ""
+    delegate :url, to: :avatar, prefix: true
+
+    def can_be_contacted?
+      false
     end
 
-    delegate :url, to: :avatar, prefix: true
+    def officialization_text
+      I18n.t("decidim.profiles.default_officialization_text_for_user_groups")
+    end
   end
 end

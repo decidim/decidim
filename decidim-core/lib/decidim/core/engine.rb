@@ -274,6 +274,11 @@ module Decidim
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"
         end
+
+        Decidim.register_resource(:user_group) do |resource|
+          resource.model_class_name = "Decidim::UserGroup"
+          resource.card = "decidim/user_profile"
+        end
       end
 
       initializer "decidim.core.register_metrics" do
