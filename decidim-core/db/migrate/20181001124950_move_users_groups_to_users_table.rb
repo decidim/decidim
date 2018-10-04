@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
 class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
+  class Organization < ApplicationRecord
+    self.table_name = "decidim_organizations"
+  end
+
   class OldUserGroup < ApplicationRecord
     self.table_name = "decidim_user_groups"
   end
 
   class User < ApplicationRecord
+    include Decidim::Nicknamizable
+
     self.table_name = "decidim_users"
   end
 
@@ -58,7 +64,7 @@ class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
         verified_at: old_user_group.verified_at
       }
       new_attributes = clean_attributes.merge(
-        nickname: NewUserGroup.nicknamize(clean_attributes["name"]),
+        nickname: User.nicknamize(clean_attributes["name"]),
         extended_data: extended_data
       )
       new_user_group = NewUserGroup.create!(new_attributes)
