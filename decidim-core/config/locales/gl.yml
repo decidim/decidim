@@ -583,7 +583,8 @@ gl:
       deleted: Usuario eliminado
       view: Ver
     profiles:
-      default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
+      default_officialization_text_for_user_groups: Este grupo de usuarios está verificado públicamente, o seu nome verificouse para corresponder co seu nome real
+      default_officialization_text_for_users: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
         badges: Insignias
         conversations: Conversas
