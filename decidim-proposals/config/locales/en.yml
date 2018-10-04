@@ -242,6 +242,7 @@ en:
           bulk-actions:
             import_doc: Import document
           import:
+            invalid: The form is invalid!
             success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
           index:
             title: PREVIEW PARTICIPATORY TEXT

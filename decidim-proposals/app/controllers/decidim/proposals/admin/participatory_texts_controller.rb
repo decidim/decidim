@@ -25,11 +25,11 @@ module Decidim
           Admin::ImportParticipatoryText.call(@import) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_texts.import.success", scope: "decidim.proposals.admin")
-              redirect_to participatory_texts_path
+              redirect_to participatory_texts_path(component_id: current_component.id, initiative_slug: "asdf")
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_texts.imports.invalid", scope: "decidim.proposals.admin")
+              flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: "decidim.proposals.admin")
               render action: "new_import"
             end
           end
