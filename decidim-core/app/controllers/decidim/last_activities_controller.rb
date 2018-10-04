@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # The controller to handle the user's public profile page.
+  # The controller to show all the last activities in a Decidim Organization.
   class LastActivitiesController < Decidim::ApplicationController
     include FilterResource
     include Paginable
@@ -9,16 +9,21 @@ module Decidim
     helper Decidim::ResourceHelper
     helper Decidim::FiltersHelper
 
-    helper_method :activities
+    helper_method :activities, :resource_types
 
-    def index
-      @resource_types = search.resource_types
-      @resource_types = @resource_types.sort_by do |klass|
+    private
+
+    def resource_types
+      return @resource_types if defined?(@resource_types)
+
+      @resource_types = search.resource_types.sort_by do |klass|
         klass.constantize.model_name.human
       end
+
       @resource_types = @resource_types.map do |klass|
         [klass, klass.constantize.model_name.human]
       end
+
       @resource_types << ["all", I18n.t("decidim.last_activities.all")]
     end
 
@@ -35,9 +40,7 @@ module Decidim
     end
 
     def default_filter_params
-      {
-        resource_type: "all"
-      }
+      { resource_type: "all" }
     end
   end
 end
