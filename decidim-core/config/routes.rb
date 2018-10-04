@@ -65,6 +65,7 @@ Decidim::Core::Engine.routes.draw do
     get "following", to: "profiles#following", as: "profile_following"
     get "followers", to: "profiles#followers", as: "profile_followers"
     get "badges", to: "profiles#badges", as: "profile_badges"
+    get "groups", to: "profiles#groups", as: "profile_groups"
   end
 
   resources :pages, only: [:index, :show], format: false
