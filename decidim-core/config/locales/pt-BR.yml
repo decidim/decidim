@@ -583,7 +583,7 @@ pt-BR:
       deleted: Usuário excluído
       view: Vista
     profiles:
-      default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
+      default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
         badges: Distintivos
         conversations: Conversas
