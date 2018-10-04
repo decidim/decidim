@@ -9,6 +9,20 @@ module Decidim
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
         let(:organization) { create :organization }
+        let(:conference) { create :conference, organization: organization }
+        let(:meeting_component) do
+          create(:component, manifest_name: :meetings, participatory_space: conference)
+        end
+
+        let(:meetings) do
+          create_list(
+            :meeting,
+            3,
+            component: meeting_component
+          )
+        end
+        let(:meeting_ids) { meetings.map(&:id) }
+
         let(:context) do
           {
             current_organization: organization
@@ -35,7 +49,8 @@ module Decidim
               "personal_url" => personal_url,
               "avatar" => avatar,
               "existing_user" => existing_user,
-              "user_id" => user_id
+              "user_id" => user_id,
+              "meeting_ids" => meeting_ids
             }
           }
         end

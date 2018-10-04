@@ -27,7 +27,7 @@ module Decidim
 
           transaction do
             create_conference_speaker!
-            link_meetings
+            link_meetings(@conference_speaker)
           end
 
           broadcast(:ok)
@@ -35,7 +35,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :conference, :current_user, :conference_speaker
+        attr_reader :form, :conference, :current_user
 
         def create_conference_speaker!
           log_info = {
@@ -67,12 +67,13 @@ module Decidim
           )
         end
 
-        def meetings
-          @meetings ||= conference_speaker.participatory_space_sibling_scope(:conferences).where(id: @form.meeting_ids)
+        def meetings(conference_speaker)
+          meeting_components = conference_speaker.conference.components.where(manifest_name: "meetings")
+          @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_components).where(id: @form.attributes[:meeting_ids])
         end
 
-        def link_meetings
-          conference_speaker.link_participatory_spaces_resources(meetings, "speaking_meetings")
+        def link_meetings(conference_speaker)
+          conference_speaker.link_participatory_spaces_resources(meetings(conference_speaker), "speaking_meetings")
         end
       end
     end

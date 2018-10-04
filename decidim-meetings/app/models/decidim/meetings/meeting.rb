@@ -5,6 +5,7 @@ module Decidim
     # The data store for a Meeting in the Decidim::Meetings component. It stores a
     # title, description and any other useful information to render a custom meeting.
     class Meeting < Meetings::ApplicationRecord
+      include Decidim::ParticipatorySpaceResourceable
       include Decidim::Resourceable
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections

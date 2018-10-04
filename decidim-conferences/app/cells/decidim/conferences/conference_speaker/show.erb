@@ -66,17 +66,16 @@
         </div>
       <% end %>
     </div>
-    <% if model.conference_speaker_meetings.present? %>
+    <% if meetings.present? %>
       <hr class="reset mt-none mb-s" />
       <div class="row">
         <div class="column medium-12">
           <div class="bio-acts">Speaking at</div>
 
           <ul class="list-reset">
-            <% model.conference_speaker_meetings.each do |meeting| %>
-              <%= meeting_title meeting.to %>
+            <% meetings.each do |meeting| %>
+              <%= meeting_title meeting %>
               <%#= present(meeting.to).title %>
-              <li><a href="">Mesa redonda: Experiencias Decidim en otras instituciones</a></li>
             <% end %>
           </ul>
         </div>

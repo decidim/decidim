@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing conference speakers.
       #
       class ConferenceSpeakersController < Decidim::Conferences::Admin::ApplicationController
-        helper Decidim::Conferences::ConferenceSpeakersHelper
+        helper Decidim::Conferences::Admin::ConferenceSpeakersHelper
         include Concerns::ConferenceAdmin
 
         def index

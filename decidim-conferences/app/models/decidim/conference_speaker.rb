@@ -28,9 +28,5 @@ module Decidim
     def twitter_handle
       attributes["twitter_handle"].to_s.delete("@")
     end
-
-    def conference_speaker_meetings
-      Decidim::ParticipatorySpaceLink.where(from: self, name: "speaking_meetings")
-    end
   end
 end

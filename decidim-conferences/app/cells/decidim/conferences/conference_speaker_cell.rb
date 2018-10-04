@@ -6,6 +6,7 @@ module Decidim
     class ConferenceSpeakerCell < Decidim::AuthorCell
       include Decidim::Meetings::MeetingCellsHelper
       include Cell::ViewModel::Partial
+      include Decidim::Conferences::Engine.routes.url_helpers
       property :name
       property :nickname
       property :profile_path
@@ -46,8 +47,12 @@ module Decidim
         end
       end
 
+      def meetings
+        model.linked_participatory_space_resources("Meetings::Meeting", "speaking_meetings")
+      end
+
       def meeting_title(meeting)
-        link_to present(meeting).title, meeting
+        link_to present(meeting).title, resource_locator(meeting).path
       end
     end
   end
