@@ -26,9 +26,9 @@ module Decidim
         let(:end_date) {}
         let(:action_btn_text) do
           {
-            en: "See",
-            es: "Ver",
-            ca: "Veure"
+            en: "SEE",
+            es: "VER",
+            ca: "VEURE"
           }
         end
         let(:attributes) do
@@ -106,6 +106,17 @@ module Decidim
 
         context "when end_date is present" do
           let(:end_date) { 2.months.ago }
+
+          it { is_expected.to be_valid }
+        end
+        context "when action_btn_text is present" do
+          let(:action_btn_text_en) { "SEE" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when action_btn_text is present" do
+          let(:action_btn_text_en) { nil }
 
           it { is_expected.to be_valid }
         end

@@ -13,6 +13,20 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
 
+      context "when action button" do
+        let(:participatory_process_step) { build(:participatory_process_step, :action_btn, position: position) }
+
+        context "is present" do
+          let(:action_btn_text) { "SEE" }
+          it { is_expected.to be_valid }
+        end
+
+        context "is not present" do
+          let(:action_btn_text) { nil }
+          it { is_expected.to be_valid }
+        end
+      end
+
       context "when start date is after end date" do
         let(:participatory_process_step) do
           build(:participatory_process_step, start_date: 2.months.from_now, end_date: 1.month.ago)

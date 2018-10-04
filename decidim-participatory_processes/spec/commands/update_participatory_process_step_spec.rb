@@ -17,7 +17,7 @@ module Decidim::ParticipatoryProcesses
         description: { en: "new description" },
         start_date: start_date,
         end_date: end_date,
-        action_btn_text: { en: "new btn text" },
+        action_btn_text: { en: "SEE" },
         invalid?: invalid
       )
     end
@@ -43,7 +43,7 @@ module Decidim::ParticipatoryProcesses
 
         expect(step.title["en"]).to eq("new title")
         expect(step.description["en"]).to eq("new description")
-        expect(step.action_btn_text["en"]).to eq("new btn text")
+        expect(step.action_btn_text["en"]).to eq("SEE")
       end
 
       it "broadcasts ok" do

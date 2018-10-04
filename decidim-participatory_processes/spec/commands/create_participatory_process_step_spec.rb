@@ -16,11 +16,25 @@ module Decidim::ParticipatoryProcesses
         description: { en: "description" },
         start_date: Time.current,
         end_date: Time.current + 1.week,
-        action_btn_text: { en: "see" }
+        action_btn_text: { en: "see" },
         invalid?: invalid
       )
     end
     let(:invalid) { false }
+
+    context "when action btn text is not present" do
+      let(:action_btn_text) { nil }
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+    end
+
+    context "when action btn text is present" do
+      let(:action_btn_text) { "SEE" }
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+    end
 
     context "when the form is not valid" do
       let(:invalid) { true }

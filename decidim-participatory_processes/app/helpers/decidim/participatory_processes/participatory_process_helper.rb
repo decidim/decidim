@@ -15,11 +15,11 @@ module Decidim
         dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
       end
 
-      def action_btn(process, local)
+      def action_btn(process, locale)
         if process.active_step&.action_btn_text
           translated_attribute(process.active_step.action_btn_text)
         else
-          t(local, scope: "layouts.decidim")
+          locale
         end
       end
     end
