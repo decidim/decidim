@@ -583,7 +583,8 @@ fr:
       deleted: Utilisateur ayant supprimé son compte
       view: Voir
     profiles:
-      default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
+      default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
+      default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
         badges: Badges
         conversations: Conversations
