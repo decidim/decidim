@@ -200,6 +200,10 @@ en:
           email_outro: You have received this notification because you are following "%{proposal_title}". You can stop receiving notifications following the previous link.
           email_subject: An update to %{proposal_title}
           notification_title: The proposal <a href="%{proposal_path}">%{proposal_title}</a> has been included in the <a href="%{resource_path}">%{resource_title}</a> result.
+    metrics:
+      results:
+        object: results
+        title: Results
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
