@@ -13,11 +13,23 @@
               <%= stylesheet_link_tag "decidim/map" %>
               <%= javascript_include_tag "decidim/map" %>
             <% end %>
-            <%= decidim_form_for(@proposal, url: update_draft_proposal_path(@proposal), html: { method: :patch, class: "column" }) do |form| %>
+            <%= decidim_form_for(@form, url: update_draft_proposal_path(@form), html: { method: :patch, class: "column" }) do |form| %>
               <%= form.hidden_field :title %>
               <%= form.hidden_field :body, rows: 10 %>
+              <%= form.hidden_field :address %>
               <%= form.hidden_field :latitude, data: { type: "latitude" } %>
               <%= form.hidden_field :longitude, data: { type: "longitude" } %>
+              <div class="preview--form__hidden">
+                <% if @form.categories&.any? %>
+                  <%= form.categories_select :category_id, @form.categories %>
+                <% end %>
+                <% if current_participatory_space.has_subscopes? %>
+                  <%= scopes_picker_field form, :scope_id %>
+                <% end %>
+                <% if current_user.user_groups.verified.any? %>
+                  <%= form.select :user_group_id, current_user.user_groups.verified.map { |g| [g.name, g.id] }, prompt: current_user.name %>
+                <% end %>
+              </div>
               <div class="actions">
                 <%= form.submit t(".update_pos"), class: "button expanded", data: { disable: true } %>
               </div>
