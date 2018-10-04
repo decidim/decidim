@@ -583,7 +583,8 @@ pt:
       deleted: Usuário deletado
       view: Visão
     profiles:
-      default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
+      default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi confirmado para corresponder ao seu nome real
+      default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
         badges: Distintivos
         conversations: Conversas
