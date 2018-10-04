@@ -4,6 +4,8 @@ module Decidim
   module Conferences
     # This cell renders the card for an instance of an Conference Speaker
     class ConferenceSpeakerCell < Decidim::AuthorCell
+      include Decidim::Meetings::MeetingCellsHelper
+      include Cell::ViewModel::Partial
       property :name
       property :nickname
       property :profile_path
@@ -11,7 +13,7 @@ module Decidim
       private
 
       def avatar
-        return model.user.avatar unless model.avatar.presence
+        return model.user.avatar if model.user.present?
         model.avatar
       end
 
@@ -42,6 +44,10 @@ module Decidim
         link_to model.personal_url || model.user.personal_url, target: "_blank", class: "card-link" do
           "#{icon "external-link"}" "&nbsp;Personal website"
         end
+      end
+
+      def meeting_title(meeting)
+        link_to present(meeting).title, meeting
       end
     end
   end
