@@ -16,7 +16,7 @@ module Decidim
       end
 
       def action_btn(process, local)
-        if process.active_step
+        if process.active_step&.action_btn_text
           translated_attribute(process.active_step.action_btn_text)
         else
           t(local, scope: "layouts.decidim")

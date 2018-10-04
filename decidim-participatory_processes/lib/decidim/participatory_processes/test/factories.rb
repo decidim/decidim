@@ -96,6 +96,10 @@ FactoryBot.define do
     trait :active do
       active true
     end
+
+    trait :action_btn do
+      action_btn_text { Decidim::Faker::Localized.word }
+    end
   end
 
   factory :process_admin, parent: :user, class: "Decidim::User" do
