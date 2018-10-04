@@ -53,9 +53,9 @@ module Decidim
 
       def header(title, level)
         pt_level = if level > 1
-                     Decidim::Proposals::Proposal::PARTICIPATORY_TEXT_LEVEL[:sub_section]
+                     Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]
                    else
-                     Decidim::Proposals::Proposal::PARTICIPATORY_TEXT_LEVEL[:section]
+                     Decidim::Proposals::ParticipatoryTextSection::LEVELS[:section]
                    end
 
         proposal = Decidim::Proposals::Proposal.create!(
@@ -73,10 +73,19 @@ module Decidim
           component: @component,
           title: (@last_position + 1).to_s,
           body: text,
-          participatory_text_level: Decidim::Proposals::Proposal::PARTICIPATORY_TEXT_LEVEL[:article]
+          participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
         )
         @last_position = proposal.position
         text
+      end
+
+      # ignore images?
+      def image(_link, _title, _alt_text)
+        nil
+      end
+
+      def link(_link, _title, _content)
+        "link!!!"
       end
 
       # def list(content, list_type)

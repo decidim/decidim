@@ -7,10 +7,10 @@ module Decidim
     module Admin
       describe ImportParticipatoryText do
         describe "call" do
-          let!(:document_file) { Decidim::Dev.asset("participatory_text.md") }
+          let!(:document_file) { IO.read(Decidim::Dev.asset("participatory_text.md")) }
           let(:current_component) do
             create(
-              :component,
+              :proposal_component,
               participatory_space: create(:participatory_process)
             )
           end
@@ -20,6 +20,7 @@ module Decidim
               current_component: current_component,
               title: {},
               description: {},
+              document_to_s: document_file,
               valid?: valid
             )
           end
@@ -43,10 +44,14 @@ module Decidim
             let(:valid) { true }
 
             it "broadcasts ok and creates the proposals" do
+              sections = 2
+              sub_sections = 5
+              articles = 12
+              num_proposals = sections + sub_sections + articles
               expect { command.call }.to(
                 broadcast(:ok) &&
                 change { ParticipatoryText.where(component: current_component).count }.by(1) &&
-                change { Proposal.where(component: current_component).count }.by(26)
+                change { Proposal.where(component: current_component).count }.by(num_proposals)
               )
             end
           end

@@ -38,7 +38,7 @@ module Decidim
             expect(proposal.title).to eq(title)
             expect(proposal.body).to eq(title)
             expect(proposal.position).to eq(1)
-            expect(proposal.participatory_text_level).to eq(Proposal::PARTICIPATORY_TEXT_LEVEL[:section])
+            expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:section])
             should_have_expected_states(proposal)
           end
         end
@@ -83,7 +83,7 @@ module Decidim
           expect(proposal.title).to eq("1")
           expect(proposal.body).to eq(paragraph)
           expect(proposal.position).to eq(1)
-          expect(proposal.participatory_text_level).to eq(Proposal::PARTICIPATORY_TEXT_LEVEL[:article])
+          expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
           should_have_expected_states(proposal)
         end
       end

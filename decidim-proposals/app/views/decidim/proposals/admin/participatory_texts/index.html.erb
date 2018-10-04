@@ -6,7 +6,26 @@
     </h2>
   </div>
   <div class="card-section">
-    <p><%= t(".info_1") %></p>
+    <% if @drafts.any? %>
+      <p><%= t(".info_1") %></p>
+      <%= decidim_form_for(@preview_form, url: import_participatory_texts_path, class: "form grid-container") do |form| %>
+        <ul class="accordion js-sortable mb-m"
+          data-accordion
+          data-multi-expand="true"
+          data-allow-all-closed="true">
+          <% @drafts.each do |proposal| %>
+            <%= form.fields_for(:proposals, ::Decidim::Proposals::Admin::ProposalForm.from_model(proposal)) do |prop_form| %>
+              <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title flex--sbc"><%= t(proposal.participatory_text_level, scope: "decidim.proposals.admin.participatory_texts.sections") %><span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
+                <div class="accordion-content" data-tab-content>
+                  <%= render "article-preview", { form: prop_form, proposal: proposal } %>
+                </div>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end -%>
+    <% end -%>
   </div>
 </div>
 

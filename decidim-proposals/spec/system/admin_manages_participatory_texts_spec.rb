@@ -42,7 +42,7 @@ describe "Admin manages particpatory texts", type: :system do
     )
     attach_file :import_participatory_texts_document, Decidim::Dev.asset("participatory_text.md")
     click_button "Upload document"
-    expect(page).to have_content "Successsssssss"
+    expect(page).to have_content "Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing."
   end
 
   describe "importing partipatory texts from a document" do

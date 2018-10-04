@@ -20,6 +20,7 @@ module Decidim
       include Decidim::Fingerprintable
       include Decidim::DataPortability
       include Decidim::Hashtaggable
+      include Decidim::Proposals::ParticipatoryTextSection
 
       fingerprint fields: [:title, :body]
 
@@ -39,6 +40,7 @@ module Decidim
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
 
       acts_as_list scope: :decidim_component_id
@@ -52,10 +54,6 @@ module Decidim
                         },
                         index_on_create: false,
                         index_on_update: ->(proposal) { proposal.visible? })
-
-      PARTICIPATORY_TEXT_LEVEL = {
-        section: "section", sub_section: "sub-section", article: "article"
-      }.freeze
 
       def self.order_randomly(seed)
         transaction do

@@ -18,6 +18,10 @@ module Decidim
         def default_locale
           current_participatory_space.organization.default_locale
         end
+
+        def document_to_s
+          document&.read
+        end
       end
     end
   end

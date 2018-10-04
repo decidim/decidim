@@ -1,9 +1,9 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".title") %></h2>
-  </div>
-  <div class="card-section">
-    <%= decidim_form_for(@import, url: import_participatory_texts_path, class: "form grid-container") do |form| %>
+<%= decidim_form_for(@import, url: import_participatory_texts_path, class: "form grid-container") do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t(".title") %></h2>
+    </div>
+    <div class="card-section">
       <div class="grid-x">
         <div class="cell">
           <div id="import-title" class="row column">
@@ -28,12 +28,12 @@
           </fieldset>
         </div>
       </div>
-      <div class="grid-x align-center mt-sm">
-        <%= form.submit t(".upload_document") %>
-      </div>
-    <% end -%>
+    </div>
   </div>
-</div>
-<div class="grid-x align-center">
-  <%= t(".bottom_hint") %>
-</div>
+  <div class="grid-x align-center mt-sm">
+    <%= form.submit t(".upload_document") %>
+  </div>
+  <div class="grid-x align-center">
+    <%= t(".bottom_hint") %>
+  </div>
+<% end -%>

@@ -241,6 +241,8 @@ en:
         participatory_texts:
           bulk-actions:
             import_doc: Import document
+          import:
+            success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
           index:
             title: PREVIEW PARTICIPATORY TEXT
             info_1: The following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
@@ -249,6 +251,10 @@ en:
             document_legend: "Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: Markdown"
             title: ADD DOCUMENT
             upload_document: Upload document
+          sections:
+            article: Article
+            section: Section
+            sub-section: Subsection
         proposal_answers:
           edit:
             accepted: Accepted

@@ -1,0 +1,12 @@
+<div class="grid-x">
+  <div class="cell">
+    <%= form.text_field :title, optional: false %>
+  </div>
+</div>
+<% if proposal.article? %>
+<div class="grid-x">
+  <div class="cell">
+    <%= form.text_area :body, optional: true %>
+  </div>
+</div>
+<% end %>

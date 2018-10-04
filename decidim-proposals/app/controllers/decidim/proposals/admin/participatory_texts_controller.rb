@@ -8,11 +8,13 @@ module Decidim
         helper_method :proposal
 
         def index
-          # enforce_permission_to :create, :proposal_answer
-          # @form = form(Admin::ProposalAnswerForm).from_model(proposal)
+          @drafts = Proposal.where(component: current_component).drafts
+          @preview_form = form(Admin::PreviewParticipatoryTextForm).instance
+          # @preview_form.from_models(drafts)
         end
 
         def new_import
+          enforce_permission_to :import, :participatory_texts
           @import = form(Admin::ImportParticipatoryTextForm).instance
         end
 
@@ -23,7 +25,7 @@ module Decidim
           Admin::ImportParticipatoryText.call(@import) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_texts.import.success", scope: "decidim.proposals.admin")
-              redirect_to proposals_path
+              redirect_to participatory_texts_path
             end
 
             on(:invalid) do
