@@ -583,7 +583,8 @@ ca:
       deleted: Usuari eliminat
       view: Veure
     profiles:
-      default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
+      default_officialization_text_for_user_groups: Aquest grup d'usuaris es verifica públicament, el seu nom s'ha verificat per correspondre amb el seu nom real
+      default_officialization_text_for_users: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
         badges: Insígnies
         conversations: Converses
