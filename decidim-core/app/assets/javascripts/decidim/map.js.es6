@@ -21,23 +21,37 @@ L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
 const popupTemplateId = "marker-popup";
 $.template(popupTemplateId, $(`#${popupTemplateId}`).html());
 
+const updateCoordinates = (data) => {
+  $('span[data-type="latitude"]').html(data.lat)
+  $('span[data-type="longitude"]').html(data.lng)
+}
+
 const addMarkers = (markersData, markerClusters, map) => {
   const bounds = new L.LatLngBounds(markersData.map((markerData) => [markerData.latitude, markerData.longitude]));
 
   markersData.forEach((markerData) => {
     let marker = L.marker([markerData.latitude, markerData.longitude], {
-      icon: new L.DivIcon.SVGIcon.DecidimIcon()
+      icon: new L.DivIcon.SVGIcon.DecidimIcon(),
+      draggable: markerData.draggable
     });
-    let node = document.createElement("div");
-
-    $.tmpl(popupTemplateId, markerData).appendTo(node);
-
-    marker.bindPopup(node, {
-      maxwidth: 640,
-      minWidth: 500,
-      keepInView: true,
-      className: "map-info"
-    }).openPopup();
+    if (markerData.draggable)  {
+      updateCoordinates({
+        lat: markerData.latitude,
+        lng: markerData.longitude
+      });
+      marker.on("drag", (ev) => {
+        updateCoordinates(ev.target.getLatLng());
+      });
+    } else {
+      let node = document.createElement("div");
+      $.tmpl(popupTemplateId, markerData).appendTo(node);
+      marker.bindPopup(node, {
+        maxwidth: 640,
+        minWidth: 500,
+        keepInView: true,
+        className: "map-info"
+      }).openPopup();
+    }
 
     markerClusters.addLayer(marker);
   });
@@ -76,6 +90,7 @@ const loadMap = (mapId, markersData) => {
 window.Decidim = window.Decidim || {};
 
 window.Decidim.loadMap = loadMap;
+window.Decidim.updateCoordinates = updateCoordinates;
 window.Decidim.currentMap =  null;
 window.Decidim.mapConfiguration = {};
 

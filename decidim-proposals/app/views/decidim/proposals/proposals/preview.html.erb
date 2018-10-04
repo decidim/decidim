@@ -13,6 +13,11 @@
               <%= stylesheet_link_tag "decidim/map" %>
               <%= javascript_include_tag "decidim/map" %>
             <% end %>
+            <div class="card flex-center">
+              <span data-type="latitude"><%= @proposal.latitude %></span>
+              /
+              <span data-type="longitude"><%= @proposal.longitude %></span>
+            </div>
           <% else %>
             <div class="column text-center">
               <p><%= t(".not_geocoded") %></p>
