@@ -219,6 +219,8 @@ eu:
       html:
         html_content: HTML edukia
         name: HTML blokea
+      metrics:
+        name: Erakundearen metrika
       stats:
         name: Erakundearen estatistikak
       sub_hero:
@@ -469,6 +471,10 @@ eu:
           title: Hasi elkarrizketa bat
         update:
           error: Mezua ez da bidali. Saiatu berriro geroago
+    metrics:
+      users:
+        object: erabiltzaile
+        title: erabiltzaileak
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
@@ -528,6 +534,8 @@ eu:
         hero:
           participate: Parte hartu
           welcome: Ongi etorri %{organization} erakundera!
+        metrics:
+          headline: Zifretan parte hartzea
         statistics:
           answers_count: Amaitutako inkestak
           assemblies_count: Batzar

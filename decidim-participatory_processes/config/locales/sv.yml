@@ -35,6 +35,8 @@ sv:
         name: Namn
         participatory_process_ids: Relaterade processer
       participatory_process_step:
+        cta_path: Uppmaning till handling-sökväg
+        cta_text: Uppmaning till handling-text
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
@@ -273,6 +275,10 @@ sv:
         participatory_process_copies:
           form:
             slug_help: 'Rena URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Använd partiella sökvägar och inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck och måste börja med en bokstav. Om den inte är inställd kommer inte knappen att visas. Exempel: %{url}'
+            cta_text_help: Om den inte är inställd kommer inte knappen att visas.
         participatory_processes:
           form:
             announcement_help: Texten du anger här visas för användaren precis nedanför processinformationen.

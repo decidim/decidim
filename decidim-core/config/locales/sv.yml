@@ -219,6 +219,8 @@ sv:
       html:
         html_content: HTML-innehåll
         name: HTML-block
+      metrics:
+        name: Organisationsstatistik
       stats:
         name: Organisationsstatistik
       sub_hero:
@@ -469,6 +471,10 @@ sv:
           title: Starta en konversation
         update:
           error: Meddelandet har inte skickats. Försök igen senare
+    metrics:
+      users:
+        object: användare
+        title: Användare
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">notissidan</a>.
@@ -528,6 +534,8 @@ sv:
         hero:
           participate: Delta
           welcome: Välkommen till %{organization}!
+        metrics:
+          headline: Deltagande i siffror
         statistics:
           answers_count: Avslutade Undersökningar
           assemblies_count: Församlingar

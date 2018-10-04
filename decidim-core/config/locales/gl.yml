@@ -219,6 +219,8 @@ gl:
       html:
         html_content: Contido HTML
         name: Bloque HTML
+      metrics:
+        name: Métricas da organización
       stats:
         name: Estatísticas da organización
       sub_hero:
@@ -469,6 +471,10 @@ gl:
           title: Comezar unha conversa
         update:
           error: Mensaxe non enviada. Téntao de novo máis tarde
+    metrics:
+      users:
+        object: usuarios
+        title: Usuarios
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
@@ -528,6 +534,8 @@ gl:
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
+        metrics:
+          headline: Participación en números
         statistics:
           answers_count: Enquisas concluídas
           assemblies_count: Asembleas

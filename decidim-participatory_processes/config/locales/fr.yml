@@ -35,6 +35,8 @@ fr:
         name: Nom
         participatory_process_ids: Concertations liées
       participatory_process_step:
+        cta_path: Chemin d'accès à l'action
+        cta_text: Texte d'appel à l'action
         description: Description
         end_date: Date de fin
         short_description: Résumé
@@ -273,6 +275,10 @@ fr:
         participatory_process_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
+            cta_text_help: Si non défini, le bouton ne sera pas affiché.
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.

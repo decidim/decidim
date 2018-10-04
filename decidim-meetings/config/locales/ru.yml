@@ -20,13 +20,13 @@ ru:
         end_time: Время окончания
         location: Место
         location_hints: Как добраться
+        organizer_id: Организация
         private_meeting: Частная встреча
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
         start_time: Время начала
         title: Название
         transparent: Прозрачная
-        organizer_id: Организация
       minutes:
         audio_url: Веб-адрес аудиозаписи
         description: Описание
@@ -338,8 +338,6 @@ ru:
             many: "Осталось %{count} мест"
             other: "Осталось %{count} мест"
           view: Посмотреть
-      meetings_map:
-        view_meeting: Посмотреть встречу
       models:
         invite:
           fields:

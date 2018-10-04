@@ -35,6 +35,8 @@ de:
         name: Name
         participatory_process_ids: Ähnliche Prozesse
       participatory_process_step:
+        cta_path: Aufruf zum Aktionspfad
+        cta_text: Call to Action-Text
         description: Beschreibung
         end_date: Endtermin
         short_description: Kurze Beschreibung
@@ -273,6 +275,10 @@ de:
         participatory_process_copies:
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
+            cta_text_help: Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt.
         participatory_processes:
           form:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.

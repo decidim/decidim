@@ -210,6 +210,16 @@ fi:
           next_level_in: Luo %{score} ehdotusta noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä luonut ehdotuksia.
           unearned_own: Et ole vielä luonut ehdotuksia.
+    metrics:
+      accepted_proposals:
+        object: ehdotusta
+        title: Hyväksyttyjä ehdotuksia
+      proposals:
+        object: ehdotus
+        title: Ehdotuksia
+      votes:
+        object: ääntä
+        title: Ääniä
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ fi:
     proposals:
       actions:
         answer: Vastaa
+        edit_proposal: Muokkaa ehdotusta
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
         private_notes: Omat muistiinpanot
@@ -257,6 +268,9 @@ fi:
           create:
             invalid: Ehdotuksen luonnissa tapahtui virhe
             success: Ehdotus luotu onnistuneesti
+          edit:
+            title: Päivitä ehdotusta
+            update: Päivitä
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
             select_a_category: Valitse aihepiiri
@@ -294,6 +308,7 @@ fi:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
           create: "%{user_name} loi ehdotuksen %{resource_name} tilaan %{space_name} virallisena ehdotuksena"
+          update: "%{user_name} päivitti virallisen ehdotuksen %{resource_name} osallistumistilassa %{space_name}"
         proposal_note:
           create: "%{user_name} jätti yksityisen viestin ehdotuksesta %{resource_name} tilaan %{space_name}"
       answers:
@@ -614,9 +629,9 @@ fi:
           version_index: Versio %{index}
     resource_links:
       copied_from_component:
-        proposal_proposal: Vastaavat ehdotukset
+        proposal_proposal: Liittyvät ehdotukset
       included_projects:
         project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
       included_proposals:
         proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
-        proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'
+        proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
