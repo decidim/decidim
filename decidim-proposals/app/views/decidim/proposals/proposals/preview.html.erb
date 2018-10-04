@@ -13,11 +13,15 @@
               <%= stylesheet_link_tag "decidim/map" %>
               <%= javascript_include_tag "decidim/map" %>
             <% end %>
-            <div class="card flex-center">
-              <span data-type="latitude"><%= @proposal.latitude %></span>
-              /
-              <span data-type="longitude"><%= @proposal.longitude %></span>
-            </div>
+            <%= decidim_form_for(@proposal, url: update_draft_proposal_path(@proposal), html: { method: :patch, class: "column" }) do |form| %>
+              <%= form.hidden_field :title %>
+              <%= form.hidden_field :body, rows: 10 %>
+              <%= form.hidden_field :latitude, data: { type: "latitude" } %>
+              <%= form.hidden_field :longitude, data: { type: "longitude" } %>
+              <div class="actions">
+                <%= form.submit t(".update_pos"), class: "button expanded", data: { disable: true } %>
+              </div>
+            <% end %>
           <% else %>
             <div class="column text-center">
               <p><%= t(".not_geocoded") %></p>

@@ -22,8 +22,8 @@ const popupTemplateId = "marker-popup";
 $.template(popupTemplateId, $(`#${popupTemplateId}`).html());
 
 const updateCoordinates = (data) => {
-  $('span[data-type="latitude"]').html(data.lat)
-  $('span[data-type="longitude"]').html(data.lng)
+  $('input[data-type="latitude"]').val(data.lat)
+  $('input[data-type="longitude"]').val(data.lng)
 }
 
 const addMarkers = (markersData, markerClusters, map) => {

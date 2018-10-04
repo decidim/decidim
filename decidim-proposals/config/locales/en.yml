@@ -341,6 +341,7 @@ en:
           random: Random
           recent: Recent
         preview:
+          update_pos: Mettre à jour la position
           not_geocoded: Your address has not been geocoded, preview is unavailable.
           address: 'Address : %{address}'
           modify: Modify the proposal
