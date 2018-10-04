@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
+  # Renders a collection of activities using a different cell for
+  # each one.
   class ActivitiesCell < Decidim::ViewModel
     include Decidim::CardHelper
     include Decidim::IconHelper
@@ -8,6 +10,8 @@ module Decidim
 
     delegate :current_organization, to: :controller
 
+    # Since we're rendering each activity separatedly we need to trigger
+    # BatchLoader in order to accumulate all the ids to be found later.
     def show
       return if activities.blank?
 
@@ -19,6 +23,10 @@ module Decidim
       end
 
       render
+    end
+
+    def cell_for(activity)
+      "#{activity.resource_type.constantize.name.underscore}_activity"
     end
 
     def activities

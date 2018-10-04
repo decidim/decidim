@@ -19,7 +19,7 @@ module Decidim
     # this method is added in order to skip rendering a cell if there's
     # not enough data.
     def renderable?
-      resource.present? && participatory_space.present?
+      resource.present? && participatory_space.present? && published?
     end
 
     # The resource linked to the activity.
@@ -45,6 +45,11 @@ module Decidim
     end
 
     private
+
+    def published?
+      return true unless resource.respond_to?(:published?)
+      resource.published?
+    end
 
     def component
       model.component_lazy

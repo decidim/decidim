@@ -46,7 +46,7 @@ module Decidim
 
     context "when a resource is publicable" do
       let!(:action_log) do
-        create(:action_log, action: action, visibility: "all", resource: resource, organization: organization)
+        create(:action_log, action: action, visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space)
       end
       let(:component) do
         create(:component, :published, organization: organization)
