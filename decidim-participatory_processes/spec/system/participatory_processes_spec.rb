@@ -67,7 +67,11 @@ describe "Participatory Processes", type: :system do
 
   context "when there are some published processes" do
     let!(:participatory_process) { base_process }
-    let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
+    let!(:promoted_process) do
+      create(:participatory_process,
+        :promoted,
+        organization: organization)
+    end
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
     let!(:past_process) { create :participatory_process, :past, organization: organization }
     let!(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }

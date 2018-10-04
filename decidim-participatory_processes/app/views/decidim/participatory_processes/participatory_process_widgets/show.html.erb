@@ -11,7 +11,8 @@
     <% end %>
     <span class="card--process__small"></span>
     <%= link_to participatory_process_path(model), class: "card__button button small" do %>
-      <%= translated_attribute(model.active_step.action_btn_text) || t("participatory_process_widgets.show.take_part", scope: "layouts.decidim") %>
+      <%= action_btn(model, "participatory_process_widgets.show.take_part") %>
+      <% end %>
     <% end %>
   </div>
 <% end %>

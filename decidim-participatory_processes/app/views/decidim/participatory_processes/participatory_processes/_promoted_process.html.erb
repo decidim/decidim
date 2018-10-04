@@ -17,7 +17,7 @@
         <div class="card__content row collapse">
           <div class="large-6 large-offset-6 columns">
             <%= link_to participatory_process_path(promoted_process), class: "button expanded button--sc" do %>
-              <%= translated_attribute(promoted_process.active_step.action_btn_text) || t("participatory_processes.promoted_process.take_part", scope: "layouts.decidim") %>
+              <%= action_btn(promoted_process, "participatory_processes.promoted_process.take_part") %>
               <% if promoted_process.active_step %>
                 <span class="button__info">
                   <%= t("participatory_processes.promoted_process.active_step", scope: "layouts.decidim") %> <%= translated_attribute promoted_process.active_step.title %>

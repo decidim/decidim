@@ -24,8 +24,11 @@ module Decidim
       end
 
       def step_action_btn_text
-        translated_attribute(model.active_step.action_btn_text) ||
-        t("participatory_processes.participatory_process.take_part", scope: "layouts.decidim")
+        if model.active_step
+          translated_attribute(model.active_step.action_btn_text)
+        else
+          t("participatory_processes.participatory_process.take_part", scope: "layouts.decidim")
+        end
       end
 
       def step_title
