@@ -127,8 +127,10 @@ module Decidim
             it "creates a new user group" do
               expect(UserGroup).to receive(:new).with(
                 name: form.user_group_name,
-                document_number: form.user_group_document_number,
-                phone: form.user_group_phone,
+                extended_data: {
+                  document_number: form.user_group_document_number,
+                  phone: form.user_group_phone
+                },
                 decidim_organization_id: organization.id
               ).and_call_original
 

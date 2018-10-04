@@ -5,11 +5,13 @@ module Decidim
   class ProfilesController < Decidim::ApplicationController
     helper Decidim::Messaging::ConversationHelper
 
-    helper_method :user, :active_content
+    helper_method :profile_holder, :active_content
+
+    before_action :ensure_profile_holder
 
     def show
-      return redirect_to notifications_path if current_user == user
-      @content_cell = "decidim/following"
+      return redirect_to notifications_path if current_user == profile_holder
+      redirect_to profile_following_path
     end
 
     def following
@@ -29,8 +31,15 @@ module Decidim
 
     private
 
-    def user
-      @user ||= Decidim::User.find_by!(
+    def ensure_profile_holder
+      raise ActionController::RoutingError, "No user or user group with the given nickname" unless profile_holder
+    end
+
+    def profile_holder
+      @profile_holder ||= Decidim::User.find_by(
+        nickname: params[:nickname],
+        organization: current_organization
+      ) || Decidim::UserGroup.find_by(
         nickname: params[:nickname],
         organization: current_organization
       )

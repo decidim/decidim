@@ -15,7 +15,7 @@ module Decidim
 
       field :name, !types.String, "The user group's name"
 
-      field :nickname, !types.String, "User groups have no nickname" do
+      field :nickname, !types.String, "The user group nickname" do
         resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).nickname }
       end
 
@@ -23,7 +23,7 @@ module Decidim
         resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).avatar_url }
       end
 
-      field :profilePath, !types.String, "The user's profile url" do
+      field :profilePath, !types.String, "The user group's profile url" do
         resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).profile_path }
       end
 

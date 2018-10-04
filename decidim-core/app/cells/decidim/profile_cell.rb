@@ -14,7 +14,7 @@ module Decidim
       render :show
     end
 
-    def user
+    def profile_holder
       model
     end
 
@@ -27,7 +27,7 @@ module Decidim
     end
 
     def own_profile?
-      current_user && current_user == user
+      current_user && current_user == profile_holder
     end
   end
 end

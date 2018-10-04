@@ -8,7 +8,7 @@
         <div>
           <div class="author__name--container">
             <%= link_to name, resource_path, class: "author__name" %>
-            <%= icon "verified-badge", class: "author__verified" if officialized? %>
+            <%= icon badge, class: "author__verified" if badge.present? %>
           </div>
           <%= link_to nickname, resource_path, class: "author__nickname" %>
         </div>

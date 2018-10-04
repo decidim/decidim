@@ -42,6 +42,14 @@ module Decidim
     end
 
     describe "validations", processing_uploads_for: Decidim::AvatarUploader do
+      context "when the document number is taken" do
+        subject { another_user_group }
+
+        let(:another_user_group) { build :user_group, organization: user_group.organization, document_number: user_group.document_number }
+
+        it { is_expected.not_to be_valid }
+      end
+
       context "when the file is too big" do
         before do
           expect(subject.avatar).to receive(:size).and_return(11.megabytes)
