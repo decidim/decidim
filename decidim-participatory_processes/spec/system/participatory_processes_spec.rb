@@ -69,8 +69,8 @@ describe "Participatory Processes", type: :system do
     let!(:participatory_process) { base_process }
     let!(:promoted_process) do
       create(:participatory_process,
-        :promoted,
-        organization: organization)
+             :promoted,
+             organization: organization)
     end
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
     let!(:past_process) { create :participatory_process, :past, organization: organization }
@@ -210,20 +210,20 @@ describe "Participatory Processes", type: :system do
           end
         end
       end
-      context "promoted and highlighted processes" do
+      context "when promoted and highlighted processes" do
         let!(:promoted_process) do
           create(:participatory_process,
-            :promoted,
-            organization: organization)
+                 :promoted,
+                 organization: organization)
         end
         let!(:active_step) do
           create(:participatory_process_step,
-               :active,
-               participatory_process: promoted_process,
-               title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
+                 :active,
+                 participatory_process: promoted_process,
+                 title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
         end
 
-        context "on a promoted process" do
+        context "when promoted process" do
           it "display default button" do
             visit decidim_participatory_processes.participatory_processes_path
 
@@ -243,6 +243,7 @@ describe "Participatory Processes", type: :system do
                      participatory_process: promoted_process,
                      title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
             end
+
             context "when action btn is nil" do
               let(:action_btn_text) { nil }
 
@@ -268,7 +269,7 @@ describe "Participatory Processes", type: :system do
           end
         end
 
-        context "on a highlighted process" do
+        context "when highlighted process" do
           it "display default button" do
             visit decidim_participatory_processes.participatory_processes_path
 

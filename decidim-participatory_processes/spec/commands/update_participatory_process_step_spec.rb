@@ -59,7 +59,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :action_btn_text ))
+          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :action_btn_text))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

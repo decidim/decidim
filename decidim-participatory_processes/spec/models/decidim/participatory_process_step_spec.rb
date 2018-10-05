@@ -16,13 +16,15 @@ module Decidim
       context "when action button" do
         let(:participatory_process_step) { build(:participatory_process_step, :action_btn, position: position) }
 
-        context "is present" do
+        context "with value" do
           let(:action_btn_text) { "SEE" }
+
           it { is_expected.to be_valid }
         end
 
-        context "is not present" do
+        context "without value" do
           let(:action_btn_text) { nil }
+
           it { is_expected.to be_valid }
         end
       end

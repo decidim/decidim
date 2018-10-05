@@ -44,7 +44,7 @@ module Decidim
               "end_date" => end_date,
               "action_btn_text_en" => action_btn_text[:en],
               "action_btn_text_es" => action_btn_text[:es],
-              "action_btn_text_ca" => action_btn_text[:ca],
+              "action_btn_text_ca" => action_btn_text[:ca]
             }
           }
         end

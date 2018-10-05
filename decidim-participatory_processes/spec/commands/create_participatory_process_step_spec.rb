@@ -24,6 +24,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when action btn text is not present" do
       let(:action_btn_text) { nil }
+
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:ok)
       end
@@ -31,6 +32,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when action btn text is present" do
       let(:action_btn_text) { "SEE" }
+
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:ok)
       end
