@@ -407,6 +407,8 @@ es-PY:
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
+    groups:
+      no_user_groups: Aún no pertenece a ningún grupo de usuarios.
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -590,6 +592,7 @@ es-PY:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
+        groups: Los grupos
         notifications: Notificaciones
       sidebar:
         badges:
