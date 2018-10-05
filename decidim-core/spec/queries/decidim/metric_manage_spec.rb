@@ -10,12 +10,14 @@ describe Decidim::MetricManage do
 
   context "when executing a metric management" do
     it "creates a MetricManageObject" do
+      allow_any_instance_of(Decidim::MetricManage).to receive(:metric_name).and_return("metric")
       manager = described_class.for(nil, organization)
 
       expect(manager).to be_valid
     end
 
     it "creates a MetricManageObject with a passing date parameter" do
+      allow_any_instance_of(Decidim::MetricManage).to receive(:metric_name).and_return("metric")
       manager = described_class.for(date.strftime("%Y-%m-%d"), organization)
 
       expect(manager).to be_valid
@@ -29,4 +31,5 @@ describe Decidim::MetricManage do
       expect { described_class.for(future_date.strftime("%Y-%m-%d"), organization) }.to raise_error(ArgumentError)
     end
   end
+
 end
