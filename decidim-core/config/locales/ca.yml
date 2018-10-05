@@ -407,6 +407,8 @@ ca:
       description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, obtindràs diferents distintius.
       level: Nivell %{level}
       reached_top: Has arribat al nivell superior d'aquesta insígnia.
+    groups:
+      no_user_groups: Encara no pertany a cap grup d'usuaris.
     invitations:
       create:
         error: Hi ha hagut alguns problemes mentre es convidava els teus amics
@@ -590,6 +592,7 @@ ca:
         conversations: Converses
         followers: Seguidors
         following: Segueix
+        groups: Grups
         notifications: Notificacions
       sidebar:
         badges:
