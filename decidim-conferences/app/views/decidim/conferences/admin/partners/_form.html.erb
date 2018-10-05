@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="row column">
+      <%= form.label :partner_type %>
+      <%= select :conference_partner, :partner_type, @form.types, include_blank: false %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.url_field :link %>
+    </div>
+
+    <div class="row column">
+      <%= form.upload :logo, optional: false  %>
+    </div>
+  </div>
+</div>

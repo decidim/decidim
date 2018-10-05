@@ -132,6 +132,7 @@ en:
           conference_speakers: Conference speakers
           info: Info
           moderations: Moderations
+          partners: Partners
       models:
         conference:
           fields:
@@ -155,6 +156,32 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
+        partner:
+          fields:
+            link: Link
+            logo: Logo
+            name: Name
+            partner_type: Type
+            weight: Weight
+          name: Partner
+          types:
+            collaborator: Collaborator
+            main_promotor: Main promotor
+      partners:
+        create:
+          error: There was an error adding a partner for this conference.
+          success: Partner added successfully to this conference.
+        destroy:
+          success: Partner removed successfully from this conference.
+        edit:
+          title: Update partner.
+          update: Update
+        new:
+          create: Create
+          title: New partner
+        update:
+          error: There was an error updated a partner for this conference.
+          success: Partner updated successfully for this conference.
       titles:
         conferences: Conferences
     conference_speakers:
@@ -213,6 +240,9 @@ en:
             decline: Decline invitation '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
             join: Join conference '%{conference_title}'
+        partners:
+          index:
+            title: Partners
       conference:
         registration_confirm:
           cancel: Cancel
@@ -225,6 +255,10 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+      conferences:
+        partners:
+          collaborators: Collaborators
+          main_promotors: Main promotors
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.

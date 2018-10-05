@@ -18,7 +18,6 @@ module Decidim
         attribute :personal_url, String
         attribute :avatar
         attribute :remove_avatar
-        attribute :personal_url
         attribute :user_id, Integer
         attribute :existing_user, Boolean, default: false
 

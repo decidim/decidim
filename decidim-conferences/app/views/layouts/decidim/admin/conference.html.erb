@@ -48,6 +48,11 @@
           </ul>
         </li>
       <% end %>
+      <% if allowed_to? :read, :partner, conference: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_conferences.conference_partners_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("partners", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_partners_path(current_participatory_space) %>
+        </li>
+      <% end %>
       <% if allowed_to? :read, :conference_speaker, conference: current_participatory_space %>
         <li <% if is_active_link?(decidim_admin_conferences.conference_speakers_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("conference_speakers", scope: "decidim.admin.menu.conferences_submenu"), decidim_admin_conferences.conference_speakers_path(current_participatory_space) %>

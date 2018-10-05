@@ -19,6 +19,8 @@
         <%= decidim_sanitize translated_attribute(current_participatory_space.objectives) %>
       </div>
 
+      <%= partners_for current_participatory_space %>
+
       <%= render_hook(:conference_venues) %>
 
       <%= render_hook(:current_participatory_space_meetings) %>
