@@ -16,7 +16,7 @@
           <% @drafts.each do |proposal| %>
             <%= form.fields_for(:proposals, ::Decidim::Proposals::Admin::ProposalForm.from_model(proposal)) do |prop_form| %>
               <li class="accordion-item" data-accordion-item>
-                <a href="#" class="accordion-title flex--sbc"><%= t(proposal.participatory_text_level, scope: "decidim.proposals.admin.participatory_texts.sections") %><span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
+                <a href="#" class="accordion-title flex--sbc"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
                 <div class="accordion-content" data-tab-content>
                   <%= render "article-preview", { form: prop_form, proposal: proposal } %>
                 </div>

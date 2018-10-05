@@ -338,9 +338,9 @@ en:
             title: ADD DOCUMENT
             upload_document: Upload document
           sections:
-            article: Article
-            section: Section
-            sub-section: Subsection
+            article: <em>Article</em>
+            section: "<em>Section:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsection:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Accepted

@@ -4,8 +4,9 @@ module Decidim
   module Proposals
     module Admin
       # This controller manages the participatory texts area.
-      class ParticipatoryTextsController < Admin::ApplicationController
+      class ParticipatoryTextsController < ApplicationController
         helper_method :proposal
+        helper ParticipatoryTextsHelper
 
         def index
           @drafts = Proposal.where(component: current_component).drafts
