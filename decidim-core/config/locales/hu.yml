@@ -406,6 +406,8 @@ hu:
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
       level: '%{level} szint'
       reached_top: Elérted a jelvény legmagasabb szintjét.
+    groups:
+      no_user_groups: Még nem tartozik semmilyen felhasználói csoporthoz.
     invitations:
       create:
         error: Problémák adódtak a barátok meghívása közben
@@ -589,6 +591,7 @@ hu:
         conversations: Beszélgetések
         followers: Követők
         following: Követés
+        groups: csoportok
         notifications: Értesítések
       sidebar:
         badges:
