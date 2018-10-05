@@ -417,6 +417,8 @@ pl:
       description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
+    groups:
+      no_user_groups: Nie należy jeszcze do żadnej grupy użytkowników.
     invitations:
       create:
         error: Podczas zapraszania znajomych pojawiły się pewne problemy
@@ -600,6 +602,7 @@ pl:
         conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
+        groups: Grupy
         notifications: Powiadomienia
       sidebar:
         badges:
