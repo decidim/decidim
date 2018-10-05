@@ -407,6 +407,8 @@ gl:
       description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
       level: Nivel %{level}
       reached_top: Alcanzou o nivel superior desta placa.
+    groups:
+      no_user_groups: Aínda non pertence a ningún grupo de usuarios.
     invitations:
       create:
         error: Houbo algúns problemas ao invitar aos teus amigos
@@ -590,6 +592,7 @@ gl:
         conversations: Conversas
         followers: Seguidores
         following: Segue
+        groups: Grupos
         notifications: Notificacións
       sidebar:
         badges:
