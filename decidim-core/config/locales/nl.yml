@@ -407,6 +407,8 @@ nl:
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
+    groups:
+      no_user_groups: Behoort nog niet tot een gebruikersgroep.
     invitations:
       create:
         error: Er waren enkele problemen terwijl je je vrienden uitnodigde
@@ -590,6 +592,7 @@ nl:
         conversations: conversaties
         followers: Volgers
         following: volgt
+        groups: groepen
         notifications: meldingen
       sidebar:
         badges:
