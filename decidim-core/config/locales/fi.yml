@@ -407,6 +407,8 @@ fi:
       description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
+    groups:
+      no_user_groups: Se ei kuulu mihinkään käyttäjäryhmään.
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -590,6 +592,7 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seuraa
+        groups: ryhmät
         notifications: Ilmoitukset
       sidebar:
         badges:
