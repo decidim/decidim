@@ -407,6 +407,8 @@ pt-BR:
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
+    groups:
+      no_user_groups: Não pertence a nenhum grupo de usuários ainda.
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -590,6 +592,7 @@ pt-BR:
         conversations: Conversas
         followers: Seguidores
         following: Segue
+        groups: Grupos
         notifications: Notificações
       sidebar:
         badges:
