@@ -29,6 +29,11 @@ module Decidim
       render :show
     end
 
+    def groups
+      @content_cell = "decidim/groups"
+      render :show
+    end
+
     private
 
     def ensure_profile_holder
