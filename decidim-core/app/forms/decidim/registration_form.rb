@@ -60,9 +60,9 @@ module Decidim
     end
 
     def user_group_document_number_unique_in_organization
-      errors.add :user_group_document_number, :taken if UserGroup.find_by(
-        document_number: user_group_document_number,
-        decidim_organization_id: current_organization.id
+      errors.add :user_group_document_number, :taken if UserGroup.with_document_number(
+        current_organization,
+        user_group_document_number
       ).present?
     end
   end

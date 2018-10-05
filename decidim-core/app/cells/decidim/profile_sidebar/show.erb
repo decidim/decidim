@@ -6,7 +6,7 @@
       <span class="text-small"><%= profile_user.nickname %></span>
       <% if can_contact_user? %>
         <span class="user-contact_link">
-          <%= link_to_current_or_new_conversation_with(user) %>
+          <%= link_to_current_or_new_conversation_with(profile_holder) %>
         </span>
       <% end %>
     </h5>
@@ -21,7 +21,7 @@
         <%= icon profile_user.badge, class: "author__verified" %>
       </span>
       <span>
-        <%= translated_attribute(profile_user.officialized_as).presence || t("decidim.profiles.default_officialization_text") %>
+        <%= officialization_text %>
       </span>
     </div>
   <% end %>
@@ -29,13 +29,13 @@
   <div class="card__footer card__footer--transparent">
     <div class="flex--cc p-s text-center">
       <div class="mr-s">
-        <%= link_to profile_followers_path(nickname: user.nickname) do %>
+        <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
           <%= t("decidim.profiles.show.followers") %>
           <h1 class="heading1"><%= profile_user.followers_count %></h1>
         <% end %>
       </div>
       <div class="ml-s">
-        <%= link_to profile_following_path(nickname: user.nickname) do %>
+        <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
           <%= t("decidim.profiles.show.following") %>
           <h1 class="heading1"><%= profile_user.following_count %></h1>
         <% end %>
@@ -55,11 +55,11 @@
       </div>
       <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
         <% Decidim::Gamification.badges.sort_by(&:name).each do |badge| %>
-          <% status = Decidim::Gamification.status_for(user, badge.name) %>
+          <% status = Decidim::Gamification.status_for(profile_holder, badge.name) %>
           <% if status.level > 0 %>
             <div class="column">
               <div class="badge-container pr-xs">
-                <%= cell("decidim/badge", user, badge: badge, status: status).(:small) %>
+                <%= cell("decidim/badge", profile_holder, badge: badge, status: status).(:small) %>
               </div>
             </div>
           <% end %>
@@ -78,5 +78,5 @@
     <% end %>
   </div>
 <% elsif logged_in? %>
-  <%= cell "decidim/follow_button", user, inline: false, context: { current_user: current_user } %>
+  <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
 <% end %>

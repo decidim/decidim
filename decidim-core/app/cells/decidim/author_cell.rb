@@ -12,6 +12,7 @@ module Decidim
     include Messaging::ConversationHelper
 
     property :profile_path
+    property :can_be_contacted?
 
     delegate :current_user, to: :controller, prefix: false
 

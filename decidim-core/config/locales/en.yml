@@ -412,6 +412,8 @@ en:
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+    groups:
+      no_user_groups: Doesn't belong to any user group yet.
     invitations:
       create:
         error: There were some problems while inviting your friends
@@ -588,12 +590,14 @@ en:
       deleted: Deleted user
       view: View
     profiles:
-      default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
+      default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
+      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
         badges: Badges
         conversations: Conversations
         followers: Followers
         following: Follows
+        groups: Groups
         notifications: Notifications
       sidebar:
         badges:

@@ -98,6 +98,20 @@ describe "Profile", type: :system do
         expect(page).to have_content(user_to_follow.name)
       end
     end
+
+    context "when belonging to user groups" do
+      let!(:user_group) { create :user_group, users: [user], organization: user.organization }
+
+      before do
+        visit decidim.profile_path(user.nickname)
+      end
+
+      it "lists the user groups" do
+        click_link "Groups"
+
+        expect(page).to have_content(user_group.name)
+      end
+    end
   end
 
   describe "view hooks" do
