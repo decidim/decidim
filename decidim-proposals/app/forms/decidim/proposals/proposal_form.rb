@@ -20,17 +20,25 @@ module Decidim
       attribute :attachment, AttachmentForm
       validates :title, :body, presence: true, etiquette: true
       validates :title, length: { maximum: 150 }
-      validates :address, geocoding: true, if: ->(form) { Decidim.geocoder.present? && form.has_address? }
+      validates :address, geocoding: true, if: :geocodable
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-
       validate :proposal_length
       validate :scope_belongs_to_participatory_space_scope
 
       validate :notify_missing_attachment_if_errored
 
       delegate :categories, to: :current_component
+
+      def geocodable
+        Decidim.geocoder.present? && self.has_address? && address_has_changed?
+      end
+
+      def address_has_changed?
+        return true if id.nil?
+        address != Proposal.find(id).address unless id.nil?
+      end
 
       def map_model(model)
         self.user_group_id = model.decidim_user_group_id

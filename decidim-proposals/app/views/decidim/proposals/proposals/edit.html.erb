@@ -29,8 +29,22 @@
             </div>
             <div class="field" id="address_input">
               <%= form.text_field :address %>
-            </div>
+
+              <% if has_position?(@form) %>
+                <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>
+                  <%= stylesheet_link_tag "decidim/map" %>
+                  <%= javascript_include_tag "decidim/map" %>
+                <% end %>
+                <%= form.hidden_field :latitude, data: { type: "latitude" } %>
+                <%= form.hidden_field :longitude, data: { type: "longitude" } %>
+              <% else %>
+                <div class="column text-center">
+                  <p><%= t(".not_geocoded") %></p>
+                  <p><%= t(".address", address: @form.address) %></p>
+                </div>
+              <% end %>
           <% end %>
+          </div>
 
           <% if @form.categories&.any? %>
             <div class="field">
@@ -46,7 +60,7 @@
 
           <% if current_user.user_groups.verified.any? %>
             <div class="field">
-              <%= form.select :user_group_id, current_user.user_groups.verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
+              <%= form.select :user_group_id, current_user.user_groups.verified.map { |g| [g.name, g.id] }, prompt: current_user.name %>
             </div>
           <% end %>
 
