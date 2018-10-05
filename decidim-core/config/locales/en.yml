@@ -413,6 +413,8 @@ en:
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+    groups:
+      no_user_groups: Doesn't belong to any user group yet.
     invitations:
       create:
         error: There were some problems while inviting your friends
@@ -596,6 +598,7 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
+        groups: Groups
         notifications: Notifications
       sidebar:
         badges:
