@@ -408,7 +408,7 @@ fi:
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     groups:
-      no_user_groups: Se ei kuulu mihinkään käyttäjäryhmään.
+      no_user_groups: Ei kuulu vielä yhteenkään käyttäjäryhmään.
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -585,14 +585,14 @@ fi:
       deleted: Poistettu käyttäjä
       view: Näytä
     profiles:
-      default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu, sen nimi on vahvistettu vastaamaan sen oikeaa nimeä
+      default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu, sen nimi vastaa oikeaa nimeä
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
         badges: Kunniamerkit
         conversations: Keskustelut
         followers: Seuraajat
         following: Seuraa
-        groups: ryhmät
+        groups: Ryhmät
         notifications: Ilmoitukset
       sidebar:
         badges:
