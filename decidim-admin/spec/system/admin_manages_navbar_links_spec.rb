@@ -54,27 +54,38 @@ describe "Navbar Links", type: :system do
         end
       end
 
-      it "can edit them" do
-        within find("#navbar_link_#{navbar_link.id}", text: translated(navbar_link.title)) do
-          click_link "Edit"
+      context "when editing a link" do
+        before do
+          within find("#navbar_link_#{navbar_link.id}", text: translated(navbar_link.title)) do
+            click_link "Edit"
+          end
         end
 
-        within ".new_navbar_link " do
-          fill_in_i18n :navbar_link_title,
-                       "#navbar_link-title-tabs",
-                       en: "Another title",
-                       es: "Otro título",
-                       ca: "Altre títol"
-          fill_in "navbar_link_link", with: "http://another-example.org"
-          fill_in "navbar_link_weight", with: "9"
-          choose target
-          find("*[type=submit]").click
+        it "keep the existing link attributes" do
+          expect(page).to have_content(translated(navbar_link.title, locale: :en))
+          expect(page).to have_content(navbar_link.link)
+          expect(page).to have_content(navbar_link.weight)
         end
 
-        expect(page).to have_admin_callout("successfully")
+        it "can edit them" do
+          within ".new_navbar_link " do
+            fill_in_i18n :navbar_link_title,
+                         "#navbar_link-title-tabs",
+                         en: "Another title",
+                         es: "Otro título",
+                         ca: "Altre títol"
+            fill_in "navbar_link_link", with: "http://another-example.org"
+            fill_in "navbar_link_weight", with: "9"
+            choose target
+            find("*[type=submit]").click
+          end
 
-        within "table" do
-          expect(page).to have_content("Another title")
+          expect(page).to have_admin_callout("successfully")
+
+          within "table" do
+            expect(page).to have_content("Another title")
+            expect(page).not_to have_content(translated(navbar_link.title, locale: :en))
+          end
         end
       end
 
