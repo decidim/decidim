@@ -126,7 +126,7 @@ As a base you can use these modules, although check first that the version is co
 | [Votings](https://github.com/podemos-info/participa2/tree/master/decidim-module-votings)                               |  0.14.1  | An administrator can add one or more votings to a participatory process or assambly                                                                          |
 
 
-### Authorizations Estrategies
+### Authorizations Strategies
 
 One specific thing regarding these kind of applications is the [authorization/verification](decidim-verifications/README.md) logic. Here are some examples:
 
