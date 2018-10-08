@@ -125,7 +125,8 @@ module Decidim
         Decidim.metrics_registry.register(
           :meetings,
           "Decidim::Meetings::Metrics::MeetingsMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          5
         )
       end
     end

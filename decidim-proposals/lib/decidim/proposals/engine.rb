@@ -174,19 +174,22 @@ module Decidim
         Decidim.metrics_registry.register(
           :proposals,
           "Decidim::Proposals::Metrics::ProposalsMetricManage",
-          Decidim::MetricRegistry::HIGHLIGHTED
+          Decidim::MetricRegistry::HIGHLIGHTED,
+          2
         )
 
         Decidim.metrics_registry.register(
           :accepted_proposals,
           "Decidim::Proposals::Metrics::AcceptedProposalsMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          3
         )
 
         Decidim.metrics_registry.register(
           :votes,
           "Decidim::Proposals::Metrics::VotesMetricManage",
-          Decidim::MetricRegistry::HIGHLIGHTED
+          Decidim::MetricRegistry::HIGHLIGHTED,
+          3
         )
       end
     end

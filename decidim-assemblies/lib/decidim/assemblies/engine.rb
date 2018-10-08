@@ -101,7 +101,8 @@ module Decidim
         Decidim.metrics_registry.register(
           :assemblies,
           "Decidim::Assemblies::Metrics::AssembliesMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          1
         )
       end
     end

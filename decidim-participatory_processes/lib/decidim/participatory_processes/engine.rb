@@ -80,7 +80,8 @@ module Decidim
         Decidim.metrics_registry.register(
           :participatory_processes,
           "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          2
         )
       end
     end

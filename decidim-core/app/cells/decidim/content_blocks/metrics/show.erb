@@ -3,13 +3,13 @@
     <div class="row column text-center mb-sm">
       <h2 class="heading2"><%= t("decidim.pages.home.metrics.headline", organization: current_organization.name) %></h2>
     </div>
-    <div class="row column text-center mb-sm">
-      <div class="metric-charts">
-        <%= metrics.highlighted %>
-      </div>
-      <div class="metric-charts small-charts">
-        <%= metrics.not_highlighted %>
-      </div>
+    <div class="row mb-sm">
+      <!-- <div class="metric-charts"> -->
+      <!-- </div> -->
+      <%= metrics.highlighted %>
+    </div>
+    <div class="row collapse section">
+      <%= metrics.not_highlighted %>
     </div>
   </div>
 </section>

@@ -17,7 +17,7 @@ module Decidim
     end
 
     def metric_name
-      raise "Not implemented"
+      ""
     end
 
     def valid?

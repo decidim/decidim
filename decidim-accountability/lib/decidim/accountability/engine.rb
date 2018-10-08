@@ -61,7 +61,8 @@ module Decidim
         Decidim.metrics_registry.register(
           :results,
           "Decidim::Accountability::Metrics::ResultsMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          4
         )
       end
     end
