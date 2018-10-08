@@ -126,6 +126,7 @@ en:
     gamification:
       badges:
         attended_meetings:
+          conditions: Sign up for a meeting.
           description_another: This user has attended %{score} meetings.
           description_own: You have attended %{score} meetings.
           explanation: Users get this badge by attending meetings.

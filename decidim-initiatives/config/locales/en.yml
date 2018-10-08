@@ -86,6 +86,7 @@ en:
     gamification:
       badges:
         initiatives:
+          conditions: Create an initiative and get it published.
           description_another: This user has gotten %{score} initiatives published.
           description_own: You've got %{score} initiatives published.
           explanation: Users get this badge by getting their initiatives published.

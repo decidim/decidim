@@ -43,11 +43,38 @@ module Decidim
         levels.length
       end
 
+      def translated_name
+        I18n.t "name", scope: translation_scope
+      end
+
+      def explanation
+        I18n.t("explanation", scope: translation_scope)
+      end
+
+      def conditions
+        I18n.t("conditions", scope: translation_scope)
+      end
+
+      def score_descriptions(score)
+        {
+          unearned_own: I18n.t("unearned_own", scope: translation_scope),
+          description_own: I18n.t("description_own", score: score, scope: translation_scope),
+          unearned_another: I18n.t("unearned_another", scope: translation_scope),
+          description_another: I18n.t("description_another", score: score, scope: translation_scope)
+        }
+      end
+
       # Public: Returns an image for this badge.
       #
       # Returns a String with the image.
       def image
         ActionController::Base.helpers.asset_path("decidim/gamification/badges/#{name}.svg")
+      end
+
+      private
+
+      def translation_scope
+        "decidim.gamification.badges.#{name}"
       end
     end
   end

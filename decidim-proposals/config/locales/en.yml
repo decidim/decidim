@@ -188,6 +188,7 @@ en:
     gamification:
       badges:
         accepted_proposals:
+          conditions: Create a proposal and get it accepted.
           description_another: This user has gotten %{score} proposals accepted.
           description_own: You got %{score} proposals accepted.
           explanation: Users get this badge by getting their proposals accepted.
@@ -196,6 +197,7 @@ en:
           unearned_another: This user hasn't gotten any proposals accepted yet.
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
+          conditions: Give support to different proposals.
           description_another: This user has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
           explanation: Users get this badge by giving support to proposals.
@@ -204,6 +206,7 @@ en:
           unearned_another: This user hasn't given support to any proposals yet.
           unearned_own: You have given support to no proposals yet.
         proposals:
+          conditions: Create and publish proposals.
           description_another: This user has created %{score} proposals.
           description_own: You have created %{score} proposals.
           explanation: Users get this badge by creating proposals.

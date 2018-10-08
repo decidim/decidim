@@ -138,6 +138,7 @@ en:
     gamification:
       badges:
         commented_debates:
+          conditions: Comment on a debate.
           description_another: This user has participated in %{score} debates.
           description_own: You have participated in %{score} debates.
           explanation: Users get this badge by participating in debates.

@@ -1,4 +1,7 @@
-<p><%= t "decidim.gamification.description" %></p>
+<p>
+  <%= t "decidim.gamification.description" %>
+  <%= link_to t("decidim.gamification.all_badges_link"), gamification_badges_path %>
+</p>
 <div class="row small-up-2 medium-up-4 card-grid badges">
   <% Decidim::Gamification.badges.sort_by(&:name).each do |badge| %>
     <%= cell "decidim/badge", profile_holder, badge: badge %>
