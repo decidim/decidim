@@ -86,10 +86,12 @@ en:
     gamification:
       badges:
         initiatives:
-          conditions: Create an initiative and get it published.
+          conditions:
+          - Go to the participation space of Intiatives
+          - Follow the steps to create a new initiative
+          description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
           description_another: This user has gotten %{score} initiatives published.
           description_own: You've got %{score} initiatives published.
-          explanation: Users get this badge by getting their initiatives published.
           name: Published initiatives
           next_level_in: Get %{score} more initiatives published to reach the next level!
           unearned_another: This user hasn't gotten any initiatives published yet.

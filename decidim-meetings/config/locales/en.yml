@@ -126,10 +126,11 @@ en:
     gamification:
       badges:
         attended_meetings:
-          conditions: Sign up for a meeting.
+          conditions:
+          - Register in the meetings you want to attend
+          description: This badge is granted when you attend several face-to-face meetings.
           description_another: This user has attended %{score} meetings.
           description_own: You have attended %{score} meetings.
-          explanation: Users get this badge by attending meetings.
           name: Attended meetings
           next_level_in: Attend %{score} more meetings to reach the next level!
           unearned_another: This user hasn't attended any meeting yet.

@@ -44,7 +44,7 @@ module Decidim
           t "decidim.gamification.reached_top"
         end
       else
-        badge.explanation
+        badge.description
       end
     end
 

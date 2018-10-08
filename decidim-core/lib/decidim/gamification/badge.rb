@@ -47,8 +47,8 @@ module Decidim
         I18n.t "name", scope: translation_scope
       end
 
-      def explanation
-        I18n.t("explanation", scope: translation_scope)
+      def description(organization_name = nil)
+        I18n.t("description", organization_name: organization_name, scope: translation_scope)
       end
 
       def conditions

@@ -25,12 +25,16 @@
         <h6>
           <strong><%= t ".badge_title", name: badge.translated_name %></strong>
         </h6>
-        <p><%= badge.explanation %></p>
+        <p><%= badge.description(current_organization.name) %></p>
         <h6>
           <strong><%= t ".how" %></strong>
         </h6>
         <p>
-          <%= badge.conditions %>
+          <ol>
+            <% badge.conditions.each do |condition| %>
+              <li><%= condition %></li>
+            <% end %>
+          </ol>
         </p>
       </div>
     </div>
