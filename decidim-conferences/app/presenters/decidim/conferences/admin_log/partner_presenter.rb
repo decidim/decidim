@@ -20,7 +20,8 @@ module Decidim
             name: :string,
             partner_type: :string,
             link: :string,
-            weight: :integer
+            weight: :integer,
+            log: :string
           }
         end
 

@@ -12,8 +12,10 @@ module Decidim
       belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
       validates :logo, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
 
-      default_scope { order(weight: :asc, partner_type: :desc) }
+      default_scope { order(partner_type: :desc, weight: :asc) }
       mount_uploader :logo, Decidim::Conferences::PartnerLogoUploader
+
+      alias participatory_space conference
 
       def self.log_presenter_class_for(_log)
         Decidim::Conferences::AdminLog::PartnerPresenter

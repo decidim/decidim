@@ -162,7 +162,6 @@ en:
             logo: Logo
             name: Name
             partner_type: Type
-            weight: Weight
           name: Partner
           types:
             collaborator: Collaborator
@@ -255,10 +254,6 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
-      conferences:
-        partners:
-          collaborators: Collaborators
-          main_promotors: Main promotors
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
@@ -283,6 +278,10 @@ en:
       conference_speakers:
         index:
           speakers: Speakers
+      conferences:
+        partners:
+          collaborators: Collaborators
+          main_promotors: Main promotors
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences
@@ -367,6 +366,7 @@ en:
     decidim:
       conference_header:
         conference_menu_item: The Conference
+        conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
         unfold: Unfold
       conference_widgets:

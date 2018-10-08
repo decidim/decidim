@@ -12,11 +12,11 @@ module Decidim
 
       def partner
         return block unless model.link.presence
-        link_to "#{logo} #{name}", model.link, class: "column collapse text-center mb-m", target: "_blank"
+        link_to "#{logo} #{name}", model.link, class: css_class, target: "_blank"
       end
 
       def block
-        "<div class='column collapse text-center mb-m'> #{logo} #{name} </div>"
+        "<div class='#{css_class}'> #{logo} #{name} </div>"
       end
 
       def name
@@ -27,6 +27,10 @@ module Decidim
       def logo
         return unless model.logo.presence
         "<div class='card p-m flex--cc'> #{image_tag model.logo.medium.url} </div>"
+      end
+
+      def css_class
+        "partner-box column collapse text-center mb-m"
       end
     end
   end

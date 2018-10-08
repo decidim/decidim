@@ -49,7 +49,7 @@ module Decidim
             form.attributes.slice(
               :name,
               :weight,
-              :type,
+              :partner_type,
               :link,
               :logo,
               :remove_logo

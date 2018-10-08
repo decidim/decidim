@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <% if current_participatory_space.components.any? || current_participatory_space.speakers.any? %>
+  <% if current_participatory_space.components.any? || current_participatory_space.speakers.any? || current_participatory_space.partners.any? %>
     <div class="row column">
       <div class="process-nav">
         <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
@@ -53,6 +53,15 @@
                 <%= active_link_to decidim_conferences.conference_conference_speakers_path(current_participatory_space), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
                   <%= icon("speakers") %>
                   <%= t ".conference_speaker_menu_item" %>
+                <% end %>
+              </li>
+            <% end %>
+
+            <% if current_participatory_space.partners.any? %>
+              <li class="">
+                <%= active_link_to decidim_conferences.conference_path(current_participatory_space, anchor: "conference-partners"), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
+                  <%= icon("speakers") %>
+                  <%= t ".conference_partners_menu_item" %>
                 <% end %>
               </li>
             <% end %>
