@@ -32,8 +32,12 @@ module Decidim
           # Every user allowed by the space can import proposals from another_component
           allow! if permission_action.subject == :proposals && permission_action.action == :import
 
-          # Every user allowed by the space can import participatory texts to proposals
-          allow! if permission_action.subject == :participatory_texts && permission_action.action == :import && participatory_texts_are_enabled?
+          if permission_action.subject == :participatory_texts && participatory_texts_are_enabled?
+            # Every user allowed by the space can import participatory texts to proposals
+            allow! if permission_action.action == :import
+            # Every user allowed by the space can publish participatory texts to proposals
+            allow! if permission_action.action == :publish
+          end
 
           permission_action
         end

@@ -13,6 +13,8 @@ module Decidim
             ProposalForm.from_model(proposal)
           end
         end
+
+        def proposals_attributes=(attributes); end
       end
     end
   end

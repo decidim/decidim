@@ -12,6 +12,7 @@ module Decidim
         super()
         @component = component
         @last_position = 0
+        @num_sections = 0
       end
 
       def parse(document)
@@ -65,13 +66,14 @@ module Decidim
           participatory_text_level: pt_level
         )
         @last_position = proposal.position
+        @num_sections += 1
         title
       end
 
       def paragraph(text)
         proposal = Decidim::Proposals::Proposal.create!(
           component: @component,
-          title: (@last_position + 1).to_s,
+          title: (@last_position + 1 - @num_sections).to_s,
           body: text,
           participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
         )

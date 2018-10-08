@@ -23,6 +23,7 @@ module Decidim
             collection do
               get :new_import
               post :import
+              post :publish
             end
           end
         end

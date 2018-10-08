@@ -1,3 +1,4 @@
+<%= decidim_form_for(@preview_form, url: publish_participatory_texts_path, class: "form grid-container") do |form| %>
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
@@ -8,25 +9,35 @@
   <div class="card-section">
     <% if @drafts.any? %>
       <p><%= t(".info_1") %></p>
-      <%= decidim_form_for(@preview_form, url: import_participatory_texts_path, class: "form grid-container") do |form| %>
-        <ul class="accordion js-sortable mb-m"
-          data-accordion
-          data-multi-expand="true"
-          data-allow-all-closed="true">
-          <% @drafts.each do |proposal| %>
-            <%= form.fields_for(:proposals, ::Decidim::Proposals::Admin::ProposalForm.from_model(proposal)) do |prop_form| %>
-              <li class="accordion-item" data-accordion-item>
-                <a href="#" class="accordion-title flex--sbc"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
-                <div class="accordion-content" data-tab-content>
-                  <%= render "article-preview", { form: prop_form, proposal: proposal } %>
-                </div>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-      <% end -%>
+      <ul id="participatory-text" class="accordion js-sortable mb-m"
+        data-accordion
+        data-multi-expand="true"
+        data-allow-all-closed="true">
+        <%= form.fields_for(:proposals) do |prop_form| %>
+        <% proposal= @drafts[prop_form.index] %>
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title flex--sbc"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small" %></span></a>
+            <div class="accordion-content" data-tab-content>
+              <%= render "article-preview", { form: prop_form, proposal: proposal } %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     <% end -%>
   </div>
 </div>
-
-<%#= javascript_include_tag "decidim/proposals/admin/participatory_texts" %>
+<div class="grid-x align-center mt-sm">
+  <%= form.submit t(".publish_document") %>
+</div>
+<% end -%>
+<%= javascript_tag do %>
+$(window).on("load", function() {
+  $( "#participatory-text" ).on( "sortupdate",
+    function( event, ui ) {
+      $('#participatory-text li').each(function(idx, li) {
+        input= $(li).find("input.position").val(idx+1)
+      })
+    }
+  )
+})
+<% end %>
