@@ -148,6 +148,19 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         )
       end
 
+      Decidim::Conferences::Partner::TYPES.map do |type|
+        4.times do
+          Decidim::Conferences::Partner.create!(
+            name: Faker::Name.name,
+            weight: Faker::Number.between(1, 10),
+            link: Faker::Internet.url,
+            partner_type: type,
+            logo: File.new(File.join(seeds_root, "logo.png")),
+            conference: conference
+          )
+        end
+      end
+
       Decidim.component_manifests.each do |manifest|
         manifest.seed!(conference.reload)
       end
