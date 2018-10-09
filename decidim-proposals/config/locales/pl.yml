@@ -199,7 +199,6 @@ pl:
         accepted_proposals:
           description_another: Ten użytkownik otrzymał %{score} propozycji zaakceptowanych.
           description_own: Przyjęto %{score} propozycji.
-          explanation: Użytkownicy otrzymują tę odznakę, przyjmując propozycje zaakceptowane.
           name: Zaakceptowane propozycje
           next_level_in: Uzyskaj %{score} dodatkowych propozycji zaakceptowanych, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych propozycji.
@@ -207,7 +206,6 @@ pl:
         proposal_votes:
           description_another: Ten użytkownik udzielił wsparcia %{score} propozycji.
           description_own: Udzieliłeś wsparcia %{score} propozycji.
-          explanation: Użytkownicy otrzymują tę odznakę, udzielając wsparcia propozycjom.
           name: Propozycja wspiera
           next_level_in: Poprzyj %{score} innych propozycji, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie wspierał jeszcze żadnych propozycji.
@@ -215,7 +213,6 @@ pl:
         proposals:
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.
-          explanation: Użytkownicy otrzymują tę odznakę, tworząc propozycje.
           name: Propozycje
           next_level_in: Stwórz %{score} kolejnych propozycji, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie utworzył jeszcze żadnych propozycji.
