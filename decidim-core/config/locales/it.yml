@@ -387,19 +387,31 @@ it:
         error: Si è verificato un errore in questo campo.
       remove_this_file: Rimuovere questo file
     gamification:
+      all_badges_link: Vedi tutti i badge disponibili.
       badges:
         followers:
+          conditions:
+            - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
+          description: Questo badge è concesso quando raggiungi un certo numero di follower. %{organization_name} è una rete sociale e politica, intreccia la tua rete per comunicare con altre persone nella piattaforma.
           description_another: Questo utente ha %{score} follower.
           description_own: "%{score} utenti ti stanno seguendo."
-          explanation: Gli utenti ottengono questo badge seguendolo da altri utenti.
           name: Seguaci
           next_level_in: Ottieni altri %{score} utenti che ti seguono per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora follower.
           unearned_own: Non hai ancora follower.
+        index:
+          badge_title: "%{name} distintivo"
+          how: Come puoi guadagnarlo
+          page_description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
+          title: badge
         invitations:
+          conditions:
+            - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
+            - Personalizza, se vuoi, il messaggio che stai inviando
+            - Aumenterai di livello inviando inviti e registrandoli.
+          description: Questo badge è concesso quando hai invitato alcune persone e hanno trascorso un po 'di tempo per registrarsi in %{organization_name} e diventare partecipanti. Grazie per aver reso %{organization_name} conoscere agli altri e contribuendo ad ampliare la comunità!
           description_another: Questo utente ha invitato %{score} utenti.
           description_own: Hai invitato %{score} utenti.
-          explanation: Gli utenti ottengono questo badge invitando altri utenti.
           name: inviti
           next_level_in: Invita altri %{score} utenti a raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora invitato alcun utente.
@@ -442,6 +454,8 @@ it:
           not_found: 'Il tipo di ambito non è stato trovato nel database (ID: %{id})'
     managed_users:
       expired_session: La sessione di impersonazione corrente è scaduta.
+    members:
+      no_members: Questo gruppo di utenti non ha ancora nessun membro.
     menu:
       home: Home
       more_information: Ulteriori informazioni
@@ -593,6 +607,7 @@ it:
         followers: Seguaci
         following: segue
         groups: gruppi
+        members: Utenti
         notifications: notifiche
       sidebar:
         badges:
