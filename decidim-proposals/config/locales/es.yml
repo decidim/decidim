@@ -189,7 +189,6 @@ es:
         accepted_proposals:
           description_another: '%{score} propuestas de este usuario han sido aceptadas.'
           description_own: '%{score} de tus propuestas han sido aceptadas.'
-          explanation: Los usuarios obtienen esta insignia al conseguir que se acepten sus propuestas.
           name: Propuestas aceptadas
           next_level_in: '¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha conseguido ninguna propuesta aceptada.
@@ -197,7 +196,6 @@ es:
         proposal_votes:
           description_another: Este usuario ha dado soporte a %{score} propuestas.
           description_own: Has dado soporte a %{score} propuestas.
-          explanation: Los usuarios obtienen esta insignia dando soporte a las propuestas.
           name: Apoyos a propuestas
           next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
@@ -205,7 +203,6 @@ es:
         proposals:
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
-          explanation: Los usuarios obtienen esta insignia al crear propuestas.
           name: Propuestas
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario no ha creado ninguna propuesta todavía.
