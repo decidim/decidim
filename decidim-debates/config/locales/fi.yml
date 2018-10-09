@@ -136,9 +136,11 @@ fi:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Valitse avoin keskustelu osallistumisesta
+          description: Tämä merkki myönnetään, kun osallistut aktiivisesti eri keskusteluihin jättämällä kommenttisi.
           description_another: Tämä käyttäjä on osallistunut %{score} keskusteluun.
           description_own: Olet osallistunut %{score} keskusteluun.
-          explanation: Käyttäjät saavat tämän kunniamerkin osallistumalla keskusteluihin.
           name: Keskustelut
           next_level_in: Osallistu vielä %{score} keskusteluun päästäksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään keskusteluun.
