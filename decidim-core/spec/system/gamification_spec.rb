@@ -37,8 +37,8 @@ describe "Gamification", type: :system do
 
     it "shows a list of available badges" do
       visit decidim.gamification_badges_path
-      expect(page).to have_content "Test badge"
-      expect(page).to have_content "This is a dummy badge"
+      expect(page).to have_content "Tests badge"
+      expect(page).to have_content "Users get this badge by creating tests"
       expect(page).to have_content "Use a test environment for decidim"
     end
   end
