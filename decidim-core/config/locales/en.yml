@@ -447,6 +447,8 @@ en:
           not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current impersonation session has expired.
+    members:
+      no_members: This user groups doesn't have any member yet.
     menu:
       home: Home
       more_information: More information
@@ -598,6 +600,7 @@ en:
         followers: Followers
         following: Follows
         groups: Groups
+        members: Members
         notifications: Notifications
       sidebar:
         badges:
