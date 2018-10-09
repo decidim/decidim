@@ -135,6 +135,9 @@ it:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Scegli un dibattito aperto a cui partecipare
+          description: Questo badge è concesso quando partecipi attivamente ai diversi dibattiti lasciando i tuoi commenti.
           description_another: Questo utente ha partecipato a %{score} dibattiti.
           description_own: Hai partecipato a %{score} dibattiti.
           name: dibattiti
