@@ -387,19 +387,31 @@ eu:
         error: Errorea bat dago eremu honetan.
       remove_this_file: Ezabatu artxibo hau
     gamification:
+      all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
         followers:
+          conditions:
+            - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
+          description: Idazmahaia jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare sozial eta politikoa da, zure weba plataforman beste pertsona batzuekin komunikatzeko ehundu.
           description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
           description_own: "%{score} erabiltzaile jarraitzen zaituzte."
-          explanation: Erabiltzaileek txapela lortzen dute beste erabiltzaile batzuek jarraituz.
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzaileik.
+        index:
+          badge_title: "%{name} txapela"
+          how: Nola irabaz dezakezu?
+          page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
+          title: Badges
         invitations:
+          conditions:
+            - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
+            - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
+            - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
+          description: Idazmahaia ematen zaie pertsona batzuk gonbidatu dituzunean eta denbora pixka bat pasatu dute %{organization_name} erregistratu eta parte-hartzaile bihurtu. Eskerrik asko egiteko %{organization_name} besteei ezaguna eta komunitatea zabaltzeko laguntzen!
           description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
           description_own: '%{score} erabiltzaile gonbidatu dituzu.'
-          explanation: Erabiltzaileek badute beste erabiltzaile batzuek gonbidatuta.
           name: Gonbidapenak
           next_level_in: Gonbidatu %{score} erabiltzaile gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek ez du oraindik gonbidatu erabiltzaileak.
@@ -442,6 +454,8 @@ eu:
           not_found: 'Eremu mota ez da aurkitu datu-baseko (ID: %{id})'
     managed_users:
       expired_session: Ordezte-saio hau iraungi da.
+    members:
+      no_members: Erabiltzaile talde honek ez du kideik oraindik.
     menu:
       home: Hasiera
       more_information: Argibide gehiago
@@ -593,6 +607,7 @@ eu:
         followers: Jarraitzaileak
         following: honako hau
         groups: Taldeak
+        members: Bazkideek
         notifications: jakinarazpenak
       sidebar:
         badges:
