@@ -85,9 +85,12 @@ fi:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Siirry Intiatives-osallistumistilaan
+            - Luo uusi aloite vaiheiden mukaisesti
+          description: Tämä merkki myönnetään, kun käynnistät uusia aloitteita, jotka sopivat toisten kanssa tekemään niitä.
           description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
           description_own: Olet julkaissut %{score} aloitetta.
-          explanation: Käyttäjät saavat tämän kunniamerkin saamalla aloitteita julkaistua.
           name: Julkaistut aloitteet
           next_level_in: Julkaise %{score} uutta aloitetta saavuttaaksesi seuraavan tason!
           unearned_another: Tämä käyttäjä ei ole vielä julkaissut yhtään aloitetta.
