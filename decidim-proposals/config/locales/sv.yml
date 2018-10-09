@@ -187,6 +187,10 @@ sv:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
+            - Försök att lägga fram förslag som kan utföras. På detta sätt är de mer benägna att accepteras.
+          description: Detta märke beviljas när du aktivt deltar med nya förslag och dessa accepteras.
           description_another: Den här användaren har fått %{score} förslag accepterade.
           description_own: Du har accepterat %{score} förslag.
           name: Godkända förslag
@@ -194,6 +198,10 @@ sv:
           unearned_another: Den här användaren har inte fått några förslag accepterade än.
           unearned_own: Du har inga förslag accepterade än.
         proposal_votes:
+          conditions:
+            - Bläddra och spendera lite tid på att läsa andras förslag
+            - Ge stöd till de förslag du tycker om eller hitta intressanta
+          description: Detta märke beviljas när du stöder andra människors förslag.
           description_another: Denna användare har gett stöd till %{score} förslag.
           description_own: Du har gett stöd till %{score} förslag.
           name: Förslagstjänster
@@ -201,6 +209,10 @@ sv:
           unearned_another: Den här användaren har inte stöttat några förslag än.
           unearned_own: Du har inte stöttat några förslag än.
         proposals:
+          conditions:
+            - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
+            - Skapa ett nytt förslag
+          description: Detta märke beviljas när du aktivt deltar med nya förslag.
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
           name: Förslag
