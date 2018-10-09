@@ -201,6 +201,7 @@ nl:
           conditions:
             - Blader door en besteed wat tijd aan het lezen van de voorstellen van anderen
             - Geef steun aan de voorstellen die je leuk vindt of interessant vindt
+          description: Deze badge wordt toegekend wanneer u de voorstellen van andere mensen steunt.
           description_another: Deze gebruiker heeft %{score} voorstellen ondersteund.
           description_own: U hebt %{score} voorstellen ondersteund.
           name: Voorstel ondersteunt
@@ -208,6 +209,10 @@ nl:
           unearned_another: Deze gebruiker heeft nog geen ondersteuning gegeven aan eventuele voorstellen.
           unearned_own: Je hebt nog geen steun gegeven aan nog geen voorstellen.
         proposals:
+          conditions:
+            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+            - Maak een nieuw voorstel
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: Deze gebruiker heeft %{score} voorstellen gemaakt.
           description_own: U hebt %{score} voorstellen gemaakt.
           name: voorstellen
