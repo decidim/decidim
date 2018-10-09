@@ -133,7 +133,6 @@ pl:
         attended_meetings:
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Brałeś udział w %{score} spotkaniach.
-          explanation: Użytkownicy otrzymują tę odznakę, uczestnicząc w spotkaniach.
           name: Udział w spotkaniach
           next_level_in: Weź udział w %{score} dodatkowych spotkaniach, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
