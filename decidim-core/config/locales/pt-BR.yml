@@ -391,7 +391,6 @@ pt-BR:
         followers:
           description_another: Esse usuário possui %{score} seguidores.
           description_own: "%{score} usuários estão seguindo você."
-          explanation: Os usuários recebem esse selo ao serem seguidos por outros usuários.
           name: Seguidores
           next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
           unearned_another: Este usuário ainda não possui seguidores.
@@ -399,7 +398,6 @@ pt-BR:
         invitations:
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
-          explanation: Os usuários recebem esse selo convidando outros usuários.
           name: Convites
           next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
           unearned_another: Este usuário ainda não convidou nenhum usuário.
