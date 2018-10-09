@@ -408,7 +408,8 @@ pt:
           conditions:
             - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
             - Personalize, se quiser, a mensagem que você está enviando
-            - You’ll level up by sending invitations and getting them registered.
+            - Você vai subir de nível enviando convites e registrando-os.
+          description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
           name: Convites
@@ -453,6 +454,8 @@ pt:
           not_found: 'O tipo de escopo não foi encontrado no banco de dados (ID: %{id})'
     managed_users:
       expired_session: A sessão de representação atual expirou.
+    members:
+      no_members: Este grupo de usuários ainda não possui nenhum membro.
     menu:
       home: Inicio
       more_information: Mais informação
@@ -604,6 +607,7 @@ pt:
         followers: Seguidores
         following: Segue
         groups: Grupos
+        members: Membros
         notifications: Notificações
       sidebar:
         badges:
