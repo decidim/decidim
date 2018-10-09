@@ -87,7 +87,6 @@ pt-BR:
         initiatives:
           description_another: Este usuário obteve %{score} iniciativas publicadas.
           description_own: Você tem %{score} iniciativas publicadas.
-          explanation: Os usuários recebem esse selo ao publicar suas iniciativas.
           name: Iniciativas publicadas
           next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não publicou nenhuma iniciativa.
