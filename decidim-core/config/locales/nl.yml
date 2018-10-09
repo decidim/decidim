@@ -182,7 +182,7 @@ nl:
         unauthorized:
           explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
           invalid_field: "%{field} waarde %{value} is niet geldig."
-          ok: Ok
+          ok: OK
           title: Niet geautoriseerd
     collapsible_list:
       hidden_elements_count:
@@ -219,6 +219,8 @@ nl:
       html:
         html_content: HTML-inhoud
         name: HTML-blok
+      metrics:
+        name: Organisatie statistieken
       stats:
         name: Organisatie statistieken
       sub_hero:
@@ -405,6 +407,8 @@ nl:
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
+    groups:
+      no_user_groups: Behoort nog niet tot een gebruikersgroep.
     invitations:
       create:
         error: Er waren enkele problemen terwijl je je vrienden uitnodigde
@@ -469,6 +473,10 @@ nl:
           title: Een gesprek beginnen
         update:
           error: Bericht niet verzonden. Probeer het later nogmaals
+    metrics:
+      users:
+        object: gebruikers
+        title: gebruikers
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -528,6 +536,8 @@ nl:
         hero:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
+        metrics:
+          headline: Deelname aan cijfers
         statistics:
           answers_count: Voltooide enquêtes
           assemblies_count: Events
@@ -575,12 +585,14 @@ nl:
       deleted: Verwijderde gebruiker
       view: Uitzicht
     profiles:
-      default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
+      default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
+      default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
         badges: badges
         conversations: conversaties
         followers: Volgers
         following: volgt
+        groups: groepen
         notifications: meldingen
       sidebar:
         badges:

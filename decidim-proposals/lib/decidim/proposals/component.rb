@@ -204,10 +204,13 @@ Decidim.register_component(:proposals) do |component|
           if index.even?
             group = Decidim::UserGroup.create!(
               name: Faker::Name.name,
-              document_number: Faker::Code.isbn,
-              phone: Faker::PhoneNumber.phone_number,
-              decidim_organization_id: component.organization.id,
-              verified_at: Time.current
+              nickname: Faker::Twitter.unique.screen_name,
+              extended_data: {
+                document_number: Faker::Code.isbn,
+                phone: Faker::PhoneNumber.phone_number,
+                verified_at: Time.current
+              },
+              decidim_organization_id: component.organization.id
             )
             author.user_groups << group
             author.save!

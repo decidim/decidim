@@ -25,7 +25,6 @@ it:
     pages:
       home:
         statistics:
-          bar: Bar
           dummies_count_high: Manichini in alto
           dummies_count_medium: Manichino medio
           foo: foo

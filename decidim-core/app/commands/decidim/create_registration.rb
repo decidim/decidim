@@ -46,11 +46,17 @@ module Decidim
     end
 
     def create_user_group
-      UserGroupMembership.create!(user: @user,
-                                  user_group: UserGroup.new(name: form.user_group_name,
-                                                            document_number: form.user_group_document_number,
-                                                            phone: form.user_group_phone,
-                                                            decidim_organization_id: form.current_organization.id))
+      UserGroupMembership.create!(
+        user: @user,
+        user_group: UserGroup.new(
+          name: form.user_group_name,
+          extended_data: {
+            document_number: form.user_group_document_number,
+            phone: form.user_group_phone
+          },
+          decidim_organization_id: form.current_organization.id
+        )
+      )
     end
   end
 end

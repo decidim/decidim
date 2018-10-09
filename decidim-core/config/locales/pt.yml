@@ -219,6 +219,8 @@ pt:
       html:
         html_content: Conteúdo HTML
         name: Bloco HTML
+      metrics:
+        name: Métricas da organização
       stats:
         name: Estatísticas da organização
       sub_hero:
@@ -405,6 +407,8 @@ pt:
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
+    groups:
+      no_user_groups: Não pertence a nenhum grupo de usuários ainda.
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -469,6 +473,10 @@ pt:
           title: Comece uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
+    metrics:
+      users:
+        object: Comercial
+        title: Comercial
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
@@ -528,6 +536,8 @@ pt:
         hero:
           participate: Participar
           welcome: Bem-vindo ao %{organization}!
+        metrics:
+          headline: Participação em números
         statistics:
           answers_count: Inquéritos concluídos
           assemblies_count: Assembléias
@@ -575,12 +585,14 @@ pt:
       deleted: Usuário deletado
       view: Visão
     profiles:
-      default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
+      default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi confirmado para corresponder ao seu nome real
+      default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
         badges: Distintivos
         conversations: Conversas
         followers: Seguidores
         following: Segue
+        groups: Grupos
         notifications: Notificações
       sidebar:
         badges:

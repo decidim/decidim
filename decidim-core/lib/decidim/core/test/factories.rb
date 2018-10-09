@@ -8,7 +8,15 @@ require "decidim/assemblies/test/factories"
 require "decidim/conferences/test/factories"
 require "decidim/comments/test/factories"
 
+def generate_localized_title
+  Decidim::Faker::Localized.localized { generate(:title) }
+end
+
 FactoryBot.define do
+  sequence(:title) do |n|
+    "#{Faker::Lorem.sentence(3)} #{n}"
+  end
+
   sequence(:name) do |n|
     "#{Faker::Name.name} #{n}"
   end
@@ -42,8 +50,8 @@ FactoryBot.define do
   end
 
   factory :category, class: "Decidim::Category" do
-    name { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    name { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
 
     association :participatory_space, factory: :participatory_process
   end
@@ -63,7 +71,7 @@ FactoryBot.define do
     youtube_handler { Faker::Hipster.word }
     github_handler { Faker::Hipster.word }
     sequence(:host) { |n| "#{n}.lvh.me" }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
     default_locale { Decidim.default_locale }
     available_locales { Decidim.available_locales }
@@ -73,6 +81,7 @@ FactoryBot.define do
     highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
     tos_version { Time.current }
+    badges_enabled { true }
 
     trait :with_tos do
       after(:create) do |organization|
@@ -128,7 +137,7 @@ FactoryBot.define do
 
     trait :officialized do
       officialized_at { Time.current }
-      officialized_as { Decidim::Faker::Localized.sentence(3) }
+      officialized_as { generate_localized_title }
     end
   end
 
@@ -143,9 +152,15 @@ FactoryBot.define do
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
+    transient do
+      document_number { Faker::Number.number(8) + "X" }
+      phone { Faker::PhoneNumber.phone_number }
+      rejected_at { nil }
+      verified_at { nil }
+    end
+
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
-    document_number { Faker::Number.number(8) + "X" }
-    phone { Faker::PhoneNumber.phone_number }
+    nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     organization
 
@@ -159,6 +174,15 @@ FactoryBot.define do
 
     trait :rejected do
       rejected_at { Time.current }
+    end
+
+    after(:build) do |user_group, evaluator|
+      user_group.extended_data = {
+        document_number: evaluator.document_number,
+        phone: evaluator.phone,
+        rejected_at: evaluator.rejected_at,
+        verified_at: evaluator.verified_at
+      }
     end
 
     after(:create) do |user_group, evaluator|
@@ -200,8 +224,8 @@ FactoryBot.define do
 
   factory :static_page, class: "Decidim::StaticPage" do
     slug { generate(:slug) }
-    title { Decidim::Faker::Localized.sentence(3) }
-    content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
 
     trait :default do
@@ -214,16 +238,16 @@ FactoryBot.define do
   end
 
   factory :attachment_collection, class: "Decidim::AttachmentCollection" do
-    name { Decidim::Faker::Localized.sentence(1) }
-    description { Decidim::Faker::Localized.sentence(2) }
+    name { generate_localized_title }
+    description { generate_localized_title }
     weight { Faker::Number.number(1) }
 
     association :collection_for, factory: :participatory_process
   end
 
   factory :attachment, class: "Decidim::Attachment" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     weight { Faker::Number.number(1) }
     attached_to { build(:participatory_process) }
@@ -246,7 +270,7 @@ FactoryBot.define do
       organization { create(:organization) }
     end
 
-    name { Decidim::Faker::Localized.sentence(3) }
+    name { generate_localized_title }
     participatory_space { create(:participatory_process, organization: organization) }
     manifest_name { "dummy" }
     published_at { Time.current }
@@ -317,9 +341,9 @@ FactoryBot.define do
     author { build(:user, :confirmed, organization: organization) }
     organization
 
-    subject { Decidim::Faker::Localized.sentence(3) }
+    subject { generate_localized_title }
 
-    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
 
     trait :sent do
       sent_at { Time.current }
@@ -449,5 +473,16 @@ FactoryBot.define do
   factory :hashtag, class: "Decidim::Hashtag" do
     name { generate(:hashtag_name) }
     organization
+  end
+
+  factory :metric, class: "Decidim::Metric" do
+    organization
+    day { Time.zone.today }
+    metric_type { "random_metric" }
+    cumulative { 2 }
+    quantity { 1 }
+    category { create :category }
+    participatory_space { create :participatory_process, organization: organization }
+    related_object { create :component, participatory_space: participatory_space }
   end
 end

@@ -210,6 +210,16 @@ sv:
           next_level_in: Skapa %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här användaren har inte skapat några förslag ännu.
           unearned_own: Du har inte skapat några förslag än.
+    metrics:
+      accepted_proposals:
+        object: förslag
+        title: Godkända Förslag
+      proposals:
+        object: förslag
+        title: Förslag
+      votes:
+        object: röster
+        title: Röster
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +231,7 @@ sv:
     proposals:
       actions:
         answer: Svara
+        edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
         private_notes: Privata anteckningar
@@ -257,6 +268,9 @@ sv:
           create:
             invalid: Det har uppstått ett problem med att skapa detta förslag
             success: Förslaget skapades
+          edit:
+            title: Uppdatera förslag
+            update: Uppdatera
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             select_a_category: Välj en kategori
@@ -294,6 +308,7 @@ sv:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
           create: "%{user_name} skapade förslaget %{resource_name} på utrymmet %{space_name} som ett officiellt förslag"
+          update: "%{user_name} uppdaterade officiella förslaget %{resource_name} på platsen %{space_name}"
         proposal_note:
           create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på platsen %{space_name}"
       answers:

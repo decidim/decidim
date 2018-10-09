@@ -219,6 +219,8 @@ eu:
       html:
         html_content: HTML edukia
         name: HTML blokea
+      metrics:
+        name: Erakundearen metrika
       stats:
         name: Erakundearen estatistikak
       sub_hero:
@@ -405,6 +407,8 @@ eu:
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
+    groups:
+      no_user_groups: Ez da oraindik erabiltzaile taldeik.
     invitations:
       create:
         error: Arazo batzuk egon dira zure lagunak gonbidatuz
@@ -469,6 +473,10 @@ eu:
           title: Hasi elkarrizketa bat
         update:
           error: Mezua ez da bidali. Saiatu berriro geroago
+    metrics:
+      users:
+        object: erabiltzaile
+        title: erabiltzaileak
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
@@ -528,6 +536,8 @@ eu:
         hero:
           participate: Parte hartu
           welcome: Ongi etorri %{organization} erakundera!
+        metrics:
+          headline: Zifretan parte hartzea
         statistics:
           answers_count: Amaitutako inkestak
           assemblies_count: Batzar
@@ -575,12 +585,14 @@ eu:
       deleted: Erabiltzailea ezabatua
       view: ikusi
     profiles:
-      default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
+      default_officialization_text_for_user_groups: Erabiltzaile talde hau publikoki egiaztatua dago, bere izena benetako izenarekin lotzeko egiaztatu da
+      default_officialization_text_for_users: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         badges: Badges
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
+        groups: Taldeak
         notifications: jakinarazpenak
       sidebar:
         badges:

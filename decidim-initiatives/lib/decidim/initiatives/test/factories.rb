@@ -5,8 +5,8 @@ require "decidim/dev"
 
 FactoryBot.define do
   factory :initiatives_type, class: Decidim::InitiativesType do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
   end
@@ -18,8 +18,8 @@ FactoryBot.define do
   end
 
   factory :initiative, class: Decidim::Initiative do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
     author { create(:user, :confirmed, organization: organization) }
     published_at { Time.current }

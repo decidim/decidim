@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :debate, class: "Decidim::Debates::Debate" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    information_updates { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    information_updates { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
     component { build(:component, manifest_name: "debates") }

@@ -48,8 +48,8 @@ FactoryBot.define do
   end
 
   factory :project, class: "Decidim::Budgets::Project" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     budget { Faker::Number.number(8) }
     component { create(:budget_component) }
   end

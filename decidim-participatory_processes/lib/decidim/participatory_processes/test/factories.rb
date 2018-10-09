@@ -11,21 +11,21 @@ FactoryBot.define do
   end
 
   factory :participatory_process, class: "Decidim::ParticipatoryProcess" do
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate_localized_title }
     slug { generate(:participatory_process_slug) }
-    subtitle { Decidim::Faker::Localized.sentence(1) }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    subtitle { generate_localized_title }
+    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
     meta_scope { Decidim::Faker::Localized.word }
-    developer_group { Decidim::Faker::Localized.sentence(1) }
-    local_area { Decidim::Faker::Localized.sentence(2) }
-    target { Decidim::Faker::Localized.sentence(3) }
-    participatory_scope { Decidim::Faker::Localized.sentence(1) }
-    participatory_structure { Decidim::Faker::Localized.sentence(2) }
+    developer_group { generate_localized_title }
+    local_area { generate_localized_title }
+    target { generate_localized_title }
+    participatory_scope { generate_localized_title }
+    participatory_structure { generate_localized_title }
     show_statistics { true }
     private_space { false }
     start_date { Date.current }
@@ -68,8 +68,8 @@ FactoryBot.define do
   end
 
   factory :participatory_process_group, class: "Decidim::ParticipatoryProcessGroup" do
-    name { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    name { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
 
@@ -81,8 +81,8 @@ FactoryBot.define do
   end
 
   factory :participatory_process_step, class: "Decidim::ParticipatoryProcessStep" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     start_date { 1.month.ago }
     end_date { 2.months.from_now }
     position { nil }

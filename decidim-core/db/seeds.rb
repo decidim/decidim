@@ -22,7 +22,8 @@ if !Rails.env.production? || ENV["SEED"]
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix,
     available_authorizations: Decidim.authorization_workflows.map(&:name),
-    tos_version: Time.current
+    tos_version: Time.current,
+    badges_enabled: true
   )
 
   if organization.top_scopes.none?
@@ -129,9 +130,12 @@ if !Rails.env.production? || ENV["SEED"]
     [nil, Time.current].each do |verified_at|
       user_group = Decidim::UserGroup.create!(
         name: Faker::Company.unique.name,
-        document_number: Faker::Number.number(10),
-        phone: Faker::PhoneNumber.phone_number,
-        verified_at: verified_at,
+        nickname: Faker::Twitter.unique.screen_name,
+        extended_data: {
+          document_number: Faker::Number.number(10),
+          phone: Faker::PhoneNumber.phone_number,
+          verified_at: verified_at
+        },
         decidim_organization_id: user.organization.id
       )
 

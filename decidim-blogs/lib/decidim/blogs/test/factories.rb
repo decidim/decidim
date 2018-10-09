@@ -12,8 +12,8 @@ FactoryBot.define do
   end
 
   factory :post, class: "Decidim::Blogs::Post" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:component, manifest_name: "blogs") }
     author { build(:user, :confirmed, organization: component.organization) }
   end

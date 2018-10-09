@@ -35,6 +35,8 @@ eu:
         name: Izena
         participatory_process_ids: Elkarrekin lotutako prozesuak
       participatory_process_step:
+        cta_path: Deitu ekintza bideari
+        cta_text: Deitu ekintza testuari
         description: Deskribapena
         end_date: Bukaera-data
         short_description: Deskribapen laburra
@@ -273,6 +275,10 @@ eu:
         participatory_process_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. Ezartzen bada, botoia ez da agertuko. Adibidea: %{url}'
+            cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio prozesuaren informazioaren azpitik.
