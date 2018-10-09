@@ -71,6 +71,8 @@ module Decidim
       end
 
       def paragraph(text)
+        return if text.blank?
+
         proposal = Decidim::Proposals::Proposal.create!(
           component: @component,
           title: (@last_position + 1 - @num_sections).to_s,
@@ -81,14 +83,14 @@ module Decidim
         text
       end
 
-      # ignore images?
-      def image(_link, _title, _alt_text)
-        nil
+      # ignore images
+      def image(link, title, alt_text)
+        ""
       end
 
-      def link(_link, _title, _content)
-        "link!!!"
-      end
+      # def link(_link, _title, _content)
+      #   "link!!!"
+      # end
 
       # def list(content, list_type)
       #   txt= case list_type
