@@ -15,6 +15,8 @@ pl:
     gamification:
       badges:
         test:
+          conditions:
+            - Użyj środowiska testowego dla decidim.
           description: Użytkownicy otrzymują tę odznakę, tworząc testy.
           description_another: Ten użytkownik utworzył %{score} testów.
           description_own: Stworzyłeś %{score} testów.
@@ -25,6 +27,7 @@ pl:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Atrapy wysokie
           dummies_count_medium: Średni manekin
           foo: bla
