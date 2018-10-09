@@ -25,6 +25,7 @@ eu:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Dummies altua
           dummies_count_medium: Dummies ertainak
           foo: foo
