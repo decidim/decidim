@@ -137,7 +137,6 @@ it:
         commented_debates:
           description_another: Questo utente ha partecipato a %{score} dibattiti.
           description_own: Hai partecipato a %{score} dibattiti.
-          explanation: Gli utenti ottengono questo badge partecipando ai dibattiti.
           name: dibattiti
           next_level_in: Partecipa a %{score} altri dibattiti per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessun dibattito.
