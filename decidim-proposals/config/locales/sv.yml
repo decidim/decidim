@@ -189,7 +189,6 @@ sv:
         accepted_proposals:
           description_another: Den här användaren har fått %{score} förslag accepterade.
           description_own: Du har accepterat %{score} förslag.
-          explanation: Användare får detta märke genom att få sina förslag godkända.
           name: Godkända förslag
           next_level_in: Få %{score} fler förslag accepterade för att nå nästa nivå!
           unearned_another: Den här användaren har inte fått några förslag accepterade än.
@@ -197,7 +196,6 @@ sv:
         proposal_votes:
           description_another: Denna användare har gett stöd till %{score} förslag.
           description_own: Du har gett stöd till %{score} förslag.
-          explanation: Användare får detta märke genom att ge stöd till förslag.
           name: Förslagstjänster
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här användaren har inte stöttat några förslag än.
@@ -205,7 +203,6 @@ sv:
         proposals:
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
-          explanation: Användare får detta märke genom att skapa förslag.
           name: Förslag
           next_level_in: Skapa %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här användaren har inte skapat några förslag ännu.
