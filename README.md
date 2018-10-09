@@ -125,7 +125,6 @@ As a base you can use these modules, although check first that the version is co
 | [User Export](https://github.com/OpenSourcePolitics/decidim-user-export)                                               |  0.8.3   | Allow user export                                                                                                                                            |
 | [Votings](https://github.com/podemos-info/participa2/tree/master/decidim-module-votings)                               |  0.14.1  | An administrator can add one or more votings to a participatory process or assambly                                                                          |
 
-
 ### Authorizations Strategies
 
 One specific thing regarding these kind of applications is the [authorization/verification](decidim-verifications/README.md) logic. Here are some examples:
@@ -145,6 +144,7 @@ One specific thing regarding these kind of applications is the [authorization/ve
 * [Vilanova i la Geltrú](https://github.com/vilanovailageltru/decidim-vilanova/blob/master/app/services/vilanova_authorization_handler.rb)
 
 Other special verifications:
+
 * [Podemos](https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector)
 * [FundAction](https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb)
 * [CSV emails](https://github.com/CodiTramuntana/decidim-verifications-csv_emails)
