@@ -187,17 +187,22 @@ nl:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+            - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen en deze worden geaccepteerd.
           description_another: Deze gebruiker heeft %{score} voorstellen geaccepteerd gekregen.
           description_own: Je hebt %{score} voorstellen geaccepteerd.
-          explanation: Gebruikers krijgen deze badge door hun voorstellen te laten accepteren.
           name: Geaccepteerde voorstellen
           next_level_in: Ontvang nog %{score} voorstellen die worden geaccepteerd om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen voorstellen geaccepteerd.
           unearned_own: Je hebt nog geen voorstellen geaccepteerd.
         proposal_votes:
+          conditions:
+            - Blader door en besteed wat tijd aan het lezen van de voorstellen van anderen
+            - Geef steun aan de voorstellen die je leuk vindt of interessant vindt
           description_another: Deze gebruiker heeft %{score} voorstellen ondersteund.
           description_own: U hebt %{score} voorstellen ondersteund.
-          explanation: Gebruikers krijgen deze badge door voorstellen te ondersteunen.
           name: Voorstel ondersteunt
           next_level_in: Geef %{score} extra voorstellen om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen ondersteuning gegeven aan eventuele voorstellen.
@@ -205,7 +210,6 @@ nl:
         proposals:
           description_another: Deze gebruiker heeft %{score} voorstellen gemaakt.
           description_own: U hebt %{score} voorstellen gemaakt.
-          explanation: Gebruikers krijgen deze badge door voorstellen te maken.
           name: voorstellen
           next_level_in: Maak nog %{score} voorstellen om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen voorstellen gedaan.
