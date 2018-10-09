@@ -137,7 +137,6 @@ pt-BR:
         commented_debates:
           description_another: Este usuário participou em %{score} debates.
           description_own: Você participou de %{score} debates.
-          explanation: Os usuários recebem esse selo participando de debates.
           name: Debates
           next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
           unearned_another: Este usuário ainda não participou de nenhum debate.
