@@ -127,7 +127,6 @@ es-PY:
         attended_meetings:
           description_another: Este usuario asistió a %{score} encuentros.
           description_own: Usted ha asistido a %{score} reuniones.
-          explanation: Los usuarios obtienen esta insignia asistiendo a las reuniones.
           name: Reuniones asistidas
           next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha asistido a ninguna reunión.
