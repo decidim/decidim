@@ -139,6 +139,9 @@ pl:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Wybierz otwartą debatę, w której możesz wziąć udział
+          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w różnych debatach, pozostawiając komentarze.
           description_another: Ten użytkownik uczestniczył w %{score} debatach.
           description_own: Brałeś udział w %{score} debatach.
           name: Debaty
