@@ -7,6 +7,7 @@ module Decidim
   class UserPresenter < SimpleDelegator
     include Rails.application.routes.mounted_helpers
     include ActionView::Helpers::UrlHelper
+    include Decidim::TranslatableAttributes
 
     #
     # nickname presented in a twitter-like style
@@ -45,6 +46,15 @@ module Decidim
 
     def following_count
       __getobj__.following_users.count
+    end
+
+    def can_be_contacted?
+      true
+    end
+
+    def officialization_text
+      translated_attribute(officialized_as).presence ||
+        I18n.t("decidim.profiles.default_officialization_text_for_users")
     end
   end
 end
