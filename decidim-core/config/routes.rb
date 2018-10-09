@@ -87,6 +87,10 @@ Decidim::Core::Engine.routes.draw do
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
 
+  namespace :gamification do
+    resources :badges, only: [:index]
+  end
+
   resources :newsletters, only: [:show] do
     get :unsubscribe, on: :collection
   end

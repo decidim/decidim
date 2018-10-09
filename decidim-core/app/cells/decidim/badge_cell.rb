@@ -26,13 +26,13 @@ module Decidim
 
     def description
       if user == current_user && status.level.zero?
-        t "decidim.gamification.badges.#{badge.name}.unearned_own"
+        score_descriptions[:unearned_own]
       elsif user == current_user && status.level.positive?
-        t "decidim.gamification.badges.#{badge.name}.description_own", score: status.score
+        score_descriptions[:description_own]
       elsif user != current_user && status.level.zero?
-        t "decidim.gamification.badges.#{badge.name}.unearned_another"
+        score_descriptions[:unearned_another]
       elsif user != current_user && status.level.positive?
-        t "decidim.gamification.badges.#{badge.name}.description_another", score: status.score
+        score_descriptions[:description_another]
       end
     end
 
@@ -44,12 +44,12 @@ module Decidim
           t "decidim.gamification.reached_top"
         end
       else
-        t "decidim.gamification.badges.#{badge.name}.explanation"
+        badge.description(controller.current_organization.name)
       end
     end
 
     def badge_name
-      t "decidim.gamification.badges.#{badge.name}.name"
+      badge.translated_name
     end
 
     def opacity
@@ -57,6 +57,10 @@ module Decidim
     end
 
     private
+
+    def score_descriptions
+      badge.score_descriptions(status.score)
+    end
 
     def status
       @status ||= options[:status] || Decidim::Gamification.status_for(user, badge.name)
