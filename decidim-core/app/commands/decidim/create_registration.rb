@@ -20,10 +20,7 @@ module Decidim
     def call
       return broadcast(:invalid) if form.invalid?
 
-      transaction do
-        create_user
-        create_user_group if form.user_group?
-      end
+      create_user
 
       broadcast(:ok, @user)
     end
@@ -33,29 +30,17 @@ module Decidim
     attr_reader :form
 
     def create_user
-      @user = User.create!(email: form.email,
-                           name: form.name,
-                           nickname: form.nickname,
-                           password: form.password,
-                           password_confirmation: form.password_confirmation,
-                           organization: form.current_organization,
-                           tos_agreement: form.tos_agreement,
-                           newsletter_notifications_at: form.newsletter_at,
-                           email_on_notification: true,
-                           accepted_tos_version: form.current_organization.tos_version)
-    end
-
-    def create_user_group
-      UserGroupMembership.create!(
-        user: @user,
-        user_group: UserGroup.new(
-          name: form.user_group_name,
-          extended_data: {
-            document_number: form.user_group_document_number,
-            phone: form.user_group_phone
-          },
-          decidim_organization_id: form.current_organization.id
-        )
+      @user = User.create!(
+        email: form.email,
+        name: form.name,
+        nickname: form.nickname,
+        password: form.password,
+        password_confirmation: form.password_confirmation,
+        organization: form.current_organization,
+        tos_agreement: form.tos_agreement,
+        newsletter_notifications_at: form.newsletter_at,
+        email_on_notification: true,
+        accepted_tos_version: form.current_organization.tos_version
       )
     end
   end
