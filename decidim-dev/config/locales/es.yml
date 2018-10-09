@@ -15,9 +15,9 @@ es:
     gamification:
       badges:
         test:
+          description: Los usuarios obtienen esta insignia al crear pruebas.
           description_another: Este usuario ha creado %{score} pruebas.
           description_own: Has creado %{score} pruebas.
-          explanation: Los usuarios obtienen esta insignia al crear pruebas.
           name: Pruebas
           next_level_in: '¡Crea %{score} pruebas más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha creado ninguna prueba.
