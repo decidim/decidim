@@ -354,6 +354,8 @@ fi:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
           view: Näytä
+      meetings_map:
+        view_meeting: Näytä tapaaminen
       models:
         invite:
           fields:

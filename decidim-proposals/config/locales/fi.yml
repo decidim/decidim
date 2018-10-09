@@ -433,7 +433,7 @@ fi:
           step_of: Vaihe %{current_step_num} / %{total_steps}
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
-        success: Ehdotus luotiin onnistuneesti. Tallennettu luonnoksena.
+        success: Ehdotus luotiin tallennettu luonnoksena.
       destroy_draft:
         error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.

@@ -406,6 +406,8 @@ hu:
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
       level: '%{level} szint'
       reached_top: Elérted a jelvény legmagasabb szintjét.
+    groups:
+      no_user_groups: Még nem tartozik semmilyen felhasználói csoporthoz.
     invitations:
       create:
         error: Problémák adódtak a barátok meghívása közben
@@ -582,12 +584,14 @@ hu:
       deleted: Törölt felhasználó
       view: Nézet
     profiles:
-      default_officialization_text: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
+      default_officialization_text_for_user_groups: Ez a felhasználói csoport nyilvánosan ellenőrzött, annak neve igazoltan megfelel a valódi nevének
+      default_officialization_text_for_users: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
       show:
         badges: Jelvények
         conversations: Beszélgetések
         followers: Követők
         following: Követés
+        groups: csoportok
         notifications: Értesítések
       sidebar:
         badges:

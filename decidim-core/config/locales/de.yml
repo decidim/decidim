@@ -407,6 +407,8 @@ de:
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
+    groups:
+      no_user_groups: Gehört noch keiner Benutzergruppe an.
     invitations:
       create:
         error: Es gab einige Probleme beim Einladen deiner Freunde
@@ -583,12 +585,14 @@ de:
       deleted: Gelöschte*r Benutzer*in
       view: Anzeigen
     profiles:
-      default_officialization_text: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
+      default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft, ihr Name wurde mit dem tatsächlichen Namen verifiziert
+      default_officialization_text_for_users: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
       show:
         badges: Abzeichen
         conversations: Gespräche
         followers: Follower
         following: Folgt
+        groups: Gruppen
         notifications: Benachrichtigungen
       sidebar:
         badges:

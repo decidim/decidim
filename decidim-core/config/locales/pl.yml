@@ -417,6 +417,8 @@ pl:
       description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
+    groups:
+      no_user_groups: Nie należy jeszcze do żadnej grupy użytkowników.
     invitations:
       create:
         error: Podczas zapraszania znajomych pojawiły się pewne problemy
@@ -593,12 +595,14 @@ pl:
       deleted: Usunięty użytkownik
       view: Widok
     profiles:
-      default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
+      default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie weryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
+      default_officialization_text_for_users: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
         badges: Odznaki
         conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
+        groups: Grupy
         notifications: Powiadomienia
       sidebar:
         badges:
