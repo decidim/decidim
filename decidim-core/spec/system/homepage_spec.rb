@@ -247,15 +247,11 @@ describe "Homepage", type: :system do
           it "shows the metrics block" do
             within "#metrics" do
               expect(page).to have_content("Participation in figures")
-              within ".metric-charts:first-child" do
-                Decidim.metrics_registry.highlighted.each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
-                end
+              Decidim.metrics_registry.highlighted.each do |metric_registry|
+                expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
               end
-              within ".metric-charts.small-charts" do
-                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
-                end
+              Decidim.metrics_registry.not_highlighted.each do |metric_registry|
+                expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
               end
             end
           end
@@ -269,15 +265,11 @@ describe "Homepage", type: :system do
           it "shows the metrics block empty" do
             within "#metrics" do
               expect(page).to have_content("Participation in figures")
-              within ".metric-charts:first-child" do
-                Decidim.metrics_registry.highlighted.each do |metric_registry|
-                  expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
-                end
+              Decidim.metrics_registry.highlighted.each do |metric_registry|
+                expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
               end
-              within ".metric-charts.small-charts" do
-                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
-                  expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
-                end
+              Decidim.metrics_registry.not_highlighted.each do |metric_registry|
+                expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
               end
             end
           end
