@@ -60,6 +60,9 @@ en:
           update:
             invalid: There has been a problem while updating this debate.
             success: Debate updated successfully.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debate
