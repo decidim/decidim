@@ -187,6 +187,10 @@ es-PY:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
+            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptados.
+          description: Este distintivo se otorga cuando usted participa activamente con nuevas propuestas y se aceptan.
           description_another: '%{score} propuestas de este usuario han sido aceptadas.'
           description_own: '%{score} de tus propuestas han sido aceptadas.'
           name: Propuestas aceptadas
@@ -194,6 +198,10 @@ es-PY:
           unearned_another: Este usuario aún no ha conseguido ninguna propuesta aceptada.
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
+          conditions:
+            - Navega y pasa un tiempo leyendo las propuestas de otras personas.
+            - Da soporte a las propuestas que te gusten o encuentres interesantes.
+          description: Este distintivo se otorga cuando apoyas las propuestas de otras personas.
           description_another: Este usuario ha dado soporte a %{score} propuestas.
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
@@ -201,6 +209,10 @@ es-PY:
           unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
+          conditions:
+            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
+            - Crear una nueva propuesta
+          description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
           name: Propuestas
