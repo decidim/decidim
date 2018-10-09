@@ -387,19 +387,31 @@ ca:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     gamification:
+      all_badges_link: Veure totes les xapes disponibles.
       badges:
         followers:
+          conditions:
+            - Ser actiu i seguir a altres persones segurament farà que altres persones us segueixin.
+          description: Aquesta distinció es concedeix quan arribeu a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
           description_another: Aquest usuari té %{score} seguidors.
           description_own: "%{score} usuaris et segueixen."
-          explanation: Els usuaris obtenen aquesta distinció fent-los seguits per altres usuaris.
           name: Seguidors
           next_level_in: Obteniu %{score} usuaris més per seguir-vos per arribar al següent nivell.
           unearned_another: Aquest usuari encara no té cap seguidor.
           unearned_own: Encara no tens seguidors.
+        index:
+          badge_title: "%{name} distintiu"
+          how: Com es pot guanyar?
+          page_description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comença a descobrir, participar i interactuar a la plataforma, obtindrà diferents distintius. Aquí teniu la llista de distintius i algunes formes de guanyar-les.
+          title: Insígnies
         invitations:
+          conditions:
+            - Utilitzeu l'enllaç "convidar amics" a la vostra pàgina d'usuari per convidar els vostres amics
+            - Personalitzeu, si ho voleu, el missatge que envieu
+            - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
+          description: Aquest distintiu es concedeix quan heu convidat a algunes persones i que passen una mica de temps per registrar-se a %{organization_name} i convertir-se en participants. Gràcies per fer d' %{organization_name} a conèixer als altres i ajudar a ampliar la comunitat!
           description_another: Aquest usuari ha convidat a %{score} usuaris.
           description_own: Has convidat %{score} usuaris.
-          explanation: Els usuaris obtenen aquesta distinció invitant altres usuaris.
           name: Invitacions
           next_level_in: Convida a %{score} usuaris més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha convidat cap usuari.
@@ -442,6 +454,8 @@ ca:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
     managed_users:
       expired_session: La sessió de suplantació actual ha caducat.
+    members:
+      no_members: Aquest grup d'usuaris encara no té cap membre.
     menu:
       home: Inici
       more_information: Més informació
@@ -593,6 +607,7 @@ ca:
         followers: Seguidors
         following: Segueix
         groups: Grups
+        members: Membres
         notifications: Notificacions
       sidebar:
         badges:
