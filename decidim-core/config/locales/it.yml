@@ -407,6 +407,8 @@ it:
       description: I badge sono riconoscimenti alle azioni dei partecipanti e ai progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
       level: Livello %{level}
       reached_top: Hai raggiunto il livello più alto per questo badge.
+    groups:
+      no_user_groups: Non appartiene ancora a nessun gruppo di utenti.
     invitations:
       create:
         error: Ci sono stati alcuni problemi durante l'invito ai tuoi amici
@@ -583,12 +585,14 @@ it:
       deleted: Utente eliminato
       view: vista
     profiles:
-      default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
+      default_officialization_text_for_user_groups: Questo gruppo di utenti è verificato pubblicamente, il suo nome è stato verificato per corrispondere con il suo vero nome
+      default_officialization_text_for_users: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
         badges: badge
         conversations: conversazioni
         followers: Seguaci
         following: segue
+        groups: gruppi
         notifications: notifiche
       sidebar:
         badges:

@@ -393,19 +393,31 @@ en:
         error: There's an error in this field.
       remove_this_file: Remove this file
     gamification:
+      all_badges_link: See all available badges.
       badges:
         followers:
+          conditions:
+          - Being active and following other people will surely make other people follow you.
+          description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
           description_another: This user has %{score} followers.
           description_own: "%{score} users are following you."
-          explanation: Users get this badge by getting followed by other users.
           name: Followers
           next_level_in: Get %{score} more users to follow you to reach the next level!
           unearned_another: This user doesn't have any followers yet.
           unearned_own: You've got no followers yet.
+        index:
+          badge_title: "%{name} badge"
+          how: How can you earn it
+          page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
+          title: Badges
         invitations:
+          conditions:
+          - Use the “invite friends” link on your user page to invite your friends
+          - Customize, if you want, the message you are sending
+          - You’ll level up by sending invitations and getting them registered.
+          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
           description_another: This user has invited %{score} users.
           description_own: You have invited %{score} users.
-          explanation: Users get this badge by inviting other users.
           name: Invitations
           next_level_in: Invite %{score} more users to reach the next level!
           unearned_another: This user hasn't invited any user yet.
@@ -448,6 +460,8 @@ en:
           not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current impersonation session has expired.
+    members:
+      no_members: This user groups doesn't have any member yet.
     menu:
       home: Home
       more_information: More information
@@ -599,6 +613,7 @@ en:
         followers: Followers
         following: Follows
         groups: Groups
+        members: Members
         notifications: Notifications
       sidebar:
         badges:

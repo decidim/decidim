@@ -66,6 +66,7 @@ Decidim::Core::Engine.routes.draw do
     get "followers", to: "profiles#followers", as: "profile_followers"
     get "badges", to: "profiles#badges", as: "profile_badges"
     get "groups", to: "profiles#groups", as: "profile_groups"
+    get "members", to: "profiles#members", as: "profile_members"
   end
 
   resources :pages, only: [:index, :show], format: false
@@ -85,6 +86,10 @@ Decidim::Core::Engine.routes.draw do
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
+
+  namespace :gamification do
+    resources :badges, only: [:index]
+  end
 
   resources :newsletters, only: [:show] do
     get :unsubscribe, on: :collection

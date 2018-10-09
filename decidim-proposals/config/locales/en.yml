@@ -188,25 +188,34 @@ en:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+          - Choose the participation space of your interest with submission for proposals enabled
+          - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+          description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This user has gotten %{score} proposals accepted.
           description_own: You got %{score} proposals accepted.
-          explanation: Users get this badge by getting their proposals accepted.
           name: Accepted proposals
           next_level_in: Get %{score} more proposals accepted to reach the next level!
           unearned_another: This user hasn't gotten any proposals accepted yet.
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
+          conditions:
+          - Browse and spend some time reading other people's proposals
+          - Give support to the proposals you like or find interesting
+          description: This badge is granted when you support other people's proposals.
           description_another: This user has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
-          explanation: Users get this badge by giving support to proposals.
           name: Proposal supports
           next_level_in: Give support to %{score} more proposals to reach the next level!
           unearned_another: This user hasn't given support to any proposals yet.
           unearned_own: You have given support to no proposals yet.
         proposals:
+          conditions:
+          - Choose the participation space of your interest with submission for proposals enabled
+          - Create a new proposal
+          description: This badge is granted when you actively participate with new proposals.
           description_another: This user has created %{score} proposals.
           description_own: You have created %{score} proposals.
-          explanation: Users get this badge by creating proposals.
           name: Proposals
           next_level_in: Create %{score} more proposals to reach the next level!
           unearned_another: This user hasn't created any proposals yet.
