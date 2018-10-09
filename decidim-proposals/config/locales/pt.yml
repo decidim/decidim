@@ -189,7 +189,6 @@ pt:
         accepted_proposals:
           description_another: Este utilizador obteve %{score} propostas aceites.
           description_own: Você tem %{score} propostas aceitas.
-          explanation: Os usuários recebem esse selo ao aceitar suas propostas.
           name: Propostas aceitas
           next_level_in: Receba mais %{score} propostas aceitas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não recebeu nenhuma proposta aceita.
@@ -197,7 +196,6 @@ pt:
         proposal_votes:
           description_another: Este usuário deu suporte a %{score} propostas.
           description_own: Você deu suporte a %{score} propostas.
-          explanation: Os usuários recebem esse selo dando suporte a propostas.
           name: Apoios proposta
           next_level_in: Dê suporte a mais %{score} propostas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não deu suporte a nenhuma proposta.
@@ -205,7 +203,6 @@ pt:
         proposals:
           description_another: Este usuário criou %{score} propostas.
           description_own: Você criou %{score} propostas.
-          explanation: Os usuários recebem esse selo criando propostas.
           name: Propostas
           next_level_in: Crie mais %{score} propostas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não criou nenhuma proposta.
