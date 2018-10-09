@@ -45,6 +45,18 @@ en:
       postal_letter:
         explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
         name: Code by postal letter
+    gamification:
+      badges:
+        test:
+          conditions:
+          - Use a test environment for decidim.
+          description: This is a dummy badge meant to be able to test the badges system without coupling it to the rest of the badges.
+          description_another: This user has %{score} dummies.
+          description_own: "You have %{score} dummies."
+          name: Test
+          next_level_in: Get %{score} more dummies reach the next level!
+          unearned_another: This user doesn't have any dummies yet.
+          unearned_own: You've got no dummies yet.
     verifications:
       authorizations:
         create:
