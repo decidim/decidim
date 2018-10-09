@@ -397,11 +397,13 @@ pl:
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
     gamification:
+      all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
         followers:
+          conditions:
+            - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
-          explanation: Użytkownicy otrzymują tę plakietkę, obserwując innych użytkowników.
           name: Obserwujący
           next_level_in: Uzyskaj %{score} innych użytkowników, którzy obserwują Cię, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie ma jeszcze żadnych obserwujących.
@@ -409,7 +411,6 @@ pl:
         invitations:
           description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
           description_own: Zaprosiłeś %{score} użytkowników.
-          explanation: Użytkownicy otrzymują tę plakietkę, zapraszając innych użytkowników.
           name: Zaproszenia
           next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie zaprosił jeszcze żadnego użytkownika.
