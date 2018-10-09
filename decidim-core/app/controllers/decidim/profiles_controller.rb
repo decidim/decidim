@@ -8,9 +8,12 @@ module Decidim
     helper_method :profile_holder, :active_content
 
     before_action :ensure_profile_holder
+    before_action :ensure_profile_holder_is_a_group, only: [:members]
+    before_action :ensure_profile_holder_is_a_user, only: [:groups, :badges, :following]
 
     def show
       return redirect_to notifications_path if current_user == profile_holder
+      return redirect_to profile_members_path if profile_holder.is_a?(Decidim::UserGroup)
       redirect_to profile_following_path
     end
 
@@ -40,6 +43,14 @@ module Decidim
     end
 
     private
+
+    def ensure_profile_holder_is_a_group
+      raise ActionController::RoutingError, "No user group with the given nickname" unless profile_holder.is_a?(Decidim::UserGroup)
+    end
+
+    def ensure_profile_holder_is_a_user
+      raise ActionController::RoutingError, "No user with the given nickname" unless profile_holder.is_a?(Decidim::User)
+    end
 
     def ensure_profile_holder
       raise ActionController::RoutingError, "No user or user group with the given nickname" unless profile_holder
