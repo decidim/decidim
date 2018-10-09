@@ -125,9 +125,11 @@ sv:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Registrera dig i de möten du vill delta i
+          description: Detta märke beviljas när du deltar i flera möten mellan ansikte mot ansikte.
           description_another: Den här användaren har deltagit i %{score} möten.
           description_own: Du har deltagit i %{score} möten.
-          explanation: Användare får detta märke genom att delta i möten.
           name: Deltog i möten
           next_level_in: Delta i %{score} fler möten för att nå nästa nivå!
           unearned_another: Den här användaren har inte deltagit i något möte än.
