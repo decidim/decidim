@@ -87,7 +87,8 @@ sv:
         initiatives:
           conditions:
             - Gå till Intiatives deltagande utrymme
-            - Follow the steps to create a new initiative
+            - Följ stegen för att skapa ett nytt initiativ
+          description: Detta märke beviljas när du startar nya initiativ, samarbetar med andra för att utföra dem.
           description_another: Den här användaren har fått %{score} initiativ publicerade.
           description_own: Du har %{score} initiativ publicerade.
           name: Publicerade initiativ
