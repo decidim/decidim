@@ -402,13 +402,24 @@ pl:
         followers:
           conditions:
             - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
+          description: Ta odznaka jest przyznawana, gdy dotrzesz do określonej liczby obserwujących. %{organization_name} to sieć społeczna i polityczna, tkanie sieci w celu komunikowania się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
           name: Obserwujący
           next_level_in: Uzyskaj %{score} innych użytkowników, którzy obserwują Cię, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie ma jeszcze żadnych obserwujących.
           unearned_own: Nie masz jeszcze żadnych obserwujących.
+        index:
+          badge_title: "%{name} znaczek"
+          how: Jak możesz to zarobić?
+          page_description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
+          title: Odznaki
         invitations:
+          conditions:
+            - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
+            - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
+            - Możesz awansować na wyższy poziom, wysyłając zaproszenia i rejestrując je.
+          description: Ta odznaka jest przyznawana, gdy zaprosiłeś niektórych ludzi i spędzili trochę czasu, aby zarejestrować się w %{organization_name} i zostać uczestnikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozszerzeniu społeczności!
           description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
           description_own: Zaprosiłeś %{score} użytkowników.
           name: Zaproszenia
@@ -453,6 +464,8 @@ pl:
           not_found: 'Typ zasięgu nie został znaleziony w bazie danych (ID: %{id})'
     managed_users:
       expired_session: Obecna sesja personifikacji wygasła.
+    members:
+      no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
       home: Ekran startowy
       more_information: Więcej informacji
@@ -604,6 +617,7 @@ pl:
         followers: Obserwujący
         following: Podąża
         groups: Grupy
+        members: Członkowie
         notifications: Powiadomienia
       sidebar:
         badges:
