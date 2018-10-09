@@ -387,19 +387,31 @@ de:
         error: In diesem Feld ist ein Fehler aufgetreten.
       remove_this_file: Diese Datei entfernen
     gamification:
+      all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
       badges:
         followers:
+          conditions:
+            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
+          description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
           description_another: Diese*r Benutzer*in hat %{score} Follower.
           description_own: "%{score} Benutzer*innen folgen dir."
-          explanation: Benutzer erhalten dieses Abzeichen, indem sie von anderen Benutzern verfolgt werden.
           name: Follower
           next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Follower.
           unearned_own: Sie haben noch keine Follower.
+        index:
+          badge_title: "%{name} Abzeichen"
+          how: Wie kannst du es verdienen?
+          page_description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen. Hier ist die Liste der Abzeichen und einige Möglichkeiten, wie Sie sie verdienen können.
+          title: Abzeichen
         invitations:
+          conditions:
+            - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
+            - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
+            - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
+          description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
           description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
           description_own: Sie haben %{score} Benutzer*innen eingeladen.
-          explanation: Benutzer erhalten dieses Abzeichen, indem sie andere Benutzer einladen.
           name: Einladungen
           next_level_in: Laden Sie %{score} weitere Benutzer*innen ein, um das nächste Level zu erreichen!
           unearned_another: Diese*r Benutzer*in hat noch niemanden eingeladen.
@@ -442,6 +454,8 @@ de:
           not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
+    members:
+      no_members: Diese Benutzergruppe hat noch kein Mitglied.
     menu:
       home: Start
       more_information: Weitere Informationen
@@ -593,6 +607,7 @@ de:
         followers: Follower
         following: Folgt
         groups: Gruppen
+        members: Mitglieder
         notifications: Benachrichtigungen
       sidebar:
         badges:
