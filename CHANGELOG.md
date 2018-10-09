@@ -36,6 +36,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-participatory_processes**: Add a Call to Action button to process steps[\#4184](https://github.com/decidim/decidim/pull/4184)
 - **decidim-core**: Show user groups profiles [\#4196](https://github.com/decidim/decidim/pull/4196)
 - **decidim-core**: Show user groups on users profiles [\#4236](https://github.com/decidim/decidim/pull/4236)
+- **decidim-core**: Show members on user groups profiles [\#4252](https://github.com/decidim/decidim/pull/4252)
 
 **Changed**:
 
