@@ -137,7 +137,6 @@ es:
         commented_debates:
           description_another: Este usuario ha participado en %{score} debates.
           description_own: Usted ha participado en %{score} debates.
-          explanation: Los usuarios obtienen esta insignia participando en debates.
           name: Debates
           next_level_in: '¡Participe en %{score} debates más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha participado en ningún debate.
