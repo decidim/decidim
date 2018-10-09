@@ -387,19 +387,31 @@ sv:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
     gamification:
+      all_badges_link: Se alla tillgängliga märken.
       badges:
         followers:
+          conditions:
+            - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
+          description: Detta märke beviljas när du når ett visst antal anhängare. %{organization_name} är ett socialt och politiskt nätverk, väv din webb för att kommunicera med andra personer på plattformen.
           description_another: Den här användaren har %{score} följare.
           description_own: "%{score} användare följer dig."
-          explanation: Användare får detta märke genom att följa av andra användare.
           name: anhängare
           next_level_in: Få %{score} fler användare att följa dig för att nå nästa nivå!
           unearned_another: Den här användaren har inga anhängare än.
           unearned_own: Du har inga anhängare än.
+        index:
+          badge_title: "%{name} märke"
+          how: Hur kan du tjäna det
+          page_description: Badges är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika märken. Här är listan med märken och några sätt du kan tjäna dem.
+          title: Emblem
         invitations:
+          conditions:
+            - Använd länken "bjud in vänner" på din användarsida för att bjuda in dina vänner
+            - Anpassa, om du vill, det meddelande du skickar
+            - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
+          description: Detta märke beviljas när du har bjudit in några personer och de har spenderat lite tid att registrera sig i %{organization_name} och bli deltagare. Tack för att göra %{organization_name} känt för andra och hjälpa till att utvidga community!
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
-          explanation: Användare får detta emblem genom att bjuda in andra användare.
           name: Inbjudningar
           next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
           unearned_another: Den här användaren har inte bjudit in någon användare än.
@@ -442,6 +454,8 @@ sv:
           not_found: 'Typ av omfattning hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
+    members:
+      no_members: Dessa användargrupper har ingen medlem än.
     menu:
       home: Hem
       more_information: Mer information
@@ -593,6 +607,7 @@ sv:
         followers: Anhängare
         following: Följer
         groups: grupper
+        members: medlemmar
         notifications: Notiser
       sidebar:
         badges:
