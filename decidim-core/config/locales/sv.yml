@@ -407,6 +407,8 @@ sv:
       description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta emblem.
+    groups:
+      no_user_groups: Tillhör inte någon användargrupp ännu.
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -583,12 +585,14 @@ sv:
       deleted: Ta bort användare
       view: Se
     profiles:
-      default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
+      default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
+      default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         badges: Emblem
         conversations: Samtal
         followers: Anhängare
         following: Följer
+        groups: grupper
         notifications: Notiser
       sidebar:
         badges:

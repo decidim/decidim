@@ -407,6 +407,8 @@ es:
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
+    groups:
+      no_user_groups: Aún no pertenece a ningún grupo de usuarios.
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -583,12 +585,14 @@ es:
       deleted: Usuario eliminado
       view: Ver
     profiles:
-      default_officialization_text: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
+      default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, su nombre se ha verificado para que se corresponda con su nombre real
+      default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
         badges: Insignias
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
+        groups: Los grupos
         notifications: Notificaciones
       sidebar:
         badges:

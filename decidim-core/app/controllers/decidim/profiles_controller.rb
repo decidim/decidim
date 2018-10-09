@@ -34,6 +34,11 @@ module Decidim
       render :show
     end
 
+    def members
+      @content_cell = "decidim/members"
+      render :show
+    end
+
     private
 
     def ensure_profile_holder
