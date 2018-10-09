@@ -131,6 +131,9 @@ pl:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Zarejestruj się na spotkaniach, które chcesz wziąć udział
+          description: Ta odznaka jest przyznawana, gdy bierzesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Brałeś udział w %{score} spotkaniach.
           name: Udział w spotkaniach
