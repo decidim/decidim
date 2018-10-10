@@ -388,6 +388,16 @@ hu:
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
+        continuity:
+          conditions:
+            - Gyere ide gyakran
+          description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
+          description_another: Ez a felhasználó egy adott napon %{score} egymást követő napon keresztül kapcsolódott.
+          description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
+          name: Folytonosság
+          next_level_in: Csatlakoztasson %{score} egymást követő napot, hogy eljusson a következő szintre!
+          unearned_another: Ez a felhasználó több mint egymást követő napon nem jelentkezett be.
+          unearned_own: Nem kapcsolódott több mint egymást követő napon.
         followers:
           conditions:
             - Az aktív és más emberek követése biztosan másokat követni fog.
