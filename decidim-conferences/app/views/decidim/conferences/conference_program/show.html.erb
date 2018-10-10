@@ -1,0 +1,54 @@
+<%
+if respond_to?(:meeting_component) && meeting_component
+  edit_link(
+    manage_component_path(meeting_component),
+    :read,
+    :component,
+    component: meeting_component,
+    current_participatory_space: current_participatory_space
+  )
+end
+%>
+<% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
+<div class="section row">
+  <div class="columns mediumlarge-12">
+    <h1 class="section-heading"><%= t(".program") %></h1>
+    <div class="conference-programme">
+      <div class="row collapse programme-selector">
+        <div class="column medium-2">
+          <%= t(".day") %>
+        </div>
+        <div class="column medium-10">
+          <% if meeting_days.any? %>
+            <ul class="tabs" id="conference-day-tabs"
+              data-deep-link="true"
+              data-update-history="true"
+              data-deep-link-smudge="true"
+              data-deep-link-smudge-delay="500"
+              data-tabs>
+              <% meeting_days.each_with_index do |day, i| %>
+                <li class="tabs-title">
+                  <!-- Wrap button in an anchor to make foundation tabs work -->
+                  <a href="#conference-day-tab-<%= i %>">
+                    <button class="button button--nomargin button--sc secondary light">
+                      <%= l day, format: :decidim_with_day_and_month_name %>
+                    </button>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+      <div class="tabs-content" data-tabs-content="conference-day-tabs">
+        <% meeting_days.each_with_index do |day, i| %>
+          <div class="programme-day tabs-panel<%= " is-active" if i == 0 %>" id="conference-day-tab-<%= i %>">
+            <% meetings_for_day(meeting_component, day, current_user).each do |meeting_days, meetings| %>
+              <%= render partial: "program_item", locals: { start_time: meeting_days[:start_time], end_time: meeting_days[:end_time], meetings: meetings.pluck(:meeting) } %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

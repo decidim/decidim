@@ -35,8 +35,9 @@
 
               <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
                 <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-                  <li class="<%= "is-active" if is_active_link?(main_component_path(component_meeting), :inclusive) %>">
-                    <%= active_link_to main_component_path(component_meeting), active: :inclusive, class: "process-nav__link", class_active: "is-active" do %>
+                  <% active = is_active_link?(decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), :inclusive) || is_active_link?(main_component_path(component_meeting), :inclusive) %>
+                  <li class="<%= "is-active" if active %>">
+                    <%= link_to decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class: "process-nav__link #{"is-active" if active}" do %>
                       <%= component_icon(component_meeting) %>
                       <%= translated_attribute(component_meeting.name) %>
                     <% end %>
@@ -70,5 +71,4 @@
       </div>
     <% end %>
   </div>
-
 </section>

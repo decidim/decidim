@@ -17,6 +17,18 @@ module Decidim
       user.nickname if user
     end
 
+    def deleted?
+      user ? user.deleted? : false
+    end
+
+    def badge
+      user ? user.badge : false
+    end
+
+    def can_be_contacted?
+      user ? true : false
+    end
+
     private
 
     def user

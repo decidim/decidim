@@ -103,8 +103,11 @@
       }
     }
 
-    span{
+    .row:not(.speakers-list) span{
       opacity: .6;
+    }
+    .speakers-list{
+      min-height: 35px;
     }
   }
 }

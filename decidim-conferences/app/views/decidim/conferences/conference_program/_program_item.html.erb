@@ -1,0 +1,31 @@
+<% if meetings.present? %>
+  <div class="row collapse">
+    <% categories = meetings.collect(&:category).uniq %>
+    <% seed = SecureRandom.hex(3).to_s %>
+    <% if categories.present? %>
+      <div class="row">
+        <div class="column medium-10 medium-push-2">
+          <ul class="tabs buttons__row" id="conference-row-<%= seed %>-tabs" data-tabs>
+            <% categories.each_with_index do |category, i| %>
+              <li class="tabs-title<%= " is-active" if i == 0 %>">
+                <!-- Wrap button in an anchor to make foundation tabs work -->
+                <a href="#conference-row-<%= seed %>-tab<%= i %>">
+                  <button class="button button--shadow secondary tiny light"><%= category.present? ? translated_attribute(category.name) : "other" %></button>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    <div class="tabs-content" data-tabs-content="conference-row-<%= seed %>-tabs">
+      <% meetings.group_by(&:category).each_with_index do |categories_block, i| %>
+        <div class="tabs-panel<%= " is-active" if i == 0 %>" id="conference-row-<%= seed %>-tab<%= i %>">
+          <% categories_block.last.each do |meeting| %>
+            <%= render partial: "program_meeting", locals: { end_time: end_time, start_time: start_time, meeting: meeting } %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

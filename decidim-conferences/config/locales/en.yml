@@ -171,6 +171,9 @@ en:
         create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Speakers
@@ -239,6 +242,15 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+      conference_program:
+        program_meeting:
+          content: Content
+          location: Location
+          speakers: Speakers
+          streaming: Streaming
+        show:
+          day: Day
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
