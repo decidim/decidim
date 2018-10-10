@@ -8,7 +8,7 @@ module Decidim
     let(:subject) { described_class.new(user) }
 
     context "when tracking for the first time" do
-      let(:date) { Date.today }
+      let(:date) { Time.zone.today }
 
       before do
         subject.track!(date)
@@ -28,7 +28,7 @@ module Decidim
     end
 
     context "when tracking on the second consecutive day" do
-      let(:date) { Date.today }
+      let(:date) { Time.zone.today }
 
       before do
         ContinuityBadgeStatus.create!(
@@ -81,7 +81,7 @@ module Decidim
     end
 
     context "when tracking the next day" do
-      let(:date) { Date.today }
+      let(:date) { Time.zone.today }
       let(:streak) { 10 }
 
       before do
@@ -108,7 +108,7 @@ module Decidim
     end
 
     context "when not active for more than one day" do
-      let(:date) { Date.today }
+      let(:date) { Time.zone.today }
       let(:streak) { 10 }
 
       before do
