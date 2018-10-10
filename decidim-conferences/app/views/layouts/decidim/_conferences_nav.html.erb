@@ -27,7 +27,7 @@
               <% if current_participatory_space.speakers.any? %>
                 <li class="<%= "is-active" if is_active_link?(decidim_conferences.conference_conference_speakers_path(current_participatory_space), :inclusive) %>">
                   <%= active_link_to decidim_conferences.conference_conference_speakers_path(current_participatory_space), active: :inclusive, class: "process-nav__link", class_active: "is-active" do %>
-                    <%= external_icon "decidim/conferences/conference.svg" %>
+                    <%= icon("members") %>
                     <%= t ".conference_speaker_menu_item" %>
                   <% end %>
                 </li>

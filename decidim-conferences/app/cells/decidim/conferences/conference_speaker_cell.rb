@@ -37,13 +37,13 @@ module Decidim
 
       def twitter_handle
         return unless model.twitter_handle.presence
-        link_to "Go to twitter", "https://twitter.com/#{model.twitter_handle}", target: "_blank"
+        link_to t(".go_to_twitter"), "https://twitter.com/#{model.twitter_handle}", target: "_blank"
       end
 
       def personal_url
         return unless model.personal_url.presence || (model.user.presence && model.user.personal_url.presence)
         link_to model.personal_url || model.user.personal_url, target: "_blank", class: "card-link" do
-          "#{icon "external-link"}" "&nbsp;Personal website"
+          "#{icon "external-link"}" "&nbsp;#{t(".personal_website")}"
         end
       end
 

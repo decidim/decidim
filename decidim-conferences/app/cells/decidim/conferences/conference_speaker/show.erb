@@ -14,7 +14,7 @@
     <div class="data-extra">
       <% if nickname.present? %>
         <%= link_to profile_path, class: "card-link" do %>
-          <%= nickname %> <span><u>more info</u></span>
+          <%= nickname %> <span><u><%= t(".more_info") %></u></span>
         <% end %>
       <% else %>
         <div class="author__nickname">&nbsp;</div>
@@ -37,7 +37,7 @@
           <div class="data-extra">
             <% if nickname.present? %>
               <%= link_to profile_path, class: "card-link" do %>
-                <%= nickname %> <span><u>more info</u></span>
+                <%= nickname %> <span><u><%= t(".more_info") %></u></span>
               <% end %>
             <% else %>
               <div class="author__nickname">&nbsp;</div>
@@ -75,7 +75,6 @@
           <ul class="list-reset">
             <% meetings.each do |meeting| %>
               <%= meeting_title meeting %>
-              <%#= present(meeting.to).title %>
             <% end %>
           </ul>
         </div>

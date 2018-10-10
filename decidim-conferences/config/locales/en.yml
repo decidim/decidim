@@ -253,6 +253,10 @@ en:
         destroy:
           invalid: There's been a problem leaving this conference.
           success: You have left the conference successfully.
+      conference_speaker:
+        go_to_twitter: Go to Twitter
+        more_info: more info
+        personal_website: Personal website
       conference_speakers:
         index:
           speakers: Speakers
