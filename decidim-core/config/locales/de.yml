@@ -389,6 +389,16 @@ de:
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
       badges:
+        continuity:
+          conditions:
+            - Komm oft hierher
+          description: Dieses Abzeichen wird gewährt, wenn Sie die Plattform regelmäßig besuchen. Wir möchten dich hier in der Nähe haben!
+          description_another: Dieser Benutzer hat sich irgendwann einmal für %{score} aufeinanderfolgende Tage verbunden.
+          description_own: Sie haben an einem bestimmten Punkt für %{score} aufeinanderfolgende Tage verbunden.
+          name: Kontinuität
+          next_level_in: Verbinde dich für %{score} aufeinanderfolgende Tage, um zum nächsten Level zu gelangen!
+          unearned_another: Dieser Benutzer hat sich länger als einen Tag nicht angemeldet.
+          unearned_own: Sie haben seit mehr als einem aufeinanderfolgenden Tag keine Verbindung hergestellt.
         followers:
           conditions:
             - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
