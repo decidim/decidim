@@ -399,6 +399,13 @@ pl:
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
+        continuity:
+          conditions:
+            - Chodź tu często
+          description: Ta odznaka jest przyznawana podczas regularnego odwiedzania platformy. Lubimy mieć cię tutaj!
+          description_another: Ten użytkownik nawiązał połączenie przez %{score} kolejnych dni w pewnym momencie.
+          description_own: W pewnym momencie łączyłeś się przez %{score} kolejnych dni.
+          name: Ciągłość
         followers:
           conditions:
             - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
