@@ -389,6 +389,16 @@ pt:
     gamification:
       all_badges_link: Veja todos os crachás disponíveis.
       badges:
+        continuity:
+          conditions:
+            - Vem aqui com frequência
+          description: Esse selo é concedido quando você visita a plataforma regularmente. Nós gostamos de ter você por aqui!
+          description_another: Este usuário conectou por %{score} dias consecutivos em algum momento.
+          description_own: Você se conectou por %{score} dias consecutivos em algum momento.
+          name: Continuidade
+          next_level_in: Ligue por %{score} dias consecutivos para chegar ao próximo nível!
+          unearned_another: Este usuário não fez login por mais de um dia consecutivo.
+          unearned_own: Você não se conectou por mais de um dia consecutivo.
         followers:
           conditions:
             - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
