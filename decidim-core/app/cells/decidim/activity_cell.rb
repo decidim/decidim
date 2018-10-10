@@ -31,7 +31,13 @@ module Decidim
     #
     # The card will also be displayed OK if there's no title.
     def title
-      translated_attribute(resource.title)
+      return unless resource.respond_to?(:title)
+
+      if resource.title.is_a?(String)
+        resource.title
+      elsif resource.title.is_a?(Hash)
+        translated_attribute(resource.title)
+      end
     end
 
     # The link to the resource linked to the activity.

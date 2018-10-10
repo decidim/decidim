@@ -25,8 +25,10 @@ module Decidim
       render
     end
 
-    def cell_for(activity)
-      "#{activity.resource_type.constantize.name.underscore}_activity"
+    def activity_cell_for(activity)
+      cell "#{activity.resource_type.constantize.name.underscore}_activity", activity
+    rescue NameError
+      cell "decidim/activity", activity
     end
 
     def activities
