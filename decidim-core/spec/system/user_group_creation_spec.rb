@@ -13,7 +13,7 @@ describe "User group creation", type: :system do
   end
 
   it "creates a user group for the current user" do
-    click_link "Create user group"
+    click_link "Create organization"
 
     fill_in "Name", with: "My super user group"
     fill_in "Nickname", with: "my_usergroup"
@@ -24,7 +24,7 @@ describe "User group creation", type: :system do
 
     attach_file "Avatar", Decidim::Dev.asset("avatar.jpg")
 
-    click_button "Create user group"
+    click_button "Create organization"
 
     expect(page).to have_content("My super user group")
     expect(page).to have_content("@my_usergroup")

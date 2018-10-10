@@ -143,7 +143,7 @@ describe "Profile", type: :system do
       end
 
       it "lists the user groups" do
-        click_link "Groups"
+        click_link "Organizations"
 
         expect(page).to have_content(user_group.name)
       end
