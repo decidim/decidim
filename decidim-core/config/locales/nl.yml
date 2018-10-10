@@ -389,6 +389,16 @@ nl:
     gamification:
       all_badges_link: Zie alle beschikbare badges.
       badges:
+        continuity:
+          conditions:
+            - Kom hier vaker
+          description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
+          description_another: Deze gebruiker heeft op een gegeven moment %{score} opeenvolgende dagen verbonden.
+          description_own: Je hebt op een gegeven moment %{score} opeenvolgende dagen verbonden.
+          name: Continuïteit
+          next_level_in: Verbind %{score} opeenvolgende dagen om naar het volgende niveau te gaan!
+          unearned_another: Deze gebruiker heeft zich niet langer dan één opeenvolgende dag aangemeld.
+          unearned_own: Je hebt niet langer dan één opeenvolgende dag verbonden.
         followers:
           conditions:
             - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
