@@ -427,6 +427,9 @@ en:
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
     groups:
+      new:
+        create_user_group: Create user group
+        new_user_group: New user group
       no_user_groups: Doesn't belong to any user group yet.
     invitations:
       create:
@@ -621,6 +624,7 @@ en:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
+        create_user_group: Create user group
         edit_profile: Edit profile
     reported_mailer:
       hide:
