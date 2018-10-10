@@ -389,6 +389,16 @@ es-PY:
     gamification:
       all_badges_link: Ver todas las insignias disponibles.
       badges:
+        continuity:
+          conditions:
+            - Viene aquí a menudo
+          description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
+          description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
+          description_own: Te has conectado por %{score} días consecutivos en algún momento.
+          name: Continuidad
+          next_level_in: '¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!'
+          unearned_another: Este usuario no se ha registrado durante más de un día consecutivo.
+          unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
