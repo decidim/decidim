@@ -389,6 +389,10 @@ es:
     gamification:
       all_badges_link: Ver todas las insignias disponibles.
       badges:
+        continuity:
+          conditions:
+            - Viene aquí a menudo
+          description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
