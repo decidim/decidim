@@ -389,6 +389,16 @@ fi:
     gamification:
       all_badges_link: Katso kaikki saatavilla olevat merkit.
       badges:
+        continuity:
+          conditions:
+            - Tule tänne usein
+          description: Tämä merkki myönnetään, kun vierailet alustalla säännöllisesti. Pidämme sinusta täällä!
+          description_another: Tämä käyttäjä on kytketty %{score} peräkkäiseen päivään jossakin vaiheessa.
+          description_own: Olet yhdistänyt %{score} peräkkäistä päivää jossakin vaiheessa.
+          name: Jatkuvuus
+          next_level_in: Yhdistä %{score} peräkkäistä päivää päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole kirjautunut sisään useampaan kuin yhtä peräkkäiseen päivään.
+          unearned_own: Et ole ollut yhteydessä useampaan kuin yhtä peräkkäiseen päivään.
         followers:
           conditions:
             - Aktiivinen ja muiden ihmisten seuranta varmasti tekee muut ihmiset seuraamaan sinua.
