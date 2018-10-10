@@ -389,6 +389,16 @@ ca:
     gamification:
       all_badges_link: Veure totes les xapes disponibles.
       badges:
+        continuity:
+          conditions:
+            - Vine aquí amb freqüència
+          description: Aquest distintiu es concedeix quan visiteu la plataforma de forma regular. Ens agrada tenir-vos per aquí!
+          description_another: Aquest usuari s'ha connectat durant %{score} dies consecutius en algun moment.
+          description_own: Heu connectat durant %{score} dies consecutius en algun moment.
+          name: Continuïtat
+          next_level_in: Connecta per %{score} dies consecutius per arribar al següent nivell!
+          unearned_another: Aquest usuari no ha iniciat la sessió durant més d'un dia consecutiu.
+          unearned_own: No heu connectat més d'un dia consecutiu.
         followers:
           conditions:
             - Ser actiu i seguir a altres persones segurament farà que altres persones us segueixin.
