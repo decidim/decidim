@@ -389,6 +389,16 @@ it:
     gamification:
       all_badges_link: Vedi tutti i badge disponibili.
       badges:
+        continuity:
+          conditions:
+            - Vieni qui spesso
+          description: Questo badge è concesso quando visiti la piattaforma in modo regolare. Ci piace averti qui intorno!
+          description_another: Questo utente si è connesso per %{score} giorni consecutivi ad un certo punto.
+          description_own: Hai collegato per %{score} giorni consecutivi ad un certo punto.
+          name: Continuità
+          next_level_in: Connetti per %{score} giorni consecutivi per passare al livello successivo!
+          unearned_another: Questo utente non ha effettuato l'accesso per più di un giorno consecutivo.
+          unearned_own: Non ti sei connesso per più di un giorno consecutivo.
         followers:
           conditions:
             - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
