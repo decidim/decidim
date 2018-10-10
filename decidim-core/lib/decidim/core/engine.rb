@@ -365,6 +365,10 @@ module Decidim
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }
         end
+
+        Decidim::Gamification.register_badge(:continuity) do |badge|
+          badge.levels = [2, 10, 30, 60, 180, 365]
+        end
       end
     end
   end
