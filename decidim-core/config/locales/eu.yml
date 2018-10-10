@@ -389,6 +389,16 @@ eu:
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
+        continuity:
+          conditions:
+            - Zatoz hemen sarritan
+          description: Txartela hau modu erregularrean bisitatzen duzunean ematen da. Gustatzen zait hemen!
+          description_another: Erabiltzaile honek une batez %{score} egunez konektatua dago.
+          description_own: Zenbait puntutan eguneko %{score} egunetarako konektatuta zaude.
+          name: Continuity
+          next_level_in: Konektatu %{score} egun jarraian hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek ez du saioa hasi egun bat baino gehiagoz.
+          unearned_own: Ez duzu egun bat baino gehiagoz konektaturik.
         followers:
           conditions:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
