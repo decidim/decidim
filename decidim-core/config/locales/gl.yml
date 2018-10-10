@@ -389,6 +389,16 @@ gl:
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
+        continuity:
+          conditions:
+            - Veña aquí a miúdo
+          description: Este distintivo concedeuse cando visitas a plataforma dun xeito regular. Gústanos de telo por aquí.
+          description_another: Este usuario conectouse por %{score} días consecutivos nalgún momento.
+          description_own: Conectado por %{score} días consecutivos nalgún momento.
+          name: Continuidade
+          next_level_in: Conéctese por %{score} días consecutivos para chegar ao seguinte nivel.
+          unearned_another: Este usuario non iniciou sesión máis de un día consecutivo.
+          unearned_own: Non estás conectado por máis dun día consecutivo.
         followers:
           conditions:
             - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
