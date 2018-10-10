@@ -427,6 +427,9 @@ en:
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
     groups:
+      create:
+        error: There has been a problem creating the user group
+        success: User group created successfully
       new:
         create_user_group: Create user group
         new_user_group: New user group

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A command with all the business logic to create a user through the sign up form.
-  class CreateRegistration < Rectify::Command
+  # A command with all the business logic to create a user group.
+  class CreateUserGroup < Rectify::Command
     # Public: Initializes the command.
     #
     # form - A form object with the params.
@@ -19,27 +19,37 @@ module Decidim
     def call
       return broadcast(:invalid) if form.invalid?
 
-      create_user
+      transaction do
+        create_user_group
+        create_membership
+      end
 
-      broadcast(:ok, @user)
+      broadcast(:ok, @user_group)
     end
 
     private
 
     attr_reader :form
 
-    def create_user
-      @user = User.create!(
+    def create_user_group
+      @user_group = UserGroup.create!(
         email: form.email,
         name: form.name,
         nickname: form.nickname,
-        password: form.password,
-        password_confirmation: form.password_confirmation,
         organization: form.current_organization,
-        tos_agreement: form.tos_agreement,
-        newsletter_notifications_at: form.newsletter_at,
-        email_on_notification: true,
-        accepted_tos_version: form.current_organization.tos_version
+        about: form.about,
+        avatar: form.avatar,
+        extended_data: {
+          phone: form.phone,
+          document_number: form.document_number
+        }
+      )
+    end
+
+    def create_membership
+      UserGroupMembership.create!(
+        user: form.current_user,
+        user_group: @user_group
       )
     end
   end

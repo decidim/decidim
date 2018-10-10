@@ -29,7 +29,7 @@ module Decidim
 
     private
 
-    def user_group_document_number_unique_in_organization
+    def unique_document_number
       errors.add :document_number, :taken if UserGroup.with_document_number(
         context.current_organization,
         document_number
