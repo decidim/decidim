@@ -254,9 +254,13 @@ en:
           invalid: There's been a problem leaving this conference.
           success: You have left the conference successfully.
       conference_speaker:
-        go_to_twitter: Go to Twitter
-        more_info: more info
-        personal_website: Personal website
+        show:
+          more_info: more info
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Personal website
+        twitter_handle:
+          go_to_twitter: Go to Twitter
       conference_speakers:
         index:
           speakers: Speakers
