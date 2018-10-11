@@ -117,7 +117,7 @@ fi:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
       last_activity:
-        new_result_at_html: "<span>Uusi tulos %{link}</span>"
+        new_result_at_html: "<span>Uusi tulos osoitteessa %{link}</span>"
       models:
         result:
           fields:
