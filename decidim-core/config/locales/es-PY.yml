@@ -213,6 +213,10 @@ es-PY:
       html:
         html_content: Contenido HTML
         name: Bloque de HTML
+      last_activity:
+        name: Última actividad
+        title: Última actividad
+        view_all: Ver todo
       metrics:
         name: Métricas de la organización
       stats:
@@ -441,6 +445,13 @@ es-PY:
         invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
         invite: Invitación
         visit_your_profile: Visita tu perfil
+    last_activities:
+      activities:
+        no_activities_warning: Ninguna actividad
+      all: Todos los tipos de actividad
+      index:
+        last_activity: Última actividad
+        resource_type: Tipo
     log:
       base_presenter:
         create: "%{user_name} creó %{resource_name}"
