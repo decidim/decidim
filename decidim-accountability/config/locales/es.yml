@@ -116,6 +116,8 @@ es:
         value_types:
           parent_presenter:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nuevo resultado en %{link}</span>"
       models:
         result:
           fields:
