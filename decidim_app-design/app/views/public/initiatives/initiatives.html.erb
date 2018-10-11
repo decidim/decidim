@@ -6,29 +6,30 @@
 
 <%= partial "template_top" %>
 
-<main class="wrapper">
+<main>
   <%= partial "process_header" %>
-  <div class="row column">
-    <div class="callout secondary mb-sm">
-      <p>
-        Las iniciativas ciudadanas son un medio con el que la ciudadanía interviene a fin de que el Ayuntamiento lleve a cabo una determinada actuación de interés general y competencia municipal. ¿Qué iniciativa quieres impulsar? <a href="#">Más información</a>.
-      </p>
-    </div>
-  </div>
-  <div class="row columns">
-    <h2 class="section-heading">3 Iniciativas</h2>
-  </div>
-  <div class="row">
-    <div class="columns mediumlarge-4 large-3">
-      <%= partial "filters_small_view" %>
-      <div class="card card--secondary show-for-mediumlarge">
-        <%= partial "filters" %>
+  <div class="wrapper">
+    <div class="row column">
+      <div class="callout secondary mb-sm">
+        <p>
+          Las iniciativas ciudadanas son un medio con el que la ciudadanía interviene a fin de que el Ayuntamiento lleve a cabo una determinada actuación de interés general y competencia municipal. ¿Qué iniciativa quieres impulsar? <a href="#">Más información</a>.
+        </p>
       </div>
     </div>
-    <div class="columns mediumlarge-8 large-9">
-      <%= partial "order_by" %>
-      <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
-        <% 3.times do %>
+    <div class="row columns">
+      <h2 class="section-heading">3 Iniciativas</h2>
+    </div>
+    <div class="row">
+      <div class="columns mediumlarge-4 large-3">
+        <%= partial "filters_small_view" %>
+        <div class="card card--secondary show-for-mediumlarge">
+          <%= partial "filters" %>
+        </div>
+      </div>
+      <div class="columns mediumlarge-8 large-9">
+        <%= partial "order_by" %>
+        <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
+          <% 3.times do %>
           <div class="column">
             <article class="card card--initiative success">
               <div class="card__content">
@@ -91,7 +92,8 @@
               </div>
             </article>
           </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

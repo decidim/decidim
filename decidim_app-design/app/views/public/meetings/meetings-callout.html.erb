@@ -6,246 +6,248 @@
 
 <%= partial "template_top" %>
 
-<main class="wrapper">
+<main>
   <%= partial "process_header" %>
-  <div class="row column">
-    <%= partial "meetings_map" %>
-  </div>
-  <div class="row column">
-    <div class="callout warning">
-      <h5>Citas pasadas</h5>
-      <!-- Use this if there are no new meetings -->
-      <p>Estas citas ya han tenido lugar. No hay citas nuevas.</p>
-      <!-- Use this if there are new meetings, but you're checking past ones -->
-      <p>
-        Estas citas ya han tenido lugar.
-        <a href="#">Ver <strong>19</strong> citas nuevas</a>.
-      </p>
+  <div class="wrapper">
+    <div class="row column">
+      <%= partial "meetings_map" %>
     </div>
-  </div>
-  <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-    <div class="column">
-      <article class="card card--meeting">
-        <div class="card__content">
-          <div class="card__header">
-            <%= link_to page_path("proposal-view"), class: "card__link" do %>
+    <div class="row column">
+      <div class="callout warning">
+        <h5>Citas pasadas</h5>
+        <!-- Use this if there are no new meetings -->
+        <p>Estas citas ya han tenido lugar. No hay citas nuevas.</p>
+        <!-- Use this if there are new meetings, but you're checking past ones -->
+        <p>
+          Estas citas ya han tenido lugar.
+          <a href="#">Ver <strong>19</strong> citas nuevas</a>.
+        </p>
+      </div>
+    </div>
+    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+      <div class="column">
+        <article class="card card--meeting">
+          <div class="card__content">
+            <div class="card__header">
+              <%= link_to page_path("proposal-view"), class: "card__link" do %>
               <h5 class="card__title">
                 <%= Faker::StarWars.quote[0..75] %>
               </h5>
-            <% end %>
-          </div>
-          <div class="card__text">
-            <div class="card__text--paragraph">
-              <%= Faker::Hipster.paragraph[0..140] %>
+              <% end %>
+            </div>
+            <div class="card__text">
+              <div class="card__text--paragraph">
+                <%= Faker::Hipster.paragraph[0..140] %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card__icondata">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= icon "datetime", class: "icon--big" %>
-            </li>
-            <li class="card-data__item">
-              <div>
-                <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="card__icondata">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= icon "meetings", class: "icon--big" %>
-            </li>
-            <li class="card-data__item">
-              <div class="text-left">
-                <div class="card__icondata--address">
-                  <strong><%= Faker::Address.community %></strong>
-                  <br />
-                  <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
+          <div class="card__icondata">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= icon "datetime", class: "icon--big" %>
+              </li>
+              <li class="card-data__item">
+                <div>
+                  <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="card__status">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
-            </li>
-            <li class="card-data__item">
-              <a href="">
-                <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
-              </a>
-            </li>
-            <li class="card-data__item">
-              <a href="">
-                <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                <%= Faker::Number.between(0, 100) %>
-              </a>
-            </li>
-            <li class="card-data__item">
-              <a href="" title="Comentarios">
-                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                <%= Faker::Number.between(0, 100) %>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="card__footer">
-          <div class="card__support">
-            <button class="card__button button button--sc small">
-              Asistir
-            </button>
+              </li>
+            </ul>
           </div>
-        </div>
-      </article>
-    </div>
-    <div class="column">
-      <article class="card card--meeting">
-        <div class="card__content">
-          <div class="card__header">
-            <%= link_to page_path("proposal-view"), class: "card__link" do %>
+          <div class="card__icondata">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= icon "meetings", class: "icon--big" %>
+              </li>
+              <li class="card-data__item">
+                <div class="text-left">
+                  <div class="card__icondata--address">
+                    <strong><%= Faker::Address.community %></strong>
+                    <br />
+                    <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="card__status">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+              </li>
+              <li class="card-data__item">
+                <a href="">
+                  <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+                </a>
+              </li>
+              <li class="card-data__item">
+                <a href="">
+                  <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                  <%= Faker::Number.between(0, 100) %>
+                </a>
+              </li>
+              <li class="card-data__item">
+                <a href="" title="Comentarios">
+                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                  <%= Faker::Number.between(0, 100) %>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <button class="card__button button button--sc small">
+                Asistir
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--meeting">
+          <div class="card__content">
+            <div class="card__header">
+              <%= link_to page_path("proposal-view"), class: "card__link" do %>
               <h5 class="card__title">
                 <%= Faker::StarWars.quote[0..75] %>
               </h5>
-            <% end %>
-          </div>
-          <div class="card__text">
-            <div class="card__text--paragraph">
-              <%= Faker::Hipster.paragraph[0..140] %>
+              <% end %>
+            </div>
+            <div class="card__text">
+              <div class="card__text--paragraph">
+                <%= Faker::Hipster.paragraph[0..140] %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card__icondata">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= icon "datetime", class: "icon--big" %>
-            </li>
-            <li class="card-data__item">
-              <div>
-                <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="card__icondata">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= icon "meetings", class: "icon--big" %>
-            </li>
-            <li class="card-data__item">
-              <div class="text-left">
-                <div class="card__icondata--address">
-                  <strong><%= Faker::Address.community %></strong>
-                  <br />
-                  <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
+          <div class="card__icondata">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= icon "datetime", class: "icon--big" %>
+              </li>
+              <li class="card-data__item">
+                <div>
+                  <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>
                 </div>
-                <a href="">Como llegar</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="card__status">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
-            </li>
-            <li class="card-data__item">
-              <a href="">
-                <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                <%= Faker::Number.between(0, 100) %>
-              </a>
-            </li>
-            <li class="card-data__item">
-              <a href="" title="Comentarios">
-                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                <%= Faker::Number.between(0, 100) %>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="card__footer">
-          <div class="card__support">
-            <button class="card__button button secondary button--sc small light">
-              <%= icon "check", class: "icon--small" %>&nbsp;Asistiendo
-            </button>
+              </li>
+            </ul>
           </div>
-        </div>
-      </article>
-    </div>
-    <div class="column">
-      <article class="card card--meeting">
-        <div class="card__content">
-          <div class="card__header">
-            <%= link_to page_path("proposal-view"), class: "card__link" do %>
+          <div class="card__icondata">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= icon "meetings", class: "icon--big" %>
+              </li>
+              <li class="card-data__item">
+                <div class="text-left">
+                  <div class="card__icondata--address">
+                    <strong><%= Faker::Address.community %></strong>
+                    <br />
+                    <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
+                  </div>
+                  <a href="">Como llegar</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="card__status">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+              </li>
+              <li class="card-data__item">
+                <a href="">
+                  <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                  <%= Faker::Number.between(0, 100) %>
+                </a>
+              </li>
+              <li class="card-data__item">
+                <a href="" title="Comentarios">
+                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                  <%= Faker::Number.between(0, 100) %>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <button class="card__button button secondary button--sc small light">
+                <%= icon "check", class: "icon--small" %>&nbsp;Asistiendo
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--meeting">
+          <div class="card__content">
+            <div class="card__header">
+              <%= link_to page_path("proposal-view"), class: "card__link" do %>
               <h5 class="card__title">
                 <%= Faker::StarWars.quote[0..75] %>
               </h5>
-            <% end %>
-          </div>
-          <div class="card__text">
-            <div class="card__text--paragraph">
-              <%= Faker::Hipster.paragraph[0..140] %>
+              <% end %>
+            </div>
+            <div class="card__text">
+              <div class="card__text--paragraph">
+                <%= Faker::Hipster.paragraph[0..140] %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card__icondata">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= icon "datetime", class: "icon--big" %>
-            </li>
-            <li class="card-data__item">
-              <div>
-                <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="card__icondata">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= icon "meetings", class: "icon--big" %>
-            </li>
-            <li class="card-data__item">
-              <div class="text-left">
-                <div class="card__icondata--address">
-                  <strong><%= Faker::Address.community %></strong>
-                  <br />
-                  <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
+          <div class="card__icondata">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= icon "datetime", class: "icon--big" %>
+              </li>
+              <li class="card-data__item">
+                <div>
+                  <strong><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>
                 </div>
-                <a href="">Como llegar</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="card__status">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
-            </li>
-            <li class="card-data__item">
-              <a href="">
-                <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                <%= Faker::Number.between(0, 100) %>
-              </a>
-            </li>
-            <li class="card-data__item">
-              <a href="" title="Comentarios">
-                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                <%= Faker::Number.between(0, 100) %>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="card__footer">
-          <div class="card__support">
-            <button class="card__button button secondary button--sc small light">
-              <%= icon "check", class: "icon--small" %>&nbsp;Asistiendo
-            </button>
+              </li>
+            </ul>
           </div>
-        </div>
-      </article>
+          <div class="card__icondata">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= icon "meetings", class: "icon--big" %>
+              </li>
+              <li class="card-data__item">
+                <div class="text-left">
+                  <div class="card__icondata--address">
+                    <strong><%= Faker::Address.community %></strong>
+                    <br />
+                    <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
+                  </div>
+                  <a href="">Como llegar</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="card__status">
+            <ul class="card-data">
+              <li class="card-data__item">
+                <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+              </li>
+              <li class="card-data__item">
+                <a href="">
+                  <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                  <%= Faker::Number.between(0, 100) %>
+                </a>
+              </li>
+              <li class="card-data__item">
+                <a href="" title="Comentarios">
+                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                  <%= Faker::Number.between(0, 100) %>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <button class="card__button button secondary button--sc small light">
+                <%= icon "check", class: "icon--small" %>&nbsp;Asistiendo
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </main>
