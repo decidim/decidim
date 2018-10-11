@@ -126,8 +126,8 @@ fi:
       badges:
         attended_meetings:
           conditions:
-            - Rekisteröidy kokouksiin, joihin haluat osallistua
-          description: Tämä tunnus on myönnetty, kun osallistut useisiin henkilökohtaisiin tapaamisiin.
+            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+          description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapaamisiin.
           description_another: Tämä käyttäjä on osallistunut %{score} tapaamiseen.
           description_own: Olet osallistunut %{score} tapaamiseen.
           name: Tapaamisiin osallistuminen
