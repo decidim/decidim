@@ -261,6 +261,8 @@ gl:
         public: Público
       index:
         title: Asembleas
+      last_activity:
+        new_assembly: Nova montaxe
       pages:
         home:
           highlighted_assemblies:
