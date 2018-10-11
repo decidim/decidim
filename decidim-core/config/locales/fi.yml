@@ -14,9 +14,6 @@ fi:
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
-        user_group_document_number: Organisaation asiakirjanumero
-        user_group_name: Organisaation nimi
-        user_group_phone: Organisaation puhelinnumero
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -32,9 +29,6 @@ fi:
         password: Salasana
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
-        user_group_document_number: Organisaation asiakirjanumero
-        user_group_name: Organisaation nimi
-        user_group_phone: Organisaation puhelinnumero
     models:
       decidim/user:
         one: Käyttäjä
@@ -257,8 +251,6 @@ fi:
           sign_up: Rekisteröidy
           sign_up_as:
             legend: Rekisteröidy
-            user: Yksityishenkilönä
-            user_group: Organisaationa/yhteisönä
           subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
           terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
@@ -430,7 +422,13 @@ fi:
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     groups:
-      no_user_groups: Ei kuulu vielä yhteenkään käyttäjäryhmään.
+      create:
+        error: Ongelmia organisaation luomisessa
+        success: Organisaatio luotu onnistuneesti
+      new:
+        create_user_group: Luo organisaatio
+        new_user_group: Uusi organisaatio
+      no_user_groups: Ei kuulu mihinkään organisaatioon vielä.
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -616,7 +614,7 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seuraa
-        groups: Ryhmät
+        groups: organisaatioiden
         members: Jäsenet
         notifications: Ilmoitukset
       sidebar:
@@ -624,6 +622,7 @@ fi:
           info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
           title: Kunniamerkit
       user:
+        create_user_group: Luo organisaatio
         edit_profile: Muokkaa profiilia
     reported_mailer:
       hide:
