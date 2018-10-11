@@ -16,6 +16,8 @@ sv:
   decidim:
     comments:
       comments: Kommentarer
+      last_activity:
+        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       votes:
         create:
           error: Det har blivit fel när du röstar om kommentaren.
