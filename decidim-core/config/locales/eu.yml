@@ -213,6 +213,10 @@ eu:
       html:
         html_content: HTML edukia
         name: HTML blokea
+      last_activity:
+        name: Azken jarduera
+        title: Azken jarduera
+        view_all: Ikusi dena
       metrics:
         name: Erakundearen metrika
       stats:
@@ -441,6 +445,13 @@ eu:
         invitations_title: Uste duzu gehiago ahotsak behar entzun %{organization_name}?
         invite: gonbidatu
         visit_your_profile: Bisitatu zure profila
+    last_activities:
+      activities:
+        no_activities_warning: Jarduera ez
+      all: Jarduera mota guztiak
+      index:
+        last_activity: Azken jarduera
+        resource_type: Mota
     log:
       base_presenter:
         create: "%{user_name} sortu %{resource_name}"
