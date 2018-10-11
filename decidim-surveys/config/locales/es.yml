@@ -85,6 +85,8 @@ es:
           update:
             invalid: Se han producido errores al guardar la encuesta.
             success: Encuesta guardada correctamente.
+      last_activity:
+        new_survey_at_html: "<span>Nueva encuesta en %{link}</span>"
       question_types:
         long_answer: Respuesta larga
         multiple_option: Opción múltiple
