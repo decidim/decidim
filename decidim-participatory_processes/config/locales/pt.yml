@@ -288,6 +288,8 @@ pt:
           name: Processos destacados
       index:
         title: Processos participativos
+      last_activity:
+        new_participatory_process: Novo processo participativo
       pages:
         home:
           highlighted_processes:
