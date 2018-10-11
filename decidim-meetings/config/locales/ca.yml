@@ -313,6 +313,8 @@ ca:
             search: Cerca
             space_type: Espai participatiu
             upcoming: Proper
+      last_activity:
+        new_meeting_at_html: "<span>Nova reunió a l' %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
