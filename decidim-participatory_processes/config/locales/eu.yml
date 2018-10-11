@@ -288,6 +288,8 @@ eu:
           name: Prozesu nabarmenak
       index:
         title: Prozesu partizipatiboak
+      last_activity:
+        new_participatory_process: Partaidetza prozesu berria
       pages:
         home:
           highlighted_processes:
