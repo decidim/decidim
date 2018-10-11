@@ -213,7 +213,7 @@ fi:
         title: Kuulemiset
       last_activity:
         new_consultation: Uusi kuuleminen
-        new_question_at_html: "<span>Uusi kysymys %{link}</span>"
+        new_question_at_html: "<span>Uusi kysymys osoitteessa %{link}</span>"
       pages:
         home:
           highlighted_consultations:
