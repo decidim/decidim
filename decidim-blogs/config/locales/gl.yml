@@ -37,6 +37,8 @@ gl:
           update:
             invalid: Produciuse un erro ao gardar a publicación.
             success: Publicouse o envío con éxito
+      last_activity:
+        new_post_at_html: "<span>Nova publicación en %{link}</span>"
       models:
         post:
           fields:
