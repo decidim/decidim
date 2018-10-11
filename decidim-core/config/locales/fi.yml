@@ -379,21 +379,21 @@ fi:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
-      all_badges_link: Katso kaikki saatavilla olevat kunniamerkit.
+      all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
         continuity:
           conditions:
-            - Tule tänne usein
+            - Käy täällä usein
           description: Tämä kunniamerkki myönnetään, kun vierailet alustalla säännöllisesti. Mukavaa, että olet mukana!
-          description_another: Tämä käyttäjä on kytketty %{score} peräkkäiseen päivään jossakin vaiheessa.
-          description_own: Olet yhdistänyt %{score} peräkkäistä päivää jossakin vaiheessa.
+          description_another: Tämä käyttäjä on vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
+          description_own: Olet vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
           name: Jatkuvuus
-          next_level_in: Yhdistä %{score} peräkkäistä päivää päästäksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole kirjautunut sisään useampaan kuin yhtä peräkkäiseen päivään.
-          unearned_own: Et ole ollut yhteydessä useampaan kuin yhtä peräkkäiseen päivään.
+          next_level_in: Vieraile alustalla %{score} peräkkäisenä päivänä päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä on kirjautunut sisään ainoastaan yhtenä peräkkäisenä päivänä.
+          unearned_own: Et ole kirjautunut palveluun kuin yhtenä peräkkäisenä päivänä.
         followers:
           conditions:
-            - Aktiivinen ja muiden ihmisten seuranta varmasti tekee muut ihmiset seuraamaan sinua.
+            - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
           description: Tämä kunniamerkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, muodosta oma verkostosi keskustellaksesi muiden ihmisten kanssa tässä palvelussa.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
@@ -403,15 +403,15 @@ fi:
           unearned_own: Sinulla ei ole vielä seuraajia.
         index:
           badge_title: "%{name} kunniamerkki"
-          how: Miten voit ansaita sen
+          how: Kuinka voit ansaita tämän
           page_description: Kunniamerkit ovat tunnistuksia osallistumisesta tällä alustalla. Kun aloitat tutustumaan alustaan osallistumalla ja vuorovaikuttamalla, ansaitset erilaisia ​​kunniamerkkejä. Tässä on luettelo kunniamerkeistä ja tapoja, joilla voit ansaita niitä.
           title: Kunniamerkit
         invitations:
           conditions:
-            - Käytä käyttäjän sivullasi olevaa "kutsua ystäviä" -linkkiä kutsumaan ystäväsi
-            - Mukauta lähetettävää viestiä, jos haluat
-            - Tasot tasolle lähettämällä kutsuja ja saattamalla ne rekisteröityneiksi.
-          description: Tämä merkki on myönnetty, kun olet kutsunut joitain ihmisiä, ja he ovat viettää vähän aikaa rekisteröitymään %{organization_name} ja osallistuvat siihen. Kiitos, että %{organization_name} tiedossa muille ja auttaa laajentaa yhteisö!
+            - Käytä profiilisivullasi olevaa "kutsua ystäviä" -linkkiä kutsuaksesi ystäviäsi palveluun
+            - Muokkaa lähetettävää viestiä halutessasi
+            - Pääset seuraavalle tasolle lähettämällä kutsuja ja saadessasi kyseiset ihmiset rekisteröitymään palveluun.
+          description: Tämä kunniamerkki myönnetään, kun olet kutsunut ihmisiä %{organization_name} -palveluun ja nämä ihmiset rekisteröityvät palvelun käyttäjiksi. Kiitos, että autat tekemään %{organization_name} -palvelusta tunnetumpaa ja laajentamaan yhteisöä!
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
           name: Kutsut
@@ -423,7 +423,7 @@ fi:
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     groups:
       create:
-        error: Ongelmia organisaation luomisessa
+        error: Organisaation luomisessa esiintyi ongelma
         success: Organisaatio luotu onnistuneesti
       new:
         create_user_group: Luo organisaatio
