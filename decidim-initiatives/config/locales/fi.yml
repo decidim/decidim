@@ -88,7 +88,7 @@ fi:
           conditions:
             - Siirry aloitteiden osallistumistilaan
             - Luo uusi aloite ohjeiden mukaisesti
-          description: Tämä merkki myönnetään, kun käynnistät uusia aloitteita, jotka sopivat toisten kanssa tekemään niitä.
+          description: Tämä kunniamerkki myönnetään, kun laadit uusia aloitteita ja keräät verkoston ihmisiä toteuttamaan niitä.
           description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
           description_own: Olet julkaissut %{score} aloitetta.
           name: Julkaistut aloitteet
