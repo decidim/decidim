@@ -1,44 +1,44 @@
 fi:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Uusi blogiviesti
+      decidim/blogs/create_post_event: Uusi blogiartikkeli
   activerecord:
     models:
       decidim/blogs/post:
-        one: Viesti
-        other: Viestejä
+        one: Artikkeli
+        other: Artikkelia
   decidim:
     blogs:
       actions:
-        confirm_destroy: Haluatko varmasti poistaa tämän viestin?
+        confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi viesti
+        new: Uusi artikkeli
         title: Toiminnot
       admin:
         models:
           components:
             body: Leipäteksti
           post:
-            name: Lähetä
+            name: Artikkeli
         posts:
           create:
-            invalid: Tämän viestin luomisessa esiintyi ongelma
-            success: Viesti luotu onnistuneesti
+            invalid: Tämän artikkelin luomisessa esiintyi ongelma
+            success: Artikkeli luotu onnistuneesti
           destroy:
-            success: Viesti poistettu onnistuneesti
+            success: Artikkeli poistettu onnistuneesti
           edit:
             save: Päivitä
           index:
-            title: Viestejä
+            title: Artikkelit
           new:
             create: Luo
-            title: Luo viesti
+            title: Luo artikkeli
           update:
-            invalid: Viestin tallennuksessa tapahtui virheitä.
-            success: Viesti tallennettu onnistuneesti
+            invalid: Artikkelin tallennuksessa tapahtui virheitä.
+            success: Artikkeli tallennettu onnistuneesti
       last_activity:
-        new_post_at_html: "<span>Uusi viesti osoitteessa %{link}</span>"
+        new_post_at_html: "<span>Uusi artikkeli osoitteessa %{link}</span>"
       models:
         post:
           fields:
@@ -51,7 +51,7 @@ fi:
           view: Näytä
         sidebar_blog:
           comments: kommentit
-          most_commented_posts: Eniten kommentoidut viestit
+          most_commented_posts: Eniten kommentoidut artikkelit
       read_more: Lue lisää
     components:
       blogs:
@@ -66,10 +66,10 @@ fi:
     events:
       blogs:
         post_created:
-          email_intro: Kohteessa "%{participatory_space_title}", jota seuraat, on julkaistu viesti "%{resource_title}".
+          email_intro: Kohteessa "%{participatory_space_title}", jota seuraat, on julkaistu artikkeli "%{resource_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi viesti julkaistiin %{participatory_space_title}
-          notification_title: Kohteessa %{participatory_space_title} on julkaistu viesti <a href="%{resource_path}">%{resource_title}</a>
+          email_subject: Uusi artikkeli julkaistiin tilassa %{participatory_space_title}
+          notification_title: Kohteessa %{participatory_space_title} on julkaistu artikkeli <a href="%{resource_path}">%{resource_title}</a>
     pages:
       home:
         statistics:
