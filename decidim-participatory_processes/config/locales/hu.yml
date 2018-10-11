@@ -288,6 +288,8 @@ hu:
           name: Kiemelt folyamatok
       index:
         title: Részvételi folyamatok
+      last_activity:
+        new_participatory_process: Új részvételi folyamat
       pages:
         home:
           highlighted_processes:
