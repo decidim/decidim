@@ -288,6 +288,8 @@ de:
           name: Markierte Prozesse
       index:
         title: Partizipative Prozesse
+      last_activity:
+        new_participatory_process: Neuer partizipativer Prozess
       pages:
         home:
           highlighted_processes:
