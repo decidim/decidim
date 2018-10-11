@@ -23,7 +23,7 @@ module Decidim
         def call
           return broadcast(:invalid) if assembly.nil? || assembly.published?
 
-          Decidim.traceability.perform_action!("publish", assembly, current_user) do
+          Decidim.traceability.perform_action!("publish", assembly, current_user, visibility: "all") do
             assembly.publish!
           end
 

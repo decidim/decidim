@@ -182,6 +182,17 @@ module Decidim::Accountability
         subject.call
         expect(result.weight).to eq weight
       end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Result, user, kind_of(Hash), visibility: "all")
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
     end
   end
 end

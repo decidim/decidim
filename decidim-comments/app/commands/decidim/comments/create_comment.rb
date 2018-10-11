@@ -34,12 +34,21 @@ module Decidim
       def create_comment
         parsed = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization)
 
-        @comment = Comment.create!(author: @author,
-                                   commentable: @commentable,
-                                   root_commentable: root_commentable(@commentable),
-                                   body: parsed.rewrite,
-                                   alignment: form.alignment,
-                                   decidim_user_group_id: form.user_group_id)
+        params = {
+          author: @author,
+          commentable: @commentable,
+          root_commentable: root_commentable(@commentable),
+          body: parsed.rewrite,
+          alignment: form.alignment,
+          decidim_user_group_id: form.user_group_id
+        }
+
+        @comment = Decidim.traceability.create!(
+          Comment,
+          @author,
+          params,
+          visibility: "public-only"
+        )
 
         mentioned_users = parsed.metadata[:user].users
         CommentCreation.publish(@comment, parsed.metadata)

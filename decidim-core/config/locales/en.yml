@@ -214,6 +214,10 @@ en:
       html:
         html_content: HTML content
         name: HTML block
+      last_activity:
+        name: Last activity
+        title: Last activity
+        view_all: View all
       metrics:
         name: Organization metrics
       stats:
@@ -446,6 +450,13 @@ en:
         invitations_title: Do you think more voices should be heard in %{organization_name}?
         invite: Invite
         visit_your_profile: Visit your profile
+    last_activities:
+      activities:
+        no_activities_warning: No activity
+      all: All activity types
+      index:
+        last_activity: Last activity
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
