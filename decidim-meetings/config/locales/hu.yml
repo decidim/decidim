@@ -313,6 +313,8 @@ hu:
             search: Keresés
             space_type: Részvételi hely
             upcoming: közelgő
+      last_activity:
+        new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
       mailer:
         invite_join_meeting_mailer:
           invite:
