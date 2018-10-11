@@ -85,6 +85,8 @@ hu:
           update:
             invalid: Hiba történt a felmérés mentése során.
             success: Felmérés mentése sikeres.
+      last_activity:
+        new_survey_at_html: "<span>Új felmérés %{link}</span>kor"
       question_types:
         long_answer: Hosszú válasz
         multiple_option: Több lehetőség
