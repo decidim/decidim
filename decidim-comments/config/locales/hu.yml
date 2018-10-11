@@ -16,6 +16,8 @@ hu:
   decidim:
     comments:
       comments: Megjegyzések
+      last_activity:
+        new_comment_at_html: "<span>Új megjegyzés: %{link}</span>"
       votes:
         create:
           error: Hiba történt a megjegyzésre való szavazáskor.
