@@ -14,9 +14,6 @@ de:
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
-        user_group_document_number: Dokumentennummer der Organisation
-        user_group_name: Name der Organisation
-        user_group_phone: Telefon der Organisation
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
@@ -32,9 +29,6 @@ de:
         password: Passwort
         password_confirmation: Bestätigung des Passworts
         remember_me: Erinneren Sie mich
-        user_group_document_number: Dokumentennummer der Organisation
-        user_group_name: Name der Organisation
-        user_group_phone: Telefon der Organisation
     models:
       decidim/user:
         one: Benutzer*in
@@ -257,8 +251,6 @@ de:
           sign_up: Registrieren
           sign_up_as:
             legend: Registrieren als
-            user: Privatperson
-            user_group: Organisation / Kollektiv
           subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
           terms: Nutzungsbedingungen
           tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
@@ -430,7 +422,13 @@ de:
       level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
     groups:
-      no_user_groups: Gehört noch keiner Benutzergruppe an.
+      create:
+        error: Beim Erstellen der Organisation ist ein Problem aufgetreten
+        success: Organisation erfolgreich erstellt
+      new:
+        create_user_group: Organisation erstellen
+        new_user_group: Neue Organisation
+      no_user_groups: Gehört noch keiner Organisation an.
     invitations:
       create:
         error: Es gab einige Probleme beim Einladen deiner Freunde
@@ -616,7 +614,7 @@ de:
         conversations: Gespräche
         followers: Follower
         following: Folgt
-        groups: Gruppen
+        groups: Organisationen
         members: Mitglieder
         notifications: Benachrichtigungen
       sidebar:
@@ -624,6 +622,7 @@ de:
           info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
           title: Abzeichen
       user:
+        create_user_group: Organisation erstellen
         edit_profile: Profil bearbeiten
     reported_mailer:
       hide:
