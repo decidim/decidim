@@ -39,6 +39,8 @@ pl:
           update:
             invalid: Podczas zapisywania posta wystąpiły błędy.
             success: Zapis został pomyślnie zapisany
+      last_activity:
+        new_post_at_html: "<span>Nowy post na %{link}</span>"
       models:
         post:
           fields:
