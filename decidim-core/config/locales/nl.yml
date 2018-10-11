@@ -14,9 +14,6 @@ nl:
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
-        user_group_document_number: Organisatie documentnummer
-        user_group_name: Naam van de organisatie
-        user_group_phone: Telefoon organisatie
     models:
       decidim/attachment_created_event: gehechtheid
       decidim/component_published_event: Actieve component
@@ -32,9 +29,6 @@ nl:
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
-        user_group_document_number: Organisatie documentnummer
-        user_group_name: Naam van de organisatie
-        user_group_phone: Telefoon organisatie
     models:
       decidim/user:
         one: Gebruiker
@@ -257,8 +251,6 @@ nl:
           sign_up: Registratie
           sign_up_as:
             legend: Aanmelden als
-            user: Individu
-            user_group: Organisatie/collectief
           subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
           terms: de bepalingen en voorwaarden van gebruik
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
@@ -430,7 +422,13 @@ nl:
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
     groups:
-      no_user_groups: Behoort nog niet tot een gebruikersgroep.
+      create:
+        error: Er is een probleem opgetreden bij het maken van de organisatie
+        success: Organisatie succesvol gemaakt
+      new:
+        create_user_group: Maak een organisatie
+        new_user_group: Nieuwe organisatie
+      no_user_groups: Is nog geen lid van een organisatie.
     invitations:
       create:
         error: Er waren enkele problemen terwijl je je vrienden uitnodigde
@@ -616,7 +614,7 @@ nl:
         conversations: conversaties
         followers: Volgers
         following: volgt
-        groups: groepen
+        groups: organisaties
         members: leden
         notifications: meldingen
       sidebar:
@@ -624,6 +622,7 @@ nl:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
           title: badges
       user:
+        create_user_group: Maak een organisatie
         edit_profile: Bewerk profiel
     reported_mailer:
       hide:
