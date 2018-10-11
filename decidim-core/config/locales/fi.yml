@@ -213,6 +213,10 @@ fi:
       html:
         html_content: HTML-sisältö
         name: HTML-lohko
+      last_activity:
+        name: Viimeinen toiminta
+        title: Viimeinen toiminta
+        view_all: Näytä kaikki
       metrics:
         name: Organisaation mittarit
       stats:
@@ -441,6 +445,13 @@ fi:
         invitations_title: Pitäisikö sinun mielestäsi %{organization_name} -organisaatiossa kuulla enemmän ääniä?
         invite: Kutsu
         visit_your_profile: Siirry profiiliisi
+    last_activities:
+      activities:
+        no_activities_warning: Ei toimintaa
+      all: Kaikki toimintotyypit
+      index:
+        last_activity: Viimeinen toiminta
+        resource_type: Tyyppi
     log:
       base_presenter:
         create: "%{user_name} loi %{resource_name}"
