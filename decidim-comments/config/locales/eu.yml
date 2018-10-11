@@ -16,6 +16,8 @@ eu:
   decidim:
     comments:
       comments: Oharrak
+      last_activity:
+        new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
       votes:
         create:
           error: Erroreak gertatu dira iruzkina bozkatzean.
