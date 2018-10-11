@@ -333,6 +333,8 @@ es-PY:
         status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
         technical_validation_for: La iniciativa %{title} ha solicitado su validación técnica.
+      last_activity:
+        new_initiative: Nueva iniciativa
       pages:
         home:
           highlighted_initiatives:
