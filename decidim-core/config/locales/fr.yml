@@ -14,9 +14,6 @@ fr:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
-        user_group_document_number: Numéro d'identification de l'organisation
-        user_group_name: Nom de l'organisation
-        user_group_phone: Téléphone de l'organisation
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -32,9 +29,6 @@ fr:
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
-        user_group_document_number: Numéro de document de l'organisation
-        user_group_name: Nom de l'organisation
-        user_group_phone: Téléphone de l'organisation
     models:
       decidim/user:
         one: Utilisateur
@@ -257,8 +251,6 @@ fr:
           sign_up: S'inscrire
           sign_up_as:
             legend: S'inscrire en tant que
-            user: Individu
-            user_group: Organisation / Collectif
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: les termes et conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
@@ -430,7 +422,13 @@ fr:
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
     groups:
-      no_user_groups: N'appartient pas encore à un groupe d'utilisateurs.
+      create:
+        error: Il y a eu un problème pour créer l'organisation
+        success: Organisation créée avec succès
+      new:
+        create_user_group: Créer une organisation
+        new_user_group: Nouvelle organisation
+      no_user_groups: N'appartient à aucune organisation pour le moment.
     invitations:
       create:
         error: Il y a eu un problème en invitant vos amis
@@ -616,7 +614,7 @@ fr:
         conversations: Conversations
         followers: Abonnés
         following: Est abonné à
-        groups: Groupes
+        groups: Les organisations
         members: Membres
         notifications: Notifications
       sidebar:
@@ -624,6 +622,7 @@ fr:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
+        create_user_group: Créer une organisation
         edit_profile: Mettre à jour le profil
     reported_mailer:
       hide:
