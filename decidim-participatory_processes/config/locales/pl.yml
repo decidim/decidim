@@ -296,6 +296,8 @@ pl:
           name: Wyróżnione procesy
       index:
         title: Procesy partycypacyjne
+      last_activity:
+        new_participatory_process: Nowy proces uczestnictwa
       pages:
         home:
           highlighted_processes:
