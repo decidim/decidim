@@ -1,0 +1,44 @@
+.conference-media{
+  .media-links{
+    li{
+      color: $secondary;
+      margin-bottom: $global-margin;
+      align-items: baseline;
+
+      @include flexgap($global-margin);
+
+      > :first-child{
+        flex-shrink: 0;
+      }
+    }
+
+    a{
+      font-size: rem-calc(18);
+    }
+  }
+
+  .media-pictures{
+    article{
+      cursor: pointer;
+    }
+
+    .picture__content{
+      padding: $global-padding;
+
+      img{
+        margin-bottom: $global-margin;
+        object-fit: cover;
+
+        @include size(100%, 100% / (4/3));
+      }
+    }
+  }
+}
+
+[data-reveal].picture__modal{
+  img{
+    margin-bottom: $global-margin;
+
+    @include square(100%);
+  }
+}
