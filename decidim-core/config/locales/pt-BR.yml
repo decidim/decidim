@@ -14,9 +14,6 @@ pt-BR:
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Excluir avatar
-        user_group_document_number: Número do documento de organização
-        user_group_name: Nome da organização
-        user_group_phone: Telefone da organização
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
@@ -32,9 +29,6 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmação de senha
         remember_me: Lembrar-me
-        user_group_document_number: Número do documento de organização
-        user_group_name: Nome da organização
-        user_group_phone: Telefone da organização
     models:
       decidim/user:
         one: Usuário
@@ -257,8 +251,6 @@ pt-BR:
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
-            user: Individual
-            user_group: Organização / Coletivo
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
           tos_agreement: Ao se inscrever, aceita %{link}.
@@ -389,6 +381,16 @@ pt-BR:
     gamification:
       all_badges_link: Veja todos os crachás disponíveis.
       badges:
+        continuity:
+          conditions:
+            - Vem aqui com frequência
+          description: Esse selo é concedido quando você visita a plataforma regularmente. Nós gostamos de ter você por aqui!
+          description_another: Este usuário conectou por %{score} dias consecutivos em algum momento.
+          description_own: Você se conectou por %{score} dias consecutivos em algum momento.
+          name: Continuidade
+          next_level_in: Ligue por %{score} dias consecutivos para chegar ao próximo nível!
+          unearned_another: Este usuário não fez login por mais de um dia consecutivo.
+          unearned_own: Você não se conectou por mais de um dia consecutivo.
         followers:
           conditions:
             - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
@@ -420,7 +422,13 @@ pt-BR:
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
     groups:
-      no_user_groups: Não pertence a nenhum grupo de usuários ainda.
+      create:
+        error: Houve um problema ao criar a organização
+        success: Organização criada com sucesso
+      new:
+        create_user_group: Criar organização
+        new_user_group: Nova organização
+      no_user_groups: Não pertence a nenhuma organização ainda.
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -606,7 +614,7 @@ pt-BR:
         conversations: Conversas
         followers: Seguidores
         following: Segue
-        groups: Grupos
+        groups: Organizações
         members: Membros
         notifications: Notificações
       sidebar:
@@ -614,6 +622,7 @@ pt-BR:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
+        create_user_group: Criar organização
         edit_profile: Editar perfil
     reported_mailer:
       hide:
