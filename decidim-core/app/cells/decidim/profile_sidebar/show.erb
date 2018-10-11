@@ -79,6 +79,13 @@
       </span>
     <% end %>
   </div>
+  <div class="text-center">
+    <%= link_to decidim.new_group_path, class: "button secondary light" do %>
+      <span>
+        <%= t("decidim.profiles.user.create_user_group") %>
+      </span>
+    <% end %>
+  </div>
 <% elsif logged_in? %>
   <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
 <% end %>

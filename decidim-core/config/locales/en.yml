@@ -15,9 +15,6 @@ en:
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -33,9 +30,6 @@ en:
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
     models:
       decidim/user:
         one: User
@@ -258,8 +252,6 @@ en:
           sign_up: Sign up
           sign_up_as:
             legend: Sign up as
-            user: Individual
-            user_group: Organization/Collective
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
@@ -435,7 +427,13 @@ en:
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
     groups:
-      no_user_groups: Doesn't belong to any user group yet.
+      create:
+        error: There has been a problem creating the organization
+        success: Organization created successfully
+      new:
+        create_user_group: Create organization
+        new_user_group: New organization
+      no_user_groups: Doesn't belong to any organization yet.
     invitations:
       create:
         error: There were some problems while inviting your friends
@@ -621,7 +619,7 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
-        groups: Groups
+        groups: Organizations
         members: Members
         notifications: Notifications
       sidebar:
@@ -629,6 +627,7 @@ en:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
+        create_user_group: Create organization
         edit_profile: Edit profile
     reported_mailer:
       hide:
