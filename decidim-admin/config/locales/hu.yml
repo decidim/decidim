@@ -36,6 +36,7 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
       organization:
+        badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
         default_locale: Alapértelmezett hely

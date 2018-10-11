@@ -387,19 +387,31 @@ pt-BR:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
     gamification:
+      all_badges_link: Veja todos os crachás disponíveis.
       badges:
         followers:
+          conditions:
+            - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
+          description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, tecer sua web para se comunicar com outras pessoas na plataforma.
           description_another: Esse usuário possui %{score} seguidores.
           description_own: "%{score} usuários estão seguindo você."
-          explanation: Os usuários recebem esse selo ao serem seguidos por outros usuários.
           name: Seguidores
           next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
           unearned_another: Este usuário ainda não possui seguidores.
           unearned_own: Você ainda não tem seguidores.
+        index:
+          badge_title: "%{name} crachá"
+          how: Como você pode ganhar?
+          page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
+          title: Distintivos
         invitations:
+          conditions:
+            - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
+            - Personalize, se quiser, a mensagem que você está enviando
+            - Você vai subir de nível enviando convites e registrando-os.
+          description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
-          explanation: Os usuários recebem esse selo convidando outros usuários.
           name: Convites
           next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
           unearned_another: Este usuário ainda não convidou nenhum usuário.
@@ -442,6 +454,8 @@ pt-BR:
           not_found: 'O tipo de âmbito não foi encontrado no banco de dados (ID: %{id})'
     managed_users:
       expired_session: A sessão de representação atual expirou.
+    members:
+      no_members: Este grupo de usuários ainda não possui nenhum membro.
     menu:
       home: Inicio
       more_information: Mais informação
@@ -593,6 +607,7 @@ pt-BR:
         followers: Seguidores
         following: Segue
         groups: Grupos
+        members: Membros
         notifications: Notificações
       sidebar:
         badges:

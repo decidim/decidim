@@ -36,6 +36,7 @@ gl:
         organization_url: URL da organización
         redirect_uri: Redirixir URI
       organization:
+        badges_enabled: Activar emblemas
         cta_button_path: Camiño do botón de chamada a acción
         cta_button_text: Texto do botón de chamada a acción
         default_locale: Configuración predeterminada
