@@ -213,6 +213,10 @@ sv:
       html:
         html_content: HTML-innehåll
         name: HTML-block
+      last_activity:
+        name: Sista aktiviteten
+        title: Sista aktiviteten
+        view_all: Visa alla
       metrics:
         name: Organisationsstatistik
       stats:
@@ -441,6 +445,13 @@ sv:
         invitations_title: Tycker du att fler röster ska höras i %{organization_name}?
         invite: Bjud in
         visit_your_profile: Besök din profil
+    last_activities:
+      activities:
+        no_activities_warning: Ingen aktivitet
+      all: Alla aktivitetstyper
+      index:
+        last_activity: Sista aktiviteten
+        resource_type: Typ
     log:
       base_presenter:
         create: "%{user_name} skapade %{resource_name}"
