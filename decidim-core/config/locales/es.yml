@@ -14,9 +14,6 @@ es:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
-        user_group_document_number: Número de documento acreditativo
-        user_group_name: Nombre de la Organización
-        user_group_phone: Teléfono de la organización
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -32,9 +29,6 @@ es:
         password: Contraseña
         password_confirmation: Confirmación de contraseña
         remember_me: Recuérdame
-        user_group_document_number: Número de documento acreditativo
-        user_group_name: Nombre de la Organización
-        user_group_phone: Teléfono de la organización
     models:
       decidim/user:
         one: Usuario
@@ -257,8 +251,6 @@ es:
           sign_up: Regístrate
           sign_up_as:
             legend: Inscribirse como
-            user: Individual
-            user_group: Organización/Colectivo
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
@@ -393,6 +385,12 @@ es:
           conditions:
             - Viene aquí a menudo
           description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
+          description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
+          description_own: Te has conectado por %{score} días consecutivos en algún momento.
+          name: Continuidad
+          next_level_in: '¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!'
+          unearned_another: Este usuario no se ha registrado durante más de un día consecutivo.
+          unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
@@ -424,7 +422,13 @@ es:
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
     groups:
-      no_user_groups: Aún no pertenece a ningún grupo de usuarios.
+      create:
+        error: Ha habido un problema creando la organización.
+        success: Organización creada con éxito
+      new:
+        create_user_group: Crear organizacion
+        new_user_group: Nueva organizacion
+      no_user_groups: Aún no pertenece a ninguna organización.
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -610,7 +614,7 @@ es:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
-        groups: Los grupos
+        groups: Organizaciones
         members: Miembros
         notifications: Notificaciones
       sidebar:
@@ -618,6 +622,7 @@ es:
           info: Las insignias se obtienen realizando una actividad específica en la plataforma.
           title: Insignias
       user:
+        create_user_group: Crear organizacion
         edit_profile: Editar perfil
     reported_mailer:
       hide:
