@@ -262,7 +262,7 @@ fi:
       index:
         title: Kehitysryhmät
       last_activity:
-        new_assembly: Uusi kokoonpano
+        new_assembly: Uusi ryhmä
       pages:
         home:
           highlighted_assemblies:
