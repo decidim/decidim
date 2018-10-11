@@ -213,6 +213,10 @@ hu:
       html:
         html_content: HTML tartalom
         name: HTML blokk
+      last_activity:
+        name: Utolsó bejelentkezés, utolsó használat
+        title: Utolsó bejelentkezés, utolsó használat
+        view_all: Összes megtekintése
       metrics:
         name: Szervezeti mutatók
       stats:
@@ -440,6 +444,13 @@ hu:
         invitations_title: Szerinted többet kelleni hallani a %{organization_name} szervezetről?
         invite: Meghívás
         visit_your_profile: Profil oldalad
+    last_activities:
+      activities:
+        no_activities_warning: Nincs aktivitás
+      all: Valamennyi tevékenységtípus
+      index:
+        last_activity: Utolsó bejelentkezés, utolsó használat
+        resource_type: típus
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"
