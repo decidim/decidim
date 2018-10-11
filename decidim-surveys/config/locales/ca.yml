@@ -85,6 +85,8 @@ ca:
           update:
             invalid: Hi ha hagut errors en desar l'enquesta.
             success: Enquesta desada correctament.
+      last_activity:
+        new_survey_at_html: "<span>Nova enquesta a %{link}</span>"
       question_types:
         long_answer: Resposta llarga
         multiple_option: Opció múltiple
