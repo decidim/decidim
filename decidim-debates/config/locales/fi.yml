@@ -101,7 +101,7 @@ fi:
           share: Jaa
           share_link: Jaa linkki
       last_activity:
-        new_debate_at_html: "<span>Uusi keskustelu %{link}</span>"
+        new_debate_at_html: "<span>Uusi keskustelu osoitteessa %{link}</span>"
       models:
         debate:
           fields:
