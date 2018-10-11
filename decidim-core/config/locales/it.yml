@@ -14,9 +14,6 @@ it:
         password_confirmation: Conferma la tua password
         personal_url: URL personale
         remove_avatar: Rimuovi avatar
-        user_group_document_number: Numero del documento dell'organizzazione
-        user_group_name: Nome dell'organizzazione
-        user_group_phone: Telefono dell'organizzazione
     models:
       decidim/attachment_created_event: attaccamento
       decidim/component_published_event: Componente attivo
@@ -32,9 +29,6 @@ it:
         password: Password
         password_confirmation: Conferma della password
         remember_me: Ricordare password
-        user_group_document_number: Numero del documento dell'organizzazione
-        user_group_name: Nome dell'organizzazione
-        user_group_phone: Numero di telefono dell'organizzazione
     models:
       decidim/user:
         one: Utente
@@ -257,8 +251,6 @@ it:
           sign_up: Iscriviti
           sign_up_as:
             legend: Registrati come
-            user: Individuo
-            user_group: Organizzazione / Collettivo
           subtitle: Registrati per partecipare alle discussioni e appoggiare le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Iscrivendoti accetti le %{link}.
@@ -430,7 +422,13 @@ it:
       level: Livello %{level}
       reached_top: Hai raggiunto il livello più alto per questo badge.
     groups:
-      no_user_groups: Non appartiene ancora a nessun gruppo di utenti.
+      create:
+        error: Si è verificato un problema durante la creazione dell'organizzazione
+        success: Organizzazione creata con successo
+      new:
+        create_user_group: Crea organizzazione
+        new_user_group: Nuova organizzazione
+      no_user_groups: Non appartiene ancora a nessuna organizzazione.
     invitations:
       create:
         error: Ci sono stati alcuni problemi durante l'invito ai tuoi amici
@@ -616,7 +614,7 @@ it:
         conversations: conversazioni
         followers: Seguaci
         following: segue
-        groups: gruppi
+        groups: organizzazioni
         members: Utenti
         notifications: notifiche
       sidebar:
@@ -624,6 +622,7 @@ it:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
           title: badge
       user:
+        create_user_group: Crea organizzazione
         edit_profile: Modifica Profilo
     reported_mailer:
       hide:
