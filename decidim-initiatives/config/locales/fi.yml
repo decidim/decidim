@@ -333,6 +333,8 @@ fi:
         status_change_for: Aloitteen %{title} tila on muuttunut
         technical_validation_body_for: Aloitteelle %{title} on pyydetty teknistä validointia.
         technical_validation_for: Aloitteelle %{title} on pyydetty teknistä validointia.
+      last_activity:
+        new_initiative: Uusi aloite
       pages:
         home:
           highlighted_initiatives:
