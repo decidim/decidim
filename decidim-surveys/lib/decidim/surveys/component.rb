@@ -17,9 +17,15 @@ Decidim.register_component(:surveys) do |component|
 
   component.on(:before_destroy) do |instance|
     survey_answers_for_component = Decidim::Surveys::SurveyAnswer
-                                   .includes(:survey)
-                                   .where(decidim_surveys_surveys: { decidim_component_id: instance.id })
+                                     .includes(:survey)
+                                     .where(decidim_surveys_surveys: { decidim_component_id: instance.id })
     raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
+  end
+
+  component.on(:copy) do |context|
+    Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
+      on(:invalid) { raise "Can't create survey" }
+    end
   end
 
   component.register_stat :surveys_count do |components, start_at, end_at|
