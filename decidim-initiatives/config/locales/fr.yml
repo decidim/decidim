@@ -333,6 +333,8 @@ fr:
         status_change_for: L'initiative %{title} a changé de statut
         technical_validation_body_for: Une validation technique a été demandée pour l'initiative %{title}.
         technical_validation_for: Une validation technique a été demandée pour l'initiative %{title}.
+      last_activity:
+        new_initiative: Nouvelle initiative
       pages:
         home:
           highlighted_initiatives:
