@@ -446,6 +446,8 @@ hu:
       destroy_draft:
         error: Hiba történt a javaslat tervezetének törlésekor.
         success: Javaslat vázlatának törlése sikeres volt.
+      last_activity:
+        new_proposal_at_html: "<span>Új javaslat: %{link}</span>"
       models:
         collaborative_draft:
           fields:
