@@ -213,6 +213,10 @@ ca:
       html:
         html_content: Contingut HTML
         name: Bloc HTML
+      last_activity:
+        name: Última activitat
+        title: Última activitat
+        view_all: Veure tot
       metrics:
         name: Mètriques de l'organització
       stats:
@@ -441,6 +445,13 @@ ca:
         invitations_title: Creus que cal escoltar més veus en %{organization_name}?
         invite: Convidar
         visit_your_profile: Visiteu el teu perfil
+    last_activities:
+      activities:
+        no_activities_warning: Sense activitat
+      all: Tots els tipus d'activitat
+      index:
+        last_activity: Última activitat
+        resource_type: Escriviu
     log:
       base_presenter:
         create: "%{user_name} creat %{resource_name}"
