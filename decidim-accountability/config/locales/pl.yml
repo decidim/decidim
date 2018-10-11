@@ -118,6 +118,8 @@ pl:
         value_types:
           parent_presenter:
             not_found: 'Nie znaleziono elementu nadrzędnego w bazie danych (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nowy wynik na %{link}</span>"
       models:
         result:
           fields:
