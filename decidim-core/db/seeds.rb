@@ -141,6 +141,7 @@ if !Rails.env.production? || ENV["SEED"]
 
       Decidim::UserGroupMembership.create!(
         user: user,
+        role: "creator",
         user_group: user_group
       )
     end

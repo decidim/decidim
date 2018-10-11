@@ -77,6 +77,13 @@ module Decidim
 
             expect { command.call }.to change(UserGroup, :count).by(1)
           end
+
+          it "creates the membership with a creator role" do
+            command.call
+            membership = UserGroupMembership.last
+            expect(membership.user).to eq user
+            expect(membership.role).to eq "creator"
+          end
         end
       end
     end

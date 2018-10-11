@@ -49,6 +49,7 @@ module Decidim
     def create_membership
       UserGroupMembership.create!(
         user: form.current_user,
+        role: "creator",
         user_group: @user_group
       )
     end

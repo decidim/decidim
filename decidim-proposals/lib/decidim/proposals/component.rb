@@ -235,8 +235,11 @@ Decidim.register_component(:proposals) do |component|
               },
               decidim_organization_id: component.organization.id
             )
-            author.user_groups << group
-            author.save!
+            Decidim::UserGroupMembership.create!(
+              user: author,
+              role: "creator",
+              user_group: group
+            )
           end
           Decidim::Proposals::ProposalEndorsement.create!(proposal: proposal, author: author, user_group: author.user_groups.first)
         end
