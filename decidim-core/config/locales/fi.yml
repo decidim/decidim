@@ -274,7 +274,7 @@ fi:
             <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
             Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
             Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
-            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta alustan uusista osallistumismahdollisuuksista.<br>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
             Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
@@ -531,7 +531,7 @@ fi:
       notify:
         body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
         body_2: 'Kuinka voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
-        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja alustan palveluista. Jos päinvastoin emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
+        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja palvelun mahdollisuuksista. Jos emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
         button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
@@ -602,7 +602,7 @@ fi:
           agreement: Hyväksyn nämä ehdot
           legend: Hyväksy käyttöehdot
         refuse:
-          modal_body: Jos kieltäydyt, et voi käyttää alustaa. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
+          modal_body: Jos kieltäydyt, et voi käyttää palvelua. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
           modal_btn_continue: Hyväksy ehdot ja jatka
           modal_btn_exit: Tarkastan ne myöhemmin
           modal_button: Kieltäydy hyväksymästä ehtoja
@@ -610,7 +610,7 @@ fi:
           modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
         required_review:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
-          body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi alustan käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
+          body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
