@@ -37,6 +37,8 @@ fi:
           update:
             invalid: Viestin tallennuksessa tapahtui virheitä.
             success: Viesti tallennettu onnistuneesti
+      last_activity:
+        new_post_at_html: "<span>Uusi viesti osoitteessa %{link}</span>"
       models:
         post:
           fields:
