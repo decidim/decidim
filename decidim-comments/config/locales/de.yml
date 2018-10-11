@@ -16,6 +16,8 @@ de:
   decidim:
     comments:
       comments: Bemerkungen
+      last_activity:
+        new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
