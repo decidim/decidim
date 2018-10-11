@@ -261,6 +261,8 @@ it:
         public: Pubblico
       index:
         title: assemblee
+      last_activity:
+        new_assembly: Nuovo assemblaggio
       pages:
         home:
           highlighted_assemblies:
