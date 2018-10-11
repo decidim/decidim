@@ -186,7 +186,7 @@ FactoryBot.define do
     end
 
     after(:create) do |user_group, evaluator|
-      users = evaluator.users
+      users = evaluator.users.dup
       next if users.empty?
 
       creator = users.shift
