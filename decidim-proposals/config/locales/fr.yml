@@ -187,25 +187,34 @@ fr:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+            - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
+          description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions et que celles-ci sont acceptées.
           description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
           description_own: '%{score} de vos propositions ont été acceptées.'
-          explanation: Les utilisateurs obtiennent ce badge lorsque leurs propositions sont acceptées.
           name: Propositions acceptées
           next_level_in: Vous atteindrez le niveau suivant lorsque %{score} propositions supplémentaires seront acceptés !
           unearned_another: Aucune proposition de cet auteur n'a encore été acceptée.
           unearned_own: Aucune de vos propositions n'a encore été acceptée.
         proposal_votes:
+          conditions:
+            - Parcourir et passer du temps à lire les propositions d'autres personnes
+            - Soutenez les propositions que vous aimez ou trouvez intéressantes
+          description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
-          explanation: Les utilisateurs obtiennent ce badge en soutenant les propositions.
           name: Supports de proposition
           next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
           unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
+          conditions:
+            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+            - Créer une nouvelle proposition
+          description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions.
           description_another: Cet utilisateur a créé %{score} propositions.
           description_own: Vous avez créé %{score} propositions.
-          explanation: Les utilisateurs obtiennent ce badge en créant des propositions.
           name: Propositions
           next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a pas encore créé de proposition.

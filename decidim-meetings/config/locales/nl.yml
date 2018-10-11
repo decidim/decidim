@@ -125,9 +125,11 @@ nl:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Registreer u in de vergaderingen die u wilt bijwonen
+          description: Deze badge wordt toegekend wanneer u verschillende persoonlijke vergaderingen bijwoont.
           description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.
-          explanation: Gebruikers krijgen deze badge door deel te nemen aan vergaderingen.
           name: Bijgewoond vergaderingen
           next_level_in: Woon nog %{score} vergaderingen bij om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen enkele vergadering bijgewoond.

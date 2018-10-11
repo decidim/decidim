@@ -8,8 +8,10 @@ module Decidim
         # Public: Initializes the command.
         #
         # consultation - A Consultation that will be published
-        def initialize(consultation)
+        # current_user - the user performing the action
+        def initialize(consultation, current_user)
           @consultation = consultation
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -21,13 +23,16 @@ module Decidim
         def call
           return broadcast(:invalid) if consultation.nil? || consultation.published?
 
-          consultation.publish!
+          Decidim.traceability.perform_action!("publish", consultation, current_user, visibility: "all") do
+            consultation.publish!
+          end
+
           broadcast(:ok)
         end
 
         private
 
-        attr_reader :consultation
+        attr_reader :consultation, :current_user
       end
     end
   end

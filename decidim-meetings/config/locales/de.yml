@@ -124,9 +124,11 @@ de:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Registrieren Sie sich in den Meetings, an denen Sie teilnehmen möchten
+          description: Dieses Abzeichen wird gewährt, wenn Sie mehrere persönliche Treffen besuchen.
           description_another: Dieser Benutzer hat an %{score} Meetings teilgenommen.
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
-          explanation: Benutzer erhalten dieses Abzeichen, indem sie an Meetings teilnehmen.
           name: Besuchte Sitzungen
           next_level_in: Nimm an %{score} weiteren Treffen teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch kein Meeting besucht.

@@ -18,6 +18,7 @@ module Decidim
       attribute :youtube_handler, String
       attribute :github_handler, String
       attribute :default_locale, String
+      attribute :badges_enabled, Boolean
 
       validates :name, presence: true
       validates :default_locale, :reference_prefix, presence: true

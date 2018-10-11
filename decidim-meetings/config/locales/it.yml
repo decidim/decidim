@@ -125,9 +125,11 @@ it:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Registrati negli incontri a cui vuoi partecipare
+          description: Questo badge è concesso quando si partecipano a numerosi incontri faccia a faccia.
           description_another: Questo utente ha partecipato a %{score} riunioni.
           description_own: Hai partecipato a %{score} riunioni.
-          explanation: Gli utenti ricevono questo badge partecipando alle riunioni.
           name: Riunioni frequentate
           next_level_in: Partecipa a %{score} altri incontri per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessuna riunione.

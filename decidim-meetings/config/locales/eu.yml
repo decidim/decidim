@@ -125,9 +125,11 @@ eu:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Parte hartu nahi duzun bileretan izena eman
+          description: Idazmahaia hainbat aurpegi bileretara joaten zarenean ematen da.
           description_another: Erabiltzaile honek %{score} bileratan parte hartu du.
           description_own: '%{score} bileretan parte hartu duzu.'
-          explanation: Erabiltzaileek txapela lortzen dute bilerak bertaratu direnean.
           name: Bilera parte hartzera
           next_level_in: '%{score} topaketa gehiago parte hartzeko hurrengo mailara iristeko!'
           unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.

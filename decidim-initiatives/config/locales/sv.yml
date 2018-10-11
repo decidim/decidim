@@ -85,9 +85,12 @@ sv:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Gå till Intiatives deltagande utrymme
+            - Följ stegen för att skapa ett nytt initiativ
+          description: Detta märke beviljas när du startar nya initiativ, samarbetar med andra för att utföra dem.
           description_another: Den här användaren har fått %{score} initiativ publicerade.
           description_own: Du har %{score} initiativ publicerade.
-          explanation: Användare får detta märke genom att få sina initiativ publicerade.
           name: Publicerade initiativ
           next_level_in: Få %{score} fler initiativ publicerade för att nå nästa nivå!
           unearned_another: Den här användaren har inte fått några initiativ publicerade än.

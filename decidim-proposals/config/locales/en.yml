@@ -447,6 +447,8 @@ en:
       destroy_draft:
         error: There's been errors deleting the proposal draft.
         success: Proposal draft was successfully deleted.
+      last_activity:
+        new_proposal_at_html: "<span>New proposal at %{link}</span>"
       models:
         collaborative_draft:
           fields:

@@ -387,19 +387,41 @@ fi:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
+      all_badges_link: Katso kaikki saatavilla olevat merkit.
       badges:
+        continuity:
+          conditions:
+            - Tule tänne usein
+          description: Tämä merkki myönnetään, kun vierailet alustalla säännöllisesti. Pidämme sinusta täällä!
+          description_another: Tämä käyttäjä on kytketty %{score} peräkkäiseen päivään jossakin vaiheessa.
+          description_own: Olet yhdistänyt %{score} peräkkäistä päivää jossakin vaiheessa.
+          name: Jatkuvuus
+          next_level_in: Yhdistä %{score} peräkkäistä päivää päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole kirjautunut sisään useampaan kuin yhtä peräkkäiseen päivään.
+          unearned_own: Et ole ollut yhteydessä useampaan kuin yhtä peräkkäiseen päivään.
         followers:
+          conditions:
+            - Aktiivinen ja muiden ihmisten seuranta varmasti tekee muut ihmiset seuraamaan sinua.
+          description: Tämä merkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, kutoa verkko kommunikoida muiden ihmisten kanssa alustalla.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
-          explanation: Käyttäjät saavat tämän kunniamerkin kun heillä on seuraajia.
           name: Seuraajat
           next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
           unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
+        index:
+          badge_title: "%{name} rintanappi"
+          how: Miten voit ansaita sen
+          page_description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä. Tässä on luettelo tunnuksista ja joitain tapoja, joilla voit ansaita niitä.
+          title: Merkit
         invitations:
+          conditions:
+            - Käytä käyttäjän sivullasi olevaa "kutsua ystäviä" -linkkiä kutsumaan ystäväsi
+            - Mukauta lähetettävää viestiä, jos haluat
+            - Tasot tasolle lähettämällä kutsuja ja saattamalla ne rekisteröityneiksi.
+          description: Tämä merkki on myönnetty, kun olet kutsunut joitain ihmisiä, ja he ovat viettää vähän aikaa rekisteröitymään %{organization_name} ja osallistuvat siihen. Kiitos, että %{organization_name} tiedossa muille ja auttaa laajentaa yhteisö!
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
-          explanation: Käyttäjät saavat tämän kunniamerkin kutsumalla muita käyttäjiä.
           name: Kutsut
           next_level_in: Kutsu %{score} käyttäjää lisää päästäksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä kutsunut yhtään käyttäjää.
@@ -442,6 +464,8 @@ fi:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
+    members:
+      no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
       home: Etusivu
       more_information: Lisätietoja
@@ -593,6 +617,7 @@ fi:
         followers: Seuraajat
         following: Seuraa
         groups: Ryhmät
+        members: Jäsenet
         notifications: Ilmoitukset
       sidebar:
         badges:

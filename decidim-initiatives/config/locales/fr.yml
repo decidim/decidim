@@ -85,9 +85,12 @@ fr:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Accéder à l'espace de participation d'Initiatives
+            - Suivez les étapes pour créer une nouvelle initiative
+          description: Ce badge vous est attribué lorsque vous lancez de nouvelles initiatives, en partenariat avec d’autres pour les mener à bien.
           description_another: Cet utilisateur a reçu %{score} initiatives publiées.
           description_own: Vous avez publié %{score} initiatives.
-          explanation: Les utilisateurs obtiennent ce badge en publiant leurs initiatives.
           name: Initiatives publiées
           next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
           unearned_another: Cet utilisateur n'a pas encore publié d'initiative.

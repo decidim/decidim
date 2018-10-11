@@ -1,5 +1,14 @@
 <% add_decidim_meta_tags(title: t("conference_speakers.index.title", scope: "decidim")) %>
 
+<%
+edit_link(
+  decidim_admin_conferences.conference_speakers_path(current_participatory_space.slug),
+  :update,
+  :conference,
+  conference: current_participatory_space
+)
+%>
+
 <section class="" id="conference_speakers-grid">
   <div class="row column">
     <h2 class="section-heading"><%= t(".speakers") %></h2>

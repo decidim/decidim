@@ -36,6 +36,7 @@ pl:
         organization_url: Adres organizacji
         redirect_uri: Przekierowanie URI
       organization:
+        badges_enabled: Włącz odznaki
         cta_button_path: Ścieżka przycisku wezwania do działania
         cta_button_text: Tekst przycisku wezwania do działania
         default_locale: Domena domyślna
