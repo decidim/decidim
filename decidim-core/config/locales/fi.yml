@@ -428,7 +428,7 @@ fi:
       new:
         create_user_group: Luo organisaatio
         new_user_group: Uusi organisaatio
-      no_user_groups: Ei kuulu mihinkään organisaatioon vielä.
+      no_user_groups: Ei kuulu vielä yhteenkään organisaatioon.
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -614,7 +614,7 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seuraa
-        groups: organisaatioiden
+        groups: Organisaatiot
         members: Jäsenet
         notifications: Ilmoitukset
       sidebar:
