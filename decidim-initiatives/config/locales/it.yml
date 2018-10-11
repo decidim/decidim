@@ -333,6 +333,8 @@ it:
         status_change_for: L'iniziativa %{title} ha cambiato il suo stato
         technical_validation_body_for: L'iniziativa %{title} ha richiesto la sua convalida tecnica.
         technical_validation_for: L'iniziativa %{title} ha richiesto la sua convalida tecnica.
+      last_activity:
+        new_initiative: Nuova iniziativa
       pages:
         home:
           highlighted_initiatives:
