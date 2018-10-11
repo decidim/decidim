@@ -25,6 +25,7 @@ pl:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Atrapy wysokie
           dummies_count_medium: Średni manekin
           foo: bla
