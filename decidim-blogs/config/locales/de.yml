@@ -37,6 +37,8 @@ de:
           update:
             invalid: Beim Speichern des Posts sind Fehler aufgetreten.
             success: Beitrag wurde erfolgreich gespeichert
+      last_activity:
+        new_post_at_html: "<span>Neuer Beitrag bei %{link}</span>"
       models:
         post:
           fields:
