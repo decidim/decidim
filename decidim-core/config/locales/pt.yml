@@ -213,6 +213,10 @@ pt:
       html:
         html_content: Conteúdo HTML
         name: Bloco HTML
+      last_activity:
+        name: Ultima atividade
+        title: Ultima atividade
+        view_all: Ver tudo
       metrics:
         name: Métricas da organização
       stats:
@@ -441,6 +445,13 @@ pt:
         invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
         invite: Convite
         visit_your_profile: Visite seu perfil
+    last_activities:
+      activities:
+        no_activities_warning: Nenhuma atividade
+      all: Todos os tipos de atividade
+      index:
+        last_activity: Ultima atividade
+        resource_type: Tipo
     log:
       base_presenter:
         create: "%{user_name} criado %{resource_name}"
