@@ -137,8 +137,8 @@ fi:
       badges:
         commented_debates:
           conditions:
-            - Valitse avoin keskustelu osallistumisesta
-          description: Tämä merkki myönnetään, kun osallistut aktiivisesti eri keskusteluihin jättämällä kommenttisi.
+            - Valitse avoin keskustelu ja osallistu siihen
+          description: Tämä kunniamerkki myönnetään, kun osallistut aktiivisesti eri keskusteluihin.
           description_another: Tämä käyttäjä on osallistunut %{score} keskusteluun.
           description_own: Olet osallistunut %{score} keskusteluun.
           name: Keskustelut
