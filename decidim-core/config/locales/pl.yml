@@ -14,9 +14,6 @@ pl:
         password_confirmation: Potwierdź swoje hasło
         personal_url: Osobisty URL
         remove_avatar: Usuń awatar
-        user_group_document_number: Numer dokumentu organizacji
-        user_group_name: Nazwa organizacji
-        user_group_phone: Telefon kontaktowy organizacji
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny składnik
@@ -32,9 +29,6 @@ pl:
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
-        user_group_document_number: Numer dokumentu organizacji
-        user_group_name: Nazwa organizacji
-        user_group_phone: Telefon organizacyjny
     models:
       decidim/user:
         one: Użytkownik
@@ -267,8 +261,6 @@ pl:
           sign_up: Zapisz się
           sign_up_as:
             legend: Zarejestruj się jako
-            user: Indywidualny
-            user_group: Organizacja / Zbiorowe
           subtitle: Zarejestruj się, aby wziąć udział w dyskusjach i propozycjach wsparcia.
           terms: Warunki korzystania
           tos_agreement: Zarejestrowając się, zgadzasz się na %{link}.
@@ -406,6 +398,9 @@ pl:
           description_another: Ten użytkownik nawiązał połączenie przez %{score} kolejnych dni w pewnym momencie.
           description_own: W pewnym momencie łączyłeś się przez %{score} kolejnych dni.
           name: Ciągłość
+          next_level_in: Łącz przez %{score} kolejnych dni, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie zalogował się przez więcej niż jeden kolejny dzień.
+          unearned_own: Nie łączyłeś się przez więcej niż jeden kolejny dzień.
         followers:
           conditions:
             - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
@@ -437,7 +432,13 @@ pl:
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     groups:
-      no_user_groups: Nie należy jeszcze do żadnej grupy użytkowników.
+      create:
+        error: Podczas tworzenia organizacji wystąpił problem
+        success: Organizacja została pomyślnie utworzona
+      new:
+        create_user_group: Utwórz organizację
+        new_user_group: Nowa organizacja
+      no_user_groups: Nie należy jeszcze do żadnej organizacji.
     invitations:
       create:
         error: Podczas zapraszania znajomych pojawiły się pewne problemy
@@ -623,7 +624,7 @@ pl:
         conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
-        groups: Grupy
+        groups: Organizacje
         members: Członkowie
         notifications: Powiadomienia
       sidebar:
@@ -631,6 +632,7 @@ pl:
           info: Odznaki zdobywa się, wykonując określoną czynność na platformie.
           title: Odznaki
       user:
+        create_user_group: Utwórz organizację
         edit_profile: Edytuj profil
     reported_mailer:
       hide:
