@@ -85,6 +85,8 @@ sv:
           update:
             invalid: Det har blivit fel när du sparat enkäten.
             success: Enkäten sparades.
+      last_activity:
+        new_survey_at_html: "<span>Ny undersökning vid %{link}</span>"
       question_types:
         long_answer: Långt svar
         multiple_option: Flera alternativ
