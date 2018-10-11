@@ -89,6 +89,8 @@ pl:
           update:
             invalid: Podczas zapisywania ankiety wystąpiły błędy.
             success: Ankieta została zapisana pomyślnie.
+      last_activity:
+        new_survey_at_html: "<span>Nowa ankieta na %{link}</span>"
       question_types:
         long_answer: Długa odpowiedź
         multiple_option: Wiele opcji
