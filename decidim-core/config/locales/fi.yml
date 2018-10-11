@@ -17,7 +17,7 @@ fi:
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
-      decidim/gamification/badge_earned_event: Ansiomerkki
+      decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
       decidim/profile_updated_event: Profiili päivitetty
   activerecord:
@@ -379,12 +379,12 @@ fi:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
-      all_badges_link: Katso kaikki saatavilla olevat merkit.
+      all_badges_link: Katso kaikki saatavilla olevat kunniamerkit.
       badges:
         continuity:
           conditions:
             - Tule tänne usein
-          description: Tämä merkki myönnetään, kun vierailet alustalla säännöllisesti. Pidämme sinusta täällä!
+          description: Tämä kunniamerkki myönnetään, kun vierailet alustalla säännöllisesti. Mukavaa, että olet mukana!
           description_another: Tämä käyttäjä on kytketty %{score} peräkkäiseen päivään jossakin vaiheessa.
           description_own: Olet yhdistänyt %{score} peräkkäistä päivää jossakin vaiheessa.
           name: Jatkuvuus
@@ -394,7 +394,7 @@ fi:
         followers:
           conditions:
             - Aktiivinen ja muiden ihmisten seuranta varmasti tekee muut ihmiset seuraamaan sinua.
-          description: Tämä merkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, kutoa verkko kommunikoida muiden ihmisten kanssa alustalla.
+          description: Tämä kunniamerkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, muodosta oma verkostosi keskustellaksesi muiden ihmisten kanssa tässä palvelussa.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
           name: Seuraajat
@@ -402,10 +402,10 @@ fi:
           unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
         index:
-          badge_title: "%{name} rintanappi"
+          badge_title: "%{name} kunniamerkki"
           how: Miten voit ansaita sen
-          page_description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä. Tässä on luettelo tunnuksista ja joitain tapoja, joilla voit ansaita niitä.
-          title: Merkit
+          page_description: Kunniamerkit ovat tunnistuksia osallistumisesta tällä alustalla. Kun aloitat tutustumaan alustaan osallistumalla ja vuorovaikuttamalla, ansaitset erilaisia ​​kunniamerkkejä. Tässä on luettelo kunniamerkeistä ja tapoja, joilla voit ansaita niitä.
+          title: Kunniamerkit
         invitations:
           conditions:
             - Käytä käyttäjän sivullasi olevaa "kutsua ystäviä" -linkkiä kutsumaan ystäväsi
