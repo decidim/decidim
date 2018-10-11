@@ -14,9 +14,6 @@ hu:
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
-        user_group_document_number: Szervezeti dokumentum száma
-        user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefonszáma
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
@@ -32,9 +29,6 @@ hu:
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         remember_me: Emlékezz rám
-        user_group_document_number: Szervezeti dokumentum száma
-        user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefonszáma
     models:
       decidim/user:
         one: Felhasználó
@@ -257,8 +251,6 @@ hu:
           sign_up: Regisztráció
           sign_up_as:
             legend: Regisztrálj mint
-            user: Magánszemély
-            user_group: Szervezet/Egyesület
           subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
           terms: a használati feltételek
           tos_agreement: A feliratkozással elfogadod a %{link}.
@@ -429,7 +421,13 @@ hu:
       level: '%{level} szint'
       reached_top: Elérted a jelvény legmagasabb szintjét.
     groups:
-      no_user_groups: Még nem tartozik semmilyen felhasználói csoporthoz.
+      create:
+        error: Hiba történt a szervezet létrehozásában
+        success: A szervezet sikeresen létrejött
+      new:
+        create_user_group: Hozzon létre szervezetet
+        new_user_group: Új szervezet
+      no_user_groups: Még nem tartozik semmiféle szervezethez.
     invitations:
       create:
         error: Problémák adódtak a barátok meghívása közben
@@ -615,7 +613,7 @@ hu:
         conversations: Beszélgetések
         followers: Követők
         following: Követés
-        groups: csoportok
+        groups: szervezetek
         members: Belépés
         notifications: Értesítések
       sidebar:
@@ -623,6 +621,7 @@ hu:
           info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
           title: Kitűzők
       user:
+        create_user_group: Hozzon létre szervezetet
         edit_profile: Profil szerkesztése
     reported_mailer:
       hide:
