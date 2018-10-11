@@ -261,6 +261,8 @@ de:
         public: Öffentlichkeit
       index:
         title: Baugruppen
+      last_activity:
+        new_assembly: Neue Montage
       pages:
         home:
           highlighted_assemblies:
