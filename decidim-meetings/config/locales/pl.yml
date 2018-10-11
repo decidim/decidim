@@ -321,6 +321,8 @@ pl:
             search: Szukaj
             space_type: Przestrzeń uczestnicząca
             upcoming: Nadchodzące
+      last_activity:
+        new_meeting_at_html: "<span>Nowe spotkanie o %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
