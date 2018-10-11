@@ -211,6 +211,9 @@ eu:
         title: '%{scope_name}galdera'
       index:
         title: kontsultak
+      last_activity:
+        new_consultation: Kontsulta berria
+        new_question_at_html: "<span>Galdera berria %{link}</span>"
       pages:
         home:
           highlighted_consultations:
