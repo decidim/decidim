@@ -27,7 +27,7 @@ end
               data-deep-link-smudge-delay="500"
               data-tabs>
               <% meeting_days.each_with_index do |day, i| %>
-                <li class="tabs-title">
+                <li class="tabs-title <%= "is-active" if i == 0%>">
                   <!-- Wrap button in an anchor to make foundation tabs work -->
                   <a href="#conference-day-tab-<%= i %>">
                     <button class="button button--nomargin button--sc secondary light">

@@ -11,7 +11,8 @@
     <% attribute = present(meeting).description %>
     <div class="programme-resume"><%= decidim_sanitize(html_truncate((attribute), length: 50)) %></div>
     <div class="programme-extra">
-      <% speakers = meeting.linked_participatory_space_resources("ConferenceSpeaker", "speaking_meetings") %>
+      <% conference_meeting = meeting.becomes(Decidim::ConferenceMeeting)%>
+      <% speakers = conference_meeting.conference_speakers %>
       <% if speakers.any? %>
         <div class="row speakers-list">
           <div class="column medium-2">
