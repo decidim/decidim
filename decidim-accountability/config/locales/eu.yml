@@ -116,6 +116,8 @@ eu:
         value_types:
           parent_presenter:
             not_found: 'Gurasoa ez zen datu-basean aurkitu (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span> %{link}</span>emaitza berrian"
       models:
         result:
           fields:
