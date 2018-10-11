@@ -11,6 +11,17 @@ module Decidim
       validate :author_and_proposal_same_organization
       validate :proposal_not_rejected
 
+      after_save :update_proposal_votes_counter
+      after_destroy :update_proposal_votes_counter
+
+      def self.temporary
+        where(temporary: true)
+      end
+
+      def self.final
+        where(temporary: false)
+      end
+
       private
 
       # Private: check if the proposal and the author have the same organization
@@ -22,6 +33,10 @@ module Decidim
       def proposal_not_rejected
         return unless proposal
         errors.add(:proposal, :invalid) if proposal.rejected?
+      end
+
+      def update_proposal_votes_counter
+        proposal.update_vote_count
       end
     end
   end

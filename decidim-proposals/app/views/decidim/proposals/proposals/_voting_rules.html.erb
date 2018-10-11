@@ -1,6 +1,6 @@
-<% if votes_enabled? && (vote_limit_enabled? || threshold_per_proposal_enabled? || proposal_limit_enabled? || can_accumulate_supports_beyond_threshold?) %>
-  <div class="row column">
-    <div class="callout secondary voting-rules">
+<% if show_voting_rules? %>
+  <div class="row column voting-rules">
+    <div class="callout secondary">
       <div class="row">
         <div class="columns medium-8 large-9">
           <h3 class="heading3"><%= t(".title") %></h3>
@@ -19,6 +19,10 @@
 
             <% if can_accumulate_supports_beyond_threshold? %>
               <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
+            <% end %>
+
+            <% if minimum_votes_per_user_enabled? %>
+              <li><%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user, votes_given: votes_given) %></li>
             <% end %>
           </ul>
         </div>

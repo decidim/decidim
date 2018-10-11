@@ -76,6 +76,7 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
+            minimum_votes_per_user: Minimum votes per user
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
@@ -595,6 +596,8 @@ en:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports
+          minimum_votes_per_user:
+            description: You must distribute a minimum of 3 votes among different proposals. You've given %{votes_given} supports.
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:

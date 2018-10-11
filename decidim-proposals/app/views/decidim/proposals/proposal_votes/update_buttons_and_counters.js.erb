@@ -18,3 +18,8 @@ morphdom($proposalVoteButton[0], '<%= j(render partial: "decidim/proposals/propo
     $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
   <% end %>
 <% end %>
+
+<% if show_voting_rules? %>
+  var $votingRules = $('.voting-rules');
+  morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
+<% end %>

@@ -13,6 +13,8 @@ module Decidim
       include Decidim::Proposals::MapHelper
       include CollaborativeDraftHelper
 
+      delegate :minimum_votes_per_user, to: :component_settings
+
       # Public: The state of a proposal in a way a human can understand.
       #
       # state - The String state of the proposal.
@@ -69,10 +71,21 @@ module Decidim
         proposal_limit.present?
       end
 
+      def minimum_votes_per_user_enabled?
+        minimum_votes_per_user.positive?
+      end
+
       def proposal_limit
         return if component_settings.proposal_limit.zero?
 
         component_settings.proposal_limit
+      end
+
+      def votes_given
+        @votes_given ||= ProposalVote.where(
+          proposal: Proposal.where(component: current_component),
+          author: current_user
+        ).count
       end
 
       def current_user_proposals
@@ -101,6 +114,16 @@ module Decidim
 
       def authors_for(collaborative_draft)
         collaborative_draft.identities.map { |identity| present(identity) }
+      end
+
+      def show_voting_rules?
+        return false unless votes_enabled?
+
+        return true if vote_limit_enabled?
+        return true if threshold_per_proposal_enabled?
+        return true if proposal_limit_enabled?
+        return true if can_accumulate_supports_beyond_threshold?
+        return true if minimum_votes_per_user_enabled?
       end
     end
   end

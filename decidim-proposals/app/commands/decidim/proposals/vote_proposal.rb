@@ -27,6 +27,7 @@ module Decidim
 
         vote.save!
 
+        Proposal.update_temporary_votes!(@current_user, proposal.component)
         Decidim::Gamification.increment_score(@current_user, :proposal_votes)
 
         broadcast(:ok, vote)
@@ -36,8 +37,15 @@ module Decidim
 
       private
 
+      def minimum_votes_per_user
+        @minimum_votes_per_user ||= proposal.component.settings.minimum_votes_per_user
+      end
+
       def build_proposal_vote
-        @vote = @proposal.votes.build(author: @current_user)
+        @vote = @proposal.votes.build(
+          author: @current_user,
+          temporary: minimum_votes_per_user.positive?
+        )
       end
     end
   end

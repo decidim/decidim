@@ -26,7 +26,7 @@ module Decidim
       component_manifest_name "proposals"
 
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
-      has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
+      has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
       validates :title, :body, presence: true
@@ -68,6 +68,25 @@ module Decidim
         joins(:coauthorships)
           .where("decidim_coauthorships.coauthorable_type = ?", name)
           .where("decidim_coauthorships.decidim_author_id = ?", user.id)
+      end
+
+      def self.update_temporary_votes!(_user, component)
+        user_votes = ProposalVote.where(
+          author: @current_user,
+          proposal: Proposal.where(component: component)
+        )
+
+        vote_count = user_votes.count
+
+        if vote_count >= component.settings.minimum_votes_per_user
+          user_votes.update_all(temporary: false)
+        else
+          user_votes.update_all(temporary: true)
+        end
+      end
+
+      def update_vote_count
+        update(proposal_votes_count: votes.final)
       end
 
       # Public: Check if the user has voted the proposal.
