@@ -75,8 +75,13 @@ module Decidim::Conferences
       it "links meetings" do
         subject.call
 
-        linked_meetings = conference_speaker.linked_participatory_space_resources("Meetings::Meeting", "speaking_meetings")
-        expect(linked_meetings).to match_array(meetings)
+        conference_meetings = []
+        meetings.each do |meeting|
+          conference_meetings << meeting.becomes(Decidim::ConferenceMeeting)
+        end
+
+        conference_speaker.conference_meetings = conference_meetings
+        expect(conference_speaker.conference_meetings).to match_array(conference_meetings)
       end
 
       context "when is an existing user in the platform" do

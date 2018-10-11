@@ -10,6 +10,7 @@ module Decidim
 
         let(:organization) { create :organization }
         let(:conference) { create :conference, organization: organization }
+        let(:current_participatory_space) { conference }
         let(:meeting_component) do
           create(:component, manifest_name: :meetings, participatory_space: conference)
         end
@@ -21,10 +22,18 @@ module Decidim
             component: meeting_component
           )
         end
-        let(:meeting_ids) { meetings.map(&:id) }
+
+        let(:conference_meetings) do
+          meetings.each do |meeting|
+            meeting.becomes(Decidim::ConferenceMeeting)
+          end
+        end
+
+        let(:conference_meeting_ids) { conference_meetings.map(&:id) }
 
         let(:context) do
           {
+            current_participatory_space: conference,
             current_organization: organization
           }
         end
@@ -50,7 +59,7 @@ module Decidim
               "avatar" => avatar,
               "existing_user" => existing_user,
               "user_id" => user_id,
-              "meeting_ids" => meeting_ids
+              "conference_meeting_ids" => conference_meeting_ids
             }
           }
         end

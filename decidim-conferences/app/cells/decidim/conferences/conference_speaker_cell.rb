@@ -48,10 +48,11 @@ module Decidim
       end
 
       def meetings
-        model.linked_participatory_space_resources("Meetings::Meeting", "speaking_meetings")
+        model.conference_meetings
       end
 
       def meeting_title(meeting)
+        meeting = meeting.becomes(Decidim::Meetings::Meeting)
         link_to present(meeting).title, resource_locator(meeting).path
       end
     end
