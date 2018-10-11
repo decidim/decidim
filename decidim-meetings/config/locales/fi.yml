@@ -314,7 +314,7 @@ fi:
             space_type: Osallistumistila
             upcoming: Tulevat
       last_activity:
-        new_meeting_at_html: "<span>Uusi kokous klo %{link}</span>"
+        new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
