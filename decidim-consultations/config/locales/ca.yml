@@ -211,6 +211,9 @@ ca:
         title: Preguntes de %{scope_name}
       index:
         title: Consultes
+      last_activity:
+        new_consultation: Nova consulta
+        new_question_at_html: "<span>Nova pregunta a %{link}</span>"
       pages:
         home:
           highlighted_consultations:
