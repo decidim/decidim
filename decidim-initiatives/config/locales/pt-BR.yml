@@ -333,6 +333,8 @@ pt-BR:
         status_change_for: A iniciativa %{title} mudou seu estado
         technical_validation_body_for: A iniciativa %{title} solicitou sua validação técnica.
         technical_validation_for: A iniciativa %{title} solicitou sua validação técnica.
+      last_activity:
+        new_initiative: Nova iniciativa
       pages:
         home:
           highlighted_initiatives:
