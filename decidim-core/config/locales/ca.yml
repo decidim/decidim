@@ -14,9 +14,6 @@ ca:
         password_confirmation: Confirmar la contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge d'usuari
-        user_group_document_number: Número de document acreditatiu
-        user_group_name: Nom de l'organització
-        user_group_phone: Telèfon de l'organització
     models:
       decidim/attachment_created_event: Adjunt
       decidim/component_published_event: Component actiu
@@ -32,9 +29,6 @@ ca:
         password: Contrasenya
         password_confirmation: Confirmació de la contrasenya
         remember_me: Recorda'm
-        user_group_document_number: Número de document acreditatiu
-        user_group_name: Nom de l'organització
-        user_group_phone: Telèfon de l'organització
     models:
       decidim/user:
         one: Usuari
@@ -257,8 +251,6 @@ ca:
           sign_up: Registra't
           sign_up_as:
             legend: Inscriure's com a
-            user: Individu
-            user_group: Organització/Col·lectiu
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
           terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
@@ -430,7 +422,13 @@ ca:
       level: Nivell %{level}
       reached_top: Has arribat al nivell superior d'aquesta insígnia.
     groups:
-      no_user_groups: Encara no pertany a cap grup d'usuaris.
+      create:
+        error: S'ha produït un problema en crear l'organització
+        success: L'organització s'ha creat correctament
+      new:
+        create_user_group: Crea una organització
+        new_user_group: Nova organització
+      no_user_groups: Encara no pertany a cap organització.
     invitations:
       create:
         error: Hi ha hagut alguns problemes mentre es convidava els teus amics
@@ -616,7 +614,7 @@ ca:
         conversations: Converses
         followers: Seguidors
         following: Segueix
-        groups: Grups
+        groups: Organitzacions
         members: Membres
         notifications: Notificacions
       sidebar:
@@ -624,6 +622,7 @@ ca:
           info: Les insígnies es guanyen mitjançant la realització d'activitats específiques a la plataforma.
           title: Insígnies
       user:
+        create_user_group: Crea una organització
         edit_profile: Edita el perfil
     reported_mailer:
       hide:
