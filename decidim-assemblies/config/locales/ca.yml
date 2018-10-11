@@ -261,6 +261,8 @@ ca:
         public: Públic
       index:
         title: Assemblees
+      last_activity:
+        new_assembly: Nou muntatge
       pages:
         home:
           highlighted_assemblies:
