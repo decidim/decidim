@@ -213,6 +213,10 @@ it:
       html:
         html_content: Contenuto HTML
         name: Blocco HTML
+      last_activity:
+        name: L'ultima attività
+        title: L'ultima attività
+        view_all: Guarda tutto
       metrics:
         name: Metriche dell'organizzazione
       stats:
@@ -441,6 +445,13 @@ it:
         invitations_title: Pensi che più voci dovrebbero essere ascoltate in %{organization_name}?
         invite: Invitare
         visit_your_profile: Visita il tuo profilo
+    last_activities:
+      activities:
+        no_activities_warning: Nessuna attività
+      all: Tutti i tipi di attività
+      index:
+        last_activity: L'ultima attività
+        resource_type: genere
     log:
       base_presenter:
         create: "%{user_name} creato %{resource_name}"
