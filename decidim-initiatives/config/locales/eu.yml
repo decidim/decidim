@@ -333,6 +333,8 @@ eu:
         status_change_for: '%{title} ekimena bere egoera aldatu du'
         technical_validation_body_for: '%{title} ekimena balidazio teknikoa eskatu du.'
         technical_validation_for: '%{title} ekimena balidazio teknikoa eskatu du.'
+      last_activity:
+        new_initiative: Ekimen berria
       pages:
         home:
           highlighted_initiatives:
