@@ -4,14 +4,14 @@ fi:
       initiative:
         decidim_user_group_id: Laatija
         description: Kuvaus
-        offline_votes: Alustan ulkopuolella kerätyt kannatukset
+        offline_votes: Palvelun ulkopuolella kerätyt kannatukset
         scope_id: Teema
         signature_end_date: Allekirjoitusten keräämisen viimeinen päivä
         signature_start_date: Allekirjoitusten keräämisen alkamispäivä
         signature_type: Allekirjoituksen keräämistapa
         signature_type_values:
           any: Monikanavainen
-          offline: Alustan ulkopuolella
+          offline: Palvelun ulkopuolella
           online: Verkossa
         title: Otsikko
       initiative_author:
@@ -204,7 +204,7 @@ fi:
         fill_data:
           back: Takaisin
           continue: Jatka
-          fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoite selkeä?</li> <li>Sinun on valittava allekirjoitustapa. Alustan ulkopuolella, verkossa tai molemmat</li> <li>Mikä on aloitteen maantieteellinen laajuus? Kaupunki, kunta, maakunta vai mikä?</li> </ul>"
+          fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoite selkeä?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat</li> <li>Mikä on aloitteen maantieteellinen laajuus? Kaupunki, kunta, maakunta vai mikä?</li> </ul>"
           initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
           select_scope: Valitse teema
@@ -217,7 +217,7 @@ fi:
         finish_help:
           access_reminder: Muista, että pääset tarkastelemaan omia aloitteitasi käyttäjävalikon kautta.
           help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä johtokunnan pöytäkirjat kaikista organisaatioista, jotka liittyvät muodostettavaan kannatuskomiteaan
-          help_in_person_signatures: Jos olet valinnut allekirjoitusten keräystavaksi alustan ulkopuolisen keräyksen tai yhdistetyn keräyksen alustalla ja sen ulkopuolella, sinun on lähetettävä vaaditut tiedot ja dokumentit.
+          help_in_person_signatures: Jos olet valinnut allekirjoitusten keräystavaksi palvelun ulkopuolisen keräyksen tai yhdistetyn keräyksen palvelussa ja sen ulkopuolella, sinun on lähetettävä vaaditut tiedot ja dokumentit.
           help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintapaneelin käyttämistä, mistä löydät käyttäjävalikon, voit ladata tarvittavat tiedot ja lähettää aloitteen käsittelyyn.
           initiatives_page_link: Näet kaiken tämän tiedon osoitteesta %{link}, jonka tarkoitus on antaa tietoa aloitteista.
           page: sivu
@@ -297,8 +297,8 @@ fi:
           initiative_accepted_reason: Tämä aloite on hyväksytty, koska
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei saanut tarpeeksi kannatusta.
         show:
-          any_vote_method: Tämä kansalaisaloite kerää kannatuksia verkossa ja alustan ulkopuolella.
-          offline_method: Tämä kansalaisaloite kerää kannatuksia ainoastaan alustan ulkopuolella.
+          any_vote_method: Tämä kansalaisaloite kerää kannatuksia verkossa ja palvelun ulkopuolella.
+          offline_method: Tämä kansalaisaloite kerää kannatuksia ainoastaan palvelun ulkopuolella.
         signature_identities:
           select_identity: Valitse käyttäjätunniste
         signatures_count:
