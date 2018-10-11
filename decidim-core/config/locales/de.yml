@@ -213,6 +213,10 @@ de:
       html:
         html_content: HTML-Inhalt
         name: HTML-Block
+      last_activity:
+        name: Letzte Aktivität
+        title: Letzte Aktivität
+        view_all: Alle ansehen
       metrics:
         name: Organisationsmetriken
       stats:
@@ -441,6 +445,13 @@ de:
         invitations_title: Denkst du, mehr Stimmen sollten in %{organization_name}?
         invite: Einladen
         visit_your_profile: Zu Ihrem Profil
+    last_activities:
+      activities:
+        no_activities_warning: Keine Aktivität
+      all: Alle Aktivitätstypen
+      index:
+        last_activity: Letzte Aktivität
+        resource_type: Art
     log:
       base_presenter:
         create: "%{user_name} hat %{resource_name} erstellt"
