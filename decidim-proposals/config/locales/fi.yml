@@ -188,9 +188,9 @@ fi:
       badges:
         accepted_proposals:
           conditions:
-            - Valitse kiinnostuksesi osallistumistilaa, jos ehdotusten jättäminen on sallittu
-            - Yritä tehdä ehdotuksia, jotka voidaan tehdä. Näin ne todennäköisesti hyväksytään.
-          description: Tämä merkki myönnetään, kun osallistut aktiivisesti uusiin ehdotuksiin, ja nämä hyväksytään.
+            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
+            - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
+          description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
           description_own: Sinulla sait %{score} ehdotusta hyväksyksi.
           name: Hyväksytyt ehdotukset
@@ -199,9 +199,9 @@ fi:
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
           conditions:
-            - Selaa ja vietät jonkin aikaa lukemalla muiden ihmisten ehdotuksia
-            - Anna tukea ehdotuksille, joita pidät tai kiinnostavat
-          description: Tämä merkki myönnetään, kun tuet muiden ihmisten ehdotuksia.
+            - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
+            - Tue ehdotuksia, joita pidät tai jotka kiinnostavat sinua
+          description: Tämä kunniamerkki myönnetään, kun tuet muiden ihmisten ehdotuksia.
           description_another: Tämä käyttäjä on kannattanut %{score} ehdotusta.
           description_own: Olet kannattanut %{score} ehdotusta.
           name: Ehdotusten kannatukset
@@ -210,9 +210,9 @@ fi:
           unearned_own: Et ole vielä kannattanut ehdotuksia.
         proposals:
           conditions:
-            - Valitse kiinnostuksesi osallistumistilaa, jos ehdotusten jättäminen on sallittu
+            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
             - Luo uusi ehdotus
-          description: Tämä merkintä myönnetään, kun osallistut aktiivisesti uusiin ehdotuksiin.
+          description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia.
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.
           name: Ehdotukset
