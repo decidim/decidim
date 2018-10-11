@@ -409,6 +409,7 @@ FactoryBot.define do
     component { build :component, participatory_space: participatory_space }
     resource { build(:dummy_resource, component: component) }
     action { "create" }
+    visibility { "admin-only" }
     extra do
       {
         component: {
