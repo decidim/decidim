@@ -14,9 +14,6 @@ sv:
         password_confirmation: Bekräfta ditt lösenord
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
-        user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisationsnamn
-        user_group_phone: Organisationstelefon
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -32,9 +29,6 @@ sv:
         password: Lösenord
         password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
-        user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisationsnamn
-        user_group_phone: Organisationstelefon
     models:
       decidim/user:
         one: Användare
@@ -257,8 +251,6 @@ sv:
           sign_up: Registrera
           sign_up_as:
             legend: Registrera dig som
-            user: Privatperson
-            user_group: Organisation/Kollektiv
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du till %{link}.
@@ -430,7 +422,13 @@ sv:
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta emblem.
     groups:
-      no_user_groups: Tillhör inte någon användargrupp ännu.
+      create:
+        error: Det har varit ett problem att skapa organisationen
+        success: Organisationen skapades framgångsrikt
+      new:
+        create_user_group: Skapa organisation
+        new_user_group: Ny organisation
+      no_user_groups: Tillhör inte någon organisation än.
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -616,7 +614,7 @@ sv:
         conversations: Samtal
         followers: Anhängare
         following: Följer
-        groups: grupper
+        groups: organisationer
         members: medlemmar
         notifications: Notiser
       sidebar:
@@ -624,6 +622,7 @@ sv:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
           title: Emblem
       user:
+        create_user_group: Skapa organisation
         edit_profile: Redigera profil
     reported_mailer:
       hide:
