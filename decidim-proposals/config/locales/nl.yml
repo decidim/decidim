@@ -446,6 +446,8 @@ nl:
       destroy_draft:
         error: Er zijn fouten opgetreden bij het verwijderen van het concept.
         success: Voorstel concept is succesvol verwijderd.
+      last_activity:
+        new_proposal_at_html: "<span>Nieuw voorstel op %{link}</span>"
       models:
         collaborative_draft:
           fields:
