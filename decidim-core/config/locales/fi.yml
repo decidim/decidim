@@ -923,9 +923,9 @@ fi:
     name_included_in_password: liian samankaltainen nimesi kanssa
     not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
     password_not_allowed: ei ole sallittu
-    password_too_common: on liian yleinen
-    password_too_long: on liian pitkä
-    password_too_short: on liian lyhyt
+    password_too_common: liian yleinen
+    password_too_long: liian pitkä
+    password_too_short: liian lyhyt
   social_share_button:
     delicious: Delicious
     douban: Douban
