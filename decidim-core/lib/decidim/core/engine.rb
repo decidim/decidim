@@ -42,6 +42,7 @@ require "doorkeeper"
 require "doorkeeper-i18n"
 require "nobspw"
 require "kaminari"
+require "batch-loader"
 
 require "decidim/api"
 
@@ -60,6 +61,7 @@ module Decidim
 
       initializer "decidim.middleware" do |app|
         app.config.middleware.use Decidim::CurrentOrganization
+        app.config.middleware.use BatchLoader::Middleware
       end
 
       initializer "decidim.assets" do |app|
@@ -324,6 +326,12 @@ module Decidim
         Decidim.content_blocks.register(:homepage, :how_to_participate) do |content_block|
           content_block.cell = "decidim/content_blocks/how_to_participate"
           content_block.public_name_key = "decidim.content_blocks.how_to_participate.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :last_activity) do |content_block|
+          content_block.cell = "decidim/content_blocks/last_activity"
+          content_block.public_name_key = "decidim.content_blocks.last_activity.name"
           content_block.default!
         end
 

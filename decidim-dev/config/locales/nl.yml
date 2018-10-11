@@ -15,9 +15,11 @@ nl:
     gamification:
       badges:
         test:
+          conditions:
+            - Gebruik een testomgeving voor decidim.
+          description: Gebruikers krijgen deze badge door tests te maken.
           description_another: Deze gebruiker heeft %{score} tests gemaakt.
           description_own: U hebt %{score} tests gemaakt.
-          explanation: Gebruikers krijgen deze badge door tests te maken.
           name: Tests
           next_level_in: Maak %{score} extra tests om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen tests gemaakt.
@@ -25,8 +27,10 @@ nl:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Dummies hoog
           dummies_count_medium: Dummies medium
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies hoog

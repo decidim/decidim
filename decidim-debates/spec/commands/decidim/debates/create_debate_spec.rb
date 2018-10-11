@@ -64,6 +64,23 @@ describe Decidim::Debates::CreateDebate do
       expect(debate.description.values.uniq).to eq ["description"]
       expect(debate.description.keys).to match_array organization.available_locales
     end
+
+    it "traces the action", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:create!)
+        .with(
+          Decidim::Debates::Debate,
+          user,
+          hash_including(:category, :title, :description, :component, :author, :decidim_user_group_id),
+          visibility: "public-only"
+        )
+        .and_call_original
+
+      expect { subject.call }.to change(Decidim::ActionLog, :count)
+      action_log = Decidim::ActionLog.last
+      expect(action_log.version).to be_present
+      expect(action_log.version.event).to eq "create"
+    end
   end
 
   describe "events" do

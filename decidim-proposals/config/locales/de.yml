@@ -183,25 +183,34 @@ de:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+            - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
+          description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Angeboten teilnehmen und diese angenommen werden.
           description_another: Dieser Benutzer hat %{score} Vorschläge akzeptiert.
           description_own: Sie haben %{score} Vorschläge angenommen.
-          explanation: Benutzer erhalten dieses Abzeichen, indem sie ihre Vorschläge annehmen lassen.
           name: Akzeptierte Vorschläge
           next_level_in: Erhalten Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Vorschläge erhalten.
           unearned_own: Sie haben noch keine Vorschläge erhalten.
         proposal_votes:
+          conditions:
+            - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
+            - Unterstützen Sie die Vorschläge, die Sie mögen oder interessant finden
+          description: Dieses Abzeichen wird gewährt, wenn Sie Vorschläge anderer Personen unterstützen.
           description_another: Dieser Benutzer hat %{score} Vorschläge unterstützt.
           description_own: Sie haben %{score} Vorschläge unterstützt.
-          explanation: Benutzer erhalten dieses Abzeichen, indem sie Vorschläge unterstützen.
           name: Vorschlag unterstützt
           next_level_in: Unterstütze %{score} weitere Vorschläge, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Vorschläge unterstützt.
           unearned_own: Sie haben noch keine Vorschläge unterstützt.
         proposals:
+          conditions:
+            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+            - Erstellen Sie einen neuen Vorschlag
+          description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Vorschlägen teilnehmen.
           description_another: Dieser Benutzer hat %{score} Vorschläge erstellt.
           description_own: Sie haben %{score} Vorschläge erstellt.
-          explanation: Benutzer erhalten dieses Abzeichen, indem sie Vorschläge erstellen.
           name: Vorschläge
           next_level_in: Erstellen Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Vorschläge erstellt.

@@ -136,9 +136,11 @@ hu:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Válasszon nyílt vitát, hogy részt vegyen
+          description: Ezt a jelvényt akkor kapja meg, ha a különböző vitákban aktívan részt vesz az észrevételeinek elhagyásával.
           description_another: Ez a felhasználó %{score} vitában vett részt.
           description_own: Vettél részt %{score} vitában.
-          explanation: A felhasználók megkapják ezt a jelvényt a vitákban való részvétellel.
           name: viták
           next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
           unearned_another: Ez a felhasználó még nem vett részt vitában.

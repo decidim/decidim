@@ -125,9 +125,11 @@ pt:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Registre-se nas reuniões que deseja participar
+          description: Este crachá é concedido quando você participa de várias reuniões presenciais.
           description_another: Este usuário assistiu a %{score} reuniões.
           description_own: Você participou de %{score} reuniões.
-          explanation: Os usuários obtêm esse selo participando de reuniões.
           name: Participou de reuniões
           next_level_in: Participe de mais %{score} reuniões para alcançar o próximo nível!
           unearned_another: Este usuário ainda não participou de nenhuma reunião.

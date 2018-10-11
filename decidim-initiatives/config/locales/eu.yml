@@ -85,9 +85,12 @@ eu:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Joan zaitez Intiatives-ko partaidetza eremura
+            - Jarraitu urrats berriak ekimen berri bat sortzeko
+          description: Idazmahaia ekimen berriak abiarazten dituzunean, besteekin elkarlanean aritzea ekartzen baduzu.
           description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
           description_own: Argitaratutako %{score} ekimen dituzu.
-          explanation: Erabiltzaileek txapela lortzen dute beren ekimenak argitaratuz.
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du argitaratutako ekimenik lortu.

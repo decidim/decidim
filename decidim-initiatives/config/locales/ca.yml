@@ -85,9 +85,12 @@ ca:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Anar a l'espai de participació d'Intiatives
+            - Seguiu els passos per crear una nova iniciativa
+          description: Aquesta distinció es concedeix quan es llancen noves iniciatives, s'uneixen amb altres per dur-les a terme.
           description_another: Aquest usuari ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
-          explanation: Els usuaris obtenen aquesta distinció mitjançant la publicació de les seves iniciatives.
           name: Iniciatives publicades
           next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha publicat cap iniciativa.

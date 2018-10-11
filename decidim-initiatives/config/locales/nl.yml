@@ -85,9 +85,12 @@ nl:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Ga naar de participatieruimte van Intiatives
+            - Volg de stappen om een ​​nieuw initiatief te maken
+          description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
           description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
           description_own: Je hebt %{score} initiatieven gepubliceerd.
-          explanation: Gebruikers krijgen deze badge door hun initiatieven gepubliceerd te krijgen.
           name: Gepubliceerde initiatieven
           next_level_in: Ontvang nog %{score} initiatieven die zijn gepubliceerd om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen initiatieven gepubliceerd.
