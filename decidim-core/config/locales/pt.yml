@@ -14,9 +14,6 @@ pt:
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Remover avatar
-        user_group_document_number: Número do documento de organização
-        user_group_name: Nome da organização
-        user_group_phone: Telefone da organização
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
@@ -32,9 +29,6 @@ pt:
         password: Senha
         password_confirmation: Confirmação da senha
         remember_me: Recorde-me
-        user_group_document_number: Número do documento de organização
-        user_group_name: Nome da organização
-        user_group_phone: Telefone da organização
     models:
       decidim/user:
         one: Do utilizador
@@ -257,8 +251,6 @@ pt:
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
-            user: Individual
-            user_group: Organização / Coletivo
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
           tos_agreement: Ao se inscrever, aceita %{link}.
@@ -430,7 +422,13 @@ pt:
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
     groups:
-      no_user_groups: Não pertence a nenhum grupo de usuários ainda.
+      create:
+        error: Houve um problema ao criar a organização
+        success: Organização criada com sucesso
+      new:
+        create_user_group: Criar organização
+        new_user_group: Nova organização
+      no_user_groups: Não pertence a nenhuma organização ainda.
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -616,7 +614,7 @@ pt:
         conversations: Conversas
         followers: Seguidores
         following: Segue
-        groups: Grupos
+        groups: Organizações
         members: Membros
         notifications: Notificações
       sidebar:
@@ -624,6 +622,7 @@ pt:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
+        create_user_group: Criar organização
         edit_profile: Editar Perfil
     reported_mailer:
       hide:
