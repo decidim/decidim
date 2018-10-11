@@ -14,9 +14,6 @@ ru:
         password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
-        user_group_document_number: Номер документа организации
-        user_group_name: Название организации
-        user_group_phone: Телефон организации
     models:
       decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
@@ -30,9 +27,6 @@ ru:
         password: Пароль
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня
-        user_group_document_number: Номер документа организации
-        user_group_name: Название организации
-        user_group_phone: Телефон организации
     models:
       decidim/user:
         one: Участник
@@ -257,8 +251,6 @@ ru:
           sign_up: Зарегистрироваться
           sign_up_as:
             legend: Зарегистрироваться как
-            user: Частное лицо
-            user_group: Организация/коллектив
           subtitle: Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.
           terms: условия участия
           tos_agreement: Регистрируясь, вы принимаете %{link}.
