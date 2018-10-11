@@ -261,6 +261,8 @@ sv:
         public: Offentligt
       index:
         title: Möten
+      last_activity:
+        new_assembly: Ny sammansättning
       pages:
         home:
           highlighted_assemblies:
