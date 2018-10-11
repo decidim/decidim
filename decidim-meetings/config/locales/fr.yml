@@ -313,6 +313,8 @@ fr:
             search: Rechercher
             space_type: Espace participatif
             upcoming: À venir
+      last_activity:
+        new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
