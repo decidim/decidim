@@ -69,6 +69,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Hide weird flash message [\#4235](https://github.com/decidim/decidim/pull/4235)
 - **decidim-core**: Fix newsletter subscription checkbox always being unchecked [\#4238](https://github.com/decidim/decidim/pull/4238)
 - **decidim-core**: Thread safe locale switching [\#4237](https://github.com/decidim/decidim/pull/4237)
+- **decidim-accountability**: Fix error editing results [\#4268](https://github.com/decidim/decidim/pull/4268)
 
 **Removed**:
 
