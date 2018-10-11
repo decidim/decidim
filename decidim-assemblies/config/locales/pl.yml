@@ -267,6 +267,8 @@ pl:
         public: Publiczny
       index:
         title: Zespoły
+      last_activity:
+        new_assembly: Nowy montaż
       pages:
         home:
           highlighted_assemblies:
