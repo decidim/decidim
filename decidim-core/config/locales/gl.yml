@@ -14,9 +14,6 @@ gl:
         password_confirmation: Confirma o teu contrasinal
         personal_url: URL persoal
         remove_avatar: Eliminar avatar
-        user_group_document_number: Número de documento da organización
-        user_group_name: Nome da Organización
-        user_group_phone: Teléfono da organización
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Compoñente activo
@@ -32,9 +29,6 @@ gl:
         password: Contrasinal
         password_confirmation: Confirmación por contrasinal
         remember_me: Lémbrame
-        user_group_document_number: Número de documento da organización
-        user_group_name: Nome da organización
-        user_group_phone: Organización do teléfono
     models:
       decidim/user:
         one: Usuario
@@ -257,8 +251,6 @@ gl:
           sign_up: Rexistrarse
           sign_up_as:
             legend: Rexístrate como
-            user: Individual
-            user_group: Organización / colectiva
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
           terms: os termos e condicións de uso
           tos_agreement: Ao rexistrarte, aceptas %{link}.
@@ -430,7 +422,13 @@ gl:
       level: Nivel %{level}
       reached_top: Alcanzou o nivel superior desta placa.
     groups:
-      no_user_groups: Aínda non pertence a ningún grupo de usuarios.
+      create:
+        error: Produciuse un problema na creación da organización
+        success: Organización creada con éxito
+      new:
+        create_user_group: Crear organización
+        new_user_group: Nova organización
+      no_user_groups: Aínda non pertence a ningunha organización.
     invitations:
       create:
         error: Houbo algúns problemas ao invitar aos teus amigos
@@ -616,7 +614,7 @@ gl:
         conversations: Conversas
         followers: Seguidores
         following: Segue
-        groups: Grupos
+        groups: Organizacións
         members: Membros
         notifications: Notificacións
       sidebar:
@@ -624,6 +622,7 @@ gl:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
           title: Insignias
       user:
+        create_user_group: Crear organización
         edit_profile: Editar perfil
     reported_mailer:
       hide:
