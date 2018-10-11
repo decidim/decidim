@@ -213,6 +213,10 @@ nl:
       html:
         html_content: HTML-inhoud
         name: HTML-blok
+      last_activity:
+        name: Laatste Activiteit
+        title: Laatste Activiteit
+        view_all: Bekijk alles
       metrics:
         name: Organisatie statistieken
       stats:
@@ -441,6 +445,13 @@ nl:
         invitations_title: Denk je dat meer stemmen gehoord moeten worden in %{organization_name}?
         invite: Nodig uit
         visit_your_profile: Ga naar je profiel
+    last_activities:
+      activities:
+        no_activities_warning: Geen activiteit
+      all: Alle soorten activiteiten
+      index:
+        last_activity: Laatste Activiteit
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
