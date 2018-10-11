@@ -313,6 +313,8 @@ eu:
             search: Search
             space_type: Partaidetza espazioa
             upcoming: Datozen
+      last_activity:
+        new_meeting_at_html: "<span>Bilera berria %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
