@@ -214,8 +214,8 @@ fi:
         html_content: HTML-sisältö
         name: HTML-lohko
       last_activity:
-        name: Viimeinen toiminta
-        title: Viimeinen toiminta
+        name: Viimeisin tapahtuma
+        title: Viimeisin tapahtuma
         view_all: Näytä kaikki
       metrics:
         name: Organisaation mittarit
@@ -448,9 +448,9 @@ fi:
     last_activities:
       activities:
         no_activities_warning: Ei toimintaa
-      all: Kaikki toimintotyypit
+      all: Kaikki tapahtumatyypit
       index:
-        last_activity: Viimeinen toiminta
+        last_activity: Viimeisin tapahtuma
         resource_type: Tyyppi
     log:
       base_presenter:
