@@ -211,6 +211,9 @@ hu:
         title: '%{scope_name} kérdések'
       index:
         title: Konzultációk
+      last_activity:
+        new_consultation: Új konzultáció
+        new_question_at_html: "<span>Új kérdés: %{link}</span>"
       pages:
         home:
           highlighted_consultations:
