@@ -189,14 +189,18 @@ FactoryBot.define do
       users = evaluator.users
       next if users.empty?
 
+      creator = users.shift
+      create(:user_group_membership, user: creator, user_group: user_group, role: :creator)
+
       users.each do |user|
-        create(:user_group_membership, user: user, user_group: user_group)
+        create(:user_group_membership, user: user, user_group: user_group, role: :admin)
       end
     end
   end
 
   factory :user_group_membership, class: "Decidim::UserGroupMembership" do
     user
+    role { :creator }
     user_group
   end
 
