@@ -262,6 +262,8 @@ en:
         public: Public
       index:
         title: Assemblies
+      last_activity:
+        new_assembly: New assembly
       pages:
         home:
           highlighted_assemblies:

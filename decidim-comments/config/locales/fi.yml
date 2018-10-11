@@ -69,8 +69,8 @@ fi:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} on jättänyt kommentin %{resource_title}. Voit lukea sen tällä sivulla:"
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit poistaa tämän käyttäjän hänen profiilisivulta.
-          email_subject: '%{author_name} on jäättänyt uuden kommentin kohtaan %{resource_title}'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
+          email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin tällä sivulla:"

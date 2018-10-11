@@ -15,9 +15,11 @@ ca:
     gamification:
       badges:
         test:
+          conditions:
+            - Utilitzeu un entorn de prova per decidir.
+          description: Els usuaris obtenen aquesta insígnia creant proves.
           description_another: Aquest usuari ha creat %{score} proves.
           description_own: Heu creat %{score} proves.
-          explanation: Els usuaris obtenen aquesta insígnia creant proves.
           name: Proves
           next_level_in: Crea %{score} més proves per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha creat cap prova.
@@ -25,8 +27,10 @@ ca:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Fals alt
           dummies_count_medium: Fals mitjà
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Prova alt

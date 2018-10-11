@@ -387,19 +387,41 @@ fr:
         error: Ce champ contient une erreur.
       remove_this_file: Supprimer ce fichier
     gamification:
+      all_badges_link: Voir tous les badges disponibles.
       badges:
+        continuity:
+          conditions:
+            - Viens ici souvent
+          description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
+          description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
+          description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
+          name: Continuité
+          next_level_in: Connectez-vous pendant %{score} jours consécutifs pour passer au niveau suivant!
+          unearned_another: Cet utilisateur ne s'est pas connecté depuis plus d'un jour consécutif.
+          unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
+          conditions:
+            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
-          explanation: Les utilisateurs obtiennent ce badge en se faisant suivre par d'autres utilisateurs.
           name: Suiveurs
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
           unearned_another: Cet utilisateur n'a pas encore de suiveurs.
           unearned_own: Vous n'avez pas encore de followers.
+        index:
+          badge_title: "%{name} badge"
+          how: Comment pouvez-vous le gagner
+          page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
+          title: Insignes
         invitations:
+          conditions:
+            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+            - Personnalisez, si vous le souhaitez, le message que vous envoyez
+            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+          description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
-          explanation: Les utilisateurs obtiennent ce badge en invitant d'autres utilisateurs.
           name: Invitations
           next_level_in: Invitez %{score} utilisateurs supplémentaires à atteindre le niveau suivant !
           unearned_another: Cet utilisateur n'a encore invité aucun utilisateur.
@@ -407,6 +429,8 @@ fr:
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
+    groups:
+      no_user_groups: N'appartient pas encore à un groupe d'utilisateurs.
     invitations:
       create:
         error: Il y a eu un problème en invitant vos amis
@@ -440,6 +464,8 @@ fr:
           not_found: 'Le type de périmètre d''application n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
+    members:
+      no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
       home: Accueil
       more_information: Plus d'information
@@ -583,12 +609,15 @@ fr:
       deleted: Utilisateur ayant supprimé son compte
       view: Voir
     profiles:
-      default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
+      default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
+      default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
         badges: Badges
         conversations: Conversations
         followers: Abonnés
         following: Est abonné à
+        groups: Groupes
+        members: Membres
         notifications: Notifications
       sidebar:
         badges:

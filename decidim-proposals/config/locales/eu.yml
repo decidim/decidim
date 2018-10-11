@@ -187,25 +187,34 @@ eu:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
+            - Saiatu egin daitezkeen proposamenak egitea. Horrela onartuko lirateke gehiago.
+          description: Idazmahaia proposamen berriekin modu aktiboan parte hartzen duzunean onartuko zaituzte eta onartzen dira.
           description_another: Erabiltzaile honek %{score} proposamen jaso ditu.
           description_own: '%{score} proposamen onartu dituzu.'
-          explanation: Erabiltzaileek txapela lortzen dute proposamenak onartuz.
           name: Onartutako proposamenak
           next_level_in: Talde %{score} proposamen gehiago hurrengo mailara iristeko onartu!
           unearned_another: Erabiltzaile honek oraindik ez ditu onartutako proposamenik.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
         proposal_votes:
+          conditions:
+            - Arakatu eta beste pertsona batzuen proposamenak irakurtzen
+            - Eman gustuko dituzun proposamenei edo interesgarria iruditu
+          description: Idazmahaia beste pertsonen proposamenak onartzen dituzunean onartzen da.
           description_another: Erabiltzaile honek %{score} proposamen onartzen ditu.
           description_own: '%{score} proposamenei laguntza eman diezu.'
-          explanation: Erabiltzaileek txapela lortzen dute proposamenei laguntzeko.
           name: Proposamenak onartzen ditu
           next_level_in: Eman laguntza %{score} proposamen gehiago hurrengo mailara iristea!
           unearned_another: Erabiltzaile honek oraindik ez du proposamenik onartzen.
           unearned_own: Ez duzu proposamenik onartzen oraindik.
         proposals:
+          conditions:
+            - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
+            - Proposamen berri bat sortu
+          description: Txartela hau proposamen berriekin parte hartzera gonbidatzen zaituztegu.
           description_another: Erabiltzaile honek %{score} proposamen sortu ditu.
           description_own: '%{score} proposamen sortu dituzu.'
-          explanation: Erabiltzaileek txapela lortu proposamenen bidez.
           name: proposamenak
           next_level_in: Sortu %{score} proposamen gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du proposamenik sortu.

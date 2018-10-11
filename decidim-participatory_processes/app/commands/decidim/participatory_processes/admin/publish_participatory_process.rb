@@ -24,7 +24,7 @@ module Decidim
           return broadcast(:invalid) if process.nil? || process.published?
 
           transaction do
-            Decidim.traceability.perform_action!("publish", process, current_user) do
+            Decidim.traceability.perform_action!("publish", process, current_user, visibility: "all") do
               process.publish!
             end
           end

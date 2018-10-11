@@ -192,33 +192,6 @@ describe "Authentication", type: :system do
     end
   end
 
-  describe "Sign Up as a organization" do
-    it "creates a new User" do
-      find(".sign-up-link").click
-
-      within ".new_user" do
-        choose "Organization/Collective"
-
-        fill_in :user_email, with: "user@example.org"
-        fill_in :user_name, with: "Responsible Citizen"
-        fill_in :user_nickname, with: "responsible"
-        fill_in :user_password, with: "DfyvHn425mYAy2HL"
-        fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
-
-        fill_in :user_user_group_name, with: "My organization"
-        fill_in :user_user_group_document_number, with: "12345678Z"
-        fill_in :user_user_group_phone, with: "333-333-3333"
-
-        check :user_tos_agreement
-        check :user_newsletter
-
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_content("confirmation link")
-    end
-  end
-
   describe "Confirm email" do
     it "confirms the user" do
       perform_enqueued_jobs { create(:user, organization: organization) }

@@ -36,6 +36,7 @@ de:
         organization_url: Organisations-URL
         redirect_uri: URI umleiten
       organization:
+        badges_enabled: Abzeichen aktivieren
         cta_button_path: Call To Action Schaltfläche Pfad
         cta_button_text: Call To Action Schaltfläche Text
         default_locale: Standardgebietsschema

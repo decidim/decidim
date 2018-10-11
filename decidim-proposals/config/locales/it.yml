@@ -187,25 +187,34 @@ it:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
+            - Prova a fare proposte che possono essere eseguite. In questo modo è più probabile che vengano accettati.
+          description: Questo badge è concesso quando partecipi attivamente a nuove proposte e queste sono accettate.
           description_another: Questo utente ha ottenuto %{score} proposte accettate.
           description_own: Hai accettato %{score} proposte.
-          explanation: Gli utenti ottengono questo badge accettando le loro proposte.
           name: Proposte accettate
           next_level_in: Ricevi altre %{score} proposte accettate per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora accettato alcuna proposta.
           unearned_own: Non hai ancora accettato nessuna proposta.
         proposal_votes:
+          conditions:
+            - Naviga e passa un po 'di tempo a leggere le proposte di altre persone
+            - Dare supporto alle proposte che ti piacciono o che ti interessano
+          description: Questo badge è concesso quando supporti le proposte di altre persone.
           description_another: Questo utente ha fornito supporto a %{score} proposte.
           description_own: Hai fornito supporto a %{score} proposte.
-          explanation: Gli utenti ricevono questo badge dando supporto alle proposte.
           name: Supporti della proposta
           next_level_in: Dare supporto a %{score} ulteriori proposte per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora fornito supporto a nessuna proposta.
           unearned_own: Non hai ancora fornito supporto a nessuna proposta.
         proposals:
+          conditions:
+            - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
+            - Crea una nuova proposta
+          description: Questo badge è concesso quando partecipi attivamente a nuove proposte.
           description_another: Questo utente ha creato %{score} proposte.
           description_own: Hai creato %{score} proposte.
-          explanation: Gli utenti ottengono questo badge creando proposte.
           name: proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora creato alcuna proposta.

@@ -8,8 +8,10 @@ module Decidim
         # Public: Initializes the command.
         #
         # question - A Question that will be published
-        def initialize(question)
+        # current_user - the user performing the action
+        def initialize(question, current_user)
           @question = question
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -21,7 +23,10 @@ module Decidim
         def call
           return broadcast(:invalid) if question.nil? || question.published?
 
-          question.publish!
+          Decidim.traceability.perform_action!("publish", question, @current_user, visibility: "all") do
+            question.publish!
+          end
+
           broadcast(:ok)
         end
 

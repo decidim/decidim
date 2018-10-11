@@ -197,25 +197,34 @@ pl:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
+            - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób są bardziej prawdopodobne, że zostaną zaakceptowani.
+          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach i są one akceptowane.
           description_another: Ten użytkownik otrzymał %{score} propozycji zaakceptowanych.
           description_own: Przyjęto %{score} propozycji.
-          explanation: Użytkownicy otrzymują tę odznakę, przyjmując propozycje zaakceptowane.
           name: Zaakceptowane propozycje
           next_level_in: Uzyskaj %{score} dodatkowych propozycji zaakceptowanych, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych propozycji.
           unearned_own: Nie otrzymałeś jeszcze żadnych propozycji.
         proposal_votes:
+          conditions:
+            - Przeglądaj i spędzaj trochę czasu czytając propozycje innych osób
+            - Wspieraj propozycje, które lubisz lub które są interesujące
+          description: Ta odznaka jest przyznawana, gdy wspierasz propozycje innych osób.
           description_another: Ten użytkownik udzielił wsparcia %{score} propozycji.
           description_own: Udzieliłeś wsparcia %{score} propozycji.
-          explanation: Użytkownicy otrzymują tę odznakę, udzielając wsparcia propozycjom.
           name: Propozycja wspiera
           next_level_in: Poprzyj %{score} innych propozycji, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie wspierał jeszcze żadnych propozycji.
           unearned_own: Nie udzielałeś już wsparcia żadnym wnioskom.
         proposals:
+          conditions:
+            - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
+            - Utwórz nową ofertę
+          description: Ta plakietka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach.
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.
-          explanation: Użytkownicy otrzymują tę odznakę, tworząc propozycje.
           name: Propozycje
           next_level_in: Stwórz %{score} kolejnych propozycji, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie utworzył jeszcze żadnych propozycji.
