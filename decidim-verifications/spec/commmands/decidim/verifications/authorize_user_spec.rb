@@ -6,7 +6,7 @@ module Decidim::Verifications
   describe AuthorizeUser do
     subject { described_class.new(handler) }
 
-    let(:user) { create(:user) }
+    let(:user) { create(:user, :confirmed) }
     let(:document_number) { "12345678X" }
     let(:handler) do
       DummyAuthorizationHandler.new(

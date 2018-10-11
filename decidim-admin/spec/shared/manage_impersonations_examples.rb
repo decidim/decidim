@@ -159,7 +159,9 @@ shared_examples "manage impersonations examples" do
   end
 
   describe "impersonation" do
-    let!(:impersonated_user) { create(:user, managed: managed, name: "Rigoberto", organization: organization) }
+    let!(:impersonated_user) do
+      create(:user, managed: managed, name: "Rigoberto", organization: organization)
+    end
 
     context "when impersonating a previously authorized user" do
       let!(:authorization) { create(:authorization, user: impersonated_user, name: "dummy_authorization_handler") }

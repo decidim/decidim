@@ -6,7 +6,7 @@ module Decidim
       #
       # Handles verification by identity document upload
       #
-      class AuthorizationsController < Decidim::ApplicationController
+      class AuthorizationsController < ApplicationController
         helper_method :authorization
 
         before_action :load_authorization

@@ -143,6 +143,15 @@ module Decidim
       accepted_tos_version >= organization.tos_version
     end
 
+    # Whether this user can be verified against some authorization or not.
+    def verifiable?
+      confirmed? || managed? || being_impersonated?
+    end
+
+    def being_impersonated?
+      ImpersonationLog.active.where(user: self).exists?
+    end
+
     protected
 
     # Overrides devise email required validation.

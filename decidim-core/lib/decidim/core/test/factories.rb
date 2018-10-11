@@ -103,6 +103,7 @@ FactoryBot.define do
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
     about { Faker::Lorem.paragraph(2) }
+    confirmation_sent_at { Time.current }
 
     after(:create) do |user|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: user.organization)

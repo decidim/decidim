@@ -27,7 +27,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("confirmation link")
+        expect(page).to have_content("You have signed up successfully")
       end
     end
 
@@ -47,7 +47,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_no_content("confirmation link")
+        expect(page).not_to have_content("You have signed up successfully")
       end
     end
 
@@ -122,8 +122,6 @@ describe "Authentication", type: :system do
             fill_in :user_email, with: "user@from-twitter.com"
             find("*[type=submit]").click
           end
-
-          expect(page).to have_content("confirmation link")
         end
 
         context "and a user already exists with the given email" do
@@ -347,7 +345,7 @@ describe "Authentication", type: :system do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("confirmation link")
+          expect(page).to have_content("You have signed up successfully")
         end
       end
     end

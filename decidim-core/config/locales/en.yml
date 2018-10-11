@@ -179,6 +179,11 @@ en:
           invalid_field: "%{field} value %{value} isn't valid."
           ok: Ok
           title: Not authorized
+        unconfirmed:
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
+          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
         one: and 1 more
@@ -723,7 +728,6 @@ en:
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please sign in again to continue.
       unauthenticated: You need to sign in or sign up before continuing.
-      unconfirmed: You have to confirm your email address before continuing.
     invitations:
       edit:
         header: Finish creating your account
