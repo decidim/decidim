@@ -213,6 +213,10 @@ gl:
       html:
         html_content: Contido HTML
         name: Bloque HTML
+      last_activity:
+        name: Última actividade
+        title: Última actividade
+        view_all: Ver todo
       metrics:
         name: Métricas da organización
       stats:
@@ -441,6 +445,13 @@ gl:
         invitations_title: Pensas que se deben escoitar máis voces en %{organization_name}?
         invite: Invitar
         visit_your_profile: Visita o teu perfil
+    last_activities:
+      activities:
+        no_activities_warning: Non hai actividade
+      all: Todos os tipos de actividade
+      index:
+        last_activity: Última actividade
+        resource_type: Tipo
     log:
       base_presenter:
         create: "%{user_name} creouse %{resource_name}"
