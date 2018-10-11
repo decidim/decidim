@@ -460,6 +460,8 @@ pl:
       destroy_draft:
         error: Wystąpiły błędy podczas usuwania wersji roboczej propozycji.
         success: Projekt propozycji został pomyślnie usunięty.
+      last_activity:
+        new_proposal_at_html: "<span>Nowa propozycja na %{link}</span>"
       models:
         collaborative_draft:
           fields:
