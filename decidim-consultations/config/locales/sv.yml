@@ -211,6 +211,9 @@ sv:
         title: Frågor från %{scope_name}
       index:
         title: samråd
+      last_activity:
+        new_consultation: Nytt samråd
+        new_question_at_html: "<span>Ny fråga till %{link}</span>"
       pages:
         home:
           highlighted_consultations:
