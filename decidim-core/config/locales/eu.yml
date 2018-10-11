@@ -14,9 +14,6 @@ eu:
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
         remove_avatar: Kendu avatar-a
-        user_group_document_number: Egiaztagiri-zenbakia
-        user_group_name: Erakundearen izena
-        user_group_phone: Erakundearen telefonoa
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai aktiboa
@@ -32,9 +29,6 @@ eu:
         password: Pasahitza
         password_confirmation: Baieztatu pasahitza
         remember_me: Gogoratu
-        user_group_document_number: Egiaztagiri-zenbakia
-        user_group_name: Erakundearen izena
-        user_group_phone: Erakundearen telefonoa
     models:
       decidim/user:
         one: Erabiltzaileak
@@ -257,8 +251,6 @@ eu:
           sign_up: Erregistratu
           sign_up_as:
             legend: Izena eman honako hau gisa
-            user: Banakoa
-            user_group: Erakundea / Kolektiboa
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           terms: erabilera-baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
@@ -430,7 +422,13 @@ eu:
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
     groups:
-      no_user_groups: Ez da oraindik erabiltzaile taldeik.
+      create:
+        error: Antolakuntza sortzerakoan arazo bat izan da
+        success: Antolakuntza behar bezala sortu da
+      new:
+        create_user_group: Sortu erakundea
+        new_user_group: Antolakuntza berria
+      no_user_groups: Ez dago inongo erakunderik.
     invitations:
       create:
         error: Arazo batzuk egon dira zure lagunak gonbidatuz
@@ -616,7 +614,7 @@ eu:
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
-        groups: Taldeak
+        groups: Erakundeak
         members: Bazkideek
         notifications: jakinarazpenak
       sidebar:
@@ -624,6 +622,7 @@ eu:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
           title: Badges
       user:
+        create_user_group: Sortu erakundea
         edit_profile: Editatu profila
     reported_mailer:
       hide:
