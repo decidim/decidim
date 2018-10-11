@@ -86,7 +86,7 @@ fi:
             invalid: Kyselyn tallennus epäonnistui.
             success: Kysely tallennettu onnistuneesti.
       last_activity:
-        new_survey_at_html: "<span>Uusi tutkimus %{link}</span>"
+        new_survey_at_html: "<span>Uusi kysely osoitteessa %{link}</span>"
       question_types:
         long_answer: Pitkä vastaus
         multiple_option: Useita vaihtoehtoja
