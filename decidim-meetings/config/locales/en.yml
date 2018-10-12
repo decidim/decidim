@@ -126,9 +126,11 @@ en:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+          - Register in the meetings you want to attend
+          description: This badge is granted when you attend several face-to-face meetings.
           description_another: This user has attended %{score} meetings.
           description_own: You have attended %{score} meetings.
-          explanation: Users get this badge by attending meetings.
           name: Attended meetings
           next_level_in: Attend %{score} more meetings to reach the next level!
           unearned_another: This user hasn't attended any meeting yet.
@@ -313,6 +315,8 @@ en:
             search: Search
             space_type: Participatory space
             upcoming: Upcoming
+      last_activity:
+        new_meeting_at_html: "<span>New meeting at %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

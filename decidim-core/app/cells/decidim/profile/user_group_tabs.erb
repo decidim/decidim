@@ -1,0 +1,4 @@
+<ul class="tabs" id="profile-tabs">
+  <%= user_profile_tab t("decidim.profiles.show.members"), profile_members_path(nickname: profile_holder.nickname) %>
+  <%= user_profile_tab t("decidim.profiles.show.followers"), profile_followers_path(nickname: profile_holder.nickname) %>
+</ul>

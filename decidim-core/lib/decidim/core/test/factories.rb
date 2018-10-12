@@ -81,6 +81,7 @@ FactoryBot.define do
     highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
     tos_version { Time.current }
+    badges_enabled { true }
 
     trait :with_tos do
       after(:create) do |organization|
@@ -151,9 +152,15 @@ FactoryBot.define do
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
+    transient do
+      document_number { Faker::Number.number(8) + "X" }
+      phone { Faker::PhoneNumber.phone_number }
+      rejected_at { nil }
+      verified_at { nil }
+    end
+
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
-    document_number { Faker::Number.number(8) + "X" }
-    phone { Faker::PhoneNumber.phone_number }
+    nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     organization
 
@@ -169,18 +176,31 @@ FactoryBot.define do
       rejected_at { Time.current }
     end
 
+    after(:build) do |user_group, evaluator|
+      user_group.extended_data = {
+        document_number: evaluator.document_number,
+        phone: evaluator.phone,
+        rejected_at: evaluator.rejected_at,
+        verified_at: evaluator.verified_at
+      }
+    end
+
     after(:create) do |user_group, evaluator|
-      users = evaluator.users
+      users = evaluator.users.dup
       next if users.empty?
 
+      creator = users.shift
+      create(:user_group_membership, user: creator, user_group: user_group, role: :creator)
+
       users.each do |user|
-        create(:user_group_membership, user: user, user_group: user_group)
+        create(:user_group_membership, user: user, user_group: user_group, role: :admin)
       end
     end
   end
 
   factory :user_group_membership, class: "Decidim::UserGroupMembership" do
     user
+    role { :creator }
     user_group
   end
 
@@ -393,6 +413,7 @@ FactoryBot.define do
     component { build :component, participatory_space: participatory_space }
     resource { build(:dummy_resource, component: component) }
     action { "create" }
+    visibility { "admin-only" }
     extra do
       {
         component: {

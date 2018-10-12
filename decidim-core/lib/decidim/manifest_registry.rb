@@ -21,10 +21,12 @@ module Decidim
     end
 
     def find(name)
+      name = name.to_s
       manifests.find do |manifest|
-        manifest.try(:model_class_name) == name.to_s ||
-          manifest.name.to_s == name.to_s ||
-          manifest.name.to_s.pluralize == name.to_s
+        manifest_name = manifest.name.to_s
+        manifest_name == name ||
+          manifest.try(:model_class_name) == name ||
+          manifest_name.pluralize == name
       end
     end
 

@@ -80,6 +80,19 @@ module Decidim
 
             subject.call
           end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:create!)
+              .with(Post, current_user, kind_of(Hash), visibility: "all")
+              .and_call_original
+
+            expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+            action_log = Decidim::ActionLog.last
+            expect(action_log.version).to be_present
+            expect(action_log.version.event).to eq "create"
+          end
         end
       end
     end

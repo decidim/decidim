@@ -125,9 +125,11 @@ fr:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
+          description: Ce badge est attribué lorsque vous participez à plusieurs réunions en face à face.
           description_another: Cet utilisateur a participé à %{score} réunions.
           description_own: Vous avez assisté à %{score} réunions.
-          explanation: Les utilisateurs obtiennent ce badge en assistant aux réunions.
           name: Assister aux réunions
           next_level_in: Assister à %{score} plus de réunions pour atteindre le prochain niveau!
           unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.

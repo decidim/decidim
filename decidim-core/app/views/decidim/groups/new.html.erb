@@ -1,0 +1,50 @@
+<main class="wrapper">
+<div class="row collapse">
+  <div class="row collapse">
+    <div class="columns large-8 large-centered text-center page-title">
+      <h1><%= t(".new_user_group") %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns large-6 medium-10 medium-centered">
+
+      <%= decidim_form_for(@form) do |f| %>
+        <div class="card">
+          <div class="card__content">
+            <div class="user-group-fields">
+              <div class="field">
+                <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                <%= f.text_field :nickname %>
+              </div>
+              <div class="field">
+                <%= f.text_field :email %>
+              </div>
+               <div class="field">
+                <%= f.text_field :document_number %>
+              </div>
+              <div class="field">
+                <%= f.text_field :phone %>
+              </div>
+              <div class="field">
+                <%= f.text_area :about, rows: 5 %>
+              </div>
+              <div class="field">
+                <%= f.upload :avatar %>
+              </div>
+            </div>
+
+            <div class="actions">
+              <%= f.submit t(".create_user_group"), class: "button expanded" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</main>
+
+

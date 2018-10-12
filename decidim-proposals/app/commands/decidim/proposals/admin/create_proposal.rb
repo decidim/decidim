@@ -43,7 +43,8 @@ module Decidim
           @proposal = Decidim.traceability.create!(
             Proposal,
             form.current_user,
-            attributes
+            attributes,
+            visibility: "all"
           )
         end
 

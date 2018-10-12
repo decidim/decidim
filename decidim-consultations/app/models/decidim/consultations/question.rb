@@ -11,6 +11,8 @@ module Decidim
       include Decidim::Followable
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       belongs_to :consultation,
                  foreign_key: "decidim_consultation_id",
@@ -48,6 +50,8 @@ module Decidim
       delegate :start_voting_date, to: :consultation
       delegate :end_voting_date, to: :consultation
       delegate :results_published?, to: :consultation
+
+      alias participatory_space consultation
 
       # Sorted results for the given question.
       def sorted_results

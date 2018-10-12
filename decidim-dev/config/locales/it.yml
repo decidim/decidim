@@ -15,9 +15,11 @@ it:
     gamification:
       badges:
         test:
+          conditions:
+            - Utilizzare un ambiente di prova per decidim.
+          description: Gli utenti ottengono questo badge creando test.
           description_another: Questo utente ha creato %{score} test.
           description_own: Hai creato %{score} test.
-          explanation: Gli utenti ottengono questo badge creando test.
           name: test
           next_level_in: Crea altri %{score} test per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora creato alcun test.
@@ -25,6 +27,7 @@ it:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Manichini in alto
           dummies_count_medium: Manichino medio
           foo: foo

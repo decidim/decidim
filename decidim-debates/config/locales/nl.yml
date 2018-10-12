@@ -136,9 +136,11 @@ nl:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Kies een open debat om deel te nemen
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw opmerkingen achter te laten.
           description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           description_own: Je hebt deelgenomen aan %{score} debatten.
-          explanation: Gebruikers krijgen deze badge door deel te nemen aan debatten.
           name: debatten
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.

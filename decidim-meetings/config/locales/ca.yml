@@ -125,9 +125,11 @@ ca:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Inscriviu-vos a les reunions que vulgueu assistir
+          description: Aquesta distinció es concedeix quan assistiu a diverses reunions presencials.
           description_another: Aquest usuari ha assistit a %{score} reunions.
           description_own: Has assistit a %{score} reunions.
-          explanation: Els usuaris obtenen aquesta distinció assistint a reunions.
           name: Reunions assistides
           next_level_in: Assistiu a més de %{score} reunions per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha assistit a cap reunió.
@@ -354,6 +356,8 @@ ca:
             one: 1 espai reservat restant
             other: "%{count} inscripcions restants"
           view: Veure
+      meetings_map:
+        view_meeting: Veure trobada
       models:
         invite:
           fields:

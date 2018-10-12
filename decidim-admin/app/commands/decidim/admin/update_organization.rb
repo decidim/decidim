@@ -48,7 +48,8 @@ module Decidim
           facebook_handler: form.facebook_handler,
           instagram_handler: form.instagram_handler,
           youtube_handler: form.youtube_handler,
-          github_handler: form.github_handler
+          github_handler: form.github_handler,
+          badges_enabled: form.badges_enabled
         }
       end
     end

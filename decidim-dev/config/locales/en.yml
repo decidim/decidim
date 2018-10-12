@@ -16,9 +16,11 @@ en:
     gamification:
       badges:
         test:
+          conditions:
+          - Use a test environment for decidim.
+          description: Users get this badge by creating tests.
           description_another: This user has created %{score} tests.
           description_own: You have created %{score} tests.
-          explanation: Users get this badge by creating tests.
           name: Tests
           next_level_in: Create %{score} more tests to reach the next level!
           unearned_another: This user hasn't created any tests yet.
