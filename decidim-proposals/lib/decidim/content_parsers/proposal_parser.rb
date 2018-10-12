@@ -72,7 +72,7 @@ module Decidim
 
       def proposal_from_url_match(match)
         uri = URI.parse(match)
-        return unless uri.path.present?
+        return if uri.path.blank?
 
         proposal_id = uri.path.split("/").last
         find_proposal_by_id(proposal_id)
