@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card profile--sidebar">
   <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger" %>
   <div class="card__content">
     <h5>
@@ -6,7 +6,7 @@
       <span class="text-small"><%= profile_user.nickname %></span>
       <% if can_contact_user? %>
         <span class="user-contact_link">
-          <%= link_to_current_or_new_conversation_with(user) %>
+          <%= link_to_current_or_new_conversation_with(profile_holder) %>
         </span>
       <% end %>
     </h5>
@@ -21,7 +21,7 @@
         <%= icon profile_user.badge, class: "author__verified" %>
       </span>
       <span>
-        <%= translated_attribute(profile_user.officialized_as).presence || t("decidim.profiles.default_officialization_text") %>
+        <%= officialization_text %>
       </span>
     </div>
   <% end %>
@@ -29,13 +29,13 @@
   <div class="card__footer card__footer--transparent">
     <div class="flex--cc p-s text-center">
       <div class="mr-s">
-        <%= link_to profile_followers_path(nickname: user.nickname) do %>
+        <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
           <%= t("decidim.profiles.show.followers") %>
           <h1 class="heading1"><%= profile_user.followers_count %></h1>
         <% end %>
       </div>
       <div class="ml-s">
-        <%= link_to profile_following_path(nickname: user.nickname) do %>
+        <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
           <%= t("decidim.profiles.show.following") %>
           <h1 class="heading1"><%= profile_user.following_count %></h1>
         <% end %>
@@ -43,30 +43,32 @@
     </div>
   </div>
 
-  <div class="card__footer card__footer--transparent">
-    <div class="card__support">
-      <div class="row column mb-s">
-        <strong class="muted"><%= t("decidim.profiles.sidebar.badges.title") %></strong>
-        <div class="badge-tip badge-tip--inline">
-          <div data-tooltip data-position="top" title="<%= t("decidim.profiles.sidebar.badges.info") %>" aria-describedby="badges-tooltip" data-yeti-box="badges-tooltip" data-toggle="badges-tooltip" data-resize="badges-tooltip" class="has-tip" data-events="resize">
-            <%= icon "info", class: "icon--small" %>
+  <% if current_organization.badges_enabled? %>
+    <div class="card__footer card__footer--transparent">
+      <div class="card__support">
+        <div class="row column mb-s">
+          <strong class="muted"><%= t("decidim.profiles.sidebar.badges.title") %></strong>
+          <div class="badge-tip badge-tip--inline">
+            <div data-tooltip data-position="top" title="<%= t("decidim.profiles.sidebar.badges.info") %>" aria-describedby="badges-tooltip" data-yeti-box="badges-tooltip" data-toggle="badges-tooltip" data-resize="badges-tooltip" class="has-tip" data-events="resize">
+              <%= icon "info", class: "icon--small" %>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
-        <% Decidim::Gamification.badges.sort_by(&:name).each do |badge| %>
-          <% status = Decidim::Gamification.status_for(user, badge.name) %>
-          <% if status.level > 0 %>
-            <div class="column">
-              <div class="badge-container pr-xs">
-                <%= cell("decidim/badge", user, badge: badge, status: status).(:small) %>
+        <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
+          <% Decidim::Gamification.badges.sort_by(&:name).each do |badge| %>
+            <% status = Decidim::Gamification.status_for(profile_holder, badge.name) %>
+            <% if status.level > 0 %>
+              <div class="column">
+                <div class="badge-container pr-xs">
+                  <%= cell("decidim/badge", profile_holder, badge: badge, status: status).(:small) %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <% if own_profile? %>
@@ -77,6 +79,13 @@
       </span>
     <% end %>
   </div>
+  <div class="text-center">
+    <%= link_to decidim.new_group_path, class: "button secondary light" do %>
+      <span>
+        <%= t("decidim.profiles.user.create_user_group") %>
+      </span>
+    <% end %>
+  </div>
 <% elsif logged_in? %>
-  <%= cell "decidim/follow_button", user, inline: false, context: { current_user: current_user } %>
+  <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
 <% end %>

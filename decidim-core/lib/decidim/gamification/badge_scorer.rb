@@ -86,6 +86,7 @@ module Decidim
 
       def send_notification(previous_level, current_level)
         return unless current_level > previous_level
+        return unless badges_enabled?
 
         if previous_level.zero?
           publish_event(name: "decidim.events.gamification.badge_earned",
@@ -112,6 +113,10 @@ module Decidim
             current_level: current_level
           }
         )
+      end
+
+      def badges_enabled?
+        @user.organization.badges_enabled?
       end
     end
   end

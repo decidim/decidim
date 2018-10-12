@@ -27,7 +27,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Surveys::SurveyUserAnswersSerializer
+        Decidim::Surveys::DataPortabilitySurveyUserAnswersSerializer
       end
 
       private

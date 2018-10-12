@@ -187,25 +187,34 @@ hu:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+            - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
+          description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
           description_another: A felhasználó %{score} javaslatait elfogadták.
           description_own: '%{score} ajánlatodat fogadták el.'
-          explanation: A jelvényt elfogadott javaslatokkal szerezhetik meg a felhasználók.
           name: Elfogadott javaslatok
           next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
           unearned_another: A felhasználónak még nincsenek elfogadott javaslatai.
           unearned_own: Még nincs elfogadott javaslatod.
         proposal_votes:
+          conditions:
+            - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
+            - Támogatja a kedvelt javaslatokat, vagy érdekesnek találja azokat
+          description: Ezt a jelvényt akkor kapja meg, ha más emberek javaslatait támogatja.
           description_another: A felhasználó %{score} javaslatot támogatott.
           description_own: Eddig %{score} javaslatot támogattál.
-          explanation: A felhasználók javaslatok támogatásával szerezhetik meg a jelvényt.
           name: Javaslat támogatói
           next_level_in: Támogatja a %{score} további javaslatot a következő szint eléréséhez!
           unearned_another: A felhasználó még nem támogatott egy javaslatot sem.
           unearned_own: Még nem támogattál egyetlen javaslatot sem.
         proposals:
+          conditions:
+            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+            - Hozzon létre egy új javaslatot
+          description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal.
           description_another: A felhasználó %{score} javaslatot hozott létre.
           description_own: Eddig %{score} javaslatot hoztál létre.
-          explanation: A felhasználók javaslatok létrehozásával szerezhetik meg a jelvényt.
           name: Javaslatok
           next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
           unearned_another: A felhasználó még nem hozott létre javaslatokat.

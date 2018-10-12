@@ -6,7 +6,7 @@ fi:
       report:
         details: Lisätiedot
       user:
-        about: Noin
+        about: Profiilikuvaus
         email: Sähköpostiosoitteesi
         name: Nimesi
         nickname: Oma yksilöllinen käyttäjätunnuksesi
@@ -266,8 +266,8 @@ fi:
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       sessions:
         new:
-          are_you_new?: Alustan uusi käyttäjä?
-          register: Luo käyttäjätili
+          are_you_new?: Uusi käyttäjä?
+          register: Rekisteröidy
       shared:
         newsletter_modal:
           buttons:
@@ -387,19 +387,41 @@ fi:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
+      all_badges_link: Katso kaikki saatavilla olevat merkit.
       badges:
+        continuity:
+          conditions:
+            - Tule tänne usein
+          description: Tämä merkki myönnetään, kun vierailet alustalla säännöllisesti. Pidämme sinusta täällä!
+          description_another: Tämä käyttäjä on kytketty %{score} peräkkäiseen päivään jossakin vaiheessa.
+          description_own: Olet yhdistänyt %{score} peräkkäistä päivää jossakin vaiheessa.
+          name: Jatkuvuus
+          next_level_in: Yhdistä %{score} peräkkäistä päivää päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä ei ole kirjautunut sisään useampaan kuin yhtä peräkkäiseen päivään.
+          unearned_own: Et ole ollut yhteydessä useampaan kuin yhtä peräkkäiseen päivään.
         followers:
+          conditions:
+            - Aktiivinen ja muiden ihmisten seuranta varmasti tekee muut ihmiset seuraamaan sinua.
+          description: Tämä merkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, kutoa verkko kommunikoida muiden ihmisten kanssa alustalla.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
-          explanation: Käyttäjät saavat tämän kunniamerkin kun heillä on seuraajia.
           name: Seuraajat
           next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
           unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
+        index:
+          badge_title: "%{name} rintanappi"
+          how: Miten voit ansaita sen
+          page_description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä. Tässä on luettelo tunnuksista ja joitain tapoja, joilla voit ansaita niitä.
+          title: Merkit
         invitations:
+          conditions:
+            - Käytä käyttäjän sivullasi olevaa "kutsua ystäviä" -linkkiä kutsumaan ystäväsi
+            - Mukauta lähetettävää viestiä, jos haluat
+            - Tasot tasolle lähettämällä kutsuja ja saattamalla ne rekisteröityneiksi.
+          description: Tämä merkki on myönnetty, kun olet kutsunut joitain ihmisiä, ja he ovat viettää vähän aikaa rekisteröitymään %{organization_name} ja osallistuvat siihen. Kiitos, että %{organization_name} tiedossa muille ja auttaa laajentaa yhteisö!
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
-          explanation: Käyttäjät saavat tämän kunniamerkin kutsumalla muita käyttäjiä.
           name: Kutsut
           next_level_in: Kutsu %{score} käyttäjää lisää päästäksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä kutsunut yhtään käyttäjää.
@@ -407,6 +429,8 @@ fi:
       description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
+    groups:
+      no_user_groups: Ei kuulu vielä yhteenkään käyttäjäryhmään.
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -440,6 +464,8 @@ fi:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
+    members:
+      no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
       home: Etusivu
       more_information: Lisätietoja
@@ -583,12 +609,15 @@ fi:
       deleted: Poistettu käyttäjä
       view: Näytä
     profiles:
-      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
+      default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu, sen nimi vastaa oikeaa nimeä
+      default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
         badges: Kunniamerkit
         conversations: Keskustelut
         followers: Seuraajat
         following: Seuraa
+        groups: Ryhmät
+        members: Jäsenet
         notifications: Ilmoitukset
       sidebar:
         badges:
@@ -828,8 +857,8 @@ fi:
       not_saved:
         one: '1 virhe esti %{resource} tallentamisen:'
         other: "%{count} virhettä esti %{resource} tallentamisen:"
-      too_many_marks: sisältää liian monta välimerkkiä peräkkäin (esim. ! ja ?)
-      too_much_caps: sisältää liian monta isoa kirjainta (yli 25% tekstistä)
+      too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
+      too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     required: Vaadittu
@@ -878,10 +907,10 @@ fi:
   locale:
     name: Suomi
   password_validator:
-    domain_included_in_password: on liian samankaltainen palvelun verkko-osoitteen kanssa
-    email_included_in_password: on liian samankaltainen sähköpostisi kanssa
+    domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
+    email_included_in_password: liian samankaltainen sähköpostisi kanssa
     fallback: ei ole hyväksytyn muotoinen
-    name_included_in_password: on liian samankaltainen nimesi kanssa
+    name_included_in_password: liian samankaltainen nimesi kanssa
     not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
     password_not_allowed: ei ole sallittu
     password_too_common: on liian yleinen

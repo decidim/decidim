@@ -212,6 +212,9 @@ en:
         title: Questions from %{scope_name}
       index:
         title: Consultations
+      last_activity:
+        new_consultation: New consultation
+        new_question_at_html: "<span>New question at %{link}</span>"
       pages:
         home:
           highlighted_consultations:

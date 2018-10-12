@@ -187,25 +187,34 @@ ca:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Trieu l'espai de participació del vostre interès amb l'enviament de propostes activades
+            - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
+          description: Aquesta distinció es concedeix quan participes activament amb noves propostes i s'accepten.
           description_another: Aquest usuari ha aconseguit tenir %{score} propostes acceptades.
           description_own: Has aconseguit que s'acceptin %{score} de les teves propostes.
-          explanation: Els usuaris obtenen aquesta distinció aconseguint que s'acceptin les seves propostes.
           name: Propostes acceptades
           next_level_in: Aconsegueix que s'acceptin %{score} propostes més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha aconseguit que s'accepti cap de les seves propostes.
           unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
+          conditions:
+            - Navegueu i passeu-vos un temps llegint les propostes d'altres persones
+            - Doneu suport a les propostes que desitgeu o trobeu interessants
+          description: Aquesta distinció es concedeix quan admet propostes d'altres persones.
           description_another: Aquest usuari ha donat suport a %{score} propostes.
           description_own: Has donat suport a %{score} propostes.
-          explanation: Els usuaris obtenen aquesta distinció donant suport a les propostes.
           name: Suports a propostes
           next_level_in: Dona suport a %{score} propostes més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha donat suport a cap proposta.
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
+          conditions:
+            - Trieu l'espai de participació del vostre interès amb l'enviament de propostes activades
+            - Crea una proposta nova
+          description: Aquesta distinció es concedeix quan participes activament amb noves propostes.
           description_another: Aquest usuari ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
-          explanation: Els usuaris obtenen aquesta insígnia creant propostes.
           name: Propostes
           next_level_in: Crea %{score} més propostes per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha creat cap proposta.

@@ -387,19 +387,41 @@ sv:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
     gamification:
+      all_badges_link: Se alla tillgängliga märken.
       badges:
+        continuity:
+          conditions:
+            - Kommer hit ofta
+          description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
+          description_another: Den här användaren har anslutit sig i %{score} varandra följande dagar vid någon tidpunkt.
+          description_own: Du har anslutit i %{score} dagar i följd vid någon tidpunkt.
+          name: Kontinuitet
+          next_level_in: Anslut i %{score} dagar i följd för att komma till nästa nivå!
+          unearned_another: Den här användaren har inte loggat in mer än en på varandra följande dag.
+          unearned_own: Du har inte anslutit i mer än en på varandra följande dag.
         followers:
+          conditions:
+            - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
+          description: Detta märke beviljas när du når ett visst antal anhängare. %{organization_name} är ett socialt och politiskt nätverk, väv din webb för att kommunicera med andra personer på plattformen.
           description_another: Den här användaren har %{score} följare.
           description_own: "%{score} användare följer dig."
-          explanation: Användare får detta märke genom att följa av andra användare.
           name: anhängare
           next_level_in: Få %{score} fler användare att följa dig för att nå nästa nivå!
           unearned_another: Den här användaren har inga anhängare än.
           unearned_own: Du har inga anhängare än.
+        index:
+          badge_title: "%{name} märke"
+          how: Hur kan du tjäna det
+          page_description: Badges är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika märken. Här är listan med märken och några sätt du kan tjäna dem.
+          title: Emblem
         invitations:
+          conditions:
+            - Använd länken "bjud in vänner" på din användarsida för att bjuda in dina vänner
+            - Anpassa, om du vill, det meddelande du skickar
+            - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
+          description: Detta märke beviljas när du har bjudit in några personer och de har spenderat lite tid att registrera sig i %{organization_name} och bli deltagare. Tack för att göra %{organization_name} känt för andra och hjälpa till att utvidga community!
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
-          explanation: Användare får detta emblem genom att bjuda in andra användare.
           name: Inbjudningar
           next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
           unearned_another: Den här användaren har inte bjudit in någon användare än.
@@ -407,6 +429,8 @@ sv:
       description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta emblem.
+    groups:
+      no_user_groups: Tillhör inte någon användargrupp ännu.
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -440,6 +464,8 @@ sv:
           not_found: 'Typ av omfattning hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
+    members:
+      no_members: Dessa användargrupper har ingen medlem än.
     menu:
       home: Hem
       more_information: Mer information
@@ -583,12 +609,15 @@ sv:
       deleted: Ta bort användare
       view: Se
     profiles:
-      default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
+      default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
+      default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         badges: Emblem
         conversations: Samtal
         followers: Anhängare
         following: Följer
+        groups: grupper
+        members: medlemmar
         notifications: Notiser
       sidebar:
         badges:
