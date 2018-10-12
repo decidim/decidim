@@ -72,9 +72,11 @@ module Decidim
 
       def proposal_from_url_match(match)
         uri = URI.parse(match)
+        return unless uri.path.present?
+
         proposal_id = uri.path.split("/").last
         find_proposal_by_id(proposal_id)
-      rescue URI::InvalidURIError, NoMethodError
+      rescue URI::InvalidURIError
         nil
       end
 
