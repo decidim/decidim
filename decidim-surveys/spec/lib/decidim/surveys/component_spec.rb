@@ -6,6 +6,7 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
   subject { component }
 
   let(:component) { create :surveys_component }
+  let(:new_component) { create :surveys_component }
 
   describe "before_destroy hooks" do
     context "when there are no answers" do
