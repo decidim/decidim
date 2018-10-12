@@ -107,6 +107,22 @@ module Decidim
           end
         end
 
+        context "when content has words similar to links but not links" do
+          let(:similars) do
+            %W[AA:aaa AA:sss aa:aaa aa:sss aaa:sss aaaa:sss aa:ssss aaa:ssss]
+          end
+          let(:content) do
+            "This content has similars to links: #{similars.join}. Great! Now are not treated as links"
+          end
+
+          it { is_expected.to eq(content) }
+          it "has empty metadata" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.linked_proposals).to be_empty
+          end
+        end
+
         context "when proposal in content does not exist" do
           let(:proposal) { create(:proposal, component: component) }
           let(:url) { proposal_url(proposal) }

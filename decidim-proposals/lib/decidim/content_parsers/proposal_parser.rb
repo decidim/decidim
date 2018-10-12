@@ -20,7 +20,7 @@ module Decidim
       Metadata = Struct.new(:linked_proposals)
 
       # Matches a URL
-      URL_REGEX_PART1 = '(?i)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|'
+      URL_REGEX_PART1 = '\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|'
       URL_REGEX_PART2 = '\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))'
       URL_REGEX = /#{URL_REGEX_PART1}#{URL_REGEX_PART2}/i
       # Matches a mentioned Proposal ID (~(d)+ expression)
@@ -74,7 +74,8 @@ module Decidim
         uri = URI.parse(match)
         proposal_id = uri.path.split("/").last
         find_proposal_by_id(proposal_id)
-      rescue URI::InvalidURIError, NoMethodError
+      rescue URI::InvalidURIError, NoMethodError => e
+        Rails.logger.error("#{e.message}=>#{e.backtrace}")
         nil
       end
 
