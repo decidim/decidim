@@ -111,4 +111,4 @@ This project uses [markdownlint](https://github.com/markdownlint/markdownlint) t
 
 ## Testing
 
-Refer to the [testing](docs/advanced/testing.md) guide.
+Refer to the [testing](advanced/testing.md) guide.
