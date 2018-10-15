@@ -9,6 +9,8 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::Authorable
       include Decidim::Comments::Commentable
+      include Traceable
+      include Loggable
 
       component_manifest_name "blogs"
 

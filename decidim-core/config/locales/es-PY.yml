@@ -387,19 +387,41 @@ es-PY:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
+      all_badges_link: Ver todas las insignias disponibles.
       badges:
+        continuity:
+          conditions:
+            - Viene aquí a menudo
+          description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
+          description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
+          description_own: Te has conectado por %{score} días consecutivos en algún momento.
+          name: Continuidad
+          next_level_in: '¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!'
+          unearned_another: Este usuario no se ha registrado durante más de un día consecutivo.
+          unearned_own: No te has conectado por más de un día consecutivo.
         followers:
+          conditions:
+            - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
+          description: Esta insignia se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
           description_another: Este usuario tiene %{score} seguidores.
           description_own: "%{score} usuarios te están siguiendo."
-          explanation: Los usuarios obtienen esta insignia al ser seguidos por otros usuarios.
           name: Seguidores
           next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
           unearned_another: Este usuario no tiene seguidores todavía.
           unearned_own: Aún no tienes seguidores
+        index:
+          badge_title: "%{name} credencial"
+          how: Como puedes ganarlo
+          page_description: Las insignias son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes ganarlas.
+          title: Insignias
         invitations:
+          conditions:
+            - Use el enlace "invitar amigos" en su página de usuario para invitar a sus amigos
+            - Personaliza, si quieres, el mensaje que estás enviando.
+            - Subirás de nivel enviando invitaciones y registrándolas.
+          description: Este distintivo se otorga cuando ha invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y convertirse en participantes. Gracias por hacer de %{organization_name} a conocer a otros y ayudar a ampliar la comunidad!
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
-          explanation: Los usuarios obtienen esta insignia invitando a otros usuarios.
           name: Invitaciones
           next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha invitado a ningún usuario.
@@ -442,6 +464,8 @@ es-PY:
           not_found: 'No se encontró el tipo de ámbito en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
+    members:
+      no_members: Este grupo de usuarios aún no tiene ningún miembro.
     menu:
       home: Inicio
       more_information: Más información
@@ -593,6 +617,7 @@ es-PY:
         followers: Seguidores
         following: Sigue
         groups: Los grupos
+        members: Miembros
         notifications: Notificaciones
       sidebar:
         badges:

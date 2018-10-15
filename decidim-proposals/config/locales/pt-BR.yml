@@ -187,25 +187,34 @@ pt-BR:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Escolha o espaço de participação de seu interesse com o envio de propostas ativadas
+            - Tente fazer propostas que possam ser realizadas. Desta forma, eles são mais propensos a serem aceitos.
+          description: Esse selo é concedido quando você participa ativamente de novas propostas e elas são aceitas.
           description_another: Este utilizador obteve %{score} propostas aceites.
           description_own: Você tem %{score} propostas aceitas.
-          explanation: Os usuários recebem esse selo ao aceitar suas propostas.
           name: Propostas aceitas
           next_level_in: Receba mais %{score} propostas aceitas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não recebeu nenhuma proposta aceita.
           unearned_own: Você não recebeu nenhuma proposta aceita ainda.
         proposal_votes:
+          conditions:
+            - Navegue e passe algum tempo lendo as propostas de outras pessoas
+            - Dar apoio às propostas que você gosta ou encontrar interessante
+          description: Este selo é concedido quando você oferece suporte a propostas de outras pessoas.
           description_another: Este usuário deu suporte a %{score} propostas.
           description_own: Você deu suporte a %{score} propostas.
-          explanation: Os usuários recebem esse selo dando suporte a propostas.
           name: Apoios proposta
           next_level_in: Dê suporte a mais %{score} propostas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não deu suporte a nenhuma proposta.
           unearned_own: Você deu suporte a nenhuma proposta ainda.
         proposals:
+          conditions:
+            - Escolha o espaço de participação de seu interesse com o envio de propostas ativadas
+            - Crie uma nova proposta
+          description: Esse selo é concedido quando você participa ativamente de novas propostas.
           description_another: Este usuário criou %{score} propostas.
           description_own: Você criou %{score} propostas.
-          explanation: Os usuários recebem esse selo criando propostas.
           name: Propostas
           next_level_in: Crie mais %{score} propostas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não criou nenhuma proposta.

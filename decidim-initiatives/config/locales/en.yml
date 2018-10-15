@@ -334,6 +334,8 @@ en:
         status_change_for: The initiative %{title} has changed its state
         technical_validation_body_for: The initiative %{title} has requested its technical validation.
         technical_validation_for: The initiative %{title} has requested its technical validation.
+      last_activity:
+        new_initiative: New initiative
       pages:
         home:
           highlighted_initiatives:

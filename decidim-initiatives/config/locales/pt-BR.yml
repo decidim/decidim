@@ -85,9 +85,12 @@ pt-BR:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Ir para o espaço de participação de Intiatives
+            - Siga os passos para criar uma nova iniciativa
+          description: Esse selo é concedido quando você lança novas iniciativas, estabelecendo parcerias com outras pessoas para realizá-las.
           description_another: Este usuário obteve %{score} iniciativas publicadas.
           description_own: Você tem %{score} iniciativas publicadas.
-          explanation: Os usuários recebem esse selo ao publicar suas iniciativas.
           name: Iniciativas publicadas
           next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
           unearned_another: Este usuário ainda não publicou nenhuma iniciativa.

@@ -187,25 +187,34 @@ gl:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
+            - Intente facer propostas que se poidan realizar. Deste xeito son máis propensos a ser aceptados.
+          description: Este distintivo concedeuse cando participas activamente con novas propostas e estas son aceptadas.
           description_another: Este usuario obtivo %{score} propostas aceptadas.
           description_own: Recibiches %{score} propostas.
-          explanation: Os usuarios obtén esta insignia ao aceptar as súas propostas.
           name: Propostas aceptadas
           next_level_in: Obtén %{score} propostas máis aceptadas para alcanzar o seguinte nivel!
           unearned_another: Este usuario aínda non recibiu ningunha proposta aceptada.
           unearned_own: Aínda non recibiu propostas.
         proposal_votes:
+          conditions:
+            - Busque e pase un tempo a ler as propostas doutras persoas
+            - Dea soporte ás propostas que che gustan ou que che resulten interesantes
+          description: Este distintivo concedeuse cando apoias as propostas doutras persoas.
           description_another: Este usuario deu soporte a %{score} propostas.
           description_own: Vostede deu apoio a %{score} propostas.
-          explanation: Os usuarios obtén esta insignia dándolle soporte ás propostas.
           name: A proposta é compatible
           next_level_in: Dea soporte a máis de %{score} propostas para alcanzar o seguinte nivel!
           unearned_another: Este usuario aínda non deu soporte a ningunha proposta.
           unearned_own: Xa deu soporte a ningunha proposta aínda.
         proposals:
+          conditions:
+            - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
+            - Crea unha nova proposta
+          description: Este distintivo é concedido cando participas activamente con novas propostas.
           description_another: Este usuario creou %{score} propostas.
           description_own: Creaches %{score} propostas.
-          explanation: Os usuarios obtén esta insignia creando propostas.
           name: Propostas
           next_level_in: Crea %{score} propostas para chegar ao seguinte nivel!
           unearned_another: Este usuario aínda non creou ningunha proposta.

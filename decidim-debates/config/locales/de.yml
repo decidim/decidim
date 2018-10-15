@@ -137,9 +137,11 @@ de:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Wählen Sie eine offene Debatte, an der Sie teilnehmen können
+          description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an den verschiedenen Debatten teilnehmen, indem Sie Ihre Kommentare hinterlassen.
           description_another: Dieser Benutzer hat an %{score} Debatten teilgenommen.
           description_own: Sie haben an %{score} Debatten teilgenommen.
-          explanation: Benutzer erhalten dieses Abzeichen durch Teilnahme an Debatten.
           name: Debatten
           next_level_in: Nimm an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.

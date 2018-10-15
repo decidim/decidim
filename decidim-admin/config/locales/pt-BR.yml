@@ -36,6 +36,7 @@ pt-BR:
         organization_url: URL da organização
         redirect_uri: Redirecionar URI
       organization:
+        badges_enabled: Ativar emblemas
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
         default_locale: Idioma padrão

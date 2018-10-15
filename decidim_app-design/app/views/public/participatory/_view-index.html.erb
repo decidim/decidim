@@ -1,6 +1,10 @@
-<div class="card">
-  <%= link_to page_path("participatory/participatory-texts-index"), class: "card__link p-xs flex--fsc" do %>
+<div class="card card__link p-xs flex--fsc reveal__trigger" data-open="participatory-text-index">
   <%= icon "list", class: "mr-s" %>
   <strong>Ver índice</strong>
-  <% end %>
+</div>
+<div id="participatory-text-index" class="reveal large" data-reveal>
+  <%= render partial: page_path("participatory") + "/index" %>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>

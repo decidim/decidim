@@ -135,9 +135,11 @@ ca:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Trieu un debat obert per participar
+          description: Aquesta distinció es concedeix quan participes activament en els diferents debats deixant els vostres comentaris.
           description_another: Aquest usuari ha participat en %{score} debats.
           description_own: Has participat en %{score} debats.
-          explanation: Els usuaris obtenen aquesta distinció participant en debats.
           name: Debats
           next_level_in: Participa en %{score} debats més per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha participat en cap debat.

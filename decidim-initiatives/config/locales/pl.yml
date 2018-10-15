@@ -91,9 +91,12 @@ pl:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Idź do miejsca uczestnictwa Intiatives
+            - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
+          description: Ta odznaka jest przyznawana, gdy uruchamiasz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
           description_another: Ten użytkownik otrzymał %{score} opublikowanych inicjatyw.
           description_own: Masz opublikowanych %{score} inicjatyw.
-          explanation: Użytkownicy otrzymują tę odznakę, publikując swoje inicjatywy.
           name: Opublikowane inicjatywy
           next_level_in: Uzyskaj %{score} dodatkowych inicjatyw opublikowanych, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych inicjatyw.

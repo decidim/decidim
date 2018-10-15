@@ -387,19 +387,41 @@ nl:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
     gamification:
+      all_badges_link: Zie alle beschikbare badges.
       badges:
+        continuity:
+          conditions:
+            - Kom hier vaker
+          description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
+          description_another: Deze gebruiker heeft op een gegeven moment %{score} opeenvolgende dagen verbonden.
+          description_own: Je hebt op een gegeven moment %{score} opeenvolgende dagen verbonden.
+          name: Continuïteit
+          next_level_in: Verbind %{score} opeenvolgende dagen om naar het volgende niveau te gaan!
+          unearned_another: Deze gebruiker heeft zich niet langer dan één opeenvolgende dag aangemeld.
+          unearned_own: Je hebt niet langer dan één opeenvolgende dag verbonden.
         followers:
+          conditions:
+            - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
+          description: Deze badge wordt toegekend wanneer u een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, weven uw web om te communiceren met andere mensen op het platform.
           description_another: Deze gebruiker heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen u."
-          explanation: Gebruikers krijgen deze badge door zich te laten volgen door andere gebruikers.
           name: Volgers
           next_level_in: Ontvang nog %{score} extra gebruikers om je te volgen en het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen volgers.
           unearned_own: Je hebt nog geen volgers.
+        index:
+          badge_title: "%{name} badge"
+          how: Hoe kun je het verdienen?
+          page_description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges. Hier is de lijst met badges en enkele manieren waarop u ze kunt verdienen.
+          title: badges
         invitations:
+          conditions:
+            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+            - Pas, als u wilt, het bericht aan dat u verzendt
+            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
+          description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om je in %{organization_name} te registreren en deelnemers te worden. Dank u voor u %{organization_name} bekend bij anderen en het helpen om de community uit te breiden!
           description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
           description_own: Je hebt %{score} gebruikers uitgenodigd.
-          explanation: Gebruikers krijgen deze badge door andere gebruikers uit te nodigen.
           name: Uitnodigingen
           next_level_in: Nodig nog %{score} gebruikers uit om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen gebruiker uitgenodigd.
@@ -442,6 +464,8 @@ nl:
           not_found: 'Deze paginatype is niet gevonden in de database (ID: %{id})'
     managed_users:
       expired_session: De huidige naboots sessie is verlopen.
+    members:
+      no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
       home: Home
       more_information: Meer informatie
@@ -593,6 +617,7 @@ nl:
         followers: Volgers
         following: volgt
         groups: groepen
+        members: leden
         notifications: meldingen
       sidebar:
         badges:

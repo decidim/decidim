@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Profile", type: :system do
+describe "User group profile", type: :system do
   let(:user) { create(:user, :confirmed) }
   let(:user_group) { create(:user_group, users: [user], organization: user.organization) }
 

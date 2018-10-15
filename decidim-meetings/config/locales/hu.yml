@@ -125,9 +125,11 @@ hu:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Regisztráljon a résztvevő találkozókon
+          description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
           description_another: Ez a felhasználó %{score} találkozón vett részt.
           description_own: '%{score} találkozóra vett részt.'
-          explanation: A felhasználók megkapják ezt a jelvényt a találkozókon.
           name: Részt vett az üléseken
           next_level_in: Vegyen részt %{score} további ülések, hogy elérjük a következő szintre!
           unearned_another: Ez a felhasználó még nem vett részt semmilyen találkozón.

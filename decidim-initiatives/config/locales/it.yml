@@ -85,9 +85,12 @@ it:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Vai allo spazio di partecipazione delle iniziative
+            - Segui i passaggi per creare una nuova iniziativa
+          description: Questo badge è garantito quando lanci nuove iniziative, collaborando con altri per realizzarle.
           description_another: Questo utente ha ottenuto %{score} iniziative pubblicate.
           description_own: Hai pubblicato %{score} iniziative.
-          explanation: Gli utenti ottengono questo badge pubblicando le loro iniziative.
           name: Iniziative pubblicate
           next_level_in: Ricevi altre %{score} iniziative pubblicate per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora ottenuto alcuna iniziativa pubblicata.

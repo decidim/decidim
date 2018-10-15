@@ -58,6 +58,8 @@ Decidim::Core::Engine.routes.draw do
     end
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
+
+    resources :groups, only: [:new, :create]
   end
 
   resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^\/]+} }, format: false
@@ -94,6 +96,8 @@ Decidim::Core::Engine.routes.draw do
   resources :newsletters, only: [:show] do
     get :unsubscribe, on: :collection
   end
+
+  resources :last_activities, only: [:index]
 
   use_doorkeeper do
     skip_controllers :applications, :authorized_applications

@@ -36,6 +36,7 @@ eu:
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
       organization:
+        badges_enabled: Gaitu txapak
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
         default_locale: Eskualdeko ezarpen lehenetsiak
