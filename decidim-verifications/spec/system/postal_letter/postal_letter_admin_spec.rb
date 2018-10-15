@@ -8,8 +8,8 @@ describe "Postal letter management", type: :system do
   end
 
   let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
-  let(:user) { create :user, organization: organization }
-  let(:user2) { create :user, organization: organization }
+  let(:user) { create :user, :confirmed, organization: organization }
+  let(:user2) { create :user, :confirmed, organization: organization }
 
   let!(:letter_not_sent) do
     create(
