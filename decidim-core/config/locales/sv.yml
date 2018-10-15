@@ -179,6 +179,11 @@ sv:
           invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Okej
           title: Inte behörig
+        unconfirmed:
+          confirmation_instructions: 'Om du inte har fått bekräftelsesinstruktionerna kan du begära dem igen:'
+          explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad innan du gör det måste du bekräfta ditt mail <strong>%{email}</strong>.
+          request_confirmation_instructions: Begär bekräftelseanvisningar
+          title: bekräfta din email
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -719,7 +724,6 @@ sv:
       not_found_in_database: Ogiltigt %{authentication_keys} eller lösenord.
       timeout: Din session löpte ut. Vänligen logga in igen för att fortsätta.
       unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
-      unconfirmed: Du måste bekräfta din e-postadress innan du fortsätter.
     invitations:
       edit:
         header: Slutför skapandet av ditt konto
