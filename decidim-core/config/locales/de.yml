@@ -179,6 +179,11 @@ de:
           invalid_field: "%{field} Wert %{value} ist nicht gültig."
           ok: Ok
           title: Nicht berechtigt
+        unconfirmed:
+          confirmation_instructions: 'Wenn Sie die Bestätigungsanweisungen nicht erhalten haben, können Sie sie erneut anfordern:'
+          explanation_html: Um diese Aktion auszuführen, müssen Sie autorisiert sein, bevor Sie dies tun müssen, müssen Sie Ihre E-Mail bestätigen <strong>%{email}</strong>.
+          request_confirmation_instructions: Bestätigungsanleitungen anfordern
+          title: Bestätige deine E-Mail
     collapsible_list:
       hidden_elements_count:
         one: und 1 mehr
@@ -719,7 +724,6 @@ de:
       not_found_in_database: Ungültige %{authentication_keys} oder Passwort
       timeout: Ihre Sitzung ist abgelaufen. Bitte logge dich erneut ein, um fortzufahren.
       unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren.
-      unconfirmed: Sie müssen Ihre E-Mail-Adresse bestätigen, bevor Sie fortfahren.
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
