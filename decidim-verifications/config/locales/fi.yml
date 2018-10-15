@@ -49,6 +49,7 @@ fi:
         create:
           error: Vahvistuksen luonnissa tapahtui virhe.
           success: Tilisi on onnistuneesti vahvistettu.
+          unconfirmed: Sinun on vahvistettava sähköpostisi valtuutuksen saamiseksi.
         first_login:
           actions:
             another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä

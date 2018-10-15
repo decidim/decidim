@@ -100,6 +100,8 @@ ca:
           close_window: Tanca la finestra
           share: Compartir
           share_link: Comparteix l'enllaç
+      last_activity:
+        new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:
         debate:
           fields:

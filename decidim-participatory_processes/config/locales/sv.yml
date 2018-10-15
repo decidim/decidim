@@ -288,6 +288,8 @@ sv:
           name: Markerade processer
       index:
         title: Deltagande processer
+      last_activity:
+        new_participatory_process: Ny deltagande process
       pages:
         home:
           highlighted_processes:

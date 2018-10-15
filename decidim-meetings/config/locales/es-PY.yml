@@ -313,6 +313,8 @@ es-PY:
             search: Buscar
             space_type: Espacio participativo
             upcoming: Próximo
+      last_activity:
+        new_meeting_at_html: "<span>Nueva reunión en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

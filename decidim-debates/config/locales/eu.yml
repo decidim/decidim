@@ -100,6 +100,8 @@ eu:
           close_window: Itxi leihoa
           share: Share
           share_link: Partekatu esteka
+      last_activity:
+        new_debate_at_html: "<span> %{link}</span>eztabaida berria"
       models:
         debate:
           fields:

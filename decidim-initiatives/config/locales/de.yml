@@ -332,6 +332,8 @@ de:
         status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
+      last_activity:
+        new_initiative: Neue Initiative
       pages:
         home:
           highlighted_initiatives:

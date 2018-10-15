@@ -333,6 +333,8 @@ sv:
         status_change_for: Initiativet %{title} har ändrat sitt tillstånd
         technical_validation_body_for: Initiativet %{title} har begärt sin tekniska validering.
         technical_validation_for: Initiativet %{title} har begärt sin tekniska validering.
+      last_activity:
+        new_initiative: Nytt initiativ
       pages:
         home:
           highlighted_initiatives:

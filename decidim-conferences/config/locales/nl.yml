@@ -156,6 +156,20 @@ nl:
             moderator: Moderator
       titles:
         conferences: conferenties
+    admin_log:
+      conference:
+        create: "%{user_name} heeft de %{resource_name} conferentie gemaakt"
+        publish: "%{user_name} heeft de %{resource_name} conferentie gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} conferentie"
+        update: "%{user_name} heeft de %{resource_name} conferentie bijgewerkt"
+      conference_speaker:
+        create: "%{user_name} heeft de %{resource_name} luidspreker gemaakt in de %{space_name} conferentie"
+        delete: "%{user_name} heeft de %{resource_name} luidspreker van de %{space_name} conferentie verwijderd"
+        update: "%{user_name} heeft de %{resource_name} spreker in de %{space_name} conferentie geüpdatet"
+      conference_user_role:
+        create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie uitgenodigd"
+        delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
+        update: "%{user_name} veranderde de rol van %{resource_name} in de %{space_name} conferentie"
     conference_speakers:
       index:
         title: sprekers
@@ -237,15 +251,28 @@ nl:
           invalid: Er is een probleem met het verlaten van deze conferentie.
           success: U hebt de conferentie met succes verlaten.
       conference_speaker:
+        go_to_twitter: Ga naar Twitter
+        more_info: meer informatie
+        personal_website: Persoonlijke website
         show:
-          affiliation: Aansluiting
-          personal_url: Persoonlijke URL
-          position: Positie
-          short_bio: Korte biografie
-          twitter_handle: tjilpen
+          more_info: meer informatie
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Persoonlijke website
+        twitter_handle:
+          go_to_twitter: Ga naar Twitter
       conference_speakers:
         index:
           speakers: sprekers
+      conferences:
+        show:
+          already_account: Heb je al een account bij decidim?
+          login_as: U bent ingelogd als %{name} <%{email}>
+          make_conference_registration: 'Maak uw registratie in de conferentie:'
+          new_user: Nieuwe gebruiker?
+          register: Registreren
+          sign_in: Log in om u te registreren op deze conferentie
+          sign_up: Registreer je gratis in decidim om je te registreren
       content_blocks:
         highlighted_conferences:
           name: Gemarkeerde conferenties
@@ -279,9 +306,9 @@ nl:
             active_conferences: Actieve conferenties
             see_all_conferences: Bekijk alle conferenties
       show:
-        end_date: Einddatum
+        details: Details
+        introduction: Invoering
         objectives: Doelen
-        start_date: Begin datum
       statistics:
         answers_count: antwoorden
         comments_count: Comments
@@ -328,10 +355,6 @@ nl:
         subject: Uitnodiging om deel te nemen aan een conferentie
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: De conferentie
-        conference_speaker_menu_item: sprekers
-        unfold: Ontvouwen
       conference_widgets:
         show:
           take_part: Deelnemen
@@ -347,3 +370,8 @@ nl:
         promoted_conference:
           more_info: Meer informatie
           take_part: Deelnemen
+      conferences_nav:
+        conference_menu_item: Informatie
+        conference_speaker_menu_item: sprekers
+        unfold: Ontvouwen
+        venues: locaties
