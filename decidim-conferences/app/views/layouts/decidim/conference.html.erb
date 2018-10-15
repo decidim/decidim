@@ -6,10 +6,14 @@
 ) %>
 
 <%= render "layouts/decidim/application" do %>
-  <div class="wrapper">
-    <%= render partial: "layouts/decidim/conference_header" %>
-    <%= yield %>
-  </div>
+  <%= render partial: "layouts/decidim/conference_hero" %>
+  <%= render partial: "layouts/decidim/conferences_nav" %>
+  <section>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+  </section>
+
   <% if content_for? :expanded %>
     <div class="expanded">
       <div class="wrapper wrapper--inner">
