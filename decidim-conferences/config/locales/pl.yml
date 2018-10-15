@@ -162,6 +162,20 @@ pl:
             moderator: Moderator
       titles:
         conferences: Konferencje
+    admin_log:
+      conference:
+        create: "%{user_name} utworzyło %{resource_name} konferencję"
+        publish: "%{user_name} opublikowało %{resource_name} konferencję"
+        unpublish: "%{user_name} nie opublikowano %{resource_name} konferencji"
+        update: "%{user_name} zaktualizowano %{resource_name} konferencję"
+      conference_speaker:
+        create: "%{user_name} utworzyło %{resource_name} głośnik w %{space_name} konferencjach"
+        delete: "%{user_name} usunął %{resource_name} głośnik z %{space_name} konferencji"
+        update: "%{user_name} zaktualizował %{resource_name} głośnik w %{space_name} konferencjach"
+      conference_user_role:
+        create: "%{user_name} zaproszonych %{resource_name} na %{space_name} konferencje"
+        delete: "%{user_name} usunął użytkownika %{resource_name} z %{space_name} konferencji"
+        update: "%{user_name} zmieniło rolę %{resource_name} w %{space_name} konferencjach"
     conference_speakers:
       index:
         title: Głośniki
@@ -247,12 +261,16 @@ pl:
           invalid: Podczas tej konferencji wystąpił problem.
           success: Pomyślnie zakończyłeś konferencję.
       conference_speaker:
+        go_to_twitter: Idź do Twittera
+        more_info: więcej informacji
+        personal_website: Osobista strona internetowa
         show:
-          affiliation: Przynależność
-          personal_url: Adres osobisty
-          position: Pozycja
-          short_bio: Krótki bio
-          twitter_handle: Świergot
+          more_info: więcej informacji
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Osobista strona internetowa
+        twitter_handle:
+          go_to_twitter: Idź do Twittera
       conference_speakers:
         index:
           speakers: Głośniki
@@ -289,9 +307,7 @@ pl:
             active_conferences: Aktywne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
       show:
-        end_date: Data końcowa
         objectives: Cele
-        start_date: Data rozpoczęcia
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
@@ -338,10 +354,6 @@ pl:
         subject: Zaproszenie do przyłączenia się do konferencji
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: Konferencja
-        conference_speaker_menu_item: Głośniki
-        unfold: Rozwijać się
       conference_widgets:
         show:
           take_part: Wziąć udział
