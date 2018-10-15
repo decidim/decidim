@@ -60,8 +60,8 @@ ca:
           survey_user_answers: Respostes dels usuaris
         models:
           components:
-            title: Títol
             description: Descripció
+            title: Títol
             tos: Termes del servei
         surveys:
           answer_option:

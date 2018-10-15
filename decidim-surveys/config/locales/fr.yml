@@ -60,8 +60,8 @@ fr:
           survey_user_answers: Réponses des participants à l'enquête
         models:
           components:
-            title: Titre
             description: Description
+            title: Titre
             tos: Conditions d'utilisation
         surveys:
           answer_option:
