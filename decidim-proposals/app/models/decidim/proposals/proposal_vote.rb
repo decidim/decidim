@@ -22,6 +22,7 @@ module Decidim
         where(temporary: false)
       end
 
+      # rubocop:disable Rails/SkipsModelValidations
       def update_temporary_votes
         user_votes = ProposalVote.where(
           author: author,
@@ -42,6 +43,7 @@ module Decidim
           vote.proposal.update_vote_counter
         end
       end
+      # rubocop:enable Rails/SkipsModelValidations
 
       private
 
