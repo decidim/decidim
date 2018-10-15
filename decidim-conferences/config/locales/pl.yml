@@ -274,6 +274,15 @@ pl:
       conference_speakers:
         index:
           speakers: Głośniki
+      conferences:
+        show:
+          already_account: Czy masz już konto w Decidim?
+          login_as: Jesteś zalogowany jako %{name} <%{email}>
+          make_conference_registration: 'Dokonaj rejestracji na konferencji:'
+          new_user: Nowy użytkownik?
+          register: Zarejestrować
+          sign_in: Zaloguj się, aby zarejestrować się na tej konferencji
+          sign_up: Zarejestruj się za darmo w decidimie, aby się zarejestrować
       content_blocks:
         highlighted_conferences:
           name: Wyróżnione konferencje
@@ -307,6 +316,8 @@ pl:
             active_conferences: Aktywne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
       show:
+        details: Detale
+        introduction: Wprowadzenie
         objectives: Cele
       statistics:
         answers_count: Odpowiedzi
@@ -371,3 +382,8 @@ pl:
         promoted_conference:
           more_info: Więcej informacji
           take_part: Wziąć udział
+      conferences_nav:
+        conference_menu_item: Informacja
+        conference_speaker_menu_item: Głośniki
+        unfold: Rozwijać się
+        venues: Miejsca spotkań
