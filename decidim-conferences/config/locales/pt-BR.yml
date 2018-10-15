@@ -162,6 +162,14 @@ pt-BR:
         publish: "%{user_name} publicou a %{resource_name} conferência"
         unpublish: "%{user_name} não publicada a %{resource_name} conferência"
         update: "%{user_name} atualizou a %{resource_name} conferência"
+      conference_speaker:
+        create: "%{user_name} criou o %{resource_name} alto-falante na conferência de %{space_name}"
+        delete: "%{user_name} removeu o %{resource_name} alto-falante da conferência de %{space_name}"
+        update: "%{user_name} atualizou o %{resource_name} alto-falante na conferência de %{space_name}"
+      conference_user_role:
+        create: "%{user_name} convidados %{resource_name} para a conferência %{space_name}"
+        delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
+        update: "%{user_name} mudou o papel de %{resource_name} na conferência de %{space_name}"
     conference_speakers:
       index:
         title: caixas de som
@@ -242,9 +250,29 @@ pt-BR:
         destroy:
           invalid: Houve um problema ao sair desta conferência.
           success: Você saiu da conferência com sucesso.
+      conference_speaker:
+        go_to_twitter: Vá para o Twitter
+        more_info: mais informações
+        personal_website: Site pessoal
+        show:
+          more_info: mais informações
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Site pessoal
+        twitter_handle:
+          go_to_twitter: Vá para o Twitter
       conference_speakers:
         index:
           speakers: caixas de som
+      conferences:
+        show:
+          already_account: Você já tem uma conta na decidim?
+          login_as: Você está logado como %{name} <%{email}>
+          make_conference_registration: 'Faça seu cadastro na conferência:'
+          new_user: Novo usuário?
+          register: registo
+          sign_in: Entre para se registrar nesta conferência
+          sign_up: Registre-se gratuitamente em decidim para registrar
       content_blocks:
         highlighted_conferences:
           name: Conferências destacadas
@@ -278,6 +306,8 @@ pt-BR:
             active_conferences: Conferências ativas
             see_all_conferences: Veja todas as conferências
       show:
+        details: Detalhes
+        introduction: Introdução
         objectives: Objetivos
       statistics:
         answers_count: Respostas
@@ -340,3 +370,8 @@ pt-BR:
         promoted_conference:
           more_info: Mais informações
           take_part: Participar
+      conferences_nav:
+        conference_menu_item: Em formação
+        conference_speaker_menu_item: caixas de som
+        unfold: Desdobrar
+        venues: Venues
