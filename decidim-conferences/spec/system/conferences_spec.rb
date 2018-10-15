@@ -127,12 +127,15 @@ describe "Conferences", type: :system do
     end
 
     it "shows the details of the given conference" do
-      within "div.wrapper" do
+      within "div.hero__container" do
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(conference.slogan, locale: :en))
+        expect(page).to have_content(conference.hashtag)
+      end
+
+      within "div.wrapper" do
         expect(page).to have_content(translated(conference.description, locale: :en))
         expect(page).to have_content(translated(conference.short_description, locale: :en))
-        expect(page).to have_content(conference.hashtag)
       end
     end
 
