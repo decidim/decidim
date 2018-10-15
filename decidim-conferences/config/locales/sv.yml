@@ -156,6 +156,20 @@ sv:
             moderator: moderator
       titles:
         conferences: konferenser
+    admin_log:
+      conference:
+        create: "%{user_name} skapade %{resource_name} konferens"
+        publish: "%{user_name} publicerade %{resource_name} konferens"
+        unpublish: "%{user_name} opublicerade %{resource_name} konferens"
+        update: "%{user_name} uppdaterade %{resource_name} konferens"
+      conference_speaker:
+        create: "%{user_name} skapade %{resource_name} högtalare på %{space_name} konferensen"
+        delete: "%{user_name} bort %{resource_name} högtalaren från %{space_name} konferens"
+        update: "%{user_name} uppdaterade %{resource_name} högtalare på %{space_name} konferensen"
+      conference_user_role:
+        create: "%{user_name} inbjudna %{resource_name} till %{space_name} konferens"
+        delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
+        update: "%{user_name} ändrade rollen som %{resource_name} i %{space_name} konferensen"
     conference_speakers:
       index:
         title: högtalare
@@ -237,15 +251,28 @@ sv:
           invalid: Det har varit ett problem att lämna denna konferens.
           success: Du har lämnat konferensen framgångsrikt.
       conference_speaker:
+        go_to_twitter: Gå till Twitter
+        more_info: mer information
+        personal_website: Personlig hemsida
         show:
-          affiliation: Anslutning
-          personal_url: Personlig Url
-          position: Placera
-          short_bio: Kort bio
-          twitter_handle: Twitter
+          more_info: mer information
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Personlig hemsida
+        twitter_handle:
+          go_to_twitter: Gå till Twitter
       conference_speakers:
         index:
           speakers: högtalare
+      conferences:
+        show:
+          already_account: Har du redan ett konto i decidim?
+          login_as: Du är inloggad som %{name} <%{email}>
+          make_conference_registration: 'Gör din registrering på konferensen:'
+          new_user: Ny användare?
+          register: Registrera
+          sign_in: Logga in för att registrera dig på denna konferens
+          sign_up: Registrera dig gratis i decidim för att registrera dig
       content_blocks:
         highlighted_conferences:
           name: Upplysta konferenser
@@ -279,9 +306,7 @@ sv:
             active_conferences: Aktiva konferenser
             see_all_conferences: Se alla konferenser
       show:
-        end_date: Slutdatum
         objectives: mål
-        start_date: Start datum
       statistics:
         answers_count: svar
         comments_count: kommentarer
@@ -328,10 +353,6 @@ sv:
         subject: Inbjudan att delta i en konferens
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: Konferensen
-        conference_speaker_menu_item: högtalare
-        unfold: Veckla ut
       conference_widgets:
         show:
           take_part: Ta del
