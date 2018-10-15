@@ -179,6 +179,11 @@ ca:
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
+        unconfirmed:
+          confirmation_instructions: 'Si no heu rebut les instruccions de confirmació, podeu tornar a sol·licitar-les:'
+          explanation_html: Per realitzar aquesta acció cal que estigueu autoritzada, abans de fer-ho, heu de confirmar el vostre correu electrònic <strong>%{email}</strong>.
+          request_confirmation_instructions: Sol·licita instruccions de confirmació
+          title: Confirma el teu correu electrònic
     collapsible_list:
       hidden_elements_count:
         one: i 1 més
@@ -719,7 +724,6 @@ ca:
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
       timeout: La vostra sessió ha caducat. Torna a iniciar-la per continuar.
       unauthenticated: Heu d'iniciar la sessió o registrar-vos abans de continuar.
-      unconfirmed: Heu de confirmar la vostra adreça de correu electrònic abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
