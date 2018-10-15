@@ -8,7 +8,7 @@ hu:
       area_type:
         name: Név
         organization: Szervezet
-        plural: Plurális
+        plural: Többes szám
       attachment:
         attachment_collection_id: Mappa
         description: Leírás
@@ -70,13 +70,13 @@ hu:
         code: Kód
         name: Név
         organization: Szervezet
-        parent_id: Parent
+        parent_id: Szülő
         scope_type: Hatáskör típusa
         scope_type_id: Hatáskör típusa
       scope_type:
         name: Név
         organization: Szervezet
-        plural: Plurális
+        plural: Többes szám
       static_page:
         changed_notably: Észrevehető változások történtek.
         content: Tartalom
@@ -103,6 +103,9 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
         site: Weboldal
+  date:
+    formats:
+      datepicker: "%év%hónap%nap"
   decidim:
     admin:
       actions:
@@ -319,7 +322,7 @@ hu:
         area_type:
           fields:
             name: Név
-            plural: Plurális
+            plural: Többes szám
         attachment:
           fields:
             collection: Mappa
@@ -360,7 +363,7 @@ hu:
         scope_type:
           fields:
             name: Név
-            plural: Plurális
+            plural: Többes szám
         static_page:
           fields:
             created_at: 'Létrehozva:'
@@ -651,3 +654,7 @@ hu:
           title: Beállítások
         users:
           title: Felhasználók
+  time:
+    formats:
+      datepicker: "%év%hónap%nap"
+      timepicker: "%év%hónap%nap%óra:%perc"
