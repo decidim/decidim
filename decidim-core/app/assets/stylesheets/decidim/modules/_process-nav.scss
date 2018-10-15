@@ -25,6 +25,7 @@ $nav-border-width: 3px;
       align-items: center;
       flex-wrap: wrap;
       justify-content: space-between;
+      flex-grow: 1;
     }
 
     ul::-webkit-scrollbar{
@@ -70,6 +71,18 @@ $nav-border-width: 3px;
 
   &.is-active{
     display: block;
+  }
+}
+
+.process-nav__content{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  .process-nav__more{
+    margin: 0;
+    color: $primary;
+    background-color: rgba($primary, .1);
   }
 }
 
