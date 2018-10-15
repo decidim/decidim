@@ -86,20 +86,6 @@
     }
   }
 
-  //Between 11 and 20 elements
-  li:nth-last-child(n+11):nth-last-child(-n+20):first-child,
-  li:nth-last-child(n+11):nth-last-child(-n+20):first-child ~ li{
-    span{
-      width: 5px;
-      height: 5px;
-    }
-
-    &::after{
-      height: 1px;
-      top: 2px;
-    }
-  }
-
   .phase-item--past{
     &::after{
       background-color: $primary;
@@ -121,7 +107,7 @@
       border: 4px solid transparent;
       border-top-color: $primary;
       top: -8px;
-      left: 7px;
+      left: calc(50% - 1px);
       z-index: 2;
     }
 

@@ -8,7 +8,7 @@
         If number of items = number of phases, current phase gets the class too.
       -->
       <%
-        length = Random.rand(12)
+        length = Random.rand(2..20)
         current = Random.rand(1..length)
         length.times do |i| %>
       <li class="<%= 'phase-item--past' if ((i + 1) <= current) %><%= ' phase-item--current' if ((i + 1) == current) %>"><span></span></li>
