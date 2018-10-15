@@ -236,13 +236,6 @@ pt:
         destroy:
           invalid: Houve um problema ao sair desta conferência.
           success: Você saiu da conferência com sucesso.
-      conference_speaker:
-        show:
-          affiliation: Afiliação
-          personal_url: URL pessoal
-          position: Posição
-          short_bio: Perfil curto
-          twitter_handle: Twitter
       conference_speakers:
         index:
           speakers: caixas de som
@@ -279,9 +272,7 @@ pt:
             active_conferences: Conferências ativas
             see_all_conferences: Veja todas as conferências
       show:
-        end_date: Data final
         objectives: Objetivos
-        start_date: Data de início
       statistics:
         answers_count: Respostas
         comments_count: Comentários
@@ -328,10 +319,6 @@ pt:
         subject: Convite para participar de uma conferência
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: A conferência
-        conference_speaker_menu_item: caixas de som
-        unfold: Desdobrar
       conference_widgets:
         show:
           take_part: Participar
