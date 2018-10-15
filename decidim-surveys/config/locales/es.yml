@@ -60,6 +60,7 @@ es:
           survey_user_answers: Respuestas de los usuarios de la encuesta
         models:
           components:
+            title: Título
             description: Descripción
             tos: Términos de servicio
         surveys:
