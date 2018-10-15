@@ -179,6 +179,11 @@ pt-BR:
           invalid_field: "%{field} valor %{value} não é válido."
           ok: OK
           title: Não autorizado
+        unconfirmed:
+          confirmation_instructions: 'Se você não recebeu as instruções de confirmação, pode solicitá-las novamente:'
+          explanation_html: Para realizar esta ação você precisa estar autorizado, antes de fazer isso você precisa confirmar seu email <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instruções de confirmação
+          title: confirme seu email
     collapsible_list:
       hidden_elements_count:
         one: e mais 1
