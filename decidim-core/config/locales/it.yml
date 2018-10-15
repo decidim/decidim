@@ -179,6 +179,11 @@ it:
           invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
+        unconfirmed:
+          confirmation_instructions: 'Se non hai ricevuto le istruzioni di conferma puoi richiederle di nuovo:'
+          explanation_html: Per eseguire questa azione devi essere autorizzato, prima di farlo devi confermare la tua email <strong>%{email}</strong>.
+          request_confirmation_instructions: Richiedi le istruzioni di conferma
+          title: conferma la tua email
     collapsible_list:
       hidden_elements_count:
         one: e 1 altro
@@ -719,7 +724,6 @@ it:
       not_found_in_database: '%{authentication_keys} o password non validi.'
       timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
       unauthenticated: È necessario accedere o registrarsi prima di continuare.
-      unconfirmed: Devi confermare il tuo indirizzo email prima di continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account
