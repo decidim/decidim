@@ -72,6 +72,7 @@ module Decidim
               to_id: resource.id
             }
             event_name = "decidim.resourceable.#{link_name}.created"
+
             ActiveSupport::Notifications.instrument event_name, this: payload do
               Decidim::ResourceLink.create!(
                 from: self,

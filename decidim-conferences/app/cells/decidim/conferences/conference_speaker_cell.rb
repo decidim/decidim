@@ -4,12 +4,19 @@ module Decidim
   module Conferences
     # This cell renders the card for an instance of an Conference Speaker
     class ConferenceSpeakerCell < Decidim::AuthorCell
+      include Decidim::Meetings::MeetingCellsHelper
+      include Cell::ViewModel::Partial
+      include Decidim::Conferences::Engine.routes.url_helpers
       property :name
       property :nickname
       property :profile_path
-      property :avatar
 
       private
+
+      def avatar
+        return model.user.avatar if model.user.present?
+        model.avatar
+      end
 
       def has_profile?
         model.profile_path.present?
@@ -30,12 +37,23 @@ module Decidim
 
       def twitter_handle
         return unless model.twitter_handle.presence
-        link_to "@#{model.twitter_handle}", "https://twitter.com/#{model.twitter_handle}", target: "_blank"
+        link_to t(".go_to_twitter"), "https://twitter.com/#{model.twitter_handle}", target: "_blank"
       end
 
       def personal_url
         return unless model.personal_url.presence || (model.user.presence && model.user.personal_url.presence)
-        link_to (model.personal_url || model.user.personal_url).to_s, model.personal_url || model.user.personal_url, target: "_blank"
+        link_to model.personal_url || model.user.personal_url, target: "_blank", class: "card-link" do
+          "#{icon "external-link"}" "&nbsp;#{t(".personal_website")}"
+        end
+      end
+
+      def meetings
+        model.conference_meetings
+      end
+
+      def meeting_title(meeting)
+        meeting = meeting.becomes(Decidim::Meetings::Meeting)
+        link_to present(meeting).title, resource_locator(meeting).path
       end
     end
   end
