@@ -5,8 +5,8 @@ module Decidim
     module Admin
       # This controller allows an admin to manage results from a Participatory Process
       class ResultsController < Admin::ApplicationController
-        helper Decidim::ApplicationHelper
-        helper_method :results, :parent_result, :parent_results, :statuses
+        include Decidim::ApplicationHelper
+        helper_method :results, :parent_result, :parent_results, :statuses, :present
 
         def new
           enforce_permission_to :create, :result
