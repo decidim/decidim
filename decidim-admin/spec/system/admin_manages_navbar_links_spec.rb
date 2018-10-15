@@ -40,6 +40,7 @@ describe "Navbar Links", type: :system do
     end
 
     context "with existing navbar links" do
+      # TODO: FIX FACTORY
       let!(:navbar_link) do
         Decidim::NavbarLink.create(
           organization: organization,
