@@ -187,6 +187,10 @@ pl:
           invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
           ok: Ok
           title: Nieautoryzowany
+        unconfirmed:
+          confirmation_instructions: 'Jeśli nie otrzymałeś instrukcji potwierdzenia, możesz poprosić o ponowne:'
+          explanation_html: Aby wykonać tę czynność, musisz mieć autoryzację, zanim to zrobisz, musisz potwierdzić swój adres e-mail <strong>%{email}</strong>.
+          request_confirmation_instructions: Poproś o instrukcje potwierdzające
     collapsible_list:
       hidden_elements_count:
         one: i 1 więcej
@@ -729,7 +733,6 @@ pl:
       not_found_in_database: Nieprawidłowe %{authentication_keys} lub hasło.
       timeout: Twoja sesja wygasła. Zaloguj się ponownie, aby kontynuować.
       unauthenticated: Zanim przejdziesz dalej, musisz się zalogować lub zarejestrować.
-      unconfirmed: Przed kontynuowaniem musisz potwierdzić swój adres e-mail.
     invitations:
       edit:
         header: Zakończ tworzenie konta
