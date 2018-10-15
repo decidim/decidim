@@ -179,6 +179,11 @@ gl:
           invalid_field: "O %{field} valor %{value} non é válido."
           ok: Ok
           title: Non autorizado
+        unconfirmed:
+          confirmation_instructions: 'Se non recibiu as instrucións de confirmación, pode solicitalas de novo:'
+          explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucións de confirmación
+          title: Confirma o teu correo electrónico
     collapsible_list:
       hidden_elements_count:
         one: e 1 máis
@@ -719,7 +724,6 @@ gl:
       not_found_in_database: O %{authentication_keys} ou o contrasinal non son válidos.
       timeout: A túa sesión caducou. Inicia sesión de novo para continuar.
       unauthenticated: Necesitas iniciar sesión ou rexistrarte antes de continuar.
-      unconfirmed: Ten que confirmar o seu enderezo de correo electrónico antes de continuar.
     invitations:
       edit:
         header: Acaba de crear a túa conta
