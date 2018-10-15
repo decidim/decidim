@@ -179,6 +179,11 @@ fr:
           invalid_field: "%{field} valeur %{value} n'est pas valide."
           ok: D'accord
           title: Non autorisé
+        unconfirmed:
+          confirmation_instructions: 'Si vous n''avez pas reçu les instructions de confirmation, vous pouvez les demander à nouveau:'
+          explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
+          request_confirmation_instructions: Demander des instructions de confirmation
+          title: confirmez votre email
     collapsible_list:
       hidden_elements_count:
         one: et 1 de plus
@@ -719,7 +724,6 @@ fr:
       not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
-      unconfirmed: Vous devez confirmer votre adresse e-mail avant de continuer.
     invitations:
       edit:
         header: Terminer la création de votre compte
