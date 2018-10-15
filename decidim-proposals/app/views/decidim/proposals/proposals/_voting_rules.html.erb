@@ -38,7 +38,7 @@
             <div class="card card--nomargin text-center remaining-votes-counter">
               <div class="card__content">
                 <span class="definition-data__title"><%= t(".vote_limit.left", limit: component_settings.vote_limit) %></span>
-                <%= render partial: "remaining_votes_count" %>
+                <%= render partial: "decidim/proposals/proposals/remaining_votes_count" %>
                 <span class="extra__suport-text"><%= t(".vote_limit.votes") %></span>
               </div>
             </div>

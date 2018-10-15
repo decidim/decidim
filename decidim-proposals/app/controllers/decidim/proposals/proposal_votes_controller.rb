@@ -17,6 +17,8 @@ module Decidim
 
         VoteProposal.call(proposal, current_user) do
           on(:ok) do
+            proposal.reload
+
             proposals = ProposalVote.where(
               author: current_user,
               proposal: Proposal.where(component: current_component)

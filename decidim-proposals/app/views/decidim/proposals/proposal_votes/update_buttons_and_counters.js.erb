@@ -1,9 +1,11 @@
 <% @proposals.each do |proposal| %>
+(function() {
   var $proposalVotesCount = $('#proposal-<%= proposal.id %>-votes-count');
   var $proposalVoteButton = $('#proposal-<%= proposal.id %>-vote-button');
 
   morphdom($proposalVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/votes_count", locals: { proposal: proposal, from_proposals_list: @from_proposals_list }).strip.html_safe %>');
   morphdom($proposalVoteButton[0], '<%= j(render partial: "decidim/proposals/proposals/vote_button", locals: { proposal: proposal, from_proposals_list: @from_proposals_list }).strip.html_safe %>');
+})();
 <% end %>
 
 <% if vote_limit_enabled? %>

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Vote Proposal", type: :system do
+describe "Vote Proposal", type: :system, slow: true do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
