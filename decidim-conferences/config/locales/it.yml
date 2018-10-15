@@ -156,6 +156,16 @@ it:
             moderator: Moderatore
       titles:
         conferences: conferenze
+    admin_log:
+      conference:
+        create: "%{user_name} creato la %{resource_name} conferenza"
+        publish: "%{user_name} pubblicato la %{resource_name} conferenza"
+        unpublish: "%{user_name} inedito la %{resource_name} conferenza"
+        update: "%{user_name} aggiornato la %{resource_name} conferenza"
+      conference_speaker:
+        create: "%{user_name} creato l'altoparlante %{resource_name} nella %{space_name} conferenza"
+        delete: "%{user_name} rimosso l'altoparlante %{resource_name} dalla conferenza %{space_name}"
+        update: "%{user_name} aggiornato l'altoparlante %{resource_name} nella %{space_name} conferenza"
     conference_speakers:
       index:
         title: Altoparlanti
@@ -236,13 +246,6 @@ it:
         destroy:
           invalid: C'è stato un problema a lasciare questa conferenza.
           success: Hai lasciato la conferenza con successo.
-      conference_speaker:
-        show:
-          affiliation: Affiliazione
-          personal_url: URL personale
-          position: Posizione
-          short_bio: Breve biografia
-          twitter_handle: cinguettio
       conference_speakers:
         index:
           speakers: Altoparlanti
@@ -279,9 +282,7 @@ it:
             active_conferences: Conferenze attive
             see_all_conferences: Vedi tutte le conferenze
       show:
-        end_date: Data di fine
         objectives: obiettivi
-        start_date: Data d'inizio
       statistics:
         answers_count: risposte
         comments_count: Commenti
@@ -328,10 +329,6 @@ it:
         subject: Invito a partecipare a una conferenza
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: La conferenza
-        conference_speaker_menu_item: Altoparlanti
-        unfold: spiegare
       conference_widgets:
         show:
           take_part: Prendere parte
