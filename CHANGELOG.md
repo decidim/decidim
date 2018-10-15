@@ -146,6 +146,7 @@
 
 **Fixed**:
 
+- **decidim-accountability**: Fix inclusion of ApplicationHelper in results controller. [\#4278](https://github.com/decidim/decidim/pull/4278)
 - **decidim-proposals**: Fix hashtags on title when showing proposals related. [\4107](https://github.com/decidim/decidim/pull/4107)
 - **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#4024](https://github.com/decidim/decidim/pull/4024)
 - **decidim-core**: Fix day date translation on profile notifications. [\#3994](https://github.com/decidim/decidim/pull/3994)
