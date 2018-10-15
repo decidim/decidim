@@ -1,11 +1,9 @@
-/* Variables */
-
-/* Navigation */
+$nav-border-width: 3px;
 
 .process-nav{
   background-color: $white;
-  border: $border;
   padding: .75rem $container-padding-y;
+  box-shadow: inset 0 (-1 * $nav-border-width) 0 0 $medium-gray;
 
   ul{
     margin: 0;
@@ -17,7 +15,7 @@
   }
 
   @include breakpoint(medium){
-    padding: .25rem;
+    padding: 0;
 
     ul{
       overflow-x: auto;
@@ -41,7 +39,7 @@
 
     li{
       display: inline-block;
-      margin: .5rem .75rem;
+      padding: .5rem .75rem .75rem + rem-calc($nav-border-width - 1px);
     }
 
     .about-link{
@@ -81,6 +79,8 @@
   }
 
   &.is-active{
+    box-shadow: inset 0 (-1 * ($nav-border-width + 1px)) 0 0 $primary;
+
     @include breakpoint(smallmedium down){
       display: none;
     }
@@ -88,7 +88,7 @@
 }
 
 .process-nav__link{
-  color: $muted;
+  color: $primary;
   text-transform: uppercase;
   font-weight: 600;
   display: flex;
