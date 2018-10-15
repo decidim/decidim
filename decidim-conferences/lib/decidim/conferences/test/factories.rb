@@ -130,7 +130,7 @@ FactoryBot.define do
     name { Faker::Name.name }
     weight { Faker::Number.between(1, 10) }
     link { Faker::Internet.url }
-    partner_type { nil }
+    partner_type { "main_promotor" }
     logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
 
     trait :main_promotor do
