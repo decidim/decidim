@@ -179,6 +179,11 @@ es-PY:
           invalid_field: "%{field} valor %{value} no es válido."
           ok: De acuerdo
           title: No autorizado
+        unconfirmed:
+          confirmation_instructions: 'Si no ha recibido las instrucciones de confirmación, puede volver a solicitarlas:'
+          explanation_html: Para realizar esta acción, debe estar autorizado, antes de hacerlo, debe confirmar su correo electrónico <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucciones de confirmación.
+          title: confirme su email
     collapsible_list:
       hidden_elements_count:
         one: y 1 más
@@ -719,7 +724,6 @@ es-PY:
       not_found_in_database: '%{authentication_keys} inválido o contraseña.'
       timeout: Su sesión expiró Por favor, inicia sesión de nuevo para continuar.
       unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
-      unconfirmed: Debes confirmar tu dirección de correo electrónico antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
