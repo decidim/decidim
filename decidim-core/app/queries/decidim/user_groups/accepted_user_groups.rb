@@ -8,7 +8,7 @@ module Decidim
     class AcceptedUserGroups < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
-      # user - a User that needs to find which processes can manage
+      # user - a User that needs to find the groups where they are accepted
       def self.for(user)
         new(user).query
       end
