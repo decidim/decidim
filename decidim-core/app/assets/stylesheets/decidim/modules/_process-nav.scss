@@ -100,6 +100,12 @@ $nav-border-width: 3px;
   }
 }
 
+.process-nav__hidden-list{
+  li{
+    width: 100%;
+  }
+}
+
 .process-nav__link{
   color: $primary;
   text-transform: uppercase;

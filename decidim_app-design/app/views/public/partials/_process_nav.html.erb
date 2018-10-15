@@ -100,7 +100,14 @@
           <% end %>
         </li>
       </ul>
-      <button class="button tiny process-nav__more">Más...</button>
+      <button class="button tiny process-nav__more" data-toggle="process-nav__hide-content">Más...</button>
+      <div class="dropdown-pane" id="process-nav__hide-content" data-dropdown data-hover="true" data-hover-pane="true">
+        <ul class="process-nav__hidden-list">
+          <li><a href="#" class="process-nav__link">Trobades</a></li>
+          <li><a href="#" class="process-nav__link">Perdudes</a></li>
+          <li><a href="#" class="process-nav__link">Xarrades</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
