@@ -306,6 +306,8 @@ sv:
             active_conferences: Aktiva konferenser
             see_all_conferences: Se alla konferenser
       show:
+        details: detaljer
+        introduction: Introduktion
         objectives: mål
       statistics:
         answers_count: svar
@@ -368,3 +370,8 @@ sv:
         promoted_conference:
           more_info: Mer information
           take_part: Ta del
+      conferences_nav:
+        conference_menu_item: Information
+        conference_speaker_menu_item: högtalare
+        unfold: Veckla ut
+        venues: venues
