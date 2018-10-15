@@ -181,6 +181,9 @@ es:
           title: No autorizado
         unconfirmed:
           confirmation_instructions: 'Si no ha recibido las instrucciones de confirmación, puede volver a solicitarlas:'
+          explanation_html: Para realizar esta acción, debe estar autorizado, antes de hacerlo, debe confirmar su correo electrónico <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucciones de confirmación.
+          title: confirme su email
     collapsible_list:
       hidden_elements_count:
         one: y 1 más
