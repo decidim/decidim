@@ -407,6 +407,7 @@ en:
           take_part: Take part
       conferences_nav:
         conference_menu_item: Information
+        conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
         unfold: Unfold
         venues: Venues
