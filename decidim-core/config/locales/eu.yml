@@ -179,6 +179,11 @@ eu:
           invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
+        unconfirmed:
+          confirmation_instructions: 'Berrespen-argibideak jaso ez badituzu berriro eska ditzakezu:'
+          explanation_html: Ekintza hau burutzeko baimena behar da, egiten zure email berretsi behar duzula aurretik behar duzu <strong>%{email}</strong>.
+          request_confirmation_instructions: Eska ezazu berrespen-argibideak
+          title: Berretsi zure posta elektronikoa
     collapsible_list:
       hidden_elements_count:
         one: eta beste bat
@@ -719,7 +724,6 @@ eu:
       not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
       timeout: Zure saioa iraungi da. Hasi saioa berriro jarraitzeko.
       unauthenticated: Saioa hasi edo saioa hasi behar duzu jarraitu aurretik.
-      unconfirmed: Zure helbide elektronikoa berretsi behar duzu jarraitu baino lehen.
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
