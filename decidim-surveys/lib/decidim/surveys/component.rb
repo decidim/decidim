@@ -9,6 +9,12 @@ Decidim.register_component(:surveys) do |component|
   component.stylesheet = "decidim/surveys/surveys"
   component.permissions_class_name = "Decidim::Surveys::Permissions"
 
+  component.on(:copy) do |context|
+    Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
+      on(:invalid) { raise "Can't create survey" }
+    end
+  end
+
   component.on(:create) do |instance|
     Decidim::Surveys::CreateSurvey.call(instance) do
       on(:invalid) { raise "Can't create survey" }
