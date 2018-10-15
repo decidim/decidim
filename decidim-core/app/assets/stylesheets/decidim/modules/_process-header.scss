@@ -52,35 +52,6 @@
   }
 }
 
-.process-header__phase{
-  background: rgba($dark-gray, .8);
-  color: $white;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-left: -1rem;
-
-  .button{
-    margin-top: 1rem;
-    margin-bottom: 0;
-    color: $white;
-    border-color: $white;
-
-    &:hover,
-    &.is-active{
-      color: $primary;
-      border-color: $primary;
-    }
-  }
-}
-
-.process-header__phase--simple{
-  padding: .5rem 1rem;
-
-  @include breakpoint (medium){
-    padding: 2rem 1rem;
-  }
-}
-
 .process-header__hashtag{
   font-weight: 600;
 
