@@ -49,6 +49,7 @@ eu:
         create:
           error: Errore bat gertatu da baimena sortzean.
           success: Ongi baimendu duzu.
+          unconfirmed: Zure posta elektronikoa baieztatzeko, baimena eman behar duzu.
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
