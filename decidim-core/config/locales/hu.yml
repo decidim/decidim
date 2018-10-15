@@ -179,6 +179,11 @@ hu:
           invalid_field: "A(z) %{field} %{value} érték nem érvényes."
           ok: Rendben
           title: Nem engedélyezett
+        unconfirmed:
+          confirmation_instructions: 'Ha még nem kapta meg a megerősítési utasítást, kérheti újra őket:'
+          explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
+          request_confirmation_instructions: Kérjen megerősítési utasítást
+          title: Erősítsd meg az e-mail címed
     collapsible_list:
       hidden_elements_count:
         one: és még egy
@@ -718,7 +723,6 @@ hu:
       not_found_in_database: Érvénytelen %{authentication_keys} vagy jelszó.
       timeout: A munkamenet lejárt. Kérjük, jelentkezzen be újra a folytatáshoz.
       unauthenticated: Jelentkezzen be, vagy regisztráljon, mielőtt folytatja.
-      unconfirmed: A folytatás előtt meg kell erősítenie az e-mail címét.
     invitations:
       edit:
         header: Profil létrehozásának befejezése
