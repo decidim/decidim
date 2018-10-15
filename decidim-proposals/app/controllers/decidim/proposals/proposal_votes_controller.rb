@@ -5,6 +5,7 @@ module Decidim
     # Exposes the proposal vote resource so users can vote proposals.
     class ProposalVotesController < Decidim::Proposals::ApplicationController
       include ProposalVotesHelper
+      include Rectify::ControllerHelpers
 
       helper_method :proposal
 
@@ -16,7 +17,12 @@ module Decidim
 
         VoteProposal.call(proposal, current_user) do
           on(:ok) do
-            proposal.reload
+            proposals = ProposalVote.where(
+              author: current_user,
+              proposal: Proposal.where(component: current_component)
+            ).map(&:proposal)
+
+            expose(proposals: proposals)
             render :update_buttons_and_counters
           end
 
@@ -33,6 +39,13 @@ module Decidim
         UnvoteProposal.call(proposal, current_user) do
           on(:ok) do
             proposal.reload
+
+            proposals = ProposalVote.where(
+              author: current_user,
+              proposal: Proposal.where(component: current_component)
+            ).map(&:proposal)
+
+            expose(proposals: proposals + [proposal])
             render :update_buttons_and_counters
           end
         end

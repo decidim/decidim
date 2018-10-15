@@ -70,25 +70,6 @@ module Decidim
           .where("decidim_coauthorships.decidim_author_id = ?", user.id)
       end
 
-      def self.update_temporary_votes!(_user, component)
-        user_votes = ProposalVote.where(
-          author: @current_user,
-          proposal: Proposal.where(component: component)
-        )
-
-        vote_count = user_votes.count
-
-        if vote_count >= component.settings.minimum_votes_per_user
-          user_votes.update_all(temporary: false)
-        else
-          user_votes.update_all(temporary: true)
-        end
-      end
-
-      def update_vote_count
-        update(proposal_votes_count: votes.final)
-      end
-
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
@@ -233,6 +214,10 @@ module Decidim
         return true if draft?
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
+      end
+
+      def update_vote_counter
+        update!(proposal_votes_count: votes.final.count)
       end
 
       private

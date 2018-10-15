@@ -4,15 +4,15 @@ module Decidim
   module Proposals
     # A proposal can include a vote per user.
     class ProposalVote < ApplicationRecord
-      belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal", counter_cache: true
+      belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal"
       belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
 
       validates :proposal, uniqueness: { scope: :author }
       validate :author_and_proposal_same_organization
       validate :proposal_not_rejected
 
-      after_save :update_proposal_votes_counter
-      after_destroy :update_proposal_votes_counter
+      after_save :update_temporary_votes
+      after_destroy :update_temporary_votes
 
       def self.temporary
         where(temporary: true)
@@ -20,6 +20,27 @@ module Decidim
 
       def self.final
         where(temporary: false)
+      end
+
+      def update_temporary_votes
+        user_votes = ProposalVote.where(
+          author: author,
+          proposal: Proposal.where(component: proposal.component)
+        )
+
+        vote_count = user_votes.count
+
+        if vote_count >= proposal.component.settings.minimum_votes_per_user
+          user_votes.update_all(temporary: false)
+        else
+          user_votes.update_all(temporary: true)
+        end
+
+        proposal.update_vote_counter
+
+        user_votes.each do |vote|
+          vote.proposal.update_vote_counter
+        end
       end
 
       private
@@ -33,10 +54,6 @@ module Decidim
       def proposal_not_rejected
         return unless proposal
         errors.add(:proposal, :invalid) if proposal.rejected?
-      end
-
-      def update_proposal_votes_counter
-        proposal.update_vote_count
       end
     end
   end

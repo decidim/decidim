@@ -22,7 +22,14 @@
             <% end %>
 
             <% if minimum_votes_per_user_enabled? %>
-              <li><%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user, votes_given: votes_given) %></li>
+              <li>
+                <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
+                <% if votes_given >= minimum_votes_per_user %>
+                  <%= t(".minimum_votes_per_user.given_enough_votes") %>
+                <% else %>
+                  <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </div>
