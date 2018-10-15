@@ -179,6 +179,11 @@ nl:
           invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: OK
           title: Niet geautoriseerd
+        unconfirmed:
+          confirmation_instructions: 'Als u de bevestigingsinstructies nog niet hebt ontvangen, kunt u ze opnieuw aanvragen:'
+          explanation_html: Om deze actie uit te voeren moet je geautoriseerd zijn, daarvoor moet je je e-mail bevestigen <strong>%{email}</strong>.
+          request_confirmation_instructions: Bevestigingsinstructies aanvragen
+          title: bevestig je email
     collapsible_list:
       hidden_elements_count:
         one: en nog 1
@@ -719,7 +724,6 @@ nl:
       not_found_in_database: Ongeldige %{authentication_keys} of wachtwoord.
       timeout: Je sessie is verlopen. Log opnieuw in om door te gaan.
       unauthenticated: U moet inloggen of aanmelden voordat u doorgaat.
-      unconfirmed: U moet uw e-mailadres bevestigen voordat u verdergaat.
     invitations:
       edit:
         header: Eindig met het maken van je account
