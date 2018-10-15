@@ -52,7 +52,7 @@
                   <% end %>
                 </li>
               <% end %>
-              
+
               <% if current_participatory_space.components.where(manifest_name: "meetings").published.any? %>
                 <li class="">
                   <%= active_link_to decidim_conferences.conference_path(current_participatory_space, anchor: "venues"), active: :exclusive, class: "process-nav__link" do %>
@@ -79,5 +79,4 @@
       </div>
     <% end %>
   </div>
-
 </section>
