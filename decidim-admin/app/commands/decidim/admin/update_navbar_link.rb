@@ -39,7 +39,7 @@ module Decidim
           link: form.link,
           weight: form.weight,
           target: form.target,
-          decidim_organization_id: form.organization_id
+          organization: current_organization
         }
       end
     end
