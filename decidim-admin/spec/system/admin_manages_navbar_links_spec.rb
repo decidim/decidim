@@ -40,14 +40,24 @@ describe "Navbar Links", type: :system do
     end
 
     context "with existing navbar links" do
-      let!(:navbar_link) { create(:navbar_link, organization: organization) }
+      let!(:navbar_link) do
+        Decidim::NavbarLink.create(
+          organization: organization,
+          title: { en: "My title",
+                   es: "Mi título",
+                   ca: "títol mon" },
+          link: "http://example.org",
+          target: "blank",
+          weight: 2
+        )
+      end
 
       before do
         visit current_path
       end
 
       it "lists all the links for navbar" do
-        within "#navbar_links table" do
+        within "table" do
           expect(page).to have_content(translated(navbar_link.title, locale: :en))
           expect(page).to have_content(navbar_link.link)
           expect(page).to have_content(navbar_link.weight)
@@ -62,13 +72,15 @@ describe "Navbar Links", type: :system do
         end
 
         it "keep the existing link attributes" do
-          expect(page).to have_content(translated(navbar_link.title, locale: :en))
-          expect(page).to have_content(navbar_link.link)
-          expect(page).to have_content(navbar_link.weight)
+          within ".edit_navbar_link " do
+            expect(page).to have_field("navbar_link[title_en]", with: translated(navbar_link.title, locale: :en))
+            expect(page).to have_field("Link", with: navbar_link.link)
+            expect(page).to have_field("Weight", with: navbar_link.weight)
+          end
         end
 
         it "can edit them" do
-          within ".new_navbar_link " do
+          within ".edit_navbar_link " do
             fill_in_i18n :navbar_link_title,
                          "#navbar_link-title-tabs",
                          en: "Another title",
