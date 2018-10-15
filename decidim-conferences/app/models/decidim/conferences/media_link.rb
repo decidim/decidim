@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Conferences
+    # The data store for an Invite in the Decidim::Conferences component.
+    class MediaLink < ApplicationRecord
+      include Decidim::Traceable
+      include Decidim::Loggable
+
+      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
+    end
+  end
+end
