@@ -7,12 +7,13 @@ module Decidim
       class MediaLinkForm < Form
         include TranslatableAttributes
 
+        mimic :conference_media_link
+
         translatable_attribute :title, String
 
-        mimic :conference_speaker
-
         attribute :link, String
-        attribute :weight, Integer
+        attribute :date, Decidim::Attributes::LocalizedDate
+        attribute :weight, Integer, default: 0
 
         validate :link_format
 
