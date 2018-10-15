@@ -166,6 +166,10 @@ it:
         create: "%{user_name} creato l'altoparlante %{resource_name} nella %{space_name} conferenza"
         delete: "%{user_name} rimosso l'altoparlante %{resource_name} dalla conferenza %{space_name}"
         update: "%{user_name} aggiornato l'altoparlante %{resource_name} nella %{space_name} conferenza"
+      conference_user_role:
+        create: "%{user_name} invitato %{resource_name} alla %{space_name} conferenza"
+        delete: "%{user_name} rimosso l'utente %{resource_name} dalla conferenza %{space_name}"
+        update: "%{user_name} cambiato il ruolo di %{resource_name} nella %{space_name} conferenza"
     conference_speakers:
       index:
         title: Altoparlanti
@@ -246,9 +250,29 @@ it:
         destroy:
           invalid: C'è stato un problema a lasciare questa conferenza.
           success: Hai lasciato la conferenza con successo.
+      conference_speaker:
+        go_to_twitter: Vai a Twitter
+        more_info: Ulteriori informazioni
+        personal_website: Sito web personale
+        show:
+          more_info: Ulteriori informazioni
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Sito web personale
+        twitter_handle:
+          go_to_twitter: Vai a Twitter
       conference_speakers:
         index:
           speakers: Altoparlanti
+      conferences:
+        show:
+          already_account: Hai già un account in decidim?
+          login_as: Stai eseguendo l'accesso come %{name} <%{email}>
+          make_conference_registration: 'Fai la tua registrazione alla conferenza:'
+          new_user: Nuovo utente?
+          register: Registrare
+          sign_in: Accedi per registrarti a questa conferenza
+          sign_up: Registrati gratuitamente in decidim per registrarti
       content_blocks:
         highlighted_conferences:
           name: Conferenze evidenziate
@@ -282,6 +306,8 @@ it:
             active_conferences: Conferenze attive
             see_all_conferences: Vedi tutte le conferenze
       show:
+        details: Dettagli
+        introduction: introduzione
         objectives: obiettivi
       statistics:
         answers_count: risposte
@@ -344,3 +370,8 @@ it:
         promoted_conference:
           more_info: Ulteriori informazioni
           take_part: Prendere parte
+      conferences_nav:
+        conference_menu_item: Informazione
+        conference_speaker_menu_item: Altoparlanti
+        unfold: spiegare
+        venues: Venues
