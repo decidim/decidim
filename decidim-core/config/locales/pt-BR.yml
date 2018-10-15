@@ -719,7 +719,6 @@ pt-BR:
       not_found_in_database: '%{authentication_keys} inválido ou senha.'
       timeout: Sua sessão expirou. Por favor, entre novamente para continuar.
       unauthenticated: Você precisa fazer login ou se inscrever antes de continuar.
-      unconfirmed: Você precisa confirmar seu endereço de e-mail antes de continuar.
     invitations:
       edit:
         header: Termine de criar sua conta
