@@ -42,7 +42,7 @@ module Decidim
       def identities
         enforce_permission_to :endorse, :proposal, proposal: proposal
 
-        @user_verified_groups = current_user.user_groups.verified
+        @user_verified_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
         render :identities, layout: false
       end
 
