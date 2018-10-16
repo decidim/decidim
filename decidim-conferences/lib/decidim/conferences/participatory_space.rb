@@ -146,6 +146,16 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         )
       end
 
+      5.times do
+        Decidim::Conferences::MediLink.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          link: Faker::Internet.url,
+          date: Date.current,
+          weight: Faker::Number.between(1, 10),
+          conference: conference
+        )
+      end
+
       Decidim.component_manifests.each do |manifest|
         manifest.seed!(conference.reload)
       end
