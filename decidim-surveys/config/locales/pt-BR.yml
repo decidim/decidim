@@ -85,6 +85,8 @@ pt-BR:
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.
+      last_activity:
+        new_survey_at_html: "<span>Nova pesquisa em %{link}</span>"
       question_types:
         long_answer: Resposta longa
         multiple_option: Opção múltipla

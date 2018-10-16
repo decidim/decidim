@@ -49,6 +49,7 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia autoryzacji.
           success: Pomyślnie autoryzowano.
+          unconfirmed: Aby się autoryzować, musisz potwierdzić swój adres e-mail.
         first_login:
           actions:
             another_dummy_authorization_handler: Sprawdź na przykładzie innego przykładu procedury obsługi autoryzacji

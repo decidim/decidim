@@ -49,6 +49,7 @@ gl:
         create:
           error: Produciuse un erro ao crear a autorización.
           success: Autorizouse con éxito.
+          unconfirmed: Debes confirmar o teu correo electrónico para autorizarte.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifique contra outro exemplo de controlador de autorización

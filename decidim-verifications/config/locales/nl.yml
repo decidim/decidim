@@ -49,6 +49,7 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van de autorisatie.
           success: U bent geautoriseerd.
+          unconfirmed: U moet uw e-mail bevestigen om uzelf te autoriseren.
         first_login:
           actions:
             another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding

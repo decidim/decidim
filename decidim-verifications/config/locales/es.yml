@@ -49,6 +49,7 @@ es:
         create:
           error: Hubo un error al crear la autorización.
           success: Has sido autorizado/a correctamente.
+          unconfirmed: Necesitas confirmar tu correo electrónico para autorizarte.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización

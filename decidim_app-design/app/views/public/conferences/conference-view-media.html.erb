@@ -1,0 +1,89 @@
+<% @activesection = "home" %>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "conferences_hero" %>
+  <section class="wrapper-home">
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 large-3">
+        <%= partial "conferences_nav" %>
+      </div>
+      <div class="columns mediumlarge-8 conference-media">
+        <section>
+          <h1 class="section-heading">Media and links</h1>
+          <p>Links about this conference</p>
+        </section>
+        <hr class="reset mt-none mb-s" />
+        <section class="media-links">
+          <ul class="list-reset">
+            <% @titles = [
+              'Decidim, un año de plataforma interactiva',
+              'Barcelona impulsa un proceso participativo para diseñar la plataforma Decidim.Barcelona',
+              '15th Metadecidim Operative Session (SOM)',
+              'LAB Metadecidim - Session 13. Decidim.cultura: Citizen participation technologies for cultural management and production'
+              ]
+            %>
+            <% @titles.each do |title| %>
+            <li>
+              <%= icon "external-link" %>
+              <div>
+                <a href="#"><strong><%= title %></strong></a>
+                <div class="text-small"><%= Faker::Date.backward(100).strftime("%d %b %Y") %> · <%= Faker::Internet.url %></small>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </section>
+        <hr class="reset mt-none mb-s" />
+        <section class="media-pictures">
+          <div class="row small-up-1 smallmedium-up-2 card-grid">
+            <% @photos = [
+              'meeting1.jpg',
+              'meeting2.jpg',
+              'meeting3.jpg',
+              'process2.jpg',
+              'puntverd.jpg',
+              'superilles.jpg',
+              'gracia.jpg',
+              'demo-consultations.jpg',
+              ] %>
+            <% 8.times do |i| %>
+            <% seed = Random.rand(9999) %>
+            <div class="column">
+              <article class="card" data-open="media-picture-<%= seed %>">
+                <div class="picture__content">
+                  <%= image_tag @photos[i] %>
+                  <h5 class="card__title">
+                    <strong>Title of the photo</strong>
+                  </h5>
+                  <div class="text-small">
+                    Description if needed which could span several lines of text, but we should see what to do with very long texts…
+                  </div>
+                </div>
+              </article>
+              <div id="media-picture-<%= seed %>" class="reveal picture__modal" data-reveal>
+                <div class="reveal__header">
+                  <h3 class="reveal__title">Photo</h3>
+                </div>
+                <%= image_tag @photos[i] %>
+                <h5>
+                  <strong>Title of the photo</strong>
+                </h5>
+                <div class="text-small">
+                  Description if needed which could span several lines of text, but we should see what to do with very long texts. Very long texts would be shown here. Description if needed which could span several lines of text, but we should see what to do with very long texts. Very long texts would be shown here. Description if needed which could span several lines of text, but we should see what to do with very long texts. Very long texts would be shown here. Description if needed which could span several lines of text, but we should see what to do with very long texts. Very long texts would be shown here.
+                </div>
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%= partial "template_bottom" %>

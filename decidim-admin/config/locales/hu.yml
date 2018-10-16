@@ -71,7 +71,7 @@ hu:
         code: Kód
         name: Név
         organization: Szervezet
-        parent_id: Parent
+        parent_id: Szülő
         scope_type: Hatáskör típusa
         scope_type_id: Hatáskör típusa
       scope_type:

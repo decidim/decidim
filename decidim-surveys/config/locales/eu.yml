@@ -85,6 +85,8 @@ eu:
           update:
             invalid: Inkesta gordetzean erroreak gertatu dira.
             success: Inkesta ondo gorde da.
+      last_activity:
+        new_survey_at_html: "<span>Inkesta berrian %{link}</span>"
       question_types:
         long_answer: Erantzun luzea
         multiple_option: Aukera anitz

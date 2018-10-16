@@ -261,6 +261,8 @@ pt:
         public: Público
       index:
         title: Assembléias
+      last_activity:
+        new_assembly: Nova montagem
       pages:
         home:
           highlighted_assemblies:
