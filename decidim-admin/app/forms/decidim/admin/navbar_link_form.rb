@@ -15,6 +15,8 @@ module Decidim
       validates :title, translatable_presence: true
       validates :weight, presence: true
 
+      alias organization current_organization
+
       def link_error
         return if link.nil?
 

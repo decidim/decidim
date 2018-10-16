@@ -7,7 +7,7 @@ module Decidim::Admin
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:title) { Faker::Hipster.word }
+    let(:title) { Decidim::Faker::Localized.word }
     let(:link) { Faker::Internet.url }
     let(:weight) { (1..10).to_a.sample }
     let(:target) { ["blank", ""].sample }
@@ -19,7 +19,7 @@ module Decidim::Admin
         link: link,
         weight: weight,
         target: target,
-        organization_id: organization.id
+        organization: organization
       )
     end
     let(:invalid) { false }
