@@ -20,7 +20,7 @@ module Decidim
               current_component: current_component,
               title: {},
               description: {},
-              document_to_s: document_file,
+              document_text: document_file,
               valid?: valid
             )
           end

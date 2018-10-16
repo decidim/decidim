@@ -19,7 +19,7 @@ module Decidim
           current_participatory_space.organization.default_locale
         end
 
-        def document_to_s
+        def document_text
           document&.read
         end
       end

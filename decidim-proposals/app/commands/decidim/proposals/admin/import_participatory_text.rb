@@ -24,7 +24,7 @@ module Decidim
           return broadcast(:invalid) unless form.valid?
 
           save_participatory_text(form)
-          parse_participatory_text_doc(form.document_to_s)
+          parse_participatory_text_doc(form.document_text)
 
           broadcast(:ok)
         end
