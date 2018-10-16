@@ -27,7 +27,7 @@ module Decidim
         user
           .user_groups
           .includes(:memberships)
-          .where.not(decidim_user_group_memberships: { role: "requested" })
+          .where(decidim_user_group_memberships: { role: %w(creator admin member) })
       end
 
       private
