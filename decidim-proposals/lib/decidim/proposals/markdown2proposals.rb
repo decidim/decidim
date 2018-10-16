@@ -53,7 +53,7 @@ module Decidim
       # end
 
       def header(title, level)
-        pt_level = if level > 1
+        participatory_text_level = if level > 1
                      Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]
                    else
                      Decidim::Proposals::ParticipatoryTextSection::LEVELS[:section]
@@ -63,7 +63,7 @@ module Decidim
           component: @component,
           title: title,
           body: title,
-          participatory_text_level: pt_level
+          participatory_text_level: participatory_text_level
         )
         @last_position = proposal.position
         @num_sections += 1
