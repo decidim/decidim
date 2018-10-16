@@ -99,8 +99,20 @@
           <span>Blog</span>
           <% end %>
         </li>
+        <!--  All hidden items are shown on mobile, appending hide-for-medium for those items -->
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Trobades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Perdudes</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Xarrades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Més trobades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Més perdudes</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Més xarrades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Menys trobades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Menys perdudes</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Menys xarrades</a></li>
       </ul>
-      <button class="button tiny process-nav__more" data-toggle="process-nav__hide-content">Más <i></i><i></i><i></i></button>
+      <button class="button tiny process-nav__more show-for-medium" data-toggle="process-nav__hide-content">
+        Más <i></i><i></i><i></i>
+      </button>
       <div class="dropdown-pane process-nav__hidden-content" id="process-nav__hide-content"
         data-dropdown
         data-hover="true"
@@ -108,19 +120,21 @@
         data-v-offset="-25"
         data-position="bottom"
         data-alignment="right">
-      <div class="process-nav__hidden-content__more">Más <i></i><i></i><i></i></div>
-      <ul>
-        <li><a href="#" class="process-nav__link">Trobades</a></li>
-        <li><a href="#" class="process-nav__link">Perdudes</a></li>
-        <li><a href="#" class="process-nav__link">Xarrades</a></li>
-        <li><a href="#" class="process-nav__link">Més trobades</a></li>
-        <li><a href="#" class="process-nav__link">Més perdudes</a></li>
-        <li><a href="#" class="process-nav__link">Més xarrades</a></li>
-        <li><a href="#" class="process-nav__link">Menys trobades</a></li>
-        <li><a href="#" class="process-nav__link">Menys perdudes</a></li>
-        <li><a href="#" class="process-nav__link">Menys xarrades</a></li>
-      </ul>
-    </div>
+        <div class="process-nav__hidden-content__more">
+          Más <i></i><i></i><i></i>
+        </div>
+        <ul>
+          <li><a href="#" class="process-nav__link">Trobades</a></li>
+          <li><a href="#" class="process-nav__link">Perdudes</a></li>
+          <li><a href="#" class="process-nav__link">Xarrades</a></li>
+          <li><a href="#" class="process-nav__link">Més trobades</a></li>
+          <li><a href="#" class="process-nav__link">Més perdudes</a></li>
+          <li><a href="#" class="process-nav__link">Més xarrades</a></li>
+          <li><a href="#" class="process-nav__link">Menys trobades</a></li>
+          <li><a href="#" class="process-nav__link">Menys perdudes</a></li>
+          <li><a href="#" class="process-nav__link">Menys xarrades</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

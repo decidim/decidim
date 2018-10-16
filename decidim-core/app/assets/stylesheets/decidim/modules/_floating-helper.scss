@@ -11,11 +11,22 @@
 }
 
 .floating-helper__trigger{
-  position: absolute;
-  top: $global-margin * 2;
+  position: fixed;
   right: 0;
   display: inline-flex;
   cursor: pointer;
+  background-color: $white;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 100px;
+
+  @include breakpoint(small only){
+    bottom: $global-margin * 2;
+  }
+
+  @include breakpoint(medium){
+    top: $global-margin * 2;
+    position: absolute;
+  }
 }
 
 .floating-helper__text{
@@ -41,12 +52,20 @@
 .floating-helper__content{
   background-color: rgba($secondary, .1);
   border-top: 5px solid $secondary;
-  padding: $global-padding * 3 $global-padding * 2 $global-padding * 2;
   margin-bottom: $global-margin * 3;
+  padding: $global-padding * 2;
+
+  @include breakpoint(medium){
+    padding: $global-padding * 3 $global-padding * 2 $global-padding * 2;
+  }
 }
 
 .floating-helper__content-inner{
-  @include flexgap($global-margin * 3);
+  position: relative;
+
+  @include breakpoint(medium){
+    @include flexgap($global-margin * 3);
+  }
 }
 
 .floating-helper__icon-big{
@@ -58,6 +77,16 @@
   @include flex;
   @include flex-align($x: center, $y: center);
   @include square(70px);
+}
+
+.floating-helper__bottom{
+  text-align: right;
+
+  @include breakpoint(medium){
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 .floating-helper__link{

@@ -64,7 +64,7 @@ $nav-border-width: 3px;
   top: .55rem;
 }
 
-.js .process-nav__content{
+.process-nav__content{
   @include breakpoint(smallmedium down){
     display: none;
   }
@@ -72,9 +72,7 @@ $nav-border-width: 3px;
   &.is-active{
     display: block;
   }
-}
 
-.process-nav__content{
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -144,7 +142,7 @@ $nav-border-width: 3px;
 .process-nav__link{
   color: $primary;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: $global-weight-bold;
   display: flex;
   align-items: center;
 
@@ -167,7 +165,6 @@ $nav-border-width: 3px;
 }
 
 @include breakpoint(medium){
-  .process-nav__link:hover,
   .process-nav__link.is-active{
     color: $primary;
 
