@@ -46,7 +46,7 @@ module Decidim
             it "broadcasts ok and creates the proposals" do
               sections = 2
               sub_sections = 5
-              articles = 12
+              articles = 11
               num_proposals = sections + sub_sections + articles
               expect { command.call }.to(
                 broadcast(:ok) &&
