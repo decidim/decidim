@@ -39,13 +39,8 @@ module Decidim
                                      Decidim::Proposals::ParticipatoryTextSection::LEVELS[:section]
                                    end
 
-        proposal = Decidim::Proposals::Proposal.create!(
-          component: @component,
-          title: title,
-          body: title,
-          participatory_text_level: participatory_text_level
-        )
-        @last_position = proposal.position
+        create_proposal(title, title, participatory_text_level)
+
         @num_sections += 1
         title
       end
@@ -55,19 +50,35 @@ module Decidim
       def paragraph(text)
         return if text.blank?
 
-        proposal = Decidim::Proposals::Proposal.create!(
-          component: @component,
-          title: (@last_position + 1 - @num_sections).to_s,
-          body: text,
-          participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
+        create_proposal(
+          (@last_position + 1 - @num_sections).to_s,
+          text,
+          Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
         )
-        @last_position = proposal.position
+
         text
       end
 
       # ignore images
       def image(_link, _title, _alt_text)
         ""
+      end
+
+      private
+
+      def create_proposal(title, body, participatory_text_level)
+        proposal = Decidim::Proposals::Proposal.new(
+          component: @component,
+          title: title,
+          body: body,
+          participatory_text_level: participatory_text_level
+        )
+        proposal.add_coauthor(@component.organization)
+        proposal.save!
+
+        @last_position = proposal.position
+
+        proposal
       end
     end
   end

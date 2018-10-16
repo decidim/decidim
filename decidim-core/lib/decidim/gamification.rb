@@ -14,6 +14,7 @@ module Decidim
     #
     # Returns a `BadgeStatus` instance.
     def self.status_for(user, badge_name)
+      return unless user.is_a?(Decidim::UserBaseEntity)
       BadgeStatus.new(user, find_badge(badge_name))
     end
 
@@ -26,7 +27,7 @@ module Decidim
     # Returns nothing.
     def self.increment_score(user, badge_name, amount = 1)
       return unless amount.positive?
-
+      return unless user.is_a?(Decidim::UserBaseEntity)
       BadgeScorer.new(user, find_badge(badge_name)).increment(amount)
     end
 
@@ -39,7 +40,7 @@ module Decidim
     # Returns nothing.
     def self.decrement_score(user, badge_name, amount = 1)
       return unless amount.positive?
-
+      return unless user.is_a?(Decidim::UserBaseEntity)
       BadgeScorer.new(user, find_badge(badge_name)).decrement(amount)
     end
 
@@ -51,6 +52,7 @@ module Decidim
     #
     # Returns nothing.
     def self.set_score(user, badge_name, score)
+      return unless user.is_a?(Decidim::UserBaseEntity)
       BadgeScorer.new(user, find_badge(badge_name)).set(score)
     end
 

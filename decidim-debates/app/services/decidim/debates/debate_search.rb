@@ -23,12 +23,11 @@ module Decidim
       end
 
       # Handle the origin filter
-      # The 'official' debates don't have an author ID
       def search_origin
         if origin == "official"
-          query.where(decidim_author_id: nil)
+          query.where(author: component.organization)
         elsif origin == "citizens"
-          query.where.not(decidim_author_id: nil)
+          query.where.not(decidim_author_type: "Decidim::Organization")
         else # Assume 'all'
           query
         end

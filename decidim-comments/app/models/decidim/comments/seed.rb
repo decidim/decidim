@@ -14,6 +14,8 @@ module Decidim
       def self.comments_for(resource)
         return unless resource.accepts_new_comments?
 
+        Decidim::Comments::Comment.reset_column_information
+
         organization = resource.organization
 
         2.times do

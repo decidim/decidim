@@ -10,7 +10,11 @@ module Decidim
           proposal = Proposal.find(proposal_id)
           next if proposal.official?
 
-          recipient_ids = proposal.authors.pluck(:decidim_author_id)
+          recipients = proposal.authors.select do |author|
+            author.is_a?(Decidim::User)
+          end
+          recipient_ids = recipients.map(&:id)
+
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_mentioned",
             event_class: Decidim::Proposals::ProposalMentionedEvent,
