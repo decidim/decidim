@@ -12,7 +12,7 @@ module Decidim
       end
 
       field :verifiedUserGroups, !types[!UserGroupType], "The current user verified user groups" do
-        resolve ->(obj, _args, _ctx) { obj.user_groups.verified }
+        resolve ->(obj, _args, _ctx) { Decidim::UserGroups::ManageableUserGroups.for(obj).verified }
       end
     end
   end
