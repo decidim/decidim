@@ -61,6 +61,7 @@ ca:
         models:
           components:
             description: Descripció
+            title: Títol
             tos: Termes del servei
         surveys:
           answer_option:

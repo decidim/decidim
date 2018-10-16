@@ -61,6 +61,7 @@ es:
         models:
           components:
             description: Descripción
+            title: Título
             tos: Términos de servicio
         surveys:
           answer_option:
