@@ -11,7 +11,7 @@ module Decidim
       let(:model) { current_user }
 
       describe "user" do
-        let(:query) { '{ user { nickname } }' }
+        let(:query) { "{ user { nickname } }" }
 
         it "returns the current user" do
           expect(response["user"]["nickname"]).to eq("@#{model.nickname}")
@@ -19,7 +19,7 @@ module Decidim
       end
 
       describe "verifiedUserGroups" do
-        let(:query) { '{ verifiedUserGroups { id } }' }
+        let(:query) { "{ verifiedUserGroups { id } }" }
         let(:organization) { current_user.organization }
 
         let!(:creator_user_group) { create :user_group, organization: organization, users: [] }
@@ -41,7 +41,7 @@ module Decidim
         end
 
         it "returns the verified user groups the user is manager of" do
-          ids = response["verifiedUserGroups"].map{ |group| group["id"] }
+          ids = response["verifiedUserGroups"].map { |group| group["id"] }
 
           expect(ids).to match_array([verified_admin_user_group.id, verified_creator_user_group.id].map(&:to_s))
         end
