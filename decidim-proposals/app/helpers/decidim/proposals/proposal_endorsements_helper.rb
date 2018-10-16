@@ -79,7 +79,7 @@ module Decidim
       def fully_endorsed?(proposal, user)
         return false unless user
 
-        user_group_endorsements = user.user_groups.verified.all? { |user_group| proposal.endorsed_by?(user, user_group) }
+        user_group_endorsements = Decidim::UserGroups::ManageableUserGroups.for(user).verified.all? { |user_group| proposal.endorsed_by?(user, user_group) }
 
         user_group_endorsements && proposal.endorsed_by?(user)
       end
