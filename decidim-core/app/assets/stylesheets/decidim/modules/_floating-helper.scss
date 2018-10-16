@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.floating-helper__content{
+.floating-helper__trigger{
   position: absolute;
   top: $global-margin * 2;
   right: 0;
@@ -32,4 +32,46 @@
   color: $white;
   background-color: $secondary;
   padding: $global-padding / 8 $global-padding / 2;
+}
+
+.floating-helper__wrapper{
+  @include flex;
+}
+
+.floating-helper__content{
+  background-color: rgba($secondary, .1);
+  border-top: 5px solid $secondary;
+  padding: $global-padding * 3 $global-padding * 2 $global-padding * 2;
+  margin-bottom: $global-margin * 3;
+}
+
+.floating-helper__content-inner{
+  @include flexgap($global-margin * 3);
+}
+
+.floating-helper__icon-big{
+  border-radius: 50%;
+  background-color: rgba($secondary, .1);
+  flex-shrink: 0;
+  color: $secondary;
+
+  @include flex;
+  @include flex-align($x: center, $y: center);
+  @include square(70px);
+}
+
+.floating-helper__link{
+  font-weight: $global-weight-bold;
+  text-decoration: underline;
+}
+
+.floating-helper__content-close{
+  background-color: $secondary;
+  color: $white;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  @include flex;
+  @include flex-align($x: center, $y: center);
+  @include square(1.5rem);
 }
