@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe "Admin manages particpatory texts", type: :system do
   let(:manifest_name) { "proposals" }
-  let!(:proposal) { create :proposal, component: current_component }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
@@ -17,15 +16,13 @@ describe "Admin manages particpatory texts", type: :system do
     )
   end
 
-  def remove_previous_proposals
-    Decidim::Proposals::Proposal.where(component: current_component).destroy_all
+  def visit_participatory_texts
+    visit_component_admin
+    find("#js-other-actions-wrapper a#participatory_texts").click
+    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
   end
 
   def import_document
-    visit_component_admin
-
-    find("#js-other-actions-wrapper a#participatory_texts").click
-    expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
     find("a#import-doc").click
     expect(page).to have_content "ADD DOCUMENT"
 
@@ -75,9 +72,9 @@ describe "Admin manages particpatory texts", type: :system do
       "What should be accounted",
       "6",
       "Following up accounted results",
-      "7", "8", "9", "10", "11",
+      "7", "8", "9", "10",
       "Summary",
-      "12"
+      "11"
     ]
     expect(proposals.count).to eq(titles.size)
     expect(proposals.published.count).to eq(titles.size)
@@ -86,9 +83,9 @@ describe "Admin manages particpatory texts", type: :system do
 
   describe "importing partipatory texts from a document" do
     it "creates proposals" do
-      remove_previous_proposals
+      visit_participatory_texts
       import_document
-      validate_occurrences(sections: 2, subsections: 5, articles: 12)
+      validate_occurrences(sections: 2, subsections: 5, articles: 11)
       move_some_sections
       publish_participatory_text
       validate_published
@@ -96,6 +93,11 @@ describe "Admin manages particpatory texts", type: :system do
   end
 
   describe "accessing participatory texts in draft mode" do
-    it "renders only draft proposals"
+    let!(:proposal) { create :proposal, component: current_component }
+
+    it "renders only draft proposals" do
+      visit_participatory_texts
+      validate_occurrences(sections: 0, subsections: 0, articles: 0)
+    end
   end
 end
