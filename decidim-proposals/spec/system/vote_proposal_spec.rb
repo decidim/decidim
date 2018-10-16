@@ -358,6 +358,55 @@ describe "Vote Proposal", type: :system, slow: true do
       end
     end
 
+    context "when proposals have a minimum amount of votes" do
+      let!(:component) do
+        create(:proposal_component,
+               :with_votes_enabled,
+               :with_minimum_votes_per_user,
+               minimum_votes_per_user: 3,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      before do
+        login_as user, scope: :user
+      end
+
+      it "doesn't count votes unless the minimum is achieved" do
+        visit_component
+
+        proposal_elements = proposals.map do |proposal|
+          page.find("article", text: proposal.title)
+        end
+
+        within proposal_elements[0] do
+          click_button "Vote"
+          expect(page).to have_content("ALREADY VOTED")
+          expect(page).to have_content("0 VOTES")
+        end
+
+        within proposal_elements[1] do
+          click_button "Vote"
+          expect(page).to have_content("ALREADY VOTED")
+          expect(page).to have_content("0 VOTES")
+        end
+
+        within proposal_elements[2] do
+          click_button "Vote"
+          expect(page).to have_content("ALREADY VOTED")
+          expect(page).to have_content("1 VOTE")
+        end
+
+        within proposal_elements[0] do
+          expect(page).to have_content("1 VOTE")
+        end
+
+        within proposal_elements[1] do
+          expect(page).to have_content("1 VOTE")
+        end
+      end
+    end
+
     describe "gamification" do
       before do
         login_as user, scope: :user
