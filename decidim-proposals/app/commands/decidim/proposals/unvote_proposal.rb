@@ -22,9 +22,11 @@ module Decidim
       def call
         ActiveRecord::Base.transaction do
           votes = @proposal.votes.where(author: @current_user)
-          Decidim::Gamification.decrement_score(@current_user, :proposal_votes, votes.count)
+          ProposalVote.update_temporary_votes!(@current_user, @proposal)
           votes.destroy_all
         end
+
+        Decidim::Gamification.decrement_score(@current_user, :proposal_votes, votes.count)
 
         broadcast(:ok, @proposal)
       end

@@ -11,9 +11,6 @@ module Decidim
       validate :author_and_proposal_same_organization
       validate :proposal_not_rejected
 
-      after_save :update_temporary_votes
-      after_destroy :update_temporary_votes
-
       def self.temporary
         where(temporary: true)
       end
@@ -22,28 +19,29 @@ module Decidim
         where(temporary: false)
       end
 
-      # rubocop:disable Rails/SkipsModelValidations
-      def update_temporary_votes
+      def self.update_temporary_votes!(user, proposal)
+        component = proposal.component
+
         user_votes = ProposalVote.where(
-          author: author,
-          proposal: Proposal.where(component: proposal.component)
+          author: user,
+          proposal: Proposal.where(component: component)
         )
 
         vote_count = user_votes.count
 
-        if vote_count >= proposal.component.settings.minimum_votes_per_user
-          user_votes.update_all(temporary: false)
+        if vote_count >= component.settings.minimum_votes_per_user
+          user_votes.map { |vote| vote.update!(temporary: false) }
         else
-          user_votes.update_all(temporary: true)
+          user_votes.map { |vote| vote.update!(temporary: true) }
         end
 
-        proposal.update_vote_counter
+        proposal_ids = user_votes.map { |vote| vote.proposal.id }.compact.uniq + [proposal.id]
 
-        user_votes.each do |vote|
-          vote.proposal.update_vote_counter
+        proposal_ids.map do |proposal_id|
+          proposal = Proposal.find(proposal_id)
+          proposal.update(proposal_votes_count: proposal.votes.count)
         end
       end
-      # rubocop:enable Rails/SkipsModelValidations
 
       private
 
