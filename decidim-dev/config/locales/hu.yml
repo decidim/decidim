@@ -15,9 +15,11 @@ hu:
     gamification:
       badges:
         test:
+          conditions:
+            - Használjon teszt környezetet a decidim számára.
+          description: A jelvényt tesztek létrehozásával kapod meg.
           description_another: '%{score} teszt létrehozva.'
           description_own: Létrehoztad a(z) %{score} teszteket.
-          explanation: A jelvényt tesztek létrehozásával kapod meg.
           name: Tesztek
           next_level_in: Hozz létre még %{score} tesztet a következő szint eléréséhez!
           unearned_another: Ez a felhasználó még nem hozott létre teszteket.
@@ -28,6 +30,7 @@ hu:
           bar: Oszlop
           dummies_count_high: Dummies high
           dummies_count_medium: Dummies medium
+          foo: foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies high

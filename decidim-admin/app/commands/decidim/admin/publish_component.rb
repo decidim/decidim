@@ -31,7 +31,8 @@ module Decidim
         Decidim.traceability.perform_action!(
           :publish,
           component,
-          current_user
+          current_user,
+          visibility: "all"
         ) do
           component.publish!
           component

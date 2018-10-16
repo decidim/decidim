@@ -14,9 +14,6 @@ sv:
         password_confirmation: Bekräfta ditt lösenord
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
-        user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisationsnamn
-        user_group_phone: Organisationstelefon
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -32,9 +29,6 @@ sv:
         password: Lösenord
         password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
-        user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisationsnamn
-        user_group_phone: Organisationstelefon
     models:
       decidim/user:
         one: Användare
@@ -52,6 +46,7 @@ sv:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ sv:
           invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Okej
           title: Inte behörig
+        unconfirmed:
+          confirmation_instructions: 'Om du inte har fått bekräftelsesinstruktionerna kan du begära dem igen:'
+          explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad innan du gör det måste du bekräfta ditt mail <strong>%{email}</strong>.
+          request_confirmation_instructions: Begär bekräftelseanvisningar
+          title: bekräfta din email
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -219,6 +219,10 @@ sv:
       html:
         html_content: HTML-innehåll
         name: HTML-block
+      last_activity:
+        name: Sista aktiviteten
+        title: Sista aktiviteten
+        view_all: Visa alla
       metrics:
         name: Organisationsstatistik
       stats:
@@ -257,8 +261,6 @@ sv:
           sign_up: Registrera
           sign_up_as:
             legend: Registrera dig som
-            user: Privatperson
-            user_group: Organisation/Kollektiv
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du till %{link}.
@@ -387,19 +389,41 @@ sv:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
     gamification:
+      all_badges_link: Se alla tillgängliga märken.
       badges:
+        continuity:
+          conditions:
+            - Kommer hit ofta
+          description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
+          description_another: Den här användaren har anslutit sig i %{score} varandra följande dagar vid någon tidpunkt.
+          description_own: Du har anslutit i %{score} dagar i följd vid någon tidpunkt.
+          name: Kontinuitet
+          next_level_in: Anslut i %{score} dagar i följd för att komma till nästa nivå!
+          unearned_another: Den här användaren har inte loggat in mer än en på varandra följande dag.
+          unearned_own: Du har inte anslutit i mer än en på varandra följande dag.
         followers:
+          conditions:
+            - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
+          description: Detta märke beviljas när du når ett visst antal anhängare. %{organization_name} är ett socialt och politiskt nätverk, väv din webb för att kommunicera med andra personer på plattformen.
           description_another: Den här användaren har %{score} följare.
           description_own: "%{score} användare följer dig."
-          explanation: Användare får detta märke genom att följa av andra användare.
           name: anhängare
           next_level_in: Få %{score} fler användare att följa dig för att nå nästa nivå!
           unearned_another: Den här användaren har inga anhängare än.
           unearned_own: Du har inga anhängare än.
+        index:
+          badge_title: "%{name} märke"
+          how: Hur kan du tjäna det
+          page_description: Badges är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika märken. Här är listan med märken och några sätt du kan tjäna dem.
+          title: Emblem
         invitations:
+          conditions:
+            - Använd länken "bjud in vänner" på din användarsida för att bjuda in dina vänner
+            - Anpassa, om du vill, det meddelande du skickar
+            - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
+          description: Detta märke beviljas när du har bjudit in några personer och de har spenderat lite tid att registrera sig i %{organization_name} och bli deltagare. Tack för att göra %{organization_name} känt för andra och hjälpa till att utvidga community!
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
-          explanation: Användare får detta emblem genom att bjuda in andra användare.
           name: Inbjudningar
           next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
           unearned_another: Den här användaren har inte bjudit in någon användare än.
@@ -408,7 +432,13 @@ sv:
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta emblem.
     groups:
-      no_user_groups: Tillhör inte någon användargrupp ännu.
+      create:
+        error: Det har varit ett problem att skapa organisationen
+        success: Organisationen skapades framgångsrikt
+      new:
+        create_user_group: Skapa organisation
+        new_user_group: Ny organisation
+      no_user_groups: Tillhör inte någon organisation än.
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -421,6 +451,13 @@ sv:
         invitations_title: Tycker du att fler röster ska höras i %{organization_name}?
         invite: Bjud in
         visit_your_profile: Besök din profil
+    last_activities:
+      activities:
+        no_activities_warning: Ingen aktivitet
+      all: Alla aktivitetstyper
+      index:
+        last_activity: Sista aktiviteten
+        resource_type: Typ
     log:
       base_presenter:
         create: "%{user_name} skapade %{resource_name}"
@@ -442,6 +479,8 @@ sv:
           not_found: 'Typ av omfattning hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
+    members:
+      no_members: Dessa användargrupper har ingen medlem än.
     menu:
       home: Hem
       more_information: Mer information
@@ -592,13 +631,15 @@ sv:
         conversations: Samtal
         followers: Anhängare
         following: Följer
-        groups: grupper
+        groups: organisationer
+        members: medlemmar
         notifications: Notiser
       sidebar:
         badges:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
           title: Emblem
       user:
+        create_user_group: Skapa organisation
         edit_profile: Redigera profil
     reported_mailer:
       hide:
@@ -683,7 +724,6 @@ sv:
       not_found_in_database: Ogiltigt %{authentication_keys} eller lösenord.
       timeout: Din session löpte ut. Vänligen logga in igen för att fortsätta.
       unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
-      unconfirmed: Du måste bekräfta din e-postadress innan du fortsätter.
     invitations:
       edit:
         header: Slutför skapandet av ditt konto

@@ -16,6 +16,8 @@ nl:
   decidim:
     comments:
       comments: Comments
+      last_activity:
+        new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
       votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van de reactie.

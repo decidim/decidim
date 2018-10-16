@@ -41,6 +41,18 @@ describe Decidim::ActionLog do
         it { is_expected.to be_valid }
       end
     end
+
+    context "when an invalid visibility is given" do
+      let(:action_log) { build :action_log, visibility: "foo" }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context "when no visibility is given" do
+      let(:action_log) { build :action_log, visibility: nil }
+
+      it { is_expected.not_to be_valid }
+    end
   end
 
   describe "readonly" do

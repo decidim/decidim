@@ -157,6 +157,20 @@ en:
             moderator: Moderator
       titles:
         conferences: Conferences
+    admin_log:
+      conference:
+        create: "%{user_name} created the %{resource_name} conference"
+        publish: "%{user_name} published the %{resource_name} conference"
+        unpublish: "%{user_name} unpublished the %{resource_name} conference"
+        update: "%{user_name} updated the %{resource_name} conference"
+      conference_speaker:
+        create: "%{user_name} created the %{resource_name} speaker in the %{space_name} conference"
+        delete: "%{user_name} removed the %{resource_name} speaker from the %{space_name} conference"
+        update: "%{user_name} updated the %{resource_name} speaker in the %{space_name} conference"
+      conference_user_role:
+        create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
     conference_speakers:
       index:
         title: Speakers
@@ -240,15 +254,28 @@ en:
           invalid: There's been a problem leaving this conference.
           success: You have left the conference successfully.
       conference_speaker:
+        go_to_twitter: Go to Twitter
+        more_info: more info
+        personal_website: Personal website
         show:
-          affiliation: Affiliation
-          personal_url: Personal Url
-          position: Position
-          short_bio: Short bio
-          twitter_handle: Twitter
+          more_info: more info
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Personal website
+        twitter_handle:
+          go_to_twitter: Go to Twitter
       conference_speakers:
         index:
           speakers: Speakers
+      conferences:
+        show:
+          already_account: Do you already have an account in decidim?
+          login_as: You are login as %{name} <%{email}>
+          make_conference_registration: 'Make your registration in the conference:'
+          new_user: New user?
+          register: Register
+          sign_in: Login to register at this conference
+          sign_up: Register for free in decidim to register
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences
@@ -282,9 +309,9 @@ en:
             active_conferences: Active conferences
             see_all_conferences: See all conferences
       show:
-        end_date: End date
+        details: Details
+        introduction: Introduction
         objectives: Objectives
-        start_date: Start date
       statistics:
         answers_count: Answers
         comments_count: Comments
@@ -331,10 +358,6 @@ en:
         subject: Invitation to join a conference
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: The Conference
-        conference_speaker_menu_item: Speakers
-        unfold: Unfold
       conference_widgets:
         show:
           take_part: Take part
@@ -350,3 +373,8 @@ en:
         promoted_conference:
           more_info: More info
           take_part: Take part
+      conferences_nav:
+        conference_menu_item: Information
+        conference_speaker_menu_item: Speakers
+        unfold: Unfold
+        venues: Venues

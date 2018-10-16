@@ -111,13 +111,18 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.seeds do |participatory_space|
+    admin_user = Decidim::User.find_by(
+      organization: participatory_space.organization,
+      email: "admin@example.org"
+    )
+
     step_settings = if participatory_space.allows_steps?
                       { participatory_space.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true } }
                     else
                       {}
                     end
 
-    component = Decidim::Component.create!(
+    params = {
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name,
       manifest_name: :proposals,
       published_at: Time.current,
@@ -127,7 +132,16 @@ Decidim.register_component(:proposals) do |component|
         collaborative_drafts_enabled: true
       },
       step_settings: step_settings
-    )
+    }
+
+    component = Decidim.traceability.perform_action!(
+      "publish",
+      Decidim::Component,
+      admin_user,
+      visibility: "all"
+    ) do
+      Decidim::Component.create!(params)
+    end
 
     if participatory_space.scope
       scopes = participatory_space.scope.descendants
@@ -148,7 +162,7 @@ Decidim.register_component(:proposals) do |component|
                         [nil, nil]
                       end
 
-      proposal = Decidim::Proposals::Proposal.create!(
+      params = {
         component: component,
         category: participatory_space.categories.sample,
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
@@ -158,10 +172,20 @@ Decidim.register_component(:proposals) do |component|
         answer: answer,
         answered_at: Time.current,
         published_at: Time.current
-      )
+      }
+
+      proposal = Decidim.traceability.perform_action!(
+        "publish",
+        Decidim::Proposals::Proposal,
+        admin_user,
+        visibility: "all"
+      ) do
+        Decidim::Proposals::Proposal.create!(params)
+      end
+
       if n.positive?
         Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample(n).each do |author|
-          user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+          user_group = [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(author).verified.sample : nil
           proposal.add_coauthor(author, user_group: user_group)
         end
       end
@@ -212,8 +236,11 @@ Decidim.register_component(:proposals) do |component|
               },
               decidim_organization_id: component.organization.id
             )
-            author.user_groups << group
-            author.save!
+            Decidim::UserGroupMembership.create!(
+              user: author,
+              role: "creator",
+              user_group: group
+            )
           end
           Decidim::Proposals::ProposalEndorsement.create!(proposal: proposal, author: author, user_group: author.user_groups.first)
         end

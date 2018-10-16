@@ -22,7 +22,7 @@ describe "Registration", type: :system do
   context "when signing up" do
     describe "on first sight" do
       it "shows fields empty" do
-        expect(page).to have_content("Sign up as")
+        expect(page).to have_content("Sign up to participate")
         expect(page).to have_field("user_name", with: "")
         expect(page).to have_field("user_nickname", with: "")
         expect(page).to have_field("user_email", with: "")

@@ -85,9 +85,12 @@ es:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Ir al espacio de participación de Iniciativas.
+            - Sigue los pasos para crear una nueva iniciativa.
+          description: Este distintivo se otorga cuando lanza nuevas iniciativas, asociándose con otros para llevarlas a cabo.
           description_another: Este usuario ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
-          explanation: Los usuarios obtienen esta insignia al publicar sus iniciativas.
           name: Iniciativas publicadas
           next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
           unearned_another: Este usuario aún no ha publicado ninguna iniciativa.
@@ -330,6 +333,8 @@ es:
         status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
         technical_validation_for: La iniciativa %{title} ha solicitado su validación técnica.
+      last_activity:
+        new_initiative: Nueva iniciativa
       pages:
         home:
           highlighted_initiatives:
