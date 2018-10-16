@@ -446,6 +446,8 @@ sv:
       destroy_draft:
         error: Det har uppstått fel vid radering av förslagsutkastet.
         success: Förslagsutkastet har tagits bort.
+      last_activity:
+        new_proposal_at_html: "<span>Nytt förslag till %{link}</span>"
       models:
         collaborative_draft:
           fields:

@@ -62,13 +62,8 @@ module Decidim
       end
 
       describe "Organization endorses Proposal" do
-        let(:user_group) { create(:user_group, verified_at: Time.current) }
+        let(:user_group) { create(:user_group, verified_at: Time.current, users: [current_user]) }
         let(:command) { described_class.new(proposal, current_user, user_group.id) }
-
-        before do
-          current_user.user_groups << user_group
-          current_user.save!
-        end
 
         context "when in normal conditions" do
           it "broadcasts ok" do

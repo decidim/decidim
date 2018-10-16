@@ -347,6 +347,8 @@ pl:
         status_change_for: Inicjatywa %{title} zmieniła swój stan
         technical_validation_body_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
         technical_validation_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
+      last_activity:
+        new_initiative: Nowa inicjatywa
       pages:
         home:
           highlighted_initiatives:

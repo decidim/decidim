@@ -215,6 +215,11 @@ module Decidim
     1.minute
   end
 
+  # Time window were users can access the website even if their email is not confirmed.
+  config_accessor :unconfirmed_access_for do
+    2.days
+  end
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production

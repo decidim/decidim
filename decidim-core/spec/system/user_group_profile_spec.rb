@@ -51,10 +51,14 @@ describe "User group profile", type: :system do
   end
 
   context "when displaying members" do
+    let!(:pending_user) { create :user, organization: user.organization }
+    let!(:pending_membership) { create :user_group_membership, user_group: user_group, user: pending_user, role: "requested" }
+
     it "lists the members" do
       click_link "Members"
 
       expect(page).to have_content(user.name)
+      expect(page).to have_no_content(pending_user.name)
     end
   end
 end

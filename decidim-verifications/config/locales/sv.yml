@@ -49,6 +49,7 @@ sv:
         create:
           error: Ett fel uppstod när auktoriseringen skulle skapas.
           success: Du har framgångsrikt auktoriserats.
+          unconfirmed: Du måste bekräfta din e-post för att auktorisera dig själv.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiera mot ett annat exempel på behörighetshanteraren
