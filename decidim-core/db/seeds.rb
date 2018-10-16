@@ -22,7 +22,8 @@ if !Rails.env.production? || ENV["SEED"]
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix,
     available_authorizations: Decidim.authorization_workflows.map(&:name),
-    tos_version: Time.current
+    tos_version: Time.current,
+    badges_enabled: true
   )
 
   if organization.top_scopes.none?
@@ -140,6 +141,7 @@ if !Rails.env.production? || ENV["SEED"]
 
       Decidim::UserGroupMembership.create!(
         user: user,
+        role: "creator",
         user_group: user_group
       )
     end

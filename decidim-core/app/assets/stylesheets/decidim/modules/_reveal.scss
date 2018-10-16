@@ -36,11 +36,12 @@
 
   li{
     @extend .p-s;
+
+    display: flex;
   }
 
   li.selected{
     background-color: rgba($warning, .3);
-    display: flex;
     justify-content: space-between;
 
     svg{
@@ -56,4 +57,8 @@
   li:not(:last-child){
     border-bottom: $border;
   }
+}
+
+.reveal__trigger{
+  cursor: pointer;
 }

@@ -156,6 +156,20 @@ de:
             moderator: Moderator
       titles:
         conferences: Konferenzen
+    admin_log:
+      conference:
+        create: "%{user_name} erstellt die %{resource_name} Konferenz"
+        publish: "%{user_name} veröffentlichte die %{resource_name} Konferenz"
+        unpublish: "%{user_name} unveröffentlichte die %{resource_name} Konferenz"
+        update: "%{user_name} hat die %{resource_name} Konferenz aktualisiert"
+      conference_speaker:
+        create: "%{user_name} hat den %{resource_name} Sprecher in der %{space_name} Konferenz erstellt"
+        delete: "%{user_name} entfernte den %{resource_name} Sprecher von der %{space_name} Konferenz"
+        update: "%{user_name} aktualisierte den %{resource_name} Sprecher in der %{space_name} Konferenz"
+      conference_user_role:
+        create: "%{user_name} lud %{resource_name} zu der %{space_name} Konferenz ein"
+        delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
+        update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Konferenz geändert"
     conference_speakers:
       index:
         title: Lautsprecher
@@ -237,15 +251,28 @@ de:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
+        go_to_twitter: Gehe zu Twitter
+        more_info: Mehr Info
+        personal_website: Persönliche Webseite
         show:
-          affiliation: Zugehörigkeit
-          personal_url: Persönliche Url
-          position: Position
-          short_bio: Kurzbiografie
-          twitter_handle: Twitter
+          more_info: Mehr Info
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Persönliche Webseite
+        twitter_handle:
+          go_to_twitter: Gehe zu Twitter
       conference_speakers:
         index:
           speakers: Lautsprecher
+      conferences:
+        show:
+          already_account: Haben Sie schon einen Account in Decidim?
+          login_as: Sie melden sich als %{name} <%{email}> an
+          make_conference_registration: 'Machen Sie Ihre Registrierung in der Konferenz:'
+          new_user: Neuer Benutzer?
+          register: Registrieren
+          sign_in: Melden Sie sich an, um sich bei dieser Konferenz anzumelden
+          sign_up: Registrieren Sie sich kostenlos in Decidim, um sich zu registrieren
       content_blocks:
         highlighted_conferences:
           name: Hervorgehobene Konferenzen
@@ -279,9 +306,9 @@ de:
             active_conferences: Aktive Konferenzen
             see_all_conferences: Alle Konferenzen anzeigen
       show:
-        end_date: Endtermin
+        details: Einzelheiten
+        introduction: Einführung
         objectives: Ziele
-        start_date: Anfangsdatum
       statistics:
         answers_count: Antworten
         comments_count: Bemerkungen
@@ -328,10 +355,6 @@ de:
         subject: Einladung zur Teilnahme an einer Konferenz
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: Die Konferenz
-        conference_speaker_menu_item: Lautsprecher
-        unfold: Entfalten
       conference_widgets:
         show:
           take_part: Teilnehmen
@@ -347,3 +370,8 @@ de:
         promoted_conference:
           more_info: Mehr Info
           take_part: Teilnehmen
+      conferences_nav:
+        conference_menu_item: Information
+        conference_speaker_menu_item: Lautsprecher
+        unfold: Entfalten
+        venues: Veranstaltungsorte

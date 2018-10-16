@@ -30,10 +30,7 @@ module Decidim
         def create_meeting!
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @form.title, current_organization: @form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, @form.description, current_organization: @form.current_organization).rewrite
-
-          @meeting = Decidim.traceability.create!(
-            Meeting,
-            @form.current_user,
+          params = {
             scope: @form.scope,
             category: @form.category,
             title: parsed_title,
@@ -51,6 +48,13 @@ module Decidim
             organizer: @form.organizer,
             registration_terms: @form.current_component.settings.default_registration_terms,
             component: @form.current_component
+          }
+
+          @meeting = Decidim.traceability.create!(
+            Meeting,
+            @form.current_user,
+            params,
+            visibility: "all"
           )
         end
 

@@ -37,6 +37,7 @@ en:
         organization_url: Organization URL
         redirect_uri: Redirect URI
       organization:
+        badges_enabled: Enable badges
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         default_locale: Default locale

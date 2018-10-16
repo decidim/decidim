@@ -261,6 +261,8 @@ hu:
         public: Nyilvános
       index:
         title: Gyűlések
+      last_activity:
+        new_assembly: Új összeszerelés
       pages:
         home:
           highlighted_assemblies:

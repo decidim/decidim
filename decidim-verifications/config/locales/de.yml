@@ -49,6 +49,7 @@ de:
         create:
           error: Beim Erstellen der Autorisierung ist ein Fehler aufgetreten.
           success: Sie wurden erfolgreich autorisiert.
+          unconfirmed: Sie müssen Ihre E-Mail bestätigen, um sich zu autorisieren.
         first_login:
           actions:
             another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers

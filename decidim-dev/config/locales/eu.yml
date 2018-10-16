@@ -15,9 +15,11 @@ eu:
     gamification:
       badges:
         test:
+          conditions:
+            - Erabili probako ingurunea erabakitzeko.
+          description: Erabiltzaileek plaka hau lortzen dute probak sortzeko.
           description_another: Erabiltzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'
-          explanation: Erabiltzaileek plaka hau lortzen dute probak sortzeko.
           name: probak
           next_level_in: Sortu %{score} proba gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek ez du proba oraindik sortu.
@@ -25,6 +27,7 @@ eu:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Dummies altua
           dummies_count_medium: Dummies ertainak
           foo: foo

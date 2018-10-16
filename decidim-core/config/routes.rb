@@ -58,6 +58,8 @@ Decidim::Core::Engine.routes.draw do
     end
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
+
+    resources :groups, only: [:new, :create]
   end
 
   resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^\/]+} }, format: false
@@ -66,6 +68,7 @@ Decidim::Core::Engine.routes.draw do
     get "followers", to: "profiles#followers", as: "profile_followers"
     get "badges", to: "profiles#badges", as: "profile_badges"
     get "groups", to: "profiles#groups", as: "profile_groups"
+    get "members", to: "profiles#members", as: "profile_members"
   end
 
   resources :pages, only: [:index, :show], format: false
@@ -86,9 +89,15 @@ Decidim::Core::Engine.routes.draw do
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
 
+  namespace :gamification do
+    resources :badges, only: [:index]
+  end
+
   resources :newsletters, only: [:show] do
     get :unsubscribe, on: :collection
   end
+
+  resources :last_activities, only: [:index]
 
   use_doorkeeper do
     skip_controllers :applications, :authorized_applications

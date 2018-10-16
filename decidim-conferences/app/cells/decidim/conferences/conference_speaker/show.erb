@@ -1,80 +1,84 @@
-<div class="column">
-  <article class="card card--member">
-    <div class="card__content">
-      <div class="card__header collapse">
-        <div class="author-data author-data--big">
-          <div class="author-data__main">
-            <div class="author author--flex">
-              <% if has_profile? %>
-                <%= link_to profile_path, class: "author__avatar" do %>
-                  <% if model.avatar.presence %>
-                    <%= image_tag model.avatar_url %>
-                  <% else %>
-                    <%= image_tag model.user.avatar_url(:big) %>
-                  <% end %>
-                <% end %>
-                <div>
-                  <div class="author__name--container">
-                    <%= link_to profile_path, class: "author__name" do %>
-                      <%= name %>
-                    <% end %>
-                  </div>
-                  <% if nickname.present? %>
-                    <%= link_to profile_path, class: "author__nickname" do %>
-                      <%= nickname %>
-                    <% end %>
-                  <% else %>
-                    <div class="author__nickname">&nbsp;</div>
-                  <% end %>
-                </div>
-              <% else %>
-                <div class="author__avatar">
-                  <% if model.avatar.presence %>
-                    <%= image_tag model.avatar_url %>
-                  <% else %>
-                    <%= image_tag asset_path("decidim/default-avatar.svg") %>
-                  <% end %>
-                </div>
-                <div>
-                  <div class="author__name--container">
-                    <div class="author__name">
-                      <%= name %>
-                    </div>
-                  </div>
-                  <div class="author__nickname"><%= nickname.presence || "&nbsp;" %></div>
-                </div>
-              <% end %>
-            </div>
+<div class="column conference-speaker js-conference">
+  <div class="speaker-img-wrapper">
+    <div class="speaker-img">
+      <%= image_tag avatar.url %>
+    </div>
+  </div>
+  <div class="speaker-data">
+    <div class="data-name"><%= name %></div>
+    <% if position.presence %>
+      <div class="data-role">
+        <%= position %>
+      </div>
+    <% end %>
+    <div class="data-extra">
+      <% if nickname.present? %>
+        <%= link_to profile_path, class: "card-link" do %>
+          <%= nickname %> <span><u><%= t(".more_info") %></u></span>
+        <% end %>
+      <% else %>
+        <div class="author__nickname">&nbsp;</div>
+      <% end %>
+    </div>
+  </div>
+  <div class="speaker-bio js-bio">
+    <div class="row">
+      <div class="column medium-6">
+        <div class="speaker-img-wrapper">
+          <div class="speaker-img">
+            <%= image_tag avatar.url %>
           </div>
         </div>
+        <div class="speaker-data">
+          <div class="data-name"><%= name %></div>
+          <% if position.presence %>
+            <div class="data-role"><%= position %></div>
+          <% end %>
+          <div class="data-extra">
+            <% if nickname.present? %>
+              <%= link_to profile_path, class: "card-link" do %>
+                <%= nickname %> <span><u><%= t(".more_info") %></u></span>
+              <% end %>
+            <% else %>
+              <div class="author__nickname">&nbsp;</div>
+            <% end %>
+          </div>
+          <% if personal_url.presence %>
+            <div>
+              <%= personal_url %>
+            </div>
+          <% end %>
+          <% if twitter_handle.presence %>
+            <div>
+              <%= twitter_handle %>
+            </div>
+          <% end %>
+          <% if affiliation.presence %>
+            <div>
+              <%= affiliation %>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="card__text card--picture-offset">
-        <% if position.presence %>
-          <div>
-            <small><strong><%= t("position", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= position %></small>
-          </div>
-        <% end %>
-        <% if twitter_handle.presence %>
-          <div>
-            <small><strong><%= t("twitter_handle", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= twitter_handle %></small>
-          </div>
-        <% end %>
-        <% if personal_url.presence %>
-          <div>
-            <small><strong><%= t("personal_url", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= personal_url %></small>
-          </div>
-        <% end %>
-        <% if affiliation.presence %>
-          <div>
-            <small><strong><%= t("affiliation", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= affiliation %></small>
-          </div>
-        <% end %>
-        <% if short_bio.presence %>
-          <div>
-            <small><strong><%= t("short_bio", scope: "decidim.conferences.conference_speaker.show") %>: </strong><%= short_bio %></small>
-          </div>
-        <% end %>
-      </div>
+      <% if short_bio.presence %>
+        <div class="column medium-6 bio-extended">
+          <%= short_bio %>
+        </div>
+      <% end %>
     </div>
-  </article>
+    <% if meetings.present? %>
+      <hr class="reset mt-none mb-s" />
+      <div class="row">
+        <div class="column medium-12">
+          <div class="bio-acts">Speaking at</div>
+
+          <ul class="list-reset">
+            <% meetings.each do |meeting| %>
+              <%= meeting_title meeting %><br/>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -49,6 +49,7 @@ ca:
         create:
           error: S'ha produït un error en crear l'autorització.
           success: Has estat autoritzat amb èxit.
+          unconfirmed: Cal que confirmeu el vostre correu electrònic per poder autoritzar-vos.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiqueu contra un altre exemple de controlador d'autorització

@@ -36,6 +36,7 @@ es-PY:
         organization_url: URL de organización
         redirect_uri: Redirigir URI
       organization:
+        badges_enabled: Habilitar insignias
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
         default_locale: Idioma predeterminado

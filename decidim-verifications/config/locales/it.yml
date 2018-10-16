@@ -49,6 +49,7 @@ it:
         create:
           error: Si è verificato un errore durante la creazione dell'autorizzazione.
           success: Sei stato autorizzato con successo.
+          unconfirmed: Devi confermare la tua e-mail per autorizzarti.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificare contro un altro esempio di gestore di autorizzazioni
