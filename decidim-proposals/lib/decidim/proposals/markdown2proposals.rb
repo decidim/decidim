@@ -34,10 +34,10 @@ module Decidim
       # Creates Paricipatory Text Proposals at Section and Subsection levels.
       def header(title, level)
         participatory_text_level = if level > 1
-                     Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]
-                   else
-                     Decidim::Proposals::ParticipatoryTextSection::LEVELS[:section]
-                   end
+                                     Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]
+                                   else
+                                     Decidim::Proposals::ParticipatoryTextSection::LEVELS[:section]
+                                   end
 
         proposal = Decidim::Proposals::Proposal.create!(
           component: @component,
@@ -66,10 +66,9 @@ module Decidim
       end
 
       # ignore images
-      def image(link, title, alt_text)
+      def image(_link, _title, _alt_text)
         ""
       end
-
     end
   end
 end
