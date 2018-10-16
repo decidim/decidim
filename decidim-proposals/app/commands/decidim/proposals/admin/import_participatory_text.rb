@@ -20,7 +20,6 @@ module Decidim
         #
         # Returns nothing.
         def call
-          @form.valid?
           return broadcast(:invalid) unless form.valid?
 
           save_participatory_text(form)
