@@ -101,6 +101,20 @@ $nav-border-width: 3px;
   text-transform: uppercase;
   font-weight: $global-weight-bold;
   font-size: rem-calc(14);
+
+  i{
+    @include square(5px);
+
+    border-radius: 100%;
+    background-color: $primary;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: .1rem;
+
+    &:not(:last-child){
+      margin-right: .1rem;
+    }
+  }
 }
 
 .process-nav__hidden-content{
@@ -119,10 +133,9 @@ $nav-border-width: 3px;
 }
 
 .process-nav__hidden-content__more{
-  color: $primary;
-  font-weight: $global-weight-bold;
-  font-size: rem-calc(14);
-  text-transform: uppercase;
+  @extend .process-nav__more;
+
+  background-color: transparent;
   text-align: right;
   border-bottom: $border;
   padding: $global-padding / 2 $global-padding;

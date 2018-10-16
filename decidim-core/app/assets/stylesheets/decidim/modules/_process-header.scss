@@ -1,10 +1,4 @@
 .process-header{
-  margin-bottom: $margin-sm;
-
-  @include breakpoint(medium){
-    margin-bottom: $margin-m;
-  }
-
   .heading2{
     font-weight: bold;
   }
