@@ -27,7 +27,7 @@ module Decidim
 
         ProposalVote.transaction do
           vote.save!
-          ProposalVote.update_temporary_votes!(@current_user, @proposal)
+          ProposalVote.update_temporary_votes!(@current_user, @proposal.component)
         end
 
         Decidim::Gamification.increment_score(@current_user, :proposal_votes)

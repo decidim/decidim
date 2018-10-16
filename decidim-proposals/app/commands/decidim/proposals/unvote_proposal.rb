@@ -21,9 +21,9 @@ module Decidim
       # Returns nothing.
       def call
         ActiveRecord::Base.transaction do
-          votes = @proposal.votes.where(author: @current_user)
-          ProposalVote.update_temporary_votes!(@current_user, @proposal)
-          votes.destroy_all
+          @proposal.votes.where(author: @current_user).destroy_all
+          ProposalVote.update_temporary_votes!(@current_user, @proposal.component)
+          @proposal.update(proposal_votes_count: @proposal.votes.count)
         end
 
         Decidim::Gamification.decrement_score(@current_user, :proposal_votes, votes.count)

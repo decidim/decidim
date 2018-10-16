@@ -19,8 +19,17 @@ module Decidim
         where(temporary: false)
       end
 
-      def self.update_temporary_votes!(user, proposal)
-        component = proposal.component
+      # Public: Only meaningful on proposals that have a minimum amount of votes
+      # set in their component.
+      #
+      # Updates temporary votes for a user once an action on a particular
+      # proposal is done (ex. voting or unvoting it). It will make sure all the
+      # votes of that user are marked `temporary` or `final` in a single operation.
+      #
+      # user      - The user that's performing the action.
+      # component - The proposals component.
+      def self.update_temporary_votes!(user, component)
+        return unless component.settings.minimum_votes_per_user.positive?
 
         user_votes = ProposalVote.where(
           author: user,
@@ -29,17 +38,19 @@ module Decidim
 
         vote_count = user_votes.count
 
-        if vote_count >= component.settings.minimum_votes_per_user
-          user_votes.map { |vote| vote.update!(temporary: false) }
-        else
-          user_votes.map { |vote| vote.update!(temporary: true) }
-        end
+        ActiveRecord::Base.transaction do
+          if vote_count >= component.settings.minimum_votes_per_user
+            user_votes.map { |vote| vote.update!(temporary: false) }
+          else
+            user_votes.map { |vote| vote.update!(temporary: true) }
+          end
 
-        proposal_ids = user_votes.map { |vote| vote.proposal.id }.compact.uniq + [proposal.id]
+          proposal_ids = user_votes.pluck(:decidim_proposal_id)
 
-        proposal_ids.map do |proposal_id|
-          proposal = Proposal.find(proposal_id)
-          proposal.update(proposal_votes_count: proposal.votes.count)
+          proposal_ids.map do |proposal_id|
+            proposal = Proposal.find(proposal_id)
+            proposal.update(proposal_votes_count: proposal.votes.count)
+          end
         end
       end
 
