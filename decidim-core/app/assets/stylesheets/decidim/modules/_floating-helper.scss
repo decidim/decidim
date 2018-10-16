@@ -1,0 +1,35 @@
+.floating-helper{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.floating-helper__layout{
+  position: relative;
+}
+
+.floating-helper__content{
+  position: absolute;
+  top: $global-margin * 2;
+  right: 0;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.floating-helper__text{
+  color: $secondary;
+  background-color: rgba($secondary, .1);
+  font-size: rem-calc(14);
+  font-weight: $global-weight-bold;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 100px;
+  padding: $global-padding / 8 $global-padding / 2 $global-padding / 8 $global-padding;
+}
+
+.floating-helper__icon{
+  color: $white;
+  background-color: $secondary;
+  padding: $global-padding / 8 $global-padding / 2;
+}
