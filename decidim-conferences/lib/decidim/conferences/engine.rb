@@ -30,6 +30,7 @@ module Decidim
               get :decline_invitation
             end
           end
+          resources :media, only: :index
         end
         scope "/conferences/:conference_slug/f/:component_id" do
           Decidim.component_manifests.each do |manifest|

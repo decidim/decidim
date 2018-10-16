@@ -15,6 +15,7 @@ module Decidim
         attribute :date, Decidim::Attributes::LocalizedDate
         attribute :weight, Integer, default: 0
 
+        validates :title, :date, :link, presence: true
         validate :link_format
 
         private

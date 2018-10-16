@@ -312,6 +312,9 @@ en:
         invite_join_conference_mailer:
           invite:
             subject: Invitation to join a conference
+      media:
+        photos:
+          related_photos: Photos
       models:
         conference_invite:
           fields:
@@ -374,6 +377,10 @@ en:
       value_types:
         conference_presenter:
           not_found: 'The conference was not found on the database (ID: %{id})'
+    media:
+      index:
+        description: Links about this conference
+        title: Media and Links
     menu:
       conferences: Conferences
   devise:
@@ -400,5 +407,6 @@ en:
       conferences_nav:
         conference_menu_item: Information
         conference_speaker_menu_item: Speakers
+        media: Media
         unfold: Unfold
         venues: Venues

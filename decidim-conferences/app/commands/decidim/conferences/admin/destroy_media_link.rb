@@ -8,7 +8,7 @@ module Decidim
       class DestroyMediaLink < Rectify::Command
         # Public: Initializes the command.
         #
-        # media_link - the ConferenceSpeaker to destroy
+        # media_link - the MediaLink to destroy
         # current_user - the user performing this action
         def initialize(media_link, current_user)
           @media_link = media_link

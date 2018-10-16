@@ -124,4 +124,12 @@ FactoryBot.define do
       rejected_at { Time.current }
     end
   end
+
+  factory :media_link, class: "Decidim::Conferences::MediaLink" do
+    conference
+    title { generate_localized_title }
+    weight { Faker::Number.between(1, 10) }
+    link { Faker::Internet.url }
+    date { 1.month.ago }
+  end
 end
