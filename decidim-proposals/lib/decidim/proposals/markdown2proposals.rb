@@ -37,21 +37,6 @@ module Decidim
 
       def doc_footer; end
 
-      # def normal_text(text)
-      #   puts "normal_text: #{text}"
-      #    text
-      # end
-
-      # def block_code(code, language)
-      #   puts "block_code #{code}[#{language}]"
-      #    "block_code #{code}[#{language}]"
-      # end
-
-      # def codespan(code)
-      #   puts "codespan #{code}"
-      #    "codespan #{code}"
-      # end
-
       def header(title, level)
         participatory_text_level = if level > 1
                      Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]
@@ -88,33 +73,6 @@ module Decidim
         ""
       end
 
-      # def link(_link, _title, _content)
-      #   "link!!!"
-      # end
-
-      # def list(content, list_type)
-      #   txt= case list_type
-      #   when :ordered
-      #     "\n\n.nr step 0 1\n#{content}\n"
-      #   when :unordered
-      #     "\n\n#{content}\n"
-      #   end
-      #   puts txt
-      #   # @doc_part.add(DocPart.new(:list, @doc_part.level, txt, @doc_part))
-      #   txt
-      # end
-
-      # def list_item(content, list_type)
-      # puts "list_item(#{content}, #{list_type})"
-      # txt= case list_type
-      # when :ordered
-      #   "\n\nnum. step 0 1\n#{content}\n"
-      # when :unordered
-      #   "\n\n- #{content}\n"
-      # end
-      # @doc_part.add(DocPart.new(:list_item, @doc_part.level, txt, @doc_part))
-      # content
-      # end
     end
   end
 end
