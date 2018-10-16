@@ -25,18 +25,8 @@ module Decidim
       # Redcarpet callbacks
       ##########################################
 
-      def preprocess(full_document)
-        full_document
-      end
-
-      def postprocess(full_document)
-        full_document
-      end
-
-      def doc_header; end
-
-      def doc_footer; end
-
+      # Recarpet callback to process headers.
+      # Creates Paricipatory Text Proposals at Section and Subsection levels.
       def header(title, level)
         participatory_text_level = if level > 1
                      Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]
@@ -55,6 +45,8 @@ module Decidim
         title
       end
 
+      # Recarpet callback to process paragraphs.
+      # Creates Paricipatory Text Proposals at Article level.
       def paragraph(text)
         return if text.blank?
 
