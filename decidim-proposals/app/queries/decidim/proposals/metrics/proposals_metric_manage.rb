@@ -38,7 +38,9 @@ module Decidim
           @query = Decidim::Proposals::Proposal.where(component: components).joins(:component)
                                                .left_outer_joins(:category)
           @query = @query.where("decidim_proposals_proposals.published_at <= ?", end_time).except_withdrawn
-          @query = @query.group("decidim_categorizations.decidim_category_id", :participatory_space_type, :participatory_space_id)
+          @query = @query.group("decidim_categorizations.decidim_category_id",
+                                :participatory_space_type,
+                                :participatory_space_id)
           @query
         end
 

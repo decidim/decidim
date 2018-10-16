@@ -38,7 +38,9 @@ module Decidim
           @query = Decidim::Meetings::Meeting.where(component: components).joins(:component)
                                              .left_outer_joins(:category).visible
           @query = @query.where("decidim_meetings_meetings.created_at <= ?", end_time)
-          @query = @query.group("decidim_categorizations.decidim_category_id", :participatory_space_type, :participatory_space_id)
+          @query = @query.group("decidim_categorizations.decidim_category_id",
+                                :participatory_space_type,
+                                :participatory_space_id)
           @query
         end
 

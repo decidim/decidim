@@ -266,10 +266,10 @@ describe "Homepage", type: :system do
             within "#metrics" do
               expect(page).to have_content("Participation in figures")
               Decidim.metrics_registry.highlighted.each do |metric_registry|
-                expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
+                expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
               end
               Decidim.metrics_registry.not_highlighted.each do |metric_registry|
-                expect(page).to have_no_css(%(##{metric_registry.metric_name}_chart))
+                expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
               end
             end
           end
