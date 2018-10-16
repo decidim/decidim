@@ -22,8 +22,10 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          save_participatory_text(form)
-          parse_participatory_text_doc(form.document_text)
+          transaction do
+            save_participatory_text(form)
+            parse_participatory_text_doc(form.document_text)
+          end
 
           broadcast(:ok)
         end
