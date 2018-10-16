@@ -40,18 +40,7 @@ describe "Navbar Links", type: :system do
     end
 
     context "with existing navbar links" do
-      # TODO: FIX FACTORY
-      let!(:navbar_link) do
-        Decidim::NavbarLink.create(
-          organization: organization,
-          title: { en: "My title",
-                   es: "Mi título",
-                   ca: "títol mon" },
-          link: "http://example.org",
-          target: "blank",
-          weight: 2
-        )
-      end
+      let!(:navbar_link) { create(:navbar_link, organization: organization) }
 
       before do
         visit current_path
