@@ -440,10 +440,16 @@ en:
       create:
         error: There has been a problem creating the organization
         success: Organization created successfully
+      edit:
+        edit_user_group: Edit organization
+        update_user_group: Update organization
       new:
         create_user_group: Create organization
         new_user_group: New organization
       no_user_groups: Doesn't belong to any organization yet.
+      update:
+        error: There has been a problem updating the organization
+        success: Organization updated successfully
     invitations:
       create:
         error: There were some problems while inviting your friends
