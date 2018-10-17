@@ -92,6 +92,6 @@
 
 <% if can_edit_user_group_profile? %>
   <div class="text-center">
-    <%= link_to "Edit organization profile", edit_group_path(profile_holder.nickname) %>
+    <%= link_to t("decidim.profiles.user.edit_user_group"), edit_group_path(profile_holder.nickname) %>
   </div>
 <% end %>

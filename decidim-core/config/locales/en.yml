@@ -652,6 +652,7 @@ en:
       user:
         create_user_group: Create organization
         edit_profile: Edit profile
+        edit_user_group: Edit organization profile
     reported_mailer:
       hide:
         hello: Hello %{name},
