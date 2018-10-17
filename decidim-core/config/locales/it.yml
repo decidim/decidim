@@ -435,10 +435,16 @@ it:
       create:
         error: Si è verificato un problema durante la creazione dell'organizzazione
         success: Organizzazione creata con successo
+      edit:
+        edit_user_group: Modifica organizzazione
+        update_user_group: Aggiorna organizzazione
       new:
         create_user_group: Crea organizzazione
         new_user_group: Nuova organizzazione
       no_user_groups: Non appartiene ancora a nessuna organizzazione.
+      update:
+        error: Si è verificato un problema durante l'aggiornamento dell'organizzazione
+        success: Organizzazione aggiornata con successo
     invitations:
       create:
         error: Ci sono stati alcuni problemi durante l'invito ai tuoi amici
@@ -641,6 +647,7 @@ it:
       user:
         create_user_group: Crea organizzazione
         edit_profile: Modifica Profilo
+        edit_user_group: Modifica il profilo dell'organizzazione
     reported_mailer:
       hide:
         hello: Ciao %{name},
