@@ -240,7 +240,7 @@ sv:
             search: Sök
         content_blocks:
           highlighted_assemblies:
-            max_results: Maximal mängd element att visa
+            max_results: Maximalt antal element att visa
       assembly_members:
         index:
           members: Medlemmar
@@ -262,7 +262,7 @@ sv:
       index:
         title: Möten
       last_activity:
-        new_assembly: Ny sammansättning
+        new_assembly: Ny sammankomst
       pages:
         home:
           highlighted_assemblies:
