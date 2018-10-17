@@ -1,24 +1,28 @@
 # frozen_string_literal: true
 
-class MigrateDataToDecidimForms < ActiveRecord::Migration[5.2]
-  class Answer < ApplicationRecord
-    self.table_name = :decidim_surveys_survey_answers
-  end
+namespace :decidim_surveys do
+  desc "Migrate data from decidim_surveys tables to decidim_forms tables"
+  task migrate_data_to_decidim_forms: :environment do
+    class Answer < ApplicationRecord
+      self.table_name = :decidim_surveys_survey_answers
+    end
 
-  class AnswerChoice < ApplicationRecord
-    self.table_name = :decidim_surveys_survey_answer_choices
-  end
+    class AnswerChoice < ApplicationRecord
+      self.table_name = :decidim_surveys_survey_answer_choices
+    end
 
-  class AnswerOption < ApplicationRecord
-    self.table_name = :decidim_surveys_survey_answer_options
-  end
+    class AnswerOption < ApplicationRecord
+      self.table_name = :decidim_surveys_survey_answer_options
+    end
 
-  class Question < ApplicationRecord
-    self.table_name = :decidim_surveys_survey_questions
-  end
+    class Question < ApplicationRecord
+      self.table_name = :decidim_surveys_survey_questions
+    end
 
-  def up
-    return unless [Answer, AnswerChoice, AnswerOption, Question].all? { |model| table_exists? model.table_name }
+    unless [Answer, AnswerChoice, AnswerOption, Question].all? { |model| ActiveRecord::Base.connection.table_exists? model.table_name }
+      puts "ERROR: There are not all the necessary surveys tables. Have you already migrated the data?"
+      next
+    end
 
     Decidim::Surveys::Survey.find_each do |survey|
       questionnaire = Decidim::Forms::Questionnaire.create!(
@@ -77,17 +81,5 @@ class MigrateDataToDecidimForms < ActiveRecord::Migration[5.2]
         end
       end
     end
-
-    # Drop tables
-    drop_table Answer.table_name
-    drop_table AnswerChoice.table_name
-    drop_table AnswerOption.table_name
-    drop_table Question.table_name
-
-    # Drop columns from surveys table
-    remove_column :decidim_surveys_surveys, :title
-    remove_column :decidim_surveys_surveys, :description
-    remove_column :decidim_surveys_surveys, :tos
-    remove_column :decidim_surveys_surveys, :published_at
   end
 end
