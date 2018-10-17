@@ -14,9 +14,6 @@ uk:
         password_confirmation: Підтвердьте свій пароль
         personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
-        user_group_document_number: Номер документа організації
-        user_group_name: Назва організації
-        user_group_phone: Телефон організації
     models:
       decidim/attachment_created_event: Вкладений файл
       decidim/component_published_event: Діюча складова
@@ -30,9 +27,6 @@ uk:
         password: Пароль
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
-        user_group_document_number: Номер документа організації
-        user_group_name: Назва організації
-        user_group_phone: Телефон організації
     models:
       decidim/user:
         one: Учасник
@@ -258,8 +252,6 @@ uk:
           sign_up: Зареєструватися
           sign_up_as:
             legend: Зареєструватися як
-            user: Приватна особа
-            user_group: Організація / колектив
           subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
           terms: умови участі
           tos_agreement: Реєструючись, ви приймаєте %{link}.

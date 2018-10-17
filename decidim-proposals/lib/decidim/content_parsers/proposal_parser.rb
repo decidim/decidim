@@ -73,9 +73,11 @@ module Decidim
 
       def proposal_from_url_match(match)
         uri = URI.parse(match)
+        return if uri.path.blank?
+
         proposal_id = uri.path.split("/").last
         find_proposal_by_id(proposal_id)
-      rescue URI::InvalidURIError, NoMethodError => e
+      rescue URI::InvalidURIError
         Rails.logger.error("#{e.message}=>#{e.backtrace}")
         nil
       end

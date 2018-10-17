@@ -288,6 +288,8 @@ nl:
           name: Gemarkeerde processen
       index:
         title: Burgerinspraak
+      last_activity:
+        new_participatory_process: Nieuw participatief proces
       pages:
         home:
           highlighted_processes:

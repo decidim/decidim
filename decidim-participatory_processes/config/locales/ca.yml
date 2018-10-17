@@ -288,6 +288,8 @@ ca:
           name: Processos destacats
       index:
         title: Processos participatius
+      last_activity:
+        new_participatory_process: Nou procés participatiu
       pages:
         home:
           highlighted_processes:

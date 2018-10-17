@@ -13,7 +13,7 @@ module Decidim
     end
 
     def user_groups
-      @user_groups ||= model.user_groups.page(params[:page]).per(20)
+      @user_groups ||= Decidim::UserGroups::AcceptedUserGroups.for(model).page(params[:page]).per(20)
     end
   end
 end

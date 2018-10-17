@@ -18,7 +18,7 @@ module Decidim
 
         2.times do
           author = Decidim::User.where(organization: organization).all.sample
-          user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+          user_group = [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(author).verified.sample : nil
 
           params = {
             commentable: resource,

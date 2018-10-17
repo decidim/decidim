@@ -31,7 +31,7 @@ describe Decidim::Verifications::PerformAuthorizationStep do
     Decidim::Verifications::Authorizations.new(organization: user.organization, user: user, granted: false)
   end
 
-  let(:user) { create(:user) }
+  let(:user) { create(:user, :confirmed) }
 
   let(:form) { form_class.new(user: user, address: address) }
 

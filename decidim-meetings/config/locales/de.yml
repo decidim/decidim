@@ -312,6 +312,8 @@ de:
             search: Suche
             space_type: Partizipativer Raum
             upcoming: Bevorstehende
+      last_activity:
+        new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

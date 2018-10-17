@@ -169,6 +169,7 @@ ignore_unused:
   - decidim.proposals.collaborative_drafts.show.publish
   - decidim.conferences.content_blocks.*.name
   - decidim.conferences.pages.home.highlighted_conferences.*
+  - decidim.conferences.conference_speaker.*
   - decidim.conferences.statistics.*
   - decidim.gamification.badges.*
 

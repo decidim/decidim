@@ -116,6 +116,8 @@ ca:
         value_types:
           parent_presenter:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nou resultat a %{link}</span>"
       models:
         result:
           fields:

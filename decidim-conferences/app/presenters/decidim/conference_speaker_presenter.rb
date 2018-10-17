@@ -5,6 +5,8 @@ module Decidim
   # Decorator for conference speakers
   #
   class ConferenceSpeakerPresenter < SimpleDelegator
+    include Decidim::ResourceHelper
+
     delegate :profile_path, to: :user, allow_nil: true
 
     def name

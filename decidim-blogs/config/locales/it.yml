@@ -37,6 +37,8 @@ it:
           update:
             invalid: Si sono verificati errori durante il salvataggio del post.
             success: Post salvato correttamente
+      last_activity:
+        new_post_at_html: "<span>Nuovo post a %{link}</span>"
       models:
         post:
           fields:

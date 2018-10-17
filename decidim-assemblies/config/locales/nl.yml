@@ -261,6 +261,8 @@ nl:
         public: Openbaar
       index:
         title: Events
+      last_activity:
+        new_assembly: Nieuwe vergadering
       pages:
         home:
           highlighted_assemblies:
