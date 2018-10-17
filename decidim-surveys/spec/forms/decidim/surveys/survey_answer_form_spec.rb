@@ -119,7 +119,7 @@ module Decidim
           expect(subject).not_to be_valid
         end
 
-        it "is valid if no a single options checked" do
+        it "is valid if no options checked" do
           subject.choices = []
 
           expect(subject).to be_valid
