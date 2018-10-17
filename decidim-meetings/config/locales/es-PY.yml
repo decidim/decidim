@@ -125,9 +125,11 @@ es-PY:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Regístrate en las reuniones a las que quieres asistir.
+          description: Este distintivo se otorga cuando asiste a varias reuniones cara a cara.
           description_another: Este usuario asistió a %{score} encuentros.
           description_own: Usted ha asistido a %{score} reuniones.
-          explanation: Los usuarios obtienen esta insignia asistiendo a las reuniones.
           name: Reuniones asistidas
           next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha asistido a ninguna reunión.
@@ -311,6 +313,8 @@ es-PY:
             search: Buscar
             space_type: Espacio participativo
             upcoming: Próximo
+      last_activity:
+        new_meeting_at_html: "<span>Nueva reunión en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -354,6 +358,8 @@ es-PY:
             one: 1 inscripción disponible
             other: "%{count} inscripciones disponibles"
           view: Ver
+      meetings_map:
+        view_meeting: Ver encuentro
       models:
         invite:
           fields:

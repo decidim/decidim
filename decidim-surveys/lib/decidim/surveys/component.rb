@@ -9,6 +9,12 @@ Decidim.register_component(:surveys) do |component|
   component.stylesheet = "decidim/surveys/surveys"
   component.permissions_class_name = "Decidim::Surveys::Permissions"
 
+  component.on(:copy) do |context|
+    Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
+      on(:invalid) { raise "Can't create survey" }
+    end
+  end
+
   component.on(:create) do |instance|
     Decidim::Surveys::CreateSurvey.call(instance) do
       on(:invalid) { raise "Can't create survey" }
@@ -61,12 +67,26 @@ Decidim.register_component(:surveys) do |component|
   end
 
   component.seeds do |participatory_space|
-    component = Decidim::Component.create!(
+    admin_user = Decidim::User.find_by(
+      organization: participatory_space.organization,
+      email: "admin@example.org"
+    )
+
+    params = {
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name,
       manifest_name: :surveys,
       published_at: Time.current,
       participatory_space: participatory_space
-    )
+    }
+
+    component = Decidim.traceability.perform_action!(
+      "publish",
+      Decidim::Component,
+      admin_user,
+      visibility: "all"
+    ) do
+      Decidim::Component.create!(params)
+    end
 
     questionnaire = Decidim::Forms::Questionnaire.new(
       title: Decidim::Faker::Localized.paragraph,
@@ -78,7 +98,17 @@ Decidim.register_component(:surveys) do |component|
       end
     )
 
-    Decidim::Surveys::Survey.create!(component: component, questionnaire: questionnaire)
+    params = {
+      component: component,
+      questionnaire: questionnaire
+    }
+
+    survey = Decidim.traceability.create!(
+      Decidim::Surveys::Survey,
+      admin_user,
+      params,
+      visibility: "all"
+    )
 
     %w(short_answer long_answer).each do |text_question_type|
       Decidim::Forms::Question.create!(

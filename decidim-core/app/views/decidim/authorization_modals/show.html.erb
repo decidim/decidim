@@ -1,32 +1,45 @@
-<button class="close-button" data-close aria-label="Close modal"
-        type="button">
+<button class="close-button" data-close aria-label="Close modal" type="button">
   <span aria-hidden="true">&times;</span>
 </button>
-<div class="reveal__header <%= status.code %>-authorization">
-  <h3 class="reveal__title"><%= t ".#{status.code}.title" %></h3>
-</div>
-<p><%= t ".#{status.code}.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
-<% if status.data[:extra_explanation] %>
-<p><%= t status.data[:extra_explanation][:key], **status.data[:extra_explanation][:params] %></p>
-<% end %>
-<% if status.data[:fields] %>
-<ul>
-  <% status.data[:fields].each do |field, value| %>
-    <li><strong><%= t ".#{status.code}.invalid_field", field: t("#{status.handler_name}.fields.#{field}", scope: "decidim.authorization_handlers"), value: value ? "(#{value})" : "" %></strong></li>
-  <% end %>
-</ul>
-<% end %>
-<div class="row">
-  <div class="columns medium-8 medium-offset-2">
-    <% if status.data[:action].present? %>
-      <%= link_to t(".#{status.code}.#{status.data[:action]}", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers")), authorize_action_path, class: "button expanded" %>
-    <% else %>
-      <button class="button expanded" data-close><%= t ".#{status.code}.ok" %></button>
-    <% end %>
+
+<% if current_user && !current_user.verifiable? %>
+  <div class="reveal__header missing-confirmation">
+    <h3 class="reveal__title"><%= t ".unconfirmed.title" %></h3>
   </div>
-</div>
-<% if status.data[:cancel] %>
-<div class="text-center">
-  <button class="link" data-close><%= t ".#{status.code}.cancel" %></button>
-</div>
+  <p><%= t ".unconfirmed.explanation_html", email: current_user.email %></p>
+  <p><%= t ".unconfirmed.confirmation_instructions" %></p>
+  <div class="row">
+    <div class="columns medium-8 medium-offset-2">
+      <%= link_to t(".unconfirmed.request_confirmation_instructions"), new_confirmation_path(Decidim::User), class: "button expanded" %>
+    </div>
+  </div>
+<% else %>
+  <div class="reveal__header <%= status.code %>-authorization">
+    <h3 class="reveal__title"><%= t ".#{status.code}.title" %></h3>
+  </div>
+  <p><%= t ".#{status.code}.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
+  <% if status.data[:extra_explanation] %>
+    <p><%= t status.data[:extra_explanation][:key], **status.data[:extra_explanation][:params] %></p>
+  <% end %>
+  <% if status.data[:fields] %>
+    <ul>
+      <% status.data[:fields].each do |field, value| %>
+        <li><strong><%= t ".#{status.code}.invalid_field", field: t("#{status.handler_name}.fields.#{field}", scope: "decidim.authorization_handlers"), value: value ? "(#{value})" : "" %></strong></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="row">
+    <div class="columns medium-8 medium-offset-2">
+      <% if status.data[:action].present? %>
+        <%= link_to t(".#{status.code}.#{status.data[:action]}", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers")), authorize_action_path, class: "button expanded" %>
+      <% else %>
+        <button class="button expanded" data-close><%= t ".#{status.code}.ok" %></button>
+      <% end %>
+    </div>
+  </div>
+  <% if status.data[:cancel] %>
+    <div class="text-center">
+      <button class="link" data-close><%= t ".#{status.code}.cancel" %></button>
+    </div>
+  <% end %>
 <% end %>

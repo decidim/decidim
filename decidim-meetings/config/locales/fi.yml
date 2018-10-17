@@ -125,9 +125,11 @@ fi:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+          description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapaamisiin.
           description_another: Tämä käyttäjä on osallistunut %{score} tapaamiseen.
           description_own: Olet osallistunut %{score} tapaamiseen.
-          explanation: Käyttäjät saavat tämän tunnuksen osallistumalla tapaamisiin.
           name: Tapaamisiin osallistuminen
           next_level_in: Osallistu %{score} uuteen tapaamiseen seuraavan tason saavuttamiseksi!
           unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapaamiseen.
@@ -311,6 +313,8 @@ fi:
             search: Hae
             space_type: Osallistumistila
             upcoming: Tulevat
+      last_activity:
+        new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -354,6 +358,8 @@ fi:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
           view: Näytä
+      meetings_map:
+        view_meeting: Näytä tapaaminen
       models:
         invite:
           fields:

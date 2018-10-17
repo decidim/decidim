@@ -36,6 +36,7 @@ sv:
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
+        badges_enabled: Aktivera märken
         cta_button_path: Knappsökväg till Uppmaning till Handing
         cta_button_text: Knapptext för Uppmaning till Handling
         default_locale: Standardspråk

@@ -239,5 +239,15 @@ describe Decidim::Permissions do
         end
       end
     end
+
+    context "when action is on user group" do
+      let(:action_subject) { :user_group }
+
+      context "when creating user groups" do
+        let(:action_name) { :create }
+
+        it { is_expected.to eq true }
+      end
+    end
   end
 end

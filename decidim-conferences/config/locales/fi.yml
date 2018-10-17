@@ -156,6 +156,20 @@ fi:
             moderator: Moderoija
       titles:
         conferences: Konferenssit
+    admin_log:
+      conference:
+        create: "%{user_name} loi %{resource_name} konferenssin"
+        publish: "%{user_name} julkaisi %{resource_name} konferenssin"
+        unpublish: "%{user_name} julkaisematon %{resource_name} konferenssi"
+        update: "%{user_name} päivitti %{resource_name} konferenssin"
+      conference_speaker:
+        create: "%{user_name} loi %{resource_name} kaiutin %{space_name} konferenssissa"
+        delete: "%{user_name} poisti %{resource_name} kaiutin %{space_name} konferenssista"
+        update: "%{user_name} päivitti %{resource_name} puhujan %{space_name} konferenssissa"
+      conference_user_role:
+        create: "%{user_name} kutsui %{resource_name} on %{space_name} konferenssiin"
+        delete: "%{user_name} poistaa käyttäjän %{resource_name} %{space_name} konferenssista"
+        update: "%{user_name} muuttunut rooli %{resource_name} on %{space_name} konferenssiin"
     conference_speakers:
       index:
         title: Puhujat
@@ -237,15 +251,28 @@ fi:
           invalid: Konferenssista poistumisessa on tapahtunut virhe.
           success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
+        go_to_twitter: Siirry Twitteriin
+        more_info: Lisätietoja
+        personal_website: Henkilökohtainen verkkosivusto
         show:
-          affiliation: Jäsenyys
-          personal_url: Henkilökohtainen URL-osoite
-          position: Asema
-          short_bio: Lyhyt biografia
-          twitter_handle: Twitter
+          more_info: Lisätietoja
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Henkilökohtainen verkkosivusto
+        twitter_handle:
+          go_to_twitter: Siirry Twitteriin
       conference_speakers:
         index:
           speakers: Puhujat
+      conferences:
+        show:
+          already_account: Onko sinulla jo tili decidimissa?
+          login_as: Olet kirjautunut sisään %{name} <%{email}>
+          make_conference_registration: 'Tee rekisteröintisi konferenssiin:'
+          new_user: Uusi käyttäjä?
+          register: Rekisteröidy
+          sign_in: Kirjaudu sisään rekisteröidyksi tässä kokouksessa
+          sign_up: Rekisteröidy ilmaiseksi decidim rekisteröityä
       content_blocks:
         highlighted_conferences:
           name: Korostetut konferenssit
@@ -279,9 +306,9 @@ fi:
             active_conferences: Aktiiviset konferenssit
             see_all_conferences: Katso kaikki konferenssit
       show:
-        end_date: Päättymispäivä
+        details: Yksityiskohdat
+        introduction: esittely
         objectives: Tavoitteet
-        start_date: Alkamispäivä
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
@@ -328,10 +355,6 @@ fi:
         subject: Kutsu konferenssiin
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: Konferenssi
-        conference_speaker_menu_item: Puhujat
-        unfold: Avaa
       conference_widgets:
         show:
           take_part: Osallistu
@@ -347,3 +370,8 @@ fi:
         promoted_conference:
           more_info: Lisätietoja
           take_part: Osallistu
+      conferences_nav:
+        conference_menu_item: Tiedot
+        conference_speaker_menu_item: kaiuttimet
+        unfold: avautua
+        venues: tapahtumapaikat

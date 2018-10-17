@@ -14,9 +14,6 @@ eu:
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
         remove_avatar: Kendu avatar-a
-        user_group_document_number: Egiaztagiri-zenbakia
-        user_group_name: Erakundearen izena
-        user_group_phone: Erakundearen telefonoa
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai aktiboa
@@ -32,9 +29,6 @@ eu:
         password: Pasahitza
         password_confirmation: Baieztatu pasahitza
         remember_me: Gogoratu
-        user_group_document_number: Egiaztagiri-zenbakia
-        user_group_name: Erakundearen izena
-        user_group_phone: Erakundearen telefonoa
     models:
       decidim/user:
         one: Erabiltzaileak
@@ -52,6 +46,7 @@ eu:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ eu:
           invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
+        unconfirmed:
+          confirmation_instructions: 'Berrespen-argibideak jaso ez badituzu berriro eska ditzakezu:'
+          explanation_html: Ekintza hau burutzeko baimena behar da, egiten zure email berretsi behar duzula aurretik behar duzu <strong>%{email}</strong>.
+          request_confirmation_instructions: Eska ezazu berrespen-argibideak
+          title: Berretsi zure posta elektronikoa
     collapsible_list:
       hidden_elements_count:
         one: eta beste bat
@@ -219,6 +219,10 @@ eu:
       html:
         html_content: HTML edukia
         name: HTML blokea
+      last_activity:
+        name: Azken jarduera
+        title: Azken jarduera
+        view_all: Ikusi dena
       metrics:
         name: Erakundearen metrika
       stats:
@@ -257,8 +261,6 @@ eu:
           sign_up: Erregistratu
           sign_up_as:
             legend: Izena eman honako hau gisa
-            user: Banakoa
-            user_group: Erakundea / Kolektiboa
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           terms: erabilera-baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
@@ -387,19 +389,41 @@ eu:
         error: Errorea bat dago eremu honetan.
       remove_this_file: Ezabatu artxibo hau
     gamification:
+      all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
+        continuity:
+          conditions:
+            - Zatoz hemen sarritan
+          description: Txartela hau modu erregularrean bisitatzen duzunean ematen da. Gustatzen zait hemen!
+          description_another: Erabiltzaile honek une batez %{score} egunez konektatua dago.
+          description_own: Zenbait puntutan eguneko %{score} egunetarako konektatuta zaude.
+          name: Continuity
+          next_level_in: Konektatu %{score} egun jarraian hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek ez du saioa hasi egun bat baino gehiagoz.
+          unearned_own: Ez duzu egun bat baino gehiagoz konektaturik.
         followers:
+          conditions:
+            - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
+          description: Idazmahaia jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare sozial eta politikoa da, zure weba plataforman beste pertsona batzuekin komunikatzeko ehundu.
           description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
           description_own: "%{score} erabiltzaile jarraitzen zaituzte."
-          explanation: Erabiltzaileek txapela lortzen dute beste erabiltzaile batzuek jarraituz.
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzaileik.
+        index:
+          badge_title: "%{name} txapela"
+          how: Nola irabaz dezakezu?
+          page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
+          title: Badges
         invitations:
+          conditions:
+            - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
+            - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
+            - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
+          description: Idazmahaia ematen zaie pertsona batzuk gonbidatu dituzunean eta denbora pixka bat pasatu dute %{organization_name} erregistratu eta parte-hartzaile bihurtu. Eskerrik asko egiteko %{organization_name} besteei ezaguna eta komunitatea zabaltzeko laguntzen!
           description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
           description_own: '%{score} erabiltzaile gonbidatu dituzu.'
-          explanation: Erabiltzaileek badute beste erabiltzaile batzuek gonbidatuta.
           name: Gonbidapenak
           next_level_in: Gonbidatu %{score} erabiltzaile gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek ez du oraindik gonbidatu erabiltzaileak.
@@ -407,6 +431,14 @@ eu:
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
+    groups:
+      create:
+        error: Antolakuntza sortzerakoan arazo bat izan da
+        success: Antolakuntza behar bezala sortu da
+      new:
+        create_user_group: Sortu erakundea
+        new_user_group: Antolakuntza berria
+      no_user_groups: Ez dago inongo erakunderik.
     invitations:
       create:
         error: Arazo batzuk egon dira zure lagunak gonbidatuz
@@ -419,6 +451,13 @@ eu:
         invitations_title: Uste duzu gehiago ahotsak behar entzun %{organization_name}?
         invite: gonbidatu
         visit_your_profile: Bisitatu zure profila
+    last_activities:
+      activities:
+        no_activities_warning: Jarduera ez
+      all: Jarduera mota guztiak
+      index:
+        last_activity: Azken jarduera
+        resource_type: Mota
     log:
       base_presenter:
         create: "%{user_name} sortu %{resource_name}"
@@ -440,6 +479,8 @@ eu:
           not_found: 'Eremu mota ez da aurkitu datu-baseko (ID: %{id})'
     managed_users:
       expired_session: Ordezte-saio hau iraungi da.
+    members:
+      no_members: Erabiltzaile talde honek ez du kideik oraindik.
     menu:
       home: Hasiera
       more_information: Argibide gehiago
@@ -583,18 +624,22 @@ eu:
       deleted: Erabiltzailea ezabatua
       view: ikusi
     profiles:
-      default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
+      default_officialization_text_for_user_groups: Erabiltzaile talde hau publikoki egiaztatua dago, bere izena benetako izenarekin lotzeko egiaztatu da
+      default_officialization_text_for_users: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         badges: Badges
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
+        groups: Erakundeak
+        members: Bazkideek
         notifications: jakinarazpenak
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
           title: Badges
       user:
+        create_user_group: Sortu erakundea
         edit_profile: Editatu profila
     reported_mailer:
       hide:
@@ -679,7 +724,6 @@ eu:
       not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
       timeout: Zure saioa iraungi da. Hasi saioa berriro jarraitzeko.
       unauthenticated: Saioa hasi edo saioa hasi behar duzu jarraitu aurretik.
-      unconfirmed: Zure helbide elektronikoa berretsi behar duzu jarraitu baino lehen.
     invitations:
       edit:
         header: Amaitu zure kontua sortzea

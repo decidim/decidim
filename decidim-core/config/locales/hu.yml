@@ -14,9 +14,6 @@ hu:
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
-        user_group_document_number: Szervezeti dokumentum száma
-        user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefonszáma
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
@@ -32,9 +29,6 @@ hu:
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         remember_me: Emlékezz rám
-        user_group_document_number: Szervezeti dokumentum száma
-        user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefonszáma
     models:
       decidim/user:
         one: Felhasználó
@@ -52,6 +46,7 @@ hu:
     formats:
       decidim_short: "%nap/%hó/%év"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ hu:
           invalid_field: "A(z) %{field} %{value} érték nem érvényes."
           ok: Rendben
           title: Nem engedélyezett
+        unconfirmed:
+          confirmation_instructions: 'Ha még nem kapta meg a megerősítési utasítást, kérheti újra őket:'
+          explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
+          request_confirmation_instructions: Kérjen megerősítési utasítást
+          title: Erősítsd meg az e-mail címed
     collapsible_list:
       hidden_elements_count:
         one: és még egy
@@ -219,6 +219,10 @@ hu:
       html:
         html_content: HTML tartalom
         name: HTML blokk
+      last_activity:
+        name: Utolsó bejelentkezés, utolsó használat
+        title: Utolsó bejelentkezés, utolsó használat
+        view_all: Összes megtekintése
       metrics:
         name: Szervezeti mutatók
       stats:
@@ -257,8 +261,6 @@ hu:
           sign_up: Regisztráció
           sign_up_as:
             legend: Regisztrálj mint
-            user: Magánszemély
-            user_group: Szervezet/Egyesület
           subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
           terms: a használati feltételek
           tos_agreement: A feliratkozással elfogadod a %{link}.
@@ -386,19 +388,41 @@ hu:
         error: Hiba van ebben a mezőben.
       remove_this_file: Töröld ezt a fájlt
     gamification:
+      all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
+        continuity:
+          conditions:
+            - Gyere ide gyakran
+          description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
+          description_another: Ez a felhasználó egy adott napon %{score} egymást követő napon keresztül kapcsolódott.
+          description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
+          name: Folytonosság
+          next_level_in: Csatlakoztasson %{score} egymást követő napot, hogy eljusson a következő szintre!
+          unearned_another: Ez a felhasználó több mint egymást követő napon nem jelentkezett be.
+          unearned_own: Nem kapcsolódott több mint egymást követő napon.
         followers:
+          conditions:
+            - Az aktív és más emberek követése biztosan másokat követni fog.
+          description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. %{organization_name} egy társadalmi és politikai hálózat, szövik a webet, hogy kommunikáljon más emberekkel a platformon.
           description_another: Ennek a felhasználónak %{score} követője van.
           description_own: "%{score} felhasználó követi Önt."
-          explanation: A felhasználók ezt a jelvényt kapják más felhasználók követésével.
           name: Követő
           next_level_in: Get %{score} több felhasználó követni, hogy a következő szintre!
           unearned_another: Ennek a felhasználónak még nincsenek követői.
           unearned_own: Még nincsenek követői.
+        index:
+          badge_title: "%{name} jelvény"
+          how: Hogyan lehet keresni?
+          page_description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz. Itt van a jelvények listája, és néhány módon, amiket kereshet.
+          title: Kitűzők
         invitations:
+          conditions:
+            - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
+            - Testreszabása, ha szeretné, az elküldött üzenetet
+            - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
+          description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és kis időbe telik, hogy regisztráljon %{organization_name} és részt vegyen. Köszönjük, hogy %{organization_name} ismertek mások, és segít bővíteni a közösség!
           description_another: Felhasználó meghívott %{score} felhasználókat.
           description_own: Meghívtál %{score} felhasználótkat.
-          explanation: A felhasználók mások meghívásával szerezhetnek jelvényt.
           name: Meghívók
           next_level_in: Hívj meg több %{score} felhasználót a következő szint eléréséhez!
           unearned_another: Ez a felhasználó még nem hívott meg senkit.
@@ -406,6 +430,14 @@ hu:
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
       level: '%{level} szint'
       reached_top: Elérted a jelvény legmagasabb szintjét.
+    groups:
+      create:
+        error: Hiba történt a szervezet létrehozásában
+        success: A szervezet sikeresen létrejött
+      new:
+        create_user_group: Hozzon létre szervezetet
+        new_user_group: Új szervezet
+      no_user_groups: Még nem tartozik semmiféle szervezethez.
     invitations:
       create:
         error: Problémák adódtak a barátok meghívása közben
@@ -418,6 +450,13 @@ hu:
         invitations_title: Szerinted többet kelleni hallani a %{organization_name} szervezetről?
         invite: Meghívás
         visit_your_profile: Profil oldalad
+    last_activities:
+      activities:
+        no_activities_warning: Nincs aktivitás
+      all: Valamennyi tevékenységtípus
+      index:
+        last_activity: Utolsó bejelentkezés, utolsó használat
+        resource_type: típus
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"
@@ -439,6 +478,8 @@ hu:
           not_found: 'A hatáskör típus nem található az adatbázisban (ID: %{id})'
     managed_users:
       expired_session: A jelenlegi megszemélyesítő munkamenet lejárt.
+    members:
+      no_members: Ennek a felhasználói csoportnak még nincs tagja.
     menu:
       home: Kezdőlap
       more_information: További információk
@@ -582,18 +623,22 @@ hu:
       deleted: Törölt felhasználó
       view: Nézet
     profiles:
-      default_officialization_text: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
+      default_officialization_text_for_user_groups: Ez a felhasználói csoport nyilvánosan ellenőrzött, annak neve igazoltan megfelel a valódi nevének
+      default_officialization_text_for_users: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
       show:
         badges: Jelvények
         conversations: Beszélgetések
         followers: Követők
         following: Követés
+        groups: szervezetek
+        members: Belépés
         notifications: Értesítések
       sidebar:
         badges:
           info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
           title: Kitűzők
       user:
+        create_user_group: Hozzon létre szervezetet
         edit_profile: Profil szerkesztése
     reported_mailer:
       hide:
@@ -678,7 +723,6 @@ hu:
       not_found_in_database: Érvénytelen %{authentication_keys} vagy jelszó.
       timeout: A munkamenet lejárt. Kérjük, jelentkezzen be újra a folytatáshoz.
       unauthenticated: Jelentkezzen be, vagy regisztráljon, mielőtt folytatja.
-      unconfirmed: A folytatás előtt meg kell erősítenie az e-mail címét.
     invitations:
       edit:
         header: Profil létrehozásának befejezése

@@ -14,7 +14,7 @@ module Decidim
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
 
-      helper_method :collection, :promoted_assemblies, :assemblies, :stats, :assembly_participatory_processes
+      helper_method :collection, :parent_assemblies, :promoted_assemblies, :assemblies, :stats, :assembly_participatory_processes
 
       def index
         enforce_permission_to :list, :assembly
@@ -64,7 +64,11 @@ module Decidim
         @assemblies ||= OrganizationPrioritizedAssemblies.new(current_organization, current_user)
       end
 
-      alias collection assemblies
+      def parent_assemblies
+        @parent_assemblies ||= assemblies | ParentAssemblies.new
+      end
+
+      alias collection parent_assemblies
 
       def promoted_assemblies
         @promoted_assemblies ||= assemblies | PromotedAssemblies.new

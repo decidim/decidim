@@ -156,6 +156,20 @@ gl:
             moderator: Moderador
       titles:
         conferences: Conferencias
+    admin_log:
+      conference:
+        create: "%{user_name} creou a %{resource_name} conferencia"
+        publish: "%{user_name} publicou a %{resource_name} conferencia"
+        unpublish: "%{user_name} inédita a %{resource_name} conferencia"
+        update: "%{user_name} actualizou a %{resource_name} conferencia"
+      conference_speaker:
+        create: "%{user_name} creou o %{resource_name} altofalante na %{space_name} conferencia"
+        delete: "%{user_name} eliminou o %{resource_name} altofalante da %{space_name} conferencia"
+        update: "%{user_name} actualizou o %{resource_name} altofalante na %{space_name} conferencia"
+      conference_user_role:
+        create: "%{user_name} invitados %{resource_name} á %{space_name} conferencias"
+        delete: "%{user_name} eliminou o usuario %{resource_name} da %{space_name} conferencia"
+        update: "%{user_name} cambiou o papel de %{resource_name} na %{space_name} conferencia"
     conference_speakers:
       index:
         title: Ponentes
@@ -237,15 +251,28 @@ gl:
           invalid: Houbo un problema deixando esta conferencia.
           success: Deixaches con éxito a conferencia.
       conference_speaker:
+        go_to_twitter: Ir a Twitter
+        more_info: máis información
+        personal_website: Sitio web persoal
         show:
-          affiliation: Afiliación
-          personal_url: Url persoal
-          position: Posición
-          short_bio: Bio breve
-          twitter_handle: Twitter
+          more_info: máis información
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Sitio web persoal
+        twitter_handle:
+          go_to_twitter: Ir a Twitter
       conference_speakers:
         index:
           speakers: Ponentes
+      conferences:
+        show:
+          already_account: Xa tes unha conta en decidir?
+          login_as: Estás conectado como %{name} <%{email}>
+          make_conference_registration: 'Fai a túa inscrición na conferencia:'
+          new_user: Novo usuario?
+          register: Rexistrarse
+          sign_in: Iniciar sesión para rexistrarse nesta conferencia
+          sign_up: Inscríbase de forma gratuita na decisión de rexistrarse
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
@@ -279,9 +306,9 @@ gl:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas as conferencias
       show:
-        end_date: Data de finalización
+        details: Detalles
+        introduction: Introdución
         objectives: Obxectivos
-        start_date: Data de inicio
       statistics:
         answers_count: Respostas
         comments_count: Comentarios
@@ -328,10 +355,6 @@ gl:
         subject: Invitación para participar nunha conferencia
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: A Conferencia
-        conference_speaker_menu_item: Ponentes
-        unfold: Despregar
       conference_widgets:
         show:
           take_part: Tomar parte en
@@ -347,3 +370,8 @@ gl:
         promoted_conference:
           more_info: Máis información
           take_part: Tomar parte en
+      conferences_nav:
+        conference_menu_item: Información
+        conference_speaker_menu_item: Ponentes
+        unfold: Despregar
+        venues: Lugares

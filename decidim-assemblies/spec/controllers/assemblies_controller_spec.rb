@@ -90,6 +90,14 @@ module Decidim
         end
       end
 
+      describe "parent_assemblies" do
+        let!(:child_assembly) { create(:assembly, parent: published, organization: organization) }
+
+        it "includes only parent assemblies" do
+          expect(controller.helpers.parent_assemblies).to contain_exactly(published, promoted)
+        end
+      end
+
       describe "GET show" do
         context "when the assembly is unpublished" do
           it "redirects to root path" do

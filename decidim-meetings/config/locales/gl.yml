@@ -125,9 +125,11 @@ gl:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Rexístrese nas reunións que desexa asistir
+          description: Este distintivo é concedido cando asistes a varias reunións cara a cara.
           description_another: Este usuario asistiu a %{score} reunións.
           description_own: Atendeu %{score} reunións.
-          explanation: Os usuarios obtén esta insignia ao asistir a reunións.
           name: Reunións asistidas
           next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
           unearned_another: Este usuario aínda non asistiu a ningunha reunión.
@@ -311,6 +313,8 @@ gl:
             search: Busca
             space_type: Espazo participativo
             upcoming: Próximos
+      last_activity:
+        new_meeting_at_html: "<span>Nova reunión en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

@@ -99,6 +99,42 @@ describe "Profile", type: :system do
       end
     end
 
+    describe "badges" do
+      context "when badges are enabled" do
+        before do
+          user.organization.update(badges_enabled: true)
+          visit decidim.profile_path(user.nickname)
+        end
+
+        it "shows a badges tab" do
+          expect(page).to have_link("Badges")
+        end
+
+        it "shows a badges section on the sidebar" do
+          within ".profile--sidebar" do
+            expect(page).to have_content("Badges")
+          end
+        end
+      end
+
+      context "when badges are disabled" do
+        before do
+          user.organization.update(badges_enabled: false)
+          visit decidim.profile_path(user.nickname)
+        end
+
+        it "shows a badges tab" do
+          expect(page).not_to have_link("Badges")
+        end
+
+        it "doesn't have a badges section on the sidebar" do
+          within ".profile--sidebar" do
+            expect(page).not_to have_content("Badges")
+          end
+        end
+      end
+    end
+
     context "when belonging to user groups" do
       let!(:user_group) { create :user_group, users: [user], organization: user.organization }
 
@@ -107,7 +143,7 @@ describe "Profile", type: :system do
       end
 
       it "lists the user groups" do
-        click_link "Groups"
+        click_link "Organizations"
 
         expect(page).to have_content(user_group.name)
       end

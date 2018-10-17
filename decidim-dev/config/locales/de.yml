@@ -15,9 +15,11 @@ de:
     gamification:
       badges:
         test:
+          conditions:
+            - Verwenden Sie eine Testumgebung für Decidim.
+          description: Benutzer erhalten dieses Badge, indem sie Tests erstellen.
           description_another: Dieser Benutzer hat %{score} Tests erstellt.
           description_own: Sie haben %{score} Tests erstellt.
-          explanation: Benutzer erhalten dieses Badge, indem sie Tests erstellen.
           name: Tests
           next_level_in: Erstellen Sie %{score} weitere Tests, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Tests erstellt.
@@ -25,8 +27,10 @@ de:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Dummies hoch
           dummies_count_medium: Dummies mittel
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Dummies hoch

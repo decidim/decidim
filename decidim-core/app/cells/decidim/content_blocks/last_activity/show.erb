@@ -1,0 +1,17 @@
+<section class="wrapper-home upcoming-events home-section">
+  <div class="row">
+    <h3 class="section-heading"><%= t("decidim.content_blocks.last_activity.title") %></h3>
+    <div class="row">
+      <% valid_activities.each_slice(4) do |column_activities| %>
+        <div class="columns medium-6">
+          <%= cell "decidim/activities", column_activities %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="column">
+        <%= link_to t("decidim.content_blocks.last_activity.view_all"), last_activities_path, class: "button hollow button--sc pull-right" %>
+      </div>
+    </div>
+  </div>
+</section>

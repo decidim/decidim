@@ -211,6 +211,9 @@ es-PY:
         title: Preguntas de %{scope_name}
       index:
         title: Consultas
+      last_activity:
+        new_consultation: Nueva consulta
+        new_question_at_html: "<span>Nueva pregunta en %{link}</span>"
       pages:
         home:
           highlighted_consultations:
