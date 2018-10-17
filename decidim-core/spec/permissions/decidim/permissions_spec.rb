@@ -261,7 +261,7 @@ describe Decidim::Permissions do
 
         context "when the user is an admin" do
           before do
-            membership = Decidim::UserGroupMembership.where(user: user, user_group: user_group).first
+            membership = Decidim::UserGroupMembership.find_by(user: user, user_group: user_group)
             membership.role = :admin
             membership.save
           end
@@ -271,7 +271,7 @@ describe Decidim::Permissions do
 
         context "when the user is a basic member" do
           before do
-            membership = Decidim::UserGroupMembership.where(user: user, user_group: user_group).first
+            membership = Decidim::UserGroupMembership.find_by(user: user, user_group: user_group)
             membership.role = :member
             membership.save
           end

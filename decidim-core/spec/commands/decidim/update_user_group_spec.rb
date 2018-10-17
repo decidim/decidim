@@ -74,10 +74,10 @@ module Decidim
             let(:avatar) { nil }
 
             it "keeps the old avatar" do
-            command.call
-            user_group.reload
+              command.call
+              user_group.reload
 
-            expect(user_group.avatar).to be_present
+              expect(user_group.avatar).to be_present
             end
           end
         end
