@@ -435,10 +435,16 @@ sv:
       create:
         error: Det har varit ett problem att skapa organisationen
         success: Organisationen skapades framgångsrikt
+      edit:
+        edit_user_group: Redigera organisation
+        update_user_group: Uppdatera organisation
       new:
         create_user_group: Skapa organisation
         new_user_group: Ny organisation
       no_user_groups: Tillhör inte någon organisation än.
+      update:
+        error: Det har varit ett problem att uppdatera organisationen
+        success: Organisationen uppdateras framgångsrikt
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -641,6 +647,7 @@ sv:
       user:
         create_user_group: Skapa organisation
         edit_profile: Redigera profil
+        edit_user_group: Redigera organisationsprofil
     reported_mailer:
       hide:
         hello: Hej %{name},
