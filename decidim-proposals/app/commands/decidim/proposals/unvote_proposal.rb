@@ -21,14 +21,53 @@ module Decidim
       # Returns nothing.
       def call
         ActiveRecord::Base.transaction do
-          @proposal.votes.where(author: @current_user).destroy_all
-          ProposalVote.update_temporary_votes!(@current_user, @proposal.component)
-          @proposal.update(proposal_votes_count: @proposal.votes.count)
+          ProposalVote.where(
+            author: @current_user,
+            proposal: @proposal
+          ).destroy_all
+
+          update_temporary_votes
+          update_counters
         end
 
-        Decidim::Gamification.decrement_score(@current_user, :proposal_votes, votes.count)
+        Decidim::Gamification.decrement_score(@current_user, :proposal_votes)
 
         broadcast(:ok, @proposal)
+      end
+
+      private
+
+      def component
+        @component ||= @proposal.component
+      end
+
+      def minimum_votes_per_user
+        component.settings.minimum_votes_per_user
+      end
+
+      def minimum_votes_per_user?
+        minimum_votes_per_user.positive?
+      end
+
+      # rubocop:disable Rails/SkipsModelValidations
+      def update_temporary_votes
+        user_votes.update_all(temporary: true) if user_votes.count < minimum_votes_per_user
+      end
+      # rubocop:enable Rails/SkipsModelValidations
+
+      def user_votes
+        @user_votes ||= ProposalVote.where(
+          author: @current_user,
+          proposal: Proposal.where(component: component)
+        )
+      end
+
+      def update_counters
+        proposal_ids = user_votes.pluck(:decidim_proposal_id) + [@proposal.id]
+
+        proposal_ids.each do |proposal_id|
+          Proposal.find(proposal_id).update_votes_count
+        end
       end
     end
   end

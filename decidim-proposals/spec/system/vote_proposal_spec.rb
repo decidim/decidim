@@ -421,6 +421,7 @@ describe "Vote Proposal", type: :system, slow: true do
           within proposal_element do
             within ".card__support", match: :first do
               click_button "Vote"
+              sleep(5)
               expect(page).to have_content("1 VOTE")
             end
           end

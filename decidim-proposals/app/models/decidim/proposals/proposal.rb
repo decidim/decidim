@@ -77,6 +77,13 @@ module Decidim
           .where("decidim_coauthorships.decidim_author_id = ?", user.id)
       end
 
+      # Public: Updates the vote count of this proposal.
+      #
+      # Returns nothing.
+      def update_votes_count
+        update!(proposal_votes_count: votes.count)
+      end
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
