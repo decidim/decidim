@@ -5,7 +5,7 @@ fr:
       survey_answer:
         body: Réponse
         selected_choices: La selection
-        choices: Les Choix
+        choices: Les choix
       survey_question:
         mandatory: Réponse à la question obligatoire
         max_choices: Nombre de choix maximum
