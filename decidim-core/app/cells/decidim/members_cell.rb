@@ -14,7 +14,7 @@ module Decidim
     end
 
     def members
-      @members ||= model.users.page(params[:page]).per(20)
+      @members ||= Decidim::UserGroups::AcceptedUsers.for(model).page(params[:page]).per(20)
     end
   end
 end
