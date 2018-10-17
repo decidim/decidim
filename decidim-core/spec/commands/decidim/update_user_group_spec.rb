@@ -4,13 +4,14 @@ require "spec_helper"
 
 module Decidim
   module Comments
-    describe CreateUserGroup do
+    describe UpdateUserGroup do
       describe "call" do
         let(:organization) { create(:organization, :with_tos) }
         let(:user) { create :user, :confirmed, organization: organization }
+        let(:user_group) { create :user_group, users: [user], organization: organization }
 
-        let(:name) { "User group name" }
-        let(:nickname) { "nickname" }
+        let(:name) { "My super duper group" }
+        let(:nickname) { "new_nickname" }
         let(:email) { "user@myrealdomain.org" }
         let(:phone) { "Y1fERVzL2F" }
         let(:document_number) { "123456780X" }
@@ -38,9 +39,9 @@ module Decidim
             current_organization: organization
           )
         end
-        let(:command) { described_class.new(form) }
+        let(:command) { described_class.new(form, user_group) }
 
-        describe "when the form is not valid" do
+        context "when the form is not valid" do
           before do
             expect(form).to receive(:invalid?).and_return(true)
           end
@@ -49,40 +50,35 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a user group" do
+          it "doesn't update the user group" do
             expect do
               command.call
-            end.not_to change(UserGroup, :count)
+              user_group.reload
+            end.not_to change(user_group, :name)
           end
         end
 
-        describe "when the form is valid" do
+        context "when the form is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "creates a new user group" do
-            expect(UserGroup).to receive(:create!).with(
-              name: form.name,
-              nickname: form.nickname,
-              email: form.email,
-              avatar: form.avatar,
-              about: form.about,
-              organization: organization,
-              extended_data: {
-                phone: form.phone,
-                document_number: form.document_number
-              }
-            ).and_call_original
+          it "updates the user group" do
+            command.call
+            user_group.reload
 
-            expect { command.call }.to change(UserGroup, :count).by(1)
+            expect(user_group.name).to eq "My super duper group"
           end
 
-          it "creates the membership with a creator role" do
+          context "when the avatar is not updated" do
+            let(:avatar) { nil }
+
+            it "keeps the old avatar" do
             command.call
-            membership = UserGroupMembership.last
-            expect(membership.user).to eq user
-            expect(membership.role).to eq "creator"
+            user_group.reload
+
+            expect(user_group.avatar).to be_present
+            end
           end
         end
       end
