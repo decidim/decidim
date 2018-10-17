@@ -38,5 +38,9 @@ module Decidim
       return false if model.is_a?(Decidim::User)
       Decidim::UserGroups::ManageableUserGroups.for(current_user).include?(model)
     end
+
+    def profile_user_can_follow?
+      profile_user.can_follow?
+    end
   end
 end
