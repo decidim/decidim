@@ -32,6 +32,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Fixed**:
 
+- **decidim-surveys**: Fix validation issue on survey sortable question [\#314](https://github.com/OpenSourcePolitics/decidim/pull/314)
 - **decidim-surveys**: Fix issue when copying. [\#308](https://github.com/decidim/decidim/pull/308)
 - **decidim-admin**: Add email validation to ManagedUserPromotionForm. [\#295](https://github.com/OpenSourcePolitics/decidim/pull/295)
 - **decidim-budgets**: Fix display of budgets when votes count is activated. [\#268](https://github.com/OpenSourcePolitics/decidim/pull/268)
