@@ -11,8 +11,6 @@ module Decidim
         def index
           enforce_permission_to :index, :partner
 
-          @query = params[:q]
-
           @partners = collection.page(params[:page]).per(15)
         end
 
@@ -40,13 +38,13 @@ module Decidim
 
         def edit
           @partner = collection.find(params[:id])
-          enforce_permission_to :update, :partner, speaker: @partner
+          enforce_permission_to :update, :partner, partner: @partner
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_model(@partner)
         end
 
         def update
           @partner = collection.find(params[:id])
-          enforce_permission_to :update, :partner, speaker: @partner
+          enforce_permission_to :update, :partner, partner: @partner
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_params(params)
 
           UpdatePartner.call(@form, @partner) do
@@ -64,7 +62,7 @@ module Decidim
 
         def destroy
           @partner = collection.find(params[:id])
-          enforce_permission_to :destroy, :partner, speaker: @partner
+          enforce_permission_to :destroy, :partner, partner: @partner
 
           DestroyPartner.call(@partner, current_user) do
             on(:ok) do
