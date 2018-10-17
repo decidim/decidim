@@ -131,6 +131,7 @@ de:
           conference_speakers: Konferenzsprecher
           info: Info
           moderations: Moderationen
+          partners: Partner
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
+        partner:
+          fields:
+            link: Verknüpfung
+            logo: Logo
+            name: Name
+            partner_type: Art
+          name: Partner
+          types:
+            collaborator: Mitarbeiter
+            main_promotor: Hauptförderer
+      partners:
+        create:
+          error: Beim Hinzufügen eines Partners für diese Konferenz ist ein Fehler aufgetreten.
+          success: Der Partner wurde erfolgreich zu dieser Konferenz hinzugefügt.
+        destroy:
+          success: Der Partner wurde erfolgreich von dieser Konferenz entfernt.
+        edit:
+          title: Partner aktualisieren
+          update: Aktualisieren
+        new:
+          create: Erstellen
+          title: Neuer Partner
+        update:
+          error: Bei einem Fehler ist ein Partner für diese Konferenz aktualisiert worden.
+          success: Der Partner wurde für diese Konferenz erfolgreich aktualisiert.
       titles:
         conferences: Konferenzen
     admin_log:
@@ -225,6 +251,9 @@ de:
             decline: Einladung '%{conference_title}' ablehnen
             invited_you_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
             join: An Konferenz "%{conference_title}" teilnehmen
+        partners:
+          index:
+            title: Partner
       conference:
         registration_confirm:
           cancel: Stornieren
@@ -265,6 +294,9 @@ de:
         index:
           speakers: Lautsprecher
       conferences:
+        partners:
+          collaborators: Mitarbeiter
+          main_promotors: Hauptförderer
         show:
           already_account: Haben Sie schon einen Account in Decidim?
           login_as: Sie melden sich als %{name} <%{email}> an
@@ -372,6 +404,7 @@ de:
           take_part: Teilnehmen
       conferences_nav:
         conference_menu_item: Information
+        conference_partners_menu_item: Partner
         conference_speaker_menu_item: Lautsprecher
         unfold: Entfalten
         venues: Veranstaltungsorte
