@@ -137,6 +137,7 @@ pl:
           conference_speakers: Głośniki konferencyjne
           info: Informacje
           moderations: Moderacje
+          partners: Wzmacniacz
       models:
         conference:
           fields:
@@ -160,6 +161,31 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+        partner:
+          fields:
+            link: Połączyć
+            logo: Logo
+            name: Nazwa
+            partner_type: Rodzaj
+          name: Partner
+          types:
+            collaborator: Współpracownik
+            main_promotor: Główny promotor
+      partners:
+        create:
+          error: Wystąpił błąd podczas dodawania partnera do tej konferencji.
+          success: Partner został pomyślnie dodany do tej konferencji.
+        destroy:
+          success: Partner został pomyślnie usunięty z tej konferencji.
+        edit:
+          title: Zaktualizuj partnera.
+          update: Aktualizacja
+        new:
+          create: Stwórz
+          title: Nowy partner
+        update:
+          error: Wystąpił błąd podczas aktualizacji partnera konferencji.
+          success: Partner został pomyślnie zaktualizowany na tę konferencję.
       titles:
         conferences: Konferencje
     admin_log:
@@ -233,6 +259,9 @@ pl:
             decline: Odrzuć zaproszenie "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} zaprosiło Cię do przyłączenia się do konferencji o %{application}. Możesz go odrzucić lub zaakceptować, korzystając z poniższych linków."
             join: Dołącz do konferencji "%{conference_title}"
+        partners:
+          index:
+            title: Wzmacniacz
       conference:
         registration_confirm:
           cancel: Anuluj
@@ -275,6 +304,9 @@ pl:
         index:
           speakers: Głośniki
       conferences:
+        partners:
+          collaborators: Współpracownicy
+          main_promotors: Główni promotorzy
         show:
           already_account: Czy masz już konto w Decidim?
           login_as: Jesteś zalogowany jako %{name} <%{email}>
@@ -384,6 +416,7 @@ pl:
           take_part: Wziąć udział
       conferences_nav:
         conference_menu_item: Informacja
+        conference_partners_menu_item: Wzmacniacz
         conference_speaker_menu_item: Głośniki
         unfold: Rozwijać się
         venues: Miejsca spotkań
