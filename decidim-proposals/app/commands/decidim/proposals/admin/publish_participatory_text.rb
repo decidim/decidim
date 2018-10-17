@@ -25,12 +25,17 @@ module Decidim
             publish_drafts
           end
 
-          broadcast(:ok)
+          if @publish_failures.any?
+            broadcast(:invalid, @publish_failures)
+          else
+            broadcast(:ok)
+          end
         end
 
         private
 
         attr_reader :form
+        attr_reader :publish_failures
 
         def resort_proposals(form)
           form.proposals.each do |prop_form|
@@ -40,9 +45,11 @@ module Decidim
         end
 
         def publish_drafts
+          @publish_failures = {}
           Decidim::Proposals::Proposal.where(component: current_component).drafts.find_each do |proposal|
-            Rails.logger.warn("Unable to publish participatory text #{proposal.id} due to: #{proposal.errors.full_messages}") unless proposal.update(published_at: Time.current)
+            @publish_failures[proposal.id] = proposal.errors.full_messages unless proposal.update(published_at: Time.current)
           end
+          raise ActiveRecord::Rollback if @publish_failures.any?
         end
       end
     end

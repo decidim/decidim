@@ -47,8 +47,10 @@ module Decidim
               redirect_to proposals_path
             end
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")
+            on(:invalid) do |failures|
+              alert_msg = [I18n.t("participatory_texts.publish.invalid", scope: "decidim.proposals.admin")]
+              failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
+              flash.now[:alert] = alert_msg.join("<br/>").html_safe
               index
               render action: "index"
             end
