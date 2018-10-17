@@ -435,10 +435,15 @@ es:
       create:
         error: Ha habido un problema creando la organización.
         success: Organización creada con éxito
+      edit:
+        edit_user_group: Editar organizacion
+        update_user_group: Organización de actualización
       new:
         create_user_group: Crear organizacion
         new_user_group: Nueva organizacion
       no_user_groups: Aún no pertenece a ninguna organización.
+      update:
+        error: Ha habido un problema al actualizar la organización.
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
