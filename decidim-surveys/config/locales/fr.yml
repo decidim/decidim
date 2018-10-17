@@ -3,6 +3,8 @@ fr:
     attributes:
       survey_answer:
         body: Réponse
+        selected_choices: La selection
+        choices: Les Choix
       survey_question:
         mandatory: Requis
         max_choices: Nombre de choix maximum
