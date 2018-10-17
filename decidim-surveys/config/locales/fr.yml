@@ -61,6 +61,7 @@ fr:
         models:
           components:
             description: Description
+            title: Titre
             tos: Conditions d'utilisation
         surveys:
           answer_option:
