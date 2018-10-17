@@ -406,15 +406,15 @@ ca:
             - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
           description: Aquesta distinció es concedeix quan arribis a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
           description_another: Aquesta usuària té %{score} seguidors.
-          description_own: "%{score} usuaris et segueixen."
+          description_own: "%{score} usuàries et segueixen."
           name: Seguidors
-          next_level_in: Obteniu %{score} usuaris més per seguir-vos per arribar al següent nivell.
+          next_level_in: Aconsegueix %{score} usuàries més que et segueixin per passar al següent nivell!
           unearned_another: Aquesta usuària encara no té cap seguidor.
           unearned_own: Encara no tens seguidors.
         index:
           badge_title: "%{name} distintiu"
-          how: Com es pot guanyar?
-          page_description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comença a descobrir, participar i interactuar a la plataforma, obtindrà diferents distintius. Aquí teniu la llista de distintius i algunes formes de guanyar-les.
+          how: Com es pot aconseguir?
+          page_description: Els distintius són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comença a descobrir, participar i interactuar a la plataforma, obtindrà diferents distintius. Aquí teniu la llista de distintius i algunes formes de aconseguir-les.
           title: Insígnies
         invitations:
           conditions:
