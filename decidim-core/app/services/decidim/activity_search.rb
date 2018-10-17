@@ -28,7 +28,7 @@ module Decidim
 
     # All the resource types that are eligible to be included as an activity.
     def resource_types
-      %w(
+      @resource_types ||= %w(
         Decidim::Accountability::Result
         Decidim::Blogs::Post
         Decidim::Comments::Comment
@@ -41,7 +41,9 @@ module Decidim
         Decidim::Consultation
         Decidim::Initiative
         Decidim::ParticipatoryProcess
-      )
+      ).select do |klass|
+        klass.safe_constantize.present?
+      end
     end
 
     private
