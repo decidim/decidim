@@ -124,4 +124,22 @@ FactoryBot.define do
       rejected_at { Time.current }
     end
   end
+
+  factory :partner, class: "Decidim::Conferences::Partner" do
+    conference
+
+    name { Faker::Name.name }
+    weight { Faker::Number.between(1, 10) }
+    link { Faker::Internet.url }
+    partner_type { "main_promotor" }
+    logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+
+    trait :main_promotor do
+      partner_type { "main_promotor" }
+    end
+
+    trait :collaborator do
+      partner_type { "collaborator" }
+    end
+  end
 end
