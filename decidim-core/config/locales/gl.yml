@@ -435,10 +435,16 @@ gl:
       create:
         error: Produciuse un problema na creación da organización
         success: Organización creada con éxito
+      edit:
+        edit_user_group: Editar organización
+        update_user_group: Actualiza a organización
       new:
         create_user_group: Crear organización
         new_user_group: Nova organización
       no_user_groups: Aínda non pertence a ningunha organización.
+      update:
+        error: Produciuse un problema ao actualizar a organización
+        success: A organización actualizouse con éxito
     invitations:
       create:
         error: Houbo algúns problemas ao invitar aos teus amigos
@@ -641,6 +647,7 @@ gl:
       user:
         create_user_group: Crear organización
         edit_profile: Editar perfil
+        edit_user_group: Editar o perfil da organización
     reported_mailer:
       hide:
         hello: Ola %{name},
