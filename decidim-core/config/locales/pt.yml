@@ -435,10 +435,16 @@ pt:
       create:
         error: Houve um problema ao criar a organização
         success: Organização criada com sucesso
+      edit:
+        edit_user_group: Editar organização
+        update_user_group: Atualizar organização
       new:
         create_user_group: Criar organização
         new_user_group: Nova organização
       no_user_groups: Não pertence a nenhuma organização ainda.
+      update:
+        error: Houve um problema ao atualizar a organização
+        success: Organização atualizada com sucesso
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -641,6 +647,7 @@ pt:
       user:
         create_user_group: Criar organização
         edit_profile: Editar Perfil
+        edit_user_group: Editar perfil da organização
     reported_mailer:
       hide:
         hello: Olá %{name},
