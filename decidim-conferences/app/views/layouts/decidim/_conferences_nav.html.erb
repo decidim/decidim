@@ -1,6 +1,6 @@
-<section class="extended process-nav">
-  <div class="row column">
-    <% if current_participatory_space.components.any? || current_participatory_space.speakers.any? %>
+<% if current_participatory_space.components.any? || current_participatory_space.speakers.any? || current_participatory_space.partners.any? %>
+  <section class="extended process-nav">
+    <div class="row column">
       <div class="row column">
         <div>
           <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
@@ -45,6 +45,15 @@
                 <% end %>
               <% end %>
 
+              <% if current_participatory_space.partners.any? %>
+                <li>
+                  <%= link_to decidim_conferences.conference_path(current_participatory_space, anchor: "conference-partners"), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
+                    <%= icon("speakers") %>
+                    <%= t ".conference_partners_menu_item" %>
+                  <% end %>
+                </li>
+              <% end %>
+
               <% if current_participatory_space.components.where(manifest_name: "meetings").published.any? %>
                 <li class="">
                   <%= active_link_to decidim_conferences.conference_path(current_participatory_space, anchor: "venues"), active: :exclusive, class: "process-nav__link" do %>
@@ -69,6 +78,6 @@
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
-</section>
+    </div>
+  </section>
+<% end %>

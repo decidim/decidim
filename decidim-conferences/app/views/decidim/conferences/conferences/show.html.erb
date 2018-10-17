@@ -44,6 +44,8 @@ edit_link(
       </div>
     </section>
 
+    <%= partners_for current_participatory_space %>
+
     <%= render_hook(:conference_venues) %>
 
     <% if current_participatory_space.registrations_enabled? %>

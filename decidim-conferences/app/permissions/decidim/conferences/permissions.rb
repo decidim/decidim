@@ -252,6 +252,7 @@ module Decidim
           :conference,
           :conference_user_role,
           :conference_speaker,
+          :partner,
           :conference_invite
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -271,6 +272,7 @@ module Decidim
           :conference_user_role,
           :conference_speaker,
           :conference_invite,
+          :partner,
           :read_conference_registrations,
           :export_conference_registrations
         ].include?(permission_action.subject)
