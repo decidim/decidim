@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe Markdown2Proposals do
+    describe MarkdownToProposals do
       def should_parse_and_produce_proposals(num_proposals)
         proposals = Decidim::Proposals::Proposal.where(component: component)
         expect { parser.parse(document) }.to change { proposals.count }.by(num_proposals)
@@ -17,7 +17,7 @@ module Decidim
       end
 
       let!(:component) { create(:proposal_component) }
-      let(:parser) { Markdown2Proposals.new(component) }
+      let(:parser) { MarkdownToProposals.new(component) }
       let(:items) { [] }
       let(:document) do
         items.join("\n")

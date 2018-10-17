@@ -8,7 +8,7 @@ module Decidim
     # produces Proposals in the form of sections and articles.
     #
     # This implementation uses Redcarpet Base renderer.
-    # Redcarpet::Render::Base performs a callback for every block it finds, what Markdown2Proposals
+    # Redcarpet::Render::Base performs a callback for every block it finds, what MarkdownToProposals
     # does is to implement callbacks for the blocks which it is interested in performing some actions.
     #
     class MarkdownToProposals < ::Redcarpet::Render::Base
