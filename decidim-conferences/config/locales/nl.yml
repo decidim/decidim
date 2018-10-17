@@ -131,6 +131,7 @@ nl:
           conference_speakers: Sprekers van de conferentie
           info: info
           moderations: matigingen
+          partners: partners
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+        partner:
+          fields:
+            link: Link
+            logo: Logo
+            name: Naam
+            partner_type: Type
+          name: Partner
+          types:
+            collaborator: Medewerker
+            main_promotor: Hoofdpromotor
+      partners:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een partner voor deze conferentie.
+          success: Partner succesvol toegevoegd aan deze conferentie.
+        destroy:
+          success: Partner verwijderd van deze conferentie.
+        edit:
+          title: Update partner.
+          update: Bijwerken
+        new:
+          create: creëren
+          title: Nieuwe partner
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van een partner voor deze conferentie.
+          success: Partner is succesvol geüpdatet voor deze conferentie.
       titles:
         conferences: conferenties
     admin_log:
@@ -225,6 +251,9 @@ nl:
             decline: Uitnodiging '%{conference_title}' weigeren
             invited_you_to_join_a_conference: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een conferentie op %{application}. U kunt het weigeren of accepteren via de onderstaande links."
             join: Deelnemen aan conferentie '%{conference_title}'
+        partners:
+          index:
+            title: partners
       conference:
         registration_confirm:
           cancel: Annuleer
@@ -265,6 +294,9 @@ nl:
         index:
           speakers: sprekers
       conferences:
+        partners:
+          collaborators: medewerkers
+          main_promotors: Hoofdpromotoren
         show:
           already_account: Heb je al een account bij decidim?
           login_as: U bent ingelogd als %{name} <%{email}>
@@ -372,6 +404,7 @@ nl:
           take_part: Deelnemen
       conferences_nav:
         conference_menu_item: Informatie
+        conference_partners_menu_item: partners
         conference_speaker_menu_item: sprekers
         unfold: Ontvouwen
         venues: locaties
