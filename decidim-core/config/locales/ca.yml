@@ -435,10 +435,16 @@ ca:
       create:
         error: S'ha produït un problema en crear l'organització
         success: L'organització s'ha creat correctament
+      edit:
+        edit_user_group: Edita l'organització
+        update_user_group: Actualitza l'organització
       new:
         create_user_group: Crea una organització
         new_user_group: Nova organització
       no_user_groups: Encara no pertany a cap organització.
+      update:
+        error: S'ha produït un problema en actualitzar l'organització
+        success: L'organització s'ha actualitzat correctament
     invitations:
       create:
         error: Hi ha hagut alguns problemes mentre es convidava els teus amics
@@ -641,6 +647,7 @@ ca:
       user:
         create_user_group: Crea una organització
         edit_profile: Edita el perfil
+        edit_user_group: Editeu el perfil d'organització
     reported_mailer:
       hide:
         hello: Hola %{name},
