@@ -252,6 +252,7 @@ module Decidim
           :conference,
           :conference_user_role,
           :conference_speaker,
+          :partner,
           :media_link,
           :conference_invite
         ].include?(permission_action.subject)
@@ -273,6 +274,7 @@ module Decidim
           :conference_speaker,
           :media_link,
           :conference_invite,
+          :partner,
           :read_conference_registrations,
           :export_conference_registrations
         ].include?(permission_action.subject)

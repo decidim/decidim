@@ -1,4 +1,4 @@
-<% if current_participatory_space.components.any? || current_participatory_space.speakers.any? || current_participatory_space.attachments.any? || current_participatory_space.media_links.any? %>
+<% if current_participatory_space.components.any? || current_participatory_space.speakers.any? || current_participatory_space.partners.any? || current_participatory_space.attachments.any? || current_participatory_space.media_links.any? %>
   <section class="extended process-nav">
     <div class="row column">
       <div class="row column">
@@ -42,6 +42,15 @@
                     <% end %>
                   </li>
                 <% end %>
+              <% end %>
+
+              <% if current_participatory_space.partners.any? %>
+                <li>
+                  <%= link_to decidim_conferences.conference_path(current_participatory_space, anchor: "conference-partners"), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
+                    <%= icon("speakers") %>
+                    <%= t ".conference_partners_menu_item" %>
+                  <% end %>
+                </li>
               <% end %>
 
               <% if current_participatory_space.components.where(manifest_name: "meetings").published.any? %>
