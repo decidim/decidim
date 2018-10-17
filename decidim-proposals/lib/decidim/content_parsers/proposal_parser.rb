@@ -20,9 +20,10 @@ module Decidim
       Metadata = Struct.new(:linked_proposals)
 
       # Matches a URL
-      URL_REGEX_PART1 = '\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|'
-      URL_REGEX_PART2 = '\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))'
-      URL_REGEX = /#{URL_REGEX_PART1}#{URL_REGEX_PART2}/i
+      URL_REGEX_SCHEME = '(?:http(s)?:\/\/)'
+      URL_REGEX_CONTENT = '[\w.-]+[\w\-\._~:\/?#\[\]@!\$&\'\(\)\*\+,;=.]+'
+      URL_REGEX_END_CHAR = '[\w]'
+      URL_REGEX = /#{URL_REGEX_SCHEME}#{URL_REGEX_CONTENT}#{URL_REGEX_END_CHAR}/i
       # Matches a mentioned Proposal ID (~(d)+ expression)
       ID_REGEX = /~(\d+)/
 

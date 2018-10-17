@@ -109,7 +109,7 @@ module Decidim
 
         context "when content has words similar to links but not links" do
           let(:similars) do
-            %W[AA:aaa AA:sss aa:aaa aa:sss aaa:sss aaaa:sss aa:ssss aaa:ssss]
+            %w(AA:aaa AA:sss aa:aaa aa:sss aaa:sss aaaa:sss aa:ssss aaa:ssss)
           end
           let(:content) do
             "This content has similars to links: #{similars.join}. Great! Now are not treated as links"
