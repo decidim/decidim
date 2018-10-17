@@ -131,6 +131,7 @@ eu:
           conference_speakers: Hitzaldi hiztunak
           info: info
           moderations: moderazioa
+          partners: Bazkideak
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ eu:
             admin: Administrator
             collaborator: Kolaboratzaile
             moderator: Moderatzaile
+        partner:
+          fields:
+            link: Link
+            logo: Logotipo
+            name: izena
+            partner_type: Mota
+          name: Partner
+          types:
+            collaborator: Kolaboratzaile
+            main_promotor: Garapen nagusia
+      partners:
+        create:
+          error: Errore bat gertatu da bilera honetan bazkide bat gehitzea.
+          success: Bazkidea arrakastaz gehitu da konferentzia honetara.
+        destroy:
+          success: Bazkidea kongresu honetatik atera da.
+        edit:
+          title: Eguneratu bazkide.
+          update: eguneratzearen
+        new:
+          create: Sortu
+          title: Bazkide berria
+        update:
+          error: Errore bat gertatu da biltzarrerako bazkide bat eguneratzea.
+          success: Bazkidea eguneratu da konferentzia honetarako.
       titles:
         conferences: Jardunaldiak
     admin_log:
@@ -225,6 +251,9 @@ eu:
             decline: Baztertu gonbidapena '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} gonbidatu zaitu hitzaldi batean %{application}. Beheko esteken bidez baztertu edo onartu dezakezu."
             join: Parte hartu '%{conference_title}' konferentzia
+        partners:
+          index:
+            title: Bazkideak
       conference:
         registration_confirm:
           cancel: Utzi
@@ -265,6 +294,9 @@ eu:
         index:
           speakers: Hizlariak
       conferences:
+        partners:
+          collaborators: Laguntzaileak
+          main_promotors: Garapen nagusiak
         show:
           already_account: Dagoeneko kontu bat duzu erabakitzeko?
           login_as: '%{name} <%{email}> saioan zaude'
@@ -372,6 +404,7 @@ eu:
           take_part: Parte hartu
       conferences_nav:
         conference_menu_item: informazioa
+        conference_partners_menu_item: Bazkideak
         conference_speaker_menu_item: Hizlariak
         unfold: Zabaldu
         venues: Egoitzak
