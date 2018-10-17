@@ -248,6 +248,37 @@ describe Decidim::Permissions do
 
         it { is_expected.to eq true }
       end
+
+      context "when editing user groups" do
+        let(:action_name) { :edit }
+        let(:user) { create :user, :confirmed }
+        let!(:user_group) { create :user_group, users: [user], organization: user.organization }
+        let(:context) { { user_group: user_group } }
+
+        context "when the user is the creator" do
+          it { is_expected.to eq true }
+        end
+
+        context "when the user is an admin" do
+          before do
+            membership = Decidim::UserGroupMembership.where(user: user, user_group: user_group).first
+            membership.role = :admin
+            membership.save
+          end
+
+          it { is_expected.to eq true }
+        end
+
+        context "when the user is a basic member" do
+          before do
+            membership = Decidim::UserGroupMembership.where(user: user, user_group: user_group).first
+            membership.role = :member
+            membership.save
+          end
+
+          it { is_expected.to eq false }
+        end
+      end
     end
   end
 end
