@@ -42,5 +42,11 @@ module Decidim
     def profile_user_can_follow?
       profile_user.can_follow?
     end
+
+    def can_join_user_group?
+      return false unless current_user
+      return false if model.is_a?(Decidim::User)
+      Decidim::UserGroupMembership.where(user: current_user, user_group: model).empty?
+    end
   end
 end

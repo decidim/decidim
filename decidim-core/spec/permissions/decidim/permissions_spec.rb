@@ -249,6 +249,12 @@ describe Decidim::Permissions do
         it { is_expected.to eq true }
       end
 
+      context "when joining user groups" do
+        let(:action_name) { :join }
+
+        it { is_expected.to eq true }
+      end
+
       context "when editing user groups" do
         let(:action_name) { :edit }
         let(:user) { create :user, :confirmed }

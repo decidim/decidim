@@ -443,6 +443,9 @@ en:
       edit:
         edit_user_group: Edit organization
         update_user_group: Update organization
+      join:
+        error: There has been a problem joining the organization
+        success: Join request created successfully. An admin will review your reequest before accepting you to the organization.
       new:
         create_user_group: Create organization
         new_user_group: New organization
@@ -653,6 +656,7 @@ en:
         create_user_group: Create organization
         edit_profile: Edit profile
         edit_user_group: Edit organization profile
+        join_user_group: Request to join organization
     reported_mailer:
       hide:
         hello: Hello %{name},

@@ -94,7 +94,7 @@ module Decidim
 
     def user_group_action?
       return unless permission_action.subject == :user_group
-      return allow! if [:create].include?(permission_action.action)
+      return allow! if [:join, :create].include?(permission_action.action)
 
       user_group = context.fetch(:user_group)
       user_manages_group = Decidim::UserGroups::ManageableUserGroups.for(user).include?(user_group)
