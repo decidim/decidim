@@ -11,7 +11,7 @@ module Decidim
     # Redcarpet::Render::Base performs a callback for every block it finds, what Markdown2Proposals
     # does is to implement callbacks for the blocks which it is interested in performing some actions.
     #
-    class Markdown2Proposals < ::Redcarpet::Render::Base
+    class MarkdownToProposals < ::Redcarpet::Render::Base
       # Public: Initializes the serializer with a proposal.
       def initialize(component)
         super()
