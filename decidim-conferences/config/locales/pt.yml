@@ -131,6 +131,7 @@ pt:
           conference_speakers: Alto-falantes da conferência
           info: Info
           moderations: Moderações
+          partners: Parceiros
       models:
         conference:
           fields:
@@ -154,6 +155,19 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        partner:
+          fields:
+            link: Ligação
+            logo: Logotipo
+            name: Nome
+            partner_type: Tipo
+          name: Parceiro
+          types:
+            collaborator: Colaborador
+            main_promotor: Principal promotor
+      partners:
+        create:
+          error: Ocorreu um erro ao adicionar um parceiro para esta conferência.
       titles:
         conferences: Conferências
     admin_log:
