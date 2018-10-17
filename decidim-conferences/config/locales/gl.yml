@@ -131,6 +131,7 @@ gl:
           conference_speakers: Conferenciantes de conferencias
           info: Información
           moderations: Moderacións
+          partners: Socios
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        partner:
+          fields:
+            link: Ligazón
+            logo: Logo
+            name: Nome
+            partner_type: Tipo
+          name: Socio
+          types:
+            collaborator: Colaborador
+            main_promotor: Promotor principal
+      partners:
+        create:
+          error: Houbo un erro engadindo un compañeiro para esta conferencia.
+          success: O socio engadiuse con éxito a esta conferencia.
+        destroy:
+          success: O socio eliminouse con éxito desta conferencia.
+        edit:
+          title: Actualizar socio.
+          update: Actualización
+        new:
+          create: Crear
+          title: Novo compañeiro
+        update:
+          error: Houbo un erro actualizado por un compañeiro desta conferencia.
+          success: O socio actualizouse con éxito para esta conferencia.
       titles:
         conferences: Conferencias
     admin_log:
@@ -225,6 +251,9 @@ gl:
             decline: Declina a invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
             join: Únete á conferencia '%{conference_title}'
+        partners:
+          index:
+            title: Socios
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -265,6 +294,9 @@ gl:
         index:
           speakers: Ponentes
       conferences:
+        partners:
+          collaborators: Colaboradores
+          main_promotors: Principais promotores
         show:
           already_account: Xa tes unha conta en decidir?
           login_as: Estás conectado como %{name} <%{email}>
@@ -372,6 +404,7 @@ gl:
           take_part: Tomar parte en
       conferences_nav:
         conference_menu_item: Información
+        conference_partners_menu_item: Socios
         conference_speaker_menu_item: Ponentes
         unfold: Despregar
         venues: Lugares
