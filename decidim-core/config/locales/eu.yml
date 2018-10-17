@@ -435,10 +435,16 @@ eu:
       create:
         error: Antolakuntza sortzerakoan arazo bat izan da
         success: Antolakuntza behar bezala sortu da
+      edit:
+        edit_user_group: Editatu erakundea
+        update_user_group: Eguneratu erakundea
       new:
         create_user_group: Sortu erakundea
         new_user_group: Antolakuntza berria
       no_user_groups: Ez dago inongo erakunderik.
+      update:
+        error: Arazo bat izan da erakundea eguneratzean
+        success: Antolakuntza eguneratu da
     invitations:
       create:
         error: Arazo batzuk egon dira zure lagunak gonbidatuz
@@ -641,6 +647,7 @@ eu:
       user:
         create_user_group: Sortu erakundea
         edit_profile: Editatu profila
+        edit_user_group: Editatu antolakuntza profila
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
