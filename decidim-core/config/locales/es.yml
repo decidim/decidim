@@ -444,6 +444,7 @@ es:
       no_user_groups: Aún no pertenece a ninguna organización.
       update:
         error: Ha habido un problema al actualizar la organización.
+        success: Organización actualizada con éxito
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -646,6 +647,7 @@ es:
       user:
         create_user_group: Crear organizacion
         edit_profile: Editar perfil
+        edit_user_group: Editar el perfil de la organización
     reported_mailer:
       hide:
         hello: Hola %{name},
