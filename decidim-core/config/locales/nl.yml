@@ -435,10 +435,16 @@ nl:
       create:
         error: Er is een probleem opgetreden bij het maken van de organisatie
         success: Organisatie succesvol gemaakt
+      edit:
+        edit_user_group: Bewerk de organisatie
+        update_user_group: Update de organisatie
       new:
         create_user_group: Maak een organisatie
         new_user_group: Nieuwe organisatie
       no_user_groups: Is nog geen lid van een organisatie.
+      update:
+        error: Er is een probleem opgetreden bij het updaten van de organisatie
+        success: Organisatie is succesvol bijgewerkt
     invitations:
       create:
         error: Er waren enkele problemen terwijl je je vrienden uitnodigde
@@ -641,6 +647,7 @@ nl:
       user:
         create_user_group: Maak een organisatie
         edit_profile: Bewerk profiel
+        edit_user_group: Bewerk organisatieprofiel
     reported_mailer:
       hide:
         hello: Hallo %{name},
