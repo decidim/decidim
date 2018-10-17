@@ -919,7 +919,7 @@ hu:
       widget:
         see_more: Tovább
   locale:
-    name: English
+    name: Angol
   password_validator:
     domain_included_in_password: túl hasonló a domain névhez
     email_included_in_password: túl hasonló az email címhez
