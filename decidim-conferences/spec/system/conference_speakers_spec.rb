@@ -20,7 +20,7 @@ describe "Conference speakers", type: :system do
     it "the menu link is not shown" do
       visit decidim_conferences.conference_path(conference)
 
-      within ".main-nav" do
+      within ".process-nav" do
         expect(page).to have_no_content("Speakers")
       end
     end
