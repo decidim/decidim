@@ -434,10 +434,16 @@ hu:
       create:
         error: Hiba történt a szervezet létrehozásában
         success: A szervezet sikeresen létrejött
+      edit:
+        edit_user_group: Szervezet szerkesztése
+        update_user_group: Frissítési szervezet
       new:
         create_user_group: Hozzon létre szervezetet
         new_user_group: Új szervezet
       no_user_groups: Még nem tartozik semmiféle szervezethez.
+      update:
+        error: Probléma történt a szervezet frissítésével
+        success: A szervezet sikeresen frissült
     invitations:
       create:
         error: Problémák adódtak a barátok meghívása közben
@@ -640,6 +646,7 @@ hu:
       user:
         create_user_group: Hozzon létre szervezetet
         edit_profile: Profil szerkesztése
+        edit_user_group: Szervezeti profil szerkesztése
     reported_mailer:
       hide:
         hello: Helló %{name}!
