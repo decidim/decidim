@@ -103,7 +103,7 @@ Decidim.register_component(:surveys) do |component|
       questionnaire: questionnaire
     }
 
-    survey = Decidim.traceability.create!(
+    Decidim.traceability.create!(
       Decidim::Surveys::Survey,
       admin_user,
       params,
