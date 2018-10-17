@@ -131,6 +131,7 @@ fi:
           conference_speakers: Konferenssin puhujat
           info: Tiedot
           moderations: Moderoinnit
+          partners: kumppanit
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ fi:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
             moderator: Moderoija
+        partner:
+          fields:
+            link: Linkki
+            logo: Logo
+            name: Nimi
+            partner_type: Tyyppi
+          name: kumppani
+          types:
+            collaborator: työtoveri
+            main_promotor: Main promoottori
+      partners:
+        create:
+          error: Virhe lisäsi kumppania tähän konferenssiin.
+          success: Partner lisäsi onnistuneesti tähän konferenssiin.
+        destroy:
+          success: Yhteistyökumppani poistettiin onnistuneesti tästä kokouksesta.
+        edit:
+          title: Päivitä kumppani.
+          update: Päivittää
+        new:
+          create: Luoda
+          title: Uusi kumppani
+        update:
+          error: Virhettä päivitettiin tämän konferenssin kumppani.
+          success: Yhteistyökumppani päivitettiin onnistuneesti tämän kokouksen yhteydessä.
       titles:
         conferences: Konferenssit
     admin_log:
@@ -225,6 +251,9 @@ fi:
             decline: Hylkää kutsu "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
             join: Liity konferenssiin '%{conference_title}'
+        partners:
+          index:
+            title: kumppanit
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -265,6 +294,9 @@ fi:
         index:
           speakers: Puhujat
       conferences:
+        partners:
+          collaborators: yhteistyökumppanit
+          main_promotors: Tärkeimmät promoottorit
         show:
           already_account: Onko sinulla jo tili decidimissa?
           login_as: Olet kirjautunut sisään %{name} <%{email}>
@@ -372,6 +404,7 @@ fi:
           take_part: Osallistu
       conferences_nav:
         conference_menu_item: Tiedot
+        conference_partners_menu_item: kumppanit
         conference_speaker_menu_item: kaiuttimet
         unfold: avautua
         venues: tapahtumapaikat
