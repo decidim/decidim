@@ -160,7 +160,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
       end
 
       5.times do
-        Decidim::Conferences::MediLink.create!(
+        Decidim::Conferences::MediaLink.create!(
           title: Decidim::Faker::Localized.sentence(2),
           link: Faker::Internet.url,
           date: Date.current,
