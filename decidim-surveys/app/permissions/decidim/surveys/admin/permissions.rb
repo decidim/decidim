@@ -18,16 +18,6 @@ module Decidim
 
           permission_action
         end
-
-        private
-
-        def survey
-          @survey ||= questionnaire&.questionnaire_for
-        end
-
-        def questionnaire
-          @questionnaire ||= context.fetch(:questionnaire, nil)
-        end
       end
     end
   end
