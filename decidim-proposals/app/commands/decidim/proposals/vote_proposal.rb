@@ -27,8 +27,7 @@ module Decidim
 
         ActiveRecord::Base.transaction do
           vote.save!
-          update_temporary_votes if minimum_votes_per_user?
-          update_counters
+          update_temporary_votes
         end
 
         Decidim::Gamification.increment_score(@current_user, :proposal_votes)
@@ -52,25 +51,16 @@ module Decidim
         minimum_votes_per_user.positive?
       end
 
-      # rubocop:disable Rails/SkipsModelValidations
       def update_temporary_votes
-        user_votes.update_all(temporary: false) if user_votes.count >= minimum_votes_per_user
+        return unless minimum_votes_per_user? && user_votes.count >= minimum_votes_per_user
+        user_votes.each { |vote| vote.update(temporary: false) }
       end
-      # rubocop:enable Rails/SkipsModelValidations
 
       def user_votes
         @user_votes ||= ProposalVote.where(
           author: @current_user,
           proposal: Proposal.where(component: component)
         )
-      end
-
-      def update_counters
-        proposal_ids = user_votes.pluck(:decidim_proposal_id) + [@proposal.id]
-
-        proposal_ids.each do |proposal_id|
-          Proposal.find(proposal_id).update_votes_count
-        end
       end
 
       def build_proposal_vote
