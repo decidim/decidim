@@ -75,7 +75,7 @@
   color: $secondary;
 
   @include flex;
-  @include flex-align($x: center, $y: center);
+  @include flex-align($x: center, $y: middle);
   @include square(70px);
 }
 
@@ -101,6 +101,6 @@
   cursor: pointer;
 
   @include flex;
-  @include flex-align($x: center, $y: center);
+  @include flex-align($x: center, $y: middle);
   @include square(1.5rem);
 }
