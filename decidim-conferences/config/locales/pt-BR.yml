@@ -179,6 +179,7 @@ pt-BR:
           title: Novo parceiro
         update:
           error: Ocorreu um erro ao atualizar um parceiro para esta conferência.
+          success: Parceiro atualizado com sucesso para esta conferência.
       titles:
         conferences: Conferências
     admin_log:
@@ -250,6 +251,9 @@ pt-BR:
             decline: Recusar convite '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
             join: Participe da conferência '%{conference_title}'
+        partners:
+          index:
+            title: Parceiros
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -290,6 +294,9 @@ pt-BR:
         index:
           speakers: caixas de som
       conferences:
+        partners:
+          collaborators: Colaboradores
+          main_promotors: Principais promotores
         show:
           already_account: Você já tem uma conta na decidim?
           login_as: Você está logado como %{name} <%{email}>
@@ -397,6 +404,7 @@ pt-BR:
           take_part: Participar
       conferences_nav:
         conference_menu_item: Em formação
+        conference_partners_menu_item: Parceiros
         conference_speaker_menu_item: caixas de som
         unfold: Desdobrar
         venues: Venues
