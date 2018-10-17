@@ -6,6 +6,7 @@ module Decidim
   module Accountability
     module Admin
       describe ResultsController, type: :controller do
+        include Decidim::ApplicationHelper
         routes { Decidim::Accountability::AdminEngine.routes }
 
         let(:organization) { create(:organization) }

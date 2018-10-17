@@ -14,13 +14,10 @@ fi:
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
-        user_group_document_number: Organisaation asiakirjanumero
-        user_group_name: Organisaation nimi
-        user_group_phone: Organisaation puhelinnumero
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
-      decidim/gamification/badge_earned_event: Ansiomerkki
+      decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
       decidim/profile_updated_event: Profiili päivitetty
   activerecord:
@@ -32,9 +29,6 @@ fi:
         password: Salasana
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
-        user_group_document_number: Organisaation asiakirjanumero
-        user_group_name: Organisaation nimi
-        user_group_phone: Organisaation puhelinnumero
     models:
       decidim/user:
         one: Käyttäjä
@@ -52,6 +46,7 @@ fi:
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_with_month_name: "%B %d. %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ fi:
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei varmennettu
+        unconfirmed:
+          confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää niitä uudelleen:'
+          explanation_html: Jotta voit suorittaa tämän toiminnon, sinulla on oltava lupa, ennen kuin teet sen, sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
+          request_confirmation_instructions: Pyydä vahvistusohjeita
+          title: vahvista sähköpostiosoitteesi
     collapsible_list:
       hidden_elements_count:
         one: ja 1 lisää
@@ -219,6 +219,10 @@ fi:
       html:
         html_content: HTML-sisältö
         name: HTML-lohko
+      last_activity:
+        name: Viimeisin tapahtuma
+        title: Viimeisin tapahtuma
+        view_all: Näytä kaikki
       metrics:
         name: Organisaation mittarit
       stats:
@@ -257,8 +261,6 @@ fi:
           sign_up: Rekisteröidy
           sign_up_as:
             legend: Rekisteröidy
-            user: Yksityishenkilönä
-            user_group: Organisaationa/yhteisönä
           subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
           terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
@@ -278,7 +280,7 @@ fi:
             <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
             Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
             Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
-            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta alustan uusista osallistumismahdollisuuksista.<br>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
             Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
@@ -387,22 +389,22 @@ fi:
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
-      all_badges_link: Katso kaikki saatavilla olevat merkit.
+      all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
         continuity:
           conditions:
-            - Tule tänne usein
-          description: Tämä merkki myönnetään, kun vierailet alustalla säännöllisesti. Pidämme sinusta täällä!
-          description_another: Tämä käyttäjä on kytketty %{score} peräkkäiseen päivään jossakin vaiheessa.
-          description_own: Olet yhdistänyt %{score} peräkkäistä päivää jossakin vaiheessa.
+            - Käy täällä usein
+          description: Tämä kunniamerkki myönnetään, kun vierailet alustalla säännöllisesti. Mukavaa, että olet mukana!
+          description_another: Tämä käyttäjä on vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
+          description_own: Olet vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
           name: Jatkuvuus
-          next_level_in: Yhdistä %{score} peräkkäistä päivää päästäksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole kirjautunut sisään useampaan kuin yhtä peräkkäiseen päivään.
-          unearned_own: Et ole ollut yhteydessä useampaan kuin yhtä peräkkäiseen päivään.
+          next_level_in: Vieraile alustalla %{score} peräkkäisenä päivänä päästäksesi seuraavalle tasolle!
+          unearned_another: Tämä käyttäjä on kirjautunut sisään ainoastaan yhtenä peräkkäisenä päivänä.
+          unearned_own: Et ole kirjautunut palveluun kuin yhtenä peräkkäisenä päivänä.
         followers:
           conditions:
-            - Aktiivinen ja muiden ihmisten seuranta varmasti tekee muut ihmiset seuraamaan sinua.
-          description: Tämä merkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, kutoa verkko kommunikoida muiden ihmisten kanssa alustalla.
+            - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
+          description: Tämä kunniamerkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, muodosta oma verkostosi keskustellaksesi muiden ihmisten kanssa tässä palvelussa.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
           name: Seuraajat
@@ -410,16 +412,16 @@ fi:
           unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
         index:
-          badge_title: "%{name} rintanappi"
-          how: Miten voit ansaita sen
-          page_description: Merkit ovat tunnistuksia osallistuvien toimien ja edistyksen alustalle. Kun aloitat alustasi löytämisen, osallistumisen ja vuorovaikutuksen, ansaitset erilaisia ​​merkkejä. Tässä on luettelo tunnuksista ja joitain tapoja, joilla voit ansaita niitä.
-          title: Merkit
+          badge_title: "%{name} kunniamerkki"
+          how: Kuinka voit ansaita tämän
+          page_description: Kunniamerkit ovat tunnistuksia osallistumisesta tällä alustalla. Kun aloitat tutustumaan alustaan osallistumalla ja vuorovaikuttamalla, ansaitset erilaisia ​​kunniamerkkejä. Tässä on luettelo kunniamerkeistä ja tapoja, joilla voit ansaita niitä.
+          title: Kunniamerkit
         invitations:
           conditions:
-            - Käytä käyttäjän sivullasi olevaa "kutsua ystäviä" -linkkiä kutsumaan ystäväsi
-            - Mukauta lähetettävää viestiä, jos haluat
-            - Tasot tasolle lähettämällä kutsuja ja saattamalla ne rekisteröityneiksi.
-          description: Tämä merkki on myönnetty, kun olet kutsunut joitain ihmisiä, ja he ovat viettää vähän aikaa rekisteröitymään %{organization_name} ja osallistuvat siihen. Kiitos, että %{organization_name} tiedossa muille ja auttaa laajentaa yhteisö!
+            - Käytä profiilisivullasi olevaa "kutsua ystäviä" -linkkiä kutsuaksesi ystäviäsi palveluun
+            - Muokkaa lähetettävää viestiä halutessasi
+            - Pääset seuraavalle tasolle lähettämällä kutsuja ja saadessasi kyseiset ihmiset rekisteröitymään palveluun.
+          description: Tämä kunniamerkki myönnetään, kun olet kutsunut ihmisiä %{organization_name} -palveluun ja nämä ihmiset rekisteröityvät palvelun käyttäjiksi. Kiitos, että autat tekemään %{organization_name} -palvelusta tunnetumpaa ja laajentamaan yhteisöä!
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
           name: Kutsut
@@ -430,7 +432,13 @@ fi:
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     groups:
-      no_user_groups: Ei kuulu vielä yhteenkään käyttäjäryhmään.
+      create:
+        error: Organisaation luomisessa esiintyi ongelma
+        success: Organisaatio luotu onnistuneesti
+      new:
+        create_user_group: Luo organisaatio
+        new_user_group: Uusi organisaatio
+      no_user_groups: Ei kuulu vielä yhteenkään organisaatioon.
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -443,6 +451,13 @@ fi:
         invitations_title: Pitäisikö sinun mielestäsi %{organization_name} -organisaatiossa kuulla enemmän ääniä?
         invite: Kutsu
         visit_your_profile: Siirry profiiliisi
+    last_activities:
+      activities:
+        no_activities_warning: Ei toimintaa
+      all: Kaikki tapahtumatyypit
+      index:
+        last_activity: Viimeisin tapahtuma
+        resource_type: Tyyppi
     log:
       base_presenter:
         create: "%{user_name} loi %{resource_name}"
@@ -522,7 +537,7 @@ fi:
       notify:
         body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
         body_2: 'Kuinka voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
-        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja alustan palveluista. Jos päinvastoin emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
+        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja palvelun mahdollisuuksista. Jos emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
         button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
@@ -593,7 +608,7 @@ fi:
           agreement: Hyväksyn nämä ehdot
           legend: Hyväksy käyttöehdot
         refuse:
-          modal_body: Jos kieltäydyt, et voi käyttää alustaa. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
+          modal_body: Jos kieltäydyt, et voi käyttää palvelua. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
           modal_btn_continue: Hyväksy ehdot ja jatka
           modal_btn_exit: Tarkastan ne myöhemmin
           modal_button: Kieltäydy hyväksymästä ehtoja
@@ -601,7 +616,7 @@ fi:
           modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
         required_review:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
-          body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi alustan käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
+          body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
@@ -616,7 +631,7 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seuraa
-        groups: Ryhmät
+        groups: Organisaatiot
         members: Jäsenet
         notifications: Ilmoitukset
       sidebar:
@@ -624,6 +639,7 @@ fi:
           info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
           title: Kunniamerkit
       user:
+        create_user_group: Luo organisaatio
         edit_profile: Muokkaa profiilia
     reported_mailer:
       hide:
@@ -708,7 +724,6 @@ fi:
       not_found_in_database: Virheellinen %{authentication_keys} tai salasana.
       timeout: Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.
       unauthenticated: Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.
-      unconfirmed: Sinun on vahvistettava sähköpostiosoitteesi ennen jatkamista.
     invitations:
       edit:
         header: Viimeistele tilisi
@@ -811,7 +826,7 @@ fi:
       signed_up: Tervetuloa! Olet kirjautunut sisään onnistuneesti.
       signed_up_but_inactive: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi ei ole vielä aktivoitu.
       signed_up_but_locked: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi on lukittu.
-      signed_up_but_unconfirmed: Sähköpostiosoitteesi on lähetetty vahvistuslinkin sisältävä viesti. Aktivoi tilisi käyttämällä kyseistä linkkiä.
+      signed_up_but_unconfirmed: Sähköpostiosoitteeseesi on lähetetty vahvistuslinkin sisältävä viesti. Aktivoi tilisi käyttämällä kyseistä linkkiä.
       update_needs_confirmation: Tilisi on päivitetty onnistuneesti, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostisi ja vahvista sähköpostiosoitteesi käyttämällä sähköpostissa näkyvää linkkiä.
       updated: Tilisi on päivitetty onnistuneesti.
     sessions:
@@ -913,9 +928,9 @@ fi:
     name_included_in_password: liian samankaltainen nimesi kanssa
     not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
     password_not_allowed: ei ole sallittu
-    password_too_common: on liian yleinen
-    password_too_long: on liian pitkä
-    password_too_short: on liian lyhyt
+    password_too_common: liian yleinen
+    password_too_long: liian pitkä
+    password_too_short: liian lyhyt
   social_share_button:
     delicious: Delicious
     douban: Douban

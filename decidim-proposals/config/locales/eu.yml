@@ -446,6 +446,8 @@ eu:
       destroy_draft:
         error: Arazoak izan dira proposamenaren zirriborroa ezabatzean.
         success: Proposamenaren zirriborroa zuzen ezabatu da.
+      last_activity:
+        new_proposal_at_html: "<span> %{link}</span>proposamen berria"
       models:
         collaborative_draft:
           fields:

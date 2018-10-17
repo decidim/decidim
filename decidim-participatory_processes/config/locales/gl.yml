@@ -288,6 +288,8 @@ gl:
           name: Procesos destacados
       index:
         title: Procesos participativos
+      last_activity:
+        new_participatory_process: Novo proceso participativo
       pages:
         home:
           highlighted_processes:

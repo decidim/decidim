@@ -446,6 +446,8 @@ pt:
       destroy_draft:
         error: Houve erros ao excluir o rascunho da proposta.
         success: O rascunho da proposta foi excluído com sucesso.
+      last_activity:
+        new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
       models:
         collaborative_draft:
           fields:

@@ -313,6 +313,8 @@ it:
             search: Ricerca
             space_type: Spazio partecipativo
             upcoming: Prossime
+      last_activity:
+        new_meeting_at_html: "<span>Nuovo incontro al %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

@@ -441,6 +441,8 @@ de:
       destroy_draft:
         error: Es gab Fehler beim Löschen des Angebotsentwurfs.
         success: Der Angebotsentwurf wurde erfolgreich gelöscht.
+      last_activity:
+        new_proposal_at_html: "<span>Neuer Vorschlag bei %{link}</span>"
       models:
         collaborative_draft:
           fields:
