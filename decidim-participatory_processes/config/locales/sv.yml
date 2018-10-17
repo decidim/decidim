@@ -271,7 +271,7 @@ sv:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Maximal mängd element att visa
+            max_results: Maximalt antal element att visa
         participatory_process_copies:
           form:
             slug_help: 'Rena URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
