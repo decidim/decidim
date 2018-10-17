@@ -435,10 +435,16 @@ fi:
       create:
         error: Organisaation luomisessa esiintyi ongelma
         success: Organisaatio luotu onnistuneesti
+      edit:
+        edit_user_group: Muokkaa organisaatiota
+        update_user_group: Päivitä organisaatio
       new:
         create_user_group: Luo organisaatio
         new_user_group: Uusi organisaatio
       no_user_groups: Ei kuulu vielä yhteenkään organisaatioon.
+      update:
+        error: Organisaatiota on päivitetty ongelma
+        success: Organisaatio päivitettiin onnistuneesti
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -641,6 +647,7 @@ fi:
       user:
         create_user_group: Luo organisaatio
         edit_profile: Muokkaa profiilia
+        edit_user_group: Muokkaa organisaation profiilia
     reported_mailer:
       hide:
         hello: Hei %{name},
