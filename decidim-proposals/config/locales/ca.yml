@@ -77,6 +77,7 @@ ca:
             geocoding_enabled: Geocodificació habilitada
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
+            participatory_texts_enabled: Textos participatius habilitats
             proposal_answering_enabled: Activar resposta oficial a propostes
             proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
             proposal_length: Longitud màxima del cos de la proposta
@@ -243,6 +244,7 @@ ca:
         edit_proposal: Edició de la proposta
         import: Importa des d'un altre component
         new: Nova proposta
+        participatory_texts: Textos participatius
         private_notes: Notes privades
         title: Accions
       admin:
@@ -254,6 +256,28 @@ ca:
         models:
           proposal:
             name: Proposta
+        participatory_texts:
+          bulk-actions:
+            import_doc: Importa el document
+          import:
+            invalid: El formulari no és vàlid.
+            success: Enhorabona, les seccions següents s'han analitzat del document importat, s'han convertit en propostes. Ara podeu revisar i ajustar el que necessiteu abans de publicar-lo.
+          index:
+            info_1: Les seccions següents s'han analitzat del document importat, s'han convertit en propostes. Ara podeu revisar i ajustar el que necessiteu abans de publicar-lo.
+            publish_document: Publicar el document
+            title: TEXT PARTICIPATIU DE PREVIEW
+          new_import:
+            bottom_hint: "(Podreu previsualitzar i ordenar les seccions del document)"
+            document_legend: 'Afegiu un document de menys de 2 MB, cadascuna de les seccions fins que s''analitzin 3 nivells en Propostes. Els formats suportats són: Markdown'
+            title: AGREGAR DOCUMENT
+            upload_document: Penja el document
+          publish:
+            invalid: No s'han pogut publicar propostes
+            success: S'han publicat totes les propostes
+          sections:
+            article: "<em>Article</em>"
+            section: "<em>Secció:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsecció:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Acceptada
