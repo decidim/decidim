@@ -21,6 +21,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
+    settings.attribute :minimum_votes_per_user, type: :integer, default: 0
     settings.attribute :proposal_limit, type: :integer, default: 0
     settings.attribute :proposal_length, type: :integer, default: 500
     settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5
@@ -33,6 +34,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
+    settings.attribute :participatory_texts_enabled, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true

@@ -25,6 +25,8 @@ module Decidim
     #
     # Returns nothing.
     def self.increment_score(user, badge_name, amount = 1)
+      return unless amount.positive?
+
       BadgeScorer.new(user, find_badge(badge_name)).increment(amount)
     end
 
@@ -36,6 +38,8 @@ module Decidim
     #
     # Returns nothing.
     def self.decrement_score(user, badge_name, amount = 1)
+      return unless amount.positive?
+
       BadgeScorer.new(user, find_badge(badge_name)).decrement(amount)
     end
 

@@ -25,7 +25,10 @@ module Decidim
         build_proposal_vote
         return broadcast(:invalid) unless vote.valid?
 
-        vote.save!
+        ActiveRecord::Base.transaction do
+          vote.save!
+          update_temporary_votes
+        end
 
         Decidim::Gamification.increment_score(@current_user, :proposal_votes)
 
@@ -36,8 +39,35 @@ module Decidim
 
       private
 
+      def component
+        @component ||= @proposal.component
+      end
+
+      def minimum_votes_per_user
+        component.settings.minimum_votes_per_user
+      end
+
+      def minimum_votes_per_user?
+        minimum_votes_per_user.positive?
+      end
+
+      def update_temporary_votes
+        return unless minimum_votes_per_user? && user_votes.count >= minimum_votes_per_user
+        user_votes.each { |vote| vote.update(temporary: false) }
+      end
+
+      def user_votes
+        @user_votes ||= ProposalVote.where(
+          author: @current_user,
+          proposal: Proposal.where(component: component)
+        )
+      end
+
       def build_proposal_vote
-        @vote = @proposal.votes.build(author: @current_user)
+        @vote = @proposal.votes.build(
+          author: @current_user,
+          temporary: minimum_votes_per_user?
+        )
       end
     end
   end
