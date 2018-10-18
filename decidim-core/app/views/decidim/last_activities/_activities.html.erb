@@ -1,0 +1,13 @@
+<% if activities.length == 0 %>
+  <div class="callout warning">
+    <%= t ".no_activities_warning" %>
+  </div>
+<% else %>
+  <%= render partial: "decidim/shared/results_per_page" %>
+
+  <div class="row">
+    <%= cell "decidim/activities", activities %>
+  </div>
+
+  <%= decidim_paginate activities, resource_type: params[:resource_type] %>
+<% end %>

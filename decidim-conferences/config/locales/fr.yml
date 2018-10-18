@@ -156,6 +156,20 @@ fr:
             moderator: Modérateur
       titles:
         conferences: Conférences
+    admin_log:
+      conference:
+        create: "%{user_name} créé la %{resource_name} conférence"
+        publish: "%{user_name} publication la %{resource_name} conférence"
+        unpublish: "%{user_name} non publié la %{resource_name} conférence"
+        update: "%{user_name} mis à jour le %{resource_name} conférence"
+      conference_speaker:
+        create: "%{user_name} créé le %{resource_name} orateur dans la %{space_name} conférence"
+        delete: "%{user_name} enlevé le %{resource_name} orateur de la %{space_name} conférence"
+        update: "%{user_name} mis à jour le %{resource_name} orateur de la %{space_name} conférence"
+      conference_user_role:
+        create: "%{user_name} invité %{resource_name} à la conférence %{space_name}"
+        delete: "%{user_name} retiré l'utilisateur %{resource_name} de la conférence %{space_name}"
+        update: "%{user_name} changé le rôle de %{resource_name} dans la conférence %{space_name}"
     conference_speakers:
       index:
         title: Haut-parleurs
@@ -237,15 +251,28 @@ fr:
           invalid: Il y a eu un problème pour quitter cette conférence.
           success: Vous avez quitté la conférence avec succès.
       conference_speaker:
+        go_to_twitter: Aller sur Twitter
+        more_info: Plus d'informations
+        personal_website: Site Web personnel
         show:
-          affiliation: Affiliation
-          personal_url: URL personnelle
-          position: Position
-          short_bio: Courte biographie
-          twitter_handle: Gazouillement
+          more_info: Plus d'informations
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Site Web personnel
+        twitter_handle:
+          go_to_twitter: Aller sur Twitter
       conference_speakers:
         index:
           speakers: Haut-parleurs
+      conferences:
+        show:
+          already_account: Avez-vous déjà un compte dans decidim?
+          login_as: Vous êtes connecté en tant que %{name} <%{email}>
+          make_conference_registration: 'Faites votre inscription à la conférence:'
+          new_user: Nouvel utilisateur?
+          register: registre
+          sign_in: Connectez-vous pour vous inscrire à cette conférence
+          sign_up: Inscrivez-vous gratuitement dans decidim pour vous inscrire
       content_blocks:
         highlighted_conferences:
           name: Des conférences surlignées
@@ -279,9 +306,9 @@ fr:
             active_conferences: Conférences actives
             see_all_conferences: Voir toutes les conférences
       show:
-        end_date: Date de fin
+        details: Détails
+        introduction: introduction
         objectives: Objectifs
-        start_date: Date de début
       statistics:
         answers_count: Réponses
         comments_count: commentaires
@@ -328,10 +355,6 @@ fr:
         subject: Invitation à participer à une conférence
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: La conférence
-        conference_speaker_menu_item: Haut-parleurs
-        unfold: Se dérouler
       conference_widgets:
         show:
           take_part: Prendre part
@@ -347,3 +370,8 @@ fr:
         promoted_conference:
           more_info: Plus d'informations
           take_part: Prendre part
+      conferences_nav:
+        conference_menu_item: Information
+        conference_speaker_menu_item: Haut-parleurs
+        unfold: Se dérouler
+        venues: Lieux

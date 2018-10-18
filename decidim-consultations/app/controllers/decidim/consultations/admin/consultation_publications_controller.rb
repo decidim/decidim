@@ -10,7 +10,7 @@ module Decidim
         def create
           enforce_permission_to :publish, :consultation, consultation: current_consultation
 
-          PublishConsultation.call(current_consultation) do
+          PublishConsultation.call(current_consultation, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("consultation_publications.create.success", scope: "decidim.admin")
             end

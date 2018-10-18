@@ -15,9 +15,6 @@ en:
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -33,9 +30,6 @@ en:
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
     models:
       decidim/user:
         one: User
@@ -53,6 +47,7 @@ en:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -185,6 +180,11 @@ en:
           invalid_field: "%{field} value %{value} isn't valid."
           ok: Ok
           title: Not authorized
+        unconfirmed:
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
+          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
         one: and 1 more
@@ -220,6 +220,10 @@ en:
       html:
         html_content: HTML content
         name: HTML block
+      last_activity:
+        name: Last activity
+        title: Last activity
+        view_all: View all
       metrics:
         name: Organization metrics
       stats:
@@ -258,8 +262,6 @@ en:
           sign_up: Sign up
           sign_up_as:
             legend: Sign up as
-            user: Individual
-            user_group: Organization/Collective
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
@@ -435,7 +437,19 @@ en:
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
     groups:
-      no_user_groups: Doesn't belong to any user group yet.
+      create:
+        error: There has been a problem creating the organization
+        success: Organization created successfully
+      edit:
+        edit_user_group: Edit organization
+        update_user_group: Update organization
+      new:
+        create_user_group: Create organization
+        new_user_group: New organization
+      no_user_groups: Doesn't belong to any organization yet.
+      update:
+        error: There has been a problem updating the organization
+        success: Organization updated successfully
     invitations:
       create:
         error: There were some problems while inviting your friends
@@ -448,6 +462,13 @@ en:
         invitations_title: Do you think more voices should be heard in %{organization_name}?
         invite: Invite
         visit_your_profile: Visit your profile
+    last_activities:
+      activities:
+        no_activities_warning: No activity
+      all: All activity types
+      index:
+        last_activity: Last activity
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
@@ -621,7 +642,7 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
-        groups: Groups
+        groups: Organizations
         members: Members
         notifications: Notifications
       sidebar:
@@ -629,7 +650,9 @@ en:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
+        create_user_group: Create organization
         edit_profile: Edit profile
+        edit_user_group: Edit organization profile
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -713,7 +736,6 @@ en:
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please sign in again to continue.
       unauthenticated: You need to sign in or sign up before continuing.
-      unconfirmed: You have to confirm your email address before continuing.
     invitations:
       edit:
         header: Finish creating your account

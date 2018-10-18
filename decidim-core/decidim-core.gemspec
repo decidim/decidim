@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "autoprefixer-rails", "~> 8.0"
+  s.add_dependency "batch-loader", "~> 1.2"
   s.add_dependency "carrierwave", "~> 1.1"
   s.add_dependency "cells-erb", "~> 0.1.0"
   s.add_dependency "cells-rails", "~> 0.0.9"
@@ -50,7 +51,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rack-attack", "~> 5.2"
   s.add_dependency "rails", ">= 5.2", "< 6.0.x"
   s.add_dependency "rails-i18n", "~> 5.0"
-  s.add_dependency "rectify", "~> 0.11.0"
+  s.add_dependency "rectify", "~> 0.13.0"
   s.add_dependency "redis", "~> 4.0"
   s.add_dependency "rubyzip", "~> 1.2", ">= 1.2.2"
   s.add_dependency "sassc", "~> 1.12", ">= 1.12.1"

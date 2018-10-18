@@ -18,6 +18,7 @@ module Decidim
       follow_action?
       notification_action?
       conversation_action?
+      user_group_action?
 
       permission_action
     end
@@ -89,6 +90,16 @@ module Decidim
 
       conversation = context.fetch(:conversation, nil)
       toggle_allow(conversation.participants.include?(user))
+    end
+
+    def user_group_action?
+      return unless permission_action.subject == :user_group
+      return allow! if [:create].include?(permission_action.action)
+
+      user_group = context.fetch(:user_group)
+      user_manages_group = Decidim::UserGroups::ManageableUserGroups.for(user).include?(user_group)
+
+      toggle_allow(user_manages_group) if permission_action.action == :edit
     end
 
     def user_can_admin_component?

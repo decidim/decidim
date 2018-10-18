@@ -15,9 +15,11 @@ gl:
     gamification:
       badges:
         test:
+          conditions:
+            - Use un entorno de proba para decidir.
+          description: Os usuarios obtén esta insignia creando probas.
           description_another: Este usuario creou %{score} probas.
           description_own: Creaches %{score} probas.
-          explanation: Os usuarios obtén esta insignia creando probas.
           name: Probas
           next_level_in: Crea %{score} probas máis para chegar ao seguinte nivel!
           unearned_another: Este usuario aínda non creou ningunha proba.
@@ -25,8 +27,10 @@ gl:
     pages:
       home:
         statistics:
+          bar: Bar
           dummies_count_high: Maniquís de alta
           dummies_count_medium: Dummies medio
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Maniquís de alta

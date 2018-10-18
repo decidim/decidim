@@ -100,6 +100,8 @@ gl:
           close_window: Pechar ventá
           share: Comparte
           share_link: Compartir a ligazón
+      last_activity:
+        new_debate_at_html: "<span>Novo debate en %{link}</span>"
       models:
         debate:
           fields:
@@ -135,9 +137,11 @@ gl:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Escolle un debate aberto para participar
+          description: Este distintivo é concedido cando participas activamente nos diferentes debates deixando os teus comentarios.
           description_another: Este usuario participou en %{score} debates.
           description_own: Participaches en %{score} debates.
-          explanation: Os usuarios obtén esta insignia participando en debates.
           name: Debates
           next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
           unearned_another: Este usuario aínda non participou en ningún debate.

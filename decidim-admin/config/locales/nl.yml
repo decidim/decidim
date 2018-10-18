@@ -36,6 +36,7 @@ nl:
         organization_url: URL van de organisatie
         redirect_uri: URI doorsturen
       organization:
+        badges_enabled: Schakel badges in
         cta_button_path: actieknop pad
         cta_button_text: actieknop tekst
         default_locale: Standaard taal

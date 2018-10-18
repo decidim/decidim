@@ -211,6 +211,9 @@ de:
         title: Fragen von %{scope_name}
       index:
         title: Konsultationen
+      last_activity:
+        new_consultation: Neue Konsultation
+        new_question_at_html: "<span>Neue Frage bei %{link}</span>"
       pages:
         home:
           highlighted_consultations:

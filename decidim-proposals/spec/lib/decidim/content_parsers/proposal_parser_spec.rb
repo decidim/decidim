@@ -88,6 +88,20 @@ module Decidim
           end
         end
 
+        context "when content has one link that is a simple domain" do
+          let(:link) { "aaa:bbb" }
+          let(:content) do
+            "This content contains #{link} which is not a URI."
+          end
+
+          it { is_expected.to eq(content) }
+          it "has metadata with the proposal" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.linked_proposals).to be_empty
+          end
+        end
+
         context "when content has many links" do
           let(:proposal1) { create(:proposal, component: component) }
           let(:proposal2) { create(:proposal, component: component) }
@@ -104,6 +118,22 @@ module Decidim
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
             expect(parser.metadata.linked_proposals).to eq([proposal1.id, proposal2.id, proposal3.id])
+          end
+        end
+
+        context "when content has words similar to links but not links" do
+          let(:similars) do
+            %w(AA:aaa AA:sss aa:aaa aa:sss aaa:sss aaaa:sss aa:ssss aaa:ssss)
+          end
+          let(:content) do
+            "This content has similars to links: #{similars.join}. Great! Now are not treated as links"
+          end
+
+          it { is_expected.to eq(content) }
+          it "has empty metadata" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.linked_proposals).to be_empty
           end
         end
 

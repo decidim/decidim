@@ -85,9 +85,12 @@ de:
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Gehe zum Teilnehmerbereich von Intiativen
+            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+          description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
           description_own: Du hast %{score} Initiativen veröffentlicht.
-          explanation: Benutzer erhalten dieses Abzeichen, indem sie ihre Initiativen veröffentlichen lassen.
           name: Veröffentlichte Initiativen
           next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
@@ -329,6 +332,8 @@ de:
         status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
+      last_activity:
+        new_initiative: Neue Initiative
       pages:
         home:
           highlighted_initiatives:

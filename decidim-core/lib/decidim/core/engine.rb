@@ -15,12 +15,7 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "active_link_to"
-
-# Until https://github.com/andypike/rectify/pull/45 is attended, we're shipping
-# with a patched version of rectify
 require "rectify"
-require "decidim/rectify_ext"
-
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
@@ -42,6 +37,7 @@ require "doorkeeper"
 require "doorkeeper-i18n"
 require "nobspw"
 require "kaminari"
+require "batch-loader"
 
 require "decidim/api"
 
@@ -60,6 +56,7 @@ module Decidim
 
       initializer "decidim.middleware" do |app|
         app.config.middleware.use Decidim::CurrentOrganization
+        app.config.middleware.use BatchLoader::Middleware
       end
 
       initializer "decidim.assets" do |app|
@@ -324,6 +321,12 @@ module Decidim
         Decidim.content_blocks.register(:homepage, :how_to_participate) do |content_block|
           content_block.cell = "decidim/content_blocks/how_to_participate"
           content_block.public_name_key = "decidim.content_blocks.how_to_participate.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:homepage, :last_activity) do |content_block|
+          content_block.cell = "decidim/content_blocks/last_activity"
+          content_block.public_name_key = "decidim.content_blocks.last_activity.name"
           content_block.default!
         end
 

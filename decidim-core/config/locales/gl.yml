@@ -14,9 +14,6 @@ gl:
         password_confirmation: Confirma o teu contrasinal
         personal_url: URL persoal
         remove_avatar: Eliminar avatar
-        user_group_document_number: Número de documento da organización
-        user_group_name: Nome da Organización
-        user_group_phone: Teléfono da organización
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Compoñente activo
@@ -32,9 +29,6 @@ gl:
         password: Contrasinal
         password_confirmation: Confirmación por contrasinal
         remember_me: Lémbrame
-        user_group_document_number: Número de documento da organización
-        user_group_name: Nome da organización
-        user_group_phone: Organización do teléfono
     models:
       decidim/user:
         one: Usuario
@@ -52,6 +46,7 @@ gl:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ gl:
           invalid_field: "O %{field} valor %{value} non é válido."
           ok: Ok
           title: Non autorizado
+        unconfirmed:
+          confirmation_instructions: 'Se non recibiu as instrucións de confirmación, pode solicitalas de novo:'
+          explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucións de confirmación
+          title: Confirma o teu correo electrónico
     collapsible_list:
       hidden_elements_count:
         one: e 1 máis
@@ -219,6 +219,10 @@ gl:
       html:
         html_content: Contido HTML
         name: Bloque HTML
+      last_activity:
+        name: Última actividade
+        title: Última actividade
+        view_all: Ver todo
       metrics:
         name: Métricas da organización
       stats:
@@ -257,8 +261,6 @@ gl:
           sign_up: Rexistrarse
           sign_up_as:
             legend: Rexístrate como
-            user: Individual
-            user_group: Organización / colectiva
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
           terms: os termos e condicións de uso
           tos_agreement: Ao rexistrarte, aceptas %{link}.
@@ -387,19 +389,41 @@ gl:
         error: Hai un erro neste campo.
       remove_this_file: Elimina este ficheiro
     gamification:
+      all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
+        continuity:
+          conditions:
+            - Veña aquí a miúdo
+          description: Este distintivo concedeuse cando visitas a plataforma dun xeito regular. Gústanos de telo por aquí.
+          description_another: Este usuario conectouse por %{score} días consecutivos nalgún momento.
+          description_own: Conectado por %{score} días consecutivos nalgún momento.
+          name: Continuidade
+          next_level_in: Conéctese por %{score} días consecutivos para chegar ao seguinte nivel.
+          unearned_another: Este usuario non iniciou sesión máis de un día consecutivo.
+          unearned_own: Non estás conectado por máis dun día consecutivo.
         followers:
+          conditions:
+            - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
+          description: Este distintivo é concedido cando chega a un certo número de seguidores. %{organization_name} é unha rede social e política, tece a súa web para comunicarse con outras persoas na plataforma.
           description_another: Este usuario ten %{score} seguidores.
           description_own: "%{score} seguidores están seguindo."
-          explanation: Os usuarios obtén esta insignia seguindo outros usuarios.
           name: Seguidores
           next_level_in: Obteña máis de %{score} usuarios que che sigan para chegar ao seguinte nivel.
           unearned_another: Este usuario aínda non ten ningún seguidor.
           unearned_own: Aínda non tes followers.
+        index:
+          badge_title: "%{name} insignia"
+          how: Como podes gañalo
+          page_description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias. Aquí está a lista de emblemas e algunhas formas de gaña-los.
+          title: Insignias
         invitations:
+          conditions:
+            - Utiliza a ligazón "invitar amigos" na túa páxina de usuario para invitar aos teus amigos
+            - Personaliza, se queres, a mensaxe que estás enviando
+            - Subirás ao enviar invitacións e obtelos rexistrados.
+          description: Este distintivo concedeuse cando convidou a algunhas persoas e pasaron un pouco de tempo para inscribirse en %{organization_name} e converterse en participantes. Grazas por facer %{organization_name} a coñecer aos outros e axudando a ampliar a comunidade!
           description_another: Este usuario invitou a %{score} usuarios.
           description_own: Invitaches %{score} usuarios.
-          explanation: Os usuarios obtén esta badge invitando a outros usuarios.
           name: Invitacións
           next_level_in: Invita %{score} usuarios máis para chegar ao seguinte nivel!
           unearned_another: Este usuario aínda non invitou ningún usuario.
@@ -408,7 +432,13 @@ gl:
       level: Nivel %{level}
       reached_top: Alcanzou o nivel superior desta placa.
     groups:
-      no_user_groups: Aínda non pertence a ningún grupo de usuarios.
+      create:
+        error: Produciuse un problema na creación da organización
+        success: Organización creada con éxito
+      new:
+        create_user_group: Crear organización
+        new_user_group: Nova organización
+      no_user_groups: Aínda non pertence a ningunha organización.
     invitations:
       create:
         error: Houbo algúns problemas ao invitar aos teus amigos
@@ -421,6 +451,13 @@ gl:
         invitations_title: Pensas que se deben escoitar máis voces en %{organization_name}?
         invite: Invitar
         visit_your_profile: Visita o teu perfil
+    last_activities:
+      activities:
+        no_activities_warning: Non hai actividade
+      all: Todos os tipos de actividade
+      index:
+        last_activity: Última actividade
+        resource_type: Tipo
     log:
       base_presenter:
         create: "%{user_name} creouse %{resource_name}"
@@ -442,6 +479,8 @@ gl:
           not_found: 'Non se atopou o tipo de alcance na base de datos (ID: %{id})'
     managed_users:
       expired_session: A sesión de suplantación actual caducou.
+    members:
+      no_members: Este grupo de usuarios aínda non ten ningún membro.
     menu:
       home: Inicio
       more_information: Máis información
@@ -592,13 +631,15 @@ gl:
         conversations: Conversas
         followers: Seguidores
         following: Segue
-        groups: Grupos
+        groups: Organizacións
+        members: Membros
         notifications: Notificacións
       sidebar:
         badges:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
           title: Insignias
       user:
+        create_user_group: Crear organización
         edit_profile: Editar perfil
     reported_mailer:
       hide:
@@ -683,7 +724,6 @@ gl:
       not_found_in_database: O %{authentication_keys} ou o contrasinal non son válidos.
       timeout: A túa sesión caducou. Inicia sesión de novo para continuar.
       unauthenticated: Necesitas iniciar sesión ou rexistrarte antes de continuar.
-      unconfirmed: Ten que confirmar o seu enderezo de correo electrónico antes de continuar.
     invitations:
       edit:
         header: Acaba de crear a túa conta

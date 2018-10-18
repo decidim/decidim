@@ -23,7 +23,15 @@ module Decidim
         return broadcast(:invalid) unless @proposal.authored_by?(@current_user)
 
         transaction do
-          @proposal.update published_at: Time.current
+          Decidim.traceability.perform_action!(
+            "publish",
+            @proposal,
+            @current_user,
+            visibility: "public-only"
+          ) do
+            @proposal.update published_at: Time.current
+          end
+
           increment_scores
           send_notification
           send_notification_to_participatory_space

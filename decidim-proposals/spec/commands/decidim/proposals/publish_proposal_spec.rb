@@ -27,6 +27,19 @@ module Decidim
           expect { described_class.call(proposal_draft, follower) }.to broadcast(:invalid)
         end
 
+        it "traces the action", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with("publish", proposal_draft, current_user, visibility: "public-only")
+            .and_call_original
+
+          expect { described_class.call(proposal_draft, current_user) }.to change(Decidim::ActionLog, :count)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
+          expect(action_log.version.event).to eq "update"
+        end
+
         describe "events" do
           subject do
             described_class.new(proposal_draft, current_user)

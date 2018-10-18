@@ -32,6 +32,26 @@ describe Decidim::ActionLogger do
       end
     end
 
+    context "when setting its visibility" do
+      context "when nothing is set" do
+        let(:extra) { {} }
+
+        it "sets it to admin-only" do
+          subject
+          expect(action_log.visibility).to eq("admin-only")
+        end
+      end
+
+      context "when setting it" do
+        let(:extra) { { visibility: "public-only" } }
+
+        it "sets it" do
+          subject
+          expect(action_log.visibility).to eq("public-only")
+        end
+      end
+    end
+
     context "when the action is on a component resource" do
       it "creates the action log with the correct data for the resource" do
         expect { subject }.to change(Decidim::ActionLog, :count).by(1)

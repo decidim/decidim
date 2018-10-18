@@ -100,6 +100,8 @@ it:
           close_window: Chiudi la finestra
           share: Condividere
           share_link: Condividi il link
+      last_activity:
+        new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:
         debate:
           fields:
@@ -135,9 +137,11 @@ it:
     gamification:
       badges:
         commented_debates:
+          conditions:
+            - Scegli un dibattito aperto a cui partecipare
+          description: Questo badge è concesso quando partecipi attivamente ai diversi dibattiti lasciando i tuoi commenti.
           description_another: Questo utente ha partecipato a %{score} dibattiti.
           description_own: Hai partecipato a %{score} dibattiti.
-          explanation: Gli utenti ottengono questo badge partecipando ai dibattiti.
           name: dibattiti
           next_level_in: Partecipa a %{score} altri dibattiti per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessun dibattito.

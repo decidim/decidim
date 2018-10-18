@@ -16,6 +16,8 @@ fr:
   decidim:
     comments:
       comments: Commentaires
+      last_activity:
+        new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.

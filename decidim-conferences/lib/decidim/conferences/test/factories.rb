@@ -97,6 +97,7 @@ FactoryBot.define do
     short_bio { generate_localized_title }
     twitter_handle { Faker::Internet.user_name }
     personal_url { Faker::Internet.url }
+    avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
 
     trait :with_user do
       user { create(:user, organization: conference.organization) }
@@ -121,6 +122,24 @@ FactoryBot.define do
 
     trait :rejected do
       rejected_at { Time.current }
+    end
+  end
+
+  factory :partner, class: "Decidim::Conferences::Partner" do
+    conference
+
+    name { Faker::Name.name }
+    weight { Faker::Number.between(1, 10) }
+    link { Faker::Internet.url }
+    partner_type { "main_promotor" }
+    logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+
+    trait :main_promotor do
+      partner_type { "main_promotor" }
+    end
+
+    trait :collaborator do
+      partner_type { "collaborator" }
     end
   end
 end

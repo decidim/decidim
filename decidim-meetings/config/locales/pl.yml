@@ -131,9 +131,11 @@ pl:
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Zarejestruj się na spotkaniach, które chcesz wziąć udział
+          description: Ta odznaka jest przyznawana, gdy bierzesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Brałeś udział w %{score} spotkaniach.
-          explanation: Użytkownicy otrzymują tę odznakę, uczestnicząc w spotkaniach.
           name: Udział w spotkaniach
           next_level_in: Weź udział w %{score} dodatkowych spotkaniach, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
@@ -319,6 +321,8 @@ pl:
             search: Szukaj
             space_type: Przestrzeń uczestnicząca
             upcoming: Nadchodzące
+      last_activity:
+        new_meeting_at_html: "<span>Nowe spotkanie o %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

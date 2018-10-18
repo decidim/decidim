@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:initiatives) do |participatory_space|
+  participatory_space.icon = "decidim/initiatives/icon.svg"
   participatory_space.stylesheet = "decidim/initiatives/initiatives"
 
   participatory_space.context(:public) do |context|
@@ -58,7 +59,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
       Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
       Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
 
-      initiative = Decidim::Initiative.create!(
+      params = {
         title: Decidim::Faker::Localized.sentence(3),
         description: Decidim::Faker::Localized.sentence(25),
         scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
@@ -69,7 +70,16 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         published_at: Time.current - 7.days,
         author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
         organization: organization
-      )
+      }
+
+      initiative = Decidim.traceability.perform_action!(
+        "publish",
+        Decidim::Initiative,
+        organization.users.first,
+        visibility: "all"
+      ) do
+        Decidim::Initiative.create!(params)
+      end
 
       Decidim::Comments::Seed.comments_for(initiative)
 

@@ -156,6 +156,20 @@ ca:
             moderator: Moderador
       titles:
         conferences: Conferències
+    admin_log:
+      conference:
+        create: "%{user_name} crear la %{resource_name} conferència"
+        publish: "%{user_name} publicar la %{resource_name} conferència"
+        unpublish: "%{user_name} no publicada la %{resource_name} conferència"
+        update: "%{user_name} actualitzem la %{resource_name} conferència"
+      conference_speaker:
+        create: "%{user_name} va crear el %{resource_name} de altaveus al %{space_name} conferència"
+        delete: "%{user_name} treure el %{resource_name} parlant de la %{space_name} conferències"
+        update: "%{user_name} va actualitzar el %{resource_name} d'altaveus al %{space_name} conferència"
+      conference_user_role:
+        create: "%{user_name} convidats %{resource_name} a la %{space_name} conferències"
+        delete: "%{user_name} eliminar l'usuari %{resource_name} de la %{space_name} conferència"
+        update: "%{user_name} canviar el paper d' %{resource_name} a la %{space_name} conferència"
     conference_speakers:
       index:
         title: Ponents
@@ -237,15 +251,28 @@ ca:
           invalid: Hi ha hagut un problema en deixar aquesta conferència.
           success: Heu deixat la conferència amb èxit.
       conference_speaker:
+        go_to_twitter: Anar a Twitter
+        more_info: més informació
+        personal_website: Lloc web personal
         show:
-          affiliation: Afiliació
-          personal_url: Url personal
-          position: Posició
-          short_bio: Bio curt
-          twitter_handle: Twitter
+          more_info: més informació
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Lloc web personal
+        twitter_handle:
+          go_to_twitter: Anar a Twitter
       conference_speakers:
         index:
           speakers: Ponents
+      conferences:
+        show:
+          already_account: Ja tens un compte per decidir?
+          login_as: Esteu connectant com %{name} <%{email}>
+          make_conference_registration: 'Fes la teva inscripció a la conferència:'
+          new_user: Nou usuari?
+          register: Registre
+          sign_in: Inicieu sessió per registrar-se en aquesta conferència
+          sign_up: Registreu-vos de forma gratuïta per decidir registrar-vos
       content_blocks:
         highlighted_conferences:
           name: Conferències destacades
@@ -279,9 +306,9 @@ ca:
             active_conferences: Conferències actives
             see_all_conferences: Veure totes les conferències
       show:
-        end_date: Data de finalització
+        details: Detalls
+        introduction: Introducció
         objectives: Objectius
-        start_date: Data d'inici
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
@@ -328,10 +355,6 @@ ca:
         subject: Invitació per participar en una conferència
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: La conferència
-        conference_speaker_menu_item: Ponents
-        unfold: Desplegar
       conference_widgets:
         show:
           take_part: Formar part
@@ -347,3 +370,8 @@ ca:
         promoted_conference:
           more_info: Més informació
           take_part: Formar part
+      conferences_nav:
+        conference_menu_item: Informació
+        conference_speaker_menu_item: Ponents
+        unfold: Desplegar
+        venues: Llocs

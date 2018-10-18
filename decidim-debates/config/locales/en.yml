@@ -101,6 +101,8 @@ en:
           close_window: Close window
           share: Share
           share_link: Share link
+      last_activity:
+        new_debate_at_html: "<span>New debate at %{link}</span>"
       models:
         debate:
           fields:
