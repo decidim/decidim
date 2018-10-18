@@ -811,29 +811,29 @@ ca:
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
         send_me_reset_password_instructions: Envia'm les instruccions de restabliment de la contrasenya
-      no_token: No podeu accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si prové d'un correu electrònic de restabliment de la contrasenya, assegureu-vos que heu utilitzat l'URL complet proporcionat.
-      send_instructions: Rebreu un correu electrònic amb instruccions sobre com restablir la vostra contrasenya en pocs minuts.
-      send_paranoid_instructions: Si la vostra adreça de correu electrònic existeix a la nostra base de dades, rebreu un enllaç de recuperació de la contrasenya a la vostra adreça de correu electrònic en pocs minuts.
-      updated: La contrasenya s'ha modificat correctament. Ja heu iniciat la sessió.
-      updated_not_active: La contrasenya s'ha modificat correctament.
+      no_token: No pots accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si hi has accedit des d'un correu electrònic de restabliment de la contrasenya, assegura't que has utilitzat l'URL complet proporcionat.
+      send_instructions: Rebràs un correu electrònic amb instruccions sobre com restablir la teva contrasenya en pocs minuts.
+      send_paranoid_instructions: Si la teva adreça de correu electrònic existeix a la nostra base de dades, rebreu un enllaç de recuperació de la contrasenya a la teva adreça de correu electrònic en pocs minuts.
+      updated: La teva contrasenya s'ha modificat correctament. Ja has iniciat la sessió.
+      updated_not_active: La teva contrasenya s'ha modificat correctament.
     registrations:
-      destroyed: Adéu El vostre compte s'ha cancel·lat correctament. Esperem tornar-vos a veure de seguida.
+      destroyed: Adéu! El teu compte s'ha cancel·lat correctament. Esperem tornar-te a veure aviat.
       edit:
-        are_you_sure: Estàs segur?
+        are_you_sure: Estàs segur/a?
         cancel_my_account: Cancel·lar el meu compte
-        currently_waiting_confirmation_for_email: 'Actualment la confirmació d''espera per a: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixeu-lo en blanc si no voleu canviar-lo
+        currently_waiting_confirmation_for_email: 'Estem esperant la confirmació per a: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: Deixa-ho en blanc si no vols canviar-lo
         title: Edita %{resource}
-        unhappy: Infeliç
+        unhappy: Infeliç?
         update: Actualització
-        we_need_your_current_password_to_confirm_your_changes: necessitem la contrasenya actual per confirmar els canvis
+        we_need_your_current_password_to_confirm_your_changes: Necessitem la contrasenya actual per confirmar els canvis
       new:
         sign_up: Registra't
-      signed_up: Benvinguda! Heu iniciat la sessió amb èxit.
-      signed_up_but_inactive: Heu iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar-hi la sessió perquè el vostre compte encara no està activat.
-      signed_up_but_locked: Heu iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar-hi la sessió perquè el vostre compte està bloquejat.
-      signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la vostra adreça de correu electrònic. Seguiu l'enllaç per activar el vostre compte.
-      update_needs_confirmation: Heu actualitzat el vostre compte amb èxit, però hem de verificar la vostra nova adreça electrònica. Comproveu el vostre correu electrònic i seguiu l'enllaç de confirmació per confirmar la vostra nova adreça de correu electrònic.
+      signed_up: Benvinguda! Has iniciat la sessió amb èxit.
+      signed_up_but_inactive: Has iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar la sessió perquè el teu compte encara no està activat.
+      signed_up_but_locked: Has iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar-hi la sessió perquè el teu compte està bloquejat.
+      signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la teva adreça de correu electrònic. Seguiu l'enllaç per activar el teu compte.
+      update_needs_confirmation: Has actualitzat el teu compte amb èxit, però hem de verificar la teva nova adreça electrònica. Comprova el teu correu electrònic i segueix l'enllaç de confirmació per confirmar la teva nova adreça de correu electrònic.
       updated: El compte s'ha actualitzat correctament.
     sessions:
       already_signed_out: S'ha iniciat la sessió correctament.
