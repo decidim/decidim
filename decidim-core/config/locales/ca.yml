@@ -725,7 +725,7 @@ ca:
       already_authenticated: Ja has iniciat la sessió.
       inactive: El teu compte encara no està activat.
       invalid: El %{authentication_keys} o la contrasenya no són vàlids.
-      invited: Tens una invitació pendent, accepta'l per acabar de crear el teu compte.
+      invited: Tens una invitació pendent, accepta-la per acabar de crear el teu compte.
       last_attempt: Tens un intent més abans de bloquejar el teu compte.
       locked: El teu compte està bloquejat.
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
@@ -738,7 +738,7 @@ ca:
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari/a i contrasenya.
       invitation_removed: S'ha eliminat la teva invitació.
-      invitation_token_invalid: El token d'invitació proporcionat no és vàlid.
+      invitation_token_invalid: El token de invitació proporcionat no és vàlid!
       new:
         header: Enviar invitació
         submit_button: Enviar una invitació
@@ -796,11 +796,11 @@ ca:
       unlock_instructions:
         action: Desbloqueja el meu compte
         greeting: Hola %{recipient}!
-        instruction: 'Feu clic a l''enllaç següent per desbloquejar el teu compte:'
+        instruction: 'Fes clic a l''enllaç següent per desbloquejar el teu compte:'
         message: El teu compte s'ha bloquejat a causa d'una quantitat excessiva d'intents d'inici de sessió incorrectes.
         subject: Desbloqueja les instruccions
     omniauth_callbacks:
-      failure: No podeu autenticar-te des de %{kind} perquè "%{reason}".
+      failure: No pots autenticar-te des de %{kind} perquè "%{reason}".
       success: S'ha autenticat amb èxit des del compte %{kind}.
     passwords:
       edit:
@@ -879,8 +879,8 @@ ca:
         one: '1 error prohibit que es guardés aquest %{resource}:'
         other: "%{count} errors van prohibir que es guardés aquest %{resource}:"
       too_many_marks: està usant massa marques de puntuació consecutives (p. ex. i?)
-      too_much_caps: està utilitzant massa lletres majúscules (més del 25% del text)
-      too_short: és massa curt (menys de 15 caràcters)
+      too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
+      too_short: És massa curt (menys de 15 caràcters)
   forms:
     required: Obligatori
   invisible_captcha:
