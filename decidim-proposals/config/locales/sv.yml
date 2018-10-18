@@ -77,6 +77,7 @@ sv:
             geocoding_enabled: Geocoding aktiverad
             new_proposal_help_text: Nytt förslag till hjälptext
             official_proposals_enabled: Officiella förslag möjliga
+            participatory_texts_enabled: Deltagande texter aktiverade
             proposal_answering_enabled: Svar tlll förslag aktiverat
             proposal_edit_before_minutes: Förslag kan redigeras av författare innan så här många minuter passerar
             proposal_length: Maximal längd på förslagets innehåll
@@ -243,6 +244,7 @@ sv:
         edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
+        participatory_texts: Deltagande texter
         private_notes: Privata anteckningar
         title: Åtgärder
       admin:
@@ -254,6 +256,28 @@ sv:
         models:
           proposal:
             name: Förslag
+        participatory_texts:
+          bulk-actions:
+            import_doc: Importera dokument
+          import:
+            invalid: Blanketten är ogiltig!
+            success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
+          index:
+            info_1: Följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
+            publish_document: Publicera dokument
+            title: PREVIEW PARTICIPERY TEXT
+          new_import:
+            bottom_hint: "(Du kommer att kunna förhandsgranska och sortera dokumentavsnitt)"
+            document_legend: 'Lägg till ett dokument mindre än 2 MB, varje sektion tills 3 nivåer djup kommer att analyseras i förslag. Suported format är: Markdown'
+            title: ADD DOKUMENT
+            upload_document: Ladda upp dokument
+          publish:
+            invalid: Kunde inte publicera förslag
+            success: Alla förslag har publicerats
+          sections:
+            article: "<em>Artikel</em>"
+            section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Underavsnitt:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Accepterad
