@@ -30,28 +30,24 @@ describe "User group profile edition", type: :system do
   end
 
   context "when trying to edit by a manager" do
-    let(:requested_user) { create :user, :confirmed, organization: creator.organization }
-    let!(:membership) { create :user_group_membership, user: requested_user, user_group: user_group, role: :requested }
-
     before do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
-
-      click_link "Manage members"
     end
 
-    it "allows managing the group members" do
-      expect(page).to have_content("Current members (without admins)")
-      expect(page).to have_content(member.name)
-    end
+    it "allows editing the profile" do
+      expect(page).to have_content("Edit organization profile")
+      click_link "Edit organization profile"
 
-    context "with pending requests" do
-      it "lists the pending requests" do
-        within ".list-request" do
-          expect(page).to have_content("The following users have applied to join this group")
-          expect(page).to have_content(requested_user.name)
-        end
-      end
+      fill_in "Name", with: "My super duper group"
+      fill_in "About", with: "We are awesome"
+      attach_file "Avatar", Decidim::Dev.asset("city.jpeg")
+
+      click_button "Update organization"
+
+      expect(page).to have_content("Organization updated successfully")
+      expect(page).to have_content("My super duper group")
+      expect(page).to have_content("We are awesome")
     end
   end
 end

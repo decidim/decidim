@@ -437,6 +437,9 @@ en:
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
     group_members:
+      accept:
+        error: There was an error accepting this join request
+        success: Join request accepted successfully
       index:
         current_members_without_admins: "Current members (without admins):"
         manage_members: Manage members
