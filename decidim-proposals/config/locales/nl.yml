@@ -75,6 +75,7 @@ nl:
             collaborative_drafts_enabled: Samenwerkingsconcepten ingeschakeld
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geolocatie ingeschakeld
+            minimum_votes_per_user: Minimale stemmen per gebruiker
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
             official_proposals_enabled: Officiële voorstellen zijn ingeschakeld
             participatory_texts_enabled: Participatieve teksten ingeschakeld
@@ -620,6 +621,10 @@ nl:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
+          minimum_votes_per_user:
+            description: U moet minimaal 3 stemmen verdelen over verschillende voorstellen.
+            given_enough_votes: Je hebt voldoende steun gegeven.
+            supports_remaining: U moet nog %{remaining_votes} voorstellen stemmen om rekening te houden met uw stemmen.
           proposal_limit:
             description: Je kan maximaal %{limit} voorstellen doen.
           threshold_per_proposal:
