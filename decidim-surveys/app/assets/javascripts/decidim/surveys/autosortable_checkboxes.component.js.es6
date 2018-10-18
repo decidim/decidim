@@ -40,9 +40,13 @@
         const $positionField = $(el).find("input[name$=\\[position\\]]");
 
         if ($(el).hasClass("sorted")) {
-          $positionField.val(idx);
+          let position = parseInt($positionField.val(), 10)
+          if (!Number.isInteger(position)) {
+            position = idx;
+          }
+          $positionField.val(position);
           $positionField.prop("disabled", false);
-          $positionSelector.html(`${idx + 1}. `);
+          $positionSelector.html(`${position + 1}. `);
         } else {
           $positionField.val("");
           $positionField.prop("disabled", true);
