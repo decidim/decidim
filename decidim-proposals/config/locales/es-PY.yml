@@ -75,6 +75,7 @@ es-PY:
             collaborative_drafts_enabled: Habilitar borradores colaborativos
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
+            minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_help_text: Nuevo texto de ayuda de propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             participatory_texts_enabled: Textos participativos habilitados
@@ -620,6 +621,10 @@ es-PY:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
+          minimum_votes_per_user:
+            description: Debes distribuir un mínimo de 3 votos entre las diferentes propuestas.
+            given_enough_votes: Has dado suficientes apoyos.
+            supports_remaining: Tienes que votar %{remaining_votes} propuestas más para que tus votos sean tomados en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
