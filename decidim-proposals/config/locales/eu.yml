@@ -77,6 +77,7 @@ eu:
             geocoding_enabled: Geokodifikazioa gaituta dago
             new_proposal_help_text: Proposamen berriaren laguntza testu
             official_proposals_enabled: Proposamen ofizialak gaituta
+            participatory_texts_enabled: Parte hartzaileen testuak gaituta
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_length: Proposamen maximoa gorputzaren luzera
@@ -243,6 +244,7 @@ eu:
         edit_proposal: Editatu proposamena
         import: Inportatu beste osagai batetik
         new: Proposamen berria
+        participatory_texts: Testu partehartzaileak
         private_notes: Ohar pribatuak
         title: Ekintzak
       admin:
@@ -254,6 +256,28 @@ eu:
         models:
           proposal:
             name: Proposamena
+        participatory_texts:
+          bulk-actions:
+            import_doc: Inportatu dokumentua
+          import:
+            invalid: Inprimakia baliogabea da!
+            success: Zorionak, ondorengo atalak inportatutako dokumentutik aztertu dira, proposamen bihurtu dira. Orain argitalpenaren aurretik behar duzun guztia berrikusi eta egokitu dezakezu.
+          index:
+            info_1: Ondorengo atalak inportatutako dokumentutik aztertu dira, proposamen bihurtu dira. Orain argitalpenaren aurretik behar duzun guztia berrikusi eta egokitu dezakezu.
+            publish_document: Argitaratu dokumentua
+            title: PREVIEW PARTICIPATORIO TEXT
+          new_import:
+            bottom_hint: "(Dokumentuko atalen aurrebista eta ordenazioa ahal izango duzu)"
+            document_legend: 'Gehitu dokumentua baino 2MB baino txikiagoa, atal bakoitza 3 maila sakonera proposamenetan aztertu arte. Formatu onartzen dira: Markdown'
+            title: ADD DOCUMENT
+            upload_document: Kargatu dokumentua
+          publish:
+            invalid: Ezin izan dira proposamenik argitaratu
+            success: Proposamen guztiak argitaratu dira
+          sections:
+            article: "<em>artikuluaren</em>"
+            section: "<em>Artikulua:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Azpiatala:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Onartuta
