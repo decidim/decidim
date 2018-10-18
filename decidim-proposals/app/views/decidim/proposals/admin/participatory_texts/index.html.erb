@@ -30,7 +30,7 @@
   <%= form.submit t(".publish_document") %>
 </div>
 <% end -%>
-<%= javascript_tag do %>
+<script>
 $(window).on("load", function() {
   $( "#participatory-text" ).on( "sortupdate",
     function( event, ui ) {
@@ -40,4 +40,4 @@ $(window).on("load", function() {
     }
   )
 })
-<% end %>
+</script>
