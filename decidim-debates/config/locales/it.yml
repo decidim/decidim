@@ -100,6 +100,8 @@ it:
           close_window: Chiudi la finestra
           share: Condividere
           share_link: Condividi il link
+      last_activity:
+        new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:
         debate:
           fields:

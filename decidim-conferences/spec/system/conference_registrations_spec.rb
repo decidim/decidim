@@ -41,7 +41,7 @@ describe "Conference registrations", type: :system do
     it "the registration button is not visible" do
       visit_conference
 
-      within ".card.extra.join-conference" do
+      within ".extra.join-conference" do
         expect(page).not_to have_button("JOIN CONFERENCE")
         expect(page).not_to have_text("20 slots remaining")
       end
@@ -59,7 +59,7 @@ describe "Conference registrations", type: :system do
       it "the registration button is disabled" do
         visit_conference
 
-        within ".card.extra.join-conference" do
+        within ".extra.join-conference" do
           expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE")
           expect(page).to have_text("No slots remaining")
         end
@@ -71,7 +71,7 @@ describe "Conference registrations", type: :system do
         it "they have the option to sign in" do
           visit_conference
 
-          within ".card.extra.join-conference" do
+          within ".extra.join-conference" do
             click_button "Join Conference"
           end
 
@@ -87,7 +87,7 @@ describe "Conference registrations", type: :system do
         it "they can join the conference" do
           visit_conference
 
-          within ".card.extra.join-conference" do
+          within ".extra.join-conference" do
             click_button "Join Conference"
           end
 
@@ -98,7 +98,7 @@ describe "Conference registrations", type: :system do
 
           expect(page).to have_content("successfully")
 
-          within ".card.extra.join-conference" do
+          within ".extra.join-conference" do
             expect(page).to have_css(".button", text: "GOING")
             expect(page).to have_text("19 slots remaining")
           end
@@ -115,13 +115,13 @@ describe "Conference registrations", type: :system do
       it "they can leave the conference" do
         visit_conference
 
-        within ".card.extra.join-conference" do
+        within ".extra.join-conference" do
           click_button "Going"
         end
 
         expect(page).to have_content("successfully")
 
-        within ".card.extra.join-conference" do
+        within ".extra.join-conference" do
           expect(page).to have_css(".button", text: "JOIN CONFERENCE")
           expect(page).to have_text("20 slots remaining")
         end

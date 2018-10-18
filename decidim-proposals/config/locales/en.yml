@@ -78,6 +78,7 @@ en:
             geocoding_enabled: Geocoding enabled
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
+            participatory_texts_enabled: Participatory texts enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_length: Maximum proposal body length
@@ -244,6 +245,7 @@ en:
         edit_proposal: Edit proposal
         import: Import from another component
         new: New proposal
+        participatory_texts: Participatory texts
         private_notes: Private notes
         title: Actions
       admin:
@@ -255,6 +257,28 @@ en:
         models:
           proposal:
             name: Proposal
+        participatory_texts:
+          bulk-actions:
+            import_doc: Import document
+          import:
+            invalid: The form is invalid!
+            success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
+          index:
+            info_1: The following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
+            publish_document: Publish document
+            title: PREVIEW PARTICIPATORY TEXT
+          new_import:
+            bottom_hint: "(You will be able to preview and sort document sections)"
+            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: Markdown'
+            title: ADD DOCUMENT
+            upload_document: Upload document
+          publish:
+            invalid: Could not publish proposals
+            success: All proposals have been published
+          sections:
+            article: "<em>Article</em>"
+            section: "<em>Section:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsection:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Accepted

@@ -33,6 +33,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
+    settings.attribute :participatory_texts_enabled, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
@@ -184,7 +185,7 @@ Decidim.register_component(:proposals) do |component|
 
       if n.positive?
         Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample(n).each do |author|
-          user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+          user_group = [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(author).verified.sample : nil
           proposal.add_coauthor(author, user_group: user_group)
         end
       end

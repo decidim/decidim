@@ -20,6 +20,7 @@ module Decidim
       include Decidim::Fingerprintable
       include Decidim::DataPortability
       include Decidim::Hashtaggable
+      include Decidim::Proposals::ParticipatoryTextSection
 
       fingerprint fields: [:title, :body]
 
@@ -39,7 +40,10 @@ module Decidim
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
+
+      acts_as_list scope: :decidim_component_id
 
       searchable_fields({
                           scope_id: :decidim_scope_id,

@@ -61,7 +61,7 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "creates a new user" do
+          it "creates a new user group" do
             expect(UserGroup).to receive(:create!).with(
               name: form.name,
               nickname: form.nickname,

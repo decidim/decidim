@@ -32,5 +32,15 @@ module Decidim
     def officialization_text
       profile_user.officialization_text
     end
+
+    def can_edit_user_group_profile?
+      return false unless current_user
+      return false if model.is_a?(Decidim::User)
+      Decidim::UserGroups::ManageableUserGroups.for(current_user).include?(model)
+    end
+
+    def profile_user_can_follow?
+      profile_user.can_follow?
+    end
   end
 end

@@ -1,4 +1,4 @@
-<% if current_user && current_user.user_groups.verified.any? %>
+<% if current_user && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
   <button id="select-identity-button"
           class="card__button button expanded button--sc">
     <%= t(".vote") %>

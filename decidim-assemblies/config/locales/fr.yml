@@ -261,6 +261,8 @@ fr:
         public: Public
       index:
         title: Assemblées
+      last_activity:
+        new_assembly: Nouvelle assemblée
       pages:
         home:
           highlighted_assemblies:

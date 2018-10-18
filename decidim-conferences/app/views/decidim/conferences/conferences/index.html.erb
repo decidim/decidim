@@ -1,5 +1,13 @@
 <% add_decidim_meta_tags(title: t("conferences.index.title", scope: "decidim")) %>
 
+<%
+edit_link(
+  decidim_admin_conferences.conferences_path,
+  :read,
+  :conference_list
+)
+%>
+
 <main class="wrapper">
   <% if promoted_conferences.any? %>
     <section id="highlighted-conferences" class="row section">

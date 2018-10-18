@@ -28,18 +28,33 @@
   <%= render_hook(:user_profile_bottom) %>
   <div class="card__footer card__footer--transparent">
     <div class="flex--cc p-s text-center">
-      <div class="mr-s">
-        <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
-          <%= t("decidim.profiles.show.followers") %>
-          <h1 class="heading1"><%= profile_user.followers_count %></h1>
-        <% end %>
-      </div>
-      <div class="ml-s">
-        <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
-          <%= t("decidim.profiles.show.following") %>
-          <h1 class="heading1"><%= profile_user.following_count %></h1>
-        <% end %>
-      </div>
+      <% if profile_user_can_follow? %>
+        <div class="mr-s">
+          <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
+            <%= t("decidim.profiles.show.followers") %>
+            <h1 class="heading1"><%= profile_user.followers_count %></h1>
+          <% end %>
+        </div>
+        <div class="ml-s">
+          <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
+            <%= t("decidim.profiles.show.following") %>
+            <h1 class="heading1"><%= profile_user.following_count %></h1>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="mr-s">
+          <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
+            <%= t("decidim.profiles.show.followers") %>
+            <h1 class="heading1"><%= profile_user.followers_count %></h1>
+          <% end %>
+        </div>
+        <div class="ml-s">
+          <%= link_to profile_members_path(nickname: profile_holder.nickname) do %>
+            <%= t("decidim.profiles.show.members") %>
+            <h1 class="heading1"><%= profile_user.members_count %></h1>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -88,4 +103,10 @@
   </div>
 <% elsif logged_in? %>
   <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
+<% end %>
+
+<% if can_edit_user_group_profile? %>
+  <div class="text-center">
+    <%= link_to t("decidim.profiles.user.edit_user_group"), edit_group_path(profile_holder.nickname) %>
+  </div>
 <% end %>

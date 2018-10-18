@@ -51,7 +51,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rack-attack", "~> 5.2"
   s.add_dependency "rails", ">= 5.2", "< 6.0.x"
   s.add_dependency "rails-i18n", "~> 5.0"
-  s.add_dependency "rectify", "~> 0.11.0"
+  s.add_dependency "rectify", "~> 0.13.0"
   s.add_dependency "redis", "~> 4.0"
   s.add_dependency "rubyzip", "~> 1.2", ">= 1.2.2"
   s.add_dependency "sassc", "~> 1.12", ">= 1.12.1"

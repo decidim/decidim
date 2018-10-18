@@ -14,6 +14,9 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Added**:
 
+- **decidim-proposals**: Administration panel related implementation of Participatory Texts. [#4229](https://github.com/decidim/decidim/pull/4229)
+- **decidim-conferences**: Add Partners to Conference. [\#4251](https://github.com/decidim/decidim/pull/4251)
+- **decidim-conferences**: Apply new design for Conferences [#4194](https://github.com/decidim/decidim/pull/4194)
 - **decidim-conferences**: Added Conferences as a Participatory Space. This module is a configurator and generator of Conference pages, understood as a collection of Meeting. [\#3781](https://github.com/decidim/decidim/pull/3781)
 - **decidim-meetings**: Apply hashtags to meetings [\#4080](https://github.com/decidim/decidim/pull/4080)
 - **decidim-assemblies**: Add organizational chart to assemblies home. [\#4045](https://github.com/decidim/decidim/pull/4045)
@@ -42,6 +45,9 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Badges can now be disabled per organization. [\#4249](https://github.com/decidim/decidim/pull/4249)
 - **decidim-core**: Adds a "Continuity" badge. [\#4257](https://github.com/decidim/decidim/pull/4257)
 - **decidim-core**: Add activity feed content block and page. [\#4130](https://github.com/decidim/decidim/pull/4130)
+- **decidim-core**: Allow user to sign-in without confirming their email. [\#4269](https://github.com/decidim/decidim/pull/4269)
+- **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
+- **decidim-core**: Let admins and creators edit the user group profile [\#4283](https://github.com/decidim/decidim/pull/4283)
 
 **Changed**:
 
@@ -55,6 +61,11 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 **Fixed**:
 
 - **decidim-surveys**: Fix validation issue on survey sortable questions [\#4293](https://github.com/decidim/decidim/pull/4293)
+- **decidim-proposals**: Rework URL_REGEX regular expression so that it is more restrictive for general URIs causing problems with Scandinavian locales. [\4290](https://github.com/decidim/decidim/pull/4290)
+- **decidim-accountability**: Fix inclusion of ApplicationHelper in results controller. [\#4272](https://github.com/decidim/decidim/pull/4272)
+- **decidim-admin**: Add email validation to ManagedUserPromotionForm. [\#4225](https://github.com/decidim/decidim/pull/4225)
+- **decidim-surveys**: Fix issue when copying. [\#4274](https://github.com/decidim/decidim/pull/4274)
+- **decidim-proposals**: Fix uncatched exception when trying to retrieve a Proposal from an invalid url match. [\4157](https://github.com/decidim/decidim/pull/4157)
 - **decidim-core**: Fix data portability proposal images, modify command to create directory if not exists, and fix surveys ansewers whem exporting data portability. [\#4223](https://github.com/decidim/decidim/pull/4223)
 - **decidim-debates**: When a Searchable accesses its indexed resources it must scope by resource_type and organization_id. [\4079](https://github.com/decidim/decidim/pull/4079)
 - **decidim-debates**: Fix create debates as a normal user in a private space [\4108](https://github.com/decidim/decidim/pull/4108)

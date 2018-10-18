@@ -36,7 +36,7 @@ fi:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen URI
       organization:
-        badges_enabled: Ota merkit käyttöön
+        badges_enabled: Ota kunniamerkit käyttöön
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
         default_locale: Oletuskieli

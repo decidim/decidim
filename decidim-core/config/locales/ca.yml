@@ -14,9 +14,6 @@ ca:
         password_confirmation: Confirmar la contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge d'usuari
-        user_group_document_number: Número de document acreditatiu
-        user_group_name: Nom de l'organització
-        user_group_phone: Telèfon de l'organització
     models:
       decidim/attachment_created_event: Adjunt
       decidim/component_published_event: Component actiu
@@ -32,9 +29,6 @@ ca:
         password: Contrasenya
         password_confirmation: Confirmació de la contrasenya
         remember_me: Recorda'm
-        user_group_document_number: Número de document acreditatiu
-        user_group_name: Nom de l'organització
-        user_group_phone: Telèfon de l'organització
     models:
       decidim/user:
         one: Usuari
@@ -52,6 +46,7 @@ ca:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ ca:
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
+        unconfirmed:
+          confirmation_instructions: 'Si no heu rebut les instruccions de confirmació, podeu tornar a sol·licitar-les:'
+          explanation_html: Per realitzar aquesta acció cal que estigueu autoritzada, abans de fer-ho, heu de confirmar el vostre correu electrònic <strong>%{email}</strong>.
+          request_confirmation_instructions: Sol·licita instruccions de confirmació
+          title: Confirma el teu correu electrònic
     collapsible_list:
       hidden_elements_count:
         one: i 1 més
@@ -219,6 +219,10 @@ ca:
       html:
         html_content: Contingut HTML
         name: Bloc HTML
+      last_activity:
+        name: Última activitat
+        title: Última activitat
+        view_all: Veure tot
       metrics:
         name: Mètriques de l'organització
       stats:
@@ -257,8 +261,6 @@ ca:
           sign_up: Registra't
           sign_up_as:
             legend: Inscriure's com a
-            user: Individu
-            user_group: Organització/Col·lectiu
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
           terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
@@ -430,7 +432,13 @@ ca:
       level: Nivell %{level}
       reached_top: Has arribat al nivell superior d'aquesta insígnia.
     groups:
-      no_user_groups: Encara no pertany a cap grup d'usuaris.
+      create:
+        error: S'ha produït un problema en crear l'organització
+        success: L'organització s'ha creat correctament
+      new:
+        create_user_group: Crea una organització
+        new_user_group: Nova organització
+      no_user_groups: Encara no pertany a cap organització.
     invitations:
       create:
         error: Hi ha hagut alguns problemes mentre es convidava els teus amics
@@ -443,6 +451,13 @@ ca:
         invitations_title: Creus que cal escoltar més veus en %{organization_name}?
         invite: Convidar
         visit_your_profile: Visiteu el teu perfil
+    last_activities:
+      activities:
+        no_activities_warning: Sense activitat
+      all: Tots els tipus d'activitat
+      index:
+        last_activity: Última activitat
+        resource_type: Escriviu
     log:
       base_presenter:
         create: "%{user_name} creat %{resource_name}"
@@ -616,7 +631,7 @@ ca:
         conversations: Converses
         followers: Seguidors
         following: Segueix
-        groups: Grups
+        groups: Organitzacions
         members: Membres
         notifications: Notificacions
       sidebar:
@@ -624,6 +639,7 @@ ca:
           info: Les insígnies es guanyen mitjançant la realització d'activitats específiques a la plataforma.
           title: Insígnies
       user:
+        create_user_group: Crea una organització
         edit_profile: Edita el perfil
     reported_mailer:
       hide:
@@ -708,7 +724,6 @@ ca:
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
       timeout: La vostra sessió ha caducat. Torna a iniciar-la per continuar.
       unauthenticated: Heu d'iniciar la sessió o registrar-vos abans de continuar.
-      unconfirmed: Heu de confirmar la vostra adreça de correu electrònic abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
