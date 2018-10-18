@@ -180,10 +180,10 @@ es-PY:
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
-          confirmation_instructions: 'Si no ha recibido las instrucciones de confirmación, puede volver a solicitarlas:'
-          explanation_html: Para realizar esta acción, debe estar autorizado, antes de hacerlo, debe confirmar su correo electrónico <strong>%{email}</strong>.
-          request_confirmation_instructions: Solicitar instrucciones de confirmación.
-          title: confirme su email
+          confirmation_instructions: 'Si no has recibido las instrucciones de confirmación, puedes volver a solicitarlas:'
+          explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucciones de confirmación
+          title: Confirma tu email
     collapsible_list:
       hidden_elements_count:
         one: y 1 más
@@ -389,7 +389,7 @@ es-PY:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
-      all_badges_link: Ver todas las insignias disponibles.
+      all_badges_link: Ver todas los distintivos disponibles.
       badges:
         continuity:
           conditions:
@@ -398,13 +398,13 @@ es-PY:
           description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
           description_own: Te has conectado por %{score} días consecutivos en algún momento.
           name: Continuidad
-          next_level_in: '¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!'
-          unearned_another: Este usuario no se ha registrado durante más de un día consecutivo.
+          next_level_in: '¡Conéctate durante %{score} días consecutivos alcanzar al siguiente nivel!'
+          unearned_another: Este usuario no ha entrado durante más de un día consecutivo.
           unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
-          description: Esta insignia se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
+          description: Este distintivo se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
           description_another: Este usuario tiene %{score} seguidores.
           description_own: "%{score} usuarios te están siguiendo."
           name: Seguidores
@@ -412,16 +412,16 @@ es-PY:
           unearned_another: Este usuario no tiene seguidores todavía.
           unearned_own: Aún no tienes seguidores
         index:
-          badge_title: "%{name} credencial"
-          how: Como puedes ganarlo
-          page_description: Las insignias son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes ganarlas.
-          title: Insignias
+          badge_title: "Distintivo %{name}"
+          how: Como puedes conseguirlo
+          page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
+          title: Distintivos
         invitations:
           conditions:
-            - Use el enlace "invitar amigos" en su página de usuario para invitar a sus amigos
+            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
             - Personaliza, si quieres, el mensaje que estás enviando.
             - Subirás de nivel enviando invitaciones y registrándolas.
-          description: Este distintivo se otorga cuando ha invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y convertirse en participantes. Gracias por hacer de %{organization_name} a conocer a otros y ayudar a ampliar la comunidad!
+          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
           name: Invitaciones
@@ -437,7 +437,7 @@ es-PY:
         success: Organización creada con éxito
       edit:
         edit_user_group: Editar organizacion
-        update_user_group: Organización de actualización
+        update_user_group: Actualizar organización
       new:
         create_user_group: Crear organizacion
         new_user_group: Nueva organizacion
