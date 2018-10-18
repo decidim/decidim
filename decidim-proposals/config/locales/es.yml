@@ -261,6 +261,23 @@ es:
             import_doc: Importar documento
           import:
             invalid: El formulario no es válido!
+            success: Enhorabuena, las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
+          index:
+            info_1: Las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
+            publish_document: Publicar documento
+            title: PREVIO TEXTO PARTICIPATIVO
+          new_import:
+            bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
+            document_legend: 'Agregue un documento de menos de 2 MB, cada sección hasta 3 niveles de profundidad se analizarán en Propuestas. Los formatos admitidos son: Markdown.'
+            title: AÑADIR DOCUMENTO
+            upload_document: Subir documento
+          publish:
+            invalid: No se pudieron publicar propuestas.
+            success: Todas las propuestas han sido publicadas.
+          sections:
+            article: "<em>Artículo</em>"
+            section: "<em>Sección:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsección:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aceptada
