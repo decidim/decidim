@@ -77,6 +77,7 @@ es-PY:
             geocoding_enabled: Geocodificación habilitada
             new_proposal_help_text: Nuevo texto de ayuda de propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
+            participatory_texts_enabled: Textos participativos habilitados
             proposal_answering_enabled: Respuesta a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta
@@ -243,6 +244,7 @@ es-PY:
         edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
+        participatory_texts: Textos participativos
         private_notes: Notas privadas
         title: Acciones
       admin:
@@ -254,6 +256,28 @@ es-PY:
         models:
           proposal:
             name: Propuesta
+        participatory_texts:
+          bulk-actions:
+            import_doc: Importar documento
+          import:
+            invalid: El formulario no es válido!
+            success: Enhorabuena, las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
+          index:
+            info_1: Las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
+            publish_document: Publicar documento
+            title: PREVIO TEXTO PARTICIPATIVO
+          new_import:
+            bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
+            document_legend: 'Agregue un documento de menos de 2 MB, cada sección hasta 3 niveles de profundidad se analizarán en Propuestas. Los formatos admitidos son: Markdown.'
+            title: AÑADIR DOCUMENTO
+            upload_document: Subir documento
+          publish:
+            invalid: No se pudieron publicar propuestas.
+            success: Todas las propuestas han sido publicadas.
+          sections:
+            article: "<em>Artículo</em>"
+            section: "<em>Sección:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsección:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aceptada
