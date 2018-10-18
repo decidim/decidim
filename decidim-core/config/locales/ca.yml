@@ -415,7 +415,7 @@ ca:
           badge_title: "%{name} distintiu"
           how: Com es pot aconseguir?
           page_description: Els distintius són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comença a descobrir, participar i interactuar a la plataforma, obtindrà diferents distintius. Aquí teniu la llista de distintius i algunes formes de aconseguir-les.
-          title: Insígnies
+          title: Distintius
         invitations:
           conditions:
             - Utilitzeu l'enllaç "convidar amics" a la vostra pàgina d'usuari per convidar els vostres amics
@@ -630,7 +630,7 @@ ca:
       deleted: Usuari eliminat
       view: Veure
     profiles:
-      default_officialization_text_for_user_groups: Aquest grup d'usuaris es verifica públicament, el seu nom s'ha verificat per correspondre amb el seu nom real
+      default_officialization_text_for_user_groups: Aquest grup d'usuaris es verifica públicament, el teu nom s'ha verificat per correspondre amb el teu nom real
       default_officialization_text_for_users: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
         badges: Insígnies
@@ -642,12 +642,12 @@ ca:
         notifications: Notificacions
       sidebar:
         badges:
-          info: Les insígnies es guanyen mitjançant la realització d'activitats específiques a la plataforma.
-          title: Insígnies
+          info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
+          title: Distintius
       user:
         create_user_group: Crea una organització
         edit_profile: Edita el perfil
-        edit_user_group: Editeu el perfil d'organització
+        edit_user_group: Edita el perfil d'organització
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -716,21 +716,21 @@ ca:
         deleted: Usuari eliminat
   devise:
     confirmations:
-      confirmed: La vostra adreça de correu electrònic s'ha confirmat correctament.
+      confirmed: La teva adreça de correu electrònic s'ha confirmat correctament.
       new:
         resend_confirmation_instructions: Reenvia les instruccions de confirmació
-      send_instructions: Rebreu un correu electrònic amb instruccions per confirmar la vostra adreça de correu electrònic en pocs minuts.
-      send_paranoid_instructions: Si la vostra adreça de correu electrònic existeix a la nostra base de dades, rebrà un correu electrònic amb instruccions per confirmar la vostra adreça de correu electrònic en pocs minuts.
+      send_instructions: Rebràs un correu electrònic amb instruccions per confirmar la teva adreça de correu electrònic en pocs minuts.
+      send_paranoid_instructions: Si la teva adreça de correu electrònic existeix a la nostra base de dades, rebrà un correu electrònic amb instruccions per confirmar la teva adreça de correu electrònic en pocs minuts.
     failure:
-      already_authenticated: Ja heu iniciat la sessió.
+      already_authenticated: Ja has iniciat la sessió.
       inactive: El teu compte encara no està activat.
       invalid: El %{authentication_keys} o la contrasenya no són vàlids.
-      invited: Teniu una invitació pendent, accepteu-lo per acabar de crear el vostre compte.
-      last_attempt: Teniu un intent més abans de bloquejar el vostre compte.
-      locked: El vostre compte està bloquejat.
+      invited: Tens una invitació pendent, accepta'l per acabar de crear el teu compte.
+      last_attempt: Tens un intent més abans de bloquejar el teu compte.
+      locked: El teu compte està bloquejat.
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
-      timeout: La vostra sessió ha caducat. Torna a iniciar-la per continuar.
-      unauthenticated: Heu d'iniciar la sessió o registrar-vos abans de continuar.
+      timeout: La teva sessió ha caducat. Torna a iniciar-la per continuar.
+      unauthenticated: Has d'iniciar la sessió o registra't abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
