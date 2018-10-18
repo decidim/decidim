@@ -75,6 +75,7 @@ fi:
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit käytössä
             geocoding_enabled: Geokoodaus käytössä
+            minimum_votes_per_user: Vähimmäisäänimäärä käyttäjää kohden
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
             participatory_texts_enabled: Osallistuvat tekstit ovat käytössä
@@ -620,6 +621,10 @@ fi:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
+          minimum_votes_per_user:
+            description: Eri ehdotusten on jaettava vähintään 3 ääntä.
+            given_enough_votes: Olet antanut tarpeeksi tukea.
+            supports_remaining: On äänestettävä %{remaining_votes} lisää ehdotuksia äänistänne otettava huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:
