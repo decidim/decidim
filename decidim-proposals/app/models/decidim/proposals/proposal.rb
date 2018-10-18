@@ -29,7 +29,7 @@ module Decidim
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
 
       has_many :votes,
-               -> { where temporary: false },
+               -> { final },
                foreign_key: "decidim_proposal_id",
                class_name: "Decidim::Proposals::ProposalVote",
                dependent: :destroy,
