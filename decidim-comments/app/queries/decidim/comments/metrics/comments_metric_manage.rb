@@ -79,12 +79,11 @@ module Decidim
         end
 
         # Gets current ParticipatorySpace of a given 'related_object'
-        def retrieve_participatory_space(related_object = nil)
-          return nil unless related_object
-          participatory_space = case related_object
-                                when Decidim::Participable then related_object
-                                when Decidim::Component then related_object.participatory_space
-                                when Decidim::HasComponent then related_object.component.participatory_space
+        def retrieve_participatory_space(related_object)
+          participatory_space = if related_object.respond_to?(:participatory_space)
+                                  related_object.participatory_space
+                                elsif related_object.is_a?(Decidim::Participable)
+                                  related_object
                                 end
           participatory_space
         end
