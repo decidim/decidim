@@ -255,8 +255,8 @@ describe Decidim::Permissions do
         it { is_expected.to eq true }
       end
 
-      context "when editing user groups" do
-        let(:action_name) { :edit }
+      context "when managing user groups" do
+        let(:action_name) { :manage }
         let(:user) { create :user, :confirmed }
         let!(:user_group) { create :user_group, users: [user], organization: user.organization }
         let(:context) { { user_group: user_group } }

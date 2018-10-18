@@ -99,7 +99,7 @@ module Decidim
       user_group = context.fetch(:user_group)
       user_manages_group = Decidim::UserGroups::ManageableUserGroups.for(user).include?(user_group)
 
-      toggle_allow(user_manages_group) if permission_action.action == :edit
+      toggle_allow(user_manages_group) if permission_action.action == :manage
     end
 
     def user_can_admin_component?

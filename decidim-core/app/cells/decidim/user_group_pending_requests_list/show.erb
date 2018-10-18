@@ -1,0 +1,17 @@
+<section class="section list-request">
+  <p><%= t("decidim.groups.members.accept_or_reject_join_requests") %></p>
+  <% requests.each do |request| %>
+    <div class="flex--sbc">
+      <%= cell "decidim/author", present(request.user) %>
+
+      <div>
+        <button class="card__button button small light success">
+          <%= t("decidim.groups.members.accept_request") %>
+        </button>
+        <button class="card__button button small light">
+          <%= t("decidim.groups.members.reject_request") %>
+        </button>
+      </div>
+    </div>
+  <% end %>
+</section>

@@ -436,6 +436,10 @@ en:
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+    group_members:
+      index:
+        current_members_without_admins: "Current members (without admins):"
+        manage_members: Manage members
     groups:
       create:
         error: There has been a problem creating the organization
@@ -446,6 +450,10 @@ en:
       join:
         error: There has been a problem joining the organization
         success: Join request created successfully. An admin will review your reequest before accepting you to the organization.
+      members:
+        accept_or_reject_join_requests: "The following users have applied to join this group. Accept or reject their requests:"
+        accept_request: "Accept"
+        reject_request: "Reject"
       new:
         create_user_group: Create organization
         new_user_group: New organization
@@ -657,6 +665,7 @@ en:
         edit_profile: Edit profile
         edit_user_group: Edit organization profile
         join_user_group: Request to join organization
+        manage_user_group_users: Manage members
     reported_mailer:
       hide:
         hello: Hello %{name},

@@ -59,8 +59,9 @@ Decidim::Core::Engine.routes.draw do
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
 
-    resources :groups, except: [:destroy] do
+    resources :groups, except: [:destroy, :index, :show] do
       resources :join_requests, only: [:create, :update, :destroy], controller: "user_group_join_requests"
+      resources :users, only: [:index], controller: "group_members", as: "manage_users"
     end
   end
 
