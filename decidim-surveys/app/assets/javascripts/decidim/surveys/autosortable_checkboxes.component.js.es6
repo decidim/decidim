@@ -14,8 +14,16 @@
           const $lastSorted = this.wrapperField.find("label.sorted").last();
 
           if ($lastSorted.length > 0) {
+            const lastPosition = parseInt($lastSorted.find("input[name$=\\[position\\]]").val(), 10);
+            const savedPosition = parseInt($(el).siblings("input[name$=\\[position\\]]").val(), 10);
+            if (Number.isInteger(savedPosition) &&
+                  Number.isInteger(lastPosition) &&
+                  (savedPosition < lastPosition)) {
+              $parentLabel.insertBefore($lastSorted);
+            } else {
+              $parentLabel.insertAfter($lastSorted);
+            }
             $lastSorted.removeClass("last-sorted");
-            $parentLabel.insertAfter($lastSorted);
           } else {
             $parentLabel.insertBefore(this.wrapperField.find("label:first-child"));
           }
@@ -40,13 +48,9 @@
         const $positionField = $(el).find("input[name$=\\[position\\]]");
 
         if ($(el).hasClass("sorted")) {
-          let position = parseInt($positionField.val(), 10)
-          if (!Number.isInteger(position)) {
-            position = idx;
-          }
-          $positionField.val(position);
+          $positionField.val(idx);
           $positionField.prop("disabled", false);
-          $positionSelector.html(`${position + 1}. `);
+          $positionSelector.html(`${idx + 1}. `);
         } else {
           $positionField.val("");
           $positionField.prop("disabled", true);
