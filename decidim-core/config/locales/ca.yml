@@ -393,7 +393,7 @@ ca:
       badges:
         continuity:
           conditions:
-            - Vine aquí amb freqüència
+            - Vine aquí sovint
           description: Aquest distintiu es concedeix al visitar la plataforma de forma regular. Ens agrada tenir-te per aquí!
           description_another: Aquesta usuària s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: T'has connectat durant %{score} dies consecutius en algun moment.
@@ -463,7 +463,7 @@ ca:
       all: Tots els tipus d'activitat
       index:
         last_activity: Última activitat
-        resource_type: Escriviu
+        resource_type: Escriu
     log:
       base_presenter:
         create: "%{user_name} creat %{resource_name}"
@@ -580,7 +580,7 @@ ca:
           register: Registra't
         hero:
           participate: Participa
-          welcome: Benvingut a %{organization}!
+          welcome: Benvingut/da a %{organization}!
         metrics:
           headline: Participació en xifres
         statistics:
@@ -592,7 +592,7 @@ ca:
           endorsements_count: Adhesions
           headline: Estat actual de %{organization}
           meetings_count: Trobades
-          orders_count: Vots
+          orders_count: Suports
           pages_count: Pàgines
           processes_count: Processos
           projects_count: Projectes
