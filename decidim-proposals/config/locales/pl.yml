@@ -275,6 +275,19 @@ pl:
           index:
             info_1: Z importowanego dokumentu przeanalizowano następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
             publish_document: Opublikuj dokument
+            title: PREVIEW TEKST UCZESTNIKA
+          new_import:
+            bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
+            document_legend: 'Dodaj dokument o wielkości mniejszej niż 2 MB, a każda sekcja, aż do 3 poziomów, zostanie przeanalizowana w Propozycjach. Suportowane formaty to: Markdown'
+            title: DODAJ DOKUMENT
+            upload_document: Prześlij dokument
+          publish:
+            invalid: Nie można publikować propozycji
+            success: Wszystkie wnioski zostały opublikowane
+          sections:
+            article: "<em>Artykuł</em>"
+            section: "<em>Sekcja:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Podsekcja:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Przyjęty
