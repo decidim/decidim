@@ -158,6 +158,25 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_minimum_votes_per_user do
+      transient do
+        minimum_votes_per_user { 3 }
+      end
+
+      settings do
+        {
+          minimum_votes_per_user: minimum_votes_per_user
+        }
+      end
+    end
+    trait :with_participatory_texts_enabled do
+      settings do
+        {
+          participatory_texts_enabled: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do

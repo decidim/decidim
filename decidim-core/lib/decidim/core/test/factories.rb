@@ -33,6 +33,10 @@ FactoryBot.define do
     "user#{n}@example.org"
   end
 
+  sequence(:user_group_email) do |n|
+    "usergroup#{n}@example.org"
+  end
+
   sequence(:slug) do |n|
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
@@ -161,6 +165,7 @@ FactoryBot.define do
     end
 
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
+    email { generate(:user_group_email) }
     nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     organization
