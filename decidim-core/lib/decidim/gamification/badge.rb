@@ -16,6 +16,9 @@ module Decidim
       # 10 points to get to level 3.
       attribute :levels, Array, default: []
 
+      # An array of types for which this badge is valid for.
+      attribute :valid_for, Array, default: [:user]
+
       # (Optional) you can set a lambda in order to be able to reset the score of a
       # badge if the progress gets lost somehow. The lambda receives a user as an
       # argument.
