@@ -77,6 +77,7 @@ nl:
             geocoding_enabled: Geolocatie ingeschakeld
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
             official_proposals_enabled: Officiële voorstellen zijn ingeschakeld
+            participatory_texts_enabled: Participatieve teksten ingeschakeld
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
             proposal_length: Maximum aantal tekens voor een voorstel
@@ -243,6 +244,7 @@ nl:
         edit_proposal: Bewerk voorstel
         import: Importeren vanuit een ander onderdeel
         new: Nieuw voorstel
+        participatory_texts: Participatieve teksten
         private_notes: Privé-opmerkingen
         title: Acties
       admin:
@@ -254,6 +256,28 @@ nl:
         models:
           proposal:
             name: Voorstel
+        participatory_texts:
+          bulk-actions:
+            import_doc: Document importeren
+          import:
+            invalid: Het formulier is ongeldig!
+            success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
+          index:
+            info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
+            publish_document: Publiceer document
+            title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
+          new_import:
+            bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
+            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Voorgestelde formaten zijn: Markdown'
+            title: VOEG DOCUMENT TOE
+            upload_document: Upload document
+          publish:
+            invalid: Kan voorstellen niet publiceren
+            success: Alle voorstellen zijn gepubliceerd
+          sections:
+            article: "<em>Artikel</em>"
+            section: "<em>Sectie:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Onderafdeling:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aanvaard
