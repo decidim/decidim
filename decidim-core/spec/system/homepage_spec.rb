@@ -73,7 +73,7 @@ describe "Homepage", type: :system do
 
       context "when the organization has the CTA button text customized" do
         let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
-        let(:organization) { create(:organization, :with_tos, cta_button_text: cta_button_text) }
+        let(:organization) { create(:organization, cta_button_text: cta_button_text) }
 
         it "uses the custom values for the CTA button text" do
           within ".hero" do
