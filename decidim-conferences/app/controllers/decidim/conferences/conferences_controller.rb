@@ -13,6 +13,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
+      helper Decidim::Conferences::PartnersHelper
 
       helper_method :collection, :promoted_conferences, :conferences, :stats
 

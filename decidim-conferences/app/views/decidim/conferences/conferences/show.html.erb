@@ -44,16 +44,18 @@ edit_link(
       </div>
     </section>
 
+    <%= partners_for current_participatory_space %>
+
     <%= render_hook(:conference_venues) %>
 
     <% if current_participatory_space.registrations_enabled? %>
       <hr class="reset mt-none mb-m" />
       <section class="section">
-        <h4 class="section-heading"><%= t(".register")%></h4>
+        <h4 class="section-heading"><%= t(".register") %></h4>
         <% if current_user.present? %>
           <div class="card p-m text-center">
-            <p><%= t(".login_as", name: current_user.name, email: current_user.email )%></p>
-            <p><%= t(".make_conference_registration")%></p>
+            <p><%= t(".login_as", name: current_user.name, email: current_user.email ) %></p>
+            <p><%= t(".make_conference_registration") %></p>
             <div class="medium-3" style="margin: 0 auto;">
               <%= cell "decidim/conferences/join_conference_button", current_participatory_space, big_button: true, show_remaining_slots: false, allowed: allowed_to?(:join, :conference, conference: current_participatory_space) %>
             </div>

@@ -1,0 +1,11 @@
+<% if model.link.presence %>
+  <%= link_to model.link, class: "partner-box column collapse text-center mb-m", target: "_blank" do %>
+    <%= logo %>
+    <%= name %>
+  <% end %>
+<% else %>
+  <div class="partner-box column collapse text-center mb-m">
+    <%= logo %>
+    <%= name %>
+  </div>
+<% end %>
