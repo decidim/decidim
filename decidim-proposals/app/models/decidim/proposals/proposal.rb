@@ -27,7 +27,14 @@ module Decidim
       component_manifest_name "proposals"
 
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
-      has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
+
+      has_many :votes,
+               -> { final },
+               foreign_key: "decidim_proposal_id",
+               class_name: "Decidim::Proposals::ProposalVote",
+               dependent: :destroy,
+               counter_cache: "proposal_votes_count"
+
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
       validates :title, :body, presence: true
@@ -74,11 +81,18 @@ module Decidim
           .where("decidim_coauthorships.decidim_author_id = ?", user.id)
       end
 
+      # Public: Updates the vote count of this proposal.
+      #
+      # Returns nothing.
+      def update_votes_count
+        update!(proposal_votes_count: votes.count)
+      end
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
       def voted_by?(user)
-        votes.where(author: user).any?
+        ProposalVote.where(proposal: self, author: user).any?
       end
 
       # Public: Check if the user has endorsed the proposal.
