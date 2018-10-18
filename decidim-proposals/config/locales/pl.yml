@@ -85,6 +85,7 @@ pl:
             collaborative_drafts_enabled: Wersje robocze z obsługą współpracy są włączone
             comments_enabled: Komentarze włączone
             geocoding_enabled: Włączono geokodowanie
+            minimum_votes_per_user: Minimalna liczba głosów na użytkownika
             new_proposal_help_text: Nowy tekst pomocy dla wniosku
             official_proposals_enabled: Oficjalne propozycje włączone
             participatory_texts_enabled: Włączono teksty włączające
@@ -644,6 +645,10 @@ pl:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż %{limit} podpory
+          minimum_votes_per_user:
+            description: Musisz rozdzielić co najmniej 3 głosy spośród różnych propozycji.
+            given_enough_votes: Dałeś dość wsparcia.
+            supports_remaining: Musisz głosować %{remaining_votes} dodatkowych propozycji, aby wziąć pod uwagę twoje głosy.
           proposal_limit:
             description: Możesz utworzyć do %{limit} propozycji.
           threshold_per_proposal:
