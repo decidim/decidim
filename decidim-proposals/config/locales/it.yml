@@ -75,6 +75,7 @@ it:
             collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
+            minimum_votes_per_user: Voti minimi per utente
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             participatory_texts_enabled: Testi di partecipazione abilitati
@@ -620,6 +621,10 @@ it:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Ogni proposta può accumulare più di %{limit} supporti
+          minimum_votes_per_user:
+            description: Devi distribuire un minimo di 3 voti tra diverse proposte.
+            given_enough_votes: Hai dato abbastanza supporti.
+            supports_remaining: Devi votare %{remaining_votes} altre proposte per i tuoi voti da prendere in considerazione.
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
           threshold_per_proposal:
