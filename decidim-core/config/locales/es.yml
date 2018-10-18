@@ -834,19 +834,19 @@ es:
       signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta aún no está activada.
       signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
-      update_needs_confirmation: Actualizó su cuenta con éxito, pero necesitamos verificar su nueva dirección de correo electrónico. Verifique su correo electrónico y siga el enlace confirmar para confirmar su nueva dirección de correo electrónico.
-      updated: Su cuenta ha sido actualizada con éxito.
+      update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección de correo electrónico. Verifica tu correo electrónico y sigue el enlace confirmar para confirmar tu nueva dirección de correo electrónico.
+      updated: Tu cuenta ha sido actualizada con éxito.
     sessions:
-      already_signed_out: Firmado con éxito.
+      already_signed_out: Sesión finalizada con éxito.
       new:
         sign_in: Iniciar sesión
-      signed_in: Firmado con éxito
-      signed_out: Firmado con éxito.
+      signed_in: Sesión iniciada con éxito.
+      signed_out: Sesión finalizada con éxito.
     shared:
       links:
-        back: Espalda
-        didn_t_receive_confirmation_instructions: '¿No recibió las instrucciones de confirmación?'
-        didn_t_receive_unlock_instructions: '¿No recibió instrucciones de desbloqueo?'
+        back: Atrás
+        didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
+        didn_t_receive_unlock_instructions: '¿No has recibido instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
         sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
@@ -857,16 +857,16 @@ es:
     unlocks:
       new:
         resend_unlock_instructions: Reenviar instrucciones de desbloqueo
-      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo desbloquear su cuenta en unos minutos.
-      send_paranoid_instructions: Si su cuenta existe, recibirá un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
-      unlocked: Su cuenta ha sido desbloqueada con éxito. Por favor inicie sesión para continuar.
+      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo desbloquear tu cuenta en unos minutos.
+      send_paranoid_instructions: Si tu cuenta existe, recibirás un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
+      unlocked: Tu cuenta ha sido desbloqueada con éxito. Por favor inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
   errors:
     messages:
-      already_confirmed: ya fue confirmado, intente iniciar sesión
-      confirmation_period_expired: necesita ser confirmado dentro de %{period}, por favor solicite uno nuevo
+      already_confirmed: Ya fuiste confirmado, intenta iniciar sesión
+      confirmation_period_expired: Necesitas ser confirmado dentro de %{period}, por favor solicita uno nuevo.
       content_type_whitelist_error: el tipo de archivo no es válido
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
       expired: ha expirado, solicite uno nuevo
