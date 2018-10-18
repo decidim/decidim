@@ -926,6 +926,10 @@ $datetime-bg: $primary;
     line-height: $global-lineheight;
     padding: $card-padding-small / 4 $card-padding-small;
 
+    > :first-child{
+      flex-shrink: 0;
+    }
+
     @include breakpoint(medium){
       padding: $card-padding / 4 $card-padding;
     }
