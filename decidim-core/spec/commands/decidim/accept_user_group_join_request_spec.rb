@@ -30,6 +30,22 @@ module Decidim
 
             expect(membership.role).to eq "member"
           end
+
+          it "sends a notification" do
+            expect(Decidim::EventsManager).to receive(:publish).with(
+              hash_including(
+                event: "decidim.events.groups.join_request_accepted",
+                event_class: JoinRequestAcceptedEvent,
+                resource: membership.user_group,
+                recipient_ids: [membership.user.id],
+                extra: {
+                  user_group_name: membership.user_group.name,
+                  user_group_nickname: membership.user_group.nickname,
+                }
+              )
+            )
+            command.call
+          end
         end
       end
     end

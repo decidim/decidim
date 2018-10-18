@@ -20,6 +20,8 @@ en:
       decidim/component_published_event: Active component
       decidim/gamification/badge_earned_event: Badge earned
       decidim/gamification/level_up_event: You've leveled up
+      decidim/join_request_accepted_event: Join request accepted
+      decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
   activerecord:
     attributes:
@@ -343,6 +345,17 @@ en:
           email_outro: You have received this notification because you made activity on our website.
           email_subject: You've reached level %{current_level} on the %{badge_name} badge!
           notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has accepted your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: 'You have been accepted to the %{user_group_name} organization!'
+          notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> organization.
+        join_request_rejected:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization rejected your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: 'Your request to join the %{user_group_name} organization has been rejected!'
+          notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> organization has been rejected.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:

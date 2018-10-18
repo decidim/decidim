@@ -20,7 +20,10 @@ module Decidim
     def call
       return broadcast(:invalid) if membership.role.to_s != "requested"
 
-      accept_membership
+      transaction do
+        accept_membership
+        send_notification
+      end
 
       broadcast(:ok, @user_group)
     end
@@ -32,6 +35,19 @@ module Decidim
     def accept_membership
       membership.role = :member
       membership.save!
+    end
+
+    def send_notification
+      Decidim::EventsManager.publish(
+        event: "decidim.events.groups.join_request_accepted",
+        event_class: JoinRequestAcceptedEvent,
+        resource: membership.user_group,
+        recipient_ids: [membership.user.id],
+        extra: {
+          user_group_name: membership.user_group.name,
+          user_group_nickname: membership.user_group.nickname,
+        }
+      )
     end
   end
 end
