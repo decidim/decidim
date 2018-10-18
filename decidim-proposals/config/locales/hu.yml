@@ -75,6 +75,7 @@ hu:
             collaborative_drafts_enabled: Közös vázlatok engedélyezve
             comments_enabled: Megjegyzések engedélyezve
             geocoding_enabled: Geokódolás engedélyezve
+            minimum_votes_per_user: Minimális szavazatok felhasználónként
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
             participatory_texts_enabled: Engedélyezett részvételi szövegek
@@ -620,6 +621,10 @@ hu:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
+          minimum_votes_per_user:
+            description: A különböző javaslatok között legalább 3 szavazatot kell elosztania.
+            given_enough_votes: Elég támogatást kapott.
+            supports_remaining: Meg kell szavazni %{remaining_votes} további javaslatokat a szavazatokat kell figyelembe venni.
           proposal_limit:
             description: Legfeljebb %{limit} javaslatot készíthetsz.
           threshold_per_proposal:
