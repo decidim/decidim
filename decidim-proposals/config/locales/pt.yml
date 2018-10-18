@@ -271,6 +271,13 @@ pt:
             document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados ​​em Propostas. Formatos suportados são: Markdown'
             title: ADICIONAR DOCUMENTO
             upload_document: Carregar documento
+          publish:
+            invalid: Não foi possível publicar propostas
+            success: Todas as propostas foram publicadas
+          sections:
+            article: "<em>Artigo</em>"
+            section: "<em>Seção:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsecção:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aceitaram
