@@ -85,11 +85,9 @@ FactoryBot.define do
     enable_omnipresent_banner { false }
     badges_enabled { true }
 
-    trait :with_tos do
-      after(:create) do |organization|
-        tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
-        create(:static_page, :tos, organization: organization) if tos_page.nil?
-      end
+    after(:create) do |organization|
+      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
+      create(:static_page, :tos, organization: organization) if tos_page.nil?
     end
   end
 
@@ -106,11 +104,7 @@ FactoryBot.define do
     personal_url { Faker::Internet.url }
     about { Faker::Lorem.paragraph(2) }
     confirmation_sent_at { Time.current }
-
-    after(:create) do |user|
-      user.accepted_tos_version = user.organization.tos_version
-      user.save
-    end
+    accepted_tos_version { organization.tos_version }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -240,6 +234,10 @@ FactoryBot.define do
 
     trait :tos do
       slug { "terms-and-conditions" }
+      after(:create) do |tos_page|
+        tos_page.organization.tos_version = tos_page.updated_at
+        tos_page.organization.save!
+      end
     end
 
     trait :with_topic do
