@@ -39,6 +39,23 @@ module Decidim
       end
     end
 
+    def destroy
+      enforce_permission_to :manage, :user_group, user_group: user_group
+
+      RejectUserGroupJoinRequest.call(membership) do
+        on(:ok) do
+          flash[:notice] = t("group_members.reject.success", scope: "decidim")
+
+          redirect_back fallback_location: group_manage_users_path(user_group.nickname)
+        end
+
+        on(:invalid) do
+          flash[:alert] = t("group_members.reject.error", scope: "decidim")
+          redirect_back fallback_location: group_manage_users_path(user_group.nickname)
+        end
+      end
+    end
+
     private
 
     def user_group

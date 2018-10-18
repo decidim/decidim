@@ -443,6 +443,9 @@ en:
       index:
         current_members_without_admins: "Current members (without admins):"
         manage_members: Manage members
+      reject:
+        error: There was an error rejecting this join request
+        success: Join request rejected successfully
     groups:
       create:
         error: There has been a problem creating the organization

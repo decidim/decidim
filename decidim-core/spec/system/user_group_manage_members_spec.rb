@@ -62,6 +62,16 @@ describe "User group profile edition", type: :system do
         expect(page).to have_no_css(".list-request")
         expect(page).to have_content("Join request accepted successfully")
       end
+
+      it "allows rejecting a join request" do
+        within ".list-request" do
+          expect(page).to have_content(requested_user.name)
+          click_link "Reject"
+        end
+
+        expect(page).to have_no_css(".list-request")
+        expect(page).to have_content("Join request rejected successfully")
+      end
     end
   end
 end
