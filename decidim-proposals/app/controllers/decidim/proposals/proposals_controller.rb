@@ -15,25 +15,34 @@ module Decidim
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
+
+      helper_method :participatory_text
+
       def index
-        @proposals = search
-                     .results
-                     .published
-                     .not_hidden
-                     .includes(:category)
-                     .includes(:scope)
 
-        @voted_proposals = if current_user
-                             ProposalVote.where(
-                               author: current_user,
-                               proposal: @proposals.pluck(:id)
-                             ).pluck(:decidim_proposal_id)
-                           else
-                             []
-                           end
+        unless component_settings.participatory_texts_enabled?
+          @proposals = search
+                       .results
+                       .published
+                       .not_hidden
+                       .includes(:category)
+                       .includes(:scope)
 
-        @proposals = paginate(@proposals)
-        @proposals = reorder(@proposals)
+          @voted_proposals = if current_user
+                               ProposalVote.where(
+                                 author: current_user,
+                                 proposal: @proposals.pluck(:id)
+                               ).pluck(:decidim_proposal_id)
+                             else
+                               []
+                             end
+          @proposals = paginate(@proposals)
+          @proposals = reorder(@proposals)
+        else
+          @proposals = Decidim::Proposals::Proposal.where(component: current_component).order(id: :asc)
+
+        end
+
       end
 
       def show
@@ -232,6 +241,11 @@ module Decidim
         @form = form_proposal_model
         @form.attachment = form_attachment_model
         @form
+      end
+
+      def participatory_text
+        return unless current_component
+        @participatory_text ||= Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
       end
     end
   end

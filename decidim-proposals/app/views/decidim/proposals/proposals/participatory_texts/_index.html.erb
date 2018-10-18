@@ -1,0 +1,23 @@
+<div class="p-s">
+  <h4>Índice del documento</h4>
+  <div class="text-muted">
+    <% @proposals.each do |proposal| %>
+      <div class="mb-s">
+        <p>
+          <%= link_to resource_locator(proposal).path do %>
+            <% if proposal.participatory_text_level == "article" %>
+              <u><%= proposal.title %></u>
+            <% else %>
+              <% if proposal.participatory_text_level == "section" %>
+                <u class="text-uppercase"><%= proposal.title %></u>
+              <% else %>
+                <u class="text-uppercase"><%= proposal.title %></u>
+              <% end %>
+            <% end %>
+            <br />
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
