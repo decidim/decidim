@@ -14,14 +14,12 @@ module Decidim
     end
 
     def members
-      return @members if @members
-
-      case options[:role].to_s
-      when "member"
-        @members = Decidim::UserGroups::MemberUsers.for(model).page(params[:page]).per(20)
-      else
-        @members = Decidim::UserGroups::AcceptedUsers.for(model).page(params[:page]).per(20)
-      end
+      @members ||= case options[:role].to_s
+                   when "member"
+                     Decidim::UserGroups::MemberUsers.for(model).page(params[:page]).per(20)
+                   else
+                     Decidim::UserGroups::AcceptedUsers.for(model).page(params[:page]).per(20)
+                   end
     end
   end
 end
