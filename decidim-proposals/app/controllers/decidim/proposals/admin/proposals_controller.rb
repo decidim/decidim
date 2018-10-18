@@ -87,7 +87,11 @@ module Decidim
         private
 
         def query
-          @query ||= Proposal.where(component: current_component).published.ransack(params[:q])
+          @query ||= if current_component.settings.participatory_texts_enabled?
+                       Proposal.where(component: current_component).published.order(:position).ransack(params[:q])
+                     else
+                       Proposal.where(component: current_component).published.ransack(params[:q])
+                     end
         end
 
         def proposals
