@@ -87,6 +87,7 @@ pl:
             geocoding_enabled: Włączono geokodowanie
             new_proposal_help_text: Nowy tekst pomocy dla wniosku
             official_proposals_enabled: Oficjalne propozycje włączone
+            participatory_texts_enabled: Włączono teksty włączające
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tych wielu minut
             proposal_length: Maksymalna długość treści wniosku
@@ -253,6 +254,7 @@ pl:
         edit_proposal: Edytuj propozycję
         import: Importuj z innego komponentu
         new: Nowa propozycja
+        participatory_texts: Teksty uczestniczące
         private_notes: Prywatne notatki
         title: działania
       admin:
@@ -264,6 +266,15 @@ pl:
         models:
           proposal:
             name: Wniosek
+        participatory_texts:
+          bulk-actions:
+            import_doc: Zaimportuj dokument
+          import:
+            invalid: Formularz jest nieprawidłowy!
+            success: Gratulacje, z importowanego dokumentu zostały przeanalizowane następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
+          index:
+            info_1: Z importowanego dokumentu przeanalizowano następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
+            publish_document: Opublikuj dokument
         proposal_answers:
           edit:
             accepted: Przyjęty
