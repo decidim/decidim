@@ -827,13 +827,13 @@ es:
         title: Editar %{resource}
         unhappy: '¿Infeliz?'
         update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar sus cambios
+        we_need_your_current_password_to_confirm_your_changes: Necesitamos tu contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
-      signed_up: '¡Bienvenido! Usted se ha registrado exitosamente.'
-      signed_up_but_inactive: Usted se ha registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta aún no está activada.
-      signed_up_but_locked: Usted se ha registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta está bloqueada.
-      signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a su dirección de correo electrónico. Por favor, siga el enlace para activar su cuenta.
+      signed_up: '¡Bienvenido/a! Te has registrado con éxito.'
+      signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta aún no está activada.
+      signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
+      signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
       update_needs_confirmation: Actualizó su cuenta con éxito, pero necesitamos verificar su nueva dirección de correo electrónico. Verifique su correo electrónico y siga el enlace confirmar para confirmar su nueva dirección de correo electrónico.
       updated: Su cuenta ha sido actualizada con éxito.
     sessions:
