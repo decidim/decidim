@@ -816,14 +816,14 @@ es:
       send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo restablecer tu contraseña en unos minutos.
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un enlace de recuperación de contraseña en tu dirección de correo electrónico en unos minutos.
       updated: Tu contraseña ha sido cambiada con éxito. Ya has iniciado sesión.
-      updated_not_active: Tu contraseña ha sido cambiada exitosamente.
+      updated_not_active: Tu contraseña ha sido cambiada con éxito.
     registrations:
-      destroyed: '¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto.'
+      destroyed: '¡Adiós! Tu cuenta ha sido cancelada exitosamente. Esperamos volverte a ver pronto.'
       edit:
         are_you_sure: '¿Estás seguro?'
         cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'En espera de confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: déjelo en blanco si no quiere cambiarlo
+        currently_waiting_confirmation_for_email: 'Esperando de confirmación para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: Déjalo en blanco si no quieres cambiarlo
         title: Editar %{resource}
         unhappy: '¿Infeliz?'
         update: Actualizar
