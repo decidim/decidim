@@ -843,12 +843,12 @@ ca:
       signed_out: S'ha iniciat la sessió correctament.
     shared:
       links:
-        back: esquena
-        didn_t_receive_confirmation_instructions: No heu rebut instruccions de confirmació?
-        didn_t_receive_unlock_instructions: No heu rebut instruccions de desbloqueig?
+        back: Enrere
+        didn_t_receive_confirmation_instructions: No has rebut instruccions de confirmació?
+        didn_t_receive_unlock_instructions: No has rebut instruccions de desbloqueig?
         forgot_your_password: Has oblidat la teva contrasenya?
-        sign_in: Iniciar Sessió
-        sign_in_with_provider: Inicieu sessió amb %{provider}
+        sign_in: Iniciar sessió
+        sign_in_with_provider: Inicia sessió amb %{provider}
         sign_up: Registra't
       minimum_password_length:
         one: "(Mínim de%{count} caràcters)"
@@ -856,29 +856,29 @@ ca:
     unlocks:
       new:
         resend_unlock_instructions: Reenvia les instruccions de desbloqueig
-      send_instructions: Rebreu un correu electrònic amb instruccions per desbloquejar el vostre compte en pocs minuts.
-      send_paranoid_instructions: Si el vostre compte existeix, rebrà un correu electrònic amb instruccions per desbloquejar-lo en pocs minuts.
-      unlocked: S'ha desbloquejat el vostre compte correctament. Inicieu sessió per continuar.
+      send_instructions: Rebràs un correu electrònic amb instruccions per desbloquejar el teu compte en pocs minuts.
+      send_paranoid_instructions: Si el teu compte existeix, rebràs un correu electrònic amb instruccions per desbloquejar-lo en pocs minuts.
+      unlocked: S'ha desbloquejat el teu compte correctament. Inicia sessió per continuar.
   doorkeeper:
     scopes:
       public: La teva informació pública.
   errors:
     messages:
-      already_confirmed: Ja s'ha confirmat. Intenteu iniciar la sessió
-      confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau, sol·liciteu-ne un de nou
+      already_confirmed: Ja s'ha confirmat. Intenta iniciar la sessió
+      confirmation_period_expired: S'ha de confirmar dins de %{period}, si us plau, sol·licita'n un de nou
       content_type_whitelist_error: el tipus de fitxer no és vàlid
       cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
-      expired: ha caducat, si us plau, sol·liciteu-ne un de nou
+      expired: Ha caducat, si us plau, sol·licita'n un de nou
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
-      long_words: conté paraules massa llargues (més de 35 caràcters)
-      must_start_with_caps: ha de començar amb una lletra majúscula
+      long_words: Conté paraules massa llargues (més de 35 caràcters)
+      must_start_with_caps: Ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
-      not_found: no trobat
-      not_locked: no estava bloquejat
+      not_found: No trobat
+      not_locked: No estava bloquejat
       not_saved:
-        one: '1 error prohibit que es guardés aquest %{resource}:'
-        other: "%{count} errors van prohibir que es guardés aquest %{resource}:"
-      too_many_marks: està usant massa marques de puntuació consecutives (p. ex. i?)
+        one: '1 error ha impedit que es guardés aquest %{resource}:'
+        other: "%{count} errors han impedit que es guardés aquest %{resource}:"
+      too_many_marks: Estàs fent servir massa marques de puntuació consecutives (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: És massa curt (menys de 15 caràcters)
   forms:
