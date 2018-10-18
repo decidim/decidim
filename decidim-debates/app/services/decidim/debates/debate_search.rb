@@ -18,8 +18,8 @@ module Decidim
       # into a `text` type so that we can search.
       def search_search_text
         query
-          .where("title::text ILIKE ?", "%#{search_text}%")
-          .or(query.where("description::text ILIKE ?", "%#{search_text}%"))
+          .where("decidim_debates_debates.title::text ILIKE ?", "%#{search_text}%")
+          .or(query.where("decidim_debates_debates.description::text ILIKE ?", "%#{search_text}%"))
       end
 
       # Handle the origin filter
