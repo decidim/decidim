@@ -927,7 +927,7 @@ de:
       widget:
         see_more: Mehr sehen
   locale:
-    name: Englisch
+    name: Deutsch
   password_validator:
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
