@@ -351,6 +351,11 @@ en:
           email_outro: You have received this notification because your join request has been updated.
           email_subject: 'You have been accepted to the %{user_group_name} organization!'
           notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> organization.
+        join_request_created:
+          email_intro: Someone requested to join the %{user_group_name} organization. You can accept or reject it from <a href="%{resource_url}">the organization members page</a>.
+          email_outro: You have received this notification because you can manage the %{user_group_name} organization.
+          email_subject: 'Someone requested to join the %{user_group_name} organization!'
+          notification_title: Someone requested to join the %{user_group_name} organization. You can accept or reject it from <a href="%{resource_path}">the organization members page</a>.
         join_request_rejected:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization rejected your request to join it.
           email_outro: You have received this notification because your join request has been updated.

@@ -21,7 +21,10 @@ module Decidim
     def call
       return broadcast(:invalid) if already_member?
 
-      join_user_group
+      transaction do
+        join_user_group
+        send_notification
+      end
 
       broadcast(:ok, @user_group)
     end
@@ -36,6 +39,25 @@ module Decidim
 
     def already_member?
       Decidim::UserGroupMembership.where(user: user, user_group: user_group).any?
+    end
+
+    def send_notification
+      Decidim::EventsManager.publish(
+        event: "decidim.events.groups.join_request_created",
+        event_class: JoinRequestCreatedEvent,
+        resource: user_group,
+        recipient_ids: [manager_ids],
+        extra: {
+          user_group_name: user_group.name,
+          user_group_nickname: user_group.nickname
+        }
+      )
+    end
+
+    def manager_ids
+      Decidim::UserGroupMembership
+        .where(user_group: user_group, role: [:creator, :admin])
+        .pluck(:decidim_user_id)
     end
   end
 end

@@ -42,6 +42,28 @@ module Decidim
             expect(membership.user_group).to eq user_group
             expect(membership.role).to eq "requested"
           end
+
+          it "sends a notification" do
+            creator_id = create(:user_group_membership, user_group: user_group, role: "creator").decidim_user_id
+            admin_id = create(:user_group_membership, user_group: user_group, role: "admin").decidim_user_id
+            member_id = create(:user_group_membership, user_group: user_group, role: "member").decidim_user_id
+
+            recipient_ids = [creator_id, admin_id]
+
+            expect(Decidim::EventsManager).to receive(:publish).with(
+              hash_including(
+                event: "decidim.events.groups.join_request_created",
+                event_class: JoinRequestCreatedEvent,
+                resource: user_group,
+                recipient_ids: [recipient_ids],
+                extra: {
+                  user_group_name: user_group.name,
+                  user_group_nickname: user_group.nickname
+                }
+              )
+            )
+            command.call
+          end
         end
       end
     end
