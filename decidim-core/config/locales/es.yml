@@ -421,7 +421,7 @@ es:
             - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
             - Personaliza, si quieres, el mensaje que estás enviando.
             - Subirás de nivel enviando invitaciones y registrándolas.
-          description: Este distintivo se otorga cuando ha invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y convertirse en participantes. Gracias por hacer de %{organization_name} a conocer a otros y ayudar a ampliar la comunidad!
+          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
           name: Invitaciones
@@ -437,7 +437,7 @@ es:
         success: Organización creada con éxito
       edit:
         edit_user_group: Editar organizacion
-        update_user_group: Organización de actualización
+        update_user_group: Actualizar organización
       new:
         create_user_group: Crear organizacion
         new_user_group: Nueva organizacion
@@ -576,11 +576,11 @@ es:
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
           footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
-          footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
+          footer_sub_hero_headline: Bienvenido/a a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
           participate: Participar
-          welcome: Bienvenido a %{organization}!
+          welcome: Bienvenido/a a %{organization}!
         metrics:
           headline: Participación en figuras
         statistics:
@@ -592,7 +592,7 @@ es:
           endorsements_count: Adhesiones
           headline: Estado actual de %{organization}
           meetings_count: Encuentros
-          orders_count: Votos
+          orders_count: Apoyos
           pages_count: Páginas
           processes_count: Procesos
           projects_count: Proyectos
@@ -601,7 +601,7 @@ es:
           results_count: Resultados
           surveys_count: Encuestas
           users_count: Participantes
-          votes_count: Votos
+          votes_count: Apoyos
         sub_hero:
           register: Regístrate
       index:
@@ -806,16 +806,16 @@ es:
     passwords:
       edit:
         change_my_password: Cambiar mi contraseña
-        change_your_password: cambia tu contraseña
-        confirm_new_password: Confirmar nueva contraseña
+        change_your_password: Cambia tu contraseña
+        confirm_new_password: Confirmar la nueva contraseña
         new_password: Contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
-      no_token: No puede acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si proviene de un correo electrónico de restablecimiento de contraseña, asegúrese de haber utilizado la URL completa provista.
-      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo restablecer su contraseña en unos minutos.
-      send_paranoid_instructions: Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un enlace de recuperación de contraseña en su dirección de correo electrónico en unos minutos.
-      updated: Tu contraseña ha sido cambiada exitosamente. Ya has iniciado sesión.
+      no_token: No puedes acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si vienes de un correo electrónico de restablecimiento de contraseña, asegúrate de haber utilizado la URL provista completa.
+      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo restablecer tu contraseña en unos minutos.
+      send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un enlace de recuperación de contraseña en tu dirección de correo electrónico en unos minutos.
+      updated: Tu contraseña ha sido cambiada con éxito. Ya has iniciado sesión.
       updated_not_active: Tu contraseña ha sido cambiada exitosamente.
     registrations:
       destroyed: '¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto.'
