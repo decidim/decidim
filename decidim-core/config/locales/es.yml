@@ -415,10 +415,10 @@ es:
           badge_title: "Distintivo %{name}"
           how: Como puedes conseguirlo
           page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
-          title: Insignias
+          title: Distintivos
         invitations:
           conditions:
-            - Use el enlace "invitar amigos" en su página de usuario para invitar a sus amigos
+            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
             - Personaliza, si quieres, el mensaje que estás enviando.
             - Subirás de nivel enviando invitaciones y registrándolas.
           description: Este distintivo se otorga cuando ha invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y convertirse en participantes. Gracias por hacer de %{organization_name} a conocer a otros y ayudar a ampliar la comunidad!
