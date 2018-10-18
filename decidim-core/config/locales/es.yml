@@ -630,7 +630,7 @@ es:
       deleted: Usuario eliminado
       view: Ver
     profiles:
-      default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, su nombre se ha verificado para que se corresponda con su nombre real
+      default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, tu nombre se ha verificado para que se corresponda con tu nombre real
       default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
         badges: Insignias
@@ -642,8 +642,8 @@ es:
         notifications: Notificaciones
       sidebar:
         badges:
-          info: Las insignias se obtienen realizando una actividad específica en la plataforma.
-          title: Insignias
+          info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
+          title: Distintivos
       user:
         create_user_group: Crear organizacion
         edit_profile: Editar perfil
@@ -716,20 +716,20 @@ es:
         deleted: Usuario eliminado
   devise:
     confirmations:
-      confirmed: Su dirección de correo electrónico ha sido confirmada con éxito.
+      confirmed: Tu dirección de correo electrónico ha sido confirmada con éxito.
       new:
         resend_confirmation_instructions: Reenviar las instrucciones de confirmación
-      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos minutos.
-      send_paranoid_instructions: Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos minutos.
+      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
+      send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
     failure:
       already_authenticated: Ya has iniciado sesión.
       inactive: Tu cuenta aún no está activada.
-      invalid: '%{authentication_keys} inválido o contraseña.'
+      invalid: '%{authentication_keys} o contraseña inválida.'
       invited: Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.
       last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
-      locked: Tu cuenta esta bloqueada.
-      not_found_in_database: '%{authentication_keys} inválido o contraseña.'
-      timeout: Su sesión expiró Por favor, inicia sesión de nuevo para continuar.
+      locked: Tu cuenta está bloqueada.
+      not_found_in_database: '%{authentication_keys} o contraseña inválida.'
+      timeout: Tu sesión expiró Por favor, inicia sesión de nuevo para continuar.
       unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
       edit:
@@ -740,21 +740,21 @@ es:
       invitation_removed: Tu invitación fue eliminada.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
-        header: Enviar invitacion
-        submit_button: Envia una invitacion
+        header: Enviar invitación
+        submit_button: Enviar una invitación
       no_invitations_remaining: No quedan invitaciones
       send_instructions: Se envió un correo electrónico de invitación a %{email}.
-      updated: Su contraseña fue establecida exitosamente Ya has iniciado sesión.
-      updated_not_active: Su contraseña fue establecida exitosamente
+      updated: Tu contraseña fue establecida con éxito. Ya has iniciado sesión.
+      updated_not_active: Tu contraseña fue establecida con éxito.
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
-        greeting: Bienvenido %{recipient}!
-        instruction: 'Puede confirmar el correo electrónico de su cuenta a través del siguiente enlace:'
+        greeting: Bienvenido/a %{recipient}!
+        instruction: 'Puedes confirmar el correo electrónico de tu cuenta a través del siguiente enlace:'
         subject: Instrucciones de confirmación
       email_changed:
         greeting: Hola %{recipient}!
-        message: Nos contactamos para notificarle que su correo electrónico se cambiará a %{email}.
+        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada por %{email}.
         subject: Correo electrónico cambiado
       invitation_instructions:
         accept: Aceptar invitación
@@ -869,9 +869,9 @@ es:
       confirmation_period_expired: Necesitas ser confirmado dentro de %{period}, por favor solicita uno nuevo.
       content_type_whitelist_error: el tipo de archivo no es válido
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
-      expired: ha expirado, solicite uno nuevo
+      expired: Ha expirado, solicita uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
-      long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
+      long_words: Contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
       not_found: extraviado
