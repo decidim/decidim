@@ -170,7 +170,7 @@ FactoryBot.define do
         }
       end
     end
-    
+
     trait :with_participatory_texts_enabled do
       settings do
         {
