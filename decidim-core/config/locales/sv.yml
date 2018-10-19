@@ -19,6 +19,8 @@ sv:
       decidim/component_published_event: Aktiv komponent
       decidim/gamification/badge_earned_event: Emblem intjänad
       decidim/gamification/level_up_event: Du har gått upp i nivå
+      decidim/join_request_accepted_event: Gå med förfrågan accepterad
+      decidim/join_request_rejected_event: Gå med förfrågan avvisad
       decidim/profile_updated_event: Profil uppdaterad
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ sv:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du hade aktivitet på vår hemsida.
           email_subject: Du har nått nivån %{current_level} på %{badge_name} emblemet!
           notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} emblemet</a>!
+      groups:
+        join_request_accepted:
+          email_intro: grattis! En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen har accepterat din förfrågan om att bli medlem.
+          email_outro: Du har fått den här meddelandet eftersom din anmälningsförfrågan har uppdaterats.
+          email_subject: Du har blivit antagen till %{user_group_name} organisationen!
+          notification_title: Du har blivit accepterad till <a href="%{resource_path}">%{user_group_name}</a> organisationen.
+        join_request_created:
+          email_intro: Någon bad om att gå med i %{user_group_name} organisationen. Du kan acceptera eller avvisa det från <a href="%{resource_url}">på organisationsmedlemmarna sidan</a>.
+          email_outro: Du har fått den här meddelandet eftersom du kan hantera %{user_group_name} organisationen.
+          email_subject: Någon bad om att gå med i %{user_group_name} organisationen!
+          notification_title: Någon bad om att gå med i %{user_group_name} organisationen. Du kan acceptera eller avvisa det från <a href="%{resource_path}">på organisationsmedlemmarna sidan</a>.
+        join_request_rejected:
+          email_intro: En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen avvisade din förfrågan om att bli medlem.
+          email_outro: Du har fått den här meddelandet eftersom din anmälningsförfrågan har uppdaterats.
+          email_subject: Din förfrågan om att bli medlem i %{user_group_name} organisationen har blivit avvisad!
+          notification_title: Din förfrågan om att gå med i <a href="%{resource_path}">%{user_group_name}</a> organisationen har blivit avvisad.
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,6 +450,16 @@ sv:
       description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta emblem.
+    group_members:
+      accept:
+        error: Det gick inte att acceptera den här anslutningsförfrågan
+        success: Gå med förfrågan accepteras framgångsrikt
+      index:
+        current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
+        manage_members: Hantera medlemmar
+      reject:
+        error: Ett fel uppstod vid avvisande av denna anmälningsförfrågan
+        success: Gå med förfrågan avvisas framgångsrikt
     groups:
       create:
         error: Det har varit ett problem att skapa organisationen
@@ -438,6 +467,13 @@ sv:
       edit:
         edit_user_group: Redigera organisation
         update_user_group: Uppdatera organisation
+      join:
+        error: Det har varit ett problem att gå med i organisationen
+        success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din reequest innan du accepterar dig till organisationen.
+      members:
+        accept_or_reject_join_requests: 'Följande användare har ansökt om att gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
+        accept_request: Acceptera
+        reject_request: Avvisa
       new:
         create_user_group: Skapa organisation
         new_user_group: Ny organisation
@@ -648,6 +684,8 @@ sv:
         create_user_group: Skapa organisation
         edit_profile: Redigera profil
         edit_user_group: Redigera organisationsprofil
+        join_user_group: Begäran att gå med i organisationen
+        manage_user_group_users: Hantera medlemmar
     reported_mailer:
       hide:
         hello: Hej %{name},
