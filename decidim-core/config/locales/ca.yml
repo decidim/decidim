@@ -19,6 +19,8 @@ ca:
       decidim/component_published_event: Component actiu
       decidim/gamification/badge_earned_event: Insígnia obtinguda
       decidim/gamification/level_up_event: Has pujat de nivell
+      decidim/join_request_accepted_event: Sol·licitud d'unió acceptada
+      decidim/join_request_rejected_event: S'ha rebutjat la sol·licitud d'unió
       decidim/profile_updated_event: Perfil actualitzat
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ ca:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ ca:
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
           email_subject: Has arribat al nivell %{current_level} de la insígnia %{badge_name}!
           notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Felicitacions Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la vostra sol·licitud per unir-s'hi.
+          email_outro: Heu rebut aquesta notificació perquè s'ha actualitzat la vostra sol·licitud d'unió.
+          email_subject: Has estat acceptat a l'organització %{user_group_name}.
+          notification_title: Heu estat acceptat a l'organització <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Algú ha sol·licitat unir-se a l'organització %{user_group_name} . Pot acceptar o rebutjar des <a href="%{resource_url}">els membres de l'organització la pàgina</a>.
+          email_outro: Heu rebut aquesta notificació perquè podeu gestionar l'organització %{user_group_name}.
+          email_subject: Algú ha sol·licitat unir-se a l'organització %{user_group_name}.
+          notification_title: Algú ha sol·licitat unir-se a l'organització %{user_group_name} . Pot acceptar o rebutjar des <a href="%{resource_path}">els membres de l'organització la pàgina</a>.
+        join_request_rejected:
+          email_intro: Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> rebutjar la vostra sol·licitud per unir-s'hi.
+          email_outro: Heu rebut aquesta notificació perquè s'ha actualitzat la vostra sol·licitud d'unió.
+          email_subject: La teva sol·licitud per unir-te a l'organització %{user_group_name} ha estat rebutjada!
+          notification_title: S'ha rebutjat la vostra sol·licitud per unir-se a l'organització <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,6 +450,16 @@ ca:
       description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, obtindràs diferents distintius.
       level: Nivell %{level}
       reached_top: Has arribat al nivell superior d'aquesta insígnia.
+    group_members:
+      accept:
+        error: S'ha produït un error en acceptar aquesta sol·licitud d'unió
+        success: La sol·licitud d'unió s'ha acceptat amb èxit
+      index:
+        current_members_without_admins: 'Membres actuals (sense administradors):'
+        manage_members: Gestiona els membres
+      reject:
+        error: S'ha produït un error en rebutjar aquesta sol · licitud d'unió
+        success: La sol·licitud d'unió s'ha rebutjat amb èxit
     groups:
       create:
         error: S'ha produït un problema en crear l'organització
@@ -438,6 +467,13 @@ ca:
       edit:
         edit_user_group: Edita l'organització
         update_user_group: Actualitza l'organització
+      join:
+        error: Hi ha hagut un problema en unir-se a l'organització
+        success: La sol·licitud d'unió s'ha creat correctament. Un administrador revisarà la vostra reescriptura abans d'acceptar-lo a l'organització.
+      members:
+        accept_or_reject_join_requests: 'Els usuaris següents han sol·licitat unir-se a aquest grup. Accepteu o rebutgeu les vostres sol·licituds:'
+        accept_request: Accepta
+        reject_request: Rebutjar
       new:
         create_user_group: Crea una organització
         new_user_group: Nova organització
@@ -648,6 +684,8 @@ ca:
         create_user_group: Crea una organització
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil d'organització
+        join_user_group: Sol·licitud per unir-se a l'organització
+        manage_user_group_users: Gestiona els membres
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -792,6 +830,7 @@ ca:
         greeting: Hola %{recipient}!
         instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, i ho pots fer a través de l'enllaç següent.
         instruction_2: Si no ho has sol·licitat, ignora aquest correu electrònic.
+        instruction_3: La vostra contrasenya no canviarà fins que accediu a l'enllaç de dalt i creeu-ne un de nou.
         subject: Instruccions de regeneració de contrasenya
       unlock_instructions:
         action: Desbloqueja el meu compte
