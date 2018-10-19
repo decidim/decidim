@@ -19,6 +19,8 @@ eu:
       decidim/component_published_event: Osagai aktiboa
       decidim/gamification/badge_earned_event: Badge irabazi
       decidim/gamification/level_up_event: Berdindu duzu
+      decidim/join_request_accepted_event: Erregistratu eskaera onartua
+      decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
       decidim/profile_updated_event: Profila eguneratu da
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ eu:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ eu:
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
           email_subject: Nik iritsi zara mailan %{current_level} on the %{badge_name} plaka!
           notification_title: Lan handia! Maila %{current_level} lortu duzu <a href="%{resource_path}">%{badge_name} badge</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Zorionak! <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak zure eskaera onartu du.
+          email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
+          email_subject: '%{user_group_name} erakundeari onartu zaizu!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> erakundeari onartu zaizu.
+        join_request_created:
+          email_intro: Norbaitek %{user_group_name} erakundean sartzeko eskatu du. Onarpena edo baztertzeko aukera ematen du <a href="%{resource_url}">erakundeko bazkideen</a>orrialdetik.
+          email_outro: Jakinarazpen hau jaso duzu erakunde %{user_group_name} kudeatu ahal izateko.
+          email_subject: Norbaitek %{user_group_name} erakundean sartzeko eskatu du!
+          notification_title: Norbaitek %{user_group_name} erakundean sartzeko eskatu du. Onarpena edo baztertzeko aukera ematen du <a href="%{resource_path}">erakundeko bazkideen</a>orrialdetik.
+        join_request_rejected:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak zure eskaera ukatu du.
+          email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
+          email_subject: Zure eskaera batzeko %{user_group_name} erakundea izan da baztertzen!
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> erakundeari atxikitzeko eskaera baztertu egin da.
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -431,6 +450,16 @@ eu:
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
+    group_members:
+      accept:
+        error: Errore bat gertatu da eskaera bat onartzeko
+        success: Erregistratu eskaera arrakastaz onartu da
+      index:
+        current_members_without_admins: 'Uneko kideak (administratzaile gabe):'
+        manage_members: Kudeatu kideak
+      reject:
+        error: Errore bat gertatu da eskaera bateratua ukatuz
+        success: Erregistratu eskaera ongi baztertu da
     groups:
       create:
         error: Antolakuntza sortzerakoan arazo bat izan da
@@ -438,6 +467,13 @@ eu:
       edit:
         edit_user_group: Editatu erakundea
         update_user_group: Eguneratu erakundea
+      join:
+        error: Antolaketari loturiko arazo bat izan da
+        success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure reequest berrikusiko du zure erakundean onartu aurretik.
+      members:
+        accept_or_reject_join_requests: 'Hurrengo talde honetako erabiltzaileei aplikatu zaie. Eskaerak onartu edo ukatu:'
+        accept_request: Onartu
+        reject_request: Ukatu
       new:
         create_user_group: Sortu erakundea
         new_user_group: Antolakuntza berria
@@ -648,6 +684,8 @@ eu:
         create_user_group: Sortu erakundea
         edit_profile: Editatu profila
         edit_user_group: Editatu antolakuntza profila
+        join_user_group: Antolaketara sartzeko eskaera
+        manage_user_group_users: Kudeatu kideak
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
