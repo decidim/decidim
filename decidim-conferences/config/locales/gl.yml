@@ -196,6 +196,9 @@ gl:
         create: "%{user_name} invitados %{resource_name} á %{space_name} conferencias"
         delete: "%{user_name} eliminou o usuario %{resource_name} da %{space_name} conferencia"
         update: "%{user_name} cambiou o papel de %{resource_name} na %{space_name} conferencia"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Ponentes
@@ -265,6 +268,15 @@ gl:
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
+      conference_program:
+        program_meeting:
+          content: Contido
+          location: Localización
+          speakers: Ponentes
+          streaming: Transmisión
+        show:
+          day: Día
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Inscríbase o rexistro da conferencia <a href="%{url}">%{title}</a>.
