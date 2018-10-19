@@ -420,7 +420,7 @@ es-PY:
           conditions:
             - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
             - Personaliza, si quieres, el mensaje que estás enviando.
-            - Subirás de nivel enviando invitaciones y registrándolas.
+            - Supera este nivel enviando invitaciones y registrándolas.
           description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
@@ -582,7 +582,7 @@ es-PY:
           participate: Participar
           welcome: Bienvenido a %{organization}!
         metrics:
-          headline: Participación en figuras
+          headline: Participación en cifras
         statistics:
           answers_count: Encuestas completadas
           assemblies_count: Asambleas
