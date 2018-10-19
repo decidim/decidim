@@ -257,6 +257,10 @@ sv:
           notification_title: Dagen för <a href="%{resource_path}">%{resource_title}</a> steg vid <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
     menu:
       processes: Processer
+    metrics:
+      participatory_processes:
+        object: deltagande processer
+        title: Deltagande processer
     participatory_process_groups:
       show:
         group_participatory_processes:
