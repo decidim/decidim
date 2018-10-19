@@ -223,10 +223,10 @@ gl:
           unearned_own: Aínda non creaches propostas.
     metrics:
       accepted_proposals:
-        object: proposta
+        object: propostas
         title: Propostas aceptadas
       proposals:
-        object: proposta
+        object: propostas
         title: Propostas
       votes:
         object: votos
