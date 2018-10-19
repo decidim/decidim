@@ -223,10 +223,10 @@ hu:
           unearned_own: Még nem hoztál létre javaslatokat.
     metrics:
       accepted_proposals:
-        object: javaslat
+        object: javaslatok
         title: Elfogadott javaslatok
       proposals:
-        object: javaslat
+        object: javaslatok
         title: javaslatok
       votes:
         object: szavazat
