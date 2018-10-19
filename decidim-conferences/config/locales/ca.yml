@@ -196,6 +196,9 @@ ca:
         create: "%{user_name} convidats %{resource_name} a la %{space_name} conferències"
         delete: "%{user_name} eliminar l'usuari %{resource_name} de la %{space_name} conferència"
         update: "%{user_name} canviar el paper d' %{resource_name} a la %{space_name} conferència"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Ponents
@@ -265,6 +268,15 @@ ca:
           remaining_slots:
             one: 1 espai disponible
             other: "%{count} places restants restants"
+      conference_program:
+        program_meeting:
+          content: Contingut
+          location: Ubicació
+          speakers: Ponents
+          streaming: Streaming
+        show:
+          day: Dia
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: S'ha confirmat el registre de la conferència <a href="%{url}">%{title}</a>.
