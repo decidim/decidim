@@ -257,6 +257,10 @@ fi:
           notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Prosessit
+    metrics:
+      participatory_processes:
+        object: osallistuvat prosessit
+        title: Osallistumisprosessit
     participatory_process_groups:
       show:
         group_participatory_processes:
