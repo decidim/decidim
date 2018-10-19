@@ -15,12 +15,7 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "active_link_to"
-
-# Until https://github.com/andypike/rectify/pull/45 is attended, we're shipping
-# with a patched version of rectify
 require "rectify"
-require "decidim/rectify_ext"
-
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
@@ -42,6 +37,7 @@ require "doorkeeper"
 require "doorkeeper-i18n"
 require "nobspw"
 require "kaminari"
+require "batch-loader"
 
 require "decidim/api"
 
@@ -60,6 +56,7 @@ module Decidim
 
       initializer "decidim.middleware" do |app|
         app.config.middleware.use Decidim::CurrentOrganization
+        app.config.middleware.use BatchLoader::Middleware
       end
 
       initializer "decidim.assets" do |app|
@@ -274,13 +271,19 @@ module Decidim
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"
         end
+
+        Decidim.register_resource(:user_group) do |resource|
+          resource.model_class_name = "Decidim::UserGroup"
+          resource.card = "decidim/user_profile"
+        end
       end
 
       initializer "decidim.core.register_metrics" do
         Decidim.metrics_registry.register(
           :users,
           "Decidim::Metrics::UsersMetricManage",
-          Decidim::MetricRegistry::HIGHLIGHTED
+          Decidim::MetricRegistry::HIGHLIGHTED,
+          1
         )
       end
 
@@ -322,6 +325,12 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:homepage, :last_activity) do |content_block|
+          content_block.cell = "decidim/content_blocks/last_activity"
+          content_block.public_name_key = "decidim.content_blocks.last_activity.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:homepage, :stats) do |content_block|
           content_block.cell = "decidim/content_blocks/stats"
           content_block.public_name_key = "decidim.content_blocks.stats.name"
@@ -359,6 +368,10 @@ module Decidim
         Decidim::Gamification.register_badge(:followers) do |badge|
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }
+        end
+
+        Decidim::Gamification.register_badge(:continuity) do |badge|
+          badge.levels = [2, 10, 30, 60, 180, 365]
         end
       end
     end

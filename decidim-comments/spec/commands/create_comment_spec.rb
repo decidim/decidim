@@ -71,6 +71,23 @@ module Decidim
             command.call
           end
 
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:create!)
+              .with(
+                Decidim::Comments::Comment,
+                author,
+                kind_of(Hash),
+                visibility: "public-only"
+              )
+              .and_call_original
+
+            expect { command.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.version).to be_present
+            expect(action_log.version.event).to eq "create"
+          end
+
           context "and comment contains a user mention" do
             let(:mentioned_user) { create(:user, organization: organization) }
             let(:parser_context) { { current_organization: organization } }

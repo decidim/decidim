@@ -14,9 +14,6 @@ pl:
         password_confirmation: Potwierdź swoje hasło
         personal_url: Osobisty URL
         remove_avatar: Usuń awatar
-        user_group_document_number: Numer dokumentu organizacji
-        user_group_name: Nazwa organizacji
-        user_group_phone: Telefon kontaktowy organizacji
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny składnik
@@ -32,9 +29,6 @@ pl:
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
-        user_group_document_number: Numer dokumentu organizacji
-        user_group_name: Nazwa organizacji
-        user_group_phone: Telefon organizacyjny
     models:
       decidim/user:
         one: Użytkownik
@@ -56,6 +50,7 @@ pl:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -192,6 +187,11 @@ pl:
           invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
           ok: Ok
           title: Nieautoryzowany
+        unconfirmed:
+          confirmation_instructions: 'Jeśli nie otrzymałeś instrukcji potwierdzenia, możesz poprosić o ponowne:'
+          explanation_html: Aby wykonać tę czynność, musisz mieć autoryzację, zanim to zrobisz, musisz potwierdzić swój adres e-mail <strong>%{email}</strong>.
+          request_confirmation_instructions: Poproś o instrukcje potwierdzające
+          title: Potwierdź swój email
     collapsible_list:
       hidden_elements_count:
         one: i 1 więcej
@@ -229,6 +229,12 @@ pl:
       html:
         html_content: Treść HTML
         name: Blok HTML
+      last_activity:
+        name: Ostatnia aktywność
+        title: Ostatnia aktywność
+        view_all: Pokaż wszystkie
+      metrics:
+        name: Dane organizacji
       stats:
         name: Statystyki organizacji
       sub_hero:
@@ -265,8 +271,6 @@ pl:
           sign_up: Zapisz się
           sign_up_as:
             legend: Zarejestruj się jako
-            user: Indywidualny
-            user_group: Organizacja / Zbiorowe
           subtitle: Zarejestruj się, aby wziąć udział w dyskusjach i propozycjach wsparcia.
           terms: Warunki korzystania
           tos_agreement: Zarejestrowając się, zgadzasz się na %{link}.
@@ -395,19 +399,41 @@ pl:
         error: W tym polu wystąpił błąd.
       remove_this_file: Usuń ten plik
     gamification:
+      all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
+        continuity:
+          conditions:
+            - Chodź tu często
+          description: Ta odznaka jest przyznawana podczas regularnego odwiedzania platformy. Lubimy mieć cię tutaj!
+          description_another: Ten użytkownik nawiązał połączenie przez %{score} kolejnych dni w pewnym momencie.
+          description_own: W pewnym momencie łączyłeś się przez %{score} kolejnych dni.
+          name: Ciągłość
+          next_level_in: Łącz przez %{score} kolejnych dni, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie zalogował się przez więcej niż jeden kolejny dzień.
+          unearned_own: Nie łączyłeś się przez więcej niż jeden kolejny dzień.
         followers:
+          conditions:
+            - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
+          description: Ta odznaka jest przyznawana, gdy dotrzesz do określonej liczby obserwujących. %{organization_name} to sieć społeczna i polityczna, tkanie sieci w celu komunikowania się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
-          explanation: Użytkownicy otrzymują tę plakietkę, obserwując innych użytkowników.
           name: Obserwujący
           next_level_in: Uzyskaj %{score} innych użytkowników, którzy obserwują Cię, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie ma jeszcze żadnych obserwujących.
           unearned_own: Nie masz jeszcze żadnych obserwujących.
+        index:
+          badge_title: "%{name} znaczek"
+          how: Jak możesz to zarobić?
+          page_description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
+          title: Odznaki
         invitations:
+          conditions:
+            - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
+            - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
+            - Możesz awansować na wyższy poziom, wysyłając zaproszenia i rejestrując je.
+          description: Ta odznaka jest przyznawana, gdy zaprosiłeś niektórych ludzi i spędzili trochę czasu, aby zarejestrować się w %{organization_name} i zostać uczestnikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozszerzeniu społeczności!
           description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
           description_own: Zaprosiłeś %{score} użytkowników.
-          explanation: Użytkownicy otrzymują tę plakietkę, zapraszając innych użytkowników.
           name: Zaproszenia
           next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie zaprosił jeszcze żadnego użytkownika.
@@ -415,6 +441,14 @@ pl:
       description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
+    groups:
+      create:
+        error: Podczas tworzenia organizacji wystąpił problem
+        success: Organizacja została pomyślnie utworzona
+      new:
+        create_user_group: Utwórz organizację
+        new_user_group: Nowa organizacja
+      no_user_groups: Nie należy jeszcze do żadnej organizacji.
     invitations:
       create:
         error: Podczas zapraszania znajomych pojawiły się pewne problemy
@@ -427,6 +461,13 @@ pl:
         invitations_title: Czy uważasz, że więcej głosów powinno być słyszanych w %{organization_name}?
         invite: Zapraszam
         visit_your_profile: Odwiedź swój profil
+    last_activities:
+      activities:
+        no_activities_warning: Brak aktywności
+      all: Wszystkie typy aktywności
+      index:
+        last_activity: Ostatnia aktywność
+        resource_type: Rodzaj
     log:
       base_presenter:
         create: "%{user_name} stworzony %{resource_name}"
@@ -448,6 +489,8 @@ pl:
           not_found: 'Typ zasięgu nie został znaleziony w bazie danych (ID: %{id})'
     managed_users:
       expired_session: Obecna sesja personifikacji wygasła.
+    members:
+      no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
       home: Ekran startowy
       more_information: Więcej informacji
@@ -479,6 +522,10 @@ pl:
           title: Zacząć rozmowę
         update:
           error: Wiadomość nie została wysłana. Spróbuj ponownie później
+    metrics:
+      users:
+        object: użytkowników
+        title: Użytkownicy
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
@@ -538,6 +585,8 @@ pl:
         hero:
           participate: Uczestniczyć
           welcome: Witamy w %{organization}!
+        metrics:
+          headline: Udział w liczbach
         statistics:
           answers_count: Ankiety zakończone
           assemblies_count: Złożenia
@@ -585,18 +634,22 @@ pl:
       deleted: Usunięty użytkownik
       view: Widok
     profiles:
-      default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
+      default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie weryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
+      default_officialization_text_for_users: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
         badges: Odznaki
         conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
+        groups: Organizacje
+        members: Członkowie
         notifications: Powiadomienia
       sidebar:
         badges:
           info: Odznaki zdobywa się, wykonując określoną czynność na platformie.
           title: Odznaki
       user:
+        create_user_group: Utwórz organizację
         edit_profile: Edytuj profil
     reported_mailer:
       hide:
@@ -681,7 +734,6 @@ pl:
       not_found_in_database: Nieprawidłowe %{authentication_keys} lub hasło.
       timeout: Twoja sesja wygasła. Zaloguj się ponownie, aby kontynuować.
       unauthenticated: Zanim przejdziesz dalej, musisz się zalogować lub zarejestrować.
-      unconfirmed: Przed kontynuowaniem musisz potwierdzić swój adres e-mail.
     invitations:
       edit:
         header: Zakończ tworzenie konta

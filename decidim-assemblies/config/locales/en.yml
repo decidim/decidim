@@ -262,6 +262,8 @@ en:
         public: Public
       index:
         title: Assemblies
+      last_activity:
+        new_assembly: New assembly
       pages:
         home:
           highlighted_assemblies:
@@ -324,6 +326,10 @@ en:
           not_found: 'The assembly was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
+    metrics:
+      assemblies:
+        object: assemblies
+        title: Assemblies
   errors:
     messages:
       cannot_be_blank: can not be blank

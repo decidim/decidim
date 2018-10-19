@@ -187,29 +187,48 @@ eu:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
+            - Saiatu egin daitezkeen proposamenak egitea. Horrela onartuko lirateke gehiago.
+          description: Idazmahaia proposamen berriekin modu aktiboan parte hartzen duzunean onartuko zaituzte eta onartzen dira.
           description_another: Erabiltzaile honek %{score} proposamen jaso ditu.
           description_own: '%{score} proposamen onartu dituzu.'
-          explanation: Erabiltzaileek txapela lortzen dute proposamenak onartuz.
           name: Onartutako proposamenak
           next_level_in: Talde %{score} proposamen gehiago hurrengo mailara iristeko onartu!
           unearned_another: Erabiltzaile honek oraindik ez ditu onartutako proposamenik.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
         proposal_votes:
+          conditions:
+            - Arakatu eta beste pertsona batzuen proposamenak irakurtzen
+            - Eman gustuko dituzun proposamenei edo interesgarria iruditu
+          description: Idazmahaia beste pertsonen proposamenak onartzen dituzunean onartzen da.
           description_another: Erabiltzaile honek %{score} proposamen onartzen ditu.
           description_own: '%{score} proposamenei laguntza eman diezu.'
-          explanation: Erabiltzaileek txapela lortzen dute proposamenei laguntzeko.
           name: Proposamenak onartzen ditu
           next_level_in: Eman laguntza %{score} proposamen gehiago hurrengo mailara iristea!
           unearned_another: Erabiltzaile honek oraindik ez du proposamenik onartzen.
           unearned_own: Ez duzu proposamenik onartzen oraindik.
         proposals:
+          conditions:
+            - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
+            - Proposamen berri bat sortu
+          description: Txartela hau proposamen berriekin parte hartzera gonbidatzen zaituztegu.
           description_another: Erabiltzaile honek %{score} proposamen sortu ditu.
           description_own: '%{score} proposamen sortu dituzu.'
-          explanation: Erabiltzaileek txapela lortu proposamenen bidez.
           name: proposamenak
           next_level_in: Sortu %{score} proposamen gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du proposamenik sortu.
           unearned_own: Oraindik ez duzu proposamenik sortu.
+    metrics:
+      accepted_proposals:
+        object: proposamen
+        title: Onartutako proposamenak
+      proposals:
+        object: proposamen
+        title: proposamenak
+      votes:
+        object: boto
+        title: Botoak
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +240,7 @@ eu:
     proposals:
       actions:
         answer: Erantzuna
+        edit_proposal: Editatu proposamena
         import: Inportatu beste osagai batetik
         new: Proposamen berria
         private_notes: Ohar pribatuak
@@ -257,6 +277,9 @@ eu:
           create:
             invalid: Arazo bat izan da proposamen hau sortzean.
             success: Proposamena zuzen sortu da.
+          edit:
+            title: Eguneratze proposamena
+            update: eguneratzearen
           form:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             select_a_category: Aukeratu kategoria bat
@@ -294,6 +317,7 @@ eu:
         proposal:
           answer: "%{user_name} %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
           create: "%{user_name} %{resource_name} %{space_name} espazio proposamena sortu zen proposamen ofizial gisa"
+          update: "%{user_name} eguneratu %{resource_name} ofizialaren proposamena %{space_name} espazio"
         proposal_note:
           create: "%{user_name} ohar pribatu bat utzi %{resource_name} %{space_name} espazioan proposamena"
       answers:
@@ -422,6 +446,8 @@ eu:
       destroy_draft:
         error: Arazoak izan dira proposamenaren zirriborroa ezabatzean.
         success: Proposamenaren zirriborroa zuzen ezabatu da.
+      last_activity:
+        new_proposal_at_html: "<span> %{link}</span>proposamen berria"
       models:
         collaborative_draft:
           fields:

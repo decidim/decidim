@@ -18,7 +18,6 @@ module Decidim
     # Creates the SearchLight base query.
     # Check if the option component was provided.
     def base_query
-      # raise order_start_time.inspect
       raise "Missing component" unless component
 
       @scope.where(component: component)

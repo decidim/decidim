@@ -187,29 +187,48 @@ fi:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
+            - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
+          description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
           description_own: Sinulla sait %{score} ehdotusta hyväksyksi.
-          explanation: Käyttäjät saavat tämän tunnuksen saamalla ehdotuksensa hyväksytyksi.
           name: Hyväksytyt ehdotukset
           next_level_in: Saa vielä %{score} ehdotusta hyväksytyksi noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole saanut vielä ehdotuksia hyväksytyksi.
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
+          conditions:
+            - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
+            - Tue ehdotuksia, joita pidät tai jotka kiinnostavat sinua
+          description: Tämä kunniamerkki myönnetään, kun tuet muiden ihmisten ehdotuksia.
           description_another: Tämä käyttäjä on kannattanut %{score} ehdotusta.
           description_own: Olet kannattanut %{score} ehdotusta.
-          explanation: Käyttäjät saavat tämän merkin kannattamalla ehdotuksia.
           name: Ehdotusten kannatukset
           next_level_in: Kannata %{score} ehdotusta noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä kannattanut yhtään ehdotusta.
           unearned_own: Et ole vielä kannattanut ehdotuksia.
         proposals:
+          conditions:
+            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
+            - Luo uusi ehdotus
+          description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia.
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.
-          explanation: Käyttäjät saavat tämän merkin luomalla ehdotuksia.
           name: Ehdotukset
           next_level_in: Luo %{score} ehdotusta noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole vielä luonut ehdotuksia.
           unearned_own: Et ole vielä luonut ehdotuksia.
+    metrics:
+      accepted_proposals:
+        object: ehdotusta
+        title: Hyväksyttyjä ehdotuksia
+      proposals:
+        object: ehdotus
+        title: Ehdotuksia
+      votes:
+        object: ääntä
+        title: Ääniä
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +240,7 @@ fi:
     proposals:
       actions:
         answer: Vastaa
+        edit_proposal: Muokkaa ehdotusta
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
         private_notes: Omat muistiinpanot
@@ -257,6 +277,9 @@ fi:
           create:
             invalid: Ehdotuksen luonnissa tapahtui virhe
             success: Ehdotus luotu onnistuneesti
+          edit:
+            title: Päivitä ehdotusta
+            update: Päivitä
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
             select_a_category: Valitse aihepiiri
@@ -294,6 +317,7 @@ fi:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
           create: "%{user_name} loi ehdotuksen %{resource_name} tilaan %{space_name} virallisena ehdotuksena"
+          update: "%{user_name} päivitti virallisen ehdotuksen %{resource_name} osallistumistilassa %{space_name}"
         proposal_note:
           create: "%{user_name} jätti yksityisen viestin ehdotuksesta %{resource_name} tilaan %{space_name}"
       answers:
@@ -418,10 +442,12 @@ fi:
           step_of: Vaihe %{current_step_num} / %{total_steps}
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
-        success: Ehdotus luotiin onnistuneesti. Tallennettu luonnoksena.
+        success: Ehdotus luotiin tallennettu luonnoksena.
       destroy_draft:
         error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.
+      last_activity:
+        new_proposal_at_html: "<span>Uusi ehdotus osoitteessa %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -586,7 +612,7 @@ fi:
           see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertaile
-          step_3: Valmis
+          step_3: Viimeistele
           step_4: Julkaise ehdotuksesi
           step_of: Vaihe %{current_step_num} / %{total_steps}
       publish:
@@ -614,9 +640,9 @@ fi:
           version_index: Versio %{index}
     resource_links:
       copied_from_component:
-        proposal_proposal: Vastaavat ehdotukset
+        proposal_proposal: Liittyvät ehdotukset
       included_projects:
         project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
       included_proposals:
         proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
-        proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'
+        proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'

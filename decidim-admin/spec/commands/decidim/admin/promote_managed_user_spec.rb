@@ -18,7 +18,8 @@ module Decidim::Admin
       ManagedUserPromotionForm.from_params(
         form_params
       ).with_context(
-        current_organization: organization
+        current_organization: organization,
+        current_user: current_user
       )
     end
     let!(:user) { create :user, :managed, organization: organization }

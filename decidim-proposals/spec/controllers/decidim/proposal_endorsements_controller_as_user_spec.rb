@@ -34,7 +34,7 @@ module Decidim
 
           context "when requesting user identities while belonging to UNverified user_groups" do
             it "only returns the user identity endorse button" do
-              create_user_groups
+              create_list(:user_group, 2, users: [user], organization: user.organization)
               get :identities, params: params
 
               expect(response).to have_http_status(:ok)
@@ -45,25 +45,13 @@ module Decidim
 
           context "when requesting user identities while belonging to verified user_groups" do
             it "returns the user's and user_groups's identities for the endorse button" do
-              create_user_groups(true)
+              create_list(:user_group, 2, :verified, users: [user], organization: user.organization)
               get :identities, params: params
 
               expect(response).to have_http_status(:ok)
               expect(assigns[:user_verified_groups]).to eq user.user_groups
               expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
             end
-          end
-          #
-          # UTIL METHODS
-          #
-
-          def create_user_groups(verified = false)
-            2.times do
-              user_group = create(:user_group)
-              user_group.verified_at = Time.current if verified
-              user.user_groups << user_group
-            end
-            user.save!
           end
         end
 

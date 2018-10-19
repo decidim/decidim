@@ -123,21 +123,38 @@ module Decidim
 
       describe "notifications" do
         describe "badge earned notification" do
-          it "sends a notification when earning a new badge" do
-            expect(Decidim::EventsManager).to receive(:publish).with(
-              hash_including(
-                event: "decidim.events.gamification.badge_earned",
-                event_class: BadgeEarnedEvent,
-                resource: user,
-                recipient_ids: [user.id],
-                extra: {
-                  badge_name: "test",
-                  previous_level: 0,
-                  current_level: 1
-                }
+          context "when badges are enabled organization-wide" do
+            before do
+              user.organization.update(badges_enabled: true)
+            end
+
+            it "sends a notification when earning a new badge" do
+              expect(Decidim::EventsManager).to receive(:publish).with(
+                hash_including(
+                  event: "decidim.events.gamification.badge_earned",
+                  event_class: BadgeEarnedEvent,
+                  resource: user,
+                  recipient_ids: [user.id],
+                  extra: {
+                    badge_name: "test",
+                    previous_level: 0,
+                    current_level: 1
+                  }
+                )
               )
-            )
-            subject.increment
+              subject.increment
+            end
+          end
+
+          context "when badges are disabled organization-wide" do
+            before do
+              user.organization.update(badges_enabled: false)
+            end
+
+            it "doesn't send a notification" do
+              expect(Decidim::EventsManager).not_to receive(:publish).with(anything)
+              subject.increment
+            end
           end
         end
 

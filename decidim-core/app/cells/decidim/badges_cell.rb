@@ -7,7 +7,7 @@ module Decidim
 
     delegate :current_user, to: :controller
 
-    def user
+    def profile_holder
       model
     end
   end

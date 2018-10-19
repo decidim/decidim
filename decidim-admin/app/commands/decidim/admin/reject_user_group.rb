@@ -33,7 +33,7 @@ module Decidim
           @user_group,
           @current_user
         ) do
-          @user_group.update!(rejected_at: Time.current, verified_at: nil)
+          @user_group.reject!
         end
       end
     end

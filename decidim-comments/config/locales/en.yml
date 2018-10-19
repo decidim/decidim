@@ -17,6 +17,8 @@ en:
   decidim:
     comments:
       comments: Comments
+      last_activity:
+        new_comment_at_html: "<span>New comment at %{link}</span>"
       votes:
         create:
           error: There's been errors when voting the comment.
@@ -88,6 +90,10 @@ en:
           email_outro: You have received this notification because you have been mentioned in %{resource_title}.
           email_subject: You have been mentioned in %{resource_title}
           notification_title: You have been mentioned in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        object: comments
+        title: Comments
   errors:
     messages:
       cannot_have_comments: can't have comments

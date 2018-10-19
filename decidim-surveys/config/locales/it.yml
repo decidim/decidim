@@ -85,6 +85,8 @@ it:
           update:
             invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
             success: Il questionario è stato salvato correttamente.
+      last_activity:
+        new_survey_at_html: "<span>Nuovo sondaggio al %{link}</span>"
       question_types:
         long_answer: Risposta lunga
         multiple_option: Opzione multipla

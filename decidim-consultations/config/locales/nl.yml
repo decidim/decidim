@@ -211,6 +211,9 @@ nl:
         title: Vragen vanaf %{scope_name}
       index:
         title: Burgerinspraak
+      last_activity:
+        new_consultation: Nieuw overleg
+        new_question_at_html: "<span>Nieuwe vraag op %{link}</span>"
       pages:
         home:
           highlighted_consultations:

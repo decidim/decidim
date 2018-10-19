@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     module PostalLetter
-      class AuthorizationsController < Decidim::ApplicationController
+      class AuthorizationsController < ApplicationController
         helper_method :authorization
 
         before_action :load_authorization

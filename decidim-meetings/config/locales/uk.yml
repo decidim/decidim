@@ -20,13 +20,13 @@ uk:
         end_time: Час завершення
         location: Розташування
         location_hints: Як дістатися до цього місця
+        organizer_id: Організатор
         private_meeting: Приватна зустріч
         registration_terms: Умови реєстрації
         registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
         title: Назва
         transparent: Прозора
-        organizer_id: Організатор
       minutes:
         audio_url: Веб-адреса аудіозапису
         description: Опис
@@ -338,8 +338,6 @@ uk:
             many: "Залишилось %{count} місць"
             other: "Залишилось %{count} місць"
           view: Переглянути
-      meetings_map:
-        view_meeting: Переглянути зустріч
       models:
         invite:
           fields:

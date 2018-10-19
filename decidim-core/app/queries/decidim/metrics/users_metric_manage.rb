@@ -4,9 +4,8 @@ module Decidim
   module Metrics
     # Metric manager for User's registries
     class UsersMetricManage < Decidim::MetricManage
-      def initialize(day_string, organization)
-        super(day_string, organization)
-        @metric_name = "users"
+      def metric_name
+        "users"
       end
 
       private

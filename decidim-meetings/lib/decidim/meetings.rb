@@ -10,7 +10,6 @@ require "decidim/meetings/component"
 module Decidim
   # Base module for this engine.
   module Meetings
-    autoload :ViewModel, "decidim/meetings/view_model"
     autoload :Registrations, "decidim/meetings/registrations"
   end
 end

@@ -16,5 +16,9 @@ module Decidim
       return nil unless newsletter_notifications
       Time.current
     end
+
+    def map_model(model)
+      self.newsletter_notifications = model.newsletter_notifications_at.present?
+    end
   end
 end

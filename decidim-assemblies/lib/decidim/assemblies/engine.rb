@@ -68,7 +68,7 @@ module Decidim
           assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
                                                       .query.distinct
                                                       .joins(:members)
-                                                      .merge(Decidim::AssemblyMember.where(user: view_context.user))
+                                                      .merge(Decidim::AssemblyMember.where(user: view_context.profile_holder))
                                                       .reorder(title: :asc)
 
           next unless assemblies.any?
@@ -95,6 +95,15 @@ module Decidim
             settings.attribute :max_results, type: :integer, default: 4
           end
         end
+      end
+
+      initializer "decidim_assemblies.register_metrics" do
+        Decidim.metrics_registry.register(
+          :assemblies,
+          "Decidim::Assemblies::Metrics::AssembliesMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          1
+        )
       end
     end
   end

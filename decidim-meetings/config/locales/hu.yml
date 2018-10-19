@@ -122,6 +122,18 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Regisztráljon a résztvevő találkozókon
+          description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
+          description_another: Ez a felhasználó %{score} találkozón vett részt.
+          description_own: '%{score} találkozóra vett részt.'
+          name: Részt vett az üléseken
+          next_level_in: Vegyen részt %{score} további ülések, hogy elérjük a következő szintre!
+          unearned_another: Ez a felhasználó még nem vett részt semmilyen találkozón.
+          unearned_own: Még nem vettél részt semmilyen találkozón.
     meetings:
       actions:
         agenda: Napirend
@@ -301,6 +313,8 @@ hu:
             search: Keresés
             space_type: Részvételi hely
             upcoming: közelgő
+      last_activity:
+        new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -344,8 +358,6 @@ hu:
             one: 1 hely maradt
             other: "%{count} hely maradt"
           view: Nézet
-      meetings_map:
-        view_meeting: Találkozó megtekintése
       models:
         invite:
           fields:

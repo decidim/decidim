@@ -36,6 +36,7 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
+        badges_enabled: Activa els distintius
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
         default_locale: Idioma per defecte

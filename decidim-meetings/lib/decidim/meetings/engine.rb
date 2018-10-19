@@ -96,12 +96,14 @@ module Decidim
         Decidim.view_hooks.register(:conference_venues, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
           meetings = Decidim::Meetings::Meeting.where(component: published_components).group_by(&:address)
+          meetings_geocoded = Decidim::Meetings::Meeting.where(component: published_components).geocoded
           next unless meetings.any?
 
           view_context.render(
             partial: "decidim/participatory_spaces/conference_venues",
             locals: {
-              meetings: meetings
+              meetings: meetings,
+              meetings_geocoded: meetings_geocoded
             }
           )
         end
@@ -119,6 +121,15 @@ module Decidim
             Decidim::Meetings::Registration.where(user: user).count
           end
         end
+      end
+
+      initializer "decidim_meetings.register_metrics" do
+        Decidim.metrics_registry.register(
+          :meetings,
+          "Decidim::Meetings::Metrics::MeetingsMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          5
+        )
       end
     end
   end

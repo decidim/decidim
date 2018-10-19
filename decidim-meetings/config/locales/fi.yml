@@ -122,6 +122,18 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+          description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapaamisiin.
+          description_another: Tämä käyttäjä on osallistunut %{score} tapaamiseen.
+          description_own: Olet osallistunut %{score} tapaamiseen.
+          name: Tapaamisiin osallistuminen
+          next_level_in: Osallistu %{score} uuteen tapaamiseen seuraavan tason saavuttamiseksi!
+          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapaamiseen.
+          unearned_own: Et ole vielä osallistunut yhteenkään tapaamiseen.
     meetings:
       actions:
         agenda: esityslista
@@ -301,6 +313,8 @@ fi:
             search: Hae
             space_type: Osallistumistila
             upcoming: Tulevat
+      last_activity:
+        new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -345,7 +359,7 @@ fi:
             other: "%{count} paikkaa jäljellä"
           view: Näytä
       meetings_map:
-        view_meeting: Näytä tapahtuma
+        view_meeting: Näytä tapaaminen
       models:
         invite:
           fields:

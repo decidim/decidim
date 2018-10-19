@@ -19,7 +19,8 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:component_settings) do
     double(
       official_proposals_enabled: official_proposals_enabled?,
-      proposal_answering_enabled: component_settings_proposal_answering_enabled?
+      proposal_answering_enabled: component_settings_proposal_answering_enabled?,
+      participatory_texts_enabled?: component_settings_participatory_texts_enabled?
     )
   end
   let(:current_settings) do
@@ -31,6 +32,7 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:creation_enabled?) { true }
   let(:official_proposals_enabled?) { true }
   let(:component_settings_proposal_answering_enabled?) { true }
+  let(:component_settings_participatory_texts_enabled?) { true }
   let(:current_settings_proposal_answering_enabled?) { true }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
@@ -136,6 +138,14 @@ describe Decidim::Proposals::Admin::Permissions do
   describe "import proposals from another component" do
     let(:action) do
       { scope: :admin, action: :import, subject: :proposals }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  describe "import participatory texts" do
+    let(:action) do
+      { scope: :admin, action: :import, subject: :participatory_texts }
     end
 
     it { is_expected.to eq true }

@@ -156,6 +156,20 @@ eu:
             moderator: Moderatzaile
       titles:
         conferences: Jardunaldiak
+    admin_log:
+      conference:
+        create: "%{user_name} sortutako %{resource_name} konferentzia"
+        publish: "%{user_name} argitaratu %{resource_name} konferentzia"
+        unpublish: "%{user_name} argitaratutako %{resource_name} konferentzia"
+        update: "%{user_name} eguneratu %{resource_name} konferentzia"
+      conference_speaker:
+        create: "%{user_name} hizlari %{resource_name} sortu zen %{space_name} hitzaldian"
+        delete: "%{user_name} kendu %{resource_name} hizlari batetik %{space_name} konferentzia"
+        update: "%{user_name} eguneratua %{resource_name} hiztunaren ere %{space_name} konferentzia"
+      conference_user_role:
+        create: "%{user_name} gonbidatu %{resource_name} %{space_name} konferentzia"
+        delete: "%{user_name} kendu erabiltzaileak %{resource_name} tik %{space_name} konferentzia"
+        update: "%{user_name} %{resource_name} rola aldatu zen %{space_name} hitzaldian"
     conference_speakers:
       index:
         title: Hizlariak
@@ -237,15 +251,28 @@ eu:
           invalid: Arazo bat izan da hitzaldi hau utziz.
           success: Kongresua behar bezala utzi duzu.
       conference_speaker:
+        go_to_twitter: Joan Twitterrera
+        more_info: informazio gehiago
+        personal_website: Webgune pertsonala
         show:
-          affiliation: Afiliazioa
-          personal_url: Url pertsonala
-          position: Kargua
-          short_bio: Bio laburra
-          twitter_handle: Twitter
+          more_info: informazio gehiago
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Webgune pertsonala
+        twitter_handle:
+          go_to_twitter: Joan Twitterrera
       conference_speakers:
         index:
           speakers: Hizlariak
+      conferences:
+        show:
+          already_account: Dagoeneko kontu bat duzu erabakitzeko?
+          login_as: '%{name} <%{email}> saioan zaude'
+          make_conference_registration: 'Egin zure izen ematea hitzaldian:'
+          new_user: Erabiltzaile berria?
+          register: Eman izena
+          sign_in: Saio honetan izena emateko saioa
+          sign_up: Erregistratu dohainik erregistroan erabakitzeko
       content_blocks:
         highlighted_conferences:
           name: Nabarmendutako konferentziak
@@ -279,9 +306,9 @@ eu:
             active_conferences: Jardunaldi aktiboak
             see_all_conferences: Ikusi hitzaldi guztiak
       show:
-        end_date: Amaiera data
+        details: Xehetasunak
+        introduction: Sarrera
         objectives: Helburuak
-        start_date: Hasiera data
       statistics:
         answers_count: Erantzunak
         comments_count: Oharrak
@@ -328,10 +355,6 @@ eu:
         subject: Hitzaldi baterako gonbidapena
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: Biltzarra
-        conference_speaker_menu_item: Hizlariak
-        unfold: Zabaldu
       conference_widgets:
         show:
           take_part: Parte hartu
@@ -347,3 +370,8 @@ eu:
         promoted_conference:
           more_info: Informazio gehiago
           take_part: Parte hartu
+      conferences_nav:
+        conference_menu_item: informazioa
+        conference_speaker_menu_item: Hizlariak
+        unfold: Zabaldu
+        venues: Egoitzak

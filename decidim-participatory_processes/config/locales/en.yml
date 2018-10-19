@@ -258,6 +258,10 @@ en:
           notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
     menu:
       processes: Processes
+    metrics:
+      participatory_processes:
+        object: participatory processes
+        title: Participatory processes
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -289,6 +293,8 @@ en:
           name: Highlighted processes
       index:
         title: Participatory processes
+      last_activity:
+        new_participatory_process: New participatory process
       pages:
         home:
           highlighted_processes:

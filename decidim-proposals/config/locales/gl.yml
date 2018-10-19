@@ -187,29 +187,48 @@ gl:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
+            - Intente facer propostas que se poidan realizar. Deste xeito son máis propensos a ser aceptados.
+          description: Este distintivo concedeuse cando participas activamente con novas propostas e estas son aceptadas.
           description_another: Este usuario obtivo %{score} propostas aceptadas.
           description_own: Recibiches %{score} propostas.
-          explanation: Os usuarios obtén esta insignia ao aceptar as súas propostas.
           name: Propostas aceptadas
           next_level_in: Obtén %{score} propostas máis aceptadas para alcanzar o seguinte nivel!
           unearned_another: Este usuario aínda non recibiu ningunha proposta aceptada.
           unearned_own: Aínda non recibiu propostas.
         proposal_votes:
+          conditions:
+            - Busque e pase un tempo a ler as propostas doutras persoas
+            - Dea soporte ás propostas que che gustan ou que che resulten interesantes
+          description: Este distintivo concedeuse cando apoias as propostas doutras persoas.
           description_another: Este usuario deu soporte a %{score} propostas.
           description_own: Vostede deu apoio a %{score} propostas.
-          explanation: Os usuarios obtén esta insignia dándolle soporte ás propostas.
           name: A proposta é compatible
           next_level_in: Dea soporte a máis de %{score} propostas para alcanzar o seguinte nivel!
           unearned_another: Este usuario aínda non deu soporte a ningunha proposta.
           unearned_own: Xa deu soporte a ningunha proposta aínda.
         proposals:
+          conditions:
+            - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
+            - Crea unha nova proposta
+          description: Este distintivo é concedido cando participas activamente con novas propostas.
           description_another: Este usuario creou %{score} propostas.
           description_own: Creaches %{score} propostas.
-          explanation: Os usuarios obtén esta insignia creando propostas.
           name: Propostas
           next_level_in: Crea %{score} propostas para chegar ao seguinte nivel!
           unearned_another: Este usuario aínda non creou ningunha proposta.
           unearned_own: Aínda non creaches propostas.
+    metrics:
+      accepted_proposals:
+        object: proposta
+        title: Propostas aceptadas
+      proposals:
+        object: proposta
+        title: Propostas
+      votes:
+        object: votos
+        title: Votos
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +240,7 @@ gl:
     proposals:
       actions:
         answer: Resposta
+        edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
         private_notes: Notas privadas
@@ -257,6 +277,9 @@ gl:
           create:
             invalid: Produciuse un problema ao crear esta proposta
             success: Creouse a proposta correctamente
+          edit:
+            title: Actualizar a proposta
+            update: Actualización
           form:
             attachment_legend: "(Opcional) Engada un anexo"
             select_a_category: Selecciona unha categoría
@@ -294,6 +317,7 @@ gl:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
           create: "%{user_name} creou a proposta %{resource_name} no espazo %{space_name} como proposta oficial"
+          update: "%{user_name} actualizou a %{resource_name} proposta oficial sobre o espazo %{space_name}"
         proposal_note:
           create: "%{user_name} deixou unha nota privada na proposta %{resource_name} no espazo %{space_name}"
       answers:
@@ -422,6 +446,8 @@ gl:
       destroy_draft:
         error: Produciuse un erro ao eliminar o borrador da proposta.
         success: O borrador da proposta eliminouse con éxito.
+      last_activity:
+        new_proposal_at_html: "<span>Nova proposta en %{link}</span>"
       models:
         collaborative_draft:
           fields:

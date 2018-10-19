@@ -187,29 +187,48 @@ sv:
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
+            - Försök att lägga fram förslag som kan utföras. På detta sätt är de mer benägna att accepteras.
+          description: Detta märke beviljas när du aktivt deltar med nya förslag och dessa accepteras.
           description_another: Den här användaren har fått %{score} förslag accepterade.
           description_own: Du har accepterat %{score} förslag.
-          explanation: Användare får detta märke genom att få sina förslag godkända.
           name: Godkända förslag
           next_level_in: Få %{score} fler förslag accepterade för att nå nästa nivå!
           unearned_another: Den här användaren har inte fått några förslag accepterade än.
           unearned_own: Du har inga förslag accepterade än.
         proposal_votes:
+          conditions:
+            - Bläddra och spendera lite tid på att läsa andras förslag
+            - Ge stöd till de förslag du tycker om eller hitta intressanta
+          description: Detta märke beviljas när du stöder andra människors förslag.
           description_another: Denna användare har gett stöd till %{score} förslag.
           description_own: Du har gett stöd till %{score} förslag.
-          explanation: Användare får detta märke genom att ge stöd till förslag.
           name: Förslagstjänster
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här användaren har inte stöttat några förslag än.
           unearned_own: Du har inte stöttat några förslag än.
         proposals:
+          conditions:
+            - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
+            - Skapa ett nytt förslag
+          description: Detta märke beviljas när du aktivt deltar med nya förslag.
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
-          explanation: Användare får detta märke genom att skapa förslag.
           name: Förslag
           next_level_in: Skapa %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här användaren har inte skapat några förslag ännu.
           unearned_own: Du har inte skapat några förslag än.
+    metrics:
+      accepted_proposals:
+        object: förslag
+        title: Godkända Förslag
+      proposals:
+        object: förslag
+        title: Förslag
+      votes:
+        object: röster
+        title: Röster
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -221,6 +240,7 @@ sv:
     proposals:
       actions:
         answer: Svara
+        edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
         private_notes: Privata anteckningar
@@ -257,6 +277,9 @@ sv:
           create:
             invalid: Det har uppstått ett problem med att skapa detta förslag
             success: Förslaget skapades
+          edit:
+            title: Uppdatera förslag
+            update: Uppdatera
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             select_a_category: Välj en kategori
@@ -294,6 +317,7 @@ sv:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
           create: "%{user_name} skapade förslaget %{resource_name} på utrymmet %{space_name} som ett officiellt förslag"
+          update: "%{user_name} uppdaterade officiella förslaget %{resource_name} på platsen %{space_name}"
         proposal_note:
           create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på platsen %{space_name}"
       answers:
@@ -422,6 +446,8 @@ sv:
       destroy_draft:
         error: Det har uppstått fel vid radering av förslagsutkastet.
         success: Förslagsutkastet har tagits bort.
+      last_activity:
+        new_proposal_at_html: "<span>Nytt förslag till %{link}</span>"
       models:
         collaborative_draft:
           fields:

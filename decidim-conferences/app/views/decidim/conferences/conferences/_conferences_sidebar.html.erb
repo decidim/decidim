@@ -1,0 +1,11 @@
+<section class="section">
+  <div class="extra join-conference">
+    <div class="">
+      <%= cell "decidim/conferences/join_conference_button", current_participatory_space, big_button: true, show_remaining_slots: true, allowed: allowed_to?(:join, :conference, conference: current_participatory_space) %>
+      <%= render partial: "decidim/shared/follow_button", locals: { followable: current_participatory_space } %>
+    </div>
+  </div>
+  <%= resource_reference(current_participatory_space) %>
+  <%= render partial: "decidim/shared/share_modal" %>
+  <%= embed_modal_for conference_conference_widget_url(current_participatory_space, format: :js) %>
+</section>

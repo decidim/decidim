@@ -20,13 +20,21 @@ module Decidim
       include Decidim::Fingerprintable
       include Decidim::DataPortability
       include Decidim::Hashtaggable
+      include Decidim::Proposals::ParticipatoryTextSection
 
       fingerprint fields: [:title, :body]
 
       component_manifest_name "proposals"
 
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
-      has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
+
+      has_many :votes,
+               -> { final },
+               foreign_key: "decidim_proposal_id",
+               class_name: "Decidim::Proposals::ProposalVote",
+               dependent: :destroy,
+               counter_cache: "proposal_votes_count"
+
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
       validates :title, :body, presence: true
@@ -39,7 +47,10 @@ module Decidim
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
+
+      acts_as_list scope: :decidim_component_id
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -70,11 +81,18 @@ module Decidim
           .where("decidim_coauthorships.decidim_author_id = ?", user.id)
       end
 
+      # Public: Updates the vote count of this proposal.
+      #
+      # Returns nothing.
+      def update_votes_count
+        update!(proposal_votes_count: votes.count)
+      end
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
       def voted_by?(user)
-        votes.where(author: user).any?
+        ProposalVote.where(proposal: self, author: user).any?
       end
 
       # Public: Check if the user has endorsed the proposal.
@@ -201,7 +219,7 @@ module Decidim
       end
 
       def self.data_portability_images(user)
-        user_collection(user).map { |p| p.attachments.collect(&:file_url) }
+        user_collection(user).map { |p| p.attachments.collect(&:file) }
       end
 
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.

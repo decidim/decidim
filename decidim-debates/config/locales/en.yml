@@ -101,6 +101,8 @@ en:
           close_window: Close window
           share: Share
           share_link: Share link
+      last_activity:
+        new_debate_at_html: "<span>New debate at %{link}</span>"
       models:
         debate:
           fields:
@@ -138,9 +140,11 @@ en:
     gamification:
       badges:
         commented_debates:
+          conditions:
+          - Choose an open debate to take part in
+          description: This badge is granted when you actively participate in the different debates by leaving your comments.
           description_another: This user has participated in %{score} debates.
           description_own: You have participated in %{score} debates.
-          explanation: Users get this badge by participating in debates.
           name: Debates
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This user hasn't participated in any debate yet.
