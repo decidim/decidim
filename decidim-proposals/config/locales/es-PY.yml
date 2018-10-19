@@ -223,10 +223,10 @@ es-PY:
           unearned_own: Aún no has creado propuestas.
     metrics:
       accepted_proposals:
-        object: propuesta
+        object: propuestas
         title: Propuestas aceptadas
       proposals:
-        object: propuesta
+        object: propuestas
         title: Propuestas
       votes:
         object: votos
