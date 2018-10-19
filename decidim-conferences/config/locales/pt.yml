@@ -196,6 +196,9 @@ pt:
         create: "%{user_name} convidados %{resource_name} para a conferência %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
         update: "%{user_name} mudou o papel de %{resource_name} na conferência de %{space_name}"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: caixas de som
@@ -265,6 +268,15 @@ pt:
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
+      conference_program:
+        program_meeting:
+          content: Conteúdo
+          location: Localização
+          speakers: caixas de som
+          streaming: Transmissão
+        show:
+          day: Dia
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Sua inscrição para a conferência <a href="%{url}">%{title}</a> foi confirmada.
