@@ -7,46 +7,41 @@
     }
 
     _run() {
-      $(this.wrapperField).find("input[type=checkbox]").each((idx, el) => {
-        const $parentLabel = $(el).parents("label");
 
-        if ($(el).is(":checked")) {
-          const $lastSorted = this.wrapperField.find("label.sorted").last();
+      $(this.wrapperField).children("label").each((idx, label) => {
 
-          if ($lastSorted.length > 0) {
-            $lastSorted.removeClass("last-sorted");
-            $parentLabel.insertAfter($lastSorted);
+        const isChecked = $(label).children("input[type=checkbox]").is(":checked");
+        const position = parseInt($(label).children("input[name$=\\[position\\]]").val(), 10);
+
+        if (isChecked) {
+          if (Number.isInteger(position)) {
+            this.wrapperField.children("label.sorted").each((jdx, sorted) => {
+              const sortedPosition = parseInt($(sorted).children("input[name$=\\[position\\]]").val(), 10);
+              if (Number.isInteger(sortedPosition) && (position < sortedPosition)) {
+                $(sorted).insertAfter($(label));
+              } else {
+                $(sorted).insertBefore($(label));
+              }
+            });
           } else {
-            $parentLabel.insertBefore(this.wrapperField.find("label:first-child"));
+            $(label).insertAfter(this.wrapperField.children("label.sorted").last());
           }
-
-          $parentLabel.addClass("sorted");
-          $parentLabel.addClass("last-sorted");
+          $(label).addClass("sorted");
         } else {
-          const $lastUnsorted = this.wrapperField.find("label:not(.sorted)").last();
-
-          if ($lastUnsorted.length > 0) {
-            $parentLabel.insertBefore($lastUnsorted);
-          } else {
-            $parentLabel.insertAfter(this.wrapperField.find("label:last-child"));
-          }
-
-          $parentLabel.removeClass("sorted");
+          $(label).insertAfter(this.wrapperField.children("label").last());
+          $(label).removeClass("sorted");
         }
+
       });
 
-      $(this.wrapperField).find("label").each((idx, el) => {
+      $(this.wrapperField).children("label").each((idx, el) => {
         const $positionSelector = $(el).find(".position");
         const $positionField = $(el).find("input[name$=\\[position\\]]");
 
         if ($(el).hasClass("sorted")) {
-          let position = parseInt($positionField.val(), 10)
-          if (!Number.isInteger(position)) {
-            position = idx;
-          }
-          $positionField.val(position);
+          $positionField.val(idx);
           $positionField.prop("disabled", false);
-          $positionSelector.html(`${position + 1}. `);
+          $positionSelector.html(`${idx + 1}. `);
         } else {
           $positionField.val("");
           $positionField.prop("disabled", true);
