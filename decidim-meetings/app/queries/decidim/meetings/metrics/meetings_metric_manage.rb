@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Proposals
+  module Meetings
     module Metrics
-      class ProposalsMetricManage < Decidim::MetricManage
+      class MeetingsMetricManage < Decidim::MetricManage
         def metric_name
-          "proposals"
+          "meetings"
         end
 
         def save
@@ -35,9 +35,9 @@ module Decidim
             manifest.participatory_spaces.call(@organization).public_spaces
           end
           components = Decidim::Component.where(participatory_space: spaces).published
-          @query = Decidim::Proposals::Proposal.where(component: components).joins(:component)
-                                               .left_outer_joins(:category)
-          @query = @query.where("decidim_proposals_proposals.published_at <= ?", end_time).except_withdrawn
+          @query = Decidim::Meetings::Meeting.where(component: components).joins(:component)
+                                             .left_outer_joins(:category).visible
+          @query = @query.where("decidim_meetings_meetings.created_at <= ?", end_time)
           @query = @query.group("decidim_categorizations.decidim_category_id",
                                 :participatory_space_type,
                                 :participatory_space_id)
@@ -45,7 +45,7 @@ module Decidim
         end
 
         def quantity
-          @quantity ||= query.where("decidim_proposals_proposals.published_at >= ?", start_time).count
+          @quantity ||= query.where("decidim_meetings_meetings.created_at >= ?", start_time).count
         end
       end
     end

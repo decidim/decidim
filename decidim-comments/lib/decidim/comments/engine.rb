@@ -42,6 +42,15 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_comments.register_metrics" do
+        Decidim.metrics_registry.register(
+          :comments,
+          "Decidim::Comments::Metrics::CommentsMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          6
+        )
+      end
     end
   end
 end
