@@ -19,6 +19,8 @@ nl:
       decidim/component_published_event: Actieve component
       decidim/gamification/badge_earned_event: Badge verdiend
       decidim/gamification/level_up_event: Je bent genivelleerd
+      decidim/join_request_accepted_event: Aanvragen geaccepteerd
+      decidim/join_request_rejected_event: Deelnemen aan verzoek afgewezen
       decidim/profile_updated_event: Profiel geüpdatet
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ nl:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
           notification_title: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Gefeliciteerd! Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> organisatie heeft uw verzoek om hieraan deel te nemen geaccepteerd.
+          email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
+          email_subject: Je bent toegelaten tot de %{user_group_name} organisatie!
+          notification_title: U bent toegelaten tot de <a href="%{resource_path}">%{user_group_name}</a> organisatie.
+        join_request_created:
+          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} organisatie. U kunt het accepteren of weigeren vanaf <a href="%{resource_url}">de organisatieleden pagina</a>.
+          email_outro: U hebt deze melding ontvangen omdat u de %{user_group_name} organisatie kunt beheren.
+          email_subject: Iemand heeft verzocht om lid te worden van de %{user_group_name} organisatie!
+          notification_title: Iemand heeft verzocht om lid te worden van de %{user_group_name} organisatie. U kunt het accepteren of weigeren vanaf <a href="%{resource_path}">de organisatieleden pagina</a>.
+        join_request_rejected:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> organisatie heeft uw verzoek om hieraan deel te nemen afgewezen.
+          email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
+          email_subject: Uw aanvraag om lid te worden van de organisatie %{user_group_name} is afgewezen!
+          notification_title: Uw aanvraag om lid te worden van de organisatie <a href="%{resource_path}">%{user_group_name}</a> is afgewezen.
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,6 +450,16 @@ nl:
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
+    group_members:
+      accept:
+        error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
+        success: Deelnemen aan een succesvol geaccepteerd verzoek
+      index:
+        current_members_without_admins: 'Huidige leden (zonder beheerders):'
+        manage_members: Leden beheren
+      reject:
+        error: Er is een fout opgetreden bij het afwijzen van dit deelnameverzoek
+        success: Verzoek om samenvoeging succesvol afgewezen
     groups:
       create:
         error: Er is een probleem opgetreden bij het maken van de organisatie
@@ -438,6 +467,13 @@ nl:
       edit:
         edit_user_group: Bewerk de organisatie
         update_user_group: Update de organisatie
+      join:
+        error: Er is een probleem opgetreden bij de organisatie
+        success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder beoordeelt uw verzoek voordat u wordt geaccepteerd door de organisatie.
+      members:
+        accept_or_reject_join_requests: 'De volgende gebruikers hebben zich aangemeld om lid te worden van deze groep. Aanvaard of verwerp hun verzoeken:'
+        accept_request: Aanvaarden
+        reject_request: afwijzen
       new:
         create_user_group: Maak een organisatie
         new_user_group: Nieuwe organisatie
@@ -648,6 +684,8 @@ nl:
         create_user_group: Maak een organisatie
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk organisatieprofiel
+        join_user_group: Verzoek om lid te worden van de organisatie
+        manage_user_group_users: Leden beheren
     reported_mailer:
       hide:
         hello: Hallo %{name},
