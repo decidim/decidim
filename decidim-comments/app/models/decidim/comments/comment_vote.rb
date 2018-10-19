@@ -8,7 +8,7 @@ module Decidim
       include Decidim::DataPortability
 
       belongs_to :comment, foreign_key: "decidim_comment_id", class_name: "Comment"
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
+      belongs_to :author, foreign_key: "decidim_author_id", foreign_type: "decidim_author_type", polymorphic: true
 
       validates :comment, uniqueness: { scope: :author }
       validates :weight, inclusion: { in: [-1, 1] }

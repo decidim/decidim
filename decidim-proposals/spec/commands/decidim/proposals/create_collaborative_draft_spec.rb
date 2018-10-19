@@ -103,8 +103,8 @@ module Decidim
 
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
-              .to receive(:create!)
-              .with(Decidim::Proposals::CollaborativeDraft, kind_of(Decidim::User), kind_of(Hash))
+              .to receive(:perform_action!)
+              .with(:create, Decidim::Proposals::CollaborativeDraft, kind_of(Decidim::User))
               .and_call_original
 
             expect { command.call }.to change(Decidim::ActionLog, :count)

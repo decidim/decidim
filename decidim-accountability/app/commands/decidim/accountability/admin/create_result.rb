@@ -87,12 +87,11 @@ module Decidim
 
         def notify_proposal_followers
           proposals.each do |proposal|
-            authors_ids = proposal.authors.pluck(:id)
             Decidim::EventsManager.publish(
               event: "decidim.events.accountability.proposal_linked",
               event_class: Decidim::Accountability::ProposalLinkedEvent,
               resource: result,
-              recipient_ids: authors_ids + proposal.followers.pluck(:id),
+              recipient_ids: proposal.followers.pluck(:id),
               extra: {
                 proposal_id: proposal.id
               }

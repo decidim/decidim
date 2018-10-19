@@ -81,7 +81,7 @@ module Decidim
         def increment_score
           return unless proposal.accepted?
 
-          proposal.authors.find_each do |author|
+          proposal.authors.each do |author|
             Decidim::Gamification.increment_score(author, :accepted_proposals)
           end
         end
