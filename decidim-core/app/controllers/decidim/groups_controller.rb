@@ -29,12 +29,12 @@ module Decidim
     end
 
     def edit
-      enforce_permission_to :edit, :user_group, current_user: current_user, user_group: user_group
+      enforce_permission_to :manage, :user_group, current_user: current_user, user_group: user_group
       @form = form(UserGroupForm).from_model(user_group)
     end
 
     def update
-      enforce_permission_to :edit, :user_group, current_user: current_user, user_group: user_group
+      enforce_permission_to :manage, :user_group, current_user: current_user, user_group: user_group
       @form = form(UserGroupForm).from_params(user_group_params)
 
       UpdateUserGroup.call(@form, user_group) do
