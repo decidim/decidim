@@ -19,6 +19,8 @@ pl:
       decidim/component_published_event: Aktywny składnik
       decidim/gamification/badge_earned_event: Zdobyta odznaka
       decidim/gamification/level_up_event: Wyrównałeś
+      decidim/join_request_accepted_event: Dołącz do akceptowanej prośby
+      decidim/join_request_rejected_event: Odrzucono prośbę o połączenie
       decidim/profile_updated_event: Profil zaktualizowany
   activerecord:
     attributes:
@@ -49,6 +51,7 @@ pl:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -348,6 +351,22 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
           email_subject: Osiągnąłeś poziom %{current_level} na %{badge_name} odznace!
           notification_title: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Gratulacje! Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> zaakceptował Twoją prośbę o dołączenie do niej.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoje prośby o dołączenie zostały zaktualizowane.
+          email_subject: Zostałeś przyjęty do organizacji %{user_group_name}!
+          notification_title: Zostałeś przyjęty do organizacji <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Ktoś poprosił o dołączenie do organizacji %{user_group_name} . Możesz zaakceptować lub odrzucić go od <a href="%{resource_url}">na stronie członków organizacji</a>.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ możesz zarządzać organizacją %{user_group_name}.
+          email_subject: Ktoś poprosił o dołączenie do organizacji %{user_group_name}!
+          notification_title: Ktoś poprosił o dołączenie do organizacji %{user_group_name} . Możesz zaakceptować lub odrzucić go od <a href="%{resource_path}">na stronie członków organizacji</a>.
+        join_request_rejected:
+          email_intro: Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> odrzucił Twoją prośbę o dołączenie do niej.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoje prośby o dołączenie zostały zaktualizowane.
+          email_subject: Twoja prośba o dołączenie do organizacji %{user_group_name} została odrzucona!
+          notification_title: Twoja prośba o dołączenie do organizacji <a href="%{resource_path}">%{user_group_name}</a> została odrzucona.
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -441,6 +460,16 @@ pl:
       description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
+    group_members:
+      accept:
+        error: Wystąpił błąd podczas akceptowania tego żądania dołączenia
+        success: Żądanie dołączenia zostało zaakceptowane pomyślnie
+      index:
+        current_members_without_admins: 'Aktualni członkowie (bez administratorów):'
+        manage_members: Zarządzaj członkami
+      reject:
+        error: Wystąpił błąd podczas odrzucania tego żądania dołączenia
+        success: Żądanie dołączenia zostało odrzucone pomyślnie
     groups:
       create:
         error: Podczas tworzenia organizacji wystąpił problem
@@ -448,6 +477,13 @@ pl:
       edit:
         edit_user_group: Edytuj organizację
         update_user_group: Zaktualizuj organizację
+      join:
+        error: Wystąpił problem z dołączeniem do organizacji
+        success: Żądanie dołączenia zostało pomyślnie utworzone. Administrator sprawdzi Twój ponowny test przed zaakceptowaniem Cię do organizacji.
+      members:
+        accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
+        accept_request: Zaakceptować
+        reject_request: Odrzucać
       new:
         create_user_group: Utwórz organizację
         new_user_group: Nowa organizacja
@@ -658,6 +694,8 @@ pl:
         create_user_group: Utwórz organizację
         edit_profile: Edytuj profil
         edit_user_group: Edytuj profil organizacji
+        join_user_group: Poproś o dołączenie do organizacji
+        manage_user_group_users: Zarządzaj członkami
     reported_mailer:
       hide:
         hello: Witaj %{name},
