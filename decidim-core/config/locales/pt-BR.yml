@@ -19,6 +19,8 @@ pt-BR:
       decidim/component_published_event: Componente ativo
       decidim/gamification/badge_earned_event: Distintivo ganho
       decidim/gamification/level_up_event: Você subiu de nível
+      decidim/join_request_accepted_event: Pedido de adesão aceite
+      decidim/join_request_rejected_event: Pedido de adesão rejeitado
       decidim/profile_updated_event: Perfil atualizado
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ pt-BR:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
           email_subject: Você atingiu o nível %{current_level} no %{badge_name} crachá!
           notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Parabéns! Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> aceitou o seu pedido para se juntar a ele.
+          email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
+          email_subject: Você foi aceito na organização %{user_group_name}!
+          notification_title: Você foi aceito na organização <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Alguém pediu para se juntar à organização %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_url}">os membros da organização página</a>.
+          email_outro: Você recebeu esta notificação porque pode gerenciar a organização %{user_group_name}.
+          email_subject: Alguém pediu para se juntar à organização %{user_group_name}!
+          notification_title: Alguém pediu para se juntar à organização %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_path}">os membros da organização página</a>.
+        join_request_rejected:
+          email_intro: Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> rejeitou o seu pedido para se juntar a ele.
+          email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
+          email_subject: Sua solicitação para participar da organização %{user_group_name} foi rejeitada!
+          notification_title: Sua solicitação para participar da organização <a href="%{resource_path}">%{user_group_name}</a> foi rejeitada.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,6 +450,16 @@ pt-BR:
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
+    group_members:
+      accept:
+        error: Ocorreu um erro ao aceitar este pedido de adesão
+        success: Pedido de adesão aceite com sucesso
+      index:
+        current_members_without_admins: 'Membros atuais (sem administradores):'
+        manage_members: Gerenciar membros
+      reject:
+        error: Ocorreu um erro ao rejeitar este pedido de associação
+        success: Pedido de associação rejeitado com sucesso
     groups:
       create:
         error: Houve um problema ao criar a organização
@@ -438,6 +467,13 @@ pt-BR:
       edit:
         edit_user_group: Editar organização
         update_user_group: Atualizar organização
+      join:
+        error: Houve um problema ao ingressar na organização
+        success: Juntar pedido criado com sucesso. Um administrador analisará seu reequest antes de aceitá-lo para a organização.
+      members:
+        accept_or_reject_join_requests: 'Os seguintes usuários se inscreveram para participar desse grupo. Aceite ou rejeite seus pedidos:'
+        accept_request: Aceitar
+        reject_request: Rejeitar
       new:
         create_user_group: Criar organização
         new_user_group: Nova organização
@@ -648,6 +684,8 @@ pt-BR:
         create_user_group: Criar organização
         edit_profile: Editar perfil
         edit_user_group: Editar perfil da organização
+        join_user_group: Solicitação para participar da organização
+        manage_user_group_users: Gerenciar membros
     reported_mailer:
       hide:
         hello: Olá %{name},
