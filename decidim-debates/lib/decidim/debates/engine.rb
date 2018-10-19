@@ -34,6 +34,9 @@ module Decidim
       initializer "decidim.debates.commented_debates_badge" do
         Decidim::Gamification.register_badge(:commented_debates) do |badge|
           badge.levels = [1, 5, 10, 30, 50]
+
+          badge.valid_for = [:user, :user_group]
+
           badge.reset = lambda do |user|
             debates = Decidim::Comments::Comment.where(
               decidim_author_id: user.id,
@@ -47,15 +50,23 @@ module Decidim
           comment = Decidim::Comments::Comment.find(data[:comment_id])
           next unless comment.decidim_root_commentable_type == "Decidim::Debates::Debate"
 
-          author = comment.author
+          if user_group = comment.user_group
+            comments = Decidim::Comments::Comment.where(
+              decidim_root_commentable_id: comment.decidim_root_commentable_id,
+              decidim_root_commentable_type: comment.decidim_root_commentable_type,
+              user_group: user_group
+            )
 
-          comments = Decidim::Comments::Comment.where(
-            decidim_root_commentable_id: comment.decidim_root_commentable_id,
-            decidim_root_commentable_type: comment.decidim_root_commentable_type,
-            author: author
-          )
+            Decidim::Gamification.increment_score(user_group, :commented_debates) if comments.count == 1
+          elsif author = comment.author
+            comments = Decidim::Comments::Comment.where(
+              decidim_root_commentable_id: comment.decidim_root_commentable_id,
+              decidim_root_commentable_type: comment.decidim_root_commentable_type,
+              author: author
+            )
 
-          Decidim::Gamification.increment_score(author, :commented_debates) if comments.count == 1
+            Decidim::Gamification.increment_score(author, :commented_debates) if comments.count == 1
+          end
         end
       end
     end
