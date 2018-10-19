@@ -325,6 +325,10 @@ de:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Baugruppen
+    metrics:
+      assemblies:
+        object: Baugruppen
+        title: Baugruppen
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein
