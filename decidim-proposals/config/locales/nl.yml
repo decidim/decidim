@@ -223,10 +223,10 @@ nl:
           unearned_own: U hebt nog geen voorstellen gemaakt.
     metrics:
       accepted_proposals:
-        object: voorstel
+        object: voorstellen
         title: Aanvaarde voorstellen
       proposals:
-        object: voorstel
+        object: voorstellen
         title: voorstellen
       votes:
         object: stemmen
