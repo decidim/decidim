@@ -19,6 +19,8 @@ fr:
       decidim/component_published_event: Fonctionnalité active
       decidim/gamification/badge_earned_event: Badge gagné
       decidim/gamification/level_up_event: Vous avez progressé d'un niveau
+      decidim/join_request_accepted_event: Demande de participation acceptée
+      decidim/join_request_rejected_event: Demande de participation rejetée
       decidim/profile_updated_event: Profil mis à jour
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ fr:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ fr:
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
           email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
           notification_title: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_path}">%{badge_name}</a> !
+      groups:
+        join_request_accepted:
+          email_intro: Toutes nos félicitations! Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> a accepté votre demande d'adhésion.
+          email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
+          email_subject: Vous avez été accepté dans l'organisation %{user_group_name}!
+          notification_title: Vous avez été accepté dans l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Quelqu'un a demandé à rejoindre l'organisation %{user_group_name} . Vous pouvez accepter ou rejeter de <a href="%{resource_url}">les membres de l' organisation Page</a>.
+          email_outro: Vous avez reçu cette notification car vous pouvez gérer l'organisation %{user_group_name}.
+          email_subject: Quelqu'un a demandé à rejoindre l'organisation %{user_group_name}!
+          notification_title: Quelqu'un a demandé à rejoindre l'organisation %{user_group_name} . Vous pouvez accepter ou rejeter de <a href="%{resource_path}">les membres de l' organisation Page</a>.
+        join_request_rejected:
+          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> rejeté votre demande d'adhésion.
+          email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
+          email_subject: Votre demande d'adhésion à l'organisation %{user_group_name} a été rejetée!
+          notification_title: Votre demande d'adhésion à l'organisation <a href="%{resource_path}">%{user_group_name}</a> a été rejetée.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,6 +450,16 @@ fr:
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
+    group_members:
+      accept:
+        error: Une erreur s'est produite lors de l'acceptation de cette demande de participation.
+        success: Demande de participation acceptée avec succès
+      index:
+        current_members_without_admins: 'Membres actuels (sans administrateurs):'
+        manage_members: Gérer les membres
+      reject:
+        error: Une erreur s'est produite lors du rejet de cette demande de participation.
+        success: Demande de participation rejetée avec succès
     groups:
       create:
         error: Il y a eu un problème pour créer l'organisation
@@ -438,6 +467,13 @@ fr:
       edit:
         edit_user_group: Modifier l'organisation
         update_user_group: Mettre à jour l'organisation
+      join:
+        error: Il y a eu un problème pour rejoindre l'organisation
+        success: Demande de jointure créée avec succès. Un administrateur examinera votre reequest avant de vous accepter dans l'organisation.
+      members:
+        accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
+        accept_request: Acceptez
+        reject_request: Rejeter
       new:
         create_user_group: Créer une organisation
         new_user_group: Nouvelle organisation
@@ -648,6 +684,8 @@ fr:
         create_user_group: Créer une organisation
         edit_profile: Mettre à jour le profil
         edit_user_group: Modifier le profil de l'organisation
+        join_user_group: Demande d'adhésion à l'organisation
+        manage_user_group_users: Gérer les membres
     reported_mailer:
       hide:
         hello: Bonjour %{name},
