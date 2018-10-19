@@ -196,6 +196,9 @@ nl:
         create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie uitgenodigd"
         delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
         update: "%{user_name} veranderde de rol van %{resource_name} in de %{space_name} conferentie"
+    conference_program:
+      index:
+        title: Programma
     conference_speakers:
       index:
         title: sprekers
@@ -265,6 +268,15 @@ nl:
           remaining_slots:
             one: 1 slot over
             other: "%{count} slots over"
+      conference_program:
+        program_meeting:
+          content: Inhoud
+          location: Plaats
+          speakers: sprekers
+          streaming: streaming
+        show:
+          day: Dag
+          program: Programma
       conference_registration_mailer:
         confirmation:
           confirmed_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is bevestigd.
