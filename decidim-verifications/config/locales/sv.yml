@@ -76,7 +76,7 @@ sv:
             new:
               introduce_user_data: Presentera data i bilden
               reject: Avvisa
-              verify: Kontrollera
+              verify: Verifiera
           pending_authorizations:
             index:
               title: Pågående verifieringar
