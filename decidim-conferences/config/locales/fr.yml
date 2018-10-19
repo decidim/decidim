@@ -196,6 +196,9 @@ fr:
         create: "%{user_name} invité %{resource_name} à la conférence %{space_name}"
         delete: "%{user_name} retiré l'utilisateur %{resource_name} de la conférence %{space_name}"
         update: "%{user_name} changé le rôle de %{resource_name} dans la conférence %{space_name}"
+    conference_program:
+      index:
+        title: Programme
     conference_speakers:
       index:
         title: Haut-parleurs
@@ -265,6 +268,15 @@ fr:
           remaining_slots:
             one: 1 emplacement restant
             other: "%{count} créneaux restants"
+      conference_program:
+        program_meeting:
+          content: Contenu
+          location: Emplacement
+          speakers: Haut-parleurs
+          streaming: Diffusion
+        show:
+          day: journée
+          program: Programme
       conference_registration_mailer:
         confirmation:
           confirmed_html: Votre inscription à la conférence <a href="%{url}">%{title}</a> a été confirmée.
