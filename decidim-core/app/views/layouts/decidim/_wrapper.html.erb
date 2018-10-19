@@ -1,5 +1,5 @@
 <%
-if respond_to?(:current_component) && current_component
+if respond_to?(:current_component) && current_component && can_be_managed?(current_component)
   edit_link(
     manage_component_path(current_component),
     :read,
