@@ -223,10 +223,10 @@ fr:
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
     metrics:
       accepted_proposals:
-        object: proposition
+        object: les propositions
         title: Propositions Acceptées
       proposals:
-        object: proposition
+        object: les propositions
         title: Les propositions
       votes:
         object: votes
