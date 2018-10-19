@@ -50,22 +50,22 @@ module Decidim
           comment = Decidim::Comments::Comment.find(data[:comment_id])
           next unless comment.decidim_root_commentable_type == "Decidim::Debates::Debate"
 
-          if user_group = comment.user_group
+          if comment.user_group.present?
             comments = Decidim::Comments::Comment.where(
               decidim_root_commentable_id: comment.decidim_root_commentable_id,
               decidim_root_commentable_type: comment.decidim_root_commentable_type,
-              user_group: user_group
+              user_group: comment.user_group
             )
 
-            Decidim::Gamification.increment_score(user_group, :commented_debates) if comments.count == 1
-          elsif author = comment.author
+            Decidim::Gamification.increment_score(comment.user_group, :commented_debates) if comments.count == 1
+          elsif comment.author.present?
             comments = Decidim::Comments::Comment.where(
               decidim_root_commentable_id: comment.decidim_root_commentable_id,
               decidim_root_commentable_type: comment.decidim_root_commentable_type,
-              author: author
+              author: comment.author
             )
 
-            Decidim::Gamification.increment_score(author, :commented_debates) if comments.count == 1
+            Decidim::Gamification.increment_score(comment.author, :commented_debates) if comments.count == 1
           end
         end
       end
