@@ -21,7 +21,8 @@ module Decidim
         # Returns nothing.
         def call
           transaction do
-            resort_proposals(form)
+            @publish_failures = {}
+            update_contents_and_resort_proposals(form)
             publish_drafts
           end
 
@@ -37,19 +38,27 @@ module Decidim
         attr_reader :form
         attr_reader :publish_failures
 
-        def resort_proposals(form)
+        def update_contents_and_resort_proposals(form)
           form.proposals.each do |prop_form|
-            proposal = Decidim::Proposals::Proposal.where(component: current_component).find(prop_form.id)
+            proposal = Decidim::Proposals::Proposal.where(component: form.current_component).find(prop_form.id)
             proposal.set_list_position(prop_form.position) if proposal.position != prop_form.position
+            proposal.title = prop_form.title
+            proposal.body = prop_form.body if proposal.participatory_text_level == Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
+
+            add_failure(proposal) unless proposal.save
+            raise ActiveRecord::Rollback if @publish_failures.any?
           end
         end
 
         def publish_drafts
-          @publish_failures = {}
-          Decidim::Proposals::Proposal.where(component: current_component).drafts.find_each do |proposal|
-            @publish_failures[proposal.id] = proposal.errors.full_messages unless proposal.update(published_at: Time.current)
+          Decidim::Proposals::Proposal.where(component: form.current_component).drafts.find_each do |proposal|
+            add_failure(proposal) unless proposal.update(published_at: Time.current)
           end
           raise ActiveRecord::Rollback if @publish_failures.any?
+        end
+
+        def add_failure(proposal)
+          @publish_failures[proposal.id] = proposal.errors.full_messages
         end
       end
     end
