@@ -223,8 +223,10 @@ es:
           unearned_own: Aún no has creado propuestas.
     metrics:
       accepted_proposals:
+        object: propuestas
         title: Propuestas aceptadas
       proposals:
+        object: propuestas
         title: Propuestas
       votes:
         object: votos
