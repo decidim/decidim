@@ -202,6 +202,9 @@ pl:
         create: "%{user_name} zaproszonych %{resource_name} na %{space_name} konferencje"
         delete: "%{user_name} usunął użytkownika %{resource_name} z %{space_name} konferencji"
         update: "%{user_name} zmieniło rolę %{resource_name} w %{space_name} konferencjach"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Głośniki
@@ -275,6 +278,15 @@ pl:
             few: "Pozostało %{count} gniazd"
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count} gniazd"
+      conference_program:
+        program_meeting:
+          content: Zawartość
+          location: Lokalizacja
+          speakers: Głośniki
+          streaming: Streaming
+        show:
+          day: Dzień
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Twoja rejestracja na konferencję <a href="%{url}">%{title}</a> została potwierdzona.
