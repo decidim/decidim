@@ -7,7 +7,7 @@ module Decidim
     helper Decidim::ResourceHelper
 
     def event_received(event, event_class_name, resource, user, extra)
-      return unless user.email
+      return unless user.email.present?
 
       with_user(user) do
         @organization = user.organization

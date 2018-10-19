@@ -83,6 +83,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-participayory_processes**: Fix Internet Explorer 11 related issues in process filtering. [\#4166](https://github.com/decidim/decidim/pull/4166)
 - **decidim-core**: Don't crash when showing the edit link for a component that does not have an admin engine [\#4318](https://github.com/decidim/decidim/pull/4318)
 - **decidim-core**: Update conversations on each new message, so conversations list always shows the most recently active one on top [\#4329](https://github.com/decidim/decidim/pull/4329)
+- **decidim-core**: Don't send emails to deleted users [\#4324](https://github.com/decidim/decidim/pull/4324)
 - **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4198)
 - **decidim-core**: Hide weird flash message [\#4235](https://github.com/decidim/decidim/pull/4235)
 - **decidim-core**: Fix newsletter subscription checkbox always being unchecked [\#4238](https://github.com/decidim/decidim/pull/4238)

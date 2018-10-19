@@ -12,6 +12,7 @@ module Decidim
 
       # Notifies initiative creation
       def notify_creation(initiative)
+        return unless initiative.author.email.present?
         @initiative = initiative
         @organization = initiative.organization
 
@@ -27,6 +28,7 @@ module Decidim
 
       # Notify changes in state
       def notify_state_change(initiative, user)
+        return unless user.email.present?
         @organization = initiative.organization
 
         with_user(user) do
@@ -49,6 +51,7 @@ module Decidim
 
       # Notify an initiative requesting technical validation
       def notify_validating_request(initiative, user)
+        return unless user.email.present?
         @organization = initiative.organization
         @link = decidim_admin_initiatives.edit_initiative_url(initiative, host: @organization.host)
 
@@ -68,6 +71,7 @@ module Decidim
 
       # Notify progress to all initiative subscribers.
       def notify_progress(initiative, user)
+        return unless user.email.present?
         @organization = initiative.organization
         @link = initiative_url(initiative, host: @organization.host)
 

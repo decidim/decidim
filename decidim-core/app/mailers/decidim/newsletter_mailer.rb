@@ -8,6 +8,8 @@ module Decidim
     add_template_helper Decidim::TranslationsHelper
 
     def newsletter(user, newsletter)
+      return unless user.email.present?
+
       @organization = user.organization
       @newsletter = newsletter
       @user = user
