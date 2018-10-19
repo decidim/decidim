@@ -196,6 +196,9 @@ sv:
         create: "%{user_name} inbjudna %{resource_name} till %{space_name} konferens"
         delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
         update: "%{user_name} ändrade rollen som %{resource_name} i %{space_name} konferensen"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: högtalare
@@ -265,6 +268,15 @@ sv:
           remaining_slots:
             one: 1 slits kvar
             other: "%{count} slits kvar"
+      conference_program:
+        program_meeting:
+          content: Innehåll
+          location: Plats
+          speakers: högtalare
+          streaming: Streaming
+        show:
+          day: Dag
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din registrering för konferensen <a href="%{url}">%{title}</a> har bekräftats.
