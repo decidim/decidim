@@ -16,6 +16,7 @@ module Decidim
           enforce_permission_to :update, :meeting, meeting: meeting
 
           @form = MeetingRegistrationsForm.from_params(params).with_context(current_organization: meeting.organization, meeting: meeting)
+          @validation_form = ValidateRegistrationCodeForm.new
 
           UpdateRegistrations.call(@form, meeting) do
             on(:ok) do

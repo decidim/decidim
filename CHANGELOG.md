@@ -83,6 +83,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4198)
 - **decidim-core**: Hide weird flash message [\#4235](https://github.com/decidim/decidim/pull/4235)
 - **decidim-core**: Fix newsletter subscription checkbox always being unchecked [\#4238](https://github.com/decidim/decidim/pull/4238)
+- **decidim-core**: Don't error when the meeting registrations are updated with invalid data [\#4319](https://github.com/decidim/decidim/pull/4319)
 - **decidim-core**: Thread safe locale switching [\#4237](https://github.com/decidim/decidim/pull/4237)
 - **decidim-core**: Don't crash when given wrong format at pages [\#4314](https://github.com/decidim/decidim/pull/4314)
 
