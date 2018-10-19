@@ -223,10 +223,8 @@ pt:
           unearned_own: Você não criou nenhuma proposta ainda.
     metrics:
       accepted_proposals:
-        object: proposta
         title: Propostas aceitas
       proposals:
-        object: proposta
         title: Propostas
       votes:
         object: votos
