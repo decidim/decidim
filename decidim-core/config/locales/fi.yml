@@ -19,6 +19,8 @@ fi:
       decidim/component_published_event: Aktiivinen komponentti
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
+      decidim/join_request_accepted_event: Liity pyyntöön hyväksytty
+      decidim/join_request_rejected_event: Liity pyyntöön hylätty
       decidim/profile_updated_event: Profiili päivitetty
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ fi:
   date:
     formats:
       decidim_short: "%d.%m.%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
           email_subject: Olet saavuttanut tason %{current_level} %{badge_name} -kunniamerkkille!
           notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Onnittelut! <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on hyväksynyt pyyntösi liittyä siihen.
+          email_outro: Olet saanut tämän ilmoituksen, koska liittymispyyntösi on päivitetty.
+          email_subject: Sinut on hyväksytty %{user_group_name} organisaatioon!
+          notification_title: Sinut on hyväksytty <a href="%{resource_path}">%{user_group_name}</a> -organisaatioon.
+        join_request_created:
+          email_intro: Joku pyysi liittymään %{user_group_name} organisaatioon. Voit hyväksyä tai hylätä sen <a href="%{resource_url}">organisaation jäsenten sivuilta</a>.
+          email_outro: Olet saanut tämän ilmoituksen, koska voit hallita %{user_group_name} organisaatiota.
+          email_subject: Joku pyysi liittymään %{user_group_name} organisaatioon!
+          notification_title: Joku pyysi liittymään %{user_group_name} organisaatioon. Voit hyväksyä tai hylätä sen <a href="%{resource_path}">organisaation jäsenten sivuilta</a>.
+        join_request_rejected:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja hylkäsi pyynnön liittyä siihen.
+          email_outro: Olet saanut tämän ilmoituksen, koska liittymispyyntösi on päivitetty.
+          email_subject: Pyyntösi liittyä %{user_group_name} organisaatioon on hylätty!
+          notification_title: Pyyntösi liittyä <a href="%{resource_path}">%{user_group_name}</a> -organisaatioon on hylätty.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -431,6 +450,16 @@ fi:
       description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
+    group_members:
+      accept:
+        error: Virhe hyväksyi tämän liittymishakemuksen
+        success: Liity pyyntöön hyväksyttiin onnistuneesti
+      index:
+        current_members_without_admins: 'Nykyiset jäsenet (ilman ylläpitäjiä):'
+        manage_members: Hallinnoi jäseniä
+      reject:
+        error: Virhe hylkäsi tämän liittymishakemuksen
+        success: Liity pyyntö hylätty onnistuneesti
     groups:
       create:
         error: Organisaation luomisessa esiintyi ongelma
@@ -438,6 +467,13 @@ fi:
       edit:
         edit_user_group: Muokkaa organisaatiota
         update_user_group: Päivitä organisaatio
+      join:
+        error: Organisaatiossa on ollut ongelma
+        success: Liity pyyntöön luotu onnistuneesti. Järjestelmänvalvoja tarkistaa uudelleenhakemuksesi ennen kuin hyväksyt organisaation.
+      members:
+        accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat hakeneet liittymistä tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
+        accept_request: Hyväksyä
+        reject_request: Hylätä
       new:
         create_user_group: Luo organisaatio
         new_user_group: Uusi organisaatio
@@ -648,6 +684,8 @@ fi:
         create_user_group: Luo organisaatio
         edit_profile: Muokkaa profiilia
         edit_user_group: Muokkaa organisaation profiilia
+        join_user_group: Pyyntö liittyä organisaatioon
+        manage_user_group_users: Hallinnoi jäseniä
     reported_mailer:
       hide:
         hello: Hei %{name},
