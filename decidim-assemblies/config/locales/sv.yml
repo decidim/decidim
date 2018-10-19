@@ -325,6 +325,10 @@ sv:
           not_found: 'Mötet hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Möten
+    metrics:
+      assemblies:
+        object: aggregaten
+        title: Assemblies
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt
