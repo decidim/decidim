@@ -1,3 +1,4 @@
+/* eslint-disable max-depth */
 ((exports) => {
   class AutosortableCheckboxesComponent {
     constructor(options = {}) {
@@ -7,32 +8,44 @@
     }
 
     _run() {
+      const sortedResults = [];
+      const unsortedResults = [];
 
       $(this.wrapperField).children("label").each((idx, label) => {
-
-        const isChecked = $(label).children("input[type=checkbox]").is(":checked");
-        const position = parseInt($(label).children("input[name$=\\[position\\]]").val(), 10);
+        const current = $(label).clone(true);
+        const isChecked = $(current).children("input[type=checkbox]").is(":checked");
+        const position = parseInt($(current).children("input[name$=\\[position\\]]").val(), 10);
 
         if (isChecked) {
           if (Number.isInteger(position)) {
-            this.wrapperField.children("label.sorted").each((jdx, sorted) => {
+            let wasInserted = false;
+            for (let index = 0; index < sortedResults.length; index += 1) {
+              let sorted = sortedResults[index];
               const sortedPosition = parseInt($(sorted).children("input[name$=\\[position\\]]").val(), 10);
               if (Number.isInteger(sortedPosition) && (position < sortedPosition)) {
-                $(sorted).insertAfter($(label));
-              } else {
-                $(sorted).insertBefore($(label));
+                sortedResults.splice(index, 0, current);
+                wasInserted = true;
+                break;
               }
-            });
+            }
+            if (!wasInserted) {
+              sortedResults.push(current);
+            }
           } else {
-            $(label).insertAfter(this.wrapperField.children("label.sorted").last());
+            sortedResults.push(current);
           }
-          $(label).addClass("sorted");
+          $(current).addClass("sorted");
+          $(current).removeClass("unsorted");
         } else {
-          $(label).insertAfter(this.wrapperField.children("label").last());
-          $(label).removeClass("sorted");
+          unsortedResults.push(current);
+          $(current).addClass("unsorted");
+          $(current).removeClass("sorted");
         }
 
       });
+
+      $(this.wrapperField).empty();
+      $(this.wrapperField).append(sortedResults.concat(unsortedResults));
 
       $(this.wrapperField).children("label").each((idx, el) => {
         const $positionSelector = $(el).find(".position");

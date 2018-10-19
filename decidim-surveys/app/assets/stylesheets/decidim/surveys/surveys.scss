@@ -30,12 +30,8 @@ form.answer-survey{
   }
 
   .sortable-check-box-collection{
-    .last-sorted + label{
+    .sorted + .unsorted{
       margin-top: 1rem;
-
-      &.sorted{
-        margin-top: 0;
-      }
     }
   }
 }
