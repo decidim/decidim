@@ -196,6 +196,9 @@ es:
         create: "%{user_name} invitados %{resource_name} a la %{space_name} conferencia"
         delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
         update: "%{user_name} cambió el rol de %{resource_name} en la %{space_name} conferencia"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Altavoces
@@ -265,6 +268,15 @@ es:
           remaining_slots:
             one: 1 ranura restante
             other: "%{count} ranuras restantes"
+      conference_program:
+        program_meeting:
+          content: Contenido
+          location: Ubicación
+          speakers: Ponentes
+          streaming: Transmisión
+        show:
+          day: Día
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Su registro para la conferencia <a href="%{url}">%{title}</a> ha sido confirmado.
