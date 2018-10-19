@@ -31,7 +31,7 @@ module Decidim
       #
       # Returns a boolean.
       def official?
-        author.blank?
+        author.is_a?(Decidim::Organization)
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.

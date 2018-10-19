@@ -9,9 +9,10 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User", optional: true
+      belongs_to :author, polymorphic: true, foreign_key: "decidim_author_id", foreign_type: "decidim_author_type"
       belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup", optional: true
 
+      validates :author, presence: true
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization
 
@@ -19,8 +20,8 @@ module Decidim
       # authoring it or via a user group.
       #
       # user - the user to check for authorship
-      def authored_by?(user)
-        author == user || user.user_groups.include?(user_group)
+      def authored_by?(other_author)
+        other_author == author || other_author.respond_to?(:user_groups) && other_author.user_groups.include?(user_group)
       end
 
       # Returns the normalized author, whether it's a user group or a user. Ideally this should be
@@ -45,7 +46,7 @@ module Decidim
 
       def author_belongs_to_organization
         return if !author || !organization
-        errors.add(:author, :invalid) unless author.organization == organization
+        errors.add(:author, :invalid) unless author == organization || author.respond_to?(:organization) && author.organization == organization
       end
     end
   end

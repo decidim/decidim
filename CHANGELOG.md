@@ -59,6 +59,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Allow users to enter date fields manually. [\#3724](https://github.com/decidim/decidim/pull/3724)
 - **decidim-core**: Merge Users and UserGroups DB tables [\#4196](https://github.com/decidim/decidim/pull/4196)
 - **decidim-core**: Move user group creation to user profile [\#4256](https://github.com/decidim/decidim/pull/4256)
+- **decidim-core**: Make authors polymorphic [\#4282](https://github.com/decidim/decidim/pull/4282)
 - **decidim-core**: Don't allow weird characters in names and nicknames [\#4317](https://github.com/decidim/decidim/pull/4317)
 
 **Fixed**:

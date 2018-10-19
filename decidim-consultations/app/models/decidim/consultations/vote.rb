@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     # The data store for question's votes in the Decidim::Consultations component.
     class Vote < ApplicationRecord
-      include Authorable
+      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
 
       belongs_to :question,
                  foreign_key: "decidim_consultation_question_id",
@@ -19,8 +19,17 @@ module Decidim
                  counter_cache: :votes_count
 
       validates :author, uniqueness: { scope: [:decidim_user_group_id, :question] }
+      validate :author_and_question_same_organization
 
       delegate :organization, to: :question
+
+      private
+
+      # Private: check if the question and the author have the same organization
+      def author_and_question_same_organization
+        return if !question || !author
+        errors.add(:question, :invalid) unless author.organization == question.organization
+      end
     end
   end
 end
