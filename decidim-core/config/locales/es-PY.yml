@@ -19,6 +19,8 @@ es-PY:
       decidim/component_published_event: Componente activo
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
+      decidim/join_request_accepted_event: Solicitud de incorporación aceptada
+      decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ es-PY:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ es-PY:
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
           email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
           notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+      groups:
+        join_request_accepted:
+          email_intro: '¡Felicidades! Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha aceptado su solicitud para unirse a ella.'
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_subject: '¡Has sido aceptado en la organización %{user_group_name}!'
+          notification_title: Has sido aceptado en la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Alguien solicitó unirse a la organización %{user_group_name} . Puede aceptarlo o rechazarlo desde <a href="%{resource_url}">miembros de la organización página</a>.
+          email_outro: Ha recibido esta notificación porque puede administrar la organización %{user_group_name}.
+          email_subject: Alguien pidió unirse a la organización %{user_group_name}!
+          notification_title: Alguien solicitó unirse a la organización %{user_group_name} . Puede aceptarlo o rechazarlo desde <a href="%{resource_path}">miembros de la organización página</a>.
+        join_request_rejected:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> rechazó su solicitud para unirse a ella.
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_subject: Su solicitud para unirse a la organización %{user_group_name} ha sido rechazada!
+          notification_title: Su solicitud para unirse a la organización <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,6 +450,16 @@ es-PY:
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
+    group_members:
+      accept:
+        error: Se ha producido un error al aceptar esta solicitud de unión.
+        success: Únase a la solicitud aceptada con éxito
+      index:
+        current_members_without_admins: 'Miembros actuales (sin administradores):'
+        manage_members: Administrar miembros
+      reject:
+        error: Se ha producido un error al rechazar esta solicitud de unión.
+        success: Solicitud de incorporación rechazada con éxito
     groups:
       create:
         error: Ha habido un problema creando la organización.
@@ -438,6 +467,13 @@ es-PY:
       edit:
         edit_user_group: Editar organizacion
         update_user_group: Actualizar organización
+      join:
+        error: Ha habido un problema al unirse a la organización.
+        success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en la organización.
+      members:
+        accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
+        accept_request: Aceptar
+        reject_request: Rechazar
       new:
         create_user_group: Crear organizacion
         new_user_group: Nueva organizacion
@@ -648,6 +684,8 @@ es-PY:
         create_user_group: Crear organizacion
         edit_profile: Editar perfil
         edit_user_group: Editar el perfil de la organización
+        join_user_group: Solicitud para unirse a la organización
+        manage_user_group_users: Administrar miembros
     reported_mailer:
       hide:
         hello: Hola %{name},
