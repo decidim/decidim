@@ -81,12 +81,12 @@ module Decidim
         def increment_score
           return unless proposal.accepted?
 
-          @proposal.user_groups.find_each do |user_group|
-            Decidim::Gamification.increment_score(user_group, :proposals)
-          end
-
-          @proposal.authors.find_each do |user|
-            Decidim::Gamification.increment_score(user, :proposals)
+          proposal.coauthorships.find_each do |coauthorship|
+            if coauthorship.user_group
+              Decidim::Gamification.increment_score(coauthorship.user_group, :accepted_proposals)
+            else
+              Decidim::Gamification.increment_score(coauthorship.author, :accepted_proposals)
+            end
           end
         end
       end

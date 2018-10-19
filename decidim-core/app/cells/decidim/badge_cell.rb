@@ -25,7 +25,7 @@ module Decidim
 
       @own_profile = if model.is_a?(User)
                        model == current_user
-                     elsif model.is_a?(UserGroup)
+                     elsif model.is_a?(UserGroup) && current_user
                        current_user.user_groups.include?(model)
                      end
     end
