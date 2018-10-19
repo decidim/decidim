@@ -196,6 +196,9 @@ fi:
         create: "%{user_name} kutsui %{resource_name} on %{space_name} konferenssiin"
         delete: "%{user_name} poistaa käyttäjän %{resource_name} %{space_name} konferenssista"
         update: "%{user_name} muuttunut rooli %{resource_name} on %{space_name} konferenssiin"
+    conference_program:
+      index:
+        title: Ohjelmoida
     conference_speakers:
       index:
         title: Puhujat
@@ -265,6 +268,15 @@ fi:
           remaining_slots:
             one: 1 paikka jäljellä
             other: "%{count} paikkaa jäljellä"
+      conference_program:
+        program_meeting:
+          content: pitoisuus
+          location: Sijainti
+          speakers: kaiuttimet
+          streaming: suoratoisto
+        show:
+          day: Päivä
+          program: Ohjelmoida
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> on vahvistettu.
