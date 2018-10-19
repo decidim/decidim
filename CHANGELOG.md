@@ -48,6 +48,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Allow user to sign-in without confirming their email. [\#4269](https://github.com/decidim/decidim/pull/4269)
 - **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
 - **decidim-core**: Let admins and creators edit the user group profile [\#4283](https://github.com/decidim/decidim/pull/4283)
+- **decidim-core**: User groups can also have badges. [\#4310](https://github.com/decidim/decidim/pull/4310)
 
 **Changed**:
 
