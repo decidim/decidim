@@ -223,10 +223,10 @@ eu:
           unearned_own: Oraindik ez duzu proposamenik sortu.
     metrics:
       accepted_proposals:
-        object: proposamen
+        object: proposamenak
         title: Onartutako proposamenak
       proposals:
-        object: proposamen
+        object: proposamenak
         title: proposamenak
       votes:
         object: boto
