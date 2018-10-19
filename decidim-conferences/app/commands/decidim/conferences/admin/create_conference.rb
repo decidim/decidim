@@ -24,6 +24,10 @@ module Decidim
 
           if conference.persisted?
             add_admins_as_followers(conference)
+            link_participatory_processes(conference)
+            link_assemblies(conference)
+            link_consultations(conference)
+
             broadcast(:ok, conference)
             send_notification
           else
@@ -84,6 +88,34 @@ module Decidim
             resource: conference,
             recipient_ids: conference.followers.pluck(:id)
           )
+        end
+
+        def participatory_processes(conference)
+          @participatory_processes ||= conference.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
+        end
+
+        def link_participatory_processes(conference)
+          conference.link_participatory_spaces_resources(participatory_processes(conference), "included_participatory_processes")
+        end
+
+        def assemblies(conference)
+          @assemblies ||= conference.participatory_space_sibling_scope(:assemblies).where(id: @form.assemblies_ids)
+        end
+
+        def link_assemblies(conference)
+          conference.link_participatory_spaces_resources(assemblies(conference), "included_assemblies")
+        end
+
+        def consultations(conference)
+          @consultations ||= conference.participatory_space_sibling_scope(:consultations)
+                                       .includes(:consultation)
+                                       .where(decidim_consultation_id: @form.consultations_ids)
+                                       .collect(&:consultation)
+                                       .uniq
+        end
+
+        def link_consultations(conference)
+          conference.link_participatory_spaces_resources(consultations(conference), "included_consultations")
         end
       end
     end

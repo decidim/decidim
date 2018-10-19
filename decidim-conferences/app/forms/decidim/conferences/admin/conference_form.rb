@@ -33,6 +33,9 @@ module Decidim
         attribute :registrations_enabled, Boolean
         attribute :available_slots, Integer
         attribute :location, String
+        attribute :participatory_processes_ids, Array[Integer]
+        attribute :assemblies_ids, Array[Integer]
+        attribute :consultations_ids, Array[Integer]
 
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
         validates :title, :slogan, :description, :short_description, translatable_presence: true
@@ -57,10 +60,41 @@ module Decidim
           @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
 
+        def processes_for_select
+          @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
+                                           .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
+            [
+              translated_attribute(process.title),
+              process.id
+            ]
+          end
+        end
+
+        def assemblies_for_select
+          @assemblies_for_select ||= Decidim.find_participatory_space_manifest(:assemblies)
+                                            .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |assembly|
+            [
+              translated_attribute(assembly.title),
+              assembly.id
+            ]
+          end
+        end
+
+        def consultations_for_select
+          @consultations_for_select ||= Decidim.find_participatory_space_manifest(:consultations)
+                                               .participatory_spaces.call(current_organization).collect(&:consultation).uniq&.map do |consultation|
+            [
+              translated_attribute(consultation.title),
+              consultation.id
+            ]
+          end
+        end
+
         private
 
         def available_slots_greater_than_or_equal_to_registrations_count
           conference = OrganizationConferences.new(current_organization).query.find_by(slug: slug)
+          return true if conference.blank?
           errors.add(:available_slots, :invalid) if available_slots < conference.conference_registrations.count
         end
 

@@ -15,7 +15,7 @@ module Decidim
       helper Decidim::ResourceReferenceHelper
       helper Decidim::Conferences::PartnersHelper
 
-      helper_method :collection, :promoted_conferences, :conferences, :stats
+      helper_method :collection, :promoted_conferences, :conferences, :stats, :conference_participatory_processes, :conference_assemblies, :conference_consultations
 
       def index
         redirect_to "/404" if published_conferences.none?
@@ -53,6 +53,18 @@ module Decidim
 
       def stats
         @stats ||= ConferenceStatsPresenter.new(conference: current_participatory_space)
+      end
+
+      def conference_participatory_processes
+        @conference_participatory_processes ||= @current_participatory_space.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
+      end
+
+      def conference_assemblies
+        @conference_assemblies ||= @current_participatory_space.linked_participatory_space_resources(:assemblies, "included_assemblies")
+      end
+
+      def conference_consultations
+        @conference_consultations ||= @current_participatory_space.linked_participatory_space_resources("Consultation", "included_consultations")
       end
     end
   end
