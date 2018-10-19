@@ -196,6 +196,9 @@ hu:
         create: "%{user_name} meghívott %{resource_name} a %{space_name} konferenciára"
         delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
         update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} konferencián"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Hangszórók
@@ -265,6 +268,15 @@ hu:
           remaining_slots:
             one: 1 hely marad
             other: "%{count} hely marad"
+      conference_program:
+        program_meeting:
+          content: Tartalom
+          location: Elhelyezkedés
+          speakers: Hangszórók
+          streaming: folyó
+        show:
+          day: Nap
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
