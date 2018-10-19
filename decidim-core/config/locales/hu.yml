@@ -19,6 +19,8 @@ hu:
       decidim/component_published_event: Aktív elem
       decidim/gamification/badge_earned_event: Megszerzett jelvény
       decidim/gamification/level_up_event: Szintet léptél
+      decidim/join_request_accepted_event: Csatlakozási kérelem elfogadva
+      decidim/join_request_rejected_event: Csatlakozási kérelem elutasítva
       decidim/profile_updated_event: Profil frissítve
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ hu:
   date:
     formats:
       decidim_short: "%nap/%hó/%év"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -337,6 +340,22 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
           email_subject: Elérted a(z) %{current_level} szintet a %{badge_name} jelvényhez!
           notification_title: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_path}">%{badge_name} jelvényhez</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Gratulálunk! A <a href="%{resource_url}">%{user_group_name}</a> szervezet adminisztrátora elfogadta a csatlakozás iránti kérelmét.
+          email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
+          email_subject: Elfogadták a %{user_group_name} szervezetben!
+          notification_title: Elfogadták a <a href="%{resource_path}">%{user_group_name}</a> szervezetnél.
+        join_request_created:
+          email_intro: Valaki felkérték, hogy csatlakozzon a %{user_group_name} szervezethez. Akkor elfogadja vagy elutasítja azt <a href="%{resource_url}">a szervezet tagjai oldal</a>.
+          email_outro: Ezt az értesítést megkaptuk, mert kezelheti a %{user_group_name} szervezetet.
+          email_subject: Valaki felkérték, hogy csatlakozzon a %{user_group_name} szervezethez!
+          notification_title: Valaki felkérték, hogy csatlakozzon a %{user_group_name} szervezethez. Akkor elfogadja vagy elutasítja azt <a href="%{resource_path}">a szervezet tagjai oldal</a>.
+        join_request_rejected:
+          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> szervezet adminisztrátora elutasította a csatlakozás iránti kérelmét.
+          email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
+          email_subject: A %{user_group_name} szervezethez való csatlakozás iránti kérelmét elutasították!
+          notification_title: A <a href="%{resource_path}">%{user_group_name}</a> szervezethez való csatlakozás iránti kérelmét elutasították.
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -430,6 +449,16 @@ hu:
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
       level: '%{level} szint'
       reached_top: Elérted a jelvény legmagasabb szintjét.
+    group_members:
+      accept:
+        error: Hiba történt a csatlakozási kérelem elfogadásakor
+        success: A csatlakozási kérelem sikeresen elfogadott
+      index:
+        current_members_without_admins: 'A jelenlegi tagok (adminok nélkül):'
+        manage_members: Tagok kezelése
+      reject:
+        error: Hiba történt a csatlakozási kérelem elutasításakor
+        success: Csatlakozási kérelem sikeresen elutasítva
     groups:
       create:
         error: Hiba történt a szervezet létrehozásában
@@ -437,6 +466,13 @@ hu:
       edit:
         edit_user_group: Szervezet szerkesztése
         update_user_group: Frissítési szervezet
+      join:
+        error: Probléma volt a szervezethez való csatlakozással
+        success: A csatlakozási kérelem sikeresen létrehozva. A rendszergazda felülvizsgálja a kérésedet, mielőtt elfogadja a szervezetet.
+      members:
+        accept_or_reject_join_requests: 'A következő felhasználók bejelentették, hogy csatlakozzanak ehhez a csoporthoz. A kérelmek elfogadása vagy elutasítása:'
+        accept_request: Elfogad
+        reject_request: Elutasít
       new:
         create_user_group: Hozzon létre szervezetet
         new_user_group: Új szervezet
@@ -647,6 +683,8 @@ hu:
         create_user_group: Hozzon létre szervezetet
         edit_profile: Profil szerkesztése
         edit_user_group: Szervezeti profil szerkesztése
+        join_user_group: A szervezethez való csatlakozás iránti kérelem
+        manage_user_group_users: Tagok kezelése
     reported_mailer:
       hide:
         hello: Helló %{name}!
