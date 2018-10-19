@@ -25,7 +25,23 @@ module Decidim
     end
 
     included do
-      has_many :searchable_resources, class_name: "Decidim::SearchableResource", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
+      # Always access to this association scoping by_organization
+      clazz = self
+      has_many :searchable_resources, -> { where(resource_type: clazz.name) },
+               class_name: "Decidim::SearchableResource",
+               inverse_of: :resource,
+               foreign_key: :resource_id do
+        def by_organization(org_id)
+          where(decidim_organization_id: org_id)
+        end
+      end
+
+      after_destroy do |searchable|
+        if self.class.search_resource_fields_mapper
+          org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
+          searchable.searchable_resources.by_organization(org.id).destroy_all
+        end
+      end
       # after_create and after_update callbacks are dynamically setted in `searchable_fields` method.
 
       # Public: after_create callback to index the model as a SearchableResource, if configured so.
@@ -39,24 +55,26 @@ module Decidim
       def add_to_index_as_search_resource
         fields = self.class.search_resource_fields_mapper.mapped(self)
         fields[:i18n].keys.each do |locale|
-          Decidim::SearchableResource.create(contents_to_searchable_resource_attributes(fields, locale))
+          Decidim::SearchableResource.create!(contents_to_searchable_resource_attributes(fields, locale))
         end
       end
 
       # Public: after_update callback to update index information of the model.
       #
       def try_update_index_for_search_resource
+        org = self.class.search_resource_fields_mapper.retrieve_organization(self)
+        searchables_in_org = searchable_resources.by_organization(org.id)
         if self.class.search_resource_fields_mapper.index_on_update?(self)
-          if searchable_resources.empty?
+          if searchables_in_org.empty?
             add_to_index_as_search_resource
           else
             fields = self.class.search_resource_fields_mapper.mapped(self)
-            searchable_resources.each do |sr|
+            searchables_in_org.each do |sr|
               sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
             end
           end
-        elsif searchable_resources.any?
-          searchable_resources.clear
+        elsif searchables_in_org.any?
+          searchables_in_org.destroy_all
         end
       end
 
