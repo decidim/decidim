@@ -233,10 +233,8 @@ pl:
           unearned_own: Nie utworzyłeś jeszcze żadnych propozycji.
     metrics:
       accepted_proposals:
-        object: wniosek
         title: Przyjęte propozycje
       proposals:
-        object: wniosek
         title: Propozycje
       votes:
         object: głosów
