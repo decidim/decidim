@@ -32,7 +32,7 @@
         <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
           <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
             <div class="column medium-3 end">
-              <%= link_to main_component_path(component_meeting) do %>
+              <%= link_to decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id) do %>
                 <button type="button" class="button button--sc secondary light expanded"><%= translated_attribute(component_meeting.name) %></button>
               <% end %>
             </div>

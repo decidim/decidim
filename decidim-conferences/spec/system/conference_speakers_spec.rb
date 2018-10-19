@@ -21,7 +21,6 @@ describe "Conference speakers", type: :system do
       visit decidim_conferences.conference_path(conference)
 
       expect(page).to have_no_selector(".process-nav")
-      expect(page).to have_no_content("Speakers")
     end
   end
 

@@ -17,7 +17,11 @@ module Decidim
           public_list_conferences_action?
           public_read_conference_action?
           public_list_speakers_action?
+<<<<<<< HEAD
           public_list_media_links_action?
+=======
+          public_list_program_action?
+>>>>>>> master
           public_report_content_action?
 
           can_join_conference?
@@ -127,6 +131,13 @@ module Decidim
       def public_list_speakers_action?
         return unless permission_action.action == :list &&
                       permission_action.subject == :speakers
+
+        allow!
+      end
+
+      def public_list_program_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :program
 
         allow!
       end
