@@ -10,6 +10,8 @@ module Decidim
     helper Decidim::SanitizeHelper
     skip_before_action :store_current_location
 
+    before_action :set_default_request_format
+
     def index
       enforce_permission_to :read, :public_page
       @pages = current_organization.static_pages.sorted_by_i18n_title
@@ -28,6 +30,12 @@ module Decidim
 
     def page
       @page ||= current_organization.static_pages.find_by(slug: params[:id])
+    end
+
+    private
+
+    def set_default_request_format
+      request.format = :html
     end
   end
 end
