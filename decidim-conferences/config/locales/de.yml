@@ -196,6 +196,9 @@ de:
         create: "%{user_name} lud %{resource_name} zu der %{space_name} Konferenz ein"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
         update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Konferenz geändert"
+    conference_program:
+      index:
+        title: Programm
     conference_speakers:
       index:
         title: Lautsprecher
@@ -265,6 +268,15 @@ de:
           remaining_slots:
             one: 1 Steckplatz übrig
             other: "%{count} freie Plätze"
+      conference_program:
+        program_meeting:
+          content: Inhalt
+          location: Ort
+          speakers: Lautsprecher
+          streaming: Streaming
+        show:
+          day: Tag
+          program: Programm
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ihre Anmeldung zur Konferenz <a href="%{url}">%{title}</a> wurde bestätigt.
