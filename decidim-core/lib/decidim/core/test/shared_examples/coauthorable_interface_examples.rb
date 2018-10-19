@@ -9,7 +9,7 @@ shared_examples_for "coauthorable interface" do
     describe "with a regular user" do
       let(:query) { "{ author { name } }" }
 
-      it "includes the user's ID" do
+      it "returns the user's name as the author name" do
         expect(response["author"]["name"]).to eq(author.name)
       end
     end
@@ -23,7 +23,7 @@ shared_examples_for "coauthorable interface" do
         coauthorship.update!(user_group: user_group)
       end
 
-      it "includes the user's ID" do
+      it "includes returns the user group's name as the author name" do
         expect(response["author"]["name"]).to eq(user_group.name)
       end
     end

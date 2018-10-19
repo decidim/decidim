@@ -21,7 +21,8 @@ describe Decidim::Debates::Admin::CreateDebate do
       end_time: 1.day.from_now + 1.hour,
       category: category,
       current_user: user,
-      current_component: current_component
+      current_component: current_component,
+      current_organization: organization
     )
   end
   let(:invalid) { false }
@@ -49,6 +50,12 @@ describe Decidim::Debates::Admin::CreateDebate do
     it "sets the component" do
       subject.call
       expect(debate.component).to eq current_component
+    end
+
+    it "sets the organization as author" do
+      subject.call
+
+      expect(debate.author).to eq(organization)
     end
 
     it "traces the action", versioning: true do

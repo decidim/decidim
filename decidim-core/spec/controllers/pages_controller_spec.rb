@@ -35,6 +35,14 @@ module Decidim
           expect(response.body).to include(page.title[I18n.locale.to_s])
           expect(response.body).to include(page.content[I18n.locale.to_s])
         end
+
+        context "when asking the page in other formats" do
+          it "ignores them" do
+            get :show, params: { id: page.slug }, format: :text
+
+            expect(response).to render_template(:decidim_page)
+          end
+        end
       end
 
       context "when a page doesn't exist" do

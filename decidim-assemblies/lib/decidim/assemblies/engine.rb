@@ -96,6 +96,15 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_assemblies.register_metrics" do
+        Decidim.metrics_registry.register(
+          :assemblies,
+          "Decidim::Assemblies::Metrics::AssembliesMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          1
+        )
+      end
     end
   end
 end
