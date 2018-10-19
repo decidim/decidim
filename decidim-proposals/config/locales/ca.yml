@@ -223,10 +223,10 @@ ca:
           unearned_own: Encara no has creat cap proposta.
     metrics:
       accepted_proposals:
-        object: proposta
+        object: propostes
         title: Propostes acceptades
       proposals:
-        object: proposta
+        object: propostes
         title: Propostes
       votes:
         object: vots
