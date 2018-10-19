@@ -19,6 +19,8 @@ gl:
       decidim/component_published_event: Compoñente activo
       decidim/gamification/badge_earned_event: Insignia obtida
       decidim/gamification/level_up_event: Has nivelado
+      decidim/join_request_accepted_event: Solicitude de adhesión aceptada
+      decidim/join_request_rejected_event: Solicitude de adhesión rexeitada
       decidim/profile_updated_event: Perfil actualizado
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ gl:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ gl:
           email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
           email_subject: Chegou ao nivel %{current_level} na insignia %{badge_name}.
           notification_title: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Parabéns! Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> aceptou a túa solicitude para unirse a ela.
+          email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
+          email_subject: Recibiches a organización %{user_group_name}.
+          notification_title: Recibiches a organización <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Alguén solicitou unirse á organización %{user_group_name} . Pode aceptalo ou rexeitalo de <a href="%{resource_url}">membros da organización páxina</a>.
+          email_outro: Recibiches esta notificación porque podes xestionar a organización %{user_group_name}.
+          email_subject: Alguén solicitou unirse á organización %{user_group_name}.
+          notification_title: Alguén solicitou unirse á organización %{user_group_name} . Pode aceptalo ou rexeitalo de <a href="%{resource_path}">membros da organización páxina</a>.
+        join_request_rejected:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> rexeitou a solicitude para unirte.
+          email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
+          email_subject: A túa solicitude para unirse á organización %{user_group_name} foi rexeitada!
+          notification_title: A súa solicitude para unirse á organización <a href="%{resource_path}">%{user_group_name}</a> foi rexeitada.
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,6 +450,16 @@ gl:
       description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
       level: Nivel %{level}
       reached_top: Alcanzou o nivel superior desta placa.
+    group_members:
+      accept:
+        error: Houbo un erro ao aceptar esta solicitude de unirse
+        success: A solicitude de adhesión aceptouse con éxito
+      index:
+        current_members_without_admins: 'Membros actuais (sen admins):'
+        manage_members: Xestionar membros
+      reject:
+        error: Produciuse un erro ao rexeitar esta solicitude de unirse
+        success: A solicitude de adhesión rexeitou con éxito
     groups:
       create:
         error: Produciuse un problema na creación da organización
@@ -438,6 +467,13 @@ gl:
       edit:
         edit_user_group: Editar organización
         update_user_group: Actualiza a organización
+      join:
+        error: Produciuse un problema ao unirse á organización
+        success: A solicitude de unirse creouse con éxito. Un administrador revisará a súa reequesto antes de aceptarlle á organización.
+      members:
+        accept_or_reject_join_requests: 'Os seguintes usuarios solicitaron unirse a este grupo. Aceptar ou rexeitar as súas solicitudes:'
+        accept_request: Aceptar
+        reject_request: Rexeitar
       new:
         create_user_group: Crear organización
         new_user_group: Nova organización
@@ -648,6 +684,8 @@ gl:
         create_user_group: Crear organización
         edit_profile: Editar perfil
         edit_user_group: Editar o perfil da organización
+        join_user_group: Solicitude para unirse á organización
+        manage_user_group_users: Xestionar membros
     reported_mailer:
       hide:
         hello: Ola %{name},
