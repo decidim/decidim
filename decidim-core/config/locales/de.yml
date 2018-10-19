@@ -19,6 +19,8 @@ de:
       decidim/component_published_event: Aktive Komponente
       decidim/gamification/badge_earned_event: Abzeichen verdient
       decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
+      decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
+      decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
   activerecord:
     attributes:
@@ -45,6 +47,7 @@ de:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -338,6 +341,22 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
           email_subject: Du hast Level %{current_level} auf dem %{badge_name} Abzeichen erreicht!
           notification_title: Gut gemacht! Du hast Stufe %{current_level} auf dem <a href="%{resource_path}">%{badge_name} Abzeichen</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Herzliche Glückwünsche! Ein Administrator der <a href="%{resource_url}">%{user_group_name}</a> Organisation hat Ihre Anfrage akzeptiert, der Organisation beizutreten.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanforderung aktualisiert wurde.
+          email_subject: Sie wurden in die %{user_group_name} Organisation aufgenommen!
+          notification_title: Sie wurden in die <a href="%{resource_path}">%{user_group_name}</a> Organisation aufgenommen.
+        join_request_created:
+          email_intro: Jemand hat darum gebeten, der %{user_group_name} Organisation beizutreten. Sie können es von <a href="%{resource_url}">der Organisationsmitglieder Seite</a>akzeptieren oder ablehnen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Organisation %{user_group_name} verwalten können.
+          email_subject: Jemand hat darum gebeten, der Organisation %{user_group_name} beizutreten!
+          notification_title: Jemand hat darum gebeten, der %{user_group_name} Organisation beizutreten. Sie können es von <a href="%{resource_path}">der Organisationsmitglieder Seite</a>akzeptieren oder ablehnen.
+        join_request_rejected:
+          email_intro: Ein Administrator der <a href="%{resource_url}">%{user_group_name}</a> Organisation hat Ihre Anfrage abgelehnt, diesem beizutreten.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanforderung aktualisiert wurde.
+          email_subject: Ihre Anfrage, der %{user_group_name} Organisation beizutreten, wurde abgelehnt!
+          notification_title: Ihre Anfrage, der <a href="%{resource_path}">%{user_group_name}</a> Organisation beizutreten, wurde abgelehnt.
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,6 +450,16 @@ de:
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
+    group_members:
+      accept:
+        error: Bei der Annahme dieser Verknüpfungsanfrage ist ein Fehler aufgetreten
+        success: Beitrittsanfrage wurde erfolgreich angenommen
+      index:
+        current_members_without_admins: 'Aktuelle Mitglieder (ohne Admins):'
+        manage_members: Mitglieder verwalten
+      reject:
+        error: Beim Ablehnen dieser Beitrittsanfrage ist ein Fehler aufgetreten
+        success: Beitrittsanfrage wurde erfolgreich abgelehnt
     groups:
       create:
         error: Beim Erstellen der Organisation ist ein Problem aufgetreten
@@ -438,6 +467,13 @@ de:
       edit:
         edit_user_group: Organisation bearbeiten
         update_user_group: Organisation aktualisieren
+      join:
+        error: Es ist ein Problem aufgetreten, der Organisation beizutreten
+        success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre erneute Anfrage, bevor er Sie für die Organisation akzeptiert.
+      members:
+        accept_or_reject_join_requests: 'Die folgenden Benutzer haben sich angemeldet, um dieser Gruppe beizutreten. Akzeptieren oder ablehnen ihrer Anfragen:'
+        accept_request: Akzeptieren
+        reject_request: Ablehnen
       new:
         create_user_group: Organisation erstellen
         new_user_group: Neue Organisation
@@ -648,6 +684,8 @@ de:
         create_user_group: Organisation erstellen
         edit_profile: Profil bearbeiten
         edit_user_group: Organisationsprofil bearbeiten
+        join_user_group: Antrag auf Beitritt zur Organisation
+        manage_user_group_users: Mitglieder verwalten
     reported_mailer:
       hide:
         hello: Hallo %{name},
