@@ -223,10 +223,10 @@ fi:
           unearned_own: Et ole vielä luonut ehdotuksia.
     metrics:
       accepted_proposals:
-        object: ehdotusta
+        object: ehdotukset
         title: Hyväksyttyjä ehdotuksia
       proposals:
-        object: ehdotus
+        object: ehdotukset
         title: Ehdotuksia
       votes:
         object: ääntä
