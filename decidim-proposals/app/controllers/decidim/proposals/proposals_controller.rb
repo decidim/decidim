@@ -16,11 +16,12 @@ module Decidim
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
 
-      helper_method :participatory_text
+      before_action :set_participatory_text
 
       def index
-
-        unless component_settings.participatory_texts_enabled?
+        if component_settings.participatory_texts_enabled?
+          @proposals = Decidim::Proposals::Proposal.where(component: current_component).published.not_hidden.includes(:category).includes(:scope).order(position: :asc)
+        else
           @proposals = search
                        .results
                        .published
@@ -38,11 +39,7 @@ module Decidim
                              end
           @proposals = paginate(@proposals)
           @proposals = reorder(@proposals)
-        else
-          @proposals = Decidim::Proposals::Proposal.where(component: current_component).order(id: :asc)
-
         end
-
       end
 
       def show
@@ -243,9 +240,8 @@ module Decidim
         @form
       end
 
-      def participatory_text
-        return unless current_component
-        @participatory_text ||= Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
+      def set_participatory_text
+        @participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
       end
     end
   end

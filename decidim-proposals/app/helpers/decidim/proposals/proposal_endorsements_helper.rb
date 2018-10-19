@@ -108,7 +108,7 @@ module Decidim
       end
 
       # Renders the counter of endorsements that appears in card at show Propoal.
-      def render_endorsements_count_card_part(proposal, fully_endorsed, html_class=nil)
+      def render_endorsements_count_card_part(proposal, fully_endorsed, html_class = nil)
         content = icon("bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img")
         content += proposal.proposal_endorsements_count.to_s
         html_class = "button small compact light button--sc button--shadow" if html_class.blank?
@@ -124,7 +124,7 @@ module Decidim
         end
       end
 
-      def render_endorsements_button_card_part(proposal, fully_endorsed, html_class=nil)
+      def render_endorsements_button_card_part(proposal, fully_endorsed, html_class = nil)
         endorse_translated = t("decidim.proposals.proposal_endorsements_helper.render_endorsements_button_card_part.endorse")
         html_class = "card__button button" if html_class.blank?
         if current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user)

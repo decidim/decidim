@@ -92,7 +92,7 @@ module Decidim
         Proposal.where(component: current_component, author: current_user)
       end
 
-      def follow_button_for(model, large=nil)
+      def follow_button_for(model, large = nil)
         if current_user
           render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
         else
@@ -102,6 +102,14 @@ module Decidim
               up: link_to(t("decidim.proposals.proposals.show.sign_up"), decidim.new_user_registration_path)).html_safe
           end
         end
+      end
+
+      def votes_count_for(model, from_proposals_list)
+        render partial: "decidim/proposals/proposals/participatory_texts/proposal_votes_count.html", locals: { proposal: model, from_proposals_list: from_proposals_list }
+      end
+
+      def vote_button_for(model, from_proposals_list)
+        render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button.html", locals: { proposal: model, from_proposals_list: from_proposals_list }
       end
 
       def endorsers_for(proposal)

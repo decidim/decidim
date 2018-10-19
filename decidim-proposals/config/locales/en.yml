@@ -495,6 +495,11 @@ en:
             votes: Votes
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
+      participatory_text_proposal:
+        comment: Comment
+        comments: Comments
+        endorse: Endorse
+        endorsements: Endorsements
       proposal_endorsements:
         create:
           error: There's been errors when endorsing the proposal.
@@ -575,6 +580,11 @@ en:
           most_voted: Most voted
           random: Random
           recent: Recent
+        participatory_texts:
+          index:
+            document_index: Document index
+          view_index:
+            see_index: See index
         preview:
           modify: Modify the proposal
           proposal_edit_before_minutes:

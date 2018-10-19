@@ -1,6 +1,9 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <% if component_settings.participatory_texts_enabled? %>
+  <%#raise%>
+  <%#= cell("decidim/proposals/participatory_text", @participatory_text, proposals: @proposals) %>
+  <!-- cell("decidim/coauthorships", model, extra_small: true, has_actions: has_actions?) -->
   <%= render partial: "decidim/proposals/proposals/participatory_texts/participatory_texts_draft" %>
 <% else %>
   <% if component_settings.geocoding_enabled? %>

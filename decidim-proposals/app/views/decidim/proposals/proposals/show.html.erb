@@ -8,7 +8,7 @@
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">
     <div class="section text-medium">
-      Volver a <u><%= link_to translated_attribute(participatory_text.title), main_component_path(current_component) %></u>
+      Volver a <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
     </div>
   </div>
 <% end %>
@@ -45,7 +45,7 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
-      <% unless @proposal.participatory_text_level == "section" || @proposal.participatory_text_level == "subsection"%>
+      <% unless @proposal.participatory_text_level == "section" || @proposal.participatory_text_level == "subsection" %>
         <%= simple_format present(@proposal).html_body %>
       <% end %>
       <% if component_settings.geocoding_enabled? %>
