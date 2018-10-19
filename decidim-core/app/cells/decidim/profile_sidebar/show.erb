@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <% if current_organization.badges_enabled? %>
+  <% if current_organization.badges_enabled? && badge_statuses.any? %>
     <div class="card__footer card__footer--transparent">
       <div class="card__support">
         <div class="row column mb-s">
@@ -70,15 +70,12 @@
           </div>
         </div>
         <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
-          <% Decidim::Gamification.badges.sort_by(&:name).each do |badge| %>
-            <% status = Decidim::Gamification.status_for(profile_holder, badge.name) %>
-            <% if status.level > 0 %>
-              <div class="column">
-                <div class="badge-container pr-xs">
-                  <%= cell("decidim/badge", profile_holder, badge: badge, status: status).(:small) %>
-                </div>
+          <% badge_statuses.each do |status| %>
+            <div class="column">
+              <div class="badge-container pr-xs">
+                <%= cell("decidim/badge", profile_holder, badge: status.badge, status: status).(:small) %>
               </div>
-            <% end %>
+            </div>
           <% end %>
         </div>
       </div>
