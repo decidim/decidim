@@ -257,6 +257,10 @@ fr:
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     menu:
       processes: Concertations
+    metrics:
+      participatory_processes:
+        object: processus participatifs
+        title: Processus participatifs
     participatory_process_groups:
       show:
         group_participatory_processes:
