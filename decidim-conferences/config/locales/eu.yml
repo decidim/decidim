@@ -196,6 +196,9 @@ eu:
         create: "%{user_name} gonbidatu %{resource_name} %{space_name} konferentzia"
         delete: "%{user_name} kendu erabiltzaileak %{resource_name} tik %{space_name} konferentzia"
         update: "%{user_name} %{resource_name} rola aldatu zen %{space_name} hitzaldian"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Hizlariak
@@ -265,6 +268,15 @@ eu:
           remaining_slots:
             one: 1 zutoina geratzen da
             other: "%{count} slot geratzen dira"
+      conference_program:
+        program_meeting:
+          content: Edukia
+          location: Kokalekua
+          speakers: Hizlariak
+          streaming: Streaming
+        show:
+          day: eguna
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Zure hitzaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
