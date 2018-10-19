@@ -163,21 +163,21 @@ es:
       show:
         expired:
           authorize: Volver a autorizar con "%{authorization}"
-          explanation: Tu autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
+          explanation: Tu autorización ha expirado. Para realizar esta acción, tienes que volver a obtener la autorización con "%{authorization}".
           title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
-          explanation: 'A pesar de que actualmente está autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque carecemos de los datos siguientes:'
+          explanation: 'A pesar de que actualmente estás autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque nos faltan los datos siguientes:'
           invalid_field: "%{field}"
           reauthorize: Reautorizarse
-          title: Por favor, re-autorízate
+          title: Por favor, reautorízate
         missing:
           authorize: Autorizar con "%{authorization}"
-          explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
+          explanation: Para llevar a cabo esta acción, tienes que disponer de la autorización "%{authorization}".
           title: Autorización requerida
         pending:
           explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
-          resume: Verifica el progreso de la autorización "%{authorization}"
+          resume: Comprueba el progreso de la autorización "%{authorization}"
           title: La autorización aún está en progreso
         unauthorized:
           explanation: No puedes realizar esta acción ya que algunos de los datos de autorización no son los requeridos.
@@ -510,11 +510,11 @@ es:
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
           footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
-          footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
+          footer_sub_hero_headline: Bienvenido/a a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
           participate: Participar
-          welcome: Bienvenido a %{organization}!
+          welcome: Bienvenido/a a %{organization}!
         statistics:
           answers_count: Encuestas completadas
           assemblies_count: Asambleas
@@ -523,7 +523,7 @@ es:
           endorsements_count: Adhesiones
           headline: Estado actual de %{organization}
           meetings_count: Encuentros
-          orders_count: Votos
+          orders_count: Apoyos
           pages_count: Páginas
           processes_count: Procesos
           projects_count: Proyectos
@@ -532,7 +532,7 @@ es:
           results_count: Resultados
           surveys_count: Encuestas
           users_count: Participantes
-          votes_count: Votos
+          votes_count: Apoyos
         sub_hero:
           register: Regístrate
       index:
