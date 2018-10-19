@@ -219,10 +219,10 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erstellt.
     metrics:
       accepted_proposals:
-        object: Vorschlag
+        object: Vorschläge
         title: Akzeptierte Vorschläge
       proposals:
-        object: Vorschlag
+        object: Vorschläge
         title: Vorschläge
       votes:
         object: Stimmen
