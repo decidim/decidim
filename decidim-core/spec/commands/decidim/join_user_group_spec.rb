@@ -46,7 +46,7 @@ module Decidim
           it "sends a notification" do
             creator_id = create(:user_group_membership, user_group: user_group, role: "creator").decidim_user_id
             admin_id = create(:user_group_membership, user_group: user_group, role: "admin").decidim_user_id
-            member_id = create(:user_group_membership, user_group: user_group, role: "member").decidim_user_id
+            create(:user_group_membership, user_group: user_group, role: "member")
 
             recipient_ids = [creator_id, admin_id]
 

@@ -349,17 +349,17 @@ en:
         join_request_accepted:
           email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has accepted your request to join it.
           email_outro: You have received this notification because your join request has been updated.
-          email_subject: 'You have been accepted to the %{user_group_name} organization!'
+          email_subject: You have been accepted to the %{user_group_name} organization!
           notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> organization.
         join_request_created:
           email_intro: Someone requested to join the %{user_group_name} organization. You can accept or reject it from <a href="%{resource_url}">the organization members page</a>.
           email_outro: You have received this notification because you can manage the %{user_group_name} organization.
-          email_subject: 'Someone requested to join the %{user_group_name} organization!'
+          email_subject: Someone requested to join the %{user_group_name} organization!
           notification_title: Someone requested to join the %{user_group_name} organization. You can accept or reject it from <a href="%{resource_path}">the organization members page</a>.
         join_request_rejected:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization rejected your request to join it.
           email_outro: You have received this notification because your join request has been updated.
-          email_subject: 'Your request to join the %{user_group_name} organization has been rejected!'
+          email_subject: Your request to join the %{user_group_name} organization has been rejected!
           notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> organization has been rejected.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
@@ -459,7 +459,7 @@ en:
         error: There was an error accepting this join request
         success: Join request accepted successfully
       index:
-        current_members_without_admins: "Current members (without admins):"
+        current_members_without_admins: 'Current members (without admins):'
         manage_members: Manage members
       reject:
         error: There was an error rejecting this join request
@@ -475,9 +475,9 @@ en:
         error: There has been a problem joining the organization
         success: Join request created successfully. An admin will review your reequest before accepting you to the organization.
       members:
-        accept_or_reject_join_requests: "The following users have applied to join this group. Accept or reject their requests:"
-        accept_request: "Accept"
-        reject_request: "Reject"
+        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
+        accept_request: Accept
+        reject_request: Reject
       new:
         create_user_group: Create organization
         new_user_group: New organization
