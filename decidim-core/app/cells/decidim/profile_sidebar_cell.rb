@@ -46,7 +46,7 @@ module Decidim
     def badge_statuses
       Decidim::Gamification.badges.select { |badge| badge.valid_for?(profile_holder) }.map do |badge|
         status = Decidim::Gamification.status_for(profile_holder, badge.name)
-        status.level > 0 ? status : nil
+        status.level.positive? ? status : nil
       end.compact
     end
 
