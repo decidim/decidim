@@ -131,7 +131,7 @@ fi:
           conference_speakers: Konferenssin puhujat
           info: Tiedot
           moderations: Moderoinnit
-          partners: kumppanit
+          partners: Yhteistyökumppanit
       models:
         conference:
           fields:
@@ -161,7 +161,7 @@ fi:
             logo: Logo
             name: Nimi
             partner_type: Tyyppi
-          name: kumppani
+          name: Yhteistyökumppani
           types:
             collaborator: työtoveri
             main_promotor: Main promoottori
