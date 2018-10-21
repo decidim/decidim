@@ -46,7 +46,7 @@ fi:
     models:
       decidim/meetings/close_meeting_event: Tapahtuma suljettu
       decidim/meetings/create_meeting_event: Tapahtuma
-      decidim/meetings/meeting_registrations_enabled_event: Rekisteröinnit ovat käytössä
+      decidim/meetings/meeting_registrations_enabled_event: Ilmoittautumiset ovat käytössä
       decidim/meetings/meeting_registrations_over_percentage_event: Ilmoittautumiset ylittävät rajan
       decidim/meetings/upcoming_meeting_event: Tuleva tapahtuma
       decidim/meetings/update_meeting_event: Tapahtuma päivitetty
@@ -237,11 +237,11 @@ fi:
             description: Kuvaus
             down: Alas
             remove: Poista
-            service: palvelu
-            title: otsikko
-            up: ylös
+            service: Palvelu
+            title: Otsikko
+            up: Ylös
           services:
-            add_service: Lisää palvelua
+            add_service: Lisää palvelu
             services: Palvelut
           update:
             invalid: Tämän tapahtuman päivittämisessa esiintyi ongelma
@@ -251,9 +251,9 @@ fi:
             invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
             success: Pöytäkirja luotiin onnistuneesti
           edit:
-            update: Päivittää
+            update: Päivitä
           new:
-            create: Luoda
+            create: Luo
             title: Luo pöytäkirja
           update:
             invalid: Tämän pöytäkirjan päivityksessä esiintyi ongelma
@@ -264,7 +264,7 @@ fi:
         registrations:
           edit:
             save: Tallenna
-            validate: vahvistaa
+            validate: Vahvista
             validate_registration_code: Vahvista ilmoittautumiskoodi
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
@@ -275,7 +275,7 @@ fi:
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
-            invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
+            invalid: Ilmoittautumisasetusten tallentamisessa esiintyi ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
             invalid: Tämä ilmoittautumiskoodi on virheellinen.
@@ -359,14 +359,14 @@ fi:
             other: "%{count} paikkaa jäljellä"
           view: Näytä
       meetings_map:
-        view_meeting: Näytä tapaaminen
+        view_meeting: Näytä tapahtuma
       models:
         invite:
           fields:
             email: Sähköposti
             name: Nimi
-            sent_at: Lähetetty
-            status: Status
+            sent_at: Lähetysaika
+            status: Tila
           status:
             accepted: Hyväksytty (%{at})
             rejected: Hylätty (%{at})
@@ -383,7 +383,7 @@ fi:
         confirmation:
           confirmed_html: Ilmoittautumisesi tapahtumaan <a href="%{url}">%{title}</a> on vahvistettu.
           details: Löydät tapahtuman tarkemmat tiedot liitteenä olevasta kalenterimerkinnästä.
-          registration_code: Rekisteröintikoodisi on %{code}.
+          registration_code: Ilmoittautumiskoodisi on %{code}.
       registrations:
         create:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
@@ -396,7 +396,7 @@ fi:
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
         private_meeting: Yksityinen tapahtuma
-        transparent: läpinäkyvä
+        transparent: Läpinäkyvä
     metrics:
       meetings:
         object: tapahtumat
