@@ -19,8 +19,8 @@ fi:
       decidim/component_published_event: Aktiivinen komponentti
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
-      decidim/join_request_accepted_event: Liity pyyntöön hyväksytty
-      decidim/join_request_rejected_event: Liity pyyntöön hylätty
+      decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
+      decidim/join_request_rejected_event: Liittymispyyntö on hylätty
       decidim/profile_updated_event: Profiili päivitetty
   activerecord:
     attributes:
@@ -47,9 +47,9 @@ fi:
   date:
     formats:
       decidim_short: "%d.%m.%Y"
-      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
-      decidim_with_month_name_short: "%d %b"
+      decidim_with_month_name_short: "%d. %b"
   decidim:
     account:
       data_portability_export:
@@ -184,9 +184,9 @@ fi:
           title: Ei varmennettu
         unconfirmed:
           confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää niitä uudelleen:'
-          explanation_html: Jotta voit suorittaa tämän toiminnon, sinulla on oltava lupa, ennen kuin teet sen, sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
+          explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
-          title: vahvista sähköpostiosoitteesi
+          title: Vahvista sähköpostiosoitteesi
     collapsible_list:
       hidden_elements_count:
         one: ja 1 lisää
