@@ -684,7 +684,7 @@ fi:
         create_user_group: Luo organisaatio
         edit_profile: Muokkaa profiilia
         edit_user_group: Muokkaa organisaation tietoja
-        join_user_group: Pyyntö liittyä organisaatioon
+        join_user_group: Liity organisaatioon
         manage_user_group_users: Hallinnoi jäseniä
     reported_mailer:
       hide:
