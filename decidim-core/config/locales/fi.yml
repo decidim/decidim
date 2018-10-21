@@ -343,20 +343,20 @@ fi:
           notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
       groups:
         join_request_accepted:
-          email_intro: Onnittelut! <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on hyväksynyt pyyntösi liittyä siihen.
-          email_outro: Olet saanut tämän ilmoituksen, koska liittymispyyntösi on päivitetty.
-          email_subject: Sinut on hyväksytty %{user_group_name} organisaatioon!
-          notification_title: Sinut on hyväksytty <a href="%{resource_path}">%{user_group_name}</a> -organisaatioon.
+          email_intro: Onnittelut! <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on hyväksynyt liittymispyyntösi.
+          email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
+          email_subject: Sinut on hyväksytty organisaatioon %{user_group_name}!
+          notification_title: Sinut on hyväksytty organisaatioon <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Joku pyysi liittymään %{user_group_name} organisaatioon. Voit hyväksyä tai hylätä sen <a href="%{resource_url}">organisaation jäsenten sivuilta</a>.
-          email_outro: Olet saanut tämän ilmoituksen, koska voit hallita %{user_group_name} organisaatiota.
-          email_subject: Joku pyysi liittymään %{user_group_name} organisaatioon!
-          notification_title: Joku pyysi liittymään %{user_group_name} organisaatioon. Voit hyväksyä tai hylätä sen <a href="%{resource_path}">organisaation jäsenten sivuilta</a>.
+          email_intro: Joku haluaa liittyä organisaatioon %{user_group_name}. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}">organisaation jäsensivulta</a>.
+          email_outro: Saat tämän ilmoituksen, koska voit hallita organisaatiota %{user_group_name}.
+          email_subject: Joku haluaa liittyä organisaatioon %{user_group_name}!
+          notification_title: Joku haluaa liittyä organisaatioon %{user_group_name}. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_path}">organisaation jäsensivulta</a>.
         join_request_rejected:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja hylkäsi pyynnön liittyä siihen.
-          email_outro: Olet saanut tämän ilmoituksen, koska liittymispyyntösi on päivitetty.
-          email_subject: Pyyntösi liittyä %{user_group_name} organisaatioon on hylätty!
-          notification_title: Pyyntösi liittyä <a href="%{resource_path}">%{user_group_name}</a> -organisaatioon on hylätty.
+          email_intro: Organisaation <a href="%{resource_url}">%{user_group_name}</a> järjestelmänvalvoja hylkäsi liittymispyynnön.
+          email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
+          email_subject: Liittymispyyntösi organisaatioon %{user_group_name} on hylätty!
+          notification_title: Liittymispyyntösi organisaatioon <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -452,14 +452,14 @@ fi:
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     group_members:
       accept:
-        error: Virhe hyväksyi tämän liittymishakemuksen
-        success: Liity pyyntöön hyväksyttiin onnistuneesti
+        error: Tapahtui virhe hyväksyttäessä liittymispyyntöä
+        success: Liittymispyyntö hyväksyttiin onnistuneesti
       index:
         current_members_without_admins: 'Nykyiset jäsenet (ilman ylläpitäjiä):'
         manage_members: Hallinnoi jäseniä
       reject:
-        error: Virhe hylkäsi tämän liittymishakemuksen
-        success: Liity pyyntö hylätty onnistuneesti
+        error: Tapahtui virhe hylätessä liittymispyyntöä
+        success: Liittymispyyntö hylätty onnistuneesti
     groups:
       create:
         error: Organisaation luomisessa esiintyi ongelma
@@ -468,19 +468,19 @@ fi:
         edit_user_group: Muokkaa organisaatiota
         update_user_group: Päivitä organisaatio
       join:
-        error: Organisaatiossa on ollut ongelma
-        success: Liity pyyntöön luotu onnistuneesti. Järjestelmänvalvoja tarkistaa uudelleenhakemuksesi ennen kuin hyväksyt organisaation.
+        error: Liityttäessä organisaatioon tapahtui virhe
+        success: Liittymispyyntö luotu onnistuneesti. Hallinnointikäyttäjä tarkastaa pyyntösi ennen kuin sinut hyväksytään organisaation jäseneksi.
       members:
-        accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat hakeneet liittymistä tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
-        accept_request: Hyväksyä
-        reject_request: Hylätä
+        accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
+        accept_request: Hyväksy
+        reject_request: Hylkää
       new:
         create_user_group: Luo organisaatio
         new_user_group: Uusi organisaatio
       no_user_groups: Ei kuulu vielä yhteenkään organisaatioon.
       update:
-        error: Organisaatiota on päivitetty ongelma
-        success: Organisaatio päivitettiin onnistuneesti
+        error: Organisaation päivityksessä tapahtui virhe
+        success: Organisaatio päivitetty onnistuneesti
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -683,7 +683,7 @@ fi:
       user:
         create_user_group: Luo organisaatio
         edit_profile: Muokkaa profiilia
-        edit_user_group: Muokkaa organisaation profiilia
+        edit_user_group: Muokkaa organisaation tietoja
         join_user_group: Pyyntö liittyä organisaatioon
         manage_user_group_users: Hallinnoi jäseniä
     reported_mailer:
