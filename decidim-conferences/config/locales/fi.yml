@@ -153,7 +153,7 @@ fi:
           name: Konferenssin käyttäjä
           roles:
             admin: Hallinnointikäyttäjä
-            collaborator: Osallistumiskäyttäjä
+            collaborator: Työryhmän jäsen
             moderator: Moderoija
         partner:
           fields:
@@ -163,42 +163,42 @@ fi:
             partner_type: Tyyppi
           name: Yhteistyökumppani
           types:
-            collaborator: työtoveri
-            main_promotor: Main promoottori
+            collaborator: Työryhmän jäsen
+            main_promotor: Pääpromoottori
       partners:
         create:
-          error: Virhe lisäsi kumppania tähän konferenssiin.
-          success: Partner lisäsi onnistuneesti tähän konferenssiin.
+          error: Tapahtui virhe lisätessä yhteistyökumppania tähän konferenssiin.
+          success: Yhteistyökumppani lisätty onnistuneesti tähän konferenssiin.
         destroy:
-          success: Yhteistyökumppani poistettiin onnistuneesti tästä kokouksesta.
+          success: Yhteistyökumppani poistettu onnistuneesti tästä konferenssista.
         edit:
-          title: Päivitä kumppani.
-          update: Päivittää
+          title: Päivitä yhteistyökumppani.
+          update: Päivitä
         new:
-          create: Luoda
-          title: Uusi kumppani
+          create: Luo
+          title: Uusi yhteistyökumppani
         update:
-          error: Virhettä päivitettiin tämän konferenssin kumppani.
-          success: Yhteistyökumppani päivitettiin onnistuneesti tämän kokouksen yhteydessä.
+          error: Tapahtui virhe päivitettäessä tämän konferenssin yhteistyökumppania.
+          success: Konferenssin yhteistyökumppani päivitettiin onnistuneesti.
       titles:
         conferences: Konferenssit
     admin_log:
       conference:
-        create: "%{user_name} loi %{resource_name} konferenssin"
-        publish: "%{user_name} julkaisi %{resource_name} konferenssin"
-        unpublish: "%{user_name} julkaisematon %{resource_name} konferenssi"
-        update: "%{user_name} päivitti %{resource_name} konferenssin"
+        create: "%{user_name} loi konferenssin %{resource_name}"
+        publish: "%{user_name} julkaisi konferenssin %{resource_name}"
+        unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
+        update: "%{user_name} päivitti konferenssia %{resource_name}"
       conference_speaker:
-        create: "%{user_name} loi %{resource_name} kaiutin %{space_name} konferenssissa"
-        delete: "%{user_name} poisti %{resource_name} kaiutin %{space_name} konferenssista"
-        update: "%{user_name} päivitti %{resource_name} puhujan %{space_name} konferenssissa"
+        create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
+        delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
+        update: "%{user_name} päivitti puhujan %{resource_name} konferenssissa %{space_name}"
       conference_user_role:
-        create: "%{user_name} kutsui %{resource_name} on %{space_name} konferenssiin"
-        delete: "%{user_name} poistaa käyttäjän %{resource_name} %{space_name} konferenssista"
-        update: "%{user_name} muuttunut rooli %{resource_name} on %{space_name} konferenssiin"
+        create: "%{user_name} kutsui %{resource_name} konferenssiin %{space_name}"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
+        update: "%{user_name} muutti %{resource_name} roolia konferenssissa %{space_name}"
     conference_program:
       index:
-        title: Ohjelmoida
+        title: Ohjelma
     conference_speakers:
       index:
         title: Puhujat
@@ -256,7 +256,7 @@ fi:
             join: Liity konferenssiin '%{conference_title}'
         partners:
           index:
-            title: kumppanit
+            title: Yhteistyökumppanit
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -270,13 +270,13 @@ fi:
             other: "%{count} paikkaa jäljellä"
       conference_program:
         program_meeting:
-          content: pitoisuus
+          content: Sisältö
           location: Sijainti
-          speakers: kaiuttimet
-          streaming: suoratoisto
+          speakers: Puhujat
+          streaming: Suoratoisto
         show:
           day: Päivä
-          program: Ohjelmoida
+          program: Ohjelma
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> on vahvistettu.
@@ -293,10 +293,10 @@ fi:
           success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
         go_to_twitter: Siirry Twitteriin
-        more_info: Lisätietoja
+        more_info: lisätietoja
         personal_website: Henkilökohtainen verkkosivusto
         show:
-          more_info: Lisätietoja
+          more_info: lisätietoja
       conference_speaker_cell:
         personal_url:
           personal_website: Henkilökohtainen verkkosivusto
@@ -308,14 +308,14 @@ fi:
       conferences:
         partners:
           collaborators: yhteistyökumppanit
-          main_promotors: Tärkeimmät promoottorit
+          main_promotors: Pääpromoottorit
         show:
-          already_account: Onko sinulla jo tili decidimissa?
+          already_account: Onko sinulla jo käyttäjätili?
           login_as: Olet kirjautunut sisään %{name} <%{email}>
-          make_conference_registration: 'Tee rekisteröintisi konferenssiin:'
+          make_conference_registration: 'Ilmoittaudu konferenssiin:'
           new_user: Uusi käyttäjä?
           register: Rekisteröidy
-          sign_in: Kirjaudu sisään rekisteröidyksi tässä kokouksessa
+          sign_in: Kirjaudu sisään ilmoittautuaksesi tähän konferenssiin
           sign_up: Rekisteröidy ilmaiseksi decidim rekisteröityä
       content_blocks:
         highlighted_conferences:
