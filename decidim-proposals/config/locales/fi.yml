@@ -78,7 +78,7 @@ fi:
             minimum_votes_per_user: Vähimmäisäänimäärä käyttäjää kohden
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
-            participatory_texts_enabled: Osallistuvat tekstit ovat käytössä
+            participatory_texts_enabled: Ehdotusaineistot ovat käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
@@ -266,19 +266,19 @@ fi:
           index:
             info_1: Seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
             publish_document: Julkaise aineisto
-            title: ESITTELY OSALLISTUMINEN TEKSTI
+            title: ESIKATSELE EHDOTUSAINEISTOA
           new_import:
-            bottom_hint: "(Voit esikatsella ja lajitella dokumenttiosioita)"
-            document_legend: 'Lisää asiakirja, joka on pienempi kuin 2 MB, jokainen jakso, kunnes 3 tasoinen syvyys analysoidaan ehdotuksiin. Tukee muotoja ovat: Markdown'
-            title: ADD DOCUMENT
-            upload_document: Lataa asiakirja
+            bottom_hint: "(Voit esikatsella ja lajitella aineiston osioita)"
+            document_legend: 'Lisää tiedosto, joka on pienempi kuin 2 MB. Jokaisesta osiosta aineiston kolmannelle tasolle asti luodaan uusi ehdotus. Tuetut tiedostomuodot ovat: Markdown'
+            title: LISÄÄ AINEISTO
+            upload_document: Lataa aineisto
           publish:
             invalid: Ehdotuksia ei voitu julkaista
             success: Kaikki ehdotukset on julkaistu
           sections:
-            article: "<em>artikla</em>"
-            section: "<em>§:</em> <strong>%{title}</strong>"
-            sub-section: "<em>Alaryhmä:</em> %{title}"
+            article: "<em>Kappalesisältö</em>"
+            section: "<em>Osio:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Alaosio:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Hyväksytty
@@ -622,9 +622,9 @@ fi:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
           minimum_votes_per_user:
-            description: Eri ehdotusten on jaettava vähintään 3 ääntä.
-            given_enough_votes: Olet antanut tarpeeksi tukea.
-            supports_remaining: On äänestettävä %{remaining_votes} lisää ehdotuksia äänistänne otettava huomioon.
+            description: Sinun on annettava vähintään kolme ääntä eri ehdotuksille.
+            given_enough_votes: Olet tukenut tarpeeksi monta ehdotusta.
+            supports_remaining: Sinun on äänestettävä %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:
