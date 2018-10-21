@@ -316,7 +316,7 @@ fi:
           new_user: Uusi käyttäjä?
           register: Rekisteröidy
           sign_in: Kirjaudu sisään ilmoittautuaksesi tähän konferenssiin
-          sign_up: Rekisteröidy ilmaiseksi decidim rekisteröityä
+          sign_up: Rekisteröidy maksutta ilmoittautuaksesi
       content_blocks:
         highlighted_conferences:
           name: Korostetut konferenssit
@@ -350,8 +350,8 @@ fi:
             active_conferences: Aktiiviset konferenssit
             see_all_conferences: Katso kaikki konferenssit
       show:
-        details: Yksityiskohdat
-        introduction: esittely
+        details: Tarkemmat tiedot
+        introduction: Esittely
         objectives: Tavoitteet
       statistics:
         answers_count: Vastaukset
@@ -383,7 +383,7 @@ fi:
           email_subject: '"%{resource_title}" -konferenssia päivitettiin'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssia päivitettiin.
         registrations_enabled:
-          email_intro: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu. Voit ilmoittautua konferenssiin sen sivulla:'
+          email_intro: 'Konferenssin "%{resource_title}" ilmoittautumiset on avattu. Voit ilmoittautua konferenssiin sen sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" -konferenssia. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin ilmoittautumiset on avattu.
@@ -416,7 +416,7 @@ fi:
           take_part: Osallistu
       conferences_nav:
         conference_menu_item: Tiedot
-        conference_partners_menu_item: kumppanit
-        conference_speaker_menu_item: kaiuttimet
-        unfold: avautua
-        venues: tapahtumapaikat
+        conference_partners_menu_item: Yhteistyökumppanit
+        conference_speaker_menu_item: Puhujat
+        unfold: Avaa
+        venues: Tapahtumapaikat
