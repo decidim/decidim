@@ -327,8 +327,8 @@ fi:
       assemblies: Kehitysryhmät
     metrics:
       assemblies:
-        object: osat
-        title: osat
+        object: ryhmät
+        title: Ryhmät
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä
