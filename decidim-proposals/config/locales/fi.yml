@@ -245,7 +245,7 @@ fi:
         edit_proposal: Muokkaa ehdotusta
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
-        participatory_texts: Osallistuvat tekstit
+        participatory_texts: Ehdotusaineistot
         private_notes: Omat muistiinpanot
         title: Toiminnot
       admin:
@@ -259,13 +259,13 @@ fi:
             name: Ehdotus
         participatory_texts:
           bulk-actions:
-            import_doc: Tuo asiakirja
+            import_doc: Tuo aineisto
           import:
             invalid: Lomake on virheellinen!
-            success: Onnittelut, seuraavat osat on jäsennetty tuodusta asiakirjasta, ja ne on muunnettu ehdotuksiksi. Nyt voit tarkistaa ja säätää mitä tarvitset ennen julkaisemista.
+            success: Onnittelut, seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
           index:
-            info_1: Seuraavat osiot on jäsennetty tuodusta asiakirjasta, ne on muunnettu ehdotuksiksi. Nyt voit tarkistaa ja säätää mitä tarvitset ennen julkaisemista.
-            publish_document: Julkaise asiakirja
+            info_1: Seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
+            publish_document: Julkaise aineisto
             title: ESITTELY OSALLISTUMINEN TEKSTI
           new_import:
             bottom_hint: "(Voit esikatsella ja lajitella dokumenttiosioita)"
