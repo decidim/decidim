@@ -204,7 +204,7 @@ fi:
     metrics:
       results:
         object: tulokset
-        title: tulokset
+        title: Tulokset
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
