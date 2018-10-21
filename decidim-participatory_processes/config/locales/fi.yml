@@ -259,7 +259,7 @@ fi:
       processes: Prosessit
     metrics:
       participatory_processes:
-        object: osallistuvat prosessit
+        object: osallistumisprosessit
         title: Osallistumisprosessit
     participatory_process_groups:
       show:
