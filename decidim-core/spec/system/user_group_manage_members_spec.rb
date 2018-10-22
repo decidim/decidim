@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group profile edition", type: :system do
+describe "User group manage members", type: :system do
   let!(:creator) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, users: [creator], organization: creator.organization) }
   let!(:member) { create(:user, :confirmed, organization: creator.organization) }
@@ -24,7 +24,7 @@ describe "User group profile edition", type: :system do
     end
 
     it "rejects the user that accesses manually" do
-      visit decidim.edit_group_path(user_group.nickname)
+      visit decidim.group_manage_users_path(user_group.nickname)
       expect(page).to have_content("You are not authorized to perform this action")
     end
   end
@@ -46,7 +46,7 @@ describe "User group profile edition", type: :system do
     end
 
     it "allows removing a user from the group" do
-      accept_confirm { click_link "Remove from organization" }
+      accept_confirm { click_link "Remove user" }
       expect(page).to have_content("User removed from the group successfully")
       expect(page).to have_no_content(member.name)
     end

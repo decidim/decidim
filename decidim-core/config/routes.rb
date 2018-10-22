@@ -66,6 +66,11 @@ Decidim::Core::Engine.routes.draw do
           post :promote
         end
       end
+      resources :admins, only: [:index], controller: "group_admins", as: "manage_admins" do
+        member do
+          post :demote
+        end
+      end
     end
   end
 

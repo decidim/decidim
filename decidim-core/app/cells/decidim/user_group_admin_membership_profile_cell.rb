@@ -6,5 +6,9 @@ module Decidim
   # from group.
   class UserGroupAdminMembershipProfileCell < Decidim::UserGroupMembershipProfileCell
     delegate :user, to: :model
+
+    def admin_membership?
+      model.role == "admin"
+    end
   end
 end

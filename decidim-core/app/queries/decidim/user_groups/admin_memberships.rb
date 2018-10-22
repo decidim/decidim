@@ -2,12 +2,12 @@
 
 module Decidim
   module UserGroups
-    # Use this class to find the the members of the given user group with the
+    # Use this class to find the the admins of the given user group with the
     # "member" role. It returns memberships.
-    class MemberMemberships < Rectify::Query
+    class AdminMemberships < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
-      # user_group - a UserGroup that needs to find its member users
+      # user_group - a UserGroup that needs to find its admin users
       def self.for(user_group)
         new(user_group).query
       end
@@ -26,7 +26,7 @@ module Decidim
         user_group
           .memberships
           .includes(:user)
-          .where(role: :member)
+          .where(role: :admin)
       end
 
       private
