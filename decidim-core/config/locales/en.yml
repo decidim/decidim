@@ -474,7 +474,7 @@ en:
         update_user_group: Update organization
       join:
         error: There has been a problem joining the organization
-        success: Join request created successfully. An admin will review your reequest before accepting you to the organization.
+        success: Join request created successfully. An admin will review your request before accepting you to the organization.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
         accept_request: Accept
@@ -483,6 +483,10 @@ en:
         create_user_group: Create organization
         new_user_group: New organization
       no_user_groups: Doesn't belong to any organization yet.
+      roles:
+        admin: Administrator
+        creator: Creator
+        member: Member
       update:
         error: There has been a problem updating the organization
         success: Organization updated successfully
