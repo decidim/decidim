@@ -24,9 +24,9 @@ module Decidim
       # The 'official' proposals doesn't have an author id
       def search_origin
         if origin == "official"
-          query.where(coauthorships_count: 0)
+          query.where.not(coauthorships_count: 0).joins(:coauthorships).where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
         elsif origin == "citizens"
-          query.where.not(coauthorships_count: 0)
+          query.where.not(coauthorships_count: 0).joins(:coauthorships).where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
         else # Assume 'all'
           query
         end

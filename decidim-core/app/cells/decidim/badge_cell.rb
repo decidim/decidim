@@ -16,28 +16,34 @@ module Decidim
       @options[:badge]
     end
 
-    def user
-      model
-    end
-
     def level_title
       t "decidim.gamification.level", level: status.level
     end
 
+    def own_profile?
+      return @own_profile if defined?(@own_profile)
+
+      @own_profile = if model.is_a?(User)
+                       model == current_user
+                     elsif model.is_a?(UserGroup) && current_user
+                       current_user.user_groups.include?(model)
+                     end
+    end
+
     def description
-      if user == current_user && status.level.zero?
+      if own_profile? && status.level.zero?
         score_descriptions[:unearned_own]
-      elsif user == current_user && status.level.positive?
+      elsif own_profile? && status.level.positive?
         score_descriptions[:description_own]
-      elsif user != current_user && status.level.zero?
+      elsif !own_profile? && status.level.zero?
         score_descriptions[:unearned_another]
-      elsif user != current_user && status.level.positive?
+      elsif !own_profile? && status.level.positive?
         score_descriptions[:description_another]
       end
     end
 
     def tooltip
-      if user == current_user
+      if own_profile?
         if status.next_level_in
           t "decidim.gamification.badges.#{badge.name}.next_level_in", score: status.next_level_in
         else
@@ -63,7 +69,7 @@ module Decidim
     end
 
     def status
-      @status ||= options[:status] || Decidim::Gamification.status_for(user, badge.name)
+      @status ||= options[:status] || Decidim::Gamification.status_for(model, badge.name)
     end
   end
 end

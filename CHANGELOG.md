@@ -50,6 +50,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
 - **decidim-core**: Added metrics visualization for Assemblies, ParticipatoryProcesses, Results (Accountability), Comments, and Meetings [\#36042283](https://github.com/decidim/decidim/pull/4228)
 - **decidim-core**: Let admins and creators edit the user group profile [\#4283](https://github.com/decidim/decidim/pull/4283)
+- **decidim-core**: User groups can also have badges. [\#4310](https://github.com/decidim/decidim/pull/4310)
 
 **Changed**:
 
@@ -59,6 +60,8 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Allow users to enter date fields manually. [\#3724](https://github.com/decidim/decidim/pull/3724)
 - **decidim-core**: Merge Users and UserGroups DB tables [\#4196](https://github.com/decidim/decidim/pull/4196)
 - **decidim-core**: Move user group creation to user profile [\#4256](https://github.com/decidim/decidim/pull/4256)
+- **decidim-core**: Make authors polymorphic [\#4282](https://github.com/decidim/decidim/pull/4282)
+- **decidim-core**: Don't allow weird characters in names and nicknames [\#4317](https://github.com/decidim/decidim/pull/4317)
 
 **Fixed**:
 
@@ -79,11 +82,16 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-admin**: Don't list deleted users at officialized list. [\#4139](https://github.com/decidim/decidim/pull/4139)
 - **decidim-participayory_processes**: Copy categories and subcategories to the new process. [\#4143](https://github.com/decidim/decidim/pull/4143)
 - **decidim-participayory_processes**: Fix Internet Explorer 11 related issues in process filtering. [\#4166](https://github.com/decidim/decidim/pull/4166)
+- **decidim-core**: Don't crash when showing the edit link for a component that does not have an admin engine [\#4318](https://github.com/decidim/decidim/pull/4318)
+- **decidim-core**: Update conversations on each new message, so conversations list always shows the most recently active one on top [\#4329](https://github.com/decidim/decidim/pull/4329)
 - **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4198)
 - **decidim-core**: Hide weird flash message [\#4235](https://github.com/decidim/decidim/pull/4235)
 - **decidim-core**: Fix newsletter subscription checkbox always being unchecked [\#4238](https://github.com/decidim/decidim/pull/4238)
+- **decidim-core**: Don't error when the meeting registrations are updated with invalid data [\#4319](https://github.com/decidim/decidim/pull/4319)
 - **decidim-core**: Thread safe locale switching [\#4237](https://github.com/decidim/decidim/pull/4237)
 - **decidim-core**: Don't crash when given wrong format at pages [\#4314](https://github.com/decidim/decidim/pull/4314)
+- **decidim-initiatives**: Fix initiative search with multiple types [\#4322](https://github.com/decidim/decidim/pull/4322)
+- **decidim-debates**: Fix debate search with categories [\4313](https://github.com/decidim/decidim/pull/4313)
 
 **Removed**:
 

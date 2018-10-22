@@ -9,7 +9,7 @@ module Decidim
 
       let(:component) { build :proposal_component }
       let(:organization) { component.participatory_space.organization }
-      let(:proposal) { build(:proposal, component: component) }
+      let(:proposal) { create(:proposal, component: component) }
       let(:coauthorable) { proposal }
 
       include_examples "coauthorable"
@@ -102,8 +102,8 @@ module Decidim
         end
 
         context "when the proposal is not official" do
-          it "returns the followers" do
-            expect(subject.users_to_notify_on_comment_created).to match_array(followers)
+          it "returns the followers and the author" do
+            expect(subject.users_to_notify_on_comment_created).to match_array(followers.concat([proposal.creator.author]))
           end
         end
       end
@@ -135,10 +135,10 @@ module Decidim
       end
 
       describe "#editable_by?" do
-        let(:author) { build(:user, organization: organization) }
+        let(:author) { create(:user, organization: organization) }
 
         context "when user is author" do
-          let(:proposal) { build :proposal, component: component, users: [author], updated_at: Time.current }
+          let(:proposal) { create :proposal, component: component, users: [author], updated_at: Time.current }
 
           it { is_expected.to be_editable_by(author) }
 
@@ -159,7 +159,7 @@ module Decidim
 
         context "when proposal is from user group and user is admin" do
           let(:user_group) { create :user_group, :verified, users: [author], organization: author.organization }
-          let(:proposal) { build :proposal, component: component, updated_at: Time.current, users: [author], user_groups: [user_group] }
+          let(:proposal) { create :proposal, component: component, updated_at: Time.current, users: [author], user_groups: [user_group] }
 
           it { is_expected.to be_editable_by(author) }
         end
@@ -198,10 +198,10 @@ module Decidim
       end
 
       describe "#withdrawable_by" do
-        let(:author) { build(:user, organization: organization) }
+        let(:author) { create(:user, organization: organization) }
 
         context "when user is author" do
-          let(:proposal) { build :proposal, component: component, users: [author], created_at: Time.current }
+          let(:proposal) { create :proposal, component: component, users: [author], created_at: Time.current }
 
           it { is_expected.to be_withdrawable_by(author) }
         end

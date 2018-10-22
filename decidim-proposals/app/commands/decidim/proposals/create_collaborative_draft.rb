@@ -42,23 +42,28 @@ module Decidim
       attr_reader :form, :collaborative_draft, :attachment
 
       def create_collaborative_draft
-        @collaborative_draft = Decidim.traceability.create!(
+        @collaborative_draft = Decidim.traceability.perform_action!(
+          :create,
           CollaborativeDraft,
-          @form.current_user,
-          title: form.title,
-          body: form.body,
-          category: form.category,
-          scope: form.scope,
-          component: form.component,
-          address: form.address,
-          latitude: form.latitude,
-          longitude: form.longitude,
-          state: "open"
-        )
+          @form.current_user
+        ) do
+          draft = CollaborativeDraft.new(
+            title: form.title,
+            body: form.body,
+            category: form.category,
+            scope: form.scope,
+            component: form.component,
+            address: form.address,
+            latitude: form.latitude,
+            longitude: form.longitude,
+            state: "open"
+          )
+          draft.coauthorships.build(author: @current_user, user_group: @form.user_group)
+          draft.save!
+          draft
+        end
 
         @attached_to = @collaborative_draft
-
-        @collaborative_draft.add_coauthor(@current_user, user_group: @form.user_group)
       end
 
       def user_group

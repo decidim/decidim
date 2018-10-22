@@ -36,7 +36,8 @@ module Decidim
             instructions: form.instructions,
             end_time: form.end_time,
             start_time: form.start_time,
-            component: form.current_component
+            component: form.current_component,
+            author: form.current_organization
           }
 
           @debate = Decidim.traceability.create!(
