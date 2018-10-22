@@ -128,7 +128,7 @@
 
     <% if can_leave_group? %>
       <div class="text-center">
-        <%= link_to decidim.leave_group_path(model.nickname), method: :delete, data: { confirm: t("decidim.groups.actions.are_you_sure")}, class: "button light expanded" do %>
+        <%= link_to decidim.leave_group_path(model.nickname), method: :delete, data: { confirm: t("decidim.groups.actions.are_you_sure") }, class: "button light expanded" do %>
           <span>
             <%= t("decidim.profiles.user.leave_user_group") %>
           </span>
