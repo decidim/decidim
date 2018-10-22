@@ -199,7 +199,7 @@ module Decidim
       let(:user) { build(:user, organization: organization, accepted_tos_version: accepted_tos_version) }
       let(:accepted_tos_version) { organization.tos_version }
 
-      it { is_expected.to be_truthy }
+      it { is_expected.to be_falsey }
 
       context "when user accepted ToS before organization last update" do
         let(:accepted_tos_version) { 1.year.before }
