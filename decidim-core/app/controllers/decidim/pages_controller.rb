@@ -5,7 +5,7 @@ module Decidim
   class PagesController < Decidim::ApplicationController
     layout "layouts/decidim/application"
 
-    helper_method :page
+    helper_method :page, :siblings
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
     skip_before_action :store_current_location
@@ -19,13 +19,7 @@ module Decidim
 
     def show
       enforce_permission_to :read, :public_page, page: page
-      if params[:id] == "home"
-        render :home
-      elsif page
-        render :decidim_page
-      else
-        raise ActionController::RoutingError, "Not Found"
-      end
+      raise ActionController::RoutingError, "Not Found" unless page
     end
 
     def page
@@ -36,6 +30,10 @@ module Decidim
 
     def set_default_request_format
       request.format = :html
+    end
+
+    def siblings
+      @siblings ||= current_organization.static_pages
     end
   end
 end

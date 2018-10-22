@@ -23,6 +23,8 @@ module Decidim
     before_destroy :can_be_destroyed?
     before_update :can_update_slug?
 
+    default_scope { order(arel_table[:weight].asc) }
+
     # Whether this is slug of a default page or not.
     #
     # slug - The String with the value of the slug.
