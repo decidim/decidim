@@ -15,6 +15,7 @@ eu:
         description: Descripción
         file: Fitxategia
         title: Titulua
+        weight: Rang d'affichage
       attachment_collection:
         description: deskribapena
         name: izena

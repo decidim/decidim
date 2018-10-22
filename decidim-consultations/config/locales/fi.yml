@@ -54,6 +54,8 @@ fi:
   decidim:
     admin:
       actions:
+        consultation:
+          new: New consultation
         publish_results: Julkaise tuloksia
         unpublish_results: Julkaisematta tuloksia
       consultation_publications:

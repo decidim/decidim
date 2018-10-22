@@ -54,6 +54,8 @@ hu:
   decidim:
     admin:
       actions:
+        consultation:
+          new: New consultation
         publish_results: Az eredmények közzététele
         unpublish_results: Az eredmények visszavonása
       consultation_publications:

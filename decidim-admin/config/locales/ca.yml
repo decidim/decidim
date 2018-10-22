@@ -15,6 +15,7 @@ ca:
         description: Descripció
         file: Arxiu
         title: Títol
+        weight: Rang d'affichage
       attachment_collection:
         description: Descripció
         name: Nom

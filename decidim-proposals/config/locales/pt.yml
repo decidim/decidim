@@ -289,7 +289,9 @@ pt:
             one: 1 proposta
             other: "%{count} propostas"
         edit:
+          address: Address
           back: Voltar
+          not_geocoded: Not geocoded
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -341,12 +343,15 @@ pt:
           random: Aleatória
           recent: Recente
         preview:
+          address: 'Address : %{address}'
           modify: Modificar a proposta
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Você poderá editar esta proposta durante o primeiro minuto após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
             other: Você poderá editar esta proposta durante o primeiro %{count} minutos após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
           publish: Publicar
           title: Publique sua proposta
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta

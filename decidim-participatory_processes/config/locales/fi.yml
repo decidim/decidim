@@ -19,6 +19,7 @@ fi:
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Osallistumisprosessin konteksti
         participatory_structure: Osallistumisprosessin rakenne
+        private_space: Espace privé
         promoted: Korostettu
         published_at: Julkaistu
         scope_id: Konteksti
@@ -69,6 +70,8 @@ fi:
         duplicate: Kopioi
         edit: Muokkaa
         new: Uusi
+        participatory_process:
+          new: new participatory process
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen

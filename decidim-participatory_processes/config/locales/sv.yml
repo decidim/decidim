@@ -19,6 +19,7 @@ sv:
         participatory_process_group_id: Processgrupp
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
+        private_space: Espace privé
         promoted: främjas
         published_at: Publicerad på
         scope_id: Omfattning
@@ -69,6 +70,8 @@ sv:
         duplicate: Duplicera
         edit: Redigera
         new: Ny
+        participatory_process:
+          new: new participatory process
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen

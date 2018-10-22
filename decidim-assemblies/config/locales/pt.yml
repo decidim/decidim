@@ -76,6 +76,9 @@ pt:
         other: Funções de usuário de montagem
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembléia.

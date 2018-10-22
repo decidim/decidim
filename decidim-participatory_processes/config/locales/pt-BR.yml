@@ -19,6 +19,7 @@ pt-BR:
         participatory_process_group_id: Grupo de processos
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
+        private_space: Espace privé
         promoted: Destacado
         published_at: Publicado em
         scope_id: Âmbito
@@ -69,6 +70,8 @@ pt-BR:
         duplicate: Duplicar
         edit: Editar
         new: Novo
+        participatory_process:
+          new: new participatory process
         preview: Visualização
         publish: Publicar
         resend_invitation: Reenviar convite

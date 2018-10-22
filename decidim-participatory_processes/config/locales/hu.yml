@@ -19,6 +19,7 @@ hu:
         participatory_process_group_id: Folyamatok csoportja
         participatory_scope: Részvételi kör
         participatory_structure: Részvételi struktúra
+        private_space: Espace privé
         promoted: promotált
         published_at: Megjelent a
         scope_id: terület
@@ -69,6 +70,8 @@ hu:
         duplicate: Másolat
         edit: szerkesztése
         new: Új
+        participatory_process:
+          new: new participatory process
         preview: Előnézet
         publish: közzétesz
         resend_invitation: Meghívó újraküldése

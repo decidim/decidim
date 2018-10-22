@@ -54,6 +54,8 @@ eu:
   decidim:
     admin:
       actions:
+        consultation:
+          new: New consultation
         publish_results: Argitaratu emaitzak
         unpublish_results: Argitaratu emaitzak
       consultation_publications:

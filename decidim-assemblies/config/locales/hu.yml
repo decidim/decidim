@@ -76,6 +76,9 @@ hu:
         other: Összeszerelési felhasználói szerepek
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: Hiba történt új összeszerelés létrehozása közben.

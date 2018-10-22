@@ -289,7 +289,9 @@ sv:
             one: 1 förslag
             other: "%{count} förslag"
         edit:
+          address: Address
           back: Tillbaka
+          not_geocoded: Not geocoded
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
@@ -341,12 +343,15 @@ sv:
           random: Slumpmässig
           recent: Senaste
         preview:
+          address: 'Address : %{address}'
           modify: Ändra förslaget
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
             other: Du kommer att kunna redigera detta förslag under den första %{count} minuter efter att förslaget har publicerats. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Skapelse: %{date}'
           view_proposal: Visa förslag

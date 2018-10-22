@@ -289,7 +289,9 @@ eu:
             one: 1 proposamen
             other: "%{count} proposamen"
         edit:
+          address: Address
           back: Back
+          not_geocoded: Not geocoded
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Editatu proposamena
@@ -341,12 +343,15 @@ eu:
           random: Ausazkoa eran
           recent: Berrienak
         preview:
+          address: 'Address : %{address}'
           modify: Aldatu proposamena
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Proposamen hau argitaratu ondoren, lehenengo proposamena editatu ahal izango duzu. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
             other: Proposamen hau editatu ahal izango duzu lehenengo %{count} Proposamenaren ondoren argitaratutako minutuak. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
           publish: Argitaratu
           title: Argitaratu zure proposamena
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena

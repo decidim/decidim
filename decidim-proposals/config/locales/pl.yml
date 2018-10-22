@@ -299,7 +299,9 @@ pl:
             one: 1 propozycja
             other: "%{count} propozycje"
         edit:
+          address: Address
           back: Plecy
+          not_geocoded: Not geocoded
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Edytuj propozycję
@@ -353,7 +355,9 @@ pl:
           random: Losowy
           recent: Niedawny
         preview:
+          address: 'Address : %{address}'
           modify: Zmodyfikuj propozycję
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
@@ -361,6 +365,7 @@ pl:
             other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję

@@ -19,6 +19,7 @@ ru:
         participatory_process_group_id: Группа движений
         participatory_scope: Что решается
         participatory_structure: Как это решается
+        private_space: Espace privé
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         scope_id: Охват
@@ -75,6 +76,8 @@ ru:
         duplicate: Создать копию
         edit: Редактировать
         new: Добавить
+        participatory_process:
+          new: new participatory process
         preview: Предпросмотр
         publish: Обнародовать
         resend_invitation: Еще раз отправить приглашение

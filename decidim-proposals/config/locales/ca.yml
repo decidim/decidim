@@ -289,7 +289,9 @@ ca:
             one: 1 proposta
             other: "%{count} propostes"
         edit:
+          address: Address
           back: Enrere
+          not_geocoded: Not geocoded
           select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Editar proposta
@@ -341,12 +343,15 @@ ca:
           random: Aleatori
           recent: Recent
         preview:
+          address: 'Address : %{address}'
           modify: Modifica la proposta
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Podràs editar aquesta proposta durant el primer minut després de publicar la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
