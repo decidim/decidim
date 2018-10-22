@@ -18,6 +18,10 @@ module Decidim
       Decidim::DataPortabilitySerializers::DataPortabilityParticipatorySpacePrivateUserSerializer
     end
 
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ParticipatorySpacePrivateUserPresenter
+    end
+
     private
 
     # Private: check if the participatory space and the user have the same organization

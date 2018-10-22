@@ -42,6 +42,22 @@ module Decidim::Admin
         expect(Decidim::User.last).not_to be_admin
       end
 
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(
+            :create,
+            Decidim::ParticipatorySpacePrivateUser,
+            current_user,
+            resource: { title: user.name }
+          )
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_nil
+      end
+
       context "when there is no user with the given email" do
         let(:email) { "does_not_exist@example.com" }
 
