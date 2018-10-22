@@ -12,7 +12,7 @@
       <%= cell "decidim/user_group_pending_requests_list", user_group, context: { current_user: current_user } %>
       <section class="section">
         <p><%= t(".current_members_without_admins") %></p>
-        <%= cell "decidim/members", user_group, role: "member" %>
+        <%= cell "decidim/members", user_group, role: "member", from_admin: true %>
       </section>
     </div>
   </div>

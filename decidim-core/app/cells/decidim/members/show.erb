@@ -3,7 +3,7 @@
 </div>
 <div class="row small-up-1 medium-up-2 card-grid">
   <% memberships.each do |membership| %>
-    <%= cell "decidim/user_group_membership_profile", membership %>
+    <%= cell membership_cell_name, membership %>
   <% end %>
 </div>
 <%= decidim_paginate memberships %>

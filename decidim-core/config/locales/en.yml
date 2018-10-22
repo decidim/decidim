@@ -23,6 +23,7 @@ en:
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
+      decidim/removed_from_group: Removed from group
   activerecord:
     attributes:
       decidim/user:
@@ -362,6 +363,11 @@ en:
           email_outro: You have received this notification because your join request has been updated.
           email_subject: Your request to join the %{user_group_name} organization has been rejected!
           notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> organization has been rejected.
+        removed_from_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has removed you from it.
+          email_outro: You have received this notification because you were a member of that organization.
+          email_subject: You have been removed from the %{user_group_name} organization!
+          notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> organization.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -459,12 +465,19 @@ en:
       accept:
         error: There was an error accepting this join request
         success: Join request accepted successfully
+      actions:
+        are_you_sure: Are you sure?
+        promote_to_admin: Make admin
+        remove_from_group: Remove from organization
       index:
         current_members_without_admins: 'Current members (without admins):'
         manage_members: Manage members
       reject:
         error: There was an error rejecting this join request
         success: Join request rejected successfully
+      remove:
+        error: There was an error removeing this user from the group
+        success: User removed from the group successfully
     groups:
       create:
         error: There has been a problem creating the organization

@@ -61,7 +61,7 @@ Decidim::Core::Engine.routes.draw do
 
     resources :groups, except: [:destroy, :index, :show] do
       resources :join_requests, only: [:create, :update, :destroy], controller: "user_group_join_requests"
-      resources :users, only: [:index], controller: "group_members", as: "manage_users"
+      resources :users, only: [:index, :destroy], controller: "group_members", as: "manage_users"
     end
   end
 
