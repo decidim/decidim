@@ -43,6 +43,8 @@ module Decidim
         {
           title: form.title,
           slug: form.slug,
+          show_in_footer: form.show_in_footer,
+          weight: form.weight,
           content: form.content
         }
       end

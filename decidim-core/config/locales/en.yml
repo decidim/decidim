@@ -601,7 +601,7 @@ en:
       no_members: This user groups doesn't have any member yet.
     menu:
       home: Home
-      more_information: More information
+      help: Help
     messaging:
       conversation_mailer:
         new_conversation:
@@ -717,7 +717,7 @@ en:
         sub_hero:
           register: Register
       index:
-        title: More information
+        title: Help
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.

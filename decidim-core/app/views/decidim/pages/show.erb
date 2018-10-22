@@ -27,7 +27,7 @@ edit_link(
         <div class="columns medium-4 large-3">
           <div class="side-panel">
             <ul class="tabs vertical side-panel__tabs">
-              <% siblings.each do |sibling| %>
+              <% pages.each do |sibling| %>
                 <li class="tabs-title <%= page == sibling ? 'is-active' : nil %>">
                   <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), 'aria-selected': page == sibling %>
                 </li>

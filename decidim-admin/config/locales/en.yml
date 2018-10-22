@@ -83,8 +83,10 @@ en:
         changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization
+        show_in_footer: Show in the footer
         slug: URL slug
         title: Title
+        weight: Weight
     errors:
       models:
         oauth_application:

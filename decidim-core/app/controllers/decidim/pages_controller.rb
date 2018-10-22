@@ -5,7 +5,7 @@ module Decidim
   class PagesController < Decidim::ApplicationController
     layout "layouts/decidim/application"
 
-    helper_method :page, :siblings
+    helper_method :page, :pages
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
     skip_before_action :store_current_location
@@ -14,7 +14,7 @@ module Decidim
 
     def index
       enforce_permission_to :read, :public_page
-      @pages = current_organization.static_pages.sorted_by_i18n_title
+      redirect_to action: :show, id: pages.first.slug
     end
 
     def show
@@ -32,8 +32,8 @@ module Decidim
       request.format = :html
     end
 
-    def siblings
-      @siblings ||= current_organization.static_pages
+    def pages
+      @pages ||= current_organization.static_pages
     end
   end
 end
