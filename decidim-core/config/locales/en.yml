@@ -507,6 +507,8 @@ en:
         error: There was an error removing this user from the group
         success: User removed from the group successfully
     groups:
+      actions:
+        are_you_sure: Are you sure?
       create:
         error: There has been a problem creating the organization
         success: Organization created successfully
@@ -516,6 +518,9 @@ en:
       join:
         error: There has been a problem joining the organization
         success: Join request created successfully. An admin will review your request before accepting you to the organization.
+      leave:
+        error: There has been a problem leaving the organization
+        success: Organization left successfully.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
         accept_request: Accept
@@ -735,6 +740,7 @@ en:
         edit_profile: Edit profile
         edit_user_group: Edit organization profile
         join_user_group: Request to join organization
+        leave_user_group: Leave organization
         manage_user_group_admins: Manage admins
         manage_user_group_users: Manage members
     reported_mailer:
