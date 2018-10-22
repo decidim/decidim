@@ -51,6 +51,12 @@ describe "User group profile edition", type: :system do
       expect(page).to have_no_content(member.name)
     end
 
+    it "allows promoting a user" do
+      accept_confirm { click_link "Make admin" }
+      expect(page).to have_content("User promoted successfully")
+      expect(page).to have_no_content(member.name)
+    end
+
     context "with pending requests" do
       it "lists the pending requests" do
         within ".list-request" do

@@ -23,7 +23,8 @@ en:
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
-      decidim/removed_from_group: Removed from group
+      decidim/promote_to_admin: Promoted to organization admin
+      decidim/removed_from_group: Removed from organization
   activerecord:
     attributes:
       decidim/user:
@@ -363,6 +364,11 @@ en:
           email_outro: You have received this notification because your join request has been updated.
           email_subject: Your request to join the %{user_group_name} organization has been rejected!
           notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> organization has been rejected.
+        promoted_to_admin:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has given you admin rights to that organization.
+          email_outro: You have received this notification because you are a member of that organization.
+          email_subject: You are now an admin of the %{user_group_name} organization!
+          notification_title: You are now an admin of the <a href="%{resource_path}">%{user_group_name}</a> organization.
         removed_from_group:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has removed you from it.
           email_outro: You have received this notification because you were a member of that organization.
@@ -472,11 +478,14 @@ en:
       index:
         current_members_without_admins: 'Current members (without admins):'
         manage_members: Manage members
+      promote:
+        error: There was an error promoting this user
+        success: User promoted successfully
       reject:
         error: There was an error rejecting this join request
         success: Join request rejected successfully
       remove:
-        error: There was an error removeing this user from the group
+        error: There was an error removing this user from the group
         success: User removed from the group successfully
     groups:
       create:

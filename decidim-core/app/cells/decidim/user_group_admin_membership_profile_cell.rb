@@ -5,8 +5,6 @@ module Decidim
   # It includes links to manage the membership: promote/demote admin, remove
   # from group.
   class UserGroupAdminMembershipProfileCell < Decidim::UserGroupMembershipProfileCell
-    def user
-      model.user
-    end
+    delegate :user, to: :model
   end
 end
