@@ -60,13 +60,17 @@ gl:
           update:
             invalid: Houbo un problema ao actualizar este debate.
             success: Debate actualizado con éxito.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debate
       admin_log:
         debate:
           create: "%{user_name} creou o %{resource_name} debate sobre o espazo %{space_name}"
-          update: "%{user_name} actualizou o %{resource_name} debate sobre o espazo %{space_name}"
+          update: "%{user_name} actualizou o %{resource_name} debate sobre o espazo
+            %{space_name}"
       debates:
         count:
           debates_count:
@@ -112,22 +116,34 @@ gl:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Ola, creouse un novo debate sobre o espazo participativo %{space_title}, verifícalo e contribuír:'
-            email_outro: Recibiches esta notificación porque estás seguindo o %{space_title} espazo participativo. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_intro: 'Ola, creouse un novo debate sobre o espazo participativo
+              %{space_title}, verifícalo e contribuír:'
+            email_outro: Recibiches esta notificación porque estás seguindo o %{space_title}
+              espazo participativo. Podes deixar de recibir notificacións seguindo
+              a ligazón anterior.
             email_subject: Novo debate sobre %{space_title}
-            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado en <a href="%{space_path}">%{space_title}</a>.
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a>
+              debate foi creado en <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Ola, %{author_name} %{author_nickname}, a quen estás seguindo, creou un novo debate, revisádeo e contribuíu:'
-            email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_intro: 'Ola, %{author_name} %{author_nickname}, a quen estás seguindo,
+              creou un novo debate, revisádeo e contribuíu:'
+            email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}.
+              Podes deixar de recibir notificacións seguindo a ligazón anterior.
             email_subject: Novo debate por %{author_nickname}
-            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a>
+              debate foi creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
-          email_intro: 'A creación de debates xa non está activa en %{participatory_space_title}. Aínda podes participar nos debates abertos desta páxina:'
-          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_intro: 'A creación de debates xa non está activa en %{participatory_space_title}.
+            Aínda podes participar nos debates abertos desta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}.
+            Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Creación de debates desactivada en %{participatory_space_title}
           notification_title: A creación de debates agora está desactivada en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Agora podes comezar novos debates en %{participatory_space_title}. Comezar a participar nesta páxina:'
-          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_intro: 'Agora podes comezar novos debates en %{participatory_space_title}.
+            Comezar a participar nesta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}.
+            Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Os debates agora están dispoñibles en %{participatory_space_title}
-          notification_title: Agora podes comezar <a href="%{resource_path}">novos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Agora podes comezar <a href="%{resource_path}">novos
+            debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
