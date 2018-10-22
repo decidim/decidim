@@ -1,8 +1,9 @@
 .areachart{
   //common
   svg{
-    background-color: rgba($primary, .1);
+    background-color: darken($light-gray, 2.5);
     overflow: visible;
+    border-radius: 3px;
   }
 
   .title{
@@ -12,17 +13,17 @@
   }
 
   .area{
-    fill: lighten($primary, 25%);
+    fill: rgba($primary, .05);
   }
 
   .line{
     fill: none;
-    stroke: $primary;
+    stroke: rgba($primary, .2);
     stroke-width: 4px;
   }
 
   .circle{
-    fill: $primary;
+    fill: rgba($primary, .2);
   }
 
   .tick{
@@ -43,20 +44,16 @@
 
   @each $key, $value in $map{
     &.#{$key}{
-      svg{
-        background-color: rgba($value, .1);
-      }
-
       .area{
-        fill: lighten($value, 25%);
+        fill: rgba($value, .05);
       }
 
       .line{
-        stroke: $value;
+        stroke: rgba($value, .2);
       }
 
       .circle{
-        fill: $value;
+        fill: rgba($value, .2);
       }
     }
   }
