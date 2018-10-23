@@ -404,7 +404,9 @@ en:
             cancel: Cancel
             change_category: Change category
             merge: Merge into a new one
+            split: Split proposals
             merge_button: Merge
+            split_button: Split
             select_component: Select a component
             selected: selected
             title: Proposals
@@ -432,6 +434,10 @@ en:
           create:
             invalid: There was an error merging the selected proposals.
             success: Successfully merged the proposals into a new one.
+        proposals_splits:
+          create:
+            invalid: There was an error spliting the selected proposals.
+            success: Successfully splitted the proposals into new ones.
         shared:
           info_proposal:
             body: Body

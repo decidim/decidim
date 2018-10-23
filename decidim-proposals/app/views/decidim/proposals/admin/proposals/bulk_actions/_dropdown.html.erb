@@ -17,14 +17,19 @@
     data-events="resize">
     <ul class="list-reset">
       <li>
-        <button type="button" id="js-bulk-actions-recategorize">
+        <button type="button" data-action="recategorize-proposals">
           <%= t("decidim.proposals.admin.proposals.index.change_category") %>
         </button>
       </li>
       <% if current_component.siblings.any? %>
         <li>
-          <button type="button" id="js-bulk-actions-merge">
+          <button type="button" data-action="merge-proposals">
             <%= t("decidim.proposals.admin.proposals.index.merge") %>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-action="split-proposals">
+            <%= t("decidim.proposals.admin.proposals.index.split") %>
           </button>
         </li>
       <% end %>

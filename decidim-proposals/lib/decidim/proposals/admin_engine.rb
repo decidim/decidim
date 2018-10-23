@@ -15,6 +15,7 @@ module Decidim
           collection do
             resource :proposals_import, only: [:new, :create]
             resource :proposals_merge, only: [:create]
+            resource :proposals_split, only: [:create]
           end
           resources :proposal_answers, only: [:edit, :update]
           resources :proposal_notes, only: [:index, :create]
