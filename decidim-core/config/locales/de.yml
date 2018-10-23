@@ -17,11 +17,14 @@ de:
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
+      decidim/demoted_membership: Nicht mehr ein Organisationsadministrator
       decidim/gamification/badge_earned_event: Abzeichen verdient
       decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
+      decidim/promote_to_admin: Promoted zum Organisationsadministrator
+      decidim/removed_from_group: Aus der Organisation entfernt
   activerecord:
     attributes:
       decidim/user:
@@ -99,6 +102,9 @@ de:
         update: "%{user_name} hat die %{resource_name} OAuth-Anwendung aktualisiert"
       organization:
         update: "%{user_name} aktualisiert die Organisationseinstellungen"
+      participatory_space_private_user:
+        create: "%{user_name} lud %{resource_name} , ein privater Benutzer zu sein"
+        delete: "%{user_name} den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
         create_with_parent: "%{user_name} erstellte den %{resource_name} Bereich innerhalb des %{parent_scope} Bereichs"
@@ -342,6 +348,11 @@ de:
           email_subject: Du hast Level %{current_level} auf dem %{badge_name} Abzeichen erreicht!
           notification_title: Gut gemacht! Du hast Stufe %{current_level} auf dem <a href="%{resource_path}">%{badge_name} Abzeichen</a>!
       groups:
+        demoted_membership:
+          email_intro: Ein Administrator der Organisation <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Administratorrechte für diese Organisation entfernt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Organisation sind.
+          email_subject: Sie sind nicht mehr ein Administrator der %{user_group_name} Organisation!
+          notification_title: Sie sind nicht mehr ein Administrator der <a href="%{resource_path}">%{user_group_name}</a> Organisation.
         join_request_accepted:
           email_intro: Herzliche Glückwünsche! Ein Administrator der <a href="%{resource_url}">%{user_group_name}</a> Organisation hat Ihre Anfrage akzeptiert, der Organisation beizutreten.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanforderung aktualisiert wurde.
@@ -357,6 +368,16 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanforderung aktualisiert wurde.
           email_subject: Ihre Anfrage, der %{user_group_name} Organisation beizutreten, wurde abgelehnt!
           notification_title: Ihre Anfrage, der <a href="%{resource_path}">%{user_group_name}</a> Organisation beizutreten, wurde abgelehnt.
+        promoted_to_admin:
+          email_intro: Ein Administrator der Organisation <a href="%{resource_url}">%{user_group_name}</a> hat Ihnen Administratorrechte für diese Organisation erteilt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Organisation sind.
+          email_subject: Sie sind jetzt ein Administrator der %{user_group_name} Organisation!
+          notification_title: Sie sind jetzt ein Administrator der <a href="%{resource_path}">%{user_group_name}</a> Organisation.
+        removed_from_group:
+          email_intro: Ein Administrator der <a href="%{resource_url}">%{user_group_name}</a> Organisation hat Sie davon entfernt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Organisation waren.
+          email_subject: Sie wurden aus der %{user_group_name} Organisation entfernt!
+          notification_title: Sie wurden aus der <a href="%{resource_path}">%{user_group_name}</a> Organisation entfernt.
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -450,16 +471,36 @@ de:
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
+    group_admins:
+      actions:
+        are_you_sure: Bist du sicher? Dadurch wird der Benutzer nicht aus der Organisation entfernt.
+        demote_admin: Entferne Admin
+      demote:
+        error: Beim Entfernen dieses Benutzers ist ein Fehler in der Administratorliste aufgetreten
+        success: Benutzer wurde vom Administrator erfolgreich entfernt
+      index:
+        current_admins: 'Aktuelle Admins:'
+        manage_admins: Admins verwalten
     group_members:
       accept:
         error: Bei der Annahme dieser Verknüpfungsanfrage ist ein Fehler aufgetreten
         success: Beitrittsanfrage wurde erfolgreich angenommen
+      actions:
+        are_you_sure: Bist du sicher?
+        promote_to_admin: Machen Admin
+        remove_from_group: Benutzer entfernen
       index:
         current_members_without_admins: 'Aktuelle Mitglieder (ohne Admins):'
         manage_members: Mitglieder verwalten
+      promote:
+        error: Bei der Förderung dieses Benutzers ist ein Fehler aufgetreten
+        success: Benutzer wurde erfolgreich befördert
       reject:
         error: Beim Ablehnen dieser Beitrittsanfrage ist ein Fehler aufgetreten
         success: Beitrittsanfrage wurde erfolgreich abgelehnt
+      remove:
+        error: Beim Entfernen dieses Benutzers aus der Gruppe ist ein Fehler aufgetreten
+        success: Der Benutzer wurde erfolgreich aus der Gruppe entfernt
     groups:
       create:
         error: Beim Erstellen der Organisation ist ein Problem aufgetreten
@@ -469,7 +510,7 @@ de:
         update_user_group: Organisation aktualisieren
       join:
         error: Es ist ein Problem aufgetreten, der Organisation beizutreten
-        success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre erneute Anfrage, bevor er Sie für die Organisation akzeptiert.
+        success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Organisation akzeptiert.
       members:
         accept_or_reject_join_requests: 'Die folgenden Benutzer haben sich angemeldet, um dieser Gruppe beizutreten. Akzeptieren oder ablehnen ihrer Anfragen:'
         accept_request: Akzeptieren
@@ -478,6 +519,10 @@ de:
         create_user_group: Organisation erstellen
         new_user_group: Neue Organisation
       no_user_groups: Gehört noch keiner Organisation an.
+      roles:
+        admin: Administrator
+        creator: Schöpfer
+        member: Mitglied
       update:
         error: Beim Aktualisieren der Organisation ist ein Problem aufgetreten
         success: Die Organisation wurde erfolgreich aktualisiert
@@ -685,6 +730,7 @@ de:
         edit_profile: Profil bearbeiten
         edit_user_group: Organisationsprofil bearbeiten
         join_user_group: Antrag auf Beitritt zur Organisation
+        manage_user_group_admins: Admins verwalten
         manage_user_group_users: Mitglieder verwalten
     reported_mailer:
       hide:
