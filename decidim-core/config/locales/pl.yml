@@ -512,6 +512,8 @@ pl:
         error: Wystąpił błąd podczas usuwania tego użytkownika z grupy
         success: Użytkownik usunięty z grupy pomyślnie
     groups:
+      actions:
+        are_you_sure: Jesteś pewny?
       create:
         error: Podczas tworzenia organizacji wystąpił problem
         success: Organizacja została pomyślnie utworzona
@@ -521,6 +523,9 @@ pl:
       join:
         error: Wystąpił problem z dołączeniem do organizacji
         success: Żądanie dołączenia zostało pomyślnie utworzone. Administrator sprawdzi Twoją prośbę przed zaakceptowaniem Cię do organizacji.
+      leave:
+        error: Wystąpił problem z opuszczeniem organizacji
+        success: Organizacja została pomyślnie zakończona.
       members:
         accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
         accept_request: Zaakceptować
