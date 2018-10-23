@@ -319,7 +319,7 @@ fi:
           sign_up: Rekisteröidy maksutta ilmoittautuaksesi
       content_blocks:
         highlighted_conferences:
-          name: Korostetut konferenssit
+          name: Tärkeimmät konferenssit
       index:
         title: Konferenssit
       mailer:
