@@ -501,6 +501,8 @@ hu:
         error: Hiba történt a felhasználó eltávolításakor a csoportból
         success: A felhasználó sikeresen eltávolította a csoportot
     groups:
+      actions:
+        are_you_sure: biztos vagy ebben?
       create:
         error: Hiba történt a szervezet létrehozásában
         success: A szervezet sikeresen létrejött
@@ -510,6 +512,9 @@ hu:
       join:
         error: Probléma volt a szervezethez való csatlakozással
         success: A csatlakozási kérelem sikeresen létrehozva. A rendszergazda felülvizsgálja a kérelmet, mielőtt elfogadja a szervezetet.
+      leave:
+        error: Hiba történt a szervezet elhagyása után
+        success: A szervezet sikeresen megmaradt.
       members:
         accept_or_reject_join_requests: 'A következő felhasználók bejelentették, hogy csatlakozzanak ehhez a csoporthoz. A kérelmek elfogadása vagy elutasítása:'
         accept_request: Elfogad
@@ -729,6 +734,7 @@ hu:
         edit_profile: Profil szerkesztése
         edit_user_group: Szervezeti profil szerkesztése
         join_user_group: A szervezethez való csatlakozás iránti kérelem
+        leave_user_group: Hagyja el a szervezetet
         manage_user_group_admins: Adminisztrátorok kezelése
         manage_user_group_users: Tagok kezelése
     reported_mailer:
