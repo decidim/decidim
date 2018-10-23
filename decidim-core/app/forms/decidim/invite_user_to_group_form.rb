@@ -17,7 +17,7 @@ module Decidim
     private
 
     def clean_nickname
-      nickname.tr("@", "")
+      nickname.to_s.tr("@", "")
     end
 
     def user_exists
