@@ -10,25 +10,26 @@ module Decidim::Conferences
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:errors) { double.as_null_object }
-    let(:participatory_processes) do
+    let!(:participatory_processes) do
       create_list(
         :participatory_process,
         3,
         organization: organization
       )
     end
-    let(:assemblies) do
+    let!(:assemblies) do
       create_list(
         :assembly,
         3,
         organization: organization
       )
     end
-    let(:consultations) do
+    let(:consultation) { create :consultation, organization: organization}
+    let!(:questions) do
       create_list(
-        :consultation,
+        :question,
         3,
-        organization: organization
+        consultation: consultation
       )
     end
     let(:form) do
@@ -59,7 +60,7 @@ module Decidim::Conferences
         registration_terms: { en: "registrations terms" },
         participatory_processes_ids: participatory_processes.map(&:id),
         assemblies_ids: assemblies.map(&:id),
-        consultations_ids: consultations.map(&:id)
+        consultations_ids: questions.collect(&:consultation).uniq
       )
     end
     let(:invalid) { false }
@@ -143,7 +144,7 @@ module Decidim::Conferences
       it "links consultations" do
         subject.call
         linked_consultations = conference.linked_participatory_space_resources("Consultations", "included_consultations")
-        expect(linked_consultations).to match_array(consultations)
+        expect(linked_consultations).to match_array(questions.collect(&:consultation).uniq)
       end
     end
   end

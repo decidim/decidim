@@ -21,11 +21,12 @@ module Decidim::Conferences
           organization: my_conference.organization
         )
       end
-      let!(:consultations) do
+      let(:consultation) { create :consultation, organization: my_conference.organization}
+      let!(:questions) do
         create_list(
-          :consultation,
+          :question,
           3,
-          organization: my_conference.organization
+          consultation: consultation
         )
       end
 
@@ -64,7 +65,7 @@ module Decidim::Conferences
             registration_terms: my_conference.registration_terms,
             participatory_processes_ids: participatory_processes.map(&:id),
             assemblies_ids: assemblies.map(&:id),
-            consultations_ids: consultations.map(&:id)
+            consultations_ids: questions.collect(&:consultation).uniq
           }
         }
       end
@@ -155,7 +156,7 @@ module Decidim::Conferences
         it "links consultations" do
           subject.call
           linked_consultations = my_conference.linked_participatory_space_resources("Consultations", "included_consultations")
-          expect(linked_consultations).to match_array(consultations)
+          expect(linked_consultations).to match_array(questions.collect(&:consultation).uniq)
         end
 
         context "when no homepage image is set" do
