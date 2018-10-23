@@ -48,7 +48,7 @@ fi:
         other: Yhteistyöluonnokset
       decidim/proposals/proposal:
         one: Ehdotus
-        other: ehdotukset
+        other: Ehdotukset
       decidim/proposals/proposal_endorsement:
         one: Suositus
         other: Suositukset
@@ -586,7 +586,7 @@ fi:
           see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertaile
-          step_3: Valmis
+          step_3: Viimeistele
           step_4: Julkaise ehdotuksesi
           step_of: Vaihe %{current_step_num} / %{total_steps}
       publish:

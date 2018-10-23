@@ -31,7 +31,7 @@ fi:
         is_transparent: On läpinäkyvä
         local_area: Organisaatioalue
         meta_scope: Teeman metadata
-        parent_id: Liittyvä kehitysryhmä
+        parent_id: Liittyvä ryhmä
         participatory_processes_ids: Liittyvät osallistumisprosessit
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
@@ -66,24 +66,24 @@ fi:
   activerecord:
     models:
       decidim/assembly:
-        one: Kehitysryhmä
-        other: Kehitysryhmät
+        one: Ryhmä
+        other: Ryhmät
       decidim/assembly_member:
-        one: Kehitysryhmän jäsen
-        other: Kehitysryhmän jäsenet
+        one: Ryhmän jäsen
+        other: Ryhmän jäsenet
       decidim/assembly_user_role:
-        one: Kehitysryhmän käyttäjärooli
-        other: Kehitysryhmän käyttäjäroolit
+        one: Ryhmän käyttäjärooli
+        other: Ryhmän käyttäjäroolit
   decidim:
     admin:
       actions:
-        new_assembly: Uusi kehitysryhmä
+        new_assembly: Uusi ryhmä
       assemblies:
         create:
-          error: Virhe luotaessa uutta kehitysryhmää.
-          success: Kehitysryhmän luonti onnistui.
+          error: Virhe luotaessa uutta ryhmää.
+          success: Ryhmän luonti onnistui.
         destroy:
-          success: Kehitysryhmä poistettu onnistuneesti.
+          success: Ryhmä poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -95,64 +95,64 @@ fi:
           published: Julkaistu
         new:
           create: Luo
-          title: Uusi kehitysryhmä
+          title: Uusi ryhmä
         update:
-          error: Kehitysryhmää päivitettäessä tapahtui virhe.
-          success: Kehitysryhmä päivitettiin onnistuneesti.
+          error: Ryhmän päivityksessä tapahtui virhe.
+          success: Ryhmä päivitettiin onnistuneesti.
       assemblies_copies:
         create:
-          error: Virhe kopioitaessa kehitysryhmää.
-          success: Kehitysryhmä kopioitu onnistuneesti.
+          error: Virhe kopioitaessa ryhmää.
+          success: Ryhmä kopioitu onnistuneesti.
       assembly_copies:
         new:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi kehitysryhmä
+          title: Kopioi ryhmä
       assembly_members:
         create:
-          error: Jäsenen lisääminen kehitysryhmään ei onnistunut.
-          success: Jäsen lisättiin onnistuneesti kehitysryhmään.
+          error: Jäsenen lisääminen ryhmään ei onnistunut.
+          success: Jäsen lisättiin onnistuneesti ryhmään.
         destroy:
-          success: Jäsen poistettiin onnistuneesti kehitysryhmästä.
+          success: Jäsen poistettiin onnistuneesti ryhmästä.
         edit:
-          title: Päivitä kehitysryhmän jäsenen tietoja.
+          title: Päivitä ryhmän jäsenen tietoja.
           update: Päivittää
         index:
-          assembly_members_title: Edustajat
+          assembly_members_title: Ryhmän jäsenet
         new:
           create: Luoda
-          title: Uusi kehitysryhmän jäsen.
+          title: Uusi ryhmän jäsen.
         update:
-          error: Kehitysryhmän jäsenen päivityksessä tapahtui virhe.
-          success: Kehitysryhmän jäsenen tiedot päivitettiin onnistuneesti.
+          error: Ryhmän jäsenen päivityksessä tapahtui virhe.
+          success: Ryhmän jäsenen tiedot päivitettiin onnistuneesti.
       assembly_publications:
         create:
-          error: Kehitysryhmän julkaisussa tapahtui virhe.
-          success: Kehitysryhmä julkaistiin onnistuneesti.
+          error: Ryhmän julkaisussa tapahtui virhe.
+          success: Ryhmä julkaistiin onnistuneesti.
         destroy:
-          error: Kehitysryhmän julkaisun perumisessa tapahtui virhe.
-          success: Kehitysryhmän julkaisu lopetettu onnistuneesti.
+          error: Ryhmän julkaisun perumisessa tapahtui virhe.
+          success: Ryhmän julkaisu lopetettu onnistuneesti.
       assembly_user_roles:
         create:
-          error: Virhe lisätessä käyttäjää tälle kehitysryhmälle.
-          success: Käyttäjä lisätty onnistuneesti kehitysryhmään.
+          error: Virhe lisätessä käyttäjää tälle ryhmälle.
+          success: Käyttäjä lisätty onnistuneesti ryhmään.
         destroy:
-          success: Käyttäjä poistettiin onnistuneesti kehitysryhmästä.
+          success: Käyttäjä poistettiin onnistuneesti ryhmästä.
         edit:
-          title: Päivitä kehitysryhmän käyttäjän tietoja.
+          title: Päivitä ryhmän käyttäjän tietoja.
           update: Päivitä
         index:
-          assembly_admins_title: Kehitysryhmän käyttäjät
+          assembly_admins_title: Ryhmän käyttäjät
         new:
           create: Luo
-          title: Uusi kehitysryhmän käyttäjä.
+          title: Uusi ryhmän käyttäjä.
         update:
-          error: Kehitysryhmän käyttäjän päivityksessä tapahtui virhe.
-          success: Kehitysryhmän käyttäjä päivitetty onnistuneesti.
+          error: Ryhmän käyttäjän päivityksessä tapahtui virhe.
+          success: Ryhmän käyttäjä päivitetty onnistuneesti.
       menu:
         assemblies: Kehitysryhmät
         assemblies_submenu:
-          assembly_admins: Kehitysryhmän käyttäjät
+          assembly_admins: Ryhmän käyttäjät
           assembly_members: Jäsenet
           attachment_collections: Kansiot
           attachment_files: Tiedostot
@@ -170,7 +170,7 @@ fi:
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
-          name: Kehitysryhmä
+          name: Ryhmä
         assembly_member:
           fields:
             ceased_date: Päättymispäivä
@@ -188,7 +188,7 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Kehitysryhmän käyttäjä
+          name: Ryhmän käyttäjä
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
@@ -197,18 +197,18 @@ fi:
         assemblies: Kehitysryhmät
     admin_log:
       assembly:
-        create: "%{user_name} loi %{resource_name} kehitysryhmän"
-        publish: "%{user_name} julkaisi %{resource_name} kehitysryhmän"
-        unpublish: "%{user_name} lopetti %{resource_name} kehitysryhmän julkaisemisen"
-        update: "%{user_name} päivitti %{resource_name} kehitysryhmän"
+        create: "%{user_name} loi %{resource_name} ryhmän"
+        publish: "%{user_name} julkaisi %{resource_name} ryhmän"
+        unpublish: "%{user_name} lopetti %{resource_name} ryhmän julkaisemisen"
+        update: "%{user_name} päivitti %{resource_name} ryhmän"
       assembly_member:
-        create: "%{user_name} loi %{resource_name} jäsenen %{space_name} kehitysryhmässä"
-        delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} kehitysryhmästä"
+        create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
+        delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} ryhmästä"
         update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
         delete: "%{user_name} poisti käyttäjän %{resource_name} %{space_name} ryhmästä"
-        update: "%{user_name} muutti %{resource_name}: n roolia %{space_name} ryhmässä"
+        update: "%{user_name} muutti %{resource_name} roolia %{space_name} ryhmässä"
     assemblies:
       admin:
         assemblies:
@@ -219,11 +219,11 @@ fi:
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
             select_parent_assembly: Valitse pääryhmä
-            slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
         assembly_copies:
           form:
-            slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
             existing_user: Olemassa oleva käyttäjä
@@ -285,7 +285,7 @@ fi:
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
-        private_space: Tämä on yksityinen kehitysryhmä
+        private_space: Tämä on yksityinen ryhmä
         purpose_of_action: Toiminnan tarkoitus
         read_less: Vähennä tekstiä
         read_more: Lue lisää
@@ -317,7 +317,7 @@ fi:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Kehitysryhmää ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Ryhmää ei löytynyt tietokannasta (ID: %{id})'
     menu:
       assemblies: Kehitysryhmät
   errors:
@@ -332,14 +332,14 @@ fi:
           promoted_assemblies: Korostetut kehitysryhmät
         order_by_assemblies:
           assemblies:
-            one: "%{count} kehitysryhmä"
-            other: "%{count} kehitysryhmää"
+            one: "%{count} ryhmä"
+            other: "%{count} ryhmää"
         promoted_assembly:
           more_info: Lisätiedot
           take_part: Osallistu
       assembly_header:
         assembly_member_menu_item: Jäsenet
-        assembly_menu_item: Kehitysryhmä
+        assembly_menu_item: Ryhmä
         unfold: Avaa
       assembly_widgets:
         show:
