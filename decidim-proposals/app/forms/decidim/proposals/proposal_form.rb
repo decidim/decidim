@@ -32,7 +32,7 @@ module Decidim
       delegate :categories, to: :current_component
 
       def geocodable
-        Decidim.geocoder.present? && self.has_address? && address_has_changed?
+        Decidim.geocoder.present? && has_address? && address_has_changed?
       end
 
       def address_has_changed?
