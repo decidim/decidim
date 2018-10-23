@@ -24,7 +24,7 @@ module Decidim::Conferences
         organization: organization
       )
     end
-    let(:consultation) { create :consultation, organization: organization}
+    let(:consultation) { create :consultation, organization: organization }
     let!(:questions) do
       create_list(
         :question,
