@@ -17,11 +17,14 @@ nl:
     models:
       decidim/attachment_created_event: gehechtheid
       decidim/component_published_event: Actieve component
+      decidim/demoted_membership: Niet langer een organisatiebeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
       decidim/gamification/level_up_event: Je bent genivelleerd
       decidim/join_request_accepted_event: Aanvragen geaccepteerd
       decidim/join_request_rejected_event: Deelnemen aan verzoek afgewezen
       decidim/profile_updated_event: Profiel geüpdatet
+      decidim/promote_to_admin: Gepromoveerd tot organisatiebeheerder
+      decidim/removed_from_group: Verwijderd uit de organisatie
   activerecord:
     attributes:
       decidim/user:
@@ -99,6 +102,9 @@ nl:
         update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
         update: "%{user_name} de organisatie-instellingen bijgewerkt"
+      participatory_space_private_user:
+        create: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
+        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd als privégebruiker"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
@@ -342,6 +348,11 @@ nl:
           email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
           notification_title: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
       groups:
+        demoted_membership:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> organisatie heeft uw beheerdersrechten voor die organisatie verwijderd.
+          email_outro: U hebt deze melding ontvangen omdat u lid bent van die organisatie.
+          email_subject: U bent niet langer een beheerder van de %{user_group_name} organisatie!
+          notification_title: U bent niet langer een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> organisatie.
         join_request_accepted:
           email_intro: Gefeliciteerd! Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> organisatie heeft uw verzoek om hieraan deel te nemen geaccepteerd.
           email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
@@ -357,6 +368,16 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
           email_subject: Uw aanvraag om lid te worden van de organisatie %{user_group_name} is afgewezen!
           notification_title: Uw aanvraag om lid te worden van de organisatie <a href="%{resource_path}">%{user_group_name}</a> is afgewezen.
+        promoted_to_admin:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> organisatie heeft u beheerdersrechten verleend aan die organisatie.
+          email_outro: U hebt deze melding ontvangen omdat u lid bent van die organisatie.
+          email_subject: U bent nu een beheerder van de %{user_group_name} organisatie!
+          notification_title: U bent nu een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> organisatie.
+        removed_from_group:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> organisatie heeft je ervan verwijderd.
+          email_outro: U hebt deze melding ontvangen omdat u lid was van die organisatie.
+          email_subject: U bent verwijderd uit de %{user_group_name} organisatie!
+          notification_title: U bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> organisatie.
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -450,16 +471,36 @@ nl:
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
+    group_admins:
+      actions:
+        are_you_sure: Weet je het zeker? Hiermee wordt de gebruiker niet uit de organisatie verwijderd.
+        demote_admin: Verwijder admin
+      demote:
+        error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de beheerderslijst
+        success: Gebruiker is met succes van de beheerder verwijderd
+      index:
+        current_admins: 'Huidige beheerders:'
+        manage_admins: Beheer beheerders
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
         success: Deelnemen aan een succesvol geaccepteerd verzoek
+      actions:
+        are_you_sure: Weet je het zeker?
+        promote_to_admin: Beheerder maken
+        remove_from_group: Gebruiker verwijderen
       index:
         current_members_without_admins: 'Huidige leden (zonder beheerders):'
         manage_members: Leden beheren
+      promote:
+        error: Er is een fout opgetreden bij het promoten van deze gebruiker
+        success: Gebruiker met succes gepromoveerd
       reject:
         error: Er is een fout opgetreden bij het afwijzen van dit deelnameverzoek
         success: Verzoek om samenvoeging succesvol afgewezen
+      remove:
+        error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de groep
+        success: Gebruiker met succes uit de groep verwijderd
     groups:
       create:
         error: Er is een probleem opgetreden bij het maken van de organisatie
@@ -469,7 +510,7 @@ nl:
         update_user_group: Update de organisatie
       join:
         error: Er is een probleem opgetreden bij de organisatie
-        success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder beoordeelt uw verzoek voordat u wordt geaccepteerd door de organisatie.
+        success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u wordt geaccepteerd door de organisatie.
       members:
         accept_or_reject_join_requests: 'De volgende gebruikers hebben zich aangemeld om lid te worden van deze groep. Aanvaard of verwerp hun verzoeken:'
         accept_request: Aanvaarden
@@ -478,6 +519,10 @@ nl:
         create_user_group: Maak een organisatie
         new_user_group: Nieuwe organisatie
       no_user_groups: Is nog geen lid van een organisatie.
+      roles:
+        admin: Beheerder
+        creator: Schepper
+        member: Lid
       update:
         error: Er is een probleem opgetreden bij het updaten van de organisatie
         success: Organisatie is succesvol bijgewerkt
@@ -685,6 +730,7 @@ nl:
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk organisatieprofiel
         join_user_group: Verzoek om lid te worden van de organisatie
+        manage_user_group_admins: Beheer beheerders
         manage_user_group_users: Leden beheren
     reported_mailer:
       hide:
