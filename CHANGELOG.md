@@ -4,7 +4,7 @@
 
 **Upgrade notes**:
 
-- **Metrics**: See [metrics docs](/docs/metrics.md)
+- **Metrics**: See [metrics docs](/docs/advanced/metrics.md)
 
 - **Newsletter OptIn migration**: *Only for upgrades from 0.13 version* With the 0.13 version, User's field `newsletter_notifications_at` could had not been correctly filled for subscribed users with `ChangeNewsletterNotificationTypeValue` migration. To solve it, and in case you have an updated list of old subscribed users, you could execute the following command in Rails console.
 
@@ -14,6 +14,9 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Added**:
 
+- **decidim-conferences**: Apply new design for Conference Program [#4271](https://github.com/decidim/decidim/pull/4271)
+- **decidim-proposals**: Administration panel related implementation of Participatory Texts. [#4229](https://github.com/decidim/decidim/pull/4229)
+- **decidim-conferences**: Add Partners to Conference. [\#4251](https://github.com/decidim/decidim/pull/4251)
 - **decidim-conferences**: Apply new design for Conferences [#4194](https://github.com/decidim/decidim/pull/4194)
 - **decidim-conferences**: Added Conferences as a Participatory Space. This module is a configurator and generator of Conference pages, understood as a collection of Meeting. [\#3781](https://github.com/decidim/decidim/pull/3781)
 - **decidim-meetings**: Apply hashtags to meetings [\#4080](https://github.com/decidim/decidim/pull/4080)
@@ -43,6 +46,11 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Badges can now be disabled per organization. [\#4249](https://github.com/decidim/decidim/pull/4249)
 - **decidim-core**: Adds a "Continuity" badge. [\#4257](https://github.com/decidim/decidim/pull/4257)
 - **decidim-core**: Add activity feed content block and page. [\#4130](https://github.com/decidim/decidim/pull/4130)
+- **decidim-core**: Allow user to sign-in without confirming their email. [\#4269](https://github.com/decidim/decidim/pull/4269)
+- **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
+- **decidim-core**: Added metrics visualization for Assemblies, ParticipatoryProcesses, Results (Accountability), Comments, and Meetings [\#36042283](https://github.com/decidim/decidim/pull/4228)
+- **decidim-core**: Let admins and creators edit the user group profile [\#4283](https://github.com/decidim/decidim/pull/4283)
+- **decidim-core**: User groups can also have badges. [\#4310](https://github.com/decidim/decidim/pull/4310)
 
 **Changed**:
 
@@ -52,9 +60,14 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Allow users to enter date fields manually. [\#3724](https://github.com/decidim/decidim/pull/3724)
 - **decidim-core**: Merge Users and UserGroups DB tables [\#4196](https://github.com/decidim/decidim/pull/4196)
 - **decidim-core**: Move user group creation to user profile [\#4256](https://github.com/decidim/decidim/pull/4256)
+- **decidim-core**: Make authors polymorphic [\#4282](https://github.com/decidim/decidim/pull/4282)
+- **decidim-core**: Don't allow weird characters in names and nicknames [\#4317](https://github.com/decidim/decidim/pull/4317)
 
 **Fixed**:
 
+- **decidim-admin**: Adds traceability when creating and deleting Participatory Space private user [\#4332](https://github.com/decidim/decidim/pull/4332)
+- **decidim-proposals**: Rework URL_REGEX regular expression so that it is more restrictive for general URIs causing problems with Scandinavian locales. [\4290](https://github.com/decidim/decidim/pull/4290)
+- **decidim-accountability**: Fix inclusion of ApplicationHelper in results controller. [\#4272](https://github.com/decidim/decidim/pull/4272)
 - **decidim-admin**: Add email validation to ManagedUserPromotionForm. [\#4225](https://github.com/decidim/decidim/pull/4225)
 - **decidim-surveys**: Fix issue when copying. [\#4274](https://github.com/decidim/decidim/pull/4274)
 - **decidim-proposals**: Fix uncatched exception when trying to retrieve a Proposal from an invalid url match. [\4157](https://github.com/decidim/decidim/pull/4157)
@@ -70,10 +83,17 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-admin**: Don't list deleted users at officialized list. [\#4139](https://github.com/decidim/decidim/pull/4139)
 - **decidim-participayory_processes**: Copy categories and subcategories to the new process. [\#4143](https://github.com/decidim/decidim/pull/4143)
 - **decidim-participayory_processes**: Fix Internet Explorer 11 related issues in process filtering. [\#4166](https://github.com/decidim/decidim/pull/4166)
+- **decidim-core**: Don't crash when showing the edit link for a component that does not have an admin engine [\#4318](https://github.com/decidim/decidim/pull/4318)
+- **decidim-core**: Update conversations on each new message, so conversations list always shows the most recently active one on top [\#4329](https://github.com/decidim/decidim/pull/4329)
+- **decidim-core**: Don't send emails to deleted users [\#4324](https://github.com/decidim/decidim/pull/4324)
 - **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4198)
 - **decidim-core**: Hide weird flash message [\#4235](https://github.com/decidim/decidim/pull/4235)
 - **decidim-core**: Fix newsletter subscription checkbox always being unchecked [\#4238](https://github.com/decidim/decidim/pull/4238)
+- **decidim-core**: Don't error when the meeting registrations are updated with invalid data [\#4319](https://github.com/decidim/decidim/pull/4319)
 - **decidim-core**: Thread safe locale switching [\#4237](https://github.com/decidim/decidim/pull/4237)
+- **decidim-core**: Don't crash when given wrong format at pages [\#4314](https://github.com/decidim/decidim/pull/4314)
+- **decidim-initiatives**: Fix initiative search with multiple types [\#4322](https://github.com/decidim/decidim/pull/4322)
+- **decidim-debates**: Fix debate search with categories [\4313](https://github.com/decidim/decidim/pull/4313)
 
 **Removed**:
 

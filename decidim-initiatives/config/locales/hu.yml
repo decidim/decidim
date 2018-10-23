@@ -333,6 +333,8 @@ hu:
         status_change_for: A(z) %{title} kezdeményezés állapota változott
         technical_validation_body_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
         technical_validation_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
+      last_activity:
+        new_initiative: Új kezdeményezés
       pages:
         home:
           highlighted_initiatives:

@@ -171,7 +171,9 @@ ignore_unused:
   - decidim.conferences.pages.home.highlighted_conferences.*
   - decidim.conferences.conference_speaker.*
   - decidim.conferences.statistics.*
+  - decidim.proposals.admin.participatory_texts.sections.*
   - decidim.gamification.badges.*
+  - decidim.groups.roles.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

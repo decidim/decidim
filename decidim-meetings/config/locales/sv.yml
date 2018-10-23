@@ -313,6 +313,8 @@ sv:
             search: Sök
             space_type: Deltagande utrymme
             upcoming: kommande
+      last_activity:
+        new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

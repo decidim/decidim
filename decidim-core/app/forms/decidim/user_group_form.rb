@@ -30,37 +30,49 @@ module Decidim
     private
 
     def unique_document_number
-      errors.add :document_number, :taken if UserGroup.with_document_number(
-        context.current_organization,
-        document_number
-      ).present?
+      errors.add :document_number, :taken if UserGroup
+                                             .with_document_number(
+                                               context.current_organization,
+                                               document_number
+                                             )
+                                             .where.not(id: id)
+                                             .present?
     end
 
     def unique_email
-      return true if Decidim::UserBaseEntity.where(
-        organization: context.current_organization,
-        email: email
-      ).empty?
+      return true if Decidim::UserBaseEntity
+                     .where(
+                       organization: context.current_organization,
+                       email: email
+                     )
+                     .where.not(id: id)
+                     .empty?
 
       errors.add :email, :taken
       false
     end
 
     def unique_name
-      return true if Decidim::UserBaseEntity.where(
-        organization: context.current_organization,
-        name: name
-      ).empty?
+      return true if Decidim::UserBaseEntity
+                     .where(
+                       organization: context.current_organization,
+                       name: name
+                     )
+                     .where.not(id: id)
+                     .empty?
 
       errors.add :name, :taken
       false
     end
 
     def unique_nickname
-      return true if Decidim::UserBaseEntity.where(
-        organization: context.current_organization,
-        nickname: nickname
-      ).empty?
+      return true if Decidim::UserBaseEntity
+                     .where(
+                       organization: context.current_organization,
+                       nickname: nickname
+                     )
+                     .where.not(id: id)
+                     .empty?
 
       errors.add :nickname, :taken
       false

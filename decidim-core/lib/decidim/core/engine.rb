@@ -15,12 +15,7 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "active_link_to"
-
-# Until https://github.com/andypike/rectify/pull/45 is attended, we're shipping
-# with a patched version of rectify
 require "rectify"
-require "decidim/rectify_ext"
-
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
@@ -287,7 +282,8 @@ module Decidim
         Decidim.metrics_registry.register(
           :users,
           "Decidim::Metrics::UsersMetricManage",
-          Decidim::MetricRegistry::HIGHLIGHTED
+          Decidim::MetricRegistry::HIGHLIGHTED,
+          1
         )
       end
 

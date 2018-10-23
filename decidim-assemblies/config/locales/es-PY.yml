@@ -261,6 +261,8 @@ es-PY:
         public: Público
       index:
         title: Asambleas
+      last_activity:
+        new_assembly: Nueva asamblea
       pages:
         home:
           highlighted_assemblies:

@@ -261,6 +261,8 @@ pt-BR:
         public: Público
       index:
         title: Assembleias
+      last_activity:
+        new_assembly: Nova montagem
       pages:
         home:
           highlighted_assemblies:

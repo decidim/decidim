@@ -313,6 +313,8 @@ pt-BR:
             search: Pesquisa
             space_type: Espaço participativo
             upcoming: próximos
+      last_activity:
+        new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

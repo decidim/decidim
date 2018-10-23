@@ -146,6 +146,24 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
+
+      context "with weird characters" do
+        let(:weird_characters) do
+          %w(< > ? % & ^ * # @ ( ) [ ] = + : ; " { } \ |)
+        end
+
+        it "doesn't allow them" do
+          weird_characters.each do |character|
+            user = build(:user)
+            user.name = user.name.insert(rand(0..user.name.length), character)
+            user.nickname = user.nickname.insert(rand(0..user.nickname.length), character)
+
+            expect(user).not_to be_valid
+            expect(user.errors[:name].length).to eq(1)
+            expect(user.errors[:nickname].length).to eq(1)
+          end
+        end
+      end
     end
 
     describe "validation scopes" do

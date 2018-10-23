@@ -446,6 +446,8 @@ gl:
       destroy_draft:
         error: Produciuse un erro ao eliminar o borrador da proposta.
         success: O borrador da proposta eliminouse con éxito.
+      last_activity:
+        new_proposal_at_html: "<span>Nova proposta en %{link}</span>"
       models:
         collaborative_draft:
           fields:

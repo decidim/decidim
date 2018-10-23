@@ -14,9 +14,6 @@ fr:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
-        user_group_document_number: Numéro d'identification de l'organisation
-        user_group_name: Nom de l'organisation
-        user_group_phone: Téléphone de l'organisation
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -32,9 +29,6 @@ fr:
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
-        user_group_document_number: Numéro de document de l'organisation
-        user_group_name: Nom de l'organisation
-        user_group_phone: Téléphone de l'organisation
     models:
       decidim/user:
         one: Utilisateur
@@ -52,6 +46,7 @@ fr:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ fr:
           invalid_field: "%{field} valeur %{value} n'est pas valide."
           ok: D'accord
           title: Non autorisé
+        unconfirmed:
+          confirmation_instructions: 'Si vous n''avez pas reçu les instructions de confirmation, vous pouvez les demander à nouveau:'
+          explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
+          request_confirmation_instructions: Demander des instructions de confirmation
+          title: confirmez votre email
     collapsible_list:
       hidden_elements_count:
         one: et 1 de plus
@@ -219,6 +219,10 @@ fr:
       html:
         html_content: Contenu HTML
         name: Bloc HTML
+      last_activity:
+        name: Dernière Activité
+        title: Dernière Activité
+        view_all: Voir tout
       metrics:
         name: Mesures d'organisation
       stats:
@@ -257,8 +261,6 @@ fr:
           sign_up: S'inscrire
           sign_up_as:
             legend: S'inscrire en tant que
-            user: Individu
-            user_group: Organisation / Collectif
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: les termes et conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
@@ -430,7 +432,13 @@ fr:
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
     groups:
-      no_user_groups: N'appartient pas encore à un groupe d'utilisateurs.
+      create:
+        error: Il y a eu un problème pour créer l'organisation
+        success: Organisation créée avec succès
+      new:
+        create_user_group: Créer une organisation
+        new_user_group: Nouvelle organisation
+      no_user_groups: N'appartient à aucune organisation pour le moment.
     invitations:
       create:
         error: Il y a eu un problème en invitant vos amis
@@ -443,6 +451,13 @@ fr:
         invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
         invite: Inviter
         visit_your_profile: Consultez votre profil
+    last_activities:
+      activities:
+        no_activities_warning: Aucune activité
+      all: Tous les types d'activité
+      index:
+        last_activity: Dernière Activité
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} a créé %{resource_name}"
@@ -616,7 +631,7 @@ fr:
         conversations: Conversations
         followers: Abonnés
         following: Est abonné à
-        groups: Groupes
+        groups: Les organisations
         members: Membres
         notifications: Notifications
       sidebar:
@@ -624,6 +639,7 @@ fr:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
+        create_user_group: Créer une organisation
         edit_profile: Mettre à jour le profil
     reported_mailer:
       hide:
@@ -708,7 +724,6 @@ fr:
       not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
-      unconfirmed: Vous devez confirmer votre adresse e-mail avant de continuer.
     invitations:
       edit:
         header: Terminer la création de votre compte

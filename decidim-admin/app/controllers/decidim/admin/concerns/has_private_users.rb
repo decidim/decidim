@@ -48,11 +48,18 @@ module Decidim
           def destroy
             @private_user = collection.find(params[:id])
             enforce_permission_to :destroy, :space_private_user, private_user: @private_user
-            @private_user.destroy!
 
-            flash[:notice] = I18n.t("participatory_space_private_users.destroy.success", scope: "decidim.admin")
+            DestroyParticipatorySpacePrivateUser.call(@private_user, current_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_space_private_users.destroy.success", scope: "decidim.admin")
+                redirect_to after_destroy_path
+              end
 
-            redirect_to after_destroy_path
+              on(:invalid) do
+                flash.now[:alert] = I18n.t("participatory_space_private_users.destroy.error", scope: "decidim.admin")
+                render template: "decidim/admin/participatory_space_private_users/index"
+              end
+            end
           end
 
           def resend_invitation

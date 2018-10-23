@@ -100,6 +100,8 @@ hu:
           close_window: Ablak bezárása
           share: Megosztás
           share_link: Link megosztása
+      last_activity:
+        new_debate_at_html: "<span>Új vita %{link}</span>"
       models:
         debate:
           fields:

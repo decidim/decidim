@@ -313,6 +313,8 @@ gl:
             search: Busca
             space_type: Espazo participativo
             upcoming: Próximos
+      last_activity:
+        new_meeting_at_html: "<span>Nova reunión en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

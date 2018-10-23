@@ -9,6 +9,7 @@ FactoryBot.define do
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
     component { build(:component, manifest_name: "debates") }
+    author { component.try(:organization) }
 
     trait :open_ama do
       start_time { 1.day.ago }

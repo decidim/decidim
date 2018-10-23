@@ -5,10 +5,10 @@ module Decidim
     include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
 
-    delegate :current_user, to: :controller
-
-    def profile_holder
-      model
+    def available_badges
+      Decidim::Gamification.badges.select do |badge|
+        badge.valid_for?(model)
+      end.sort_by(&:name)
     end
   end
 end

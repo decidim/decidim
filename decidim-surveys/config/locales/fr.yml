@@ -85,6 +85,8 @@ fr:
           update:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
+      last_activity:
+        new_survey_at_html: "<span>Nouvelle enquête à %{link}</span>"
       question_types:
         long_answer: Réponse longue
         multiple_option: Options multiples

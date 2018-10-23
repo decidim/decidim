@@ -11,14 +11,32 @@ module Decidim
       let(:comment) { create(:comment, commentable: commentable) }
       let(:proposal_component) { create(:proposal_component, organization: organization) }
       let(:proposal_metadata) { Decidim::ContentParsers::ProposalParser::Metadata.new([]) }
+      let(:linked_proposal) { create(:proposal, component: proposal_component) }
+      let(:linked_proposal_official) { create(:proposal, :official, component: proposal_component) }
+
+      describe "integration" do
+        it "is correctly scheduled" do
+          ActiveJob::Base.queue_adapter = :test
+          proposal_metadata[:linked_proposals] << linked_proposal
+          proposal_metadata[:linked_proposals] << linked_proposal_official
+          comment = create(:comment)
+
+          expect do
+            Decidim::Comments::CommentCreation.publish(comment, proposal: proposal_metadata)
+          end.to have_enqueued_job.with(comment.id, proposal_metadata.linked_proposals)
+        end
+      end
 
       describe "with mentioned proposals" do
-        let(:linked_proposal) { create(:proposal, component: proposal_component) }
-        let(:linked_proposal_no_author) { create(:proposal, :official, component: proposal_component) }
+        let(:linked_proposals) do
+          [
+            linked_proposal.id,
+            linked_proposal_official.id
+          ]
+        end
 
-        before do
-          proposal_metadata[:linked_proposals] << linked_proposal.id
-          proposal_metadata[:linked_proposals] << linked_proposal_no_author.id
+        let!(:space_admin) do
+          create(:process_admin, participatory_process: linked_proposal_official.component.participatory_space)
         end
 
         it "notifies the author about it" do
@@ -34,7 +52,21 @@ module Decidim
                 mentioned_proposal_id: linked_proposal.id
               }
             )
-          subject.perform_now(comment.id, proposal_metadata)
+
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.proposals.proposal_mentioned",
+              event_class: Decidim::Proposals::ProposalMentionedEvent,
+              resource: commentable,
+              recipient_ids: [space_admin.id],
+              extra: {
+                comment_id: comment.id,
+                mentioned_proposal_id: linked_proposal_official.id
+              }
+            )
+
+          subject.perform_now(comment.id, linked_proposals)
         end
       end
     end

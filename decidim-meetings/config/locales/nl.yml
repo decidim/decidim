@@ -313,6 +313,8 @@ nl:
             search: Zoeken
             space_type: Participatieve ruimte
             upcoming: Aankomende
+      last_activity:
+        new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

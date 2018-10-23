@@ -11,7 +11,9 @@ module Decidim
       # Returns a collection scoped by user.
       # This is the default, if you want, you can overwrite in each Class to be export.
       def self.user_collection(user)
-        where(decidim_author_id: user.id)
+        return unless user.is_a?(Decidim::User)
+
+        where(decidim_author_id: user.id, decidim_author_type: "Decidim::UserBaseEntity")
       end
 
       # Returns a Default export serializer

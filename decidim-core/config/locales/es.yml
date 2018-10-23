@@ -14,9 +14,6 @@ es:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
-        user_group_document_number: Número de documento acreditativo
-        user_group_name: Nombre de la Organización
-        user_group_phone: Teléfono de la organización
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -32,9 +29,6 @@ es:
         password: Contraseña
         password_confirmation: Confirmación de contraseña
         remember_me: Recuérdame
-        user_group_document_number: Número de documento acreditativo
-        user_group_name: Nombre de la Organización
-        user_group_phone: Teléfono de la organización
     models:
       decidim/user:
         one: Usuario
@@ -52,6 +46,7 @@ es:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ es:
           invalid_field: "%{field} valor %{value} no es válido."
           ok: De acuerdo
           title: No autorizado
+        unconfirmed:
+          confirmation_instructions: 'Si no ha recibido las instrucciones de confirmación, puede volver a solicitarlas:'
+          explanation_html: Para realizar esta acción, debe estar autorizado, antes de hacerlo, debe confirmar su correo electrónico <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucciones de confirmación.
+          title: confirme su email
     collapsible_list:
       hidden_elements_count:
         one: y 1 más
@@ -219,6 +219,10 @@ es:
       html:
         html_content: Contenido HTML
         name: Bloque de HTML
+      last_activity:
+        name: Última actividad
+        title: Última actividad
+        view_all: Ver todo
       metrics:
         name: Métricas de la organización
       stats:
@@ -257,8 +261,6 @@ es:
           sign_up: Regístrate
           sign_up_as:
             legend: Inscribirse como
-            user: Individual
-            user_group: Organización/Colectivo
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
@@ -393,6 +395,12 @@ es:
           conditions:
             - Viene aquí a menudo
           description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
+          description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
+          description_own: Te has conectado por %{score} días consecutivos en algún momento.
+          name: Continuidad
+          next_level_in: '¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!'
+          unearned_another: Este usuario no se ha registrado durante más de un día consecutivo.
+          unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
@@ -424,7 +432,13 @@ es:
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
     groups:
-      no_user_groups: Aún no pertenece a ningún grupo de usuarios.
+      create:
+        error: Ha habido un problema creando la organización.
+        success: Organización creada con éxito
+      new:
+        create_user_group: Crear organizacion
+        new_user_group: Nueva organizacion
+      no_user_groups: Aún no pertenece a ninguna organización.
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -437,6 +451,13 @@ es:
         invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
         invite: Invitación
         visit_your_profile: Visita tu perfil
+    last_activities:
+      activities:
+        no_activities_warning: Ninguna actividad
+      all: Todos los tipos de actividad
+      index:
+        last_activity: Última actividad
+        resource_type: Tipo
     log:
       base_presenter:
         create: "%{user_name} creó %{resource_name}"
@@ -610,7 +631,7 @@ es:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
-        groups: Los grupos
+        groups: Organizaciones
         members: Miembros
         notifications: Notificaciones
       sidebar:
@@ -618,6 +639,7 @@ es:
           info: Las insignias se obtienen realizando una actividad específica en la plataforma.
           title: Insignias
       user:
+        create_user_group: Crear organizacion
         edit_profile: Editar perfil
     reported_mailer:
       hide:
@@ -702,7 +724,6 @@ es:
       not_found_in_database: '%{authentication_keys} inválido o contraseña.'
       timeout: Su sesión expiró Por favor, inicia sesión de nuevo para continuar.
       unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
-      unconfirmed: Debes confirmar tu dirección de correo electrónico antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta

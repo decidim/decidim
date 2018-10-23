@@ -156,6 +156,20 @@ hu:
             moderator: moderátor
       titles:
         conferences: Konferenciák
+    admin_log:
+      conference:
+        create: "%{user_name} létrehozta az %{resource_name} konferenciát"
+        publish: "%{user_name} közzétette az %{resource_name} konferenciát"
+        unpublish: "%{user_name} nem publikált az %{resource_name} konferencia"
+        update: "%{user_name} frissítette az %{resource_name} konferenciát"
+      conference_speaker:
+        create: "%{user_name} létrehozta az %{resource_name} hangszórót a %{space_name} konferencián"
+        delete: "%{user_name} eltávolította az %{resource_name} hangsugárzót a %{space_name} konferenciából"
+        update: "%{user_name} frissítette az %{resource_name} hangszórót a %{space_name} konferencián"
+      conference_user_role:
+        create: "%{user_name} meghívott %{resource_name} a %{space_name} konferenciára"
+        delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
+        update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} konferencián"
     conference_speakers:
       index:
         title: Hangszórók
@@ -237,15 +251,28 @@ hu:
           invalid: Probléma merült fel a konferencián.
           success: A konferencia sikeres volt.
       conference_speaker:
+        go_to_twitter: Menjen a Twitterre
+        more_info: több információ
+        personal_website: Személyes weboldal
         show:
-          affiliation: Munkahely
-          personal_url: Személyes URL
-          position: Pozíció
-          short_bio: Rövid Önéletrajz
-          twitter_handle: Twitter
+          more_info: több információ
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Személyes weboldal
+        twitter_handle:
+          go_to_twitter: Menjen a Twitterre
       conference_speakers:
         index:
           speakers: Hangszórók
+      conferences:
+        show:
+          already_account: Van már fiókja decidimben?
+          login_as: A bejelentkezés %{name} <%{email}>
+          make_conference_registration: 'Regisztráljon a konferencián:'
+          new_user: Új felhasználó?
+          register: Regisztráció
+          sign_in: Jelentkezzen be ezen a konferencián
+          sign_up: Regisztrálj ingyen decidim regisztrációhoz
       content_blocks:
         highlighted_conferences:
           name: Kiemelt konferenciák
@@ -279,9 +306,9 @@ hu:
             active_conferences: Aktív konferenciák
             see_all_conferences: Lásd az összes konferenciát
       show:
-        end_date: Befejezés dátuma
+        details: Részletek
+        introduction: Bevezetés
         objectives: célok
-        start_date: Kezdő dátum
       statistics:
         answers_count: válaszok
         comments_count: Hozzászólások
@@ -328,10 +355,6 @@ hu:
         subject: Meghívás egy konferenciára való belépéshez
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: A konferencia
-        conference_speaker_menu_item: Hangszórók
-        unfold: kibontakozik
       conference_widgets:
         show:
           take_part: Részt vesz
@@ -347,3 +370,8 @@ hu:
         promoted_conference:
           more_info: Több információ
           take_part: Részt vesz
+      conferences_nav:
+        conference_menu_item: Információ
+        conference_speaker_menu_item: Hangszórók
+        unfold: kibontakozik
+        venues: helyszínek

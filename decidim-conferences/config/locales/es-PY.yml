@@ -156,6 +156,20 @@ es-PY:
             moderator: Moderador
       titles:
         conferences: Conferencias
+    admin_log:
+      conference:
+        create: "%{user_name} creó la %{resource_name} conferencia"
+        publish: "%{user_name} publicado la %{resource_name} conferencia"
+        unpublish: "%{user_name} inédito la %{resource_name} conferencia."
+        update: "%{user_name} actualizado la %{resource_name} conferencia"
+      conference_speaker:
+        create: "%{user_name} creó el altavoz de %{resource_name} en la conferencia %{space_name}"
+        delete: "%{user_name} quitó el %{resource_name} altavoz de la conferencia %{space_name}"
+        update: "%{user_name} actualizado el %{resource_name} altavoz en la conferencia %{space_name}"
+      conference_user_role:
+        create: "%{user_name} invitados %{resource_name} a la %{space_name} conferencia"
+        delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
+        update: "%{user_name} cambió el rol de %{resource_name} en la %{space_name} conferencia"
     conference_speakers:
       index:
         title: Altavoces
@@ -237,15 +251,28 @@ es-PY:
           invalid: Ha habido un problema al abandonar esta conferencia.
           success: Usted ha abandonado la conferencia con éxito.
       conference_speaker:
+        go_to_twitter: Ir a twitter
+        more_info: más información
+        personal_website: Sitio web personal
         show:
-          affiliation: Afiliación
-          personal_url: Url personal
-          position: Posición
-          short_bio: Breve biografía
-          twitter_handle: Gorjeo
+          more_info: más información
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Sitio web personal
+        twitter_handle:
+          go_to_twitter: Ir a twitter
       conference_speakers:
         index:
           speakers: Altavoces
+      conferences:
+        show:
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          login_as: Has iniciado sesión como %{name} <%{email}>
+          make_conference_registration: 'Haga su inscripción en la conferencia:'
+          new_user: '¿Nuevo usuario?'
+          register: Registro
+          sign_in: Inicie sesión para registrarse en esta conferencia
+          sign_up: Regístrese gratis en decidim para registrarse
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
@@ -279,9 +306,9 @@ es-PY:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas las conferencias
       show:
-        end_date: Fecha final
+        details: Detalles
+        introduction: Introducción
         objectives: Objetivos
-        start_date: Fecha de inicio
       statistics:
         answers_count: Respuestas
         comments_count: Comentarios
@@ -328,10 +355,6 @@ es-PY:
         subject: Invitación para unirse a una conferencia
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: La Conferencia
-        conference_speaker_menu_item: Altavoces
-        unfold: Desplegar
       conference_widgets:
         show:
           take_part: Participar
@@ -347,3 +370,8 @@ es-PY:
         promoted_conference:
           more_info: Más información
           take_part: Participar
+      conferences_nav:
+        conference_menu_item: Información
+        conference_speaker_menu_item: Altavoces
+        unfold: Desplegar
+        venues: Sedes

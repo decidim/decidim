@@ -14,9 +14,6 @@ hu:
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
-        user_group_document_number: Szervezeti dokumentum száma
-        user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefonszáma
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
@@ -32,9 +29,6 @@ hu:
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         remember_me: Emlékezz rám
-        user_group_document_number: Szervezeti dokumentum száma
-        user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefonszáma
     models:
       decidim/user:
         one: Felhasználó
@@ -52,6 +46,7 @@ hu:
     formats:
       decidim_short: "%nap/%hó/%év"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -184,6 +179,11 @@ hu:
           invalid_field: "A(z) %{field} %{value} érték nem érvényes."
           ok: Rendben
           title: Nem engedélyezett
+        unconfirmed:
+          confirmation_instructions: 'Ha még nem kapta meg a megerősítési utasítást, kérheti újra őket:'
+          explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
+          request_confirmation_instructions: Kérjen megerősítési utasítást
+          title: Erősítsd meg az e-mail címed
     collapsible_list:
       hidden_elements_count:
         one: és még egy
@@ -219,6 +219,10 @@ hu:
       html:
         html_content: HTML tartalom
         name: HTML blokk
+      last_activity:
+        name: Utolsó bejelentkezés, utolsó használat
+        title: Utolsó bejelentkezés, utolsó használat
+        view_all: Összes megtekintése
       metrics:
         name: Szervezeti mutatók
       stats:
@@ -257,8 +261,6 @@ hu:
           sign_up: Regisztráció
           sign_up_as:
             legend: Regisztrálj mint
-            user: Magánszemély
-            user_group: Szervezet/Egyesület
           subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
           terms: a használati feltételek
           tos_agreement: A feliratkozással elfogadod a %{link}.
@@ -429,7 +431,13 @@ hu:
       level: '%{level} szint'
       reached_top: Elérted a jelvény legmagasabb szintjét.
     groups:
-      no_user_groups: Még nem tartozik semmilyen felhasználói csoporthoz.
+      create:
+        error: Hiba történt a szervezet létrehozásában
+        success: A szervezet sikeresen létrejött
+      new:
+        create_user_group: Hozzon létre szervezetet
+        new_user_group: Új szervezet
+      no_user_groups: Még nem tartozik semmiféle szervezethez.
     invitations:
       create:
         error: Problémák adódtak a barátok meghívása közben
@@ -442,6 +450,13 @@ hu:
         invitations_title: Szerinted többet kelleni hallani a %{organization_name} szervezetről?
         invite: Meghívás
         visit_your_profile: Profil oldalad
+    last_activities:
+      activities:
+        no_activities_warning: Nincs aktivitás
+      all: Valamennyi tevékenységtípus
+      index:
+        last_activity: Utolsó bejelentkezés, utolsó használat
+        resource_type: típus
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"
@@ -615,7 +630,7 @@ hu:
         conversations: Beszélgetések
         followers: Követők
         following: Követés
-        groups: csoportok
+        groups: szervezetek
         members: Belépés
         notifications: Értesítések
       sidebar:
@@ -623,6 +638,7 @@ hu:
           info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
           title: Kitűzők
       user:
+        create_user_group: Hozzon létre szervezetet
         edit_profile: Profil szerkesztése
     reported_mailer:
       hide:
@@ -707,7 +723,6 @@ hu:
       not_found_in_database: Érvénytelen %{authentication_keys} vagy jelszó.
       timeout: A munkamenet lejárt. Kérjük, jelentkezzen be újra a folytatáshoz.
       unauthenticated: Jelentkezzen be, vagy regisztráljon, mielőtt folytatja.
-      unconfirmed: A folytatás előtt meg kell erősítenie az e-mail címét.
     invitations:
       edit:
         header: Profil létrehozásának befejezése

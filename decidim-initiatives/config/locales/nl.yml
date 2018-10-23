@@ -333,6 +333,8 @@ nl:
         status_change_for: Het initiatief %{title} is van status veranderd
         technical_validation_body_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
         technical_validation_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
+      last_activity:
+        new_initiative: Nieuw initiatief
       pages:
         home:
           highlighted_initiatives:
