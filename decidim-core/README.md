@@ -20,6 +20,10 @@ And then execute:
 bundle
 ```
 
+## Metrics docs
+
+Core adds an implementation to show APP metrics within some pages. You can see specific documentation at [Metrics](https://github.com/decidim/decidim/tree/master/docs/advanced/metrics.md)
+
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).
