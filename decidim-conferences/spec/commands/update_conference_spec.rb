@@ -142,19 +142,19 @@ module Decidim::Conferences
         end
 
         it "links participatory processes" do
-          subject.call
+          command.call
           linked_participatory_processes = my_conference.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
           expect(linked_participatory_processes).to match_array(participatory_processes)
         end
 
         it "links assemblies" do
-          subject.call
+          command.call
           linked_assemblies = my_conference.linked_participatory_space_resources(:assemblies, "included_assemblies")
           expect(linked_assemblies).to match_array(assemblies)
         end
 
         it "links consultations" do
-          subject.call
+          command.call
           linked_consultations = my_conference.linked_participatory_space_resources("Consultations", "included_consultations")
           expect(linked_consultations).to match_array(questions.collect(&:consultation).uniq)
         end
@@ -207,7 +207,10 @@ module Decidim::Conferences
             available_slots: my_conference.available_slots,
             registration_terms: my_conference.registration_terms,
             current_organization: my_conference.organization,
-            current_user: user
+            current_user: user,
+            participatory_processes_ids: participatory_processes.map(&:id),
+            assemblies_ids: assemblies.map(&:id),
+            consultations_ids: questions.collect(&:consultation).uniq
           )
         end
 

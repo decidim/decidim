@@ -90,9 +90,9 @@ edit_link(
 
     <%= attachments_for current_participatory_space %>
 
-    <%= participatory_processes_for_conference(conference_participatory_processes) if conference_participatory_processes.present? %>
-    <%= assemblies_for_conference(conference_assemblies) if conference_assemblies.present? %>
-    <%= consultations_for_conference(conference_consultations) if conference_consultations.present? %>
+    <%= participatory_spaces_for_conference(conference_participatory_processes) if conference_participatory_processes.present? %>
+    <%= participatory_spaces_for_conference(conference_assemblies) if conference_assemblies.present? %>
+    <%= participatory_spaces_for_conference(conference_consultations) if conference_consultations.present? %>
 
     <% if current_participatory_space.show_statistics? %>
       <%= render partial: "statistics" %>
