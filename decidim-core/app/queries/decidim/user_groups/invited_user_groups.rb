@@ -4,7 +4,7 @@ module Decidim
   module UserGroups
     # Use this class to find the user groups the given user has a membership
     # that has yet to be accepted.
-    class PendingUserGroups < Rectify::Query
+    class InvitedUserGroups < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user - a User that needs to find which groups they are pending to be accepted
@@ -27,7 +27,7 @@ module Decidim
         user
           .user_groups
           .includes(:memberships)
-          .where(decidim_user_group_memberships: { role: "requested" })
+          .where(decidim_user_group_memberships: { role: "invited" })
       end
 
       private
