@@ -48,7 +48,7 @@ fi:
         other: Yhteistyöluonnokset
       decidim/proposals/proposal:
         one: Ehdotus
-        other: ehdotukset
+        other: Ehdotukset
       decidim/proposals/proposal_endorsement:
         one: Suositus
         other: Suositukset
