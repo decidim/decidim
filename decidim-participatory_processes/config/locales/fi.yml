@@ -289,7 +289,7 @@ fi:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
       content_blocks:
         highlighted_processes:
-          name: Korostetut prosessit
+          name: Tärkeimmät prosessit
       index:
         title: Osallistumisprosessit
       last_activity:
