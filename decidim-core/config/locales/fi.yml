@@ -222,7 +222,7 @@ fi:
       hero:
         name: Hero-kuva
       highlighted_content_banner:
-        name: Korostettu sisältöbanneri
+        name: Tärkeä sisältöbanneri
       how_to_participate:
         name: Kuinka osallistua
       html:
