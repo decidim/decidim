@@ -31,7 +31,7 @@ fi:
         is_transparent: On läpinäkyvä
         local_area: Organisaatioalue
         meta_scope: Teeman metadata
-        parent_id: Liittyvä kehitysryhmä
+        parent_id: Liittyvä ryhmä
         participatory_processes_ids: Liittyvät osallistumisprosessit
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
@@ -66,18 +66,18 @@ fi:
   activerecord:
     models:
       decidim/assembly:
-        one: Kehitysryhmä
-        other: Kehitysryhmät
+        one: Ryhmä
+        other: Ryhmät
       decidim/assembly_member:
-        one: Kehitysryhmän jäsen
-        other: Kehitysryhmän jäsenet
+        one: Ryhmän jäsen
+        other: Ryhmän jäsenet
       decidim/assembly_user_role:
-        one: Kehitysryhmän käyttäjärooli
-        other: Kehitysryhmän käyttäjäroolit
+        one: Ryhmän käyttäjärooli
+        other: Ryhmän käyttäjäroolit
   decidim:
     admin:
       actions:
-        new_assembly: Uusi kehitysryhmä
+        new_assembly: Uusi ryhmä
       assemblies:
         create:
           error: Virhe luotaessa uutta kehitysryhmää.
@@ -107,28 +107,28 @@ fi:
         new:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi kehitysryhmä
+          title: Kopioi ryhmä
       assembly_members:
         create:
-          error: Jäsenen lisääminen kehitysryhmään ei onnistunut.
-          success: Jäsen lisättiin onnistuneesti kehitysryhmään.
+          error: Jäsenen lisääminen ryhmään ei onnistunut.
+          success: Jäsen lisättiin onnistuneesti ryhmään.
         destroy:
-          success: Jäsen poistettiin onnistuneesti kehitysryhmästä.
+          success: Jäsen poistettiin onnistuneesti ryhmästä.
         edit:
-          title: Päivitä kehitysryhmän jäsenen tietoja.
+          title: Päivitä ryhmän jäsenen tietoja.
           update: Päivittää
         index:
-          assembly_members_title: Edustajat
+          assembly_members_title: Ryhmän jäsenet
         new:
           create: Luoda
-          title: Uusi kehitysryhmän jäsen.
+          title: Uusi ryhmän jäsen.
         update:
-          error: Kehitysryhmän jäsenen päivityksessä tapahtui virhe.
-          success: Kehitysryhmän jäsenen tiedot päivitettiin onnistuneesti.
+          error: Ryhmän jäsenen päivityksessä tapahtui virhe.
+          success: Ryhmän jäsenen tiedot päivitettiin onnistuneesti.
       assembly_publications:
         create:
-          error: Kehitysryhmän julkaisussa tapahtui virhe.
-          success: Kehitysryhmä julkaistiin onnistuneesti.
+          error: Ryhmän julkaisussa tapahtui virhe.
+          success: Ryhmä julkaistiin onnistuneesti.
         destroy:
           error: Kehitysryhmän julkaisun perumisessa tapahtui virhe.
           success: Kehitysryhmän julkaisu lopetettu onnistuneesti.
@@ -188,7 +188,7 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Kehitysryhmän käyttäjä
+          name: Ryhmän käyttäjä
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
