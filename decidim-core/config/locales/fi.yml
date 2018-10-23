@@ -23,7 +23,7 @@ fi:
       decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
       decidim/join_request_rejected_event: Liittymispyyntö on hylätty
       decidim/profile_updated_event: Profiili päivitetty
-      decidim/promote_to_admin: Edistetään organisaation ylläpitäjälle
+      decidim/promote_to_admin: Siirrä organisaation ylläpitäjälle
       decidim/removed_from_group: Poistettu organisaatiosta
   activerecord:
     attributes:
@@ -104,7 +104,7 @@ fi:
         update: "%{user_name} päivitti organisaation asetuksia"
       participatory_space_private_user:
         create: "%{user_name} kutsui %{resource_name} yksityiseksi käyttäjaksi"
-        delete: "%{user_name} poistaa käyttäjän %{resource_name} yksityiseksi käyttäjaksi"
+        delete: "%{user_name} poisti yksityisen käyttäjän %{resource_name}"
       scope:
         create: "%{user_name} loi %{resource_name} teeman"
         create_with_parent: "%{user_name} loi %{resource_name} teeman %{parent_scope} teeman alle"
@@ -349,10 +349,10 @@ fi:
           notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
       groups:
         demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on poistanut järjestelmänvalvojan oikeudet kyseiselle organisaatiolle.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet kyseisen organisaation jäsen.
-          email_subject: Et ole enää %{user_group_name} organisaation ylläpitäjä!
-          notification_title: Et ole enää <a href="%{resource_path}">%{user_group_name}</a> -organisaation ylläpitäjä.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation ylläpitäjä on poistanut ylläpitäjän oikeutesi kyseiselle organisaatiolle.
+          email_outro: Saat tämän ilmoituksen, koska olet tämän organisaation jäsen.
+          email_subject: Et ole enää organisaation %{user_group_name} ylläpitäjä!
+          notification_title: Et ole enää organisaation <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
         join_request_accepted:
           email_intro: Onnittelut! <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on hyväksynyt liittymispyyntösi.
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
@@ -369,8 +369,8 @@ fi:
           email_subject: Liittymispyyntösi organisaatioon %{user_group_name} on hylätty!
           notification_title: Liittymispyyntösi organisaatioon <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
         promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation admin on antanut järjestelmänvalvojan oikeudet kyseiselle organisaatiolle.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet kyseisen organisaation jäsen.
+          email_intro: Organisaation <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on antanut sinulle ylläpitooikeudet kyseiselle organisaatiolle.
+          email_outro: Saat tämän ilmoituksen, koska olet tämän organisaation jäsen.
           email_subject: Olet nyt %{user_group_name} organisaation ylläpitäjä!
           notification_title: Olet nyt <a href="%{resource_path}">%{user_group_name}</a> -organisaation ylläpitäjä.
         removed_from_group:
