@@ -288,6 +288,9 @@ es-PY:
           proposals_count:
             one: 1 propuesta
             other: "%{count} propuestas"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
           address: Address
           back: Volver

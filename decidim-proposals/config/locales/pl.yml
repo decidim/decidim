@@ -298,6 +298,9 @@ pl:
             many: "%{count} propozycje"
             one: 1 propozycja
             other: "%{count} propozycje"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
           address: Address
           back: Plecy

@@ -289,6 +289,9 @@ fr:
             one: 1 proposition
             other: "%{count} propositions"
             zero: "%{count} proposition"
+        dynamic_map_instructions:
+          primary: Vous pouvez déplacer le point sur la carte.
+          secondary: N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.
         edit:
           address: Address
           back: Retour

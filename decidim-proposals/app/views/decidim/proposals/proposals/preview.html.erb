@@ -8,6 +8,7 @@
         <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
 
         <% if component_settings.geocoding_enabled? %>
+          <%= render partial: "dynamic_map_instructions" %>
           <% if has_position?(@proposal) %>
             <%= dynamic_map_for proposal_preview_data_for_map(@proposal), "column" do %>
               <%= stylesheet_link_tag "decidim/map" %>

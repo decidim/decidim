@@ -288,6 +288,9 @@ hu:
           proposals_count:
             one: 1 javaslat
             other: "%{count} javaslatot"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
           address: Address
           back: Hát

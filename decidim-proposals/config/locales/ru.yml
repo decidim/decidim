@@ -298,6 +298,9 @@ ru:
             many: "%{count} предложений"
             one: 1 предложение
             other: "%{count} предложений"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
           address: Address
           back: Вернуться
