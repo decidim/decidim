@@ -600,8 +600,8 @@ en:
     members:
       no_members: This user groups doesn't have any member yet.
     menu:
-      home: Home
       help: Help
+      home: Home
     messaging:
       conversation_mailer:
         new_conversation:
