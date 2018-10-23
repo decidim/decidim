@@ -313,5 +313,21 @@ describe Decidim::Permissions do
         end
       end
     end
+
+    context "when action is on user group invitations" do
+      let(:action_subject) { :user_group_invitations }
+
+      context "when action is create" do
+        let(:action_name) { :create }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when action is reject" do
+        let(:action_name) { :reject }
+
+        it { is_expected.to eq true }
+      end
+    end
   end
 end
