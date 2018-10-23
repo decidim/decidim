@@ -6,7 +6,7 @@ module Decidim
   describe User do
     subject { user }
 
-    let(:organization) { build(:organization) }
+    let(:organization) { create(:organization) }
     let(:user) { build(:user, organization: organization) }
 
     it { is_expected.to be_valid }
@@ -196,12 +196,13 @@ module Decidim
     describe "#tos_accepted?" do
       subject { user.tos_accepted? }
 
-      let(:user) { build(:user, organization: organization, accepted_tos_version: accepted_tos_version) }
+      let(:user) { create(:user, organization: organization, accepted_tos_version: accepted_tos_version) }
       let(:accepted_tos_version) { organization.tos_version }
 
-      it { is_expected.to be_falsey }
+      it { is_expected.to be_truthy }
 
       context "when user accepted ToS before organization last update" do
+        let(:organization) { build(:organization, tos_version: Time.current) }
         let(:accepted_tos_version) { 1.year.before }
 
         it { is_expected.to be_falsey }
