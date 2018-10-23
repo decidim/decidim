@@ -17,11 +17,14 @@ fi:
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
+      decidim/demoted_membership: Ei enää organisaation ylläpitäjä
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
       decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
       decidim/join_request_rejected_event: Liittymispyyntö on hylätty
       decidim/profile_updated_event: Profiili päivitetty
+      decidim/promote_to_admin: Edistetään organisaation ylläpitäjälle
+      decidim/removed_from_group: Poistettu organisaatiosta
   activerecord:
     attributes:
       decidim/user:
@@ -99,6 +102,9 @@ fi:
         update: "%{user_name} päivitti %{resource_name} OAuth-sovellusta"
       organization:
         update: "%{user_name} päivitti organisaation asetuksia"
+      participatory_space_private_user:
+        create: "%{user_name} kutsui %{resource_name} yksityiseksi käyttäjaksi"
+        delete: "%{user_name} poistaa käyttäjän %{resource_name} yksityiseksi käyttäjaksi"
       scope:
         create: "%{user_name} loi %{resource_name} teeman"
         create_with_parent: "%{user_name} loi %{resource_name} teeman %{parent_scope} teeman alle"
@@ -342,6 +348,11 @@ fi:
           email_subject: Olet saavuttanut tason %{current_level} %{badge_name} -kunniamerkkille!
           notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
       groups:
+        demoted_membership:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on poistanut järjestelmänvalvojan oikeudet kyseiselle organisaatiolle.
+          email_outro: Olet saanut tämän ilmoituksen, koska olet kyseisen organisaation jäsen.
+          email_subject: Et ole enää %{user_group_name} organisaation ylläpitäjä!
+          notification_title: Et ole enää <a href="%{resource_path}">%{user_group_name}</a> -organisaation ylläpitäjä.
         join_request_accepted:
           email_intro: Onnittelut! <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on hyväksynyt liittymispyyntösi.
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
@@ -357,6 +368,16 @@ fi:
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
           email_subject: Liittymispyyntösi organisaatioon %{user_group_name} on hylätty!
           notification_title: Liittymispyyntösi organisaatioon <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
+        promoted_to_admin:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation admin on antanut järjestelmänvalvojan oikeudet kyseiselle organisaatiolle.
+          email_outro: Olet saanut tämän ilmoituksen, koska olet kyseisen organisaation jäsen.
+          email_subject: Olet nyt %{user_group_name} organisaation ylläpitäjä!
+          notification_title: Olet nyt <a href="%{resource_path}">%{user_group_name}</a> -organisaation ylläpitäjä.
+        removed_from_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation ylläpitäjä on poistanut sinut siitä.
+          email_outro: Olet saanut tämän ilmoituksen, koska olit kyseisen organisaation jäsen.
+          email_subject: Sinut on poistettu %{user_group_name} organisaatiosta!
+          notification_title: Sinut on poistettu <a href="%{resource_path}">%{user_group_name}</a> -organisaatiosta.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -450,16 +471,35 @@ fi:
       description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
+    group_admins:
+      actions:
+        are_you_sure: Oletko varma? Tämä ei poista käyttäjää organisaatiosta.
+        demote_admin: Poista admin
+      demote:
+        error: Virhe poistettiin tämän käyttäjän järjestelmänvalvojan luettelosta
+        success: Käyttäjä poistettu administa onnistuneesti
+      index:
+        current_admins: 'Nykyiset ylläpitäjät:'
+        manage_admins: Hallinnoi ylläpitäjiä
     group_members:
       accept:
         error: Tapahtui virhe hyväksyttäessä liittymispyyntöä
         success: Liittymispyyntö hyväksyttiin onnistuneesti
+      actions:
+        are_you_sure: Oletko varma?
+        promote_to_admin: Nimeä ylläpitäjäksi
+        remove_from_group: Poista käyttäjä
       index:
         current_members_without_admins: 'Nykyiset jäsenet (ilman ylläpitäjiä):'
         manage_members: Hallinnoi jäseniä
+      promote:
+        error: Virheestä on kyseinen käyttäjä
+        success: Käyttäjää mainostettiin onnistuneesti
       reject:
         error: Tapahtui virhe hylätessä liittymispyyntöä
         success: Liittymispyyntö hylätty onnistuneesti
+      remove:
+        error: Käyttäjä poistui ryhmästä virheestä
     groups:
       create:
         error: Organisaation luomisessa esiintyi ongelma
@@ -469,7 +509,6 @@ fi:
         update_user_group: Päivitä organisaatio
       join:
         error: Liityttäessä organisaatioon tapahtui virhe
-        success: Liittymispyyntö luotu onnistuneesti. Hallinnointikäyttäjä tarkastaa pyyntösi ennen kuin sinut hyväksytään organisaation jäseneksi.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
         accept_request: Hyväksy
