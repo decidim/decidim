@@ -12,7 +12,7 @@
   </article>
   <div id="media-picture-<%= index %>" class="reveal picture__modal" data-reveal>
     <div class="reveal__header">
-      <h3 class="reveal__title"><%= t(".photo") %></h3>
+      <h3 class="reveal__title"><%= t("conferences.photo.show.photo", scope: "decidim") %></h3>
     </div>
     <%= image_big %>
     <h5>
@@ -21,7 +21,7 @@
     <div class="text-small">
       <%= decidim_sanitize description %>
     </div>
-    <button class="close-button" data-close aria-label="<%= t(".close_modal") %>" type="button">
+    <button class="close-button" data-close aria-label="<%= t("conferences.photo.show.close_modal", scope: "decidim") %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>

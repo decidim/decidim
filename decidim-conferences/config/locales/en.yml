@@ -377,10 +377,12 @@ en:
             active_conferences: Active conferences
             see_all_conferences: See all conferences
       photo:
-        close_modal: Close modal
-        photo: Photo
+        show:
+          close_modal: Close modal
+          photo: Photo
       photos_list:
-        related_photos: Photos
+        show:
+          related_photos: Photos
       show:
         details: Details
         introduction: Introduction
