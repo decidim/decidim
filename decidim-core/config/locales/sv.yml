@@ -502,6 +502,8 @@ sv:
         error: Det gick inte att ta bort den här användaren från gruppen
         success: Användaren togs bort från gruppen framgångsrikt
     groups:
+      actions:
+        are_you_sure: Är du säker?
       create:
         error: Det har varit ett problem att skapa organisationen
         success: Organisationen skapades framgångsrikt
@@ -511,6 +513,9 @@ sv:
       join:
         error: Det har varit ett problem att gå med i organisationen
         success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till organisationen.
+      leave:
+        error: Det har varit ett problem att lämna organisationen
+        success: Organisationen gick framgångsrikt.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
         accept_request: Acceptera
@@ -730,6 +735,7 @@ sv:
         edit_profile: Redigera profil
         edit_user_group: Redigera organisationsprofil
         join_user_group: Begäran att gå med i organisationen
+        leave_user_group: Lämna organisationen
         manage_user_group_admins: Hantera administratörer
         manage_user_group_users: Hantera medlemmar
     reported_mailer:
