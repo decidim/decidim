@@ -38,6 +38,40 @@ describe "Edit proposals", type: :system do
       expect(page).to have_content(new_body)
     end
 
+    context "with geocoding enabled" do
+      let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
+      let(:address) { "6 Villa des Nymphéas 75020 Paris" }
+      let(:new_address) { "6 rue Sorbier 75020 Paris" }
+      let!(:proposal) { create :proposal, address: address, author: user, component: component }
+
+      it "can be updated with address" do
+        visit_component
+
+        click_link proposal.title
+        click_link "Edit proposal"
+        check "proposal_has_address"
+
+        expect(page).to have_field("Title", with: proposal.title)
+        expect(page).to have_field("Body", with: proposal.body)
+        expect(page).to have_field("Address", with: proposal.address)
+
+        fill_in "Address", with: new_address
+
+        Geocoder.configure(lookup: :test)
+
+        Geocoder::Lookup::Test.add_stub(
+          new_address,
+          [{
+            "latitude" => 48.8682538,
+            "longitude" => 2.389643
+          }]
+        )
+
+        click_button "Send"
+        expect(page).to have_content(new_address)
+      end
+    end
+
     context "when updating with wrong data" do
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
 
