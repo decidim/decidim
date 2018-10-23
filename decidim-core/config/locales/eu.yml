@@ -502,6 +502,8 @@ eu:
         error: Errore bat gertatu da talde honetatik erabiltzaile hau kenduta
         success: Taldeak arrakastaz ezabatu du erabiltzailea
     groups:
+      actions:
+        are_you_sure: Ziur zaude?
       create:
         error: Antolakuntza sortzerakoan arazo bat izan da
         success: Antolakuntza behar bezala sortu da
@@ -511,6 +513,9 @@ eu:
       join:
         error: Antolaketari loturiko arazo bat izan da
         success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du zure erakundean onartu aurretik.
+      leave:
+        error: Antolaketa utzi du arazo bat
+        success: Antolakuntza behar bezala utzi da.
       members:
         accept_or_reject_join_requests: 'Hurrengo talde honetako erabiltzaileei aplikatu zaie. Eskaerak onartu edo ukatu:'
         accept_request: Onartu
@@ -730,6 +735,7 @@ eu:
         edit_profile: Editatu profila
         edit_user_group: Editatu antolakuntza profila
         join_user_group: Antolaketara sartzeko eskaera
+        leave_user_group: Utzi erakundea
         manage_user_group_admins: Kudeatu kudeatzaileak
         manage_user_group_users: Kudeatu kideak
     reported_mailer:
