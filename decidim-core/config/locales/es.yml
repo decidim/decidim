@@ -502,6 +502,8 @@ es:
         error: Se ha producido un error al eliminar este usuario del grupo.
         success: Usuario eliminado del grupo con éxito
     groups:
+      actions:
+        are_you_sure: '¿Estás seguro?'
       create:
         error: Ha habido un problema creando la organización.
         success: Organización creada con éxito
@@ -511,6 +513,9 @@ es:
       join:
         error: Ha habido un problema al unirse a la organización.
         success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en la organización.
+      leave:
+        error: Ha habido un problema al abandonar la organización.
+        success: La organización salió con éxito.
       members:
         accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
         accept_request: Aceptar
@@ -730,6 +735,7 @@ es:
         edit_profile: Editar perfil
         edit_user_group: Editar el perfil de la organización
         join_user_group: Solicitud para unirse a la organización
+        leave_user_group: Dejar organizacion
         manage_user_group_admins: Administrar administradores
         manage_user_group_users: Administrar miembros
     reported_mailer:
