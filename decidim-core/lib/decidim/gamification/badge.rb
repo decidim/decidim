@@ -16,6 +16,9 @@ module Decidim
       # 10 points to get to level 3.
       attribute :levels, Array, default: []
 
+      # An array of types for which this badge is valid for.
+      attribute :valid_for, Array[Symbol], default: [:user]
+
       # (Optional) you can set a lambda in order to be able to reset the score of a
       # badge if the progress gets lost somehow. The lambda receives a user as an
       # argument.
@@ -69,6 +72,10 @@ module Decidim
       # Returns a String with the image.
       def image
         ActionController::Base.helpers.asset_path("decidim/gamification/badges/#{name}.svg")
+      end
+
+      def valid_for?(model)
+        valid_for.include?(model.class.name.demodulize.underscore.to_sym)
       end
 
       private

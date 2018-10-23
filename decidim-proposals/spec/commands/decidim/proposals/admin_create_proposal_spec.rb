@@ -69,10 +69,16 @@ module Decidim
               end.to change(Decidim::Proposals::Proposal, :count).by(1)
             end
 
+            it "sets the organization as author" do
+              command.call
+
+              expect(Decidim::Proposals::Proposal.last.authors).to include(organization)
+            end
+
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
-                .to receive(:create!)
-                .with(Decidim::Proposals::Proposal, kind_of(Decidim::User), kind_of(Hash), visibility: "all")
+                .to receive(:perform_action!)
+                .with(:create, Decidim::Proposals::Proposal, kind_of(Decidim::User), visibility: "all")
                 .and_call_original
 
               expect { command.call }.to change(Decidim::ActionLog, :count)

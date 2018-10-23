@@ -95,7 +95,7 @@ module Decidim
                     event: "decidim.events.proposals.proposal_rejected",
                     event_class: Decidim::Proposals::RejectedProposalEvent,
                     resource: proposal,
-                    recipient_ids: [follower.id]
+                    recipient_ids: match_array([follower.id, proposal.creator_author.id])
                   )
 
                 command.call

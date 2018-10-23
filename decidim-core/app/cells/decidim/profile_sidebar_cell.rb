@@ -43,6 +43,13 @@ module Decidim
       profile_user.can_follow?
     end
 
+    def badge_statuses
+      Decidim::Gamification.badges.select { |badge| badge.valid_for?(profile_holder) }.map do |badge|
+        status = Decidim::Gamification.status_for(profile_holder, badge.name)
+        status.level.positive? ? status : nil
+      end.compact
+    end
+
     def can_join_user_group?
       return false unless current_user
       return false if model.is_a?(Decidim::User)

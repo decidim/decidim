@@ -49,12 +49,12 @@ module Decidim
             proposal = Decidim::Proposals::Proposal.new(origin_attributes)
             proposal.category = original_proposal.category
             proposal.component = target_component
+            original_proposal.coauthorships.each do |coauthorship|
+              proposal.coauthorships.build(author: coauthorship.author, user_group: coauthorship.user_group)
+            end
             proposal.save!
 
             proposal.link_resources([original_proposal], "copied_from_component")
-            original_proposal.coauthorships.each do |coauthorship|
-              Decidim::Coauthorship.create(author: coauthorship.author, user_group: coauthorship.user_group, coauthorable: proposal)
-            end
           end.compact
         end
 
