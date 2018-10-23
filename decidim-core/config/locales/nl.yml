@@ -502,6 +502,8 @@ nl:
         error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de groep
         success: Gebruiker met succes uit de groep verwijderd
     groups:
+      actions:
+        are_you_sure: Weet je het zeker?
       create:
         error: Er is een probleem opgetreden bij het maken van de organisatie
         success: Organisatie succesvol gemaakt
@@ -511,6 +513,9 @@ nl:
       join:
         error: Er is een probleem opgetreden bij de organisatie
         success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u wordt geaccepteerd door de organisatie.
+      leave:
+        error: Er is een probleem met het verlaten van de organisatie
+        success: Organisatie is succesvol gelaten.
       members:
         accept_or_reject_join_requests: 'De volgende gebruikers hebben zich aangemeld om lid te worden van deze groep. Aanvaard of verwerp hun verzoeken:'
         accept_request: Aanvaarden
@@ -730,6 +735,7 @@ nl:
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk organisatieprofiel
         join_user_group: Verzoek om lid te worden van de organisatie
+        leave_user_group: Laat organisatie
         manage_user_group_admins: Beheer beheerders
         manage_user_group_users: Leden beheren
     reported_mailer:
