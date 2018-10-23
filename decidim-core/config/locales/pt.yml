@@ -17,11 +17,14 @@ pt:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
+      decidim/demoted_membership: Não é mais um administrador da organização
       decidim/gamification/badge_earned_event: Distintivo ganho
       decidim/gamification/level_up_event: Você subiu de nível
       decidim/join_request_accepted_event: Pedido de adesão aceite
       decidim/join_request_rejected_event: Pedido de adesão rejeitado
       decidim/profile_updated_event: perfil atualizado
+      decidim/promote_to_admin: Promovido para o administrador da organização
+      decidim/removed_from_group: Removido da organização
   activerecord:
     attributes:
       decidim/user:
@@ -99,6 +102,9 @@ pt:
         update: "%{user_name} atualizou o aplicativo %{resource_name} OAuth"
       organization:
         update: "%{user_name} atualizou as configurações da organização"
+      participatory_space_private_user:
+        create: "%{user_name} convidados %{resource_name} para ser um usuário privado"
+        delete: "%{user_name} removeu o usuário %{resource_name} como usuário particular"
       scope:
         create: "%{user_name} criou o escopo %{resource_name}"
         create_with_parent: "%{user_name} criou o escopo %{resource_name} dentro do escopo %{parent_scope}"
@@ -342,6 +348,8 @@ pt:
           email_subject: Você atingiu o nível %{current_level} no %{badge_name} crachá!
           notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
       groups:
+        demoted_membership:
+          email_intro: Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para essa organização.
         join_request_accepted:
           email_intro: Parabéns! Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> aceitou o seu pedido para se juntar a ele.
           email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
@@ -469,7 +477,6 @@ pt:
         update_user_group: Atualizar organização
       join:
         error: Houve um problema ao ingressar na organização
-        success: Juntar pedido criado com sucesso. Um administrador analisará seu reequest antes de aceitá-lo para a organização.
       members:
         accept_or_reject_join_requests: 'Os seguintes usuários se inscreveram para participar desse grupo. Aceite ou rejeite seus pedidos:'
         accept_request: Aceitar
