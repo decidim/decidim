@@ -502,6 +502,8 @@ fi:
         error: Käyttäjä poistui ryhmästä virheestä
         success: Käyttäjä poistettiin ryhmästä onnistuneesti
     groups:
+      actions:
+        are_you_sure: Oletko varma?
       create:
         error: Organisaation luomisessa esiintyi ongelma
         success: Organisaatio luotu onnistuneesti
@@ -511,6 +513,9 @@ fi:
       join:
         error: Liityttäessä organisaatioon tapahtui virhe
         success: Liity pyyntöön luotu onnistuneesti. Järjestelmänvalvoja tarkistaa pyyntösi ennen kuin hyväksyt organisaation.
+      leave:
+        error: Organisaatiosta on ollut ongelma
+        success: Järjestö onnistui onnistuneesti.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
         accept_request: Hyväksy
@@ -730,6 +735,7 @@ fi:
         edit_profile: Muokkaa profiilia
         edit_user_group: Muokkaa organisaation tietoja
         join_user_group: Liity organisaatioon
+        leave_user_group: Jätä organisaatio
         manage_user_group_admins: Hallinnoi ylläpitäjiä
         manage_user_group_users: Hallinnoi jäseniä
     reported_mailer:
