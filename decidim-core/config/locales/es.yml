@@ -469,7 +469,6 @@ es:
         update_user_group: Actualizar organización
       join:
         error: Ha habido un problema al unirse a la organización.
-        success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en la organización.
       members:
         accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
         accept_request: Aceptar
