@@ -153,7 +153,6 @@ Other special verifications:
 
 Decidim [Core](https://github.com/decidim/decidim/tree/master/decidim-core) adds an implementation to show APP metrics within some pages. You can see specific documentation at [Metrics](https://github.com/decidim/decidim/tree/master/docs/advanced/metrics.md)
 
-
 ## Following our license
 
 If you plan to release your application you'll need to publish it using the same license: GPL Affero 3. We recommend doing that on GitHub before publishing, you can read more on "[Being Open Source From Day One is Especially Important for Government Projects](http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs)". If you have any trouble you can contact us on [Gitter](https://gitter.im/decidim/decidim).
