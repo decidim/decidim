@@ -71,6 +71,10 @@ Decidim::Core::Engine.routes.draw do
           post :demote
         end
       end
+
+      member do
+        delete :leave
+      end
     end
   end
 

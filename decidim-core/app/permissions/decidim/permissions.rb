@@ -97,8 +97,13 @@ module Decidim
       return allow! if [:join, :create].include?(permission_action.action)
 
       user_group = context.fetch(:user_group)
-      user_manages_group = Decidim::UserGroups::ManageableUserGroups.for(user).include?(user_group)
 
+      if permission_action.action == :leave
+        user_can_leave_group = Decidim::UserGroupMembership.where(user: user, user_group: user_group).where.not(role: :creator).any?
+        return toggle_allow(user_can_leave_group)
+      end
+
+      user_manages_group = Decidim::UserGroups::ManageableUserGroups.for(user).include?(user_group)
       toggle_allow(user_manages_group) if permission_action.action == :manage
     end
 
