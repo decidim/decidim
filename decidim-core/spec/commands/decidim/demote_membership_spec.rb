@@ -53,7 +53,7 @@ module Decidim
             expect(Decidim::EventsManager).to receive(:publish).with(
               hash_including(
                 event: "decidim.events.groups.demoted_membership",
-                event_class: DemoteMembershipEvent,
+                event_class: DemotedMembershipEvent,
                 resource: membership.user_group,
                 recipient_ids: [membership.user.id],
                 extra: {
