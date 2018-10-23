@@ -745,6 +745,7 @@ pl:
         edit_profile: Edytuj profil
         edit_user_group: Edytuj profil organizacji
         join_user_group: Poproś o dołączenie do organizacji
+        leave_user_group: Opuść organizację
         manage_user_group_admins: Zarządzaj adminami
         manage_user_group_users: Zarządzaj członkami
     reported_mailer:
