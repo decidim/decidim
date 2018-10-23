@@ -500,6 +500,7 @@ eu:
         success: Erregistratu eskaera ongi baztertu da
       remove:
         error: Errore bat gertatu da talde honetatik erabiltzaile hau kenduta
+        success: Taldeak arrakastaz ezabatu du erabiltzailea
     groups:
       create:
         error: Antolakuntza sortzerakoan arazo bat izan da
@@ -509,6 +510,7 @@ eu:
         update_user_group: Eguneratu erakundea
       join:
         error: Antolaketari loturiko arazo bat izan da
+        success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du zure erakundean onartu aurretik.
       members:
         accept_or_reject_join_requests: 'Hurrengo talde honetako erabiltzaileei aplikatu zaie. Eskaerak onartu edo ukatu:'
         accept_request: Onartu
@@ -517,6 +519,10 @@ eu:
         create_user_group: Sortu erakundea
         new_user_group: Antolakuntza berria
       no_user_groups: Ez dago inongo erakunderik.
+      roles:
+        admin: Administrator
+        creator: Sortzailea
+        member: kidea
       update:
         error: Arazo bat izan da erakundea eguneratzean
         success: Antolakuntza eguneratu da
@@ -724,6 +730,7 @@ eu:
         edit_profile: Editatu profila
         edit_user_group: Editatu antolakuntza profila
         join_user_group: Antolaketara sartzeko eskaera
+        manage_user_group_admins: Kudeatu kudeatzaileak
         manage_user_group_users: Kudeatu kideak
     reported_mailer:
       hide:
