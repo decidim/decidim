@@ -492,12 +492,15 @@ en:
         current_admins: 'Current admins:'
         manage_admins: Manage admins
     group_invites:
+      accept_or_reject_group_invitations: 'The following organizations have invited you to join them. Accept or reject their requests:'
+      accept_invitation: Accept
       index:
         invite: Invite
         invite_user: Invite a user
       invite:
         error: There was an error inviting this user
         success: User invited successfully
+      reject_invitation: Reject
     group_members:
       accept:
         error: There was an error accepting this join request
