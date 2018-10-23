@@ -27,7 +27,7 @@ describe "User manages group invitations", type: :system do
       expect(page).to have_content(membership.user_group.nickname)
     end
 
-    it "allows accepting the invitation" do
+    it "allows rejecting the invitation" do
       within ".list-invitation" do
         expect(page).to have_content(membership.user_group.name)
         expect(page).to have_content(membership.user_group.nickname)

@@ -68,7 +68,7 @@ module Decidim
     end
 
     def inviting_user_group
-      @user_group ||= Decidim::UserGroups::InvitedMemberships.for(current_user).find_by(id: params[:id]).user_group
+      @inviting_user_group ||= Decidim::UserGroups::InvitedMemberships.for(current_user).find_by(id: params[:id]).user_group
     end
   end
 end

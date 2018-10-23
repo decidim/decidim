@@ -20,7 +20,7 @@ module Decidim
     #
     # Returns nothing.
     def call
-      return broadcast(:invalid) unless membership.present?
+      return broadcast(:invalid) if membership.blank?
 
       reject_invitation
 
