@@ -1,9 +1,8 @@
 <div class="card">
   <div class="card-divider">
-    <h2 class="card-title">
+    <h2 class="card-title flex--sbc">
       <%= t(".title") %>
-
-      <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: "button tiny button--title" if allowed_to? :create, :debate %>
+      <%= render partial: "bulk-actions" %>
     </h2>
   </div>
 
