@@ -28,7 +28,7 @@
               <%= form.check_box :has_address %>
             </div>
             <div class="field" id="address_input">
-              <%= form.text_field :address %>
+              <%= form.text_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
 
               <% if has_position?(@form) %>
                 <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>

@@ -272,11 +272,6 @@ hu:
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Egy esemény <a href="%{resource_path}">%{resource_title}</a>-re esett.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: A <a href="%{resource_url}">profil oldal</a> a %{name} (%{nickname}), aki akkor a következő, frissült.
@@ -486,7 +481,6 @@ hu:
         error: Hiba történt a jelentés létrehozásakor. Kérlek, próbáld újra.
         success: A jelentést sikeresen hozták létre, és egy adminisztrátora felülvizsgálja.
     scopes:
-      global: Globális hatókör
       picker:
         cancel: Megszünteti
         choose: választ

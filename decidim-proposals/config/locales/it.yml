@@ -90,6 +90,10 @@ it:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -345,6 +349,8 @@ it:
           most_voted: Più votate
           random: A caso
           recent: le più recenti
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           address: 'Address : %{address}'
           modify: Modifica la proposta
@@ -441,3 +447,5 @@ it:
       included_proposals:
         proposal_project: 'Le proposte compaiono nei seguenti progetti:'
         proposal_result: 'Le proposte compaiono nei seguenti risultati:'
+    scopes:
+      global: Global

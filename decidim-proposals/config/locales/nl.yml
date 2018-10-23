@@ -92,6 +92,10 @@ nl:
     events:
       proposal_created:
         email_subject: Nieuw voorstel van %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: Er is een nieuw voorstel van %{author_name} in <a href="%{resource_path}"> %{resource_title}</a>.
         url: 'Commentaar"s url : %{bron_url}'
       proposals:
@@ -347,6 +351,8 @@ nl:
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Meest recent
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           address: 'Address : %{address}'
           modify: Pas het voorstel aan
@@ -443,3 +449,5 @@ nl:
       included_proposals:
         proposal_project: 'Voorstel in deze projecten:'
         proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
+    scopes:
+      global: Global

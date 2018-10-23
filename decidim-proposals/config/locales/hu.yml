@@ -90,6 +90,10 @@ hu:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -345,6 +349,8 @@ hu:
           most_voted: A legtöbb szavazatot
           random: Véletlen
           recent: Friss
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           address: 'Address : %{address}'
           modify: Módosítsa a javaslatot
@@ -441,3 +447,5 @@ hu:
       included_proposals:
         proposal_project: 'E projektekben megjelenő javaslat:'
         proposal_result: 'Az eredmények az alábbi eredmények között jelennek meg:'
+    scopes:
+      global: Global

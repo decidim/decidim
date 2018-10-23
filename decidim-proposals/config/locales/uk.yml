@@ -98,6 +98,10 @@ uk:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -357,6 +361,8 @@ uk:
           most_voted: Отримали найбільше голосів
           random: Довільно
           recent: Нещодавні
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           address: 'Address : %{address}'
           modify: Внести зміни в пропозицію
@@ -459,3 +465,5 @@ uk:
       included_proposals:
         proposal_project: 'Пропозиція згадується в таких проектах:'
         proposal_result: 'Пропозиція є в таких підсумках:'
+    scopes:
+      global: Global
