@@ -3,9 +3,8 @@
 class MakeBlogpostsAuthorsPolymorphics < ActiveRecord::Migration[5.2]
   class Post < ApplicationRecord
     self.table_name = :decidim_blogs_posts
-  end
-  class User < ApplicationRecord
-    self.table_name = :decidim_users
+
+    include Decidim::HasComponent
   end
 
   def change
@@ -13,12 +12,12 @@ class MakeBlogpostsAuthorsPolymorphics < ActiveRecord::Migration[5.2]
 
     Post.reset_column_information
     Post.find_each do |post|
-      author = if post.decidim_author_id.present?
-                 User.find(post.decidim_author_id)
-               else
-                 post.organization
-               end
-      post.author = author
+      if post.decidim_author_id.present?
+        post.decidim_author_type = "Decidim::UserBaseEntity"
+      else
+        post.decidim_author_id = post.organization.id
+        post.decidim_author_type = "Decidim::Organization"
+      end
       post.save!
     end
 
