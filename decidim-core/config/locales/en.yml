@@ -18,11 +18,14 @@ en:
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
+      decidim/demoted_membership: No longer an organization admin
       decidim/gamification/badge_earned_event: Badge earned
       decidim/gamification/level_up_event: You've leveled up
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
+      decidim/promote_to_admin: Promoted to organization admin
+      decidim/removed_from_group: Removed from organization
   activerecord:
     attributes:
       decidim/user:
@@ -350,6 +353,11 @@ en:
           email_subject: You've reached level %{current_level} on the %{badge_name} badge!
           notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
+        demoted_membership:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has removed your admin rights to that organization.
+          email_outro: You have received this notification because you are a member of that organization.
+          email_subject: You are no longer an admin of the %{user_group_name} organization!
+          notification_title: You are no longer an admin of the <a href="%{resource_path}">%{user_group_name}</a> organization.
         join_request_accepted:
           email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has accepted your request to join it.
           email_outro: You have received this notification because your join request has been updated.
@@ -365,6 +373,16 @@ en:
           email_outro: You have received this notification because your join request has been updated.
           email_subject: Your request to join the %{user_group_name} organization has been rejected!
           notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> organization has been rejected.
+        promoted_to_admin:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has given you admin rights to that organization.
+          email_outro: You have received this notification because you are a member of that organization.
+          email_subject: You are now an admin of the %{user_group_name} organization!
+          notification_title: You are now an admin of the <a href="%{resource_path}">%{user_group_name}</a> organization.
+        removed_from_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has removed you from it.
+          email_outro: You have received this notification because you were a member of that organization.
+          email_subject: You have been removed from the %{user_group_name} organization!
+          notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> organization.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -458,16 +476,36 @@ en:
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+    group_admins:
+      actions:
+        are_you_sure: Are you sure? This won't remove the user from the organization.
+        demote_admin: Remove admin
+      demote:
+        error: There was an error removing this user fmor the admins list
+        success: User removed from admin successfully
+      index:
+        current_admins: 'Current admins:'
+        manage_admins: Manage admins
     group_members:
       accept:
         error: There was an error accepting this join request
         success: Join request accepted successfully
+      actions:
+        are_you_sure: Are you sure?
+        promote_to_admin: Make admin
+        remove_from_group: Remove user
       index:
         current_members_without_admins: 'Current members (without admins):'
         manage_members: Manage members
+      promote:
+        error: There was an error promoting this user
+        success: User promoted successfully
       reject:
         error: There was an error rejecting this join request
         success: Join request rejected successfully
+      remove:
+        error: There was an error removing this user from the group
+        success: User removed from the group successfully
     groups:
       create:
         error: There has been a problem creating the organization
@@ -477,7 +515,7 @@ en:
         update_user_group: Update organization
       join:
         error: There has been a problem joining the organization
-        success: Join request created successfully. An admin will review your reequest before accepting you to the organization.
+        success: Join request created successfully. An admin will review your request before accepting you to the organization.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
         accept_request: Accept
@@ -486,6 +524,10 @@ en:
         create_user_group: Create organization
         new_user_group: New organization
       no_user_groups: Doesn't belong to any organization yet.
+      roles:
+        admin: Administrator
+        creator: Creator
+        member: Member
       update:
         error: There has been a problem updating the organization
         success: Organization updated successfully
@@ -693,6 +735,7 @@ en:
         edit_profile: Edit profile
         edit_user_group: Edit organization profile
         join_user_group: Request to join organization
+        manage_user_group_admins: Manage admins
         manage_user_group_users: Manage members
     reported_mailer:
       hide:
