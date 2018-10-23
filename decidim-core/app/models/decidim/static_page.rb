@@ -12,6 +12,7 @@ module Decidim
     include Decidim::Loggable
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :static_pages
+    belongs_to :topic, foreign_key: "topic_id", class_name: "Decidim::StaticPageTopic", optional: true
 
     validates :slug, presence: true, uniqueness: { scope: :organization }
     validates :slug, format: { with: /\A[a-z0-9-]+/ }

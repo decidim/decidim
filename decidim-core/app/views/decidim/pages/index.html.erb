@@ -1,0 +1,25 @@
+<% add_decidim_meta_tags(
+  title: translated_attribute(page.title),
+  description: translated_attribute(page.content)
+) %>
+
+<%
+edit_link(
+  decidim_admin.edit_static_pages_path,
+  :update,
+  :static_page
+)
+%>
+
+<div class="wrapper">
+  <div class="row column">
+    <div class="text-center">
+      <h1 class="heading1 page-title">
+        <%= t "decidim.pages.index.title" %>
+      </h1>
+      <p class="intro--text subheading1">
+        This is a good opportunity to put some text explaining something
+      </p>
+    </div>
+  </div>
+</div>

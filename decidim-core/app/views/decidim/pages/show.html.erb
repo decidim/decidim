@@ -18,6 +18,9 @@ edit_link(
       <h1 class="heading1 page-title">
         <%= t "decidim.pages.index.title" %>
       </h1>
+      <p class="intro--text subheading1">
+        This is a good opportunity to put some text explaining something
+      </p>
     </div>
 
     <main class="main-container tabbed-container">
@@ -40,7 +43,7 @@ edit_link(
           <div class="main-container__content">
             <div class="tabs-content vertical">
               <div class="static__content">
-                <h2 class="heading2">
+                <h2 class="section-heading">
                   <%= translated_attribute page.title %>
                 </h2>
                 <%= decidim_sanitize translated_attribute page.content %>
