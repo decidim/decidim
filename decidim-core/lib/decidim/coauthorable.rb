@@ -95,15 +95,22 @@ module Decidim
 
       # Adds a new coauthor to the list of coauthors. The coauthorship is created with
       # current object as coauthorable and `user` param as author. To set the user group
-      # use `extra_attrs` either with `user_group` or `decidim_user_group_id` keys.
+      # use `extra_attributes` either with `user_group` or `decidim_user_group_id` keys.
       #
       # @param author: The new coauthor.
       # @extra_attrs: Extra
-      def add_coauthor(author, extra_attrs = {})
+      def add_coauthor(author, extra_attributes = {})
+        user_group = extra_attributes[:user_group]
+
+        return if coauthorships.where(decidim_author_id: author.id, decidim_author_type: author.class.base_class.name).exists?
+        return if user_group && coauthorships.where(user_group: user_group).exists?
+
+        coauthorship_attributes = extra_attributes.merge(author: author)
+
         if persisted?
-          coauthorships.create!(extra_attrs.merge(author: author))
+          coauthorships.create!(coauthorship_attributes)
         else
-          coauthorships.build(extra_attrs.merge(author: author))
+          coauthorships.build(coauthorship_attributes)
         end
 
         authors << author

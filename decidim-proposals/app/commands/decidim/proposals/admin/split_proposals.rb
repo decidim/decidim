@@ -39,28 +39,14 @@ module Decidim
         end
 
         def create_proposal(original_proposal)
-          origin_attributes = original_proposal.attributes.except(
-            "id",
-            "created_at",
-            "updated_at",
-            "state",
-            "answer",
-            "answered_at",
-            "decidim_component_id",
-            "reference",
-            "proposal_votes_count",
-            "proposal_notes_count"
+          Decidim::Proposals::ProposalBuilder.copy(
+            original_proposal,
+            author: form.current_organization,
+            action_user: form.current_user,
+            extra_attributes: {
+              component: form.target_component
+            }
           )
-
-          Decidim.traceability.perform_action!(:create, Proposal, form.current_user, visibility: "all") do
-            proposal = Proposal.new(origin_attributes)
-            proposal.component = form.target_component
-            proposal.category = original_proposal.category
-            proposal.add_coauthor(form.current_organization)
-            proposal.save!
-            proposal.link_resources(original_proposal, "copied_from_component")
-            proposal
-          end
         end
       end
     end
