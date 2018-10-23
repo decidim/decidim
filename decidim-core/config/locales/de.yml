@@ -502,6 +502,8 @@ de:
         error: Beim Entfernen dieses Benutzers aus der Gruppe ist ein Fehler aufgetreten
         success: Der Benutzer wurde erfolgreich aus der Gruppe entfernt
     groups:
+      actions:
+        are_you_sure: Bist du sicher?
       create:
         error: Beim Erstellen der Organisation ist ein Problem aufgetreten
         success: Organisation erfolgreich erstellt
@@ -511,6 +513,9 @@ de:
       join:
         error: Es ist ein Problem aufgetreten, der Organisation beizutreten
         success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Organisation akzeptiert.
+      leave:
+        error: Es hat ein Problem gegeben, die Organisation zu verlassen
+        success: Organisation erfolgreich verlassen.
       members:
         accept_or_reject_join_requests: 'Die folgenden Benutzer haben sich angemeldet, um dieser Gruppe beizutreten. Akzeptieren oder ablehnen ihrer Anfragen:'
         accept_request: Akzeptieren
@@ -730,6 +735,7 @@ de:
         edit_profile: Profil bearbeiten
         edit_user_group: Organisationsprofil bearbeiten
         join_user_group: Antrag auf Beitritt zur Organisation
+        leave_user_group: Organisation verlassen
         manage_user_group_admins: Admins verwalten
         manage_user_group_users: Mitglieder verwalten
     reported_mailer:
