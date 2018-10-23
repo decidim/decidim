@@ -163,7 +163,7 @@ ca:
       show:
         expired:
           authorize: Torna a autoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
+          explanation: La teva autorització ha caducat. Per realitzar aquesta acció, has de tornar a autoritzar-vos amb "%{authorization}".
           title: L'autorització ha caducat
         incomplete:
           cancel: Cancel·lar
@@ -173,14 +173,14 @@ ca:
           title: Si us plau, reautoritza't
         missing:
           authorize: Autoritzar amb "%{authorization}"
-          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
+          explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
         pending:
           explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
           resume: Comprova el progrés de l'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
+          explanation: No es pot realitzar aquesta acció ja que alguna de les teves dades d'autorització no coincideixen amb les requerides.
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
@@ -514,7 +514,7 @@ ca:
           register: Registra't
         hero:
           participate: Participa
-          welcome: Benvingut a %{organization}!
+          welcome: Benvingut/da a %{organization}!
         statistics:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees
@@ -523,7 +523,7 @@ ca:
           endorsements_count: Adhesions
           headline: Estat actual de %{organization}
           meetings_count: Trobades
-          orders_count: Vots
+          orders_count: Suports
           pages_count: Pàgines
           processes_count: Processos
           projects_count: Projectes
@@ -532,7 +532,7 @@ ca:
           results_count: Resultats
           surveys_count: Enquestes
           users_count: Participants
-          votes_count: Vots
+          votes_count: Suports
         sub_hero:
           register: Registra't
       index:
