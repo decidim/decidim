@@ -17,11 +17,14 @@ fr:
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
+      decidim/demoted_membership: N'est plus un administrateur d'organisation
       decidim/gamification/badge_earned_event: Badge gagné
       decidim/gamification/level_up_event: Vous avez progressé d'un niveau
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
       decidim/profile_updated_event: Profil mis à jour
+      decidim/promote_to_admin: Promu à l'organisation admin
+      decidim/removed_from_group: Retiré de l'organisation
   activerecord:
     attributes:
       decidim/user:
@@ -99,6 +102,9 @@ fr:
         update: "%{user_name} a mis à jour l'application OAuth %{resource_name}"
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
+      participatory_space_private_user:
+        create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
+        delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
         create: "%{user_name} a créé le périmètre d'application %{resource_name}"
         create_with_parent: "%{user_name} a créé le périmètre d'application %{resource_name} à l'intérieur du périmètre %{parent_scope}"
@@ -342,6 +348,11 @@ fr:
           email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
           notification_title: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_path}">%{badge_name}</a> !
       groups:
+        demoted_membership:
+          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur cette organisation.
+          email_outro: Vous avez reçu cette notification parce que vous êtes membre de cette organisation.
+          email_subject: Vous n'êtes plus un administrateur de l'organisation %{user_group_name}!
+          notification_title: Vous n'êtes plus un administrateur de l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_accepted:
           email_intro: Toutes nos félicitations! Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> a accepté votre demande d'adhésion.
           email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
@@ -357,6 +368,16 @@ fr:
           email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
           email_subject: Votre demande d'adhésion à l'organisation %{user_group_name} a été rejetée!
           notification_title: Votre demande d'adhésion à l'organisation <a href="%{resource_path}">%{user_group_name}</a> a été rejetée.
+        promoted_to_admin:
+          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> vous a attribué des droits d'administrateur sur cette organisation.
+          email_outro: Vous avez reçu cette notification parce que vous êtes membre de cette organisation.
+          email_subject: Vous êtes maintenant un administrateur de l'organisation %{user_group_name}!
+          notification_title: Vous êtes maintenant un administrateur de l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> vous en a retiré la liste.
+          email_outro: Vous avez reçu cette notification parce que vous étiez membre de cette organisation.
+          email_subject: Vous avez été retiré de l'organisation %{user_group_name}!
+          notification_title: Vous avez été supprimé de l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -450,16 +471,36 @@ fr:
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
+    group_admins:
+      actions:
+        are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur de l'organisation.
+        demote_admin: Supprimer admin
+      demote:
+        error: Une erreur s'est produite lors de la suppression de cet utilisateur dans la liste des administrateurs.
+        success: Utilisateur retiré de l'administrateur avec succès
+      index:
+        current_admins: 'Administrateurs actuels:'
+        manage_admins: Gérer les administrateurs
     group_members:
       accept:
         error: Une erreur s'est produite lors de l'acceptation de cette demande de participation.
         success: Demande de participation acceptée avec succès
+      actions:
+        are_you_sure: Êtes-vous sûr?
+        promote_to_admin: Faire admin
+        remove_from_group: Supprimer l'utilisateur
       index:
         current_members_without_admins: 'Membres actuels (sans administrateurs):'
         manage_members: Gérer les membres
+      promote:
+        error: Une erreur s'est produite lors de la promotion de cet utilisateur.
+        success: Utilisateur promu avec succès
       reject:
         error: Une erreur s'est produite lors du rejet de cette demande de participation.
         success: Demande de participation rejetée avec succès
+      remove:
+        error: Une erreur s'est produite lors de la suppression de cet utilisateur du groupe.
+        success: Utilisateur supprimé du groupe avec succès
     groups:
       create:
         error: Il y a eu un problème pour créer l'organisation
@@ -469,7 +510,7 @@ fr:
         update_user_group: Mettre à jour l'organisation
       join:
         error: Il y a eu un problème pour rejoindre l'organisation
-        success: Demande de jointure créée avec succès. Un administrateur examinera votre reequest avant de vous accepter dans l'organisation.
+        success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter dans l'organisation.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
         accept_request: Acceptez
@@ -478,6 +519,10 @@ fr:
         create_user_group: Créer une organisation
         new_user_group: Nouvelle organisation
       no_user_groups: N'appartient à aucune organisation pour le moment.
+      roles:
+        admin: Administrateur
+        creator: Créateur
+        member: Membre
       update:
         error: Un problème est survenu lors de la mise à jour de l'organisation.
         success: Organisation mise à jour avec succès
@@ -685,6 +730,7 @@ fr:
         edit_profile: Mettre à jour le profil
         edit_user_group: Modifier le profil de l'organisation
         join_user_group: Demande d'adhésion à l'organisation
+        manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
     reported_mailer:
       hide:
