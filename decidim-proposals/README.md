@@ -38,6 +38,7 @@ end
 `similarity_limit`: number of maximum results.
 
 ## Global Search
+
 This module includes the following models to Decidim's Global Search:
 
 - `Proposals`
