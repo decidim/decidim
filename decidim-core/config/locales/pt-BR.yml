@@ -469,7 +469,6 @@ pt-BR:
         update_user_group: Atualizar organização
       join:
         error: Houve um problema ao ingressar na organização
-        success: Juntar pedido criado com sucesso. Um administrador analisará seu reequest antes de aceitá-lo para a organização.
       members:
         accept_or_reject_join_requests: 'Os seguintes usuários se inscreveram para participar desse grupo. Aceite ou rejeite seus pedidos:'
         accept_request: Aceitar
