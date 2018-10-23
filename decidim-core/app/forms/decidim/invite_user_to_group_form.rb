@@ -24,7 +24,6 @@ module Decidim
       return true if user.present?
 
       errors.add :nickname, :invalid
-      false
     end
   end
 end
