@@ -492,9 +492,15 @@ sv:
       index:
         current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
         manage_members: Hantera medlemmar
+      promote:
+        error: Det uppstod ett fel för att marknadsföra den här användaren
+        success: Användaren främjas framgångsrikt
       reject:
         error: Ett fel uppstod vid avvisande av denna anmälningsförfrågan
         success: Gå med förfrågan avvisas framgångsrikt
+      remove:
+        error: Det gick inte att ta bort den här användaren från gruppen
+        success: Användaren togs bort från gruppen framgångsrikt
     groups:
       create:
         error: Det har varit ett problem att skapa organisationen
@@ -504,6 +510,7 @@ sv:
         update_user_group: Uppdatera organisation
       join:
         error: Det har varit ett problem att gå med i organisationen
+        success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till organisationen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
         accept_request: Acceptera
@@ -512,6 +519,10 @@ sv:
         create_user_group: Skapa organisation
         new_user_group: Ny organisation
       no_user_groups: Tillhör inte någon organisation än.
+      roles:
+        admin: Administratör
+        creator: Skapare
+        member: Medlem
       update:
         error: Det har varit ett problem att uppdatera organisationen
         success: Organisationen uppdateras framgångsrikt
@@ -719,6 +730,7 @@ sv:
         edit_profile: Redigera profil
         edit_user_group: Redigera organisationsprofil
         join_user_group: Begäran att gå med i organisationen
+        manage_user_group_admins: Hantera administratörer
         manage_user_group_users: Hantera medlemmar
     reported_mailer:
       hide:
