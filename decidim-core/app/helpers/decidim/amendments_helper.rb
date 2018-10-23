@@ -52,7 +52,18 @@ module Decidim
     #
     # Returns Html action button card
     def emendation_actions_for(emendation_form)
-      cell "decidim/amendable/emendation_actions", emendation_form if emendation_form.emendation.emendation? && emendation_form.amendable.authored_by?(current_user)
+      cell("decidim/amendable/emendation_actions", emendation_form).to_s if emendation_form.emendation.emendation? && allowed_to_react_to_emendation?(emendation_form)
+    end
+
+    # Checks if current_user can react to the emendation
+    #
+    # Returns true or false
+    def allowed_to_react_to_emendation?(emendation_form)
+      if current_user.active_role.present?
+        return true if current_user.active_role.include?("admin")
+      end
+
+      emendation_form.amendable.authored_by?(current_user)
     end
 
     def user_group_select_field(form, name)
