@@ -502,6 +502,8 @@ ca:
         error: S'ha produït un error en eliminar aquest usuari del grup
         success: L'usuari s'ha eliminat correctament del grup
     groups:
+      actions:
+        are_you_sure: Estàs segur?
       create:
         error: S'ha produït un problema en crear l'organització
         success: L'organització s'ha creat correctament
@@ -511,6 +513,9 @@ ca:
       join:
         error: Hi ha hagut un problema en unir-se a l'organització
         success: La sol·licitud d'unió s'ha creat correctament. Un administrador revisarà la vostra sol·licitud abans d'acceptar-lo a l'organització.
+      leave:
+        error: S'ha produït un problema en abandonar l'organització
+        success: L'organització s'ha deixat correctament.
       members:
         accept_or_reject_join_requests: 'Els usuaris següents han sol·licitat unir-se a aquest grup. Accepteu o rebutgeu les vostres sol·licituds:'
         accept_request: Accepta
@@ -730,6 +735,7 @@ ca:
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil d'organització
         join_user_group: Sol·licitud per unir-se a l'organització
+        leave_user_group: Deixeu l'organització
         manage_user_group_admins: Administra els administradors
         manage_user_group_users: Gestiona els membres
     reported_mailer:
