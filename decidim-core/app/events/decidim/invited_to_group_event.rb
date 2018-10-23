@@ -5,6 +5,7 @@ module Decidim
     delegate :url_helpers, to: "Decidim::Core::Engine.routes"
 
     i18n_attributes :user_group_name
+    i18n_attributes :groups_profile_tab_path
 
     def resource_url
       url_helpers.profile_url(
@@ -15,6 +16,10 @@ module Decidim
 
     def resource_path
       url_helpers.profile_path(user_group_nickname)
+    end
+
+    def groups_profile_tab_path
+      url_helpers.profile_groups_path(user.nickname)
     end
 
     def user_group_nickname

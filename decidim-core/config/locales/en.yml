@@ -362,7 +362,7 @@ en:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has invited you to join it.
           email_outro: You have received this notification because you have been invited to an organization. Please check the Organizations tab in your profile to approve it.
           email_subject: You have been invited to join the %{user_group_name} organization!
-          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> organization. Check the <a href="%{groups_profile_tab_path">Organizations page</a> in your profile to approve it!
+          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> organization. Check the <a href="%{groups_profile_tab_path}">Organizations page</a> in your profile to approve it!
         join_request_accepted:
           email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has accepted your request to join it.
           email_outro: You have received this notification because your join request has been updated.
