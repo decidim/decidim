@@ -17,11 +17,14 @@ gl:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Compoñente activo
+      decidim/demoted_membership: Xa non é un administrador da organización
       decidim/gamification/badge_earned_event: Insignia obtida
       decidim/gamification/level_up_event: Has nivelado
       decidim/join_request_accepted_event: Solicitude de adhesión aceptada
       decidim/join_request_rejected_event: Solicitude de adhesión rexeitada
       decidim/profile_updated_event: Perfil actualizado
+      decidim/promote_to_admin: Ascendido ao administrador da organización
+      decidim/removed_from_group: Eliminouse da organización
   activerecord:
     attributes:
       decidim/user:
@@ -99,6 +102,9 @@ gl:
         update: "%{user_name} actualizou a aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizou a configuración da organización"
+      participatory_space_private_user:
+        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
         create: "O %{user_name} creou o alcance %{resource_name}"
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -342,6 +348,11 @@ gl:
           email_subject: Chegou ao nivel %{current_level} na insignia %{badge_name}.
           notification_title: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
       groups:
+        demoted_membership:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> eliminou os dereitos de administración desta organización.
+          email_outro: Recibiches esta notificación porque es membro desta organización.
+          email_subject: Xa non es un administrador da organización %{user_group_name}.
+          notification_title: Xa non es administrador da organización <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_accepted:
           email_intro: Parabéns! Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> aceptou a túa solicitude para unirse a ela.
           email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
@@ -357,6 +368,16 @@ gl:
           email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
           email_subject: A túa solicitude para unirse á organización %{user_group_name} foi rexeitada!
           notification_title: A súa solicitude para unirse á organización <a href="%{resource_path}">%{user_group_name}</a> foi rexeitada.
+        promoted_to_admin:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> deulle dereitos de administrador a esa organización.
+          email_outro: Recibiches esta notificación porque es membro desta organización.
+          email_subject: Agora es un administrador da organización %{user_group_name}.
+          notification_title: Agora es un administrador da organización <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> eliminouno.
+          email_outro: Recibiches esta notificación porque ti es membro desta organización.
+          email_subject: Elimineches da organización %{user_group_name}.
+          notification_title: Elimineches da organización <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -450,16 +471,36 @@ gl:
       description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
       level: Nivel %{level}
       reached_top: Alcanzou o nivel superior desta placa.
+    group_admins:
+      actions:
+        are_you_sure: Estás seguro? Isto non eliminará o usuario da organización.
+        demote_admin: Eliminar administrador
+      demote:
+        error: Produciuse un erro ao eliminar este usuario a lista de administradores
+        success: Usuario eliminado do administrador con éxito
+      index:
+        current_admins: 'Administradores actuais:'
+        manage_admins: Xestionar os administradores
     group_members:
       accept:
         error: Houbo un erro ao aceptar esta solicitude de unirse
         success: A solicitude de adhesión aceptouse con éxito
+      actions:
+        are_you_sure: Estás seguro?
+        promote_to_admin: Facer admin
+        remove_from_group: Eliminar o usuario
       index:
         current_members_without_admins: 'Membros actuais (sen admins):'
         manage_members: Xestionar membros
+      promote:
+        error: Produciuse un erro ao promover este usuario
+        success: Usuario promocionado con éxito
       reject:
         error: Produciuse un erro ao rexeitar esta solicitude de unirse
         success: A solicitude de adhesión rexeitou con éxito
+      remove:
+        error: Produciuse un erro ao eliminar este usuario do grupo
+        success: Usuario eliminado do grupo correctamente
     groups:
       create:
         error: Produciuse un problema na creación da organización
@@ -469,7 +510,7 @@ gl:
         update_user_group: Actualiza a organización
       join:
         error: Produciuse un problema ao unirse á organización
-        success: A solicitude de unirse creouse con éxito. Un administrador revisará a súa reequesto antes de aceptarlle á organización.
+        success: A solicitude de unirse creouse con éxito. Un administrador revisará a túa solicitude antes de aceptarche á organización.
       members:
         accept_or_reject_join_requests: 'Os seguintes usuarios solicitaron unirse a este grupo. Aceptar ou rexeitar as súas solicitudes:'
         accept_request: Aceptar
@@ -478,6 +519,10 @@ gl:
         create_user_group: Crear organización
         new_user_group: Nova organización
       no_user_groups: Aínda non pertence a ningunha organización.
+      roles:
+        admin: Administrador
+        creator: Creador
+        member: Membro
       update:
         error: Produciuse un problema ao actualizar a organización
         success: A organización actualizouse con éxito
@@ -685,6 +730,7 @@ gl:
         edit_profile: Editar perfil
         edit_user_group: Editar o perfil da organización
         join_user_group: Solicitude para unirse á organización
+        manage_user_group_admins: Xestionar os administradores
         manage_user_group_users: Xestionar membros
     reported_mailer:
       hide:
