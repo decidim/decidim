@@ -254,7 +254,7 @@ fi:
         working_group: Työryhmä
       content_blocks:
         highlighted_assemblies:
-          name: Korostetut ryhmät
+          name: Tärkeimmät ryhmät
       created_by:
         city_council: Kaupunginvaltuusto
         others: Muut
