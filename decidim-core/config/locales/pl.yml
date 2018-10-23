@@ -479,7 +479,6 @@ pl:
         update_user_group: Zaktualizuj organizację
       join:
         error: Wystąpił problem z dołączeniem do organizacji
-        success: Żądanie dołączenia zostało pomyślnie utworzone. Administrator sprawdzi Twój ponowny test przed zaakceptowaniem Cię do organizacji.
       members:
         accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
         accept_request: Zaakceptować
