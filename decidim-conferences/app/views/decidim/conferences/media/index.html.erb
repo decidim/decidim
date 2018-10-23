@@ -20,22 +20,12 @@ edit_link(
       <section class="media-links">
         <ul class="list-reset">
           <% @media_links.each do |media_link| %>
-            <li>
-              <%= icon "external-link" %>
-              <div>
-                <%= link_to media_link.link, target: "_blank" do %>
-                  <strong><%= translated_attribute(media_link.title) %> </strong>
-                <% end %>
-                <div class="text-small"><%= l(media_link.date, format: :decidim_short_with_month_name_short) %> · <%= media_link.link %></small>
-              </div>
-            </li>
+            <%= cell "decidim/conferences/media_link", media_link %>
           <% end %>
         </ul>
       </section>
       <hr class="reset mt-none mb-s" />
     <% end %>
-    <section class="media-pictures">
-      <%= attachments_for_conference current_participatory_space %>
-    </section>
+    <%= attachments_for_conference current_participatory_space %>
   </div>
 </div>

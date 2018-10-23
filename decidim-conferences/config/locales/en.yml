@@ -356,9 +356,6 @@ en:
         invite_join_conference_mailer:
           invite:
             subject: Invitation to join a conference
-      media:
-        photos:
-          related_photos: Photos
       models:
         conference_invite:
           fields:
@@ -379,6 +376,11 @@ en:
           highlighted_conferences:
             active_conferences: Active conferences
             see_all_conferences: See all conferences
+      photo:
+        close_modal: Close modal
+        photo: Photo
+      photos_list:
+        related_photos: Photos
       show:
         details: Details
         introduction: Introduction
