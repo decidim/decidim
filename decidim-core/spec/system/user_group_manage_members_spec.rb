@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group profile edition", type: :system do
+describe "User group manage members", type: :system do
   let!(:creator) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, users: [creator], organization: creator.organization) }
   let!(:member) { create(:user, :confirmed, organization: creator.organization) }
@@ -24,7 +24,7 @@ describe "User group profile edition", type: :system do
     end
 
     it "rejects the user that accesses manually" do
-      visit decidim.edit_group_path(user_group.nickname)
+      visit decidim.group_manage_users_path(user_group.nickname)
       expect(page).to have_content("You are not authorized to perform this action")
     end
   end
@@ -45,6 +45,18 @@ describe "User group profile edition", type: :system do
       expect(page).to have_content(member.name)
     end
 
+    it "allows removing a user from the group" do
+      accept_confirm { click_link "Remove user" }
+      expect(page).to have_content("User removed from the group successfully")
+      expect(page).to have_no_content(member.name)
+    end
+
+    it "allows promoting a user" do
+      accept_confirm { click_link "Make admin" }
+      expect(page).to have_content("User promoted successfully")
+      expect(page).to have_no_content(member.name)
+    end
+
     context "with pending requests" do
       it "lists the pending requests" do
         within ".list-request" do
@@ -61,6 +73,8 @@ describe "User group profile edition", type: :system do
 
         expect(page).to have_no_css(".list-request")
         expect(page).to have_content("Join request accepted successfully")
+        expect(page).to have_content(requested_user.name)
+        expect(page).to have_content("Role: Member")
       end
 
       it "allows rejecting a join request" do
@@ -71,6 +85,7 @@ describe "User group profile edition", type: :system do
 
         expect(page).to have_no_css(".list-request")
         expect(page).to have_content("Join request rejected successfully")
+        expect(page).to have_no_content(requested_user.name)
       end
     end
   end
