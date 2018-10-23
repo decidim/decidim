@@ -27,7 +27,7 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "puts the role as a member" do
+          it "sets the role as a member" do
             command.call
             membership.reload
 
