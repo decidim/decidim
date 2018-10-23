@@ -29,7 +29,7 @@ This module also includes the following models to Decidim's Global Search:
 
 - `Users`
 
-### Key artifacts:
+### Key artifacts
 
 - `Searchable` module: A concern with the features needed when you want a model to be searchable.
 - `SearchableResource` class: The ActiveRecord that finally includes PgSearch and maps the indexed documents into a model.
