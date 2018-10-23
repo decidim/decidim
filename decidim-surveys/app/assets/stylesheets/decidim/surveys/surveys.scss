@@ -29,7 +29,9 @@ form.answer-survey{
     }
   }
 
-  .last-sorted{
-    margin-bottom: 1rem;
+  .sortable-check-box-collection{
+    .sorted + .unsorted{
+      margin-top: 1rem;
+    }
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable max-depth */
 ((exports) => {
   class AutosortableCheckboxesComponent {
     constructor(options = {}) {
@@ -7,35 +8,46 @@
     }
 
     _run() {
-      $(this.wrapperField).find("input[type=checkbox]").each((idx, el) => {
-        const $parentLabel = $(el).parents("label");
+      const sortedResults = [];
+      const unsortedResults = [];
 
-        if ($(el).is(":checked")) {
-          const $lastSorted = this.wrapperField.find("label.sorted").last();
+      $(this.wrapperField).children("label").each((idx, label) => {
+        const current = $(label).clone(true);
+        const isChecked = $(current).children("input[type=checkbox]").is(":checked");
+        const position = parseInt($(current).children("input[name$=\\[position\\]]").val(), 10);
 
-          if ($lastSorted.length > 0) {
-            $lastSorted.removeClass("last-sorted");
-            $parentLabel.insertAfter($lastSorted);
+        if (isChecked) {
+          if (Number.isInteger(position)) {
+            let wasInserted = false;
+            for (let index = 0; index < sortedResults.length; index += 1) {
+              let sorted = sortedResults[index];
+              const sortedPosition = parseInt($(sorted).children("input[name$=\\[position\\]]").val(), 10);
+              if (Number.isInteger(sortedPosition) && (position < sortedPosition)) {
+                sortedResults.splice(index, 0, current);
+                wasInserted = true;
+                break;
+              }
+            }
+            if (!wasInserted) {
+              sortedResults.push(current);
+            }
           } else {
-            $parentLabel.insertBefore(this.wrapperField.find("label:first-child"));
+            sortedResults.push(current);
           }
-
-          $parentLabel.addClass("sorted");
-          $parentLabel.addClass("last-sorted");
+          $(current).addClass("sorted");
+          $(current).removeClass("unsorted");
         } else {
-          const $lastUnsorted = this.wrapperField.find("label:not(.sorted)").last();
-
-          if ($lastUnsorted.length > 0) {
-            $parentLabel.insertBefore($lastUnsorted);
-          } else {
-            $parentLabel.insertAfter(this.wrapperField.find("label:last-child"));
-          }
-
-          $parentLabel.removeClass("sorted");
+          unsortedResults.push(current);
+          $(current).addClass("unsorted");
+          $(current).removeClass("sorted");
         }
+
       });
 
-      $(this.wrapperField).find("label").each((idx, el) => {
+      $(this.wrapperField).empty();
+      $(this.wrapperField).append(sortedResults.concat(unsortedResults));
+
+      $(this.wrapperField).children("label").each((idx, el) => {
         const $positionSelector = $(el).find(".position");
         const $positionField = $(el).find("input[name$=\\[position\\]]");
 
