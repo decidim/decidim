@@ -24,14 +24,7 @@ module Decidim
       context "when implementing Searchable" do
         context "when on create" do
           let(:proposal2) do
-            # by default the factory creates as published
-            create(
-              :proposal,
-              users: [],
-              component: current_component,
-              title: "Proposal without authors.",
-              body: "body of Proposal without authors"
-            )
+            create(:proposal, component: current_component)
           end
 
           it "does not index a SearchableResource after Proposal creation" do

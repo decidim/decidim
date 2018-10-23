@@ -43,9 +43,9 @@ module Decidim
           end
 
           it "adds the requester as a co-author of the collaborative draft" do
-            expect do
-              command.call
-            end.to change(collaborative_draft.authors, :count).by(1)
+            command.call
+            updated_draft = CollaborativeDraft.find(collaborative_draft.id)
+            expect(updated_draft.authors).to include(requester_user)
           end
 
           it "notifies the requester and authors of the collaborative draft that access to requester has been accepted" do

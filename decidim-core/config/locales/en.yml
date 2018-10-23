@@ -20,6 +20,8 @@ en:
       decidim/component_published_event: Active component
       decidim/gamification/badge_earned_event: Badge earned
       decidim/gamification/level_up_event: You've leveled up
+      decidim/join_request_accepted_event: Join request accepted
+      decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
   activerecord:
     attributes:
@@ -46,6 +48,7 @@ en:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -97,6 +100,9 @@ en:
         update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
         update: "%{user_name} updated the organization settings"
+      participatory_space_private_user:
+        create: "%{user_name} invited %{resource_name} to be a private user"
+        delete: "%{user_name} removed the user %{resource_name} as a private user"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
         create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
@@ -343,6 +349,22 @@ en:
           email_outro: You have received this notification because you made activity on our website.
           email_subject: You've reached level %{current_level} on the %{badge_name} badge!
           notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+      groups:
+        join_request_accepted:
+          email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has accepted your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: You have been accepted to the %{user_group_name} organization!
+          notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> organization.
+        join_request_created:
+          email_intro: Someone requested to join the %{user_group_name} organization. You can accept or reject it from <a href="%{resource_url}">the organization members page</a>.
+          email_outro: You have received this notification because you can manage the %{user_group_name} organization.
+          email_subject: Someone requested to join the %{user_group_name} organization!
+          notification_title: Someone requested to join the %{user_group_name} organization. You can accept or reject it from <a href="%{resource_path}">the organization members page</a>.
+        join_request_rejected:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization rejected your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: Your request to join the %{user_group_name} organization has been rejected!
+          notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> organization has been rejected.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -436,14 +458,37 @@ en:
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+    group_members:
+      accept:
+        error: There was an error accepting this join request
+        success: Join request accepted successfully
+      index:
+        current_members_without_admins: 'Current members (without admins):'
+        manage_members: Manage members
+      reject:
+        error: There was an error rejecting this join request
+        success: Join request rejected successfully
     groups:
       create:
         error: There has been a problem creating the organization
         success: Organization created successfully
+      edit:
+        edit_user_group: Edit organization
+        update_user_group: Update organization
+      join:
+        error: There has been a problem joining the organization
+        success: Join request created successfully. An admin will review your reequest before accepting you to the organization.
+      members:
+        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
+        accept_request: Accept
+        reject_request: Reject
       new:
         create_user_group: Create organization
         new_user_group: New organization
       no_user_groups: Doesn't belong to any organization yet.
+      update:
+        error: There has been a problem updating the organization
+        success: Organization updated successfully
     invitations:
       create:
         error: There were some problems while inviting your friends
@@ -646,6 +691,9 @@ en:
       user:
         create_user_group: Create organization
         edit_profile: Edit profile
+        edit_user_group: Edit organization profile
+        join_user_group: Request to join organization
+        manage_user_group_users: Manage members
     reported_mailer:
       hide:
         hello: Hello %{name},

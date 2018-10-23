@@ -28,22 +28,37 @@
   <%= render_hook(:user_profile_bottom) %>
   <div class="card__footer card__footer--transparent">
     <div class="flex--cc p-s text-center">
-      <div class="mr-s">
-        <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
-          <%= t("decidim.profiles.show.followers") %>
-          <h1 class="heading1"><%= profile_user.followers_count %></h1>
-        <% end %>
-      </div>
-      <div class="ml-s">
-        <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
-          <%= t("decidim.profiles.show.following") %>
-          <h1 class="heading1"><%= profile_user.following_count %></h1>
-        <% end %>
-      </div>
+      <% if profile_user_can_follow? %>
+        <div class="mr-s">
+          <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
+            <%= t("decidim.profiles.show.followers") %>
+            <h1 class="heading1"><%= profile_user.followers_count %></h1>
+          <% end %>
+        </div>
+        <div class="ml-s">
+          <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
+            <%= t("decidim.profiles.show.following") %>
+            <h1 class="heading1"><%= profile_user.following_count %></h1>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="mr-s">
+          <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
+            <%= t("decidim.profiles.show.followers") %>
+            <h1 class="heading1"><%= profile_user.followers_count %></h1>
+          <% end %>
+        </div>
+        <div class="ml-s">
+          <%= link_to profile_members_path(nickname: profile_holder.nickname) do %>
+            <%= t("decidim.profiles.show.members") %>
+            <h1 class="heading1"><%= profile_user.members_count %></h1>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
-  <% if current_organization.badges_enabled? %>
+  <% if current_organization.badges_enabled? && badge_statuses.any? %>
     <div class="card__footer card__footer--transparent">
       <div class="card__support">
         <div class="row column mb-s">
@@ -55,15 +70,12 @@
           </div>
         </div>
         <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
-          <% Decidim::Gamification.badges.sort_by(&:name).each do |badge| %>
-            <% status = Decidim::Gamification.status_for(profile_holder, badge.name) %>
-            <% if status.level > 0 %>
-              <div class="column">
-                <div class="badge-container pr-xs">
-                  <%= cell("decidim/badge", profile_holder, badge: badge, status: status).(:small) %>
-                </div>
+          <% badge_statuses.each do |status| %>
+            <div class="column">
+              <div class="badge-container pr-xs">
+                <%= cell("decidim/badge", profile_holder, badge: status.badge, status: status).(:small) %>
               </div>
-            <% end %>
+            </div>
           <% end %>
         </div>
       </div>
@@ -71,21 +83,44 @@
   <% end %>
 </div>
 
-<% if own_profile? %>
-  <div class="text-center">
-    <%= link_to decidim.account_path, class: "button" do %>
-      <span>
-        <%= t("decidim.profiles.user.edit_profile") %>
-      </span>
+<div class="row">
+  <div class="column medium-8 medium-centered">
+    <% if own_profile? %>
+      <div class="text-center">
+        <%= link_to decidim.account_path, class: "button" do %>
+          <span>
+            <%= t("decidim.profiles.user.edit_profile") %>
+          </span>
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to decidim.new_group_path, class: "button secondary light" do %>
+          <span>
+            <%= t("decidim.profiles.user.create_user_group") %>
+          </span>
+        <% end %>
+      </div>
+    <% elsif logged_in? %>
+      <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
+    <% end %>
+
+    <% if can_edit_user_group_profile? %>
+      <div class="text-center">
+        <%= link_to t("decidim.profiles.user.edit_user_group"), edit_group_path(profile_holder.nickname) %>
+      </div>
+      <div class="text-center">
+        <%= link_to t("decidim.profiles.user.manage_user_group_users"), group_manage_users_path(profile_holder.nickname) %>
+      </div>
+    <% end %>
+
+    <% if can_join_user_group? %>
+      <div class="text-center">
+        <%= link_to decidim.group_join_requests_path(model.nickname), method: :post, class: "button light expanded" do %>
+          <span>
+            <%= t("decidim.profiles.user.join_user_group") %>
+          </span>
+        <% end %>
+      </div>
     <% end %>
   </div>
-  <div class="text-center">
-    <%= link_to decidim.new_group_path, class: "button secondary light" do %>
-      <span>
-        <%= t("decidim.profiles.user.create_user_group") %>
-      </span>
-    <% end %>
-  </div>
-<% elsif logged_in? %>
-  <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
-<% end %>
+</div>

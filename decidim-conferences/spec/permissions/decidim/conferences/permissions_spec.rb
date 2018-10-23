@@ -109,6 +109,14 @@ describe Decidim::Conferences::Permissions do
       it { is_expected.to eq true }
     end
 
+    context "when conference program" do
+      let(:action) do
+        { scope: :public, action: :list, subject: :program }
+      end
+
+      it { is_expected.to eq true }
+    end
+
     context "when reporting a resource" do
       let(:action) do
         { scope: :public, action: :create, subject: :moderation }

@@ -248,6 +248,43 @@ describe Decidim::Permissions do
 
         it { is_expected.to eq true }
       end
+
+      context "when joining user groups" do
+        let(:action_name) { :join }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when managing user groups" do
+        let(:action_name) { :manage }
+        let(:user) { create :user, :confirmed }
+        let!(:user_group) { create :user_group, users: [user], organization: user.organization }
+        let(:context) { { user_group: user_group } }
+
+        context "when the user is the creator" do
+          it { is_expected.to eq true }
+        end
+
+        context "when the user is an admin" do
+          before do
+            membership = Decidim::UserGroupMembership.find_by(user: user, user_group: user_group)
+            membership.role = :admin
+            membership.save
+          end
+
+          it { is_expected.to eq true }
+        end
+
+        context "when the user is a basic member" do
+          before do
+            membership = Decidim::UserGroupMembership.find_by(user: user, user_group: user_group)
+            membership.role = :member
+            membership.save
+          end
+
+          it { is_expected.to eq false }
+        end
+      end
     end
   end
 end
