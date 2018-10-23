@@ -500,6 +500,7 @@ fi:
         success: Liittymispyyntö hylätty onnistuneesti
       remove:
         error: Käyttäjä poistui ryhmästä virheestä
+        success: Käyttäjä poistettiin ryhmästä onnistuneesti
     groups:
       create:
         error: Organisaation luomisessa esiintyi ongelma
@@ -509,6 +510,7 @@ fi:
         update_user_group: Päivitä organisaatio
       join:
         error: Liityttäessä organisaatioon tapahtui virhe
+        success: Liity pyyntöön luotu onnistuneesti. Järjestelmänvalvoja tarkistaa pyyntösi ennen kuin hyväksyt organisaation.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
         accept_request: Hyväksy
@@ -517,6 +519,10 @@ fi:
         create_user_group: Luo organisaatio
         new_user_group: Uusi organisaatio
       no_user_groups: Ei kuulu vielä yhteenkään organisaatioon.
+      roles:
+        admin: Järjestelmänvalvoja
+        creator: Luoja
+        member: Jäsen
       update:
         error: Organisaation päivityksessä tapahtui virhe
         success: Organisaatio päivitetty onnistuneesti
@@ -724,6 +730,7 @@ fi:
         edit_profile: Muokkaa profiilia
         edit_user_group: Muokkaa organisaation tietoja
         join_user_group: Liity organisaatioon
+        manage_user_group_admins: Hallinnoi ylläpitäjiä
         manage_user_group_users: Hallinnoi jäseniä
     reported_mailer:
       hide:
