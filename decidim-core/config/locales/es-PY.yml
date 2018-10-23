@@ -17,11 +17,14 @@ es-PY:
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
+      decidim/demoted_membership: Ya no es una organización admin.
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
+      decidim/promote_to_admin: Promovido a la administración de la organización
+      decidim/removed_from_group: Eliminado de la organización
   activerecord:
     attributes:
       decidim/user:
@@ -99,6 +102,9 @@ es-PY:
         update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
+      participatory_space_private_user:
+        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        delete: "%{user_name} eliminado el usuario %{resource_name} como un usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
         create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
@@ -342,6 +348,11 @@ es-PY:
           email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
           notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
       groups:
+        demoted_membership:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha eliminado sus derechos de administrador de esa organización.
+          email_outro: Has recibido esta notificación porque eres miembro de esa organización.
+          email_subject: '¡Ya no eres un administrador de la organización %{user_group_name}!'
+          notification_title: Ya no eres administrador de la organización <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_accepted:
           email_intro: '¡Felicidades! Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha aceptado su solicitud para unirse a ella.'
           email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
@@ -357,6 +368,16 @@ es-PY:
           email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
           email_subject: Su solicitud para unirse a la organización %{user_group_name} ha sido rechazada!
           notification_title: Su solicitud para unirse a la organización <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
+        promoted_to_admin:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha otorgado derechos de administrador a esa organización.
+          email_outro: Has recibido esta notificación porque eres miembro de esa organización.
+          email_subject: '¡Ahora eres un administrador de la organización %{user_group_name}!'
+          notification_title: Ahora eres un administrador de la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha eliminado de él.
+          email_outro: Ha recibido esta notificación porque era miembro de esa organización.
+          email_subject: '¡Has sido eliminado de la organización %{user_group_name}!'
+          notification_title: Has sido eliminado de la organización <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -450,6 +471,12 @@ es-PY:
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
+    group_admins:
+      actions:
+        are_you_sure: '¿Estás seguro? Esto no eliminará al usuario de la organización.'
+        demote_admin: Quitar admin
+      demote:
+        error: Se ha producido un error al eliminar este usuario en la lista de administradores.
     group_members:
       accept:
         error: Se ha producido un error al aceptar esta solicitud de unión.
@@ -469,7 +496,6 @@ es-PY:
         update_user_group: Actualizar organización
       join:
         error: Ha habido un problema al unirse a la organización.
-        success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en la organización.
       members:
         accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
         accept_request: Aceptar
