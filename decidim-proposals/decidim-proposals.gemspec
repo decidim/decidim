@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "ransack", "~> 2.0"
   s.add_dependency "redcarpet", ">= 3.4"
+  s.add_dependency "doc2text", ">= 0.3.3"
   s.add_dependency "social-share-button", "~> 1.0"
 
   s.add_development_dependency "decidim-admin", Decidim::Proposals.version

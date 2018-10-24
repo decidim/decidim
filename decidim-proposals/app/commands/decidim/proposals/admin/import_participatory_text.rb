@@ -20,11 +20,11 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) unless form.valid?
+          return broadcast(:invalid) unless @form.valid?
 
           transaction do
-            save_participatory_text(form)
-            parse_participatory_text_doc(form.document_text)
+            save_participatory_text_meta(@form)
+            parse_participatory_text_doc(@form)
           end
 
           broadcast(:ok)
@@ -32,16 +32,23 @@ module Decidim
 
         private
 
-        attr_reader :form
-
-        def save_participatory_text(form)
+        # Persist ParticipatoryText related meta information.
+        def save_participatory_text_meta(form)
           document = ParticipatoryText.find_or_initialize_by(component: form.current_component)
           document.update!(title: form.title, description: form.description)
         end
 
-        def parse_participatory_text_doc(document)
+        def parse_participatory_text_doc(form)
+          markdown= case form.document_type
+          when "text/markdown"
+            form.document_text
+          when "application/vnd.oasis.opendocument.text"
+            # convert libreoffice odt to markdown
+            DocToMarkdown.new(form.document_text).to_md
+          end
+
           parser = MarkdownToProposals.new(form.current_component)
-          parser.parse(document)
+          parser.parse(markdown)
         end
       end
     end

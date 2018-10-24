@@ -15,6 +15,7 @@ module Decidim
     autoload :CommentableCollaborativeDraft, "decidim/proposals/commentable_collaborative_draft"
     autoload :MarkdownToProposals, "decidim/proposals/markdown_to_proposals"
     autoload :ParticipatoryTextSection, "decidim/proposals/participatory_text_section"
+    autoload :DocToMarkdown, "decidim/proposals/doc_to_markdown"
 
     include ActiveSupport::Configurable
 

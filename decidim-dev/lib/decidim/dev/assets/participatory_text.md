@@ -1,5 +1,7 @@
 # The great title for a new law
+
 ## A co-creation process to create creative creations
+
 When public administrations will need to create or implement things, open and co-creative processes with the participation of any public or private person or institution will be required.
 
 The following co-creation process will be followed: We all will think think think and create and meditate and think and obtain creations at the end, blah, blah..
