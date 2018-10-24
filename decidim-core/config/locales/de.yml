@@ -353,6 +353,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Organisation sind.
           email_subject: Sie sind nicht mehr ein Administrator der %{user_group_name} Organisation!
           notification_title: Sie sind nicht mehr ein Administrator der <a href="%{resource_path}">%{user_group_name}</a> Organisation.
+        invited_to_group:
+          email_intro: Ein Administrator der <a href="%{resource_url}">%{user_group_name}</a> Organisation hat Sie eingeladen, sich ihm anzuschließen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Organisation eingeladen wurden. Überprüfen Sie den Tab "Organisationen" in Ihrem Profil, um ihn zu genehmigen.
+          email_subject: Sie wurden eingeladen, der %{user_group_name} Organisation beizutreten!
+          notification_title: Sie wurden eingeladen, der <a href="%{resource_path}">%{user_group_name}</a> Organisation beizutreten. Überprüfen Sie die <a href="%{groups_profile_tab_path}">Organisationen Seite</a> in Ihrem Profil, um es zu genehmigen!
         join_request_accepted:
           email_intro: Herzliche Glückwünsche! Ein Administrator der <a href="%{resource_url}">%{user_group_name}</a> Organisation hat Ihre Anfrage akzeptiert, der Organisation beizutreten.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanforderung aktualisiert wurde.
@@ -481,6 +486,22 @@ de:
       index:
         current_admins: 'Aktuelle Admins:'
         manage_admins: Admins verwalten
+    group_invites:
+      accept:
+        error: Bei der Annahme dieser Einladung ist ein Fehler aufgetreten
+        success: Einladung wurde erfolgreich angenommen
+      accept_invitation: Akzeptieren
+      accept_or_reject_group_invitations: 'Die folgenden Organisationen haben Sie eingeladen, sich ihnen anzuschließen. Akzeptieren oder ablehnen ihrer Anfragen:'
+      index:
+        invite: Einladen
+        invite_user: Laden Sie einen Benutzer ein
+      invite:
+        error: Beim Laden dieses Nutzers ist ein Fehler aufgetreten
+        success: Benutzer wurde erfolgreich eingeladen
+      reject:
+        error: Beim Ablehnen dieser Einladung ist ein Fehler aufgetreten
+        success: Einladung wurde erfolgreich abgelehnt
+      reject_invitation: Ablehnen
     group_members:
       accept:
         error: Bei der Annahme dieser Verknüpfungsanfrage ist ein Fehler aufgetreten
@@ -734,6 +755,7 @@ de:
         create_user_group: Organisation erstellen
         edit_profile: Profil bearbeiten
         edit_user_group: Organisationsprofil bearbeiten
+        invite_user: Nutzer einladen
         join_user_group: Antrag auf Beitritt zur Organisation
         leave_user_group: Organisation verlassen
         manage_user_group_admins: Admins verwalten
