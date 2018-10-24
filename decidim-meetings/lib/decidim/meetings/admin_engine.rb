@@ -33,10 +33,6 @@ module Decidim
       def load_seed
         nil
       end
-
-      initializer "decidim_meetings.assets" do |app|
-        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
-      end
     end
   end
 end
