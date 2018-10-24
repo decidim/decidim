@@ -24,10 +24,15 @@ module Decidim::Amendable
     end
 
     def reject_button
-      link_to "#reject", class: "button alert hollow expanded button--icon button--sc" do
-        content = icon "thumb-down"
-        content += t(:button_reject, scope: "decidim.amendments.emendation.actions")
-        content
+      button_content = icon "thumb-down"
+      button_content += t(:button_reject, scope: "decidim.amendments.emendation.actions")
+      button_class = "button alert hollow expanded button--icon button--sc"
+
+      decidim_form_for(model, url: decidim.reject_amend_path(amendment)) do |form|
+        form.hidden_field :id
+        button_tag type: "submit", class: button_class, data: { disable: true } do
+          button_content
+        end
       end
     end
 

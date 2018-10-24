@@ -163,6 +163,9 @@ en:
         heading: Create your amendment
         help_text: You are modifying the %{model_name}
         send: Send emendation
+      rejected:
+        error: An error ocurred rejecting this emmendation, please try again later
+        success: This emmendation has been rejected successfully
     anonymous_user: Anonymous
     application:
       collection:
