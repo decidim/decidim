@@ -312,7 +312,12 @@ pt:
             actions: Ações
             cancel: Cancelar
             change_category: Alterar categoria
+            merge: Junte-se a um novo
+            merge_button: Mesclar
+            select_component: Selecione um componente
             selected: selecionado
+            split: Dividir propostas
+            split_button: Dividido
             title: Propostas
             update: Atualizar
           new:
@@ -332,6 +337,14 @@ pt:
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas.
             select_component: Selecione um componente
             select_states: Verifique os estados das propostas para importar
+        proposals_merges:
+          create:
+            invalid: Ocorreu um erro ao mesclar as propostas selecionadas.
+            success: Fundiu com sucesso as propostas em uma nova.
+        proposals_splits:
+          create:
+            invalid: Ocorreu um erro ao dividir as propostas selecionadas.
+            success: Com sucesso dividiu as propostas em novas.
         shared:
           info_proposal:
             body: Corpo
