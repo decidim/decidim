@@ -353,6 +353,11 @@ gl:
           email_outro: Recibiches esta notificación porque es membro desta organización.
           email_subject: Xa non es un administrador da organización %{user_group_name}.
           notification_title: Xa non es administrador da organización <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> convidoute a unirte.
+          email_outro: Recibiches esta notificación porque estivo convidado a unha organización. Verifica a pestana Organizacións do teu perfil para aprobarla.
+          email_subject: Invitaboute a unirse á organización %{user_group_name}.
+          notification_title: Invitaboute a unirse á organización <a href="%{resource_path}">%{user_group_name}</a> . Consulte as <a href="%{groups_profile_tab_path}">organizacións páxina</a> seu perfil para aprobarlo.
         join_request_accepted:
           email_intro: Parabéns! Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> aceptou a túa solicitude para unirse a ela.
           email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
@@ -481,6 +486,22 @@ gl:
       index:
         current_admins: 'Administradores actuais:'
         manage_admins: Xestionar os administradores
+    group_invites:
+      accept:
+        error: Houbo un erro ao aceptar esta invitación
+        success: Invitación aceptada con éxito
+      accept_invitation: Aceptar
+      accept_or_reject_group_invitations: 'As seguintes organizacións convidáronlle a unirse a eles. Aceptar ou rexeitar as súas solicitudes:'
+      index:
+        invite: Invitar
+        invite_user: Convidar un usuario
+      invite:
+        error: Produciuse un erro ao invitar a este usuario
+        success: Usuario convidado con éxito
+      reject:
+        error: Produciuse un erro ao rexeitar esta invitación
+        success: Invitación rexeitada con éxito
+      reject_invitation: Rexeitar
     group_members:
       accept:
         error: Houbo un erro ao aceptar esta solicitude de unirse
@@ -734,6 +755,7 @@ gl:
         create_user_group: Crear organización
         edit_profile: Editar perfil
         edit_user_group: Editar o perfil da organización
+        invite_user: Invitar ao usuario
         join_user_group: Solicitude para unirse á organización
         leave_user_group: Deixar organización
         manage_user_group_admins: Xestionar os administradores
