@@ -17,7 +17,7 @@ module Decidim
       end
 
       let!(:component) { create(:proposal_component) }
-      let(:parser) { MarkdownToProposals.new(component) }
+      let(:parser) { MarkdownToProposals.new(component, create(:user)) }
       let(:items) { [] }
       let(:document) do
         items.join("\n")
