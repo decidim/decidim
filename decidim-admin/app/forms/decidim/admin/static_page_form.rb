@@ -12,6 +12,7 @@ module Decidim
       attribute :changed_notably, Boolean
       attribute :show_in_footer, Boolean
       attribute :weight, Integer
+      attribute :topic_id, Integer
 
       mimic :static_page
 
@@ -25,6 +26,19 @@ module Decidim
 
       def slug
         super.to_s.downcase
+      end
+
+      def topic
+        @topic ||= StaticPageTopic.find_by(
+          organization: organization,
+          id: topic_id
+        )
+      end
+
+      def topics
+        @topics ||= StaticPageTopic.where(
+          organization: current_organization
+        )
       end
 
       private

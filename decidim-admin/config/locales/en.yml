@@ -548,6 +548,21 @@ en:
         update:
           error: There was an error when updating this scope.
           success: Scope updated successfully
+      static_page_topics:
+        create:
+          error: There was an error creating a new topic.
+          success: Topic created successfully.
+        destroy:
+          success: Topic successfully destroyed
+        edit:
+          title: Edit topic
+          update: Update topic
+        new:
+          create: Create topic
+          title: New topic
+        update:
+          error: There was an error when updating this topic.
+          success: Topic updated successfully
       static_pages:
         actions:
           view: View public page
@@ -560,11 +575,19 @@ en:
           changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
           title: Edit page
           update: Update
+        form:
+          none: None
         index:
           last_notable_change: Last notable change
         new:
-          create: Create
+          create: Create page
           title: New page
+        topic:
+          confirm_destroy: Are you sure you want to delete this topic?
+          destroy: Remove topic
+          edit: Edit topic
+          empty: There's no page under this topic
+          without_topic: Pages without topic
         update:
           error: There was an error when updating this page.
           success: Page updated successfully

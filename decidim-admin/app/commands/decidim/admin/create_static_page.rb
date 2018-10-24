@@ -39,6 +39,7 @@ module Decidim
           content: form.content,
           show_in_footer: form.show_in_footer,
           weight: form.weight,
+          topic: form.topic,
           organization: form.organization
         )
       end

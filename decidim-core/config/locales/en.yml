@@ -717,7 +717,11 @@ en:
         sub_hero:
           register: Register
       index:
+        read_more: Read more
+        standalone_pages: Standalone pages
+        subheading: Navigate through the help pages of %{name}
         title: Help
+        topics: Topics
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
