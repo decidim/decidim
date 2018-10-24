@@ -19,10 +19,11 @@ module Decidim
     def not_highlighted
       not_highlighted_metrics = Decidim.metrics_registry.not_highlighted
       safe_join(
-        not_highlighted_metrics.in_groups_of(2, [:empty]).map do |metrics_group|
+        not_highlighted_metrics.in_groups_of(2).map do |metrics_group|
           content_tag :div, class: "column medium-4" do
             safe_join(
               metrics_group.map do |metric|
+                return "" if metric.blank?
                 render_metrics_data(metric.metric_name, klass: "column medium-6", graph_klass: "small")
               end
             )

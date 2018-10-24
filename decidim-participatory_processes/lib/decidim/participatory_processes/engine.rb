@@ -77,12 +77,26 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.register_metrics" do
-        Decidim.metrics_registry.register(
-          :participatory_processes,
-          "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
-          2
-        )
+        Decidim.metrics_registry.register(:participatory_processes) do |metric_registry|
+          metric_registry.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 2
+          end
+        end
+
+        # TODO: Create manager to activate this metric
+        # Decidim.metrics_registry.register(:participatory_processes_participants) do |metric_registry|
+        #   metric_registry.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesParticipantsMetricManage"
+        #
+        #   metric_registry.settings do |settings|
+        #     settings.attribute :highlighted, type: :boolean, default: true
+        #     settings.attribute :scopes, type: :array, default: %w{ participatory_process }
+        #     settings.attribute :weight, type: :integer, default: 1
+        #   end
+        # end
       end
     end
   end
