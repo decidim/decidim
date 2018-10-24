@@ -312,7 +312,12 @@ fi:
             actions: Toiminnot
             cancel: Peruuta
             change_category: Vaihda aihepiiri
+            merge: Yhdistä uuteen
+            merge_button: Yhdistää
+            select_component: Valitse komponentti
             selected: valittu
+            split: Split ehdotuksia
+            split_button: Jakaa
             title: Ehdotukset
             update: Päivitä
           new:
@@ -332,6 +337,14 @@ fi:
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
+        proposals_merges:
+          create:
+            invalid: Valitut ehdotukset yhdistettiin virheeseen.
+            success: Ehdotukset yhdistettiin onnistuneesti uudeksi.
+        proposals_splits:
+          create:
+            invalid: Valitut ehdotukset jakautuivat virheellisesti.
+            success: Ehdotukset jaettiin onnistuneesti uusiksi.
         shared:
           info_proposal:
             body: Tekstin runko
