@@ -55,6 +55,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Changed**:
 
+- **decidim-assemblies**: Change the not_ceased scope for AssemblyMembers to show them publicly if they have a ceased_date bigger than today [\#4370](https://github.com/decidim/decidim/pull/4370)
 - **decidim-assemblies**: For consistency with DB, `ceased_date` and `designation_date` columns now use date attributes in forms, instead of datetime ones. [\#3724](https://github.com/decidim/decidim/pull/3724)
 - **decidim-assemblies**: Don't show child assemblies in assemblies general homepage. [\#4239](https://github.com/decidim/decidim/pull/4239)
 - **decidim-core**: Allow users to enter datetime fields manually. [\#3724](https://github.com/decidim/decidim/pull/3724)
