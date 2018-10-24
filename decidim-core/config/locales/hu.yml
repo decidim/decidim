@@ -17,7 +17,7 @@ hu:
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
-      decidim/demoted_membership: Már nem csoportos adminisztrátor
+      decidim/demoted_membership: Már nem egy csoport admin
       decidim/gamification/badge_earned_event: Megszerzett jelvény
       decidim/gamification/level_up_event: Szintet léptél
       decidim/join_request_accepted_event: Csatlakozási kérelem elfogadva
