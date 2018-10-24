@@ -131,14 +131,4 @@ shared_examples "manage assembly members examples" do
       expect(page).to have_css(resource_selector, count: 5)
     end
   end
-
-  # context "with few members" do
-  #   let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
-  #
-  #   it "shows assembly members list" do
-  #     within "#assembly_members table" do
-  #       expect(page).to have_content(assembly_member.full_name)
-  #     end
-  #   end
-  # end
 end
