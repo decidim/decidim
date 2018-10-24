@@ -536,14 +536,22 @@ fi:
         success: Liity pyyntöön luotu onnistuneesti. Järjestelmänvalvoja tarkistaa pyyntösi ennen kuin hyväksyt ryhmän.
       leave:
         error: Ryhmässä on ollut ongelma
+        success: Ryhmä poistui onnistuneesti.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
         accept_request: Hyväksy
         reject_request: Hylkää
+      new:
+        create_user_group: Luo ryhmä
+        new_user_group: Uusi ryhmä
+      no_user_groups: Ei kuulu mihinkään ryhmään.
       roles:
         admin: Ylläpitäjä
         creator: Luoja
         member: Jäsen
+      update:
+        error: Ryhmä on päivittänyt ongelman
+        success: Ryhmä päivitettiin onnistuneesti
     invitations:
       create:
         error: Kutsuttaessa ystäviäsi tapahtui virheitä
@@ -736,6 +744,7 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seuraa
+        groups: ryhmät
         members: Jäsenet
         notifications: Ilmoitukset
       sidebar:
@@ -743,8 +752,12 @@ fi:
           info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
           title: Kunniamerkit
       user:
+        create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
+        edit_user_group: Muokkaa ryhmän profiilia
         invite_user: Kutsu käyttäjä
+        join_user_group: Pyyntö liittyä ryhmään
+        leave_user_group: Jätä ryhmä
         manage_user_group_admins: Hallinnoi ylläpitäjiä
         manage_user_group_users: Hallinnoi jäseniä
     reported_mailer:
@@ -1022,6 +1035,7 @@ fi:
         my_data: Omat tiedot
         notifications_settings: Ilmoitusten asetukset
         title: Käyttäjätilin asetukset
+        user_groups: ryhmät
       widget:
         see_more: Näytä lisää
   locale:
