@@ -17,14 +17,14 @@ pt:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
-      decidim/demoted_membership: Não é mais um administrador da organização
+      decidim/demoted_membership: Não é mais um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
       decidim/gamification/level_up_event: Você subiu de nível
       decidim/join_request_accepted_event: Pedido de adesão aceite
       decidim/join_request_rejected_event: Pedido de adesão rejeitado
       decidim/profile_updated_event: perfil atualizado
-      decidim/promote_to_admin: Promovido para o administrador da organização
-      decidim/removed_from_group: Removido da organização
+      decidim/promote_to_admin: Promovido para o administrador do grupo
+      decidim/removed_from_group: Removido do grupo
   activerecord:
     attributes:
       decidim/user:
@@ -349,40 +349,18 @@ pt:
           notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
-          email_intro: Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para essa organização.
-          email_outro: Você recebeu esta notificação porque é um membro dessa organização.
-          email_subject: Você não é mais um administrador da organização %{user_group_name}!
-          notification_title: Você não é mais um administrador da organização <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
+          email_outro: Você recebeu esta notificação porque é um membro desse grupo.
+          email_subject: Você não é mais um administrador do grupo %{user_group_name}!
+          notification_title: Você não é mais um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> convidou você para participar.
-          email_outro: Você recebeu esta notificação porque foi convidado para uma organização. Por favor, verifique a guia Organizações em seu perfil para aprová-lo.
-          email_subject: Você foi convidado a participar da organização %{user_group_name}!
-          notification_title: Você foi convidado para participar da organização <a href="%{resource_path}">%{user_group_name}</a> . Confira a página <a href="%{groups_profile_tab_path}">Organizações</a> em seu perfil para aprová-lo!
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidou você para participar.
+          email_outro: Você recebeu esta notificação porque foi convidado para um grupo. Por favor, verifique a aba Grupos no seu perfil para aprová-lo.
+          email_subject: Você foi convidado para participar do grupo %{user_group_name}!
         join_request_accepted:
-          email_intro: Parabéns! Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> aceitou o seu pedido para se juntar a ele.
           email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
-          email_subject: Você foi aceito na organização %{user_group_name}!
-          notification_title: Você foi aceito na organização <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Alguém pediu para se juntar à organização %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_url}">os membros da organização página</a>.
-          email_outro: Você recebeu esta notificação porque pode gerenciar a organização %{user_group_name}.
-          email_subject: Alguém pediu para se juntar à organização %{user_group_name}!
-          notification_title: Alguém pediu para se juntar à organização %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_path}">os membros da organização página</a>.
         join_request_rejected:
-          email_intro: Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> rejeitou o seu pedido para se juntar a ele.
           email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
-          email_subject: Sua solicitação para participar da organização %{user_group_name} foi rejeitada!
-          notification_title: Sua solicitação para participar da organização <a href="%{resource_path}">%{user_group_name}</a> foi rejeitada.
-        promoted_to_admin:
-          email_intro: Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> deu a você direitos de administrador para essa organização.
-          email_outro: Você recebeu esta notificação porque é um membro dessa organização.
-          email_subject: Você é agora um administrador da organização %{user_group_name}!
-          notification_title: Você é agora um administrador da organização <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> removeu você de lá.
-          email_outro: Você recebeu esta notificação porque era membro dessa organização.
-          email_subject: Você foi removido da organização %{user_group_name}!
-          notification_title: Você foi removido da organização <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -478,10 +456,8 @@ pt:
       reached_top: Você atingiu o nível superior para este selo.
     group_admins:
       actions:
-        are_you_sure: Você tem certeza? Isso não removerá o usuário da organização.
         demote_admin: Remover admin
       demote:
-        error: Ocorreu um erro ao remover este usuário da lista de administradores
         success: Usuário removido do administrador com sucesso
       index:
         current_admins: 'Administradores atuais:'
@@ -491,7 +467,6 @@ pt:
         error: Houve um erro ao aceitar este convite
         success: Convite aceito com sucesso
       accept_invitation: Aceitar
-      accept_or_reject_group_invitations: 'As organizações a seguir convidaram você para participar. Aceite ou rejeite seus pedidos:'
       index:
         invite: Convite
         invite_user: Convidar um usuário
@@ -525,33 +500,14 @@ pt:
     groups:
       actions:
         are_you_sure: Você tem certeza?
-      create:
-        error: Houve um problema ao criar a organização
-        success: Organização criada com sucesso
-      edit:
-        edit_user_group: Editar organização
-        update_user_group: Atualizar organização
-      join:
-        error: Houve um problema ao ingressar na organização
-        success: Juntar pedido criado com sucesso. Um administrador analisará sua solicitação antes de aceitá-lo para a organização.
-      leave:
-        error: Houve um problema ao sair da organização
-        success: Organização saiu com sucesso.
       members:
         accept_or_reject_join_requests: 'Os seguintes usuários se inscreveram para participar desse grupo. Aceite ou rejeite seus pedidos:'
         accept_request: Aceitar
         reject_request: Rejeitar
-      new:
-        create_user_group: Criar organização
-        new_user_group: Nova organização
-      no_user_groups: Não pertence a nenhuma organização ainda.
       roles:
         admin: Administrador
         creator: O Criador
         member: Membro
-      update:
-        error: Houve um problema ao atualizar a organização
-        success: Organização atualizada com sucesso
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -744,7 +700,6 @@ pt:
         conversations: Conversas
         followers: Seguidores
         following: Segue
-        groups: Organizações
         members: Membros
         notifications: Notificações
       sidebar:
@@ -752,12 +707,8 @@ pt:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
-        create_user_group: Criar organização
         edit_profile: Editar Perfil
-        edit_user_group: Editar perfil da organização
         invite_user: Convidar Usuário
-        join_user_group: Solicitação para participar da organização
-        leave_user_group: Deixar organização
         manage_user_group_admins: Gerenciar administradores
         manage_user_group_users: Gerenciar membros
     reported_mailer:
@@ -1035,7 +986,6 @@ pt:
         my_data: Meus dados
         notifications_settings: Configurações de notificações
         title: Configurações do usuário
-        user_groups: Organizações
       widget:
         see_more: Ver mais
   locale:
