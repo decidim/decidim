@@ -313,7 +313,12 @@ en:
             actions: Actions
             cancel: Cancel
             change_category: Change category
+            merge: Merge into a new one
+            merge_button: Merge
+            select_component: Select a component
             selected: selected
+            split: Split proposals
+            split_button: Split
             title: Proposals
             update: Update
           new:
@@ -333,6 +338,14 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
             select_states: Check the states of the proposals to import
+        proposals_merges:
+          create:
+            invalid: There was an error merging the selected proposals.
+            success: Successfully merged the proposals into a new one.
+        proposals_splits:
+          create:
+            invalid: There was an error spliting the selected proposals.
+            success: Successfully splitted the proposals into new ones.
         shared:
           info_proposal:
             body: Body

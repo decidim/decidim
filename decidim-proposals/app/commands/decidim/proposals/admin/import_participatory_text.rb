@@ -40,7 +40,7 @@ module Decidim
         end
 
         def parse_participatory_text_doc(document)
-          parser = MarkdownToProposals.new(form.current_component)
+          parser = MarkdownToProposals.new(form.current_component, form.current_user)
           parser.parse(document)
         end
       end
