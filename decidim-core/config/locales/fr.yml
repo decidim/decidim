@@ -353,6 +353,11 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous êtes membre de cette organisation.
           email_subject: Vous n'êtes plus un administrateur de l'organisation %{user_group_name}!
           notification_title: Vous n'êtes plus un administrateur de l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> vous a invité à le rejoindre.
+          email_outro: Vous avez reçu cette notification parce que vous avez été invité dans une organisation. Veuillez vérifier l'onglet Organisations de votre profil pour l'approuver.
+          email_subject: Vous avez été invité à rejoindre l'organisation %{user_group_name}!
+          notification_title: Vous avez été invité à rejoindre l'organisation <a href="%{resource_path}">%{user_group_name}</a> . Vérifiez les <a href="%{groups_profile_tab_path}">Page organisations</a> dans votre profil pour l' approuver!
         join_request_accepted:
           email_intro: Toutes nos félicitations! Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> a accepté votre demande d'adhésion.
           email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
@@ -481,6 +486,22 @@ fr:
       index:
         current_admins: 'Administrateurs actuels:'
         manage_admins: Gérer les administrateurs
+    group_invites:
+      accept:
+        error: Une erreur s'est produite lors de l'acceptation de cette invitation.
+        success: Invitation acceptée avec succès
+      accept_invitation: Acceptez
+      accept_or_reject_group_invitations: 'Les organisations suivantes vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
+      index:
+        invite: Inviter
+        invite_user: Inviter un utilisateur
+      invite:
+        error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
+        success: Utilisateur invité avec succès
+      reject:
+        error: Une erreur s'est produite lors du rejet de cette invitation.
+        success: Invitation rejetée avec succès
+      reject_invitation: Rejeter
     group_members:
       accept:
         error: Une erreur s'est produite lors de l'acceptation de cette demande de participation.
@@ -734,6 +755,7 @@ fr:
         create_user_group: Créer une organisation
         edit_profile: Mettre à jour le profil
         edit_user_group: Modifier le profil de l'organisation
+        invite_user: Inviter un utilisateur
         join_user_group: Demande d'adhésion à l'organisation
         leave_user_group: Quitter l'organisation
         manage_user_group_admins: Gérer les administrateurs
