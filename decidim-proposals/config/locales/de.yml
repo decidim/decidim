@@ -308,7 +308,12 @@ de:
             actions: Aktionen
             cancel: Stornieren
             change_category: Kategorie ändern
+            merge: Verschmelze zu einem neuen
+            merge_button: Verschmelzen
+            select_component: Wählen Sie eine Komponente aus
             selected: ausgewählt
+            split: Split-Vorschläge
+            split_button: Teilt
             title: Vorschläge
             update: Aktualisieren
           new:
@@ -328,6 +333,14 @@ de:
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
             select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
+        proposals_merges:
+          create:
+            invalid: Beim Zusammenführen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
+            success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
+        proposals_splits:
+          create:
+            invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
+            success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         shared:
           info_proposal:
             body: Karosserie
