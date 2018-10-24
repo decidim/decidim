@@ -143,6 +143,24 @@ FactoryBot.define do
     end
   end
 
+  factory :registration_type, class: "Decidim::Conferences::RegistrationType" do
+    conference
+
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    published_at { Time.current }
+    price { Faker::Number.between(1, 300) }
+    weight { Faker::Number.between(1, 10) }
+
+    trait :unpublished do
+      published_at { nil }
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
+  end
+
   factory :media_link, class: "Decidim::Conferences::MediaLink" do
     conference
     title { generate_localized_title }

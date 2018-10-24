@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module AdminLog
-      # This class holds the logic to present a `Decidim::Conferences::Partner`
+      # This class holds the logic to present a `Decidim::Conferences::RegistrationType`
       # for the `AdminLog` log.
       #
       # Usage should be automatic and you shouldn't need to call this class
@@ -11,28 +11,26 @@ module Decidim
       #
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
-      #    PartnerPresenter.new(action_log, view_helpers).present
+      #    RegistrationTypePresenter.new(action_log, view_helpers).present
       class PartnerPresenter < Decidim::Log::BasePresenter
         private
 
         def diff_fields_mapping
           {
-            name: :string,
-            partner_type: :string,
-            link: :string,
-            weight: :integer,
-            logo: :string
+            title: :i18n,
+            description: :i18n,
+            price: :integer,
           }
         end
 
         def i18n_labels_scope
-          "activemodel.attributes.conferences.partner"
+          "activemodel.attributes.conferences.registration_type"
         end
 
         def action_string
           case action
           when "create", "delete", "update"
-            "decidim.admin_log.conferences.partner.#{action}"
+            "decidim.admin_log.conferences.registration_type.#{action}"
           else
             super
           end

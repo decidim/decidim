@@ -146,14 +146,15 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          conference_admins: Conference admins
-          conference_invites: Conference Invites
-          conference_registrations: Conference Registrations
-          conference_speakers: Conference speakers
+          conference_admins: Conference users
+          conference_invites: Invites
+          conference_registrations: Registrations
+          conference_speakers: Speakers
           info: Info
           media_links: Media Links
           moderations: Moderations
           partners: Partners
+          registration_types: Registration Types
       models:
         conference:
           fields:
@@ -193,6 +194,28 @@ en:
           types:
             collaborator: Collaborator
             main_promotor: Main promotor
+        registration_type:
+          fields:
+            conference_meetings: Conference meetings
+            price: Price
+            title: Title
+            weight: Weight
+          name: Registration type
+      registration_types:
+        create:
+          error: There was an error adding a registration type for this conference.
+          success: Registration type added successfully to this conference.
+        destroy:
+          success: Registration type removed successfully from this conference.
+        edit:
+          title: Update registration type.
+          update: Update
+        new:
+          create: Create
+          title: New registration type
+        update:
+          error: There was an error updated a registration type for this conference.
+          success: Registration type updated successfully for this conference.
       partners:
         create:
           error: There was an error adding a partner for this conference.
@@ -286,6 +309,15 @@ en:
         partners:
           index:
             title: Partners
+        registration_types:
+          conference_meetings:
+            close: Close
+            current_selection: Current selection
+            select: Select
+          form:
+            select_conference_meetings: Select conference meetings
+          index:
+            title: Registration types
       conference:
         registration_confirm:
           cancel: Cancel

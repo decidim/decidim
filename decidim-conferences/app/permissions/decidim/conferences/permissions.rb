@@ -262,6 +262,7 @@ module Decidim
           :conference_speaker,
           :partner,
           :media_link,
+          :registration_type,
           :conference_invite
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -283,6 +284,7 @@ module Decidim
           :media_link,
           :conference_invite,
           :partner,
+          :registration_type,
           :read_conference_registrations,
           :export_conference_registrations
         ].include?(permission_action.subject)
