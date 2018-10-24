@@ -534,14 +534,24 @@ eu:
       join:
         error: Taldean sartzeko arazorik izan da
         success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
+      leave:
+        error: Arazo bat izan da taldean utzita
+        success: Taldeak arrakastaz utzi du.
       members:
         accept_or_reject_join_requests: 'Hurrengo talde honetako erabiltzaileei aplikatu zaie. Eskaerak onartu edo ukatu:'
         accept_request: Onartu
         reject_request: Ukatu
+      new:
+        create_user_group: Sortu taldea
+        new_user_group: Talde berria
+      no_user_groups: Oraindik ez da talde batekoa.
       roles:
         admin: Administrator
         creator: Sortzailea
         member: kidea
+      update:
+        error: Arazo bat izan da taldea eguneratzean
+        success: Taldeak behar bezala eguneratu du
     invitations:
       create:
         error: Arazo batzuk egon dira zure lagunak gonbidatuz
@@ -734,6 +744,7 @@ eu:
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
+        groups: Taldeak
         members: Bazkideek
         notifications: jakinarazpenak
       sidebar:
@@ -741,8 +752,12 @@ eu:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
           title: Badges
       user:
+        create_user_group: Sortu taldea
         edit_profile: Editatu profila
+        edit_user_group: Editatu taldearen profila
         invite_user: Gonbidatu erabiltzailea
+        join_user_group: Talde batzeko eskaera
+        leave_user_group: Utzi taldea
         manage_user_group_admins: Kudeatu kudeatzaileak
         manage_user_group_users: Kudeatu kideak
     reported_mailer:
@@ -1020,6 +1035,7 @@ eu:
         my_data: Nire datuak
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
+        user_groups: Taldeak
       widget:
         see_more: Ikusi gehiago
   locale:
