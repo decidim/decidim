@@ -353,6 +353,11 @@ ca:
           email_outro: Heu rebut aquesta notificació perquè sou membre d'aquesta organització.
           email_subject: Ja no ets un administrador de l'organització %{user_group_name}.
           notification_title: Ja no ets administrador de l'organització <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> ha convidat a unir-s'hi.
+          email_outro: Heu rebut aquesta notificació perquè heu estat convidat a una organització. Si us plau, comproveu la pestanya Organitzacions del vostre perfil per aprovar-lo.
+          email_subject: Has estat convidat a formar part de l'organització %{user_group_name}.
+          notification_title: Has estat convidat a unir-te a l'organització <a href="%{resource_path}">%{user_group_name}</a> . Consulteu les <a href="%{groups_profile_tab_path}">organitzacions de la pàgina</a> al vostre perfil per aprovar-lo.
         join_request_accepted:
           email_intro: Felicitacions Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la vostra sol·licitud per unir-s'hi.
           email_outro: Heu rebut aquesta notificació perquè s'ha actualitzat la vostra sol·licitud d'unió.
@@ -481,6 +486,22 @@ ca:
       index:
         current_admins: 'Administradors actuals:'
         manage_admins: Administra els administradors
+    group_invites:
+      accept:
+        error: S'ha produït un error en acceptar aquesta invitació
+        success: S'ha acceptat la invitació amb èxit
+      accept_invitation: Accepta
+      accept_or_reject_group_invitations: 'Les següents organitzacions us han convidat a unir-vos a ells. Accepteu o rebutgeu les vostres sol·licituds:'
+      index:
+        invite: Convidar
+        invite_user: Convida un usuari
+      invite:
+        error: S'ha produït un error en invitar aquest usuari
+        success: L'usuari s'ha convidat amb èxit
+      reject:
+        error: S'ha produït un error en rebutjar aquesta invitació
+        success: S'ha rebutjat la invitació amb èxit
+      reject_invitation: Rebutjar
     group_members:
       accept:
         error: S'ha produït un error en acceptar aquesta sol·licitud d'unió
@@ -734,6 +755,7 @@ ca:
         create_user_group: Crea una organització
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil d'organització
+        invite_user: Convida l'usuari
         join_user_group: Sol·licitud per unir-se a l'organització
         leave_user_group: Deixeu l'organització
         manage_user_group_admins: Administra els administradors
