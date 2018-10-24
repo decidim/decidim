@@ -353,6 +353,11 @@ fi:
           email_outro: Saat tämän ilmoituksen, koska olet tämän organisaation jäsen.
           email_subject: Et ole enää organisaation %{user_group_name} ylläpitäjä!
           notification_title: Et ole enää organisaation <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
+        invited_to_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation admin on kutsunut sinut liittymään siihen.
+          email_outro: Olet saanut tämän ilmoituksen, koska sinut on kutsuttu organisaatiolle. Tarkista profiilisi Organisaatiot-välilehti ja hyväksy se.
+          email_subject: Sinut on kutsuttu liittymään %{user_group_name} organisaatioon!
+          notification_title: Sinut on kutsuttu liittymään <a href="%{resource_path}">%{user_group_name}</a> -organisaatioon. Tarkista profiilisi <a href="%{groups_profile_tab_path}">organisaatiosi sivulla</a> hyväksyä se!
         join_request_accepted:
           email_intro: Onnittelut! <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on hyväksynyt liittymispyyntösi.
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
@@ -481,6 +486,22 @@ fi:
       index:
         current_admins: 'Nykyiset ylläpitäjät:'
         manage_admins: Hallinnoi ylläpitäjiä
+    group_invites:
+      accept:
+        error: Virhe hyväksyi kutsun
+        success: Kutsu hyväksyttiin onnistuneesti
+      accept_invitation: Hyväksyä
+      accept_or_reject_group_invitations: 'Seuraavat organisaatiot ovat kutsuneet sinut liittymään niihin. Hyväksy tai hylkää heidän pyyntönsä:'
+      index:
+        invite: kutsu
+        invite_user: Kutsu käyttäjä
+      invite:
+        error: Virhe kutsui tätä käyttäjiä
+        success: Käyttäjä on kutsuttu onnistuneesti
+      reject:
+        error: Haku hylättiin
+        success: Kutsu hylättiin onnistuneesti
+      reject_invitation: Hylätä
     group_members:
       accept:
         error: Tapahtui virhe hyväksyttäessä liittymispyyntöä
@@ -734,6 +755,7 @@ fi:
         create_user_group: Luo organisaatio
         edit_profile: Muokkaa profiilia
         edit_user_group: Muokkaa organisaation tietoja
+        invite_user: Kutsu käyttäjä
         join_user_group: Liity organisaatioon
         leave_user_group: Poistu organisaatiosta
         manage_user_group_admins: Hallinnoi ylläpitäjiä
