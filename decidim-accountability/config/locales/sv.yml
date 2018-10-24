@@ -148,7 +148,7 @@ sv:
           categories_label: Kategorier
           subcategories_label: Underkategorier
         home_header:
-          global_status: Global exekveringsstatus
+          global_status: Global utförandestatus
         nav_breadcrumb:
           global: Globalt utförande
         search:
