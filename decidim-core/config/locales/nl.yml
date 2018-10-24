@@ -353,6 +353,11 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat u lid bent van die organisatie.
           email_subject: U bent niet langer een beheerder van de %{user_group_name} organisatie!
           notification_title: U bent niet langer een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> organisatie.
+        invited_to_group:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> organisatie heeft je uitgenodigd om mee te doen.
+          email_outro: U hebt deze melding ontvangen omdat u bent uitgenodigd voor een organisatie. Controleer het tabblad Organisaties in uw profiel om het goed te keuren.
+          email_subject: U bent uitgenodigd om lid te worden van de %{user_group_name} organisatie!
+          notification_title: U bent uitgenodigd om lid te worden van de <a href="%{resource_path}">%{user_group_name}</a> organisatie. Controleer de <a href="%{groups_profile_tab_path}">organisaties pagina</a> in uw profiel om het goed te keuren!
         join_request_accepted:
           email_intro: Gefeliciteerd! Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> organisatie heeft uw verzoek om hieraan deel te nemen geaccepteerd.
           email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
@@ -481,6 +486,22 @@ nl:
       index:
         current_admins: 'Huidige beheerders:'
         manage_admins: Beheer beheerders
+    group_invites:
+      accept:
+        error: Er is een fout opgetreden bij het accepteren van deze uitnodiging
+        success: Uitnodiging met succes geaccepteerd
+      accept_invitation: Aanvaarden
+      accept_or_reject_group_invitations: 'De volgende organisaties hebben je uitgenodigd om mee te doen. Aanvaard of verwerp hun verzoeken:'
+      index:
+        invite: Nodig uit
+        invite_user: Nodig een gebruiker uit
+      invite:
+        error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker
+        success: Gebruiker met succes uitgenodigd
+      reject:
+        error: Er is een fout opgetreden bij het afwijzen van deze uitnodiging
+        success: Uitnodiging met succes afgewezen
+      reject_invitation: afwijzen
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
@@ -734,6 +755,7 @@ nl:
         create_user_group: Maak een organisatie
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk organisatieprofiel
+        invite_user: Nodig gebruiker uit
         join_user_group: Verzoek om lid te worden van de organisatie
         leave_user_group: Laat organisatie
         manage_user_group_admins: Beheer beheerders
