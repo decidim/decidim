@@ -353,6 +353,11 @@ pt:
           email_outro: Você recebeu esta notificação porque é um membro dessa organização.
           email_subject: Você não é mais um administrador da organização %{user_group_name}!
           notification_title: Você não é mais um administrador da organização <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> convidou você para participar.
+          email_outro: Você recebeu esta notificação porque foi convidado para uma organização. Por favor, verifique a guia Organizações em seu perfil para aprová-lo.
+          email_subject: Você foi convidado a participar da organização %{user_group_name}!
+          notification_title: Você foi convidado para participar da organização <a href="%{resource_path}">%{user_group_name}</a> . Confira a página <a href="%{groups_profile_tab_path}">Organizações</a> em seu perfil para aprová-lo!
         join_request_accepted:
           email_intro: Parabéns! Um administrador da organização <a href="%{resource_url}">%{user_group_name}</a> aceitou o seu pedido para se juntar a ele.
           email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
@@ -481,6 +486,11 @@ pt:
       index:
         current_admins: 'Administradores atuais:'
         manage_admins: Gerenciar administradores
+    group_invites:
+      accept:
+        error: Houve um erro ao aceitar este convite
+        success: Convite aceito com sucesso
+      accept_invitation: Aceitar
     group_members:
       accept:
         error: Ocorreu um erro ao aceitar este pedido de adesão
