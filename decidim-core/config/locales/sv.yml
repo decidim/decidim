@@ -353,6 +353,11 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du är medlem i den organisationen.
           email_subject: Du är inte längre en administratör av %{user_group_name} organisationen!
           notification_title: Du är inte längre en administratör av <a href="%{resource_path}">%{user_group_name}</a> organisationen.
+        invited_to_group:
+          email_intro: En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen har bjudit in dig att gå med i den.
+          email_outro: Du har fått den här meddelandet eftersom du har blivit inbjuden till en organisation. Kontrollera fliken Organisationer i din profil för att godkänna den.
+          email_subject: Du har blivit inbjuden att gå med i %{user_group_name} organisationen!
+          notification_title: Du har blivit inbjuden att gå med i <a href="%{resource_path}">%{user_group_name}</a> organisationen. Kolla <a href="%{groups_profile_tab_path}">organisationer sidan</a> i din profil för att godkänna det!
         join_request_accepted:
           email_intro: grattis! En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen har accepterat din förfrågan om att bli medlem.
           email_outro: Du har fått den här meddelandet eftersom din anmälningsförfrågan har uppdaterats.
@@ -481,6 +486,22 @@ sv:
       index:
         current_admins: 'Nuvarande administratörer:'
         manage_admins: Hantera administratörer
+    group_invites:
+      accept:
+        error: Det gick inte att acceptera den här inbjudan
+        success: Inbjudan accepterades framgångsrikt
+      accept_invitation: Acceptera
+      accept_or_reject_group_invitations: 'Följande organisationer har uppmanat dig att gå med i dem. Godkänn eller avslå deras förfrågningar:'
+      index:
+        invite: Inbjudan
+        invite_user: Bjud in en användare
+      invite:
+        error: Det uppstod ett fel med att bjuda in den här användaren
+        success: Användaren bjöds in framgångsrikt
+      reject:
+        error: Det uppstod ett fel vid avvisande av denna inbjudan
+        success: Inbjudan avvisades framgångsrikt
+      reject_invitation: Avvisa
     group_members:
       accept:
         error: Det gick inte att acceptera den här anslutningsförfrågan
@@ -734,6 +755,7 @@ sv:
         create_user_group: Skapa organisation
         edit_profile: Redigera profil
         edit_user_group: Redigera organisationsprofil
+        invite_user: Bjud in användare
         join_user_group: Begäran att gå med i organisationen
         leave_user_group: Lämna organisationen
         manage_user_group_admins: Hantera administratörer
