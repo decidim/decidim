@@ -17,9 +17,14 @@ gl:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Compoñente activo
+      decidim/demoted_membership: Xa non é un administrador da organización
       decidim/gamification/badge_earned_event: Insignia obtida
       decidim/gamification/level_up_event: Has nivelado
+      decidim/join_request_accepted_event: Solicitude de adhesión aceptada
+      decidim/join_request_rejected_event: Solicitude de adhesión rexeitada
       decidim/profile_updated_event: Perfil actualizado
+      decidim/promote_to_admin: Ascendido ao administrador da organización
+      decidim/removed_from_group: Eliminouse da organización
   activerecord:
     attributes:
       decidim/user:
@@ -45,6 +50,7 @@ gl:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -96,6 +102,9 @@ gl:
         update: "%{user_name} actualizou a aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizou a configuración da organización"
+      participatory_space_private_user:
+        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
         create: "O %{user_name} creou o alcance %{resource_name}"
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -338,6 +347,42 @@ gl:
           email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
           email_subject: Chegou ao nivel %{current_level} na insignia %{badge_name}.
           notification_title: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
+      groups:
+        demoted_membership:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> eliminou os dereitos de administración desta organización.
+          email_outro: Recibiches esta notificación porque es membro desta organización.
+          email_subject: Xa non es un administrador da organización %{user_group_name}.
+          notification_title: Xa non es administrador da organización <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> convidoute a unirte.
+          email_outro: Recibiches esta notificación porque estivo convidado a unha organización. Verifica a pestana Organizacións do teu perfil para aprobarla.
+          email_subject: Invitaboute a unirse á organización %{user_group_name}.
+          notification_title: Invitaboute a unirse á organización <a href="%{resource_path}">%{user_group_name}</a> . Consulte as <a href="%{groups_profile_tab_path}">organizacións páxina</a> seu perfil para aprobarlo.
+        join_request_accepted:
+          email_intro: Parabéns! Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> aceptou a túa solicitude para unirse a ela.
+          email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
+          email_subject: Recibiches a organización %{user_group_name}.
+          notification_title: Recibiches a organización <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Alguén solicitou unirse á organización %{user_group_name} . Pode aceptalo ou rexeitalo de <a href="%{resource_url}">membros da organización páxina</a>.
+          email_outro: Recibiches esta notificación porque podes xestionar a organización %{user_group_name}.
+          email_subject: Alguén solicitou unirse á organización %{user_group_name}.
+          notification_title: Alguén solicitou unirse á organización %{user_group_name} . Pode aceptalo ou rexeitalo de <a href="%{resource_path}">membros da organización páxina</a>.
+        join_request_rejected:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> rexeitou a solicitude para unirte.
+          email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
+          email_subject: A túa solicitude para unirse á organización %{user_group_name} foi rexeitada!
+          notification_title: A súa solicitude para unirse á organización <a href="%{resource_path}">%{user_group_name}</a> foi rexeitada.
+        promoted_to_admin:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> deulle dereitos de administrador a esa organización.
+          email_outro: Recibiches esta notificación porque es membro desta organización.
+          email_subject: Agora es un administrador da organización %{user_group_name}.
+          notification_title: Agora es un administrador da organización <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Un administrador da organización <a href="%{resource_url}">%{user_group_name}</a> eliminouno.
+          email_outro: Recibiches esta notificación porque ti es membro desta organización.
+          email_subject: Elimineches da organización %{user_group_name}.
+          notification_title: Elimineches da organización <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,14 +476,82 @@ gl:
       description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
       level: Nivel %{level}
       reached_top: Alcanzou o nivel superior desta placa.
+    group_admins:
+      actions:
+        are_you_sure: Estás seguro? Isto non eliminará o usuario da organización.
+        demote_admin: Eliminar administrador
+      demote:
+        error: Produciuse un erro ao eliminar este usuario a lista de administradores
+        success: Usuario eliminado do administrador con éxito
+      index:
+        current_admins: 'Administradores actuais:'
+        manage_admins: Xestionar os administradores
+    group_invites:
+      accept:
+        error: Houbo un erro ao aceptar esta invitación
+        success: Invitación aceptada con éxito
+      accept_invitation: Aceptar
+      accept_or_reject_group_invitations: 'As seguintes organizacións convidáronlle a unirse a eles. Aceptar ou rexeitar as súas solicitudes:'
+      index:
+        invite: Invitar
+        invite_user: Convidar un usuario
+      invite:
+        error: Produciuse un erro ao invitar a este usuario
+        success: Usuario convidado con éxito
+      reject:
+        error: Produciuse un erro ao rexeitar esta invitación
+        success: Invitación rexeitada con éxito
+      reject_invitation: Rexeitar
+    group_members:
+      accept:
+        error: Houbo un erro ao aceptar esta solicitude de unirse
+        success: A solicitude de adhesión aceptouse con éxito
+      actions:
+        are_you_sure: Estás seguro?
+        promote_to_admin: Facer admin
+        remove_from_group: Eliminar o usuario
+      index:
+        current_members_without_admins: 'Membros actuais (sen admins):'
+        manage_members: Xestionar membros
+      promote:
+        error: Produciuse un erro ao promover este usuario
+        success: Usuario promocionado con éxito
+      reject:
+        error: Produciuse un erro ao rexeitar esta solicitude de unirse
+        success: A solicitude de adhesión rexeitou con éxito
+      remove:
+        error: Produciuse un erro ao eliminar este usuario do grupo
+        success: Usuario eliminado do grupo correctamente
     groups:
+      actions:
+        are_you_sure: Estás seguro?
       create:
         error: Produciuse un problema na creación da organización
         success: Organización creada con éxito
+      edit:
+        edit_user_group: Editar organización
+        update_user_group: Actualiza a organización
+      join:
+        error: Produciuse un problema ao unirse á organización
+        success: A solicitude de unirse creouse con éxito. Un administrador revisará a túa solicitude antes de aceptarche á organización.
+      leave:
+        error: Produciuse un problema ao deixar a organización
+        success: A organización saíu con éxito.
+      members:
+        accept_or_reject_join_requests: 'Os seguintes usuarios solicitaron unirse a este grupo. Aceptar ou rexeitar as súas solicitudes:'
+        accept_request: Aceptar
+        reject_request: Rexeitar
       new:
         create_user_group: Crear organización
         new_user_group: Nova organización
       no_user_groups: Aínda non pertence a ningunha organización.
+      roles:
+        admin: Administrador
+        creator: Creador
+        member: Membro
+      update:
+        error: Produciuse un problema ao actualizar a organización
+        success: A organización actualizouse con éxito
     invitations:
       create:
         error: Houbo algúns problemas ao invitar aos teus amigos
@@ -641,6 +754,12 @@ gl:
       user:
         create_user_group: Crear organización
         edit_profile: Editar perfil
+        edit_user_group: Editar o perfil da organización
+        invite_user: Invitar ao usuario
+        join_user_group: Solicitude para unirse á organización
+        leave_user_group: Deixar organización
+        manage_user_group_admins: Xestionar os administradores
+        manage_user_group_users: Xestionar membros
     reported_mailer:
       hide:
         hello: Ola %{name},

@@ -17,9 +17,14 @@ eu:
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai aktiboa
+      decidim/demoted_membership: Ez dago erakunde kudeatzailerik
       decidim/gamification/badge_earned_event: Badge irabazi
       decidim/gamification/level_up_event: Berdindu duzu
+      decidim/join_request_accepted_event: Erregistratu eskaera onartua
+      decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
       decidim/profile_updated_event: Profila eguneratu da
+      decidim/promote_to_admin: Organizazio administratzaileari sustatua
+      decidim/removed_from_group: Antolatzailetik kendu da
   activerecord:
     attributes:
       decidim/user:
@@ -45,6 +50,7 @@ eu:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -96,6 +102,9 @@ eu:
         update: "%{user_name} %{resource_name} OAuth aplikazioa eguneratu du"
       organization:
         update: "%{user_name} Eguneratu antolazioaren ezarpenak"
+      participatory_space_private_user:
+        create: "%{user_name} gonbidatu %{resource_name} erabiltzaileari pribatua izateko"
+        delete: "%{user_name} erabiltzaileari erabiltzaile pribatu gisa kendu %{resource_name}"
       scope:
         create: "%{user_name} %{resource_name} esparrua sortu zen"
         create_with_parent: "%{user_name} %{resource_name} eremua %{parent_scope} esparru barruan sortu zen"
@@ -338,6 +347,42 @@ eu:
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
           email_subject: Nik iritsi zara mailan %{current_level} on the %{badge_name} plaka!
           notification_title: Lan handia! Maila %{current_level} lortu duzu <a href="%{resource_path}">%{badge_name} badge</a>!
+      groups:
+        demoted_membership:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak zure administrazio-eskubideak kendu dizkio erakunde horri.
+          email_outro: Jakinarazpen hau jaso duzu erakunde horren kide zarelako.
+          email_subject: Ez duzu jada %{user_group_name} erakundearen kudeatzailea!
+          notification_title: Ez zaude jada <a href="%{resource_path}">%{user_group_name}</a> erakundearen administratzailea.
+        invited_to_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak gonbidatu zaitu.
+          email_outro: Jakinarazpen hau jaso duzu erakunde bati gonbidatuta zaudelako. Egiaztatu zure profileko Erakundeen fitxa hori onartzeko.
+          email_subject: '%{user_group_name} antolatzailera gonbidatu zaituzte!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> erakundean parte hartzera gonbidatu zaituzte. Begiratu <a href="%{groups_profile_tab_path}">Erakundeen orria</a> zure profilean onartzeko!
+        join_request_accepted:
+          email_intro: Zorionak! <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak zure eskaera onartu du.
+          email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
+          email_subject: '%{user_group_name} erakundeari onartu zaizu!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> erakundeari onartu zaizu.
+        join_request_created:
+          email_intro: Norbaitek %{user_group_name} erakundean sartzeko eskatu du. Onarpena edo baztertzeko aukera ematen du <a href="%{resource_url}">erakundeko bazkideen</a>orrialdetik.
+          email_outro: Jakinarazpen hau jaso duzu erakunde %{user_group_name} kudeatu ahal izateko.
+          email_subject: Norbaitek %{user_group_name} erakundean sartzeko eskatu du!
+          notification_title: Norbaitek %{user_group_name} erakundean sartzeko eskatu du. Onarpena edo baztertzeko aukera ematen du <a href="%{resource_path}">erakundeko bazkideen</a>orrialdetik.
+        join_request_rejected:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak zure eskaera ukatu du.
+          email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
+          email_subject: Zure eskaera batzeko %{user_group_name} erakundea izan da baztertzen!
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> erakundeari atxikitzeko eskaera baztertu egin da.
+        promoted_to_admin:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak administrazioaren eskubideak eman dizkio erakunde horri.
+          email_outro: Jakinarazpen hau jaso duzu erakunde horren kide zarelako.
+          email_subject: Orain %{user_group_name} erakundearen administratzailea zara!
+          notification_title: Orain <a href="%{resource_path}">%{user_group_name}</a> erakundearen administratzailea zara.
+        removed_from_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak zuregandik kentzen zaitu.
+          email_outro: Jakinarazpen hau jaso duzu erakunde horren kide zarelako.
+          email_subject: '%{user_group_name} erakundetik kendu duzu!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> erakundeetatik kendu zaituzte.
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -431,14 +476,82 @@ eu:
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
+    group_admins:
+      actions:
+        are_you_sure: Ziur zaude? Honek ez du erabiltzailea erakundetik kenduko.
+        demote_admin: Kendu kudeatzailea
+      demote:
+        error: Errore bat gertatu da erabiltzaile hau ezabatzean admins zerrenda
+        success: Erabiltzailea administratzaileari behar bezala kendu zaio
+      index:
+        current_admins: 'Uneko administratzaileak:'
+        manage_admins: Kudeatu kudeatzaileak
+    group_invites:
+      accept:
+        error: Errore bat gertatu da gonbidapen hau onartzea
+        success: Gonbidapena arrakastaz onartu da
+      accept_invitation: Onartu
+      accept_or_reject_group_invitations: 'Honako erakunde hauek gonbidatu zaituzte. Eskaerak onartu edo ukatu:'
+      index:
+        invite: gonbidatu
+        invite_user: Erabiltzaile bat gonbidatu
+      invite:
+        error: Errore bat gertatu da erabiltzaile hau gonbidatuz
+        success: Erabiltzailea behar bezala gonbidatu da
+      reject:
+        error: Errore bat gertatu da gonbidapen hau uztea
+        success: Gonbidapena ongi baztertu da
+      reject_invitation: Ukatu
+    group_members:
+      accept:
+        error: Errore bat gertatu da eskaera bat onartzeko
+        success: Erregistratu eskaera arrakastaz onartu da
+      actions:
+        are_you_sure: Ziur zaude?
+        promote_to_admin: Egin admin
+        remove_from_group: Kendu erabiltzailea
+      index:
+        current_members_without_admins: 'Uneko kideak (administratzaile gabe):'
+        manage_members: Kudeatu kideak
+      promote:
+        error: Errore bat gertatu da erabiltzaile hau sustatzeko
+        success: Erabiltzailea arrakastaz sustatu da
+      reject:
+        error: Errore bat gertatu da eskaera bateratua ukatuz
+        success: Erregistratu eskaera ongi baztertu da
+      remove:
+        error: Errore bat gertatu da talde honetatik erabiltzaile hau kenduta
+        success: Taldeak arrakastaz ezabatu du erabiltzailea
     groups:
+      actions:
+        are_you_sure: Ziur zaude?
       create:
         error: Antolakuntza sortzerakoan arazo bat izan da
         success: Antolakuntza behar bezala sortu da
+      edit:
+        edit_user_group: Editatu erakundea
+        update_user_group: Eguneratu erakundea
+      join:
+        error: Antolaketari loturiko arazo bat izan da
+        success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du zure erakundean onartu aurretik.
+      leave:
+        error: Antolaketa utzi du arazo bat
+        success: Antolakuntza behar bezala utzi da.
+      members:
+        accept_or_reject_join_requests: 'Hurrengo talde honetako erabiltzaileei aplikatu zaie. Eskaerak onartu edo ukatu:'
+        accept_request: Onartu
+        reject_request: Ukatu
       new:
         create_user_group: Sortu erakundea
         new_user_group: Antolakuntza berria
       no_user_groups: Ez dago inongo erakunderik.
+      roles:
+        admin: Administrator
+        creator: Sortzailea
+        member: kidea
+      update:
+        error: Arazo bat izan da erakundea eguneratzean
+        success: Antolakuntza eguneratu da
     invitations:
       create:
         error: Arazo batzuk egon dira zure lagunak gonbidatuz
@@ -641,6 +754,12 @@ eu:
       user:
         create_user_group: Sortu erakundea
         edit_profile: Editatu profila
+        edit_user_group: Editatu antolakuntza profila
+        invite_user: Gonbidatu erabiltzailea
+        join_user_group: Antolaketara sartzeko eskaera
+        leave_user_group: Utzi erakundea
+        manage_user_group_admins: Kudeatu kudeatzaileak
+        manage_user_group_users: Kudeatu kideak
     reported_mailer:
       hide:
         hello: Kaixo, %{name},

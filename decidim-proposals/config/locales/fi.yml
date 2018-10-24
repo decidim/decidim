@@ -48,7 +48,7 @@ fi:
         other: Yhteistyöluonnokset
       decidim/proposals/proposal:
         one: Ehdotus
-        other: ehdotukset
+        other: Ehdotukset
       decidim/proposals/proposal_endorsement:
         one: Suositus
         other: Suositukset
@@ -75,8 +75,10 @@ fi:
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit käytössä
             geocoding_enabled: Geokoodaus käytössä
+            minimum_votes_per_user: Vähimmäisäänimäärä käyttäjää kohden
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
+            participatory_texts_enabled: Ehdotusaineistot ovat käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
@@ -221,10 +223,10 @@ fi:
           unearned_own: Et ole vielä luonut ehdotuksia.
     metrics:
       accepted_proposals:
-        object: ehdotusta
+        object: ehdotukset
         title: Hyväksyttyjä ehdotuksia
       proposals:
-        object: ehdotus
+        object: ehdotukset
         title: Ehdotuksia
       votes:
         object: ääntä
@@ -243,6 +245,7 @@ fi:
         edit_proposal: Muokkaa ehdotusta
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
+        participatory_texts: Ehdotusaineistot
         private_notes: Omat muistiinpanot
         title: Toiminnot
       admin:
@@ -254,6 +257,28 @@ fi:
         models:
           proposal:
             name: Ehdotus
+        participatory_texts:
+          bulk-actions:
+            import_doc: Tuo aineisto
+          import:
+            invalid: Lomake on virheellinen!
+            success: Onnittelut, seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
+          index:
+            info_1: Seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
+            publish_document: Julkaise aineisto
+            title: ESIKATSELE EHDOTUSAINEISTOA
+          new_import:
+            bottom_hint: "(Voit esikatsella ja lajitella aineiston osioita)"
+            document_legend: 'Lisää tiedosto, joka on pienempi kuin 2 MB. Jokaisesta osiosta aineiston kolmannelle tasolle asti luodaan uusi ehdotus. Tuetut tiedostomuodot ovat: Markdown'
+            title: LISÄÄ AINEISTO
+            upload_document: Lataa aineisto
+          publish:
+            invalid: Ehdotuksia ei voitu julkaista
+            success: Kaikki ehdotukset on julkaistu
+          sections:
+            article: "<em>Kappalesisältö</em>"
+            section: "<em>Osio:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Alaosio:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Hyväksytty
@@ -596,6 +621,10 @@ fi:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
+          minimum_votes_per_user:
+            description: Sinun on annettava vähintään kolme ääntä eri ehdotuksille.
+            given_enough_votes: Olet tukenut tarpeeksi monta ehdotusta.
+            supports_remaining: Sinun on äänestettävä %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:

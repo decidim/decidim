@@ -63,6 +63,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-core**: Move user group creation to user profile [\#4256](https://github.com/decidim/decidim/pull/4256)
 - **decidim-core**: Make authors polymorphic [\#4282](https://github.com/decidim/decidim/pull/4282)
 - **decidim-core**: Don't allow weird characters in names and nicknames [\#4317](https://github.com/decidim/decidim/pull/4317)
+- **decidim-proposals**: Admins can edit official proposals from the admin as long as they don't have any support [\#4364](https://github.com/decidim/decidim/pull/4364)
 
 **Fixed**:
 

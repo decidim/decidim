@@ -17,9 +17,14 @@ sv:
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
+      decidim/demoted_membership: Inte längre en organisation admin
       decidim/gamification/badge_earned_event: Emblem intjänad
       decidim/gamification/level_up_event: Du har gått upp i nivå
+      decidim/join_request_accepted_event: Gå med förfrågan accepterad
+      decidim/join_request_rejected_event: Gå med förfrågan avvisad
       decidim/profile_updated_event: Profil uppdaterad
+      decidim/promote_to_admin: Befordras till organisationsadministratör
+      decidim/removed_from_group: Avlägsnat från organisation
   activerecord:
     attributes:
       decidim/user:
@@ -45,6 +50,7 @@ sv:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -96,6 +102,9 @@ sv:
         update: "%{user_name} uppdaterade OAuth-applikationen %{resource_name}"
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
+      participatory_space_private_user:
+        create: "%{user_name} uppmanade %{resource_name} att vara en privat användare"
+        delete: "%{user_name} bort användaren %{resource_name} som privat användare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
         create_with_parent: "%{user_name} skapade området %{resource_name} inom ramen för %{parent_scope}"
@@ -338,6 +347,42 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du hade aktivitet på vår hemsida.
           email_subject: Du har nått nivån %{current_level} på %{badge_name} emblemet!
           notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} emblemet</a>!
+      groups:
+        demoted_membership:
+          email_intro: En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen har tagit bort dina administratörsrättigheter till den organisationen.
+          email_outro: Du har fått den här meddelandet eftersom du är medlem i den organisationen.
+          email_subject: Du är inte längre en administratör av %{user_group_name} organisationen!
+          notification_title: Du är inte längre en administratör av <a href="%{resource_path}">%{user_group_name}</a> organisationen.
+        invited_to_group:
+          email_intro: En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen har bjudit in dig att gå med i den.
+          email_outro: Du har fått den här meddelandet eftersom du har blivit inbjuden till en organisation. Kontrollera fliken Organisationer i din profil för att godkänna den.
+          email_subject: Du har blivit inbjuden att gå med i %{user_group_name} organisationen!
+          notification_title: Du har blivit inbjuden att gå med i <a href="%{resource_path}">%{user_group_name}</a> organisationen. Kolla <a href="%{groups_profile_tab_path}">organisationer sidan</a> i din profil för att godkänna det!
+        join_request_accepted:
+          email_intro: grattis! En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen har accepterat din förfrågan om att bli medlem.
+          email_outro: Du har fått den här meddelandet eftersom din anmälningsförfrågan har uppdaterats.
+          email_subject: Du har blivit antagen till %{user_group_name} organisationen!
+          notification_title: Du har blivit accepterad till <a href="%{resource_path}">%{user_group_name}</a> organisationen.
+        join_request_created:
+          email_intro: Någon bad om att gå med i %{user_group_name} organisationen. Du kan acceptera eller avvisa det från <a href="%{resource_url}">på organisationsmedlemmarna sidan</a>.
+          email_outro: Du har fått den här meddelandet eftersom du kan hantera %{user_group_name} organisationen.
+          email_subject: Någon bad om att gå med i %{user_group_name} organisationen!
+          notification_title: Någon bad om att gå med i %{user_group_name} organisationen. Du kan acceptera eller avvisa det från <a href="%{resource_path}">på organisationsmedlemmarna sidan</a>.
+        join_request_rejected:
+          email_intro: En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen avvisade din förfrågan om att bli medlem.
+          email_outro: Du har fått den här meddelandet eftersom din anmälningsförfrågan har uppdaterats.
+          email_subject: Din förfrågan om att bli medlem i %{user_group_name} organisationen har blivit avvisad!
+          notification_title: Din förfrågan om att gå med i <a href="%{resource_path}">%{user_group_name}</a> organisationen har blivit avvisad.
+        promoted_to_admin:
+          email_intro: En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen har gett dig administratörsrättigheter till den organisationen.
+          email_outro: Du har fått den här meddelandet eftersom du är medlem i den organisationen.
+          email_subject: Du är nu en administratör av %{user_group_name} organisationen!
+          notification_title: Du är nu en administratör av <a href="%{resource_path}">%{user_group_name}</a> organisationen.
+        removed_from_group:
+          email_intro: En administratör av <a href="%{resource_url}">%{user_group_name}</a> organisationen har tagit bort dig från den.
+          email_outro: Du har fått den här meddelandet eftersom du var medlem i den organisationen.
+          email_subject: Du har tagits bort från %{user_group_name} organisationen!
+          notification_title: Du har tagits bort från <a href="%{resource_path}">%{user_group_name}</a> organisationen.
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,14 +476,82 @@ sv:
       description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta emblem.
+    group_admins:
+      actions:
+        are_you_sure: Är du säker? Detta tar inte bort användaren från organisationen.
+        demote_admin: Ta bort admin
+      demote:
+        error: Det gick inte att ta bort den här användaren fmor admins listan
+        success: Användaren har tagits bort från admin framgångsrikt
+      index:
+        current_admins: 'Nuvarande administratörer:'
+        manage_admins: Hantera administratörer
+    group_invites:
+      accept:
+        error: Det gick inte att acceptera den här inbjudan
+        success: Inbjudan accepterades framgångsrikt
+      accept_invitation: Acceptera
+      accept_or_reject_group_invitations: 'Följande organisationer har uppmanat dig att gå med i dem. Godkänn eller avslå deras förfrågningar:'
+      index:
+        invite: Inbjudan
+        invite_user: Bjud in en användare
+      invite:
+        error: Det uppstod ett fel med att bjuda in den här användaren
+        success: Användaren bjöds in framgångsrikt
+      reject:
+        error: Det uppstod ett fel vid avvisande av denna inbjudan
+        success: Inbjudan avvisades framgångsrikt
+      reject_invitation: Avvisa
+    group_members:
+      accept:
+        error: Det gick inte att acceptera den här anslutningsförfrågan
+        success: Gå med förfrågan accepteras framgångsrikt
+      actions:
+        are_you_sure: Är du säker?
+        promote_to_admin: Gör administratör
+        remove_from_group: Ta bort användaren
+      index:
+        current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
+        manage_members: Hantera medlemmar
+      promote:
+        error: Det uppstod ett fel för att marknadsföra den här användaren
+        success: Användaren främjas framgångsrikt
+      reject:
+        error: Ett fel uppstod vid avvisande av denna anmälningsförfrågan
+        success: Gå med förfrågan avvisas framgångsrikt
+      remove:
+        error: Det gick inte att ta bort den här användaren från gruppen
+        success: Användaren togs bort från gruppen framgångsrikt
     groups:
+      actions:
+        are_you_sure: Är du säker?
       create:
         error: Det har varit ett problem att skapa organisationen
         success: Organisationen skapades framgångsrikt
+      edit:
+        edit_user_group: Redigera organisation
+        update_user_group: Uppdatera organisation
+      join:
+        error: Det har varit ett problem att gå med i organisationen
+        success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till organisationen.
+      leave:
+        error: Det har varit ett problem att lämna organisationen
+        success: Organisationen gick framgångsrikt.
+      members:
+        accept_or_reject_join_requests: 'Följande användare har ansökt om att gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
+        accept_request: Acceptera
+        reject_request: Avvisa
       new:
         create_user_group: Skapa organisation
         new_user_group: Ny organisation
       no_user_groups: Tillhör inte någon organisation än.
+      roles:
+        admin: Administratör
+        creator: Skapare
+        member: Medlem
+      update:
+        error: Det har varit ett problem att uppdatera organisationen
+        success: Organisationen uppdateras framgångsrikt
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -641,6 +754,12 @@ sv:
       user:
         create_user_group: Skapa organisation
         edit_profile: Redigera profil
+        edit_user_group: Redigera organisationsprofil
+        invite_user: Bjud in användare
+        join_user_group: Begäran att gå med i organisationen
+        leave_user_group: Lämna organisationen
+        manage_user_group_admins: Hantera administratörer
+        manage_user_group_users: Hantera medlemmar
     reported_mailer:
       hide:
         hello: Hej %{name},
