@@ -17,9 +17,14 @@ pl:
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny składnik
+      decidim/demoted_membership: Nie jest już administratorem organizacji
       decidim/gamification/badge_earned_event: Zdobyta odznaka
       decidim/gamification/level_up_event: Wyrównałeś
+      decidim/join_request_accepted_event: Dołącz do akceptowanej prośby
+      decidim/join_request_rejected_event: Odrzucono prośbę o połączenie
       decidim/profile_updated_event: Profil zaktualizowany
+      decidim/promote_to_admin: Promowane do administratora organizacji
+      decidim/removed_from_group: Usunięto z organizacji
   activerecord:
     attributes:
       decidim/user:
@@ -49,6 +54,7 @@ pl:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -100,6 +106,9 @@ pl:
         update: "%{user_name} zaktualizował aplikację OYuth %{resource_name}"
       organization:
         update: "%{user_name} zaktualizował ustawienia organizacji"
+      participatory_space_private_user:
+        create: "%{user_name} zaprosił %{resource_name} aby zostać użytkownikiem prywatnym"
+        delete: "%{user_name} usunął użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył zasięg %{resource_name}"
         create_with_parent: "%{user_name} utworzył zasięg %{resource_name} w zasięgu %{parent_scope}"
@@ -348,6 +357,42 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
           email_subject: Osiągnąłeś poziom %{current_level} na %{badge_name} odznace!
           notification_title: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
+      groups:
+        demoted_membership:
+          email_intro: Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> usunął uprawnienia administratora do tej organizacji.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś członkiem tej organizacji.
+          email_subject: Nie jesteś już administratorem organizacji %{user_group_name}!
+          notification_title: Nie jesteś już administratorem organizacji <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> zaprasza Cię do dołączenia.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ zostałeś zaproszony do organizacji. Sprawdź kartę Organizacje w swoim profilu, aby ją zatwierdzić.
+          email_subject: Zostałeś zaproszony do przyłączenia się do organizacji %{user_group_name}!
+          notification_title: Zostałeś zaproszony do przyłączenia się do organizacji <a href="%{resource_path}">%{user_group_name}</a> . Sprawdzić <a href="%{groups_profile_tab_path}">organizacji strona</a> w swoim profilu, aby go zatwierdzić!
+        join_request_accepted:
+          email_intro: Gratulacje! Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> zaakceptował Twoją prośbę o dołączenie do niej.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoje prośby o dołączenie zostały zaktualizowane.
+          email_subject: Zostałeś przyjęty do organizacji %{user_group_name}!
+          notification_title: Zostałeś przyjęty do organizacji <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Ktoś poprosił o dołączenie do organizacji %{user_group_name} . Możesz zaakceptować lub odrzucić go od <a href="%{resource_url}">na stronie członków organizacji</a>.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ możesz zarządzać organizacją %{user_group_name}.
+          email_subject: Ktoś poprosił o dołączenie do organizacji %{user_group_name}!
+          notification_title: Ktoś poprosił o dołączenie do organizacji %{user_group_name} . Możesz zaakceptować lub odrzucić go od <a href="%{resource_path}">na stronie członków organizacji</a>.
+        join_request_rejected:
+          email_intro: Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> odrzucił Twoją prośbę o dołączenie do niej.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoje prośby o dołączenie zostały zaktualizowane.
+          email_subject: Twoja prośba o dołączenie do organizacji %{user_group_name} została odrzucona!
+          notification_title: Twoja prośba o dołączenie do organizacji <a href="%{resource_path}">%{user_group_name}</a> została odrzucona.
+        promoted_to_admin:
+          email_intro: Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> przyznał Ci prawa administratora tej organizacji.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś członkiem tej organizacji.
+          email_subject: Jesteś teraz administratorem organizacji %{user_group_name}!
+          notification_title: Jesteś teraz administratorem organizacji <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> usunął Cię z niej.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś członkiem tej organizacji.
+          email_subject: Zostałeś usunięty z organizacji %{user_group_name}!
+          notification_title: Zostałeś usunięty z organizacji <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -441,14 +486,82 @@ pl:
       description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
+    group_admins:
+      actions:
+        are_you_sure: Jesteś pewny? Nie spowoduje to usunięcia użytkownika z organizacji.
+        demote_admin: Usuń administratora
+      demote:
+        error: Wystąpił błąd podczas usuwania tego użytkownika z listy administratorów
+        success: Użytkownik został pomyślnie usunięty z admin
+      index:
+        current_admins: 'Obecni administratorzy:'
+        manage_admins: Zarządzaj adminami
+    group_invites:
+      accept:
+        error: Wystąpił błąd podczas akceptowania tego zaproszenia
+        success: Zaproszenie zostało zaakceptowane
+      accept_invitation: Zaakceptować
+      accept_or_reject_group_invitations: 'Następujące organizacje zaprosiły Cię do przyłączenia się do nich. Zaakceptuj lub odrzuć ich prośby:'
+      index:
+        invite: Zapraszam
+        invite_user: Zaproś użytkownika
+      invite:
+        error: Podczas zapraszania tego użytkownika wystąpił błąd
+        success: Użytkownik został zaproszony z powodzeniem
+      reject:
+        error: Wystąpił błąd podczas odrzucania tego zaproszenia
+        success: Zaproszenie odrzucone z powodzeniem
+      reject_invitation: Odrzucać
+    group_members:
+      accept:
+        error: Wystąpił błąd podczas akceptowania tego żądania dołączenia
+        success: Żądanie dołączenia zostało zaakceptowane pomyślnie
+      actions:
+        are_you_sure: Jesteś pewny?
+        promote_to_admin: Uczynić adminem
+        remove_from_group: Usuń użytkownika
+      index:
+        current_members_without_admins: 'Aktualni członkowie (bez administratorów):'
+        manage_members: Zarządzaj członkami
+      promote:
+        error: Wystąpił błąd podczas promowania tego użytkownika
+        success: Użytkownik został pomyślnie awansowany
+      reject:
+        error: Wystąpił błąd podczas odrzucania tego żądania dołączenia
+        success: Żądanie dołączenia zostało odrzucone pomyślnie
+      remove:
+        error: Wystąpił błąd podczas usuwania tego użytkownika z grupy
+        success: Użytkownik usunięty z grupy pomyślnie
     groups:
+      actions:
+        are_you_sure: Jesteś pewny?
       create:
         error: Podczas tworzenia organizacji wystąpił problem
         success: Organizacja została pomyślnie utworzona
+      edit:
+        edit_user_group: Edytuj organizację
+        update_user_group: Zaktualizuj organizację
+      join:
+        error: Wystąpił problem z dołączeniem do organizacji
+        success: Żądanie dołączenia zostało pomyślnie utworzone. Administrator sprawdzi Twoją prośbę przed zaakceptowaniem Cię do organizacji.
+      leave:
+        error: Wystąpił problem z opuszczeniem organizacji
+        success: Organizacja została pomyślnie zakończona.
+      members:
+        accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
+        accept_request: Zaakceptować
+        reject_request: Odrzucać
       new:
         create_user_group: Utwórz organizację
         new_user_group: Nowa organizacja
       no_user_groups: Nie należy jeszcze do żadnej organizacji.
+      roles:
+        admin: Administrator
+        creator: Twórca
+        member: Członek
+      update:
+        error: Wystąpił problem podczas aktualizowania organizacji
+        success: Organizacja zaktualizowana pomyślnie
     invitations:
       create:
         error: Podczas zapraszania znajomych pojawiły się pewne problemy
@@ -651,6 +764,12 @@ pl:
       user:
         create_user_group: Utwórz organizację
         edit_profile: Edytuj profil
+        edit_user_group: Edytuj profil organizacji
+        invite_user: Zaproś użytkownika
+        join_user_group: Poproś o dołączenie do organizacji
+        leave_user_group: Opuść organizację
+        manage_user_group_admins: Zarządzaj adminami
+        manage_user_group_users: Zarządzaj członkami
     reported_mailer:
       hide:
         hello: Witaj %{name},

@@ -75,8 +75,10 @@ pt:
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             geocoding_enabled: Geocoding habilitado
+            minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
+            participatory_texts_enabled: Textos participativos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
             proposal_length: Comprimento máximo do corpo da proposta
@@ -221,10 +223,10 @@ pt:
           unearned_own: Você não criou nenhuma proposta ainda.
     metrics:
       accepted_proposals:
-        object: proposta
+        object: propostas
         title: Propostas aceitas
       proposals:
-        object: proposta
+        object: propostas
         title: Propostas
       votes:
         object: votos
@@ -243,6 +245,7 @@ pt:
         edit_proposal: Editar proposta
         import: Importar de outro componente
         new: Nova proposta
+        participatory_texts: Textos participativos
         private_notes: Notas privadas
         title: Ações
       admin:
@@ -254,6 +257,28 @@ pt:
         models:
           proposal:
             name: Proposta
+        participatory_texts:
+          bulk-actions:
+            import_doc: Documento de importação
+          import:
+            invalid: O formulário é inválido!
+            success: Parabéns, as seções a seguir foram analisadas do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
+          index:
+            info_1: As seções a seguir foram analisadas a partir do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
+            publish_document: Publicar documento
+            title: PREVIEW TEXTO PARTICIPATIVO
+          new_import:
+            bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
+            document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados ​​em Propostas. Formatos suportados são: Markdown'
+            title: ADICIONAR DOCUMENTO
+            upload_document: Carregar documento
+          publish:
+            invalid: Não foi possível publicar propostas
+            success: Todas as propostas foram publicadas
+          sections:
+            article: "<em>Artigo</em>"
+            section: "<em>Seção:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsecção:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aceitaram
@@ -596,6 +621,10 @@ pt:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} suporta
+          minimum_votes_per_user:
+            description: Você deve distribuir um mínimo de 3 votos entre diferentes propostas.
+            given_enough_votes: Você deu suporte suficiente.
+            supports_remaining: Você tem que votar %{remaining_votes} mais propostas para seus votos a serem levados em conta.
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
           threshold_per_proposal:

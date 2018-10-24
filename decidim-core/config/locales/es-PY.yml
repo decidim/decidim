@@ -17,9 +17,14 @@ es-PY:
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
+      decidim/demoted_membership: Ya no es una organización admin.
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
+      decidim/join_request_accepted_event: Solicitud de incorporación aceptada
+      decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
+      decidim/promote_to_admin: Promovido a la administración de la organización
+      decidim/removed_from_group: Eliminado de la organización
   activerecord:
     attributes:
       decidim/user:
@@ -45,6 +50,7 @@ es-PY:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -96,6 +102,9 @@ es-PY:
         update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
+      participatory_space_private_user:
+        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        delete: "%{user_name} eliminado el usuario %{resource_name} como un usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
         create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
@@ -180,10 +189,10 @@ es-PY:
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
-          confirmation_instructions: 'Si no ha recibido las instrucciones de confirmación, puede volver a solicitarlas:'
-          explanation_html: Para realizar esta acción, debe estar autorizado, antes de hacerlo, debe confirmar su correo electrónico <strong>%{email}</strong>.
-          request_confirmation_instructions: Solicitar instrucciones de confirmación.
-          title: confirme su email
+          confirmation_instructions: 'Si no has recibido las instrucciones de confirmación, puedes volver a solicitarlas:'
+          explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucciones de confirmación
+          title: Confirma tu email
     collapsible_list:
       hidden_elements_count:
         one: y 1 más
@@ -338,6 +347,42 @@ es-PY:
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
           email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
           notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+      groups:
+        demoted_membership:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha eliminado sus derechos de administrador de esa organización.
+          email_outro: Has recibido esta notificación porque eres miembro de esa organización.
+          email_subject: '¡Ya no eres un administrador de la organización %{user_group_name}!'
+          notification_title: Ya no eres administrador de la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha invitado a unirse a ella.
+          email_outro: Ha recibido esta notificación porque ha sido invitado a una organización. Por favor, revise la pestaña Organizaciones en su perfil para aprobarlo.
+          email_subject: '¡Has sido invitado a unirte a la organización %{user_group_name}!'
+          notification_title: Usted ha sido invitado a unirse a la organización <a href="%{resource_path}">%{user_group_name}</a> . ¡Revisa la página</a> las <a href="%{groups_profile_tab_path}">organizaciones en tu perfil para aprobarlo!
+        join_request_accepted:
+          email_intro: '¡Felicidades! Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha aceptado su solicitud para unirse a ella.'
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_subject: '¡Has sido aceptado en la organización %{user_group_name}!'
+          notification_title: Has sido aceptado en la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Alguien solicitó unirse a la organización %{user_group_name} . Puede aceptarlo o rechazarlo desde <a href="%{resource_url}">miembros de la organización página</a>.
+          email_outro: Ha recibido esta notificación porque puede administrar la organización %{user_group_name}.
+          email_subject: Alguien pidió unirse a la organización %{user_group_name}!
+          notification_title: Alguien solicitó unirse a la organización %{user_group_name} . Puede aceptarlo o rechazarlo desde <a href="%{resource_path}">miembros de la organización página</a>.
+        join_request_rejected:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> rechazó su solicitud para unirse a ella.
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_subject: Su solicitud para unirse a la organización %{user_group_name} ha sido rechazada!
+          notification_title: Su solicitud para unirse a la organización <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
+        promoted_to_admin:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha otorgado derechos de administrador a esa organización.
+          email_outro: Has recibido esta notificación porque eres miembro de esa organización.
+          email_subject: '¡Ahora eres un administrador de la organización %{user_group_name}!'
+          notification_title: Ahora eres un administrador de la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha eliminado de él.
+          email_outro: Ha recibido esta notificación porque era miembro de esa organización.
+          email_subject: '¡Has sido eliminado de la organización %{user_group_name}!'
+          notification_title: Has sido eliminado de la organización <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -389,7 +434,7 @@ es-PY:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
-      all_badges_link: Ver todas las insignias disponibles.
+      all_badges_link: Ver todas los distintivos disponibles.
       badges:
         continuity:
           conditions:
@@ -398,13 +443,13 @@ es-PY:
           description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
           description_own: Te has conectado por %{score} días consecutivos en algún momento.
           name: Continuidad
-          next_level_in: '¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!'
-          unearned_another: Este usuario no se ha registrado durante más de un día consecutivo.
+          next_level_in: '¡Conéctate durante %{score} días consecutivos alcanzar al siguiente nivel!'
+          unearned_another: Este usuario no ha entrado durante más de un día consecutivo.
           unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
-          description: Esta insignia se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
+          description: Este distintivo se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
           description_another: Este usuario tiene %{score} seguidores.
           description_own: "%{score} usuarios te están siguiendo."
           name: Seguidores
@@ -412,16 +457,16 @@ es-PY:
           unearned_another: Este usuario no tiene seguidores todavía.
           unearned_own: Aún no tienes seguidores
         index:
-          badge_title: "%{name} credencial"
-          how: Como puedes ganarlo
-          page_description: Las insignias son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes ganarlas.
-          title: Insignias
+          badge_title: "Distintivo %{name}"
+          how: Como puedes conseguirlo
+          page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
+          title: Distintivos
         invitations:
           conditions:
-            - Use el enlace "invitar amigos" en su página de usuario para invitar a sus amigos
+            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
             - Personaliza, si quieres, el mensaje que estás enviando.
-            - Subirás de nivel enviando invitaciones y registrándolas.
-          description: Este distintivo se otorga cuando ha invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y convertirse en participantes. Gracias por hacer de %{organization_name} a conocer a otros y ayudar a ampliar la comunidad!
+            - Supera este nivel enviando invitaciones y registrándolas.
+          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
           name: Invitaciones
@@ -431,14 +476,82 @@ es-PY:
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
+    group_admins:
+      actions:
+        are_you_sure: '¿Estás seguro? Esto no eliminará al usuario de la organización.'
+        demote_admin: Quitar admin
+      demote:
+        error: Se ha producido un error al eliminar este usuario en la lista de administradores.
+        success: Usuario eliminado de administrador con éxito
+      index:
+        current_admins: 'Administradores actuales:'
+        manage_admins: Administrar administradores
+    group_invites:
+      accept:
+        error: Hubo un error al aceptar esta invitación.
+        success: Invitación aceptada exitosamente
+      accept_invitation: Aceptar
+      accept_or_reject_group_invitations: 'Las siguientes organizaciones lo han invitado a unirse a ellos. Aceptar o rechazar sus solicitudes:'
+      index:
+        invite: Invitación
+        invite_user: Invitar a un usuario
+      invite:
+        error: Se ha producido un error al invitar a este usuario.
+        success: Usuario invitado exitosamente
+      reject:
+        error: Hubo un error rechazando esta invitación.
+        success: Invitación rechazada exitosamente
+      reject_invitation: Rechazar
+    group_members:
+      accept:
+        error: Se ha producido un error al aceptar esta solicitud de unión.
+        success: Únase a la solicitud aceptada con éxito
+      actions:
+        are_you_sure: '¿Estás seguro?'
+        promote_to_admin: Hacer administrador
+        remove_from_group: Eliminar usuario
+      index:
+        current_members_without_admins: 'Miembros actuales (sin administradores):'
+        manage_members: Administrar miembros
+      promote:
+        error: Se ha producido un error al promocionar este usuario.
+        success: Usuario promovido exitosamente
+      reject:
+        error: Se ha producido un error al rechazar esta solicitud de unión.
+        success: Solicitud de incorporación rechazada con éxito
+      remove:
+        error: Se ha producido un error al eliminar este usuario del grupo.
+        success: Usuario eliminado del grupo con éxito
     groups:
+      actions:
+        are_you_sure: '¿Estás seguro?'
       create:
         error: Ha habido un problema creando la organización.
         success: Organización creada con éxito
+      edit:
+        edit_user_group: Editar organizacion
+        update_user_group: Actualizar organización
+      join:
+        error: Ha habido un problema al unirse a la organización.
+        success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en la organización.
+      leave:
+        error: Ha habido un problema al abandonar la organización.
+        success: La organización salió con éxito.
+      members:
+        accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
+        accept_request: Aceptar
+        reject_request: Rechazar
       new:
         create_user_group: Crear organizacion
         new_user_group: Nueva organizacion
       no_user_groups: Aún no pertenece a ninguna organización.
+      roles:
+        admin: Administrador
+        creator: Creador
+        member: Miembro
+      update:
+        error: Ha habido un problema al actualizar la organización.
+        success: Organización actualizada con éxito
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -576,7 +689,7 @@ es-PY:
           participate: Participar
           welcome: Bienvenido a %{organization}!
         metrics:
-          headline: Participación en figuras
+          headline: Participación en cifras
         statistics:
           answers_count: Encuestas completadas
           assemblies_count: Asambleas
@@ -624,7 +737,7 @@ es-PY:
       deleted: Usuario eliminado
       view: Ver
     profiles:
-      default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, su nombre se ha verificado para que se corresponda con su nombre real
+      default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, tu nombre se ha verificado para que se corresponda con tu nombre real
       default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
         badges: Insignias
@@ -641,6 +754,12 @@ es-PY:
       user:
         create_user_group: Crear organizacion
         edit_profile: Editar perfil
+        edit_user_group: Editar el perfil de la organización
+        invite_user: Invitar al usuario
+        join_user_group: Solicitud para unirse a la organización
+        leave_user_group: Dejar organizacion
+        manage_user_group_admins: Administrar administradores
+        manage_user_group_users: Administrar miembros
     reported_mailer:
       hide:
         hello: Hola %{name},

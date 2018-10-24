@@ -131,6 +131,7 @@ sv:
           conference_speakers: Konferenshögtalare
           info: Info
           moderations: modere
+          partners: partners
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: moderator
+        partner:
+          fields:
+            link: Länk
+            logo: Logotyp
+            name: namn
+            partner_type: Typ
+          name: Partner
+          types:
+            collaborator: Medarbetare
+            main_promotor: Huvudpromotor
+      partners:
+        create:
+          error: Det gick inte att lägga till en partner för den här konferensen.
+          success: Partner lyckades till denna konferens framgångsrikt.
+        destroy:
+          success: Partner har tagits bort framgångsrikt från denna konferens.
+        edit:
+          title: Uppdatera partner.
+          update: Uppdatering
+        new:
+          create: Skapa
+          title: Ny partner
+        update:
+          error: Det uppstod ett fel som uppdaterade en partner för den här konferensen.
+          success: Partner uppdaterad framgångsrikt för denna konferens.
       titles:
         conferences: konferenser
     admin_log:
@@ -170,6 +196,9 @@ sv:
         create: "%{user_name} inbjudna %{resource_name} till %{space_name} konferens"
         delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
         update: "%{user_name} ändrade rollen som %{resource_name} i %{space_name} konferensen"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: högtalare
@@ -225,6 +254,9 @@ sv:
             decline: Avvisa inbjudan '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller acceptera det genom länkarna nedan."
             join: Gå med i konferens '%{conference_title}'
+        partners:
+          index:
+            title: partners
       conference:
         registration_confirm:
           cancel: Annullera
@@ -236,6 +268,15 @@ sv:
           remaining_slots:
             one: 1 slits kvar
             other: "%{count} slits kvar"
+      conference_program:
+        program_meeting:
+          content: Innehåll
+          location: Plats
+          speakers: högtalare
+          streaming: Streaming
+        show:
+          day: Dag
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din registrering för konferensen <a href="%{url}">%{title}</a> har bekräftats.
@@ -265,6 +306,9 @@ sv:
         index:
           speakers: högtalare
       conferences:
+        partners:
+          collaborators: medarbetare
+          main_promotors: Huvudpromotorer
         show:
           already_account: Har du redan ett konto i decidim?
           login_as: Du är inloggad som %{name} <%{email}>
@@ -372,6 +416,7 @@ sv:
           take_part: Ta del
       conferences_nav:
         conference_menu_item: Information
+        conference_partners_menu_item: partners
         conference_speaker_menu_item: högtalare
         unfold: Veckla ut
         venues: venues
