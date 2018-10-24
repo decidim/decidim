@@ -50,7 +50,7 @@ sv:
             name: Tidslinje inmatning
         results:
           create:
-            invalid: Det här har uppstått ett problem
+            invalid: Det har uppstått ett problem med att skapa det här resultatet
             success: Resultat har skapats framgångsrikt
           destroy:
             success: Resultatet har tagits bort
@@ -69,14 +69,14 @@ sv:
             current_selection: Aktuellt urval
             select: Välj
           update:
-            invalid: Det har blivit ett problem med att uppdatera resultatet
+            invalid: Det har uppstått ett problem med att uppdatera det här resultatet
             success: Resultatet uppdaterades framgångsrikt
         shared:
           subnav:
             statuses: Statusar
         statuses:
           create:
-            invalid: Det har blivit ett problem med att skapa denna status
+            invalid: Det har uppstått ett problem med att skapa denna status
             success: Status skapad
           destroy:
             success: Statusen har tagits bort
@@ -89,12 +89,12 @@ sv:
             create: Skapa status
             title: Ny status
           update:
-            invalid: Det blivit ett problem med att uppdatera denna status
+            invalid: Det uppstått ett problem med att uppdatera denna status
             success: Status uppdaterad
         timeline_entries:
           create:
             invalid: Det har uppstått ett problem med att skapa den här inmatningen
-            success: Inmatningen skapades med framgång
+            success: Inmatningen skapades
           destroy:
             success: Inmatningen har tagits bort
           edit:
