@@ -82,7 +82,7 @@ module Decidim
 
         def consultations_for_select
           @consultations_for_select ||= Decidim.find_participatory_space_manifest(:consultations)
-                                               .participatory_spaces.call(current_organization).collect(&:consultation).uniq&.map do |consultation|
+                                               .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |consultation|
             [
               translated_attribute(consultation.title),
               consultation.id

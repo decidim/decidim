@@ -24,9 +24,9 @@ module Decidim
 
           if conference.persisted?
             add_admins_as_followers(conference)
-            link_participatory_processes(conference)
-            link_assemblies(conference)
-            link_consultations(conference)
+            link_participatory_processes
+            link_assemblies
+            link_consultations
 
             broadcast(:ok, conference)
             send_notification
@@ -90,32 +90,29 @@ module Decidim
           )
         end
 
-        def participatory_processes(conference)
+        def participatory_processes
           @participatory_processes ||= conference.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
         end
 
-        def link_participatory_processes(conference)
-          conference.link_participatory_spaces_resources(participatory_processes(conference), "included_participatory_processes")
+        def link_participatory_processes
+          conference.link_participatory_spaces_resources(participatory_processes, "included_participatory_processes")
         end
 
-        def assemblies(conference)
+        def assemblies
           @assemblies ||= conference.participatory_space_sibling_scope(:assemblies).where(id: @form.assemblies_ids)
         end
 
-        def link_assemblies(conference)
-          conference.link_participatory_spaces_resources(assemblies(conference), "included_assemblies")
+        def link_assemblies
+          conference.link_participatory_spaces_resources(assemblies, "included_assemblies")
         end
 
-        def consultations(conference)
+        def consultations
           @consultations ||= conference.participatory_space_sibling_scope(:consultations)
-                                       .includes(:consultation)
-                                       .where(decidim_consultation_id: @form.consultations_ids)
-                                       .collect(&:consultation)
-                                       .uniq
+                                       .where(id: @form.consultations_ids)
         end
 
-        def link_consultations(conference)
-          conference.link_participatory_spaces_resources(consultations(conference), "included_consultations")
+        def link_consultations
+          conference.link_participatory_spaces_resources(consultations, "included_consultations")
         end
       end
     end
