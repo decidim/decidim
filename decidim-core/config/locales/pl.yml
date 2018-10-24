@@ -365,6 +365,9 @@ pl:
           notification_title: Nie jesteś już administratorem organizacji <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
           email_intro: Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> zaprasza Cię do dołączenia.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ zostałeś zaproszony do organizacji. Sprawdź kartę Organizacje w swoim profilu, aby ją zatwierdzić.
+          email_subject: Zostałeś zaproszony do przyłączenia się do organizacji %{user_group_name}!
+          notification_title: Zostałeś zaproszony do przyłączenia się do organizacji <a href="%{resource_path}">%{user_group_name}</a> . Sprawdzić <a href="%{groups_profile_tab_path}">organizacji strona</a> w swoim profilu, aby go zatwierdzić!
         join_request_accepted:
           email_intro: Gratulacje! Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> zaakceptował Twoją prośbę o dołączenie do niej.
           email_outro: Otrzymałeś to powiadomienie, ponieważ Twoje prośby o dołączenie zostały zaktualizowane.
@@ -493,6 +496,22 @@ pl:
       index:
         current_admins: 'Obecni administratorzy:'
         manage_admins: Zarządzaj adminami
+    group_invites:
+      accept:
+        error: Wystąpił błąd podczas akceptowania tego zaproszenia
+        success: Zaproszenie zostało zaakceptowane
+      accept_invitation: Zaakceptować
+      accept_or_reject_group_invitations: 'Następujące organizacje zaprosiły Cię do przyłączenia się do nich. Zaakceptuj lub odrzuć ich prośby:'
+      index:
+        invite: Zapraszam
+        invite_user: Zaproś użytkownika
+      invite:
+        error: Podczas zapraszania tego użytkownika wystąpił błąd
+        success: Użytkownik został zaproszony z powodzeniem
+      reject:
+        error: Wystąpił błąd podczas odrzucania tego zaproszenia
+        success: Zaproszenie odrzucone z powodzeniem
+      reject_invitation: Odrzucać
     group_members:
       accept:
         error: Wystąpił błąd podczas akceptowania tego żądania dołączenia
@@ -746,6 +765,7 @@ pl:
         create_user_group: Utwórz organizację
         edit_profile: Edytuj profil
         edit_user_group: Edytuj profil organizacji
+        invite_user: Zaproś użytkownika
         join_user_group: Poproś o dołączenie do organizacji
         leave_user_group: Opuść organizację
         manage_user_group_admins: Zarządzaj adminami
