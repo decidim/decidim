@@ -491,6 +491,17 @@ pt:
         error: Houve um erro ao aceitar este convite
         success: Convite aceito com sucesso
       accept_invitation: Aceitar
+      accept_or_reject_group_invitations: 'As organizações a seguir convidaram você para participar. Aceite ou rejeite seus pedidos:'
+      index:
+        invite: Convite
+        invite_user: Convidar um usuário
+      invite:
+        error: Houve um erro ao convidar este usuário
+        success: Usuário convidado com sucesso
+      reject:
+        error: Houve um erro ao rejeitar este convite
+        success: Convite rejeitado com sucesso
+      reject_invitation: Rejeitar
     group_members:
       accept:
         error: Ocorreu um erro ao aceitar este pedido de adesão
@@ -744,6 +755,7 @@ pt:
         create_user_group: Criar organização
         edit_profile: Editar Perfil
         edit_user_group: Editar perfil da organização
+        invite_user: Convidar Usuário
         join_user_group: Solicitação para participar da organização
         leave_user_group: Deixar organização
         manage_user_group_admins: Gerenciar administradores
