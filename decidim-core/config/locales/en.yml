@@ -358,6 +358,11 @@ en:
           email_outro: You have received this notification because you are a member of that organization.
           email_subject: You are no longer an admin of the %{user_group_name} organization!
           notification_title: You are no longer an admin of the <a href="%{resource_path}">%{user_group_name}</a> organization.
+        invited_to_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has invited you to join it.
+          email_outro: You have received this notification because you have been invited to an organization. Please check the Organizations tab in your profile to approve it.
+          email_subject: You have been invited to join the %{user_group_name} organization!
+          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> organization. Check the <a href="%{groups_profile_tab_path}">Organizations page</a> in your profile to approve it!
         join_request_accepted:
           email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> organization has accepted your request to join it.
           email_outro: You have received this notification because your join request has been updated.
@@ -486,6 +491,22 @@ en:
       index:
         current_admins: 'Current admins:'
         manage_admins: Manage admins
+    group_invites:
+      accept:
+        error: There was an error accepting this invitation
+        success: Invitation accepted successfully
+      accept_invitation: Accept
+      accept_or_reject_group_invitations: 'The following organizations have invited you to join them. Accept or reject their requests:'
+      index:
+        invite: Invite
+        invite_user: Invite a user
+      invite:
+        error: There was an error inviting this user
+        success: User invited successfully
+      reject:
+        error: There was an error rejecting this invitation
+        success: Invitation rejected successfully
+      reject_invitation: Reject
     group_members:
       accept:
         error: There was an error accepting this join request
@@ -739,6 +760,7 @@ en:
         create_user_group: Create organization
         edit_profile: Edit profile
         edit_user_group: Edit organization profile
+        invite_user: Invite user
         join_user_group: Request to join organization
         leave_user_group: Leave organization
         manage_user_group_admins: Manage admins
