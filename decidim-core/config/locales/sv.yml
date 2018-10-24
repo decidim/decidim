@@ -528,14 +528,30 @@ sv:
       create:
         error: Det har varit ett problem att skapa gruppen
         success: Grupp skapades framgångsrikt
+      edit:
+        edit_user_group: Redigera grupp
+        update_user_group: Uppdateringsgrupp
+      join:
+        error: Det har varit ett problem att gå med i gruppen
+        success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
+      leave:
+        error: Det har varit ett problem att lämna gruppen
+        success: Gruppen gick framgångsrikt.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
         accept_request: Acceptera
         reject_request: Avvisa
+      new:
+        create_user_group: Skapa grupp
+        new_user_group: Ny grupp
+      no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
         creator: Skapare
         member: Medlem
+      update:
+        error: Det har varit ett problem att uppdatera gruppen
+        success: Gruppen uppdaterades framgångsrikt
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -728,6 +744,7 @@ sv:
         conversations: Samtal
         followers: Anhängare
         following: Följer
+        groups: grupper
         members: medlemmar
         notifications: Notiser
       sidebar:
@@ -735,8 +752,12 @@ sv:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
           title: Emblem
       user:
+        create_user_group: Skapa grupp
         edit_profile: Redigera profil
+        edit_user_group: Redigera gruppprofil
         invite_user: Bjud in användare
+        join_user_group: Begär att gå med i gruppen
+        leave_user_group: Lämna gruppen
         manage_user_group_admins: Hantera administratörer
         manage_user_group_users: Hantera medlemmar
     reported_mailer:
@@ -1014,6 +1035,7 @@ sv:
         my_data: Mitt data
         notifications_settings: Notisinställningar
         title: Användarinställningar
+        user_groups: grupper
       widget:
         see_more: Se mer
   locale:
