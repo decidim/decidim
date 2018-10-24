@@ -363,6 +363,8 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś członkiem tej organizacji.
           email_subject: Nie jesteś już administratorem organizacji %{user_group_name}!
           notification_title: Nie jesteś już administratorem organizacji <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> zaprasza Cię do dołączenia.
         join_request_accepted:
           email_intro: Gratulacje! Administrator organizacji <a href="%{resource_url}">%{user_group_name}</a> zaakceptował Twoją prośbę o dołączenie do niej.
           email_outro: Otrzymałeś to powiadomienie, ponieważ Twoje prośby o dołączenie zostały zaktualizowane.
