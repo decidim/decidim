@@ -357,6 +357,8 @@ de:
             one: 1 Steckplatz übrig
             other: "%{count} freie Plätze"
           view: Aussicht
+      meetings_map:
+        view_meeting: Besprechung anzeigen
       models:
         invite:
           fields:
