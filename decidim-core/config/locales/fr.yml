@@ -744,6 +744,7 @@ fr:
         conversations: Conversations
         followers: Abonnés
         following: Est abonné à
+        groups: Groupes
         members: Membres
         notifications: Notifications
       sidebar:
@@ -751,8 +752,12 @@ fr:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
+        create_user_group: Créer un groupe
         edit_profile: Mettre à jour le profil
+        edit_user_group: Modifier le profil du groupe
         invite_user: Inviter un utilisateur
+        join_user_group: Demande de rejoindre un groupe
+        leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
     reported_mailer:
@@ -1030,6 +1035,7 @@ fr:
         my_data: Mes données
         notifications_settings: Paramètres des notifications
         title: Paramètres utilisateur
+        user_groups: Groupes
       widget:
         see_more: Voir plus
   locale:
