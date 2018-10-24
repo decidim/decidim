@@ -353,6 +353,11 @@ es-PY:
           email_outro: Has recibido esta notificación porque eres miembro de esa organización.
           email_subject: '¡Ya no eres un administrador de la organización %{user_group_name}!'
           notification_title: Ya no eres administrador de la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha invitado a unirse a ella.
+          email_outro: Ha recibido esta notificación porque ha sido invitado a una organización. Por favor, revise la pestaña Organizaciones en su perfil para aprobarlo.
+          email_subject: '¡Has sido invitado a unirte a la organización %{user_group_name}!'
+          notification_title: Usted ha sido invitado a unirse a la organización <a href="%{resource_path}">%{user_group_name}</a> . ¡Revisa la página</a> las <a href="%{groups_profile_tab_path}">organizaciones en tu perfil para aprobarlo!
         join_request_accepted:
           email_intro: '¡Felicidades! Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha aceptado su solicitud para unirse a ella.'
           email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
@@ -481,6 +486,22 @@ es-PY:
       index:
         current_admins: 'Administradores actuales:'
         manage_admins: Administrar administradores
+    group_invites:
+      accept:
+        error: Hubo un error al aceptar esta invitación.
+        success: Invitación aceptada exitosamente
+      accept_invitation: Aceptar
+      accept_or_reject_group_invitations: 'Las siguientes organizaciones lo han invitado a unirse a ellos. Aceptar o rechazar sus solicitudes:'
+      index:
+        invite: Invitación
+        invite_user: Invitar a un usuario
+      invite:
+        error: Se ha producido un error al invitar a este usuario.
+        success: Usuario invitado exitosamente
+      reject:
+        error: Hubo un error rechazando esta invitación.
+        success: Invitación rechazada exitosamente
+      reject_invitation: Rechazar
     group_members:
       accept:
         error: Se ha producido un error al aceptar esta solicitud de unión.
@@ -734,6 +755,7 @@ es-PY:
         create_user_group: Crear organizacion
         edit_profile: Editar perfil
         edit_user_group: Editar el perfil de la organización
+        invite_user: Invitar al usuario
         join_user_group: Solicitud para unirse a la organización
         leave_user_group: Dejar organizacion
         manage_user_group_admins: Administrar administradores
