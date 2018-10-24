@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-assemblies version.
   module Assemblies
     def self.version
-      "0.14.3"
+      "0.14.4"
     end
   end
 end
