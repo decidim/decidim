@@ -75,8 +75,10 @@ it:
             collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
+            minimum_votes_per_user: Voti minimi per utente
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
+            participatory_texts_enabled: Testi di partecipazione abilitati
             proposal_answering_enabled: Risposta alla proposta abilitata
             proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
             proposal_length: Lunghezza massima della proposta
@@ -221,10 +223,10 @@ it:
           unearned_own: Non hai ancora creato alcuna proposta.
     metrics:
       accepted_proposals:
-        object: proposta
+        object: proposte
         title: Proposte accettate
       proposals:
-        object: proposta
+        object: proposte
         title: proposte
       votes:
         object: voti
@@ -243,6 +245,7 @@ it:
         edit_proposal: Modifica proposta
         import: Importa da un altro componente
         new: Nuova proposta
+        participatory_texts: Testi partecipativi
         private_notes: Note private
         title: Azioni
       admin:
@@ -254,6 +257,28 @@ it:
         models:
           proposal:
             name: Proposta
+        participatory_texts:
+          bulk-actions:
+            import_doc: Importa il documento
+          import:
+            invalid: Il modulo non è valido!
+            success: Complimenti, le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
+          index:
+            info_1: Le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
+            publish_document: Pubblica un documento
+            title: ANTEPRIMA DEL TESTO PARTECIPATIVO
+          new_import:
+            bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
+            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: Markdown'
+            title: AGGIUNGI DOCUMENTO
+            upload_document: Carica il documento
+          publish:
+            invalid: Impossibile pubblicare proposte
+            success: Tutte le proposte sono state pubblicate
+          sections:
+            article: "<em>Articolo</em>"
+            section: "<em>Sezione:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Sottosezione:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Accettata
@@ -596,6 +621,10 @@ it:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Ogni proposta può accumulare più di %{limit} supporti
+          minimum_votes_per_user:
+            description: Devi distribuire un minimo di 3 voti tra diverse proposte.
+            given_enough_votes: Hai dato abbastanza supporti.
+            supports_remaining: Devi votare %{remaining_votes} altre proposte per i tuoi voti da prendere in considerazione.
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
           threshold_per_proposal:

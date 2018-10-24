@@ -89,6 +89,10 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert korábban megemlítettek a(z) "%{resource_title}" témában.
           email_subject: Megemlítettek a(z) %{resource_title} témában
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített itt: <a href="%{resource_path}">%{resource_title}</a>'
+    metrics:
+      comments:
+        object: Hozzászólások
+        title: Hozzászólások
   errors:
     messages:
       cannot_have_comments: nem tudsz megjegyzéseket tenni

@@ -131,6 +131,7 @@ it:
           conference_speakers: Oratori della conferenza
           info: Informazioni
           moderations: Moderations
+          partners: Partner
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
+        partner:
+          fields:
+            link: collegamento
+            logo: Logo
+            name: Nome
+            partner_type: genere
+          name: Compagno
+          types:
+            collaborator: Collaboratore
+            main_promotor: Promotore principale
+      partners:
+        create:
+          error: Si è verificato un errore durante l'aggiunta di un partner per questa conferenza.
+          success: Partner aggiunto con successo a questa conferenza.
+        destroy:
+          success: Il partner è stato rimosso correttamente da questa conferenza.
+        edit:
+          title: Aggiorna partner.
+          update: Aggiornare
+        new:
+          create: Creare
+          title: Nuovo partner
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di un partner per questa conferenza.
+          success: Partner aggiornato correttamente per questa conferenza.
       titles:
         conferences: conferenze
     admin_log:
@@ -170,6 +196,9 @@ it:
         create: "%{user_name} invitato %{resource_name} alla %{space_name} conferenza"
         delete: "%{user_name} rimosso l'utente %{resource_name} dalla conferenza %{space_name}"
         update: "%{user_name} cambiato il ruolo di %{resource_name} nella %{space_name} conferenza"
+    conference_program:
+      index:
+        title: Programma
     conference_speakers:
       index:
         title: Altoparlanti
@@ -225,6 +254,9 @@ it:
             decline: Rifiuta l'invito '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} ha invitato a partecipare a una conferenza %{application}. Puoi rifiutarlo o accettarlo tramite i link sottostanti."
             join: Partecipa alla conferenza '%{conference_title}'
+        partners:
+          index:
+            title: Partner
       conference:
         registration_confirm:
           cancel: Annulla
@@ -236,6 +268,15 @@ it:
           remaining_slots:
             one: 1 slot rimanente
             other: "%{count} slot rimanenti"
+      conference_program:
+        program_meeting:
+          content: Soddisfare
+          location: Posizione
+          speakers: Altoparlanti
+          streaming: Streaming
+        show:
+          day: Giorno
+          program: Programma
       conference_registration_mailer:
         confirmation:
           confirmed_html: La tua registrazione per la conferenza <a href="%{url}">%{title}</a> è stata confermata.
@@ -265,6 +306,9 @@ it:
         index:
           speakers: Altoparlanti
       conferences:
+        partners:
+          collaborators: collaboratori
+          main_promotors: Principali promotori
         show:
           already_account: Hai già un account in decidim?
           login_as: Stai eseguendo l'accesso come %{name} <%{email}>
@@ -372,6 +416,7 @@ it:
           take_part: Prendere parte
       conferences_nav:
         conference_menu_item: Informazione
+        conference_partners_menu_item: Partner
         conference_speaker_menu_item: Altoparlanti
         unfold: spiegare
         venues: Venues

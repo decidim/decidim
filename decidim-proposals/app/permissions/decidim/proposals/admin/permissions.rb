@@ -55,7 +55,7 @@ module Decidim
 
         def admin_edition_is_available?
           return unless proposal
-          admin_creation_is_enabled? && proposal.official? && proposal.within_edit_time_limit?
+          admin_creation_is_enabled? && proposal.official? && proposal.votes.empty?
         end
 
         def admin_proposal_answering_is_enabled?

@@ -131,6 +131,7 @@ es-PY:
           conference_speakers: Conferenciantes
           info: Información
           moderations: Moderaciones
+          partners: Fogonadura
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ es-PY:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        partner:
+          fields:
+            link: Enlazar
+            logo: Logo
+            name: Nombre
+            partner_type: Tipo
+          name: Compañero
+          types:
+            collaborator: Colaborador
+            main_promotor: Promotor principal
+      partners:
+        create:
+          error: Hubo un error al agregar un socio para esta conferencia.
+          success: Socio agregado exitosamente a esta conferencia.
+        destroy:
+          success: Socio eliminado con éxito de esta conferencia.
+        edit:
+          title: Actualizacion de socio.
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo compañero
+        update:
+          error: Hubo un error actualizado de un socio para esta conferencia.
+          success: Socio actualizado exitosamente para esta conferencia.
       titles:
         conferences: Conferencias
     admin_log:
@@ -170,6 +196,9 @@ es-PY:
         create: "%{user_name} invitados %{resource_name} a la %{space_name} conferencia"
         delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
         update: "%{user_name} cambió el rol de %{resource_name} en la %{space_name} conferencia"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Altavoces
@@ -225,6 +254,9 @@ es-PY:
             decline: Rechazar invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} ha invitado a unirse a una conferencia en %{application}. Puede rechazarlo o aceptarlo a través de los enlaces a continuación."
             join: Únete a la conferencia '%{conference_title}'
+        partners:
+          index:
+            title: Fogonadura
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -236,6 +268,15 @@ es-PY:
           remaining_slots:
             one: 1 ranura restante
             other: "%{count} ranuras restantes"
+      conference_program:
+        program_meeting:
+          content: Contenido
+          location: Ubicación
+          speakers: Ponentes
+          streaming: Transmisión
+        show:
+          day: Día
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Su registro para la conferencia <a href="%{url}">%{title}</a> ha sido confirmado.
@@ -265,6 +306,9 @@ es-PY:
         index:
           speakers: Altavoces
       conferences:
+        partners:
+          collaborators: Colaboradores
+          main_promotors: Promotores principales
         show:
           already_account: '¿Ya tienes una cuenta en decidim?'
           login_as: Has iniciado sesión como %{name} <%{email}>
@@ -372,6 +416,7 @@ es-PY:
           take_part: Participar
       conferences_nav:
         conference_menu_item: Información
+        conference_partners_menu_item: Fogonadura
         conference_speaker_menu_item: Altavoces
         unfold: Desplegar
         venues: Sedes

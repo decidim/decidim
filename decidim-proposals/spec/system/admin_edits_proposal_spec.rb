@@ -43,6 +43,22 @@ describe "Admin edits proposals", type: :system do
       end
     end
 
+    context "when the proposal has some votes" do
+      before do
+        create :proposal_vote, proposal: proposal
+      end
+
+      it "doesn't let the user edit it" do
+        visit_component_admin
+
+        expect(page).to have_content(proposal.title)
+        expect(page).to have_no_css("a.action-icon--edit-proposal")
+        visit current_path + "proposals/#{proposal.id}/edit"
+
+        expect(page).to have_content("not authorized")
+      end
+    end
+
     context "when updating with wrong data" do
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
 
@@ -67,20 +83,6 @@ describe "Admin edits proposals", type: :system do
       visit_component_admin
 
       expect(page).to have_content(proposal.title)
-      expect(page).to have_no_css("a.action-icon--edit-proposal")
-      visit current_path + "proposals/#{proposal.id}/edit"
-
-      expect(page).to have_content("not authorized")
-    end
-  end
-
-  describe "editing my proposal outside the time limit" do
-    let!(:proposal) { create :proposal, :official, component: component, updated_at: 1.hour.ago }
-
-    it "renders an error" do
-      visit_component_admin
-
-      expect(page).to have_text(proposal.title)
       expect(page).to have_no_css("a.action-icon--edit-proposal")
       visit current_path + "proposals/#{proposal.id}/edit"
 

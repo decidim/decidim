@@ -199,7 +199,7 @@ fi:
           success: Hakemuksesi on lähetetty aloitteen laatijalle.
       content_blocks:
         highlighted_initiatives:
-          name: Korostetut aloitteet
+          name: Tärkeimmät aloitteet
       create_initiative:
         fill_data:
           back: Takaisin

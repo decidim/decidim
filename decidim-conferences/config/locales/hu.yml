@@ -131,6 +131,7 @@ hu:
           conference_speakers: Konferencia hangszórók
           info: Info
           moderations: moderálások
+          partners: Partners
       models:
         conference:
           fields:
@@ -154,6 +155,31 @@ hu:
             admin: Adminisztrátor
             collaborator: Együttműködő
             moderator: moderátor
+        partner:
+          fields:
+            link: Link
+            logo: logo
+            name: Név
+            partner_type: típus
+          name: Partner
+          types:
+            collaborator: Együttműködő
+            main_promotor: Fő promoter
+      partners:
+        create:
+          error: Hiba történt a konferencia partnerének hozzáadása esetén.
+          success: Partner sikeresen csatlakozott ehhez a konferenciához.
+        destroy:
+          success: A partner sikeresen eltávolította ezt a konferenciát.
+        edit:
+          title: Partner frissítése.
+          update: frissítés
+        new:
+          create: teremt
+          title: Új partner
+        update:
+          error: Hiba történt a konferencia partnerének frissítéséhez.
+          success: Partner sikeresen frissült a konferencia számára.
       titles:
         conferences: Konferenciák
     admin_log:
@@ -170,6 +196,9 @@ hu:
         create: "%{user_name} meghívott %{resource_name} a %{space_name} konferenciára"
         delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
         update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} konferencián"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Hangszórók
@@ -225,6 +254,9 @@ hu:
             decline: A "%{conference_title}" meghívása
             invited_you_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
             join: Csatlakozzon a "%{conference_title}"
+        partners:
+          index:
+            title: Partners
       conference:
         registration_confirm:
           cancel: Megszünteti
@@ -236,6 +268,15 @@ hu:
           remaining_slots:
             one: 1 hely marad
             other: "%{count} hely marad"
+      conference_program:
+        program_meeting:
+          content: Tartalom
+          location: Elhelyezkedés
+          speakers: Hangszórók
+          streaming: folyó
+        show:
+          day: Nap
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
@@ -265,6 +306,9 @@ hu:
         index:
           speakers: Hangszórók
       conferences:
+        partners:
+          collaborators: Az együttműködők
+          main_promotors: Fő promóterek
         show:
           already_account: Van már fiókja decidimben?
           login_as: A bejelentkezés %{name} <%{email}>
@@ -372,6 +416,7 @@ hu:
           take_part: Részt vesz
       conferences_nav:
         conference_menu_item: Információ
+        conference_partners_menu_item: Partners
         conference_speaker_menu_item: Hangszórók
         unfold: kibontakozik
         venues: helyszínek

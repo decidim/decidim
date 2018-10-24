@@ -257,6 +257,10 @@ gl:
           notification_title: As datas para o <a href="%{resource_path}">%{resource_title}</a> paso en <a href="%{participatory_space_url}">%{participatory_space_title}</a> foron actualizadas.
     menu:
       processes: Procesos
+    metrics:
+      participatory_processes:
+        object: procesos participativos
+        title: Procesos participativos
     participatory_process_groups:
       show:
         group_participatory_processes:
