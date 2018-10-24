@@ -353,6 +353,11 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu erakunde horren kide zarelako.
           email_subject: Ez duzu jada %{user_group_name} erakundearen kudeatzailea!
           notification_title: Ez zaude jada <a href="%{resource_path}">%{user_group_name}</a> erakundearen administratzailea.
+        invited_to_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak gonbidatu zaitu.
+          email_outro: Jakinarazpen hau jaso duzu erakunde bati gonbidatuta zaudelako. Egiaztatu zure profileko Erakundeen fitxa hori onartzeko.
+          email_subject: '%{user_group_name} antolatzailera gonbidatu zaituzte!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> erakundean parte hartzera gonbidatu zaituzte. Begiratu <a href="%{groups_profile_tab_path}">Erakundeen orria</a> zure profilean onartzeko!
         join_request_accepted:
           email_intro: Zorionak! <a href="%{resource_url}">%{user_group_name}</a> erakundearen administratzaileak zure eskaera onartu du.
           email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
@@ -481,6 +486,22 @@ eu:
       index:
         current_admins: 'Uneko administratzaileak:'
         manage_admins: Kudeatu kudeatzaileak
+    group_invites:
+      accept:
+        error: Errore bat gertatu da gonbidapen hau onartzea
+        success: Gonbidapena arrakastaz onartu da
+      accept_invitation: Onartu
+      accept_or_reject_group_invitations: 'Honako erakunde hauek gonbidatu zaituzte. Eskaerak onartu edo ukatu:'
+      index:
+        invite: gonbidatu
+        invite_user: Erabiltzaile bat gonbidatu
+      invite:
+        error: Errore bat gertatu da erabiltzaile hau gonbidatuz
+        success: Erabiltzailea behar bezala gonbidatu da
+      reject:
+        error: Errore bat gertatu da gonbidapen hau uztea
+        success: Gonbidapena ongi baztertu da
+      reject_invitation: Ukatu
     group_members:
       accept:
         error: Errore bat gertatu da eskaera bat onartzeko
@@ -734,6 +755,7 @@ eu:
         create_user_group: Sortu erakundea
         edit_profile: Editatu profila
         edit_user_group: Editatu antolakuntza profila
+        invite_user: Gonbidatu erabiltzailea
         join_user_group: Antolaketara sartzeko eskaera
         leave_user_group: Utzi erakundea
         manage_user_group_admins: Kudeatu kudeatzaileak
