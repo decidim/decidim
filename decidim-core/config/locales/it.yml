@@ -353,6 +353,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché sei un membro di tale organizzazione.
           email_subject: Non sei più un amministratore dell'organizzazione %{user_group_name}!
           notification_title: Non sei più un amministratore dell'organizzazione <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un amministratore dell'organizzazione <a href="%{resource_url}">%{user_group_name}</a> ti ha invitato a parteciparvi.
+          email_outro: Hai ricevuto questa notifica perché sei stato invitato a un'organizzazione. Controlla la scheda Organizzazioni nel tuo profilo per approvarla.
+          email_subject: Sei stato invitato a far parte dell'organizzazione %{user_group_name}!
+          notification_title: Sei stato invitato a far parte dell'organizzazione <a href="%{resource_path}">%{user_group_name}</a> . Controllare le <a href="%{groups_profile_tab_path}">organizzazioni pagina</a> nel tuo profilo per approvarlo!
         join_request_accepted:
           email_intro: Congratulazioni! Un amministratore dell'organizzazione <a href="%{resource_url}">%{user_group_name}</a> ha accettato la tua richiesta di adesione.
           email_outro: Hai ricevuto questa notifica perché la tua richiesta di partecipazione è stata aggiornata.
@@ -481,6 +486,22 @@ it:
       index:
         current_admins: 'Amministratori attuali:'
         manage_admins: Gestisci amministratori
+    group_invites:
+      accept:
+        error: Si è verificato un errore durante l'accettazione di questo invito
+        success: Invito accettato con successo
+      accept_invitation: Accettare
+      accept_or_reject_group_invitations: 'Le seguenti organizzazioni ti hanno invitato a unirti a loro. Accetta o rifiuta le loro richieste:'
+      index:
+        invite: Invitare
+        invite_user: Invita un utente
+      invite:
+        error: Si è verificato un errore durante l'invito a questo utente
+        success: Utente invitato con successo
+      reject:
+        error: Si è verificato un errore durante il rifiuto di questo invito
+        success: Invito rifiutato con successo
+      reject_invitation: Rifiutare
     group_members:
       accept:
         error: Si è verificato un errore durante l'accettazione di questa richiesta di partecipazione
@@ -734,6 +755,7 @@ it:
         create_user_group: Crea organizzazione
         edit_profile: Modifica Profilo
         edit_user_group: Modifica il profilo dell'organizzazione
+        invite_user: Invita utente
         join_user_group: Richiesta di partecipazione all'organizzazione
         leave_user_group: Lascia l'organizzazione
         manage_user_group_admins: Gestisci amministratori
