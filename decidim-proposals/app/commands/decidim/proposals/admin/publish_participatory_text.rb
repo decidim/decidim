@@ -8,7 +8,7 @@ module Decidim
       class PublishParticipatoryText < Rectify::Command
         # Public: Initializes the command.
         #
-        # form - A form object with the params.
+        # form - A PreviewParticipatoryTextForm form object with the params.
         def initialize(form)
           @form = form
         end
@@ -36,7 +36,6 @@ module Decidim
         private
 
         attr_reader :form
-        attr_reader :publish_failures
 
         def update_contents_and_resort_proposals(form)
           form.proposals.each do |prop_form|
@@ -46,8 +45,8 @@ module Decidim
             proposal.body = prop_form.body if proposal.participatory_text_level == Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
 
             add_failure(proposal) unless proposal.save
-            raise ActiveRecord::Rollback if @publish_failures.any?
           end
+          raise ActiveRecord::Rollback if @publish_failures.any?
         end
 
         def publish_drafts

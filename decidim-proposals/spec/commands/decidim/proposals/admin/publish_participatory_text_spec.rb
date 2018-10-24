@@ -44,18 +44,34 @@ module Decidim
           let(:command) { described_class.new(form) }
 
           describe "when form modifies proposals" do
-            it "persists modifications" do
-              expect { command.call }.to broadcast(:ok)
-              proposals.zip(proposal_modifications).each do |proposal, proposal_form|
-                proposal.reload
-                actual = {}
-                expected = {}
-                %w(position title body).each do |attr|
-                  next if (attr == "body") && (proposal.participatory_text_level != Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article])
-                  expected[attr] = proposal_form.send attr.to_sym
-                  actual[attr] = proposal.attributes[attr]
+            context "with valid values" do
+              it "persists modifications" do
+                expect { command.call }.to broadcast(:ok)
+                proposals.zip(proposal_modifications).each do |proposal, proposal_form|
+                  proposal.reload
+                  actual = {}
+                  expected = {}
+                  %w(position title body).each do |attr|
+                    next if (attr == "body") && (proposal.participatory_text_level != Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article])
+                    expected[attr] = proposal_form.send attr.to_sym
+                    actual[attr] = proposal.attributes[attr]
+                  end
+                  expect(actual).to eq(expected)
                 end
-                expect(actual).to eq(expected)
+              end
+            end
+
+            context "with invalid values" do
+              before do
+                proposal_modifications.each { |proposal_form| proposal_form.title = "" }
+              end
+
+              it "does not persist modifications and broadcasts invalid" do
+                failures = {}
+                proposals.each do |proposal|
+                  failures[proposal.id] = ["Title can't be blank"]
+                end
+                expect { command.call }.to broadcast(:invalid, failures)
               end
             end
           end
