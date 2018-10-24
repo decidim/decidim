@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "manage media links examples" do
-  let!(:media_link) { create(:media_link, conference: conference) }
 
   before do
     switch_to_host(organization.host)
@@ -41,15 +40,17 @@ shared_examples "manage media links examples" do
     end
   end
 
-  it "shows conference media links list" do
-    within "#media_links table" do
-      expect(page).to have_content(translated(media_link.title))
-    end
-  end
-
   describe "when managing other conference media links" do
+    let!(:media_link) { create(:media_link, conference: conference) }
+
     before do
       visit current_path
+    end
+
+    it "shows conference media links list" do
+      within "#media_links table" do
+        expect(page).to have_content(translated(media_link.title))
+      end
     end
 
     it "updates a conference media links" do
@@ -91,6 +92,23 @@ shared_examples "manage media links examples" do
       within "#media_links table" do
         expect(page).to have_no_content(translated(media_link.title))
       end
+    end
+  end
+
+  context "when paginating" do
+    let!(:collection_size) { 20 }
+    let!(:collection) { create_list(:media_link, collection_size, conference: conference) }
+    let!(:resource_selector) { "#media_links tbody tr" }
+     before do
+      visit current_path
+    end
+
+    it "lists 15 media links per page by default" do
+      expect(page).to have_css(resource_selector, count: 15)
+      expect(page).to have_css(".pagination .page", count: 2)
+      click_link "Next"
+      expect(page).to have_selector(".pagination .current", text: "2")
+      expect(page).to have_css(resource_selector, count: 5)
     end
   end
 end
