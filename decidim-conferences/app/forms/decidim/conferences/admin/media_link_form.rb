@@ -18,6 +18,14 @@ module Decidim
         validates :title, :date, :link, presence: true
         validate :link_format
 
+        def link
+          return if super.blank?
+
+          return "http://" + super unless super.match?(%r{\A(http|https)://}i)
+
+          super
+        end
+
         private
 
         def link_format

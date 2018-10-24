@@ -44,16 +44,32 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when link is missing" do
-          let(:link) { nil }
-
-          it { is_expected.to be_invalid }
-        end
-
         context "when date is missing" do
           let(:date) { nil }
 
           it { is_expected.to be_invalid }
+        end
+
+        describe "link" do
+          context "when link is missing" do
+            let(:link) { nil }
+
+            it { is_expected.to be_invalid }
+          end
+
+          context "when it doesn't start with http" do
+            let(:link) { "example.org" }
+
+            it "adds it" do
+              expect(subject.link).to eq("http://example.org")
+            end
+          end
+
+          context "when it's not a valid URL" do
+            let(:link) { "foobar, aa" }
+
+            it { is_expected.to be_invalid }
+          end
         end
       end
     end

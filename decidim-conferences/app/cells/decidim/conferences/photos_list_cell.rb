@@ -9,6 +9,7 @@ module Decidim
       include Decidim::SanitizeHelper
 
       def show
+        return unless model.any?
         render
       end
     end
