@@ -120,6 +120,12 @@ it:
         create:
           error: Si è verificato un errore durante la duplicazione di questa conferenza.
           success: Conferenza duplicata con successo.
+      media_links:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo collegamento multimediale.
+          success: Link multimediale creato correttamente.
+        destroy:
+          success: Link multimediale cancellato con successo.
       menu:
         conferences: conferenze
         conferences_submenu:
