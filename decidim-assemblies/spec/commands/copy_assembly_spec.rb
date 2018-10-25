@@ -116,7 +116,7 @@ module Decidim::Assemblies
 
       context "when everything is ok" do
         let!(:assembly_parent) { create :assembly, organization: organization }
-        let!(:assembly) { create :assembly, parent: assembly_parent, organization: organization}
+        let!(:assembly) { create :assembly, parent: assembly_parent, organization: organization }
 
         it "duplicates an assembly" do
           expect { subject.call }.to change { Decidim::Assembly.count }.by(1)
