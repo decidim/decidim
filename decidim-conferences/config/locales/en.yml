@@ -3,7 +3,9 @@ en:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Related Assemblies
         banner_image: Banner image
+        consultations_ids: Related Consultations
         copy_categories: Copy categories
         copy_components: Copy components
         copy_features: Copy features
@@ -11,6 +13,7 @@ en:
         description: Description
         hashtag: Hashtag
         hero_image: Home image
+        participatory_processes_ids: Related Participatory processes
         promoted: Promoted
         published_at: Published at
         scope_id: Scope
@@ -356,6 +359,9 @@ en:
         details: Details
         introduction: Introduction
         objectives: Objectives
+        related_assemblies: Related Assemblies
+        related_consultations: Related Consultations
+        related_participatory_processes: Related Participatory Processes
       statistics:
         answers_count: Answers
         comments_count: Comments

@@ -14,6 +14,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Added**:
 
+- **decidim-conferences**: Add the relationship with other spaces. Each Conference-page should potentially be related to participatory processes, consultations and assemblies. [\#4339](https://github.com/decidim/decidim/pull/4339)
 - **decidim-conferences**: Apply new design for Conference Program [#4271](https://github.com/decidim/decidim/pull/4271)
 - **decidim-proposals**: Administration panel related implementation of Participatory Texts. [#4229](https://github.com/decidim/decidim/pull/4229)
 - **decidim-conferences**: Add Partners to Conference. [\#4251](https://github.com/decidim/decidim/pull/4251)
