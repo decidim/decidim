@@ -135,6 +135,8 @@ en:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        no_amenders: There are no amenders
+        no_amendments: There are no amendments
         section_heading: Amendments (%{count})
       created:
         error: An error ocurred creating this amendment, try again later
