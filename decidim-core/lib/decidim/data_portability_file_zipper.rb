@@ -45,14 +45,17 @@ module Decidim
           if image.file.respond_to? :file
             uploader.cache!(File.open(image.file.file))
             uploader.retrieve_from_store!(image.file.filename)
-            my_image_path = File.open(image.file.file)
           else
-            uploader.cache!(File.open(image.file.public_url))
-            uploader.retrieve_from_store!(image.file.filename)
-            my_image_path = File.open(image.file.public_url)
+            my_uploader = image.mounted_as
+            element = image.model
+
+            element.send(my_uploader).cache_stored_file!
+            element.send(my_uploader).retrieve_from_cache!(element.send(my_uploader).cache_name)
           end
+          my_image_path = File.open(image.file.file)
           next unless File.exist?(my_image_path)
           zipfile.add("#{folder_name}/#{image.file.filename}", my_image_path)
+          CarrierWave.clean_cached_files!
         end
       end
       zipfile.close
