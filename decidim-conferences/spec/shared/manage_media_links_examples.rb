@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "manage media links examples" do
-
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -99,7 +98,8 @@ shared_examples "manage media links examples" do
     let!(:collection_size) { 20 }
     let!(:collection) { create_list(:media_link, collection_size, conference: conference) }
     let!(:resource_selector) { "#media_links tbody tr" }
-     before do
+
+    before do
       visit current_path
     end
 
