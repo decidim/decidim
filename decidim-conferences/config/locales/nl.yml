@@ -120,6 +120,23 @@ nl:
         create:
           error: Er is een fout opgetreden bij het dupliceren van deze conferentie.
           success: Conferentie succesvol gedupliceerd.
+      media_links:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe mediakoppeling.
+          success: Media Link is met succes gemaakt.
+        destroy:
+          success: Media Link is succesvol verwijderd.
+        edit:
+          title: Mediakoppeling bijwerken.
+          update: Bijwerken
+        index:
+          media_links_title: Media links
+        new:
+          create: creëren
+          title: Media Link
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze mediakoppeling.
+          success: Media Link is succesvol bijgewerkt.
       menu:
         conferences: conferenties
         conferences_submenu:
@@ -133,6 +150,7 @@ nl:
           conference_registrations: Conferentie-registraties
           conference_speakers: Sprekers van de conferentie
           info: info
+          media_links: Media links
           moderations: matigingen
           partners: partners
       models:
@@ -158,6 +176,12 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+        media_link:
+          fields:
+            date: Datum
+            link: Link
+            title: Titel
+          name: Media Link
         partner:
           fields:
             link: Link
@@ -352,6 +376,13 @@ nl:
           highlighted_conferences:
             active_conferences: Actieve conferenties
             see_all_conferences: Bekijk alle conferenties
+      photo:
+        show:
+          close_modal: Modal sluiten
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: foto's
       show:
         details: Details
         introduction: Invoering
@@ -397,6 +428,10 @@ nl:
       value_types:
         conference_presenter:
           not_found: 'De conferentie is niet gevonden in de database (ID: %{id})'
+    media:
+      index:
+        description: Links over deze conferentie
+        title: Media en links
     menu:
       conferences: conferenties
   devise:
@@ -424,5 +459,6 @@ nl:
         conference_menu_item: Informatie
         conference_partners_menu_item: partners
         conference_speaker_menu_item: sprekers
+        media: Media
         unfold: Ontvouwen
         venues: locaties
