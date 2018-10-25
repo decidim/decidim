@@ -15,7 +15,7 @@ module Decidim
 
     default_scope { order(weight: :asc, created_at: :asc) }
 
-    scope :not_ceased, -> { where(ceased_date: nil) }
+    scope :not_ceased, -> { where("ceased_date >= ? OR ceased_date IS NULL", Time.zone.today) }
 
     def self.log_presenter_class_for(_log)
       Decidim::Assemblies::AdminLog::AssemblyMemberPresenter
