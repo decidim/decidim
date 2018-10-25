@@ -757,8 +757,8 @@ fi:
         edit_profile: Muokkaa profiilia
         edit_user_group: Muokkaa ryhmän profiilia
         invite_user: Kutsu käyttäjä
-        join_user_group: Pyyntö liittyä ryhmään
-        leave_user_group: Jätä ryhmä
+        join_user_group: Lähetä liittymispyyntö ryhmään
+        leave_user_group: Poistu ryhmästä
         manage_user_group_admins: Hallinnoi ylläpitäjiä
         manage_user_group_users: Hallinnoi jäseniä
     reported_mailer:
@@ -1036,7 +1036,7 @@ fi:
         my_data: Omat tiedot
         notifications_settings: Ilmoitusten asetukset
         title: Käyttäjätilin asetukset
-        user_groups: ryhmät
+        user_groups: Ryhmät
       widget:
         see_more: Näytä lisää
   locale:
