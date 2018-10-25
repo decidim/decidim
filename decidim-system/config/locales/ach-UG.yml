@@ -1,0 +1,71 @@
+ach:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: crwdns1093:0crwdne1093:0
+        destroy: crwdns15501:0crwdne15501:0
+        edit: crwdns1095:0crwdne1095:0
+        new: crwdns3420:0crwdne3420:0
+        save: crwdns1097:0crwdne1097:0
+        title: crwdns1098:0crwdne1098:0
+      admins:
+        create:
+          error: crwdns1099:0crwdne1099:0
+          success: crwdns1100:0crwdne1100:0
+        destroy:
+          success: crwdns15502:0crwdne15502:0
+        edit:
+          title: crwdns1102:0crwdne1102:0
+          update: crwdns3421:0crwdne3421:0
+        index:
+          title: crwdns1104:0crwdne1104:0
+        new:
+          create: crwdns3422:0crwdne3422:0
+          title: crwdns1106:0crwdne1106:0
+        update:
+          error: crwdns1107:0crwdne1107:0
+          success: crwdns1108:0crwdne1108:0
+      default_pages:
+        placeholders:
+          content: crwdns3960:0%{page}crwdne3960:0
+          title: crwdns1339:0%{page}crwdne1339:0
+      menu:
+        admins: crwdns1109:0crwdne1109:0
+        dashboard: crwdns1110:0crwdne1110:0
+        organizations: crwdns1111:0crwdne1111:0
+      models:
+        admin:
+          fields:
+            created_at: crwdns1112:0crwdne1112:0
+            email: crwdns1113:0crwdne1113:0
+          name: crwdns1114:0crwdne1114:0
+          validations:
+            email_uniqueness: crwdns1115:0crwdne1115:0
+        organization:
+          actions:
+            save_and_invite: crwdns1116:0crwdne1116:0
+          fields:
+            created_at: crwdns1117:0crwdne1117:0
+            name: crwdns1118:0crwdne1118:0
+          name: crwdns1119:0crwdne1119:0
+      organizations:
+        create:
+          error: crwdns1120:0crwdne1120:0
+          success: crwdns1121:0crwdne1121:0
+        edit:
+          secondary_hosts_hint: crwdns2952:0crwdne2952:0
+        index:
+          title: crwdns1122:0crwdne1122:0
+        new:
+          reference_prefix_hint: crwdns3675:0crwdne3675:0
+          secondary_hosts_hint: crwdns2953:0crwdne2953:0
+          title: crwdns1123:0crwdne1123:0
+        update:
+          error: crwdns1124:0crwdne1124:0
+          success: crwdns1125:0crwdne1125:0
+      shared:
+        notices:
+          no_organization_warning_html: crwdns3556:0%{guide}crwdne3556:0
+          our_getting_started_guide: crwdns3557:0crwdne3557:0
+      titles:
+        dashboard: crwdns1126:0crwdne1126:0
