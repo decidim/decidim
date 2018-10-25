@@ -120,6 +120,23 @@ ca:
         create:
           error: S'ha produït un error en duplicar aquesta conferència.
           success: La conferència s'ha duplicat correctament.
+      media_links:
+        create:
+          error: S'ha produït un error en crear un nou enllaç multimèdia.
+          success: Media Link s'ha creat correctament.
+        destroy:
+          success: S'ha eliminat correctament l'enllaç de mitjans.
+        edit:
+          title: Actualitza l'enllaç de mitjans.
+          update: Actualització
+        index:
+          media_links_title: Mitjans de comunicació
+        new:
+          create: Crear
+          title: Enllaç per mitjans de comunicació
+        update:
+          error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
+          success: Media Link s'ha actualitzat correctament.
       menu:
         conferences: Conferències
         conferences_submenu:
@@ -133,6 +150,7 @@ ca:
           conference_registrations: Registre de conferències
           conference_speakers: Conferenciants de conferències
           info: Info
+          media_links: Mitjans de comunicació
           moderations: Moderacions
           partners: Socis
       models:
@@ -158,6 +176,12 @@ ca:
             admin: Administrador
             collaborator: Col·laborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Data
+            link: Enllaç
+            title: Títol
+          name: Enllaç per mitjans de comunicació
         partner:
           fields:
             link: Enllaç
@@ -352,6 +376,13 @@ ca:
           highlighted_conferences:
             active_conferences: Conferències actives
             see_all_conferences: Veure totes les conferències
+      photo:
+        show:
+          close_modal: Tanca el modal
+          photo: foto
+      photos_list:
+        show:
+          related_photos: Fotografies
       show:
         details: Detalls
         introduction: Introducció
@@ -397,6 +428,10 @@ ca:
       value_types:
         conference_presenter:
           not_found: 'La conferència no es va trobar a la base de dades (ID: %{id})'
+    media:
+      index:
+        description: Enllaços sobre aquesta conferència
+        title: Mitjans i enllaços
     menu:
       conferences: Conferències
   devise:
@@ -424,5 +459,6 @@ ca:
         conference_menu_item: Informació
         conference_partners_menu_item: Socis
         conference_speaker_menu_item: Ponents
+        media: Mitjans de comunicació
         unfold: Desplegar
         venues: Llocs
