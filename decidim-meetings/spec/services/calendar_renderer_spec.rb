@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe Calendar do
+  describe CalendarRenderer do
     subject { described_class }
 
     let(:component) { create :component, manifest_name: "meetings" }

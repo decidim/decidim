@@ -11,7 +11,7 @@ module Decidim
 
       def show
         # TODO: add `content_type: "type/calendar"` before finishing
-        render plain: Calendar.for(current_component)
+        render plain: CalendarRenderer.for(current_component)
       end
 
       private

@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    module Calendar
+    class CalendarRenderer
       def self.for(resource)
         case resource
         when Decidim::Organization
