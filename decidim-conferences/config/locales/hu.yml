@@ -120,6 +120,23 @@ hu:
         create:
           error: Hiba történt a konferencia másolása során.
           success: A konferencia sikeresen megismétlődött.
+      media_links:
+        create:
+          error: Hiba történt új média link létrehozása közben.
+          success: A Media Link sikeresen létrejött.
+        destroy:
+          success: A Media Link sikeresen törölve.
+        edit:
+          title: A média link frissítése.
+          update: frissítés
+        index:
+          media_links_title: Média linkek
+        new:
+          create: teremt
+          title: Media Link
+        update:
+          error: Hiba történt a média link frissítésekor.
+          success: A Media Link sikeresen frissült.
       menu:
         conferences: Konferenciák
         conferences_submenu:
@@ -133,6 +150,7 @@ hu:
           conference_registrations: Konferencia regisztrációk
           conference_speakers: Konferencia hangszórók
           info: Info
+          media_links: Média linkek
           moderations: moderálások
           partners: Partners
       models:
@@ -158,6 +176,12 @@ hu:
             admin: Adminisztrátor
             collaborator: Együttműködő
             moderator: moderátor
+        media_link:
+          fields:
+            date: Dátum
+            link: Link
+            title: Cím
+          name: Media Link
         partner:
           fields:
             link: Link
@@ -352,6 +376,13 @@ hu:
           highlighted_conferences:
             active_conferences: Aktív konferenciák
             see_all_conferences: Lásd az összes konferenciát
+      photo:
+        show:
+          close_modal: Közeli modal
+          photo: Fénykép
+      photos_list:
+        show:
+          related_photos: fotók
       show:
         details: Részletek
         introduction: Bevezetés
@@ -397,6 +428,10 @@ hu:
       value_types:
         conference_presenter:
           not_found: 'A konferencia nem található az adatbázisban (ID: %{id})'
+    media:
+      index:
+        description: Linkek erről a konferenciáról
+        title: Média és linkek
     menu:
       conferences: Konferenciák
   devise:
@@ -424,5 +459,6 @@ hu:
         conference_menu_item: Információ
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Hangszórók
+        media: Média
         unfold: kibontakozik
         venues: helyszínek
