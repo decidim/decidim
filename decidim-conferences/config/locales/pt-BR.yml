@@ -2,7 +2,9 @@ pt-BR:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Assembléias Relacionadas
         banner_image: Imagem de banner
+        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_features: Copiar recursos
@@ -10,6 +12,7 @@ pt-BR:
         description: Descrição
         hashtag: Hashtag
         hero_image: Imagem inicial
+        participatory_processes_ids: Processos participativos relacionados
         promoted: Promovido
         published_at: Publicado em
         scope_id: Escopo
@@ -353,6 +356,9 @@ pt-BR:
         details: Detalhes
         introduction: Introdução
         objectives: Objetivos
+        related_assemblies: Assembléias Relacionadas
+        related_consultations: Consultas Relacionadas
+        related_participatory_processes: Processos participativos relacionados
       statistics:
         answers_count: Respostas
         comments_count: Comentários
