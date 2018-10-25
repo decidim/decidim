@@ -14,6 +14,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Added**:
 
+- **decidim-conferences**: Add the new design of Uploaded Attachments to a Conference, and add the MediaLinks entity. [\#4285](https://github.com/decidim/decidim/pull/4285)
 - **decidim-proposals**: When Participatory Texts are published, the admin has the chance to update the contents of each Proposal. [#4326](https://github.com/decidim/decidim/pull/4326)
 - **decidim-conferences**: Add the relationship with other spaces. Each Conference-page should potentially be related to participatory processes, consultations and assemblies. [\#4339](https://github.com/decidim/decidim/pull/4339)
 - **decidim-conferences**: Apply new design for Conference Program [#4271](https://github.com/decidim/decidim/pull/4271)

@@ -1,0 +1,8 @@
+<div class="section images">
+  <h4 class="section-heading"><%= t("conferences.photos_list.show.related_photos", scope: "decidim") %></h4>
+  <div class="row small-up-1 smallmedium-up-2 card-grid">
+    <% model.each_with_index do |photo, index| %>
+      <%= cell "decidim/conferences/photo", photo, index: index %>
+    <% end %>
+  </div>
+</div>

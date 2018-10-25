@@ -88,8 +88,6 @@ edit_link(
       </section>
     <% end %>
 
-    <%= attachments_for current_participatory_space %>
-
     <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
 
     <% if current_participatory_space.show_statistics? %>
