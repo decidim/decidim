@@ -2,7 +2,9 @@ fi:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Liittyvät kokoonpanot
         banner_image: Bannerikuva
+        consultations_ids: Asiaan liittyvät neuvottelut
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_features: Kopioi ominaisuudet
@@ -10,6 +12,7 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
+        participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -353,6 +356,9 @@ fi:
         details: Tarkemmat tiedot
         introduction: Esittely
         objectives: Tavoitteet
+        related_assemblies: Liittyvät kokoonpanot
+        related_consultations: Asiaan liittyvät neuvottelut
+        related_participatory_processes: Asiaan liittyvät osallistumisprosessit
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
