@@ -2,7 +2,9 @@ eu:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Lotutako Batzarrak
         banner_image: Banner irudia
+        consultations_ids: Lotutako kontsultak
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_features: Kopiatu ezaugarriak
@@ -10,6 +12,7 @@ eu:
         description: deskribapena
         hashtag: hashtag
         hero_image: Hasiera irudia
+        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         promoted: sustatuta
         published_at: Argitaratu at
         scope_id: esparrua
@@ -353,6 +356,9 @@ eu:
         details: Xehetasunak
         introduction: Sarrera
         objectives: Helburuak
+        related_assemblies: Lotutako Batzarrak
+        related_consultations: Lotutako kontsultak
+        related_participatory_processes: Parte hartze prozesu erlazionatuak
       statistics:
         answers_count: Erantzunak
         comments_count: Oharrak
