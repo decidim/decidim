@@ -2,9 +2,9 @@ fi:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Liittyvät kokoonpanot
+        assemblies_ids: Liittyvät ryhmät
         banner_image: Bannerikuva
-        consultations_ids: Asiaan liittyvät neuvottelut
+        consultations_ids: Liittyvät kuulemiset
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_features: Kopioi ominaisuudet
@@ -12,7 +12,7 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
+        participatory_processes_ids: Liittyvät osallistumisprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -122,21 +122,21 @@ fi:
           success: Konferenssi kopioitu onnistuneesti.
       media_links:
         create:
-          error: Virhe uuden median linkin luomisessa.
-          success: Media Link luotu onnistuneesti.
+          error: Luotaessa uutta medialinkkiä tapahtui virhe.
+          success: Medialinkki luotu onnistuneesti.
         destroy:
-          success: Media Link poistettiin onnistuneesti.
+          success: Medialinkki poistettiin onnistuneesti.
         edit:
-          title: Päivitä mediayhteys.
-          update: Päivittää
+          title: Päivitä medialinkki.
+          update: Päivitä
         index:
-          media_links_title: Media Linkit
+          media_links_title: Medialinkit
         new:
-          create: Luoda
-          title: Media Link
+          create: Luo
+          title: Medialinkki
         update:
-          error: Media-linkin päivittämisessä tapahtui virhe.
-          success: Media Link päivitettiin onnistuneesti.
+          error: Medialinkin päivittämisessä esiintyi virhe.
+          success: Medialinkki päivitettiin onnistuneesti.
       menu:
         conferences: Konferenssit
         conferences_submenu:
@@ -150,7 +150,7 @@ fi:
           conference_registrations: Konferenssin ilmoittautumiset
           conference_speakers: Konferenssin puhujat
           info: Tiedot
-          media_links: Media Linkit
+          media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
       models:
@@ -178,10 +178,10 @@ fi:
             moderator: Moderoija
         media_link:
           fields:
-            date: Treffi
+            date: Päivämäärä
             link: Linkki
-            title: otsikko
-          name: Media Link
+            title: Otsikko
+          name: Medialinkki
         partner:
           fields:
             link: Linkki
@@ -378,7 +378,7 @@ fi:
             see_all_conferences: Katso kaikki konferenssit
       photo:
         show:
-          close_modal: Sulje modeemi
+          close_modal: Sulje ikkuna
           photo: Kuva
       photos_list:
         show:
@@ -387,9 +387,9 @@ fi:
         details: Tarkemmat tiedot
         introduction: Esittely
         objectives: Tavoitteet
-        related_assemblies: Liittyvät kokoonpanot
-        related_consultations: Asiaan liittyvät neuvottelut
-        related_participatory_processes: Asiaan liittyvät osallistumisprosessit
+        related_assemblies: Liittyvät ryhmät
+        related_consultations: Liittyvät kuulemiset
+        related_participatory_processes: Liittyvät osallistumisprosessit
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
@@ -430,7 +430,7 @@ fi:
           not_found: 'Konferenssia ei löytynyt tietokannasta (ID: %{id})'
     media:
       index:
-        description: Linkit tästä konferenssista
+        description: Tähän konferenssiin liittyvät linkit
         title: Media ja linkit
     menu:
       conferences: Konferenssit
@@ -459,6 +459,6 @@ fi:
         conference_menu_item: Tiedot
         conference_partners_menu_item: Yhteistyökumppanit
         conference_speaker_menu_item: Puhujat
-        media: tiedotusvälineet
+        media: Media
         unfold: Avaa
         venues: Tapahtumapaikat
