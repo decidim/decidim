@@ -24,7 +24,7 @@ sv:
       decidim/join_request_rejected_event: Gå med förfrågan avvisad
       decidim/profile_updated_event: Profil uppdaterad
       decidim/promote_to_admin: Befordrad till gruppadministratör
-      decidim/removed_from_group: Ta bort från gruppen
+      decidim/removed_from_group: Avlägsnad från gruppen
   activerecord:
     attributes:
       decidim/user:
