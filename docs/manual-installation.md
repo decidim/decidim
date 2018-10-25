@@ -49,6 +49,8 @@ You need to change the password (on this example is "thepassword") and save it s
 Next, we need to install the `decidim` gem:
 
 ```bash
+gem install bootsnap
+gem install listen
 gem install decidim
 ```
 
@@ -103,7 +105,8 @@ git commit -m "Adds figaro configuration management"
 We should now setup your database:
 
 ```bash
-bin/rails db:create db:migrate db:seed
+bin/rails db:create db:migrate
+bin/rails db:seed
 ```
 
 This will also create some default data so you can start testing the app:

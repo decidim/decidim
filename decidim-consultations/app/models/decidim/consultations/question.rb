@@ -13,6 +13,7 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::ParticipatorySpaceResourceable
 
       belongs_to :consultation,
                  foreign_key: "decidim_consultation_id",

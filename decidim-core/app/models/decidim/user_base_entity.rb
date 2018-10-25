@@ -19,6 +19,8 @@ module Decidim
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
     mount_uploader :avatar, Decidim::AvatarUploader
 
+    validates :name, :nickname, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
+
     # Public: Returns a collection with all the entities this user is following.
     #
     # This can't be done as with a `has_many :following, through: :following_follows`

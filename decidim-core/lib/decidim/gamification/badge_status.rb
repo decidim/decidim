@@ -5,6 +5,8 @@ module Decidim
     # This class is responsible to figure out the status of a user regarding
     # a certain badge.
     class BadgeStatus
+      attr_reader :badge
+
       # Public: Initializes the `BadgeStatus`.
       #
       # user  - The user of whom to check the status.

@@ -17,9 +17,14 @@ es:
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
+      decidim/demoted_membership: Ya no es una organización admin.
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
+      decidim/join_request_accepted_event: Solicitud de incorporación aceptada
+      decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
+      decidim/promote_to_admin: Promovido a la administración de la organización
+      decidim/removed_from_group: Eliminado de la organización
   activerecord:
     attributes:
       decidim/user:
@@ -45,6 +50,7 @@ es:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -96,6 +102,9 @@ es:
         update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
+      participatory_space_private_user:
+        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        delete: "%{user_name} eliminado el usuario %{resource_name} como un usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
         create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
@@ -158,21 +167,21 @@ es:
       show:
         expired:
           authorize: Volver a autorizar con "%{authorization}"
-          explanation: Tu autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
+          explanation: Tu autorización ha expirado. Para realizar esta acción, tienes que volver a obtener la autorización con "%{authorization}".
           title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
-          explanation: 'A pesar de que actualmente está autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque carecemos de los datos siguientes:'
+          explanation: 'A pesar de que actualmente estás autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque nos faltan los datos siguientes:'
           invalid_field: "%{field}"
           reauthorize: Reautorizarse
-          title: Por favor, re-autorízate
+          title: Por favor, reautorízate
         missing:
           authorize: Autorizar con "%{authorization}"
-          explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
+          explanation: Para llevar a cabo esta acción, tienes que disponer de la autorización "%{authorization}".
           title: Autorización requerida
         pending:
           explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
-          resume: Verifica el progreso de la autorización "%{authorization}"
+          resume: Comprueba el progreso de la autorización "%{authorization}"
           title: La autorización aún está en progreso
         unauthorized:
           explanation: No puedes realizar esta acción ya que algunos de los datos de autorización no son los requeridos.
@@ -180,10 +189,10 @@ es:
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
-          confirmation_instructions: 'Si no ha recibido las instrucciones de confirmación, puede volver a solicitarlas:'
-          explanation_html: Para realizar esta acción, debe estar autorizado, antes de hacerlo, debe confirmar su correo electrónico <strong>%{email}</strong>.
-          request_confirmation_instructions: Solicitar instrucciones de confirmación.
-          title: confirme su email
+          confirmation_instructions: 'Si no has recibido las instrucciones de confirmación, puedes volver a solicitarlas:'
+          explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucciones de confirmación
+          title: Confirma tu email
     collapsible_list:
       hidden_elements_count:
         one: y 1 más
@@ -338,6 +347,42 @@ es:
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
           email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
           notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+      groups:
+        demoted_membership:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha eliminado sus derechos de administrador de esa organización.
+          email_outro: Has recibido esta notificación porque eres miembro de esa organización.
+          email_subject: '¡Ya no eres un administrador de la organización %{user_group_name}!'
+          notification_title: Ya no eres administrador de la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha invitado a unirse a ella.
+          email_outro: Ha recibido esta notificación porque ha sido invitado a una organización. Por favor, revise la pestaña Organizaciones en su perfil para aprobarlo.
+          email_subject: '¡Has sido invitado a unirte a la organización %{user_group_name}!'
+          notification_title: Usted ha sido invitado a unirse a la organización <a href="%{resource_path}">%{user_group_name}</a> . ¡Revisa la página</a> las <a href="%{groups_profile_tab_path}">organizaciones en tu perfil para aprobarlo!
+        join_request_accepted:
+          email_intro: '¡Felicidades! Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha aceptado su solicitud para unirse a ella.'
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_subject: '¡Has sido aceptado en la organización %{user_group_name}!'
+          notification_title: Has sido aceptado en la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Alguien solicitó unirse a la organización %{user_group_name} . Puede aceptarlo o rechazarlo desde <a href="%{resource_url}">miembros de la organización página</a>.
+          email_outro: Ha recibido esta notificación porque puede administrar la organización %{user_group_name}.
+          email_subject: Alguien pidió unirse a la organización %{user_group_name}!
+          notification_title: Alguien solicitó unirse a la organización %{user_group_name} . Puede aceptarlo o rechazarlo desde <a href="%{resource_path}">miembros de la organización página</a>.
+        join_request_rejected:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> rechazó su solicitud para unirse a ella.
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_subject: Su solicitud para unirse a la organización %{user_group_name} ha sido rechazada!
+          notification_title: Su solicitud para unirse a la organización <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
+        promoted_to_admin:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha otorgado derechos de administrador a esa organización.
+          email_outro: Has recibido esta notificación porque eres miembro de esa organización.
+          email_subject: '¡Ahora eres un administrador de la organización %{user_group_name}!'
+          notification_title: Ahora eres un administrador de la organización <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Un administrador de la organización <a href="%{resource_url}">%{user_group_name}</a> ha eliminado de él.
+          email_outro: Ha recibido esta notificación porque era miembro de esa organización.
+          email_subject: '¡Has sido eliminado de la organización %{user_group_name}!'
+          notification_title: Has sido eliminado de la organización <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -389,7 +434,7 @@ es:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
-      all_badges_link: Ver todas las insignias disponibles.
+      all_badges_link: Ver todas los distintivos disponibles.
       badges:
         continuity:
           conditions:
@@ -398,30 +443,30 @@ es:
           description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
           description_own: Te has conectado por %{score} días consecutivos en algún momento.
           name: Continuidad
-          next_level_in: '¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!'
-          unearned_another: Este usuario no se ha registrado durante más de un día consecutivo.
+          next_level_in: '¡Conéctate durante %{score} días consecutivos alcanzar al siguiente nivel!'
+          unearned_another: Este usuario no ha entrado durante más de un día consecutivo.
           unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
-          description: Esta insignia se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
+          description: Este distintivo se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
           description_another: Este usuario tiene %{score} seguidores.
           description_own: "%{score} usuarios te están siguiendo."
           name: Seguidores
           next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
           unearned_another: Este usuario no tiene seguidores todavía.
-          unearned_own: Aún no tienes seguidores
+          unearned_own: Aún no tienes seguidores.
         index:
-          badge_title: "%{name} credencial"
-          how: Como puedes ganarlo
-          page_description: Las insignias son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes ganarlas.
-          title: Insignias
+          badge_title: "Distintivo %{name}"
+          how: Como puedes conseguirlo
+          page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
+          title: Distintivos
         invitations:
           conditions:
-            - Use el enlace "invitar amigos" en su página de usuario para invitar a sus amigos
+            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
             - Personaliza, si quieres, el mensaje que estás enviando.
-            - Subirás de nivel enviando invitaciones y registrándolas.
-          description: Este distintivo se otorga cuando ha invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y convertirse en participantes. Gracias por hacer de %{organization_name} a conocer a otros y ayudar a ampliar la comunidad!
+            - Supera este nivel enviando invitaciones y registrándolas.
+          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
           name: Invitaciones
@@ -431,14 +476,82 @@ es:
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
+    group_admins:
+      actions:
+        are_you_sure: '¿Estás seguro? Esto no eliminará al usuario de la organización.'
+        demote_admin: Quitar admin
+      demote:
+        error: Se ha producido un error al eliminar este usuario en la lista de administradores.
+        success: Usuario eliminado de administrador con éxito
+      index:
+        current_admins: 'Administradores actuales:'
+        manage_admins: Administrar administradores
+    group_invites:
+      accept:
+        error: Hubo un error al aceptar esta invitación.
+        success: Invitación aceptada exitosamente
+      accept_invitation: Aceptar
+      accept_or_reject_group_invitations: 'Las siguientes organizaciones lo han invitado a unirse a ellos. Aceptar o rechazar sus solicitudes:'
+      index:
+        invite: Invitación
+        invite_user: Invitar a un usuario
+      invite:
+        error: Se ha producido un error al invitar a este usuario.
+        success: Usuario invitado exitosamente
+      reject:
+        error: Hubo un error rechazando esta invitación.
+        success: Invitación rechazada exitosamente
+      reject_invitation: Rechazar
+    group_members:
+      accept:
+        error: Se ha producido un error al aceptar esta solicitud de unión.
+        success: Únase a la solicitud aceptada con éxito
+      actions:
+        are_you_sure: '¿Estás seguro?'
+        promote_to_admin: Hacer administrador
+        remove_from_group: Eliminar usuario
+      index:
+        current_members_without_admins: 'Miembros actuales (sin administradores):'
+        manage_members: Administrar miembros
+      promote:
+        error: Se ha producido un error al promocionar este usuario.
+        success: Usuario promovido exitosamente
+      reject:
+        error: Se ha producido un error al rechazar esta solicitud de unión.
+        success: Solicitud de incorporación rechazada con éxito
+      remove:
+        error: Se ha producido un error al eliminar este usuario del grupo.
+        success: Usuario eliminado del grupo con éxito
     groups:
+      actions:
+        are_you_sure: '¿Estás seguro?'
       create:
         error: Ha habido un problema creando la organización.
         success: Organización creada con éxito
+      edit:
+        edit_user_group: Editar organizacion
+        update_user_group: Actualizar organización
+      join:
+        error: Ha habido un problema al unirse a la organización.
+        success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en la organización.
+      leave:
+        error: Ha habido un problema al abandonar la organización.
+        success: La organización salió con éxito.
+      members:
+        accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
+        accept_request: Aceptar
+        reject_request: Rechazar
       new:
         create_user_group: Crear organizacion
         new_user_group: Nueva organizacion
       no_user_groups: Aún no pertenece a ninguna organización.
+      roles:
+        admin: Administrador
+        creator: Creador
+        member: Miembro
+      update:
+        error: Ha habido un problema al actualizar la organización.
+        success: Organización actualizada con éxito
     invitations:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
@@ -570,13 +683,13 @@ es:
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
           footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
-          footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
+          footer_sub_hero_headline: Bienvenido/a a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
           participate: Participar
-          welcome: Bienvenido a %{organization}!
+          welcome: Bienvenido/a a %{organization}!
         metrics:
-          headline: Participación en figuras
+          headline: Participación en cifras
         statistics:
           answers_count: Encuestas completadas
           assemblies_count: Asambleas
@@ -586,7 +699,7 @@ es:
           endorsements_count: Adhesiones
           headline: Estado actual de %{organization}
           meetings_count: Encuentros
-          orders_count: Votos
+          orders_count: Apoyos
           pages_count: Páginas
           processes_count: Procesos
           projects_count: Proyectos
@@ -595,7 +708,7 @@ es:
           results_count: Resultados
           surveys_count: Encuestas
           users_count: Participantes
-          votes_count: Votos
+          votes_count: Apoyos
         sub_hero:
           register: Regístrate
       index:
@@ -624,7 +737,7 @@ es:
       deleted: Usuario eliminado
       view: Ver
     profiles:
-      default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, su nombre se ha verificado para que se corresponda con su nombre real
+      default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, tu nombre se ha verificado para que se corresponda con tu nombre real
       default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
         badges: Insignias
@@ -636,11 +749,17 @@ es:
         notifications: Notificaciones
       sidebar:
         badges:
-          info: Las insignias se obtienen realizando una actividad específica en la plataforma.
-          title: Insignias
+          info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
+          title: Distintivos
       user:
         create_user_group: Crear organizacion
         edit_profile: Editar perfil
+        edit_user_group: Editar el perfil de la organización
+        invite_user: Invitar al usuario
+        join_user_group: Solicitud para unirse a la organización
+        leave_user_group: Dejar organizacion
+        manage_user_group_admins: Administrar administradores
+        manage_user_group_users: Administrar miembros
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -709,20 +828,20 @@ es:
         deleted: Usuario eliminado
   devise:
     confirmations:
-      confirmed: Su dirección de correo electrónico ha sido confirmada con éxito.
+      confirmed: Tu dirección de correo electrónico ha sido confirmada con éxito.
       new:
         resend_confirmation_instructions: Reenviar las instrucciones de confirmación
-      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos minutos.
-      send_paranoid_instructions: Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos minutos.
+      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
+      send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos minutos.
     failure:
       already_authenticated: Ya has iniciado sesión.
       inactive: Tu cuenta aún no está activada.
-      invalid: '%{authentication_keys} inválido o contraseña.'
+      invalid: '%{authentication_keys} o contraseña inválida.'
       invited: Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.
       last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
-      locked: Tu cuenta esta bloqueada.
-      not_found_in_database: '%{authentication_keys} inválido o contraseña.'
-      timeout: Su sesión expiró Por favor, inicia sesión de nuevo para continuar.
+      locked: Tu cuenta está bloqueada.
+      not_found_in_database: '%{authentication_keys} o contraseña inválida.'
+      timeout: Tu sesión expiró Por favor, inicia sesión de nuevo para continuar.
       unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
       edit:
@@ -733,21 +852,21 @@ es:
       invitation_removed: Tu invitación fue eliminada.
       invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
       new:
-        header: Enviar invitacion
-        submit_button: Envia una invitacion
+        header: Enviar invitación
+        submit_button: Enviar una invitación
       no_invitations_remaining: No quedan invitaciones
       send_instructions: Se envió un correo electrónico de invitación a %{email}.
-      updated: Su contraseña fue establecida exitosamente Ya has iniciado sesión.
-      updated_not_active: Su contraseña fue establecida exitosamente
+      updated: Tu contraseña fue establecida con éxito. Ya has iniciado sesión.
+      updated_not_active: Tu contraseña fue establecida con éxito.
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
-        greeting: Bienvenido %{recipient}!
-        instruction: 'Puede confirmar el correo electrónico de su cuenta a través del siguiente enlace:'
+        greeting: Bienvenido/a %{recipient}!
+        instruction: 'Puedes confirmar el correo electrónico de tu cuenta a través del siguiente enlace:'
         subject: Instrucciones de confirmación
       email_changed:
         greeting: Hola %{recipient}!
-        message: Nos contactamos para notificarle que su correo electrónico se cambiará a %{email}.
+        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada por %{email}.
         subject: Correo electrónico cambiado
       invitation_instructions:
         accept: Aceptar invitación
@@ -782,16 +901,16 @@ es:
         subject: Contraseña modificada
       reset_password_instructions:
         action: Cambiar mi contraseña
-        greeting: Hola %{recipient}!
-        instruction: Alguien ha solicitado un enlace para cambiar su contraseña, y puede hacerlo a través del siguiente enlace.
-        instruction_2: Si no lo solicitó, ignore este correo electrónico.
-        instruction_3: Su contraseña no cambiará hasta que acceda al enlace de arriba y cree una nueva.
+        greeting: '¡Hola %{recipient}!'
+        instruction: Alguien ha solicitado un enlace para cambiar tu contraseña, y puede hacerlo a través del siguiente enlace.
+        instruction_2: Si no lo solicitaste, ignora este correo electrónico.
+        instruction_3: Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva.
         subject: Restablecer instrucciones de contraseña
       unlock_instructions:
         action: Desbloquear mi cuenta
-        greeting: Hola %{recipient}!
-        instruction: 'Haga clic en el siguiente enlace para desbloquear su cuenta:'
-        message: Su cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de inicio de sesión infructuosos.
+        greeting: '¡Hola %{recipient}!'
+        instruction: 'Haz clic en el siguiente enlace para desbloquear tu cuenta:'
+        message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de inicio de sesión fallidos.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
       failure: No se pudo autenticar desde %{kind} porque "%{reason}".
@@ -799,47 +918,47 @@ es:
     passwords:
       edit:
         change_my_password: Cambiar mi contraseña
-        change_your_password: cambia tu contraseña
-        confirm_new_password: Confirmar nueva contraseña
+        change_your_password: Cambia tu contraseña
+        confirm_new_password: Confirmar la nueva contraseña
         new_password: Contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
-      no_token: No puede acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si proviene de un correo electrónico de restablecimiento de contraseña, asegúrese de haber utilizado la URL completa provista.
-      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo restablecer su contraseña en unos minutos.
-      send_paranoid_instructions: Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un enlace de recuperación de contraseña en su dirección de correo electrónico en unos minutos.
-      updated: Tu contraseña ha sido cambiada exitosamente. Ya has iniciado sesión.
-      updated_not_active: Tu contraseña ha sido cambiada exitosamente.
+      no_token: No puedes acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si vienes de un correo electrónico de restablecimiento de contraseña, asegúrate de haber utilizado la URL provista completa.
+      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo restablecer tu contraseña en unos minutos.
+      send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un enlace de recuperación de contraseña en tu dirección de correo electrónico en unos minutos.
+      updated: Tu contraseña ha sido cambiada con éxito. Ya has iniciado sesión.
+      updated_not_active: Tu contraseña ha sido cambiada con éxito.
     registrations:
-      destroyed: '¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto.'
+      destroyed: '¡Adiós! Tu cuenta ha sido cancelada exitosamente. Esperamos volverte a ver pronto.'
       edit:
         are_you_sure: '¿Estás seguro?'
         cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'En espera de confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: déjelo en blanco si no quiere cambiarlo
+        currently_waiting_confirmation_for_email: 'Esperando de confirmación para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: Déjalo en blanco si no quieres cambiarlo
         title: Editar %{resource}
         unhappy: '¿Infeliz?'
         update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar sus cambios
+        we_need_your_current_password_to_confirm_your_changes: Necesitamos tu contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
-      signed_up: '¡Bienvenido! Usted se ha registrado exitosamente.'
-      signed_up_but_inactive: Usted se ha registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta aún no está activada.
-      signed_up_but_locked: Usted se ha registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta está bloqueada.
-      signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a su dirección de correo electrónico. Por favor, siga el enlace para activar su cuenta.
-      update_needs_confirmation: Actualizó su cuenta con éxito, pero necesitamos verificar su nueva dirección de correo electrónico. Verifique su correo electrónico y siga el enlace confirmar para confirmar su nueva dirección de correo electrónico.
-      updated: Su cuenta ha sido actualizada con éxito.
+      signed_up: '¡Bienvenido/a! Te has registrado con éxito.'
+      signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta aún no está activada.
+      signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
+      signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
+      update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección de correo electrónico. Verifica tu correo electrónico y sigue el enlace confirmar para confirmar tu nueva dirección de correo electrónico.
+      updated: Tu cuenta ha sido actualizada con éxito.
     sessions:
-      already_signed_out: Firmado con éxito.
+      already_signed_out: Sesión finalizada con éxito.
       new:
         sign_in: Iniciar sesión
-      signed_in: Firmado con éxito
-      signed_out: Firmado con éxito.
+      signed_in: Sesión iniciada con éxito.
+      signed_out: Sesión finalizada con éxito.
     shared:
       links:
-        back: Espalda
-        didn_t_receive_confirmation_instructions: '¿No recibió las instrucciones de confirmación?'
-        didn_t_receive_unlock_instructions: '¿No recibió instrucciones de desbloqueo?'
+        back: Atrás
+        didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
+        didn_t_receive_unlock_instructions: '¿No has recibido instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
         sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
@@ -850,31 +969,31 @@ es:
     unlocks:
       new:
         resend_unlock_instructions: Reenviar instrucciones de desbloqueo
-      send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo desbloquear su cuenta en unos minutos.
-      send_paranoid_instructions: Si su cuenta existe, recibirá un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
-      unlocked: Su cuenta ha sido desbloqueada con éxito. Por favor inicie sesión para continuar.
+      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo desbloquear tu cuenta en unos minutos.
+      send_paranoid_instructions: Si tu cuenta existe, recibirás un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
+      unlocked: Tu cuenta ha sido desbloqueada con éxito. Por favor inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
   errors:
     messages:
-      already_confirmed: ya fue confirmado, intente iniciar sesión
-      confirmation_period_expired: necesita ser confirmado dentro de %{period}, por favor solicite uno nuevo
+      already_confirmed: Ya fuiste confirmado, intenta iniciar sesión
+      confirmation_period_expired: Necesitas ser confirmado dentro de %{period}, por favor solicita uno nuevo.
       content_type_whitelist_error: el tipo de archivo no es válido
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
-      expired: ha expirado, solicite uno nuevo
+      expired: Ha expirado, solicita uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
-      long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
-      must_start_with_caps: debe comenzar con una letra mayúscula
+      long_words: Contiene palabras que son demasiado largas (más de 35 caracteres)
+      must_start_with_caps: Debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
-      not_found: extraviado
-      not_locked: no estaba bloqueado
+      not_found: No encontrado
+      not_locked: No estaba bloqueado
       not_saved:
         one: '1 error ha impedido que se guarde este %{resource}:'
-        other: "%{count} errores prohibieron que se guarde este %{resource}:"
-      too_many_marks: está usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
-      too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: es demasiado corto (menos de 15 caracteres)
+        other: "%{count} errores impidieron que se guarde este %{resource}:"
+      too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
+      too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
+      too_short: Es demasiado corto (menos de 15 caracteres)
   forms:
     required: Obligatorio
   invisible_captcha:

@@ -325,6 +325,10 @@ gl:
           not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
     menu:
       assemblies: Asembleas
+    metrics:
+      assemblies:
+        object: asembleas
+        title: Asembleas
   errors:
     messages:
       cannot_be_blank: non pode estar en branco

@@ -93,6 +93,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ wspomniano o nim w %{resource_title}.
           email_subject: Wspomnieliś cie w %{resource_title}
           notification_title: Wspomniałeś w <a href="%{resource_path}">%{resource_title}</a> przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        object: komentarze
+        title: Komentarze
   errors:
     messages:
       cannot_have_comments: Nie może mieć komentarzy

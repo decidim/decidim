@@ -45,12 +45,14 @@ module Decidim
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
         parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
 
-        @proposal = Proposal.create!(
+        @proposal = Proposal.new(
           title: parsed_title,
           body: parsed_body,
           component: form.component
         )
-        proposal.add_coauthor(@current_user, user_group: user_group)
+        @proposal.add_coauthor(@current_user, user_group: user_group)
+        @proposal.save!
+        @proposal
       end
 
       def proposal_limit_reached?
