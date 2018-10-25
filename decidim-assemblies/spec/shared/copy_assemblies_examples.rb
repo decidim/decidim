@@ -86,4 +86,31 @@ shared_examples "copy assemblies" do
       end
     end
   end
+
+  context "when copying a child assembly" do
+    let!(:assembly_parent) { create(:assembly, organization: organization) }
+    let!(:assembly) { create(:assembly, parent: assembly_parent, organization: organization) }
+
+    it "copies the child assembly with the basic fields" do
+      click_link "Assemblies", match: :first
+
+      click_link "Duplicate", match: :first
+
+      within ".copy_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Copy assembly",
+          es: "Copia del proceso participativo",
+          ca: "Còpia del procés participatiu"
+        )
+        fill_in :assembly_slug, with: "pp-copy"
+        click_button "Copy"
+      end
+
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Copy assembly")
+      expect(page).to have_content("Not published")
+    end
+  end
 end
