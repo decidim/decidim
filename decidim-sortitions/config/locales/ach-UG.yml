@@ -1,0 +1,151 @@
+ach:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: crwdns6723:0crwdne6723:0
+        decidim_category_id: crwdns6724:0crwdne6724:0
+        decidim_proposals_component_id: crwdns6725:0crwdne6725:0
+        dice: crwdns12427:0crwdne12427:0
+        target_items: crwdns6727:0crwdne6727:0
+        title: crwdns6728:0crwdne6728:0
+        witnesses: crwdns6729:0crwdne6729:0
+    models:
+      decidim/sortitions/create_sortition_event: crwdns12354:0crwdne12354:0
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: crwdns12355:1crwdne12355:1
+        other: crwdns12355:5crwdne12355:5
+  decidim:
+    components:
+      sortitions:
+        name: crwdns6730:0crwdne6730:0
+        settings:
+          global:
+            comments_enabled: crwdns6731:0crwdne6731:0
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: crwdns6732:0%{resource_title}crwdnd6732:0%{participatory_space_title}crwdne6732:0
+          email_outro: crwdns6733:0%{participatory_space_title}crwdne6733:0
+          email_subject: crwdns6734:0%{participatory_space_title}crwdne6734:0
+          notification_title: crwdns6735:0%{resource_path}crwdnd6735:0%{resource_title}crwdnd6735:0%{participatory_space_title}crwdne6735:0
+    pages:
+      home:
+        statistics:
+          sortitions_count: crwdns12284:0crwdne12284:0
+    participatory_processes:
+      statistics:
+        sortitions_count: crwdns6736:0crwdne6736:0
+    sortitions:
+      admin:
+        actions:
+          destroy: crwdns6737:0crwdne6737:0
+          edit: crwdns6738:0crwdne6738:0
+          new: crwdns15561:0crwdne15561:0
+          show: crwdns6740:0crwdne6740:0
+        models:
+          sortition:
+            fields:
+              category: crwdns6741:0crwdne6741:0
+              created_at: crwdns6742:0crwdne6742:0
+              decidim_proposals_component: crwdns6743:0crwdne6743:0
+              dice: crwdns6744:0crwdne6744:0
+              reference: crwdns6745:0crwdne6745:0
+              request_timestamp: crwdns6746:0crwdne6746:0
+              seed: crwdns6747:0crwdne6747:0
+              target_items: crwdns6748:0crwdne6748:0
+              title: crwdns6749:0crwdne6749:0
+            name:
+              one: crwdns6750:1crwdne6750:1
+              other: crwdns6750:5crwdne6750:5
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: crwdns6751:0crwdne6751:0
+            destroy: crwdns6752:0crwdne6752:0
+            title: crwdns6753:0crwdne6753:0
+          create:
+            error: crwdns6754:0crwdne6754:0
+            success: crwdns6755:0crwdne6755:0
+          destroy:
+            error: crwdns6756:0crwdne6756:0
+            success: crwdns6757:0crwdne6757:0
+          edit:
+            title: crwdns6758:0crwdne6758:0
+            update: crwdns6759:0crwdne6759:0
+          form:
+            all_categories: crwdns6760:0crwdne6760:0
+            select_proposal_component: crwdns6761:0crwdne6761:0
+            title: crwdns6762:0crwdne6762:0
+          index:
+            title: crwdns6763:0crwdne6763:0
+          new:
+            confirm: crwdns6764:0crwdne6764:0
+            create: crwdns6765:0crwdne6765:0
+            title: crwdns6766:0crwdne6766:0
+          show:
+            selected_proposals: crwdns6767:0crwdne6767:0
+          update:
+            error: crwdns6768:0crwdne6768:0
+            success: crwdns12428:0crwdne12428:0
+      admin_log:
+        sortition:
+          create: "crwdns6770:0%{user_name}crwdnd6770:0%{resource_name}crwdnd6770:0%{space_name}crwdne6770:0"
+          delete: "crwdns6771:0%{user_name}crwdnd6771:0%{resource_name}crwdnd6771:0%{space_name}crwdne6771:0"
+          update: "crwdns6772:0%{user_name}crwdnd6772:0%{resource_name}crwdnd6772:0%{space_name}crwdne6772:0"
+      sortitions:
+        count:
+          proposals_count:
+            one: crwdns6773:1crwdne6773:1
+            other: "crwdns6773:5%{count}crwdne6773:5"
+        filters:
+          active: crwdns6774:0crwdne6774:0
+          all: crwdns6775:0crwdne6775:0
+          cancelled: crwdns6776:0crwdne6776:0
+          category: crwdns6777:0crwdne6777:0
+          category_prompt: crwdns6778:0crwdne6778:0
+          search: crwdns6779:0crwdne6779:0
+          state: crwdns6780:0crwdne6780:0
+        filters_small_view:
+          close_modal: crwdns6781:0crwdne6781:0
+          filter: crwdns6782:0crwdne6782:0
+          filter_by: crwdns6783:0crwdne6783:0
+          unfold: crwdns6784:0crwdne6784:0
+        linked_sortitions:
+          selected_proposals: crwdns6785:0crwdne6785:0
+        orders:
+          label: 'crwdns6786:0crwdne6786:0'
+          random: crwdns6787:0crwdne6787:0
+          recent: crwdns6788:0crwdne6788:0
+        results_count:
+          count:
+            one: crwdns6790:1crwdne6790:1
+            other: crwdns6790:5crwdne6790:5
+        show:
+          algorithm: crwdns6791:0crwdne6791:0
+          any_category: crwdns6792:0crwdne6792:0
+          cancelled: crwdns6793:0crwdne6793:0
+          candidate_proposal_ids: crwdns6794:0crwdne6794:0
+          candidate_proposals_info: 'crwdns6795:0%{category_label}crwdne6795:0'
+          category: crwdns6796:0%{category}crwdne6796:0
+          dice_result: "crwdns6797:0crwdne6797:0"
+          introduction: 'crwdns6798:0%{reference}crwdnd6798:0%{target_items}crwdne6798:0'
+          mathematical_result: crwdns6799:0crwdne6799:0
+          proposals_selected_by_sortition: crwdns6800:0crwdne6800:0
+          sortition_reproducibility_details: crwdns6801:0crwdne6801:0
+          time_seed: "crwdns6802:0crwdne6802:0"
+          witnesses: crwdns6803:0crwdne6803:0
+        sortition:
+          random_seed: crwdns12234:0crwdne12234:0
+          selected_proposals:
+            one: crwdns12235:1crwdne12235:1
+            other: crwdns12235:5crwdne12235:5
+          view: crwdns12236:0crwdne12236:0
+        sortition_author:
+          deleted: crwdns6806:0crwdne6806:0
+        sortition_cancel_author:
+          deleted: crwdns6807:0crwdne6807:0
+        sortitions_count:
+          count:
+            one: crwdns6808:1crwdne6808:1
+            other: "crwdns6808:5%{count}crwdne6808:5"
