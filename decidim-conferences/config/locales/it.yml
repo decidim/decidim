@@ -126,6 +126,17 @@ it:
           success: Link multimediale creato correttamente.
         destroy:
           success: Link multimediale cancellato con successo.
+        edit:
+          title: Aggiorna collegamento multimediale.
+          update: Aggiornare
+        index:
+          media_links_title: Link multimediali
+        new:
+          create: Creare
+          title: Link multimediale
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo link multimediale.
+          success: Link multimediale aggiornato correttamente.
       menu:
         conferences: conferenze
         conferences_submenu:
@@ -139,6 +150,7 @@ it:
           conference_registrations: Registrazioni della conferenza
           conference_speakers: Oratori della conferenza
           info: Informazioni
+          media_links: Link multimediali
           moderations: Moderations
           partners: Partner
       models:
@@ -164,6 +176,12 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
+        media_link:
+          fields:
+            date: Data
+            link: collegamento
+            title: Titolo
+          name: Link multimediale
         partner:
           fields:
             link: collegamento
@@ -358,6 +376,13 @@ it:
           highlighted_conferences:
             active_conferences: Conferenze attive
             see_all_conferences: Vedi tutte le conferenze
+      photo:
+        show:
+          close_modal: Chiudi modale
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: Fotografie
       show:
         details: Dettagli
         introduction: introduzione
@@ -403,6 +428,10 @@ it:
       value_types:
         conference_presenter:
           not_found: 'La conferenza non è stata trovata nel database (ID: %{id})'
+    media:
+      index:
+        description: Collegamenti su questa conferenza
+        title: Media e collegamenti
     menu:
       conferences: conferenze
   devise:
@@ -430,5 +459,6 @@ it:
         conference_menu_item: Informazione
         conference_partners_menu_item: Partner
         conference_speaker_menu_item: Altoparlanti
+        media: Media
         unfold: spiegare
         venues: Venues
