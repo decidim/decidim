@@ -2,7 +2,9 @@ de:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Ähnliche Assemblies
         banner_image: Bannerbild
+        consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
         copy_features: Funktionen kopieren
@@ -10,6 +12,7 @@ de:
         description: Beschreibung
         hashtag: Hashtag
         hero_image: Hauptbild
+        participatory_processes_ids: Related Partizipative Prozesse
         promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
@@ -353,6 +356,9 @@ de:
         details: Einzelheiten
         introduction: Einführung
         objectives: Ziele
+        related_assemblies: Ähnliche Assemblies
+        related_consultations: Verwandte Konsultationen
+        related_participatory_processes: In Verbindung stehende partizipative Prozesse
       statistics:
         answers_count: Antworten
         comments_count: Bemerkungen
