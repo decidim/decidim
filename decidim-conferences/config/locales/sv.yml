@@ -2,7 +2,9 @@ sv:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Relaterade församlingar
         banner_image: Banner image
+        consultations_ids: Relaterade samråd
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_features: Kopiera funktioner
@@ -10,6 +12,7 @@ sv:
         description: Beskrivning
         hashtag: hashtag
         hero_image: Hembild
+        participatory_processes_ids: Relaterade deltagande processer
         promoted: främjas
         published_at: Publicerad på
         scope_id: Omfattning
@@ -353,6 +356,9 @@ sv:
         details: detaljer
         introduction: Introduktion
         objectives: mål
+        related_assemblies: Relaterade församlingar
+        related_consultations: Relaterade samråd
+        related_participatory_processes: Relaterade deltagande processer
       statistics:
         answers_count: svar
         comments_count: kommentarer
