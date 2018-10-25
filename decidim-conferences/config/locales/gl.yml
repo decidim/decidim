@@ -2,7 +2,9 @@ gl:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Asembleas relacionadas
         banner_image: Imaxe do banner
+        consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
         copy_features: Copiar funcións
@@ -10,6 +12,7 @@ gl:
         description: Descrición
         hashtag: Etiqueta
         hero_image: Imaxe na casa
+        participatory_processes_ids: Procesos participativos relacionados
         promoted: Promocionado
         published_at: Publicado en
         scope_id: Alcance
@@ -353,6 +356,9 @@ gl:
         details: Detalles
         introduction: Introdución
         objectives: Obxectivos
+        related_assemblies: Asembleas relacionadas
+        related_consultations: Consultas relacionadas
+        related_participatory_processes: Procesos participativos relacionados
       statistics:
         answers_count: Respostas
         comments_count: Comentarios
