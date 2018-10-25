@@ -19,7 +19,7 @@ module Decidim
     include Decidim::ApplicationHelper
 
     def show
-      if authorable? || official?
+      if authorable?
         cell "decidim/author", presenter_for_author(model), extra_classes.merge(has_actions: has_actions?, from: model)
       else
         cell(
@@ -41,7 +41,13 @@ module Decidim
     end
 
     def presenters_for_identities(coauthorable)
-      coauthorable.identities.map { |identity| present(identity) }
+      coauthorable.identities.map do |identity|
+        if identity.is_a?(Decidim::Organization)
+          "#{model.class.parent}::OfficialAuthorPresenter".constantize.new
+        else
+          present(identity)
+        end
+      end
     end
 
     def presenter_for_author(authorable)
