@@ -15,6 +15,8 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 **Added**:
 
 - **decidim-conferences**: Add the new design of Uploaded Attachments to a Conference, and add the MediaLinks entity. [\#4285](https://github.com/decidim/decidim/pull/4285)
+- **decidim-proposals**: When Participatory Texts are published, the admin has the chance to update the contents of each Proposal. [#4326](https://github.com/decidim/decidim/pull/4326)
+- **decidim-conferences**: Add the relationship with other spaces. Each Conference-page should potentially be related to participatory processes, consultations and assemblies. [\#4339](https://github.com/decidim/decidim/pull/4339)
 - **decidim-conferences**: Apply new design for Conference Program [#4271](https://github.com/decidim/decidim/pull/4271)
 - **decidim-proposals**: Administration panel related implementation of Participatory Texts. [#4229](https://github.com/decidim/decidim/pull/4229)
 - **decidim-conferences**: Add Partners to Conference. [\#4251](https://github.com/decidim/decidim/pull/4251)
@@ -56,6 +58,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Changed**:
 
+- **decidim-assemblies**: Change the not_ceased scope for AssemblyMembers to show them publicly if they have a ceased_date bigger than today [\#4370](https://github.com/decidim/decidim/pull/4370)
 - **decidim-assemblies**: For consistency with DB, `ceased_date` and `designation_date` columns now use date attributes in forms, instead of datetime ones. [\#3724](https://github.com/decidim/decidim/pull/3724)
 - **decidim-assemblies**: Don't show child assemblies in assemblies general homepage. [\#4239](https://github.com/decidim/decidim/pull/4239)
 - **decidim-core**: Allow users to enter datetime fields manually. [\#3724](https://github.com/decidim/decidim/pull/3724)
@@ -68,6 +71,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Fixed**:
 
+- **decidim-assemblies**: Add paginate on admin site assembly members. [\#4369](https://github.com/decidim/decidim/pull/4369)
 - **decidim-admin**: Adds traceability when creating and deleting Participatory Space private user [\#4332](https://github.com/decidim/decidim/pull/4332)
 - **decidim-proposals**: Rework URL_REGEX regular expression so that it is more restrictive for general URIs causing problems with Scandinavian locales. [\4290](https://github.com/decidim/decidim/pull/4290)
 - **decidim-accountability**: Fix inclusion of ApplicationHelper in results controller. [\#4272](https://github.com/decidim/decidim/pull/4272)
