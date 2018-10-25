@@ -1,0 +1,98 @@
+ach:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: crwdns12296:0crwdne12296:0
+      decidim/comments/comment_created_event: crwdns12297:0crwdne12297:0
+      decidim/comments/reply_created_event: crwdns12298:0crwdne12298:0
+      decidim/comments/user_mentioned_event: crwdns12299:0crwdne12299:0
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: crwdns12300:1crwdne12300:1
+        other: crwdns12300:5crwdne12300:5
+      decidim/comments/comment_vote:
+        one: crwdns12301:1crwdne12301:1
+        other: crwdns12301:5crwdne12301:5
+  decidim:
+    comments:
+      comments: crwdns12175:0crwdne12175:0
+      last_activity:
+        new_comment_at_html: "crwdns37590:0%{link}crwdne37590:0"
+      votes:
+        create:
+          error: crwdns3536:0crwdne3536:0
+    components:
+      add_comment_form:
+        account_message: crwdns3672:0%{sign_in_url}crwdnd3672:0%{sign_up_url}crwdne3672:0
+        form:
+          body:
+            label: crwdns1367:0crwdne1367:0
+            placeholder: crwdns1368:0crwdne1368:0
+          form_error: crwdns1961:0%{length}crwdne1961:0
+          submit: crwdns1369:0crwdne1369:0
+          user_group_id:
+            label: crwdns1661:0crwdne1661:0
+        opinion:
+          neutral: crwdns1944:0crwdne1944:0
+        remaining_characters: "crwdns3539:0%{count}crwdne3539:0"
+        remaining_characters_1: "crwdns3540:0%{count}crwdne3540:0"
+        title: crwdns2792:0crwdne2792:0
+      comment:
+        alignment:
+          against: crwdns1374:0crwdne1374:0
+          in_favor: crwdns1375:0crwdne1375:0
+        deleted_user: crwdns3515:0crwdne3515:0
+        reply: crwdns1376:0crwdne1376:0
+        report:
+          action: crwdns3288:0crwdne3288:0
+          already_reported: crwdns3289:0crwdne3289:0
+          close: crwdns3290:0crwdne3290:0
+          description: crwdns3291:0crwdne3291:0
+          details: crwdns3292:0crwdne3292:0
+          reasons:
+            does_not_belong: crwdns3293:0%{organization_name}crwdne3293:0
+            offensive: crwdns3294:0crwdne3294:0
+            spam: crwdns3295:0crwdne3295:0
+          title: crwdns3296:0crwdne3296:0
+      comment_order_selector:
+        order:
+          best_rated: crwdns1811:0crwdne1811:0
+          most_discussed: crwdns1812:0crwdne1812:0
+          older: crwdns1378:0crwdne1378:0
+          recent: crwdns1379:0crwdne1379:0
+        title: 'crwdns1380:0crwdne1380:0'
+      comment_thread:
+        title: crwdns1381:0%{authorName}crwdne1381:0
+      comments:
+        blocked_comments_warning: crwdns4206:0crwdne4206:0
+        loading: crwdns1620:0crwdne1620:0
+        title: "crwdns1382:0%{count}crwdne1382:0"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "crwdns6664:0%{author_name}crwdnd6664:0%{resource_title}crwdne6664:0"
+          email_outro: crwdns6665:0%{author_name}crwdne6665:0
+          email_subject: crwdns6666:0%{author_name}crwdnd6666:0%{resource_title}crwdne6666:0
+          notification_title: crwdns6667:0%{author_path}crwdnd6667:0%{author_name}crwdnd6667:0%{author_nickname}crwdnd6667:0%{resource_path}crwdnd6667:0%{resource_title}crwdne6667:0
+        comment_created:
+          email_intro: "crwdns6668:0%{resource_title}crwdne6668:0"
+          email_outro: crwdns6669:0%{resource_title}crwdne6669:0
+          email_subject: crwdns6670:0%{author_name}crwdnd6670:0%{resource_title}crwdne6670:0
+          notification_title: crwdns6671:0%{author_path}crwdnd6671:0%{author_name}crwdnd6671:0%{author_nickname}crwdnd6671:0%{resource_path}crwdnd6671:0%{resource_title}crwdne6671:0
+        reply_created:
+          email_intro: "crwdns6672:0%{author_name}crwdnd6672:0%{resource_title}crwdne6672:0"
+          email_outro: crwdns6673:0crwdne6673:0
+          email_subject: "crwdns6674:0%{author_name}crwdnd6674:0%{resource_title}crwdne6674:0"
+          notification_title: crwdns6675:0%{author_path}crwdnd6675:0%{author_name}crwdnd6675:0%{author_nickname}crwdnd6675:0%{resource_path}crwdnd6675:0%{resource_title}crwdne6675:0
+        user_mentioned:
+          email_intro: crwdns6165:0crwdne6165:0
+          email_outro: crwdns6676:0%{resource_title}crwdne6676:0
+          email_subject: crwdns6167:0%{resource_title}crwdne6167:0
+          notification_title: crwdns6168:0%{resource_path}crwdnd6168:0%{resource_title}crwdnd6168:0%{author_path}crwdnd6168:0%{author_name}crwdnd6168:0%{author_nickname}crwdne6168:0
+    metrics:
+      comments:
+        object: crwdns37798:0crwdne37798:0
+        title: crwdns37800:0crwdne37800:0
+  errors:
+    messages:
+      cannot_have_comments: crwdns3673:0crwdne3673:0
