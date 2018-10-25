@@ -126,6 +126,23 @@ pl:
         create:
           error: Wystąpił błąd podczas duplikowania tej konferencji.
           success: Konferencja powiodła się pomyślnie.
+      media_links:
+        create:
+          error: Podczas tworzenia nowego linku do multimediów wystąpił błąd.
+          success: Utworzono link Media Link.
+        destroy:
+          success: Link do multimediów został usunięty.
+        edit:
+          title: Zaktualizuj link do multimediów.
+          update: Aktualizacja
+        index:
+          media_links_title: Media Links
+        new:
+          create: Stwórz
+          title: Link do multimediów
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego linku multimedialnego.
+          success: Link do multimediów został pomyślnie zaktualizowany.
       menu:
         conferences: Konferencje
         conferences_submenu:
@@ -139,6 +156,7 @@ pl:
           conference_registrations: Rejestracja konferencji
           conference_speakers: Głośniki konferencyjne
           info: Informacje
+          media_links: Media Links
           moderations: Moderacje
           partners: Wzmacniacz
       models:
@@ -164,6 +182,12 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+        media_link:
+          fields:
+            date: Data
+            link: Połączyć
+            title: Tytuł
+          name: Link do multimediów
         partner:
           fields:
             link: Połączyć
@@ -362,6 +386,10 @@ pl:
           highlighted_conferences:
             active_conferences: Aktywne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
+      photo:
+        show:
+          close_modal: Zamknij modalne
+          photo: Zdjęcie
       show:
         details: Detale
         introduction: Wprowadzenie
