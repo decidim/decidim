@@ -448,4 +448,4 @@ it:
         proposal_project: 'Le proposte compaiono nei seguenti progetti:'
         proposal_result: 'Le proposte compaiono nei seguenti risultati:'
     scopes:
-      global: Global
+      global: Global scope

@@ -448,4 +448,4 @@ ca:
         proposal_project: 'Proposta formulada en aquests projectes:'
         proposal_result: 'La proposta apareix en aquests resultats:'
     scopes:
-      global: Global
+      global: Global scope

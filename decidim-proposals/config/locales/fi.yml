@@ -448,4 +448,4 @@ fi:
         proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Ehdotus esiintyy näissä tuloksissa:'
     scopes:
-      global: Global
+      global: Global scope

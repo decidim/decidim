@@ -466,4 +466,4 @@ uk:
         proposal_project: 'Пропозиція згадується в таких проектах:'
         proposal_result: 'Пропозиція є в таких підсумках:'
     scopes:
-      global: Global
+      global: Global scope

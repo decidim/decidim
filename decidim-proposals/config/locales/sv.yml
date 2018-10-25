@@ -448,4 +448,4 @@ sv:
         proposal_project: 'Förslag som framgår av dessa projekt:'
         proposal_result: 'Förslag som visas i dessa resultat:'
     scopes:
-      global: Global
+      global: Global scope

@@ -466,4 +466,4 @@ ru:
         proposal_project: 'Предложение представлено в проектах:'
         proposal_result: 'Предложения, представленные в этих итогах:'
     scopes:
-      global: Global
+      global: Global scope

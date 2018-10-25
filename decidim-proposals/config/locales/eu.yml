@@ -448,4 +448,4 @@ eu:
         proposal_project: 'Proiektu hauetatik sortutako proposamena:'
         proposal_result: 'Emaitza hauetatik sortutako proposamena:'
     scopes:
-      global: Global
+      global: Global scope

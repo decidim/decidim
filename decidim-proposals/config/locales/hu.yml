@@ -448,4 +448,4 @@ hu:
         proposal_project: 'E projektekben megjelenő javaslat:'
         proposal_result: 'Az eredmények az alábbi eredmények között jelennek meg:'
     scopes:
-      global: Global
+      global: Global scope

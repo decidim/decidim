@@ -448,4 +448,4 @@ gl:
         proposal_project: 'Proposta que aparece nestes proxectos:'
         proposal_result: 'Proposta que aparece nestes resultados:'
     scopes:
-      global: Global
+      global: Global scope

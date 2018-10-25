@@ -448,4 +448,4 @@ es-PY:
         proposal_project: 'Propuesta formulada en estos proyectos:'
         proposal_result: 'Propuesta formulada en estos resultados:'
     scopes:
-      global: Global
+      global: Global scope
