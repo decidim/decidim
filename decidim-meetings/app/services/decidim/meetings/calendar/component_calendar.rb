@@ -8,7 +8,7 @@ module Decidim
       class ComponentCalendar < BaseCalendar
         private
 
-        alias_method :component, :resource
+        alias component resource
 
         # Renders the meetings in an ICalendar format. It caches the results in
         # Rails' cache.

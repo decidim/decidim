@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim::Meetings::Calendar
   describe MeetingToEvent do
+    subject { described_class.new(meeting) }
+
     let(:meeting) { create :meeting }
     let(:event) { subject.event }
-
-    subject { described_class.new(meeting) }
 
     describe "#event" do
       it "converts the meeting to an event" do

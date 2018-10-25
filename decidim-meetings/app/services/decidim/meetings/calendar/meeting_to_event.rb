@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   module Meetings
     module Calendar
@@ -49,9 +51,7 @@ module Decidim
         # follows the specific format.
         #
         # Returns a String
-        def to_ical
-          event.to_ical
-        end
+        delegate :to_ical, to: :event
 
         private
 
