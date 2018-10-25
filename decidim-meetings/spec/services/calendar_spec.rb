@@ -17,6 +17,13 @@ module Decidim::Meetings
       end
     end
 
+    describe "when the resource is aan organization" do
+      it "calls the OrganizationCalendar" do
+        expect(Calendar::OrganizationCalendar).to receive(:for)
+        subject.for(organization)
+      end
+    end
+
     describe "when the resource is something else" do
       it "does nothing" do
         expect(subject.for(dummy_resource)).to be_nil

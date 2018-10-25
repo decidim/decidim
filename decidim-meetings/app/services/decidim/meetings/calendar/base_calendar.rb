@@ -4,9 +4,9 @@ module Decidim
   module Meetings
     module Calendar
       # This class serves as a base class to render calendars. Please, inherit
-      # from it and overwrite the `render_meeting_events` with whatever logic
-      # you need to do it. After that, modify the
-      # `Decidim::Meetings::Calendar.for` method to include your new class.
+      # from it and overwrite the `events` with whatever logic you need to do
+      # it. After that, modify the `Decidim::Meetings::Calendar.for` method to
+      # include your new class.
       class BaseCalendar
         # Convenience method to shorten the calls. Converts the resource
         # meetings to the ICalendar format.
@@ -15,7 +15,7 @@ module Decidim
         #
         # Returns a String.
         def self.for(resource)
-          new(resource).to_ical
+          new(resource).calendar
         end
 
         # Initializes the class.
@@ -28,20 +28,17 @@ module Decidim
         # Converts the resource meetings to the ICalendar format.
         #
         # Returns a String.
-        def to_ical
+        def calendar
+          return if events.blank?
           <<~CALENDAR.gsub("\n\n", "\n")
             BEGIN:VCALENDAR\r
             VERSION:2.0\r
             PRODID:icalendar-ruby\r
             CALSCALE:GREGORIAN\r
-            #{render_meeting_events}
+            #{events}
             END:VCALENDAR\r
           CALENDAR
         end
-
-        private
-
-        attr_reader :resource
 
         # Internal: this method is supposed to be overwritten by classes
         # inheriting from this one. It should find the relevant meetings that
@@ -51,9 +48,13 @@ module Decidim
         # example of how to achieve it.
         #
         # Returns a String.
-        def render_meeting_events
+        def events
           raise "Please, overwrite this method. You can use the `MeetingToEvent` class to convert a meeting to the correct ICalendar format."
         end
+
+        private
+
+        attr_reader :resource
       end
     end
   end

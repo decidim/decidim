@@ -6,21 +6,21 @@ module Decidim
       # This class handles how to convert a component meetings to the ICalendar
       # format. It caches its result until the component is updated again.
       class ComponentCalendar < BaseCalendar
-        private
-
-        alias component resource
-
         # Renders the meetings in an ICalendar format. It caches the results in
         # Rails' cache.
         #
         # Returns a String.
-        def render_meeting_events
+        def events
           Rails.cache.fetch(cache_key) do
             meetings.map do |meeting|
               MeetingToEvent.new(meeting).to_ical
             end.join
           end
         end
+
+        private
+
+        alias component resource
 
         # Finds the component meetings.
         #

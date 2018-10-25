@@ -3,12 +3,14 @@
 require "spec_helper"
 
 module Decidim::Meetings::Calendar
-  describe ComponentCalendar do
-    subject { described_class.for(component) }
+  describe OrganizationCalendar do
+    subject { described_class.for(organization) }
 
     let!(:meeting) { create :meeting }
     let!(:component) { meeting.component }
-    let!(:another_meeting) { create :meeting, component: component }
+    let!(:component2) { create :meeting_component, participatory_space: component.participatory_space }
+    let!(:organization) { component.organization }
+    let!(:another_meeting) { create :meeting, component: component2 }
     let!(:external_meeting) { create :meeting }
 
     describe "#calendar" do
@@ -27,7 +29,7 @@ module Decidim::Meetings::Calendar
     end
 
     describe "#events" do
-      subject { described_class.new(component).events }
+      subject { described_class.new(organization).events }
 
       it "renders a list of events" do
         expect(subject).not_to include "BEGIN:VCALENDAR"
