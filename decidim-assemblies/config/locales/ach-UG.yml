@@ -1,0 +1,357 @@
+ach:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: crwdns6512:0crwdne6512:0
+        assembly_type: crwdns9076:0crwdne9076:0
+        assembly_type_other: crwdns9077:0crwdne9077:0
+        banner_image: crwdns3738:0crwdne3738:0
+        closing_date: crwdns9078:0crwdne9078:0
+        closing_date_reason: crwdns9079:0crwdne9079:0
+        composition: crwdns9080:0crwdne9080:0
+        copy_categories: crwdns3739:0crwdne3739:0
+        copy_components: crwdns6566:0crwdne6566:0
+        copy_features: crwdns9081:0crwdne9081:0
+        created_by: crwdns9082:0crwdne9082:0
+        created_by_other: crwdns9083:0crwdne9083:0
+        creation_date: crwdns9084:0crwdne9084:0
+        decidim_area_id: crwdns6487:0crwdne6487:0
+        decidim_scope_id: crwdns6488:0crwdne6488:0
+        description: crwdns3741:0crwdne3741:0
+        developer_group: crwdns15455:0crwdne15455:0
+        domain: crwdns3743:0crwdne3743:0
+        duration: crwdns9085:0crwdne9085:0
+        facebook: crwdns9086:0crwdne9086:0
+        github: crwdns9087:0crwdne9087:0
+        hashtag: crwdns3744:0crwdne3744:0
+        hero_image: crwdns3745:0crwdne3745:0
+        included_at: crwdns9088:0crwdne9088:0
+        instagram: crwdns9089:0crwdne9089:0
+        internal_organisation: crwdns9090:0crwdne9090:0
+        is_transparent: crwdns9091:0crwdne9091:0
+        local_area: crwdns18655:0crwdne18655:0
+        meta_scope: crwdns3747:0crwdne3747:0
+        parent_id: crwdns21907:0crwdne21907:0
+        participatory_processes_ids: crwdns6662:0crwdne6662:0
+        participatory_scope: crwdns18656:0crwdne18656:0
+        participatory_structure: crwdns18657:0crwdne18657:0
+        private_space: crwdns12238:0crwdne12238:0
+        promoted: crwdns3750:0crwdne3750:0
+        published_at: crwdns6489:0crwdne6489:0
+        purpose_of_action: crwdns9092:0crwdne9092:0
+        scope_id: crwdns3751:0crwdne3751:0
+        scopes_enabled: crwdns3757:0crwdne3757:0
+        short_description: crwdns3752:0crwdne3752:0
+        show_statistics: crwdns6490:0crwdne6490:0
+        slug: crwdns3753:0crwdne3753:0
+        special_features: crwdns12239:0crwdne12239:0
+        subtitle: crwdns3754:0crwdne3754:0
+        target: crwdns18658:0crwdne18658:0
+        title: crwdns3756:0crwdne3756:0
+        twitter: crwdns9093:0crwdne9093:0
+        youtube: crwdns9094:0crwdne9094:0
+      assembly_member:
+        birthday: crwdns12176:0crwdne12176:0
+        birthplace: crwdns12177:0crwdne12177:0
+        ceased_date: crwdns12178:0crwdne12178:0
+        designation_date: crwdns12179:0crwdne12179:0
+        designation_mode: crwdns12180:0crwdne12180:0
+        full_name: crwdns12181:0crwdne12181:0
+        gender: crwdns12182:0crwdne12182:0
+        position: crwdns12183:0crwdne12183:0
+      assembly_user_role:
+        email: crwdns6648:0crwdne6648:0
+        name: crwdns6649:0crwdne6649:0
+        role: crwdns6650:0crwdne6650:0
+  activerecord:
+    models:
+      decidim/assembly:
+        one: crwdns12290:1crwdne12290:1
+        other: crwdns12290:5crwdne12290:5
+      decidim/assembly_member:
+        one: crwdns12291:1crwdne12291:1
+        other: crwdns12291:5crwdne12291:5
+      decidim/assembly_user_role:
+        one: crwdns12292:1crwdne12292:1
+        other: crwdns12292:5crwdne12292:5
+  decidim:
+    admin:
+      actions:
+        new_assembly: crwdns15539:0crwdne15539:0
+      assemblies:
+        create:
+          error: crwdns3676:0crwdne3676:0
+          success: crwdns3677:0crwdne3677:0
+        destroy:
+          success: crwdns15456:0crwdne15456:0
+        edit:
+          update: crwdns3679:0crwdne3679:0
+        form:
+          title: crwdns3680:0crwdne3680:0
+        index:
+          not_published: crwdns3681:0crwdne3681:0
+          private: crwdns6684:0crwdne6684:0
+          public: crwdns6685:0crwdne6685:0
+          published: crwdns3682:0crwdne3682:0
+        new:
+          create: crwdns3683:0crwdne3683:0
+          title: crwdns3684:0crwdne3684:0
+        update:
+          error: crwdns3685:0crwdne3685:0
+          success: crwdns3686:0crwdne3686:0
+      assemblies_copies:
+        create:
+          error: crwdns3687:0crwdne3687:0
+          success: crwdns3688:0crwdne3688:0
+      assembly_copies:
+        new:
+          copy: crwdns3689:0crwdne3689:0
+          select: crwdns3690:0crwdne3690:0
+          title: crwdns3691:0crwdne3691:0
+      assembly_members:
+        create:
+          error: crwdns12184:0crwdne12184:0
+          success: crwdns12185:0crwdne12185:0
+        destroy:
+          success: crwdns15457:0crwdne15457:0
+        edit:
+          title: crwdns12187:0crwdne12187:0
+          update: crwdns12188:0crwdne12188:0
+        index:
+          assembly_members_title: crwdns12189:0crwdne12189:0
+        new:
+          create: crwdns12190:0crwdne12190:0
+          title: crwdns12191:0crwdne12191:0
+        update:
+          error: crwdns12192:0crwdne12192:0
+          success: crwdns12193:0crwdne12193:0
+      assembly_publications:
+        create:
+          error: crwdns3692:0crwdne3692:0
+          success: crwdns3693:0crwdne3693:0
+        destroy:
+          error: crwdns3694:0crwdne3694:0
+          success: crwdns3695:0crwdne3695:0
+      assembly_user_roles:
+        create:
+          error: crwdns5937:0crwdne5937:0
+          success: crwdns15458:0crwdne15458:0
+        destroy:
+          success: crwdns15459:0crwdne15459:0
+        edit:
+          title: crwdns5940:0crwdne5940:0
+          update: crwdns5941:0crwdne5941:0
+        index:
+          assembly_admins_title: crwdns5942:0crwdne5942:0
+        new:
+          create: crwdns5943:0crwdne5943:0
+          title: crwdns5944:0crwdne5944:0
+        update:
+          error: crwdns5945:0crwdne5945:0
+          success: crwdns5946:0crwdne5946:0
+      menu:
+        assemblies: crwdns3696:0crwdne3696:0
+        assemblies_submenu:
+          assembly_admins: crwdns5947:0crwdne5947:0
+          assembly_members: crwdns12194:0crwdne12194:0
+          attachment_collections: crwdns15540:0crwdne15540:0
+          attachment_files: crwdns6217:0crwdne6217:0
+          attachments: crwdns3697:0crwdne3697:0
+          categories: crwdns3698:0crwdne3698:0
+          components: crwdns6567:0crwdne6567:0
+          info: crwdns3700:0crwdne3700:0
+          moderations: crwdns3701:0crwdne3701:0
+          private_users: crwdns15460:0crwdne15460:0
+      models:
+        assembly:
+          fields:
+            created_at: crwdns3702:0crwdne3702:0
+            private: crwdns6687:0crwdne6687:0
+            promoted: crwdns3703:0crwdne3703:0
+            published: crwdns3704:0crwdne3704:0
+            title: crwdns3705:0crwdne3705:0
+          name: crwdns3706:0crwdne3706:0
+        assembly_member:
+          fields:
+            ceased_date: crwdns12195:0crwdne12195:0
+            designation_date: crwdns12196:0crwdne12196:0
+            full_name: crwdns12197:0crwdne12197:0
+            position: crwdns12198:0crwdne12198:0
+          name: crwdns12199:0crwdne12199:0
+          positions:
+            other: crwdns12200:0crwdne12200:0
+            president: crwdns12201:0crwdne12201:0
+            secretary: crwdns12202:0crwdne12202:0
+            vice_president: crwdns12203:0crwdne12203:0
+        assembly_user_role:
+          fields:
+            email: crwdns5948:0crwdne5948:0
+            name: crwdns5949:0crwdne5949:0
+            role: crwdns5950:0crwdne5950:0
+          name: crwdns5951:0crwdne5951:0
+          roles:
+            admin: crwdns5952:0crwdne5952:0
+            collaborator: crwdns5953:0crwdne5953:0
+            moderator: crwdns5954:0crwdne5954:0
+      titles:
+        assemblies: crwdns3707:0crwdne3707:0
+    admin_log:
+      assembly:
+        create: "crwdns6491:0%{user_name}crwdnd6491:0%{resource_name}crwdne6491:0"
+        publish: "crwdns6492:0%{user_name}crwdnd6492:0%{resource_name}crwdne6492:0"
+        unpublish: "crwdns6493:0%{user_name}crwdnd6493:0%{resource_name}crwdne6493:0"
+        update: "crwdns6494:0%{user_name}crwdnd6494:0%{resource_name}crwdne6494:0"
+      assembly_member:
+        create: "crwdns12204:0%{user_name}crwdnd12204:0%{resource_name}crwdnd12204:0%{space_name}crwdne12204:0"
+        delete: "crwdns12205:0%{user_name}crwdnd12205:0%{resource_name}crwdnd12205:0%{space_name}crwdne12205:0"
+        update: "crwdns12206:0%{user_name}crwdnd12206:0%{resource_name}crwdnd12206:0%{space_name}crwdne12206:0"
+      assembly_user_role:
+        create: "crwdns6500:0%{user_name}crwdnd6500:0%{resource_name}crwdnd6500:0%{space_name}crwdne6500:0"
+        delete: "crwdns6501:0%{user_name}crwdnd6501:0%{resource_name}crwdnd6501:0%{space_name}crwdne6501:0"
+        update: "crwdns6502:0%{user_name}crwdnd6502:0%{resource_name}crwdnd6502:0%{space_name}crwdne6502:0"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration_help: crwdns12401:0crwdne12401:0
+            included_at_help: crwdns12402:0crwdne12402:0
+            select_a_created_by: crwdns9095:0crwdne9095:0
+            select_an_area: crwdns6397:0crwdne6397:0
+            select_an_assembly_type: crwdns9096:0crwdne9096:0
+            select_parent_assembly: crwdns21908:0crwdne21908:0
+            slug_help: 'crwdns4012:0%{url}crwdne4012:0'
+            social_handlers: crwdns9097:0crwdne9097:0
+        assembly_copies:
+          form:
+            slug_help: 'crwdns4013:0%{url}crwdne4013:0'
+        assembly_members:
+          form:
+            existing_user: crwdns12219:0crwdne12219:0
+            non_user: crwdns12220:0crwdne12220:0
+            select_a_position: crwdns12207:0crwdne12207:0
+            select_user: crwdns12221:0crwdne12221:0
+            user_type: crwdns12222:0crwdne12222:0
+          index:
+            filter:
+              all: crwdns12208:0crwdne12208:0
+              ceased: crwdns12209:0crwdne12209:0
+              not_ceased: crwdns12210:0crwdne12210:0
+            filter_by: crwdns12211:0crwdne12211:0
+            search: crwdns12212:0crwdne12212:0
+        content_blocks:
+          highlighted_assemblies:
+            max_results: crwdns25487:0crwdne25487:0
+      assembly_members:
+        index:
+          members: crwdns12213:0crwdne12213:0
+      assembly_types:
+        commission: crwdns9098:0crwdne9098:0
+        consultative_advisory: crwdns9099:0crwdne9099:0
+        executive: crwdns9100:0crwdne9100:0
+        government: crwdns9101:0crwdne9101:0
+        others: crwdns9102:0crwdne9102:0
+        participatory: crwdns9103:0crwdne9103:0
+        working_group: crwdns9104:0crwdne9104:0
+      content_blocks:
+        highlighted_assemblies:
+          name: crwdns18689:0crwdne18689:0
+      created_by:
+        city_council: crwdns9105:0crwdne9105:0
+        others: crwdns9106:0crwdne9106:0
+        public: crwdns9107:0crwdne9107:0
+      index:
+        title: crwdns3708:0crwdne3708:0
+      last_activity:
+        new_assembly: crwdns37586:0crwdne37586:0
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: crwdns4192:0crwdne4192:0
+            see_all_assemblies: crwdns4193:0crwdne4193:0
+        user_profile:
+          member_of:
+            member_of: crwdns12227:0crwdne12227:0
+      show:
+        area: crwdns6398:0crwdne6398:0
+        assembly_type: crwdns9108:0crwdne9108:0
+        children: crwdns6866:0crwdne6866:0
+        closing_date: crwdns9109:0crwdne9109:0
+        composition: crwdns9110:0crwdne9110:0
+        created_by: crwdns9111:0crwdne9111:0
+        creation_date: crwdns9112:0crwdne9112:0
+        developer_group: crwdns15461:0crwdne15461:0
+        duration: crwdns9113:0crwdne9113:0
+        included_at: crwdns9114:0crwdne9114:0
+        indefinite_duration: crwdns9115:0crwdne9115:0
+        internal_organisation: crwdns9116:0crwdne9116:0
+        is_transparent:
+          'false': crwdns9117:0crwdne9117:0
+          'true': crwdns9118:0crwdne9118:0
+        local_area: crwdns18659:0crwdne18659:0
+        participatory_scope: crwdns18660:0crwdne18660:0
+        participatory_structure: crwdns18661:0crwdne18661:0
+        private_space: crwdns6688:0crwdne6688:0
+        purpose_of_action: crwdns9119:0crwdne9119:0
+        read_less: crwdns9120:0crwdne9120:0
+        read_more: crwdns9121:0crwdne9121:0
+        related_participatory_processes: crwdns6663:0crwdne6663:0
+        scope: crwdns3713:0crwdne3713:0
+        social_networks: crwdns9122:0crwdne9122:0
+        target: crwdns18662:0crwdne18662:0
+      statistics:
+        answers_count: crwdns3715:0crwdne3715:0
+        assemblies_count: crwdns3716:0crwdne3716:0
+        comments_count: crwdns3717:0crwdne3717:0
+        debates_count: crwdns6705:0crwdne6705:0
+        endorsements_count: crwdns6513:0crwdne6513:0
+        headline: crwdns3718:0crwdne3718:0
+        meetings_count: crwdns3719:0crwdne3719:0
+        orders_count: crwdns4038:0crwdne4038:0
+        pages_count: crwdns3721:0crwdne3721:0
+        projects_count: crwdns3722:0crwdne3722:0
+        proposals_count: crwdns3723:0crwdne3723:0
+        results_count: crwdns3724:0crwdne3724:0
+        surveys_count: crwdns3725:0crwdne3725:0
+        users_count: crwdns3726:0crwdne3726:0
+        votes_count: crwdns3727:0crwdne3727:0
+    assembly_members:
+      assembly_member:
+        designated_on: crwdns12228:0crwdne12228:0
+      index:
+        title: crwdns12215:0crwdne12215:0
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'crwdns6867:0%{id}crwdne6867:0'
+    menu:
+      assemblies: crwdns3728:0crwdne3728:0
+    metrics:
+      assemblies:
+        object: crwdns37794:0crwdne37794:0
+        title: crwdns37796:0crwdne37796:0
+  errors:
+    messages:
+      cannot_be_blank: crwdns9123:0crwdne9123:0
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: crwdns3729:0crwdne3729:0
+        index:
+          organizational_chart: crwdns25153:0crwdne25153:0
+          promoted_assemblies: crwdns3730:0crwdne3730:0
+          reset_chart: crwdns25154:0crwdne25154:0
+        order_by_assemblies:
+          assemblies:
+            one: "crwdns3732:1%{count}crwdne3732:1"
+            other: "crwdns3732:5%{count}crwdne3732:5"
+        promoted_assembly:
+          more_info: crwdns3733:0crwdne3733:0
+          take_part: crwdns3734:0crwdne3734:0
+      assembly_header:
+        assembly_member_menu_item: crwdns12216:0crwdne12216:0
+        assembly_menu_item: crwdns3735:0crwdne3735:0
+        unfold: crwdns3736:0crwdne3736:0
+      assembly_widgets:
+        show:
+          take_part: crwdns3737:0crwdne3737:0
