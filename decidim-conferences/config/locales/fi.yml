@@ -120,6 +120,23 @@ fi:
         create:
           error: Virhe kopioitaessa konferenssia.
           success: Konferenssi kopioitu onnistuneesti.
+      media_links:
+        create:
+          error: Virhe uuden median linkin luomisessa.
+          success: Media Link luotu onnistuneesti.
+        destroy:
+          success: Media Link poistettiin onnistuneesti.
+        edit:
+          title: Päivitä mediayhteys.
+          update: Päivittää
+        index:
+          media_links_title: Media Linkit
+        new:
+          create: Luoda
+          title: Media Link
+        update:
+          error: Media-linkin päivittämisessä tapahtui virhe.
+          success: Media Link päivitettiin onnistuneesti.
       menu:
         conferences: Konferenssit
         conferences_submenu:
@@ -133,6 +150,7 @@ fi:
           conference_registrations: Konferenssin ilmoittautumiset
           conference_speakers: Konferenssin puhujat
           info: Tiedot
+          media_links: Media Linkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
       models:
@@ -158,6 +176,12 @@ fi:
             admin: Hallinnointikäyttäjä
             collaborator: Työryhmän jäsen
             moderator: Moderoija
+        media_link:
+          fields:
+            date: Treffi
+            link: Linkki
+            title: otsikko
+          name: Media Link
         partner:
           fields:
             link: Linkki
@@ -352,6 +376,13 @@ fi:
           highlighted_conferences:
             active_conferences: Aktiiviset konferenssit
             see_all_conferences: Katso kaikki konferenssit
+      photo:
+        show:
+          close_modal: Sulje modeemi
+          photo: Kuva
+      photos_list:
+        show:
+          related_photos: Kuvat
       show:
         details: Tarkemmat tiedot
         introduction: Esittely
@@ -397,6 +428,10 @@ fi:
       value_types:
         conference_presenter:
           not_found: 'Konferenssia ei löytynyt tietokannasta (ID: %{id})'
+    media:
+      index:
+        description: Linkit tästä konferenssista
+        title: Media ja linkit
     menu:
       conferences: Konferenssit
   devise:
@@ -424,5 +459,6 @@ fi:
         conference_menu_item: Tiedot
         conference_partners_menu_item: Yhteistyökumppanit
         conference_speaker_menu_item: Puhujat
+        media: tiedotusvälineet
         unfold: Avaa
         venues: Tapahtumapaikat
