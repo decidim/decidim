@@ -2,7 +2,9 @@ ca:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Muntats relacionats
         banner_image: Imatge del bàner
+        consultations_ids: Consultes relacionades
         copy_categories: Copiar categories
         copy_components: Copiar components
         copy_features: Funcions de còpia
@@ -10,6 +12,7 @@ ca:
         description: Descripció
         hashtag: Etiqueta
         hero_image: Imatge inicial
+        participatory_processes_ids: Processos participatius relacionats
         promoted: Promocionat
         published_at: Publicat a
         scope_id: Abast
@@ -353,6 +356,9 @@ ca:
         details: Detalls
         introduction: Introducció
         objectives: Objectius
+        related_assemblies: Muntats relacionats
+        related_consultations: Consultes relacionades
+        related_participatory_processes: Processos participatius relacionats
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
