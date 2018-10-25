@@ -2,7 +2,9 @@
 
 module Decidim
   class AmendmentsController < Decidim::ApplicationController
+    include Decidim::ApplicationHelper
     include FormFactory
+
     before_action :authenticate_user!
     helper_method :amendable, :emendation
 
@@ -50,11 +52,11 @@ module Decidim
     end
 
     def amendable
-      @amendable ||= GlobalID::Locator.locate_signed amendable_gid
+      @amendable ||= present(GlobalID::Locator.locate_signed(amendable_gid))
     end
 
     def emendation
-      @emendation ||= Decidim::Amendment.find(params[:id]).emendation
+      @emendation ||= present(Decidim::Amendment.find(params[:id]).emendation)
     end
   end
 end

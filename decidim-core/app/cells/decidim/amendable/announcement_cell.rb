@@ -3,6 +3,8 @@
 module Decidim::Amendable
   # This cell renders the callout with information about the state of the emendation
   class AnnouncementCell < Decidim::ViewModel
+    include Decidim::ApplicationHelper
+
     def show
       cell "decidim/announcement", announcement
     end
@@ -27,7 +29,7 @@ module Decidim::Amendable
 
     def amendable_link
       link_to resource_locator(model.amendable).path do
-        %(<strong>#{model.amendable.title}</strong>)
+        %(<strong>#{present(model.amendable).title}</strong>)
       end
     end
 
