@@ -120,6 +120,23 @@ gl:
         create:
           error: Produciuse un erro ao duplicar esta conferencia.
           success: A conferencia duplicouse con éxito.
+      media_links:
+        create:
+          error: Produciuse un erro ao crear unha nova ligazón multimedia.
+          success: Media Link creouse con éxito.
+        destroy:
+          success: Ligazón de medios eliminouse con éxito.
+        edit:
+          title: Actualiza a ligazón de medios.
+          update: Actualización
+        index:
+          media_links_title: Ligazóns multimedia
+        new:
+          create: Crear
+          title: Ligazón multimedia
+        update:
+          error: Produciuse un erro ao actualizar esta ligazón multimedia.
+          success: Media Link actualizouse con éxito.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -133,6 +150,7 @@ gl:
           conference_registrations: Rexistros de conferencias
           conference_speakers: Conferenciantes de conferencias
           info: Información
+          media_links: Ligazóns multimedia
           moderations: Moderacións
           partners: Socios
       models:
@@ -158,6 +176,12 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Data
+            link: Ligazón
+            title: Título
+          name: Ligazón multimedia
         partner:
           fields:
             link: Ligazón
@@ -352,6 +376,13 @@ gl:
           highlighted_conferences:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas as conferencias
+      photo:
+        show:
+          close_modal: Pechar modal
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: Fotos
       show:
         details: Detalles
         introduction: Introdución
@@ -397,6 +428,10 @@ gl:
       value_types:
         conference_presenter:
           not_found: 'Non se atopou a conferencia na base de datos (ID: %{id})'
+    media:
+      index:
+        description: Ligazóns sobre esta conferencia
+        title: Medios e enlaces
     menu:
       conferences: Conferencias
   devise:
@@ -424,5 +459,6 @@ gl:
         conference_menu_item: Información
         conference_partners_menu_item: Socios
         conference_speaker_menu_item: Ponentes
+        media: Medios de comunicación
         unfold: Despregar
         venues: Lugares
