@@ -3,7 +3,9 @@ en:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Related Assemblies
         banner_image: Banner image
+        consultations_ids: Related Consultations
         copy_categories: Copy categories
         copy_components: Copy components
         copy_features: Copy features
@@ -11,6 +13,7 @@ en:
         description: Description
         hashtag: Hashtag
         hero_image: Home image
+        participatory_processes_ids: Related Participatory processes
         promoted: Promoted
         published_at: Published at
         scope_id: Scope
@@ -118,6 +121,23 @@ en:
         create:
           error: There was an error when duplicating this conference.
           success: Conference duplicated successfully.
+      media_links:
+        create:
+          error: There was an error creating a new media link.
+          success: Media Link created successfully.
+        destroy:
+          success: Media Link deleted successfully.
+        edit:
+          title: Update media link.
+          update: Update
+        index:
+          media_links_title: Media Links
+        new:
+          create: Create
+          title: Media Link
+        update:
+          error: There was an error when updating this media link.
+          success: Media Link updated successfully.
       menu:
         conferences: Conferences
         conferences_submenu:
@@ -131,6 +151,7 @@ en:
           conference_registrations: Conference Registrations
           conference_speakers: Conference speakers
           info: Info
+          media_links: Media Links
           moderations: Moderations
           partners: Partners
       models:
@@ -156,6 +177,12 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
+        media_link:
+          fields:
+            date: Date
+            link: Link
+            title: Title
+          name: Media Link
         partner:
           fields:
             link: Link
@@ -352,10 +379,20 @@ en:
           highlighted_conferences:
             active_conferences: Active conferences
             see_all_conferences: See all conferences
+      photo:
+        show:
+          close_modal: Close modal
+          photo: Photo
+      photos_list:
+        show:
+          related_photos: Photos
       show:
         details: Details
         introduction: Introduction
         objectives: Objectives
+        related_assemblies: Related Assemblies
+        related_consultations: Related Consultations
+        related_participatory_processes: Related Participatory Processes
       statistics:
         answers_count: Answers
         comments_count: Comments
@@ -394,6 +431,10 @@ en:
       value_types:
         conference_presenter:
           not_found: 'The conference was not found on the database (ID: %{id})'
+    media:
+      index:
+        description: Links about this conference
+        title: Media and Links
     menu:
       conferences: Conferences
   devise:
@@ -421,5 +462,6 @@ en:
         conference_menu_item: Information
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
+        media: Media
         unfold: Unfold
         venues: Venues

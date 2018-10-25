@@ -17,7 +17,7 @@ describe "User group leaving", type: :system do
       let!(:user_group) { create(:user_group, users: [user], organization: user.organization) }
 
       it "does not show the link to leave" do
-        expect(page).to have_no_content("Leave organization")
+        expect(page).to have_no_content("Leave group")
       end
     end
 
@@ -25,16 +25,16 @@ describe "User group leaving", type: :system do
       create :user_group_membership, user: user, user_group: user_group, role: :admin
       visit decidim.profile_path(user_group.nickname)
 
-      accept_confirm { click_link "Leave organization" }
+      accept_confirm { click_link "Leave group" }
 
-      expect(page).to have_content("Organization left successfully")
-      expect(page).to have_content("Request to join organization")
+      expect(page).to have_content("Group left successfully")
+      expect(page).to have_content("Request to join group")
     end
   end
 
   context "when the user does not belong to the group" do
     it "does not show the link to leave" do
-      expect(page).to have_no_content("Leave organization")
+      expect(page).to have_no_content("Leave group")
     end
   end
 end

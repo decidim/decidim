@@ -6,9 +6,15 @@ $(document).ready(function () {
 
   window.selectedProposalsCountUpdate = function() {
     if(selectedProposalsCount() == 0){
-      $("#js-recategorize-proposals-count").text("")
+      $("#js-selected-proposals-count").text("")
     } else {
-      $("#js-recategorize-proposals-count").text(selectedProposalsCount());
+      $("#js-selected-proposals-count").text(selectedProposalsCount());
+    }
+
+    if(selectedProposalsCount() >= 2) {
+      $('button[data-action="merge-proposals"]').parent().show();
+    } else {
+      $('button[data-action="merge-proposals"]').parent().hide();
     }
   }
 
@@ -33,28 +39,27 @@ $(document).ready(function () {
     $("#js-other-actions-wrapper").addClass('hide');
   }
 
-  let showRecategorizeProposalActions = function() {
-    $("#js-recategorize-proposals-actions").removeClass('hide');
+  window.hideBulkActionForms = function() {
+    return $(".js-bulk-action-form").addClass('hide');
   }
 
-  window.hideRecategorizeProposalActions = function() {
-    return $("#js-recategorize-proposals-actions").addClass('hide');
-  }
-
-  if ($('#js-form-recategorize-proposals').length) {
-    window.hideRecategorizeProposalActions();
+  if ($('.js-bulk-action-form').length) {
+    window.hideBulkActionForms();
     $("#js-bulk-actions-button").addClass('hide');
 
-    $("#js-bulk-actions-recategorize").click(function(e){
+    $("#js-bulk-actions-dropdown ul li button").click(function(e){
       e.preventDefault();
+      let action = $(e.target).data("action");
 
-      $('#js-form-recategorize-proposals').submit(function(){
-        $('.layout-content > .callout-wrapper').html("");
-      })
+      if(action) {
+        $(`#js-form-${action}`).submit(function(){
+          $('.layout-content > .callout-wrapper').html("");
+        })
 
-      showRecategorizeProposalActions();
-      hideBulkActionsButton(true);
-      hideOtherActionsButtons();
+        $(`#js-${action}-actions`).removeClass('hide');
+        hideBulkActionsButton(true);
+        hideOtherActionsButtons();
+      }
     })
 
     // select all checkboxes
@@ -99,12 +104,12 @@ $(document).ready(function () {
         hideBulkActionsButton();
       }
 
-      $('#js-form-recategorize-proposals').find(".js-proposal-id-"+proposal_id).prop('checked', checked);
+      $('.js-bulk-action-form').find(".js-proposal-id-"+proposal_id).prop('checked', checked);
       selectedProposalsCountUpdate();
     });
 
-    $('#js-cancel-edit-category').on('click', function (e) {
-      window.hideRecategorizeProposalActions()
+    $('.js-cancel-bulk-action').on('click', function (e) {
+      window.hideBulkActionForms()
       showBulkActionsButton();
       showOtherActionsButtons();
     });

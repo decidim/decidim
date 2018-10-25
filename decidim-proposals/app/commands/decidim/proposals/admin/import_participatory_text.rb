@@ -47,7 +47,7 @@ module Decidim
             DocToMarkdown.new(form.document_text).to_md
           end
 
-          parser = MarkdownToProposals.new(form.current_component)
+          parser = MarkdownToProposals.new(form.current_component, form.current_user)
           parser.parse(markdown)
         end
       end
