@@ -49,7 +49,7 @@ hu:
       image_too_big: A kép mérete túl nagy
   date:
     formats:
-      decidim_short: "%nap/%hó/%év"
+      decidim_short: "%Y.%m.%d"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
