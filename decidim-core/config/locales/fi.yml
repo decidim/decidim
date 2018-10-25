@@ -356,21 +356,21 @@ fi:
           notification_title: Et ole enää ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
         invited_to_group:
           email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on kutsunut sinut liittymään kyseiseen ryhmään.
-          email_outro: Olet saanut tämän ilmoituksen, koska sinut on kutsuttu ryhmään. Tarkista profiilisi Ryhmät-välilehti ja hyväksy se.
-          email_subject: Sinut on kutsuttu liittymään %{user_group_name} ryhmään!
-          notification_title: Sinut on kutsuttu liittymään <a href="%{resource_path}">%{user_group_name}</a> -ryhmään. Tarkista profiilisi <a href="%{groups_profile_tab_path}">ryhmät -sivulta</a> hyväksyä se!
+          email_outro: Saat tämän ilmoituksen, koska sinut on kutsuttu ryhmään. Tarkista profiilisi Ryhmät-välilehti ja hyväksy kutsu.
+          email_subject: Sinut on kutsuttu liittymään ryhmään %{user_group_name}!
+          notification_title: Sinut on kutsuttu liittymään ryhmään <a href="%{resource_path}">%{user_group_name}</a>. Tarkista profiilisi <a href="%{groups_profile_tab_path}">Ryhmät-sivu</a> hyväksyäksesi kutsun!
         join_request_accepted:
-          email_intro: Onnittelut! <a href="%{resource_url}">%{user_group_name}</a> -ryhmän ylläpitäjä on hyväksynyt pyyntösi liittyä siihen.
+          email_intro: Onnittelut! Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on hyväksynyt pyyntösi liittyä kyseiseen ryhmään.
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
-          email_subject: Sinut on hyväksytty %{user_group_name} ryhmään!
-          notification_title: Olet hyväksynyt ryhmään <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Sinut on hyväksytty ryhmään %{user_group_name}!
+          notification_title: Sinut on hyväksytty ryhmään <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Joku pyysi liittymään %{user_group_name} ryhmään. Voit hyväksyä tai hylätä sen <a href="%{resource_url}">ryhmän jäsenten sivuilta</a>.
-          email_outro: Olet saanut tämän ilmoituksen, koska voit hallita %{user_group_name} ryhmää.
-          email_subject: Joku pyysi liittymään %{user_group_name} ryhmään!
-          notification_title: Joku pyysi liittymään %{user_group_name} ryhmään. Voit hyväksyä tai hylätä sen <a href="%{resource_path}">ryhmän jäsenten sivuilta</a>.
+          email_intro: Joku pyysi sinua liittymään ryhmään %{user_group_name}. Voit hyväksyä tai hylätä kutsun <a href="%{resource_url}">ryhmän jäsenten sivulta</a>.
+          email_outro: Saat tämän ilmoituksen, koska voit hallita ryhmää %{user_group_name}.
+          email_subject: Joku pyysi sinua liittymään ryhmään %{user_group_name}!
+          notification_title: Joku pyysi sinua liittymään ryhmään %{user_group_name}. Voit hyväksyä tai hylätä kutsun <a href="%{resource_path}">ryhmän jäsenten sivulta</a>.
         join_request_rejected:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -ryhmän ylläpitäjä hylkäsi pyynnön liittyä siihen.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä hylkäsi pyyntösi liittyä kyseiseen ryhmään.
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
           email_subject: Pyyntösi liittyä ryhmään %{user_group_name} on hylätty!
           notification_title: Pyyntösi liittyä ryhmään <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
