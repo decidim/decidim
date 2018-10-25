@@ -17,13 +17,13 @@ fi:
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
-      decidim/demoted_membership: Ei enää ryhmänhallinta
+      decidim/demoted_membership: Ei enää ryhmän ylläpitäjä
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
       decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
       decidim/join_request_rejected_event: Liittymispyyntö on hylätty
       decidim/profile_updated_event: Profiili päivitetty
-      decidim/promote_to_admin: Ylläpidetty ryhmäohjaimelle
+      decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
   activerecord:
     attributes:
@@ -50,7 +50,7 @@ fi:
   date:
     formats:
       decidim_short: "%d.%m.%Y"
-      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_short_with_month_name_short: "%d. %b %Y"
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d. %b"
@@ -350,12 +350,12 @@ fi:
           notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
       groups:
         demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -ryhmän ylläpitäjä on poistanut järjestelmänvalvojan oikeudet kyseiselle ryhmälle.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet kyseisen ryhmän jäsen.
-          email_subject: Et ole enää %{user_group_name} ryhmän ylläpitäjä!
-          notification_title: Et ole enää <a href="%{resource_path}">%{user_group_name}</a> -ryhmän ylläpitäjä.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut ylläpitäjän oikeutesi kyseiselle ryhmälle.
+          email_outro: Saat tämän ilmoituksen, koska olet kyseisen ryhmän jäsen.
+          email_subject: Et ole enää ryhmän %{user_group_name} ylläpitäjä!
+          notification_title: Et ole enää ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
         invited_to_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -ryhmän ylläpitäjä on kutsunut sinut liittymään siihen.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on kutsunut sinut liittymään kyseiseen ryhmään.
           email_outro: Olet saanut tämän ilmoituksen, koska sinut on kutsuttu ryhmään. Tarkista profiilisi Ryhmät-välilehti ja hyväksy se.
           email_subject: Sinut on kutsuttu liittymään %{user_group_name} ryhmään!
           notification_title: Sinut on kutsuttu liittymään <a href="%{resource_path}">%{user_group_name}</a> -ryhmään. Tarkista profiilisi <a href="%{groups_profile_tab_path}">ryhmät -sivulta</a> hyväksyä se!
@@ -372,18 +372,18 @@ fi:
         join_request_rejected:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> -ryhmän ylläpitäjä hylkäsi pyynnön liittyä siihen.
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
-          email_subject: Pyyntösi liittyä %{user_group_name} ryhmään on hylätty!
-          notification_title: Pyyntösi liittyä <a href="%{resource_path}">%{user_group_name}</a> -ryhmään on hylätty.
+          email_subject: Pyyntösi liittyä ryhmään %{user_group_name} on hylätty!
+          notification_title: Pyyntösi liittyä ryhmään <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
         promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -ryhmän ylläpitäjä on antanut järjestelmänvalvojan oikeudet kyseiselle ryhmälle.
-          email_outro: Olet saanut tämän ilmoituksen, koska olet kyseisen ryhmän jäsen.
-          email_subject: Olet nyt %{user_group_name} ryhmän johtaja!
-          notification_title: Olet nyt <a href="%{resource_path}">%{user_group_name}</a> -ryhmän ylläpitäjä.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on antanut sinulle ylläpitäjän oikeudet kyseiseen ryhmään.
+          email_outro: Saat tämän ilmoituksen, koska olet kyseisen ryhmän jäsen.
+          email_subject: Olet nyt ryhmän %{user_group_name} ylläpitäjä!
+          notification_title: Olet nyt ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
         removed_from_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -ryhmän ylläpitäjä on poistanut sinut siitä.
-          email_outro: Olet saanut tämän ilmoituksen, koska olit kyseisen ryhmän jäsen.
-          email_subject: Olet poistettu ryhmästä %{user_group_name}!
-          notification_title: Olet poistettu ryhmästä <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut sinut kyseisestä ryhmästä.
+          email_outro: Saat tämän ilmoituksen, koska olit kyseisen ryhmän jäsen.
+          email_subject: Sinut on poistettu ryhmästä %{user_group_name}!
+          notification_title: Sinut on poistettu ryhmästä <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -482,27 +482,27 @@ fi:
         are_you_sure: Oletko varma? Tämä ei poista käyttäjää ryhmästä.
         demote_admin: Poista ylläpitäjä
       demote:
-        error: Käyttäjä poisti järjestelmänvalvojaluettelosta virheen
+        error: Virhe poistettaessa tätä käyttäjää ylläpitäjistä
         success: Käyttäjä on poistettu ylläpitäjistä onnistuneesti
       index:
         current_admins: 'Nykyiset ylläpitäjät:'
         manage_admins: Hallinnoi ylläpitäjiä
     group_invites:
       accept:
-        error: Virhe hyväksyi kutsun
+        error: Hyväksyttäessä kutsua esiintyi virhe
         success: Kutsu hyväksyttiin onnistuneesti
-      accept_invitation: Hyväksyä
+      accept_invitation: Hyväksy
       accept_or_reject_group_invitations: 'Seuraavat ryhmät ovat kutsuneet sinut liittymään niihin. Hyväksy tai hylkää heidän pyyntönsä:'
       index:
-        invite: kutsu
+        invite: Kutsu
         invite_user: Kutsu käyttäjä
       invite:
-        error: Virhe kutsui tätä käyttäjiä
+        error: Tapahtui virhe kutsuttaessa tätä käyttäjää
         success: Käyttäjä on kutsuttu onnistuneesti
       reject:
-        error: Haku hylättiin
-        success: Kutsu hylättiin onnistuneesti
-      reject_invitation: Hylätä
+        error: Hylätessä tätä kutsua tapahtui virhe
+        success: Kutsu hylätty onnistuneesti
+      reject_invitation: Hylkää
     group_members:
       accept:
         error: Tapahtui virhe hyväksyttäessä liittymispyyntöä
@@ -527,17 +527,17 @@ fi:
       actions:
         are_you_sure: Oletko varma?
       create:
-        error: Ryhmä on aiheuttanut ongelman
+        error: Ryhmää luotaessa esiintyi ongelma
         success: Ryhmä luotiin onnistuneesti
       edit:
         edit_user_group: Muokkaa ryhmää
         update_user_group: Päivitä ryhmä
       join:
-        error: Ryhmään liittyi ongelma
-        success: Liity pyyntöön luotu onnistuneesti. Järjestelmänvalvoja tarkistaa pyyntösi ennen kuin hyväksyt ryhmän.
+        error: Ryhmään liityttäessä esiintyi ongelma
+        success: Liittymispyyntö luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
-        error: Ryhmässä on ollut ongelma
-        success: Ryhmä poistui onnistuneesti.
+        error: Ryhmästä poistuttaessa esiintyi ongelma
+        success: Ryhmästä poistuminen onnistui.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
         accept_request: Hyväksy
@@ -545,13 +545,13 @@ fi:
       new:
         create_user_group: Luo ryhmä
         new_user_group: Uusi ryhmä
-      no_user_groups: Ei kuulu mihinkään ryhmään.
+      no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
         creator: Luoja
         member: Jäsen
       update:
-        error: Ryhmä on päivittänyt ongelman
+        error: Ryhmää päivitettäessä esiintyi ongelma
         success: Ryhmä päivitettiin onnistuneesti
     invitations:
       create:
@@ -745,7 +745,7 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seuraa
-        groups: ryhmät
+        groups: Ryhmät
         members: Jäsenet
         notifications: Ilmoitukset
       sidebar:
