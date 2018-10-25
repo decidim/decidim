@@ -390,6 +390,9 @@ pl:
         show:
           close_modal: Zamknij modalne
           photo: Zdjęcie
+      photos_list:
+        show:
+          related_photos: Zdjęcia
       show:
         details: Detale
         introduction: Wprowadzenie
@@ -435,6 +438,10 @@ pl:
       value_types:
         conference_presenter:
           not_found: 'Konferencji nie znaleziono w bazie danych (ID: %{id})'
+    media:
+      index:
+        description: Linki do tej konferencji
+        title: Media i linki
     menu:
       conferences: Konferencje
   devise:
@@ -464,5 +471,6 @@ pl:
         conference_menu_item: Informacja
         conference_partners_menu_item: Wzmacniacz
         conference_speaker_menu_item: Głośniki
+        media: Głoska bezdźwięczna
         unfold: Rozwijać się
         venues: Miejsca spotkań
