@@ -1,0 +1,117 @@
+ach:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: crwdns3477:0crwdne3477:0
+      survey_question:
+        mandatory: crwdns3478:0crwdne3478:0
+        max_choices: crwdns7017:0crwdne7017:0
+        question_type: crwdns3479:0crwdne3479:0
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: crwdns9074:0crwdne9074:0
+              too_many: crwdns7026:0crwdne7026:0
+    models:
+      decidim/surveys/closed_survey_event: crwdns12356:0crwdne12356:0
+      decidim/surveys/opened_survey_event: crwdns12357:0crwdne12357:0
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: crwdns12358:1crwdne12358:1
+        other: crwdns12358:5crwdne12358:5
+      decidim/surveys/survey_answer:
+        one: crwdns12359:1crwdne12359:1
+        other: crwdns12359:5crwdne12359:5
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: crwdns6653:0crwdne6653:0
+        name: crwdns6654:0crwdne6654:0
+        settings:
+          global:
+            announcement: crwdns6655:0crwdne6655:0
+          step:
+            allow_answers: crwdns6656:0crwdne6656:0
+            announcement: crwdns6657:0crwdne6657:0
+    events:
+      surveys:
+        survey_closed:
+          email_intro: crwdns6421:0%{resource_title}crwdnd6421:0%{participatory_space_title}crwdne6421:0
+          email_outro: crwdns6422:0%{participatory_space_title}crwdne6422:0
+          email_subject: crwdns6423:0%{participatory_space_title}crwdne6423:0
+          notification_title: crwdns6424:0%{resource_path}crwdnd6424:0%{resource_title}crwdnd6424:0%{participatory_space_url}crwdnd6424:0%{participatory_space_title}crwdne6424:0
+        survey_opened:
+          email_intro: 'crwdns6425:0%{resource_title}crwdnd6425:0%{participatory_space_title}crwdne6425:0'
+          email_outro: crwdns6426:0%{participatory_space_title}crwdne6426:0
+          email_subject: crwdns6427:0%{participatory_space_title}crwdne6427:0
+          notification_title: crwdns6428:0%{resource_path}crwdnd6428:0%{resource_title}crwdnd6428:0%{participatory_space_url}crwdnd6428:0%{participatory_space_title}crwdne6428:0
+    forms:
+      errors:
+        survey_answer:
+          body: crwdns7027:0crwdne7027:0
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: crwdns3484:0crwdne3484:0
+        models:
+          components:
+            description: crwdns3485:0crwdne3485:0
+            tos: crwdns3486:0crwdne3486:0
+        surveys:
+          answer_option:
+            answer_option: crwdns3487:0crwdne3487:0
+            free_text: crwdns9073:0crwdne9073:0
+            remove: crwdns6658:0crwdne6658:0
+            statement: crwdns3489:0crwdne3489:0
+          edit:
+            save: crwdns3490:0crwdne3490:0
+            title: crwdns3491:0crwdne3491:0
+          form:
+            add_question: crwdns3492:0crwdne3492:0
+            already_answered_warning: crwdns3493:0crwdne3493:0
+          question:
+            add_answer_option: crwdns3494:0crwdne3494:0
+            any: crwdns7019:0crwdne7019:0
+            description: crwdns6714:0crwdne6714:0
+            down: crwdns6659:0crwdne6659:0
+            question: crwdns3495:0crwdne3495:0
+            remove: crwdns6660:0crwdne6660:0
+            statement: crwdns3497:0crwdne3497:0
+            up: crwdns6661:0crwdne6661:0
+          update:
+            invalid: crwdns3498:0crwdne3498:0
+            success: crwdns3499:0crwdne3499:0
+      last_activity:
+        new_survey_at_html: "crwdns37620:0%{link}crwdne37620:0"
+      question_types:
+        long_answer: crwdns3500:0crwdne3500:0
+        multiple_option: crwdns3501:0crwdne3501:0
+        short_answer: crwdns3502:0crwdne3502:0
+        single_option: crwdns3503:0crwdne3503:0
+        sorting: crwdns9075:0crwdne9075:0
+      surveys:
+        answer:
+          invalid: crwdns3504:0crwdne3504:0
+          success: crwdns3505:0crwdne3505:0
+        question:
+          max_choices: 'crwdns7020:0%{n}crwdne7020:0'
+        show:
+          answer_survey:
+            anonymous_user_message: crwdns3506:0%{sign_in_link}crwdnd3506:0%{sign_up_link}crwdne3506:0
+            title: crwdns3507:0crwdne3507:0
+          are_you_sure: crwdns3508:0crwdne3508:0
+          submit: crwdns3509:0crwdne3509:0
+          survey_answered:
+            body: crwdns3510:0crwdne3510:0
+            title: crwdns3511:0crwdne3511:0
+          survey_closed:
+            body: crwdns3512:0crwdne3512:0
+            title: crwdns3513:0crwdne3513:0
+          survey_for_private_users:
+            body: crwdns12403:0crwdne12403:0
+            title: crwdns12404:0crwdne12404:0
+          tos_agreement: crwdns3514:0crwdne3514:0
