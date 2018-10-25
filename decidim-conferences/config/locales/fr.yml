@@ -2,7 +2,9 @@ fr:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Assemblées connexes
         banner_image: Image de bannière
+        consultations_ids: Consultations connexes
         copy_categories: Copier des catégories
         copy_components: Copier des composants
         copy_features: Fonctions de copie
@@ -10,6 +12,7 @@ fr:
         description: La description
         hashtag: Hashtag
         hero_image: Image de la maison
+        participatory_processes_ids: Processus participatifs associés
         promoted: Promu
         published_at: Publié à
         scope_id: Portée
@@ -353,6 +356,9 @@ fr:
         details: Détails
         introduction: introduction
         objectives: Objectifs
+        related_assemblies: Assemblées connexes
+        related_consultations: Consultations connexes
+        related_participatory_processes: Processus participatifs associés
       statistics:
         answers_count: Réponses
         comments_count: commentaires
