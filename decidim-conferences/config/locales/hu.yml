@@ -2,7 +2,9 @@ hu:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Kapcsolódó szerelvények
         banner_image: Banner kép
+        consultations_ids: Kapcsolódó konzultációk
         copy_categories: Másolási kategóriák
         copy_components: Másoljon komponenseket
         copy_features: Másolási funkciók
@@ -10,6 +12,7 @@ hu:
         description: Leírás
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
+        participatory_processes_ids: Kapcsolódó Résztvevő folyamatok
         promoted: promotált
         published_at: Megjelent a
         scope_id: terület
@@ -353,6 +356,9 @@ hu:
         details: Részletek
         introduction: Bevezetés
         objectives: célok
+        related_assemblies: Kapcsolódó szerelvények
+        related_consultations: Kapcsolódó konzultációk
+        related_participatory_processes: Kapcsolódó részvételi folyamatok
       statistics:
         answers_count: válaszok
         comments_count: Hozzászólások
