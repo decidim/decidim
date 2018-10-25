@@ -120,6 +120,23 @@ sv:
         create:
           error: Det uppstod ett fel vid duplicering av den här konferensen.
           success: Konferensen dupliceras framgångsrikt.
+      media_links:
+        create:
+          error: Det uppstod ett fel vid skapandet av en ny medielänk.
+          success: Media Link skapades framgångsrikt.
+        destroy:
+          success: Media Link raderas framgångsrikt.
+        edit:
+          title: Uppdatera media länk.
+          update: Uppdatering
+        index:
+          media_links_title: Media Länkar
+        new:
+          create: Skapa
+          title: Media Link
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här mediekopplingen.
+          success: Media Link uppdaterad framgångsrikt.
       menu:
         conferences: konferenser
         conferences_submenu:
@@ -133,6 +150,7 @@ sv:
           conference_registrations: Konferensregistreringar
           conference_speakers: Konferenshögtalare
           info: Info
+          media_links: Media Länkar
           moderations: modere
           partners: partners
       models:
@@ -158,6 +176,12 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: moderator
+        media_link:
+          fields:
+            date: Datum
+            link: Länk
+            title: Titel
+          name: Media Link
         partner:
           fields:
             link: Länk
@@ -352,6 +376,13 @@ sv:
           highlighted_conferences:
             active_conferences: Aktiva konferenser
             see_all_conferences: Se alla konferenser
+      photo:
+        show:
+          close_modal: Stäng modal
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: foton
       show:
         details: detaljer
         introduction: Introduktion
@@ -397,6 +428,10 @@ sv:
       value_types:
         conference_presenter:
           not_found: 'Konferensen hittades inte i databasen (ID: %{id})'
+    media:
+      index:
+        description: Länkar om denna konferens
+        title: Media och länkar
     menu:
       conferences: konferenser
   devise:
@@ -424,5 +459,6 @@ sv:
         conference_menu_item: Information
         conference_partners_menu_item: partners
         conference_speaker_menu_item: högtalare
+        media: Media
         unfold: Veckla ut
         venues: venues
