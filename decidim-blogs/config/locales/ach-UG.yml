@@ -1,0 +1,79 @@
+ach:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: crwdns12293:0crwdne12293:0
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: crwdns12294:1crwdne12294:1
+        other: crwdns12294:5crwdne12294:5
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: crwdns9166:0crwdne9166:0
+        destroy: crwdns9167:0crwdne9167:0
+        edit: crwdns9168:0crwdne9168:0
+        new: crwdns15541:0crwdne15541:0
+        title: crwdns9170:0crwdne9170:0
+      admin:
+        models:
+          components:
+            body: crwdns9171:0crwdne9171:0
+          post:
+            name: crwdns9172:0crwdne9172:0
+        posts:
+          create:
+            invalid: crwdns9173:0crwdne9173:0
+            success: crwdns9174:0crwdne9174:0
+          destroy:
+            success: crwdns9175:0crwdne9175:0
+          edit:
+            save: crwdns9176:0crwdne9176:0
+          index:
+            title: crwdns9177:0crwdne9177:0
+          new:
+            create: crwdns9178:0crwdne9178:0
+            title: crwdns9179:0crwdne9179:0
+          update:
+            invalid: crwdns9180:0crwdne9180:0
+            success: crwdns9181:0crwdne9181:0
+      last_activity:
+        new_post_at_html: "crwdns37588:0%{link}crwdne37588:0"
+      models:
+        post:
+          fields:
+            author: crwdns9182:0crwdne9182:0
+            body: crwdns9183:0crwdne9183:0
+            created_at: crwdns9184:0crwdne9184:0
+            title: crwdns9185:0crwdne9185:0
+      posts:
+        show:
+          view: crwdns12385:0crwdne12385:0
+        sidebar_blog:
+          comments: crwdns9187:0crwdne9187:0
+          most_commented_posts: crwdns9188:0crwdne9188:0
+      read_more: crwdns9189:0crwdne9189:0
+    components:
+      blogs:
+        name: crwdns9190:0crwdne9190:0
+        settings:
+          global:
+            announcement: crwdns9191:0crwdne9191:0
+            comments_enabled: crwdns15462:0crwdne15462:0
+          step:
+            announcement: crwdns9193:0crwdne9193:0
+            comments_blocked: crwdns15463:0crwdne15463:0
+    events:
+      blogs:
+        post_created:
+          email_intro: crwdns9195:0%{resource_title}crwdnd9195:0%{participatory_space_title}crwdne9195:0
+          email_outro: crwdns9196:0%{participatory_space_title}crwdne9196:0
+          email_subject: crwdns9197:0%{participatory_space_title}crwdne9197:0
+          notification_title: crwdns9198:0%{resource_path}crwdnd9198:0%{resource_title}crwdnd9198:0%{participatory_space_title}crwdne9198:0
+    pages:
+      home:
+        statistics:
+          posts_count: crwdns12247:0crwdne12247:0
+    participatory_processes:
+      statistics:
+        posts_count: crwdns9199:0crwdne9199:0
