@@ -1,0 +1,40 @@
+ach:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: crwdns6257:0crwdne6257:0
+        field: crwdns6271:0crwdne6271:0
+        start_date: crwdns6259:0crwdne6259:0
+        title: crwdns6260:0crwdne6260:0
+        updated_at: crwdns6261:0crwdne6261:0
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: crwdns3448:0crwdne3448:0
+    gamification:
+      badges:
+        test:
+          conditions:
+            - crwdns37516:0crwdne37516:0
+          description: crwdns37518:0crwdne37518:0
+          description_another: crwdns18722:0%{score}crwdne18722:0
+          description_own: crwdns18723:0%{score}crwdne18723:0
+          name: crwdns18725:0crwdne18725:0
+          next_level_in: crwdns18726:0%{score}crwdne18726:0
+          unearned_another: crwdns18727:0crwdne18727:0
+          unearned_own: crwdns18728:0crwdne18728:0
+    pages:
+      home:
+        statistics:
+          bar: crwdns12280:0crwdne12280:0
+          dummies_count_high: crwdns12281:0crwdne12281:0
+          dummies_count_medium: crwdns12282:0crwdne12282:0
+          foo: crwdns12283:0crwdne12283:0
+    participatory_processes:
+      statistics:
+        dummies_count_high: crwdns5919:0crwdne5919:0
+        dummies_count_medium: crwdns5920:0crwdne5920:0
+    resource_links:
+      test_link:
+        dummy_resource_dummy: crwdns2890:0crwdne2890:0
