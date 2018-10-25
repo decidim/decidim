@@ -3,6 +3,10 @@
 module Decidim
   # A Helper to render and link amendments to resources.
   module AmendmentsHelper
+    def amendments_enabled?
+      current_component.settings.amendments_enabled
+    end
+
     def amend_button_for(amendable)
       cell "decidim/amendable/amend_button_card", amendable if amendable.amendable?
     end
@@ -14,17 +18,23 @@ module Decidim
     #
     # Returns Html grid of CardM.
     def amendments_for(amendable)
+      return unless amendments_enabled? && amendable.emendations.count
+      return if amendable.emendation?
       content = content_tag :h2, class: "section-heading" do
         t("section_heading", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
       end
 
-      content += cell(
-        "decidim/collapsible_list",
-        amendable.emendations,
-        cell_options: { context: { current_user: current_user } },
-        list_class: "row small-up-1 medium-up-2 card-grid",
-        size: 4
-      ).to_s
+      if amendable.emendations.count > 0
+        content += cell(
+          "decidim/collapsible_list",
+          amendable.emendations,
+          cell_options: { context: { current_user: current_user } },
+          list_class: "row small-up-1 medium-up-2 card-grid",
+          size: 4
+        ).to_s
+      else
+        content += t("no_amendments", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
+      end
 
       content_tag :div, content.html_safe, class: "section"
     end
