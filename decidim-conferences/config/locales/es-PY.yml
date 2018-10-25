@@ -120,6 +120,23 @@ es-PY:
         create:
           error: Hubo un error al duplicar esta conferencia.
           success: Conferencia duplicada con éxito.
+      media_links:
+        create:
+          error: Se ha producido un error al crear un nuevo enlace de medios.
+          success: Enlace de medios creado con éxito.
+        destroy:
+          success: Enlace de medios eliminado con éxito.
+        edit:
+          title: Actualizar enlace de medios.
+          update: Actualizar
+        index:
+          media_links_title: Enlaces de medios
+        new:
+          create: Crear
+          title: Enlace de medios
+        update:
+          error: Hubo un error al actualizar este enlace de medios.
+          success: Enlace de medios actualizado con éxito.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -133,6 +150,7 @@ es-PY:
           conference_registrations: Registros de conferencia
           conference_speakers: Conferenciantes
           info: Información
+          media_links: Enlaces de medios
           moderations: Moderaciones
           partners: Fogonadura
       models:
@@ -158,6 +176,12 @@ es-PY:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Fecha
+            link: Enlazar
+            title: Título
+          name: Enlace de medios
         partner:
           fields:
             link: Enlazar
@@ -352,6 +376,13 @@ es-PY:
           highlighted_conferences:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas las conferencias
+      photo:
+        show:
+          close_modal: Cerrar modal
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: Las fotos
       show:
         details: Detalles
         introduction: Introducción
@@ -397,6 +428,10 @@ es-PY:
       value_types:
         conference_presenter:
           not_found: 'La conferencia no se encontró en la base de datos (ID: %{id})'
+    media:
+      index:
+        description: Enlaces sobre esta conferencia
+        title: Medios y enlaces
     menu:
       conferences: Conferencias
   devise:
@@ -424,5 +459,6 @@ es-PY:
         conference_menu_item: Información
         conference_partners_menu_item: Fogonadura
         conference_speaker_menu_item: Altavoces
+        media: Medios de comunicación
         unfold: Desplegar
         venues: Sedes
