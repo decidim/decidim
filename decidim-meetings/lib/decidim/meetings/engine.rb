@@ -27,6 +27,7 @@ module Decidim
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
+        resource :calendar, only: [:show], format: :text
       end
 
       initializer "decidim_meetings.view_hooks" do
