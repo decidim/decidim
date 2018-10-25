@@ -2,7 +2,9 @@ pl:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Powiązane złożenia
         banner_image: Obraz baneru
+        consultations_ids: Powiązane konsultacje
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_features: Kopiuj funkcje
@@ -10,6 +12,7 @@ pl:
         description: Opis
         hashtag: Hashtag
         hero_image: Obraz domowy
+        participatory_processes_ids: Powiązane procesy uczestnictwa
         promoted: Lansowany
         published_at: Opublikowano na
         scope_id: Zakres
@@ -363,6 +366,9 @@ pl:
         details: Detale
         introduction: Wprowadzenie
         objectives: Cele
+        related_assemblies: Powiązane złożenia
+        related_consultations: Powiązane konsultacje
+        related_participatory_processes: Powiązane procesy uczestnictwa
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
