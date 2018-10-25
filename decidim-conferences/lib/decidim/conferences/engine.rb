@@ -31,6 +31,7 @@ module Decidim
               get :decline_invitation
             end
           end
+          resources :registration_types, only: :index, path: "registration"
           resources :media, only: :index
         end
         scope "/conferences/:conference_slug/f/:component_id" do

@@ -368,17 +368,15 @@ en:
         index:
           speakers: Speakers
       conferences:
+        conferences_sidebar:
+          register: Register
         partners:
           collaborators: Collaborators
           main_promotors: Main promotors
         show:
-          already_account: Do you already have an account in decidim?
           login_as: You are login as %{name} <%{email}>
           make_conference_registration: 'Make your registration in the conference:'
-          new_user: New user?
           register: Register
-          sign_in: Login to register at this conference
-          sign_up: Register for free in decidim to register
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences
@@ -406,6 +404,12 @@ en:
           fields:
             email: Email
             name: Name
+      registration_types:
+        index:
+          choose_an_option: "Choose your registration option:"
+          login_as: You are login as %{name} <%{email}>
+          register: Register
+          title: Registration types
       pages:
         home:
           highlighted_conferences:
@@ -418,6 +422,12 @@ en:
       photos_list:
         show:
           related_photos: Photos
+      shared:
+        conference_user_login:
+          already_account: Do you already have an account in decidim?
+          new_user: New user?
+          sign_in: Login to register at this conference
+          sign_up: Register for free in decidim to register
       show:
         details: Details
         introduction: Introduction
@@ -475,6 +485,8 @@ en:
         subject: Invitation to join a conference
   layouts:
     decidim:
+      conference_hero:
+        register: Register
       conference_widgets:
         show:
           take_part: Take part

@@ -1,0 +1,18 @@
+<div class="conference-registration card__block">
+  <div class="row flex--cc">
+    <div class="columns medium-8">
+      <div class="registration__text">
+        <strong><%= title %></strong>
+        <span> <%= description %></span>
+      </div>
+    </div>
+    <div class="columns medium-4">
+      <div class="registration__buttons">
+        <button type="button" class="small-5 small"><strong><%= price %></strong></button>
+        <%= render :join_conference %>
+        <%#= cell "decidim/conferences/join_conference_button", current_participatory_space, big_button: true, show_remaining_slots: false, allowed: allowed_to?(:join, :conference, conference: current_participatory_space) %>
+        <!-- <button type="button" class="button small-7 button--sc small">Registro</button> -->
+      </div>
+    </div>
+  </div>
+</div>

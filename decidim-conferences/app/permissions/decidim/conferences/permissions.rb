@@ -19,6 +19,7 @@ module Decidim
           public_list_speakers_action?
           public_list_program_action?
           public_list_media_links_action?
+          public_list_registration_types_action?
           public_report_content_action?
 
           can_join_conference?
@@ -142,6 +143,13 @@ module Decidim
       def public_list_media_links_action?
         return unless permission_action.action == :list &&
                       permission_action.subject == :media_links
+
+        allow!
+      end
+
+      def public_list_registration_types_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :registration_types
 
         allow!
       end
