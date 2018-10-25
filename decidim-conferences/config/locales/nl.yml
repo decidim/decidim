@@ -2,7 +2,9 @@ nl:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Gerelateerde assemblies
         banner_image: Banner afbeelding
+        consultations_ids: Gerelateerde consultaties
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
@@ -10,6 +12,7 @@ nl:
         description: Beschrijving
         hashtag: Hashtag
         hero_image: Home afbeelding
+        participatory_processes_ids: Verwante participatieve processen
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         scope_id: strekking
@@ -353,6 +356,9 @@ nl:
         details: Details
         introduction: Invoering
         objectives: Doelen
+        related_assemblies: Gerelateerde assemblies
+        related_consultations: Gerelateerde consultaties
+        related_participatory_processes: Verwante participatieprocessen
       statistics:
         answers_count: antwoorden
         comments_count: Comments
