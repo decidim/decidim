@@ -191,9 +191,9 @@ pt-BR:
           title: Não autorizado
         unconfirmed:
           confirmation_instructions: 'Se você não recebeu as instruções de confirmação, pode solicitá-las novamente:'
-          explanation_html: Para realizar esta ação você precisa estar autorizado, antes de fazer isso você precisa confirmar seu email <strong>%{email}</strong>.
-          request_confirmation_instructions: Solicitar instruções de confirmação
-          title: confirme seu email
+          explanation_html: A fim de executar esta ação que você precisa ser autorizado, antes de fazer isso você precisa confirmar o seu e-mail <strong>%{email}</strong>.
+          request_confirmation_instructions: Reenviar instruções de confirmação
+          title: Confirme seu e-mail
     collapsible_list:
       hidden_elements_count:
         one: e mais 1
@@ -230,8 +230,8 @@ pt-BR:
         html_content: Conteúdo HTML
         name: Bloco HTML
       last_activity:
-        name: Ultima atividade
-        title: Ultima atividade
+        name: Última atividade
+        title: Última atividade
         view_all: Ver tudo
       metrics:
         name: Métricas da organização
@@ -355,24 +355,24 @@ pt-BR:
           email_subject: Você não é mais um administrador do grupo %{user_group_name}!
           notification_title: Você não é mais um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidou você para participar.
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
           email_outro: Você recebeu esta notificação porque foi convidado para um grupo. Por favor, verifique a aba Grupos no seu perfil para aprová-lo.
           email_subject: Você foi convidado para participar do grupo %{user_group_name}!
-          notification_title: Você foi convidado a participar do grupo <a href="%{resource_path}">%{user_group_name}</a> . Verifique os <a href="%{groups_profile_tab_path}">Grupos página</a> no seu perfil para aprová-lo!
+          notification_title: Você foi convidado a participar do grupo <a href="%{resource_path}">%{user_group_name}</a>. Verifique os <a href="%{groups_profile_tab_path}">Grupos página</a> no seu perfil para aprová-lo!
         join_request_accepted:
           email_intro: Parabéns! Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> aceitou sua solicitação para participar.
           email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
           email_subject: Você foi aceito no grupo %{user_group_name}!
           notification_title: Você foi aceito no grupo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Alguém pediu para participar do grupo %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_url}">os membros do grupo página</a>.
+          email_intro: Alguém pediu para participar do grupo %{user_group_name}. Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_url}">os membros do grupo página</a>.
           email_outro: Você recebeu esta notificação porque pode gerenciar o grupo %{user_group_name}.
           email_subject: Alguém pediu para entrar no grupo %{user_group_name}!
-          notification_title: Alguém pediu para participar do grupo %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_path}">os membros do grupo página</a>.
+          notification_title: Alguém pediu para participar do grupo %{user_group_name}. Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_path}">os membros do grupo página</a>.
         join_request_rejected:
           email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> rejeitou o seu pedido para se juntar a ele.
           email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
-          email_subject: Sua solicitação para participar do grupo %{user_group_name} foi rejeitada.
+          email_subject: Sua solicitação para participar do grupo %{user_group_name} foi rejeitada!
           notification_title: Sua solicitação para participar do grupo <a href="%{resource_path}">%{user_group_name}</a> foi rejeitada.
         promoted_to_admin:
           email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deu a você direitos de administrador para esse grupo.
