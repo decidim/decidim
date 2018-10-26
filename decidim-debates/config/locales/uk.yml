@@ -62,12 +62,16 @@ uk:
           update:
             invalid: При спробі оновити обговорення сталася помилка.
             success: Обговорення успішно оновлено.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Обговорення
       admin_log:
         debate:
-          create: "%{user_name} започаткував обговорення %{resource_name} у просторі %{space_name}"
+          create: "%{user_name} започаткував обговорення %{resource_name} у просторі
+            %{space_name}"
           update: "%{user_name} оновив обговорення %{resource_name} у просторі %{space_name}"
       debates:
         count:
@@ -119,21 +123,37 @@ uk:
             email_intro: |-
               Доброго дня!,
               В просторі співучасті %{space_title} розпочалось нове обговорення. Прочитайте його та зробіть свій внесок:
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за простором співучасті %{space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за простором
+              співучасті %{space_title}. Ви можете відписатися від цих сповіщень,
+              перейшовши за наведеним вище посиланням.
             email_subject: У %{space_title} розпочалось нове обговорення
-            notification_title: <a href="%{space_path}">%{space_title} </a> розпочав обговорення у <a href="%{resource_path}">%{resource_title}</a>.
+            notification_title: <a href="%{space_path}">%{space_title} </a> розпочав
+              обговорення у <a href="%{resource_path}">%{resource_title}</a>.
           user_followers:
-            email_intro: "Доброго дня! \n%{author_name} %{author_nickname}, за яким ви стежите, розпочав нове обговорення. Прочитайте його та зробіть свій внесок:"
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+            email_intro: "Доброго дня! \n%{author_name} %{author_nickname}, за яким
+              ви стежите, розпочав нове обговорення. Прочитайте його та зробіть свій
+              внесок:"
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}.
+              Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище
+              посиланням.
             email_subject: Нове обговорення, започатковане %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> розпочав обговорення <a href="%{resource_path}">%{resource_title}</a>.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+              розпочав обговорення <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'В %{participatory_space_title} вже не можна починати обговорення. Ви можете взяти участь у вже започаткованих обговореннях на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_intro: 'В %{participatory_space_title} вже не можна починати обговорення.
+            Ви можете взяти участь у вже започаткованих обговореннях на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}.
+            Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище
+            посиланням.
           email_subject: У %{participatory_space_title} вимкнено започаткування обговорень
-          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> вимкнено започаткування обговорень
+          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+            вимкнено започаткування обговорень
         creation_enabled:
-          email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість започатковувати нові обговорення! Почніть брати участь зі сторінки:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість
+            започатковувати нові обговорення! Почніть брати участь зі сторінки:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}.
+            Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище
+            посиланням.
           email_subject: В %{participatory_space_title} почалось обговорення
-          notification_title: Тепер ви можете започатковувати <a href="%{resource_path}">нові обговорення</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Тепер ви можете започатковувати <a href="%{resource_path}">нові
+            обговорення</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>

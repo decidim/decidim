@@ -60,6 +60,9 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao atualizar esse debate.
             success: Debate atualizado com sucesso.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debate
@@ -112,22 +115,34 @@ pt-BR:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Oi, um novo debate foi criado no espaço participativo %{space_title}, confira e contribui:'
-            email_outro: Você recebeu esta notificação porque está seguindo o espaço participativo %{space_title}. Você pode parar de receber notificações após o link anterior.
+            email_intro: 'Oi, um novo debate foi criado no espaço participativo %{space_title},
+              confira e contribui:'
+            email_outro: Você recebeu esta notificação porque está seguindo o espaço
+              participativo %{space_title}. Você pode parar de receber notificações
+              após o link anterior.
             email_subject: Novo debate sobre %{space_title}
-            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi criado em <a href="%{space_path}">%{space_title}</a>.
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a>
+              debate foi criado em <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Oi, %{author_name} %{author_nickname}, quem você está seguindo, criou um novo debate, confira e contribui:'
-            email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+            email_intro: 'Oi, %{author_name} %{author_nickname}, quem você está seguindo,
+              criou um novo debate, confira e contribui:'
+            email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}.
+              Você pode parar de receber notificações após o link anterior.
             email_subject: Novo debate por %{author_nickname}
-            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi criado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a>
+              debate foi criado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
-          email_intro: 'A criação do debate não está mais ativa em %{participatory_space_title}. Você ainda pode participar de debates abertos nesta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_intro: 'A criação do debate não está mais ativa em %{participatory_space_title}.
+            Você ainda pode participar de debates abertos nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}.
+            Você pode parar de receber notificações após o link anterior.
           email_subject: Criação de debate desativada em %{participatory_space_title}
           notification_title: A criação do debate agora está desativada em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Agora você pode iniciar novos debates em %{participatory_space_title}! Comece a participar nesta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_intro: 'Agora você pode iniciar novos debates em %{participatory_space_title}!
+            Comece a participar nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}.
+            Você pode parar de receber notificações após o link anterior.
           email_subject: Debates agora disponíveis em %{participatory_space_title}
-          notification_title: Agora você pode começar <a href="%{resource_path}">novos debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Agora você pode começar <a href="%{resource_path}">novos
+            debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>

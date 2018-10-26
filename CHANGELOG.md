@@ -14,6 +14,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Added**:
 
+- **decidim-debates**: add export feature to debates [#270](https://github.com/OpenSourcePolitics/decidim/pull/270)
 - **decidim-debates**: Allow debates to be reported [#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
 - **decidim-core**: Banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
 - **decidim-core**: Avater uploader has been changed in [\#147](https://github.com/OpenSourcePolitics/decidim/pull/147)
@@ -32,6 +33,8 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 **Fixed**:
 
 - **decidim-budgets**: Add hyphens to budget card. [\#305](https://github.com/OpenSourcePolitics/decidim/pull/305)
+- **decidim-surveys**: Fix validation issue on survey sortable question [\#314](https://github.com/OpenSourcePolitics/decidim/pull/314)
+- **decidim-surveys**: Fix issue when copying. [\#308](https://github.com/decidim/decidim/pull/308)
 - **decidim-admin**: Add email validation to ManagedUserPromotionForm. [\#295](https://github.com/OpenSourcePolitics/decidim/pull/295)
 - **decidim-budgets**: Fix display of budgets when votes count is activated. [\#268](https://github.com/OpenSourcePolitics/decidim/pull/268)
 - **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)

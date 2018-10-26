@@ -60,13 +60,17 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
+        exports:
+          comments: commentaires
+          debates: débats
         models:
           debate:
             name: Débat
       admin_log:
         debate:
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
-          update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace
+            %{space_name}"
       debates:
         count:
           debates_count:
@@ -112,22 +116,35 @@ fr:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Bonjour, un nouveau débat a été créé sur l''espace participatif %{space_title}, consultez-le et contribuez :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
+            email_intro: 'Bonjour, un nouveau débat a été créé sur l''espace participatif
+              %{space_title}, consultez-le et contribuez :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace
+              participatif %{space_title}. Vous pouvez cesser de recevoir des notifications
+              en suivant ce dernier lien.
             email_subject: Nouveau débat sur %{space_title}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a>
+              a été créé le <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé un nouveau débat, prenez-en connaissance et contribuez :'
-            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
+            email_intro: 'Bonjour, %{author_name} %{author_nickname}, que vous suivez,
+              a créé un nouveau débat, prenez-en connaissance et contribuez :'
+            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}.
+              Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
             email_subject: Nouveau débat par %{author_nickname}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a>
+              a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
-          email_intro: 'La création de débat n''est plus possible dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_intro: 'La création de débat n''est plus possible dans %{participatory_space_title}.
+            Vous pouvez toujours participer aux débats ouverts depuis cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}.
+            Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: La création de débats est désactivée dans %{participatory_space_title}
-          notification_title: La création de débats est maintenant désactivée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: La création de débats est maintenant désactivée dans
+            <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Vous pouvez maintenant initier de nouveaux débats dans %{participatory_space_title}! Commencez à participer sur cette page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_intro: 'Vous pouvez maintenant initier de nouveaux débats dans %{participatory_space_title}!
+            Commencez à participer sur cette page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}.
+            Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
-          notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux
+            débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
