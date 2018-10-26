@@ -17,9 +17,14 @@ pt-BR:
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
+      decidim/demoted_membership: Não é mais um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
       decidim/gamification/level_up_event: Você subiu de nível
+      decidim/join_request_accepted_event: Pedido de adesão aceite
+      decidim/join_request_rejected_event: Pedido de adesão rejeitado
       decidim/profile_updated_event: Perfil atualizado
+      decidim/promote_to_admin: Promovido para o administrador do grupo
+      decidim/removed_from_group: Removido do grupo
   activerecord:
     attributes:
       decidim/user:
@@ -45,6 +50,8 @@ pt-BR:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -96,6 +103,9 @@ pt-BR:
         update: "%{user_name} atualizou o aplicativo %{resource_name} OAuth"
       organization:
         update: "%{user_name} atualizou as configurações da organização"
+      participatory_space_private_user:
+        create: "%{user_name} convidados %{resource_name} para ser um usuário privado"
+        delete: "%{user_name} removeu o usuário %{resource_name} como usuário particular"
       scope:
         create: "%{user_name} criou o âmbito %{resource_name}"
         create_with_parent: "%{user_name} criou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
@@ -338,6 +348,42 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
           email_subject: Você atingiu o nível %{current_level} no %{badge_name} crachá!
           notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
+      groups:
+        demoted_membership:
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
+          email_outro: Você recebeu esta notificação porque é um membro desse grupo.
+          email_subject: Você não é mais um administrador do grupo %{user_group_name}!
+          notification_title: Você não é mais um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidou você para participar.
+          email_outro: Você recebeu esta notificação porque foi convidado para um grupo. Por favor, verifique a aba Grupos no seu perfil para aprová-lo.
+          email_subject: Você foi convidado para participar do grupo %{user_group_name}!
+          notification_title: Você foi convidado a participar do grupo <a href="%{resource_path}">%{user_group_name}</a> . Verifique os <a href="%{groups_profile_tab_path}">Grupos página</a> no seu perfil para aprová-lo!
+        join_request_accepted:
+          email_intro: Parabéns! Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> aceitou sua solicitação para participar.
+          email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
+          email_subject: Você foi aceito no grupo %{user_group_name}!
+          notification_title: Você foi aceito no grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Alguém pediu para participar do grupo %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_url}">os membros do grupo página</a>.
+          email_outro: Você recebeu esta notificação porque pode gerenciar o grupo %{user_group_name}.
+          email_subject: Alguém pediu para entrar no grupo %{user_group_name}!
+          notification_title: Alguém pediu para participar do grupo %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_path}">os membros do grupo página</a>.
+        join_request_rejected:
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> rejeitou o seu pedido para se juntar a ele.
+          email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
+          email_subject: Sua solicitação para participar do grupo %{user_group_name} foi rejeitada.
+          notification_title: Sua solicitação para participar do grupo <a href="%{resource_path}">%{user_group_name}</a> foi rejeitada.
+        promoted_to_admin:
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deu a você direitos de administrador para esse grupo.
+          email_outro: Você recebeu esta notificação porque é um membro desse grupo.
+          email_subject: Você é agora um administrador do grupo %{user_group_name}!
+          notification_title: Você é agora um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu você dele.
+          email_outro: Você recebeu esta notificação porque era um membro desse grupo.
+          email_subject: Você foi removido do grupo %{user_group_name}!
+          notification_title: Você foi removido do grupo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -431,14 +477,82 @@ pt-BR:
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
+    group_admins:
+      actions:
+        are_you_sure: Você tem certeza? Isso não removerá o usuário do grupo.
+        demote_admin: Remover admin
+      demote:
+        error: Ocorreu um erro ao remover este usuário da lista de administradores
+        success: Usuário removido do administrador com sucesso
+      index:
+        current_admins: 'Administradores atuais:'
+        manage_admins: Gerenciar administradores
+    group_invites:
+      accept:
+        error: Houve um erro ao aceitar este convite
+        success: Convite aceito com sucesso
+      accept_invitation: Aceitar
+      accept_or_reject_group_invitations: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
+      index:
+        invite: Convite
+        invite_user: Convidar um usuário
+      invite:
+        error: Houve um erro ao convidar este usuário
+        success: Usuário convidado com sucesso
+      reject:
+        error: Houve um erro ao rejeitar este convite
+        success: Convite rejeitado com sucesso
+      reject_invitation: Rejeitar
+    group_members:
+      accept:
+        error: Ocorreu um erro ao aceitar este pedido de adesão
+        success: Pedido de adesão aceite com sucesso
+      actions:
+        are_you_sure: Você tem certeza?
+        promote_to_admin: Faça admin
+        remove_from_group: Remover usuário
+      index:
+        current_members_without_admins: 'Membros atuais (sem administradores):'
+        manage_members: Gerenciar membros
+      promote:
+        error: Ocorreu um erro ao promover este usuário
+        success: Usuário promovido com sucesso
+      reject:
+        error: Ocorreu um erro ao rejeitar este pedido de associação
+        success: Pedido de associação rejeitado com sucesso
+      remove:
+        error: Ocorreu um erro ao remover este usuário do grupo
+        success: Usuário removido do grupo com sucesso
     groups:
+      actions:
+        are_you_sure: Você tem certeza?
       create:
-        error: Houve um problema ao criar a organização
-        success: Organização criada com sucesso
+        error: Houve um problema ao criar o grupo
+        success: Grupo criado com sucesso
+      edit:
+        edit_user_group: Editar grupo
+        update_user_group: Atualizar grupo
+      join:
+        error: Houve um problema ao ingressar no grupo
+        success: Juntar pedido criado com sucesso. Um administrador analisará sua solicitação antes de aceitá-lo para o grupo.
+      leave:
+        error: Houve um problema ao sair do grupo
+        success: Grupo saiu com sucesso.
+      members:
+        accept_or_reject_join_requests: 'Os seguintes usuários se inscreveram para participar desse grupo. Aceite ou rejeite seus pedidos:'
+        accept_request: Aceitar
+        reject_request: Rejeitar
       new:
-        create_user_group: Criar organização
-        new_user_group: Nova organização
-      no_user_groups: Não pertence a nenhuma organização ainda.
+        create_user_group: Criar grupo
+        new_user_group: Novo grupo
+      no_user_groups: Não pertence a nenhum grupo ainda.
+      roles:
+        admin: Administrador
+        creator: O Criador
+        member: Membro
+      update:
+        error: Houve um problema ao atualizar o grupo
+        success: Grupo atualizado com sucesso
     invitations:
       create:
         error: Houve alguns problemas ao convidar seus amigos
@@ -631,7 +745,7 @@ pt-BR:
         conversations: Conversas
         followers: Seguidores
         following: Segue
-        groups: Organizações
+        groups: Grupos
         members: Membros
         notifications: Notificações
       sidebar:
@@ -639,8 +753,14 @@ pt-BR:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
-        create_user_group: Criar organização
+        create_user_group: Criar grupo
         edit_profile: Editar perfil
+        edit_user_group: Editar perfil do grupo
+        invite_user: Convidar Usuário
+        join_user_group: Solicitar para participar do grupo
+        leave_user_group: Deixar o grupo
+        manage_user_group_admins: Gerenciar administradores
+        manage_user_group_users: Gerenciar membros
     reported_mailer:
       hide:
         hello: Olá %{name},
@@ -916,7 +1036,7 @@ pt-BR:
         my_data: Meus dados
         notifications_settings: Configurações de notificações
         title: Configurações do usuário
-        user_groups: Organizações
+        user_groups: Grupos
       widget:
         see_more: Ver mais
   locale:

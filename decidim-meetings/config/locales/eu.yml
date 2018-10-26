@@ -358,6 +358,8 @@ eu:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
           view: ikusi
+      meetings_map:
+        view_meeting: Ikusi bilera
       models:
         invite:
           fields:
@@ -395,6 +397,10 @@ eu:
       types:
         private_meeting: Bilera pribatua
         transparent: gardena
+    metrics:
+      meetings:
+        object: bilerak
+        title: Bilerak
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

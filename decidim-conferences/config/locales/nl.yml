@@ -2,7 +2,9 @@ nl:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Gerelateerde assemblies
         banner_image: Banner afbeelding
+        consultations_ids: Gerelateerde consultaties
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
@@ -10,6 +12,7 @@ nl:
         description: Beschrijving
         hashtag: Hashtag
         hero_image: Home afbeelding
+        participatory_processes_ids: Verwante participatieve processen
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         scope_id: strekking
@@ -117,6 +120,23 @@ nl:
         create:
           error: Er is een fout opgetreden bij het dupliceren van deze conferentie.
           success: Conferentie succesvol gedupliceerd.
+      media_links:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe mediakoppeling.
+          success: Media Link is met succes gemaakt.
+        destroy:
+          success: Media Link is succesvol verwijderd.
+        edit:
+          title: Mediakoppeling bijwerken.
+          update: Bijwerken
+        index:
+          media_links_title: Media links
+        new:
+          create: creëren
+          title: Media Link
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze mediakoppeling.
+          success: Media Link is succesvol bijgewerkt.
       menu:
         conferences: conferenties
         conferences_submenu:
@@ -130,7 +150,9 @@ nl:
           conference_registrations: Conferentie-registraties
           conference_speakers: Sprekers van de conferentie
           info: info
+          media_links: Media links
           moderations: matigingen
+          partners: partners
       models:
         conference:
           fields:
@@ -154,6 +176,37 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+        media_link:
+          fields:
+            date: Datum
+            link: Link
+            title: Titel
+          name: Media Link
+        partner:
+          fields:
+            link: Link
+            logo: Logo
+            name: Naam
+            partner_type: Type
+          name: Partner
+          types:
+            collaborator: Medewerker
+            main_promotor: Hoofdpromotor
+      partners:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een partner voor deze conferentie.
+          success: Partner succesvol toegevoegd aan deze conferentie.
+        destroy:
+          success: Partner verwijderd van deze conferentie.
+        edit:
+          title: Update partner.
+          update: Bijwerken
+        new:
+          create: creëren
+          title: Nieuwe partner
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van een partner voor deze conferentie.
+          success: Partner is succesvol geüpdatet voor deze conferentie.
       titles:
         conferences: conferenties
     admin_log:
@@ -170,6 +223,9 @@ nl:
         create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie uitgenodigd"
         delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
         update: "%{user_name} veranderde de rol van %{resource_name} in de %{space_name} conferentie"
+    conference_program:
+      index:
+        title: Programma
     conference_speakers:
       index:
         title: sprekers
@@ -225,6 +281,9 @@ nl:
             decline: Uitnodiging '%{conference_title}' weigeren
             invited_you_to_join_a_conference: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een conferentie op %{application}. U kunt het weigeren of accepteren via de onderstaande links."
             join: Deelnemen aan conferentie '%{conference_title}'
+        partners:
+          index:
+            title: partners
       conference:
         registration_confirm:
           cancel: Annuleer
@@ -236,6 +295,15 @@ nl:
           remaining_slots:
             one: 1 slot over
             other: "%{count} slots over"
+      conference_program:
+        program_meeting:
+          content: Inhoud
+          location: Plaats
+          speakers: sprekers
+          streaming: streaming
+        show:
+          day: Dag
+          program: Programma
       conference_registration_mailer:
         confirmation:
           confirmed_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is bevestigd.
@@ -265,6 +333,9 @@ nl:
         index:
           speakers: sprekers
       conferences:
+        partners:
+          collaborators: medewerkers
+          main_promotors: Hoofdpromotoren
         show:
           already_account: Heb je al een account bij decidim?
           login_as: U bent ingelogd als %{name} <%{email}>
@@ -305,10 +376,20 @@ nl:
           highlighted_conferences:
             active_conferences: Actieve conferenties
             see_all_conferences: Bekijk alle conferenties
+      photo:
+        show:
+          close_modal: Modal sluiten
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: foto's
       show:
         details: Details
         introduction: Invoering
         objectives: Doelen
+        related_assemblies: Gerelateerde assemblies
+        related_consultations: Gerelateerde consultaties
+        related_participatory_processes: Verwante participatieprocessen
       statistics:
         answers_count: antwoorden
         comments_count: Comments
@@ -347,6 +428,10 @@ nl:
       value_types:
         conference_presenter:
           not_found: 'De conferentie is niet gevonden in de database (ID: %{id})'
+    media:
+      index:
+        description: Links over deze conferentie
+        title: Media en links
     menu:
       conferences: conferenties
   devise:
@@ -372,6 +457,8 @@ nl:
           take_part: Deelnemen
       conferences_nav:
         conference_menu_item: Informatie
+        conference_partners_menu_item: partners
         conference_speaker_menu_item: sprekers
+        media: Media
         unfold: Ontvouwen
         venues: locaties

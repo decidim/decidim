@@ -257,6 +257,10 @@ fi:
           notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Prosessit
+    metrics:
+      participatory_processes:
+        object: osallistumisprosessit
+        title: Osallistumisprosessit
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -285,7 +289,7 @@ fi:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
       content_blocks:
         highlighted_processes:
-          name: Korostetut prosessit
+          name: Tärkeimmät prosessit
       index:
         title: Osallistumisprosessit
       last_activity:
