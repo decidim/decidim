@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assembléias Relacionadas
+        assemblies_ids: Assembleias Relacionadas
         banner_image: Imagem de banner
         consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
@@ -341,7 +341,7 @@ pt-BR:
           login_as: Você está logado como %{name} <%{email}>
           make_conference_registration: 'Faça seu cadastro na conferência:'
           new_user: Novo usuário?
-          register: registo
+          register: Registrar-se
           sign_in: Entre para se registrar nesta conferência
           sign_up: Registre-se gratuitamente em decidim para registrar
       content_blocks:
@@ -379,7 +379,7 @@ pt-BR:
       photo:
         show:
           close_modal: Fechar modal
-          photo: foto
+          photo: Foto
       photos_list:
         show:
           related_photos: Fotos
@@ -387,7 +387,7 @@ pt-BR:
         details: Detalhes
         introduction: Introdução
         objectives: Objetivos
-        related_assemblies: Assembléias Relacionadas
+        related_assemblies: Assembleias Relacionadas
         related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
       statistics:
@@ -456,9 +456,9 @@ pt-BR:
           more_info: Mais informações
           take_part: Participar
       conferences_nav:
-        conference_menu_item: Em formação
+        conference_menu_item: Informação
         conference_partners_menu_item: Parceiros
-        conference_speaker_menu_item: caixas de som
-        media: meios de comunicação
-        unfold: Desdobrar
-        venues: Venues
+        conference_speaker_menu_item: Alto-falantes
+        media: Mídia
+        unfold: Exibir
+        venues: Locais
