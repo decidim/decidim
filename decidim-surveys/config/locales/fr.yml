@@ -4,6 +4,8 @@ fr:
     attributes:
       survey_answer:
         body: Réponse
+        selected_choices: La selection
+        choices: Les choix
       survey_question:
         mandatory: Réponse à la question obligatoire
         max_choices: Nombre de choix maximum
@@ -62,6 +64,7 @@ fr:
           components:
             title: Titre
             description: Description
+            title: Titre
             tos: Conditions d'utilisation
         surveys:
           answer_option:

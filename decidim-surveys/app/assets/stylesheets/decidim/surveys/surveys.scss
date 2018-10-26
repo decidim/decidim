@@ -11,6 +11,10 @@ form.answer-survey{
     .help-text{
       margin: .2rem 0 0;
     }
+
+    .form-error{
+      margin-top: .5em;
+    }
   }
 
   label.survey-question{
@@ -25,7 +29,9 @@ form.answer-survey{
     }
   }
 
-  .last-sorted{
-    margin-bottom: 1rem;
+  .sortable-check-box-collection{
+    .sorted + .unsorted{
+      margin-top: 1rem;
+    }
   }
 }
