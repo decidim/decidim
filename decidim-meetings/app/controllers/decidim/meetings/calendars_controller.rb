@@ -10,8 +10,7 @@ module Decidim
       before_action :set_default_request_format
 
       def show
-        # TODO: add `content_type: "type/calendar"` before finishing
-        render plain: CalendarRenderer.for(current_component)
+        render plain: CalendarRenderer.for(current_component), content_type: "type/calendar"
       end
 
       private

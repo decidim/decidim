@@ -29,8 +29,7 @@ module Decidim
         end
 
         def calendar
-          # TODO: add `content_type: "type/calendar"` before finishing
-          render plain: CalendarRenderer.for(current_organization)
+          render plain: CalendarRenderer.for(current_organization), content_type: "type/calendar"
         end
 
         private
