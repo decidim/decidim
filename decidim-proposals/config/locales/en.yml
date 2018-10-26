@@ -310,6 +310,7 @@ en:
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
             select_a_category: Select a category
+            select_a_meeting: Select a meeting
           index:
             actions: Actions
             cancel: Cancel
