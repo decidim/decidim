@@ -10,7 +10,7 @@ pt-BR:
         copy_features: Copiar recursos
         decidim_scope_id: Escopo
         description: Descrição
-        hashtag: Hashtag
+        hashtag: Palavras-chave
         hero_image: Imagem inicial
         participatory_processes_ids: Processos participativos relacionados
         promoted: Promovido
@@ -123,11 +123,11 @@ pt-BR:
       media_links:
         create:
           error: Ocorreu um erro ao criar um novo link de mídia.
-          success: Media Link criado com sucesso.
+          success: Link de mídia criado com êxito.
         destroy:
-          success: O Media Link foi excluído com sucesso.
+          success: Recurso excluído com sucesso.
         edit:
-          title: Atualize o link da mídia.
+          title: Atualize o link de mídia.
           update: Atualizar
         index:
           media_links_title: Links de Mídia
