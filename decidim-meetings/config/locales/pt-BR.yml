@@ -358,6 +358,8 @@ pt-BR:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Visualizar
+      meetings_map:
+        view_meeting: Ver reunião
       models:
         invite:
           fields:
@@ -395,6 +397,10 @@ pt-BR:
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+    metrics:
+      meetings:
+        object: reuniões
+        title: Reuniões
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

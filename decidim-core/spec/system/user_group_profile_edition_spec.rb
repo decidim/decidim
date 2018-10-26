@@ -20,11 +20,11 @@ describe "User group profile edition", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).to have_no_content("Edit organization profile")
+      expect(page).to have_no_content("Edit group profile")
     end
 
     it "rejects the user that accesses manually" do
-      visit decidim.edit_group_path(user_group.nickname)
+      visit decidim.group_manage_users_path(user_group.nickname)
       expect(page).to have_content("You are not authorized to perform this action")
     end
   end
@@ -36,16 +36,16 @@ describe "User group profile edition", type: :system do
     end
 
     it "allows editing the profile" do
-      expect(page).to have_content("Edit organization profile")
-      click_link "Edit organization profile"
+      expect(page).to have_content("Edit group profile")
+      click_link "Edit group profile"
 
       fill_in "Name", with: "My super duper group"
       fill_in "About", with: "We are awesome"
       attach_file "Avatar", Decidim::Dev.asset("city.jpeg")
 
-      click_button "Update organization"
+      click_button "Update group"
 
-      expect(page).to have_content("Organization updated successfully")
+      expect(page).to have_content("Group updated successfully")
       expect(page).to have_content("My super duper group")
       expect(page).to have_content("We are awesome")
     end

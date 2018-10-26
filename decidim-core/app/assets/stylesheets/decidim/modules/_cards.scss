@@ -715,6 +715,7 @@ $datetime-bg: $primary;
 // card status
 .card__status{
   .card-data__item{
+    flex-basis: 20%;
     flex-basis: initial;
     padding: 1em .5em;
 

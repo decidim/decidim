@@ -282,7 +282,8 @@ module Decidim
         Decidim.metrics_registry.register(
           :users,
           "Decidim::Metrics::UsersMetricManage",
-          Decidim::MetricRegistry::HIGHLIGHTED
+          Decidim::MetricRegistry::HIGHLIGHTED,
+          1
         )
       end
 

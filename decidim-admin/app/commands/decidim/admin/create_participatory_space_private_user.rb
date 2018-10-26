@@ -41,10 +41,19 @@ module Decidim
       attr_reader :form, :private_user_to, :current_user, :user
 
       def create_private_user
-        Decidim::ParticipatorySpacePrivateUser.find_or_create_by!(
-          user: user,
-          privatable_to: @private_user_to
-        )
+        Decidim.traceability.perform_action!(
+          :create,
+          Decidim::ParticipatorySpacePrivateUser,
+          current_user,
+          resource: {
+            title: user.name
+          }
+        ) do
+          Decidim::ParticipatorySpacePrivateUser.find_or_create_by!(
+            user: user,
+            privatable_to: @private_user_to
+          )
+        end
       end
 
       def existing_user

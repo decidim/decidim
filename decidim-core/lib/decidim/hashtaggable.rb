@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This concern contains the logic related to followable resources.
+  # This concern contains the logic related to hashtaggable resources.
   module Hashtaggable
     extend ActiveSupport::Concern
 

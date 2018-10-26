@@ -7,6 +7,28 @@ module Decidim::Conferences
     describe "call" do
       let(:my_conference) { create :conference }
       let(:user) { create :user, :admin, :confirmed, organization: my_conference.organization }
+      let!(:participatory_processes) do
+        create_list(
+          :participatory_process,
+          3,
+          organization: my_conference.organization
+        )
+      end
+      let!(:assemblies) do
+        create_list(
+          :assembly,
+          3,
+          organization: my_conference.organization
+        )
+      end
+      let(:consultation) { create :consultation, organization: my_conference.organization }
+      let!(:questions) do
+        create_list(
+          :question,
+          3,
+          consultation: consultation
+        )
+      end
 
       let(:params) do
         {
@@ -40,7 +62,10 @@ module Decidim::Conferences
             show_statistics: my_conference.show_statistics,
             registrations_enabled: my_conference.registrations_enabled,
             available_slots: my_conference.available_slots,
-            registration_terms: my_conference.registration_terms
+            registration_terms: my_conference.registration_terms,
+            participatory_processes_ids: participatory_processes.map(&:id),
+            assemblies_ids: assemblies.map(&:id),
+            consultations_ids: questions.collect(&:consultation).uniq
           }
         }
       end
@@ -116,6 +141,24 @@ module Decidim::Conferences
           expect(action_log.version).to be_present
         end
 
+        it "links participatory processes" do
+          command.call
+          linked_participatory_processes = my_conference.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
+          expect(linked_participatory_processes).to match_array(participatory_processes)
+        end
+
+        it "links assemblies" do
+          command.call
+          linked_assemblies = my_conference.linked_participatory_space_resources(:assemblies, "included_assemblies")
+          expect(linked_assemblies).to match_array(assemblies)
+        end
+
+        it "links consultations" do
+          command.call
+          linked_consultations = my_conference.linked_participatory_space_resources("Consultations", "included_consultations")
+          expect(linked_consultations).to match_array(questions.collect(&:consultation).uniq)
+        end
+
         context "when no homepage image is set" do
           it "does not replace the homepage image" do
             command.call
@@ -164,7 +207,10 @@ module Decidim::Conferences
             available_slots: my_conference.available_slots,
             registration_terms: my_conference.registration_terms,
             current_organization: my_conference.organization,
-            current_user: user
+            current_user: user,
+            participatory_processes_ids: participatory_processes.map(&:id),
+            assemblies_ids: assemblies.map(&:id),
+            consultations_ids: questions.collect(&:consultation).uniq
           )
         end
 

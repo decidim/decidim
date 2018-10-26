@@ -122,6 +122,19 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_meetings.register_metrics" do
+        Decidim.metrics_registry.register(
+          :meetings,
+          "Decidim::Meetings::Metrics::MeetingsMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          5
+        )
+      end
+
+      initializer "decidim_meetings.assets" do |app|
+        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
+      end
     end
   end
 end

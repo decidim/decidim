@@ -23,6 +23,7 @@ module Decidim
 
         resources :conferences, only: [:index, :show], param: :slug, path: "conferences" do
           resources :conference_speakers, only: :index, path: "speakers"
+          resources :conference_program, only: :show, path: "program"
           resource :conference_widget, only: :show, path: "embed"
           resource :conference_registration, only: [:create, :destroy] do
             collection do
@@ -30,6 +31,7 @@ module Decidim
               get :decline_invitation
             end
           end
+          resources :media, only: :index
         end
         scope "/conferences/:conference_slug/f/:component_id" do
           Decidim.component_manifests.each do |manifest|

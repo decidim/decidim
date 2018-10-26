@@ -75,8 +75,10 @@ gl:
             collaborative_drafts_enabled: Esquemas colaborativos habilitados
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocoding habilitado
+            minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_help_text: Nova proposta de axuda de texto
             official_proposals_enabled: Propostas oficiais habilitadas
+            participatory_texts_enabled: Permitir textos participativos
             proposal_answering_enabled: Contestando a proposta habilitada
             proposal_edit_before_minutes: As propostas poden ser editadas por autores antes de que pase moitos minutos
             proposal_length: Lonxitude máxima do corpo da proposta
@@ -221,10 +223,10 @@ gl:
           unearned_own: Aínda non creaches propostas.
     metrics:
       accepted_proposals:
-        object: proposta
+        object: propostas
         title: Propostas aceptadas
       proposals:
-        object: proposta
+        object: propostas
         title: Propostas
       votes:
         object: votos
@@ -243,6 +245,7 @@ gl:
         edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
+        participatory_texts: Textos participativos
         private_notes: Notas privadas
         title: Accións
       admin:
@@ -254,6 +257,28 @@ gl:
         models:
           proposal:
             name: Proposta
+        participatory_texts:
+          bulk-actions:
+            import_doc: Importar documento
+          import:
+            invalid: O formulario non é válido.
+            success: Parabéns, foron analizadas as seguintes seccións do documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
+          index:
+            info_1: As seguintes seccións foron analizadas dende o documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
+            publish_document: Publicar documento
+            title: TEXTO PARTICIPARIO PREVIEW
+          new_import:
+            bottom_hint: "(Poderá ver e ordenar as seccións do documento)"
+            document_legend: 'Engada un documento inferior a 2 MB, cada sección até que se analizen 3 niveis de profundidade nas Propostas. Os formatos soportados son: Markdown'
+            title: AGREGAR DOCUMENTOS
+            upload_document: Cargar documento
+          publish:
+            invalid: Non se puideron publicar propostas
+            success: Todas as propostas foron publicadas
+          sections:
+            article: "<em>artigo</em>"
+            section: "<em>Sección:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsección:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aceptada
@@ -287,7 +312,12 @@ gl:
             actions: Accións
             cancel: Cancelar
             change_category: Cambiar categoría
+            merge: Unirse a un novo
+            merge_button: Fusionar
+            select_component: Seleccione un compoñente
             selected: seleccionado
+            split: Dividir propostas
+            split_button: Partir
             title: Propostas
             update: Actualización
           new:
@@ -307,6 +337,14 @@ gl:
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas.
             select_component: Selecciona un compoñente
             select_states: Comprobe os estados das propostas para importar
+        proposals_merges:
+          create:
+            invalid: Produciuse un erro ao fusionar as propostas seleccionadas.
+            success: Fusionou con éxito as propostas nun novo.
+        proposals_splits:
+          create:
+            invalid: Produciuse un erro dividindo as propostas seleccionadas.
+            success: Reaccionou con éxito as propostas en novas.
         shared:
           info_proposal:
             body: Corpo
@@ -596,6 +634,10 @@ gl:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular máis de %{limit} apoios
+          minimum_votes_per_user:
+            description: Debes distribuír un mínimo de 3 votos entre diferentes propostas.
+            given_enough_votes: Dicho soporte.
+            supports_remaining: Tes que votar máis %{remaining_votes} propostas para que os teus votos sexan tidos en conta.
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
           threshold_per_proposal:

@@ -70,7 +70,8 @@ Decidim.register_component(:debates) do |component|
           Decidim::Faker::Localized.paragraph(3)
         end,
         start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours
+        end_time: 3.weeks.from_now + 4.hours,
+        author: component.organization
       }
 
       debate = Decidim.traceability.create!(

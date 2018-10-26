@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: conference_media_link_path(@media_link.conference, @media_link), html: { class: "form edit_media_link" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("media_links.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+  <%= f.submit t("media_links.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

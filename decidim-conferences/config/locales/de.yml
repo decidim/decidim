@@ -2,7 +2,9 @@ de:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Ähnliche Assemblies
         banner_image: Bannerbild
+        consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
         copy_features: Funktionen kopieren
@@ -10,6 +12,7 @@ de:
         description: Beschreibung
         hashtag: Hashtag
         hero_image: Hauptbild
+        participatory_processes_ids: Related Partizipative Prozesse
         promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
@@ -117,6 +120,23 @@ de:
         create:
           error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich dupliziert.
+      media_links:
+        create:
+          error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
+          success: Medienlink erfolgreich erstellt
+        destroy:
+          success: Medienlink wurde erfolgreich gelöscht.
+        edit:
+          title: Medienlink aktualisieren
+          update: Aktualisieren
+        index:
+          media_links_title: Medienlinks
+        new:
+          create: Erstellen
+          title: Medienlink
+        update:
+          error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
+          success: Media Link wurde erfolgreich aktualisiert.
       menu:
         conferences: Konferenzen
         conferences_submenu:
@@ -130,7 +150,9 @@ de:
           conference_registrations: Konferenzanmeldungen
           conference_speakers: Konferenzsprecher
           info: Info
+          media_links: Medienlinks
           moderations: Moderationen
+          partners: Partner
       models:
         conference:
           fields:
@@ -154,6 +176,37 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
+        media_link:
+          fields:
+            date: Datum
+            link: Verknüpfung
+            title: Titel
+          name: Medienlink
+        partner:
+          fields:
+            link: Verknüpfung
+            logo: Logo
+            name: Name
+            partner_type: Art
+          name: Partner
+          types:
+            collaborator: Mitarbeiter
+            main_promotor: Hauptförderer
+      partners:
+        create:
+          error: Beim Hinzufügen eines Partners für diese Konferenz ist ein Fehler aufgetreten.
+          success: Der Partner wurde erfolgreich zu dieser Konferenz hinzugefügt.
+        destroy:
+          success: Der Partner wurde erfolgreich von dieser Konferenz entfernt.
+        edit:
+          title: Partner aktualisieren
+          update: Aktualisieren
+        new:
+          create: Erstellen
+          title: Neuer Partner
+        update:
+          error: Bei einem Fehler ist ein Partner für diese Konferenz aktualisiert worden.
+          success: Der Partner wurde für diese Konferenz erfolgreich aktualisiert.
       titles:
         conferences: Konferenzen
     admin_log:
@@ -170,6 +223,9 @@ de:
         create: "%{user_name} lud %{resource_name} zu der %{space_name} Konferenz ein"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
         update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Konferenz geändert"
+    conference_program:
+      index:
+        title: Programm
     conference_speakers:
       index:
         title: Lautsprecher
@@ -225,6 +281,9 @@ de:
             decline: Einladung '%{conference_title}' ablehnen
             invited_you_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
             join: An Konferenz "%{conference_title}" teilnehmen
+        partners:
+          index:
+            title: Partner
       conference:
         registration_confirm:
           cancel: Stornieren
@@ -236,6 +295,15 @@ de:
           remaining_slots:
             one: 1 Steckplatz übrig
             other: "%{count} freie Plätze"
+      conference_program:
+        program_meeting:
+          content: Inhalt
+          location: Ort
+          speakers: Lautsprecher
+          streaming: Streaming
+        show:
+          day: Tag
+          program: Programm
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ihre Anmeldung zur Konferenz <a href="%{url}">%{title}</a> wurde bestätigt.
@@ -265,6 +333,9 @@ de:
         index:
           speakers: Lautsprecher
       conferences:
+        partners:
+          collaborators: Mitarbeiter
+          main_promotors: Hauptförderer
         show:
           already_account: Haben Sie schon einen Account in Decidim?
           login_as: Sie melden sich als %{name} <%{email}> an
@@ -305,10 +376,20 @@ de:
           highlighted_conferences:
             active_conferences: Aktive Konferenzen
             see_all_conferences: Alle Konferenzen anzeigen
+      photo:
+        show:
+          close_modal: Modal schließen
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: Fotos
       show:
         details: Einzelheiten
         introduction: Einführung
         objectives: Ziele
+        related_assemblies: Ähnliche Assemblies
+        related_consultations: Verwandte Konsultationen
+        related_participatory_processes: In Verbindung stehende partizipative Prozesse
       statistics:
         answers_count: Antworten
         comments_count: Bemerkungen
@@ -347,6 +428,10 @@ de:
       value_types:
         conference_presenter:
           not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id})'
+    media:
+      index:
+        description: Links zu dieser Konferenz
+        title: Medien und Links
     menu:
       conferences: Konferenzen
   devise:
@@ -372,6 +457,8 @@ de:
           take_part: Teilnehmen
       conferences_nav:
         conference_menu_item: Information
+        conference_partners_menu_item: Partner
         conference_speaker_menu_item: Lautsprecher
+        media: Medien
         unfold: Entfalten
         venues: Veranstaltungsorte

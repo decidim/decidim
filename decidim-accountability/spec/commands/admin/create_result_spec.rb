@@ -140,7 +140,7 @@ module Decidim::Accountability
             event: "decidim.events.accountability.proposal_linked",
             event_class: Decidim::Accountability::ProposalLinkedEvent,
             resource: kind_of(Result),
-            recipient_ids: [proposals.first.creator_author.id, follower.id],
+            recipient_ids: match_array([proposals.first.creator_author.id, follower.id]),
             extra: {
               proposal_id: proposals.first.id
             }

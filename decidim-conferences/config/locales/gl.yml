@@ -2,7 +2,9 @@ gl:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Asembleas relacionadas
         banner_image: Imaxe do banner
+        consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
         copy_features: Copiar funcións
@@ -10,6 +12,7 @@ gl:
         description: Descrición
         hashtag: Etiqueta
         hero_image: Imaxe na casa
+        participatory_processes_ids: Procesos participativos relacionados
         promoted: Promocionado
         published_at: Publicado en
         scope_id: Alcance
@@ -117,6 +120,23 @@ gl:
         create:
           error: Produciuse un erro ao duplicar esta conferencia.
           success: A conferencia duplicouse con éxito.
+      media_links:
+        create:
+          error: Produciuse un erro ao crear unha nova ligazón multimedia.
+          success: Media Link creouse con éxito.
+        destroy:
+          success: Ligazón de medios eliminouse con éxito.
+        edit:
+          title: Actualiza a ligazón de medios.
+          update: Actualización
+        index:
+          media_links_title: Ligazóns multimedia
+        new:
+          create: Crear
+          title: Ligazón multimedia
+        update:
+          error: Produciuse un erro ao actualizar esta ligazón multimedia.
+          success: Media Link actualizouse con éxito.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -130,7 +150,9 @@ gl:
           conference_registrations: Rexistros de conferencias
           conference_speakers: Conferenciantes de conferencias
           info: Información
+          media_links: Ligazóns multimedia
           moderations: Moderacións
+          partners: Socios
       models:
         conference:
           fields:
@@ -154,6 +176,37 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Data
+            link: Ligazón
+            title: Título
+          name: Ligazón multimedia
+        partner:
+          fields:
+            link: Ligazón
+            logo: Logo
+            name: Nome
+            partner_type: Tipo
+          name: Socio
+          types:
+            collaborator: Colaborador
+            main_promotor: Promotor principal
+      partners:
+        create:
+          error: Houbo un erro engadindo un compañeiro para esta conferencia.
+          success: O socio engadiuse con éxito a esta conferencia.
+        destroy:
+          success: O socio eliminouse con éxito desta conferencia.
+        edit:
+          title: Actualizar socio.
+          update: Actualización
+        new:
+          create: Crear
+          title: Novo compañeiro
+        update:
+          error: Houbo un erro actualizado por un compañeiro desta conferencia.
+          success: O socio actualizouse con éxito para esta conferencia.
       titles:
         conferences: Conferencias
     admin_log:
@@ -170,6 +223,9 @@ gl:
         create: "%{user_name} invitados %{resource_name} á %{space_name} conferencias"
         delete: "%{user_name} eliminou o usuario %{resource_name} da %{space_name} conferencia"
         update: "%{user_name} cambiou o papel de %{resource_name} na %{space_name} conferencia"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Ponentes
@@ -225,6 +281,9 @@ gl:
             decline: Declina a invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
             join: Únete á conferencia '%{conference_title}'
+        partners:
+          index:
+            title: Socios
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -236,6 +295,15 @@ gl:
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
+      conference_program:
+        program_meeting:
+          content: Contido
+          location: Localización
+          speakers: Ponentes
+          streaming: Transmisión
+        show:
+          day: Día
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Inscríbase o rexistro da conferencia <a href="%{url}">%{title}</a>.
@@ -265,6 +333,9 @@ gl:
         index:
           speakers: Ponentes
       conferences:
+        partners:
+          collaborators: Colaboradores
+          main_promotors: Principais promotores
         show:
           already_account: Xa tes unha conta en decidir?
           login_as: Estás conectado como %{name} <%{email}>
@@ -305,10 +376,20 @@ gl:
           highlighted_conferences:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas as conferencias
+      photo:
+        show:
+          close_modal: Pechar modal
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: Fotos
       show:
         details: Detalles
         introduction: Introdución
         objectives: Obxectivos
+        related_assemblies: Asembleas relacionadas
+        related_consultations: Consultas relacionadas
+        related_participatory_processes: Procesos participativos relacionados
       statistics:
         answers_count: Respostas
         comments_count: Comentarios
@@ -347,6 +428,10 @@ gl:
       value_types:
         conference_presenter:
           not_found: 'Non se atopou a conferencia na base de datos (ID: %{id})'
+    media:
+      index:
+        description: Ligazóns sobre esta conferencia
+        title: Medios e enlaces
     menu:
       conferences: Conferencias
   devise:
@@ -372,6 +457,8 @@ gl:
           take_part: Tomar parte en
       conferences_nav:
         conference_menu_item: Información
+        conference_partners_menu_item: Socios
         conference_speaker_menu_item: Ponentes
+        media: Medios de comunicación
         unfold: Despregar
         venues: Lugares

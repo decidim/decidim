@@ -76,6 +76,7 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
+            minimum_votes_per_user: Minimum votes per user
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             participatory_texts_enabled: Participatory texts enabled
@@ -223,10 +224,10 @@ en:
           unearned_own: You have created no proposals yet.
     metrics:
       accepted_proposals:
-        object: proposal
+        object: proposals
         title: Accepted Proposals
       proposals:
-        object: proposal
+        object: proposals
         title: Proposals
       votes:
         object: votes
@@ -312,7 +313,12 @@ en:
             actions: Actions
             cancel: Cancel
             change_category: Change category
+            merge: Merge into a new one
+            merge_button: Merge
+            select_component: Select a component
             selected: selected
+            split: Split proposals
+            split_button: Split
             title: Proposals
             update: Update
           new:
@@ -332,6 +338,14 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
             select_states: Check the states of the proposals to import
+        proposals_merges:
+          create:
+            invalid: There was an error merging the selected proposals.
+            success: Successfully merged the proposals into a new one.
+        proposals_splits:
+          create:
+            invalid: There was an error spliting the selected proposals.
+            success: Successfully splitted the proposals into new ones.
         shared:
           info_proposal:
             body: Body
@@ -621,6 +635,10 @@ en:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports
+          minimum_votes_per_user:
+            description: You must distribute a minimum of 3 votes among different proposals.
+            given_enough_votes: You've given enough supports.
+            supports_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:

@@ -15,8 +15,6 @@ module Decidim
       include_examples "coauthorable"
       include_examples "has scope"
       include_examples "has category"
-      # include_examples "has reference"
-      # include_examples "reportable"
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
@@ -31,7 +29,7 @@ module Decidim
         end
 
         it "returns the followers" do
-          expect(subject.users_to_notify_on_comment_created).to match_array(followers)
+          expect(subject.users_to_notify_on_comment_created).to match_array(followers.push(collaborative_draft.creator_author))
         end
       end
 

@@ -263,6 +263,10 @@ pl:
           notification_title: Zmieniono daty <a href="%{resource_path}">%{resource_title}</a> kroku <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Procesy
+    metrics:
+      participatory_processes:
+        object: procesy uczestniczące
+        title: Procesy partycypacyjne
     participatory_process_groups:
       show:
         group_participatory_processes:

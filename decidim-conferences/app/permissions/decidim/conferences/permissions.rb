@@ -17,6 +17,8 @@ module Decidim
           public_list_conferences_action?
           public_read_conference_action?
           public_list_speakers_action?
+          public_list_program_action?
+          public_list_media_links_action?
           public_report_content_action?
 
           can_join_conference?
@@ -126,6 +128,20 @@ module Decidim
       def public_list_speakers_action?
         return unless permission_action.action == :list &&
                       permission_action.subject == :speakers
+
+        allow!
+      end
+
+      def public_list_program_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :program
+
+        allow!
+      end
+
+      def public_list_media_links_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :media_links
 
         allow!
       end
@@ -245,6 +261,7 @@ module Decidim
           :conference_user_role,
           :conference_speaker,
           :partner,
+          :media_link,
           :conference_invite
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -263,6 +280,7 @@ module Decidim
           :conference,
           :conference_user_role,
           :conference_speaker,
+          :media_link,
           :conference_invite,
           :partner,
           :read_conference_registrations,
