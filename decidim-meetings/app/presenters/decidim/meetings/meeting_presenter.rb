@@ -65,7 +65,6 @@ module Decidim
       def can_be_contacted?
         false
       end
-
     end
   end
 end

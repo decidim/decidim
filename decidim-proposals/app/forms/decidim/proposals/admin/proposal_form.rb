@@ -70,7 +70,7 @@ module Decidim
 
         # Return the meeting as autorh
         def meeting_as_author
-          @meeting ||= meetings.find_by(id: meeting_id)
+          @meeting_as_author ||= meetings.find_by(id: meeting_id)
         end
 
         def author
