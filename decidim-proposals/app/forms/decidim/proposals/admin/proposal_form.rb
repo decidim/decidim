@@ -5,6 +5,7 @@ module Decidim
     module Admin
       # A form object to be used when admin users want to create a proposal.
       class ProposalForm < Decidim::Form
+        include Decidim::ApplicationHelper
         mimic :proposal
 
         attribute :title, String
@@ -16,6 +17,8 @@ module Decidim
         attribute :scope_id, Integer
         attribute :attachment, AttachmentForm
         attribute :position, Integer
+        attribute :created_in_meeting, Boolean
+        attribute :meeting_id, Integer
 
         validates :title, :body, presence: true, etiquette: true
         validates :title, length: { maximum: 150 }
@@ -57,6 +60,22 @@ module Decidim
         # Returns the scope identifier related to the proposal
         def scope_id
           @scope_id || scope&.id
+        end
+
+        # Finds the Meetings of the current participatory space
+        def meetings
+          @meetings ||= Decidim.find_resource_manifest(:meetings).try(:resource_scope, current_component)
+                               &.order(title: :asc)
+        end
+
+        # Return the meeting as autorh
+        def meeting_as_author
+          @meeting ||= meetings.find_by(id: meeting_id)
+        end
+
+        def author
+          return current_organization unless created_in_meeting?
+          meeting_as_author
         end
 
         private
