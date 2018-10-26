@@ -15,7 +15,7 @@
     <% if @form.meetings %>
       <div class="meeting-fields">
         <div class="row column">
-          <%= form.check_box :created_in_meeting %>
+          <%= form.check_box :created_in_meeting, label: t(".created_in_meeting") %>
         </div>
 
         <div class="row column" id="proposal_meeting">
