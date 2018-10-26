@@ -190,10 +190,10 @@ sv:
           ok: OK
           title: Ej auktoriserad
         unconfirmed:
-          confirmation_instructions: 'Om du inte har fått bekräftelsesinstruktionerna kan du begära dem igen:'
-          explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad innan du gör det måste du bekräfta ditt mail <strong>%{email}</strong>.
+          confirmation_instructions: 'Om du inte har fått bekräftelseanvisningar kan du begära dem igen:'
+          explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad, innan du gör det måste du bekräfta din e-postadress <strong>%{email}</strong>.
           request_confirmation_instructions: Begär bekräftelseanvisningar
-          title: bekräfta din email
+          title: Bekräfta din e-postadress
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -230,8 +230,8 @@ sv:
         html_content: HTML-innehåll
         name: HTML-block
       last_activity:
-        name: Sista aktiviteten
-        title: Sista aktiviteten
+        name: Senaste aktiviteten
+        title: Senaste aktiviteten
         view_all: Visa alla
       metrics:
         name: Organisationsstatistik
