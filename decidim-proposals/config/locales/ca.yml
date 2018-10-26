@@ -312,7 +312,12 @@ ca:
             actions: Accions
             cancel: Cancel·lar
             change_category: Canvia la categoria
+            merge: Uniu-vos a un de nou
+            merge_button: Fusionar
+            select_component: Seleccioneu un component
             selected: seleccionat
+            split: Dividir propostes
+            split_button: Split
             title: Propostes
             update: Actualitza
           new:
@@ -332,6 +337,14 @@ ca:
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un continent
             select_states: Consulteu els estats de les propostes per importar
+        proposals_merges:
+          create:
+            invalid: S'ha produït un error en combinar les propostes seleccionades.
+            success: Va combinar amb èxit les propostes en una nova.
+        proposals_splits:
+          create:
+            invalid: S'ha produït un error en dividir les propostes seleccionades.
+            success: S'han acabat amb èxit les propostes en noves.
         shared:
           info_proposal:
             body: Cos

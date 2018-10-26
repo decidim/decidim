@@ -312,7 +312,12 @@ sv:
             actions: Åtgärder
             cancel: Avbryt
             change_category: Ändra kategori
+            merge: Sammanfoga till en ny
+            merge_button: Sammanfoga
+            select_component: Välj en komponent
             selected: vald
+            split: Delade förslag
+            split_button: Dela
             title: Förslag
             update: Uppdatera
           new:
@@ -332,6 +337,14 @@ sv:
             no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme att importera förslagen från.
             select_component: Välj en komponent
             select_states: Kontrollera tillstånden för de förslag som ska importeras
+        proposals_merges:
+          create:
+            invalid: Det fanns ett fel att slå samman de valda förslagen.
+            success: Framgångsrikt fusionerade förslagen till en ny.
+        proposals_splits:
+          create:
+            invalid: Det gick inte att splittra de valda förslagen.
+            success: Framgångsrikt splittrade förslagen till nya.
         shared:
           info_proposal:
             body: Innehåll

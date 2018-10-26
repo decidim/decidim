@@ -358,6 +358,8 @@ eu:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
           view: ikusi
+      meetings_map:
+        view_meeting: Ikusi bilera
       models:
         invite:
           fields:

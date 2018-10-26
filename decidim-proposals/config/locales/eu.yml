@@ -312,7 +312,12 @@ eu:
             actions: Ekintzak
             cancel: Utzi
             change_category: Aldatu kategoria
+            merge: Bateratu berri bat sartu
+            merge_button: Batu
+            select_component: Hautatu osagaia
             selected: hautatutako
+            split: Proposamen banatuak
+            split_button: Split
             title: Proposamenak
             update: eguneratzearen
           new:
@@ -332,6 +337,14 @@ eu:
             no_components: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
             select_component: Hautatu osagaia
             select_states: Egiaztatu inportatzeko proposamenen egoera
+        proposals_merges:
+          create:
+            invalid: Errore bat gertatu da hautatutako proposamenekin bat egitea.
+            success: Proposamen berri batean sartu dira ondo.
+        proposals_splits:
+          create:
+            invalid: Errore bat gertatu da hautatutako proposamenen banaketa.
+            success: Proposamen berrietara egokitu dira.
         shared:
           info_proposal:
             body: Gorputzeko

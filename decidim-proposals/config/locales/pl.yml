@@ -322,7 +322,12 @@ pl:
             actions: działania
             cancel: Anuluj
             change_category: Zmień kategorię
+            merge: Połącz się z nowym
+            merge_button: Łączyć
+            select_component: Wybierz składnik
             selected: wybrany
+            split: Podziel propozycje
+            split_button: Rozdzielać
             title: Propozycje
             update: Aktualizacja
           new:
@@ -342,6 +347,14 @@ pl:
             no_components: W tej przestrzeni partycypacyjnej nie ma innych elementów propozycji do importowania propozycji.
             select_component: Wybierz komponent
             select_states: Sprawdź stany propozycji do zaimportowania
+        proposals_merges:
+          create:
+            invalid: Podczas łączenia wybranych propozycji wystąpił błąd.
+            success: Pomyślnie scalono propozycje w nowe.
+        proposals_splits:
+          create:
+            invalid: Wystąpił błąd podczas podziału wybranych propozycji.
+            success: Pomyślnie podzielono propozycje na nowe.
         shared:
           info_proposal:
             body: Ciało

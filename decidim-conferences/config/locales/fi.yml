@@ -2,7 +2,9 @@ fi:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Liittyvät ryhmät
         banner_image: Bannerikuva
+        consultations_ids: Liittyvät kuulemiset
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_features: Kopioi ominaisuudet
@@ -10,6 +12,7 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
+        participatory_processes_ids: Liittyvät osallistumisprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -117,6 +120,23 @@ fi:
         create:
           error: Virhe kopioitaessa konferenssia.
           success: Konferenssi kopioitu onnistuneesti.
+      media_links:
+        create:
+          error: Luotaessa uutta medialinkkiä tapahtui virhe.
+          success: Medialinkki luotu onnistuneesti.
+        destroy:
+          success: Medialinkki poistettiin onnistuneesti.
+        edit:
+          title: Päivitä medialinkki.
+          update: Päivitä
+        index:
+          media_links_title: Medialinkit
+        new:
+          create: Luo
+          title: Medialinkki
+        update:
+          error: Medialinkin päivittämisessä esiintyi virhe.
+          success: Medialinkki päivitettiin onnistuneesti.
       menu:
         conferences: Konferenssit
         conferences_submenu:
@@ -130,6 +150,7 @@ fi:
           conference_registrations: Konferenssin ilmoittautumiset
           conference_speakers: Konferenssin puhujat
           info: Tiedot
+          media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
       models:
@@ -155,6 +176,12 @@ fi:
             admin: Hallinnointikäyttäjä
             collaborator: Työryhmän jäsen
             moderator: Moderoija
+        media_link:
+          fields:
+            date: Päivämäärä
+            link: Linkki
+            title: Otsikko
+          name: Medialinkki
         partner:
           fields:
             link: Linkki
@@ -349,10 +376,20 @@ fi:
           highlighted_conferences:
             active_conferences: Aktiiviset konferenssit
             see_all_conferences: Katso kaikki konferenssit
+      photo:
+        show:
+          close_modal: Sulje ikkuna
+          photo: Kuva
+      photos_list:
+        show:
+          related_photos: Kuvat
       show:
         details: Tarkemmat tiedot
         introduction: Esittely
         objectives: Tavoitteet
+        related_assemblies: Liittyvät ryhmät
+        related_consultations: Liittyvät kuulemiset
+        related_participatory_processes: Liittyvät osallistumisprosessit
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
@@ -391,6 +428,10 @@ fi:
       value_types:
         conference_presenter:
           not_found: 'Konferenssia ei löytynyt tietokannasta (ID: %{id})'
+    media:
+      index:
+        description: Tähän konferenssiin liittyvät linkit
+        title: Media ja linkit
     menu:
       conferences: Konferenssit
   devise:
@@ -418,5 +459,6 @@ fi:
         conference_menu_item: Tiedot
         conference_partners_menu_item: Yhteistyökumppanit
         conference_speaker_menu_item: Puhujat
+        media: Media
         unfold: Avaa
         venues: Tapahtumapaikat

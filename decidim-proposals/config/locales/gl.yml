@@ -312,7 +312,12 @@ gl:
             actions: Accións
             cancel: Cancelar
             change_category: Cambiar categoría
+            merge: Unirse a un novo
+            merge_button: Fusionar
+            select_component: Seleccione un compoñente
             selected: seleccionado
+            split: Dividir propostas
+            split_button: Partir
             title: Propostas
             update: Actualización
           new:
@@ -332,6 +337,14 @@ gl:
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas.
             select_component: Selecciona un compoñente
             select_states: Comprobe os estados das propostas para importar
+        proposals_merges:
+          create:
+            invalid: Produciuse un erro ao fusionar as propostas seleccionadas.
+            success: Fusionou con éxito as propostas nun novo.
+        proposals_splits:
+          create:
+            invalid: Produciuse un erro dividindo as propostas seleccionadas.
+            success: Reaccionou con éxito as propostas en novas.
         shared:
           info_proposal:
             body: Corpo

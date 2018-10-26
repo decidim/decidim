@@ -312,7 +312,12 @@ fr:
             actions: Actions
             cancel: Annuler
             change_category: Changer de catégorie
+            merge: Fusionner dans un nouveau
+            merge_button: Fusionner
+            select_component: Sélectionnez un composant
             selected: choisi
+            split: Propositions fractionnées
+            split_button: Divisé
             title: Propositions
             update: Mettre à jour
           new:
@@ -332,6 +337,14 @@ fr:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
+        proposals_merges:
+          create:
+            invalid: Une erreur s'est produite lors de la fusion des propositions sélectionnées.
+            success: A fusionné avec succès les propositions dans un nouveau.
+        proposals_splits:
+          create:
+            invalid: Une erreur s'est produite lors de la division des propositions sélectionnées.
+            success: Divisé avec succès les propositions en nouvelles.
         shared:
           info_proposal:
             body: Corps du texte

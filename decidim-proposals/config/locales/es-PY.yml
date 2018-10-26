@@ -312,7 +312,12 @@ es-PY:
             actions: Acciones
             cancel: Cancelar
             change_category: Cambiar categoría
+            merge: Sumérgete en uno nuevo
+            merge_button: Unir
+            select_component: Seleccione un componente
             selected: seleccionado
+            split: Propuestas divididas
+            split_button: División
             title: Propuestas
             update: Actualizar
           new:
@@ -332,6 +337,14 @@ es-PY:
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
             select_states: Verifique los estados de las propuestas para importar
+        proposals_merges:
+          create:
+            invalid: Se produjo un error al fusionar las propuestas seleccionadas.
+            success: Fusionó con éxito las propuestas en una nueva.
+        proposals_splits:
+          create:
+            invalid: Hubo un error dividiendo las propuestas seleccionadas.
+            success: Dividió con éxito las propuestas en otras nuevas.
         shared:
           info_proposal:
             body: Cuerpo

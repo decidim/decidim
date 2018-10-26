@@ -2,7 +2,9 @@ pt-BR:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Assembléias Relacionadas
         banner_image: Imagem de banner
+        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_features: Copiar recursos
@@ -10,6 +12,7 @@ pt-BR:
         description: Descrição
         hashtag: Hashtag
         hero_image: Imagem inicial
+        participatory_processes_ids: Processos participativos relacionados
         promoted: Promovido
         published_at: Publicado em
         scope_id: Escopo
@@ -117,6 +120,23 @@ pt-BR:
         create:
           error: Houve um erro ao duplicar esta conferência.
           success: Conferência duplicada com sucesso.
+      media_links:
+        create:
+          error: Ocorreu um erro ao criar um novo link de mídia.
+          success: Media Link criado com sucesso.
+        destroy:
+          success: O Media Link foi excluído com sucesso.
+        edit:
+          title: Atualize o link da mídia.
+          update: Atualizar
+        index:
+          media_links_title: Links de Mídia
+        new:
+          create: Crio
+          title: Link de Mídia
+        update:
+          error: Houve um erro ao atualizar este link de mídia.
+          success: Media Link atualizado com sucesso.
       menu:
         conferences: Conferências
         conferences_submenu:
@@ -130,6 +150,7 @@ pt-BR:
           conference_registrations: Registros de conferência
           conference_speakers: Alto-falantes da conferência
           info: Info
+          media_links: Links de Mídia
           moderations: Moderações
           partners: Parceiros
       models:
@@ -155,6 +176,12 @@ pt-BR:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Encontro
+            link: Ligação
+            title: Título
+          name: Link de Mídia
         partner:
           fields:
             link: Ligação
@@ -349,10 +376,20 @@ pt-BR:
           highlighted_conferences:
             active_conferences: Conferências ativas
             see_all_conferences: Veja todas as conferências
+      photo:
+        show:
+          close_modal: Fechar modal
+          photo: foto
+      photos_list:
+        show:
+          related_photos: Fotos
       show:
         details: Detalhes
         introduction: Introdução
         objectives: Objetivos
+        related_assemblies: Assembléias Relacionadas
+        related_consultations: Consultas Relacionadas
+        related_participatory_processes: Processos participativos relacionados
       statistics:
         answers_count: Respostas
         comments_count: Comentários
@@ -391,6 +428,10 @@ pt-BR:
       value_types:
         conference_presenter:
           not_found: 'A conferência não foi encontrada no banco de dados (ID: %{id})'
+    media:
+      index:
+        description: Links sobre esta conferência
+        title: Mídia e Links
     menu:
       conferences: Conferências
   devise:
@@ -418,5 +459,6 @@ pt-BR:
         conference_menu_item: Em formação
         conference_partners_menu_item: Parceiros
         conference_speaker_menu_item: caixas de som
+        media: meios de comunicação
         unfold: Desdobrar
         venues: Venues

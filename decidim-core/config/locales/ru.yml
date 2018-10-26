@@ -694,7 +694,6 @@ ru:
         my_data: Мои данные
         notifications_settings: Настройки уведомлений
         title: Настройки участника
-        user_groups: Организации
       widget:
         see_more: Читать подробнее
   locale:

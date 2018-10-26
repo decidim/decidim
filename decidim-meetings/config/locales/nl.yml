@@ -358,6 +358,8 @@ nl:
             one: 1 plaats resterend
             other: "%{count} resterende plaatsen"
           view: Uitzicht
+      meetings_map:
+        view_meeting: Bekijk vergadering
       models:
         invite:
           fields:
