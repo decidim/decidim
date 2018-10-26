@@ -380,8 +380,8 @@ pt-BR:
           email_subject: Você é agora um administrador do grupo %{user_group_name}!
           notification_title: Você é agora um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu você dele.
-          email_outro: Você recebeu esta notificação porque era um membro desse grupo.
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
+          email_outro: Você recebeu esta notificação porque é um membro desse grupo.
           email_subject: Você foi removido do grupo %{user_group_name}!
           notification_title: Você foi removido do grupo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
@@ -435,7 +435,7 @@ pt-BR:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
     gamification:
-      all_badges_link: Veja todos os crachás disponíveis.
+      all_badges_link: Veja todos os emblemas disponíveis.
       badges:
         continuity:
           conditions:
