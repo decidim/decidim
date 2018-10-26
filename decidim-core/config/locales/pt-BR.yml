@@ -20,10 +20,10 @@ pt-BR:
       decidim/demoted_membership: Não é mais um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
       decidim/gamification/level_up_event: Você subiu de nível
-      decidim/join_request_accepted_event: Pedido de adesão aceite
-      decidim/join_request_rejected_event: Pedido de adesão rejeitado
+      decidim/join_request_accepted_event: Solicitação de junção aceita
+      decidim/join_request_rejected_event: Solicitação de junção aceita
       decidim/profile_updated_event: Perfil atualizado
-      decidim/promote_to_admin: Promovido para o administrador do grupo
+      decidim/promote_to_admin: Promovido a administrador de grupo
       decidim/removed_from_group: Removido do grupo
   activerecord:
     attributes:
@@ -104,7 +104,7 @@ pt-BR:
       organization:
         update: "%{user_name} atualizou as configurações da organização"
       participatory_space_private_user:
-        create: "%{user_name} convidados %{resource_name} para ser um usuário privado"
+        create: "%{user_name} Convidado %{resource_name} ser um usuário privado"
         delete: "%{user_name} removeu o usuário %{resource_name} como usuário particular"
       scope:
         create: "%{user_name} criou o âmbito %{resource_name}"
@@ -187,7 +187,7 @@ pt-BR:
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid_field: "%{field} valor %{value} não é válido."
-          ok: OK
+          ok: Ok
           title: Não autorizado
         unconfirmed:
           confirmation_instructions: 'Se você não recebeu as instruções de confirmação, pode solicitá-las novamente:'
