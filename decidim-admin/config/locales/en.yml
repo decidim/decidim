@@ -583,7 +583,6 @@ en:
           create: Create page
           title: New page
         topic:
-          confirm_destroy: Are you sure you want to delete this topic?
           destroy: Remove topic
           edit: Edit topic
           empty: There's no page under this topic
