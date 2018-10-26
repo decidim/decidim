@@ -11,7 +11,6 @@ module Decidim
       field :body, Decidim::Core::TranslatedFieldType, "The body of this page."
       field :createdAt, !Decidim::Core::DateTimeType, "The time this page was created", property: :created_at
       field :updatedAt, !Decidim::Core::DateTimeType, "The time this page was updated", property: :updated_at
-
     end
   end
 end

@@ -15,7 +15,6 @@ module Decidim
         resolve ->(participatory_space, _args, _ctx) {
           participatory_space.class.name
         }
-
       end
 
       field :components, types[ComponentInterface] do

@@ -18,7 +18,7 @@ module Decidim
           argument :slug, types.String, "The Slug of the ParticipatoryProcess"
 
           resolve lambda { |_obj, args, ctx|
-            q = {organization: ctx[:current_organization]}
+            q = { organization: ctx[:current_organization] }
             args[:slug] ? q[:slug] = args[:slug] : q[:id] = args[:id]
             ParticipatoryProcess.public_spaces.find_by(q)
           }
