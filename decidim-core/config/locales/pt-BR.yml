@@ -443,8 +443,8 @@ pt-BR:
           description: Esse selo é concedido quando você visita a plataforma regularmente. Nós gostamos de ter você por aqui!
           description_another: Este usuário se conectou por %{score} dias consecutivos em algum momento.
           description_own: Você se conectou por %{score} dias consecutivos em algum momento.
-          name: Continuidade
-          next_level_in: Ligue por %{score} dias consecutivos para chegar ao próximo nível!
+          name: Continue
+          next_level_in: Conecte-se para %{score} dias consecutivos para chegar ao próximo nível!
           unearned_another: Este usuário não fez login por mais de um dia consecutivo.
           unearned_own: Você não se conectou por mais de um dia consecutivo.
         followers:
@@ -459,14 +459,14 @@ pt-BR:
           unearned_own: Você ainda não tem seguidores.
         index:
           badge_title: "%{name} crachá"
-          how: Como você pode ganhar?
+          how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
         invitations:
           conditions:
             - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
             - Personalize, se quiser, a mensagem que você está enviando
-            - Você vai subir de nível enviando convites e registrando-os.
+            - Você vai subir de nível enviando convites e recebendo-os registrados.
           description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
@@ -480,10 +480,10 @@ pt-BR:
     group_admins:
       actions:
         are_you_sure: Você tem certeza? Isso não removerá o usuário do grupo.
-        demote_admin: Remover admin
+        demote_admin: Remover Administrador
       demote:
         error: Ocorreu um erro ao remover este usuário da lista de administradores
-        success: Usuário removido do administrador com sucesso
+        success: Usuário removido com sucesso da organização
       index:
         current_admins: 'Administradores atuais:'
         manage_admins: Gerenciar administradores
@@ -509,7 +509,7 @@ pt-BR:
         success: Pedido de adesão aceite com sucesso
       actions:
         are_you_sure: Você tem certeza?
-        promote_to_admin: Faça admin
+        promote_to_admin: Tornar administrador
         remove_from_group: Remover usuário
       index:
         current_members_without_admins: 'Membros atuais (sem administradores):'
@@ -570,7 +570,7 @@ pt-BR:
         no_activities_warning: Nenhuma atividade
       all: Todos os tipos de atividade
       index:
-        last_activity: Ultima atividade
+        last_activity: Última atividade
         resource_type: Tipo
     log:
       base_presenter:
@@ -628,8 +628,8 @@ pt-BR:
           error: Mensagem não enviada. Tente mais tarde
     metrics:
       users:
-        object: Comercial
-        title: Comercial
+        object: usuários
+        title: Usuários
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
@@ -738,7 +738,7 @@ pt-BR:
       deleted: Usuário excluído
       view: Vista
     profiles:
-      default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi confirmado para corresponder ao seu nome real
+      default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi verificado para corresponder com seu nome real
       default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
         badges: Distintivos
@@ -753,12 +753,12 @@ pt-BR:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
-        create_user_group: Criar grupo
+        create_user_group: Criar Grupo
         edit_profile: Editar perfil
         edit_user_group: Editar perfil do grupo
         invite_user: Convidar Usuário
         join_user_group: Solicitar para participar do grupo
-        leave_user_group: Deixar o grupo
+        leave_user_group: Sair do grupo
         manage_user_group_admins: Gerenciar administradores
         manage_user_group_users: Gerenciar membros
     reported_mailer:
