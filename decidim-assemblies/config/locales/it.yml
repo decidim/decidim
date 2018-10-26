@@ -168,7 +168,6 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
-          name: montaggio
         assembly_member:
           fields:
             ceased_date: Data di fine

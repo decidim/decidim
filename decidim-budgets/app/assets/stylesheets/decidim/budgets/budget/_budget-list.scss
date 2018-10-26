@@ -2,6 +2,8 @@
   @include breakpoint(smallmedium down){
     font-size: $global-font-size;
   }
+
+  word-break: break-word;
 }
 
 .budget-list__data{
@@ -33,4 +35,16 @@
 
 .budget--list__action{
   margin-bottom: 0;
+}
+
+.budget-list__data_votes{
+  @include breakpoint(medium){
+    flex-basis: 21rem;
+  }
+}
+
+.budget-list__number_votes{
+  @include breakpoint(medium){
+    font-size: 1.3rem;
+  }
 }

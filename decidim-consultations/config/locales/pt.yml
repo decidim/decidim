@@ -106,9 +106,6 @@ pt:
             created_at: Criado em
             published: Publicados
             title: Título
-          name:
-            one: Consulta
-            other: Consultas
         question:
           fields:
             created_at: Criado em

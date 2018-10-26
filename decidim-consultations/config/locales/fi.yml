@@ -106,9 +106,6 @@ fi:
             created_at: Luotu osoitteessa
             published: Julkaistu
             title: otsikko
-          name:
-            one: kuuleminen
-            other: kuulemiset
         question:
           fields:
             created_at: Luotu osoitteessa

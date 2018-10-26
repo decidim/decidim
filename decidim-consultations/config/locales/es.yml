@@ -54,6 +54,8 @@ es:
   decidim:
     admin:
       actions:
+        consultation:
+          new: Nueva consulta
         publish_results: Publicar resultados
         unpublish_results: Anular la publicación de resultados
       consultation_publications:
@@ -106,9 +108,6 @@ es:
             created_at: Creado en
             published: Publicado
             title: Título
-          name:
-            one: Consulta
-            other: Consultas
         question:
           fields:
             created_at: Creado en

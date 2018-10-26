@@ -95,7 +95,6 @@ gl:
             promoted: Destacado
             published: Publicado
             title: Título
-          name: Proceso participativo
         participatory_process_group:
           fields:
             name: Nome

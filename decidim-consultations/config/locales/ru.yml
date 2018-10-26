@@ -114,11 +114,6 @@ ru:
             created_at: 'Создано:'
             published: Обнародовано
             title: Заголовок
-          name:
-            few: Консультации
-            many: Консультаций
-            one: Консультация
-            other: Консультаций
         question:
           fields:
             created_at: 'Создано:'

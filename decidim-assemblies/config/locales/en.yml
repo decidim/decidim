@@ -76,6 +76,9 @@ en:
         other: Assembly user roles
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: There was an error creating a new assembly.
@@ -168,7 +171,6 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
-          name: Assembly
         assembly_member:
           fields:
             ceased_date: Ceased date

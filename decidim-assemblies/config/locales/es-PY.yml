@@ -168,7 +168,6 @@ es-PY:
             promoted: Destacado
             published: Publicada
             title: Título
-          name: Asamblea
         assembly_member:
           fields:
             ceased_date: Fecha de vencimiento

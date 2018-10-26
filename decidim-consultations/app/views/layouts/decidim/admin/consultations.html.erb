@@ -4,7 +4,7 @@
       <%= t "decidim.admin.titles.consultations" %>
     </div>
     <div class="secondary-nav__actions">
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.consultation.name", scope: "decidim.admin")), ["new", "consultation"], class: "button expanded small" if allowed_to? :create, :consultation %>
+      <%= link_to t("actions.consultation.new", scope: "decidim.admin"), ["new", "consultation"], class: "button expanded small" if allowed_to? :create, :consultation %>
     </div>
   </div>
 <% end %>

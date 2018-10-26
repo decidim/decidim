@@ -168,7 +168,6 @@ pt-BR:
             promoted: Em destaque
             published: Publicados
             title: Título
-          name: Assembleia
         assembly_member:
           fields:
             ceased_date: Data de cessação

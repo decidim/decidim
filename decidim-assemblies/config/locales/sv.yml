@@ -168,7 +168,6 @@ sv:
             promoted: Markerad
             published: Publicerad
             title: Titel
-          name: hopsättning
         assembly_member:
           fields:
             ceased_date: Upphämtat datum

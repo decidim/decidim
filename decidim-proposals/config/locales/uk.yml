@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -36,24 +37,24 @@ uk:
   activerecord:
     models:
       decidim/proposals/proposal:
-        one: Пропозиція
         few: Пропозиції
         many: Пропозицій
+        one: Пропозиція
         other: Пропозицій
       decidim/proposals/proposal_endorsement:
-        one: Прояв підтримки
         few: Прояви підтримки
         many: Проявів підтримки
+        one: Прояв підтримки
         other: Проявів підтримки
       decidim/proposals/proposal_note:
-        one: Примітка
         few: Примітки
         many: Приміток
+        one: Примітка
         other: Приміток
       decidim/proposals/proposal_vote:
-        one: Голос
         few: Голоси
         many: Голосів
+        one: Голос
         other: Голосів
   decidim:
     components:
@@ -288,9 +289,9 @@ uk:
           title: Завершіть свою пропозицію
         count:
           proposals_count:
-            one: 1 пропозиція
             few: "%{count} пропозиції"
             many: "%{count} пропозицій"
+            one: 1 пропозиція
             other: "%{count} пропозицій"
         edit:
           back: Повернутись
@@ -334,9 +335,9 @@ uk:
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
-            one: голос
             few: голоси
             many: голосів
+            one: голос
             other: голосів
         new:
           send: Продовжити
@@ -349,9 +350,9 @@ uk:
         preview:
           modify: Внести зміни в пропозицію
           proposal_edit_before_minutes:
-            one: Ви зможете редагувати цю пропозицію протягом першої хвилини після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             few: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             many: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
+            one: Ви зможете редагувати цю пропозицію протягом першої хвилини після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             other: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
           publish: Оприлюднити
           title: Оприлюднити свою пропозицію
@@ -362,9 +363,9 @@ uk:
           edit_proposal: Редагувати пропозицію
           endorsements_list: Перелік тих, хто підтримав
           hidden_endorsers_count:
-            one: і ще 1 особа
             few: і ще %{count} людей
             many: і ще %{count} людей
+            one: і ще 1 особа
             other: і ще %{count} людей
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
@@ -388,9 +389,9 @@ uk:
           votes_blocked: Голосування вимкнене
         votes_count:
           count:
-            one: ГОЛОС
             few: ГОЛОСИ
             many: ГОЛОСІВ
+            one: ГОЛОС
             other: ГОЛОСІВ
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
@@ -415,7 +416,7 @@ uk:
           step_2: Порівняти
           step_3: Завершити
           step_4: Оприлюднити свою пропозицію
-          step_of: '%{current_step_num}-й крок з %{total_steps} кроків'
+          step_of: "%{current_step_num}-й крок з %{total_steps} кроків"
       publish:
         error: При спробі оприлюднити цю пропозицію сталися помилки.
         success: Пропозицію успішно оприлюднено.

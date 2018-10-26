@@ -34,6 +34,7 @@ module Decidim
 
         transaction do
           create_proposal
+          add_author_as_follower
           create_attachment if process_attachments?
         end
 
@@ -46,8 +47,8 @@ module Decidim
 
       def create_proposal
         @proposal = Proposal.create!(
-          title: form.title,
-          body: form.body,
+          title: form.formatted_title,
+          body: form.formatted_body,
           category: form.category,
           scope: form.scope,
           author: @current_user,
@@ -117,6 +118,10 @@ module Decidim
 
       def user_group_proposals
         Proposal.where(user_group: @user_group, component: form.current_component).except_withdrawn
+      end
+
+      def add_author_as_follower
+        Decidim::Follow.create!(followable: proposal, user: @current_user)
       end
     end
   end

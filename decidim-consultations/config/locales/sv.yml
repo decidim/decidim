@@ -106,9 +106,6 @@ sv:
             created_at: Skapad vid
             published: Publicerad
             title: Titel
-          name:
-            one: Samråd
-            other: samråd
         question:
           fields:
             created_at: Skapad vid

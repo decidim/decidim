@@ -168,7 +168,6 @@ gl:
             promoted: Destacado
             published: Publicado
             title: Título
-          name: Asemblea
         assembly_member:
           fields:
             ceased_date: Data de suspensión

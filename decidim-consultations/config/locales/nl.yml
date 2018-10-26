@@ -106,9 +106,6 @@ nl:
             created_at: Aangemaakt op
             published: Gepubliceerd
             title: Titel
-          name:
-            one: Burgerinspraak
-            other: Burgerinspraken
         question:
           fields:
             created_at: Aangemaakt op

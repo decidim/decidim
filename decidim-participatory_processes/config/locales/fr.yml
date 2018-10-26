@@ -19,6 +19,7 @@ fr:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
         participatory_structure: Modalités
+        private_space: Espace privé
         promoted: Mise en avant
         published_at: Publiée à
         scope_id: Secteur
@@ -68,6 +69,8 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
+        participatory_process:
+          new: Nouvelle concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -94,7 +97,6 @@ fr:
             promoted: Mise en avant
             published: Publiée
             title: Titre
-          name: Concertation
         participatory_process_group:
           fields:
             name: Nom

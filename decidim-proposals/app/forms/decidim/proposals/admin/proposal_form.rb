@@ -7,6 +7,8 @@ module Decidim
       class ProposalForm < Decidim::Form
         mimic :proposal
 
+        include Decidim::Proposals::Concerns::FormattedAttributes
+
         attribute :title, String
         attribute :body, String
         attribute :address, String

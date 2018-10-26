@@ -76,6 +76,9 @@ es:
         other: Roles de usuario de la asamblea
   decidim:
     admin:
+      actions:
+        assembly:
+          new: nuevo montaje
       assemblies:
         create:
           error: Se produjo un error al crear una nueva asamblea.
@@ -168,7 +171,6 @@ es:
             promoted: Destacado
             published: Publicada
             title: Título
-          name: Asamblea
         assembly_member:
           fields:
             ceased_date: Fecha de vencimiento
