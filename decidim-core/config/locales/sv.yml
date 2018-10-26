@@ -382,8 +382,8 @@ sv:
         removed_from_group:
           email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dig från den.
           email_outro: Du har fått den här notisen eftersom du var medlem i den gruppen.
-          email_subject: Du har tagits bort från %{user_group_name} gruppen!
-          notification_title: Du har tagits bort från <a href="%{resource_path}">%{user_group_name}</a> gruppen.
+          email_subject: Du har tagits bort från gruppen %{user_group_name}!
+          notification_title: Du har tagits bort från gruppen <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -403,7 +403,7 @@ sv:
       linked_classes:
         all: Alla
         collaborative_draft: Samarbetsförslag
-        dummy_resource: Dummy resurser
+        dummy_resource: Dummyresurser
         meeting: Möten
         project: Projekt
         proposal: Förslag
@@ -441,12 +441,12 @@ sv:
           conditions:
             - Kommer hit ofta
           description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
-          description_another: Den här användaren har anslutit sig i %{score} varandra följande dagar vid någon tidpunkt.
-          description_own: Du har anslutit i %{score} dagar i följd vid någon tidpunkt.
+          description_another: Den här användaren har anslutit sig under %{score} på varandra följande dagar vid någon tidpunkt.
+          description_own: Du har anslutit dig under %{score} på varandra följande dagar vid någon tidpunkt.
           name: Kontinuitet
-          next_level_in: Anslut i %{score} dagar i följd för att komma till nästa nivå!
-          unearned_another: Den här användaren har inte loggat in mer än en på varandra följande dag.
-          unearned_own: Du har inte anslutit i mer än en på varandra följande dag.
+          next_level_in: Anslut under %{score} på varandra följande dagar för att komma till nästa nivå!
+          unearned_another: Den här användaren har inte loggat in under på varandra följade dagar.
+          unearned_own: Du har inte anslutit dig under på varandra följande dagar.
         followers:
           conditions:
             - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
