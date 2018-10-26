@@ -131,7 +131,7 @@ FactoryBot.define do
 
   factory :navbar_link, class: "Decidim::NavbarLink" do
     organization
-    title { Faker::Hipster.word }
+    title { Decidim::Faker::Localized.word }
     link { Faker::Internet.url }
     target { ["blank", ""].sample }
     weight { (1..10).to_a.sample }
