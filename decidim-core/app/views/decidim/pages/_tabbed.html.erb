@@ -17,7 +17,7 @@
           <div class="side-panel">
             <ul class="tabs vertical side-panel__tabs">
               <% pages.each do |sibling| %>
-                <li class="tabs-title <%= page == sibling ? 'is-active' : nil %>">
+                <li class="tabs-title <%= page == sibling ? "is-active" : nil %>">
                   <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), 'aria-selected': page == sibling %>
                 </li>
               <% end %>
