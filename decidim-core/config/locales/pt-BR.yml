@@ -450,7 +450,7 @@ pt-BR:
         followers:
           conditions:
             - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
-          description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, tecer sua web para se comunicar com outras pessoas na plataforma.
+          description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, teça sua web para se comunicar com outras pessoas na plataforma.
           description_another: Esse usuário possui %{score} seguidores.
           description_own: "%{score} usuários estão seguindo você."
           name: Seguidores
@@ -458,7 +458,7 @@ pt-BR:
           unearned_another: Este usuário ainda não possui seguidores.
           unearned_own: Você ainda não tem seguidores.
         index:
-          badge_title: "%{name} crachá"
+          badge_title: "%{name} selo"
           how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
@@ -494,10 +494,10 @@ pt-BR:
       accept_invitation: Aceitar
       accept_or_reject_group_invitations: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
       index:
-        invite: Convite
-        invite_user: Convidar um usuário
+        invite: Convidar
+        invite_user: Convidar usuário
       invite:
-        error: Houve um erro ao convidar este usuário
+        error: Ocorreu um erro ao convidar esse usuário
         success: Usuário convidado com sucesso
       reject:
         error: Houve um erro ao rejeitar este convite
@@ -506,7 +506,7 @@ pt-BR:
     group_members:
       accept:
         error: Ocorreu um erro ao aceitar este pedido de adesão
-        success: Pedido de adesão aceite com sucesso
+        success: Pedido de adesão aceita com sucesso
       actions:
         are_you_sure: Você tem certeza?
         promote_to_admin: Tornar administrador
@@ -534,21 +534,21 @@ pt-BR:
         update_user_group: Atualizar grupo
       join:
         error: Houve um problema ao ingressar no grupo
-        success: Juntar pedido criado com sucesso. Um administrador analisará sua solicitação antes de aceitá-lo para o grupo.
+        success: Solicitação de junção criada com êxito. Um administrador irá rever o seu pedido antes de aceitá-lo para o grupo.
       leave:
         error: Houve um problema ao sair do grupo
-        success: Grupo saiu com sucesso.
+        success: Saiu do grupo com sucesso.
       members:
-        accept_or_reject_join_requests: 'Os seguintes usuários se inscreveram para participar desse grupo. Aceite ou rejeite seus pedidos:'
+        accept_or_reject_join_requests: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
         accept_request: Aceitar
         reject_request: Rejeitar
       new:
-        create_user_group: Criar grupo
+        create_user_group: Criar Grupo
         new_user_group: Novo grupo
       no_user_groups: Não pertence a nenhum grupo ainda.
       roles:
         admin: Administrador
-        creator: O Criador
+        creator: Autor
         member: Membro
       update:
         error: Houve um problema ao atualizar o grupo
@@ -567,7 +567,7 @@ pt-BR:
         visit_your_profile: Visite seu perfil
     last_activities:
       activities:
-        no_activities_warning: Nenhuma atividade
+        no_activities_warning: Sem atividades
       all: Todos os tipos de atividade
       index:
         last_activity: Última atividade
