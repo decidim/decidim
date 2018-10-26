@@ -365,13 +365,13 @@ sv:
           email_subject: Du har blivit accepterad till gruppen %{user_group_name}!
           notification_title: Du har blivit accepterad till gruppen <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Någon bad om att gå med i %{user_group_name} gruppen. Du kan acceptera eller avvisa det från <a href="%{resource_url}">gruppmedlemmarna sidan</a>.
-          email_outro: Du har fått den här meddelandet eftersom du kan hantera %{user_group_name} gruppen.
-          email_subject: Någon bad om att gå med i %{user_group_name} gruppen!
-          notification_title: Någon bad om att gå med i %{user_group_name} gruppen. Du kan acceptera eller avvisa det från <a href="%{resource_path}">gruppmedlemmarna sidan</a>.
+          email_intro: Någon bad om att få gå med i gruppen %{user_group_name}. Du kan acceptera eller avvisa det från <a href="%{resource_url}">sidan gruppmedlemmar</a>.
+          email_outro: Du har fått den här notisen eftersom du kan hantera gruppen %{user_group_name}.
+          email_subject: Någon bad om att få gå med i gruppen %{user_group_name}!
+          notification_title: Någon bad om att få gå med i gruppen %{user_group_name}. Du kan acceptera eller avvisa det från <a href="%{resource_path}">sidan gruppmedlemmar</a>.
         join_request_rejected:
-          email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> avvisade din begäran om att bli medlem.
-          email_outro: Du har fått den här meddelandet eftersom din anmälningsförfrågan har uppdaterats.
+          email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> avvisade din förfrågan om att gå med i den.
+          email_outro: Du har fått den här notisen eftersom din förfrågan att gå med har uppdaterats.
           email_subject: Din förfrågan om att gå med i %{user_group_name} gruppen har avslagits!
           notification_title: Din förfrågan om att gå med i gruppen <a href="%{resource_path}">%{user_group_name}</a> har avvisats.
         promoted_to_admin:
