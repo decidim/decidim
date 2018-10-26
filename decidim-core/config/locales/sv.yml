@@ -372,16 +372,16 @@ sv:
         join_request_rejected:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> avvisade din förfrågan om att gå med i den.
           email_outro: Du har fått den här notisen eftersom din förfrågan att gå med har uppdaterats.
-          email_subject: Din förfrågan om att gå med i %{user_group_name} gruppen har avslagits!
+          email_subject: Din förfrågan om att gå med i gruppen %{user_group_name} har avvisats!
           notification_title: Din förfrågan om att gå med i gruppen <a href="%{resource_path}">%{user_group_name}</a> har avvisats.
         promoted_to_admin:
           email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har gett dig administratörsrättigheter till den gruppen.
-          email_outro: Du har fått den här meddelandet eftersom du är medlem i den gruppen.
-          email_subject: Du är nu en administratör av %{user_group_name} gruppen!
-          notification_title: Du är nu en admin för <a href="%{resource_path}">%{user_group_name}</a> gruppen.
+          email_outro: Du har fått den här notisen eftersom du är medlem i den gruppen.
+          email_subject: Du är nu en administratör för gruppen %{user_group_name}!
+          notification_title: Du är nu en administratör för gruppen<a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
           email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dig från den.
-          email_outro: Du har fått den här meddelandet eftersom du var medlem i den gruppen.
+          email_outro: Du har fått den här notisen eftersom du var medlem i den gruppen.
           email_subject: Du har tagits bort från %{user_group_name} gruppen!
           notification_title: Du har tagits bort från <a href="%{resource_path}">%{user_group_name}</a> gruppen.
       notification_event:
