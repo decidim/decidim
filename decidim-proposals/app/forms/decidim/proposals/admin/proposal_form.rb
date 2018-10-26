@@ -25,6 +25,7 @@ module Decidim
         validates :address, geocoding: true, if: -> { current_component.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
+        validates :meeting_as_author, presence: true, if: ->(form) { form.created_in_meeting? }
 
         validate :scope_belongs_to_participatory_space_scope
 
@@ -68,7 +69,7 @@ module Decidim
                                &.order(title: :asc)
         end
 
-        # Return the meeting as autorh
+        # Return the meeting as author
         def meeting_as_author
           @meeting_as_author ||= meetings.find_by(id: meeting_id)
         end
