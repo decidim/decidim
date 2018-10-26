@@ -31,9 +31,7 @@ module Decidim
     def devise_mail(user, action, opts = {}, &block)
       with_user(user) do
         @organization = user.organization
-        unless opts[:from]
-          opts[:from] = Decidim.config.mailer_sender
-        end
+        opts[:from] = Decidim.config.mailer_sender unless opts[:from]
         super
       end
     end
