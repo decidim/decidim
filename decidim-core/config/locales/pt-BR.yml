@@ -441,7 +441,7 @@ pt-BR:
           conditions:
             - Vem aqui com frequência
           description: Esse selo é concedido quando você visita a plataforma regularmente. Nós gostamos de ter você por aqui!
-          description_another: Este usuário conectou por %{score} dias consecutivos em algum momento.
+          description_another: Este usuário se conectou por %{score} dias consecutivos em algum momento.
           description_own: Você se conectou por %{score} dias consecutivos em algum momento.
           name: Continuidade
           next_level_in: Ligue por %{score} dias consecutivos para chegar ao próximo nível!
