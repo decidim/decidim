@@ -2,7 +2,8 @@
   @include breakpoint(smallmedium down){
     font-size: $global-font-size;
   }
-  hyphens: auto;
+
+  word-break: break-word;
 }
 
 .budget-list__data{
