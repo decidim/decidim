@@ -719,7 +719,7 @@ en:
           register: Register
       index:
         read_more: Read more
-        standalone_pages: Standalone pages
+        standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
         title: Help
         topics: Topics
