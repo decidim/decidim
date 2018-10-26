@@ -19,14 +19,11 @@ module Decidim
     end
 
     def show
-      @page = current_organization.static_pages.find_by(slug: params[:id])
+      @page = current_organization.static_pages.find_by!(slug: params[:id])
+      enforce_permission_to :read, :public_page, page: @page
       @topic = @page.topic
       @pages = @topic&.pages
-      enforce_permission_to :read, :public_page, page: @page
-      raise ActionController::RoutingError, "Not Found" unless @page
     end
-
-    def page; end
 
     private
 
