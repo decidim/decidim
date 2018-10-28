@@ -5,6 +5,15 @@
   description: translated_attribute(post.body),
   url: post_url(post.id)
 }) %>
+
+<%
+  edit_link(
+    resource_locator(post).edit,
+    :update,
+    :blogpost,
+    blogpost: post
+  )
+%>
 <div class="row">
   <div class="columns medium-7 mediumlarge-8">
     <div class="row column view-header">
@@ -16,7 +25,7 @@
     </div>
   </div>
   <div id="most-commented" class="columns medium-5 mediumlarge-4 large-4">
-    <%= render partial: "sidebar_blog", locals: {posts: posts_most_commented} %>
+    <%= render partial: "sidebar_blog", locals: { posts: posts_most_commented } %>
   </div>
 </div>
 

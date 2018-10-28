@@ -125,6 +125,15 @@ hr{
   }
 }
 
+// text status-color
+$map: map-merge($foundation-palette, (muted: $muted));
+
+@each $key, $value in $map{
+  .text-#{$key}{
+    color: $value;
+  }
+}
+
 .text-large{
   font-size: 130%;
 }

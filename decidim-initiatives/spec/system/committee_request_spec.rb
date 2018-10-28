@@ -28,7 +28,7 @@ describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
         login_as user, scope: :user
 
         visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
-        expect(page).to have_content("You are about to request being membership of the promoter committee of this initiative")
+        expect(page).to have_content("You are about to request becoming a member of the promoter committee of this initiative")
       end
     end
 

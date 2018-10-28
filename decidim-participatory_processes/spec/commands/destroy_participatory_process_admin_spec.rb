@@ -20,7 +20,7 @@ module Decidim::ParticipatoryProcesses
         }
       end
 
-      it "destroys the user role" do
+      it "deletes the user role" do
         subject.call
         expect { role.reload }.to raise_error(ActiveRecord::RecordNotFound)
       end

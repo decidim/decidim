@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -30,11 +29,12 @@ ca:
         instagram: Instagram
         internal_organisation: Organització interna
         is_transparent: És transparent
-        local_area: Àrea municipal
+        local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
+        parent_id: Assemblea principal
         participatory_processes_ids: Processos participatius relacionats
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        participatory_scope: El que es decideix
+        participatory_structure: Com es decideix
         private_space: Espai privat
         promoted: Destacat
         published_at: Publicat el
@@ -46,7 +46,7 @@ ca:
         slug: Nom curt d'URL
         special_features: Característiques especials
         subtitle: Subtítol
-        target: A qui va dirigit?
+        target: Qui participa
         title: Títol
         twitter: Twitter
         youtube: YouTube
@@ -77,14 +77,13 @@ ca:
   decidim:
     admin:
       actions:
-        assembly:
-          new: Nou muntatge
+        new_assembly: Nova assemblea
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
           success: Assemblea creada correctament.
         destroy:
-          success: L'assemblea s'ha eliminat amb èxit.
+          success: L'assemblea s'ha eliminat correctament.
         edit:
           update: Actualitzar
         form:
@@ -114,7 +113,7 @@ ca:
           error: S'ha produït un error en afegir un membre per a aquest assemblea.
           success: Membre creat amb èxit per a aquesta assemblea.
         destroy:
-          success: Membre destruït amb èxit per a aquesta assemblea.
+          success: Membre eliminat amb èxit per a aquesta assemblea.
         edit:
           title: Actualitza el membre de l'assemblea.
           update: Actualitza
@@ -136,9 +135,9 @@ ca:
       assembly_user_roles:
         create:
           error: S'ha produït un error en afegir un usuari per a aquesta assamblea.
-          success: L'usuari s'ha creat correctament per a aquesta assemblea.
+          success: L'usuari s'ha afegit correctament a aquesta assemblea.
         destroy:
-          success: S'ha destruït l'usuari amb èxit per a aquesta assemblea.
+          success: L'usuari s'ha eliminat d'aquesta assemblea correctament.
         edit:
           title: Actualitza l'usuari de l'assemblea.
           update: Actualitza
@@ -155,7 +154,7 @@ ca:
         assemblies_submenu:
           assembly_admins: Usuaris de l'assemblea
           assembly_members: Membres
-          attachment_collections: Col·leccions
+          attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
@@ -171,6 +170,7 @@ ca:
             promoted: Destacat
             published: Publicat
             title: Títol
+          name: Assemblea
         assembly_member:
           fields:
             ceased_date: Data de cessament
@@ -218,6 +218,7 @@ ca:
             select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
             select_an_assembly_type: Seleccioneu un tipus d'assemblea
+            select_parent_assembly: Seleccioneu una assemblea principal
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -237,6 +238,9 @@ ca:
               not_ceased: No cessat
             filter_by: Filtra per
             search: Cerca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantitat màxima d'elements que es mostraran
       assembly_members:
         index:
           members: Membres
@@ -248,12 +252,17 @@ ca:
         others: Altres
         participatory: Participativa
         working_group: Grup de treball
+      content_blocks:
+        highlighted_assemblies:
+          name: Asemblees destacades
       created_by:
         city_council: Ajuntament
         others: Altres
         public: Públic
       index:
         title: Assemblees
+      last_activity:
+        new_assembly: Nou muntatge
       pages:
         home:
           highlighted_assemblies:
@@ -278,9 +287,9 @@ ca:
         is_transparent:
           'false': opaca
           'true': transparent
-        local_area: Àrea municipal
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        local_area: Àrea d'organització
+        participatory_scope: El que es decideix
+        participatory_structure: Com es decideix
         private_space: Aquesta és una assemblea privada
         purpose_of_action: Propòsit de l'acció
         read_less: Llegir menys
@@ -288,7 +297,7 @@ ca:
         related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         social_networks: Xarxes socials
-        target: A qui va dirigit
+        target: Qui participa
       statistics:
         answers_count: Respostes
         assemblies_count: Assemblees
@@ -325,7 +334,9 @@ ca:
         assembly:
           take_part: Participa
         index:
+          organizational_chart: Organigrama
           promoted_assemblies: Assemblees destacades
+          reset_chart: Restablir
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblea"

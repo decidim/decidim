@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -6,12 +5,12 @@ ca:
         banner_image: Imatge del bàner
         decidim_highlighted_scope_id: Abast destacat
         description: Descripció
-        end_voting_date: Data de finalització
+        end_voting_date: La votació finalitza
         introductory_image: Imatge introductòria
         introductory_video_url: URL de vídeo introductori
         questions: Preguntes
         slug: Nom curt d'URL
-        start_voting_date: Data d'inici
+        start_voting_date: Comença la votació
         subtitle: Subtítol
         title: Títol
       question:
@@ -54,8 +53,9 @@ ca:
   decidim:
     admin:
       actions:
-        consultation:
-          new: Nova consulta
+        new_consultation: Nova consulta
+        new_question: Nova pregunta
+        new_response: Nova resposta
         publish_results: Publica els resultats
         unpublish_results: Despublicar resultats
       consultation_publications:
@@ -77,7 +77,7 @@ ca:
           error: S'ha produït un error en crear una nova consulta.
           success: S'ha creat la consulta amb èxit.
         destroy:
-          success: S'ha destruït la consulta amb èxit.
+          success: S'ha eliminat la consulta amb èxit.
         edit:
           update: Actualització
         form:
@@ -108,6 +108,9 @@ ca:
             created_at: Creat el
             published: Publicat
             title: Títol
+          name:
+            one: Consulta
+            other: Consultes
         question:
           fields:
             created_at: Creat el
@@ -135,7 +138,7 @@ ca:
           error: S'ha produït un error en crear una pregunta nova.
           success: S'ha creat una pregunta correctament.
         destroy:
-          success: S'ha destruït la pregunta amb èxit.
+          success: S'ha eliminat la pregunta correctament.
         edit:
           update: Actualitzar
         form:
@@ -155,7 +158,7 @@ ca:
           success: La resposta s'ha creat correctament.
         destroy:
           error: S'ha produït un error en eliminar la resposta.
-          success: La resposta s'ha destruït amb èxit.
+          success: La resposta s'ha eliminat correctament.
         edit:
           update: Actualitza
         form:
@@ -171,8 +174,12 @@ ca:
         questions: Preguntes
         responses: Respostes
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantitat màxima d'elements que es mostraran
       consultation:
-        start_voting_date: Votant des de
+        start_voting_date: Comença la votació
         view_results: Veure resultats
       consultation_card:
         view_results: Veure resultats
@@ -181,6 +188,9 @@ ca:
           label: 'Ordena les consultes per:'
           random: Aleatori
           recent: Més recent
+      content_blocks:
+        highlighted_consultations:
+          name: Consultes destacades
       count:
         title:
           one: "%{count} consulta"
@@ -201,6 +211,18 @@ ca:
         title: Preguntes de %{scope_name}
       index:
         title: Consultes
+      last_activity:
+        new_consultation: Nova consulta
+        new_question_at_html: "<span>Nova pregunta a %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultes actives
+            see_all_consultations: Veure totes les consultes
+            voting_ends_in:
+              one: La votació finalitza el <strong>demà</strong>
+              other: La votació finalitza en <strong>%{count} dies</strong>
+            voting_ends_today: La votació acaba <strong>avui</strong>
       question:
         take_part: Participar
         view_results: Veure resultats
@@ -239,7 +261,7 @@ ca:
         assistants_count_title: Assistents
         comments_count_title: Comentaris
         meetings_count_title: Reunions
-        supports_count_title: Adhesions
+        supports_count_title: Suports
       technical_info:
         technical_data: Dades tècniques
       vote_button:
@@ -262,7 +284,7 @@ ca:
           attachments: Fitxers adjunts
           categories: Categories
       consultation_voting_data:
-        start_voting_date: Votació des de
+        start_voting_date: Comença la votació
       question_components:
         question_menu_item: La pregunta
         unfold: Desplegar

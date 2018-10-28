@@ -3,7 +3,6 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
-
 # Decidim configuration.
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
@@ -18,6 +17,7 @@ module Decidim
   autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
+  autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
   autoload :Scopable, "decidim/scopable"
@@ -36,7 +36,6 @@ module Decidim
   autoload :FriendlyDates, "decidim/friendly_dates"
   autoload :Nicknamizable, "decidim/nicknamizable"
   autoload :HasReference, "decidim/has_reference"
-  autoload :HasClassExtends, "decidim/has_class_extends"
   autoload :Attributes, "decidim/attributes"
   autoload :StatsRegistry, "decidim/stats_registry"
   autoload :Exporters, "decidim/exporters"
@@ -49,6 +48,10 @@ module Decidim
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
+  autoload :ContentBlockRegistry, "decidim/content_block_registry"
+  autoload :ContentBlockManifest, "decidim/content_block_manifest"
+  autoload :MetricRegistry, "decidim/metric_registry"
+  autoload :MetricManifest, "decidim/metric_manifest"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :Searchable, "decidim/searchable"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
@@ -58,9 +61,14 @@ module Decidim
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
-
+  autoload :DataPortability, "decidim/data_portability"
+  autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
+  autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
+  autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
+  autoload :Gamification, "decidim/gamification"
+  autoload :Hashtag, "decidim/hashtag"
+  autoload :Hashtaggable, "decidim/hashtaggable"
   include ActiveSupport::Configurable
-
   # Loads seeds from all engines.
   def self.seed!
     # Faker needs to have the `:en` locale in order to work properly, so we
@@ -74,7 +82,17 @@ module Decidim
       railtie.load_seed
     end
 
-    Decidim.participatory_space_manifests.each(&:seed!)
+    participatory_space_manifests.each(&:seed!)
+    Gamification.badges.each do |badge|
+      puts "Setting random values for the \"#{badge.name}\" badge..."
+      User.all.find_each do |user|
+        Gamification::BadgeScore.find_or_create_by!(
+          user: user,
+          badge_name: badge.name,
+          value: Random.rand(0...20)
+        )
+      end
+    end
 
     I18n.available_locales = original_locale
   end
@@ -88,7 +106,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es es-PY eu fi fr gl hu it nl pt pt-BR ru sv uk)
+    %w(en ca de es es-PY eu fi fr gl hu it nl pt pt-BR ru sv uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -147,29 +165,19 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the first_login_authorization boolean
-  config_accessor :skip_first_login_authorization do
-    false
-  end
-
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
     "€"
   end
 
-  # Exposes a configuration option: The maximum file size of an attachment (client side).
+  # Exposes a configuration option: The image uploader quality.
+  config_accessor :image_uploader_quality do
+    80
+  end
+
+  # Exposes a configuration option: The maximum file size of an attachment.
   config_accessor :maximum_attachment_size do
     10.megabytes
-  end
-
-  # Exposes a configuration option: The maximum file size of an attachment (admin side).
-  config_accessor :maximum_attachment_admin_size do
-    25.megabytes
-  end
-
-  # Exposes a configuration option: The maximum height or width of an attachment.
-  config_accessor :maximum_attachment_height_or_width do
-    3840
   end
 
   # Exposes a configuration option: The maximum file size for user avatar images.
@@ -192,6 +200,11 @@ module Decidim
     true
   end
 
+  # Time that data portability files are available in server
+  config_accessor :data_portability_expiry_time do
+    7.days
+  end
+
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
   config_accessor :throttling_max_requests do
     100
@@ -200,6 +213,11 @@ module Decidim
   # Time window in which the throttling is applied.
   config_accessor :throttling_period do
     1.minute
+  end
+
+  # Time window were users can access the website even if their email is not confirmed.
+  config_accessor :unconfirmed_access_for do
+    2.days
   end
 
   # A base path for the uploads. If set, make sure it ends in a slash.
@@ -218,7 +236,7 @@ module Decidim
   #
   # Returns nothing.
   def self.register_global_engine(name, engine, options = {})
-    return if global_engines.keys.include?(name)
+    return if global_engines.has_key?(name)
 
     options[:at] ||= "/#{name}"
 
@@ -360,8 +378,18 @@ module Decidim
     @view_hooks ||= ViewHooks.new
   end
 
+  # Public: Stores an instance of ContentBlockRegistry
+  def self.content_blocks
+    @content_blocks ||= ContentBlockRegistry.new
+  end
+
   # Public: Stores an instance of Traceability
   def self.traceability
     @traceability ||= Traceability.new
+  end
+
+  # Public: Stores an instance of ContentBlockRegistry
+  def self.metrics_registry
+    @metrics_registry ||= MetricRegistry.new
   end
 end

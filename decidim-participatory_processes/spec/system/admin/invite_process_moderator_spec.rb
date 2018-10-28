@@ -36,7 +36,7 @@ describe "Invite process moderator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "Moderations"
+        expect(page.text).to eq "View public page\nModerations"
       end
     end
   end
@@ -66,7 +66,7 @@ describe "Invite process moderator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "Moderations"
+        expect(page.text).to eq "View public page\nModerations"
       end
     end
   end

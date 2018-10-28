@@ -10,3 +10,7 @@ module AttachmentHelpers
     ActiveSupport::NumberHelper.number_to_human_size(attachment.file_size)
   end
 end
+
+RSpec.configure do |config|
+  config.include AttachmentHelpers
+end

@@ -20,6 +20,7 @@ hu:
         end_time: Záró időpont
         location: Helye
         location_hints: Tippek a helyre
+        organizer_id: Szervező
         private_meeting: Privát találkozó
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Regisztráció engedélyezve
@@ -38,6 +39,10 @@ hu:
             base:
               too_many_minutes: A tételek időtartama meghaladja az ülés időtartamát (%{count} perc)
               too_many_minutes_child: Az altételek időtartama meghaladja a "%{parent_title}" napirendi pont időtartamát (%{count} perc)
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Ezt az email címet már meghívták
     models:
       decidim/meetings/close_meeting_event: Találkozó lezárva
       decidim/meetings/create_meeting_event: Találkozó
@@ -76,6 +81,7 @@ hu:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
             default_registration_terms: Alapértelmezett regisztrációs feltételek
+            resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
@@ -101,6 +107,11 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A "%{resource_title}" találkozót frissítettük
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozót frissítettük.
+        registration_code_validated:
+          email_intro: A(z) "%{registration_code}" regisztrációs kód hitelesítése kész.
+          email_outro: Ezt az értesítést azért kaptad, mert a(z) "%{resource_title}" találkozó regisztrációs kódjának érvényesítése elkészült.
+          email_subject: A(z) "%{registration_code}" regisztrációs kódod hitelesítése kész
+          notification_title: A(z)z <a href="%{resource_path}">%{resource_title}</a> találkozó "%{registration_code}" regisztrációs kódjának érvényesítése kész.
         registrations_enabled:
           email_intro: 'A(z) "%{resource_title}" találkozóra mostantól regisztrálhatsz. Tedd meg bármikor ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
@@ -111,17 +122,29 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Regisztráljon a résztvevő találkozókon
+          description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
+          description_another: Ez a felhasználó %{score} találkozón vett részt.
+          description_own: '%{score} találkozóra vett részt.'
+          name: Részt vett az üléseken
+          next_level_in: Vegyen részt %{score} további ülések, hogy elérjük a következő szintre!
+          unearned_another: Ez a felhasználó még nem vett részt semmilyen találkozón.
+          unearned_own: Még nem vettél részt semmilyen találkozón.
     meetings:
       actions:
         agenda: Napirend
-        attachment_collections: Gyűjtemények
+        attachment_collections: Mappák
         attachments: Mellékletek
         close: Bezárás
         confirm_destroy: Biztosan törölni szeretnéd ezt a találkozót?
         destroy: Törlés
         edit: Szerkesztés
         minutes: Jegyzőkönyvek
-        new: Új
+        new: Új találkozó
         preview: Előnézet
         registrations: Regisztrációk
         title: Műveletek
@@ -160,16 +183,31 @@ hu:
           registrations: Regisztrációk
         invite_join_meeting_mailer:
           invite:
+            decline: Meghívó visszautasítása
             invited_you_to_join_a_meeting: "%{invited_by} meghívott, hogy csatlakozz ehhez a találkozóhoz: %{application}. Jelezz vissza az alábbi linken."
             join: 'Csatlakozz ehhez: "%{meeting_title}"'
         invites:
           create:
             error: Probléma merült fel a felhasználó találkozóra törénő meghívásakor.
             success: Felhasználó meghívása a találkozóra sikeres.
-          new:
-            explanation: A felhasználó meghívást kap egy találkozóra. Ha nincs regisztrált email címe, akkor a szervezet is kap meghívót.
+          form:
+            attendee_type: Résztvevő típusa
+            existing_user: Létező felhasználó
             invite: Meghívás
-            new_invite: Felhasználó meghívása
+            invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezethet csatlakozásra.
+            non_user: Nem létező felhasználó
+            select_user: Felhasználó kiválasztása
+          index:
+            filter:
+              accepted: Elfogadva
+              all: Összes
+              rejected: Elutasítva
+              sent: Elküldve
+            filter_by: 'Szűrés ez alapján:'
+            invite_attendee: Résztvevő meghívása
+            invites: Meghívottak
+            registrations_disabled: Nem hívhatsz meg résztvevőt, mert a regisztráció le van tiltva.
+            search: Keresés
         meeting_closes:
           edit:
             close: Bezárás
@@ -226,9 +264,11 @@ hu:
         registrations:
           edit:
             save: Mentés
+            validate: Érvényesítés
+            validate_registration_code: Érvényesítsd a regisztrációs kódot
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
-            invite_user: Felhasználó meghívása
+            invites: Meghívottak
             registrations_count:
               one: 1 regisztráció.
               other: '%{count} regisztráció.'
@@ -237,7 +277,14 @@ hu:
           update:
             invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.
+          validate_registration_code:
+            invalid: Érvénytelen a regisztrációs kód.
+            success: Regisztrációs kód érvényesítése sikeres.
       admin_log:
+        invite:
+          create: "%{user_name} meghívta őt: %{attendee_name}, hogy csatlakozzon ehhez: %{resource_name}, itt: %{space_name}"
+          deleted: "%{user_name} visszavonta %{attendee_name} meghívását ehhez: %{resource_name}, itt: %{space_name}"
+          update: "%{user_name} meghívta őt: %{attendee_name}, hogy csatlakozzon ehhez: %{resource_name}, itt: %{space_name}"
         meeting:
           close: "%{user_name} lezárta a(z) %{resource_name} találkozót itt: %{space_name}"
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozót itt: %{space_name}"
@@ -250,6 +297,24 @@ hu:
         minutes:
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
+      conference_venues: Konferencia helyszínek
+      content_blocks:
+        upcoming_events:
+          name: Közelgő események
+          upcoming_events: Közelgő találkozók
+          view_all_events: Összes megtekintése
+      directory:
+        meetings:
+          index:
+            all: Minden
+            date: Dátum
+            meetings: találkozók
+            past: Múlt
+            search: Keresés
+            space_type: Részvételi hely
+            upcoming: közelgő
+      last_activity:
+        new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -272,8 +337,6 @@ hu:
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
-        index:
-          view_meeting: Találkozó megtekintése
         meeting_minutes:
           meeting_minutes: Találkozó jegyzőkönyve
           related_information: Kapcsolódó információ
@@ -296,6 +359,16 @@ hu:
             other: "%{count} hely maradt"
           view: Nézet
       models:
+        invite:
+          fields:
+            email: Email
+            name: Név
+            sent_at: 'Elküldve:'
+            status: Állapot
+          status:
+            accepted: Elfogadva (%{at})
+            rejected: Elutasítva (%{at})
+            sent: Elküldve
         meeting:
           fields:
             closed: Lezárt
@@ -308,10 +381,14 @@ hu:
         confirmation:
           confirmed_html: Regisztrációd a(z) <a href="%{url}">%{title}</a> találkozóra megerősítve.
           details: A találkozó részletei megtalálhatók a mellékletben.
+          registration_code: 'Regisztrációs kódod: %{code}.'
       registrations:
         create:
           invalid: Probléma történt a találkozóhoz való csatlakozáskor.
           success: Sikeresen csatlakoztál a találkozóhoz.
+        decline_invitation:
+          invalid: Hiba történt a meghívás visszautasítása során.
+          success: Meghívás elutasítása sikeres.
         destroy:
           invalid: Probléma történt a találkozó elhagyása közben.
           success: Sikeresen elhagytad a találkozót.

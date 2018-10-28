@@ -1,0 +1,30 @@
+<% 12.times do %>
+  <div class="card card--widget">
+    <ul class="card-data">
+      <li class="card-data__item">
+        <div class="card__link text-center">
+          <%= link_to page_path("user-profile"), class: "user-header__avatar" do %>
+            <%= image_tag "demo-avatar.jpg" %>
+          <% end %>
+          <span class="text-medium mt-xs"><%= Faker::Date.forward(365).strftime("%a %e") %></span>
+        </div>
+      </li>
+      <li class="card-data__item card-data__item--expand absolutes">
+        <div class="mr-s">
+          De: <strong><%= Faker::Name.name %><span class="muted">&nbsp;@<%= Faker::Twitter.screen_name %></span></strong>
+          <br />
+          <span class="muted"><%= Faker::FamilyGuy.quote %></span>
+          <br />
+          <span class="text-small">Último mensaje: <strong>hace <%= Faker::Number.between(1, 59) %> minutos</strong></span>
+        </div>
+        <div class="right center mr-s">
+          <a href="#conversation" class="user-header__avatar" data-tabs-target="conversation">
+            <%= icon "chevron-right", class: "card__link icon--big" %>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+<% end %>
+
+<%= partial "pagination" %>

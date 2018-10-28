@@ -10,7 +10,7 @@ hu:
         organization: Szervezet
         plural: Plurális
       attachment:
-        attachment_collection_id: Gyűjtemény
+        attachment_collection_id: Mappa
         description: Leírás
         file: Fájl
         title: Cím
@@ -36,6 +36,7 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
       organization:
+        badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
         default_locale: Alapértelmezett hely
@@ -52,7 +53,6 @@ hu:
         highlighted_content_banner_image: Kép
         highlighted_content_banner_short_description: Rövid leírás
         highlighted_content_banner_title: Cím
-        homepage_image: Kezdőlap kép
         instagram_handler: Instagram handler
         logo: Logó
         name: Név
@@ -66,13 +66,12 @@ hu:
         show_statistics: Statisztikák megjelenítése
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
-        welcome_text: Üdvözlő szöveg
         youtube_handler: YouTube handler
       scope:
         code: Kód
         name: Név
         organization: Szervezet
-        parent_id: Parent
+        parent_id: Szülő
         scope_type: Hatáskör típusa
         scope_type_id: Hatáskör típusa
       scope_type:
@@ -93,34 +92,6 @@ hu:
               must_be_ssl: Az átirányítási URI-nak SSL URI-nak kell lennie
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Banner kép
-        description: Leírás
-        developer_group: Fejlesztői csoport
-        domain: Domain
-        end_date: Befejezés dátuma
-        hashtag: Kettőskereszt
-        hero_image: Kezdő kép
-        local_area: Helyi szint
-        meta_scope: Metaadatok hatásköre
-        participatory_scope: Részvétel hatásköre
-        participatory_structure: Részvételi struktúra
-        promoted: Támogatott
-        scope: Hatáskör
-        short_description: Rövid leírás
-        slug: URL slug
-        start_date: Kezdő dátum
-        subtitle: Felirat
-        target: Cél
-        title: Cím
-      decidim/participatory_process_group:
-        description: Leírás
-        hero_image: Kezdőlap kép
-        name: Név
-        participatory_processes: Részvételi folyamatok
-      decidim/participatory_process_step:
-        end_date: Befejezés dátuma
-        start_date: Kezdő dátum
       decidim/static_page:
         content: Tartalom
         slug: URL slug
@@ -133,9 +104,6 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
         site: Weboldal
-  date:
-    formats:
-      datepicker: "%hó/%nap/%év"
   decidim:
     admin:
       actions:
@@ -143,6 +111,7 @@ hu:
         browse: Böngészés
         export: Exportálás
         manage: Kezelés
+        new: Új %{name}
         permissions: Engedélyek
         reject: Elutasít
         verify: Ellenőrzés
@@ -179,22 +148,22 @@ hu:
           success: Terület frissítése sikeres
       attachment_collections:
         create:
-          error: Hiba történt egy új gyűjtemény létrehozásakor.
-          success: Gyűjtemény létrehozva.
+          error: Hiba történt az új mappa létrehozása során.
+          success: Mappa létrehozása sikeres.
         destroy:
-          success: Gyűjtemény törölve.
+          success: Mappa eltávolítása sikeres.
         edit:
-          title: Gyűjtemény szerkesztése
+          title: Mappa szerkesztése
           update: Frissítés
         index:
-          attachment_collection_used: A gyűjtemény nem távolítható el, mert épp használatban van.
-          attachment_collections_title: Melléklet gyűjtemények
+          attachment_collection_used: A mappát nem lehet eltávolítani, mert használatban van.
+          attachment_collections_title: Melléklet mappák
         new:
           create: Létrehozás
-          title: Új gyűjtemény
+          title: Új mappa
         update:
-          error: Hiba történt a gyűjtemény frissítése során.
-          success: A gyűjtemény frissítése sikeres.
+          error: Hiba történt a mappa frissítése során.
+          success: Mappa frissítése sikeres.
       attachments:
         create:
           error: Hiba történt az új melléklet létrehozása során.
@@ -332,6 +301,7 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
+        homepage: Homepage
         impersonations: Felhatalmazások
         newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
@@ -353,13 +323,13 @@ hu:
             plural: Plurális
         attachment:
           fields:
-            collection: Gyűjtemény
+            collection: Mappa
             content_type: Típus
             file_size: Méret
             title: Cím
           name: Melléklet
         attachment_collection:
-          name: Gyűjtemény
+          name: Mappa
         category:
           name: Kategória
         impersonation_log:
@@ -524,7 +494,14 @@ hu:
           homepage_appearance_title: Honlap megjelenésének szerkesztése
           homepage_highlighted_content_banner_title: Kiemelt banner
           layout_appearance_title: Elrendezés szerkesztése
-          omnipresent_banner_appearance_title: Minden helyen megjelenő szerkesztés
+          omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktív tartalomblokkok
+          inactive_content_blocks: Inaktív tartalomblokkok
+      organization_homepage_content_blocks:
+        edit:
+          update: Frissítés
       participatory_space_private_users:
         create:
           error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
@@ -635,6 +612,7 @@ hu:
         new:
           create: Meghívás
           title: Felhasználó meghívása rendszergazdaként
+      view_public_page: Nyilvános oldal megtekintése
     forms:
       errors:
         impersonate_user:
@@ -675,7 +653,3 @@ hu:
           title: Beállítások
         users:
           title: Felhasználók
-  time:
-    formats:
-      datepicker: "%hó/%nap/%év"
-      timepicker: "%hó/%nap/%év %óra:%perc"

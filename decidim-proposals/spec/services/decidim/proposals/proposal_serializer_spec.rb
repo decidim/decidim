@@ -49,8 +49,8 @@ module Decidim
           expect(serialized).to include(body: proposal.body)
         end
 
-        it "serializes the amount of votes" do
-          expect(serialized).to include(votes: proposal.proposal_votes_count)
+        it "serializes the amount of supports" do
+          expect(serialized).to include(supports: proposal.proposal_votes_count)
         end
 
         it "serializes the amount of comments" do
@@ -58,7 +58,7 @@ module Decidim
         end
 
         it "serializes the date of creation" do
-          expect(serialized).to include(created_at: proposal.created_at)
+          expect(serialized).to include(published_at: proposal.published_at)
         end
 
         it "serializes the url" do

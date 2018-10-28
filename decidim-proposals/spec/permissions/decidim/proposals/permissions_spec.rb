@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Proposals::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { proposal.author }
+  let(:user) { proposal.creator_author }
   let(:context) do
     {
       current_component: proposal_component,

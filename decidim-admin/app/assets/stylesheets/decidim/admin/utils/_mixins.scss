@@ -36,6 +36,7 @@ $palette: $foundation-palette;
 }
 
 // helpers
+$margin-xs: .5rem;
 $margin-s: 1rem;
 $margin-sm: 2rem;
 $margin-m: 3rem;
@@ -43,6 +44,7 @@ $margin-l: 5rem;
 
 $size:(
   none: 0,
+  xs: $margin-xs,
   s: $margin-s,
   sm: $margin-sm,
   m: $margin-m,
@@ -65,12 +67,12 @@ $side:(
   @each $p-key, $prop in $property{
     @each $v-key, $value in $size{
       .#{$p-key}-#{$v-key}{
-        #{$prop}: #{$value};
+        #{$prop}: #{$value} !important;
       }
 
       @each $s-key, $side in $side{
         .#{$p-key}#{$s-key}-#{$v-key}{
-          #{$prop}-#{$side}: #{$value};
+          #{$prop}-#{$side}: #{$value} !important;
         }
       }
     }

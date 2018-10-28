@@ -32,21 +32,26 @@ module Decidim
         attr_reader :result
 
         def create_result
+          params = {
+            component: @form.current_component,
+            scope: @form.scope,
+            category: @form.category,
+            parent_id: @form.parent_id,
+            title: @form.title,
+            description: @form.description,
+            start_date: @form.start_date,
+            end_date: @form.end_date,
+            progress: @form.progress,
+            decidim_accountability_status_id: @form.decidim_accountability_status_id,
+            external_id: @form.external_id.presence,
+            weight: @form.weight
+          }
+
           @result = Decidim.traceability.create!(
             Result,
             @form.current_user,
-            component:                        @form.current_component,
-            scope:                            @form.scope,
-            category:                         @form.category,
-            parent_id:                        @form.parent_id,
-            title:                            @form.title,
-            description:                      @form.description,
-            start_date:                       @form.start_date,
-            end_date:                         @form.end_date,
-            progress:                         @form.progress,
-            decidim_accountability_status_id: @form.decidim_accountability_status_id,
-            external_id:                      @form.external_id.presence,
-            weight:                           @form.weight
+            params,
+            visibility: "all"
           )
         end
 
@@ -81,13 +86,14 @@ module Decidim
         end
 
         def notify_proposal_followers
-          proposals.includes(:author).each do |proposal|
+          proposals.each do |proposal|
+            authors_ids = proposal.authors.pluck(:id)
             Decidim::EventsManager.publish(
-              event:         "decidim.events.accountability.proposal_linked",
-              event_class:   Decidim::Accountability::ProposalLinkedEvent,
-              resource:      result,
-              recipient_ids: Array(proposal&.author&.id) + proposal.followers.pluck(:id),
-              extra:         {
+              event: "decidim.events.accountability.proposal_linked",
+              event_class: Decidim::Accountability::ProposalLinkedEvent,
+              resource: result,
+              recipient_ids: authors_ids + proposal.followers.pluck(:id),
+              extra: {
                 proposal_id: proposal.id
               }
             )

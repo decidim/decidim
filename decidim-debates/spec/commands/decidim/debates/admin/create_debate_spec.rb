@@ -54,7 +54,12 @@ describe Decidim::Debates::Admin::CreateDebate do
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:create!)
-        .with(Decidim::Debates::Debate, user, hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component))
+        .with(
+          Decidim::Debates::Debate,
+          user,
+          hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component),
+          visibility: "all"
+        )
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)

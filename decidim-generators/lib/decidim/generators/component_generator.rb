@@ -28,6 +28,7 @@ module Decidim
         template "decidim-component.gemspec.erb", "#{component_folder}/decidim-#{component_name}.gemspec"
         template "Gemfile.erb", "#{component_folder}/Gemfile" if options[:external]
         template "Rakefile", "#{component_folder}/Rakefile"
+        template "LICENSE-AGPLv3.txt", "#{component_folder}/LICENSE-AGPLv3.txt"
         template "README.md.erb", "#{component_folder}/README.md"
         template ".gitignore", "#{component_folder}/.gitignore"
         template ".circleci/config.yml", "#{component_folder}/.circleci/config.yml"

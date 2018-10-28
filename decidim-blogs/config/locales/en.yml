@@ -14,7 +14,7 @@ en:
         confirm_destroy: Are you sure you want to delete this post?
         destroy: Delete
         edit: Edit
-        new: New
+        new: New post
         title: Actions
       admin:
         models:
@@ -38,6 +38,8 @@ en:
           update:
             invalid: There's been errors when saving the post.
             success: Post saved successfully
+      last_activity:
+        new_post_at_html: "<span>New post at %{link}</span>"
       models:
         post:
           fields:
@@ -61,7 +63,7 @@ en:
             comments_enabled: Comments enabled
           step:
             announcement: Announcement
-            comments_blocked: Comments Blocked
+            comments_blocked: Comments blocked
     events:
       blogs:
         post_created:

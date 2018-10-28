@@ -1,7 +1,7 @@
 <% if has_link_to_resource? %>
   <div class="card__footer">
     <div class="card__support">
-      <% if actionable? %>
+      <% if has_actions? %>
         <% if !current_settings.votes_hidden? %>
           <%= cell(
             "decidim/progress_bar",

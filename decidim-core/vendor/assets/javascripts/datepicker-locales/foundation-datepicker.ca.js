@@ -11,7 +11,6 @@
 		monthsShort: ["Gen", "Feb", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Des"],
 		today: "Avui",
 		clear: "Esborrar",
-		weekStart: 1,
-		format: "dd/mm/yyyy"
+		weekStart: 1
 	};
 }(jQuery));

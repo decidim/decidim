@@ -7,6 +7,7 @@ module Decidim
       isolate_namespace Decidim::Surveys::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         post "/", to: "surveys#update", as: :survey

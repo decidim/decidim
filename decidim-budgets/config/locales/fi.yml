@@ -16,12 +16,13 @@ fi:
   decidim:
     budgets:
       actions:
-        attachment_collections: Kokoelmat
+        attachment_collections: Kansiot
         attachments: Liitteet
         confirm_destroy: Haluatko varmasti poistaa tämän suunnitelman?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi
+        import: Tuo ehdotuksia suunnitelmiin
+        new: Uusi suunnitelma
         preview: Esikatsele
         title: Toiminnot
       admin:
@@ -33,7 +34,7 @@ fi:
             invalid: Suunnitelman luonnissa tapahtui virhe
             success: Suunnitelma lisätty onnistuneesti
           destroy:
-            success: Projekti tuhottu onnistuneesti
+            success: Suunnitelma poistettu onnistuneesti
           edit:
             title: Muokkaa suunnitelmaa
             update: Päivitä
@@ -43,10 +44,18 @@ fi:
             title: Suunnitelmat
           new:
             create: Luo
-            title: Uusi tulos
+            title: Uusi suunnitelma
           update:
             invalid: Tämän suunnitelman päivityksessä tapahtui virhe
             success: Suunnitelma päivitetty onnistuneesti
+        proposals_imports:
+          create:
+            invalid: Ehdotusten tuomisessa suunnitelmiin esiintyi ongelmia
+            success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
+          new:
+            create: Tuo ehdotuksia suunnitelmiin
+            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
+            select_component: Valitse komponentti
       admin_log:
         project:
           create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
@@ -121,13 +130,14 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             projects_per_page: Suunnitelmat sivua kohden
+            resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle kokoukselle
             total_budget: Kokonaisbudjetti
             vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit on estetty
             show_votes: Näytä äänet
-            votes_enabled: Äänestys käytössä
+            votes_enabled: Äänestys on käytössä
     orders:
       checkout:
         error: Äänesi käsittelyssä tapahtui virhe
@@ -137,7 +147,7 @@ fi:
         success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:
-        project_proposal: 'Tähän projektiin liittyvät ehdotukset:'
+        project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
   index:
     confirmed_orders_count: Äänten määrä
   total_budget: Koko budjetti

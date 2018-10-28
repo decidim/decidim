@@ -21,6 +21,7 @@ module Decidim
           resource :registration, only: [:create, :destroy] do
             collection do
               get :create
+              get :decline_invitation
             end
           end
           resource :meeting_widget, only: :show, path: "embed"
@@ -61,7 +62,7 @@ module Decidim
           end
         end
 
-        Decidim.view_hooks.register(:assembly_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
+        Decidim.view_hooks.register(:current_participatory_space_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
           meetings = Decidim::Meetings::Meeting.where(component: published_components)
 
@@ -91,11 +92,35 @@ module Decidim
             }
           )
         end
+
+        Decidim.view_hooks.register(:conference_venues, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
+          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
+          meetings = Decidim::Meetings::Meeting.where(component: published_components).group_by(&:address)
+          meetings_geocoded = Decidim::Meetings::Meeting.where(component: published_components).geocoded
+          next unless meetings.any?
+
+          view_context.render(
+            partial: "decidim/participatory_spaces/conference_venues",
+            locals: {
+              meetings: meetings,
+              meetings_geocoded: meetings_geocoded
+            }
+          )
+        end
       end
 
       initializer "decidim_meetings.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/views") # for partials
+      end
+
+      initializer "decidim_meetings.attended_meetings_badge" do
+        Decidim::Gamification.register_badge(:attended_meetings) do |badge|
+          badge.levels = [1, 3, 5, 10, 30]
+          badge.reset = lambda do |user|
+            Decidim::Meetings::Registration.where(user: user).count
+          end
+        end
       end
     end
   end

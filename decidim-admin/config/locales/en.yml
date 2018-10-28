@@ -11,7 +11,7 @@ en:
         organization: Organization
         plural: Plural
       attachment:
-        attachment_collection_id: Collection
+        attachment_collection_id: Folder
         description: Description
         file: File
         title: Title
@@ -37,6 +37,7 @@ en:
         organization_url: Organization URL
         redirect_uri: Redirect URI
       organization:
+        badges_enabled: Enable badges
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         default_locale: Default locale
@@ -53,7 +54,6 @@ en:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Short description
         highlighted_content_banner_title: Title
-        homepage_image: Homepage image
         instagram_handler: Instagram handler
         logo: Logo
         name: Name
@@ -67,7 +67,6 @@ en:
         show_statistics: Show statistics
         tos_version: Terms of service version
         twitter_handler: Twitter handler
-        welcome_text: Welcome text
         youtube_handler: YouTube handler
       scope:
         code: Code
@@ -94,34 +93,6 @@ en:
               must_be_ssl: The redirect URI must be a SSL URI
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Banner image
-        description: Description
-        developer_group: Developer group
-        domain: Domain
-        end_date: End date
-        hashtag: Hashtag
-        hero_image: Home image
-        local_area: Local area
-        meta_scope: Scope metadata
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        promoted: Promoted
-        scope: Scope
-        short_description: Short description
-        slug: URL slug
-        start_date: Start date
-        subtitle: Subtitle
-        target: Target
-        title: Title
-      decidim/participatory_process_group:
-        description: Description
-        hero_image: Home image
-        name: Name
-        participatory_processes: Participatory processes
-      decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
       decidim/static_page:
         content: Content
         slug: URL slug
@@ -133,10 +104,7 @@ en:
         organization_name: Organization name
         organization_url: Organization URL
         redirect_uri: Redirect URI
-        site: Site
-  date:
-    formats:
-      datepicker: "%m/%d/%Y"
+        site: Website
   decidim:
     admin:
       actions:
@@ -144,6 +112,7 @@ en:
         browse: Browse
         export: Export
         manage: Manage
+        new: New %{name}
         permissions: Permissions
         reject: Reject
         verify: Verify
@@ -180,22 +149,22 @@ en:
           success: Area updated successfully
       attachment_collections:
         create:
-          error: There was an error creating a new collection.
-          success: Collection created successfully.
+          error: There was an error creating a new folder.
+          success: Folder created successfully.
         destroy:
-          success: Collection destroyed successfully.
+          success: Folder destroyed successfully.
         edit:
-          title: Edit collection
+          title: Edit folder
           update: Update
         index:
-          attachment_collection_used: This collection cannot be removed because it is in use.
-          attachment_collections_title: Attachment collections
+          attachment_collection_used: This folder cannot be removed because it is in use.
+          attachment_collections_title: Attachment folders
         new:
           create: Create
-          title: New collection
+          title: New folder
         update:
-          error: There was an error when updating this collection.
-          success: Collection updated successfully.
+          error: There was an error when updating this folder.
+          success: Folder updated successfully.
       attachments:
         create:
           error: There was an error creating a new attachment.
@@ -338,6 +307,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        homepage: Homepage
         impersonations: Impersonations
         navbar_links: Navbar links
         newsletters: Newsletters
@@ -360,13 +330,13 @@ en:
             plural: Plural
         attachment:
           fields:
-            collection: Collection
+            collection: Folder
             content_type: Type
             file_size: Size
             title: Title
           name: Attachment
         attachment_collection:
-          name: Collection
+          name: Folder
         category:
           name: Category
         impersonation_log:
@@ -560,7 +530,14 @@ en:
           homepage_appearance_title: Edit homepage appearance
           homepage_highlighted_content_banner_title: Highligted content banner
           layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent
+          omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+      organization_homepage_content_blocks:
+        edit:
+          update: Update
       participatory_space_private_users:
         create:
           error: There was an error adding a private user for this participatory space.
@@ -673,6 +650,7 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
@@ -713,7 +691,3 @@ en:
           title: Settings
         users:
           title: Users
-  time:
-    formats:
-      datepicker: "%m/%d/%Y"
-      timepicker: "%m/%d/%Y %H:%M"

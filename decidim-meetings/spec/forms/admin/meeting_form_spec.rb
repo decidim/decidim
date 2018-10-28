@@ -70,10 +70,7 @@ module Decidim::Meetings
     end
 
     before do
-      Geocoder::Lookup::Test.add_stub(
-        address,
-        [{ "latitude" => latitude, "longitude" => longitude }]
-      )
+      stub_geocoding(address, [latitude, longitude])
     end
 
     it { is_expected.to be_valid }

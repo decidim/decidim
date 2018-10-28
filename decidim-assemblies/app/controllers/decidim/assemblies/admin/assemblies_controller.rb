@@ -9,6 +9,8 @@ module Decidim
         helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space
         layout "decidim/admin/assemblies"
 
+        before_action :set_all_assemblies, except: [:index, :destroy]
+
         def index
           enforce_permission_to :read, :assembly_list
           @assemblies = collection
@@ -77,6 +79,10 @@ module Decidim
         end
 
         private
+
+        def set_all_assemblies
+          @all_assemblies = OrganizationAssemblies.new(current_user.organization).query
+        end
 
         def current_assembly
           scope = OrganizationAssemblies.new(current_user.organization).query

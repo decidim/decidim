@@ -10,5 +10,6 @@ module Decidim
   # allows users to create surveys in a participatory process.
   module Surveys
     autoload :SurveyUserAnswersSerializer, "decidim/surveys/survey_user_answers_serializer"
+    autoload :DataPortabilitySurveyUserAnswersSerializer, "decidim/surveys/data_portability_survey_user_answers_serializer"
   end
 end

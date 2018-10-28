@@ -3,6 +3,10 @@
 module Decidim
   # The controller to handle the user's notifications deletion.
   class NotificationsController < Decidim::ApplicationController
+    def index
+      enforce_permission_to :read, :notification
+    end
+
     def destroy
       notification = notifications.find(params[:id])
       enforce_permission_to :destroy, :notification, notification: notification

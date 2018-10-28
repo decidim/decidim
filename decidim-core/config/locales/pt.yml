@@ -1,4 +1,3 @@
----
 pt:
   activemodel:
     attributes:
@@ -11,16 +10,15 @@ pt:
         email: O seu email
         name: O seu nome
         nickname: Seu identificador curto e exclusivo
-        password: Nova senha
-        password_confirmation: Confirme a sua nova senha
+        password: Senha
+        password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Remover avatar
-        user_group_document_number: Número do documento de organização
-        user_group_name: Nome da organização
-        user_group_phone: Telefone da organização
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
+      decidim/gamification/badge_earned_event: Distintivo ganho
+      decidim/gamification/level_up_event: Você subiu de nível
       decidim/profile_updated_event: perfil atualizado
   activerecord:
     attributes:
@@ -31,9 +29,6 @@ pt:
         password: Senha
         password_confirmation: Confirmação da senha
         remember_me: Recorde-me
-        user_group_document_number: Número do documento de organização
-        user_group_name: Nome da organização
-        user_group_phone: Telefone da organização
     models:
       decidim/user:
         one: Do utilizador
@@ -42,8 +37,8 @@ pt:
         one: Grupo de usuários
         other: Grupos de usuários
   booleans:
-    'false': Não
-    'true': Sim
+    'false': 'Não'
+    'true': 'Sim'
   carrierwave:
     errors:
       image_too_big: A imagem é demasiado grande
@@ -51,8 +46,14 @@ pt:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Arquivo não existe
+        invalid_token: O token fornecido é inválido.
+        no_token: Nenhum token fornecido
+        notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       delete:
         alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
@@ -153,6 +154,36 @@ pt:
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
       started_at: Iniciado em %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Reautorize com "%{authorization}"
+          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
+          title: A autorização expirou
+        incomplete:
+          cancel: Cancelar
+          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
+          invalid_field: "%{field}"
+          reauthorize: Reautorizar
+          title: Por favor reautorize
+        missing:
+          authorize: Autorizar com "%{authorization}"
+          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
+          title: Autorização necessária
+        pending:
+          explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
+          resume: Verifique o seu progresso de autorização "%{authorization}"
+          title: A autorização ainda está em progresso
+        unauthorized:
+          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
+          invalid_field: "%{field} valor %{value} não é válido."
+          ok: OK
+          title: Não autorizado
+        unconfirmed:
+          confirmation_instructions: 'Se você não recebeu as instruções de confirmação, pode solicitá-las novamente:'
+          explanation_html: Para realizar esta ação você precisa estar autorizado, antes de fazer isso você precisa confirmar seu email <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instruções de confirmação
+          title: confirme seu email
     collapsible_list:
       hidden_elements_count:
         one: e mais 1
@@ -170,14 +201,46 @@ pt:
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Dummy Atributo 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Permissões de recursos ativadas
           step:
             comments_blocked: Comentários bloqueados
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contato
+    content_blocks:
+      footer_sub_hero:
+        name: Rodapé do sub-herói banner
+      hero:
+        name: Imagem do herói
+      highlighted_content_banner:
+        name: Banner de conteúdo destacado
+      how_to_participate:
+        name: Como participar
+      html:
+        html_content: Conteúdo HTML
+        name: Bloco HTML
+      last_activity:
+        name: Ultima atividade
+        title: Ultima atividade
+        view_all: Ver tudo
+      metrics:
+        name: Métricas da organização
+      stats:
+        name: Estatísticas da organização
+      sub_hero:
+        name: Banner de sub-herói
     core:
       actions:
         unauthorized: Não está autorizado a realizar esta ação
+    data_portability:
+      export:
+        ready: pronto
+      show:
+        download_data: Baixe os dados
+        download_data_description: Um arquivo com todas as informações associadas à conta será enviado para <strong>%{user_email}</strong>
+        request_data: Solicitar dados
+    datepicker:
+      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -198,8 +261,6 @@ pt:
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
-            user: Individual
-            user_group: Organização / Coletivo
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
           tos_agreement: Ao se inscrever, aceita %{link}.
@@ -213,8 +274,15 @@ pt:
         newsletter_modal:
           buttons:
             check: Verifique e continue
+            close_modal: Fechar modal
             uncheck: Manter desmarcado
-          notice: Tem certeza de que não quer receber uma newsletter? Por favor, considere marcar novamente a caixa de seleção do boletim informativo abaixo. É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações. Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma. Se você ainda quiser evitar o recebimento de newsletters, entenderemos perfeitamente sua decisão. Obrigado por ler isto!
+          notice: |-
+            <p>Tem certeza de que não quer receber uma newsletter?<br>
+            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
+            É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações.</p>
+            <p>Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma.<br>
+            Se você ainda quiser evitar receber boletins informativos, entenderemos perfeitamente sua decisão.</p>
+            <p>Obrigado por ler isto!</p>
           title: Notificações de boletim informativo
         omniauth_buttons:
           or: Ou
@@ -259,24 +327,19 @@ pt:
         email_intro: 'Houve uma atualização para "%{resource_title}". Você pode vê-lo a partir desta página:'
         email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
         email_subject: Uma atualização para %{resource_title}
-      feature_published_event:
-        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-        email_subject: An update to %{participatory_space_title}
-        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
-      features:
-        feature_published:
-          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      gamification:
+        badge_earned:
+          email_intro: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
+          email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
+          email_subject: 'Você ganhou um novo selo: %{badge_name}!'
+          notification_title: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
+        level_up:
+          email_intro: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
+          email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
+          email_subject: Você atingiu o nível %{current_level} no %{badge_name} crachá!
+          notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
@@ -284,13 +347,17 @@ pt:
           email_subject: "%{nickname} atualizaram seu perfil"
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
+      data_portability_export:
+        click_button: Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.
+        download: Baixar
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
     filters:
       linked_classes:
         all: Todos
-        dummyresource: Recursos falsos
+        collaborative_draft: Rascunho colaborativo
+        dummy_resource: Recursos falsos
         meeting: Reuniões
         project: Projetos
         proposal: Propostas
@@ -321,6 +388,76 @@ pt:
       errors:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
+    gamification:
+      all_badges_link: Veja todos os crachás disponíveis.
+      badges:
+        continuity:
+          conditions:
+            - Vem aqui com frequência
+          description: Esse selo é concedido quando você visita a plataforma regularmente. Nós gostamos de ter você por aqui!
+          description_another: Este usuário conectou por %{score} dias consecutivos em algum momento.
+          description_own: Você se conectou por %{score} dias consecutivos em algum momento.
+          name: Continuidade
+          next_level_in: Ligue por %{score} dias consecutivos para chegar ao próximo nível!
+          unearned_another: Este usuário não fez login por mais de um dia consecutivo.
+          unearned_own: Você não se conectou por mais de um dia consecutivo.
+        followers:
+          conditions:
+            - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
+          description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, tecer sua web para se comunicar com outras pessoas na plataforma.
+          description_another: Esse usuário possui %{score} seguidores.
+          description_own: "%{score} usuários estão seguindo você."
+          name: Seguidores
+          next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não possui seguidores.
+          unearned_own: Você ainda não tem seguidores.
+        index:
+          badge_title: "%{name} crachá"
+          how: Como você pode ganhar?
+          page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
+          title: Distintivos
+        invitations:
+          conditions:
+            - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
+            - Personalize, se quiser, a mensagem que você está enviando
+            - Você vai subir de nível enviando convites e registrando-os.
+          description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
+          description_another: Este usuário convidou %{score} usuários.
+          description_own: Você convidou %{score} usuários.
+          name: Convites
+          next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não convidou nenhum usuário.
+          unearned_own: Você não convidou nenhum usuário ainda.
+      description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
+      level: Nível %{level}
+      reached_top: Você atingiu o nível superior para este selo.
+    groups:
+      create:
+        error: Houve um problema ao criar a organização
+        success: Organização criada com sucesso
+      new:
+        create_user_group: Criar organização
+        new_user_group: Nova organização
+      no_user_groups: Não pertence a nenhuma organização ainda.
+    invitations:
+      create:
+        error: Houve alguns problemas ao convidar seus amigos
+        error_empty_form: Por favor insira alguns endereços de email
+        success: Nós enviamos os convites para seus amigos!
+      index:
+        customize_message: Personalizar a mensagem de convite
+        friend_email: 'E-mail do amigo nº%{index}'
+        invitations_subtitle: Deixe seus amigos saberem sobre este site
+        invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
+        invite: Convite
+        visit_your_profile: Visite seu perfil
+    last_activities:
+      activities:
+        no_activities_warning: Nenhuma atividade
+      all: Todos os tipos de atividade
+      index:
+        last_activity: Ultima atividade
+        resource_type: Tipo
     log:
       base_presenter:
         create: "%{user_name} criado %{resource_name}"
@@ -342,6 +479,8 @@ pt:
           not_found: 'O tipo de escopo não foi encontrado no banco de dados (ID: %{id})'
     managed_users:
       expired_session: A sessão de representação atual expirou.
+    members:
+      no_members: Este grupo de usuários ainda não possui nenhum membro.
     menu:
       home: Inicio
       more_information: Mais informação
@@ -361,18 +500,22 @@ pt:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
+          from: A partir de
+          last_message_html: Última mensagem <strong>%{time} atrás</strong>
           no_conversations: Ainda não há conversas
-          title: Conversas
-        reply:
-          send: Enviar
-          title: Resposta
         show:
-          title: Conversa com %{usernames}
+          conversation_with_html: Conversa com <strong>%{name}</strong>
+          reply: Resposta
+          send: Enviar
         start:
           send: Enviar
           title: Comece uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
+    metrics:
+      users:
+        object: Comercial
+        title: Comercial
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
@@ -385,6 +528,20 @@ pt:
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
+    newsletters_opt_in:
+      unathorized: Desculpe, este link não está mais disponível
+      update:
+        error: Aconteceu algo de errado
+        success: Configurações de boletim informativo atualizadas com sucesso
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: O processamento de dados pessoais e sua proteção estão se tornando cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controle sobre seus dados pessoais. Por esse motivo, precisamos que seu "OK" continue enviando informações relevantes sobre as atividades do %{organization_name}.
+        body_2: 'Como você pode nos dar seu consentimento? Basta clicar no seguinte botão:'
+        body_3: Com esse consentimento, você poderá continuar recebendo informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se você confirmar que deseja continuar sendo informado, sempre terá a opção de cancelar a qualquer momento.
+        button: Sim, quero continuar recebendo informações relevantes
+        greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Olá,
+        subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
     notifications:
       no_notifications: Ainda não há notificações.
     notifications_settings:
@@ -418,10 +575,13 @@ pt:
         hero:
           participate: Participar
           welcome: Bem-vindo ao %{organization}!
+        metrics:
+          headline: Participação em números
         statistics:
           answers_count: Inquéritos concluídos
           assemblies_count: Assembléias
           comments_count: Comentários
+          conferences_count: Conferências
           debates_count: Debates
           endorsements_count: Endossos
           headline: Estado atual de %{organization}
@@ -452,6 +612,7 @@ pt:
           modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
           modal_button: Recuse os termos
+          modal_close: Fechar modal
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
@@ -463,12 +624,22 @@ pt:
       deleted: Usuário deletado
       view: Visão
     profiles:
-      default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
+      default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi confirmado para corresponder ao seu nome real
+      default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
+        badges: Distintivos
+        conversations: Conversas
         followers: Seguidores
         following: Segue
+        groups: Organizações
+        members: Membros
         notifications: Notificações
+      sidebar:
+        badges:
+          info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
+          title: Distintivos
       user:
+        create_user_group: Criar organização
         edit_profile: Editar Perfil
     reported_mailer:
       hide:
@@ -508,30 +679,6 @@ pt:
         filter_by: Filtrar por
         unfold: Desdobrar
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Reautorize com "%{authorization}"
-          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
-          title: A autorização expirou
-        incomplete:
-          cancel: Cancelar
-          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
-          invalid_field: "%{field}"
-          reauthorize: Reautorizar
-          title: Por favor reautorize
-        missing:
-          authorize: Autorizar com "%{authorization}"
-          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
-          title: Autorização necessária
-        pending:
-          explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
-          resume: Verifique o seu progresso de autorização "%{authorization}"
-          title: A autorização ainda está em progresso
-        unauthorized:
-          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
-          invalid_field: "%{field} valor %{value} não é válido."
-          ok: OK
-          title: Não autorizado
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
@@ -561,29 +708,70 @@ pt:
       version_author:
         deleted: Usuário deletado
   devise:
+    confirmations:
+      confirmed: Seu endereço de e-mail foi confirmado com sucesso.
+      new:
+        resend_confirmation_instructions: Reenviar instruções de confirmação
+      send_instructions: Você receberá um e-mail com instruções sobre como confirmar seu endereço de e-mail em alguns minutos.
+      send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um e-mail com instruções sobre como confirmar seu endereço de e-mail em alguns minutos.
+    failure:
+      already_authenticated: Você já está inscrito.
+      inactive: Sua conta Ainda não esta ativada.
+      invalid: '%{authentication_keys} inválido ou senha.'
+      invited: Você tem um convite pendente, aceite-o para concluir a criação da sua conta.
+      last_attempt: Você tem mais uma tentativa antes que sua conta seja bloqueada.
+      locked: Sua conta está bloqueada.
+      not_found_in_database: '%{authentication_keys} inválido ou senha.'
+      timeout: Sua sessão expirou. Por favor, entre novamente para continuar.
+      unauthenticated: Você precisa fazer login ou se inscrever antes de continuar.
     invitations:
       edit:
         header: Termine de criar sua conta
         nickname_help: Seu identificador exclusivo em %{organization}.
         submit_button: Salvar
         subtitle: Se você aceitar o convite, defina seu apelido e senha.
+      invitation_removed: Seu convite foi removido.
+      invitation_token_invalid: O token de convite fornecido não é válido!
+      new:
+        header: Enviar convite
+        submit_button: Envie um convite
+      no_invitations_remaining: Nenhum convite restante
+      send_instructions: Um email de convite foi enviado para %{email}.
+      updated: Sua senha foi configurada com sucesso. Agora você está conectado.
+      updated_not_active: Sua senha foi configurada com sucesso.
     mailer:
+      confirmation_instructions:
+        action: Confirme minha conta
+        greeting: Bem-vindo %{recipient}!
+        instruction: 'Pode confirmar o email da sua conta através do link abaixo:'
+        subject: Instruções de confirmação
+      email_changed:
+        greeting: Olá %{recipient}!
+        message: Estamos entrando em contato para notificá-lo de que seu e-mail está sendo alterado para %{email}.
+        subject: E-mail alterado
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
+        decline: Recusar convite
         hello: Olá %{email},
         ignore: |-
           Se você não quiser aceitar o convite, ignore este e-mail.<br />
           Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
+        invited_you_as_friend: "%{invited_by} convidou você para %{application}."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_private_user: Alguém convidou você como usuário privado de %{application}, você pode aceitá-lo através do link abaixo.
+        subject: Instruções de convite
       invite_admin:
         subject: Você foi convidado a gerenciar %{organization}
       invite_collaborator:
         subject: Você foi convidado a colaborar em %{organization}
+      invite_friend:
+        accept_invitation: 'Você pode aceitar o convite através do link abaixo:'
+        friend_custom_text: 'Eles deixaram esta mensagem para você:'
+        subject: Você foi convidado para %{organization}
       invite_private_user:
         subject: Você foi convidado para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
@@ -592,20 +780,101 @@ pt:
         greeting: Olá %{recipient}!
         message: Estamos nos comunicando com você para notificá-lo de que sua senha foi alterada.
         subject: A senha mudou
+      reset_password_instructions:
+        action: Mudar minha senha
+        greeting: Olá %{recipient}!
+        instruction: Alguém solicitou um link para alterar sua senha, e você pode fazer isso através do link abaixo.
+        instruction_2: Se você não solicitou isso, ignore este e-mail.
+        instruction_3: Sua senha não será alterada até que você acesse o link acima e crie um novo.
+        subject: Redefinir instruções de senha
+      unlock_instructions:
+        action: Desbloquear minha conta
+        greeting: Olá %{recipient}!
+        instruction: 'Clique no link abaixo para desbloquear sua conta:'
+        message: Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de login malsucedidas.
+        subject: Desbloquear instruções
+    omniauth_callbacks:
+      failure: Não foi possível autenticá-lo de %{kind} porque "%{reason}".
+      success: Autenticado com êxito a partir de %{kind} conta.
+    passwords:
+      edit:
+        change_my_password: Mudar minha senha
+        change_your_password: Mude sua senha
+        confirm_new_password: Confirme a nova senha
+        new_password: Nova senha
+      new:
+        forgot_your_password: Esqueceu sua senha?
+        send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
+      no_token: Você não pode acessar esta página sem receber um e-mail de redefinição de senha. Se você receber um e-mail de redefinição de senha, verifique se usou o URL completo fornecido.
+      send_instructions: Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos.
+      send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um link de recuperação de senha em seu endereço de e-mail em alguns minutos.
+      updated: Sua senha foi alterada com sucesso. Agora você está conectado.
+      updated_not_active: Sua senha foi alterada com sucesso.
+    registrations:
+      destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
+      edit:
+        are_you_sure: Você tem certeza?
+        cancel_my_account: Cancelar minha conta
+        currently_waiting_confirmation_for_email: 'Atualmente aguardando confirmação para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se você não quiser mudá-lo
+        title: Editar %{resource}
+        unhappy: Infeliz?
+        update: Atualizar
+        we_need_your_current_password_to_confirm_your_changes: Precisamos da sua senha atual para confirmar suas alterações
+      new:
+        sign_up: inscrever-se
+      signed_up: Bem vinda! Você se inscreveu com sucesso.
+      signed_up_but_inactive: Você se inscreveu com sucesso. No entanto, não poderíamos fazer o seu login porque sua conta ainda não está ativada.
+      signed_up_but_locked: Você se inscreveu com sucesso. No entanto, não poderíamos fazer login porque sua conta está bloqueada.
+      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga o link para ativar sua conta.
+      update_needs_confirmation: Você atualizou sua conta com sucesso, mas precisamos confirmar seu novo endereço de e-mail. Por favor, verifique seu e-mail e siga o link de confirmação para confirmar seu novo endereço de e-mail.
+      updated: Sua conta foi atualizada com sucesso.
+    sessions:
+      already_signed_out: Saiu com sucesso.
+      new:
+        sign_in: Entrar
+      signed_in: Conectado com sucesso.
+      signed_out: Saiu com sucesso.
+    shared:
+      links:
+        back: Costas
+        didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
+        didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
+        forgot_your_password: Esqueceu sua senha?
+        sign_in: Entrar
+        sign_in_with_provider: Entrar com %{provider}
+        sign_up: inscrever-se
+      minimum_password_length:
+        one: "(Mínimo de%{count} caracteres)"
+        other: "(%{count} caracteres no mínimo)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenvie as instruções de desbloqueio
+      send_instructions: Você receberá um e-mail com instruções sobre como desbloquear sua conta em alguns minutos.
+      send_paranoid_instructions: Se a sua conta existir, você receberá um e-mail com instruções sobre como desbloqueá-lo em alguns minutos.
+      unlocked: Sua conta foi desbloqueada com sucesso. Por favor, entre para continuar.
   doorkeeper:
     scopes:
       public: Sua informação pública.
   errors:
     messages:
+      already_confirmed: já foi confirmado, por favor, tente entrar
+      confirmation_period_expired: precisa ser confirmado dentro de %{period}, solicite um novo
       content_type_whitelist_error: o tipo de arquivo não é válido
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
+      expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
-      long_words: contém palavras que são muito longas
-      must_start_with_caps: deve começar com bonés
+      long_words: contém palavras muito longas (mais de 35 caracteres)
+      must_start_with_caps: deve começar com letra maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria
-      too_many_marks: está usando muitas marcas
-      too_much_caps: está usando bonés demais
-      too_short: é muito curto
+      not_found: não encontrado
+      not_locked: não estava trancado
+      not_saved:
+        one: '1 erro proibiu que este %{resource} fosse salvo:'
+        other: "%{count} erros proibiram este %{resource} de ser salvo:"
+      too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
+      too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
+      too_short: é muito curto (menos de 15 caracteres)
   forms:
     required: Requeridos
   invisible_captcha:
@@ -617,6 +886,8 @@ pt:
         description_html: Este site usa cookies. Ao continuar a navegar no site, você concorda com o uso de cookies. Saiba mais sobre isso %{link}.
         link_label: aqui
         ok: Concordo
+      edit_link:
+        edit: Editar
       footer:
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:
@@ -633,6 +904,7 @@ pt:
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
+        invite_friends: Convide amigos
         notifications: Notificações
         profile: Minha conta
         public_profile: Meu perfil público
@@ -641,6 +913,7 @@ pt:
         account: Conta
         authorizations: Autorizações
         delete_my_account: Deletar minha conta
+        my_data: Meus dados
         notifications_settings: Configurações de notificações
         title: Configurações do usuário
         user_groups: Organizações
@@ -648,6 +921,16 @@ pt:
         see_more: Ver mais
   locale:
     name: Português
+  password_validator:
+    domain_included_in_password: é muito semelhante a este nome de domínio
+    email_included_in_password: é muito parecido com o seu email
+    fallback: não é válido
+    name_included_in_password: é muito parecido com o seu nome
+    not_enough_unique_characters: não tem caracteres únicos suficientes
+    password_not_allowed: não é permitido
+    password_too_common: é muito comum
+    password_too_long: é muito longo
+    password_too_short: é muito curto
   social_share_button:
     delicious: Delicioso
     douban: Douban
@@ -676,6 +959,10 @@ pt:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

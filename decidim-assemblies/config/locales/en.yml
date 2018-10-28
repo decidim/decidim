@@ -19,7 +19,7 @@ en:
         decidim_area_id: Area
         decidim_scope_id: Scope
         description: Description
-        developer_group: Developer group
+        developer_group: Promoter group
         domain: Domain
         duration: Duration
         facebook: Facebook
@@ -30,11 +30,12 @@ en:
         instagram: Instagram
         internal_organisation: Internal organisation
         is_transparent: Is transparent
-        local_area: Local area
+        local_area: Organization area
         meta_scope: Scope metadata
+        parent_id: Parent assembly
         participatory_processes_ids: Related Participatory processes
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         private_space: Private space
         promoted: Promoted
         published_at: Published at
@@ -46,7 +47,7 @@ en:
         slug: URL slug
         special_features: Special features
         subtitle: Subtitle
-        target: Target
+        target: Who participates
         title: Title
         twitter: Twitter
         youtube: YouTube
@@ -77,14 +78,13 @@ en:
   decidim:
     admin:
       actions:
-        assembly:
-          new: New assembly
+        new_assembly: New assembly
       assemblies:
         create:
           error: There was an error creating a new assembly.
           success: Assembly created successfully.
         destroy:
-          success: Assembly destroyed successfully.
+          success: Assembly deleted successfully.
         edit:
           update: Update
         form:
@@ -114,7 +114,7 @@ en:
           error: There was an error adding a member for this assembly.
           success: Member created successfully for this assembly.
         destroy:
-          success: Member destroyed successfully for this assembly.
+          success: Member deleted successfully for this assembly.
         edit:
           title: Update assembly member.
           update: Update
@@ -136,9 +136,9 @@ en:
       assembly_user_roles:
         create:
           error: There was an error adding a user for this assembly.
-          success: User created successfully for this assembly.
+          success: User added successfully to this assembly.
         destroy:
-          success: User destroyed successfully for this assembly.
+          success: User removed successfully from this assembly.
         edit:
           title: Update assembly user.
           update: Update
@@ -155,14 +155,14 @@ en:
         assemblies_submenu:
           assembly_admins: Assembly users
           assembly_members: Members
-          attachment_collections: Collections
+          attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
           categories: Categories
           components: Components
           info: Info
           moderations: Moderations
-          private_users: Private Users
+          private_users: Private users
       models:
         assembly:
           fields:
@@ -171,6 +171,7 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
+          name: Assembly
         assembly_member:
           fields:
             ceased_date: Ceased date
@@ -218,6 +219,7 @@ en:
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
+            select_parent_assembly: Select parent assembly
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -237,6 +239,9 @@ en:
               not_ceased: Not ceased
             filter_by: Filter by
             search: Search
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximum amount of elements to show
       assembly_members:
         index:
           members: Members
@@ -248,12 +253,17 @@ en:
         others: Others
         participatory: Participatory
         working_group: Working group
+      content_blocks:
+        highlighted_assemblies:
+          name: Highlighted assemblies
       created_by:
         city_council: City Council
         others: Others
         public: Public
       index:
         title: Assemblies
+      last_activity:
+        new_assembly: New assembly
       pages:
         home:
           highlighted_assemblies:
@@ -270,7 +280,7 @@ en:
         composition: Composition
         created_by: Created by
         creation_date: Date created
-        developer_group: Developer group
+        developer_group: Promoter group
         duration: Duration
         included_at: Included at
         indefinite_duration: Indefinite
@@ -278,9 +288,9 @@ en:
         is_transparent:
           'false': opaque
           'true': transparent
-        local_area: Local area
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+        local_area: Organization area
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         private_space: This is a private assembly
         purpose_of_action: Purpose of action
         read_less: Read less
@@ -288,7 +298,7 @@ en:
         related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
-        target: Target
+        target: Who participates
       statistics:
         answers_count: Answers
         assemblies_count: Assemblies
@@ -325,7 +335,9 @@ en:
         assembly:
           take_part: Take part
         index:
+          organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
+          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} assembly"

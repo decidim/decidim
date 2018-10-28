@@ -81,13 +81,21 @@ module Decidim
         end
 
         def copy_participatory_process_categories
-          @participatory_process.categories.each do |category|
-            Category.create!(
+          @participatory_process.categories.first_class.each do |category|
+            new_category = Category.create!(
               name: category.name,
               description: category.description,
-              parent_id: category.parent_id,
               participatory_space: @copied_process
             )
+
+            category.descendants.each do |child|
+              Category.create!(
+                name: child.name,
+                description: child.description,
+                participatory_space: @copied_process,
+                parent: new_category
+              )
+            end
           end
         end
 

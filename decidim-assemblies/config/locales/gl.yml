@@ -19,7 +19,7 @@ gl:
         decidim_area_id: Área
         decidim_scope_id: Alcance
         description: Descrición
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         domain: Dominio
         duration: Duración
         facebook: Facebook
@@ -30,11 +30,12 @@ gl:
         instagram: Instagram
         internal_organisation: Organización interna
         is_transparent: É transparente
-        local_area: Área local
+        local_area: Área de organización
         meta_scope: Metadatos de ámbito
+        parent_id: Asemblea primaria
         participatory_processes_ids: Procesos participativos relacionados
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
         private_space: Espazo privado
         promoted: Promocionado
         published_at: Publicado en
@@ -46,7 +47,7 @@ gl:
         slug: URL slug
         special_features: Características especiais
         subtitle: Subtítulo
-        target: Obxectivo
+        target: Quen participa
         title: Título
         twitter: Twitter
         youtube: YouTube
@@ -76,12 +77,14 @@ gl:
         other: Asignar roles de usuario
   decidim:
     admin:
+      actions:
+        new_assembly: Nova montaxe
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
           success: Asemblea creada con éxito.
         destroy:
-          success: Asemblea foi destruída con éxito.
+          success: Asemblea eliminouse con éxito.
         edit:
           update: Actualización
         form:
@@ -111,7 +114,7 @@ gl:
           error: Produciuse un erro ao engadir un membro para este conxunto.
           success: Membro creado con éxito para este conxunto.
         destroy:
-          success: Membro destruído con éxito por este conxunto.
+          success: O membro eliminouse con éxito por este conxunto.
         edit:
           title: Actualiza o membro da montaxe.
           update: Actualización
@@ -133,9 +136,9 @@ gl:
       assembly_user_roles:
         create:
           error: Produciuse un erro engadindo un usuario a este conxunto.
-          success: O usuario creouse con éxito para este conxunto.
+          success: O usuario engadiuse con éxito a esta montaxe.
         destroy:
-          success: Usuario destruído con éxito para este conxunto.
+          success: O usuario eliminouse con éxito deste conxunto.
         edit:
           title: Actualiza o usuario de montaxe.
           update: Actualización
@@ -152,7 +155,7 @@ gl:
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
           assembly_members: Membros
-          attachment_collections: Coleccións
+          attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
@@ -215,6 +218,7 @@ gl:
             select_a_created_by: Seleccione un creado por
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto
+            select_parent_assembly: Seleccione o conxunto primario
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -234,6 +238,9 @@ gl:
               not_ceased: Non cesou
             filter_by: Filtrar por
             search: Busca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Cantidade máxima de elementos para mostrar
       assembly_members:
         index:
           members: Membros
@@ -245,12 +252,17 @@ gl:
         others: Outros
         participatory: Participativa
         working_group: Grupo de traballo
+      content_blocks:
+        highlighted_assemblies:
+          name: Asembleas destacadas
       created_by:
         city_council: Concello
         others: Outros
         public: Público
       index:
         title: Asembleas
+      last_activity:
+        new_assembly: Nova montaxe
       pages:
         home:
           highlighted_assemblies:
@@ -267,7 +279,7 @@ gl:
         composition: Composición
         created_by: Creado por
         creation_date: Data creada
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         duration: Duración
         included_at: Incluído en
         indefinite_duration: Indefinido
@@ -275,9 +287,9 @@ gl:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área local
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
+        local_area: Área de organización
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
         private_space: Esta é unha asemblea privada
         purpose_of_action: Propósito da acción
         read_less: Ler menos
@@ -285,7 +297,7 @@ gl:
         related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         social_networks: Redes Sociais
-        target: Obxectivo
+        target: Quen participa
       statistics:
         answers_count: Respostas
         assemblies_count: Asembleas
@@ -322,7 +334,9 @@ gl:
         assembly:
           take_part: Tomar parte en
         index:
+          organizational_chart: Organigrama
           promoted_assemblies: Asembleas destacadas
+          reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
             one: Asemblea %{count}

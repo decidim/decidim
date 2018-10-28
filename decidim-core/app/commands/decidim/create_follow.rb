@@ -22,6 +22,7 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       create_follow!
+      increment_score
 
       broadcast(:ok, follow)
     end
@@ -35,6 +36,11 @@ module Decidim
         followable: form.followable,
         user: current_user
       )
+    end
+
+    def increment_score
+      return unless form.followable.is_a? Decidim::User
+      Decidim::Gamification.increment_score(form.followable, :followers)
     end
   end
 end

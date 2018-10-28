@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -15,9 +14,9 @@ uk:
   activerecord:
     models:
       decidim/sortitions/sortition:
+        one: Жеребкування
         few: Жеребкування
         many: Жеребкувань
-        one: Жеребкування
         other: Жеребкувань
   decidim:
     components:
@@ -45,7 +44,7 @@ uk:
         actions:
           destroy: Скасувати жеребкування
           edit: Редагувати
-          new: Додати
+          new: Додати жеребкування
           show: Подробиці жеребкування
         models:
           sortition:
@@ -60,9 +59,9 @@ uk:
               target_items: Наймення до вибору
               title: Назва
             name:
+              one: Жеребкування
               few: Жеребкування
               many: Жеребкувань
-              one: Жеребкування
               other: Жеребкувань
         sortitions:
           confirm_destroy:
@@ -101,9 +100,9 @@ uk:
       sortitions:
         count:
           proposals_count:
+            one: 1 пропозиція
             few: "%{count} пропозиції"
             many: "%{count} пропозицій"
-            one: 1 пропозиція
             other: "%{count} пропозицій"
         filters:
           active: Діючі
@@ -126,9 +125,9 @@ uk:
           recent: Нещодавні
         results_count:
           count:
+            one: вибрана пропозиція
             few: вибрані пропозиції
             many: вибраних пропозицій
-            one: вибрана пропозиція
             other: вибраних пропозицій
         show:
           algorithm: Код алгоритму жеребкування
@@ -147,9 +146,9 @@ uk:
         sortition:
           random_seed: Випадкове початкове число
           selected_proposals:
+            one: обрана пропозиція
             few: обрані пропозиції
             many: обраних пропозицій
-            one: обрана пропозиція
             other: обраних пропозицій
           view: Переглянути
         sortition_author:
@@ -158,7 +157,7 @@ uk:
           deleted: Видалений учасник
         sortitions_count:
           count:
+            one: 1 жеребкування
             few: "%{count} жеребкування"
             many: "%{count} жеребкувань"
-            one: 1 жеребкування
             other: "%{count} жеребкувань"

@@ -115,6 +115,10 @@ module Decidim
       return false if private_space? && is_transparent?
     end
 
+    def translated_title
+      Decidim::AssemblyPresenter.new(self).translated_title
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute

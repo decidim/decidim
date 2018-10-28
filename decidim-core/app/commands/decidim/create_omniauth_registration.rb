@@ -51,7 +51,7 @@ module Decidim
         @user.email = (verified_email || form.email)
         @user.name = form.name
         @user.nickname = form.normalized_nickname
-        @user.newsletter_notifications = false
+        @user.newsletter_notifications_at = nil
         @user.email_on_notification = true
         @user.password = generated_password
         @user.password_confirmation = generated_password

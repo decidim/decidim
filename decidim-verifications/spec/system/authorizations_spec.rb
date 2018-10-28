@@ -28,7 +28,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       it "redirects the user to the authorization form after the first sign in" do
         fill_in "Document number", with: "123456789X"
-        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
+        page.execute_script("$('#authorization_handler_birthday').focus()")
         page.find(".datepicker-dropdown .day", text: "12").click
 
         click_button "Send"
@@ -83,7 +83,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link "Example authorization"
 
         fill_in "Document number", with: "123456789X"
-        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
+        page.execute_script("$('#authorization_handler_birthday').focus()")
         page.find(".datepicker-dropdown .day", text: "12").click
         click_button "Send"
 
@@ -108,7 +108,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link "Example authorization"
 
         fill_in "Document number", with: "12345678"
-        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
+        page.execute_script("$('#authorization_handler_birthday').focus()")
         page.find(".datepicker-dropdown .day", text: "12").click
         click_button "Send"
 

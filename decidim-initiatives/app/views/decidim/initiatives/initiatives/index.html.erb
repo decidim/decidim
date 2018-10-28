@@ -1,3 +1,11 @@
+<%
+edit_link(
+  decidim_admin_initiatives.initiatives_path,
+  :list,
+  :initiative
+)
+%>
+
 <% provide :meta_title, t("initiatives.index.title", scope: "decidim") %>
 <main class="wrapper">
   <div class="row columns">

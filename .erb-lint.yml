@@ -19,3 +19,6 @@ linters:
 
       Style/StringLiterals:
         EnforcedStyle: double_quotes
+
+      Layout/SpaceInsideHashLiteralBraces:
+        Enabled: true

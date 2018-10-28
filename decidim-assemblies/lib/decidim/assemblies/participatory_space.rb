@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:assemblies) do |participatory_space|
-  participatory_space.icon = "decidim/assemblies/icon.svg"
+  participatory_space.icon = "decidim/assemblies/assembly.svg"
   participatory_space.model_class_name = "Decidim::Assembly"
 
   participatory_space.participatory_spaces do |organization|
@@ -29,8 +29,16 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
+    Decidim::ContentBlock.create(
+      organization: organization,
+      weight: 32,
+      scope: :homepage,
+      manifest_name: :highlighted_assemblies,
+      published_at: Time.current
+    )
+
     2.times do |n|
-      assembly = Decidim::Assembly.create!(
+      params = {
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
         subtitle: Decidim::Faker::Localized.sentence(2),
@@ -80,7 +88,16 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         instagram_handler: Faker::Lorem.word,
         youtube_handler: Faker::Lorem.word,
         github_handler: Faker::Lorem.word
-      )
+      }
+
+      assembly = Decidim.traceability.perform_action!(
+        "publish",
+        Decidim::Assembly,
+        organization.users.first,
+        visibility: "all"
+      ) do
+        Decidim::Assembly.create!(params)
+      end
 
       # Create users with specific roles
       Decidim::AssemblyUserRole::ROLES.each do |role|

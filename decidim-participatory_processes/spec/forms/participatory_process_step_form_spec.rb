@@ -24,9 +24,11 @@ module Decidim
         end
         let(:start_date) {}
         let(:end_date) {}
+        let(:cta_path) { nil }
         let(:attributes) do
           {
             "participatory_process_step" => {
+              "cta_path" => cta_path,
               "title_en" => title[:en],
               "title_es" => title[:es],
               "title_ca" => title[:ca],
@@ -42,12 +44,12 @@ module Decidim
 
         describe "dates" do
           context "when the dates are set" do
-            let(:start_date) { Time.zone.local(2016, 1, 1, 15, 0) }
-            let(:end_date) { Time.zone.local(2016, 1, 1, 15, 0) }
+            let(:start_date) { "22/01/2016" }
+            let(:end_date) { "13/10/2017" }
 
-            it "returns them at midnight" do
-              expect(subject.start_date).to eq(Time.zone.local(2016, 1, 1, 0, 0))
-              expect(subject.end_date).to eq(Time.zone.local(2016, 1, 1, 0, 0))
+            it "returns them" do
+              expect(subject.start_date).to eq(Date.new(2016, 1, 22))
+              expect(subject.end_date).to eq(Date.new(2017, 10, 13))
             end
           end
 
@@ -60,6 +62,18 @@ module Decidim
         end
 
         context "when everything is OK" do
+          it { is_expected.to be_valid }
+        end
+
+        context "when cta_path is a full URL" do
+          let(:cta_path) { "http://example.org" }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when cta_path is a valid path" do
+          let(:cta_path) { "processes/my-process/" }
+
           it { is_expected.to be_valid }
         end
 

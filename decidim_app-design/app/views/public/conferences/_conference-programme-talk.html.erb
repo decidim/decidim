@@ -1,0 +1,52 @@
+<div class="row programme-header">
+  <div class="column medium-2 programme-time">
+    <%= s.to_s(:time) %> - <%= e.to_s(:time) %>
+  </div>
+  <div class="column medium-10 programme-title">
+    <%= Faker::Lorem.sentence %>
+  </div>
+</div>
+<div class="row">
+  <div class="column medium-10 medium-push-2">
+    <div class="programme-resume"><%= Faker::Lorem.paragraph(8) %></div>
+    <div class="programme-extra">
+      <div class="row">
+        <div class="column medium-2">
+          <strong>Ponentes</strong>
+        </div>
+        <div class="column medium-10">
+          <% speakers = SecureRandom.random_number(8) + 1 %>
+          <%= render layout: "public/components/collapsible-list", locals: { text: raw("y #{ speakers - 2 } más"), size: 2, classText: "" } do %>
+          <% speakers.times do %>
+          <%= partial "author_data", { nick: false, small: true } %>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column medium-2">
+          <strong>Ubicación</strong>
+        </div>
+        <div class="column medium-10">
+          <u><%= Faker::Address.community %></u>&nbsp;<span><%= Faker::Address.full_address %></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column medium-2">
+          <strong>Contenido</strong>
+        </div>
+        <div class="column medium-10">
+          No disponible
+        </div>
+      </div>
+      <div class="row">
+        <div class="column medium-2">
+          <strong>Streaming</strong>
+        </div>
+        <div class="column medium-10">
+          <u><%= Faker::Internet.url %></u>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

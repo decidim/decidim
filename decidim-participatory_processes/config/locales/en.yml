@@ -9,16 +9,16 @@ en:
         copy_components: Copy components
         copy_steps: Copy steps
         description: Description
-        developer_group: Developer group
+        developer_group: Promoter group
         domain: Domain
         end_date: End date
         hashtag: Hashtag
         hero_image: Home image
-        local_area: Local area
+        local_area: Organization area
         meta_scope: Scope metadata
         participatory_process_group_id: Processes group
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         promoted: Promoted
         published_at: Published at
         scope_id: Scope
@@ -28,7 +28,7 @@ en:
         slug: URL slug
         start_date: Start date
         subtitle: Subtitle
-        target: Target
+        target: Who participates
         title: Title
       participatory_process_group:
         description: Description
@@ -36,6 +36,8 @@ en:
         name: Name
         participatory_process_ids: Related processes
       participatory_process_step:
+        cta_path: Call to Action path
+        cta_text: Call to Action text
         description: Description
         end_date: End date
         short_description: Short description
@@ -64,13 +66,14 @@ en:
       actions:
         activate: Activate
         configure: Configure
-        confirm_destroy: Confirm destroy
-        destroy: Destroy
+        confirm_destroy: Confirm delete
+        destroy: Delete
         duplicate: Duplicate
         edit: Edit
-        new: New
-        participatory_process:
-          new: new participatory process
+        new_process: New process
+        new_process_group: New process group
+        new_process_step: New step
+        new_process_user_role: New process user
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
@@ -79,7 +82,7 @@ en:
         participatory_process_groups: Process groups
         participatory_processes: Processes
         participatory_processes_submenu:
-          attachment_collections: Collections
+          attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
           categories: Categories
@@ -97,6 +100,7 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
+          name: Participatory process
         participatory_process_group:
           fields:
             name: Name
@@ -112,7 +116,7 @@ en:
             email: Email
             name: Name
             role: Role
-          name: Participatory Process User
+          name: Participatory process user
           roles:
             admin: Administrator
             collaborator: Collaborator
@@ -128,7 +132,7 @@ en:
           title: Duplicate participatory process
       participatory_process_groups:
         destroy:
-          success: Participatory process group destroyed successfully.
+          success: Participatory process group deleted successfully.
         edit:
           title: Edit process group
           update: Update
@@ -158,7 +162,7 @@ en:
           error:
             active_step: Can't delete the active step.
             last_step: Can't delete the last step of a process.
-          success: Participatory process step destroyed successfully.
+          success: Participatory process step deleted successfully.
         edit:
           title: Edit participatory process step
           update: Update
@@ -175,9 +179,9 @@ en:
       participatory_process_user_roles:
         create:
           error: There was an error adding a user for this participatory process.
-          success: User created successfully for this participatory process.
+          success: User added successfully to this participatory process.
         destroy:
-          success: User destroyed successfully for this participatory process.
+          success: User removed successfully from this participatory process.
         edit:
           title: Update participatory process user.
           update: Update
@@ -194,7 +198,7 @@ en:
           error: There was an error creating a new participatory process.
           success: Participatory process created successfully. Configure now its steps.
         destroy:
-          success: Participatory process destroyed successfully.
+          success: Participatory process deleted successfully.
         edit:
           update: Update
         form:
@@ -256,7 +260,9 @@ en:
       processes: Processes
     participatory_process_groups:
       show:
-        group_participatory_processes: Processes for %{group}
+        group_participatory_processes:
+          one: 1 processes for %{group}
+          other: "%{count} processes for %{group}"
         title: Participatory process groups
     participatory_process_steps:
       index:
@@ -264,33 +270,66 @@ en:
         title: Participatory process steps
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum amount of elements to show
         participatory_process_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Highlighted processes
       index:
         title: Participatory processes
-      order_by_processes:
-        active: Active
-        all: All
-        past: Past
-        upcoming: Upcoming
+      last_activity:
+        new_participatory_process: New participatory process
       pages:
         home:
           highlighted_processes:
             active_processes: Active processes
             active_step: Active step
+            more_information: More information
+            participate: Participate
             see_all_processes: See all processes
       participatory_process_groups:
         none: None
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 active process
+              other: "%{count} active processes"
+            all:
+              one: 1 process
+              other: "%{count} processes"
+            past:
+              one: 1 past process
+              other: "%{count} past processes"
+            upcoming:
+              one: 1 upcoming process
+              other: "%{count} upcoming processes"
+          explanations:
+            no_active: No active processes
+            no_active_nor_upcoming: No active nor upcoming processes
+            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
+          names:
+            active: Active
+            all: All
+            past: Past
+            upcoming: Upcoming
+          see: See
         index:
           loading: Loading results...
       show:
-        developer_group: Developer group
+        developer_group: Promoter group
         end_date: End date
         local_area: Organization Area
         participatory_scope: What is decided
@@ -329,10 +368,6 @@ en:
       participatory_processes:
         index:
           promoted_processes: Highlighted processes
-        order_by_processes:
-          processes:
-            one: "%{count} process"
-            other: "%{count} processes"
         participatory_process:
           active_step: 'Current step:'
           take_part: Take part

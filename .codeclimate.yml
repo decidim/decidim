@@ -1,5 +1,3 @@
----
-
 version: "2"
 
 checks:
@@ -98,7 +96,7 @@ plugins:
     exclude_patterns:
       - "decidim_app-design/**/*"
       - "**/*/locales/*.yml"
-
+      - "**/*/*.svg"
 
   markdownlint:
     enabled: true

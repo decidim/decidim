@@ -16,7 +16,7 @@ uk:
         confirm_destroy: Ви дійсно бажаєте видалити цей проект?
         destroy: Видалити
         edit: Редагувати
-        new: Додати
+        new: Створити новий допис
         title: Дії
       admin:
         models:
@@ -60,7 +60,7 @@ uk:
         settings:
           global:
             announcement: Оголошення
-            comments_enabled: Коментарі увімкнено
+            comments_enabled: Коментарі ввімкнено
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено

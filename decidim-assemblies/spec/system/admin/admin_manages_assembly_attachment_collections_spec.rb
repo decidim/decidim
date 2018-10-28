@@ -11,7 +11,7 @@ describe "Admin manages assembly attachment collections examples", type: :system
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Collections"
+    click_link "Folders"
   end
 
   it_behaves_like "manage attachment collections examples"

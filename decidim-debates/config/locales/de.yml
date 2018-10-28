@@ -100,6 +100,8 @@ de:
           close_window: Fenster schließen
           share: Aktie
           share_link: Einen Link teilen
+      last_activity:
+        new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:
         debate:
           fields:
@@ -134,3 +136,15 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Debatten jetzt in %{participatory_space_title}verfügbar
           notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Wählen Sie eine offene Debatte, an der Sie teilnehmen können
+          description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an den verschiedenen Debatten teilnehmen, indem Sie Ihre Kommentare hinterlassen.
+          description_another: Dieser Benutzer hat an %{score} Debatten teilgenommen.
+          description_own: Sie haben an %{score} Debatten teilgenommen.
+          name: Debatten
+          next_level_in: Nimm an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.
+          unearned_own: Sie haben bereits an Debatten teilgenommen.

@@ -7,7 +7,7 @@
         <% end %>
         <div>
           <%= link_to resource_locator(proposal).path, class: "card__link" do %>
-            <h5 class="card--list__heading"><%= proposal.title %></h5>
+            <h5 class="card--list__heading"><%= present(proposal).title %></h5>
           <% end %>
           <% present(proposal) do |proposal| %>
             <div class="author">

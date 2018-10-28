@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -9,16 +8,16 @@ pl:
         copy_components: Skopiuj komponenty
         copy_steps: Skopiuj kolejne etapy
         description: Opis
-        developer_group: Grupa programistyczna
+        developer_group: Grupa promotorów
         domain: Domena
         end_date: Data zakończenia
         hashtag: Hasztag
         hero_image: Obraz w domu
-        local_area: Okolica
+        local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
-        participatory_scope: Zakres partycypacji
-        participatory_structure: Struktura partycypacji
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
         promoted: Lansowany
         published_at: Opublikowano na
         scope_id: Zakres
@@ -28,7 +27,7 @@ pl:
         slug: Ślimak URL
         start_date: Data rozpoczęcia
         subtitle: Podtytuł
-        target: Cel
+        target: Kto uczestniczy
         title: Tytuł
       participatory_process_group:
         description: Opis
@@ -36,6 +35,8 @@ pl:
         name: Nazwa
         participatory_process_ids: Powiązane procesy
       participatory_process_step:
+        cta_path: Ścieżka wezwania do działania
+        cta_text: Tekst wezwania do działania
         description: Opis
         end_date: Data zakończenia
         short_description: Krótki opis
@@ -51,30 +52,33 @@ pl:
   activerecord:
     models:
       decidim/participatory_process:
+        one: Proces partycypacyjny
         few: Procesy partycypacyjne
         many: Procesy partycypacyjne
-        one: Proces partycypacyjny
         other: Procesy partycypacyjne
       decidim/participatory_process_group:
+        one: Uczestnicza grupa procesowa
         few: Uczestniczące grupy procesów
         many: Uczestniczące grupy procesów
-        one: Uczestnicza grupa procesowa
         other: Uczestniczące grupy procesów
       decidim/participatory_process_step:
+        one: Krok
         few: Kroki
         many: Kroki
-        one: Krok
         other: Kroki
   decidim:
     admin:
       actions:
         activate: Aktywować
         configure: Skonfigurować
-        confirm_destroy: Potwierdzić zniszczyć
-        destroy: Zniszczyć
+        confirm_destroy: Potwierdź usunięcie
+        destroy: Kasować
         duplicate: Duplikat
         edit: Edytuj
-        new: Nowy
+        new_process: Nowy proces
+        new_process_group: Nowa grupa procesów
+        new_process_step: Nowy krok
+        new_process_user_role: Nowy użytkownik procesu
         preview: Podgląd
         publish: Opublikować
         resend_invitation: Wyślij ponownie zaproszenie
@@ -83,7 +87,7 @@ pl:
         participatory_process_groups: Grupy procesowe
         participatory_processes: Procesy
         participatory_processes_submenu:
-          attachment_collections: Kolekcje
+          attachment_collections: Lornetka składana
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
@@ -101,6 +105,7 @@ pl:
             promoted: Podświetlony
             published: Opublikowany
             title: Tytuł
+          name: Proces współuczestnictwa
         participatory_process_group:
           fields:
             name: Nazwa
@@ -116,7 +121,7 @@ pl:
             email: Adres e-mail
             name: Nazwa
             role: Rola
-          name: Uczestnik procesu
+          name: Uczestniczy proces użytkownika
           roles:
             admin: Administrator
             collaborator: Współpracownik
@@ -132,7 +137,7 @@ pl:
           title: Duplikat procesu partycypacyjnego
       participatory_process_groups:
         destroy:
-          success: Uczestnicząca grupa procesowa została zniszczona.
+          success: Uczestnicząca grupa procesów została pomyślnie usunięta.
         edit:
           title: Edytuj grupę procesów
           update: Aktualizuj
@@ -162,7 +167,7 @@ pl:
           error:
             active_step: Nie można usunąć aktywnego kroku.
             last_step: Nie można usunąć ostatniego etapu procesu.
-          success: Udział w procesie uczestnictwa został pomyślnie zniszczony.
+          success: Uczestniczy krok procesu został pomyślnie usunięty.
         edit:
           title: Edytuj krok procesu partycypacyjnego
           update: Aktualizuj
@@ -179,9 +184,9 @@ pl:
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu uczestnictwa.
-          success: Użytkownik utworzony z powodzeniem dla tego procesu partycypacyjnego.
+          success: Użytkownik został pomyślnie dodany do tego procesu uczestnictwa.
         destroy:
-          success: Użytkownik z powodzeniem zniszczył ten proces uczestnictwa.
+          success: Użytkownik usunięty pomyślnie z tego procesu uczestnictwa.
         edit:
           title: Zaktualizuj uczestniczącego użytkownika procesu.
           update: Aktualizuj
@@ -198,7 +203,7 @@ pl:
           error: Podczas tworzenia nowego procesu partycypacyjnego wystąpił błąd.
           success: Proces współuczestnictwa został pomyślnie utworzony. Skonfiguruj teraz kroki.
         destroy:
-          success: Proces współudziału został zniszczony.
+          success: Proces partycypacyjny został pomyślnie usunięty.
         edit:
           update: Aktualizuj
         form:
@@ -260,7 +265,11 @@ pl:
       processes: Procesy
     participatory_process_groups:
       show:
-        group_participatory_processes: Procesy %{group}
+        group_participatory_processes:
+          one: 1 procesy dla %{group}
+          few: "%{count} procesów dla %{group}"
+          many: "%{count} procesów dla %{group}"
+          other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
     participatory_process_steps:
       index:
@@ -268,33 +277,74 @@ pl:
         title: Etapy procesu partycypacyjnego
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maksymalna ilość elementów do pokazania
         participatory_process_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptuje litery, cyfry, myślniki i ukośniki i musi zaczynać się od litery. Jeśli nie zostanie ustawiony, przycisk nie będzie wyświetlany. Przykład: %{url}'
+            cta_text_help: Jeśli nie zostanie ustawiony, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Wyróżnione procesy
       index:
         title: Procesy partycypacyjne
-      order_by_processes:
-        active: Aktywne
-        all: Wszystko
-        past: Przeszłe
-        upcoming: Nadchodzące
+      last_activity:
+        new_participatory_process: Nowy proces uczestnictwa
       pages:
         home:
           highlighted_processes:
             active_processes: Aktywne procesy
             active_step: Aktywny krok
+            more_information: Więcej informacji
+            participate: Uczestniczyć
             see_all_processes: Zobacz wszystkie procesy
       participatory_process_groups:
         none: Brak
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktywny proces
+              few: "%{count} aktywnych procesów"
+              many: "%{count} aktywnych procesów"
+              other: "%{count} aktywnych procesów"
+            all:
+              one: 1 proces
+              few: "%{count} procesów"
+              many: "%{count} procesów"
+              other: "%{count} procesów"
+            past:
+              one: 1 przeszły proces
+              few: "%{count} przeszłych procesów"
+              many: "%{count} przeszłych procesów"
+              other: "%{count} przeszłych procesów"
+            upcoming:
+              one: 1 nadchodzący proces
+              few: "%{count} nadchodzących procesów"
+              many: "%{count} nadchodzących procesów"
+              other: "%{count} nadchodzących procesów"
+          explanations:
+            no_active: Brak aktywnych procesów
+            no_active_nor_upcoming: Brak aktywnych i nadchodzących procesów
+            no_active_nor_upcoming_callout: Nie ma aktywnych ani nadchodzących procesów. Oto lista poprzednich.
+          names:
+            active: Aktywne
+            all: Wszystko
+            past: Przeszłe
+            upcoming: Nadchodzące
+          see: Widzieć
         index:
           loading: Wyniki wyszukiwania...
       show:
-        developer_group: Grupa programistyczna
+        developer_group: Grupa promotorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
         participatory_scope: Co jest zdecydowane
@@ -333,12 +383,6 @@ pl:
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
-        order_by_processes:
-          processes:
-            few: "%{count} procesów"
-            many: "%{count} procesów"
-            one: "%{count} proces"
-            other: "%{count} procesów"
         participatory_process:
           active_step: 'Aktualny krok:'
           take_part: Wziąć udział

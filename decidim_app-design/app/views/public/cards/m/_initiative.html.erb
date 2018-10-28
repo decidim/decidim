@@ -11,18 +11,12 @@
           <% end %>
           <div class="card__author">
             <!-- locals.text: the number has to match with the hidden ones -->
-            <!-- locals.size: classname. small shows only 3 items -->
+            <!-- locals.size: number of item to show. 3, only 3 items -->
             <!-- locals.classText: classname. default text-small. append to span -->
-            <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: "small", classText: "" } do %>
-              <%= partial "author_data", { nick: false } %>
-              <%= partial "author_data", { nick: false } %>
-              <%= partial "author_data", { nick: false } %>
-              <%= partial "author_data", { nick: false } %>
-              <%= partial "author_data", { nick: false } %>
-              <%= partial "author_data", { nick: false } %>
-              <%= partial "author_data", { nick: false } %>
-              <%= partial "author_data", { nick: false } %>
-              <%= partial "author_data", { nick: false } %>
+            <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: 3, classText: "" } do %>
+            <% 9.times do %>
+            <%= partial "author_data", { nick: false } %>
+            <% end %>
             <% end %>
           </div>
         </div>

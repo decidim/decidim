@@ -3,6 +3,7 @@
     <%= action_authorized_button_to(
       :join,
       meeting_registration_path(model),
+      resource: model,
       method: :delete,
       class: "#{button_classes} secondary light",
       data: { disable: true }
@@ -16,6 +17,7 @@
       :join,
       i18n_join_text,
       "",
+      resource: model,
       class: button_classes,
       disabled: !model.has_available_slots?,
       data: { open: current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" }

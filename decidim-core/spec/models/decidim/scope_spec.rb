@@ -63,12 +63,12 @@ module Decidim
 
       it "don't allows two scopes cycles" do
         scope.parent = subscope
-        is_expected.to be_invalid
+        expect(subject).to be_invalid
       end
 
       it "don't allows three scopes cycles" do
         scope.parent = subsubscope
-        is_expected.to be_invalid
+        expect(subject).to be_invalid
       end
     end
 

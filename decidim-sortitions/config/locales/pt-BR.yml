@@ -43,7 +43,7 @@ pt-BR:
         actions:
           destroy: Cancelar a classificação
           edit: Editar
-          new: Novo
+          new: Nova classificação
           show: Detalhes da classificação
         models:
           sortition:

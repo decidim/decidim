@@ -19,10 +19,10 @@ describe "Admin manages consultations", type: :system do
     end
 
     it "creates a new consultation" do
-      execute_script("$('#date_field_consultation_start_voting_date').focus()")
+      execute_script("$('#consultation_start_voting_date').focus()")
       find(".active").click
 
-      execute_script("$('#date_field_consultation_end_voting_date').focus()")
+      execute_script("$('#consultation_end_voting_date').focus()")
       find(".active").click
 
       within ".new_consultation" do
@@ -72,10 +72,10 @@ describe "Admin manages consultations", type: :system do
     end
 
     it "fails to create a new consultation" do
-      execute_script("$('#date_field_consultation_start_voting_date').focus()")
+      execute_script("$('#consultation_start_voting_date').focus()")
       find(".active").click
 
-      execute_script("$('#date_field_consultation_end_voting_date').focus()")
+      execute_script("$('#consultation_end_voting_date').focus()")
       find(".active").click
 
       within ".new_consultation" do
@@ -190,7 +190,7 @@ describe "Admin manages consultations", type: :system do
 
     it "deletes a consultation" do
       click_link translated(consultation2.title)
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")
 

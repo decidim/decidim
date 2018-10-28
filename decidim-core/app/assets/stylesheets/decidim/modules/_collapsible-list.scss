@@ -1,18 +1,22 @@
 // @Component
 .collapsible-list{
   &.is-filtered{
-    > div:nth-of-type(1n+8){
-      display: none;
-    }
-
-    &.small{
-      > div:nth-of-type(1n+4){
-        display: none;
+    @for $i from 1 through 12{
+      &.show-#{$i}{
+        .collapse:nth-of-type(n+#{$i + 1}),
+        > div:nth-of-type(n+#{$i + 1}){
+          display: none;
+        }
       }
     }
 
     .collapsible-list__see-more{
       display: inline-block;
+
+      + .text-small{
+        padding-top: .15rem;
+        padding-left: .2rem;
+      }
     }
 
     .collapsible-list__see-less{
@@ -29,7 +33,7 @@
   }
 
   > *{
-    display: inline-block;
+    display: inline-flex;
     margin: 0 0 .5rem;
   }
 }

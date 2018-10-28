@@ -12,13 +12,7 @@ module Decidim
     end
 
     def followings
-      @followings ||= Kaminari.paginate_array(following_users).page(params[:page]).per(20)
-    end
-
-    def following_users
-      @following_users ||= model.following.select do |following|
-        following.is_a?(Decidim::User)
-      end
+      @followings ||= Kaminari.paginate_array(model.following_users).page(params[:page]).per(20)
     end
   end
 end

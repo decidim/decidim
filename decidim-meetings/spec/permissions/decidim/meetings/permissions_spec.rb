@@ -87,4 +87,34 @@ describe Decidim::Meetings::Permissions do
       it { is_expected.to eq true }
     end
   end
+
+  context "when declining an invitation" do
+    let(:action) do
+      { scope: :public, action: :decline_invitation, subject: :meeting }
+    end
+
+    before do
+      allow(meeting)
+        .to receive(:registrations_enabled?)
+        .and_return(registrations_enabled)
+    end
+
+    context "when registrations are disabled" do
+      let(:registrations_enabled) { false }
+
+      it { is_expected.to eq false }
+    end
+
+    context "when user has not been invited" do
+      it { is_expected.to eq false }
+    end
+
+    context "when user has been invited" do
+      before do
+        meeting.invites << create(:invite, user: user, meeting: meeting)
+      end
+
+      it { is_expected.to eq true }
+    end
+  end
 end

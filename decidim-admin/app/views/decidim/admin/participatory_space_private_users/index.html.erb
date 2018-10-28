@@ -9,7 +9,7 @@
   </div>
 
   <div class="card-section">
-    <% if privatable_to.participatory_space_private_users.any? %>
+    <% if collection.any? %>
       <div class="table-scroll">
         <table class="stack">
           <thead>
@@ -22,7 +22,7 @@
             </tr>
           </thead>
           <tbody>
-            <% privatable_to.participatory_space_private_users.each do |private_user| %>
+            <% collection.each do |private_user| %>
               <tr>
                 <td>
                   <%= private_user.user.name %><br />
@@ -54,6 +54,7 @@
           </tbody>
         </table>
       </div>
+      <%= decidim_paginate collection %>
     <% end %>
   </div>
 </div>

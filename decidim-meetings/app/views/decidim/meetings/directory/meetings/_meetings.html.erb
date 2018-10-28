@@ -1,0 +1,14 @@
+<% if meetings.length == 0 %>
+  <div class="callout warning">
+    <%= t "decidim.meetings.meetings.meetings.no_meetings_warning" %>
+  </div>
+<% else %>
+  <%= render partial: "decidim/shared/results_per_page" %>
+
+  <div class="row small-up-1 medium-up-2 card-grid">
+    <% meetings.each do |meeting| %>
+      <%= card_for meeting %>
+    <% end %>
+  </div>
+  <%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+<% end %>

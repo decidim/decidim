@@ -1,0 +1,73 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "debates"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <div class="wrapper">
+    <div class="row columns">
+      <h1 class="section-heading">This site by the numbers</h1>
+    </div>
+    <div class="row">
+      <div class="column medium-6">
+        <h3 class="heading3">Participantes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true %>
+        <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+      </div>
+      <div class="column medium-6">
+        <h3 class="heading3">Propuestas</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true %>
+        <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column medium-6">
+        <h3 class="heading3">Apoyos</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "16:9" %>
+        <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+      </div>
+      <div class="column medium-6">
+        <h3 class="heading3">Propuesta aceptadas</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "16:9" %>
+        <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns">
+        <h3 class="heading3">Participantes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "11:4" %>
+        <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column medium-4">
+        <h3 class="heading3">Areachart Secondary</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", classes: "secondary", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "11:4" %>
+        <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+      </div>
+      <div class="column medium-4">
+        <h3 class="heading3">Areachart Warning</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", classes: "warning", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "11:4" %>
+        <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+      </div>
+      <div class="column medium-4">
+        <h3 class="heading3">Areachart Success</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+        <%= partial "areachart", classes: "success", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "11:4" %>
+        <p class="pull-right mt-s"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

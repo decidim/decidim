@@ -13,7 +13,7 @@ describe "Admin manages responses", type: :system do
 
   describe "creating a response" do
     before do
-      click_link("New")
+      click_link("New response")
     end
 
     it "creates a new response" do
@@ -40,7 +40,7 @@ describe "Admin manages responses", type: :system do
 
   describe "trying to create a response with invalid data" do
     before do
-      click_link("New")
+      click_link("New response")
     end
 
     it "fails to create a new response" do
@@ -114,7 +114,7 @@ describe "Admin manages responses", type: :system do
     end
 
     it "deletes the response" do
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")
 

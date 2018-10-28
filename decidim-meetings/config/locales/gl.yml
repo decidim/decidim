@@ -1,4 +1,3 @@
----
 gl:
   activemodel:
     attributes:
@@ -21,10 +20,10 @@ gl:
         end_time: Hora de finalización
         location: Localización
         location_hints: Consellos de localización
+        organizer_id: Organizador
         private_meeting: Encontro privado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
-        reserved_slots: Places réservées
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
@@ -43,7 +42,7 @@ gl:
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Cet email a déjà été invité
+              already_invited: Este correo electrónico xa foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -82,6 +81,7 @@ gl:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de rexistro por defecto
+            resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -107,6 +107,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Realizouse a reunión "%{resource_title}"
           notification_title: Reunirase a reunión <a href="%{resource_path}">%{resource_title}</a>.
+        registration_code_validated:
+          email_intro: O seu código de rexistro "%{registration_code}" foi validado.
+          email_outro: Recibiches esta notificación porque o teu código de rexistro para a reunión "%{resource_title}" foi validado.
+          email_subject: O seu código de rexistro "%{registration_code}" foi validado
+          notification_title: O seu código de rexistro "%{registration_code}" para a xuntanza <a href="%{resource_path}">%{resource_title}</a> validouse.
         registrations_enabled:
           email_intro: 'A xuntanza "%{resource_title}" habilitou as inscricións. Pode rexistrarse na súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
@@ -117,17 +122,29 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a reunión "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A reunión "%{resource_title}" comezará en menos de 48 horas.
           notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> comezará en menos de 48 horas.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Rexístrese nas reunións que desexa asistir
+          description: Este distintivo é concedido cando asistes a varias reunións cara a cara.
+          description_another: Este usuario asistiu a %{score} reunións.
+          description_own: Atendeu %{score} reunións.
+          name: Reunións asistidas
+          next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
+          unearned_another: Este usuario aínda non asistiu a ningunha reunión.
+          unearned_own: Aínda non asistiu a ningunha reunión.
     meetings:
       actions:
         agenda: Axenda
-        attachment_collections: Coleccións
+        attachment_collections: Carpetas
         attachments: Anexos
         close: Pechar
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
         minutes: Minutos
-        new: Novo
+        new: Nova reunión
         preview: Vista previa
         registrations: Rexistros
         title: Accións
@@ -166,16 +183,31 @@ gl:
           registrations: Rexistros
         invite_join_meeting_mailer:
           invite:
+            decline: Declina a invitación
             invited_you_to_join_a_meeting: "%{invited_by} convidoute a unirse a unha reunión en %{application}. Podes aceptalo a través da seguinte ligazón."
             join: Únete á reunión "%{meeting_title}"
         invites:
           create:
             error: Produciuse un problema ao invitar ao usuario a unirse á reunión.
             success: O usuario convidouse con éxito a unirse á reunión.
-          new:
-            explanation: Invitarase ao usuario a unirse a unha reunión. Se o correo electrónico non está rexistrado, tamén serán invitados á organización.
+          form:
+            attendee_type: Tipo de asistente
+            existing_user: Usuario existente
             invite: Invitar
-            new_invite: Invitar ao usuario
+            invite_explanation: Tamén se invitará ao usuario a unirse á reunión e á organización.
+            non_user: Usuario non existente
+            select_user: Seleccionar usuario
+          index:
+            filter:
+              accepted: Aceptada
+              all: Todo
+              rejected: Rexeitado
+              sent: Enviado
+            filter_by: Filtrar por
+            invite_attendee: Invitar asistente
+            invites: Invitacións
+            registrations_disabled: Non podes invitar a un asistente porque os rexistros están desactivados.
+            search: Busca
         meeting_closes:
           edit:
             close: Pechar
@@ -232,9 +264,11 @@ gl:
         registrations:
           edit:
             save: Gardar
+            validate: Validar
+            validate_registration_code: Validar o código de rexistro
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
-            invite_user: Invitar ao usuario
+            invites: Invitacións
             registrations_count:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
@@ -243,11 +277,14 @@ gl:
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
             success: A configuración das inscricións da xuntanza gardouse correctamente.
+          validate_registration_code:
+            invalid: Este código de rexistro non é válido.
+            success: Código de rexistro validado con éxito.
       admin_log:
         invite:
-          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
-          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
-          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          create: "%{user_name} invitados %{attendee_name} para unirse a %{resource_name} reunión no %{space_name} espazo"
+          deleted: "%{user_name} non invitados %{attendee_name} de unirse a %{resource_name} reunións no espazo %{space_name}"
+          update: "%{user_name} invitados %{attendee_name} para unirse a %{resource_name} reunión no %{space_name} espazo"
         meeting:
           close: "%{user_name} pechou a %{resource_name} reunión no espazo %{space_name}"
           create: "%{user_name} creou a %{resource_name} reunión no espazo %{space_name}"
@@ -260,6 +297,24 @@ gl:
         minutes:
           create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
           update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
+      conference_venues: Lugares de conferencias
+      content_blocks:
+        upcoming_events:
+          name: Próximos eventos
+          upcoming_events: Próximas reunións
+          view_all_events: Ver todo
+      directory:
+        meetings:
+          index:
+            all: Todo
+            date: Data
+            meetings: Reunións
+            past: Pasado
+            search: Busca
+            space_type: Espazo participativo
+            upcoming: Próximos
+      last_activity:
+        new_meeting_at_html: "<span>Nova reunión en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -282,8 +337,6 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
-        index:
-          view_meeting: Ver reunión
         meeting_minutes:
           meeting_minutes: Minutos de reunión
           related_information: Información relacionada
@@ -306,6 +359,16 @@ gl:
             other: "%{count} slots restantes"
           view: Ver
       models:
+        invite:
+          fields:
+            email: Correo electrónico
+            name: Nome
+            sent_at: Enviado en
+            status: Estado
+          status:
+            accepted: Aceptado (%{at})
+            rejected: Rexeitado (%{at})
+            sent: Enviado
         meeting:
           fields:
             closed: Pechado
@@ -318,10 +381,14 @@ gl:
         confirmation:
           confirmed_html: Inscríbase o rexistro da reunión <a href="%{url}">%{title}</a>.
           details: Atoparás os detalles da reunión no anexo.
+          registration_code: O teu código de rexistro é %{code}.
       registrations:
         create:
           invalid: Produciuse un problema ao unirse a esta reunión.
           success: Uniches á reunión correctamente.
+        decline_invitation:
+          invalid: Produciuse un problema ao diminuír a invitación.
+          success: Rexeitou con éxito a invitación.
         destroy:
           invalid: Produciuse un problema ao saír desta reunión.
           success: Saíu con éxito da reunión.

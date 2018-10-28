@@ -6,7 +6,11 @@ If you haven't already, come find us in [Gitter](https://gitter.im/decidim/decid
 
 ## Did you find a bug?
 
-* **Do not open up a GitHub issue if the bug is a security vulnerability in Decidim**, and instead send us an email to security [at] decidim.org.
+* **Do not open up a GitHub issue if the bug is a security vulnerability in Decidim**, and instead send us an email to security [at] decidim.org. We recommend to use GPG for these kind of communications, the fingerprint is C1BD 8981 D83C 23F9 D419 FE42 149A D0F9 84B9 35C4. To download our key:
+
+```bash
+gpg --keyserver pgp.key-server.io --recv 84B935C4
+```
 
 * **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/decidim/decidim/issues).
 

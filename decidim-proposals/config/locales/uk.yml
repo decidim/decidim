@@ -81,6 +81,7 @@ uk:
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
             proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
+            resources_permissions_enabled: Для кожної пропозиції можна встановити ті чи інші дозволи на дії
             threshold_per_proposal: Поріг на кожну пропозицію
             vote_limit: Гранична кількість голосів від одного учасника
           step:
@@ -91,7 +92,7 @@ uk:
             endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
             votes_blocked: Голосування вимкнене
-            votes_enabled: Голосування увімкнене
+            votes_enabled: Голосування ввімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
     events:
       proposals:
@@ -161,7 +162,7 @@ uk:
       actions:
         answer: Відповісти
         import: Запозичити з іншої складової
-        new: Внести
+        new: Додати нову пропозицію
         private_notes: Приватні примітки
         title: Дії
       admin:
@@ -252,11 +253,11 @@ uk:
           fields:
             category: Категорія
             comments: Коментарі
-            created_at: 'Створено:'
             endorsements: Прояви підтримки
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
+            published_at: 'Оприлюднено:'
             scope: Обсяг
             state: Стан
             title: Назва
@@ -273,6 +274,8 @@ uk:
         endorsement_button:
           already_endorsed: Підтримано
           endorse: Підтримати
+        render_endorsements_button_card_part:
+          endorse: Підтримати
       proposal_votes:
         create:
           error: При голосуванні щодо пропозиції сталися помилки.
@@ -282,8 +285,6 @@ uk:
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         complete:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
-          select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
           title: Завершіть свою пропозицію
         count:
@@ -293,6 +294,7 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         edit:
+          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
           select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
@@ -306,7 +308,6 @@ uk:
           endorse: Підтримати
         endorsements_card_row:
           comments: Коментарі
-          endorse: Підтримати
         filters:
           accepted: Прийнято
           activity: Діяльність

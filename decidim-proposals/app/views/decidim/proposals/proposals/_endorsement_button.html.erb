@@ -1,11 +1,11 @@
 <div id="proposal-<%= proposal.id %>-endorsement-button<%= user_group&.id ? "-#{user_group.id}" : "" %>">
   <% if !current_user %>
-      <%= action_authorized_button_to :endorse, endorse_label, current_endorsement_url, class: "button #{endorsement_button_classes(from_proposals_list)} secondary" %>
+      <%= action_authorized_button_to :endorse, endorse_label, current_endorsement_url, resource: proposal, class: "button #{endorsement_button_classes(from_proposals_list)} secondary" %>
   <% else %>
     <% if proposal.endorsed_by?(current_user, user_group) %>
-      <%= action_authorized_button_to :endorse, unendorse_label, current_endorsement_url, method: :delete, remote: true, class: "button #{endorsement_button_classes(from_proposals_list)} success", id: "endorsement_button" %>
+      <%= action_authorized_button_to :endorse, unendorse_label, current_endorsement_url, resource: proposal, method: :delete, remote: true, class: "button #{endorsement_button_classes(from_proposals_list)} success", id: "endorsement_button" %>
     <% else %>
-      <%= action_authorized_button_to :endorse, endorse_label, current_endorsement_url, remote: true, data: {  }, class: "button #{endorsement_button_classes(from_proposals_list)} secondary" %>
+      <%= action_authorized_button_to :endorse, endorse_label, current_endorsement_url, resource: proposal, remote: true, data: {}, class: "button #{endorsement_button_classes(from_proposals_list)} secondary" %>
     <% end %>
   <% end %>
 </div>

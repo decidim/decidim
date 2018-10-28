@@ -47,6 +47,7 @@ module Decidim
       let!(:page2) { create :static_page, title: { ca: "Abcd", en: "Defg" } }
 
       before { I18n.locale = :ca }
+
       after { I18n.locale = :en }
 
       it "orders by the title in the current locale" do

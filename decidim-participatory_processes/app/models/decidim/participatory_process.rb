@@ -55,9 +55,9 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
-    scope :past, -> { where(arel_table[:end_date].lteq(Time.current)) }
-    scope :upcoming, -> { where(arel_table[:start_date].gt(Time.current)) }
-    scope :active, -> { where(arel_table[:start_date].lteq(Time.current).and(arel_table[:end_date].gt(Time.current).or(arel_table[:end_date].eq(nil)))) }
+    scope :past, -> { where(arel_table[:end_date].lteq(Date.current)) }
+    scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
+    scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gt(Date.current).or(arel_table[:end_date].eq(nil)))) }
 
     # Scope to return only the promoted processes.
     #
@@ -72,7 +72,7 @@ module Decidim
 
     def past?
       return false if end_date.blank?
-      end_date < Time.current
+      end_date < Date.current
     end
 
     def hashtag

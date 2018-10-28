@@ -10,51 +10,19 @@
   <div class="wrapper">
     <%= partial "process_header" %>
     <div class="row column view-header">
-      <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per
-            la Vall d'Hebrón</h2>
-      <div class="author-data">
-        <div class="author-data__main">
-          <div class="author author--inline">
-            <a href="#" class="author__avatar">
-              <%= image_tag "demo-avatar.jpg" %>
-            </a>
-            1 de agosto de 2016 por
-            <a href="#" class="author__name">
-              Ajuntament de Barcelona
-            </a>
-          </div>
-        </div>
-        <div class="author-data__extra">
-          <a href="#comments" title="Comentarios">
-            <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 108
-          </a>
-          <%= partial "flag" %>
-        </div>
-      </div>
+      <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón</h2>
+      <%= partial "author_data", { extra: true } %>
     </div>
     <div class="row">
-      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
-        large-3 large-push-9">
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
         <div class="card">
           <div class="card__content">
-
-            <%= partial "progress_bar", { vertical: true, progress: 27, total: 50 } %>
-
+            <%= partial "progress_bar", { vertical: true } %>
             <button class="button expanded light button--sc">Apoyar</button>
-
             <%= partial "adhesion_buttons", { status: "secondary" } %>
-
           </div>
         </div>
-        <div class="card text-center">
-          <div class="card__content">
-            <button class="button secondary hollow expanded button--icon button--sc">
-              <%= icon "bell" %>
-              <span>Seguir</span>
-            </button>
-            <small>Recibe una notificación cuando haya novedades en esta propuesta</small>
-          </div>
-        </div>
+        <%= partial "followme" %>
         <%= partial "share" %>
         <div class="text-center">
           <small>Referencia: BCN-2016-01-173</small>

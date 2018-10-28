@@ -15,6 +15,7 @@ module Decidim
         helper Decidim::ResourceHelper
         helper Decidim::Admin::ExportsHelper
         helper Decidim::Admin::BulkActionsHelper
+        helper Decidim::Admin::ResourcePermissionsHelper
 
         helper_method :current_component,
                       :current_participatory_space,
@@ -53,7 +54,7 @@ module Decidim
         end
 
         def parent_path
-          @parent_path ||= EngineRouter.admin_proxy(current_participatory_space).components_path
+          @parent_path ||= ::Decidim::EngineRouter.admin_proxy(current_participatory_space).components_path
         end
       end
     end

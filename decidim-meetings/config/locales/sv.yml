@@ -20,6 +20,7 @@ sv:
         end_time: Sluttid
         location: Plats
         location_hints: Platstips
+        organizer_id: Arrangör
         private_meeting: Privat möte
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
@@ -38,6 +39,10 @@ sv:
             base:
               too_many_minutes: Varaktigheten av objekten överstiger mötestiden med %{count} minuter
               too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendaobjektet "%{parent_title}" med %{count} minuter
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Det här e-postadressen har redan blivit inbjuden
     models:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
@@ -76,6 +81,7 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             default_registration_terms: Villkor för standardregistrering
+            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -101,6 +107,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan avfölja det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
+        registration_code_validated:
+          email_intro: Din registreringskod "%{registration_code}" har validerats.
+          email_outro: Du har fått den här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
+          email_subject: Din registreringskod "%{registration_code}" har validerats
+          notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registrations_enabled:
           email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
@@ -111,17 +122,29 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Registrera dig i de möten du vill delta i
+          description: Detta märke beviljas när du deltar i flera möten mellan ansikte mot ansikte.
+          description_another: Den här användaren har deltagit i %{score} möten.
+          description_own: Du har deltagit i %{score} möten.
+          name: Deltog i möten
+          next_level_in: Delta i %{score} fler möten för att nå nästa nivå!
+          unearned_another: Den här användaren har inte deltagit i något möte än.
+          unearned_own: Du har inte deltagit i något möte än.
     meetings:
       actions:
         agenda: Dagordning
-        attachment_collections: Samlingar
+        attachment_collections: Mappar
         attachments: Bifogade filer
         close: Stäng
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
         minutes: Anteckningar
-        new: Ny
+        new: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
         title: Handlingar
@@ -160,16 +183,31 @@ sv:
           registrations: Registreringar
         invite_join_meeting_mailer:
           invite:
+            decline: Avvisa inbjudan
             invited_you_to_join_a_meeting: "%{invited_by} har bjudit in dig till ett möte på %{application}. Du kan acceptera det via länken nedan."
             join: Gå med i mötet "%{meeting_title}"
         invites:
           create:
             error: Det har uppstått ett problem när du bjöd in användaren att gå med i mötet.
             success: Användaren bjöds inbjuden att delta i mötet.
-          new:
-            explanation: Användaren kommer att bli inbjuden att delta i ett möte. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
+          form:
+            attendee_type: Deltagartyp
+            existing_user: Existerande användare
             invite: Bjud in
-            new_invite: Bjud in användare
+            invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
+            non_user: Icke-existerande användare
+            select_user: Välj användare
+          index:
+            filter:
+              accepted: Accepterad
+              all: Allt
+              rejected: Avvisade
+              sent: Skickat
+            filter_by: Filtrera efter
+            invite_attendee: Bjud in deltagare
+            invites: Inbjudningar
+            registrations_disabled: Du kan inte bjuda in en deltagare eftersom registreringarna är inaktiverade.
+            search: Sök
         meeting_closes:
           edit:
             close: Stäng
@@ -226,9 +264,11 @@ sv:
         registrations:
           edit:
             save: Spara
+            validate: Bekräfta
+            validate_registration_code: Bekräfta registreringskod
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
-            invite_user: Bjud in användare
+            invites: Inbjudningar
             registrations_count:
               one: Det har gjorts 1 registrering.
               other: Det har gjorts %{count} registreringar.
@@ -237,7 +277,14 @@ sv:
           update:
             invalid: Det uppstod ett problem med att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.
+          validate_registration_code:
+            invalid: Denna registreringskod är ogiltig.
+            success: Registreringskoden validerades.
       admin_log:
+        invite:
+          create: "%{user_name} uppmanade %{attendee_name} att gå med mötet %{resource_name} på platsen %{space_name}"
+          deleted: "%{user_name} objudna %{attendee_name} från att gå med möte %{resource_name} på platsen %{space_name}"
+          update: "%{user_name} uppmanade %{attendee_name} att gå med möte %{resource_name} på platsen %{space_name}"
         meeting:
           close: "%{user_name} stängde %{resource_name} mötet på platsen %{space_name}"
           create: "%{user_name} skapade %{resource_name} mötet på platsen %{space_name}"
@@ -250,6 +297,24 @@ sv:
         minutes:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
+      conference_venues: Konferenslokaler
+      content_blocks:
+        upcoming_events:
+          name: Uppkommande händelser
+          upcoming_events: Kommande möten
+          view_all_events: Visa alla
+      directory:
+        meetings:
+          index:
+            all: Allt
+            date: Datum
+            meetings: möten
+            past: Dåtid
+            search: Sök
+            space_type: Deltagande utrymme
+            upcoming: kommande
+      last_activity:
+        new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -272,8 +337,6 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
-        index:
-          view_meeting: Visa möte
         meeting_minutes:
           meeting_minutes: Mötesprotokoll
           related_information: Relaterad information
@@ -296,6 +359,16 @@ sv:
             other: "%{count} platser kvar"
           view: Visa
       models:
+        invite:
+          fields:
+            email: E-post
+            name: Namn
+            sent_at: Skickat på
+            status: Status
+          status:
+            accepted: Accepterad (%{at})
+            rejected: Avvisad (%{at})
+            sent: Skickat
         meeting:
           fields:
             closed: Stängd
@@ -308,10 +381,14 @@ sv:
         confirmation:
           confirmed_html: Din registrering för mötet <a href="%{url}">%{title}</a> har bekräftats.
           details: Du hittar mötesuppgifterna i bilagan.
+          registration_code: Din registreringskod är %{code}.
       registrations:
         create:
           invalid: Det har uppstått ett problem med att gå med i det här mötet.
           success: Du har gått med på mötet.
+        decline_invitation:
+          invalid: Det uppstod ett problem med att avböja inbjudan.
+          success: Du har avböjt inbjudan.
         destroy:
           invalid: Det uppstod ett problem med att lämna detta möte.
           success: Du har lämnat mötet.

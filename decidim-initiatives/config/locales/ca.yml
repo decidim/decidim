@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -7,9 +6,9 @@ ca:
         description: Descripció
         offline_votes: Suports presencials
         scope_id: Abast
-        signature_end_time: Fi del període de recollida de signatures
-        signature_start_time: Inici del període de recollida de signatures
-        signature_type: Tipus de signatura
+        signature_end_date: Fi del període de recollida de signatures
+        signature_start_date: Inici del període de recollida de signatures
+        signature_type: Tipus de recollida de la signatura
         signature_type_values:
           any: Mixta
           offline: Presencial
@@ -31,7 +30,7 @@ ca:
         title: Títol
       organization_data:
         address: Adreça
-        id_document: CIF
+        id_document: Document d'identificació
         name: Nom complet
   activerecord:
     models:
@@ -46,6 +45,8 @@ ca:
         other: Firmes
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nou tipus d'iniciativa
       menu:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
@@ -72,15 +73,28 @@ ca:
     events:
       initiatives:
         initiative_extended:
-          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
-          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+          email_intro: La data de finalització de la signatura de la iniciativa %{resource_title} s'ha ampliat!
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha estès la data de finalització de la signatura d'iniciatives!
+          notification_title: S'ha ampliat la data de finalització de la signatura de la iniciativa <a href="%{resource_path}">%{resource_title}</a>.
         milestone_completed:
           email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha completat una nova fita!
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Anar a l'espai de participació d'Intiatives
+            - Seguiu els passos per crear una nova iniciativa
+          description: Aquesta distinció es concedeix quan es llancen noves iniciatives, s'uneixen amb altres per dur-les a terme.
+          description_another: Aquest usuari ha publicat %{score} iniciatives.
+          description_own: Tens %{score} iniciatives publicades.
+          name: Iniciatives publicades
+          next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha publicat cap iniciativa.
+          unearned_own: Encara no has publicat cap iniciativa.
     initiatives:
       admin:
         committee_requests:
@@ -91,6 +105,9 @@ ca:
             no_members_yet: No hi ha membres al comitè promotor
             revoke: Revocar
             title: Membres del comitè
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantitat màxima d'elements que es mostraran
         initiatives:
           edit:
             accept: Accepta la iniciativa
@@ -116,7 +133,7 @@ ca:
             filter_by: Filtra per
             preview: Vista prèvia
             print: Imprimir
-            search: Busca
+            search: Cerca
           show:
             print: Imprimir
           update:
@@ -131,7 +148,7 @@ ca:
           edit:
             back: Enrere
             confirm_destroy: N'estàs segur?
-            destroy: Destruir
+            destroy: Suprimeix
             title: Edita l'abast del tipus d'iniciativa
             update: Actualitza
           new:
@@ -149,7 +166,7 @@ ca:
             success: S'ha eliminat correctament el tipus d'iniciativa
           edit:
             confirm_destroy: N'estàs segur?
-            destroy: Destruir
+            destroy: Suprimeix
             update: Actualitza
           form:
             title: Informació general
@@ -160,7 +177,7 @@ ca:
             title: Nou tipus d'iniciativa
           update:
             error: S'ha produït un error
-            success: La iniciativa donada s'ha actualitzat correctament
+            success: El tipus d'iniciativa s'ha actualitzat correctament
       admin_log:
         initiative:
           publish: "%{user_name} ha publicat la iniciativa %{resource_name}"
@@ -177,9 +194,12 @@ ca:
       committee_requests:
         new:
           continue: Continua
-          help_text: Estàs a punt de sol·licitar ser membre del comitè promotor d'aquesta iniciativa
+          help_text: Estàs a punt de sol·licitar formar part del comitè promotor d'aquesta iniciativa
         spawn:
           success: La teva sol·licitud s'ha enviat a l'autor de la iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciatives destacades
       create_initiative:
         fill_data:
           back: Enrere
@@ -196,9 +216,9 @@ ca:
           more_information: "(Més informació)"
         finish_help:
           access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de l'usuari.
-          help_for_organizations: Si ets una associació hauràs de carregar les actes del consell d'administració de totes les organitzacions que conformen la Comissió Promotora
+          help_for_organizations: Si ets una associació, hauràs de carregar les actes del consell d'administració de totes les organitzacions que formen la Comissió Promotora
           help_in_person_signatures: Si has triat cobrar les signatures presencials o combinar-les en línia, hauràs de carregar la informació requerida.
-          help_text: Recorda que per processar correctament la iniciativa, has d'accedir al panell d'administració on trobaràs el menú d'usuari, carregar la informació requerida i enviar-la al procediment.
+          help_text: Recorda que per processar correctament la iniciativa, has d'accedir al panell d'administració on trobaràs el menú d'usuari, carregar la informació requerida i enviar-la per processar-la.
           initiatives_page_link: Podeu consultar tota aquesta informació al %{link} dedicada a informar sobre iniciatives.
           page: pàgina
         previous_form:
@@ -217,7 +237,7 @@ ca:
           select_initiative_type_help: Les iniciatives ciutadanes són un mitjà mitjançant el qual la ciutadania pot intervenir perquè l'Ajuntament pugui emprendre accions en defensa de l'interès general que es troben dins dels àmbits de la jurisdicció municipal. Quina iniciativa vols llançar?
         share_committee_link:
           continue: Continua
-          invite_to_committee_help: Enllaç per convidar persones que formaran part del comitè de promoció
+          invite_to_committee_help: Enllaç per convidar persones que formaran part del comitè promotor
         show_similar_initiatives:
           back: Enrere
           compare_help: Si alguna de les següents iniciatives és similar a la vostra, us animem a que la suporti. La vostra proposta tindrà més possibilitats de fer-se.
@@ -280,7 +300,7 @@ ca:
           any_vote_method: Aquesta iniciativa ciutadana recull suports tant en línia com presencials.
           offline_method: Aquesta iniciativa ciutadana només recull suports presencials.
         signature_identities:
-          select_identity: Selecciona la identitat de l'usuari
+          select_identity: Selecciona l'identificador d'usuari
         signatures_count:
           one: " signatura"
           other: " signatures"
@@ -293,7 +313,7 @@ ca:
           title: Llistat de signatures
         vote_cabin:
           already_voted: Ja has signat
-          supports_required: "%{total_supports} signatures required"
+          supports_required: "%{total_supports} suports obligatoris"
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:
@@ -308,11 +328,13 @@ ca:
         more_information: Aquí tens més informació sobre el procés de creació d'iniciatives.
         progress_report_body_for: La iniciativa %{title} ha arribat al %{percentage}% dels suports necessaris.
         progress_report_for: 'Repàs de la iniciativa: %{title}'
-        promotal_committee_help: Recorda que has de convidar almenys %{member_count} persones a un comitè promotor. Reenvia el següent enllaç per convidar persones al comitè de promoció
+        promotal_committee_help: Recorda que has de convidar almenys a %{member_count} persones al comitè promotor. Reenvia el següent enllaç per convidar persones al comitè promotor
         status_change_body_for: 'La iniciativa %{title} ha canviat el seu estat per: %{state}'
         status_change_for: La iniciativa %{title} ha canviat d'estat
         technical_validation_body_for: La iniciativa %{title} ha demanat la seva validació tècnica.
         technical_validation_for: La iniciativa %{title} ha demanat la seva validació tècnica.
+      last_activity:
+        new_initiative: Nova iniciativa
       pages:
         home:
           highlighted_initiatives:
@@ -335,7 +357,7 @@ ca:
         fill_data: Crear
         finish: Acaba
         previous_form: Començar
-        promotal_committee: Comitè de promoció
+        promotal_committee: Comitè promotor
         select_initiative_type: Tria
         show_similar_initiatives: Compara
       initiative_header:

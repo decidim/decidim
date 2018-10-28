@@ -11,16 +11,15 @@ en:
         email: Your email
         name: Your name
         nickname: Your short, unique identifier
-        password: New password
-        password_confirmation: Confirm your new password
+        password: Password
+        password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
+      decidim/gamification/badge_earned_event: Badge earned
+      decidim/gamification/level_up_event: You've leveled up
       decidim/profile_updated_event: Profile updated
   activerecord:
     attributes:
@@ -31,9 +30,6 @@ en:
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
     models:
       decidim/user:
         one: User
@@ -51,8 +47,14 @@ en:
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: File does not exist
+        invalid_token: The provided token is invalid.
+        no_token: No token provided
+        notice: Your data is currently in progress. You'll receive an email when it's complete.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
@@ -153,6 +155,36 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
+        incomplete:
+          cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
+          reauthorize: Reauthorize
+          title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
+        unauthorized:
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid_field: "%{field} value %{value} isn't valid."
+          ok: Ok
+          title: Not authorized
+        unconfirmed:
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
+          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
         one: and 1 more
@@ -170,14 +202,46 @@ en:
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            resources_permissions_enabled: Resources permissions enabled
           step:
             comments_blocked: Comments blocked
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      hero:
+        name: Hero image
+      highlighted_content_banner:
+        name: Highlighted content banner
+      how_to_participate:
+        name: How to participate
+      html:
+        html_content: HTML content
+        name: HTML block
+      last_activity:
+        name: Last activity
+        title: Last activity
+        view_all: View all
+      metrics:
+        name: Organization metrics
+      stats:
+        name: Organization stats
+      sub_hero:
+        name: Sub hero banner
     core:
       actions:
         unauthorized: You are not authorized to perform this action
+    data_portability:
+      export:
+        ready: Ready
+      show:
+        download_data: Download the data
+        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        request_data: Request data
+    datepicker:
+      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -198,8 +262,6 @@ en:
           sign_up: Sign up
           sign_up_as:
             legend: Sign up as
-            user: Individual
-            user_group: Organization/Collective
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
@@ -213,8 +275,19 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
+            close_modal: Close modal
             uncheck: Keep uncheck
-          notice: Hey, are you sure you don't want to receive a newsletter? Please consider again ticking the newsletter checkbox below. It is very important for us that you can receive occasional emails to make important announcements, you can always change this on your notifications settings page. If you don't tick the box you might be missing relevant information about new participatory opportunities within the platform. If you still want to avoid receiving newsletters, we perfectly understand your decision. Thanks for reading this!
+          notice: |-
+            <p>Hey, are you sure you don't want to receive a newsletter?<br>
+            Please consider again ticking the newsletter checkbox below.<br>
+            It is very important for us that you can receive occasional emails
+            to make important announcements, you can always change this on your
+            notifications settings page.</p>
+            <p>If you don't tick the box you might be missing relevant information
+            about new participatory opportunities within the platform.<br>
+            If you still want to avoid receiving newsletters, we perfectly
+            understand your decision.</p>
+            <p>Thanks for reading this!</p>
           title: Newsletter notifications
         omniauth_buttons:
           or: Or
@@ -259,24 +332,19 @@ en:
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
         email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
         email_subject: An update to %{resource_title}
-      feature_published_event:
-        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-        email_subject: An update to %{participatory_space_title}
-        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
-      features:
-        feature_published:
-          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      gamification:
+        badge_earned:
+          email_intro: Great job! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: 'You''ve earned a new badge: %{badge_name}!'
+          notification_title: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+        level_up:
+          email_intro: Great job! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -284,13 +352,17 @@ en:
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
+      data_portability_export:
+        click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
+        download: Download
       export:
         ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready
     filters:
       linked_classes:
         all: All
-        dummyresource: Dummy resources
+        collaborative_draft: Collaborative draft
+        dummy_resource: Dummy resources
         meeting: Meetings
         project: Projects
         proposal: Proposals
@@ -321,6 +393,76 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
+    gamification:
+      all_badges_link: See all available badges.
+      badges:
+        continuity:
+          conditions:
+          - Come here often
+          description: This badge is granted when you visit the platform in a regular way. We like having you around here!
+          description_another: This user has connected for %{score} consecutive days at some point.
+          description_own: You have connected for %{score} consecutive days at some point.
+          name: Continuity
+          next_level_in: Connect for %{score} consecutive days to get to the next level!
+          unearned_another: This user hasn't signed in for more than one consecutive day.
+          unearned_own: You haven't connected for more than one consecutive day.
+        followers:
+          conditions:
+          - Being active and following other people will surely make other people follow you.
+          description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
+          description_another: This user has %{score} followers.
+          description_own: "%{score} users are following you."
+          name: Followers
+          next_level_in: Get %{score} more users to follow you to reach the next level!
+          unearned_another: This user doesn't have any followers yet.
+          unearned_own: You've got no followers yet.
+        index:
+          badge_title: "%{name} badge"
+          how: How can you earn it
+          page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
+          title: Badges
+        invitations:
+          conditions:
+          - Use the “invite friends” link on your user page to invite your friends
+          - Customize, if you want, the message you are sending
+          - You’ll level up by sending invitations and getting them registered.
+          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
+          description_another: This user has invited %{score} users.
+          description_own: You have invited %{score} users.
+          name: Invitations
+          next_level_in: Invite %{score} more users to reach the next level!
+          unearned_another: This user hasn't invited any user yet.
+          unearned_own: You have invited no users yet.
+      description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
+      level: Level %{level}
+      reached_top: You've reached the top level for this badge.
+    groups:
+      create:
+        error: There has been a problem creating the organization
+        success: Organization created successfully
+      new:
+        create_user_group: Create organization
+        new_user_group: New organization
+      no_user_groups: Doesn't belong to any organization yet.
+    invitations:
+      create:
+        error: There were some problems while inviting your friends
+        error_empty_form: Please enter some email addresses
+        success: We've sent the invites to your friends!
+      index:
+        customize_message: Customize the invitation message
+        friend_email: 'Friend #%{index} email'
+        invitations_subtitle: Let your friends know about this site
+        invitations_title: Do you think more voices should be heard in %{organization_name}?
+        invite: Invite
+        visit_your_profile: Visit your profile
+    last_activities:
+      activities:
+        no_activities_warning: No activity
+      all: All activity types
+      index:
+        last_activity: Last activity
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
@@ -342,6 +484,8 @@ en:
           not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current impersonation session has expired.
+    members:
+      no_members: This user groups doesn't have any member yet.
     menu:
       home: Home
       more_information: More information
@@ -361,18 +505,22 @@ en:
         create:
           error: Conversation not started. Try again later
         index:
+          from: From
+          last_message_html: Last message <strong>%{time} ago</strong>
           no_conversations: You have no conversations yet
-          title: Conversations
-        reply:
-          send: Send
-          title: Reply
         show:
-          title: Conversation with %{usernames}
+          conversation_with_html: Conversation with <strong>%{name}</strong>
+          reply: Reply
+          send: Send
         start:
           send: Send
           title: Start a conversation
         update:
           error: Message not sent. Try again later
+    metrics:
+      users:
+        object: users
+        title: Users
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
@@ -385,6 +533,20 @@ en:
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
+    newsletters_opt_in:
+      unathorized: Sorry, this link is no longer available
+      update:
+        error: Something wrong happened
+        success: Newsletter settings updated successfully
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
+        body_2: 'How can you give us your consent? Just click the following button:'
+        body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
+        button: Yes, I want to continue receiving relevant information
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello,
+        subject: Do you want to keep receiving relevant information about %{organization_name}?
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -418,10 +580,13 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
+        metrics:
+          headline: Participation in figures
         statistics:
           answers_count: Completed Surveys
           assemblies_count: Assemblies
           comments_count: Comments
+          conferences_count: Conferences
           debates_count: Debates
           endorsements_count: Endorsements
           headline: Current state of %{organization}
@@ -452,6 +617,7 @@ en:
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
+          modal_close: Close modal
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
           alert: We've updated our Terms of Service, please review them.
@@ -463,12 +629,22 @@ en:
       deleted: Deleted user
       view: View
     profiles:
-      default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
+      default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
+      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
+        badges: Badges
+        conversations: Conversations
         followers: Followers
         following: Follows
+        groups: Organizations
+        members: Members
         notifications: Notifications
+      sidebar:
+        badges:
+          info: Badges are earned by performing specific activity in the platform.
+          title: Badges
       user:
+        create_user_group: Create organization
         edit_profile: Edit profile
     reported_mailer:
       hide:
@@ -508,30 +684,6 @@ en:
         filter_by: Filter by
         unfold: Unfold
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Reauthorize with "%{authorization}"
-          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
-          title: Authorization has expired
-        incomplete:
-          cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
-          invalid_field: "%{field}"
-          reauthorize: Reauthorize
-          title: Please reauthorize
-        missing:
-          authorize: Authorize with "%{authorization}"
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
-          title: Authorization required
-        pending:
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
-          resume: Check your "%{authorization}" authorization progress
-          title: Authorization is still in progress
-        unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          invalid_field: "%{field} value %{value} isn't valid."
-          ok: Ok
-          title: Not authorized
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
@@ -561,29 +713,70 @@ en:
       version_author:
         deleted: Deleted user
   devise:
+    confirmations:
+      confirmed: Your email address has been successfully confirmed.
+      new:
+        resend_confirmation_instructions: Resend confirmation instructions
+      send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
+    failure:
+      already_authenticated: You are already signed in.
+      inactive: Your account is not activated yet.
+      invalid: Invalid %{authentication_keys} or password.
+      invited: You have a pending invitation, accept it to finish creating your account.
+      last_attempt: You have one more attempt before your account is locked.
+      locked: Your account is locked.
+      not_found_in_database: Invalid %{authentication_keys} or password.
+      timeout: Your session expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
     invitations:
       edit:
         header: Finish creating your account
         nickname_help: Your unique identifier in %{organization}.
         submit_button: Save
         subtitle: If you accept the invitation please set your nickname and password.
+      invitation_removed: Your invitation was removed.
+      invitation_token_invalid: The invitation token provided is not valid!
+      new:
+        header: Send invitation
+        submit_button: Send an invitation
+      no_invitations_remaining: No invitations remaining
+      send_instructions: An invitation email has been sent to %{email}.
+      updated: Your password was set successfully. You are now signed in.
+      updated_not_active: Your password was set successfully.
     mailer:
+      confirmation_instructions:
+        action: Confirm my account
+        greeting: Welcome %{recipient}!
+        instruction: 'You can confirm your account email through the link below:'
+        subject: Confirmation instructions
+      email_changed:
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your email is being changed to %{email}.
+        subject: Email Changed
       invitation_instructions:
         accept: Accept invitation
         accept_until: This invitation will be due in %{due_date}.
+        decline: Decline invitation
         hello: Hello %{email},
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
+        invited_you_as_friend: "%{invited_by} has invited you to %{application}."
         invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
         someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
+        subject: Invitation instructions
       invite_admin:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
         subject: You've been invited to collaborate on %{organization}
+      invite_friend:
+        accept_invitation: 'You can accept the invitation through the link below:'
+        friend_custom_text: 'They left this message for you:'
+        subject: You've been invited to %{organization}
       invite_private_user:
         subject: You've been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
@@ -592,20 +785,101 @@ en:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
         subject: Password changed
+      reset_password_instructions:
+        action: Change my password
+        greeting: Hello %{recipient}!
+        instruction: Someone has requested a link to change your password, and you can do this through the link below.
+        instruction_2: If you didn't request this, please ignore this email.
+        instruction_3: Your password won't change until you access the link above and create a new one.
+        subject: Reset password instructions
+      unlock_instructions:
+        action: Unlock my account
+        greeting: Hello %{recipient}!
+        instruction: 'Click the link below to unlock your account:'
+        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        subject: Unlock instructions
+    omniauth_callbacks:
+      failure: Could not authenticate you from %{kind} because "%{reason}".
+      success: Successfully authenticated from %{kind} account.
+    passwords:
+      edit:
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
+      new:
+        forgot_your_password: Forgot your password?
+        send_me_reset_password_instructions: Send me reset password instructions
+      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Your password has been changed successfully.
+    registrations:
+      destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
+      edit:
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+        title: Edit %{resource}
+        unhappy: Unhappy?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+      new:
+        sign_up: Sign up
+      signed_up: Welcome! You have signed up successfully.
+      signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
+      signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
+      updated: Your account has been updated successfully.
+    sessions:
+      already_signed_out: Signed out successfully.
+      new:
+        sign_in: Log in
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        forgot_your_password: Forgot your password?
+        sign_in: Log in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Sign up
+      minimum_password_length:
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Resend unlock instructions
+      send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
+      send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
   doorkeeper:
     scopes:
       public: Your public information.
   errors:
     messages:
+      already_confirmed: was already confirmed, please try signing in
+      confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
       content_type_whitelist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
+      expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
-      long_words: contains words that are too long
-      must_start_with_caps: must start with caps
+      long_words: contains words that are too long (over 35 characters)
+      must_start_with_caps: must start with a capital letter
       nesting_too_deep: can't be inside of a subcategory
-      too_many_marks: is using too many marks
-      too_much_caps: is using too much caps
-      too_short: is too short
+      not_found: not found
+      not_locked: was not locked
+      not_saved:
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
+      too_much_caps: is using too many capital letters (over 25% of the text)
+      too_short: is too short (under 15 characters)
   forms:
     required: Required
   invisible_captcha:
@@ -617,6 +891,8 @@ en:
         description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
         link_label: here
         ok: I agree
+      edit_link:
+        edit: Edit
       footer:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
@@ -633,6 +909,7 @@ en:
       user_menu:
         admin_dashboard: Admin dashboard
         conversations: Conversations
+        invite_friends: Invite friends
         notifications: Notifications
         profile: My account
         public_profile: My public profile
@@ -641,6 +918,7 @@ en:
         account: Account
         authorizations: Authorizations
         delete_my_account: Delete my account
+        my_data: My data
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations
@@ -648,6 +926,16 @@ en:
         see_more: See more
   locale:
     name: English
+  password_validator:
+    domain_included_in_password: is too similar to this domain name
+    email_included_in_password: is too similar to your email
+    fallback: is not valid
+    name_included_in_password: is too similar to your name
+    not_enough_unique_characters: does not have enough unique characters
+    password_not_allowed: is not allowed
+    password_too_common: is too common
+    password_too_long: is too long
+    password_too_short: is too short
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -676,6 +964,10 @@ en:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

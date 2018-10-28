@@ -76,6 +76,8 @@ describe "Participatory Processes", type: :system do
       visit decidim_participatory_processes.participatory_processes_path
     end
 
+    it_behaves_like "editable content for admins"
+
     context "and accessing from the homepage" do
       it "the menu link is not shown" do
         visit decidim.root_path
@@ -120,12 +122,6 @@ describe "Participatory Processes", type: :system do
 
     context "and filtering processes" do
       context "and choosing 'active' processes" do
-        before do
-          within ".order-by__tabs" do
-            click_link "Active"
-          end
-        end
-
         it "lists the active processes" do
           within "#processes-grid h2" do
             expect(page).to have_content("2")
@@ -221,6 +217,8 @@ describe "Participatory Processes", type: :system do
       visit decidim_participatory_processes.participatory_process_path(participatory_process)
     end
 
+    it_behaves_like "editable content for admins"
+
     it "shows the details of the given process" do
       within "div.wrapper" do
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
@@ -275,6 +273,14 @@ describe "Participatory Processes", type: :system do
           it "the stats for those components are not visible" do
             expect(page).to have_no_content("#")
           end
+        end
+      end
+
+      context "and the process doesn't have hashtag" do
+        let(:hashtag) { false }
+
+        it "the stats for those components are not visible" do
+          expect(page).to have_no_content("#")
         end
       end
     end

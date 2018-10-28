@@ -1,0 +1,7 @@
+<% if model.respond_to? :location %>
+  <strong><%= translated_attribute model.location %></strong><br />
+<% end %>
+<span><%= model.address %></span><br />
+<% if model.respond_to? :location_hints %>
+  <span><%= translated_attribute model.location_hints %></span>
+<% end %>

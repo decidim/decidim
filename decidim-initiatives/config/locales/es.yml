@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -7,9 +6,9 @@ es:
         description: Descripción
         offline_votes: Apoyo cara a cara
         scope_id: Alcance
-        signature_end_time: Fin del período de recolección de firmas
-        signature_start_time: Inicio del período de recolección de firmas
-        signature_type: Tipo de firma
+        signature_end_date: Fin del período de recolección de firmas
+        signature_start_date: Inicio del período de recolección de firmas
+        signature_type: Tipo de colección de firma
         signature_type_values:
           any: Mezclado
           offline: Cara a cara
@@ -31,7 +30,7 @@ es:
         title: Título
       organization_data:
         address: Dirección
-        id_document: CIF
+        id_document: Documento de identidad
         name: Nombre completo
   activerecord:
     models:
@@ -46,6 +45,8 @@ es:
         other: Firmas
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nuevo tipo de iniciativa
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
@@ -72,29 +73,45 @@ es:
     events:
       initiatives:
         initiative_extended:
-          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
-          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+          email_intro: '¡La fecha de finalización de las firmas para la iniciativa %{resource_title} se ha ampliado!'
+          email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
+          notification_title: La fecha de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         milestone_completed:
-          email_intro: "¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!"
+          email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!'
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: "¡Nuevo hito completado!"
+          email_subject: '¡Nuevo hito completado!'
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Ir al espacio de participación de Iniciativas.
+            - Sigue los pasos para crear una nueva iniciativa.
+          description: Este distintivo se otorga cuando lanza nuevas iniciativas, asociándose con otros para llevarlas a cabo.
+          description_another: Este usuario ha publicado %{score} iniciativas.
+          description_own: Tienes %{score} iniciativas publicadas.
+          name: Iniciativas publicadas
+          next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
+          unearned_another: Este usuario aún no ha publicado ninguna iniciativa.
+          unearned_own: Aún no tienes ninguna iniciativa publicada.
     initiatives:
       admin:
         committee_requests:
           index:
             approve: Aprobar
-            confirm_revoke: "¿Estás seguro?"
+            confirm_revoke: '¿Estás seguro?'
             invite_to_committee_help: Comparte este enlace para invitar a otros usuarios al comité de promoción
             no_members_yet: No hay miembros en el comité promotor
             revoke: Revocar
             title: Miembros del comité
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Cantidad máxima de elementos para mostrar
         initiatives:
           edit:
             accept: Aceptar iniciativa
-            confirm: "¿Estás seguro?"
+            confirm: '¿Estás seguro?'
             discard: Descartar la iniciativa
             export_votes: Soportes de exportación
             reject: Rechazar la iniciativa
@@ -116,7 +133,7 @@ es:
             filter_by: Filtrado por
             preview: Avance
             print: Impresión
-            search: Busca
+            search: Buscar
           show:
             print: Impresión
           update:
@@ -130,8 +147,8 @@ es:
             success: El alcance ha sido eliminado con éxito
           edit:
             back: Volver
-            confirm_destroy: "¿Estás seguro?"
-            destroy: Destruir
+            confirm_destroy: '¿Estás seguro?'
+            destroy: Borrar
             title: Editar alcance del tipo de iniciativa
             update: Actualizar
           new:
@@ -148,8 +165,8 @@ es:
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente
           edit:
-            confirm_destroy: "¿Estás seguro?"
-            destroy: Destruir
+            confirm_destroy: '¿Estás seguro?'
+            destroy: Borrar
             update: Actualizar
           form:
             title: Información general
@@ -160,7 +177,7 @@ es:
             title: Nuevo tipo de iniciativa
           update:
             error: Se ha producido un error
-            success: La iniciativa dada se ha actualizado con éxito
+            success: El tipo de iniciativa se ha actualizado con éxito
       admin_log:
         initiative:
           publish: "%{user_name} publicó la iniciativa %{resource_name}"
@@ -177,9 +194,12 @@ es:
       committee_requests:
         new:
           continue: Continuar
-          help_text: Estás a punto de solicitar ser miembro del comité promotor de esta iniciativa
+          help_text: Estás a punto de solicitar convertirte en miembro del comité promotor de esta iniciativa
         spawn:
           success: Tu solicitud ha sido enviada al autor de la iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas destacadas
       create_initiative:
         fill_data:
           back: Volver
@@ -191,20 +211,20 @@ es:
         finish:
           back: Volver
           back_to_initiatives: Volver a iniciativas
-          callout_text: "¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito."
+          callout_text: '¡Felicidades! Tu iniciativa ciudadana ha sido creada con éxito.'
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
         finish_help:
           access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de usuario.
-          help_for_organizations: En el caso de una asociación, tendrás que cargar los detalles del consejo de administración de todas las organizaciones que conforman la Comisión Promotora.
+          help_for_organizations: Si sois una asociación, tendréis que facilitar los datos de los miembros de la junta de todas las organizaciones que conforman la Comisión Promotora.
           help_in_person_signatures: Si eliges recolectar las firmas en persona o combinadas en línea, tendrás que cargar la información requerida.
-          help_text: Recuerda que para procesar adecuadamente la iniciativa debes acceder al panel de administración donde encontrarás el menú de usuario, cargar la información requerida y enviarla para su procesamiento.
+          help_text: Recuerda que para procesar correctamente la iniciativa debes acceder al panel de administración donde encontrarás el menú de usuario, cargar la información solicitada y enviarla para su tramitación.
           initiatives_page_link: Puedes buscar toda esta información en el %{link} dedicado a informar sobre iniciativas.
           page: página
         previous_form:
           back: Volver
           continue: Continuar
-          help: "¿En qué consiste la iniciativa? Escribe el título y la descripción. Te rcomendamos un título corto y conciso, y una descripción centrada en la solución propuesta."
+          help: '¿En qué consiste la iniciativa? Escribe el título y la descripción. Te rcomendamos un título corto y conciso, y una descripción centrada en la solución propuesta.'
           more_information: "(Más información)"
         promotal_committee:
           back: Volver
@@ -217,7 +237,7 @@ es:
           select_initiative_type_help: Las iniciativas ciudadanas son un medio por el cual la ciudadanía puede intervenir para que el Ayuntamiento pueda emprender acciones en defensa del interés general que se encuentran dentro de los ámbitos de competencia municipal. ¿Qué iniciativa quieres lanzar?
         share_committee_link:
           continue: Continuar
-          invite_to_committee_help: Enlace para invitar a personas que serán parte del comité promoto
+          invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
         show_similar_initiatives:
           back: Volver
           compare_help: Si alguna de las siguientes iniciativas es similar a la suya, lo alentamos a que la respalde. Su propuesta tendrá más posibilidades de hacerse.
@@ -280,7 +300,7 @@ es:
           any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
           offline_method: Esta iniciativa ciudadana solo recoge apoyos cara a cara.
         signature_identities:
-          select_identity: Seleccionar identidad de usuario
+          select_identity: Selecciona un identificador de usuario
         signatures_count:
           one: " firma"
           other: " firmas"
@@ -293,7 +313,7 @@ es:
           title: Listado de firmas
         vote_cabin:
           already_voted: Ha sido firmado
-          supports_required: Se requieren %{total_supports} firmas
+          supports_required: "Se requieren %{total_supports} firmas"
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
@@ -308,11 +328,13 @@ es:
         more_information: Aquí tienes más información sobre el proceso de creación de una iniciativa.
         progress_report_body_for: La iniciativa %{title} ha alcanzado el %{percentage}% de los apoyos necesarios.
         progress_report_for: 'Currículum sobre la iniciativa: %{title}'
-        promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la comisión promotora. Reenviar el siguiente enlace para invitar a las personas a la comisión promotora.
+        promotal_committee_help: Recuerda que debes invitar al menos a %{member_count} personas a la Comisión Promotora. Reenvia el siguiente enlace para invitarlas.
         status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
         status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
         technical_validation_for: La iniciativa %{title} ha solicitado su validación técnica.
+      last_activity:
+        new_initiative: Nueva iniciativa
       pages:
         home:
           highlighted_initiatives:
@@ -335,7 +357,7 @@ es:
         fill_data: Crear
         finish: Terminar
         previous_form: Iniciar
-        promotal_committee: Comisión promotora
+        promotal_committee: Comisión Promotora.
         select_initiative_type: Escoger
         show_similar_initiatives: Comparar
       initiative_header:
@@ -346,4 +368,4 @@ es:
           check: Échale un vistazo
           check_and_support: Compruébalo y firma
         no_initiatives_yet:
-          no_initiatives_yet: "¡No hay iniciativas todavía!"
+          no_initiatives_yet: '¡No hay iniciativas todavía!'

@@ -4,6 +4,11 @@
   <div class="columns small-12 medium-6">
     <p>Carta de propuesta con barra de progreso</p>
     <article class="card card--proposal">
+      <div class="card__top">
+        <div class="card__content text-small">
+          <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+        </div>
+      </div>
       <div class="card__content">
         <div class="card__header">
           <%= link_to page_path("proposal-view"), class: "card__link" do %>
@@ -32,9 +37,7 @@
       </div>
       <div class="card__footer">
         <div class="card__support">
-
-          <%= partial "progress_bar", { progress: 25, total: 80 } %>
-
+          <%= partial "progress_bar" %>
           <button class="card__button button small">
             Apoyar
           </button>
@@ -46,9 +49,7 @@
     <p>Carta extra con barra de progreso</p>
     <div class="card extra">
       <div class="card__content">
-
-        <%= partial "progress_bar", { vertical: true, progress: 94, total: 100 } %>
-
+        <%= partial "progress_bar", { vertical: true } %>
         <button class="button expanded button--sc">Apoyar</button>
         <button class="button secondary hollow expanded small button--icon">
           <%= icon "bell" %>
@@ -62,16 +63,11 @@
 <div class="row">
   <div class="columns small-12 medium-6">
     <p>Simple horizontal</p>
-
-    <%= partial "progress_bar", { progress: 127, total: 500 } %>
-    <%= partial "progress_bar", { progress: 45, total: 100 } %>
-
+    <%= partial "progress_bar" %>
+    <%= partial "progress_bar" %>
   </div>
   <div class="columns small-12 medium-6">
     <p>Simple vertical</p>
-
-    <%= partial "progress_bar", { vertical: true, progress: 27, total: 50 } %>
-    <%= partial "progress_bar", { vertical: true, progress: 678, total: 1000 } %>
-
+    <%= partial "progress_bar", { vertical: true } %>
   </div>
 </div>

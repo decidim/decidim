@@ -4,6 +4,16 @@ require "spec_helper"
 
 shared_examples_for "authorable interface" do
   describe "author" do
+    describe "when author is not present" do
+      before do
+        model.update(author: author)
+      end
+
+      it "does not include the author" do
+        expect(response["author"]).to be_nil
+      end
+    end
+
     describe "with a regular user" do
       let(:author) { create(:user, organization: model.participatory_space.organization) }
       let(:query) { "{ author { name } }" }

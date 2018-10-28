@@ -1,5 +1,5 @@
 <% if withdrawable? %>
-  <%= action_authorized_link_to :withdraw, withdraw_path, method: :put, class: "title-action__action button small hollow", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show"), data: {confirm: t("withdraw_confirmation", scope: "decidim.proposals.proposals.show")}  do %>
+  <%= action_authorized_link_to :withdraw, withdraw_path, method: :put, class: "title-action__action button small hollow", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show"), data: { confirm: t("withdraw_confirmation", scope: "decidim.proposals.proposals.show") }  do %>
     <%= t("withdraw_proposal", scope: "decidim.proposals.proposals.show") %>
     <%= icon "x" %>
   <% end %>

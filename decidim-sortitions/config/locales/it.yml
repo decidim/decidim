@@ -43,7 +43,7 @@ it:
         actions:
           destroy: Annulla la sortizione
           edit: modificare
-          new: Nuovo
+          new: Nuova sortizione
           show: Dettagli di ordinamento
         models:
           sortition:

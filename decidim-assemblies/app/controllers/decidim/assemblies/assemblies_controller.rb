@@ -14,12 +14,32 @@ module Decidim
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
 
-      helper_method :collection, :promoted_assemblies, :assemblies, :stats, :assembly_participatory_processes
+      helper_method :collection, :parent_assemblies, :promoted_assemblies, :assemblies, :stats, :assembly_participatory_processes
 
       def index
-        redirect_to "/404" if published_assemblies.none?
-
         enforce_permission_to :list, :assembly
+
+        respond_to do |format|
+          format.html do
+            raise ActionController::RoutingError, "Not Found" if published_assemblies.none?
+
+            render "index"
+          end
+
+          format.json do
+            render json: published_assemblies.query.includes(:children).where(parent: nil).collect { |assembly|
+              {
+                name: assembly.title[I18n.locale.to_s],
+                children: assembly.children.collect do |child|
+                  {
+                    name: child.title[I18n.locale.to_s],
+                    children: child.children.collect { |child_of_child| { name: child_of_child.title[I18n.locale.to_s] } }
+                  }
+                end
+              }
+            }
+          end
+        end
       end
 
       def show
@@ -44,7 +64,11 @@ module Decidim
         @assemblies ||= OrganizationPrioritizedAssemblies.new(current_organization, current_user)
       end
 
-      alias collection assemblies
+      def parent_assemblies
+        @parent_assemblies ||= assemblies | ParentAssemblies.new
+      end
+
+      alias collection parent_assemblies
 
       def promoted_assemblies
         @promoted_assemblies ||= assemblies | PromotedAssemblies.new

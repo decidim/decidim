@@ -1,8 +1,13 @@
 <% if proposals.any? %>
     <section class="section row collapse highlighted_proposals">
       <h2 class="section-heading"><%= t(".proposals") %></h2>
-      <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-        <%= render partial: "decidim/participatory_processes/participatory_process_groups/proposal", collection: proposals %>
-      </div>
+
+      <%= cell(
+        "decidim/collapsible_list",
+        proposals,
+        cell_options: { context: { current_user: current_user } },
+        list_class: "row small-up-1 medium-up-2 large-up-3 card-grid",
+        size: proposals.count
+        ) %>
     </section>
 <% end %>

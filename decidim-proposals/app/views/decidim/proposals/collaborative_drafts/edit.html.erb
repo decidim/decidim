@@ -1,0 +1,57 @@
+<div class="row columns">
+  <%= link_to :back, class: "muted-link" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+  <h2 class="section-heading"><%= t(".title") %></h2>
+</div>
+
+<div class="row">
+  <div class="columns large-6 medium-centered">
+    <div class="card">
+      <% if translated_attribute(component_settings.new_proposal_help_text).present? %>
+        <%= render partial: "decidim/shared/announcement", locals: { announcement: component_settings.new_proposal_help_text } %>
+      <% end %>
+
+      <div class="card__content">
+        <%= decidim_form_for(@form) do |form| %>
+          <div class="field">
+            <%= form.text_field :title %>
+          </div>
+
+          <div class="field">
+            <%= form.text_area :body, rows: 10 %>
+          </div>
+
+          <% if component_settings.geocoding_enabled? %>
+            <div class="field">
+              <%= form.check_box :has_address, class: "has_address" %>
+            </div>
+
+            <div class="field" id="address_input">
+              <%= form.text_field :address %>
+            </div>
+          <% end %>
+
+          <% if @form.categories&.any? %>
+            <div class="field">
+              <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
+            </div>
+          <% end %>
+
+          <% if current_participatory_space.has_subscopes? %>
+            <div class="field">
+              <%= scopes_picker_field form, :scope_id %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= form.submit t(".send"), class: "button expanded", data: { disable: true } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/add_proposal" %>

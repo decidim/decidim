@@ -9,37 +9,37 @@ FactoryBot.define do
   end
 
   factory :assembly, class: "Decidim::Assembly" do
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate_localized_title }
     slug { generate(:assembly_slug) }
-    subtitle { Decidim::Faker::Localized.sentence(1) }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    subtitle { generate_localized_title }
+    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
     meta_scope { Decidim::Faker::Localized.word }
-    developer_group { Decidim::Faker::Localized.sentence(1) }
-    local_area { Decidim::Faker::Localized.sentence(2) }
-    target { Decidim::Faker::Localized.sentence(3) }
-    participatory_scope { Decidim::Faker::Localized.sentence(1) }
-    participatory_structure { Decidim::Faker::Localized.sentence(2) }
-    show_statistics true
-    private_space false
-    purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    composition { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    developer_group { generate_localized_title }
+    local_area { generate_localized_title }
+    target { generate_localized_title }
+    participatory_scope { generate_localized_title }
+    participatory_structure { generate_localized_title }
+    show_statistics { true }
+    private_space { false }
+    purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    composition { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     assembly_type { "others" }
-    assembly_type_other { Decidim::Faker::Localized.sentence(1) }
+    assembly_type_other { generate_localized_title }
     creation_date { 1.month.ago }
     created_by { "others" }
     created_by_other { Decidim::Faker::Localized.word }
     duration { 2.months.from_now.at_midnight }
     included_at { 1.month.ago }
     closing_date { 2.months.from_now.at_midnight }
-    closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    is_transparent true
-    special_features { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    is_transparent { true }
+    special_features { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     twitter_handler { "others" }
     facebook_handler { "others" }
     instagram_handler { "others" }
@@ -47,11 +47,11 @@ FactoryBot.define do
     github_handler { "others" }
 
     trait :promoted do
-      promoted true
+      promoted { true }
     end
 
     trait :unpublished do
-      published_at nil
+      published_at { nil }
     end
 
     trait :published do
@@ -66,7 +66,7 @@ FactoryBot.define do
   factory :assembly_user_role, class: "Decidim::AssemblyUserRole" do
     user
     assembly { create :assembly, organization: user.organization }
-    role "admin"
+    role { "admin" }
   end
 
   factory :assembly_admin, parent: :user, class: "Decidim::User" do

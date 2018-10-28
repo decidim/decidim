@@ -15,8 +15,8 @@ module Decidim
         attribute :type_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :signature_type, String
-        attribute :signature_start_time, Date
-        attribute :signature_end_time, Date
+        attribute :signature_start_date, Decidim::Attributes::LocalizedDate
+        attribute :signature_end_date, Decidim::Attributes::LocalizedDate
         attribute :hashtag, String
         attribute :offline_votes, Integer
 
@@ -25,10 +25,10 @@ module Decidim
 
         validates :title, :description, presence: true
         validates :signature_type, presence: true
-        validates :signature_start_time, presence: true, if: ->(form) { form.context.initiative.published? }
-        validates :signature_end_time, presence: true, if: ->(form) { form.context.initiative.published? }
-        validates :signature_end_time, date: { after: :signature_start_time }, if: lambda { |form|
-          form.signature_start_time.present? && form.signature_end_time.present?
+        validates :signature_start_date, presence: true, if: ->(form) { form.context.initiative.published? }
+        validates :signature_end_date, presence: true, if: ->(form) { form.context.initiative.published? }
+        validates :signature_end_date, date: { after: :signature_start_date }, if: lambda { |form|
+          form.signature_start_date.present? && form.signature_end_date.present?
         }
 
         validates :answer, translatable_presence: true, if: ->(form) { form.context.initiative.accepted? }

@@ -61,8 +61,6 @@ module Decidim
           cta_button_path: :string,
           cta_button_text: :i18n,
           description: :i18n,
-          welcome_text: :i18n,
-          homepage_image: :string,
           logo: :string,
           header_snippets: :string,
           favicon: :string,

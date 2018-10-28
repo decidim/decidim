@@ -43,14 +43,18 @@ module Decidim
           @proposal = Decidim.traceability.create!(
             Proposal,
             form.current_user,
-            attributes
+            attributes,
+            visibility: "all"
           )
         end
 
         def attributes
+          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+          parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+
           {
-            title: form.formatted_title,
-            body: form.formatted_body,
+            title: parsed_title,
+            body: parsed_body,
             category: form.category,
             scope: form.scope,
             component: form.component,

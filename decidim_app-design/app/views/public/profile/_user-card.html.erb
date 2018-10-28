@@ -1,0 +1,117 @@
+<div class="card">
+  <img class="card__image card__image--larger" src="<%= Faker::Fillmurray.image(true, Faker::Number.number(3), Faker::Number.number(3)) %>" alt="" />
+  <div class="card__content">
+    <h5>
+      <div><strong><%= Faker::Name.name %></strong></div>
+      <span class="text-small">@<%= Faker::Twitter.screen_name %></span>
+    </h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus maxime voluptas autem doloribus, odit, doloremque architecto, neque corrupti delectus est eveniet. Sed voluptatem praesentium similique, explicabo eius deserunt. Accusamus, ad.</p>
+    <a href=""><strong><%= Faker::Internet.url %></strong></a>
+  </div>
+  <% if @activepage != "group" %>
+  <div class="card__footer card__footer--transparent">
+    <div class="card__support">
+      <div><strong>Member of:</strong></div>
+      <div class="card__text--separated-mid-dot js-read-more">
+        <% 5.times do %>
+          <a href="#"><%= Faker::Beer.name %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="card__footer card__footer--transparent">
+    <div class="flex--cc p-s text-center">
+      <div class="mr-s">
+        <%= link_to page_path("user/user-followers") do %>
+          Followers
+          <h1 class="heading1"><%= Faker::Number.number(2) %></h1>
+        <% end %>
+      </div>
+      <div class="ml-s">
+        <%= link_to page_path("user/user-following") do %>
+          Following
+          <h1 class="heading1"><%= Faker::Number.number(2) %></h1>
+        <% end %>
+      </div>
+    </div>
+    <% if @activeuser != "logged" %>
+      <div class="row">
+        <div class="column medium-8 medium-centered">
+          <button class="button secondary hollow expanded button--icon button--sc">
+            <%= icon "bell" %>
+            <span>Seguir</span>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% if @activepage != "group" %>
+  <div class="card__footer card__footer--transparent">
+    <div class="card__support">
+      <div class="row column mb-s">
+        <strong class="muted">Badges</strong>
+        <div class="badge-tip badge-tip--inline">
+          <div data-tooltip data-position="top" title="<%= Faker::Lebowski.quote %>">
+            <%= icon "info", class: "icon--small" %>
+          </div>
+        </div>
+      </div>
+      <%= render layout: "public/components/collapsible-list", locals: { text: raw("<u>see all</u>"), classes: "row small-up-2 medium-up-4 collapse", size: 6, classText: "text-small pt-s" } do %>
+        <% @files.each do |i| %>
+        <div class="column">
+          <div class="badge-container pr-xs">
+            <%= external_icon "badges/" + File.basename(i, ".svg") + ".svg", class: "badge__logo--small", remove_icon_class: true %>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% if @activepage != "group" %>
+  <% if @activeuser == "logged" %>
+  <div class="row">
+    <div class="column medium-8 medium-centered">
+      <button class="button light expanded">Edit profile</button>
+    </div>
+  </div>
+  <% end %>
+  <div class="row">
+    <div class="column medium-8 medium-centered">
+      <button class="button secondary light expanded">
+        Invite friends
+      </button>
+    </div>
+  </div>
+<% else %>
+<div class="row">
+  <div class="column medium-8 medium-centered">
+    <button class="button secondary hollow expanded button--icon button--sc">
+      <%= icon "bell" %>
+      <span>Seguir</span>
+    </button>
+  </div>
+</div>
+<% if @activeuser == "logged" %>
+  <div class="row">
+    <div class="column medium-8 medium-centered">
+      <button class="button light expanded">Join group</button>
+      <button class="button secondary light expanded">
+        Invite members
+      </button>
+      <div class="text-center">
+        <a href=""><u>Manage admins</u></a>
+      </div>
+      <div class="text-center">
+        <a href=""><u>Manage members</u></a>
+      </div>
+      <div class="text-center flex--cb">
+        <a href=""><u>Request verification</u></a>
+        <%= partial "help-tooltip" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% end %>

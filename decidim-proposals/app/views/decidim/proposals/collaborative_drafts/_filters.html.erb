@@ -1,0 +1,30 @@
+<%= filter_form_for filter do |form| %>
+  <div class="filters__section">
+    <div class="filters__search">
+      <div class="input-group">
+        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search") %>
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: t(".search") %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= form.collection_radio_buttons :state, collaborative_drafts_states_collection, :first, :last, legend_title: t(".state") %>
+
+  <% if linked_classes_for(Decidim::Proposals::CollaborativeDraft).any? %>
+    <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::CollaborativeDraft), :first, :last, legend_title: t(".related_to") %>
+  <% end %>
+
+  <% if current_participatory_space.has_subscopes? %>
+    <%= scopes_picker_filter form, :scope_id %>
+  <% end %>
+
+  <% if current_component.categories.any? %>
+    <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t(".category_prompt") %>
+  <% end %>
+
+  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+<% end %>

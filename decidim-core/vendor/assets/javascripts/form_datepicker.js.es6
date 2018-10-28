@@ -5,11 +5,7 @@
       const initialDate = $(node).data("startdate") || "";
       const pickTime = $(node).data("timepicker") === "";
       const languageProps = $(node).fdatepicker.dates[language] && $(node).fdatepicker.dates[language].format;
-      let format = languageProps || "mm/dd/yyyy";
-
-      if (pickTime) {
-        format = `${format}, hh:ii`;
-      }
+      let format = $(node).data("date-format") || languageProps || "mm/dd/yyyy";
 
       $(node).fdatepicker({
         format,
@@ -19,12 +15,6 @@
         disableDblClickSelection: true,
         leftArrow: "<<",
         rightArrow: ">>"
-      }).on("changeDate", (ev) => {
-        let newDate = "";
-        if (ev.date !== null) {
-          newDate = exports.moment.utc(ev.date).format("YYYY-MM-DDTHH:mm:ss");
-        }
-        $(ev.target).siblings("input").val(newDate);
       });
     });
   };

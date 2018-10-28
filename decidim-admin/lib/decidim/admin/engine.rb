@@ -14,6 +14,7 @@ require "autoprefixer-rails"
 require "rectify"
 require "doorkeeper"
 require "doorkeeper-i18n"
+require "hashdiff"
 
 module Decidim
   module Admin
@@ -68,6 +69,8 @@ module Decidim
                       %w(
                         decidim/admin/organization
                         decidim/admin/organization_appearance
+                        decidim/admin/organization_homepage
+                        decidim/admin/organization_homepage_content_blocks
                         decidim/admin/scopes
                         decidim/admin/scope_types
                         decidim/admin/areas decidim/admin/area_types
@@ -90,6 +93,11 @@ module Decidim
                     active: [%w(decidim/admin/oauth_applications), []],
                     if: allowed_to?(:read, :oauth_application)
         end
+      end
+
+      initializer "decidim_admin.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Admin::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Admin::Engine.root}/app/views") # for partials
       end
     end
   end

@@ -52,6 +52,9 @@ module Decidim
             proposal.save!
 
             proposal.link_resources([original_proposal], "copied_from_component")
+            original_proposal.coauthorships.each do |coauthorship|
+              Decidim::Coauthorship.create(author: coauthorship.author, user_group: coauthorship.user_group, coauthorable: proposal)
+            end
           end.compact
         end
 

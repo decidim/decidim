@@ -9,7 +9,7 @@ module Decidim
       include Cell::ViewModel::Partial
 
       def show
-        cell card_size, model
+        cell card_size, model, options
       end
 
       private

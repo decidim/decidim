@@ -49,6 +49,11 @@ module Decidim
       def confirmed_orders_count
         orders.finished.count
       end
+
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
+      end
     end
   end
 end

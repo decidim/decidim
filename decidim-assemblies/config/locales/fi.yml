@@ -1,9 +1,8 @@
----
 fi:
   activemodel:
     attributes:
       assembly:
-        area_id: alue
+        area_id: Alue
         assembly_type: Ryhmän tyyppi
         assembly_type_other: Muu ryhmän tyyppi
         banner_image: Bannerikuva
@@ -19,7 +18,7 @@ fi:
         decidim_area_id: alue
         decidim_scope_id: Teema
         description: Kuvaus
-        developer_group: Kehittäjäryhmä
+        developer_group: Perustajaryhmä
         domain: Toimintaympäristö
         duration: Kesto
         facebook: Facebook
@@ -30,14 +29,15 @@ fi:
         instagram: Instagram
         internal_organisation: Sisäinen organisaatio
         is_transparent: On läpinäkyvä
-        local_area: Paikallisalue
+        local_area: Organisaatioalue
         meta_scope: Teeman metadata
+        parent_id: Liittyvä kehitysryhmä
         participatory_processes_ids: Liittyvät osallistumisprosessit
-        participatory_scope: Osallistumiskonteksti
-        participatory_structure: Osallistumisen rakenne
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         private_space: Yksityinen tila
         promoted: Korostettu
-        published_at: Julkaistu osoitteessa
+        published_at: Julkaisuaika
         purpose_of_action: Toiminnan tarkoitus
         scope_id: Teema
         scopes_enabled: Teemat käytössä
@@ -46,7 +46,7 @@ fi:
         slug: URL-tunniste
         special_features: Lisäominaisuudet
         subtitle: Alaotsikko
-        target: Kohde
+        target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
         youtube: YouTube
@@ -76,12 +76,14 @@ fi:
         other: Kehitysryhmän käyttäjäroolit
   decidim:
     admin:
+      actions:
+        new_assembly: Uusi kehitysryhmä
       assemblies:
         create:
           error: Virhe luotaessa uutta kehitysryhmää.
           success: Kehitysryhmän luonti onnistui.
         destroy:
-          success: Kehitysryhmän tuhoaminen onnistui.
+          success: Kehitysryhmä poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -111,7 +113,7 @@ fi:
           error: Jäsenen lisääminen kehitysryhmään ei onnistunut.
           success: Jäsen lisättiin onnistuneesti kehitysryhmään.
         destroy:
-          success: Käyttäjä poistettu ryhmästä onnistuneesti.
+          success: Jäsen poistettiin onnistuneesti kehitysryhmästä.
         edit:
           title: Päivitä kehitysryhmän jäsenen tietoja.
           update: Päivittää
@@ -128,14 +130,14 @@ fi:
           error: Kehitysryhmän julkaisussa tapahtui virhe.
           success: Kehitysryhmä julkaistiin onnistuneesti.
         destroy:
-          error: Kehitysryhmän julkaisun lopettamisessa tapahtui virhe.
+          error: Kehitysryhmän julkaisun perumisessa tapahtui virhe.
           success: Kehitysryhmän julkaisu lopetettu onnistuneesti.
       assembly_user_roles:
         create:
           error: Virhe lisätessä käyttäjää tälle kehitysryhmälle.
-          success: Käyttäjä on luotu onnistuneesti kehitysryhmään.
+          success: Käyttäjä lisätty onnistuneesti kehitysryhmään.
         destroy:
-          success: Käyttäjä tuhottu onnistuneesti kehitysryhmästä.
+          success: Käyttäjä poistettiin onnistuneesti kehitysryhmästä.
         edit:
           title: Päivitä kehitysryhmän käyttäjän tietoja.
           update: Päivitä
@@ -152,7 +154,7 @@ fi:
         assemblies_submenu:
           assembly_admins: Kehitysryhmän käyttäjät
           assembly_members: Jäsenet
-          attachment_collections: kokoelmat
+          attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
@@ -168,6 +170,7 @@ fi:
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
+          name: Kehitysryhmä
         assembly_member:
           fields:
             ceased_date: Päättymispäivä
@@ -189,7 +192,7 @@ fi:
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
-            moderator: Moderaattori
+            moderator: Moderoija
       titles:
         assemblies: Kehitysryhmät
     admin_log:
@@ -215,6 +218,7 @@ fi:
             select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
+            select_parent_assembly: Valitse pääryhmä
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
         assembly_copies:
@@ -234,6 +238,9 @@ fi:
               not_ceased: Ei lakkautettu
             filter_by: Suodata
             search: Hae
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Näytettävien elementtien enimmäismäärä
       assembly_members:
         index:
           members: Jäsenet
@@ -245,12 +252,17 @@ fi:
         others: Muut
         participatory: Osallistuva
         working_group: Työryhmä
+      content_blocks:
+        highlighted_assemblies:
+          name: Korostetut ryhmät
       created_by:
         city_council: Kaupunginvaltuusto
         others: Muut
         public: Julkinen
       index:
         title: Kehitysryhmät
+      last_activity:
+        new_assembly: Uusi ryhmä
       pages:
         home:
           highlighted_assemblies:
@@ -267,7 +279,7 @@ fi:
         composition: Kokoonpano
         created_by: Luonut
         creation_date: Luontipäivämäärä
-        developer_group: Kehittäjäryhmä
+        developer_group: Perustajaryhmä
         duration: Kesto
         included_at: Mukana osoitteessa
         indefinite_duration: Määrittelemätön
@@ -275,9 +287,9 @@ fi:
         is_transparent:
           'false': läpinäkymätön
           'true': läpinäkyvä
-        local_area: Paikallisalue
-        participatory_scope: Osallistumiskonteksti
-        participatory_structure: Osallistumisen rakenne
+        local_area: Organisaatioalue
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen kehitysryhmä
         purpose_of_action: Toiminnan tarkoitus
         read_less: Vähennä tekstiä
@@ -285,7 +297,7 @@ fi:
         related_participatory_processes: Liittyvät osallistumisprosessit
         scope: Teema
         social_networks: Sosiaalinen media
-        target: Kohde
+        target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
         assemblies_count: Kehitysryhmät
@@ -322,7 +334,9 @@ fi:
         assembly:
           take_part: Osallistu
         index:
+          organizational_chart: Organisaatiokaavio
           promoted_assemblies: Korostetut kehitysryhmät
+          reset_chart: Palauta
         order_by_assemblies:
           assemblies:
             one: "%{count} kehitysryhmä"

@@ -44,7 +44,7 @@
         <tbody>
           <% sortition.proposals.each do |proposal| %>
             <tr>
-              <td><%= proposal.title %></td>
+              <td><%= present(proposal).title %></td>
               <td></td>
             </tr>
           <% end %>

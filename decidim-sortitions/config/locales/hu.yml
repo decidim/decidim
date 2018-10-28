@@ -42,7 +42,7 @@ hu:
         actions:
           destroy: Sorsolás törlése
           edit: Szerkesztés
-          new: Új
+          new: Új sorsolás
           show: Sorsolás részletei
         models:
           sortition:

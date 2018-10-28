@@ -81,7 +81,7 @@ shared_examples "manage assembly categories" do
 
         it "deletes a category" do
           within find("tr", text: translated(category2.name)) do
-            accept_confirm { click_link "Destroy" }
+            accept_confirm { click_link "Delete" }
           end
 
           expect(page).to have_admin_callout("successfully")
@@ -101,7 +101,7 @@ shared_examples "manage assembly categories" do
 
         it "deletes a category" do
           within find("tr", text: translated(category2.name)) do
-            accept_confirm { click_link "Destroy" }
+            accept_confirm { click_link "Delete" }
           end
 
           expect(page).to have_admin_callout("error deleting")

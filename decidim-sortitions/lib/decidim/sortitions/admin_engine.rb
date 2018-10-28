@@ -9,6 +9,7 @@ module Decidim
       isolate_namespace Decidim::Sortitions::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :sortitions do

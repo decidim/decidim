@@ -11,7 +11,7 @@ pl:
         organization: Organizacja
         plural: Liczba mnoga
       attachment:
-        attachment_collection_id: Kolekcja
+        attachment_collection_id: Teczka
         description: Opis
         file: Plik
         title: Tytuł
@@ -37,6 +37,7 @@ pl:
         organization_url: Adres organizacji
         redirect_uri: Przekierowanie URI
       organization:
+        badges_enabled: Włącz odznaki
         cta_button_path: Ścieżka przycisku wezwania do działania
         cta_button_text: Tekst przycisku wezwania do działania
         default_locale: Domena domyślna
@@ -53,7 +54,6 @@ pl:
         highlighted_content_banner_image: Obraz
         highlighted_content_banner_short_description: Krótki opis
         highlighted_content_banner_title: Tytuł
-        homepage_image: Obraz strony głównej
         instagram_handler: Obsługa Instagram
         logo: Logo
         name: Nazwa
@@ -67,7 +67,6 @@ pl:
         show_statistics: Pokaż statystyki
         tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
-        welcome_text: Tekst powitalny
         youtube_handler: Poradnik YouTube
       scope:
         code: Kod
@@ -94,34 +93,6 @@ pl:
               must_be_ssl: Identyfikator URI przekierowania musi być identyfikatorem URI protokołu SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Obraz baneru
-        description: Opis
-        developer_group: Grupa programistów
-        domain: Domena
-        end_date: Data końcowa
-        hashtag: Hasztag
-        hero_image: Obraz w domu
-        local_area: Obszar lokalny
-        meta_scope: Zakres metadanych
-        participatory_scope: Zakres współuczestnictwa
-        participatory_structure: Struktura uczestnictwa
-        promoted: Lansowany
-        scope: Zakres
-        short_description: Krótki opis
-        slug: Ślimak URL
-        start_date: Data rozpoczęcia
-        subtitle: Podtytuł
-        target: Cel
-        title: Tytuł
-      decidim/participatory_process_group:
-        description: Opis
-        hero_image: Obraz w domu
-        name: Nazwa
-        participatory_processes: Procesy partycypacyjne
-      decidim/participatory_process_step:
-        end_date: Data końcowa
-        start_date: Data rozpoczęcia
       decidim/static_page:
         content: Zadowolony
         slug: Ślimak URL
@@ -133,10 +104,7 @@ pl:
         organization_name: Nazwa organizacji
         organization_url: Adres organizacji
         redirect_uri: Przekierowanie URI
-        site: Teren
-  date:
-    formats:
-      datepicker: "%m / %d / %Y"
+        site: Stronie internetowej
   decidim:
     admin:
       actions:
@@ -144,6 +112,7 @@ pl:
         browse: Paść się
         export: Eksport
         manage: Zarządzanie
+        new: Nowe %{name}
         permissions: Uprawnienia
         reject: Odrzucać
         verify: Zweryfikować
@@ -180,22 +149,22 @@ pl:
           success: Obszar zaktualizowany pomyślnie
       attachment_collections:
         create:
-          error: Wystąpił błąd podczas tworzenia nowej kolekcji.
-          success: Kolekcja utworzona pomyślnie.
+          error: Wystąpił błąd podczas tworzenia nowego folderu.
+          success: Folder został pomyślnie utworzony.
         destroy:
-          success: Kolekcja zniszczona pomyślnie.
+          success: Folder został zniszczony pomyślnie.
         edit:
-          title: Edytuj kolekcję
+          title: Edytuj folder
           update: Aktualizacja
         index:
-          attachment_collection_used: Ta kolekcja nie może zostać usunięta, ponieważ jest używana.
-          attachment_collections_title: Zbiory załączników
+          attachment_collection_used: Tego folderu nie można usunąć, ponieważ jest on używany.
+          attachment_collections_title: Foldery załączników
         new:
           create: Stwórz
-          title: Nowa kolekcja
+          title: Nowy folder
         update:
-          error: Wystąpił błąd podczas aktualizowania tej kolekcji.
-          success: Kolekcja zaktualizowana pomyślnie.
+          error: Wystąpił błąd podczas aktualizowania tego folderu.
+          success: Folder zaktualizowany pomyślnie.
       attachments:
         create:
           error: Podczas tworzenia nowego załącznika wystąpił błąd.
@@ -338,6 +307,7 @@ pl:
         areas: Obszary
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
+        homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         navbar_links: Navbar links
         newsletters: Biuletyny
@@ -360,13 +330,13 @@ pl:
             plural: Liczba mnoga
         attachment:
           fields:
-            collection: Kolekcja
+            collection: Teczka
             content_type: Rodzaj
             file_size: Rozmiar
             title: Tytuł
           name: Załącznik
         attachment_collection:
-          name: Kolekcja
+          name: Teczka
         category:
           name: Kategoria
         impersonation_log:
@@ -560,7 +530,14 @@ pl:
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
-          omnipresent_banner_appearance_title: Edytuj wszechobecny
+          omnipresent_banner_appearance_title: Edytuj wszechobecny baner
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktywne bloki treści
+          inactive_content_blocks: Bloki nieaktywnych treści
+      organization_homepage_content_blocks:
+        edit:
+          update: Aktualizacja
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.
@@ -673,6 +650,7 @@ pl:
         new:
           create: Zapraszam
           title: Zaproś użytkownika jako administratora
+      view_public_page: Zobacz stronę publiczną
     forms:
       errors:
         impersonate_user:
@@ -713,7 +691,3 @@ pl:
           title: Ustawienia
         users:
           title: Użytkownicy
-  time:
-    formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"

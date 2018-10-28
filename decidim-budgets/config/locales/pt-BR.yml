@@ -1,4 +1,3 @@
----
 pt-BR:
   activemodel:
     attributes:
@@ -17,12 +16,13 @@ pt-BR:
   decidim:
     budgets:
       actions:
-        attachment_collections: Coleções
+        attachment_collections: Pastas
         attachments: Anexos
         confirm_destroy: Deseja mesmo excluir este projeto?
         destroy: Excluir
         edit: Editar
-        new: Novo
+        import: Importar propostas para os projetos
+        new: Novo projeto
         preview: Pré-visualização
         title: Ações
       admin:
@@ -44,10 +44,18 @@ pt-BR:
             title: Projetos
           new:
             create: Criar
-            title: Novo resultado
+            title: Novo projeto
           update:
             invalid: Houve um problema ao atualizar este projeto
             success: Projeto atualizado com sucesso
+        proposals_imports:
+          create:
+            invalid: Houve um problema ao importar as propostas para projetos
+            success: "%{number} propostas importadas para projetos"
+          new:
+            create: Importar propostas para projetos
+            no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
+            select_component: Selecione um componente
       admin_log:
         project:
           create: "%{user_name} criou o projeto %{resource_name} no espaço %{space_name}"
@@ -122,13 +130,14 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             projects_per_page: Projetos por página
+            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
             total_budget: Orçamento total
             vote_threshold_percent: Porcentagem do limiar de voto
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             show_votes: Mostrar votos
-            votes_enabled: Votos ativados
+            votes_enabled: Votação habilitada
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto

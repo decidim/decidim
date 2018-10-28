@@ -3,13 +3,15 @@
 class FixNicknameIndex < ActiveRecord::Migration[5.1]
   class User < ApplicationRecord
     self.table_name = :decidim_users
+
+    include Decidim::Nicknamizable
   end
 
   def change
     User.where(nickname: nil)
         .where(deleted_at: nil)
         .where(managed: false)
-        .find_each { |u| u.update(nickname: User.nicknamize(u.name)) }
+        .find_each { |u| u.update(nickname: User.nicknamize(u.name, decidim_organization_id: u.decidim_organization_id)) }
 
     # rubocop:disable Rails/SkipsModelValidations
     User.where(nickname: nil).update_all("nickname = ''")

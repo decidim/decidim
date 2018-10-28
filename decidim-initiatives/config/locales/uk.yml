@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -7,8 +6,8 @@ uk:
         description: Опис
         offline_votes: Підтримка на особистих зустрічах
         scope_id: Обсяг
-        signature_end_time: Кінець періоду збору підписів
-        signature_start_time: Початок періоду збору підписів
+        signature_end_date: Конець періоду збору підписів
+        signature_start_date: Початок періоду збору підписів
         signature_type: Різновид збору підписів
         signature_type_values:
           any: Поєднаний
@@ -31,27 +30,29 @@ uk:
         title: Назва
       organization_data:
         address: Адреса
-        id_document: Документ, що засвідчує особу
+        id_document: Документ, що завідчує особу
         name: Повне ім'я
   activerecord:
     models:
       decidim/initiative:
+        one: Почин
         few: Почини
         many: Починів
-        one: Почин
         other: Починів
       decidim/initiative_comittee:
+        one: Робочий гурт
         few: Робочих гурти
         many: Робочих гуртів
-        one: Робочий гурт
         other: Робочих гуртів
       decidim/initiative_vote:
+        one: Підпис
         few: Підписи
         many: Підписів
-        one: Підпис
         other: Підписів
   decidim:
     admin:
+      actions:
+        new_initiative_type: Додати різновид почину
       menu:
         initiatives: Почини
         initiatives_types: Різновиди починів
@@ -78,10 +79,10 @@ uk:
     events:
       initiatives:
         initiative_extended:
-          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
-          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+          email_intro: Строк збору підписів на підтримку почину %{resource_title} продовжено!
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Строк збору підписів на підтримку почину продовжено!
+          notification_title: Строк збору підписів на підтримку почину <a href="%{resource_path}">%{resource_title}</a> продовжено.
         milestone_completed:
           email_intro: Почин %{resource_title} досяг %{percentage}% підписів!
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -186,6 +187,9 @@ uk:
           help_text: Ви збираєтесь подати заявку на участь у робочому гурті з просування цього почину
         spawn:
           success: Ваш запит було надіслано автору почину.
+      content_blocks:
+        highlighted_initiatives:
+          name: Висвітлені почини
       create_initiative:
         fill_data:
           back: Повернутись
@@ -204,7 +208,7 @@ uk:
           access_reminder: Пам'ятайте, що ви завжди зможете отримати доступ до ваших починів через меню учасника.
           help_for_organizations: Якщо ви є асоціацією організацій, ви маєте завантажити протоколи засідань правління усіх організацій, які входять до робочого гурту з просування
           help_in_person_signatures: Якщо ви вирішили збирати підписи на особистих зустрічах або в поєднанні зі збором онлайн, вам потрібно завантажити необхідні для цього відомості.
-          help_text: Пам'ятайте, що для властивої обробки почину ви повинні зайти до панелі адміністрування. Знайдіть там меню учасника, завантажте потрібні відомості та відправте його на обробку.
+          help_text: Пам'ятайте, що для властивої обробки почину ви повинні зайти до панелі адміністрування. Знайдіть там меню учасника, завантажте необхідні відомості та відправте їх на обробку.
           initiatives_page_link: Ви можете знайти всі ці відомості на %{link}, де розповідається все про почини.
           page: сторінці
         previous_form:
@@ -238,7 +242,7 @@ uk:
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, підтримав наступний почин. Чи не бажаєте ви зробити свій внесок у розмову:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: "%{author_nickname} підтримав почин"
+          email_subject: '%{author_nickname} підтримав почин'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
       index:
         title: Почини
@@ -250,15 +254,15 @@ uk:
           deleted: Видалено
         author_list:
           hidden_authors_count:
+            one: і ще 1 особа
             few: і ще %{count} людей
             many: і ще %{count} людей
-            one: і ще 1 особа
             other: і ще %{count} людей
         count:
           title:
+            one: "%{count} почин"
             few: "%{count} почини"
             many: "%{count} починів"
-            one: "%{count} почин"
             other: "%{count} починів"
         filters:
           any: Будь-які
@@ -292,9 +296,9 @@ uk:
         signature_identities:
           select_identity: Виберіть псевдонім учасника
         signatures_count:
+          one: " підпис"
           few: " підписи"
           many: " підписів"
-          one: " підпис"
           other: " підписів"
         statistics:
           assistants_count_title: Помічників
@@ -305,14 +309,14 @@ uk:
           title: Перелік підписів
         vote_cabin:
           already_voted: Вже підписалися
-          supports_required: Необхідно %{total_supports} підписів
+          supports_required: "Необхідно %{total_supports} підписів"
           vote: Підписати
           votes_blocked: Підписування вимкнене
         votes_count:
           count:
+            one: ПІДПИС
             few: ПІДПИСИ
             many: ПІДПИСІВ
-            one: ПІДПИС
             other: ПІДПИСІВ
       initiatives_mailer:
         creation_subject: Ваш громадський почин "%{title}" був доданий

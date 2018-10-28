@@ -42,6 +42,7 @@ module Decidim
               before do
                 proposals.each { |p| p.update!(category: category_one) }
               end
+
               it "broadcasts update_proposals_category" do
                 expect { described_class.call(category.id, proposals.pluck(:id)) }.to broadcast(:update_proposals_category)
               end

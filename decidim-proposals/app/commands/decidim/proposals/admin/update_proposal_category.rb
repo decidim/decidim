@@ -37,7 +37,7 @@ module Decidim
             else
               transaction do
                 update_proposal_category proposal
-                notify_author proposal if proposal.author.present?
+                notify_author proposal if proposal.coauthorships.any?
               end
               @response[:successful] << proposal.title
             end
@@ -59,7 +59,7 @@ module Decidim
             event: "decidim.events.proposals.proposal_update_category",
             event_class: Decidim::Proposals::Admin::UpdateProposalCategoryEvent,
             resource: proposal,
-            recipient_ids: [proposal.decidim_author_id]
+            recipient_ids: proposal.coauthorships.pluck(:decidim_author_id)
           )
         end
       end

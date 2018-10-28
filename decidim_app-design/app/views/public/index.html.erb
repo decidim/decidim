@@ -11,8 +11,17 @@
       <h1>Decidim Barcelona</h1>
       <h2 class="text-center heading2 mb-m">Redesigning decidim</h2>
       <div class="section" style="columns:2">
+        <h2 class="section-heading">Vistas principales</h2>
+        <ul>
+          <li><%= link_to "Home", page_path("home") %></li>
+          <li><%= link_to "Home - proceso único", page_path("home-single-process") %></li>
+          <li><%= link_to "Home con tooltips de ayuda", page_path("home-with-helpers") %></li>
+          <li><%= link_to "Estadísticas", page_path("stats") %></li>
+        </ul>
         <h2 class="section-heading">Process</h2>
         <ul>
+          <li><%= link_to "Listado de procesos", page_path("processes/processes") %></li>
+          <li><%= link_to "Estadísticas del proceso", page_path("processes/process-stats") %></li>
           <li><%= link_to "Proceso - Landing e información general", page_path("info") %></li>
           <li><%= link_to "Proceso - Fases", page_path("phases") %></li>
           <li><%= link_to "Debates - Lista", page_path("debates") %></li>
@@ -28,6 +37,7 @@
               <li><%= link_to "Propuestas con contador de votos", page_path("proposals/proposals_2") %></li>
             </ul>
           </li>
+          <li><%= link_to "Estadísticas de la propuesta", page_path("proposals/proposal-stats") %></li>
           <li><%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %></li>
           <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
           <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
@@ -49,6 +59,23 @@
               <li><%= link_to "Propuesta: wizard paso 3", page_path("proposals/proposals-wizard-step-3") %></li>
             </ul>
           </li>
+          <li>
+            <%= link_to "Propuestas colaborativas - Lista", page_path("proposals/proposals-collaboratives") %>
+            <ul>
+              <li><%= link_to "Propuesta colaborativa", page_path("proposals/proposal-view-collaborative") %></li>
+              <li><%= link_to "Propuesta con enlace a colaborativa", page_path("collaborative-drafts/collaborative-draft-link-from-proposal") %></li>
+            </ul>
+          </li>
+        </ul>
+        <h2 class="section-heading">Amendments</h2>
+        <ul>
+          <li><%= link_to "Propuesta con botón de enmienda", page_path("amendments/proposal-view-with-amendment-button") %></li>
+          <li><%= link_to "Formulario de creación de enmiendas", page_path("amendments/amendment-creation-wizard") %></li>
+          <li><%= link_to "Propuesta con enmiendas asociadas", page_path("amendments/proposal-view-with-amendments") %></li>
+          <li><%= link_to "Aceptar / Rechazar enmienda", page_path("amendments/amendment-view-accept-reject") %></li>
+          <li><%= link_to "Validar coautoría", page_path("amendments/amendment-view-validate-coauthorship") %></li>
+          <li><%= link_to "Propuesta con enmienda aceptada", page_path("amendments/proposal-view-with-amendment-approved") %></li>
+          <li><%= link_to "Propuesta con enmienda rechazada", page_path("amendments/proposal-view-with-amendment-rejected") %></li>
         </ul>
         <h2 class="section-heading">Initiatives</h2>
         <ul>
@@ -75,6 +102,15 @@
             <li><%= link_to "Espacio colaborativo - propuesta final", page_path("collaborative-drafts/collaborative-draft-view-final-proposal") %></li>
           </ul>
         </ul>
+        <h2 class="section-heading">Conferences</h2>
+        <ul>
+          <li><%= link_to "Conferencias - Home", page_path("conferences/conference-view") %></li>
+          <li><%= link_to "Conferencias - Programa", page_path("conferences/conference-view-programme") %></li>
+          <li><%= link_to "Conferencias - Ponentes", page_path("conferences/conference-view-speakers") %></li>
+          <li><%= link_to "Conferencias - Registro", page_path("conferences/conference-view-registration") %></li>
+          <li><%= link_to "Conferencias - Diploma", page_path("conferences/conference-view-diploma") %></li>
+          <li><%= link_to "Conferencias - Media", page_path("conferences/conference-view-media") %></li>
+        </ul>
         <h2 class="section-heading">Assemblies</h2>
         <ul>
           <li><%= link_to "Asambleas - Listado", page_path("assemblies/assemblies") %></li>
@@ -97,11 +133,40 @@
             </ul>
           </li>
         </ul>
+        <h2 class="section-heading">Participatory texts</h2>
+        <ul>
+          <li><%= link_to "Textos participativos - Índice", page_path("participatory/participatory-texts-index") %></li>
+          <li><%= link_to "Textos participativos - Sección", page_path("participatory/participatory-texts-view") %></li>
+          <li><%= link_to "Textos participativos - Edición", page_path("participatory/participatory-texts-draft") %></li>
+        </ul>
         <h2 class="section-heading">Blog</h2>
         <ul>
           <li><%= link_to "Blog home", page_path("blog/blog") %></li>
           <li><%= link_to "Blog post", page_path("blog/blog-view") %></li>
           <li><%= link_to "Blog archives", page_path("blog/blog-archives") %></li>
+        </ul>
+        <h2 class="section-heading">Profile</h2>
+        <ul>
+          <li>
+            <%= link_to "Perfil de usuario - vista privada - timeline (default)", page_path("profile/user-profile")+ "#timeline" %>
+            <ul>
+              <li><%= link_to "Perfil de usuario - vista privada - notificaciones", page_path("profile/user-profile") + "#notifications" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversaciones", page_path("profile/user-profile") + "#conversations" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - conversacion", page_path("profile/user-profile") + "#conversation" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - followers", page_path("profile/user-profile") + "#followers" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - following", page_path("profile/user-profile") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista privada - badges", page_path("profile/user-profile") + "#badges" %></li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Perfil de usuario - vista pública - followers (default)", page_path("profile/user-profile-public") + "#followers" %>
+            <ul>
+              <li><%= link_to "Perfil de usuario - vista pública - following", page_path("profile/user-profile-public") + "#following" %></li>
+              <li><%= link_to "Perfil de usuario - vista pública - badges", page_path("profile/user-profile-public") + "#badges" %></li>
+            </ul>
+          </li>
+          <li><%= link_to "Información sobre badges", page_path("profile/user-badges-info") %></li>
+          <li><%= link_to "Perfil de usuario admin - gestión de grupos", page_path("profile/user-profile-manage") %></li>
         </ul>
         <h2 class="section-heading">User</h2>
         <ul>
@@ -119,9 +184,10 @@
             </ul>
           </li>
           <li>
-            <%= link_to "Gamification - mi perfil", page_path("user/user-profile") %>
+            <%= link_to "Usuario: login rápido", page_path("user/user-profile-fast-login") %>
             <ul>
-              <li><%= link_to "Gamification - perfil de otro", page_path("user/user-profile-others") %></li>
+              <li><%= link_to "Login rápido: Usuario no registrado", page_path("user/user-profile-fast-login-user-new") %></li>
+              <li><%= link_to "Login rápido: Usuario registrado", page_path("user/user-profile-fast-login-user-existent") %></li>
             </ul>
           </li>
           <li><%= link_to "OAuth: Autorización", page_path("oauth") %></li>
@@ -141,7 +207,7 @@
           <li><%= link_to "Librería de patrones de la interfaz", page_path("library/pattern-library") %></li>
           <li><%= link_to "Formulario con calendario/datepicker", page_path("form-datepicker") %></li>
           <li><%= link_to "Validación en formularios", page_path("form-validation") %></li>
-          <li><%= link_to "User stories", page_path("user-stories") %></li>
+          <li><%= link_to "User stories", page_path("user/user-stories") %></li>
           <li><%= link_to "Manual de estilo", page_path("style-manual") %></li>
         </ul>
         <h2 class="section-heading">Plantilla para email</h2>
@@ -165,8 +231,6 @@
       <div class="section" style="columns:2">
         <h2 class="section-heading">Vistas principales</h2>
         <ul>
-          <li><%= link_to "Home", page_path("home") %></li>
-          <li><%= link_to "Listado de procesos", page_path("processes") %></li>
           <li><%= link_to "Más información", page_path("more-information") %></li>
         </ul>
         <h2 class="section-heading">Vistas de componente</h2>

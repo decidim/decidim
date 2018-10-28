@@ -33,11 +33,11 @@
     <% if current_initiative.published? && current_user.admin? %>
       <div class="row">
         <div class="columns xlarge-6">
-          <%= form.date_field :signature_start_time %>
+          <%= form.date_field :signature_start_date %>
         </div>
 
         <div class="columns xlarge-6">
-          <%= form.date_field :signature_end_time %>
+          <%= form.date_field :signature_end_date %>
         </div>
       </div>
     <% end %>

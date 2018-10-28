@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -51,19 +50,19 @@ uk:
   activerecord:
     models:
       decidim/participatory_process:
+        one: Рух співучасті
         few: Рухи співучасті
         many: Рухів співучасті
-        one: Рух співучасті
         other: Рухів співучасті
       decidim/participatory_process_group:
+        one: Гурт руху співучасті
         few: Гурти руху співучасті
         many: Гуртів руху співучасті
-        one: Гурт руху співучасті
         other: Гуртів руху співучасті
       decidim/participatory_process_step:
+        one: Крок
         few: Кроки
         many: Кроків
-        one: Крок
         other: Кроків
   decidim:
     admin:
@@ -74,7 +73,10 @@ uk:
         destroy: Видалити
         duplicate: Створити копію
         edit: Редагувати
-        new: Додати
+        new_process: Додати рух
+        new_process_group: Створити сукупність рухів
+        new_process_step: Додати крок
+        new_process_user_role: Додати учасника руху
         preview: Попередній перегляд
         publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
@@ -101,6 +103,7 @@ uk:
             promoted: Висвітлено
             published: Оприлюднено
             title: Назва
+          name: Рух співучасті
         participatory_process_group:
           fields:
             name: Ім'я
@@ -260,7 +263,11 @@ uk:
       processes: Рухи
     participatory_process_groups:
       show:
-        group_participatory_processes: Рухи для %{group}
+        group_participatory_processes:
+          one: 1 рух у %{group}
+          few: "%{count} рухи у %{group}"
+          many: "%{count} рухів у %{group}"
+          other: "%{count} рухів у %{group}"
         title: Сукупності рухів співучасті
     participatory_process_steps:
       index:
@@ -275,22 +282,54 @@ uk:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Висвітлені рухи
       index:
         title: Рухи співучасті
-      order_by_processes:
-        active: Діючі
-        all: Усі
-        past: Минулі
-        upcoming: Прийдешні
       pages:
         home:
           highlighted_processes:
             active_processes: Діючі рухи
             active_step: Діючий крок
+            more_information: Додаткові відомості
+            participate: Взяти участь
             see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 діючий рух
+              few: "%{count} діючих рухи"
+              many: "%{count} діючих рухів"
+              other: "%{count} діючих рухів"
+            all:
+              one: 1 рух
+              few: "%{count} рухи"
+              many: "%{count} рухів"
+              other: "%{count} рухів"
+            past:
+              one: 1 минулий рух
+              few: "%{count} минулі рухи"
+              many: "%{count} минулих рухів"
+              other: "%{count} минулих рухів"
+            upcoming:
+              one: 1 прийдешній рух
+              few: "%{count} прийдешні рухи"
+              many: "%{count} прийдешніх рухів"
+              other: "%{count} прийдешніх рухів"
+          explanations:
+            no_active: Нема діючих рухів
+            no_active_nor_upcoming: Немає діючих чи прийдешніх рухів
+            no_active_nor_upcoming_callout: Немає ні діючих, ні прийдешніх процесів. Ось список минулих.
+          names:
+            active: Діючі
+            all: Усі
+            past: Минулі
+            upcoming: Прийдешні
+          see: Подивитися
         index:
           loading: Завантаження результатів...
       show:
@@ -333,12 +372,6 @@ uk:
       participatory_processes:
         index:
           promoted_processes: Висвітлені рухи
-        order_by_processes:
-          processes:
-            few: "%{count} рухи"
-            many: "%{count} рухів"
-            one: "%{count} рух"
-            other: "%{count} рухів"
         participatory_process:
           active_step: 'Поточний крок:'
           take_part: Взяти участь
@@ -350,5 +383,5 @@ uk:
         process_menu_item: Рух
         unfold: Розгорнути
       process_header_steps:
-        step: "%{current}-й крок з %{total} кроків"
+        step: '%{current}-й крок з %{total} кроків'
         view_steps: Переглянути кроки

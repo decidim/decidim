@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user updates a proposal.
     class UpdateProposal < Rectify::Command
+      include AttachmentMethods
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -13,6 +14,7 @@ module Decidim
         @form = form
         @current_user = current_user
         @proposal = proposal
+        @attached_to = proposal
       end
 
       # Executes the command. Broadcasts these events:
@@ -26,8 +28,16 @@ module Decidim
         return broadcast(:invalid) unless proposal.editable_by?(current_user)
         return broadcast(:invalid) if proposal_limit_reached?
 
+        if process_attachments?
+          @proposal.attachments.destroy_all
+
+          build_attachment
+          return broadcast(:invalid) if attachment_invalid?
+        end
+
         transaction do
           update_proposal
+          create_attachment if process_attachments?
         end
 
         broadcast(:ok, proposal)
@@ -35,20 +45,23 @@ module Decidim
 
       private
 
-      attr_reader :form, :proposal, :current_user
+      attr_reader :form, :proposal, :current_user, :attachment
 
       def update_proposal
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+
         @proposal.update!(
-          title: form.formatted_title,
-          body: form.formatted_body,
+          title: parsed_title,
+          body: parsed_body,
           category: form.category,
           scope: form.scope,
-          author: current_user,
-          decidim_user_group_id: user_group.try(:id),
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude
         )
+        @proposal.coauthorships.clear
+        @proposal.add_coauthor(current_user, decidim_user_group_id: user_group&.id)
       end
 
       def proposal_limit_reached?
@@ -72,11 +85,11 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.where(author: current_user, component: form.current_component).published.where.not(id: proposal.id)
+        Proposal.from_author(current_user).where(component: form.current_component).published.where.not(id: proposal.id)
       end
 
       def user_group_proposals
-        Proposal.where(user_group: user_group, component: form.current_component).published.where.not(id: proposal.id)
+        Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id)
       end
     end
   end

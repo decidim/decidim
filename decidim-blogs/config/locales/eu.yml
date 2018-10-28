@@ -14,7 +14,7 @@ eu:
         confirm_destroy: Ziur mezua ezabatu nahi duzula?
         destroy: ezabatu
         edit: Editatu
-        new: New
+        new: Post berria
         title: Ekintzak
       admin:
         models:
@@ -38,6 +38,8 @@ eu:
           update:
             invalid: Erroreak gertatu dira mezua gordetzean.
             success: Mezua ondo gorde da
+      last_activity:
+        new_post_at_html: "<span>Post berria %{link}</span>"
       models:
         post:
           fields:

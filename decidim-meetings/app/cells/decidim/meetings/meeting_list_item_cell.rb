@@ -18,7 +18,7 @@ module Decidim
       end
 
       def title
-        translated_attribute model.title
+        present(model).title
       end
 
       def resource_date_time

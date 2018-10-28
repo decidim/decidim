@@ -19,18 +19,18 @@ module Decidim::ParticipatoryProcesses
         create(:participatory_process_step, participatory_process: participatory_process, active: false)
       end
 
-      context "when destroying the active step" do
+      context "when deleting the active step" do
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid, :active_step)
         end
 
-        it "doesn't destroy the step" do
+        it "doesn't delete the step" do
           subject.call
           expect(active_step).to be_persisted
         end
       end
 
-      context "when destroying an inactive step" do
+      context "when deleting an inactive step" do
         let(:reorderer) { double(call: true) }
         let(:step) { inactive_step }
 
@@ -38,7 +38,7 @@ module Decidim::ParticipatoryProcesses
           expect { subject.call }.to broadcast(:ok)
         end
 
-        it "destroys the step" do
+        it "delete the step" do
           subject.call
           expect { inactive_step.reload }.to raise_error(ActiveRecord::RecordNotFound)
         end
@@ -67,7 +67,7 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
-    context "when trying to destroy the last step" do
+    context "when trying to delete the last step" do
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end

@@ -6,6 +6,7 @@ module Decidim
       # Controller responsible of the sortition that selects proposals from
       # a participatory space.
       class SortitionsController < Admin::ApplicationController
+        helper Decidim::ApplicationHelper
         helper_method :proposal_components
 
         def index; end

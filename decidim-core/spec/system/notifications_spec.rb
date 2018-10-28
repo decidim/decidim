@@ -24,7 +24,7 @@ describe "Notifications", type: :system do
         find("a.topbar__notifications").click
       end
 
-      expect(page).to have_current_path decidim.profile_notifications_path(user.nickname)
+      expect(page).to have_current_path decidim.notifications_path
       expect(page).to have_no_content("No notifications yet")
       expect(page).to have_content("An event occured")
     end
@@ -40,7 +40,7 @@ describe "Notifications", type: :system do
           find("a.topbar__notifications").click
         end
 
-        expect(page).to have_current_path decidim.profile_notifications_path(user.nickname)
+        expect(page).to have_current_path decidim.notifications_path
         expect(page).to have_content("No notifications yet")
       end
     end
@@ -69,7 +69,7 @@ describe "Notifications", type: :system do
     let!(:notification) { nil }
 
     before do
-      page.visit decidim.profile_notifications_path(user.nickname)
+      page.visit decidim.notifications_path
     end
 
     it "doesn't show any notification" do
@@ -79,12 +79,12 @@ describe "Notifications", type: :system do
   end
 
   context "with notifications" do
-    it "shows the notifications" do
-      expect(page).to have_selector(".card.card--widget")
+    before do
+      page.visit decidim.notifications_path
     end
 
-    before do
-      page.visit decidim.profile_notifications_path(user.nickname)
+    it "shows the notifications" do
+      expect(page).to have_selector(".card.card--widget")
     end
 
     context "when setting a single notification as read" do

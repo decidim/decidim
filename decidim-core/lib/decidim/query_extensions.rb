@@ -65,6 +65,35 @@ module Decidim
       type.field :organization, Core::OrganizationType, "The current organization" do
         resolve ->(_obj, _args, ctx) { ctx[:current_organization] }
       end
+
+      type.field :hashtags do
+        type types[Core::HashtagType]
+        description "The hashtags for current organization"
+        argument :name, types.String, "The name of the hashtag"
+
+        resolve lambda { |_obj, args, ctx|
+          Decidim::HashtagsResolver.new(ctx[:current_organization], args[:name]).hashtags
+        }
+      end
+
+      type.field :metrics do
+        type types[Decidim::Core::MetricType]
+        argument :names, types[types.String], "The names of the metrics you want to retrieve"
+
+        resolve lambda { |_, args, ctx|
+                  manifests = if args[:names].blank?
+                                Decidim.metrics_registry.all
+                              else
+                                Decidim.metrics_registry.all.select do |manifest|
+                                  args[:names].include?(manifest.metric_name.to_s)
+                                end
+                              end
+
+                  manifests.map do |manifest|
+                    Decidim::Core::MetricResolver.new(manifest.metric_name, ctx[:current_organization])
+                  end
+                }
+      end
     end
   end
 end

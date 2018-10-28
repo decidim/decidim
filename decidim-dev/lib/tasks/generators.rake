@@ -35,15 +35,17 @@ namespace :decidim do
 
   desc "Generates a dummy app for trying out external modules"
   task :generate_external_development_app do
-    generate_decidim_app(
-      "development_app",
-      "--app_name",
-      "#{base_app_name}_development_app",
-      "--path",
-      "..",
-      "--recreate_db",
-      "--seed_db",
-      "--demo"
-    )
+    Bundler.with_original_env do
+      generate_decidim_app(
+        "development_app",
+        "--app_name",
+        "#{base_app_name}_development_app",
+        "--path",
+        "..",
+        "--recreate_db",
+        "--seed_db",
+        "--demo"
+      )
+    end
   end
 end

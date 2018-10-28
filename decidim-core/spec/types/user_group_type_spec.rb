@@ -29,8 +29,8 @@ module Decidim
       describe "nickname" do
         let(:query) { "{ nickname }" }
 
-        it "returns an empty string since user groups have no nickname yet" do
-          expect(response).to include("nickname" => "")
+        it "returns a presentable user group's nickname" do
+          expect(response).to include("nickname" => "@#{model.nickname}")
         end
       end
 
@@ -45,8 +45,8 @@ module Decidim
       describe "profilePath" do
         let(:query) { "{ profilePath }" }
 
-        it "returns the empty string since user groups have no public profile yet" do
-          expect(response).to include("profilePath" => "")
+        it "returns the user group profile path" do
+          expect(response).to include("profilePath" => "/profiles/#{model.nickname}")
         end
       end
 

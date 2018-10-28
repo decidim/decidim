@@ -1,4 +1,3 @@
----
 eu:
   activemodel:
     attributes:
@@ -40,7 +39,7 @@ eu:
         confirm_destroy: Ziur zaude?
         destroy: ezabatu
         edit: Editatu
-        new: "%{name} berria"
+        new: '%{name} berria'
         title: Ekintzak
       admin:
         debates:
@@ -60,18 +59,13 @@ eu:
           update:
             invalid: Arazo bat izan da eztabaida hau eguneratzean.
             success: Debate arrakastaz eguneratu da.
-        exports:
-          comments: comments
-          debates: debates
         models:
           debate:
             name: Debate
       admin_log:
         debate:
-          create: "%{user_name} %{resource_name} eztabaida sortu zen %{space_name}
-            espazioan"
-          update: "%{user_name} %{resource_name} eztabaida eguneratu zen %{space_name}
-            espazioan"
+          create: "%{user_name} %{resource_name} eztabaida sortu zen %{space_name} espazioan"
+          update: "%{user_name} %{resource_name} eztabaida eguneratu zen %{space_name} espazioan"
       debates:
         count:
           debates_count:
@@ -106,6 +100,8 @@ eu:
           close_window: Itxi leihoa
           share: Share
           share_link: Partekatu esteka
+      last_activity:
+        new_debate_at_html: "<span> %{link}</span>eztabaida berria"
       models:
         debate:
           fields:
@@ -117,36 +113,36 @@ eu:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Kaixo, %{space_title} partaidetzako espazioan eztabaida
-              berria sortu da, egiaztatu eta lagundu:'
-            email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko
-              espazioa jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari
-              uztea erabaki dezakezu.
+            email_intro: |-
+              Kaixo, %{space_title} partaidetzako espazioan eztabaida berria sortu da, egiaztatu eta lagundu:
+            email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Eztabaida berria %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida
-              sortu zen <a href="%{space_path}">%{space_title}</a>.
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Kaixo, %{author_name} %{author_nickname}, jarraitzen ari
-              zarenak, eztabaida berri bat sortu du, egiaztatu eta lagundu:'
-            email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero.
-              Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_intro: |-
+              Kaixo, %{author_name} %{author_nickname}, jarraitzen ari zarenak, eztabaida berri bat sortu du, egiaztatu eta lagundu:
+            email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Eztabaida berria %{author_nickname}-ri
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida
-              sortu zen <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
-          email_intro: 'Debate sortzea ez dago aktibo %{participatory_space_title}.
-            Oraindik eztabaidak ireki ditzakezu orri honetatik:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz
-            gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki
-            dezakezu.
+          email_intro: 'Debate sortzea ez dago aktibo %{participatory_space_title}. Oraindik eztabaidak ireki ditzakezu orri honetatik:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Debate sortzea desgaituta %{participatory_space_title}
           notification_title: Debateen sorrera desaktibatuta dago orain <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Orain %{participatory_space_title}hizketaldi berriak hasi
-            ditzakezu! Hasi orri honetan parte hartzea:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz
-            gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki
-            dezakezu.
+          email_intro: 'Orain %{participatory_space_title}hizketaldi berriak hasi ditzakezu! Hasi orri honetan parte hartzea:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Debates orain eskuragarri %{participatory_space_title}
-          notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi
-            ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Aukeratu eztabaida irekia parte hartzeko
+          description: Txartel hau debekuei parte hartzeko modu aktiboan parte hartuz ematen da, zure iruzkinak utziz.
+          description_another: Erabiltzaile honek %{score} eztabaidatan parte hartu du.
+          description_own: '%{score} eztabaidetan parte hartu duzu.'
+          name: eztabaidak
+          next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
+          unearned_own: Oraindik eztabaidetan parte hartu duzu.

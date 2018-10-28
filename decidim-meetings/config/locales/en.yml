@@ -21,10 +21,10 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        organizer_id: Organizer
         private_meeting: Private meeting
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
-        reserved_slots: Places réservées
         start_time: Start Time
         title: Title
         transparent: Transparent
@@ -82,6 +82,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
+            resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -107,6 +108,11 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+        registration_code_validated:
+          email_intro: Your registration code "%{registration_code}" has been validated.
+          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
+          email_subject: Your registration code "%{registration_code}" has been validated
+          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
@@ -117,17 +123,29 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+          - Register in the meetings you want to attend
+          description: This badge is granted when you attend several face-to-face meetings.
+          description_another: This user has attended %{score} meetings.
+          description_own: You have attended %{score} meetings.
+          name: Attended meetings
+          next_level_in: Attend %{score} more meetings to reach the next level!
+          unearned_another: This user hasn't attended any meeting yet.
+          unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Collections
+        attachment_collections: Folders
         attachments: Attachments
         close: Close
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
         minutes: Minutes
-        new: New
+        new: New meeting
         preview: Preview
         registrations: Registrations
         title: Actions
@@ -166,16 +184,31 @@ en:
           registrations: Registrations
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can accept it through the link below."
+            decline: Decline invitation
+            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
             join: Join meeting '%{meeting_title}'
         invites:
           create:
             error: There's been a problem while inviting the user to join the meeting.
             success: User successfully invited to join the meeting.
-          new:
-            explanation: The user will be invited to join a meeting. If the email is not registered they will be invited to the organization as well.
+          form:
+            attendee_type: Attendee type
+            existing_user: Existing user
             invite: Invite
-            new_invite: Invite user
+            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            non_user: Non existing user
+            select_user: Select user
+          index:
+            filter:
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
+            invite_attendee: Invite attendee
+            invites: Invites
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            search: Search
         meeting_closes:
           edit:
             close: Close
@@ -232,9 +265,11 @@ en:
         registrations:
           edit:
             save: Save
+            validate: Validate
+            validate_registration_code: Validate registration code
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
-            invite_user: Invite user
+            invites: Invites
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
@@ -244,11 +279,14 @@ en:
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+          validate_registration_code:
+            invalid: This registration code is invalid.
+            success: Registration code successfully validated.
       admin_log:
         invite:
-          create: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
-          deleted: "%{user_name} uninvited %{expectation_name} to join %{resource_name} space meeting %{space_name}"
-          update: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
         meeting:
           close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
@@ -261,6 +299,24 @@ en:
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+      conference_venues: Conference Venues
+      content_blocks:
+        upcoming_events:
+          name: Upcoming events
+          upcoming_events: Upcoming meetings
+          view_all_events: View all
+      directory:
+        meetings:
+          index:
+            all: All
+            date: Date
+            meetings: Meetings
+            past: Past
+            search: Search
+            space_type: Participatory space
+            upcoming: Upcoming
+      last_activity:
+        new_meeting_at_html: "<span>New meeting at %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -283,8 +339,6 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
-        index:
-          view_meeting: View meeting
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Related Information
@@ -307,7 +361,19 @@ en:
             other: "%{count} slots remaining"
             zero: No slots remaining
           view: View
+      meetings_map:
+        view_meeting: View meeting
       models:
+        invite:
+          fields:
+            email: Email
+            name: Name
+            sent_at: Sent at
+            status: Status
+          status:
+            accepted: Accepted (%{at})
+            rejected: Rejected (%{at})
+            sent: Sent
         meeting:
           fields:
             closed: Closed
@@ -320,10 +386,14 @@ en:
         confirmation:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
+          registration_code: Your registration code is %{code}.
       registrations:
         create:
           invalid: There's been a problem joining this meeting.
           success: You have joined the meeting successfully.
+        decline_invitation:
+          invalid: There's been a problem declining the invitation.
+          success: You have declined the invitation successfully.
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.

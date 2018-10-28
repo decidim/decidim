@@ -9,16 +9,16 @@ it:
         copy_components: Copia componenti
         copy_steps: Copia i passi
         description: Descrizione
-        developer_group: Gruppo sviluppatori
+        developer_group: Gruppo promotore
         domain: Dominio
         end_date: Data di fine
         hashtag: Hashtag
         hero_image: Immagine della Home Page
-        local_area: Municipi
+        local_area: Area organizzativa
         meta_scope: Metadati di ambito
         participatory_process_group_id: Gruppo di processi
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         promoted: Promossa
         published_at: Pubblicato a
         scope_id: Objetivos
@@ -28,7 +28,7 @@ it:
         slug: URL slug
         start_date: Date di inizio
         subtitle: Sottotitolo
-        target: A chi è destinato il processo?
+        target: Chi partecipa
         title: Nome
       participatory_process_group:
         description: Descrizione
@@ -36,6 +36,8 @@ it:
         name: Nome
         participatory_process_ids: Processi correlati
       participatory_process_step:
+        cta_path: Percorso Call to Action
+        cta_text: Call to Action text
         description: Descrizione
         end_date: Data di fine
         short_description: Descrizione breve
@@ -64,11 +66,14 @@ it:
       actions:
         activate: Attiva
         configure: Configura
-        confirm_destroy: Conferma eliminazione
+        confirm_destroy: Conferma cancellazione
         destroy: Elimina
         duplicate: Duplica
         edit: Modifica
-        new: Nuovo
+        new_process: Nuovo processo
+        new_process_group: Nuovo gruppo di processi
+        new_process_step: Nuovo passo
+        new_process_user_role: Nuovo utente del processo
         preview: Anteprima
         publish: Pubblica
         resend_invitation: Manda di nuovo l'invito
@@ -77,7 +82,7 @@ it:
         participatory_process_groups: Gruppo di processi
         participatory_processes: Processi
         participatory_processes_submenu:
-          attachment_collections: collezioni
+          attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
           categories: Categorie
@@ -126,7 +131,7 @@ it:
           title: Duplicare il processo partecipativo
       participatory_process_groups:
         destroy:
-          success: Il gruppo di processi partecipativi è stato distrutto con successo.
+          success: Gruppo di processi partecipativi cancellato con successo.
         edit:
           title: Aggiorna un gruppo di processi
           update: Modifica
@@ -156,7 +161,7 @@ it:
           error:
             active_step: Non è possibile cancellare questa fase poiché è attiva.
             last_step: Non è possibile cancellare l'ultima fase di un processo.
-          success: OK, il processo partecipativo è stato eliminato.
+          success: Passo del processo partecipativo cancellato con successo.
         edit:
           title: Modifica una fase del processo partecipativo.
           update: Modifica
@@ -173,9 +178,9 @@ it:
       participatory_process_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo processo partecipativo.
-          success: OK, è stato creato l'utente per questo processo partecipativo.
+          success: Utente aggiunto con successo a questo processo partecipativo.
         destroy:
-          success: L'utente per questo processo processo partecipativo è stato eliminato.
+          success: Utente rimosso con successo da questo processo partecipativo.
         edit:
           title: Aggiornamento utente di un processo partecipativo.
           update: Modifica
@@ -192,7 +197,7 @@ it:
           error: Si è verificato un errore durante la creazione del processo partecipativo.
           success: Il processo partecipativo è stato creato con successo. Configura ora i suoi passaggi.
         destroy:
-          success: OK, il processo partecipativo è stato eliminato.
+          success: Processo partecipativo cancellato con successo.
         edit:
           update: Modifica
         form:
@@ -254,7 +259,9 @@ it:
       processes: Processi
     participatory_process_groups:
       show:
-        group_participatory_processes: Processi per %{group}
+        group_participatory_processes:
+          one: 1 processi per %{group}
+          other: "%{count} processi per %{group}"
         title: Gruppi di processi partecipativi
     participatory_process_steps:
       index:
@@ -262,29 +269,62 @@ it:
         title: Fasi del processo partecipativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantità massima di elementi da mostrare
         participatory_process_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Utilizza percorsi parziali, non URL completi qui. Accetta lettere, numeri, trattini e barre e deve iniziare con una lettera. Se non impostato, il pulsante non verrà mostrato. Esempio: %{url}'
+            cta_text_help: Se non impostato, il pulsante non verrà mostrato.
         participatory_processes:
           form:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processi evidenziati
       index:
         title: Processi partecipativi
-      order_by_processes:
-        active: Attivo
-        all: Tutti
-        past: Passato
-        upcoming: Imminenti
+      last_activity:
+        new_participatory_process: Nuovo processo partecipativo
       pages:
         home:
           highlighted_processes:
             active_processes: Processi attivi
             active_step: Passo attivo
+            more_information: Maggiori informazioni
+            participate: Partecipare
             see_all_processes: Vedere tutti i processi
       participatory_process_groups:
         none: Nessuno
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 processo attivo
+              other: "%{count} processi attivi"
+            all:
+              one: 1 processo
+              other: "%{count} processi"
+            past:
+              one: 1 processo passato
+              other: "%{count} processi passati"
+            upcoming:
+              one: 1 processo imminente
+              other: "%{count} processi imminenti"
+          explanations:
+            no_active: Nessun processo attivo
+            no_active_nor_upcoming: Nessun processo attivo o imminente
+            no_active_nor_upcoming_callout: Non ci sono processi attivi o imminenti. Ecco una lista di quelli passati.
+          names:
+            active: Attivo
+            all: Tutti
+            past: Passato
+            upcoming: Imminenti
+          see: Vedere
         index:
           loading: Caricamento risultati...
       show:
@@ -327,10 +367,6 @@ it:
       participatory_processes:
         index:
           promoted_processes: Processi evidenziati
-        order_by_processes:
-          processes:
-            one: "%{count} processo"
-            other: "%{count} processi"
         participatory_process:
           active_step: 'Fase attuale:'
           take_part: Partecipa

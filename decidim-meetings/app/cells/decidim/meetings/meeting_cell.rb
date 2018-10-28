@@ -10,7 +10,7 @@ module Decidim
       include Cell::ViewModel::Partial
 
       def show
-        cell card_size, model
+        cell card_size, model, options
       end
 
       private
@@ -19,9 +19,15 @@ module Decidim
         case @options[:size]
         when :list_item
           "decidim/meetings/meeting_list_item"
+        when :s
+          "decidim/meetings/meeting_s"
         else
           "decidim/meetings/meeting_m"
         end
+      end
+
+      def title
+        present(model).title
       end
 
       def resource_icon

@@ -8,9 +8,11 @@ module Decidim
       class InviteJoinMeetingMailer < Decidim::ApplicationMailer
         include Decidim::TranslationsHelper
         include Decidim::SanitizeHelper
+        include Decidim::ApplicationHelper
 
         helper Decidim::ResourceHelper
         helper Decidim::TranslationsHelper
+        helper Decidim::ApplicationHelper
 
         helper_method :routes
 

@@ -5,7 +5,7 @@ module Decidim
     # The data store for a Proposal in the Decidim::Proposals component.
     class Proposal < Proposals::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::Authorable
+      include Decidim::Coauthorable
       include Decidim::HasComponent
       include Decidim::ScopableComponent
       include Decidim::HasReference
@@ -18,6 +18,8 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Fingerprintable
+      include Decidim::DataPortability
+      include Decidim::Hashtaggable
 
       fingerprint fields: [:title, :body]
 
@@ -42,8 +44,8 @@ module Decidim
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: { component: :participatory_space },
-                          A: :title,
-                          D: :body,
+                          D: :search_body,
+                          A: :search_title,
                           datetime: :published_at
                         },
                         index_on_create: false,
@@ -58,6 +60,14 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalPresenter
+      end
+
+      # Returns a collection scoped by user.
+      # Overrides this method in DataPortability to support Coauthorable.
+      def self.user_collection(user)
+        joins(:coauthorships)
+          .where("decidim_coauthorships.coauthorable_type = ?", name)
+          .where("decidim_coauthorships.decidim_author_id = ?", user.id)
       end
 
       # Public: Check if the user has voted the proposal.
@@ -124,7 +134,7 @@ module Decidim
 
       # Public: Whether the proposal is official or not.
       def official?
-        author.nil?
+        authors.empty?
       end
 
       # Public: The maximum amount of votes allowed for this proposal.
@@ -182,11 +192,22 @@ module Decidim
                   AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
                 GROUP BY decidim_comments_comments.decidim_commentable_id
               )
-            SQL
+        SQL
         Arel.sql(query)
       end
 
-      private
+      def self.export_serializer
+        Decidim::Proposals::ProposalSerializer
+      end
+
+      def self.data_portability_images(user)
+        user_collection(user).map { |p| p.attachments.collect(&:file) }
+      end
+
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
+      end
 
       # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
@@ -194,6 +215,8 @@ module Decidim
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
       end
+
+      private
 
       def copied_from_other_component?
         linked_resources(:proposals, "copied_from_component").any?

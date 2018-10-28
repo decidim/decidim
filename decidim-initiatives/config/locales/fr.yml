@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -6,9 +5,9 @@ fr:
         decidim_user_group_id: Auteur
         description: Description
         offline_votes: Votes en présentiel
-        scope_id: Secteur
-        signature_end_time: Fin de la période de collecte des signatures
-        signature_start_time: Début de la période de collecte des signatures
+        scope_id: Périmètre d'application
+        signature_end_date: Fin de la période de collecte des signatures
+        signature_start_date: Début de la période de collecte des signatures
         signature_type: Type de collecte des signatures
         signature_type_values:
           any: Mixte
@@ -46,6 +45,8 @@ fr:
         other: Signatures
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nouveau type d'initiative
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiative
@@ -58,7 +59,7 @@ fr:
             title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: Échelle
+            scope: Périmètre d'application
             supports_required: Soutiens requis
           name: Type d'initiative
         initiatives_types:
@@ -81,6 +82,19 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Nouvelle étape franchie !
           notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Accéder à l'espace de participation d'Initiatives
+            - Suivez les étapes pour créer une nouvelle initiative
+          description: Ce badge vous est attribué lorsque vous lancez de nouvelles initiatives, en partenariat avec d’autres pour les mener à bien.
+          description_another: Cet utilisateur a reçu %{score} initiatives publiées.
+          description_own: Vous avez publié %{score} initiatives.
+          name: Initiatives publiées
+          next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
+          unearned_another: Cet utilisateur n'a pas encore publié d'initiative.
+          unearned_own: Vous n'avez pas encore publié d'initiative.
     initiatives:
       admin:
         committee_requests:
@@ -91,6 +105,9 @@ fr:
             no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion
             revoke: Révoquer
             title: Membres du comité de promotion
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantité maximale d'éléments à afficher
         initiatives:
           edit:
             accept: Signer la pétition
@@ -125,22 +142,22 @@ fr:
         initiatives_type_scopes:
           create:
             error: Une erreur s'est produite
-            success: Un nouveau secteur pour ce type d'initiative a été créé
+            success: Un nouveau périmètre d'application pour ce type d'initiative a été créé
           destroy:
-            success: Le secteur a été supprimé avec succès
+            success: Le périmètre d'application a été supprimé avec succès
           edit:
             back: Retour
             confirm_destroy: Êtes-vous certain ?
             destroy: Effacer
-            title: Modifier le secteur de ce type d'initiative
+            title: Modifier le périmètre d'application de ce type d'initiative
             update: Mettre à jour
           new:
             back: Retour
             create: Créer
-            title: Créer un type de secteur pour les initiatives
+            title: Créer un type de périmètre d'application pour les initiatives
           update:
             error: Une erreur s'est produite
-            success: Le secteur a été mis à jour avec succès
+            success: Le périmètre d'application a été mis à jour avec succès
         initiatives_types:
           create:
             error: Une erreur s'est produite
@@ -154,7 +171,7 @@ fr:
           form:
             title: Information générale
           initiative_type_scopes:
-            title: Secteur pour ce type d'initiative
+            title: Périmètre d'application pour ce type d'initiative
           new:
             create: Créer
             title: Nouveau type d'initiative
@@ -180,6 +197,9 @@ fr:
           help_text: Vous êtes sur le point de demander à devenir membre du Comité de promotion de cette initiative
         spawn:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
+      content_blocks:
+        highlighted_initiatives:
+          name: Initiatives soulignées
       create_initiative:
         fill_data:
           back: Retour
@@ -198,7 +218,7 @@ fr:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
           help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée, vous devrez télécharger les informations requises.
-          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, y télécharger les informations requises et les envoyer pour traitement.
+          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à l'information sur les initiatives.
           page: page
         previous_form:
@@ -313,6 +333,8 @@ fr:
         status_change_for: L'initiative %{title} a changé de statut
         technical_validation_body_for: Une validation technique a été demandée pour l'initiative %{title}.
         technical_validation_for: Une validation technique a été demandée pour l'initiative %{title}.
+      last_activity:
+        new_initiative: Nouvelle initiative
       pages:
         home:
           highlighted_initiatives:

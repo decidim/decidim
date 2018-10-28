@@ -55,5 +55,30 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
       labels = subject.map { |attribute, data| [attribute.to_sym, data[:label]] }.to_h
       expect(labels).to eq expected_labels
     end
+
+    context "when one of the locales is not available" do
+      let!(:default_available_locales) do
+        I18n.available_locales
+      end
+
+      before do
+        I18n.available_locales = [:en]
+      end
+
+      after do
+        I18n.available_locales = default_available_locales
+      end
+
+      it "generates the label with locale name" do
+        expected_labels = {
+          description_ca: "Description (ca)",
+          progress: "Progress",
+          start_date: "Start date",
+          title_en: "Title (English)"
+        }
+        labels = subject.map { |attribute, data| [attribute.to_sym, data[:label]] }.to_h
+        expect(labels).to eq expected_labels
+      end
+    end
   end
 end

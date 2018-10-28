@@ -3,12 +3,14 @@
 module Decidim
   module Proposals
     class ProposalMentionedEvent < Decidim::Events::SimpleEvent
+      include Decidim::ApplicationHelper
+
       i18n_attributes :mentioned_proposal_title
 
       private
 
       def mentioned_proposal_title
-        mentioned_proposal.title
+        present(mentioned_proposal).title
       end
 
       def mentioned_proposal

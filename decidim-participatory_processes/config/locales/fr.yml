@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -19,11 +18,10 @@ fr:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
         participatory_structure: Modalités
-        private_space: Espace privé
         promoted: Mise en avant
         published_at: Publiée à
-        scope_id: Secteur
-        scopes_enabled: Secteurs activés
+        scope_id: Périmètre d'application
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         show_statistics: Montrer les statistiques
         slug: Identifiant
@@ -37,6 +35,8 @@ fr:
         name: Nom
         participatory_process_ids: Concertations liées
       participatory_process_step:
+        cta_path: Chemin d'accès à l'action
+        cta_text: Texte d'appel à l'action
         description: Description
         end_date: Date de fin
         short_description: Résumé
@@ -69,8 +69,10 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        participatory_process:
-          new: Nouvelle concertation
+        new_process: Nouvelle concertation
+        new_process_group: Nouveau groupe de concertations
+        new_process_step: Nouvelle étape
+        new_process_user_role: Nouvel utilisateur de la concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -97,6 +99,7 @@ fr:
             promoted: Mise en avant
             published: Publiée
             title: Titre
+          name: Concertation
         participatory_process_group:
           fields:
             name: Nom
@@ -256,7 +259,9 @@ fr:
       processes: Concertations
     participatory_process_groups:
       show:
-        group_participatory_processes: Concertations pour %{group}
+        group_participatory_processes:
+          one: 1 concertation pour %{group}
+          other: "%{count} concertations pour %{group}"
         title: Groupes de concertations
     participatory_process_steps:
       index:
@@ -264,29 +269,62 @@ fr:
         title: Étapes de la concertation
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantité maximale d'éléments à afficher
         participatory_process_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
+            cta_text_help: Si non défini, le bouton ne sera pas affiché.
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Concertations mises en avant
       index:
         title: Concertations
-      order_by_processes:
-        active: Actives
-        all: Toutes
-        past: Passées
-        upcoming: À venir
+      last_activity:
+        new_participatory_process: Nouveau processus participatif
       pages:
         home:
           highlighted_processes:
             active_processes: Concertations actives
             active_step: Étape active
+            more_information: Plus d'informations
+            participate: Participer
             see_all_processes: Voir toutes les concertations
       participatory_process_groups:
         none: Aucun
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 concertation active
+              other: "%{count} concertations actives"
+            all:
+              one: 1 concertation
+              other: "%{count} concertations"
+            past:
+              one: 1 concertation passée
+              other: "%{count} concertations passées"
+            upcoming:
+              one: 1 concertation à venir
+              other: "%{count} concertations à venir"
+          explanations:
+            no_active: Aucune concertation active
+            no_active_nor_upcoming: Aucune concertation active ni à venir
+            no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+          names:
+            active: Actifs
+            all: Tous
+            past: Passés
+            upcoming: À venir
+          see: Voir
         index:
           loading: Chargement des résultats...
       show:
@@ -296,7 +334,7 @@ fr:
         participatory_scope: Objectifs
         participatory_structure: Modalités
         private_space: Ceci est une concertation privée
-        scope: Échelle
+        scope: Périmètre d'application
         start_date: Date de début
         target: Participants
         unspecified: Non précisé
@@ -329,10 +367,6 @@ fr:
       participatory_processes:
         index:
           promoted_processes: Concertations mises en avant
-        order_by_processes:
-          processes:
-            one: "%{count} concertation"
-            other: "%{count} concertations"
         participatory_process:
           active_step: 'Étape actuelle :'
           take_part: Participer

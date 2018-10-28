@@ -8,16 +8,16 @@ sv:
         copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
         description: Beskrivning
-        developer_group: Utvecklargrupp
+        developer_group: Främjandegrupp
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Hembild
-        local_area: Lokalt område
+        local_area: Organisationsområde
         meta_scope: Omfattning metadata
         participatory_process_group_id: Processgrupp
-        participatory_scope: Deltagandeomfattning
-        participatory_structure: Deltagande struktur
+        participatory_scope: Vad som bestäms
+        participatory_structure: Hur det bestäms
         promoted: Främjad
         published_at: Publicerad vid
         scope_id: Omfattning
@@ -27,7 +27,7 @@ sv:
         slug: URL slug
         start_date: Startdatum
         subtitle: Underrubrik
-        target: Mål
+        target: Vem som deltar
         title: Titel
       participatory_process_group:
         description: Beskrivning
@@ -35,6 +35,8 @@ sv:
         name: Namn
         participatory_process_ids: Relaterade processer
       participatory_process_step:
+        cta_path: Uppmaning till handling-sökväg
+        cta_text: Uppmaning till handling-text
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
@@ -63,11 +65,14 @@ sv:
       actions:
         activate: Aktivera
         configure: Konfigurera
-        confirm_destroy: Bekräfta förstörelse
-        destroy: Förstöra
+        confirm_destroy: Bekräfta radering
+        destroy: Radera
         duplicate: Duplicera
         edit: Redigera
-        new: Ny
+        new_process: Ny process
+        new_process_group: Ny processgrupp
+        new_process_step: Nytt steg
+        new_process_user_role: Ny processanvändare
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
@@ -76,7 +81,7 @@ sv:
         participatory_process_groups: Processgrupper
         participatory_processes: Processer
         participatory_processes_submenu:
-          attachment_collections: Samlingar
+          attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bifogade filer
           categories: Kategorier
@@ -126,7 +131,7 @@ sv:
           title: Duplicera deltagandeprocess
       participatory_process_groups:
         destroy:
-          success: Deltagande processgrupp förstördes framgångsrikt.
+          success: Deltagande processgrupp raderades framgångsrikt.
         edit:
           title: Redigera processgrupp
           update: Uppdatera
@@ -156,7 +161,7 @@ sv:
           error:
             active_step: Det aktiva steget kan inte raderas.
             last_step: Kan inte ta bort det sista steget i en process.
-          success: Steg för deltagandeprocess förstördes framgångsrikt.
+          success: Steget i deltagandeprocessen raderades framgångsrikt.
         edit:
           title: Redigera steget i deltagandeprocessen
           update: Uppdatera
@@ -173,9 +178,9 @@ sv:
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en användare för den här deltagandeprocessen.
-          success: Användaren skapades framgångsrikt för denna deltagandeprocess.
+          success: Användaren lades framgångsrikt till den här deltagandeprocessen.
         destroy:
-          success: Användaren förstördes framgångsrikt för denna deltagandeprocess.
+          success: Användaren avlägsnades framgångsrikt från den här deltagandeprocessen.
         edit:
           title: Uppdatera användare i deltagandeprocess.
           update: Uppdatera
@@ -192,7 +197,7 @@ sv:
           error: Det uppstod ett fel vid att skapa en ny deltagandeprocess.
           success: Deltagandeprocessen skapades framgångsrikt. Konfigurera nu dess steg.
         destroy:
-          success: Deltagandeprocessen förstördes framgångsrikt.
+          success: Deltagandeprocessen raderades framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -254,7 +259,9 @@ sv:
       processes: Processer
     participatory_process_groups:
       show:
-        group_participatory_processes: Processer för %{group}
+        group_participatory_processes:
+          one: 1 process för %{group}
+          other: "%{count} processer för %{group}"
         title: Grupper vid deltagandeprocesser
     participatory_process_steps:
       index:
@@ -262,33 +269,66 @@ sv:
         title: Steg vid deltagandeprocesser
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximal mängd element att visa
         participatory_process_copies:
           form:
             slug_help: 'Rena URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Använd partiella sökvägar och inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck och måste börja med en bokstav. Om den inte är inställd kommer inte knappen att visas. Exempel: %{url}'
+            cta_text_help: Om den inte är inställd kommer inte knappen att visas.
         participatory_processes:
           form:
             announcement_help: Texten du anger här visas för användaren precis nedanför processinformationen.
             slug_help: 'URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Markerade processer
       index:
         title: Deltagande processer
-      order_by_processes:
-        active: Aktiva
-        all: Alla
-        past: Tidigare
-        upcoming: Kommande
+      last_activity:
+        new_participatory_process: Ny deltagande process
       pages:
         home:
           highlighted_processes:
             active_processes: Aktiva processer
             active_step: Aktivt steg
+            more_information: Mer information
+            participate: Delta
             see_all_processes: Se alla processer
       participatory_process_groups:
         none: Ingen
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktiv process
+              other: "%{count} aktiva processer"
+            all:
+              one: 1 process
+              other: "%{count} processer"
+            past:
+              one: 1 tidigare process
+              other: "%{count} tidigare processer"
+            upcoming:
+              one: 1 kommande process
+              other: "%{count} kommande processer"
+          explanations:
+            no_active: Inga aktiva processer
+            no_active_nor_upcoming: Inga aktiva eller kommande processer
+            no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över de förflutna.
+          names:
+            active: Aktiva
+            all: Alla
+            past: Tidigare
+            upcoming: Kommande
+          see: Se
         index:
           loading: Laddar resultat...
       show:
-        developer_group: Utvecklargrupp
+        developer_group: Främjandegrupp
         end_date: Slutdatum
         local_area: Organisationsområde
         participatory_scope: Vad som bestäms
@@ -327,10 +367,6 @@ sv:
       participatory_processes:
         index:
           promoted_processes: Markerade processer
-        order_by_processes:
-          processes:
-            one: "%{count} process"
-            other: "%{count} processer"
         participatory_process:
           active_step: 'Nuvarande steg:'
           take_part: Delta

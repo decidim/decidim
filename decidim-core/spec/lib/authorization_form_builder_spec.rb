@@ -27,8 +27,7 @@ module Decidim
       end
 
       it "includes the public handler attributes" do
-        expect(find("input#date_field_authorization_handler_birthday")["type"]).to eq("text")
-        expect(find("input#authorization_handler_birthday")["type"]).to eq("hidden")
+        expect(find("input#authorization_handler_birthday")["type"]).to eq("text")
         expect(find("input#authorization_handler_document_number")["type"]).to eq("text")
       end
 
@@ -43,7 +42,6 @@ module Decidim
         html = Nokogiri::HTML(builder.input(:birthday))
 
         expect(html.css("label[for='authorization_handler_birthday']").length).to eq(1)
-        expect(html.css("#date_field_authorization_handler_birthday").length).to eq(1)
         expect(html.css("input[type='text']").length).to eq(1)
         expect(html.css("#authorization_handler_birthday").length).to eq(1)
       end

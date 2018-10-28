@@ -68,7 +68,7 @@ module Decidim::Budgets
 
     describe "#checked_out?" do
       it "returns true if the checked_out_at attribute is present" do
-        subject.checked_out_at = Time.zone.now
+        subject.checked_out_at = Time.current
         expect(subject).to be_checked_out
       end
     end

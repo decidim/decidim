@@ -26,8 +26,19 @@ module Decidim
       # * Trims length so it fits validation constraints.
       # * Disambiguates it so it's unique.
       #
-      def nicknamize(name)
-        disambiguate(name.parameterize(separator: "_")[nickname_length_range])
+      # name - the String to nicknamize
+      # scope - a Hash with extra values to scope the nickname to
+      #
+      # Example to nicknamize a user name, scoped to the organization:
+      #
+      #    nicknamize(user_name, organization: current_organization)
+      #
+      def nicknamize(name, scope = {})
+        return unless name
+        disambiguate(
+          name.parameterize(separator: "_")[nickname_length_range],
+          scope
+        )
       end
 
       private
@@ -36,11 +47,11 @@ module Decidim
         (0...nickname_max_length)
       end
 
-      def disambiguate(name)
+      def disambiguate(name, scope)
         candidate = name
 
         2.step do |n|
-          return candidate unless exists?(nickname: candidate)
+          return candidate unless exists?(scope.merge(nickname: candidate))
 
           candidate = numbered_variation_of(name, n)
         end

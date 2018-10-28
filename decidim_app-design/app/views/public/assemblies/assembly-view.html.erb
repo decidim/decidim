@@ -104,9 +104,14 @@
         <div class="section">
           <h2 class="section-heading">Composició</h2>
           <p><%= Faker::Lovecraft.paragraph %></p>
-          <article class="card">
-            <!-- Insert here the chart -->
-            <div class="text-center text-muted m-l p-l">Chart to be integrated</div>
+          <article id="orgchart-<%= SecureRandom.hex(5) %>" class="card orgchart js-orgchart absolutes">
+            <button class="medium-1 m-s top left button small hollow invisible js-reset-orgchart">Inicio</button>
+            <select class="medium-2 m-s top right">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
           </article>
         </div>
         <div class="section">

@@ -28,13 +28,13 @@ module Decidim
         private
 
         def create_meeting!
-          @meeting = Decidim.traceability.create!(
-            Meeting,
-            @form.current_user,
+          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @form.title, current_organization: @form.current_organization).rewrite
+          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, @form.description, current_organization: @form.current_organization).rewrite
+          params = {
             scope: @form.scope,
             category: @form.category,
-            title: @form.title,
-            description: @form.description,
+            title: parsed_title,
+            description: parsed_description,
             services: @form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
             end_time: @form.end_time,
             start_time: @form.start_time,
@@ -48,6 +48,13 @@ module Decidim
             organizer: @form.organizer,
             registration_terms: @form.current_component.settings.default_registration_terms,
             component: @form.current_component
+          }
+
+          @meeting = Decidim.traceability.create!(
+            Meeting,
+            @form.current_user,
+            params,
+            visibility: "all"
           )
         end
 

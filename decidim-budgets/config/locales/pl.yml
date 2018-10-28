@@ -19,12 +19,13 @@ pl:
   decidim:
     budgets:
       actions:
-        attachment_collections: Kolekcje
+        attachment_collections: Lornetka składana
         attachments: Załączniki
         confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
         destroy: Kasować
         edit: Edytować
-        new: Nowy
+        import: Importuj propozycje do projektów
+        new: Nowy projekt
         preview: Zapowiedź
         title: działania
       admin:
@@ -36,7 +37,7 @@ pl:
             invalid: Podczas tworzenia tego projektu wystąpił problem
             success: Projekt został pomyślnie utworzony
           destroy:
-            success: Projekt pomyślnie zniszczony
+            success: Projekt został pomyślnie usunięty
           edit:
             title: Edytuj projekt
             update: Aktualizacja
@@ -46,10 +47,18 @@ pl:
             title: Projektowanie
           new:
             create: Stwórz
-            title: Nowy wynik
+            title: Nowy projekt
           update:
             invalid: Wystąpił problem z aktualizacją tego projektu
             success: Zaktualizowano projekt
+        proposals_imports:
+          create:
+            invalid: Wystąpił problem podczas importowania propozycji do projektów
+            success: "%{number} propozycji pomyślnie zaimportowanych do projektów"
+          new:
+            create: Importuj propozycje do projektów
+            no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do importowania propozycji do projektów.
+            select_component: Wybierz komponent
       admin_log:
         project:
           create: "%{user_name} utworzył projekt %{resource_name} w przestrzeni %{space_name}"
@@ -130,13 +139,14 @@ pl:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
             projects_per_page: Projekty na stronę
+            resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
             total_budget: Cały budżet
             vote_threshold_percent: Procent progu głosowania
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
             show_votes: Pokaż głosy
-            votes_enabled: Głosowanie włączone
+            votes_enabled: Włączone głosowanie
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd

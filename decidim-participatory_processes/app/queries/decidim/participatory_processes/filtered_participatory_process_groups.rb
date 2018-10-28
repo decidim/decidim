@@ -15,9 +15,9 @@ module Decidim
 
         processes = case @filter
                     when "past"
-                      processes.where("decidim_participatory_processes.end_date <= ?", Time.current)
+                      processes.where("decidim_participatory_processes.end_date <= ?", Date.current)
                     when "upcoming"
-                      processes.where("decidim_participatory_processes.start_date > ?", Time.current)
+                      processes.where("decidim_participatory_processes.start_date > ?", Date.current)
                     else
                       processes
                     end

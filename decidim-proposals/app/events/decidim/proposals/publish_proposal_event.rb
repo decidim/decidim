@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     class PublishProposalEvent < Decidim::Events::SimpleEvent
-      include Decidim::Events::AuthorEvent
+      include Decidim::Events::CoauthorEvent
 
       private
 

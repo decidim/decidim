@@ -7,5 +7,6 @@ module Decidim
     autoload :NotificationEvent, "decidim/events/notification_event"
     autoload :SimpleEvent, "decidim/events/simple_event"
     autoload :AuthorEvent, "decidim/events/author_event"
+    autoload :CoauthorEvent, "decidim/events/coauthor_event"
   end
 end

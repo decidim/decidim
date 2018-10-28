@@ -1,0 +1,45 @@
+<% if conversations.empty? %>
+  <div class="callout secondary">
+    <p><%= t("decidim.messaging.conversations.index.no_conversations") %></p>
+  </div>
+<% else %>
+    <div class="conversations">
+    <% conversations.each do |conversation| %>
+      <% interlocutor = Decidim::UserPresenter.new(conversation.interlocutors(current_user).first) %>
+      <div class="card card--widget conversation">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <div class="card__link text-center">
+              <%= link_to interlocutor.profile_path, class: "user-header__avatar" do %>
+                <%= image_tag interlocutor.avatar_url %>
+              <% end %>
+              <span class="text-medium mt-xs">
+                <%= conversation.last_message.friendly_created_at %>
+              </span>
+            </div>
+          </li>
+          <%= link_to decidim.conversation_path(conversation), "data-tabs-target": "conversations" do %>
+            <li class="card-data__item card-data__item--expand absolutes">
+              <div class="mr-s">
+                <%= t("decidim.messaging.conversations.index.from") %> <strong><%= interlocutor.name %></strong>
+                <br />
+                <span class="muted">
+                  <%= truncate conversation.last_message.body, length: 150 %>
+                </span>
+                <br />
+                <span class="text-small">
+                  <%= t("decidim.messaging.conversations.index.last_message_html", time: time_ago_in_words(conversation.last_message.created_at)) %>
+                </span>
+              </div>
+              <div class="right center mr-s">
+                <%= link_to decidim.conversation_path(conversation), class: "user-header__avatar", "data-tabs-target": "conversations" do %>
+                  <%= icon "chevron-right", class: "card__link icon--big" %>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<% end %>

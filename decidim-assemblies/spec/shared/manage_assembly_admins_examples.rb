@@ -69,7 +69,7 @@ shared_examples "manage assembly admins examples" do
 
     it "deletes a assembly_user_role" do
       within find("#assembly_admins tr", text: other_user.email) do
-        accept_confirm { click_link "Destroy" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

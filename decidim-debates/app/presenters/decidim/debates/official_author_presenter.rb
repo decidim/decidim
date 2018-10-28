@@ -29,6 +29,10 @@ module Decidim
       def deleted?
         false
       end
+
+      def can_be_contacted?
+        false
+      end
     end
   end
 end

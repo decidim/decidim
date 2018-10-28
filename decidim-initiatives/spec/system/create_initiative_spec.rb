@@ -156,13 +156,13 @@ describe "Initiative", type: :system do
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
 
-          select("OnLine", from: "Signature type")
+          select("OnLine", from: "Signature collection type")
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           find_button("Continue").click
         end
 
-        it "promotal committee view is shown" do
-          expect(page).to have_content("PROMOTAL COMMITTEE")
+        it "shows the promoter committee" do
+          expect(page).to have_content("PROMOTER COMMITTEE")
         end
 
         it "Offers contextual help" do
@@ -190,7 +190,7 @@ describe "Initiative", type: :system do
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
 
-          select("OnLine", from: "Signature type")
+          select("OnLine", from: "Signature collection type")
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           find_button("Continue").click
 

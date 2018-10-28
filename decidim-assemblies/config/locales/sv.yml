@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     attributes:
@@ -19,7 +18,7 @@ sv:
         decidim_area_id: Område
         decidim_scope_id: Omfattning
         description: Beskrivning
-        developer_group: Utvecklargrupp
+        developer_group: Främjandegrupp
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
@@ -30,11 +29,12 @@ sv:
         instagram: Instagram
         internal_organisation: Intern organisation
         is_transparent: Är transparent
-        local_area: Lokalt område
+        local_area: Organisationsområde
         meta_scope: Omfattning metadata
+        parent_id: Föräldrasammankomst
         participatory_processes_ids: Relaterade deltagandeprocesser
-        participatory_scope: Deltagandeomfattning
-        participatory_structure: Deltagande struktur
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur bestäms det
         private_space: Privat utrymme
         promoted: Främjad
         published_at: Publicerad på
@@ -46,7 +46,7 @@ sv:
         slug: URL slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
-        target: Mål
+        target: Vem deltar
         title: Titel
         twitter: Twitter
         youtube: YouTube
@@ -76,12 +76,14 @@ sv:
         other: Mötesanvändarroller
   decidim:
     admin:
+      actions:
+        new_assembly: Nytt möte
       assemblies:
         create:
           error: Det uppstod ett fel när ett nytt möte skulle skapas.
           success: Mötet skapades framgångsrikt.
         destroy:
-          success: Sammankomsten förstördes framgångsrikt.
+          success: Mötes raderades framgångsrikt.
         edit:
           update: Uppdatera
         form:
@@ -111,7 +113,7 @@ sv:
           error: Det gick inte att lägga till en medlem för detta möte.
           success: Medlem skapades framgångsrikt för detta möte.
         destroy:
-          success: Medlemen förstördes framgångsrikt för denna församling.
+          success: Medlem skapades framgångsrikt för detta möte.
         edit:
           title: Uppdatera mötesmedlem.
           update: Uppdatera
@@ -133,9 +135,9 @@ sv:
       assembly_user_roles:
         create:
           error: Ett fel uppstod när en användare skulle läggas till detta möte.
-          success: Användaren skapades framgångsrikt för denna sammankomst.
+          success: Användaren har lagts till med framgång till detta möte.
         destroy:
-          success: Användaren förstördes framgångsrikt för denna sammankomst.
+          success: Användaren avlägsnades framgångsrikt från detta möte.
         edit:
           title: Uppdatera mötesanvändaren.
           update: Uppdatera
@@ -152,7 +154,7 @@ sv:
         assemblies_submenu:
           assembly_admins: Mötesanvändare
           assembly_members: Medlemmar
-          attachment_collections: Samlingar
+          attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bifogade filer
           categories: Kategorier
@@ -216,6 +218,7 @@ sv:
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
             select_an_assembly_type: Välj en mötestyp
+            select_parent_assembly: Välj överordnat möte
             slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -235,6 +238,9 @@ sv:
               not_ceased: Inte upphört
             filter_by: Filtrera efter
             search: Sök
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximal mängd element att visa
       assembly_members:
         index:
           members: Medlemmar
@@ -246,12 +252,17 @@ sv:
         others: Övriga
         participatory: Deltagande
         working_group: Arbetsgrupp
+      content_blocks:
+        highlighted_assemblies:
+          name: Markerade möten
       created_by:
         city_council: Stadsfullmäktige
         others: Övriga
         public: Offentligt
       index:
         title: Möten
+      last_activity:
+        new_assembly: Ny sammansättning
       pages:
         home:
           highlighted_assemblies:
@@ -268,7 +279,7 @@ sv:
         composition: Sammansättning
         created_by: Skapad av
         creation_date: Skapat datum
-        developer_group: Utvecklargrupp
+        developer_group: Främjandegrupp
         duration: Varaktighet
         included_at: Ingår vid
         indefinite_duration: Obestämd
@@ -276,9 +287,9 @@ sv:
         is_transparent:
           'false': ogenomskinlig
           'true': transparent
-        local_area: Lokalt område
-        participatory_scope: Deltagandeomfattning
-        participatory_structure: Deltagande struktur
+        local_area: Organisationsområde
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur det bestäms
         private_space: Detta är ett privat möte
         purpose_of_action: Syftet med åtgärden
         read_less: Läs mindre
@@ -286,7 +297,7 @@ sv:
         related_participatory_processes: Relaterade deltagandeprocesser
         scope: Omfattning
         social_networks: Sociala nätverk
-        target: Mål
+        target: Vem deltar
       statistics:
         answers_count: Svar
         assemblies_count: Möten
@@ -323,7 +334,9 @@ sv:
         assembly:
           take_part: Delta
         index:
+          organizational_chart: Organisationsschema
           promoted_assemblies: Markerade möten
+          reset_chart: Återställ
         order_by_assemblies:
           assemblies:
             one: "%{count} möte"

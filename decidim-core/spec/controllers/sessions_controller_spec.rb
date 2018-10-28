@@ -27,7 +27,7 @@ module Decidim
 
           context "and is not an admin" do
             context "when it is the first time to log in" do
-              let(:user) { build(:user, sign_in_count: 1) }
+              let(:user) { build(:user, :confirmed, sign_in_count: 1) }
 
               # the first test would fail if tested in a non linear order, this corrects this problem.
               # TODO : Find a more elegant solution
@@ -67,6 +67,14 @@ module Decidim
                   end
 
                   it { is_expected.to eq account_path }
+                end
+
+                context "when the user hasn't confirmed their email" do
+                  before do
+                    user.confirmed_at = nil
+                  end
+
+                  it { is_expected.to eq("/") }
                 end
               end
 

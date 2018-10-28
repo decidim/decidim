@@ -14,6 +14,14 @@ module Decidim
 
       private
 
+      def title
+        present(model).title
+      end
+
+      def body
+        present(model).body
+      end
+
       def has_state?
         model.published?
       end
@@ -27,7 +35,7 @@ module Decidim
       end
 
       def description
-        truncate(model.body, length: 100)
+        truncate(present(model).body, length: 100)
       end
 
       def badge_classes
@@ -36,8 +44,13 @@ module Decidim
       end
 
       def statuses
+        return [:endorsements_count, :comments_count] if model.draft?
         return [:creation_date, :endorsements_count, :comments_count] unless has_link_to_resource?
         [:creation_date, :follow, :endorsements_count, :comments_count]
+      end
+
+      def creation_date_status
+        l(model.published_at.to_date, format: :decidim_short)
       end
 
       def endorsements_count_status

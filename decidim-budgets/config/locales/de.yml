@@ -16,12 +16,13 @@ de:
   decidim:
     budgets:
       actions:
-        attachment_collections: Sammlungen
+        attachment_collections: Ordner
         attachments: Anlagen
         confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
-        new: Neu
+        import: Importieren Sie Vorschläge in Projekte
+        new: Neues Projekt
         preview: Vorschau
         title: Aktionen
       admin:
@@ -33,7 +34,7 @@ de:
             invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten
             success: Projekt erfolgreich erstellt
           destroy:
-            success: Projekt erfolgreich zerstört
+            success: Projekt erfolgreich gelöscht
           edit:
             title: Projekt bearbeiten
             update: Aktualisieren
@@ -43,10 +44,18 @@ de:
             title: Projekte
           new:
             create: Erstellen
-            title: Neues Ergebnis
+            title: Neues Projekt
           update:
             invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten
             success: Projekt erfolgreich aktualisiert
+        proposals_imports:
+          create:
+            invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
+            success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
+          new:
+            create: Importieren Sie Vorschläge in Projekte
+            no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            select_component: Bitte wählen Sie eine Komponente aus
       admin_log:
         project:
           create: "%{user_name} erstellt das %{resource_name} Projekt in dem %{space_name} Raum"
@@ -121,13 +130,14 @@ de:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             projects_per_page: Projekte pro Seite
+            resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             total_budget: Gesamtbudget; Gesamtetat
             vote_threshold_percent: Abstimmungsschwelle in Prozent
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             show_votes: Stimmen anzeigen
-            votes_enabled: Stimmen aktiviert
+            votes_enabled: Abstimmung aktiviert
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten

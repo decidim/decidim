@@ -50,7 +50,7 @@ module Decidim
       subject { described_class.new(user).display_mention }
 
       it do
-        is_expected.to \
+        expect(subject).to \
           have_link(user.nickname, href: "/profiles/#{user.nickname}") &
           have_selector(".user-mention")
       end

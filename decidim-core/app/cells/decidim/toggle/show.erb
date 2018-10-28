@@ -1,0 +1,8 @@
+<div data-toggle="toggle-<%= random_seed %> toggle-<%= random_seed %>-icon-bottom toggle-<%= random_seed %>-icon-right">
+  <span id="toggle-<%= random_seed %>-icon-bottom" class="<%= "hide" if !open? %>" data-toggler="hide"><%= icon "caret-bottom", class: "icon--small" %></span>
+  <span id="toggle-<%= random_seed %>-icon-right" class="<%= "hide" if open? %>" data-toggler="hide"><%= icon "caret-right", class: "icon--small" %></span>
+  <%= toggled_label %>
+</div>
+<div id="toggle-<%= random_seed %>" class="<%= "hide" if !open? %>" data-toggler=".hide">
+  <%= toggled_content %>
+</div>

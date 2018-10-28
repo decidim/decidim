@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -7,9 +6,9 @@ nl:
         description: Beschrijving
         offline_votes: Face-to-face ondersteuning
         scope_id: Bereik
-        signature_end_time: Einde van de periode om handtekeningen te verzamelen
-        signature_start_time: Begin van de periode om handtekeningen te verzamelen
-        signature_type: Handtekeningstype
+        signature_end_date: Einde van de periode om handtekeningen te verzamelen
+        signature_start_date: Begin van de periode om handtekeningen te verzamelen
+        signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd
           offline: Face to face
@@ -31,7 +30,7 @@ nl:
         title: Titel
       organization_data:
         address: Adres
-        id_document: CIF
+        id_document: ID-document
         name: Volledige naam
   activerecord:
     models:
@@ -46,6 +45,8 @@ nl:
         other: handtekeningen
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nieuw initiatiefstype
       menu:
         initiatives: initiatieven
         initiatives_types: Initiatieftypen
@@ -72,15 +73,28 @@ nl:
     events:
       initiatives:
         initiative_extended:
-          email_intro: De termijn voor het verzamelen van handtekeningen voor het initiatief %{title_resource} is verlengd!
-          email_outro: U hebt deze melding ontvangen omdat u %{title_resource} volgt. U kunt stoppen met het ontvangen van meldingen van de vorige link.
-          email_subject: De termijn voor het verzamelen van handtekeningen voor het initiatief is verlengd!
-          notification_title: De einddatum voor het verzamelen van handtekeningen voor het initiatief <a href="%{resource_path}">%{resource_title}</a> is verlengd.
+          email_intro: De handtekeningen einddatum voor het initiatief %{resource_title} is verlengd!
+          email_outro: U hebt deze melding ontvangen omdat u %{resource_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Initiatief handtekeningen einddatum verlengd!
+          notification_title: De einddatum van de ondertekening van het <a href="%{resource_path}">%{resource_title}</a> initiatief is verlengd.
         milestone_completed:
           email_intro: Het initiatief %{resource_title} heeft de %{percentage}% handtekeningen bereikt!
           email_outro: Je hebt deze melding ontvangen omdat je %{resource_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Nieuwe mijlpaal voltooid!
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de %{percentage}% handtekeningen behaald.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Ga naar de participatieruimte van Intiatives
+            - Volg de stappen om een ​​nieuw initiatief te maken
+          description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
+          description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
+          description_own: Je hebt %{score} initiatieven gepubliceerd.
+          name: Gepubliceerde initiatieven
+          next_level_in: Ontvang nog %{score} initiatieven die zijn gepubliceerd om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen initiatieven gepubliceerd.
+          unearned_own: Je hebt nog geen initiatieven gepubliceerd.
     initiatives:
       admin:
         committee_requests:
@@ -91,6 +105,9 @@ nl:
             no_members_yet: Er zijn geen leden in de promotieraad
             revoke: Intrekken
             title: Commissieleden
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
         initiatives:
           edit:
             accept: Accepteer initiatief
@@ -116,7 +133,7 @@ nl:
             filter_by: Sorteer op
             preview: Voorbeeld
             print: Afdrukken
-            search: Busca
+            search: Zoeken
           show:
             print: Afdrukken
           update:
@@ -131,7 +148,7 @@ nl:
           edit:
             back: Terug
             confirm_destroy: Weet je het zeker?
-            destroy: Vernietigen
+            destroy: Verwijder
             title: Bewerk het initiatieftype bereik
             update: Bijwerken
           new:
@@ -149,7 +166,7 @@ nl:
             success: Het initiatieftype is succesvol verwijderd
           edit:
             confirm_destroy: Weet je het zeker?
-            destroy: Vernietigen
+            destroy: Verwijder
             update: Bijwerken
           form:
             title: Algemene informatie
@@ -160,7 +177,7 @@ nl:
             title: Nieuw initiatiefstype
           update:
             error: Er is een fout opgetreden
-            success: Het gegeven initiatief is met succes bijgewerkt
+            success: Het initiatieftype is succesvol bijgewerkt
       admin_log:
         initiative:
           publish: "%{user_name} heeft het %{resource_name} -initiatief gepubliceerd"
@@ -177,9 +194,12 @@ nl:
       committee_requests:
         new:
           continue: Doorgaan met
-          help_text: Je staat op het punt lid te worden van de promotieraad van dit initiatief
+          help_text: U staat op het punt lid te worden van de promotieraad van dit initiatief
         spawn:
           success: Je verzoek is verzonden aan de auteur van het initiatief.
+      content_blocks:
+        highlighted_initiatives:
+          name: Gemarkeerde initiatieven
       create_initiative:
         fill_data:
           back: Terug
@@ -196,9 +216,9 @@ nl:
           more_information: "(Meer informatie)"
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
-          help_for_organizations: Als je een vereniging bent, moet je de notulen van de raad van bestuur van alle organisaties die conform de Promotcommissie zijn, uploaden
+          help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de Promotingscommissie vormen
           help_in_person_signatures: Als je ervoor hebt gekozen de handtekeningen persoonlijk te verzamelen of in combinatie met online, moet je de vereiste informatie uploaden.
-          help_text: 'Belangrijk: om het initiatief goed te verwerken moet je toegang hebben tot het administratiepaneel waar je het gebruikersmenu kan vinden. De vereiste informatie kan je uploaden en het naar de procedure sturen.'
+          help_text: Vergeet niet dat om het initiatief goed te verwerken, u toegang moet hebben tot het administratiepaneel waar u het gebruikersmenu kunt vinden, de vereiste informatie kunt uploaden en deze voor verwerking kunt verzenden.
           initiatives_page_link: Je kunt al deze informatie op de %{link} opzoeken om je te informeren over initiatieven.
           page: pagina
         previous_form:
@@ -217,7 +237,7 @@ nl:
           select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee het burgerschap kan ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
         share_committee_link:
           continue: Doorgaan met
-          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotiecommissie
+          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotorcommissie
         show_similar_initiatives:
           back: Terug
           compare_help: Als een van de volgende initiatieven vergelijkbaar is met die van jou, moedigen wij je aan dit te ondersteunen. Je voorstel heeft meer mogelijkheden om gedaan te worden.
@@ -280,7 +300,7 @@ nl:
           any_vote_method: Dit burgerinitiatief verzamelt zowel online als face-to-face stemmen.
           offline_method: Dit burgerinitiatief verzamelt alleen face-to-face stemmen.
         signature_identities:
-          select_identity: Selecteer gebruikersidentiteit
+          select_identity: Selecteer gebruikers-ID
         signatures_count:
           one: " handtekening"
           other: " handtekeningen"
@@ -308,11 +328,13 @@ nl:
         more_information: Hier heb je meer informatie over het proces voor het maken van initiatieven.
         progress_report_body_for: Het initiatief %{title} heeft %{percentage}% van de vereiste stemmen behaald.
         progress_report_for: 'Doorgaan over het initiatief: %{title}'
-        promotal_committee_help: Vergeet niet dat je ten minste %{member_count} mensen moet uitnodigen voor een promotiecommissie. Stuur de volgende link door om mensen uit te nodigen voor de promotiecommissie
+        promotal_committee_help: Vergeet niet dat u ten minste %{member_count} personen moet uitnodigen voor een promotieraad. Stuur de volgende link door om mensen uit te nodigen voor de promotieraad
         status_change_body_for: 'Het initiatief %{title} heeft de status gewijzigd in: %{state}'
         status_change_for: Het initiatief %{title} is van status veranderd
         technical_validation_body_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
         technical_validation_for: Het initiatief %{title} heeft om technische validatie ervan verzocht.
+      last_activity:
+        new_initiative: Nieuw initiatief
       pages:
         home:
           highlighted_initiatives:

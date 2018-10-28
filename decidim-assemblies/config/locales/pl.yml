@@ -19,7 +19,7 @@ pl:
         decidim_area_id: Powierzchnia
         decidim_scope_id: Zakres
         description: Opis
-        developer_group: Grupa programistyczna
+        developer_group: Grupa promotorów
         domain: Domena
         duration: Trwanie
         facebook: Facebook
@@ -30,11 +30,12 @@ pl:
         instagram: Instagram
         internal_organisation: Organizacja wewnętrzna
         is_transparent: Jest przezroczysty
-        local_area: Okolica
+        local_area: Obszar organizacji
         meta_scope: Zakres metadanych
+        parent_id: Montaż rodziców
         participatory_processes_ids: Powiązane procesy uczestnictwa
-        participatory_scope: Zakres partycypacji
-        participatory_structure: Struktura partycypacji
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
         private_space: Prywatna przestrzeń
         promoted: Lansowany
         published_at: Opublikowano na
@@ -46,7 +47,7 @@ pl:
         slug: Ślimak URL
         special_features: Cechy szczególne
         subtitle: Podtytuł
-        target: Cel
+        target: Kto uczestniczy
         title: Tytuł
         twitter: Świergot
         youtube: Youtube
@@ -82,12 +83,14 @@ pl:
         other: Zbierz role użytkowników
   decidim:
     admin:
+      actions:
+        new_assembly: Nowy montaż
       assemblies:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.
           success: Zgromadzenie zostało utworzone.
         destroy:
-          success: Zgromadzenie zostało zniszczone.
+          success: Zgromadzenie zostało pomyślnie usunięte.
         edit:
           update: Aktualizuj
         form:
@@ -117,7 +120,7 @@ pl:
           error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
           success: Członek utworzony pomyślnie dla tego zespołu.
         destroy:
-          success: Członek został pomyślnie zniszczony dla tego zespołu.
+          success: Członek usunięty pomyślnie dla tego zespołu.
         edit:
           title: Zaktualizuj element złożenia.
           update: Aktualizacja
@@ -139,9 +142,9 @@ pl:
       assembly_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego zestawu.
-          success: Użytkownik został pomyślnie utworzony dla tego zespołu.
+          success: Użytkownik został pomyślnie dodany do tego zespołu.
         destroy:
-          success: Użytkownik został pomyślnie zniszczony dla tego zespołu.
+          success: Użytkownik usunięty pomyślnie z tego zestawu.
         edit:
           title: Zaktualizuj użytkownika złożenia.
           update: Aktualizacja
@@ -158,14 +161,14 @@ pl:
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
           assembly_members: Członkowie
-          attachment_collections: Kolekcje
+          attachment_collections: Lornetka składana
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
           components: składniki
           info: Informacje
           moderations: Modernizacje
-          private_users: Użytkownicy prywatni
+          private_users: Prywatni użytkownicy
       models:
         assembly:
           fields:
@@ -221,6 +224,7 @@ pl:
             select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz obszar
             select_an_assembly_type: Wybierz typ zespołu
+            select_parent_assembly: Wybierz zespół macierzysty
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Społeczny
         assembly_copies:
@@ -240,6 +244,9 @@ pl:
               not_ceased: Nie przestał
             filter_by: Filtruj według
             search: Szukaj
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maksymalna ilość elementów do pokazania
       assembly_members:
         index:
           members: Członkowie
@@ -251,12 +258,17 @@ pl:
         others: Inni
         participatory: Uczestniczy
         working_group: Grupa robocza
+      content_blocks:
+        highlighted_assemblies:
+          name: Wyróżnione złożenia
       created_by:
         city_council: Rada Miejska
         others: Inni
         public: Publiczny
       index:
         title: Zespoły
+      last_activity:
+        new_assembly: Nowy montaż
       pages:
         home:
           highlighted_assemblies:
@@ -273,7 +285,7 @@ pl:
         composition: Kompozycja
         created_by: Stworzone przez
         creation_date: Data utworzenia
-        developer_group: Grupa programistyczna
+        developer_group: Grupa promotorów
         duration: Trwanie
         included_at: Zawarte w
         indefinite_duration: Nieokreślony
@@ -281,9 +293,9 @@ pl:
         is_transparent:
           'false': nieprzezroczysty
           'true': przezroczysty
-        local_area: Okolica
-        participatory_scope: Zakres partycypacji
-        participatory_structure: Struktura partycypacji
+        local_area: Obszar organizacji
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
         private_space: To jest prywatne zgromadzenie
         purpose_of_action: Cel działania
         read_less: Mniej czytać
@@ -291,7 +303,7 @@ pl:
         related_participatory_processes: Powiązane procesy uczestnictwa
         scope: Zakres
         social_networks: Portale społecznościowe
-        target: Cel
+        target: Kto uczestniczy
       statistics:
         answers_count: Odpowiedzi
         assemblies_count: Zespoły
@@ -328,7 +340,9 @@ pl:
         assembly:
           take_part: Wziąć udział
         index:
+          organizational_chart: Schemat organizacyjny
           promoted_assemblies: Podświetlone zespoły
+          reset_chart: Nastawić
         order_by_assemblies:
           assemblies:
             few: "%{count} złożeń"

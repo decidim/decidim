@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     models:
@@ -14,7 +13,7 @@ sv:
         confirm_destroy: Är du säker på att du vill radera det här inlägget?
         destroy: Radera
         edit: Redigera
-        new: Ny
+        new: Nytt brev
         title: Åtgärder
       admin:
         models:
@@ -38,6 +37,8 @@ sv:
           update:
             invalid: Det har blivit fel när du sparar inlägget.
             success: Inlägget sparades framgångsrikt
+      last_activity:
+        new_post_at_html: "<span>Ny inlägg på %{link}</span>"
       models:
         post:
           fields:
@@ -58,10 +59,10 @@ sv:
         settings:
           global:
             announcement: Notis
-            comments_enabled: Kommentarer aktiverad
+            comments_enabled: Kommentarer aktiverade
           step:
             announcement: Notis
-            comments_blocked: Kommentarer Blockerad
+            comments_blocked: Kommentarer blockerade
     events:
       blogs:
         post_created:

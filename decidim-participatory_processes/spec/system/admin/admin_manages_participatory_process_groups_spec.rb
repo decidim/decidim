@@ -103,9 +103,9 @@ describe "Admin manages participatory process groups", type: :system do
       expect(page).to have_no_css("img")
     end
 
-    it "can destroy them" do
+    it "can delete them" do
       within find("tr", text: participatory_process_group.name["en"]) do
-        accept_confirm { click_link "Destroy" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

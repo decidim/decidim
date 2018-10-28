@@ -1,18 +1,17 @@
----
 fi:
   activemodel:
     attributes:
       initiative:
         decidim_user_group_id: Laatija
         description: Kuvaus
-        offline_votes: Alustan ulkopuolella kerätyt kannatukset
+        offline_votes: Palvelun ulkopuolella kerätyt kannatukset
         scope_id: Teema
-        signature_end_time: Allekirjoitusajan päättyminen
-        signature_start_time: Allekirjoituskeruun alkamisajankohta
-        signature_type: Allekirjoitustyyppi
+        signature_end_date: Allekirjoitusten keräämisen viimeinen päivä
+        signature_start_date: Allekirjoitusten keräämisen alkamispäivä
+        signature_type: Allekirjoituksen keräämistapa
         signature_type_values:
           any: Monikanavainen
-          offline: Alustan ulkopuolella
+          offline: Palvelun ulkopuolella
           online: Verkossa
         title: Otsikko
       initiative_author:
@@ -31,7 +30,7 @@ fi:
         title: Otsikko
       organization_data:
         address: Osoite
-        id_document: CIF
+        id_document: Henkilöllisyyden todistamisen asiakirja
         name: Koko nimi
   activerecord:
     models:
@@ -46,6 +45,8 @@ fi:
         other: Allekirjoitukset
   decidim:
     admin:
+      actions:
+        new_initiative_type: Uusi aloitetyyppi
       menu:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
@@ -72,15 +73,28 @@ fi:
     events:
       initiatives:
         initiative_extended:
-          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
-          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+          email_intro: Aloitteen %{resource_title} allekirjoitusten keräämisen aikaa on jatkettu!
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Aloitteen allekirjoitusten keräämisen aikaa on jatkettu!
+          notification_title: Aloitteen <a href="%{resource_path}">%{resource_title}</a> allekirjoitusten keräämisen aikaa on jatkettu.
         milestone_completed:
           email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
-          email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi virstanpylväs saavutettu!
           notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Siirry aloitteiden osallistumistilaan
+            - Luo uusi aloite ohjeiden mukaisesti
+          description: Tämä kunniamerkki myönnetään, kun laadit uusia aloitteita ja keräät verkoston ihmisiä toteuttamaan niitä.
+          description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
+          description_own: Olet julkaissut %{score} aloitetta.
+          name: Julkaistut aloitteet
+          next_level_in: Julkaise %{score} uutta aloitetta saavuttaaksesi seuraavan tason!
+          unearned_another: Tämä käyttäjä ei ole vielä julkaissut yhtään aloitetta.
+          unearned_own: Sinulla ei ole vielä julkaistuja aloitteita.
     initiatives:
       admin:
         committee_requests:
@@ -91,6 +105,9 @@ fi:
             no_members_yet: Tukikomiteassa ei ole jäseniä
             revoke: Kumoa
             title: Komitean jäsenet
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Näytettävien elementtien enimmäismäärä
         initiatives:
           edit:
             accept: Hyväksy aloite
@@ -116,7 +133,7 @@ fi:
             filter_by: Suodata
             preview: Esikatsele
             print: Tulosta
-            search: Busca
+            search: Hae
           show:
             print: Tulosta
           update:
@@ -131,7 +148,7 @@ fi:
           edit:
             back: Takaisin
             confirm_destroy: Oletko varma?
-            destroy: Tuhota
+            destroy: Poista
             title: Muokkaa aloitetyypin teemaa
             update: Päivitä
           new:
@@ -149,7 +166,7 @@ fi:
             success: Aloitetyyppi poistettu onnistuneesti
           edit:
             confirm_destroy: Oletko varma?
-            destroy: Tuhota
+            destroy: Poista
             update: Päivitä
           form:
             title: Yleistä tietoa
@@ -160,7 +177,7 @@ fi:
             title: Uusi aloitetyyppi
           update:
             error: Tapahtui virhe
-            success: Annettu aloite on päivitetty onnistuneesti
+            success: Aloitetyyppiä päivitetty onnistuneesti
       admin_log:
         initiative:
           publish: "%{user_name} julkaisi aloitteen %{resource_name}"
@@ -177,14 +194,17 @@ fi:
       committee_requests:
         new:
           continue: Jatka
-          help_text: Oletko pyytämässä jäseneksi tämän aloitteen edistämiskomitea
+          help_text: Olet hakemassa jäsenyyttä tämän aloitteen tukikomiteasta
         spawn:
           success: Hakemuksesi on lähetetty aloitteen laatijalle.
+      content_blocks:
+        highlighted_initiatives:
+          name: Korostetut aloitteet
       create_initiative:
         fill_data:
           back: Takaisin
           continue: Jatka
-          fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoite selkeä?</li> <li>Sinun on valittava allekirjoitustapa. Alustan ulkopuolella, verkossa tai molemmat</li> <li>Mikä on aloitteen maantieteellinen laajuus? Kaupunki, kunta, maakunta vai mikä?</li> </ul>"
+          fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoite selkeä?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat</li> <li>Mikä on aloitteen maantieteellinen laajuus? Kaupunki, kunta, maakunta vai mikä?</li> </ul>"
           initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
           select_scope: Valitse teema
@@ -196,9 +216,9 @@ fi:
           more_information: "(Lisää tietoa)"
         finish_help:
           access_reminder: Muista, että pääset tarkastelemaan omia aloitteitasi käyttäjävalikon kautta.
-          help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä kaikkien järjestöjen, jotka noudattavat edistämiskomiteaa, johtokunnan pöytäkirjat
-          help_in_person_signatures: Jos olet valinnut allekirjoitusten keräystavaksi alustan ulkopuolisen keräyksen tai yhdistetyn keräyksen alustalla ja sen ulkopuolella, sinun on lähetettävä vaaditut tiedot ja dokumentit.
-          help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintopaneelia, josta löydät käyttäjän valikon, lataa tarvittavat tiedot ja lähetä se menettelyyn.
+          help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä johtokunnan pöytäkirjat kaikista organisaatioista, jotka liittyvät muodostettavaan kannatuskomiteaan
+          help_in_person_signatures: Jos olet valinnut allekirjoitusten keräystavaksi palvelun ulkopuolisen keräyksen tai yhdistetyn keräyksen palvelussa ja sen ulkopuolella, sinun on lähetettävä vaaditut tiedot ja dokumentit.
+          help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintapaneelin käyttämistä, mistä löydät käyttäjävalikon, voit ladata tarvittavat tiedot ja lähettää aloitteen käsittelyyn.
           initiatives_page_link: Näet kaiken tämän tiedon osoitteesta %{link}, jonka tarkoitus on antaa tietoa aloitteista.
           page: sivu
         previous_form:
@@ -217,7 +237,7 @@ fi:
           select_initiative_type_help: Kansalaisaloitteet ovat keino, jolla kansalaiset voivat osallistua viralliseen päätöksentekoon. Päättävät elimet, kuten kaupungin- tai kunnanvaltuusto, voivat tehdä toimenpiteitä, jotka vaikuttavat kansalaisten edun mukaisesti lainsäädäntöön. Millaisen aloitteen sinä haluat laatia?
         share_committee_link:
           continue: Jatka
-          invite_to_committee_help: Linkki kutsumaan ihmisiä, jotka ovat osa promotal-komiteaa
+          invite_to_committee_help: Kutsulinkki lähetettäväksi tukikomitean jäsenille
         show_similar_initiatives:
           back: Takaisin
           compare_help: Jos jokin seuraavista aloitteista on samankaltainen omasi kanssa, suosittelemme, että kannatat sitä. Tällä tavoin aloitteellasi on enemmän mahdollisuuksia toteutua.
@@ -226,12 +246,12 @@ fi:
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on luonut uuden aloitteen. Tutustu siihen ja osallistu:"
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi aloite käyttäjältä %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on luonut aloitteen <a href="%{resource_path}">%{resource_title}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on hyväksynyt seuraavan aloitteen. Ehkä haluat osallistua keskusteluun:"
-          email_outro: Saat tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_nickname} on suositellut aloitetta'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
       index:
@@ -277,10 +297,10 @@ fi:
           initiative_accepted_reason: Tämä aloite on hyväksytty, koska
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei saanut tarpeeksi kannatusta.
         show:
-          any_vote_method: Tämä kansalaisaloite kerää kannatuksia verkossa ja alustan ulkopuolella.
-          offline_method: Tämä kansalaisaloite kerää kannatuksia ainoastaan alustan ulkopuolella.
+          any_vote_method: Tämä kansalaisaloite kerää kannatuksia verkossa ja palvelun ulkopuolella.
+          offline_method: Tämä kansalaisaloite kerää kannatuksia ainoastaan palvelun ulkopuolella.
         signature_identities:
-          select_identity: Valitse käyttäjän identiteetti
+          select_identity: Valitse käyttäjätunniste
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoitusta"
@@ -308,11 +328,13 @@ fi:
         more_information: Tässä on lisätietoja aloitteen laatimisprosessista.
         progress_report_body_for: Aloite %{title} on saavuttanut %{percentage}% tarvittavista kannatuksista.
         progress_report_for: 'Yhteenveto aloitteesta: %{title}'
-        promotal_committee_help: Muista, että sinun on kutsuttava vähintään %{member_count} henkilöä promotal-valiokuntaan. Lähetä seuraava linkki kutsumaan ihmisiä promotal-komiteaan
+        promotal_committee_help: Muista, että sinun täytyy kutsua vähintään %{member_count} henkilöä suosittelukomiteaan. Kutsu ihmisiä suosittelukomiteaan lähettämällä heille seuraava linkki
         status_change_body_for: 'Aloitteen %{title} tila on muuttunut: %{state}'
         status_change_for: Aloitteen %{title} tila on muuttunut
         technical_validation_body_for: Aloitteelle %{title} on pyydetty teknistä validointia.
         technical_validation_for: Aloitteelle %{title} on pyydetty teknistä validointia.
+      last_activity:
+        new_initiative: Uusi aloite
       pages:
         home:
           highlighted_initiatives:
@@ -335,7 +357,7 @@ fi:
         fill_data: Luo
         finish: Viimeistele
         previous_form: Alku
-        promotal_committee: Promotal-valiokunta
+        promotal_committee: Kannatuskomitea
         select_initiative_type: Valitse
         show_similar_initiatives: Vertaile
       initiative_header:

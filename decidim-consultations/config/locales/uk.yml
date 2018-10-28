@@ -6,12 +6,12 @@ uk:
         banner_image: Банерне зображення
         decidim_highlighted_scope_id: Виcвітлений обсяг
         description: Опис
-        end_voting_date: Дата закінчення
+        end_voting_date: Голосування закінчується
         introductory_image: Вступне зображення
         introductory_video_url: Веб-адреса вступного відео
         questions: Питання
         slug: Скорочена веб-адреса
-        start_voting_date: Дата початку
+        start_voting_date: Голосування починається
         subtitle: Підзаголовок
         title: Назва
       question:
@@ -62,6 +62,9 @@ uk:
   decidim:
     admin:
       actions:
+        new_consultation: Додати консультацію
+        new_question: Додати питання
+        new_response: Додати відповідь
         publish_results: Оприлюднити підсумки
         unpublish_results: Скасувати оприлюднення підсумків
       consultation_publications:
@@ -213,6 +216,10 @@ uk:
         title: Питання з %{scope_name}
       index:
         title: Консультації
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Діючі консультації
       question:
         take_part: Взяти участь
         view_results: Переглянути підсумки

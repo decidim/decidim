@@ -1,4 +1,3 @@
----
 pt-BR:
   activemodel:
     attributes:
@@ -6,12 +5,12 @@ pt-BR:
         banner_image: Imagem de banner
         decidim_highlighted_scope_id: Âmbito em destaque
         description: Descrição
-        end_voting_date: Data final
+        end_voting_date: Votação termina
         introductory_image: Imagem introdutória
         introductory_video_url: URL de vídeo introdutório
         questions: Perguntas
         slug: Lesma de URL
-        start_voting_date: Data de início
+        start_voting_date: A votação começa
         subtitle: Legenda
         title: Título
       question:
@@ -54,6 +53,9 @@ pt-BR:
   decidim:
     admin:
       actions:
+        new_consultation: Nova consulta
+        new_question: Nova pergunta
+        new_response: Nova resposta
         publish_results: Publicar resultados
         unpublish_results: Cancelar publicação dos resultados
       consultation_publications:
@@ -106,6 +108,9 @@ pt-BR:
             created_at: Criado em
             published: Publicados
             title: Título
+          name:
+            one: Consulta
+            other: Consultas
         question:
           fields:
             created_at: Criado em
@@ -133,7 +138,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova pergunta.
           success: Pergunta criada com sucesso.
         destroy:
-          success: Pergunta excluída com sucesso.
+          success: Pergunta eliminada com sucesso.
         edit:
           update: Atualizar
         form:
@@ -169,8 +174,12 @@ pt-BR:
         questions: Questões
         responses: Respostas
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantidade máxima de elementos para mostrar
       consultation:
-        start_voting_date: Votando de
+        start_voting_date: A votação começa
         view_results: Ver resultados
       consultation_card:
         view_results: Ver resultados
@@ -179,6 +188,9 @@ pt-BR:
           label: 'Ordenar consultas por:'
           random: Aleatório
           recent: Mais recente
+      content_blocks:
+        highlighted_consultations:
+          name: Consultas destacadas
       count:
         title:
           one: "%{count} consulta"
@@ -199,6 +211,18 @@ pt-BR:
         title: Perguntas de %{scope_name}
       index:
         title: Consultas
+      last_activity:
+        new_consultation: Nova consulta
+        new_question_at_html: "<span>Nova pergunta em %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultas ativas
+            see_all_consultations: Veja todas as consultas
+            voting_ends_in:
+              one: A votação termina <strong>amanhã</strong>
+              other: A votação termina em <strong>%{count} dia</strong>
+            voting_ends_today: A votação termina <strong>hoje</strong>
       question:
         take_part: Participar
         view_results: Ver resultados
@@ -237,7 +261,7 @@ pt-BR:
         assistants_count_title: Assistentes
         comments_count_title: Comentários
         meetings_count_title: Encontros
-        supports_count_title: Adesões
+        supports_count_title: Suporta
       technical_info:
         technical_data: Dados técnicos
       vote_button:
@@ -260,7 +284,7 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
       consultation_voting_data:
-        start_voting_date: Votando de
+        start_voting_date: A votação começa
       question_components:
         question_menu_item: A questão
         unfold: Desdobrar

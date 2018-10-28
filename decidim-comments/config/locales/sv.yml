@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     models:
@@ -17,6 +16,8 @@ sv:
   decidim:
     comments:
       comments: Kommentarer
+      last_activity:
+        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       votes:
         create:
           error: Det har blivit fel när du röstar om kommentaren.
@@ -66,8 +67,6 @@ sv:
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         loading: Laddar kommentarer...
         title: "%{count} kommentarer"
-        title_0: Il n'y a pas encore de commentaire
-        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:

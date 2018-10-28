@@ -1,0 +1,64 @@
+<%
+@title = "Decidim Admin"
+@activesection = "settings"
+@activepage = "settings-appearance"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "settings_nav" %>
+</div>
+<div class="layout-content">
+  <div class="container">
+    <div class="grid-container full">
+      <div class="grid-x grid-margin-x card-grid">
+        <div class="cell small-6">
+          <div class="card">
+            <div class="card-section">
+              <p class="mb-m">Bloques activos</p>
+              <ul class="draggable-list js-connect js-list-actives">
+                <% 5.times do %>
+                <li draggable="true">
+                  <div class="draggable-content">
+                    <%= Faker::Beer.style %>
+                    <div>
+                      <%= link_to page_path("#"), class: "mr-s text-muted" do %>
+                      <%= icon "pencil" %>
+                      <% end %>
+                      <%= icon "menu" %>
+                    </div>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="cell small-6">
+          <div class="card">
+            <div class="card-section">
+              <p class="mb-m">Bloques disponibles</p>
+              <ul class="draggable-list js-connect js-list-availables">
+                <% 2.times do %>
+                <li draggable="true">
+                  <div class="draggable-content">
+                    <%= Faker::Beer.style %>
+                    <div>
+                      <%= link_to page_path("#"), class: "mr-s text-muted" do %>
+                      <%= icon "pencil" %>
+                      <% end %>
+                      <%= icon "menu" %>
+                    </div>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
+              <a href="#">+ <u>nuevo bloque HTML</u></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

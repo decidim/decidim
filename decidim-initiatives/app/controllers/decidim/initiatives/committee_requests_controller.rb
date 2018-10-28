@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Initiatives::NeedsInitiative
 
       helper InitiativeHelper
+      helper Decidim::ActionAuthorizationHelper
 
       layout "layouts/decidim/application"
 

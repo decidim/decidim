@@ -6,13 +6,13 @@ module Decidim
     # unsubscribe user from newsletter.
     #
     # user - The user to be updated.
-    # newsletter_notifications - to be false
+    # newsletter_notifications_at - to be nil
     def initialize(user)
       @user = user
     end
 
     def call
-      return broadcast(:invalid) unless @user.newsletter_notifications
+      return broadcast(:invalid) unless @user.newsletter_notifications_at?
 
       update_settings
       @user.save!
@@ -23,7 +23,7 @@ module Decidim
     private
 
     def update_settings
-      @user.newsletter_notifications = false
+      @user.newsletter_notifications_at = nil
     end
   end
 end

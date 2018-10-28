@@ -10,7 +10,7 @@ de:
         organization: Organisation
         plural: Plural
       attachment:
-        attachment_collection_id: Sammlung
+        attachment_collection_id: Mappe
         description: Beschreibung
         file: Datei
         title: Titel
@@ -36,6 +36,7 @@ de:
         organization_url: Organisations-URL
         redirect_uri: URI umleiten
       organization:
+        badges_enabled: Abzeichen aktivieren
         cta_button_path: Call To Action Schaltfläche Pfad
         cta_button_text: Call To Action Schaltfläche Text
         default_locale: Standardgebietsschema
@@ -52,7 +53,6 @@ de:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kurze Beschreibung
         highlighted_content_banner_title: Titel
-        homepage_image: Bild der Startseite
         instagram_handler: Instagram-Handler
         logo: Logo
         name: Name
@@ -66,7 +66,6 @@ de:
         show_statistics: Zeige Statistiken
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
-        welcome_text: Begrüßungstext
         youtube_handler: YouTube-Handler
       scope:
         code: Code
@@ -93,34 +92,6 @@ de:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Bannerbild
-        description: Beschreibung
-        developer_group: Entwicklergruppe
-        domain: Domain
-        end_date: Endtermin
-        hashtag: Hashtag
-        hero_image: Hauptbild
-        local_area: Ortsbereich
-        meta_scope: Bereichs-Metadaten
-        participatory_scope: Partizipativer Bereich
-        participatory_structure: Partizipative Struktur
-        promoted: Gefördert
-        scope: Umfang
-        short_description: Kurze Beschreibung
-        slug: URL-Block
-        start_date: Anfangsdatum
-        subtitle: Untertitel
-        target: Ziel
-        title: Titel
-      decidim/participatory_process_group:
-        description: Beschreibung
-        hero_image: Hauptbild
-        name: Name
-        participatory_processes: Partizipative Prozesse
-      decidim/participatory_process_step:
-        end_date: Endtermin
-        start_date: Anfangsdatum
       decidim/static_page:
         content: Inhalt
         slug: URL-Block
@@ -132,10 +103,7 @@ de:
         organization_name: Name der Organisation
         organization_url: Organisations-URL
         redirect_uri: URI umleiten
-        site: Seite? ˅
-  date:
-    formats:
-      datepicker: "%m/%d/%Y"
+        site: Webseite
   decidim:
     admin:
       actions:
@@ -143,6 +111,7 @@ de:
         browse: Durchsuche
         export: Export
         manage: Verwalten
+        new: Neu %{name}
         permissions: Berechtigungen
         reject: Ablehnen
         verify: Überprüfen
@@ -179,22 +148,22 @@ de:
           success: Bereich wurde erfolgreich aktualisiert
       attachment_collections:
         create:
-          error: Beim Erstellen einer neuen Sammlung ist ein Fehler aufgetreten.
-          success: Sammlung erfolgreich erstellt
+          error: Beim Erstellen eines neuen Ordners ist ein Fehler aufgetreten.
+          success: Ordner erfolgreich erstellt
         destroy:
-          success: Die Sammlung wurde erfolgreich zerstört.
+          success: Der Ordner wurde erfolgreich zerstört.
         edit:
-          title: Sammlung bearbeiten
+          title: Ordner bearbeiten
           update: Aktualisieren
         index:
-          attachment_collection_used: Diese Sammlung kann nicht entfernt werden, weil sie verwendet wird.
-          attachment_collections_title: Anlagensammlungen
+          attachment_collection_used: Dieser Ordner kann nicht entfernt werden, weil er verwendet wird.
+          attachment_collections_title: Anhang Ordner
         new:
           create: Erstellen
-          title: Neue Kollektion
+          title: Neuer Ordner
         update:
-          error: Beim Aktualisieren dieser Sammlung ist ein Fehler aufgetreten.
-          success: Sammlung wurde erfolgreich aktualisiert.
+          error: Beim Aktualisieren dieses Ordners ist ein Fehler aufgetreten.
+          success: Der Ordner wurde erfolgreich aktualisiert.
       attachments:
         create:
           error: Beim Erstellen eines neuen Anhangs ist ein Fehler aufgetreten.
@@ -332,6 +301,7 @@ de:
         areas: Bereiche
         configuration: Aufbau
         dashboard: Instrumententafel
+        homepage: Startseite
         impersonations: Identitätswechsel
         newsletters: Newsletter
         oauth_applications: OAuth-Anwendungen
@@ -353,13 +323,13 @@ de:
             plural: Plural
         attachment:
           fields:
-            collection: Sammlung
+            collection: Mappe
             content_type: Art
             file_size: Größe
             title: Titel
           name: Befestigung
         attachment_collection:
-          name: Sammlung
+          name: Mappe
         category:
           name: Kategorie
         impersonation_log:
@@ -523,7 +493,14 @@ de:
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           layout_appearance_title: Layout-Layout bearbeiten
-          omnipresent_banner_appearance_title: Edit omnipräsent
+          omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktive Inhaltsblöcke
+          inactive_content_blocks: Inaktive Inhaltsblöcke
+      organization_homepage_content_blocks:
+        edit:
+          update: Aktualisieren
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -634,6 +611,7 @@ de:
         new:
           create: Einladen
           title: Benutzer als Administrator einladen
+      view_public_page: Öffentliche Seite anzeigen
     forms:
       errors:
         impersonate_user:
@@ -674,7 +652,3 @@ de:
           title: die Einstellungen
         users:
           title: Benutzer
-  time:
-    formats:
-      datepicker: "%m/%d/%Y"
-      timepicker: "%m/%d/%Y %H:%M"

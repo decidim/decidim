@@ -1,4 +1,3 @@
----
 ru:
   activemodel:
     attributes:
@@ -21,10 +20,10 @@ ru:
         end_time: Время окончания
         location: Место
         location_hints: Как добраться
+        organizer_id: Организация
         private_meeting: Частная встреча
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
-        reserved_slots: Places réservées
         start_time: Время начала
         title: Название
         transparent: Прозрачная
@@ -43,7 +42,7 @@ ru:
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Cet email a déjà été invité
+              already_invited: Участник с таким адресом уже приглашен
     models:
       decidim/meetings/close_meeting_event: Встреча закрыта
       decidim/meetings/create_meeting_event: Встреча
@@ -54,19 +53,19 @@ ru:
   activerecord:
     models:
       decidim/meetings/meeting:
+        one: Встреча
         few: Встречи
         many: Встреч
-        one: Встреча
         other: Встреч
       decidim/meetings/minutes:
+        one: Протокол
         few: Протокола
         many: Протоколов
-        one: Протокол
         other: Протоколов
       decidim/meetings/registration:
+        one: Зарегистрировался
         few: Зарегистрировалось
         many: Зарегистрировались
-        one: Зарегистрировался
         other: Зарегистрировались
   decidim:
     admin:
@@ -88,6 +87,7 @@ ru:
             announcement: Объявление
             comments_enabled: Комментарии включены
             default_registration_terms: Условия регистрации по умолчанию
+            resources_permissions_enabled: Для каждой встречи можно задать те или иные разрешения на действия
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
@@ -113,6 +113,11 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Встреча "%{resource_title}" обновлена
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
+        registration_code_validated:
+          email_intro: Ваш регистрационный код «%{registration_code}» подтвержден.
+          email_outro: Вы получили это уведомление, потому что ваш регистрационный код для встречи «%{resource_title}» был подтвержден.
+          email_subject: Ваш регистрационный код «%{registration_code}» подтвержден
+          notification_title: Ваш регистрационный код «%{registration_code}» для встречи <a href="%{resource_path}">%{resource_title}</a> был подтвержден.
         registrations_enabled:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
@@ -133,7 +138,7 @@ ru:
         destroy: Удалить
         edit: Редактировать
         minutes: Протокол
-        new: Добавить
+        new: Новая встреча
         preview: Предпросмотр
         registrations: Регистрации
         title: Действия
@@ -172,16 +177,31 @@ ru:
           registrations: Регистрации
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу %{application}. Вы можете принять это приглашение по ссылке ниже."
+            decline: Отклонить приглашение
+            invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу в %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
           create:
             error: При попытке пригласить этого участника на встречу произошла ошибка.
             success: Участник успешно приглашен на встречу.
-          new:
-            explanation: Участник будет приглашен на встречу. Если эл-адрес не зарегистрирован, он также будет приглашен в организацию.
+          form:
+            attendee_type: Вид участника
+            existing_user: Существующий участник
             invite: Пригласить
-            new_invite: Пригласить участника
+            invite_explanation: Участнику будет предложено присоединиться к встрече и к организации.
+            non_user: Не существующий участник
+            select_user: Выберите участника
+          index:
+            filter:
+              accepted: Принятые
+              all: Все
+              rejected: Отклоненные
+              sent: Отправленные
+            filter_by: 'Отобрать по признаку:'
+            invite_attendee: Пригласить участника
+            invites: Приглашения
+            registrations_disabled: Вы не можете пригласить участника, так как регистрация отключена.
+            search: Поиск
         meeting_closes:
           edit:
             close: Закрыть
@@ -238,24 +258,29 @@ ru:
         registrations:
           edit:
             save: Сохранить
+            validate: Подтвердить
+            validate_registration_code: Подтвердить регистрационный код
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
-            invite_user: Пригласить участника
+            invites: Приглашения
             registrations_count:
+              one: Зарегистрировался 1 человек.
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
-              one: Зарегистрировался 1 человек.
               other: Зарегистрировалось %{count} человек.
             reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
             reserved_slots_less_than: Должен быть меньше или равен %{count}
           update:
             invalid: При попытке сохранить настройки регистрации произошла ошибка.
             success: Настройки регистрации на встречу успешно сохранены.
+          validate_registration_code:
+            invalid: Этот регистрационный код неуместен.
+            success: Регистрационный код успешно подтвержден.
       admin_log:
         invite:
-          create: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
-          deleted: "%{user_name} non invité %{attendee_name} de rejoindre %{resource_name} réunion sur l'espace %{space_name}"
-          update: "%{user_name} invité %{attendee_name} à rejoindre %{resource_name} réunion sur l'espace %{space_name}"
+          create: "%{user_name} пригласил %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"
+          deleted: "%{user_name} отменил приглашение %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"
+          update: "%{user_name} пригласил %{attendee_name} присоединиться к встрече %{resource_name} в пространстве %{space_name}"
         meeting:
           close: "%{user_name} закрыл встречу %{resource_name} в пространстве %{space_name}"
           create: "%{user_name} создал встречу %{resource_name} в пространстве %{space_name}"
@@ -290,8 +315,6 @@ ru:
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
-        index:
-          view_meeting: Посмотреть встречу
         meeting_minutes:
           meeting_minutes: Протокол встречи
           related_information: Сопутствующие сведения
@@ -310,12 +333,22 @@ ru:
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
           remaining_slots:
-            few: Осталось %{count} места
-            many: Осталось %{count} мест
             one: Осталось 1 место
-            other: Осталось %{count} мест
+            few: "Осталось %{count} места"
+            many: "Осталось %{count} мест"
+            other: "Осталось %{count} мест"
           view: Посмотреть
       models:
+        invite:
+          fields:
+            email: Эл. адрес
+            name: Имя
+            sent_at: 'Отправлено:'
+            status: Состояние
+          status:
+            accepted: Принято (%{at})
+            rejected: Отклонено (%{at})
+            sent: Отправлено
         meeting:
           fields:
             closed: Завершена
@@ -328,10 +361,14 @@ ru:
         confirmation:
           confirmed_html: Ваша регистрация на встречу <a href="%{url}">%{title}</a> подтверждена.
           details: Подробное описание встречи - в прилагаемом файле.
+          registration_code: 'Ваш регистрационный код: %{code}.'
       registrations:
         create:
           invalid: При попытке присоединиться к встрече произошла ошибка.
           success: Вы успешно зарегистрировались на эту встречу.
+        decline_invitation:
+          invalid: При попытке отклонить это приглашение произошла ошибка.
+          success: Вы успешно отклонили это приглашение.
         destroy:
           invalid: При попытке отказаться от встречи произошла ошибка.
           success: Вы успешно отменили регистрацию на встречу.

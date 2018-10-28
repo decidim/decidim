@@ -102,7 +102,19 @@ module Decidim::ParticipatoryProcesses
 
         expect(new_participatory_process_category.name).to eq(old_participatory_process_category.name)
         expect(new_participatory_process_category.description).to eq(old_participatory_process_category.description)
-        expect(new_participatory_process_category.parent).to eq(old_participatory_process_category.parent)
+        expect(new_participatory_process_category.participatory_space).not_to eq(participatory_process)
+      end
+
+      context "with subcategories" do
+        let!(:subcategory) { create(:category, parent: category, participatory_space: participatory_process) }
+
+        it "duplicates the parent and its children" do
+          expect { subject.call }.to change { Decidim::Category.count }.by(2)
+          new_participatory_process = Decidim::ParticipatoryProcess.last
+
+          expect(participatory_process.categories.count).to eq(2)
+          expect(new_participatory_process.categories.count).to eq(2)
+        end
       end
     end
 

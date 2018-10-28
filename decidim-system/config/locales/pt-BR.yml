@@ -1,10 +1,9 @@
----
 pt-BR:
   decidim:
     system:
       actions:
         confirm_destroy: Deseja mesmo excluir isso?
-        destroy: Destruir
+        destroy: Excluir
         edit: Editar
         new: Novo
         save: Salvar
@@ -14,7 +13,7 @@ pt-BR:
           error: Ocorreu um erro ao criar um novo administrador.
           success: Admin criado com sucesso
         destroy:
-          success: Admin excluído com sucesso
+          success: Admin eliminado com sucesso
         edit:
           title: Edit admin
           update: Atualizar

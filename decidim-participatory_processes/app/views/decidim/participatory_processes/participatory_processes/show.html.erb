@@ -5,6 +5,15 @@
   twitter_handler: current_organization.twitter_handler
 }) %>
 
+<%
+edit_link(
+  resource_locator(current_participatory_space).edit,
+  :update,
+  :process,
+  process: current_participatory_space
+)
+%>
+
 <% if current_participatory_space.private_space? %>
   <%= render partial: "decidim/shared/private_participatory_space", locals: { text: t("participatory_processes.show.private_space", scope: "decidim") } %>
 <% end %>

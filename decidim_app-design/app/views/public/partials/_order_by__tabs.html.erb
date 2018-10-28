@@ -1,0 +1,15 @@
+<span class="order-by__tabs ml-s">
+  <% if actives > 0 %>
+  <span class="muted mr-xs">Ver</span>
+  <%= link_to raw("<strong>pasados</strong>&nbsp;<span>(" + pasts.to_s + ")</span>"), page_path("#"), class: "order-by__tab is-active" %>
+  <%= link_to raw("<strong>siguiente</strong>&nbsp;<span>(" + futures.to_s + ")</span>"), page_path("#"), class: "order-by__tab" %>
+  <%= link_to raw("<strong>todos</strong>&nbsp;<span>(" + (actives + pasts + futures).to_s + ")</span>"), page_path("#"), class: "order-by__tab" %>
+  <% elsif futures > 0 %>
+  <span class="muted mr-s ml-s">No hay procesos activos</span>
+  <span class="muted mr-xs">Ver</span>
+  <%= link_to raw("<strong>pasados</strong>&nbsp;<span>(" + pasts.to_s + ")</span>"), page_path("#"), class: "order-by__tab is-active" %>
+  <%= link_to raw("<strong>todos</strong>&nbsp;<span>(" + (actives + pasts + futures).to_s + ")</span>"), page_path("#"), class: "order-by__tab" %>
+  <% elsif %>
+  <span class="muted mr-s ml-s">No hay procesos activos ni futuros</span>
+  <% end %>
+</span>

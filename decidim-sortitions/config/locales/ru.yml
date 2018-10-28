@@ -1,4 +1,3 @@
----
 ru:
   activemodel:
     attributes:
@@ -15,9 +14,9 @@ ru:
   activerecord:
     models:
       decidim/sortitions/sortition:
+        one: Жеребьевка
         few: Жеребьевки
         many: Жеребьевок
-        one: Жеребьевка
         other: Жеребьевок
   decidim:
     components:
@@ -45,7 +44,7 @@ ru:
         actions:
           destroy: Отменить жеребьевку
           edit: Редактировать
-          new: Добавить
+          new: Добавить жеребьевку
           show: Подробности жеребьевки
         models:
           sortition:
@@ -60,9 +59,9 @@ ru:
               target_items: Элементы для выбора
               title: Название
             name:
+              one: Жеребьевка
               few: Жеребьевки
               many: Жеребьевок
-              one: Жеребьевка
               other: Жеребьевок
         sortitions:
           confirm_destroy:
@@ -101,9 +100,9 @@ ru:
       sortitions:
         count:
           proposals_count:
+            one: 1 предложение
             few: "%{count} предложения"
             many: "%{count} предложений"
-            one: 1 предложение
             other: "%{count} предложений"
         filters:
           active: Действующие
@@ -126,9 +125,9 @@ ru:
           recent: Недавние
         results_count:
           count:
+            one: выбранное предложение
             few: выбранных предложения
             many: выбранных предложений
-            one: выбранное предложение
             other: выбранных предложений
         show:
           algorithm: Код алгоритма жеребьевки
@@ -147,9 +146,9 @@ ru:
         sortition:
           random_seed: Случайное начальное число
           selected_proposals:
+            one: предложение выбрано
             few: предложения выбрано
             many: предложений выбрано
-            one: предложение выбрано
             other: предложений выбрано
           view: Посмотреть
         sortition_author:
@@ -158,7 +157,7 @@ ru:
           deleted: Удаленный участник
         sortitions_count:
           count:
+            one: 1 жеребьевка
             few: "%{count} жеребьевки"
             many: "%{count} жеребьевок"
-            one: 1 жеребьевка
             other: "%{count} жеребьевок"

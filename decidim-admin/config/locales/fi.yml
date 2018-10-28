@@ -1,17 +1,16 @@
----
 fi:
   activemodel:
     attributes:
       area:
         area_type: Alueen tyyppi
         name: Nimi
-        organization: organisaatio
+        organization: Organisaatio
       area_type:
         name: Nimi
-        organization: organisaatio
+        organization: Organisaatio
         plural: Monikko
       attachment:
-        attachment_collection_id: Kokoelma
+        attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
         title: Otsikko
@@ -37,6 +36,7 @@ fi:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen URI
       organization:
+        badges_enabled: Ota kunniamerkit käyttöön
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
         default_locale: Oletuskieli
@@ -53,7 +53,6 @@ fi:
         highlighted_content_banner_image: Kuva
         highlighted_content_banner_short_description: Lyhyt kuvaus
         highlighted_content_banner_title: Otsikko
-        homepage_image: Kotisivun kuva
         instagram_handler: Instagram-käsittelijä
         logo: Logo
         name: Nimi
@@ -67,7 +66,6 @@ fi:
         show_statistics: Näytä tilastot
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
-        welcome_text: Tervetulotoivotus
         youtube_handler: YouTube-käsittelijä
       scope:
         code: Koodi
@@ -94,34 +92,6 @@ fi:
               must_be_ssl: Uudelleenohjausosoitteen (URI) on oltava SSL-protokollaa käyttävä URI
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Bannerikuva
-        description: Kuvaus
-        developer_group: Kehitysryhmä
-        domain: Toimintaympäristö
-        end_date: Lopetusaika
-        hashtag: Hashtag
-        hero_image: Etusivun kuva
-        local_area: Paikallisalue
-        meta_scope: Kontekstin metatiedot
-        participatory_scope: Osallistumisprosessi
-        participatory_structure: Osallistumisprosessin rakenne
-        promoted: Korostettu
-        scope: Konteksti
-        short_description: Lyhyt kuvaus
-        slug: URL-tunniste
-        start_date: Aloitusaika
-        subtitle: Alaotsikko
-        target: Kohde
-        title: Otsikko
-      decidim/participatory_process_group:
-        description: Kuvaus
-        hero_image: Etusivun kuva
-        name: Nimi
-        participatory_processes: Osallistumisprosessit
-      decidim/participatory_process_step:
-        end_date: Päättymisaika
-        start_date: Aloitusaika
       decidim/static_page:
         content: Sisältö
         slug: URL-tunniste
@@ -133,10 +103,7 @@ fi:
         organization_name: Organisaation nimi
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjausosoite (URI)
-        site: paikka
-  date:
-    formats:
-      datepicker: "%d. %m. %Y"
+        site: Verkkosivusto
   decidim:
     admin:
       actions:
@@ -144,6 +111,7 @@ fi:
         browse: Selaa
         export: Vie
         manage: Hallitse
+        new: Uusi %{name}
         permissions: Oikeudet
         reject: Hylkää
         verify: Vahvista
@@ -180,22 +148,22 @@ fi:
           success: Alue päivitetty onnistuneesti
       attachment_collections:
         create:
-          error: Virhe uuden kokoelman luomisessa.
-          success: Kokoelma on luotu onnistuneesti.
+          error: Uuden kansion luomisessa tapahtui virhe.
+          success: Kansio luotu onnistuneesti.
         destroy:
-          success: Kokoelma on tuhottu onnistuneesti.
+          success: Kansio tuhottu onnistuneesti.
         edit:
-          title: Muokkaa kokoelmia
+          title: Muokkaa kansiota
           update: Päivitä
         index:
-          attachment_collection_used: Tätä kokoelmaa ei voida poistaa, koska se on käytössä.
-          attachment_collections_title: Liitetiedostot
+          attachment_collection_used: Tätä kansiota ei voi poistaa, koska se on käytössä.
+          attachment_collections_title: Liitetiedostojen kansiot
         new:
           create: Luo
-          title: Uusi kokoelma
+          title: Uusi kansio
         update:
-          error: Tämän kokoelman päivittämisessä tapahtui virhe.
-          success: Kokoelma on päivitetty onnistuneesti.
+          error: Tämän kansion päivittämisessä tapahtui virhe.
+          success: Kansio päivitetty onnistuneesti.
       attachments:
         create:
           error: Uuden liitteen luonnissa tapahtui virhe.
@@ -317,11 +285,6 @@ fi:
         logs_list:
           no_logs_yet: Ei vielä lokitietoja
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
           success: Hallitun käyttäjän taso on onnistuneesti korotettu.
@@ -338,8 +301,8 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
+        homepage: Kotisivu
         impersonations: Käyttäjänä esiintymiset
-        navbar_links: Navbar links
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         officializations: Virallistamiset
@@ -360,13 +323,13 @@ fi:
             plural: Monikko
         attachment:
           fields:
-            collection: Kokoelma
+            collection: Kansio
             content_type: Tyyppi
             file_size: Koko
             title: Otsikko
           name: Liite
         attachment_collection:
-          name: Kokoelma
+          name: Kansio
         category:
           name: Aihepiiri
         impersonation_log:
@@ -377,13 +340,6 @@ fi:
             reason: Syy
             started_at: Aloitettu
             user: Käyttäjä
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: Luonnin ajankohta
@@ -438,28 +394,6 @@ fi:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
@@ -561,6 +495,13 @@ fi:
           homepage_highlighted_content_banner_title: Korostettu sisältöbanneri
           layout_appearance_title: Muokkaa sivupohjan ulkoasua
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktiiviset sisältöblokit
+          inactive_content_blocks: Ei-aktiiviset sisältöblokit
+      organization_homepage_content_blocks:
+        edit:
+          update: Päivitä
       participatory_space_private_users:
         create:
           error: Yksityisen käyttäjän lisäämisessä tähän osallistumistilaan tapahtui virhe.
@@ -631,8 +572,6 @@ fi:
         dashboard: Hallintapaneeli
         impersonatable_users: Toisena käyttäjänä esitettävät käyttäjät
         impersonations: Esiintymiset käyttäjinä
-        managed_users: Managed users
-        navbar_links: Navbar links
         officializations: Virallistamiset
         scope_types: Teematyypit
         scopes: Teemat
@@ -673,6 +612,7 @@ fi:
         new:
           create: Kutsu
           title: Kutsu käyttäjä hallinnoijaksi
+      view_public_page: Näytä julkinen sivu
     forms:
       errors:
         impersonate_user:
@@ -713,7 +653,3 @@ fi:
           title: Asetukset
         users:
           title: Käyttäjät
-  time:
-    formats:
-      datepicker: "%d. %m. %Y"
-      timepicker: "%d/%m/%Y %H:%M"

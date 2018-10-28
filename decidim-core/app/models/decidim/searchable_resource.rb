@@ -26,9 +26,9 @@ module Decidim
                class_name: "Decidim::Scope",
                optional: true
     belongs_to :resource, polymorphic: true
-    belongs_to :decidim_participatory_space, polymorphic: true
+    belongs_to :decidim_participatory_space, polymorphic: true, optional: true
 
-    validates :locale, uniqueness: { scope: :resource }
+    validates :locale, uniqueness: { scope: [:decidim_organization_id, :resource_type, :resource_id] }
 
     pg_search_scope :global_search,
                     against: { content_a: "A", content_b: "B", content_c: "C", content_d: "D" },

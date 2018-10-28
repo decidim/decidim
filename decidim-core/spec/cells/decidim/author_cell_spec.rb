@@ -11,11 +11,11 @@ describe Decidim::AuthorCell, type: :cell do
   let(:user_group) { create(:user_group, :verified) }
   let(:model) { Decidim::UserPresenter.new(user) }
 
-  context "when rendering a user" do
-    before do
-      allow(my_cell).to receive(:user_signed_in?).and_return(false)
-    end
+  before do
+    allow(my_cell).to receive(:user_signed_in?).and_return(false)
+  end
 
+  context "when rendering a user" do
     it "renders a User author card" do
       expect(subject).to have_css(".author-data")
     end

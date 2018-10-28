@@ -144,8 +144,9 @@ implement its public methods:
 
 * The `initialize` method receives the current authorization process context and
   saves it in local variables. This include the current authorization user state
-  (an `Authorization` record) and permission `options` related to the action is
-  trying to perform.
+  (an `Authorization` record), permission `options` related to the action is
+  trying to perform and the current `component` where the authorization is taking
+  place.
 
 * The `authorize` method is responsible of evaluating the authorization process
   context and determine if the user authorization is `:ok` or in any other

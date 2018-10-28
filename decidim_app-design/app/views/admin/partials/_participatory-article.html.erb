@@ -1,0 +1,28 @@
+<% desc = true unless local_assigns.has_key?(:desc) %>
+<% placeholder ||= "" %>
+<form class="form grid-container">
+  <div class="grid-x">
+    <div class="cell">
+      <% content_for :label, flush: true do %>
+        <label for="">Title *</label>
+      <% end %>
+      <% content_for :content, flush: true do %>
+        <input type="text" placeholder="<%= placeholder %>" />
+      <% end %>
+      <%= render layout: "admin/components/lang-tabs" do %><% end %>
+    </div>
+  </div>
+  <% if desc %>
+  <div class="grid-x">
+    <div class="cell">
+      <% content_for :label, flush: true do %>
+        <label for="">Description *</label>
+      <% end %>
+      <% content_for :content, flush: true do %>
+        <textarea rows="6"></textarea>
+      <% end %>
+      <%= render layout: "admin/components/lang-tabs" do %><% end %>
+    </div>
+  </div>
+  <% end %>
+</form>

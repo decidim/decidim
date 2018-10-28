@@ -17,6 +17,7 @@
       <div class="card card--secondary show-for-mediumlarge">
         <%= partial "filters" %>
       </div>
+      <%= link_to "Veure estadística de propostes", page_path("proposals/proposal-stats") %>
     </div>
     <div class="columns mediumlarge-8 large-9">
       <%= partial "order_by" %>
@@ -24,6 +25,11 @@
         <% 8.times do %>
           <div class="column">
             <article class="card card--proposal success">
+              <div class="card__top">
+                <div class="card__content text-small">
+                  <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+                </div>
+              </div>
               <div class="card__content">
                 <div class="card__header">
                   <%= link_to page_path("proposals/proposal-view"), class: "card__link" do %>

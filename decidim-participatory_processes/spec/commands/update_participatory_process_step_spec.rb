@@ -13,6 +13,8 @@ module Decidim::ParticipatoryProcesses
       instance_double(
         Admin::ParticipatoryProcessStepForm,
         current_user: user,
+        cta_text: {},
+        cta_path: nil,
         title: { en: "new title" },
         description: { en: "new description" },
         start_date: start_date,
@@ -67,7 +69,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when the dates are updated" do
-        let(:start_date) { Time.zone.now }
+        let(:start_date) { Date.current }
         let(:end_date) { 1.week.from_now }
 
         it "notifies the process followers" do

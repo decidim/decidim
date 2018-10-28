@@ -1,6 +1,14 @@
 de:
   activemodel:
     attributes:
+      collaborative_draft:
+        body: Karosserie
+        category_id: Kategorie
+        decidim_scope_id: Umfang
+        has_address: Hat eine Adresse
+        state: Zustand
+        title: Titel
+        user_group_id: Erstellen Sie einen gemeinsamen Entwurf als
       proposal:
         answer: Antworten
         answered_at: Beantwortet bei
@@ -35,6 +43,9 @@ de:
       decidim/proposals/voting_enabled_event: Angebotsabstimmung aktiviert
   activerecord:
     models:
+      decidim/proposals/collaborative_draft:
+        one: Gemeinsamer Entwurf
+        other: Kollaborative Entwürfe
       decidim/proposals/proposal:
         one: Vorschlag
         other: Vorschläge
@@ -61,6 +72,7 @@ de:
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             can_accumulate_supports_beyond_threshold: Kann Unterstützungen jenseits des Schwellenwerts ansammeln
+            collaborative_drafts_enabled: Collaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
             geocoding_enabled: Geocodierung aktiviert
             new_proposal_help_text: Neuer Vorschlagstext
@@ -73,6 +85,7 @@ de:
             proposal_wizard_step_2_help_text: Angebotsassistent "Vergleichen" Schritt-Hilfetext
             proposal_wizard_step_3_help_text: Angebotsassistent "Schritt" - Hilfetext "Fertig"
             proposal_wizard_step_4_help_text: Angebotsassistent "Veröffentlichen" Schritt-Hilfetext
+            resources_permissions_enabled: Aktionsberechtigungen können für jedes Angebot festgelegt werden
             threshold_per_proposal: Schwellenwert pro Angebot
             vote_limit: Wahllimit pro Benutzer
           step:
@@ -82,16 +95,46 @@ de:
             endorsements_blocked: Zustimmungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Angebotsantworten aktiviert
-            votes_blocked: Stimmen blockiert
-            votes_enabled: Stimmen aktiviert
+            votes_blocked: Abstimmung blockiert
+            votes_enabled: Abstimmung aktiviert
             votes_hidden: Abstimmungen ausgeblendet (wenn Abstimmungen aktiviert sind, wird dies die Anzahl der Abstimmungen verbergen)
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} wurde als Beitrag zum <a href="%{resource_path}">%{resource_title}</a> Verbundentwurf akzeptiert.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} wurde akzeptiert, um als Mitwirkender der %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurfs angenommen.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} wurde abgelehnt, um als Mitwirkender des <a href="%{resource_path}">%{resource_title}</a> gemeinsamen Entwurfs zu fungieren.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} wurde als Beitrag für den Zugriff des abgelehnten %{resource_title} kollaborativen Entwurfs."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>abgelehnt, um als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> kollaborativen Entwurfs einzusehen.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} angeforderten Zugriff als Mitwirkender. Sie können <strong>annehmen oder den Antrag ablehnen</strong> vom <a href="%{resource_path}">%{resource_title}</a> kollaborative Entwurfsseite.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} beantragter Zugang zu %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> beantragten Zugang zum <a href="%{resource_path}">%{resource_title}</a> Verbundentwurf. Bitte <strong>akzeptieren oder den Antrag ablehnen</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Sie wurden als Beitrag zum gemeinsamen <a href="%{resource_path}">%{resource_title}</a> -Kollaborationsentwurf akzeptiert.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefordert haben, ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sie wurden als Mitwirkender von %{resource_title}akzeptiert.
+          notification_title: Sie haben <strong>als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> kollaborativen Entwurfs akzeptiert.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Ihnen wurde der Zugriff auf den <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurf verweigert.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefordert haben, ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sie wurden als Mitwirkender von %{resource_title}abgelehnt.
+          notification_title: Sie wurden abgelehnt <strong>, um als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurfs zuzugreifen.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> zog den <a href="%{resource_path}">%{resource_title}</a> gemeinschaftlichen Entwurf zurück.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} zog den %{resource_title} gemeinsamen Entwurf zurück."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>zurückgezogen</strong> der gemeinschaftliche Entwurf <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title}erstellen! Starten Sie die Teilnahme an dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Vorschläge jetzt in %{participatory_space_title}verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+          notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Sie können Vorschläge in %{participatory_space_title}! Starten Sie die Teilnahme an dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
@@ -137,6 +180,51 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Die Abstimmung der Vorschläge hat für %{participatory_space_title}
           notification_title: Sie können jetzt <a href="%{resource_path}">Abstimmungsvorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+            - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
+          description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Angeboten teilnehmen und diese angenommen werden.
+          description_another: Dieser Benutzer hat %{score} Vorschläge akzeptiert.
+          description_own: Sie haben %{score} Vorschläge angenommen.
+          name: Akzeptierte Vorschläge
+          next_level_in: Erhalten Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Vorschläge erhalten.
+          unearned_own: Sie haben noch keine Vorschläge erhalten.
+        proposal_votes:
+          conditions:
+            - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
+            - Unterstützen Sie die Vorschläge, die Sie mögen oder interessant finden
+          description: Dieses Abzeichen wird gewährt, wenn Sie Vorschläge anderer Personen unterstützen.
+          description_another: Dieser Benutzer hat %{score} Vorschläge unterstützt.
+          description_own: Sie haben %{score} Vorschläge unterstützt.
+          name: Vorschlag unterstützt
+          next_level_in: Unterstütze %{score} weitere Vorschläge, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Vorschläge unterstützt.
+          unearned_own: Sie haben noch keine Vorschläge unterstützt.
+        proposals:
+          conditions:
+            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+            - Erstellen Sie einen neuen Vorschlag
+          description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Vorschlägen teilnehmen.
+          description_another: Dieser Benutzer hat %{score} Vorschläge erstellt.
+          description_own: Sie haben %{score} Vorschläge erstellt.
+          name: Vorschläge
+          next_level_in: Erstellen Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Vorschläge erstellt.
+          unearned_own: Sie haben noch keine Vorschläge erstellt.
+    metrics:
+      accepted_proposals:
+        object: Vorschlag
+        title: Akzeptierte Vorschläge
+      proposals:
+        object: Vorschlag
+        title: Vorschläge
+      votes:
+        object: Stimmen
+        title: Stimmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -148,8 +236,9 @@ de:
     proposals:
       actions:
         answer: Antworten
+        edit_proposal: Angebot bearbeiten
         import: Importieren von einer anderen Komponente
-        new: Neu
+        new: Neuer Vorschlag
         private_notes: Private Notizen
         title: Aktionen
       admin:
@@ -184,6 +273,9 @@ de:
           create:
             invalid: Beim Erstellen dieses Angebots ist ein Problem aufgetreten
             success: Angebot erfolgreich erstellt
+          edit:
+            title: Angebot aktualisieren
+            update: Aktualisieren
           form:
             attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
             select_a_category: Wählen Sie eine Kategorie
@@ -229,22 +321,143 @@ de:
         not_answered: Nicht beantwortet
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Bei der Veröffentlichung des gemeinsamen Entwurfs sind Fehler aufgetreten.
+            irreversible_action_modal:
+              body: Nachdem der Entwurf als Vorschlag veröffentlicht wurde, kann der Entwurf nicht mehr bearbeitet werden. Der Vorschlag akzeptiert keine neuen Autoren oder Beiträge.
+              cancel: Stornieren
+              ok: Als Vorschlag veröffentlichen
+              title: Die folgende Aktion ist irreversibel
+            success: Collaborative Draft erfolgreich als Vorschlag veröffentlicht.
+          view_collaborative_draft: Collaborative Draft anzeigen
+          withdraw:
+            error: Es gab Fehler beim Schließen des gemeinsamen Entwurfs.
+            irreversible_action_modal:
+              body: Nach dem Schließen des Entwurfs wird der Entwurf nicht mehr bearbeitet werden können. Der Entwurf akzeptiert keine neuen Autoren oder Beiträge.
+              cancel: Stornieren
+              ok: Ziehen Sie den gemeinsamen Entwurf zurück
+              title: Die folgende Aktion ist irreversibel
+            success: Kollaborativer Entwurf erfolgreich zurückgezogen.
+        compare:
+          mine_is_different: Mein gemeinsamer Entwurf ist anders
+          no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
+          title: Ähnliche kollaborative Entwürfe
+        complete:
+          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+          select_a_category: Bitte wählen sie eine Kategorie
+          send: Senden
+          title: Vervollständigen Sie Ihren gemeinsamen Entwurf
+        count:
+          drafts_count:
+            one: 1 gemeinsamer Entwurf
+            other: "%{count} kollaborative Entwürfe"
+        create:
+          error: Beim Erstellen dieser kollaborativen Entwürfe ist ein Problem aufgetreten
+          success: Collaborative Draft wurde erfolgreich erstellt.
+        edit:
+          back: Zurück
+          select_a_category: Bitte wählen sie eine Kategorie
+          send: Senden
+          title: Bearbeiten Sie den gemeinsamen Entwurf
+        filters:
+          all: Alle
+          category: Kategorie
+          category_prompt: Kategorie Eingabeaufforderung
+          open: Öffnen
+          published: Veröffentlicht
+          related_to: Bezüglich
+          search: Suche
+          state: Zustand
+          withdrawn: Zurückgezogen
+        filters_small_view:
+          close_modal: Modal schließen
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Entfalten
+        new:
+          send: Fortsetzen
+          title: Erstellen Sie Ihren gemeinsamen Entwurf
+        new_collaborative_draft_button:
+          new_collaborative_draft: Neuer gemeinsamer Entwurf
+        orders:
+          label: 'Bestellentwürfe von:'
+          most_contributed: Die meisten haben beigetragen
+          random: Zufällig
+          recent: Kürzlich
+        requests:
+          accepted_request:
+            error: Könnte nicht als Mitarbeiter akzeptiert werden, versuchen Sie es später erneut.
+            success: "@%{user} wurde erfolgreich als Partner akzeptiert"
+          access_requested:
+            error: Ihre Anfrage konnte nicht abgeschlossen werden. Versuchen Sie es später erneut.
+            success: Ihre Anfrage zur Zusammenarbeit wurde erfolgreich gesendet
+          collaboration_requests:
+            accept_request: Akzeptieren
+            reject_request: Ablehnen
+            title: Zusammenarbeit Anfragen
+          rejected_request:
+            error: Konnte nicht als Mitarbeiter abgelehnt werden, versuche es später erneut.
+            success: "@%{user} wurde als Collaborator erfolgreich abgelehnt"
+        show:
+          back: Zurück
+          edit: Bearbeiten Sie den gemeinsamen Entwurf
+          final_proposal: endgültiger Vorschlag
+          final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
+          hidden_authors_count:
+            one: und 1 weitere Person
+            other: und %{count} weitere Leute
+          info-message: Dies ist ein <strong>kollaborativen Entwurf</strong> für einen Vorschlag. Dies bedeutet, dass Sie ihren Autoren helfen können, den Vorschlag zu gestalten, indem Sie den unten stehenden Kommentarabschnitt verwenden, oder ihn direkt verbessern, indem Sie den Zugriff anfordern, um ihn zu bearbeiten. Sobald die Autoren Ihnen Zugriff gewähren, können Sie Änderungen an diesem Entwurf vornehmen.
+          of_versions: "(von %{number})"
+          publish: Veröffentlichen
+          publish_info: Veröffentlichen Sie diese Version des Entwurfs oder
+          published_proposal: veröffentlichter Vorschlag
+          request_access: Anfrage Zugang
+          requested_access: Zugriff angefordert
+          see_other_versions: Siehe andere Versionen
+          version: Version %{number}
+          version_history: Siehe Versionsgeschichte für dieses Angebot
+          withdraw: den Entwurf zurückziehen
+        states:
+          open: Öffnen
+          published: Veröffentlicht
+          withdrawn: Zurückgezogen
+        update:
+          error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
+          success: Collaborative Draft wurde erfolgreich aktualisiert.
+        wizard_aside:
+          back: Zurück
+          info: Sie erstellen einen <strong>gemeinsamen Entwurf</strong>.
+        wizard_steps:
+          see_steps: siehe Schritte
+          step_1: Erstellen Sie Ihren gemeinsamen Entwurf
+          step_2: Vergleichen Sie mit gemeinsamen Entwürfen
+          step_3: Vervollständigen Sie Ihren gemeinsamen Entwurf
+          step_of: Schritt %{current_step_num} von %{total_steps}
       create:
         error: Beim Speichern des Angebots sind Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
       destroy_draft:
         error: Es gab Fehler beim Löschen des Angebotsentwurfs.
-        success: Der Angebotsentwurf wurde erfolgreich vernichtet.
+        success: Der Angebotsentwurf wurde erfolgreich gelöscht.
+      last_activity:
+        new_proposal_at_html: "<span>Neuer Vorschlag bei %{link}</span>"
       models:
+        collaborative_draft:
+          fields:
+            authors: Autoren
+            comments: Bemerkungen
+            contributions: Beiträge
         proposal:
           fields:
             category: Kategorie
             comments: Bemerkungen
-            created_at: Hergestellt in
             endorsements: Empfehlungen
             id: ICH WÜRDE
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
+            published_at: Veröffentlicht unter
             scope: Umfang
             state: Zustand
             title: Titel
@@ -261,6 +474,8 @@ de:
         endorsement_button:
           already_endorsed: Befürwortet
           endorse: Unterstützung
+        render_endorsements_button_card_part:
+          endorse: Unterstützung
       proposal_votes:
         create:
           error: Es gab Fehler bei der Abstimmung des Vorschlags.
@@ -270,8 +485,6 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:
-          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
-          select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
           title: Vervollständigen Sie Ihren Vorschlag
         count:
@@ -279,6 +492,7 @@ de:
             one: 1 Vorschlag
             other: "%{count} Vorschläge"
         edit:
+          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
           select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
@@ -292,7 +506,6 @@ de:
           endorse: Unterstützung
         endorsements_card_row:
           comments: Bemerkungen
-          endorse: Unterstützung
         filters:
           accepted: Akzeptiert
           activity: Aktivität
@@ -315,6 +528,7 @@ de:
           filter_by: Filtern nach
           unfold: Entfalten
         index:
+          collaborative_drafts_list: Greifen Sie auf gemeinsame Entwürfe zu
           new_proposal: Neuer Vorschlag
           see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
           view_proposal: Angebot anzeigen
@@ -346,6 +560,8 @@ de:
           hidden_endorsers_count:
             one: und 1 weitere Person
             other: und %{count} weitere Leute
+          link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
+          link_to_collaborative_draft_text: Siehe den gemeinsamen Entwurf
           proposal_accepted_reason: 'Dieser Vorschlag wurde angenommen, weil:'
           proposal_in_evaluation_reason: Dieser Vorschlag wird evaluiert
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
@@ -403,6 +619,20 @@ de:
       update_draft:
         error: Beim Speichern des Angebotsentwurfs sind Fehler aufgetreten.
         success: Der Angebotsentwurf wurde erfolgreich aktualisiert.
+      versions:
+        changes_at_title: Änderungen bei "%{title}"
+        index:
+          title: Versionen
+        stats:
+          back_to_collaborative_draft: Kehren Sie zum gemeinsamen Entwurf zurück
+          number_of_versions: Versionen
+          show_all_versions: Zeige alle Versionen
+          version_author: Versionsautor
+          version_created_at: Version erstellt um
+          version_number: Versionsnummer
+          version_number_out_of_total: "%{current_version} von %{total_count}"
+        version:
+          version_index: Version %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Ähnliche Vorschläge

@@ -1,5 +1,13 @@
 <% add_decidim_meta_tags(title: t("assemblies.index.title", scope: "decidim")) %>
 
+<%
+edit_link(
+  decidim_admin_assemblies.assemblies_path,
+  :read,
+  :assembly_list
+)
+%>
+
 <main class="wrapper">
   <% if promoted_assemblies.any? %>
     <section id="highlighted-assemblies" class="row section">
@@ -12,6 +20,15 @@
     <%= render partial: "decidim/assemblies/order_by_assemblies" %>
     <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
       <%= render(collection) %>
+    </div>
+  </section>
+
+  <section id="assemblies-chart" class="row column section">
+    <div class="row column">
+      <h2 class="section-heading"><%= t("assemblies.index.organizational_chart", scope: "layouts.decidim") %></h2>
+      <article id="orgchart-<%= SecureRandom.hex(5) %>" class="card orgchart js-orgchart absolutes" data-url="<%= decidim_assemblies.assemblies_path(format: :json) %>">
+        <button class="medium-1 m-s top left button small hollow invisible js-reset-orgchart"><%= t("assemblies.index.reset_chart", scope: "layouts.decidim") %></button>
+      </article>
     </div>
   </section>
 </main>

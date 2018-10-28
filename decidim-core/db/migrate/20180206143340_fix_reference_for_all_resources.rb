@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'decidim/has_class_extends'
+
 
 class FixReferenceForAllResources < ActiveRecord::Migration[5.1]
   def up

@@ -1,0 +1,116 @@
+.badge-level{
+  display: table;
+  border-collapse: collapse;
+
+  > div{
+    @include square(1rem);
+
+    border: $border;
+    display: table-cell;
+
+    &.is-achieved{
+      background-color: $success;
+    }
+  }
+}
+
+.badge-tip{
+  @extend .mt-xs;
+  @extend .mr-xs;
+
+  @include square(1rem);
+
+  color: $white;
+  border-radius: 50%;
+  background-color: $medium-gray;
+  z-index: 10;
+  cursor: pointer;
+
+  > :first-child{
+    @extend .flex--cc;
+
+    height: 100%;
+  }
+
+  &.badge-tip--inline{
+    display: inline-block;
+  }
+}
+
+.badge-container{
+  transition: all .6s ease;
+
+  .badge__logo{
+    @extend .card__image;
+
+    max-height: auto;
+    min-height: auto;
+  }
+
+  .badge__logo--small{
+    @extend .badge__logo;
+
+    border: 2px solid $primary;
+  }
+
+  & > *{
+    max-width: 100%;
+    height: auto;
+    border: 4px solid $primary;
+    border-radius: 50%;
+    transition: all .6s ease;
+  }
+
+  .no-stroke,
+  .no-stroke circle,
+  .no-stroke ellipse,
+  .no-stroke line,
+  .no-stroke path,
+  .no-stroke polygon,
+  .no-stroke polyline,
+  .no-stroke rect{
+    stroke: none !important;
+  }
+
+  .stroke-white,
+  .stroke-white circle,
+  .stroke-white ellipse,
+  .stroke-white line,
+  .stroke-white path,
+  .stroke-white polygon,
+  .stroke-white polyline,
+  .stroke-white rect{
+    stroke: $white !important;
+  }
+
+  /** Config SVG colors **/
+  .fill-primary{
+    fill: $secondary;
+  }
+
+  .fill-secondary{
+    fill: $primary;
+  }
+
+  .stroke-primary,
+  .stroke-primary circle,
+  .stroke-primary ellipse,
+  .stroke-primary line,
+  .stroke-primary path,
+  .stroke-primary polygon,
+  .stroke-primary polyline,
+  .stroke-primary rect{
+    stroke: $secondary;
+  }
+
+  .stroke-secondary,
+  .stroke-secondary circle,
+  .stroke-secondary ellipse,
+  .stroke-secondary line,
+  .stroke-secondary path,
+  .stroke-secondary polygon,
+  .stroke-secondary polyline,
+  .stroke-secondary rect{
+    stroke: $primary;
+  }
+}

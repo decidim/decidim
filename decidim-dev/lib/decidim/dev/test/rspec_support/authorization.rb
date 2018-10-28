@@ -9,6 +9,8 @@ module Decidim
       class Engine < ::Rails::Engine
         isolate_namespace Decidim::Verifications::DummyVerification
 
+        paths["lib/tasks"] = nil
+
         routes do
           root to: proc { [200, {}, ["DUMMY VERIFICATION ENGINE"]] }
           get :edit_authorization, to: proc { [200, {}, ["CONTINUE YOUR VERIFICATION"]] }

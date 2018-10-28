@@ -13,12 +13,10 @@ module Decidim
       @user = current_user
       @organization = current_organization
 
-      if newsletter.sent?
-        @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, newsletter.sent_at) if @user.present?
-        @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
-      else
-        redirect_to "/404"
-      end
+      raise ActionController::RoutingError, "Not Found" unless newsletter.sent?
+
+      @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, newsletter.sent_at) if @user.present?
+      @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
     end
 
     def unsubscribe

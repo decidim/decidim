@@ -11,7 +11,8 @@ module Decidim
       # page        - The page number to paginate the results.
       # per_page    - The number of proposals to return per page.
       def initialize(options = {})
-        super(Meeting.all, options)
+        scope = options.fetch(:scope, Meeting.all)
+        super(scope, options)
       end
 
       # Handle the search_text filter
@@ -28,6 +29,12 @@ module Decidim
         elsif options[:date] == "past"
           query.where("start_time <= ? ", Time.current).order(start_time: :desc)
         end
+      end
+
+      def search_space
+        return query if options[:space].blank? || options[:space] == "all"
+
+        query.joins(:component).where(decidim_components: { participatory_space_type: options[:space].classify })
       end
 
       private

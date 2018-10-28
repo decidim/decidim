@@ -20,7 +20,7 @@ shared_examples "manage assembly members examples" do
     it "creates a new assembly member" do
       find(".card-title a.new").click
 
-      execute_script("$('#date_field_assembly_member_designation_date').focus()")
+      execute_script("$('#assembly_member_designation_date').focus()")
       find(".datepicker-days .active").click
 
       within ".new_assembly_member" do
@@ -49,7 +49,7 @@ shared_examples "manage assembly members examples" do
     it "creates a new assembly member" do
       find(".card-title a.new").click
 
-      execute_script("$('#date_field_assembly_member_designation_date').focus()")
+      execute_script("$('#assembly_member_designation_date').focus()")
       find(".datepicker-days .active").click
 
       within ".new_assembly_member" do

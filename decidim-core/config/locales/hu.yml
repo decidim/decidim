@@ -10,16 +10,15 @@ hu:
         email: Email címed
         name: Neved
         nickname: Rövid, egyedi azonosítód
-        password: Új jelszó
-        password_confirmation: Erősítsd meg az új jelszavad
+        password: Jelszó
+        password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
-        user_group_document_number: Szervezeti dokumentum száma
-        user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefonszáma
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
+      decidim/gamification/badge_earned_event: Megszerzett jelvény
+      decidim/gamification/level_up_event: Szintet léptél
       decidim/profile_updated_event: Profil frissítve
   activerecord:
     attributes:
@@ -30,9 +29,6 @@ hu:
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         remember_me: Emlékezz rám
-        user_group_document_number: Szervezeti dokumentum száma
-        user_group_name: Szervezet neve
-        user_group_phone: Szervezet telefonszáma
     models:
       decidim/user:
         one: Felhasználó
@@ -50,8 +46,14 @@ hu:
     formats:
       decidim_short: "%nap/%hó/%év"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
+      data_portability_export:
+        file_no_exists: Fájl nem létezik
+        invalid_token: A megadott token érvénytelen.
+        no_token: Nincs token megadva
+        notice: Az adatok feldolgozása folyamatban. Kapni fogsz egy emailt, amint kész van.
       delete:
         alert: Ez a művelet nem visszavonható. Ha törlöd a fiókod, akkor nem tudsz bejelentkezni.
         confirm:
@@ -152,6 +154,36 @@ hu:
         name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
       started_at: 'Kezdés: %{timestamp}'
+    authorization_modals:
+      show:
+        expired:
+          authorize: 'Újra engedélyezni ezt: "%{authorization}"'
+          explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
+          title: Az engedélyed lejárt
+        incomplete:
+          cancel: Mégse
+          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
+          invalid_field: "%{field}"
+          reauthorize: Újraengedélyezés
+          title: Kérjük, engedélyezd újra
+        missing:
+          authorize: 'Engedélyezés ezzel: "%{authorization}"'
+          explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
+          title: Engedély szükséges
+        pending:
+          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
+          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
+          title: Engedélyezés folyamatban
+        unauthorized:
+          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
+          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
+          ok: Rendben
+          title: Nem engedélyezett
+        unconfirmed:
+          confirmation_instructions: 'Ha még nem kapta meg a megerősítési utasítást, kérheti újra őket:'
+          explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
+          request_confirmation_instructions: Kérjen megerősítési utasítást
+          title: Erősítsd meg az e-mail címed
     collapsible_list:
       hidden_elements_count:
         one: és még egy
@@ -169,14 +201,46 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
+            resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
             comments_blocked: Megjegyzések letiltva
             dummy_step_attribute_1: Dummy Lépés tulajdonság 1
             dummy_step_attribute_2: Dummy Lépés tulajdonság 2
     contact: Kapcsolat
+    content_blocks:
+      footer_sub_hero:
+        name: Lábléc sub hero banner
+      hero:
+        name: Hero kép
+      highlighted_content_banner:
+        name: Kiemelt banner
+      how_to_participate:
+        name: Így vehetsz részt
+      html:
+        html_content: HTML tartalom
+        name: HTML blokk
+      last_activity:
+        name: Utolsó bejelentkezés, utolsó használat
+        title: Utolsó bejelentkezés, utolsó használat
+        view_all: Összes megtekintése
+      metrics:
+        name: Szervezeti mutatók
+      stats:
+        name: Szervezeti statisztikák
+      sub_hero:
+        name: Sub hero banner
     core:
       actions:
         unauthorized: Nem vagy jogosult a művelet végrehajtására
+    data_portability:
+      export:
+        ready: Kész
+      show:
+        download_data: Töltsd le az adatokat
+        download_data_description: 'A fiókhoz tartozó összes információt a következő email címre: <strong>%{user_email}</strong>'
+        request_data: Adatkérés
+    datepicker:
+      help_text: 'Várható formátum: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -197,8 +261,6 @@ hu:
           sign_up: Regisztráció
           sign_up_as:
             legend: Regisztrálj mint
-            user: Magánszemély
-            user_group: Szervezet/Egyesület
           subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
           terms: a használati feltételek
           tos_agreement: A feliratkozással elfogadod a %{link}.
@@ -212,8 +274,14 @@ hu:
         newsletter_modal:
           buttons:
             check: Ellenőrzés és folytatás
+            close_modal: Modal bezárása
             uncheck: Nincs megjelölve
-          notice: Biztos vagy benne, hogy nem szeretnél hírlevelet kapni? Gondold át mégegyszer a döntést. Számunkra ugyanis nagyon fontos, hogy a leglényegesebb bejelentésekről emailen keresztül értesítsünk mindenkit. A beállításokat ráadásul bármikor módosíthatód az értesítések menüpontban. Amennyiben nem jelölöd be a négyzetet, előfordulhat, hogy lemaradsz a platformon elérhető új lehetőségekről. Ha továbbra sem szeretnél hírleveleket kapni, döntésedet tiszteletben tartjuk. Köszönjük, hogy elolvastad az üzenetet!
+          notice: |-
+            <p>Biztos vagy benne, hogy nem szeretnél hírlevelet kapni?<br>
+            Gondold át mégegyszer a döntést.<br>
+            Számunkra ugyanis nagyon fontos, hogy a leglényeges bejelentésekről emailen keresztül mindenkit értesítsünk. A beállításokat ráadásul bármikor módosíthatód az értesítések menüpontban.</p>
+            <p>Amennyiben nem jelölöd be a négyzetet, előfordulhat, hogy lemaradsz a platformon elérhető új lehetőségekről. Ha továbbra sem szeretnél hírleveleket kapni, döntésedet tiszteletben tartjuk.</p>
+            <p>Köszönjük, hogy elolvastad az üzenetet!</p>
           title: Hírlevél értesítések
         omniauth_buttons:
           or: Vagy
@@ -258,6 +326,17 @@ hu:
         email_intro: 'Frissítés ehhez "%{resource_title}". Innen érheted el:'
         email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
         email_subject: 'Frissítés ehhez: %{resource_title}'
+      gamification:
+        badge_earned:
+          email_intro: 'Szép munka! Megszerezte a(z) <a href="%{resource_url}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
+          email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
+          email_subject: 'Új jelvényed: %{badge_name}!'
+          notification_title: 'Szép munka! Megszerezted a(z) <a href="%{resource_path}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
+        level_up:
+          email_intro: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_url}">%{badge_name} jelvényhez</a>!
+          email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
+          email_subject: Elérted a(z) %{current_level} szintet a %{badge_name} jelvényhez!
+          notification_title: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_path}">%{badge_name} jelvényhez</a>!
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -267,13 +346,17 @@ hu:
           email_subject: "%{nickname} frissítette profilját"
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
     export_mailer:
+      data_portability_export:
+        click_button: 'Kattints a következő gombra az adatok letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.'
+        download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
       subject: A(z) "%{name}" exportálás kész
     filters:
       linked_classes:
         all: Összes
-        dummyresource: Dummy források
+        collaborative_draft: Közös vázlat
+        dummy_resource: Dummy források
         meeting: Találkozók
         project: Projektek
         proposal: Javaslatok
@@ -304,6 +387,76 @@ hu:
       errors:
         error: Hiba van ebben a mezőben.
       remove_this_file: Töröld ezt a fájlt
+    gamification:
+      all_badges_link: Az összes elérhető jelvény megtekintése.
+      badges:
+        continuity:
+          conditions:
+            - Gyere ide gyakran
+          description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
+          description_another: Ez a felhasználó egy adott napon %{score} egymást követő napon keresztül kapcsolódott.
+          description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
+          name: Folytonosság
+          next_level_in: Csatlakoztasson %{score} egymást követő napot, hogy eljusson a következő szintre!
+          unearned_another: Ez a felhasználó több mint egymást követő napon nem jelentkezett be.
+          unearned_own: Nem kapcsolódott több mint egymást követő napon.
+        followers:
+          conditions:
+            - Az aktív és más emberek követése biztosan másokat követni fog.
+          description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. %{organization_name} egy társadalmi és politikai hálózat, szövik a webet, hogy kommunikáljon más emberekkel a platformon.
+          description_another: Ennek a felhasználónak %{score} követője van.
+          description_own: "%{score} felhasználó követi Önt."
+          name: Követő
+          next_level_in: Get %{score} több felhasználó követni, hogy a következő szintre!
+          unearned_another: Ennek a felhasználónak még nincsenek követői.
+          unearned_own: Még nincsenek követői.
+        index:
+          badge_title: "%{name} jelvény"
+          how: Hogyan lehet keresni?
+          page_description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz. Itt van a jelvények listája, és néhány módon, amiket kereshet.
+          title: Kitűzők
+        invitations:
+          conditions:
+            - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
+            - Testreszabása, ha szeretné, az elküldött üzenetet
+            - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
+          description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és kis időbe telik, hogy regisztráljon %{organization_name} és részt vegyen. Köszönjük, hogy %{organization_name} ismertek mások, és segít bővíteni a közösség!
+          description_another: Felhasználó meghívott %{score} felhasználókat.
+          description_own: Meghívtál %{score} felhasználótkat.
+          name: Meghívók
+          next_level_in: Hívj meg több %{score} felhasználót a következő szint eléréséhez!
+          unearned_another: Ez a felhasználó még nem hívott meg senkit.
+          unearned_own: Még nem hívtál meg felhasználókat.
+      description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
+      level: '%{level} szint'
+      reached_top: Elérted a jelvény legmagasabb szintjét.
+    groups:
+      create:
+        error: Hiba történt a szervezet létrehozásában
+        success: A szervezet sikeresen létrejött
+      new:
+        create_user_group: Hozzon létre szervezetet
+        new_user_group: Új szervezet
+      no_user_groups: Még nem tartozik semmiféle szervezethez.
+    invitations:
+      create:
+        error: Problémák adódtak a barátok meghívása közben
+        error_empty_form: Adj meg néhány email címet
+        success: Elküldtük a meghívókat a barátaidnak!
+      index:
+        customize_message: Meghívó üzenet testreszabása
+        friend_email: 'Barát #%{index} email'
+        invitations_subtitle: Szólj barátaidnak az oldal létezéséről
+        invitations_title: Szerinted többet kelleni hallani a %{organization_name} szervezetről?
+        invite: Meghívás
+        visit_your_profile: Profil oldalad
+    last_activities:
+      activities:
+        no_activities_warning: Nincs aktivitás
+      all: Valamennyi tevékenységtípus
+      index:
+        last_activity: Utolsó bejelentkezés, utolsó használat
+        resource_type: típus
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"
@@ -325,6 +478,8 @@ hu:
           not_found: 'A hatáskör típus nem található az adatbázisban (ID: %{id})'
     managed_users:
       expired_session: A jelenlegi megszemélyesítő munkamenet lejárt.
+    members:
+      no_members: Ennek a felhasználói csoportnak még nincs tagja.
     menu:
       home: Kezdőlap
       more_information: További információk
@@ -344,18 +499,22 @@ hu:
         create:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
+          from: Feladó
+          last_message_html: Utolsó üzenet <strong>%{time}-ja</strong>
           no_conversations: Még nincsenek beszélgetések
-          title: Beszélgetések
-        reply:
-          send: Küldés
-          title: Válasz
         show:
-          title: 'Beszélgetés vele: %{usernames}'
+          conversation_with_html: 'Beszélgetés vele: <strong>%{name}</strong>'
+          reply: Válasz
+          send: Küldés
         start:
           send: Küldés
           title: Beszélgetés indítása
         update:
           error: Üzenet elküldése sikertelen. Próbáld újra később
+    metrics:
+      users:
+        object: felhasználók
+        title: felhasználók
     newsletter_mailer:
       newsletter:
         note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
@@ -368,6 +527,20 @@ hu:
         success: A leiratkozásod sikeres volt.
         token_error: A link sajnos lejárt.
         unsubscribe: Leiratkozás
+    newsletters_opt_in:
+      unathorized: Sajnos ez a link már nem elérhető
+      update:
+        error: Valami hiba történt
+        success: Hírlevél beállításainak frissítése sikeres
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: A személyes adatok védelme és feldolgozása egyre fontosabbá válik mindannyiunk számára. A 2018. május 25-én kiadott új általános adatvédelmi rendelet (GDPR) lehetővé teszi, hogy személyes adatainkat jobban ellenőrizhessük. Emiatt van szükségünk a jóváhagyásodra a %{organization_name} nevű szervezettel kapcsolatban.
+        body_2: 'Hogyan tudsz beleegyezni? Egyszerűen kattints erre a gombra:'
+        body_3: Amennyiben beleegyezel, akkor továbbra is elküldjük neked a platform szolgáltatásaival kapcsolatos fontos információkat. Ha nem értesz egyet, akkor többé nem küldünk ilyen üzeneteket. Jóllehet, miután megerősítetted a szándékod, hogy továbbra is szeretnél tájékoztatást kapni, bármikor visszavonhatod a döntésed.
+        button: Igen, továbbra is szeretnék fontos információkat kapni
+        greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Helló!
+        subject: 'Szeretnél továbbra is fontos információkat kapni róluk: a %{organization_name}?'
     notifications:
       no_notifications: Még nincs értesítés.
     notifications_settings:
@@ -401,10 +574,13 @@ hu:
         hero:
           participate: Részvétel
           welcome: Üdvözöli a %{organization}!
+        metrics:
+          headline: Részvétel számokban
         statistics:
           answers_count: Befejezett felmérések
           assemblies_count: Gyűlések
           comments_count: Hozzászólások
+          conferences_count: Konferenciák
           debates_count: Viták
           endorsements_count: Jóváhagyások
           headline: A %{organization} jelenlegi állapota
@@ -435,6 +611,7 @@ hu:
           modal_btn_continue: Elfogadom és tovább lépek
           modal_btn_exit: Később átnézem
           modal_button: Elutasítom a feltételeket
+          modal_close: Modal bezárása
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
           alert: Frissítettük az ÁSZF szövegét. Kérlek, nézd át ezeket.
@@ -446,12 +623,22 @@ hu:
       deleted: Törölt felhasználó
       view: Nézet
     profiles:
-      default_officialization_text: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
+      default_officialization_text_for_user_groups: Ez a felhasználói csoport nyilvánosan ellenőrzött, annak neve igazoltan megfelel a valódi nevének
+      default_officialization_text_for_users: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
       show:
+        badges: Jelvények
+        conversations: Beszélgetések
         followers: Követők
         following: Követés
+        groups: szervezetek
+        members: Belépés
         notifications: Értesítések
+      sidebar:
+        badges:
+          info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
+          title: Kitűzők
       user:
+        create_user_group: Hozzon létre szervezetet
         edit_profile: Profil szerkesztése
     reported_mailer:
       hide:
@@ -491,30 +678,6 @@ hu:
         filter_by: 'Szűrés ez alapján:'
         unfold: Kibont
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: 'Újra engedélyezni ezt: "%{authorization}"'
-          explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
-          title: Az engedélyed lejárt
-        incomplete:
-          cancel: Mégse
-          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
-          invalid_field: "%{field}"
-          reauthorize: Újraengedélyezés
-          title: Kérjük, engedélyezd újra
-        missing:
-          authorize: 'Engedélyezés ezzel: "%{authorization}"'
-          explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
-          title: Engedély szükséges
-        pending:
-          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
-          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
-          title: Engedélyezés folyamatban
-        unauthorized:
-          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
-          ok: Ok
-          title: Nem engedélyezett
       embed_modal:
         close_window: Ablak bezárása
         embed: Illeszd be ezt a kódot az oldaladba
@@ -544,29 +707,70 @@ hu:
       version_author:
         deleted: Törölt felhasználó
   devise:
+    confirmations:
+      confirmed: E-mail címed sikeresen meg lett erősítve.
+      new:
+        resend_confirmation_instructions: A visszaigazolási utasítások újraküldése
+      send_instructions: Az e-mail címének néhány perc múlva történő megerősítésével kapcsolatban e-mailt kap.
+      send_paranoid_instructions: Ha az Ön e-mail címe létezik az adatbázisunkban, néhány perc múlva kap egy e-mailt az utasítások megerősítésével.
+    failure:
+      already_authenticated: Már be van jelentkezve.
+      inactive: Fiókod nincs aktiválva.
+      invalid: Érvénytelen %{authentication_keys} vagy jelszó.
+      invited: Van egy függőben lévő meghívója, fogadja el, hogy befejezze a fiók létrehozását.
+      last_attempt: Még egy kísérlet van még a fiók zárolása előtt.
+      locked: A fiókja zárolva van.
+      not_found_in_database: Érvénytelen %{authentication_keys} vagy jelszó.
+      timeout: A munkamenet lejárt. Kérjük, jelentkezzen be újra a folytatáshoz.
+      unauthenticated: Jelentkezzen be, vagy regisztráljon, mielőtt folytatja.
     invitations:
       edit:
         header: Profil létrehozásának befejezése
         nickname_help: 'Egyedi azonosítód ehhez: %{organization}.'
         submit_button: Mentés
         subtitle: Ha elfogadod a meghívást, állítsd be a beceneved és a jelszavad.
+      invitation_removed: Meghívása eltávolításra került.
+      invitation_token_invalid: A megadott hívásjelző nem érvényes!
+      new:
+        header: Meghívás küldése
+        submit_button: Küldjön meghívót
+      no_invitations_remaining: Nincsenek meghívók
+      send_instructions: Meghívó e-mailt küldött %{email}.
+      updated: A jelszó sikeresen be lett állítva. Most bejelentkezett.
+      updated_not_active: A jelszó sikeresen be lett állítva.
     mailer:
+      confirmation_instructions:
+        action: Fiókom megerősítése
+        greeting: Üdvözöljük %{recipient}!
+        instruction: 'Fiókjának e-mailjeit az alábbi linken keresztül erősítheti meg:'
+        subject: Megerősítési utasítások
+      email_changed:
+        greeting: Hello %{recipient}!
+        message: Értesítjük Önt, hogy értesíti Önt, hogy az e-mail címét %{email}változott.
+        subject: E-mail megváltozott
       invitation_instructions:
         accept: Meghívó elfogadása
         accept_until: 'Ez a meghívás eddig érvényes: %{due_date}.'
+        decline: Meghívó visszautasítása
         hello: Helló %{email}!
         ignore: |-
           Ha nem akarod elfogadni a meghívást, hagyd figyelmen kívül ezt az e-mailt.<br />
           A fiók addig nem jön létre, amíg meg nem nyitod a fenti linket és állítasz be jelszót.
         invited_you_as_admin: "%{invited_by} meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
+        invited_you_as_friend: "%{invited_by} meghívott ide: %{application}."
         invited_you_as_private_user: "%{invited_by} meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
         someone_invited_you: 'Valaki meghívott, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_admin: 'Valaki meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_private_user: 'Valaki meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
+        subject: Meghívó utasítások
       invite_admin:
         subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
       invite_collaborator:
         subject: 'Meghívás együttműködésre ebben: %{organization}'
+      invite_friend:
+        accept_invitation: 'A meghívást az alábbi linken keresztül fogadhatja el:'
+        friend_custom_text: 'Ezt az üzenetet hagyták neked:'
+        subject: 'Meghívást kaptál ide: %{organization}'
       invite_private_user:
         subject: Meghívtak egy privát részvételi folyamatban részvételre (%{organization})
       organization_admin_invitation_instructions:
@@ -575,20 +779,101 @@ hu:
         greeting: Helló %{recipient}!
         message: Azért kaptad ezt az üzenetet, mert megváltozott a jelszavad.
         subject: Jelszó módosítva
+      reset_password_instructions:
+        action: A jelszó megváltoztatása
+        greeting: Hello %{recipient}!
+        instruction: Valaki felkért egy linket a jelszó megváltoztatására, és ezt az alábbi linken keresztül teheti meg.
+        instruction_2: Ha nem kérte ezt, kérjük, figyelmen kívül hagyja ezt az e-mailt.
+        instruction_3: A jelszavát addig nem változtatják meg, amíg nem érjük el a fenti linket, és nem hozunk létre újat.
+        subject: Jelszó-visszaállító utasítások visszaállítása
+      unlock_instructions:
+        action: Fiókom feloldása
+        greeting: Hello %{recipient}!
+        instruction: 'A fiók feloldásához kattintson az alábbi linkre:'
+        message: Fiókját lezárták, mert túl sok sikertelen bejelentkezési kísérlet történt.
+        subject: Feloldási utasítások
+    omniauth_callbacks:
+      failure: Nem sikerült hitelesíteni Önt a %{kind} mert "%{reason}".
+      success: Sikeresen hitelesített %{kind} fiókból.
+    passwords:
+      edit:
+        change_my_password: A jelszó megváltoztatása
+        change_your_password: változtasd meg a jelszavadat
+        confirm_new_password: Erősítse meg az új jelszót
+        new_password: Új jelszó
+      new:
+        forgot_your_password: Elfelejtette a jelszavát?
+        send_me_reset_password_instructions: Küldje el a jelszavas utasítások visszaállítását
+      no_token: Nem érheted el ezt az oldalt jelszó-visszaállító e-mail üzenetek nélkül. Ha jelszó-alaphelyzetbe állított e-mailből származik, kérjük, győződjön meg róla, hogy a teljes URL-t használja.
+      send_instructions: Kap egy e-mailt, amely néhány percen belül megtudja, hogyan állíthatja vissza jelszavát.
+      send_paranoid_instructions: Ha az Ön e-mail címe létezik adatbázisunkban, néhány perc múlva jelszó-visszaállítási linket kap az e-mail címére.
+      updated: A jelszó sikeresen megváltozott. Most bejelentkezett.
+      updated_not_active: A jelszó sikeresen megváltozott.
+    registrations:
+      destroyed: Viszlát! Fiókját sikeresen töröltük. Reméljük, hamarosan újra találkozunk.
+      edit:
+        are_you_sure: biztos vagy ebben?
+        cancel_my_account: A fiókom visszavonása
+        currently_waiting_confirmation_for_email: 'Jelenleg várakozó visszaigazolás: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: hagyja üresen, ha nem akarja megváltoztatni
+        title: Edit %{resource}
+        unhappy: Boldogtalan?
+        update: frissítés
+        we_need_your_current_password_to_confirm_your_changes: a változtatások megerősítéséhez a jelenlegi jelszóra van szükségünk
+      new:
+        sign_up: Regisztrálj
+      signed_up: Üdvözöljük! Sikeresen regisztráltál.
+      signed_up_but_inactive: Sikeresen regisztráltál. Azonban nem tudtunk bejelentkezni, mert fiókja még nincs aktiválva.
+      signed_up_but_locked: Sikeresen regisztráltál. Azonban nem tudtunk bejelentkezni, mert fiókja zárolva van.
+      signed_up_but_unconfirmed: A megerősítő linkre küldött üzenetet elküldtük e-mail címére. Kérjük, kövesse a linket a fiók aktiválásához.
+      update_needs_confirmation: Fiókját sikeresen frissítette, de ellenőrizni kell az új e-mail címét. Kérjük, ellenőrizze az e-mail címét, és kövesse a megerősítő hivatkozást az új e-mail cím megerősítéséhez.
+      updated: Fiókja sikeresen frissült.
+    sessions:
+      already_signed_out: Kijelentkezett sikeresen.
+      new:
+        sign_in: Belépés
+      signed_in: Bejelentkezett sikeresen.
+      signed_out: Kijelentkezett sikeresen.
+    shared:
+      links:
+        back: Hát
+        didn_t_receive_confirmation_instructions: Nem kapott megerősítési utasítást?
+        didn_t_receive_unlock_instructions: Nem kapott feloldási utasítást?
+        forgot_your_password: Elfelejtette a jelszavát?
+        sign_in: Belépés
+        sign_in_with_provider: Jelentkezzen be %{provider}
+        sign_up: Regisztrálj
+      minimum_password_length:
+        one: "(Legalább%{count} karakter)"
+        other: "(Legalább%{count} karakter)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Feloldási utasítások újraküldése
+      send_instructions: Néhány perc múlva megkapja az e-mailt, és útmutatást ad a fiók feloldásához.
+      send_paranoid_instructions: Ha fiókod létezik, néhány perc múlva kapsz egy e-mailt, amely leírja, hogyan kell feloldani.
+      unlocked: A fiókot sikeresen feloldottuk. Kérjük, jelentkezzen be a folytatáshoz.
   doorkeeper:
     scopes:
       public: Nyilvános információk.
   errors:
     messages:
+      already_confirmed: már megerősítették, kérjük, próbáljon meg bejelentkezni
+      confirmation_period_expired: meg kell erősíteni %{period}, kérem, kérjen újat
       content_type_whitelist_error: érvénytelen fájltípus
       cycle_detected: a hatáskör parentje nem lehet ahhoz kötőd elem
+      expired: lejárt, kérjen újat
       file_size_is_less_than_or_equal_to: 'fájlméret maximum ekkora lehet: %{count}'
-      long_words: túl hosszú szavakat tartalmaz
-      must_start_with_caps: csak nagybetűvel kezdődhet
+      long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
+      must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
-      too_many_marks: túl sok jelet használsz
-      too_much_caps: túl sok nagybetűt használsz
-      too_short: túl rövid
+      not_found: nem található
+      not_locked: nem volt zárva
+      not_saved:
+        one: '1 hiba tiltotta, hogy ez a %{resource} mentése:'
+        other: "%{count} hiba tiltotta, hogy ez az %{resource} mentése:"
+      too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
+      too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
+      too_short: túl rövid (15 karakterig)
   forms:
     required: Kötelező
   invisible_captcha:
@@ -600,6 +885,8 @@ hu:
         description_html: 'Ez az oldal cookie-kat használ. A böngészés folytatásával elfogadod a cookie-k használatát. Tudjon meg többet: %{link}.'
         link_label: itt
         ok: Elfogadom
+      edit_link:
+        edit: Szerkesztés
       footer:
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
       header:
@@ -616,6 +903,7 @@ hu:
       user_menu:
         admin_dashboard: Admin vezérlőpult
         conversations: Beszélgetések
+        invite_friends: Barátok meghívása
         notifications: Értesítések
         profile: Fiókom
         public_profile: Nyilvános profilom
@@ -624,6 +912,7 @@ hu:
         account: Fiók
         authorizations: Engedélyezések
         delete_my_account: Fiók törlése
+        my_data: Adataim
         notifications_settings: Értesítési beállítások
         title: Felhasználói beállítások
         user_groups: Szervezetek
@@ -631,6 +920,16 @@ hu:
         see_more: Tovább
   locale:
     name: English
+  password_validator:
+    domain_included_in_password: túl hasonló a domain névhez
+    email_included_in_password: túl hasonló az email címhez
+    fallback: érvénytelen
+    name_included_in_password: túlságosan hasonlít a nevedhez
+    not_enough_unique_characters: nem tartalmaz elegendő egyedi karaktert
+    password_not_allowed: nem engedélyezett
+    password_too_common: túl gyakori
+    password_too_long: túl hosszú
+    password_too_short: túl rövid
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -655,9 +954,14 @@ hu:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:

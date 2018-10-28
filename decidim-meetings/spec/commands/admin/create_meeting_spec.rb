@@ -55,7 +55,8 @@ module Decidim::Meetings
         transparent: transparent,
         services_to_persist: services_to_persist,
         current_user: current_user,
-        current_component: current_component
+        current_component: current_component,
+        current_organization: organization
       )
     end
 
@@ -109,7 +110,7 @@ module Decidim::Meetings
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Meeting, current_user, kind_of(Hash))
+          .with(Meeting, current_user, kind_of(Hash), visibility: "all")
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

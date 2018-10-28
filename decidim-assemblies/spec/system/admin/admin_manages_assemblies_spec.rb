@@ -70,7 +70,7 @@ describe "Admin manages assemblies", type: :system do
     end
 
     it "deletes an assembly" do
-      accept_confirm { click_link "Destroy" }
+      accept_confirm { click_link "Delete" }
 
       expect(page).to have_admin_callout("successfully")
 

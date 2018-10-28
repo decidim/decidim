@@ -25,7 +25,12 @@ module Decidim
     end
 
     def permitted_paths?
-      permitted_paths = [tos_path, decidim.delete_account_path, decidim.accept_tos_path]
+      permitted_paths = [tos_path,
+                         decidim.delete_account_path,
+                         decidim.accept_tos_path,
+                         decidim.data_portability_path,
+                         decidim.export_data_portability_path,
+                         decidim.download_file_data_portability_path]
       permitted_paths.include?(request.path)
     end
 

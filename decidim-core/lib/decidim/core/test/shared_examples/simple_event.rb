@@ -28,7 +28,13 @@ shared_context "when a simple event" do
   let(:participatory_space_title) { participatory_space.title["en"] }
   let(:participatory_space_path) { Decidim::ResourceLocatorPresenter.new(participatory_space).path }
   let(:participatory_space_url) { Decidim::ResourceLocatorPresenter.new(participatory_space).url }
-  let(:author) { resource.author }
+  let(:author) do
+    if resource.respond_to?(:creator_author)
+      resource.creator_author
+    else
+      resource.author
+    end
+  end
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
   let(:i18n_scope) { event_name }
 end

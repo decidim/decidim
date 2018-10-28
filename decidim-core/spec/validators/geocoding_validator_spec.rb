@@ -32,10 +32,7 @@ describe GeocodingValidator do
 
   context "when the address is valid" do
     before do
-      Geocoder::Lookup::Test.add_stub(
-        address,
-        [{ "latitude" => latitude, "longitude" => longitude }]
-      )
+      stub_geocoding(address, [latitude, longitude])
     end
 
     it "uses Geocoder to compute its coordinates" do
@@ -49,7 +46,7 @@ describe GeocodingValidator do
     let(:address) { "The post-apocalyptic Land of Ooo" }
 
     before do
-      Geocoder::Lookup::Test.add_stub(address, [])
+      stub_geocoding(address, [])
     end
 
     it { is_expected.to be_invalid }

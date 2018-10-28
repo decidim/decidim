@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe "Account", type: :system do
-  let(:user) { create(:user, :confirmed, password: "password1234", password_confirmation: "password1234") }
+  let(:user) { create(:user, :confirmed, password: password, password_confirmation: password) }
+  let(:password) { "dqCFgjfDbC7dPbrv" }
   let(:organization) { user.organization }
 
   before do
@@ -150,7 +151,7 @@ describe "Account", type: :system do
 
         within ".new_user" do
           fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
+          fill_in :user_password, with: password
           find("*[type=submit]").click
         end
 

@@ -26,6 +26,9 @@ module Decidim
         return broadcast(:invalid) unless vote.valid?
 
         vote.save!
+
+        Decidim::Gamification.increment_score(@current_user, :proposal_votes)
+
         broadcast(:ok, vote)
       end
 

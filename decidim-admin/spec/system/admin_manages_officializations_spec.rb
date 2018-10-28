@@ -18,6 +18,11 @@ describe "Admin manages officializations", type: :system do
     let!(:officialized) { create(:user, :officialized, organization: organization) }
 
     let!(:not_officialized) { create(:user, organization: organization) }
+    let!(:deleted) do
+      user = create(:user, organization: organization)
+      result = Decidim::DestroyAccount.call(user, OpenStruct.new(valid?: true, delete_reason: "Testing"))
+      result["ok"]
+    end
     let!(:external_not_officialized) { create(:user) }
 
     before do
@@ -158,7 +163,7 @@ describe "Admin manages officializations", type: :system do
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link user.name
       end
-      expect(page).to have_current_path decidim.profile_path(user.nickname)
+      expect(page).to have_current_path decidim.profile_following_path(user.nickname)
     end
   end
 
@@ -173,7 +178,7 @@ describe "Admin manages officializations", type: :system do
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link user.nickname
       end
-      expect(page).to have_current_path decidim.profile_path(user.nickname)
+      expect(page).to have_current_path decidim.profile_following_path(user.nickname)
     end
   end
 end

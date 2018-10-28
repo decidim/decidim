@@ -13,8 +13,8 @@ module Decidim
         attribute :gender, String
         attribute :birthday, Decidim::Attributes::TimeWithZone
         attribute :birthplace, String
-        attribute :ceased_date, Decidim::Attributes::TimeWithZone
-        attribute :designation_date, Decidim::Attributes::TimeWithZone
+        attribute :ceased_date, Decidim::Attributes::LocalizedDate
+        attribute :designation_date, Decidim::Attributes::LocalizedDate
         attribute :designation_mode, String
         attribute :position, String
         attribute :position_other, String

@@ -43,7 +43,7 @@ es:
         actions:
           destroy: Cancelar el sorteo
           edit: Editar
-          new: Nuevo
+          new: Nuevo sorteo.
           show: Detalles de la clasificación
         models:
           sortition:

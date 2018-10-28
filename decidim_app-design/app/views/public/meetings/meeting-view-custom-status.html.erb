@@ -9,11 +9,12 @@
 <main>
   <div class="wrapper">
     <%= partial "process_header" %>
+    <div class="row column view-header">
+      <h2 class="heading2">Cooperatives i economia solidària</h2>
+      <%= partial "author_data", { extra: true } %>
+    </div>
     <div class="row">
       <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-        <div class="section">
-          <%= partial "followme" %>
-        </div>
         <div class="card text-center">
           <div class="card__content">
             <div class="extra__date">20 <span class="extra__month text-small">Agosto</span></div>
@@ -42,13 +43,10 @@
             </div>
           <% end %>
         </div>
+        <%= partial "followme" %>
         <%= partial "share" %>
       </div>
       <div class="columns mediumlarge-8 mediumlarge-pull-4">
-        <div class="row column view-header">
-          <h2 class="heading2">Cooperatives i economia solidària</h2>
-          <%= partial "author_data", { extra: true } %>
-        </div>
         <div class="row column">
           <div class="callout warning mb-sm">
             <p><%= Faker::StarWars.quote %></p>

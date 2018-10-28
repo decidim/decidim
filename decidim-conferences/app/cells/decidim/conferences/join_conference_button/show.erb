@@ -1,0 +1,25 @@
+<% if model.registrations_enabled? %>
+  <% if model.has_registration_for? current_user %>
+    <% if allowed? %>
+      <%= button_to conference_conference_registration_path(model),
+          method: :delete,
+          class: "#{button_classes} secondary light",
+          data: { disable: true } do %>
+        <%= icon("check", class: "icon--small") %>
+        <%= t("going", scope: "decidim.conferences.conference.show") %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= render :registration_confirm %>
+    <% if allowed? %>
+      <%= button_to i18n_join_text, "",
+          class: button_classes,
+          disabled: !model.has_available_slots?,
+          onclick: "event.preventDefault()",
+          data: { open: current_user.present? ? "conference-registration-confirm-#{model.id}" : "loginModal" } %>
+    <% end %>
+  <% end %>
+  <% if shows_remaining_slots? %>
+    <span><%= t("remaining_slots", scope: "decidim.conferences.conference.show", count: model.remaining_slots) %></span>
+  <% end %>
+<% end %>

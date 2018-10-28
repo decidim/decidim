@@ -9,7 +9,7 @@ module Decidim
 
     included do
       def demodulized_name
-        self.class.name.demodulize
+        @demodulized_name ||= self.class.name.demodulize
       end
 
       delegate :foreign_key, to: :demodulized_name

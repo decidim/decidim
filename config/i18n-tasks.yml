@@ -86,7 +86,7 @@ search:
 
 # Do not consider these keys missing:
 ignore_missing:
-  - '{devise,components}.*'
+  - components.*
   - email_subject
   - email_intro
   - email_outro
@@ -94,6 +94,7 @@ ignore_missing:
 
 # Consider these keys used:
 ignore_unused:
+  - devise.*
   - activemodel.attributes.*
   - activemodel.errors.*
   - activemodel.models.*
@@ -129,6 +130,7 @@ ignore_unused:
   - decidim.debates.admin_log.*
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
+  - decidim.budgets.admin.models.project.name
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
@@ -146,6 +148,30 @@ ignore_unused:
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
   - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.admin.models.*.name
+  - decidim.admin.models.*.name.*
+  - password_validator.*
+  - decidim.participatory_processes.participatory_processes.filters.*
+  - decidim.participatory_processes.pages.home.highlighted_processes.*
+  - decidim.consultations.pages.home.highlighted_consultations.*
+  - decidim.assemblies.pages.home.highlighted_assemblies.*
+  - decidim.initiatives.pages.home.highlighted_initiatives.*
+  - decidim.content_blocks.*.name
+  - decidim.participatory_processes.content_blocks.*.name
+  - decidim.assemblies.content_blocks.*.name
+  - decidim.initiatives.content_blocks.*.name
+  - decidim.consultations.content_blocks.*.name
+  - decidim.meetings.content_blocks.*.name
+  - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
+  - decidim.proposals.collaborative_drafts.orders*
+  - decidim.proposals.collaborative_drafts.filters*
+  - decidim.proposals.collaborative_drafts.show.withdraw
+  - decidim.proposals.collaborative_drafts.show.publish
+  - decidim.conferences.content_blocks.*.name
+  - decidim.conferences.pages.home.highlighted_conferences.*
+  - decidim.conferences.conference_speaker.*
+  - decidim.conferences.statistics.*
+  - decidim.gamification.badges.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

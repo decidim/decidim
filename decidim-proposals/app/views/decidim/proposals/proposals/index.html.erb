@@ -1,7 +1,7 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <% if component_settings.geocoding_enabled? %>
-  <%= dynamic_map_for proposals_data_for_map(geocoded_proposals) do %>
+  <%= dynamic_map_for proposals_data_for_map(@proposals.select(&:geocoded?)) do %>
     <template id="marker-popup">
       <div class="map-info__content">
         <h3>${title}</h3>
@@ -43,6 +43,10 @@
         <%= t(".new_proposal") %>
         <%= icon "plus" %>
       </span>
+    <% end %>
+
+    <% if component_settings.collaborative_drafts_enabled? %>
+      <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
     <% end %>
   </div>
 </div>

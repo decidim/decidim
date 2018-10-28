@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages newsletters", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization: organization) }
-  let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications: true, organization: organization) }
+  let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -127,14 +127,14 @@ describe "Admin manages newsletters", type: :system do
     end
   end
 
-  describe "destroy a newsletter" do
+  describe "deleting a newsletter" do
     let!(:newsletter) { create(:newsletter, organization: organization) }
 
-    it "destroys a newsletter" do
+    it "deletes a newsletter" do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        accept_confirm { click_link "Destroy" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_content("successfully")

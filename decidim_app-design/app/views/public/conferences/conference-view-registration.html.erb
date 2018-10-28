@@ -1,0 +1,120 @@
+<% @activesection = "home" %>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "conferences_hero" %>
+  <section class="wrapper-home">
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 large-3">
+        <%= partial "conferences_nav" %>
+      </div>
+      <div class="columns mediumlarge-8">
+        <section class="section">
+          <h1 class="section-heading">Registro-1</h1>
+          <div class="row" data-equalizer>
+            <div class="column medium-6">
+              <div class="card p-m" data-equalizer-watch>
+                <p>¿Ya tienes cuenta en decidim?</p>
+                <a href="">Haz login para realizar tu registro en esta conferencia</a>
+              </div>
+            </div>
+            <div class="column medium-6">
+              <div class="card p-m" data-equalizer-watch>
+                <p>¿Nuevo usuario?</p>
+                <a href="">Regístrate gratis en decidim para realizar tu registro</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <h1 class="section-heading">Registro-2</h1>
+          <p>Estas logueado como <%= Faker::Name.name %>&nbsp;&#60;<%= Faker::Internet.email %>&#62;</p>
+          <p>Elige tu opción de registro:</p>
+          <div class="conference-registration card__block">
+            <div class="row flex--cc">
+              <div class="columns medium-8">
+                <div class="registration__text">
+                  <strong>Conferencia completa</strong>
+                  <span>Descripción de lo que incluye este paquete, que se podría extender varias lineas si fuese necesario. O no. Quién sabe. </span>
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="registration__buttons">
+                  <button type="button" class="small-5 small"><strong>200€</strong></button>
+                  <button type="button" class="button small-7 button--sc small">Registro</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conference-registration card__block">
+            <div class="row flex--cc">
+              <div class="columns medium-8">
+                <div class="registration__text">
+                  <strong>Día 1</strong>
+                  <span>Los temas a tratar hoy son este y este, si hay tiempo se hablará de este otro.</span>
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="registration__buttons">
+                  <button type="button" class="small-5 small"><strong>50€</strong></button>
+                  <button type="button" class="button small-7 button--sc small">Registro</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conference-registration card__block">
+            <div class="row flex--cc">
+              <div class="columns medium-8">
+                <div class="registration__text">
+                  <strong>Día 2</strong>
+                  <span>Los temas a tratar hoy son este y este, si hay tiempo se hablará de este otro.</span>
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="registration__buttons">
+                  <button type="button" class="small-5 small"><strong>50€</strong></button>
+                  <button type="button" class="button small-7 button--sc small">Registro</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conference-registration card__block">
+            <div class="row flex--cc">
+              <div class="columns medium-8">
+                <div class="registration__text">
+                  <strong>Día 3</strong>
+                  <span>Los temas a tratar hoy son este y este, si hay tiempo se hablará de este otro.</span>
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="registration__buttons">
+                  <button type="button" class="small-5 small"><strong>50€</strong></button>
+                  <button type="button" class="button small-7 button--sc small">Registro</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conference-registration card__block">
+            <div class="row flex--cc">
+              <div class="columns medium-8">
+                <div class="registration__text">
+                  <strong>Conferencia completa + alojamiento</strong>
+                  <span>Los temas a tratar hoy son este y este, si hay tiempo se hablará de este otro.</span>
+                </div>
+              </div>
+              <div class="columns medium-4">
+                <div class="registration__buttons">
+                  <button type="button" class="small-5 small"><strong>250€</strong></button>
+                  <button type="button" class="button small-7 button--sc small">Registro</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%= partial "template_bottom" %>

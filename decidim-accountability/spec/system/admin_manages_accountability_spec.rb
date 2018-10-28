@@ -19,18 +19,18 @@ describe "Admin manages accountability", type: :system do
   end
 
   describe "child results" do
-    it_behaves_like "manage child results"
-
     before do
       click_link translated(result.title)
     end
+
+    it_behaves_like "manage child results"
   end
 
   describe "statuses" do
-    it_behaves_like "manage statuses"
-
     before do
       click_link "Statuses"
     end
+
+    it_behaves_like "manage statuses"
   end
 end

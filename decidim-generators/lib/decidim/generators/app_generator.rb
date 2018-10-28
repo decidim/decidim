@@ -82,6 +82,10 @@ module Decidim
         template "README.md.erb", "README.md", force: true
       end
 
+      def license
+        template "LICENSE-AGPLv3.txt", "LICENSE-AGPLv3.txt"
+      end
+
       def gemfile
         return if options[:skip_gemfile]
 
@@ -106,13 +110,15 @@ module Decidim
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-consultations".*/, "gem \"decidim-consultations\", #{gem_modifier}"
             gsub_file "Gemfile", /gem "decidim-initiatives".*/, "gem \"decidim-initiatives\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-conferences".*/, "gem \"decidim-conferences\", #{gem_modifier}"
           else
             gsub_file "Gemfile", /gem "decidim-consultations".*/, "# gem \"decidim-consultations\", #{gem_modifier}"
             gsub_file "Gemfile", /gem "decidim-initiatives".*/, "# gem \"decidim-initiatives\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-conferences".*/, "# gem \"decidim-conferences\", #{gem_modifier}"
           end
         end
 
-        Bundler.with_original_env { run "bundle install" }
+        run "bundle install"
       end
 
       def tweak_bootsnap
@@ -126,8 +132,8 @@ module Decidim
             development_mode: env == "development",
             load_path_cache: true,
             autoload_paths_cache: true,
-            disable_trace: true,
-            compile_cache_iseq: false,
+            disable_trace: false,
+            compile_cache_iseq: !ENV["SIMPLECOV"],
             compile_cache_yaml: true
           )
         RUBY

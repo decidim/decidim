@@ -13,7 +13,7 @@ hu:
           error: Hiba történt egy új rendszergazda létrehozásakor.
           success: Admin létrehozása sikeres
         destroy:
-          success: Az admin törlése sikeres volt
+          success: Admin törlése sikeres
         edit:
           title: Admin szerkesztése
           update: Frissítés

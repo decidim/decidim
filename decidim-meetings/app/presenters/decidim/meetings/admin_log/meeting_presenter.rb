@@ -15,6 +15,10 @@ module Decidim
       class MeetingPresenter < Decidim::Log::BasePresenter
         private
 
+        def resource_presenter
+          @resource_presenter ||= Decidim::Meetings::Log::ResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
+        end
+
         def diff_fields_mapping
           {
             address: :string,
@@ -22,12 +26,12 @@ module Decidim
             attending_organizations: :string,
             closed_at: :date,
             closing_report: :i18n,
-            description: :i18n,
+            description: "Decidim::Meetings::AdminLog::ValueTypes::MeetingTitleDescriptionPresenter",
             end_date: :date,
             location: :i18n,
             location_hints: :i18n,
             start_date: :date,
-            title: :i18n,
+            title: "Decidim::Meetings::AdminLog::ValueTypes::MeetingTitleDescriptionPresenter",
             private_meeting: :boolean,
             transparent: :boolean,
             organizer_id: "Decidim::Meetings::AdminLog::ValueTypes::OrganizerPresenter"

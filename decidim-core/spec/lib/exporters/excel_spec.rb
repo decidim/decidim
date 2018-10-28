@@ -27,8 +27,8 @@ module Decidim
 
     let(:collection) do
       [
-        OpenStruct.new(id: 1, name: { ca: "foocat", es: "fooes" }, ids: [1, 2, 3], float: 1.66, date: DateTime.civil(2017, 10, 1, 5, 0)),
-        OpenStruct.new(id: 2, name: { ca: "barcat", es: "bares" }, ids: [2, 3, 4], float: 0.55, date: DateTime.civil(2017, 9, 20))
+        OpenStruct.new(id: 1, name: { ca: "foocat", es: "fooes" }, ids: [1, 2, 3], float: 1.66, date: Time.zone.local(2017, 10, 1, 5, 0)),
+        OpenStruct.new(id: 2, name: { ca: "barcat", es: "bares" }, ids: [2, 3, 4], float: 0.55, date: Time.zone.local(2017, 9, 20))
       ]
     end
 
@@ -42,10 +42,10 @@ module Decidim
         headers = worksheet.rows[0]
         expect(headers).to eq(["id", "serialized_name/ca", "serialized_name/es", "other_ids", "float", "date"])
         expect(worksheet.rows[1][0..4]).to eq([1, "foocat", "fooes", "1, 2, 3", 1.66])
-        expect(worksheet.rows[1].datetime(5)).to eq(DateTime.civil(2017, 10, 1, 5, 0))
+        expect(worksheet.rows[1].datetime(5)).to eq(Time.zone.local(2017, 10, 1, 5, 0))
 
         expect(worksheet.rows[2][0..4]).to eq([2, "barcat", "bares", "2, 3, 4", 0.55])
-        expect(worksheet.rows[2].datetime(5)).to eq(DateTime.civil(2017, 9, 20))
+        expect(worksheet.rows[2].datetime(5)).to eq(Time.zone.local(2017, 9, 20))
       end
     end
   end

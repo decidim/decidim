@@ -17,10 +17,6 @@ module Decidim
         def attached_to
           current_assembly
         end
-
-        def authorization_object
-          @attachment || Attachment
-        end
       end
     end
   end

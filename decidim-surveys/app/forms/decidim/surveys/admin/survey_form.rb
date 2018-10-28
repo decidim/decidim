@@ -11,7 +11,7 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :tos, String
 
-        attribute :published_at, DateTime
+        attribute :published_at, Decidim::Attributes::TimeWithZone
         attribute :questions, Array[SurveyQuestionForm]
 
         validates :title, :tos, translatable_presence: true

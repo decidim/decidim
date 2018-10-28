@@ -48,6 +48,30 @@ module Decidim
               expect(proposal.reload).to be_answered
             end
 
+            context "when accepted" do
+              before do
+                form.state = "accepted"
+              end
+
+              it "updates the gamification score for their authors" do
+                expect { command.call }.to change {
+                  Decidim::Gamification.status_for(proposal.authors.first, :accepted_proposals).score
+                }.by(1)
+              end
+            end
+
+            context "when rejected" do
+              before do
+                form.state = "rejected"
+              end
+
+              it "doesn't update the gamification score for their authors" do
+                expect { command.call }.to change {
+                  Decidim::Gamification.status_for(proposal.authors.first, :accepted_proposals).score
+                }.by(0)
+              end
+            end
+
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
                 .to receive(:perform_action!)

@@ -10,6 +10,9 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Comments::Commentable
       include Decidim::FriendlyDates
+      include Decidim::DataPortability
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -23,13 +26,27 @@ module Decidim
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
+
       validates :body, presence: true
       validates :depth, numericality: { greater_than_or_equal_to: 0 }
       validates :alignment, inclusion: { in: [0, 1, -1] }
+
       validates :body, length: { maximum: 1000 }
+
       validate :commentable_can_have_comments
+
       before_save :compute_depth
-      delegate :organization, :component, to: :commentable
+
+      delegate :organization, to: :commentable
+
+      def participatory_space
+        return root_commentable if root_commentable.is_a?(Decidim::Participable)
+        root_commentable.participatory_space
+      end
+
+      def component
+        commentable.component if commentable.respond_to?(:component)
+      end
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
@@ -70,7 +87,9 @@ module Decidim
         @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body)
       end
 
-      delegate :participatory_space, to: :root_commentable
+      def self.export_serializer
+        Decidim::Comments::CommentSerializer
+      end
 
       private
 

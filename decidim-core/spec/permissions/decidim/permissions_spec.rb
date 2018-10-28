@@ -18,7 +18,7 @@ describe Decidim::Permissions do
 
   context "when reading public pages" do
     let(:action) do
-      { scope: :admin, action: :read, subject: :public_page }
+      { scope: :public, action: :read, subject: :public_page }
     end
 
     it { is_expected.to eq true }
@@ -26,7 +26,7 @@ describe Decidim::Permissions do
 
   context "when action is on a locale" do
     let(:action) do
-      { scope: :foo, action: :foo, subject: :locales }
+      { scope: :public, action: :foo, subject: :locales }
     end
 
     it { is_expected.to eq true }
@@ -51,16 +51,19 @@ describe Decidim::Permissions do
       context "when the user does not exist" do
         it { is_expected.to eq false }
       end
+
       context "when the user has no admin access" do
         let(:user) { create :user, organization: organization }
 
         it { is_expected.to eq false }
       end
+
       context "when the user is an admin" do
         let(:user) { create :user, :admin, organization: organization }
 
         it { is_expected.to eq true }
       end
+
       context "when the space gives the user admin access" do
         let(:user) { create :process_admin, participatory_process: component.participatory_space }
 
@@ -234,6 +237,16 @@ describe Decidim::Permissions do
 
           it { is_expected.to eq false }
         end
+      end
+    end
+
+    context "when action is on user group" do
+      let(:action_subject) { :user_group }
+
+      context "when creating user groups" do
+        let(:action_name) { :create }
+
+        it { is_expected.to eq true }
       end
     end
   end

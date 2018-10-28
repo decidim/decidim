@@ -1,6 +1,19 @@
 # frozen_string_literal: true
 
+module GeocoderHelpers
+  def stub_geocoding(address, coordinates)
+    result = coordinates.blank? ? [] : [{ "coordinates" => [latitude, longitude] }]
+
+    Geocoder::Lookup::Test.add_stub(
+      address,
+      result
+    )
+  end
+end
+
 RSpec.configure do |config|
+  config.include GeocoderHelpers
+
   config.before(:suite) do
     # Set geocoder configuration in test mode
     Decidim.geocoder = {

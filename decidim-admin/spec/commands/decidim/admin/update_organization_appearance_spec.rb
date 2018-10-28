@@ -10,9 +10,6 @@ module Decidim::Admin
       let(:params) do
         {
           organization: {
-            welcome_text_en: "Welcome",
-            welcome_text_es: "Hola",
-            welcome_text_ca: "Hola",
             description_en: "My description",
             description_es: "Mi descripción",
             description_ca: "La meva descripció",
@@ -112,15 +109,6 @@ module Decidim::Admin
             organization.reload
 
             expect(organization.header_snippets).to be_present
-          end
-        end
-
-        context "when no homepage image is set" do
-          it "does not replace the homepage image" do
-            command.call
-            organization.reload
-
-            expect(organization.homepage_image).to be_present
           end
         end
 

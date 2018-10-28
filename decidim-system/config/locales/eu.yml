@@ -1,10 +1,9 @@
----
 eu:
   decidim:
     system:
       actions:
-        confirm_destroy: "‘Ziur zaude ezabatu nahi duzula?’"
-        destroy: Kendu
+        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
+        destroy: ezabatu
         edit: Editatu
         new: Berria
         save: Gorde
@@ -14,7 +13,7 @@ eu:
           error: Errorea gertatu da administratzaile berri bat sortzean.
           success: Administratzailea zuzen sortu da
         destroy:
-          success: Administratzailea zuzen sortu da
+          success: Admin ezabatu da
         edit:
           title: Editatu administratzailea
           update: Eguneratu

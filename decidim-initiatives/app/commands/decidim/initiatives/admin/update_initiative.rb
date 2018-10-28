@@ -30,6 +30,7 @@ module Decidim
             current_user,
             attributes
           )
+          notify_initiative_is_extended if @notify_extended
           broadcast(:ok, initiative)
         rescue ActiveRecord::RecordInvalid
           broadcast(:invalid, initiative)
@@ -49,15 +50,29 @@ module Decidim
             answer_url: form.answer_url
           }
 
-          attrs[:answered_at] = DateTime.current if form.answer.present?
+          attrs[:answered_at] = Time.current if form.answer.present?
 
           if current_user.admin?
-            attrs[:signature_start_time] = form.signature_start_time
-            attrs[:signature_end_time] = form.signature_end_time
+            attrs[:signature_start_date] = form.signature_start_date
+            attrs[:signature_end_date] = form.signature_end_date
             attrs[:offline_votes] = form.offline_votes
+
+            if initiative.published?
+              @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
+                                         form.signature_end_date > initiative.signature_end_date
+            end
           end
 
           attrs
+        end
+
+        def notify_initiative_is_extended
+          Decidim::EventsManager.publish(
+            event: "decidim.events.initiatives.initiative_extended",
+            event_class: Decidim::Initiatives::ExtendInitiativeEvent,
+            resource: initiative,
+            recipient_ids: initiative.followers.pluck(:id)
+          )
         end
       end
     end

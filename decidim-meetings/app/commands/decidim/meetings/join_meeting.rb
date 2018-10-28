@@ -21,18 +21,24 @@ module Decidim
         meeting.with_lock do
           return broadcast(:invalid) unless can_join_meeting?
           create_registration
+          accept_invitation
           send_email_confirmation
           send_notification
+          increment_score
         end
         broadcast(:ok)
       end
 
       private
 
-      attr_reader :meeting, :user
+      attr_reader :meeting, :user, :registration
+
+      def accept_invitation
+        meeting.invites.find_by(user: user)&.accept!
+      end
 
       def create_registration
-        Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
+        @registration = Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
       end
 
       def can_join_meeting?
@@ -40,7 +46,7 @@ module Decidim
       end
 
       def send_email_confirmation
-        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting).deliver_later
+        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
       end
 
       def participatory_space_admins
@@ -63,6 +69,10 @@ module Decidim
             percentage: percentage
           }
         )
+      end
+
+      def increment_score
+        Decidim::Gamification.increment_score(user, :attended_meetings)
       end
 
       def occupied_slots_over?(percentage)

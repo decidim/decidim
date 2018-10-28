@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'decidim/has_class_extends'
 
 module ProjectExtend
   include Decidim::HasClassExtends

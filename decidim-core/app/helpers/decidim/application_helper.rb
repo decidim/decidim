@@ -32,5 +32,23 @@ module Decidim
 
       presenter
     end
+
+    # Generates a link to be added to the global Edit link so admins
+    # can easily manage data without having to look for it at the admin
+    # panel when they're at a public page.
+    #
+    # link          - The String with the URL.
+    # action        - The Symbol action to check the permissions for.
+    # subject       - The Symbol subject to perform the action to.
+    # extra_context - An optional Hash to check the permissions.
+    #
+    # Returns nothing.
+    def edit_link(link, action, subject, extra_context = {})
+      return unless current_user
+      return unless admin_allowed_to?(action, subject, extra_context)
+      return if content_for?(:edit_link)
+
+      content_for(:edit_link, link)
+    end
   end
 end

@@ -24,7 +24,7 @@ describe "Proposals", type: :system do
     end
 
     context "and draft proposal exists for current users" do
-      let!(:draft) { create(:proposal, :draft, component: component, author: user) }
+      let!(:draft) { create(:proposal, :draft, component: component, users: [user]) }
 
       it "redirects to edit draft" do
         click_link "New proposal"

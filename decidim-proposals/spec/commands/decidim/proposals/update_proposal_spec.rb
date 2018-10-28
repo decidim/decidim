@@ -19,7 +19,7 @@ module Decidim
         )
       end
 
-      let!(:proposal) { create :proposal, component: component, author: author }
+      let!(:proposal) { create :proposal, component: component, users: [author] }
       let(:author) { create(:user, organization: organization) }
 
       let(:user_group) do
@@ -79,7 +79,7 @@ module Decidim
         end
 
         context "when the author changinng the author to one that has reached the proposal limit" do
-          let!(:other_proposal) { create :proposal, component: component, author: author, user_group: user_group }
+          let!(:other_proposal) { create :proposal, component: component, users: [author], user_groups: [user_group] }
           let(:component) { create(:proposal_component, :with_proposal_limit) }
 
           it "broadcasts invalid" do
@@ -111,8 +111,8 @@ module Decidim
               command.call
               proposal = Decidim::Proposals::Proposal.last
 
-              expect(proposal.author).to eq(author)
-              expect(proposal.user_group).to eq(nil)
+              expect(proposal).to be_authored_by(author)
+              expect(proposal.identities.include?(user_group)).to be false
             end
           end
 
@@ -121,8 +121,8 @@ module Decidim
               command.call
               proposal = Decidim::Proposals::Proposal.last
 
-              expect(proposal.author).to eq(author)
-              expect(proposal.user_group).to eq(user_group)
+              expect(proposal).to be_authored_by(author)
+              expect(proposal.identities).to include(user_group)
             end
           end
 
@@ -136,10 +136,7 @@ module Decidim
                 let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
 
                 before do
-                  Geocoder::Lookup::Test.add_stub(
-                    address,
-                    [{ "latitude" => latitude, "longitude" => longitude }]
-                  )
+                  stub_geocoding(address, [latitude, longitude])
                 end
 
                 it "sets the latitude and longitude" do

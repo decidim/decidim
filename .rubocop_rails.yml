@@ -1,5 +1,3 @@
----
-
 Rails:
   Enabled: true
 
@@ -56,6 +54,7 @@ Rails/Output:
     - decidim-*/lib/**/*.rb
   Exclude:
     - decidim-core/db/seeds.rb
+    - decidim-core/lib/decidim/core.rb
     - decidim-core/lib/decidim/component_manifest.rb
     - decidim-core/lib/decidim/participatory_space_manifest.rb
     - decidim-system/db/seeds.rb

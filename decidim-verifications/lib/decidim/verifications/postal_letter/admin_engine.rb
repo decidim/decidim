@@ -7,7 +7,9 @@ module Decidim
       # user authorization by postal letter code.
       class AdminEngine < ::Rails::Engine
         isolate_namespace Decidim::Verifications::PostalLetter::Admin
+
         paths["db/migrate"] = nil
+        paths["lib/tasks"] = nil
 
         routes do
           resources :pending_authorizations, only: :index do

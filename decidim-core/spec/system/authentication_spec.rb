@@ -20,14 +20,14 @@ describe "Authentication", type: :system do
           fill_in :user_email, with: "user@example.org"
           fill_in :user_name, with: "Responsible Citizen"
           fill_in :user_nickname, with: "responsible"
-          fill_in :user_password, with: "123456"
-          fill_in :user_password_confirmation, with: "123456"
+          fill_in :user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :user_tos_agreement
           check :user_newsletter
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("confirmation link")
+        expect(page).to have_content("You have signed up successfully")
       end
     end
 
@@ -40,14 +40,14 @@ describe "Authentication", type: :system do
           fill_in :user_email, with: "user@example.org"
           fill_in :user_name, with: "Responsible Citizen"
           fill_in :user_nickname, with: "responsible"
-          fill_in :user_password, with: "123456"
-          fill_in :user_password_confirmation, with: "123456"
+          fill_in :user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :user_tos_agreement
           check :user_newsletter
           find("*[type=submit]").click
         end
 
-        expect(page).to have_no_content("confirmation link")
+        expect(page).not_to have_content("You have signed up successfully")
       end
     end
 
@@ -122,8 +122,6 @@ describe "Authentication", type: :system do
             fill_in :user_email, with: "user@from-twitter.com"
             find("*[type=submit]").click
           end
-
-          expect(page).to have_content("confirmation link")
         end
 
         context "and a user already exists with the given email" do
@@ -192,33 +190,6 @@ describe "Authentication", type: :system do
     end
   end
 
-  describe "Sign Up as a organization" do
-    it "creates a new User" do
-      find(".sign-up-link").click
-
-      within ".new_user" do
-        choose "Organization/Collective"
-
-        fill_in :user_email, with: "user@example.org"
-        fill_in :user_name, with: "Responsible Citizen"
-        fill_in :user_nickname, with: "responsible"
-        fill_in :user_password, with: "123456"
-        fill_in :user_password_confirmation, with: "123456"
-
-        fill_in :user_user_group_name, with: "My organization"
-        # fill_in :user_user_group_document_number, with: "12345678Z"
-        fill_in :user_user_group_phone, with: "333-333-3333"
-
-        check :user_tos_agreement
-        check :user_newsletter
-
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_content("confirmation link")
-    end
-  end
-
   describe "Confirm email" do
     it "confirms the user" do
       perform_enqueued_jobs { create(:user, organization: organization) }
@@ -249,7 +220,7 @@ describe "Authentication", type: :system do
   end
 
   context "when a user is already registered" do
-    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:user) { create(:user, :confirmed, password: "DfyvHn425mYAy2HL", organization: organization) }
 
     describe "Sign in" do
       it "authenticates an existing User" do
@@ -257,7 +228,7 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
+          fill_in :user_password, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 
@@ -289,8 +260,8 @@ describe "Authentication", type: :system do
         visit last_email_link
 
         within ".new_user" do
-          fill_in :user_password, with: "123456"
-          fill_in :user_password_confirmation, with: "123456"
+          fill_in :user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 
@@ -356,7 +327,7 @@ describe "Authentication", type: :system do
   end
 
   context "when a user is already registered in another organization with the same email" do
-    let(:user) { create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed, password: "DfyvHn425mYAy2HL") }
 
     describe "Sign Up" do
       context "when using the same email" do
@@ -367,14 +338,14 @@ describe "Authentication", type: :system do
             fill_in :user_email, with: user.email
             fill_in :user_name, with: "Responsible Citizen"
             fill_in :user_nickname, with: "responsible"
-            fill_in :user_password, with: "123456"
-            fill_in :user_password_confirmation, with: "123456"
+            fill_in :user_password, with: "DfyvHn425mYAy2HL"
+            fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :user_tos_agreement
             check :user_newsletter
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("confirmation link")
+          expect(page).to have_content("You have signed up successfully")
         end
       end
     end
@@ -423,8 +394,8 @@ describe "Authentication", type: :system do
   context "when a user with the same email is already registered in another organization" do
     let(:organization2) { create(:organization) }
 
-    let!(:user2) { create(:user, :confirmed, email: "fake@user.com", name: "Wrong user", organization: organization2) }
-    let!(:user) { create(:user, :confirmed, email: "fake@user.com", name: "Right user", organization: organization) }
+    let!(:user2) { create(:user, :confirmed, email: "fake@user.com", name: "Wrong user", organization: organization2, password: "DfyvHn425mYAy2HL") }
+    let!(:user) { create(:user, :confirmed, email: "fake@user.com", name: "Right user", organization: organization, password: "DfyvHn425mYAy2HL") }
 
     describe "Sign in" do
       it "authenticates the right user" do
@@ -432,7 +403,7 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
+          fill_in :user_password, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 

@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -7,9 +6,9 @@ pl:
         description: Opis
         offline_votes: Wsparcie twarzą w twarz
         scope_id: Zakres
-        signature_end_time: Koniec okresu zbierania podpisu
-        signature_start_time: Początek okresu zbierania podpisu
-        signature_type: Typ podpisu
+        signature_end_date: Koniec okresu zbierania podpisu
+        signature_start_date: Początek okresu zbierania podpisu
+        signature_type: Typ kolekcji podpisu
         signature_type_values:
           any: Mieszany
           offline: Twarzą w twarz
@@ -31,27 +30,29 @@ pl:
         title: Tytuł
       organization_data:
         address: Adres
-        id_document: CIF
+        id_document: Dokument tożsamości
         name: Pełne imię
   activerecord:
     models:
       decidim/initiative:
+        one: Initative
         few: Inicjatywy
         many: Inicjatywy
-        one: Initative
         other: Inicjatywy
       decidim/initiative_comittee:
+        one: Komitet
         few: Komitety
         many: Komitety
-        one: Komitet
         other: Komitety
       decidim/initiative_vote:
+        one: Podpis
         few: Podpisy
         many: Podpisy
-        one: Podpis
         other: Podpisy
   decidim:
     admin:
+      actions:
+        new_initiative_type: Nowy typ inicjatywy
       menu:
         initiatives: Inicjatywy
         initiatives_types: Rodzaje inicjatyw
@@ -78,15 +79,28 @@ pl:
     events:
       initiatives:
         initiative_extended:
-          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
-          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+          email_intro: Data zakończenia podpisów inicjatywy %{resource_title} została przedłużona!
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Data zakończenia podpisów inicjatywa!
+          notification_title: Data zakończenia podpisów dla inicjatywy <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
         milestone_completed:
           email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowy kamień milowy zakończony!
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Idź do miejsca uczestnictwa Intiatives
+            - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
+          description: Ta odznaka jest przyznawana, gdy uruchamiasz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
+          description_another: Ten użytkownik otrzymał %{score} opublikowanych inicjatyw.
+          description_own: Masz opublikowanych %{score} inicjatyw.
+          name: Opublikowane inicjatywy
+          next_level_in: Uzyskaj %{score} dodatkowych inicjatyw opublikowanych, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie otrzymał jeszcze żadnych inicjatyw.
+          unearned_own: Nie opublikowano jeszcze żadnych inicjatyw.
     initiatives:
       admin:
         committee_requests:
@@ -97,6 +111,9 @@ pl:
             no_members_yet: W komisji promotorskiej nie ma członków
             revoke: Unieważnić
             title: członkowie Komitetu
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maksymalna ilość elementów do pokazania
         initiatives:
           edit:
             accept: Przyjmij inicjatywę
@@ -122,7 +139,7 @@ pl:
             filter_by: Filtruj według
             preview: Zapowiedź
             print: Wydrukować
-            search: Busca
+            search: Szukaj
           show:
             print: Wydrukować
           update:
@@ -137,7 +154,7 @@ pl:
           edit:
             back: Plecy
             confirm_destroy: Jesteś pewny?
-            destroy: Zniszczyć
+            destroy: Kasować
             title: Edytuj zakres typu inicjatywy
             update: Aktualizacja
           new:
@@ -155,7 +172,7 @@ pl:
             success: Typ inicjatywy został pomyślnie usunięty
           edit:
             confirm_destroy: Jesteś pewny?
-            destroy: Zniszczyć
+            destroy: Kasować
             update: Aktualizacja
           form:
             title: Informacje ogólne
@@ -166,7 +183,7 @@ pl:
             title: Nowy typ inicjatywy
           update:
             error: Wystąpił błąd
-            success: Podana inicjatywa została pomyślnie zaktualizowana
+            success: Typ inicjatywy został pomyślnie zaktualizowany
       admin_log:
         initiative:
           publish: "%{user_name} opublikował inicjatywę %{resource_name}"
@@ -186,6 +203,9 @@ pl:
           help_text: Zamierzasz poprosić o członkostwo w komitecie promującym tę inicjatywę
         spawn:
           success: Twoja prośba została wysłana do autora inicjatywy.
+      content_blocks:
+        highlighted_initiatives:
+          name: Wyróżnione inicjatywy
       create_initiative:
         fill_data:
           back: Plecy
@@ -202,9 +222,9 @@ pl:
           more_information: "(Więcej informacji)"
         finish_help:
           access_reminder: Pamiętaj, że zawsze będziesz mieć dostęp do swoich inicjatyw za pośrednictwem menu użytkownika.
-          help_for_organizations: Jeśli jesteś stowarzyszeniem, musisz przesłać protokoły z zarządu wszystkich organizacji, które są zgodne z Komisją Promującą
+          help_for_organizations: Jeśli jesteś stowarzyszeniem, musisz przesłać protokoły z zarządu wszystkich organizacji, które tworzą Komisję Promującą
           help_in_person_signatures: Jeśli zdecydowałeś się zebrać podpisy osobiście lub w połączeniu z internetem, będziesz musiał przesłać wymagane informacje.
-          help_text: Pamiętaj, że aby poprawnie przetworzyć inicjatywę musisz uzyskać dostęp do panelu administracyjnego, w którym znajdziesz menu użytkownika, wgrać wymagane informacje i wysłać je do procedury.
+          help_text: Pamiętaj, że aby poprawnie przetworzyć inicjatywę musisz uzyskać dostęp do panelu administracyjnego, w którym znajdziesz menu użytkownika, wgrać wymagane informacje i wysłać je do przetworzenia.
           initiatives_page_link: Możesz sprawdzić wszystkie te informacje na %{link} poświęconym informowaniu o inicjatywach.
           page: strona
         previous_form:
@@ -223,7 +243,7 @@ pl:
           select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatelstwo może interweniować, aby Rada Miejska mogła podejmować działania w obronie interesu ogólnego, które znajdują się na obszarach podlegających jurysdykcji gminnej. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: dalej
-          invite_to_committee_help: Link do zapraszania osób, które będą częścią promoto komisji
+          invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu promotora
         show_similar_initiatives:
           back: Plecy
           compare_help: Jeśli którakolwiek z poniższych inicjatyw jest podobna do Twojej, zachęcamy do jej wspierania. Twoja propozycja będzie miała więcej możliwości do zrobienia.
@@ -250,15 +270,15 @@ pl:
           deleted: Usunięto
         author_list:
           hidden_authors_count:
+            one: i jeszcze 1 osoba
             few: i %{count} więcej osób
             many: i %{count} więcej osób
-            one: i jeszcze 1 osoba
             other: i %{count} więcej osób
         count:
           title:
+            one: "%{count} inicjatywa"
             few: "%{count} inicjatyw"
             many: "%{count} inicjatyw"
-            one: "%{count} inicjatywa"
             other: "%{count} inicjatyw"
         filters:
           any: Każdy
@@ -290,11 +310,11 @@ pl:
           any_vote_method: Ta inicjatywa obywatelska zbiera wsparcie online i twarzą w twarz.
           offline_method: Ta inicjatywa obywatelska zbiera jedynie osobiste wsparcie.
         signature_identities:
-          select_identity: Wybierz tożsamość użytkownika
+          select_identity: Wybierz identyfikator użytkownika
         signatures_count:
+          one: " podpis"
           few: " podpisy"
           many: " podpisy"
-          one: " podpis"
           other: " podpisy"
         statistics:
           assistants_count_title: Asystenci
@@ -305,14 +325,14 @@ pl:
           title: Lista podpisów
         vote_cabin:
           already_voted: Już podpisane
-          supports_required: Wymagane %{total_supports} podpisów
+          supports_required: "Wymagane %{total_supports} podpisów"
           vote: Znak
           votes_blocked: Podpisywanie wyłączone
         votes_count:
           count:
+            one: PODPIS
             few: PODPISY
             many: PODPISY
-            one: PODPIS
             other: PODPISY
       initiatives_mailer:
         creation_subject: Twoja inicjatywa obywatelska "%{title}" została utworzona
@@ -322,11 +342,13 @@ pl:
         more_information: Tutaj masz więcej informacji na temat procesu tworzenia inicjatywy.
         progress_report_body_for: Inicjatywa %{title} osiągnęła %{percentage}% wymaganych podpór.
         progress_report_for: 'Wznów o inicjatywie: %{title}'
-        promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do prominentnego komitetu. Prześlij poniższy link, aby zaprosić ludzi do komitetu promotorzy
+        promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do komitetu promotora. Prześlij poniższy link, aby zaprosić ludzi do komitetu promotora
         status_change_body_for: 'Inicjatywa %{title} zmieniła swój stan na: %{state}'
         status_change_for: Inicjatywa %{title} zmieniła swój stan
         technical_validation_body_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
         technical_validation_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
+      last_activity:
+        new_initiative: Nowa inicjatywa
       pages:
         home:
           highlighted_initiatives:
@@ -349,7 +371,7 @@ pl:
         fill_data: Stwórz
         finish: koniec
         previous_form: Początek
-        promotal_committee: Komitet promotalny
+        promotal_committee: Komitet promotorski
         select_initiative_type: Wybierać
         show_similar_initiatives: Porównać
       initiative_header:

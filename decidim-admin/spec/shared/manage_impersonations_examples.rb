@@ -159,7 +159,9 @@ shared_examples "manage impersonations examples" do
   end
 
   describe "impersonation" do
-    let!(:impersonated_user) { create(:user, managed: managed, name: "Rigoberto", organization: organization) }
+    let!(:impersonated_user) do
+      create(:user, managed: managed, name: "Rigoberto", organization: organization)
+    end
 
     context "when impersonating a previously authorized user" do
       let!(:authorization) { create(:authorization, user: impersonated_user, name: "dummy_authorization_handler") }
@@ -268,7 +270,7 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      page.execute_script("$('#impersonate_user_authorization_birthday').siblings('input:first').focus()")
+      page.execute_script("$('#impersonate_user_authorization_birthday').focus()")
     end
 
     page.find(".datepicker-dropdown .day", text: "12").click

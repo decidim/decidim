@@ -1,0 +1,83 @@
+<div class="filters row">
+  <div class="column medium-3">
+    <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
+    <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-click-open="true" data-close-on-click-inside="false">
+      <li class="is-dropdown-submenu-parent">
+        <a href="#">
+          <% if @status.present? %>
+            <%= t(".filter.#{@status}") %>
+          <% else %>
+            <%= t(".filter.all") %>
+          <% end %>
+        </a>
+        <ul class="menu is-dropdown-submenu">
+          <li><%= link_to t(".filter.sent"), url_for(status: "sent", q: @query) %></li>
+          <li><%= link_to t(".filter.accepted"), url_for(status: "accepted", q: @query) %></li>
+          <li><%= link_to t(".filter.rejected"), url_for(status: "rejected", q: @query) %></li>
+          <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="column medium-4">
+    <%= form_tag "", method: :get do %>
+      <div class="filters__search">
+        <div class="input-group">
+          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
+          <%= hidden_field_tag :state, @state %>
+          <div class="input-group-button">
+            <button type="submit" class="button button--muted">
+              <%= icon "magnifying-glass", aria_label: t(".search") %>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="card" id="conference-invites">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %> - <%= t(".invites") %>
+      <%= link_to t(".invite_attendee"), conference.registrations_enabled ? new_conference_conference_invite_path(conference) : "#", class: "button tiny button--title #{'disabled' unless conference.registrations_enabled && allowed_to?(:invite_attendee, :conference, conference: conference) }" %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.conference_invite.fields.name", scope: "decidim.conferences") %></th>
+            <th><%= t("models.conference_invite.fields.email", scope: "decidim.conferences") %></th>
+            <th><%= t("models.conference_invite.fields.sent_at", scope: "decidim.conferences") %></th>
+            <th><%= t("models.conference_invite.fields.status", scope: "decidim.conferences") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @conference_invites.each do |invite| %>
+            <% presenter = Decidim::Conferences::ConferenceInvitePresenter.new(invite) %>
+            <tr data-id="<%= invite.id %>">
+              <td>
+                <%= invite.user.name %>
+              </td>
+              <td>
+                <%= invite.user.email %>
+              </td>
+              <td>
+                <% if invite.sent_at %>
+                  <%= l invite.sent_at, format: :long %>
+                <% end %>
+              </td>
+              <td class="<%= presenter.status_html_class %>">
+                <%= presenter.status %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @conference_invites, theme: "decidim" %>
+    </div>
+  </div>
+</div>

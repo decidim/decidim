@@ -18,7 +18,7 @@ de:
         decidim_area_id: Bereich
         decidim_scope_id: Umfang
         description: Beschreibung
-        developer_group: Entwicklergruppe
+        developer_group: Promoter-Gruppe
         domain: Domain
         duration: Dauer
         facebook: Facebook
@@ -29,11 +29,12 @@ de:
         instagram: Instagram
         internal_organisation: Interne Organisation
         is_transparent: Ist transparent
-        local_area: Ortsbereich
+        local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
+        parent_id: Elternversammlung
         participatory_processes_ids: Related Partizipative Prozesse
-        participatory_scope: Partizipativer Bereich
-        participatory_structure: Partizipative Struktur
+        participatory_scope: Was ist entschieden?
+        participatory_structure: Wie ist es entschieden?
         private_space: Privatsphäre
         promoted: Gefördert
         published_at: Veröffentlicht unter
@@ -45,7 +46,7 @@ de:
         slug: URL-Block
         special_features: Besondere Merkmale
         subtitle: Untertitel
-        target: Ziel
+        target: Wer nimmt teil?
         title: Titel
         twitter: Twitter
         youtube: Youtube
@@ -75,12 +76,14 @@ de:
         other: Zusammenbau von Benutzerrollen
   decidim:
     admin:
+      actions:
+        new_assembly: Neue Montage
       assemblies:
         create:
           error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.
           success: Assembly wurde erfolgreich erstellt.
         destroy:
-          success: Baugruppe wurde erfolgreich zerstört.
+          success: Die Baugruppe wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
         form:
@@ -110,7 +113,7 @@ de:
           error: Beim Hinzufügen eines Mitglieds für diese Assembly ist ein Fehler aufgetreten.
           success: Mitglied wurde erfolgreich für diese Assembly erstellt.
         destroy:
-          success: Mitglied wurde für diese Assembly erfolgreich zerstört.
+          success: Mitglied wurde für diese Assembly erfolgreich gelöscht.
         edit:
           title: Aktualisieren Sie das Baugruppenelement.
           update: Aktualisieren
@@ -132,9 +135,9 @@ de:
       assembly_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diese Assembly ist ein Fehler aufgetreten.
-          success: Der Benutzer wurde für diese Assembly erfolgreich erstellt.
+          success: Der Benutzer wurde dieser Baugruppe erfolgreich hinzugefügt.
         destroy:
-          success: Der Benutzer wurde für diese Assembly erfolgreich zerstört.
+          success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
           title: Aktualisiere den Benutzer der Baugruppe
           update: Aktualisieren
@@ -151,7 +154,7 @@ de:
         assemblies_submenu:
           assembly_admins: Assembly Benutzer
           assembly_members: Mitglieder
-          attachment_collections: Sammlungen
+          attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anlagen
           categories: Kategorien
@@ -215,6 +218,7 @@ de:
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
             select_an_assembly_type: Wählen Sie einen Montagetyp
+            select_parent_assembly: Wählen Sie die übergeordnete Baugruppe aus
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
         assembly_copies:
@@ -234,6 +238,9 @@ de:
               not_ceased: Nicht aufgehört
             filter_by: Filtern nach
             search: Suche
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
       assembly_members:
         index:
           members: Mitglieder
@@ -245,12 +252,17 @@ de:
         others: Andere
         participatory: Teilnehmend
         working_group: Arbeitsgruppe
+      content_blocks:
+        highlighted_assemblies:
+          name: Hervorgehobene Baugruppen
       created_by:
         city_council: Stadtrat
         others: Andere
         public: Öffentlichkeit
       index:
         title: Baugruppen
+      last_activity:
+        new_assembly: Neue Montage
       pages:
         home:
           highlighted_assemblies:
@@ -267,7 +279,7 @@ de:
         composition: Zusammensetzung
         created_by: Erstellt von
         creation_date: Datum erstellt
-        developer_group: Entwicklergruppe
+        developer_group: Promoter-Gruppe
         duration: Dauer
         included_at: Inbegriffen bei
         indefinite_duration: Unbestimmt
@@ -275,9 +287,9 @@ de:
         is_transparent:
           'false': undurchsichtig
           'true': transparent
-        local_area: Ortsbereich
-        participatory_scope: Partizipativer Bereich
-        participatory_structure: Partizipative Struktur
+        local_area: Organisationsbereich
+        participatory_scope: Was ist entschieden?
+        participatory_structure: Wie ist es entschieden?
         private_space: Dies ist eine private Versammlung
         purpose_of_action: Zweck der Aktion
         read_less: Lese weniger
@@ -285,7 +297,7 @@ de:
         related_participatory_processes: In Verbindung stehende partizipative Prozesse
         scope: Umfang
         social_networks: Soziale Netzwerke
-        target: Ziel
+        target: Wer nimmt teil?
       statistics:
         answers_count: Antworten
         assemblies_count: Baugruppen
@@ -322,7 +334,9 @@ de:
         assembly:
           take_part: Teilnehmen
         index:
+          organizational_chart: Organigramm
           promoted_assemblies: Hervorgehobene Baugruppen
+          reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
             one: "%{count} Versammlung"

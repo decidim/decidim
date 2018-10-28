@@ -18,7 +18,7 @@ hu:
         decidim_area_id: Terület
         decidim_scope_id: Hatáskör
         description: Leírás
-        developer_group: Fejlesztői csoport
+        developer_group: Promóciós csoport
         domain: Domain
         duration: Időtartam
         facebook: Facebook
@@ -29,11 +29,12 @@ hu:
         instagram: Instagram
         internal_organisation: Belső szervezet
         is_transparent: Átlátható
-        local_area: Helyi szint
+        local_area: Szervezet területe
         meta_scope: Hatókör-metaadatok
+        parent_id: Parent gyűlés
         participatory_processes_ids: Társuló részvételi folyamatok
-        participatory_scope: Részvételi kör
-        participatory_structure: Részvételi struktúra
+        participatory_scope: Mi a döntés
+        participatory_structure: Hogyan döntenek
         private_space: Privát tér
         promoted: Promotált
         published_at: Közzétéve
@@ -45,7 +46,7 @@ hu:
         slug: URL slug
         special_features: Speciális funkciók
         subtitle: Felirat
-        target: Cél
+        target: Ki részt vesz benne
         title: Cím
         twitter: Twitter
         youtube: Youtube
@@ -75,12 +76,14 @@ hu:
         other: Gyűlés felhasználóinak szerepe
   decidim:
     admin:
+      actions:
+        new_assembly: Új gyűlés
       assemblies:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
           success: Gyűlés létrehozása sikeres.
         destroy:
-          success: Gyűlés sikeresen eltávolítva.
+          success: Gyűlés törlése sikeres.
         edit:
           update: Frissítés
         form:
@@ -110,7 +113,7 @@ hu:
           error: Hiba történt a tag gyűléshez való hozzáadása során.
           success: A tag létrehozása a gyűléshez sikeres volt.
         destroy:
-          success: A felhasználó eltávolítása a gyűlésből sikeres volt.
+          success: A tag eltávolítása a gyűlésből sikeres volt.
         edit:
           title: Gyűlés tagjának frissítése.
           update: Frissítés
@@ -132,9 +135,9 @@ hu:
       assembly_user_roles:
         create:
           error: Hiba történt a felhasználó gyűléshez való hozzáadása során.
-          success: Felhasználó létrehozása a gyűléshez sikerült.
+          success: Felhasználó hozzáadása a gyűléshez sikeres.
         destroy:
-          success: Felhasználó törlése a gyűlésből sikeres volt.
+          success: Felhasználó eltávolítása a gyűlésből sikeres.
         edit:
           title: Gyűlés felhasználójának frissítése.
           update: Frissítés
@@ -151,7 +154,7 @@ hu:
         assemblies_submenu:
           assembly_admins: Gyűlés felhasználói
           assembly_members: Tagok
-          attachment_collections: Gyűjtemények
+          attachment_collections: Mappák
           attachment_files: Fájlok
           attachments: Mellékletek
           categories: Kategóriák
@@ -215,6 +218,7 @@ hu:
             select_a_created_by: Válassz alapítót
             select_an_area: Válassz területet
             select_an_assembly_type: Válassz gyűlés típust
+            select_parent_assembly: Szülői összeállítás kiválasztása
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -234,6 +238,9 @@ hu:
               not_ceased: Nem szűnt meg
             filter_by: 'Szűrés ez alapján:'
             search: Keresés
+        content_blocks:
+          highlighted_assemblies:
+            max_results: A megjelenítendő elemek maximális száma
       assembly_members:
         index:
           members: Tagok
@@ -245,12 +252,17 @@ hu:
         others: Egyéb
         participatory: Részvételi
         working_group: Munkacsoport
+      content_blocks:
+        highlighted_assemblies:
+          name: Kiemelt gyűlések
       created_by:
         city_council: Városi közgyűlés
         others: Egyéb
         public: Nyilvános
       index:
         title: Gyűlések
+      last_activity:
+        new_assembly: Új összeszerelés
       pages:
         home:
           highlighted_assemblies:
@@ -267,7 +279,7 @@ hu:
         composition: Összetétel
         created_by: Készítette
         creation_date: Létrehozás dátuma
-        developer_group: Fejlesztői csoport
+        developer_group: Promóciós csoport
         duration: Időtartam
         included_at: 'Tartalmazza:'
         indefinite_duration: Határozatlan
@@ -275,9 +287,9 @@ hu:
         is_transparent:
           'false': áttetsző
           'true': átlátszó
-        local_area: Helyi szint
-        participatory_scope: Részvétel hatásköre
-        participatory_structure: Részvételi struktúra
+        local_area: Szervezet területe
+        participatory_scope: Mi a döntés
+        participatory_structure: Hogyan döntenek
         private_space: Ez egy privát gyűlés
         purpose_of_action: Fellépés célja
         read_less: Kevesebb
@@ -285,7 +297,7 @@ hu:
         related_participatory_processes: Kapcsolódó részvételi folyamatok
         scope: Hatáskör
         social_networks: Közösségi háló
-        target: Cél
+        target: Ki vesz részt benne
       statistics:
         answers_count: Válaszok
         assemblies_count: Gyűlések
@@ -322,7 +334,9 @@ hu:
         assembly:
           take_part: Vegyél részt
         index:
+          organizational_chart: Szervezési táblázat
           promoted_assemblies: Kiemelt gyűlések
+          reset_chart: Visszaállítás
         order_by_assemblies:
           assemblies:
             one: "%{count} gyűlés"

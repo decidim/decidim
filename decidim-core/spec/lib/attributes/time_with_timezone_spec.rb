@@ -16,7 +16,7 @@ module Decidim
       end
 
       context "when given a String" do
-        let(:value) { "2017-02-01T15:00:00" }
+        let(:value) { "01/02/2017 15:00" }
 
         context "and in a different timezone" do
           it "parses the String in the correct timezone" do
@@ -26,7 +26,27 @@ module Decidim
           end
         end
 
-        context "and it is not valid" do
+        context "with the correct format" do
+          let(:value) { "01 :> 02 () 2017 !! 15:00" }
+
+          around do |example|
+            I18n.available_locales += ["fake_locale"]
+
+            I18n.backend.store_translations(:fake_locale, time: { formats: { decidim_short: "%d :> %m () %Y !! %H:%M" } })
+
+            I18n.with_locale(:fake_locale) do
+              example.run
+            end
+
+            I18n.available_locales -= ["fake_locale"]
+          end
+
+          it "parses the String in the correct format" do
+            expect(subject.utc.to_s).to eq("2017-02-01 15:00:00 UTC")
+          end
+        end
+
+        context "and an incorrect format" do
           let(:value) { "foo" }
 
           it "returns nil" do

@@ -17,12 +17,13 @@ ca:
   decidim:
     budgets:
       actions:
-        attachment_collections: Col·leccions
+        attachment_collections: Carpetes
         attachments: Adjunts
         confirm_destroy: Segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
-        new: Nou
+        import: Importa propostes a projectes
+        new: Nou projecte
         preview: Previsualitzar
         title: Accions
       admin:
@@ -34,7 +35,7 @@ ca:
             invalid: Hi ha hagut un problema creant aquest projecte
             success: Projecte creat correctament
           destroy:
-            success: Projecte eliminat correctament
+            success: El projecte s'ha eliminat correctament
           edit:
             title: Editar projecte
             update: Actualitzar
@@ -44,10 +45,18 @@ ca:
             title: Projectes
           new:
             create: Crear
-            title: Nou resultat
+            title: Nou projecte
           update:
             invalid: Hi ha hagut un problema actualitzant aquest projecte
             success: Projecte actualitzat correctament
+        proposals_imports:
+          create:
+            invalid: Hi ha hagut un problema en importar les propostes en projectes
+            success: "S'ha importat amb èxit %{number} propostes en projectes"
+          new:
+            create: Importa propostes a projectes
+            no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
+            select_component: Selecciona un component
       admin_log:
         project:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
@@ -122,13 +131,14 @@ ca:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
             projects_per_page: Projectes per pàgina
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             total_budget: Pressupost total
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
             show_votes: Mostra els suports
-            votes_enabled: Suports habilitats
+            votes_enabled: S'ha habilitat la votació
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot

@@ -27,12 +27,16 @@ module Decidim
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-              .with(:publish, initiative, user)
+              .with(:publish, initiative, user, visibility: "all")
               .and_call_original
 
             expect { subject.call }.to change(Decidim::ActionLog, :count)
             action_log = Decidim::ActionLog.last
             expect(action_log.version).to be_present
+          end
+
+          it "increments the author's score" do
+            expect { subject.call }.to change { Decidim::Gamification.status_for(initiative.author, :initiatives).score }.by(1)
           end
         end
       end

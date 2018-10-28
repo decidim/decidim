@@ -12,7 +12,7 @@
 
 <div class="row small-up-1 medium-up-2 card-grid">
   <% meetings.each do |meeting| %>
-    <%= card_for meeting, context: { current_user: current_user } %>
+    <%= card_for meeting %>
   <% end %>
 </div>
 <%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>

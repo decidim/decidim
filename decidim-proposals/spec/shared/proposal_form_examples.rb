@@ -6,10 +6,11 @@ shared_examples "a proposal form" do |options|
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:title) { "Oriol for president!" }
+  let(:title) { "More sidewalks and less roads!" }
   let(:body) { "Everything would be better" }
   let(:author) { create(:user, organization: organization) }
-  let(:user_group_id) { create(:user_group, :verified, users: [author], organization: organization).id }
+  let(:user_group) { create(:user_group, :verified, users: [author], organization: organization) }
+  let(:user_group_id) { user_group.id }
   let(:category) { create(:category, participatory_space: participatory_space) }
   let(:scope) { create(:scope, organization: organization) }
   let(:category_id) { category.try(:id) }
@@ -53,6 +54,18 @@ shared_examples "a proposal form" do |options|
       subject.valid?
       expect(subject.errors.keys).to eq [:title]
     end
+  end
+
+  context "when the title is too long" do
+    let(:body) { "A" * 200 }
+
+    it { is_expected.to be_invalid }
+  end
+
+  context "when the body is not etiquette-compliant" do
+    let(:body) { "A" }
+
+    it { is_expected.to be_invalid }
   end
 
   context "when there's no body" do
@@ -99,10 +112,7 @@ shared_examples "a proposal form" do |options|
         let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
 
         before do
-          Geocoder::Lookup::Test.add_stub(
-            address,
-            [{ "latitude" => latitude, "longitude" => longitude }]
-          )
+          stub_geocoding(address, [latitude, longitude])
         end
 
         it "validates the address and store its coordinates" do
@@ -182,7 +192,7 @@ shared_examples "a proposal form" do |options|
 
   if options && options[:user_group_check]
     it "properly maps user group id from model" do
-      proposal = create(:proposal, component: component, author: author, decidim_user_group_id: user_group_id)
+      proposal = create(:proposal, component: component, users: [author], user_groups: [user_group])
 
       expect(described_class.from_model(proposal).user_group_id).to eq(user_group_id)
     end

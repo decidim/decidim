@@ -13,6 +13,7 @@ shared_examples "scope helpers" do
   before do
     allow(helper).to receive(:current_participatory_space).and_return(participatory_space)
   end
+
   let(:helper) do
     Class.new.tap do |v|
       v.extend(Decidim::ScopesHelper)

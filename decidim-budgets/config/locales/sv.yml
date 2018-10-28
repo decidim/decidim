@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     attributes:
@@ -17,12 +16,13 @@ sv:
   decidim:
     budgets:
       actions:
-        attachment_collections: Samlingar
+        attachment_collections: Mappar
         attachments: Bifogade filer
         confirm_destroy: Är du säker på att du vill radera detta projekt?
         destroy: Radera
         edit: Redigera
-        new: Ny
+        import: Importera förslag till projekt
+        new: Nytt projekt
         preview: Förhandsvisa
         title: Åtgärder
       admin:
@@ -34,7 +34,7 @@ sv:
             invalid: Det här har uppstått ett problem med att skapa detta projekt
             success: Projekt skapades framgångsrikt
           destroy:
-            success: Projektet förstördes framgångsrikt
+            success: Projektet togs framgångsrikt bort
           edit:
             title: Redigera projekt
             update: Uppdatera
@@ -44,10 +44,18 @@ sv:
             title: Projekt
           new:
             create: Skapa
-            title: Nytt resultat
+            title: Nytt projekt
           update:
             invalid: Det har blivit ett problem med att uppdatera detta projekt
             success: Projektet har uppdaterats
+        proposals_imports:
+          create:
+            invalid: Det har blivit ett problem med att importera förslagen till projekt
+            success: "%{number} förslag importerades till projekt"
+          new:
+            create: Importera förslag till projekt
+            no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme för att importera förslagen till projekt.
+            select_component: Var god välj en komponent
       admin_log:
         project:
           create: "%{user_name} skapade projektet %{resource_name} i utrymmet %{space_name}"
@@ -122,13 +130,14 @@ sv:
             announcement: Notis
             comments_enabled: Kommentarer aktiverade
             projects_per_page: Projekt per sida
+            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
             total_budget: Total budget
             vote_threshold_percent: Tröskel för röster i procent
           step:
             announcement: Notis
             comments_blocked: Kommentarer blockerade
             show_votes: Visa röster
-            votes_enabled: Röster aktiverade
+            votes_enabled: Röstning aktiverad
     orders:
       checkout:
         error: Ett fel uppstod när din röst behandlades

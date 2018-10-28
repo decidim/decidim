@@ -55,7 +55,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can update an attachment collection" do
     within "#attachment_collections" do
-      within find("tr", text: stripped(translated(attachment_collection.name))) do
+      within find("tr", text: translated(attachment_collection.name)) do
         click_link "Edit"
       end
     end
@@ -89,7 +89,7 @@ shared_examples "manage attachment collections examples" do
 
       it "can delete the attachment collection" do
         within find("tr", text: translated(attachment_collection2.name)) do
-          accept_confirm { click_link "Destroy" }
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")

@@ -9,16 +9,16 @@ nl:
         copy_components: Kopieer onderdelen
         copy_steps: Kopieer stappen
         description: Beschrijving
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        local_area: Lokaal gebied
+        local_area: Organisatiegebied
         meta_scope: Omvang metadata
         participatory_process_group_id: Groep thema's
-        participatory_scope: Participatief toepassingsgebied
-        participatory_structure: Participatieve structuur
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Scope
@@ -28,7 +28,7 @@ nl:
         slug: URL slak
         start_date: Startdatum
         subtitle: Ondertiteling
-        target: Doel
+        target: Wie doet mee
         title: Titel
       participatory_process_group:
         description: Beschrijving
@@ -36,6 +36,8 @@ nl:
         name: Naam
         participatory_process_ids: Verwante thema's
       participatory_process_step:
+        cta_path: Call to Action-pad
+        cta_text: Call to Action-tekst
         description: Beschrijving
         end_date: Einddatum
         short_description: Korte beschrijving
@@ -64,11 +66,14 @@ nl:
       actions:
         activate: Activeren
         configure: Configureren
-        confirm_destroy: Bevestigen vernietigen
-        destroy: Vernietigen
+        confirm_destroy: Bevestig verwijderen
+        destroy: Verwijder
         duplicate: Dupliceren
         edit: Bewerken
-        new: Nieuw
+        new_process: Nieuw proces
+        new_process_group: Nieuwe procesgroep
+        new_process_step: Nieuwe stap
+        new_process_user_role: Nieuwe procesgebruiker
         preview: Voorbeeld
         publish: Publiceren
         resend_invitation: Uitnodiging verzenden
@@ -77,7 +82,7 @@ nl:
         participatory_process_groups: Thema groep
         participatory_processes: Thema's
         participatory_processes_submenu:
-          attachment_collections: Verzamelingen
+          attachment_collections: folders
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
@@ -110,7 +115,7 @@ nl:
             email: E-mail
             name: Naam
             role: Rol
-          name: Rol van de gebruiker van de burgerinspraak
+          name: Participerende procesgebruiker
           roles:
             admin: Administrator
             collaborator: Medewerker
@@ -126,7 +131,7 @@ nl:
           title: Burgerinspraak dupliceren
       participatory_process_groups:
         destroy:
-          success: Deelnemende groep is succesvol vernietigd.
+          success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep
           update: Bijwerken
@@ -156,7 +161,7 @@ nl:
           error:
             active_step: Kan de actieve stap niet verwijderen.
             last_step: Kan de laatste stap van een proces niet verwijderen.
-          success: Participatief processtap is succesvol vernietigd.
+          success: Participatieve processtap succesvol verwijderd.
         edit:
           title: Bewerk participatieve processtap
           update: Bijwerken
@@ -173,9 +178,9 @@ nl:
       participatory_process_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan deze burgerinspraak.
-          success: Gebruiker is succesvol aangemaakt voor dit participatieproces.
+          success: Gebruiker is succesvol toegevoegd aan dit participatieproces.
         destroy:
-          success: Gebruiker met succes vernietigd voor dit participatieproces.
+          success: Gebruiker is succesvol verwijderd uit dit participatieproces.
         edit:
           title: Update participatieve procesgebruiker.
           update: Bijwerken
@@ -192,7 +197,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuw participatief proces.
           success: Participatief proces is succesvol gecreëerd. Configureer nu zijn stappen.
         destroy:
-          success: Participatief proces is succesvol vernietigd.
+          success: Participatief proces succesvol verwijderd.
         edit:
           update: Bijwerken
         form:
@@ -254,7 +259,9 @@ nl:
       processes: Thema's
     participatory_process_groups:
       show:
-        group_participatory_processes: Thema's voor %{group}
+        group_participatory_processes:
+          one: 1 processen voor %{group}
+          other: "%{count} processen voor %{group}"
         title: Participerende procesgroepen
     participatory_process_steps:
       index:
@@ -262,33 +269,66 @@ nl:
         title: Participatieve processtappen
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Gebruik hier gedeeltelijke paden, niet volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
+            cta_text_help: Als dit niet is ingesteld, wordt de knop niet weergegeven.
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Gemarkeerde processen
       index:
         title: Burgerinspraak
-      order_by_processes:
-        active: Actief
-        all: Alle
-        past: Archief
-        upcoming: Aankomende
+      last_activity:
+        new_participatory_process: Nieuw participatief proces
       pages:
         home:
           highlighted_processes:
             active_processes: Actieve thema's
             active_step: Actieve stap
+            more_information: Meer informatie
+            participate: Deelnemen
             see_all_processes: Bekijk alle thema's
       participatory_process_groups:
         none: Geen
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 actief proces
+              other: "%{count} actieve processen"
+            all:
+              one: 1 proces
+              other: "%{count} processen"
+            past:
+              one: 1 proces uit het verleden
+              other: "%{count} eerdere processen"
+            upcoming:
+              one: 1 aanstaande proces
+              other: "%{count} aankomende processen"
+          explanations:
+            no_active: Geen actieve processen
+            no_active_nor_upcoming: Geen actieve of aankomende processen
+            no_active_nor_upcoming_callout: Er zijn geen actieve of aankomende processen. Hier is een lijst met de vorige.
+          names:
+            active: Actief
+            all: Alle
+            past: Archief
+            upcoming: Aankomende
+          see: Zien
         index:
           loading: Laden van resultaten...
       show:
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         end_date: Einddatum
         local_area: Organisatiegebied
         participatory_scope: Wat is besloten
@@ -327,10 +367,6 @@ nl:
       participatory_processes:
         index:
           promoted_processes: Uitgelichte thema’s
-        order_by_processes:
-          processes:
-            one: "%{count} thema"
-            other: "%{count} thema's"
         participatory_process:
           active_step: 'Huidige stap:'
           take_part: Deelnemen

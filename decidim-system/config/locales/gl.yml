@@ -4,7 +4,7 @@ gl:
     system:
       actions:
         confirm_destroy: Estás seguro de que queres eliminar isto?
-        destroy: Destruír
+        destroy: Eliminar
         edit: Editar
         new: Novo
         save: Gardar
@@ -14,7 +14,7 @@ gl:
           error: Produciuse un erro ao crear un administrador novo.
           success: O administrador creouse con éxito
         destroy:
-          success: O administrador foi destruído con éxito
+          success: O administrador eliminouse con éxito
         edit:
           title: Editar administrador
           update: Actualización

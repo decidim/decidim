@@ -45,7 +45,7 @@ module Decidim
       return [] unless klass.respond_to?(:linked_classes_for)
 
       klass.linked_classes_for(current_component).map do |k|
-        [k.underscore, t(k.demodulize.downcase, scope: "decidim.filters.linked_classes")]
+        [k.underscore, t(k.demodulize.underscore, scope: "decidim.filters.linked_classes")]
       end
     end
 
@@ -68,6 +68,13 @@ module Decidim
     # Returns an instance of ResourceLocatorPresenter with the given resource
     def resource_locator(resource)
       ::Decidim::ResourceLocatorPresenter.new(resource)
+    end
+
+    # Returns a descriptive title for the resource
+    def resource_title(resource)
+      title = resource.try(:title) || resource.try(:name) || resource.try(:subject) || "#{resource.model_name.human} ##{resource.id}"
+      title = translated_attribute(title) if title.is_a?(Hash)
+      title
     end
   end
 end

@@ -193,7 +193,12 @@ module Decidim
         end
 
         context "when update" do
-          let(:valid_attributes) { attributes_for(:initiative, organization: organization) }
+          let(:valid_attributes) do
+            attrs = attributes_for(:initiative, organization: organization)
+            attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
+            attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
+            attrs
+          end
 
           context "and Users without initiatives" do
             before do
@@ -383,8 +388,8 @@ module Decidim
               initiative.reload
               expect(initiative).to be_published
               expect(initiative.published_at).not_to be_nil
-              expect(initiative.signature_start_time).not_to be_nil
-              expect(initiative.signature_end_time).not_to be_nil
+              expect(initiative.signature_start_date).not_to be_nil
+              expect(initiative.signature_end_date).not_to be_nil
             end
           end
         end

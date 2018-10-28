@@ -110,6 +110,7 @@ module Decidim
               create(:proposal, :withdrawn, component: component)
               create(:proposal, :rejected, component: component)
               accepted_proposal = create(:proposal, :accepted, component: component)
+
               expect(subject.size).to eq(2)
               expect(subject).to match_array([accepted_proposal, proposal])
             end

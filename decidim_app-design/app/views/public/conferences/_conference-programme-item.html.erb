@@ -1,0 +1,40 @@
+<% timebreak ||= false %>
+<% if timebreak %>
+<div class="row collapse">
+  <div class="row programme-header">
+    <div class="column medium-2 programme-time">
+      <%= s.to_s(:time) %> - <%= e.to_s(:time) %>
+    </div>
+    <div class="column medium-10 programme-title">
+      Break
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="row collapse">
+  <% seed = SecureRandom.hex(3).to_s %>
+  <div class="row">
+    <div class="column medium-10 medium-push-2">
+      <ul class="tabs buttons__row" id="conference-row-<%= seed %>-tabs"
+        data-tabs>
+        <% speechs = Faker::Number.between(2, 4) %>
+        <% speechs.times do |i| %>
+        <li class="tabs-title<%= " is-active" if i == 0 %>">
+          <!-- Wrap button in an anchor to make foundation tabs work -->
+          <a href="#conference-row-<%= seed %>-tab<%= i %>">
+            <button class="button button--shadow secondary tiny light">Talk #<%= Faker::Hacker.abbreviation %></button>
+          </a>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="tabs-content" data-tabs-content="conference-row-<%= seed %>-tabs">
+    <% speechs.times do |i| %>
+    <div class="tabs-panel<%= " is-active" if i == 0 %>" id="conference-row-<%= seed %>-tab<%= i %>">
+      <%= render partial: page_path("conferences") + "/conference-programme-talk", locals: { e: e, s: s } %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

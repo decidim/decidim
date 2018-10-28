@@ -22,7 +22,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) unless @proposal.draft?
-        return broadcast(:invalid) if @proposal.author != @current_user
+        return broadcast(:invalid) unless @proposal.authored_by?(@current_user)
 
         @proposal.destroy!
 

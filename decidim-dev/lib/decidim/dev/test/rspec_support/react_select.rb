@@ -23,3 +23,7 @@ module Capybara
     end
   end
 end
+
+RSpec.configure do |config|
+  config.include Capybara::ReactSelect, type: :system
+end

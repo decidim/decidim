@@ -1,0 +1,79 @@
+<% @activesection = "speakers" %>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "conferences_hero" %>
+  <section class="wrapper-home">
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 large-3">
+        <%= partial "conferences_nav" %>
+      </div>
+      <div class="columns mediumlarge-8">
+        <h1 class="section-heading">Ponentes</h1>
+        <div class="row small-up-2 medium-up-4 mb-l">
+          <% Faker::Number.between(10, 25).times do %>
+          <% img_path = Faker::Fillmurray.image(false, Faker::Number.between(10, 500), Faker::Number.between(10, 500)) %>
+          <% name = Faker::Name.name %>
+          <% job = Faker::Company.profession %>
+          <% net = Faker::Internet.domain_name %>
+          <% user = Faker::Internet.username %>
+          <div class="column conference-speaker js-conference">
+            <div class="speaker-img-wrapper">
+              <div class="speaker-img">
+                <%= image_tag img_path %>
+              </div>
+            </div>
+            <div class="speaker-data">
+              <div class="data-name"><%= name %></div>
+              <div class="data-role"><%= job %> · <%= net %></div>
+              <div class="data-extra"><a href="" class="card-link">@<%= user %></a>&nbsp;<span><u>more info</u></span></div>
+            </div>
+            <div class="speaker-bio js-bio">
+              <div class="row">
+                <div class="column medium-6">
+                  <div class="speaker-img-wrapper">
+                    <div class="speaker-img">
+                      <%= image_tag img_path %>
+                    </div>
+                  </div>
+                  <div class="speaker-data">
+                    <div class="data-name"><%= name %></div>
+                    <div class="data-role"><%= job %> · <%= net %></div>
+                    <div class="data-extra"><a href="" class="card-link">@<%= user %></a></div>
+                    <div><a href="" class="card-link"><%= icon "external-link" %>&nbsp;Personal website</a></div>
+                  </div>
+                </div>
+                <div class="column medium-6 bio-extended">
+                  <p>I consider myself a situated and embodied philosopher, which means that I situate my philosophical practice in close interaction with social scientific environments and embodied in the conceptual apparatus that emerges from this interplay. </p>
+                  <p>The sciences on which I feel embedded are those meeting in the multidisciplinary crossroad of cognitive sciences and artificial life: particularly the origins of agency, simulation of adaptive behaviour (evolutionary robotics and computational neuroethology), and large scale neuroscience.</p>
+                  <p>I also life embodied and embedded in hacktivism, technopolitics and reproduction of commons and free knowledge. </p>
+                </div>
+              </div>
+              <hr class="reset mt-none mb-s" />
+              <div class="row">
+                <div class="column medium-6">
+                  <div class="bio-acts">Speaking at</div>
+                  <ul class="list-reset">
+                    <li><a href="">Mesa redonda: Experiencias Decidim en otras instituciones</a></li>
+                  </ul>
+                </div>
+                <div class="column medium-6">
+                  <div class="bio-acts">Participating at</div>
+                  <ul class="list-reset">
+                    <li><a href="">Mesa redonda: Experiencias Decidim en otras instituciones</a></li>
+                    <li><a href="">Introducció y promoció</a></li>
+                    <li><a href="">Pausa</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%= partial "template_bottom" %>

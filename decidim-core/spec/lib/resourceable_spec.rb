@@ -134,7 +134,7 @@ module Decidim
       subject { resource }
 
       context "when all hierarchy is visible" do
-        before { subject.update(published_at: DateTime.current) }
+        before { subject.update(published_at: Time.current) }
 
         it { is_expected.to be_visible }
       end

@@ -5,7 +5,7 @@
     <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path, class: "button tiny button--simple" if allowed_to? :import, :proposals %>
 
     <% if allowed_to? :create, :proposal %>
-      <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: "button tiny button--simple" %>
+      <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_path, class: "button tiny button--simple" %>
     <% end %>
 
     <%= export_dropdown %>

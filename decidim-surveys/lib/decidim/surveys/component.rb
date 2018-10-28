@@ -9,23 +9,26 @@ Decidim.register_component(:surveys) do |component|
   component.stylesheet = "decidim/surveys/surveys"
   component.permissions_class_name = "Decidim::Surveys::Permissions"
 
+  component.on(:copy) do |context|
+    Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
+      on(:invalid) { raise "Can't create survey" }
+    end
+  end
+
   component.on(:create) do |instance|
     Decidim::Surveys::CreateSurvey.call(instance) do
       on(:invalid) { raise "Can't create survey" }
     end
   end
 
+  component.data_portable_entities = ["Decidim::Surveys::SurveyAnswer"]
+
   component.on(:before_destroy) do |instance|
     survey_answers_for_component = Decidim::Surveys::SurveyAnswer
                                    .includes(:survey)
                                    .where(decidim_surveys_surveys: { decidim_component_id: instance.id })
-    raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
-  end
 
-  component.on(:copy) do |context|
-    Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
-      on(:invalid) { raise "Can't create survey" }
-    end
+    raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
   end
 
   component.register_stat :surveys_count do |components, start_at, end_at|
@@ -65,14 +68,28 @@ Decidim.register_component(:surveys) do |component|
   end
 
   component.seeds do |participatory_space|
-    component = Decidim::Component.create!(
+    admin_user = Decidim::User.find_by(
+      organization: participatory_space.organization,
+      email: "admin@example.org"
+    )
+
+    params = {
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name,
       manifest_name: :surveys,
       published_at: Time.current,
       participatory_space: participatory_space
-    )
+    }
 
-    survey = Decidim::Surveys::Survey.create!(
+    component = Decidim.traceability.perform_action!(
+      "publish",
+      Decidim::Component,
+      admin_user,
+      visibility: "all"
+    ) do
+      Decidim::Component.create!(params)
+    end
+
+    params = {
       component: component,
       title: Decidim::Faker::Localized.paragraph,
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -81,6 +98,13 @@ Decidim.register_component(:surveys) do |component|
       tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(2)
       end
+    }
+
+    survey = Decidim.traceability.create!(
+      Decidim::Surveys::Survey,
+      admin_user,
+      params,
+      visibility: "all"
     )
 
     %w(short_answer long_answer).each do |text_question_type|

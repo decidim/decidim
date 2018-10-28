@@ -1,4 +1,3 @@
----
 pt-BR:
   activemodel:
     attributes:
@@ -19,7 +18,7 @@ pt-BR:
         decidim_area_id: Área
         decidim_scope_id: Âmbito
         description: Descrição
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         domain: Domínio
         duration: Duração
         facebook: Facebook
@@ -30,11 +29,12 @@ pt-BR:
         instagram: Instagram
         internal_organisation: Organização interna
         is_transparent: É transparente
-        local_area: Área local
+        local_area: Área da organização
         meta_scope: Metadados do âmbito
+        parent_id: Montagem dos pais
         participatory_processes_ids: Processos participativos relacionados
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
         private_space: Espaço privado
         promoted: Destacado
         published_at: Publicado em
@@ -46,7 +46,7 @@ pt-BR:
         slug: Slug de URL
         special_features: Funcionalidades especiais
         subtitle: Subtítulo
-        target: Alvo
+        target: Quem participa
         title: Título
         twitter: Twitter
         youtube: YouTube
@@ -76,6 +76,8 @@ pt-BR:
         other: Funções do usuário da Assembleia
   decidim:
     admin:
+      actions:
+        new_assembly: Nova assembleia
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
@@ -133,9 +135,9 @@ pt-BR:
       assembly_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esta montagem.
-          success: Usuário criado com sucesso para esta montagem.
+          success: Usuário adicionado com sucesso a esta montagem.
         destroy:
-          success: Usuário excluído com sucesso para esta montagem.
+          success: Usuário removido com sucesso deste assembly.
         edit:
           title: Atualize o usuário da montagem.
           update: Atualizar
@@ -152,14 +154,14 @@ pt-BR:
         assemblies_submenu:
           assembly_admins: Usuários da assembleia
           assembly_members: Membros
-          attachment_collections: Coleções
+          attachment_collections: Pastas
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
           components: Componentes
           info: Informações
           moderations: Moderação
-          private_users: Usuários privados
+          private_users: Usuários particulares
       models:
         assembly:
           fields:
@@ -168,6 +170,7 @@ pt-BR:
             promoted: Em destaque
             published: Publicados
             title: Título
+          name: Assembleia
         assembly_member:
           fields:
             ceased_date: Data de cessação
@@ -215,6 +218,7 @@ pt-BR:
             select_a_created_by: Selecione um criado por
             select_an_area: Selecione uma área
             select_an_assembly_type: Selecione um tipo de assembleia
+            select_parent_assembly: Selecione a montagem pai
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -234,6 +238,9 @@ pt-BR:
               not_ceased: Não cessou
             filter_by: Filtrar por
             search: Procurar
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantidade máxima de elementos para mostrar
       assembly_members:
         index:
           members: Membros
@@ -245,12 +252,17 @@ pt-BR:
         others: Outras
         participatory: Participativo
         working_group: Grupo de trabalho
+      content_blocks:
+        highlighted_assemblies:
+          name: Assembleias em destaque
       created_by:
         city_council: Câmara Municipal
         others: Outras
         public: Público
       index:
         title: Assembleias
+      last_activity:
+        new_assembly: Nova montagem
       pages:
         home:
           highlighted_assemblies:
@@ -267,7 +279,7 @@ pt-BR:
         composition: Composição
         created_by: Criado por
         creation_date: Data Criada
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         duration: Duração
         included_at: Incluído em
         indefinite_duration: Indeterminado
@@ -275,9 +287,9 @@ pt-BR:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Áreas municipais
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
+        local_area: Área de organização
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
         private_space: Esta é uma assembleia privada
         purpose_of_action: Objetivo da ação
         read_less: Leia menos
@@ -285,7 +297,7 @@ pt-BR:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        target: Alvo
+        target: Quem pode participar
       statistics:
         answers_count: Respostas
         assemblies_count: Assembleias
@@ -322,11 +334,13 @@ pt-BR:
         assembly:
           take_part: Participar
         index:
+          organizational_chart: Organograma
           promoted_assemblies: Montagens destacadas
+          reset_chart: Restabelecer
         order_by_assemblies:
           assemblies:
-            one: Assembly %{count}
-            other: Conjuntos %{count}
+            one: "Assembly %{count}"
+            other: "Conjuntos %{count}"
         promoted_assembly:
           more_info: Mais informações
           take_part: Participar

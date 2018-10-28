@@ -1,4 +1,4 @@
-<%= content_for(:title, translated_attribute(model.title)) %>
+<%= content_for(:title, present(model).title) %>
 <%= render partial: "decidim/meetings/meetings/datetime", locals: { meeting: model } %>
 <%= decidim_sanitize meeting_description(model) %>
 <div class="address card__extra">

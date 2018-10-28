@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/shared_examples/authorable"
+require "decidim/core/test/shared_examples/coauthorable"
 require "decidim/core/test/shared_examples/publicable"
 require "decidim/core/test/shared_examples/localised_email"
 require "decidim/core/test/shared_examples/has_attachments"
@@ -23,3 +24,6 @@ require "decidim/core/test/shared_examples/simple_event"
 require "decidim/core/test/shared_examples/component_type"
 require "decidim/core/test/shared_examples/fingerprint_examples"
 require "decidim/core/test/shared_examples/searchable_results_examples"
+require "decidim/core/test/shared_examples/has_space_in_mcell_examples"
+require "decidim/core/test/shared_examples/railtie_examples"
+require "decidim/core/test/shared_examples/edit_link_shared_examples"

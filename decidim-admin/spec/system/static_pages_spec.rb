@@ -19,6 +19,8 @@ describe "Content pages", type: :system do
       visit decidim.pages_path
     end
 
+    it_behaves_like "editable content for admins"
+
     it "shows the list of all the pages" do
       decidim_pages.each do |decidim_page|
         expect(page).to have_css(
@@ -103,9 +105,9 @@ describe "Content pages", type: :system do
         end
       end
 
-      it "can destroy them" do
+      it "can delete them" do
         within find("tr", text: translated(decidim_page.title)) do
-          accept_confirm { click_link "Destroy" }
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")

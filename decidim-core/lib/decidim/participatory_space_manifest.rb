@@ -24,6 +24,10 @@ module Decidim
 
     attribute :query_type, String, default: "Decidim::Core::ParticipatorySpaceType"
 
+    # An array with the name of the classes that will be exported with
+    # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
+    attribute :data_portable_entities, Array, default: []
+
     # A String with the component's icon. The icon must be stored in the
     # engine's assets path.
     attribute :icon, String

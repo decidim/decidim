@@ -39,7 +39,7 @@ module Decidim
         content_tag(
           :strong,
           t("layouts.decidim.participatory_process_groups.participatory_process_group.processes_count")
-        ) + " " + model.participatory_processes.count.to_s
+        ) + " " + model.participatory_processes.published.count.to_s
       end
     end
   end

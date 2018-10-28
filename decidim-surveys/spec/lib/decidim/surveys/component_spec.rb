@@ -20,6 +20,7 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
         survey = create :survey, component: component
         create :survey_answer, survey: survey
       end
+
       it "raises an error" do
         expect { subject.manifest.run_hooks(:before_destroy, subject) }.to raise_error(
           RuntimeError,

@@ -9,6 +9,7 @@ Decidim.register_component(:meetings) do |component|
   component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.query_type = "Decidim::Meetings::MeetingsType"
+  component.data_portable_entities = ["Decidim::Meetings::Registration"]
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
@@ -18,6 +19,7 @@ Decidim.register_component(:meetings) do |component|
     resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
+    resource.actions = %w(join)
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
@@ -33,6 +35,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :resources_permissions_enabled, type: :boolean, default: true
   end
 
   component.settings(:step) do |settings|
@@ -41,12 +44,26 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.seeds do |participatory_space|
-    component = Decidim::Component.create!(
+    admin_user = Decidim::User.find_by(
+      organization: participatory_space.organization,
+      email: "admin@example.org"
+    )
+
+    params = {
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name,
       published_at: Time.current,
       manifest_name: :meetings,
       participatory_space: participatory_space
-    )
+    }
+
+    component = Decidim.traceability.perform_action!(
+      "publish",
+      Decidim::Component,
+      admin_user,
+      visibility: "all"
+    ) do
+      Decidim::Component.create!(params)
+    end
 
     if participatory_space.scope
       scopes = participatory_space.scope.descendants
@@ -57,7 +74,7 @@ Decidim.register_component(:meetings) do |component|
     end
 
     2.times do
-      meeting = Decidim::Meetings::Meeting.create!(
+      params = {
         component: component,
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
         category: participatory_space.categories.sample,
@@ -81,6 +98,13 @@ Decidim.register_component(:meetings) do |component|
           { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
           { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
         ]
+      }
+
+      meeting = Decidim.traceability.create!(
+        Decidim::Meetings::Meeting,
+        admin_user,
+        params,
+        visibility: "all"
       )
 
       2.times do |n|
@@ -134,3 +158,9 @@ Decidim.register_component(:meetings) do |component|
     end
   end
 end
+
+Decidim.register_global_engine(
+  :meetings_directory,
+  Decidim::Meetings::DirectoryEngine,
+  at: "/meetings"
+)

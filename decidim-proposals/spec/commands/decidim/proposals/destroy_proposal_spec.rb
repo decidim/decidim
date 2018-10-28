@@ -10,9 +10,9 @@ module Decidim
         let(:organization) { component.organization }
         let(:current_user) { create(:user, organization: organization) }
         let(:other_user) { create(:user, organization: organization) }
-        let!(:proposal) { create :proposal, component: component, author: current_user }
-        let(:proposal_draft) { create(:proposal, :draft, component: component, author: current_user) }
-        let!(:proposal_draft_other) { create :proposal, component: component, author: other_user }
+        let!(:proposal) { create :proposal, component: component, users: [current_user] }
+        let(:proposal_draft) { create(:proposal, :draft, component: component, users: [current_user]) }
+        let!(:proposal_draft_other) { create :proposal, component: component, users: [other_user] }
 
         it "broadcasts ok" do
           expect { described_class.call(proposal_draft, current_user) }.to broadcast(:ok)

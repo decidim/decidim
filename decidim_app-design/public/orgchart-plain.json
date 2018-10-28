@@ -1,0 +1,56 @@
+{
+  "name": "US Minor Outlying Islands",
+  "children": [{
+      "name": "Tennessee",
+      "children": [{
+          "name": "Chaparrito",
+          "children": [{
+              "name": "Croton Loop"
+            },
+            {
+              "name": "Banker Street"
+            },
+            {
+              "name": "Colonial Court"
+            },
+            {
+              "name": "Havens Place"
+            }
+          ]
+        },
+        {
+          "name": "Jamestown",
+          "children": []
+        },
+        {
+          "name": "Ypsilanti",
+          "children": [{
+            "name": "Lexington Avenue"
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Wisconsin",
+      "children": [{
+        "name": "Hayes",
+        "children": [{
+            "name": "Judge Street"
+          },
+          {
+            "name": "Pooles Lane"
+          },
+          {
+            "name": "Ross Street"
+          },
+          {
+            "name": "Saratoga Avenue"
+          },
+          {
+            "name": "Joval Court"
+          }
+        ]
+      }]
+    }
+  ]
+}

@@ -30,11 +30,12 @@
     <fieldset>
       <legend><h6 class="heading6"><%= t ".type" %></h6></legend>
       <%= form.initiative_types_select :type,
-                                   legend_title: t(".type"),
-                                   label: false,
-                                   prompt: t(".type_prompt"),
-                                   remote_path: initiative_types_search_path,
-                                   multiple: true %>
+                                       Decidim::InitiativesType.where(organization: current_organization),
+                                       legend_title: t(".type"),
+                                       label: false,
+                                       prompt: t(".type_prompt"),
+                                       remote_path: initiative_types_search_path,
+                                       multiple: true %>
     </fieldset>
   </div>
 

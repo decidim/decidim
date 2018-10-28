@@ -1,0 +1,86 @@
+.conference-speaker{
+  margin-bottom: $global-margin * 3;
+
+  .speaker-img-wrapper{
+    margin-bottom: $global-margin;
+    position: relative;
+
+    &::before{
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    .speaker-img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .speaker-data{
+    .data-name{
+      font-weight: $global-weight-bold;
+      font-size: rem-calc(18);
+    }
+
+    .data-role,
+    .data-extra{
+      color: $muted;
+    }
+  }
+
+  .speaker-bio{
+    @extend .card;
+
+    display: none;
+    padding: $global-padding;
+    left: 0;
+    background-color: $white;
+    box-shadow: 0 0 20px 0 rgba($black, .2);
+    z-index: 1;
+    width: 100vw;
+    position: absolute;
+
+    @include breakpoint(medium){
+      top: 0;
+      width: 300%;
+      padding: $global-padding * 2;
+      transform: translateY(-10%);
+    }
+
+    > :first-child{
+      display: flex;
+      justify-content: stretch;
+    }
+
+    .bio-extended{
+      font-size: rem-calc(14);
+    }
+
+    .bio-acts{
+      font-weight: $global-weight-bold;
+    }
+  }
+
+  &:hover .speaker-bio{
+    display: block;
+  }
+
+  @include breakpoint(medium){
+    position: relative;
+
+    &:nth-of-type(4n + 3) .speaker-bio,
+    &:nth-of-type(4n + 4) .speaker-bio{
+      transform: translateY(-10%) translateX(-50%);
+    }
+  }
+}

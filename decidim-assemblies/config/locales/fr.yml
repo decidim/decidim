@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -17,7 +16,7 @@ fr:
         created_by_other: Si "autres", précisez
         creation_date: Date de création
         decidim_area_id: Zone d'application
-        decidim_scope_id: Secteur
+        decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Groupe initiateur
         domain: Domaine
@@ -30,23 +29,24 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Zone d'application locale
+        local_area: Zone d'organisation
         meta_scope: Échelle
+        parent_id: Assemblée parentale
         participatory_processes_ids: Concertations associées
-        participatory_scope: Objectif
-        participatory_structure: Modalités
+        participatory_scope: Ce qui est décidé
+        participatory_structure: Comment est-il décidé
         private_space: Espace privé
         promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
-        scope_id: Secteur
-        scopes_enabled: Secteurs activés
+        scope_id: Périmètre d'application
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
         special_features: Particularités
         subtitle: Sous-titre
-        target: Pour qui ?
+        target: Qui participe
         title: Titre
         twitter: Twitter
         youtube: Youtube
@@ -61,9 +61,7 @@ fr:
         position: Statut
       assembly_user_role:
         email: E-mail
-        name: 'Nom
-
-'
+        name: "Nom\n"
         role: Fonction
   activerecord:
     models:
@@ -79,8 +77,7 @@ fr:
   decidim:
     admin:
       actions:
-        assembly:
-          new: Nouvelle assemblée
+        new_assembly: Nouvel assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
@@ -92,7 +89,7 @@ fr:
         form:
           title: Informations générales
         index:
-          not_published: Non publiée
+          not_published: Non publié
           private: Privée
           public: Publique
           published: Publiée
@@ -169,10 +166,11 @@ fr:
         assembly:
           fields:
             created_at: Créée le
-            private: Privée
+            private: Privé
             promoted: Mise en évidence
             published: Publiée
             title: Titre
+          name: Assemblée
         assembly_member:
           fields:
             ceased_date: Date de radiation
@@ -216,10 +214,11 @@ fr:
         assemblies:
           form:
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
-            included_at_help: Sélectionnez la date à laquelle cette assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
+            select_parent_assembly: Sélectionner l'assemblage parent
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             social_handlers: Réseaux sociaux
         assembly_copies:
@@ -239,6 +238,9 @@ fr:
               not_ceased: Validité en cours
             filter_by: Filtrer par
             search: Rechercher
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantité maximale d'éléments à afficher
       assembly_members:
         index:
           members: Membres
@@ -250,12 +252,17 @@ fr:
         others: Autres
         participatory: Participatif
         working_group: Groupe de travail
+      content_blocks:
+        highlighted_assemblies:
+          name: Assemblages en surbrillance
       created_by:
         city_council: Conseil municipal
         others: Autres
         public: Public
       index:
         title: Assemblées
+      last_activity:
+        new_assembly: Nouvelle assemblée
       pages:
         home:
           highlighted_assemblies:
@@ -280,17 +287,17 @@ fr:
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Zone d'application locale
-        participatory_scope: Objectif
-        participatory_structure: Modalités
+        local_area: Zone d'organisation
+        participatory_scope: Ce qui est décidé
+        participatory_structure: Comment est-il décidé
         private_space: Ceci est une assemblée privée
         purpose_of_action: But de l'action
         read_less: Voir moins
         read_more: Voir la suite
         related_participatory_processes: Concertations associées
-        scope: Échelle
+        scope: Périmètre d'application
         social_networks: Réseaux sociaux
-        target: Pour qui ?
+        target: Qui participe
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées
@@ -327,7 +334,9 @@ fr:
         assembly:
           take_part: Participer
         index:
+          organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
+          reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"
@@ -337,7 +346,7 @@ fr:
           take_part: Participer
       assembly_header:
         assembly_member_menu_item: Membres
-        assembly_menu_item: Présentation
+        assembly_menu_item: L'assemblée
         unfold: Dérouler
       assembly_widgets:
         show:

@@ -1,0 +1,20 @@
+<% if @collaborative_draft.requesters.presence && allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+  <div class="card extra">
+    <div class="definition-data__item">
+      <span class="definition-data__title">
+        <%= t("title", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests") %>
+      </span>
+    </div>
+    <% @collaborative_draft.requesters.each do |requester| %>
+      <div class="definition-data__item expanded" id="request_<%= requester.id %>">
+        <%= cell "decidim/author", present(requester), options: { extra_classes: ["author-data--small"] }, has_actions: false %>
+
+        <div>
+          <%= render partial: "accept_request_access_form", locals: { requester: requester } %>
+
+          <%= render partial: "reject_request_access_form", locals: { requester: requester } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

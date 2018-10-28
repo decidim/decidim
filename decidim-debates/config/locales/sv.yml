@@ -100,6 +100,8 @@ sv:
           close_window: Stäng fönstret
           share: Dela
           share_link: Dela länk
+      last_activity:
+        new_debate_at_html: "<span>Ny debatt på %{link}</span>"
       models:
         debate:
           fields:
@@ -132,3 +134,15 @@ sv:
           email_outro: Du har fått den här notisen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser på föregående länk.
           email_subject: Debatter finns nu i %{participatory_space_title}
           notification_title: Nu kan du starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Välj en öppen debatt att delta i
+          description: Detta märke beviljas när du aktivt deltar i de olika debatterna genom att lämna dina kommentarer.
+          description_another: Den här användaren har deltagit i %{score} debatter.
+          description_own: Du har deltagit i %{score} debatter.
+          name: debatter
+          next_level_in: Delta i %{score} fler debatter för att nå nästa nivå!
+          unearned_another: Den här användaren har inte deltagit i någon debatt än.
+          unearned_own: Du har deltagit i några debatter än.

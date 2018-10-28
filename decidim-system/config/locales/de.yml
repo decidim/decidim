@@ -3,7 +3,7 @@ de:
     system:
       actions:
         confirm_destroy: Möchtest du das wirklich löschen?
-        destroy: Zerstören
+        destroy: Löschen
         edit: Bearbeiten
         new: Neu
         save: sparen
@@ -13,7 +13,7 @@ de:
           error: Beim Erstellen eines neuen Administrators ist ein Fehler aufgetreten.
           success: Administrator erfolgreich erstellt
         destroy:
-          success: Administrator erfolgreich zerstört
+          success: Der Administrator wurde erfolgreich gelöscht
         edit:
           title: Administrator bearbeiten
           update: Aktualisieren

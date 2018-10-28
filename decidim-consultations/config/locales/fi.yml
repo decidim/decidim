@@ -5,12 +5,12 @@ fi:
         banner_image: Bannerikuva
         decidim_highlighted_scope_id: Korostettu teema
         description: Kuvaus
-        end_voting_date: Päättymispäivä
+        end_voting_date: Äänestys päättyy
         introductory_image: Esittelykuva
         introductory_video_url: Esittelyvideon URL-osoite
         questions: Kysymykset
         slug: URL-tunniste
-        start_voting_date: Aloituspäivämäärä
+        start_voting_date: Äänestys alkaa
         subtitle: Alaotsikko
         title: Otsikko
       question:
@@ -53,6 +53,9 @@ fi:
   decidim:
     admin:
       actions:
+        new_consultation: Uusi kuuleminen
+        new_question: Uusi kysymys
+        new_response: Uusi vastaus
         publish_results: Julkaise tulokset
         unpublish_results: Peru tulosten julkistus
       consultation_publications:
@@ -74,7 +77,7 @@ fi:
           error: Virhe uuden kuulemisen luonnissa.
           success: Kuuleminen luotu onnistuneesti.
         destroy:
-          success: Kuuleminen onnistui.
+          success: Kuuleminen poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -135,7 +138,7 @@ fi:
           error: Uuden kysymyksen luomisessa tapahtui virhe.
           success: Kysymys luotu onnistuneesti.
         destroy:
-          success: Kysely onnistui hävittämään.
+          success: Kysely poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -155,7 +158,7 @@ fi:
           success: Vastaus luotu onnistuneesti.
         destroy:
           error: Poistettaessa vastausta tapahtui virhe.
-          success: Vastaus onnistuneesti tuhoutui.
+          success: Vastaus poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:
@@ -171,8 +174,12 @@ fi:
         questions: Kysymykset
         responses: Vastaukset
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Näytettävien elementtien enimmäismäärä
       consultation:
-        start_voting_date: Äänestys
+        start_voting_date: Äänestyksen alkamisajankohta
         view_results: Näytä tulokset
       consultation_card:
         view_results: Näytä tulokset
@@ -181,6 +188,9 @@ fi:
           label: 'Lajittele kuulemiset:'
           random: Sattumanvarainen järjestys
           recent: Viimeisin ensin
+      content_blocks:
+        highlighted_consultations:
+          name: Korostetut kuulemiset
       count:
         title:
           one: "%{count} kuuleminen"
@@ -201,6 +211,18 @@ fi:
         title: Kysymykset teemasta %{scope_name}
       index:
         title: Kuulemiset
+      last_activity:
+        new_consultation: Uusi kuuleminen
+        new_question_at_html: "<span>Uusi kysymys osoitteessa %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktiiviset kuulemiset
+            see_all_consultations: Katso kaikki kuulemiset
+            voting_ends_in:
+              one: Äänestys päättyy <strong>huomenna</strong>
+              other: Äänestys päättyy <strong>%{count} päivän</strong> päästä
+            voting_ends_today: Äänestys päättyy <strong>tänään</strong>
       question:
         take_part: Osallistu
         view_results: Näytä tulokset
@@ -239,7 +261,7 @@ fi:
         assistants_count_title: Avustajat
         comments_count_title: Kommentit
         meetings_count_title: Tapaamiset
-        supports_count_title: kiinnikkeistä
+        supports_count_title: Kannatukset
       technical_info:
         technical_data: Tekniset tiedot
       vote_button:
@@ -262,7 +284,7 @@ fi:
           attachments: Liitteet
           categories: Ryhmät
       consultation_voting_data:
-        start_voting_date: Äänestys
+        start_voting_date: Äänestys alkaa
       question_components:
         question_menu_item: Kysymys
         unfold: Avaa

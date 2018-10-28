@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -14,11 +13,11 @@ es:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
-        local_area: Áreas municipales
+        local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         promoted: Destacado
         published_at: Publicado en
         scope_id: Ámbito
@@ -28,7 +27,7 @@ es:
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
-        target: "¿A quién va dirigida?"
+        target: Quién participa
         title: Título
       participatory_process_group:
         description: Descripción
@@ -36,6 +35,8 @@ es:
         name: Nombre
         participatory_process_ids: Procesos relacionados
       participatory_process_step:
+        cta_path: Ruta de llamada a la acción
+        cta_text: Texto de llamada a la acción
         description: Descripción
         end_date: Fecha de finalización
         short_description: Descripción breve
@@ -64,13 +65,14 @@ es:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: "¿Estás seguro?"
-        destroy: Eliminar
+        confirm_destroy: Confirma la supresión.
+        destroy: Borrar
         duplicate: Duplicar
         edit: Editar
-        new: Nuevo/a
-        participatory_process:
-          new: nuevo proceso participativo
+        new_process: Nuevo proceso
+        new_process_group: Nuevo grupo de procesos
+        new_process_step: Nueva fase
+        new_process_user_role: Nuevo usuario de proceso
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -79,7 +81,7 @@ es:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
         participatory_processes_submenu:
-          attachment_collections: Colecciones
+          attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
@@ -97,6 +99,7 @@ es:
             promoted: Destacado
             published: Publicada
             title: Título
+          name: Proceso participativo
         participatory_process_group:
           fields:
             name: Nombre
@@ -112,7 +115,7 @@ es:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Usuario del proceso
+          name: Usuario de proceso participativo
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -128,7 +131,7 @@ es:
           title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
-          success: Grupo destruido correctamente.
+          success: El grupo de proceso participativo se eliminó con éxito.
         edit:
           title: Editar grupo de procesos
           update: Actualizar
@@ -158,7 +161,7 @@ es:
           error:
             active_step: No se puede eliminar la fase activa.
             last_step: No se puede eliminar la última fase de un proceso.
-          success: La fase de proceso participativo se ha eliminado correctamente.
+          success: Fase de proceso participativo eliminada con éxito.
         edit:
           title: Editar fase de proceso participativo
           update: Actualizar
@@ -175,9 +178,9 @@ es:
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
-          success: Usuario creado con éxito para este proceso participativo.
+          success: Usuario añadido con éxito a este proceso participativo.
         destroy:
-          success: Usuario eliminado con éxito para este proceso participativo.
+          success: Usuario eliminado con éxito de este proceso participativo.
         edit:
           title: Editar usuario del proceso
           update: Actualizar
@@ -194,7 +197,7 @@ es:
           error: Se ha producido un error al crear un nuevo proceso participativo.
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
         destroy:
-          success: El proceso participativo se ha eliminado correctamente.
+          success: Proceso participativo eliminado con éxito.
         edit:
           update: Actualizar
         form:
@@ -256,7 +259,9 @@ es:
       processes: Procesos
     participatory_process_groups:
       show:
-        group_participatory_processes: Procesos para %{group}
+        group_participatory_processes:
+          one: 1 proceso para %{group}
+          other: "%{count} procesos para %{group}"
         title: Grupos de procesos participativos
     participatory_process_steps:
       index:
@@ -264,29 +269,62 @@ es:
         title: Fases del proceso participativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Cantidad máxima de elementos para mostrar
         participatory_process_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no está configurado, el botón no se mostrará. Ejemplo: %{url}'
+            cta_text_help: Si no está configurado, el botón no se mostrará.
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Procesos destacados
       index:
         title: Procesos participativos
-      order_by_processes:
-        active: Activa
-        all: Todos
-        past: Pasadas
-        upcoming: Próximas
+      last_activity:
+        new_participatory_process: Nuevo proceso participativo
       pages:
         home:
           highlighted_processes:
             active_processes: Procesos activos
             active_step: Paso activo
+            more_information: Más información
+            participate: Participar
             see_all_processes: Ver todos los procesos
       participatory_process_groups:
         none: Ninguna
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 proceso activo
+              other: "%{count} procesos activos"
+            all:
+              one: 1 proceso
+              other: "%{count} procesos"
+            past:
+              one: 1 proceso pasado
+              other: "%{count} procesos pasados"
+            upcoming:
+              one: 1 próximo proceso
+              other: "%{count} próximos procesos"
+          explanations:
+            no_active: Sin procesos activos
+            no_active_nor_upcoming: Sin procesos activos ni futuros
+            no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
+          names:
+            active: Activa
+            all: Todos
+            past: Pasadas
+            upcoming: Próximas
+          see: Ver
         index:
           loading: Cargando resultados...
       show:
@@ -329,10 +367,6 @@ es:
       participatory_processes:
         index:
           promoted_processes: Procesos destacados
-        order_by_processes:
-          processes:
-            one: "%{count} proceso"
-            other: "%{count} procesos"
         participatory_process:
           active_step: 'Fase actual:'
           take_part: Participa

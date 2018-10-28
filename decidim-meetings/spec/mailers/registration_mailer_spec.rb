@@ -11,7 +11,8 @@ module Decidim::Meetings
     let(:component) { create(:component, manifest_name: :meetings, participatory_space: participatory_process) }
     let(:user) { create(:user, organization: organization) }
     let(:meeting) { create(:meeting, component: component) }
-    let(:mail) { described_class.confirmation(user, meeting) }
+    let(:registration) { create(:registration, meeting: meeting, user: user) }
+    let(:mail) { described_class.confirmation(user, meeting, registration) }
 
     describe "confirmation" do
       let(:subject) { "La teva inscripció a la trobada ha estat confirmada" }
@@ -21,6 +22,10 @@ module Decidim::Meetings
       let(:default_body) { "details in the attachment" }
 
       include_examples "user localised email"
+    end
+
+    it "includes the registration code" do
+      expect(email_body(mail)).to match("Your registration code is #{registration.code}")
     end
 
     it "includes the meeting's details in a ics file" do

@@ -14,7 +14,7 @@ module Decidim
 
       describe "with mentioned proposals" do
         let(:linked_proposal) { create(:proposal, component: proposal_component) }
-        let(:linked_proposal_no_author) { create(:proposal, component: proposal_component, decidim_author_id: nil) }
+        let(:linked_proposal_no_author) { create(:proposal, :official, component: proposal_component) }
 
         before do
           proposal_metadata[:linked_proposals] << linked_proposal.id
@@ -28,7 +28,7 @@ module Decidim
               event: "decidim.events.proposals.proposal_mentioned",
               event_class: Decidim::Proposals::ProposalMentionedEvent,
               resource: commentable,
-              recipient_ids: [linked_proposal.decidim_author_id],
+              recipient_ids: [linked_proposal.creator_author.id],
               extra: {
                 comment_id: comment.id,
                 mentioned_proposal_id: linked_proposal.id

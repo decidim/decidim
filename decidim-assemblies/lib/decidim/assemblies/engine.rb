@@ -64,27 +64,17 @@ module Decidim
       end
 
       initializer "decidim_assemblies.view_hooks" do
-        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          highlighted_assemblies = OrganizationPrioritizedAssemblies.new(view_context.current_organization, view_context.current_user)
-
-          next unless highlighted_assemblies.any?
-
-          view_context.render(
-            partial: "decidim/assemblies/pages/home/highlighted_assemblies",
-            locals: {
-              highlighted_assemblies: highlighted_assemblies
-            }
-          )
-        end
-
         Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
                                                       .query.distinct
                                                       .joins(:members)
-                                                      .merge(Decidim::AssemblyMember.where(user: view_context.user))
+                                                      .merge(Decidim::AssemblyMember.where(user: view_context.profile_holder))
                                                       .reorder(title: :asc)
 
           next unless assemblies.any?
+
+          # Since this is rendered inside a cell we need to access the parent context in order to render it.
+          view_context = view_context.controller.view_context
 
           view_context.render(
             partial: "decidim/assemblies/pages/user_profile/member_of",
@@ -92,6 +82,18 @@ module Decidim
               assemblies: assemblies
             }
           )
+        end
+      end
+
+      initializer "decidim_assemblies.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :highlighted_assemblies) do |content_block|
+          content_block.cell = "decidim/assemblies/content_blocks/highlighted_assemblies"
+          content_block.public_name_key = "decidim.assemblies.content_blocks.highlighted_assemblies.name"
+          content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 4
+          end
         end
       end
     end

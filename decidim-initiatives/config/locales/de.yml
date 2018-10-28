@@ -6,9 +6,9 @@ de:
         description: Beschreibung
         offline_votes: Face-to-Face-Unterstützung
         scope_id: Umfang
-        signature_end_time: Ende der Unterschriftensammlung
-        signature_start_time: Beginn der Unterschriftensammlung
-        signature_type: Signaturtyp
+        signature_end_date: Ende der Unterschriftensammlung
+        signature_start_date: Beginn der Unterschriftensammlung
+        signature_type: Signatursammeltyp
         signature_type_values:
           any: Gemischt
           offline: Angesicht zu Angesicht
@@ -30,7 +30,7 @@ de:
         title: Titel
       organization_data:
         address: Adresse
-        id_document: CIF
+        id_document: ID-Dokument
         name: Vollständiger Name
   activerecord:
     models:
@@ -45,6 +45,8 @@ de:
         other: Unterschriften
   decidim:
     admin:
+      actions:
+        new_initiative_type: Neuer Initiativentyp
       menu:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
@@ -70,11 +72,29 @@ de:
         initiatives_types: Arten von Initiativen
     events:
       initiatives:
+        initiative_extended:
+          email_intro: Das Enddatum der Signaturen für die Initiative %{resource_title} wurde verlängert!
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Initiativsignaturendatum verlängert!
+          notification_title: Das Enddatum der Signaturen für die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde verlängert.
         milestone_completed:
           email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Neuer Meilenstein abgeschlossen!
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Gehe zum Teilnehmerbereich von Intiativen
+            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+          description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
+          description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
+          description_own: Du hast %{score} Initiativen veröffentlicht.
+          name: Veröffentlichte Initiativen
+          next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
+          unearned_own: Sie haben noch keine Initiativen veröffentlicht.
     initiatives:
       admin:
         committee_requests:
@@ -85,6 +105,9 @@ de:
             no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
             revoke: Widerrufen
             title: Ausschussmitglieder
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
         initiatives:
           edit:
             accept: Initiative akzeptieren
@@ -110,7 +133,7 @@ de:
             filter_by: Filtern nach
             preview: Vorschau
             print: Drucken
-            search: Busca
+            search: Suche
           show:
             print: Drucken
           update:
@@ -125,7 +148,7 @@ de:
           edit:
             back: Zurück
             confirm_destroy: Bist du sicher?
-            destroy: Zerstören
+            destroy: Löschen
             title: Initiativentyp bearbeiten
             update: Aktualisieren
           new:
@@ -143,7 +166,7 @@ de:
             success: Der Initiativentyp wurde erfolgreich entfernt
           edit:
             confirm_destroy: Bist du sicher?
-            destroy: Zerstören
+            destroy: Löschen
             update: Aktualisieren
           form:
             title: Allgemeine Information
@@ -154,7 +177,7 @@ de:
             title: Neuer Initiativentyp
           update:
             error: Ein Fehler ist aufgetreten
-            success: Die angegebene Initiative wurde erfolgreich aktualisiert
+            success: Der Initiativentyp wurde erfolgreich aktualisiert
       admin_log:
         initiative:
           publish: "%{user_name} veröffentlichte die %{resource_name} Initiative"
@@ -171,9 +194,12 @@ de:
       committee_requests:
         new:
           continue: Fortsetzen
-          help_text: Sie sind dabei, eine Mitgliedschaft im Promoter-Komitee dieser Initiative zu beantragen
+          help_text: Sie sind dabei, ein Mitglied des Promoter-Komitees dieser Initiative zu werden
         spawn:
           success: Ihre Anfrage wurde an den Initiativautor gesendet.
+      content_blocks:
+        highlighted_initiatives:
+          name: Hervorgehobene Initiativen
       create_initiative:
         fill_data:
           back: Zurück
@@ -190,9 +216,9 @@ de:
           more_information: "(Mehr Informationen)"
         finish_help:
           access_reminder: Denken Sie daran, dass Sie immer über das Benutzermenü auf Ihre Initiativen zugreifen können.
-          help_for_organizations: Wenn Sie eine Vereinigung sind, müssen Sie die Protokolle des Vorstandes aller Organisationen hochladen, die der Promotionskommission entsprechen
+          help_for_organizations: Wenn Sie eine Vereinigung sind, müssen Sie die Protokolle des Vorstands aller Organisationen hochladen, die die Förderkommission bilden
           help_in_person_signatures: Wenn Sie sich entschieden haben, die Unterschriften persönlich oder in Verbindung mit Online zu sammeln, müssen Sie die erforderlichen Informationen hochladen.
-          help_text: Denken Sie daran, dass Sie zur ordnungsgemäßen Verarbeitung der Initiative auf das Administrationsfenster zugreifen müssen, in dem Sie das Benutzermenü finden, laden Sie die erforderlichen Informationen hoch und senden Sie sie an die Prozedur.
+          help_text: Denken Sie daran, dass Sie zur ordnungsgemäßen Verarbeitung der Initiative auf das Administrationsfenster zugreifen müssen, in dem Sie das Benutzermenü finden, laden Sie die erforderlichen Informationen hoch und senden Sie sie zur Verarbeitung.
           initiatives_page_link: Sie können alle diese Informationen auf der %{link} gewidmet ist, um über Initiativen zu informieren.
           page: Seite
         previous_form:
@@ -274,7 +300,7 @@ de:
           any_vote_method: Diese Bürgerinitiative sammelt Online-Unterstützung sowie von Angesicht zu Angesicht.
           offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterstützung.
         signature_identities:
-          select_identity: Wählen Sie die Benutzeridentität
+          select_identity: Wählen Sie die Benutzerkennung aus
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
@@ -302,10 +328,12 @@ de:
         more_information: Hier finden Sie weitere Informationen zum Initiativstellungsprozess.
         progress_report_body_for: Die Initiative %{title} hat die %{percentage}% der erforderlichen Unterstützung erreicht.
         progress_report_for: 'Resume über die Initiative: %{title}'
-        promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promote Committee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promote Committee einzuladen
+        promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
         status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
+      last_activity:
+        new_initiative: Neue Initiative
       pages:
         home:
           highlighted_initiatives:
@@ -328,7 +356,7 @@ de:
         fill_data: Erstellen
         finish: Fertig
         previous_form: Anfang
-        promotal_committee: Promotekomitee
+        promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
         show_similar_initiatives: Vergleichen
       initiative_header:

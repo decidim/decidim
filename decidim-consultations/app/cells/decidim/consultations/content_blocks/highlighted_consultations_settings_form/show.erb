@@ -1,0 +1,3 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.select :max_results, [4, 8, 12], prompt: "", label: label %>
+<% end %>

@@ -3,16 +3,30 @@
 
 if File.exist?(File.expand_path("../../.git", __dir__))
   ENV["RUBYOPT"] = ENV["RUBYOPT"].sub("-rsimplecov ", "")
+  ENV["RUBYLIB"] = ENV["RUBYLIB"].sub("#{File.expand_path("..", __dir__)}/lib:", "")
 
   gem "decidim-core"
 end
 
-if ARGV[0] == "--component"
+case ARGV[0]
+when "--component"
   ARGV.replace(["component", *ARGV[1..-1]])
 
   require "decidim/generators/component_generator"
 
   Decidim::Generators::ComponentGenerator.start
+when "--version"
+  puts Decidim.version
+when "--help"
+  puts "Decidim #{Decidim.version}
+Syntax: decidim [options] [App or Module name]
+https://decidim.org
+
+Options:
+  --help                   display this help and exit
+  --version                output version information and exit
+  --component [name]       creates a component for Decidim
+  [name]                   creates an application based on Decidim"
 else
   require "decidim/generators/app_generator"
 

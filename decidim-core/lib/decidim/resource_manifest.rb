@@ -38,6 +38,16 @@ module Decidim
 
     validates :model_class_name, :route_name, :name, presence: true
 
+    # Actions are used to validate permissions of a resource against particular
+    # authorizations or potentially other authorization rules.
+    #
+    # An example would be `vote` on a specific proposal, or `join` on a meeting.
+    #
+    # A resource can expose as many actions as it wants and the admin panel will
+    # generate a UI to handle them. There's a set of controller helpers available
+    # as well that allows checking for those permissions.
+    attribute :actions, Array[String]
+
     # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to the
     # given component. This way you can find resources from another engine without
     # actually coupling both engines. If no `component_manifest` is set for this

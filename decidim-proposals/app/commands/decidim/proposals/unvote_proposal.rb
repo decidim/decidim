@@ -20,14 +20,13 @@ module Decidim
       #
       # Returns nothing.
       def call
-        destroy_proposal_vote
+        ActiveRecord::Base.transaction do
+          votes = @proposal.votes.where(author: @current_user)
+          Decidim::Gamification.decrement_score(@current_user, :proposal_votes, votes.count)
+          votes.destroy_all
+        end
+
         broadcast(:ok, @proposal)
-      end
-
-      private
-
-      def destroy_proposal_vote
-        @proposal.votes.where(author: @current_user).destroy_all
       end
     end
   end

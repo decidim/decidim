@@ -1,4 +1,3 @@
----
 es-PY:
   activemodel:
     attributes:
@@ -30,11 +29,12 @@ es-PY:
         instagram: Instagram
         internal_organisation: Organización interna
         is_transparent: Es transparente
-        local_area: Áreas municipales
+        local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
+        parent_id: Asamblea principal
         participatory_processes_ids: Procesos participativos relacionados
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         private_space: Espacio privado
         promoted: Destacado
         published_at: Publicado
@@ -46,7 +46,7 @@ es-PY:
         slug: Texto corto de URL
         special_features: Características especiales
         subtitle: Subtítulo
-        target: "¿A quién va dirigido?"
+        target: Quién participa
         title: Título
         twitter: Twitter
         youtube: Youtube
@@ -76,12 +76,14 @@ es-PY:
         other: Roles de usuario de la asamblea
   decidim:
     admin:
+      actions:
+        new_assembly: Nueva asamblea
       assemblies:
         create:
           error: Se produjo un error al crear una nueva asamblea.
           success: Asamblea creada correctamente.
         destroy:
-          success: Asamblea destruida correctamente.
+          success: Asamblea eliminada con éxito.
         edit:
           update: Actualizar
         form:
@@ -111,7 +113,7 @@ es-PY:
           error: Se produjo un error al agregar un miembro para esta asamblea.
           success: Miembro creado con éxito para esta asamblea.
         destroy:
-          success: Miembro destruido con éxito para esta asamblea.
+          success: Miembro eliminado con éxito en esta asamblea.
         edit:
           title: Actualizar miembro de la asamblea.
           update: Actualizar
@@ -133,9 +135,9 @@ es-PY:
       assembly_user_roles:
         create:
           error: Se ha producido un error al agregar un usuario para esta asamblea.
-          success: Usuario creado con éxito para esta asamblea.
+          success: Usuario agregado conéxito a esta asamblea.
         destroy:
-          success: Usuario destruido con éxito para esta asamblea.
+          success: Usuario eliminado con éxito de esta asamblea.
         edit:
           title: Actualizar el usuario de la asamblea.
           update: Actualizar
@@ -152,7 +154,7 @@ es-PY:
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
           assembly_members: Miembros
-          attachment_collections: Colecciones
+          attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
@@ -168,6 +170,7 @@ es-PY:
             promoted: Destacado
             published: Publicada
             title: Título
+          name: Asamblea
         assembly_member:
           fields:
             ceased_date: Fecha de vencimiento
@@ -215,6 +218,7 @@ es-PY:
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de asamblea
+            select_parent_assembly: Seleccionar ensamblaje principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
         assembly_copies:
@@ -234,6 +238,9 @@ es-PY:
               not_ceased: No cesado
             filter_by: Filtrado por
             search: Buscar
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Cantidad máxima de elementos para mostrar
       assembly_members:
         index:
           members: Miembros
@@ -245,12 +252,17 @@ es-PY:
         others: Otros
         participatory: Participativo
         working_group: Grupo de trabajo
+      content_blocks:
+        highlighted_assemblies:
+          name: Asambleas destacadas
       created_by:
         city_council: Ayuntamiento
         others: Otros
         public: Público
       index:
         title: Asambleas
+      last_activity:
+        new_assembly: Nueva asamblea
       pages:
         home:
           highlighted_assemblies:
@@ -275,9 +287,9 @@ es-PY:
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Áreas municipales
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        local_area: Área de organización
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         private_space: Esta es una asamblea privada
         purpose_of_action: Propósito de la acción
         read_less: Leer menos
@@ -285,7 +297,7 @@ es-PY:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        target: "¿A quién va dirigida?"
+        target: Quién participa
       statistics:
         answers_count: Respuestas
         assemblies_count: Asambleas
@@ -322,7 +334,9 @@ es-PY:
         assembly:
           take_part: Participa
         index:
+          organizational_chart: Organigrama
           promoted_assemblies: Asambleas destacadas
+          reset_chart: Reiniciar
         order_by_assemblies:
           assemblies:
             one: "%{count} asamblea"

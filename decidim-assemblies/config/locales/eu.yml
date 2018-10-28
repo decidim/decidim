@@ -19,7 +19,7 @@ eu:
         decidim_area_id: Area
         decidim_scope_id: esparrua
         description: Deskribapena
-        developer_group: Talde sustatzailea
+        developer_group: Sustatzailearen taldea
         domain: Domeinua
         duration: Iraupena
         facebook: Facebook
@@ -30,11 +30,12 @@ eu:
         instagram: Instagram
         internal_organisation: Barneko antolaketa
         is_transparent: Gardena da
-        local_area: Udal-alorrak
+        local_area: Antolakuntza eremua
         meta_scope: 'Metadatuak: esparrua'
+        parent_id: Gurasoen muntaia
         participatory_processes_ids: Parte hartutako prozesu erlazionatuak
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
+        participatory_scope: Zer erabaki
+        participatory_structure: Nola erabakitzen da?
         private_space: Espazio pribatua
         promoted: Nabarmendua
         published_at: Argitaratu at
@@ -46,7 +47,7 @@ eu:
         slug: URL laburra
         special_features: Ezaugarri bereziak
         subtitle: Azpititulua
-        target: Nori zuzentzen zaio?
+        target: Nor parte hartzen du
         title: Prozesu partizipatiboen multzoak
         twitter: Twitter
         youtube: YouTube
@@ -76,6 +77,8 @@ eu:
         other: Batzar erabiltzailearen rolak
   decidim:
     admin:
+      actions:
+        new_assembly: Batzar berria
       assemblies:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
@@ -111,7 +114,7 @@ eu:
           error: Errore bat gertatu da kide bat gehitzea muntaia honetarako.
           success: Batzar hau arrakastaz sortu da.
         destroy:
-          success: Kidea izan da behar bezala suntsitu muntaia honetarako.
+          success: Kidea muntaia honekin batera ezabatu da.
         edit:
           title: Eguneratu muntaia kidea.
           update: eguneratzearen
@@ -133,9 +136,9 @@ eu:
       assembly_user_roles:
         create:
           error: Errore bat gertatu da muntaketa honen erabiltzaile bat gehitzean.
-          success: Sortu den erabiltzaileak behar bezala sortu du.
+          success: Erabiltzaileak muntaiarekin arrakastaz gehitu du.
         destroy:
-          success: Erabiltzailea behar bezala suntsitu da muntaia honetarako.
+          success: Erabiltzailea behar bezala kendu da muntaia honetatik.
         edit:
           title: Eguneratu muntaia erabiltzailea.
           update: eguneratzearen
@@ -152,7 +155,7 @@ eu:
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
           assembly_members: Bazkideek
-          attachment_collections: Bilduma
+          attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
@@ -215,6 +218,7 @@ eu:
             select_a_created_by: Aukeratu egilea by egilea
             select_an_area: Hautatu eremu bat
             select_an_assembly_type: Hautatu muntatze mota bat
+            select_parent_assembly: Hautatu gurasoaren muntaia
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
             social_handlers: Gizarte
         assembly_copies:
@@ -234,6 +238,9 @@ eu:
               not_ceased: Ez da gelditu
             filter_by: Iragazi arabera
             search: Search
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Erakusteko elementu gehienen kopurua
       assembly_members:
         index:
           members: Bazkideek
@@ -245,12 +252,17 @@ eu:
         others: Beste batzuk
         participatory: partehartzailea
         working_group: Lan taldea
+      content_blocks:
+        highlighted_assemblies:
+          name: Elkarrizketa nabarmenak
       created_by:
         city_council: Udaletxea
         others: Beste batzuk
         public: Publiko
       index:
         title: Biltzarrak
+      last_activity:
+        new_assembly: Batzar berria
       pages:
         home:
           highlighted_assemblies:
@@ -267,7 +279,7 @@ eu:
         composition: Konposizio
         created_by: Sortuta
         creation_date: Data sortu da
-        developer_group: Talde sustatzailea
+        developer_group: Sustatzailearen taldea
         duration: Iraupena
         included_at: Barruan sartzen da
         indefinite_duration: mugagabeak
@@ -275,9 +287,9 @@ eu:
         is_transparent:
           'false': opakua
           'true': gardena
-        local_area: Udal-alorrak
-        participatory_scope: Esparru partizipatiboa
-        participatory_structure: Egitura partizipatiboa
+        local_area: Antolakuntza eremua
+        participatory_scope: Zer erabaki
+        participatory_structure: Nola erabakitzen da?
         private_space: Hau muntaia pribatua da
         purpose_of_action: Ekintza xedea
         read_less: Irakurri gutxiago
@@ -285,7 +297,7 @@ eu:
         related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
         social_networks: Sare sozialak
-        target: Nori zuzentzen zaio?
+        target: Nor parte hartzen du
       statistics:
         answers_count: Erantzunak
         assemblies_count: Biltzarrak
@@ -322,7 +334,9 @@ eu:
         assembly:
           take_part: Parte hartu
         index:
+          organizational_chart: Organigrama
           promoted_assemblies: Batzar nabarmenduak
+          reset_chart: Berrezarri
         order_by_assemblies:
           assemblies:
             one: "%{count} batzarra"

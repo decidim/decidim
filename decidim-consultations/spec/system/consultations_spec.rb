@@ -19,6 +19,8 @@ describe "Consultations", type: :system do
       visit decidim_consultations.consultations_path
     end
 
+    it_behaves_like "editable content for admins"
+
     it "lists the consultations ordered by created at" do
       within ".order-by" do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")

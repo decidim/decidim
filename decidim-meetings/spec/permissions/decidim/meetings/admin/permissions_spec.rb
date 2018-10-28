@@ -121,7 +121,7 @@ describe Decidim::Meetings::Admin::Permissions do
     end
 
     context "when inviting a user a meeting" do
-      let(:action_name) { :invite_user }
+      let(:action_name) { :invite_attendee }
       let(:meeting) { create :meeting, registrations_enabled: true, component: meeting_component }
 
       it_behaves_like "action requiring a meeting"
@@ -131,6 +131,12 @@ describe Decidim::Meetings::Admin::Permissions do
 
         it { is_expected.to eq false }
       end
+    end
+
+    context "when reading invites" do
+      let(:action_name) { :read_invites }
+
+      it_behaves_like "action requiring a meeting"
     end
 
     context "when updating a meeting" do

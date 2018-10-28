@@ -6,6 +6,15 @@
   twitter_handler: current_organization.twitter_handler
 }) %>
 
+<%
+edit_link(
+  resource_locator(current_participatory_space).edit,
+  :update,
+  :initiative,
+  initiative: current_participatory_space
+)
+%>
+
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 <% provide :meta_image_url, current_initiative.type.banner_image.url %>
 <div class="row">

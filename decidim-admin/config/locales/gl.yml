@@ -11,7 +11,7 @@ gl:
         organization: Organización
         plural: Plural
       attachment:
-        attachment_collection_id: Colección
+        attachment_collection_id: Cartafol
         description: Descrición
         file: Arquivo
         title: Título
@@ -37,6 +37,7 @@ gl:
         organization_url: URL da organización
         redirect_uri: Redirixir URI
       organization:
+        badges_enabled: Activar emblemas
         cta_button_path: Camiño do botón de chamada a acción
         cta_button_text: Texto do botón de chamada a acción
         default_locale: Configuración predeterminada
@@ -53,7 +54,6 @@ gl:
         highlighted_content_banner_image: Imaxe
         highlighted_content_banner_short_description: Descrición curta
         highlighted_content_banner_title: Título
-        homepage_image: Imaxe da páxina de inicio
         instagram_handler: Administrador de Instagram
         logo: Logo
         name: Nome
@@ -67,7 +67,6 @@ gl:
         show_statistics: Amosar estatísticas
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
-        welcome_text: Texto de benvida
         youtube_handler: Xestor de YouTube
       scope:
         code: Código
@@ -94,34 +93,6 @@ gl:
               must_be_ssl: O URI de redirección debe ser un URI de SSL
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imaxe do banner
-        description: Descrición
-        developer_group: Grupo de desenvolvedores
-        domain: Dominio
-        end_date: Data de finalización
-        hashtag: Etiqueta
-        hero_image: Imaxe na casa
-        local_area: Área local
-        meta_scope: Metadatos de ámbito
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
-        promoted: Promocionado
-        scope: Alcance
-        short_description: Descrición curta
-        slug: URL slug
-        start_date: Data de inicio
-        subtitle: Subtítulo
-        target: Obxectivo
-        title: Título
-      decidim/participatory_process_group:
-        description: Descrición
-        hero_image: Imaxe na casa
-        name: Nome
-        participatory_processes: Procesos participativos
-      decidim/participatory_process_step:
-        end_date: Data de finalización
-        start_date: Data de inicio
       decidim/static_page:
         content: Contido
         slug: URL slug
@@ -133,10 +104,7 @@ gl:
         organization_name: Nome da Organización
         organization_url: URL da organización
         redirect_uri: Redirixir URI
-        site: Sitio
-  date:
-    formats:
-      datepicker: "%m / %d / %Y"
+        site: Sitio web
   decidim:
     admin:
       actions:
@@ -144,6 +112,7 @@ gl:
         browse: Buscar
         export: Exportar
         manage: Xestionar
+        new: Novo %{name}
         permissions: Permisos
         reject: Rexeitar
         verify: Verifique
@@ -180,22 +149,22 @@ gl:
           success: Área actualizada correctamente
       attachment_collections:
         create:
-          error: Produciuse un erro ao crear unha nova colección.
-          success: Colección creada con éxito.
+          error: Produciuse un erro ao crear un cartafol novo.
+          success: Cartafol creada con éxito.
         destroy:
-          success: A colección foi destruída con éxito.
+          success: A carpeta foi destruída con éxito.
         edit:
-          title: Editar colección
+          title: Editar carpeta
           update: Actualización
         index:
-          attachment_collection_used: Esta colección non se pode eliminar porque está en uso.
-          attachment_collections_title: Coleccións anexas
+          attachment_collection_used: Non se pode eliminar este cartafol porque está en uso.
+          attachment_collections_title: Cartafoles adxuntos
         new:
           create: Crear
-          title: Nova colección
+          title: Nova carpeta
         update:
-          error: Houbo un erro ao actualizar esta colección.
-          success: A colección actualizouse con éxito.
+          error: Produciuse un erro ao actualizar esta carpeta.
+          success: A carpeta actualizouse con éxito.
       attachments:
         create:
           error: Produciuse un erro ao crear un anexo novo.
@@ -338,6 +307,7 @@ gl:
         areas: Campos
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
+        homepage: Páxina de inicio
         impersonations: Impersonacións
         navbar_links: Navbar links
         newsletters: Boletíns informativos
@@ -360,13 +330,13 @@ gl:
             plural: Plural
         attachment:
           fields:
-            collection: Colección
+            collection: Cartafol
             content_type: Tipo
             file_size: Tamaño
             title: Título
           name: Anexo
         attachment_collection:
-          name: Colección
+          name: Cartafol
         category:
           name: Categoría
         impersonation_log:
@@ -560,7 +530,14 @@ gl:
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
-          omnipresent_banner_appearance_title: Editar omnipresente
+          omnipresent_banner_appearance_title: Editar o banner omnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloques de contido activo
+          inactive_content_blocks: Bloques de contido inactivo
+      organization_homepage_content_blocks:
+        edit:
+          update: Actualización
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -673,6 +650,7 @@ gl:
         new:
           create: Invitar
           title: Convidar ao usuario como administrador
+      view_public_page: Ver páxina pública
     forms:
       errors:
         impersonate_user:
@@ -713,7 +691,3 @@ gl:
           title: Configuración
         users:
           title: Usuarios
-  time:
-    formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"

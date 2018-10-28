@@ -357,5 +357,26 @@ describe "Vote Proposal", type: :system do
         end
       end
     end
+
+    describe "gamification" do
+      before do
+        login_as user, scope: :user
+      end
+
+      it "gives a point after voting" do
+        visit_component
+
+        proposal_element = page.find("article", text: proposal.title)
+
+        expect do
+          within proposal_element do
+            within ".card__support", match: :first do
+              click_button "Vote"
+              expect(page).to have_content("1 VOTE")
+            end
+          end
+        end.to change { Decidim::Gamification.status_for(user, :proposal_votes).score }.by(1)
+      end
+    end
   end
 end

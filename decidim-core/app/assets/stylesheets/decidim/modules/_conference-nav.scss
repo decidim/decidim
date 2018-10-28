@@ -1,0 +1,31 @@
+.conference-nav{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li{
+    padding: $global-padding * .5;
+
+    a{
+      font-size: rem-calc(18);
+      color: $muted;
+    }
+
+    &.is-active{
+      font-weight: $global-weight-bold;
+      position: relative;
+
+      &::before{
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: $list-lineheight * 1rem;
+        background-color: $primary;
+        position: absolute;
+        top: 50%;
+        left: -.5rem;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
