@@ -4,6 +4,8 @@ en:
     attributes:
       survey_answer:
         body: Answer
+        choices: The choices
+        selected_choices: The selection
       survey_question:
         mandatory: Mandatory
         max_choices: Maximum number of choices

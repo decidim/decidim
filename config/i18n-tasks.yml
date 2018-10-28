@@ -84,6 +84,9 @@ search:
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   api_key: "AbC-dEf5"
 
+translation:
+  deepl_api_key: 8b6b45fe-99a4-4f32-180a-bfef33d566f2
+
 # Do not consider these keys missing:
 ignore_missing:
   - components.*

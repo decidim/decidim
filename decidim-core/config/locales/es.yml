@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -38,7 +39,7 @@ es:
         other: Grupos de usuarios
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
       image_too_big: La imagen es demasiado grande
@@ -59,7 +60,7 @@ es:
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
-          question: '¿Seguro que quieres eliminar tu cuenta?'
+          question: "¿Seguro que quieres eliminar tu cuenta?"
           title: Eliminar mi cuenta
         explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
       destroy:
@@ -253,7 +254,7 @@ es:
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
-          already_have_an_account?: '¿Ya tienes una cuenta?'
+          already_have_an_account?: "¿Ya tienes una cuenta?"
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Su identificador corto y único en %{organization}
@@ -268,7 +269,7 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
+          are_you_new?: "¿Eres nuevo en la plataforma?"
           register: Créate una cuenta
       shared:
         newsletter_modal:
@@ -329,15 +330,15 @@ es:
         email_subject: Una actualización de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: '¡Gran trabajo! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
+          email_intro: ¡Gran trabajo! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
-          email_subject: '¡Has ganado una nueva insignia: %{badge_name}!'
-          notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
+          email_subject: "¡Has ganado una nueva insignia: %{badge_name}!"
+          notification_title: ¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).
         level_up:
-          email_intro: '¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
+          email_intro: ¡Gran trabajo! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
-          email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
-          notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
+          email_subject: "¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!"
+          notification_title: ¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -393,22 +394,22 @@ es:
       badges:
         continuity:
           conditions:
-            - Viene aquí a menudo
+          - Viene aquí a menudo
           description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
           description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
           description_own: Te has conectado por %{score} días consecutivos en algún momento.
           name: Continuidad
-          next_level_in: '¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!'
+          next_level_in: "¡Conéctate durante %{score} días consecutivos para llegar al siguiente nivel!"
           unearned_another: Este usuario no se ha registrado durante más de un día consecutivo.
           unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
-            - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
+          - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
           description: Esta insignia se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
           description_another: Este usuario tiene %{score} seguidores.
           description_own: "%{score} usuarios te están siguiendo."
           name: Seguidores
-          next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
+          next_level_in: "¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!"
           unearned_another: Este usuario no tiene seguidores todavía.
           unearned_own: Aún no tienes seguidores
         index:
@@ -418,14 +419,14 @@ es:
           title: Insignias
         invitations:
           conditions:
-            - Use el enlace "invitar amigos" en su página de usuario para invitar a sus amigos
-            - Personaliza, si quieres, el mensaje que estás enviando.
-            - Subirás de nivel enviando invitaciones y registrándolas.
+          - Use el enlace "invitar amigos" en su página de usuario para invitar a sus amigos
+          - Personaliza, si quieres, el mensaje que estás enviando.
+          - Subirás de nivel enviando invitaciones y registrándolas.
           description: Este distintivo se otorga cuando ha invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y convertirse en participantes. Gracias por hacer de %{organization_name} a conocer a otros y ayudar a ampliar la comunidad!
           description_another: Este usuario ha invitado a %{score} usuarios.
           description_own: Has invitado a %{score} usuarios.
           name: Invitaciones
-          next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
+          next_level_in: "¡Invita %{score} usuarios más a alcanzar el siguiente nivel!"
           unearned_another: Este usuario aún no ha invitado a ningún usuario.
           unearned_own: No has invitado aún a ningún usuario.
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
@@ -443,12 +444,12 @@ es:
       create:
         error: Hubo algunos problemas al invitar a tus amigos
         error_empty_form: Por favor introduce algunas direcciones de correo electrónico.
-        success: '¡Hemos enviado las invitaciones a tus amigos!'
+        success: "¡Hemos enviado las invitaciones a tus amigos!"
       index:
         customize_message: Personaliza el mensaje de invitación
         friend_email: 'Correo del amigo #%{index}'
         invitations_subtitle: Haz saber a tus amigos sobre este sitio.
-        invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
+        invitations_title: "¿Crees que se deberían escuchar más voces en %{organization_name}?"
         invite: Invitación
         visit_your_profile: Visita tu perfil
     last_activities:
@@ -489,12 +490,12 @@ es:
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
-          outro: '¡Disfruta de decidim!'
+          outro: "¡Disfruta de decidim!"
           subject: "%{sender} ha iniciado una conversación contigo"
         new_message:
-          greeting: '¡Hola, %{recipient}!'
+          greeting: "¡Hola, %{recipient}!"
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
-          outro: '¡Disfruta de decidim!'
+          outro: "¡Disfruta de decidim!"
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
         create:
@@ -519,7 +520,7 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: ¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletters:
       unsubscribe:
@@ -536,12 +537,12 @@ es:
     newsletters_opt_in_mailer:
       notify:
         body_1: El procesamiento de datos personales y su protección es cada vez más importante para todos nosotros. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mejor control sobre sus datos personales. Por este motivo, necesitamos tu "OK" para seguir enviando información relevante sobre las actividades del %{organization_name}.
-        body_2: '¿Cómo puedes darnos tu consentimiento? Simplemente haz clic en el siguiente botón:'
+        body_2: "¿Cómo puedes darnos tu consentimiento? Simplemente haz clic en el siguiente botón:"
         body_3: Con este consentimiento, podrás continuar recibiendo información sobre los servicios de la plataforma. Si, por el contrario, no recibimos una confirmación positiva de tu parte, dejaremos de enviarte nuestros mensajes. Si confirmas que deseas mantenerte informado, siempre tendrás la opción de cancelar en cualquier momento.
         button: Sí, deseo continuar recibiendo información relevante
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
-        subject: '¿Deseas seguir recibiendo información relevante sobre %{organization_name}?'
+        subject: "¿Deseas seguir recibiendo información relevante sobre %{organization_name}?"
     notifications:
       no_notifications: No hay notificaciones aún.
     notifications_settings:
@@ -562,7 +563,7 @@ es:
         extended:
           debates: Debates
           debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-          how_to_participate: '¿Cómo tomo parte en un proceso?'
+          how_to_participate: "¿Cómo tomo parte en un proceso?"
           meetings: Encuentros
           meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
           more_info: Más información
@@ -603,7 +604,7 @@ es:
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
-          success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
+          success: "¡Estupendo! Has aceptado los Términos y Condiciones."
         form:
           agreement: Estoy de acuerdo con estos términos
           legend: Aceptar los Términos y Condiciones de uso
@@ -613,7 +614,7 @@ es:
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
           modal_close: Cerrar modal
-          modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
+          modal_title: "¿Confirmas que no aceptas los Términos y Condiciones actualizados?"
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
@@ -717,11 +718,11 @@ es:
     failure:
       already_authenticated: Ya has iniciado sesión.
       inactive: Tu cuenta aún no está activada.
-      invalid: '%{authentication_keys} inválido o contraseña.'
+      invalid: "%{authentication_keys} inválido o contraseña."
       invited: Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.
       last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
       locked: Tu cuenta esta bloqueada.
-      not_found_in_database: '%{authentication_keys} inválido o contraseña.'
+      not_found_in_database: "%{authentication_keys} inválido o contraseña."
       timeout: Su sesión expiró Por favor, inicia sesión de nuevo para continuar.
       unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
@@ -731,7 +732,7 @@ es:
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
       invitation_removed: Tu invitación fue eliminada.
-      invitation_token_invalid: '¡El token de invitación proporcionado no es válido!'
+      invitation_token_invalid: "¡El token de invitación proporcionado no es válido!"
       new:
         header: Enviar invitacion
         submit_button: Envia una invitacion
@@ -777,7 +778,7 @@ es:
       organization_admin_invitation_instructions:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
-        greeting: '¡Hola %{recipient}!'
+        greeting: "¡Hola %{recipient}!"
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
       reset_password_instructions:
@@ -803,7 +804,7 @@ es:
         confirm_new_password: Confirmar nueva contraseña
         new_password: Contraseña
       new:
-        forgot_your_password: '¿Olvidaste tu contraseña?'
+        forgot_your_password: "¿Olvidaste tu contraseña?"
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
       no_token: No puede acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si proviene de un correo electrónico de restablecimiento de contraseña, asegúrese de haber utilizado la URL completa provista.
       send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo restablecer su contraseña en unos minutos.
@@ -811,19 +812,19 @@ es:
       updated: Tu contraseña ha sido cambiada exitosamente. Ya has iniciado sesión.
       updated_not_active: Tu contraseña ha sido cambiada exitosamente.
     registrations:
-      destroyed: '¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto.'
+      destroyed: "¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto."
       edit:
-        are_you_sure: '¿Estás seguro?'
+        are_you_sure: "¿Estás seguro?"
         cancel_my_account: Cancelar mi cuenta
         currently_waiting_confirmation_for_email: 'En espera de confirmación para: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: déjelo en blanco si no quiere cambiarlo
         title: Editar %{resource}
-        unhappy: '¿Infeliz?'
+        unhappy: "¿Infeliz?"
         update: Actualizar
         we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
-      signed_up: '¡Bienvenido! Usted se ha registrado exitosamente.'
+      signed_up: "¡Bienvenido! Usted se ha registrado exitosamente."
       signed_up_but_inactive: Usted se ha registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta aún no está activada.
       signed_up_but_locked: Usted se ha registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta está bloqueada.
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a su dirección de correo electrónico. Por favor, siga el enlace para activar su cuenta.
@@ -838,9 +839,9 @@ es:
     shared:
       links:
         back: Espalda
-        didn_t_receive_confirmation_instructions: '¿No recibió las instrucciones de confirmación?'
-        didn_t_receive_unlock_instructions: '¿No recibió instrucciones de desbloqueo?'
-        forgot_your_password: '¿Olvidaste tu contraseña?'
+        didn_t_receive_confirmation_instructions: "¿No recibió las instrucciones de confirmación?"
+        didn_t_receive_unlock_instructions: "¿No recibió instrucciones de desbloqueo?"
+        forgot_your_password: "¿Olvidaste tu contraseña?"
         sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate

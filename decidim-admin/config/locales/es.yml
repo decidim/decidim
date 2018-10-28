@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -285,6 +286,11 @@ es:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
       managed_users:
+        index:
+          impersonate: Hacerse pasar por
+          needs_authoriation_warning: Necesidad de una advertencia de autorización
+          promote: Promover
+          view_logs: Ver los periódicos
         promotion:
           error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha promocionado correctamente.
@@ -303,6 +309,7 @@ es:
         dashboard: Panel de control
         homepage: Página principal
         impersonations: Impersonaciones
+        navbar_links: Enlaces de Navbar
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
         officializations: Oficializaciones
@@ -340,6 +347,13 @@ es:
             reason: Razón
             started_at: Empezó a las
             user: Usuario
+        managed_user:
+          name: Nombre
+        navbar_link:
+          fields:
+            link: Enlace a la página web
+            title: Título
+            weight: Peso del dispositivo
         newsletter:
           fields:
             created_at: Fecha de creación
@@ -394,6 +408,28 @@ es:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
+      navbar_links:
+        create:
+          error: Se ha producido un error al crear este enlace.
+          success: Enlace creado con éxito
+        destroy:
+          success: Enlace destruido con éxito
+        edit:
+          title: Modificar el enlace en la barra de navegación
+          update: Actualización
+        form:
+          link: Enlace a la página web
+          new_tab: Abrir en una nueva pestaña
+          same_tab: Abrir en la misma pestaña
+          title: Título
+          weight: Peso del dispositivo
+        new:
+          create: Crear
+          title: Nuevo enlace a la barra de navegación
+        no_links: No se han creado enlaces
+        update:
+          error: Se ha producido un error al actualizar este enlace.
+          success: Enlace actualizado con éxito
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -410,13 +446,13 @@ es:
         form:
           interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          confirm_delete: "¿Estás seguro de que quieres eliminar este boletín?"
           title: Boletines
         new:
           save: Guardar
           title: Nuevo boletín
         show:
-          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: "¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer."
           deliver: Enviar boletín
           preview: Previsualizar
           subject: Asunto
@@ -434,7 +470,7 @@ es:
           save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
+          confirm_delete: "¿Estás seguro que quieres eliminar esta aplicación?"
           title: Aplicaciones OAuth
         new:
           save: Guardar
@@ -572,6 +608,8 @@ es:
         dashboard: Panel de control
         impersonatable_users: Usuarios impersonables
         impersonations: Suplantaciones
+        managed_users: Usuarios administrados
+        navbar_links: Enlaces de Navbar
         officializations: Oficializaciones
         scope_types: Tipos de ámbito
         scopes: Ámbitos
