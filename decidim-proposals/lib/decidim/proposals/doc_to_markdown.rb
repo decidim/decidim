@@ -12,40 +12,28 @@ module Decidim
     # does is to implement callbacks for the blocks which it is interested in performing some actions.
     #
     class DocToMarkdown
+      MARKDOWN_MIME_TYPE= "text/markdown"
+      ODT_MIME_TYPE= "application/vnd.oasis.opendocument.text"
+      DOCX_MIME_TYPE= "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+
       # Public: Initializes the serializer with a proposal.
-      def initialize(doc)
+      def initialize(doc, mime_type)
         @doc = doc
+        @transformer= case mime_type
+          when MARKDOWN_MIME_TYPE
+            # no transformer required
+          when ODT_MIME_TYPE
+            # convert libreoffice odt to markdown
+            OdtToMarkdown.new(doc)
+          when DOCX_MIME_TYPE
+            # convert word 2013 docx to markdown
+            DocxToMarkdown.new(doc)
+          end
       end
 
       def to_md
-        doc_file= doc_to_tmp_file
-        md_file= transform_to_md_file(doc_file)
-        md_file.read
+        @transformer ? @transformer.to_md : @doc
       end
-
-      #-----------------------------------------------------
-
-      private
-
-      #-----------------------------------------------------
-
-      def doc_to_tmp_file
-        file = Tempfile.new('doc-to-markdown')
-        file.write(@doc)
-        file
-      end
-      # def transform_to_md_file(doc_file)
-      # TODO continue from here!!!!!!!!!!!!!!!!!!!!!
-      #   md_file= Tempfile.new
-      #   Doc2Text::Markdown::OdtParser(md_file)
-      #   md_file
-      # end
-      def transform_to_md_file(doc_file)
-        md_file= Tempfile.new
-        Doc2Text::Resolution.parse_and_save doc_file, md_file
-        md_file
-      end
-
     end
   end
 end

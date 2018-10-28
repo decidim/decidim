@@ -38,7 +38,9 @@ module Decidim
               expect { command.call }.to(
                 broadcast(:ok) &&
                 change { ParticipatoryText.where(component: current_component).count }.by(1) &&
-                change { Proposal.where(component: current_component).count }.by(num_proposals)
+                change { Proposal.where(component: current_component, participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:section]).count }.by(sections) &&
+                change { Proposal.where(component: current_component, participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]).count }.by(sub_sections) &&
+                change { Proposal.where(component: current_component, participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]).count }.by(articles)
               )
             end
           end
@@ -73,6 +75,13 @@ module Decidim
             context "with odt document" do
               let(:document_name) { "participatory_text.odt" }
               let(:document_type) { "application/vnd.oasis.opendocument.text" }
+
+              it_behaves_like "import participatory_text succeeds"
+            end
+
+            context "with docx document" do
+              let(:document_name) { "participatory_text.docx" }
+              let(:document_type) { "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }
 
               it_behaves_like "import participatory_text succeeds"
             end

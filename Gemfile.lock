@@ -1,3 +1,12 @@
+GIT
+  remote: git@github.com:tramuntanal/doc2text.git
+  revision: 18ce0e7d8c0557dc885bd53856aa953e48fff2f5
+  branch: feature/markdown_headers
+  specs:
+    doc2text (0.3.3)
+      nokogiri (~> 1.6, >= 1.6.3)
+      rubyzip (~> 1.1, >= 1.1.6)
+
 PATH
   remote: .
   specs:
@@ -332,9 +341,6 @@ GEM
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     diff-lcs (1.3)
-    doc2text (0.3.3)
-      nokogiri (~> 1.6, >= 1.6.3)
-      rubyzip (~> 1.1, >= 1.1.6)
     docile (1.3.1)
     doorkeeper (4.4.3)
       railties (>= 4.2)
@@ -722,6 +728,7 @@ DEPENDENCIES
   decidim-consultations!
   decidim-dev!
   decidim-initiatives!
+  doc2text!
   faker (~> 1.9)
   letter_opener_web (~> 1.3)
   listen (~> 3.1)

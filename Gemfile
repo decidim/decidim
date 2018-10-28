@@ -15,7 +15,7 @@ gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 1.9"
-
+gem "doc2text", git: "git@github.com:tramuntanal/doc2text.git", branch: "feature/markdown_headers"
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
 

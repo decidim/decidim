@@ -39,14 +39,7 @@ module Decidim
         end
 
         def parse_participatory_text_doc(form)
-          markdown= case form.document_type
-          when "text/markdown"
-            form.document_text
-          when "application/vnd.oasis.opendocument.text"
-            # convert libreoffice odt to markdown
-            DocToMarkdown.new(form.document_text).to_md
-          end
-
+          markdown= DocToMarkdown.new(form.document_text, form.document_type).to_md
           parser = MarkdownToProposals.new(form.current_component, form.current_user)
           parser.parse(markdown)
         end
