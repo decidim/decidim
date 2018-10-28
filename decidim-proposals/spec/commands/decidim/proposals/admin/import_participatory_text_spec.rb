@@ -33,7 +33,6 @@ module Decidim
             it "broadcasts ok and creates the proposals" do
               sections = 2
               sub_sections = 5
-              articles = 11
               num_proposals = sections + sub_sections + articles
               expect { command.call }.to(
                 broadcast(:ok) &&
@@ -68,6 +67,7 @@ module Decidim
             context "with markdown document" do
               let(:document_name) { "participatory_text.md" }
               let(:document_type) { "text/markdown" }
+              let(:articles) { 11 }
 
               it_behaves_like "import participatory_text succeeds"
             end
@@ -75,6 +75,7 @@ module Decidim
             context "with odt document" do
               let(:document_name) { "participatory_text.odt" }
               let(:document_type) { "application/vnd.oasis.opendocument.text" }
+              let(:articles) { 12 }
 
               it_behaves_like "import participatory_text succeeds"
             end
