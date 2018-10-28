@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -126,7 +127,7 @@ fr:
       badges:
         attended_meetings:
           conditions:
-            - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
+          - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
           description: Ce badge est attribué lorsque vous participez à plusieurs réunions en face à face.
           description_another: Cet utilisateur a participé à %{score} réunions.
           description_own: Vous avez assisté à %{score} réunions.
@@ -356,8 +357,10 @@ fr:
           organizations: Organisations participantes
           remaining_slots:
             one: Il reste 1 place
-            other: "Il reste %{count} places"
+            other: Il reste %{count} places
           view: Voir
+      meetings_map:
+        view_meeting: Voir la réunion
       models:
         invite:
           fields:
