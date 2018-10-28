@@ -78,14 +78,6 @@ module Decidim
 
               it_behaves_like "import participatory_text succeeds"
             end
-
-            context "with docx document" do
-              let(:document_name) { "participatory_text.docx" }
-              let(:document_type) { "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }
-
-              it_behaves_like "import participatory_text succeeds"
-            end
-
           end
         end
       end
