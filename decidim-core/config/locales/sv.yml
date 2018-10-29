@@ -988,10 +988,10 @@ sv:
       must_start_with_caps: måste börja med en bokstav
       nesting_too_deep: kan inte vara inuti en underkategori
       not_found: hittades inte
-      not_locked: var inte låst
+      not_locked: låstes inte
       not_saved:
-        one: '1 fel förbjudet att detta %{resource} sparas:'
-        other: "%{count} fel förbjudna att denna %{resource} sparas:"
+        one: '1 fel hindrade detta %{resource} från att sparas:'
+        other: "%{count} fel hindrade detta %{resource} från att sparas:"
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex.! och?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
       too_short: är för kort (under 15 tecken)
@@ -1036,7 +1036,7 @@ sv:
         my_data: Mitt data
         notifications_settings: Notisinställningar
         title: Användarinställningar
-        user_groups: grupper
+        user_groups: Grupper
       widget:
         see_more: Se mer
   locale:
