@@ -10,6 +10,8 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Allow admins to edit proposals even if creation is not enabled [\#4390](https://github.com/decidim/decidim/pull/4390)
+
 **Removed**:
 
 ## Previous versions
