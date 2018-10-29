@@ -14,9 +14,9 @@ sv:
         password_confirmation: Bekräfta ditt lösenord
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
-        user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisationsnamn
-        user_group_phone: Organisationstelefon
+        user_group_document_number: Organisationens dokumentnummer
+        user_group_name: Organisationens namn
+        user_group_phone: Organisationens telefonnummer
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -32,9 +32,9 @@ sv:
         password: Lösenord
         password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
-        user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisationsnamn
-        user_group_phone: Organisationstelefon
+        user_group_document_number: Organisationens dokumentnummer
+        user_group_name: Organisationens namn
+        user_group_phone: Organisationens telefonnummer
     models:
       decidim/user:
         one: Användare
@@ -247,11 +247,11 @@ sv:
           newsletter_title: Kontakttillstånd
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
-          sign_up: Registrera
+          sign_up: Registrera dig
           sign_up_as:
             legend: Registrera dig som
             user: Privatperson
-            user_group: Organisation/Kollektiv
+            user_group: Organisation/sammanslutning
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du till %{link}.
@@ -384,7 +384,7 @@ sv:
         invitations:
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
-          explanation: Användare får detta emblem genom att bjuda in andra användare.
+          explanation: Användare får detta märke genom att bjuda in andra användare.
           name: Inbjudningar
           next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
           unearned_another: Den här användaren har inte bjudit in någon användare än.
