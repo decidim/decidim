@@ -528,12 +528,12 @@ sv:
         are_you_sure: Är du säker?
       create:
         error: Det har varit ett problem att skapa gruppen
-        success: Grupp skapades framgångsrikt
+        success: Grupp skapades
       edit:
         edit_user_group: Redigera grupp
-        update_user_group: Uppdateringsgrupp
+        update_user_group: Uppdatera grupp
       join:
-        error: Det har varit ett problem att gå med i gruppen
+        error: Det har uppstått ett problem med att gå med i gruppen
         success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
       leave:
         error: Det har varit ett problem att lämna gruppen
@@ -685,17 +685,17 @@ sv:
         footer_sub_hero:
           footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och bestäm.
           footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
-          register: Registrera
+          register: Registrera dig
         hero:
           participate: Delta
           welcome: Välkommen till %{organization}!
         metrics:
           headline: Deltagande i siffror
         statistics:
-          answers_count: Avslutade Undersökningar
+          answers_count: Genomförda Undersökningar
           assemblies_count: Församlingar
           comments_count: Kommentarer
-          conferences_count: konferenser
+          conferences_count: Konferenser
           debates_count: Debatter
           endorsements_count: Påskrifter
           headline: Aktuellt läge för %{organization}
@@ -711,7 +711,7 @@ sv:
           users_count: Deltagare
           votes_count: Röster
         sub_hero:
-          register: Registrera
+          register: Registrera dig
       index:
         title: Mer information
       terms_and_conditions:
