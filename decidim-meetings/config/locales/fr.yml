@@ -306,6 +306,8 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite
+        index:
+          view_meeting: Voir la réunion
         meeting_minutes:
           meeting_minutes: Comptes rendus des rencontres
           related_information: Informations liées
