@@ -507,6 +507,7 @@ hu:
           error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
           success: Privát felhasználó részvételi helyhez való hozzáférése biztosítva.
         destroy:
+          error: Hiba történt egy privát felhasználó törlésével a részvételi hely számára.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
           title: Részvételi tér privát felhasználója
