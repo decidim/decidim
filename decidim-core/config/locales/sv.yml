@@ -527,7 +527,7 @@ sv:
       actions:
         are_you_sure: Är du säker?
       create:
-        error: Det har varit ett problem att skapa gruppen
+        error: Det har uppstått ett problem med att skapa gruppen
         success: Grupp skapades
       edit:
         edit_user_group: Redigera grupp
@@ -536,10 +536,10 @@ sv:
         error: Det har uppstått ett problem med att gå med i gruppen
         success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
       leave:
-        error: Det har varit ett problem att lämna gruppen
+        error: Det har uppstått ett problem med att lämna gruppen
         success: Du har lämnat gruppen.
       members:
-        accept_or_reject_join_requests: 'Följande användare har ansökt om att gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
+        accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
         accept_request: Acceptera
         reject_request: Avvisa
       new:
@@ -551,7 +551,7 @@ sv:
         creator: Skapare
         member: Medlem
       update:
-        error: Det har varit ett problem att uppdatera gruppen
+        error: Det har förekommit ett problem med att uppdatera gruppen
         success: Gruppen uppdaterades
     invitations:
       create:
@@ -683,8 +683,8 @@ sv:
           proposals: Förslag
           proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och bestäm.
-          footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
+          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
+          footer_sub_hero_headline: Välkommen till %{organization} deltagarplattformen.
           register: Registrera dig
         hero:
           participate: Delta
@@ -755,7 +755,7 @@ sv:
       user:
         create_user_group: Skapa grupp
         edit_profile: Redigera profil
-        edit_user_group: Redigera gruppprofil
+        edit_user_group: Redigera grupprofil
         invite_user: Bjud in användare
         join_user_group: Begär att gå med i gruppen
         leave_user_group: Lämna gruppen
