@@ -4,6 +4,8 @@ ca:
     attributes:
       survey_answer:
         body: Resposta
+        choices: The choices
+        selected_choices: The selection
       survey_question:
         mandatory: Obligatori
         max_choices: Nombre màxim d'opcions

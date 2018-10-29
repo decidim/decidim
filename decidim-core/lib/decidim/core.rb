@@ -175,9 +175,14 @@ module Decidim
     80
   end
 
-  # Exposes a configuration option: The maximum file size of an attachment.
+  # Exposes a configuration option: The maximum file size of an attachment (client side).
   config_accessor :maximum_attachment_size do
     10.megabytes
+  end
+
+  # Exposes a configuration option: The maximum file size of an attachment (admin side).
+  config_accessor :maximum_attachment_admin_size do
+    25.megabytes
   end
 
   # Exposes a configuration option: The maximum file size for user avatar images.

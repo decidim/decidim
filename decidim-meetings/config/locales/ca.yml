@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -126,7 +127,7 @@ ca:
       badges:
         attended_meetings:
           conditions:
-            - Inscriviu-vos a les reunions que vulgueu assistir
+          - Inscriviu-vos a les reunions que vulgueu assistir
           description: Aquesta distinció es concedeix quan assistiu a diverses reunions presencials.
           description_another: Aquest usuari ha assistit a %{score} reunions.
           description_own: Has assistit a %{score} reunions.

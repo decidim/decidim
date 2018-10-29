@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -38,9 +39,10 @@ ca:
         other: Grups d'usuaris
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
+      file_too_big: El fitxer és massa gran
       image_too_big: La imatge és massa gran
   date:
     formats:
@@ -176,7 +178,7 @@ ca:
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
+          invalid_field: El valor %{field} %{value} no és vàlid.
           ok: D'acord
           title: Acció no autoritzada
         unconfirmed:
@@ -340,11 +342,16 @@ ca:
           notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
           email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
+          email_subject: En/na %{nickname} ha actualitzat el seu perfil
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
@@ -393,7 +400,7 @@ ca:
       badges:
         continuity:
           conditions:
-            - Vine aquí amb freqüència
+          - Vine aquí amb freqüència
           description: Aquest distintiu es concedeix quan visiteu la plataforma de forma regular. Ens agrada tenir-vos per aquí!
           description_another: Aquest usuari s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: Heu connectat durant %{score} dies consecutius en algun moment.
@@ -403,7 +410,7 @@ ca:
           unearned_own: No heu connectat més d'un dia consecutiu.
         followers:
           conditions:
-            - Ser actiu i seguir a altres persones segurament farà que altres persones us segueixin.
+          - Ser actiu i seguir a altres persones segurament farà que altres persones us segueixin.
           description: Aquesta distinció es concedeix quan arribeu a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
           description_another: Aquest usuari té %{score} seguidors.
           description_own: "%{score} usuaris et segueixen."
@@ -418,9 +425,9 @@ ca:
           title: Insígnies
         invitations:
           conditions:
-            - Utilitzeu l'enllaç "convidar amics" a la vostra pàgina d'usuari per convidar els vostres amics
-            - Personalitzeu, si ho voleu, el missatge que envieu
-            - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
+          - Utilitzeu l'enllaç "convidar amics" a la vostra pàgina d'usuari per convidar els vostres amics
+          - Personalitzeu, si ho voleu, el missatge que envieu
+          - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
           description: Aquest distintiu es concedeix quan heu convidat a algunes persones i que passen una mica de temps per registrar-se a %{organization_name} i convertir-se en participants. Gràcies per fer d' %{organization_name} a conèixer als altres i ajudar a ampliar la comunitat!
           description_another: Aquest usuari ha convidat a %{score} usuaris.
           description_own: Has convidat %{score} usuaris.
@@ -624,6 +631,7 @@ ca:
       deleted: Usuari eliminat
       view: Veure
     profiles:
+      default_officialization_text: Default officialization text
       default_officialization_text_for_user_groups: Aquest grup d'usuaris es verifica públicament, el seu nom s'ha verificat per correspondre amb el seu nom real
       default_officialization_text_for_users: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
@@ -883,7 +891,9 @@ ca:
   layouts:
     decidim:
       cookie_warning:
-        description_html: "Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.\nEn continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}."
+        description_html: |-
+          Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.
+          En continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}.
         link_label: aquí
         ok: Hi estic d'acord
       edit_link:

@@ -42,6 +42,7 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
+      file_too_big: The file is too big
       image_too_big: The image is too big
   date:
     formats:

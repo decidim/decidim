@@ -42,6 +42,7 @@ es:
     'true': Sí
   carrierwave:
     errors:
+      file_too_big: El archivo es demasiado grande
       image_too_big: La imagen es demasiado grande
   date:
     formats:
@@ -341,6 +342,11 @@ es:
           notification_title: ¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -625,6 +631,7 @@ es:
       deleted: Usuario eliminado
       view: Ver
     profiles:
+      default_officialization_text: Default officialization text
       default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, su nombre se ha verificado para que se corresponda con su nombre real
       default_officialization_text_for_users: Esta persona participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre real y rol
       show:
