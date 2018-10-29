@@ -46,11 +46,11 @@ sv:
             create: Skapa
             title: Nytt projekt
           update:
-            invalid: Det har blivit ett problem med att uppdatera detta projekt
+            invalid: Det har uppstått ett problem med att uppdatera detta projekt
             success: Projektet har uppdaterats
         proposals_imports:
           create:
-            invalid: Det har blivit ett problem med att importera förslagen till projekt
+            invalid: Det har uppstått ett problem med att importera förslagen till projekt
             success: "%{number} förslag importerades till projekt"
           new:
             create: Importera förslag till projekt
@@ -78,7 +78,7 @@ sv:
           ok: OK
           title: Maximal budget överskreds
         budget_summary:
-          are_you_sure: Är du säker på att du vill avbryta din röst?
+          are_you_sure: Är du säker på att du vill dra tillbaka din röst?
           assigned: 'Tilldelad:'
           cancel_order: ta bort din röst och börja om
           checked_out:
@@ -105,7 +105,7 @@ sv:
           remove: Avlägsna
           selected_projects:
             one: valt projekt
-            other: utvalda projekt
+            other: valda projekt
           view: Visa
         project:
           add: Lägg till
