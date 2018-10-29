@@ -648,6 +648,11 @@ sv:
         see_more: Se mer
   locale:
     name: Svenska
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban
