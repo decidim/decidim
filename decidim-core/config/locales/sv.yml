@@ -950,7 +950,7 @@ sv:
       update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
       updated: Ditt konto har uppdaterats framgångsrikt.
     sessions:
-      already_signed_out: Utloggad framgångsrikt.
+      already_signed_out: Utloggningen lyckades.
       new:
         sign_in: Logga in
       signed_in: Inloggningen lyckades.
