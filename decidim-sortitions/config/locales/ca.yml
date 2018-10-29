@@ -126,7 +126,7 @@ ca:
           any_category: de totes les categories
           cancelled: Sorteig cancel·lat
           candidate_proposal_ids: Ordre i IDs de les propostes del sorteig
-          candidate_proposals_info: 'La resolució es va dur a terme entre les següents propostes (%{category_label}), amb les següents IDs (en negreta, les propostes seleccionades)  '
+          candidate_proposals_info: 'El sorteig es va dur a terme entre les següents propostes (%{category_label}), amb les següents IDs (en negreta, les propostes seleccionades) '
           category: de la categoria %{category}
           dice_result: "(1) Resultat de la tirada de daus"
           introduction: 'Aquesta pàgina conté els resultats del sorteig %{reference}. Mitjançant aquest sorteig, %{target_items} nombre de resultats han estat seleccionats aleatòriament i amb una distribució de probabilitat igual al conjunt de propostes que es mostra a continuació. Juntament amb els resultats, la informació que es mostra en aquesta pàgina proporciona tota la informació necessària per maximitzar les garanties i reproduir els resultats. La clau per a la qualitat d''aquest sorteig és l''aleatorietat doble proporcionada per una tirada d''un dau (verificat pels testimonis) i el temps precís de l''assentament que proporciona entrada per a un algorisme que genera una selecció aleatòria. El llindar de temps per a l''assaig és tan precís (segons) que és impossible de controlar pels humans, oferint així una doble entrada "incontrolable" per garantir un resultat just.  '
