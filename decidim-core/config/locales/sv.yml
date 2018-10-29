@@ -552,7 +552,7 @@ sv:
         member: Medlem
       update:
         error: Det har varit ett problem att uppdatera gruppen
-        success: Gruppen uppdaterades framgångsrikt
+        success: Gruppen uppdaterades
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -570,7 +570,7 @@ sv:
         no_activities_warning: Ingen aktivitet
       all: Alla aktivitetstyper
       index:
-        last_activity: Sista aktiviteten
+        last_activity: Senaste aktiviteten
         resource_type: Typ
     log:
       base_presenter:
@@ -594,7 +594,7 @@ sv:
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
     members:
-      no_members: Dessa användargrupper har ingen medlem än.
+      no_members: Denna användargrupp har inga medlemmar.
     menu:
       home: Hem
       more_information: Mer information
@@ -863,11 +863,11 @@ sv:
       confirmation_instructions:
         action: Bekräfta mitt konto
         greeting: Välkommen %{recipient}!
-        instruction: 'Du kan bekräfta ditt konto email via länken nedan:'
+        instruction: 'Du kan bekräfta e-postadressen för ditt konto via länken nedan:'
         subject: Bekräftelsesanvisningar
       email_changed:
         greeting: Hej %{recipient}!
-        message: Vi kontaktar dig för att meddela dig att ditt e-postmeddelande ändras till %{email}.
+        message: Vi kontaktar dig för att meddela dig att din e-post ändras till %{email}.
         subject: E-post ändrad
       invitation_instructions:
         accept: Acceptera inbjudan
@@ -911,8 +911,8 @@ sv:
         action: Lås upp mitt konto
         greeting: Hej %{recipient}!
         instruction: 'Klicka på länken nedan för att låsa upp ditt konto:'
-        message: Ditt konto har blivit låsat på grund av ett stort antal misslyckade inloggningsförsök.
-        subject: Lås upp instruktioner
+        message: Ditt konto har blivit låst på grund av ett stort antal misslyckade inloggningsförsök.
+        subject: Instruktioner för upplåsning
     omniauth_callbacks:
       failure: Kunde inte autentisera dig från %{kind} eftersom "%{reason}".
       success: Succesfullt autentiserad från %{kind} konto.
