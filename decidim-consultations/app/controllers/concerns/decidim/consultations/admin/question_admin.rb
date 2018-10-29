@@ -19,6 +19,7 @@ module Decidim
 
           def current_participatory_space
             return current_consultation if params.has_key? :consultation_slug
+
             current_question
           end
 

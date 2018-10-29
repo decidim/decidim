@@ -21,6 +21,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) unless @user_group.valid?
+
         reject_user_group
         broadcast(:ok)
       end

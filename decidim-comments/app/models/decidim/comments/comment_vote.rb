@@ -23,6 +23,7 @@ module Decidim
       # Private: check if the comment and the author have the same organization
       def author_and_comment_same_organization
         return unless author.present? && comment.present?
+
         errors.add(:comment, :invalid) unless author.organization == comment.organization
       end
     end

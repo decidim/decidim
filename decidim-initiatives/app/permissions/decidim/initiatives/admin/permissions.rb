@@ -156,6 +156,7 @@ module Decidim
         def read_initiative_list_action?
           return unless permission_action.subject == :initiative &&
                         permission_action.action == :list
+
           allow!
         end
 

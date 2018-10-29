@@ -50,11 +50,13 @@ module Decidim
 
       def voting_enabled?
         return unless current_settings
+
         current_settings.votes_enabled? && !current_settings.votes_blocked?
       end
 
       def vote_limit_enabled?
         return unless component_settings
+
         component_settings.vote_limit.present? && component_settings.vote_limit.positive?
       end
 
@@ -145,6 +147,7 @@ module Decidim
         return toggle_allow(false) unless collaborative_draft.open? && component_settings&.collaborative_drafts_enabled?
         return toggle_allow(false) if collaborative_draft.editable_by?(user)
         return toggle_allow(false) if collaborative_draft.requesters.include? user
+
         toggle_allow(collaborative_draft && !collaborative_draft.editable_by?(user))
       end
     end

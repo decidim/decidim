@@ -26,6 +26,7 @@ module Decidim
 
     def actionable?
       return false if options[:has_actions] == false
+
       true if withdrawable? || flagable?
     end
   end

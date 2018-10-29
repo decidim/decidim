@@ -21,6 +21,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+
         @organization = nil
         invite_form = nil
 

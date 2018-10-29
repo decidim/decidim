@@ -140,6 +140,7 @@ module Decidim
     def tos_accepted?
       return true if managed || organization.tos_version.nil?
       return false if accepted_tos_version.nil?
+
       accepted_tos_version >= organization.tos_version
     end
 
@@ -158,6 +159,7 @@ module Decidim
     # If the user has been deleted or it is managed the email field is not required anymore.
     def email_required?
       return false if deleted? || managed?
+
       super
     end
 
@@ -165,6 +167,7 @@ module Decidim
     # If the user is managed the password field is not required anymore.
     def password_required?
       return false if managed?
+
       super
     end
 

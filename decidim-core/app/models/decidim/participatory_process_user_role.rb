@@ -25,6 +25,7 @@ module Decidim
     # Private: check if the process and the user have the same organization
     def user_and_participatory_process_same_organization
       return if !participatory_process || !user
+
       errors.add(:participatory_process, :invalid) unless user.organization == participatory_process.organization
     end
   end

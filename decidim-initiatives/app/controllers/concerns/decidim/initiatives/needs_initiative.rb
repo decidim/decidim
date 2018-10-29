@@ -42,6 +42,7 @@ module Decidim
           ]
 
           return list if permission_scope == :admin
+
           list << Decidim::Permissions
         end
       end

@@ -53,6 +53,7 @@ module Decidim
     def expires_at
       return unless workflow_manifest
       return if workflow_manifest.expires_in.zero?
+
       (granted_at || created_at) + workflow_manifest.expires_in
     end
 

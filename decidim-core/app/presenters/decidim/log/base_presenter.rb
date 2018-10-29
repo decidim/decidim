@@ -234,6 +234,7 @@ module Decidim
       # Returns an Array of Strings.
       def action_log_extra_classes
         return ["logs__log--deletion"] if action.to_s == "delete"
+
         []
       end
 

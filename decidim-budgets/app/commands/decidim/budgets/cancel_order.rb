@@ -19,6 +19,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if invalid_order?
+
         cancel_order!
         broadcast(:ok, @order)
       end

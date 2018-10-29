@@ -34,6 +34,7 @@ module Decidim
 
       def user_survey_same_organization
         return if user&.organization == survey&.organization
+
         errors.add(:user, :invalid)
       end
 

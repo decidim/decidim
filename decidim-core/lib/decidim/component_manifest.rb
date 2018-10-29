@@ -79,6 +79,7 @@ module Decidim
     # Returns nothing.
     def run_hooks(event_name, context = nil)
       return unless hooks[event_name]
+
       hooks[event_name.to_sym].each do |hook|
         hook.call(context)
       end

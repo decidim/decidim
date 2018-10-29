@@ -40,6 +40,7 @@ module Decidim
                     user.organization.available_authorizations = ["dummy_authorization_handler"]
                     user.organization.save
                   end
+
                   it { is_expected.to eq("/authorizations/first_login") }
                 end
 
@@ -49,6 +50,7 @@ module Decidim
                     user.organization.available_authorizations = ["dummy_authorization_handler"]
                     user.organization.save
                   end
+
                   it { is_expected.to eq("/authorizations/first_login") }
                 end
 
@@ -58,6 +60,7 @@ module Decidim
                     user.organization.available_authorizations = ["dummy_authorization_handler"]
                     user.organization.save
                   end
+
                   it { is_expected.to eq("/") }
                 end
 

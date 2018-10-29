@@ -40,12 +40,14 @@ module Decidim
 
       def badge_classes
         return super unless options[:full_badge]
+
         state_classes.concat(["label", "proposal-status"]).join(" ")
       end
 
       def statuses
         return [:endorsements_count, :comments_count] if model.draft?
         return [:creation_date, :endorsements_count, :comments_count] unless has_link_to_resource?
+
         [:creation_date, :follow, :endorsements_count, :comments_count]
       end
 

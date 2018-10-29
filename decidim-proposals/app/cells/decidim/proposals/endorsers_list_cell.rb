@@ -14,6 +14,7 @@ module Decidim
 
       def show
         return unless endorsers.any?
+
         render
       end
 

@@ -16,6 +16,7 @@ module Decidim
       def call
         @newsletter.with_lock do
           return broadcast(:invalid) if @newsletter.sent?
+
           send_newsletter!
         end
 

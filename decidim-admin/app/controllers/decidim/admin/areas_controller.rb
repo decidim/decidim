@@ -75,6 +75,7 @@ module Decidim
 
       def area
         return @area if defined?(@area)
+
         @area = organization_areas.find_by(id: params[:id])
       end
     end

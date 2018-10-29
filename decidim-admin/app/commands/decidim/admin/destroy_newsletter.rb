@@ -17,6 +17,7 @@ module Decidim
       # Broadcasts :ok if it got destroyed
       def call
         return broadcast(:already_sent) if newsletter.sent?
+
         destroy_newsletter
         broadcast(:ok)
       end

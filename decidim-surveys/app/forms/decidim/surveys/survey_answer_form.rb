@@ -51,6 +51,7 @@ module Decidim
 
       def sortable_question_validatable?
         return false unless question.question_type == "sorting"
+
         mandatory_choices? || !selected_choices.empty?
       end
 

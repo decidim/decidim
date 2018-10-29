@@ -22,6 +22,7 @@ module Decidim
         end
 
         return permission_action unless user
+
         if !has_manageable_assemblies? && !user.admin?
           disallow!
           return permission_action
@@ -56,12 +57,14 @@ module Decidim
       # Checks if it has any manageable assembly, with any possible role.
       def has_manageable_assemblies?(role: :any)
         return unless user
+
         assemblies_with_role_privileges(role).any?
       end
 
       # Whether the user can manage the given assembly or not.
       def can_manage_assembly?(role: :any)
         return unless user
+
         assemblies_with_role_privileges(role).include? assembly
       end
 
@@ -85,6 +88,7 @@ module Decidim
 
         return allow! if user&.admin?
         return allow! if assembly.published?
+
         toggle_allow(can_manage_assembly?)
       end
 
@@ -148,12 +152,14 @@ module Decidim
       # Everyone can read the assembly list
       def user_can_read_assembly_list?
         return unless read_assembly_list_permission_action?
+
         toggle_allow(user.admin? || has_manageable_assemblies?)
       end
 
       def user_can_read_current_assembly?
         return unless read_assembly_list_permission_action?
         return if permission_action.subject == :assembly_list
+
         toggle_allow(user.admin? || can_manage_assembly?)
       end
 

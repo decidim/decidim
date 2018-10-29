@@ -48,6 +48,7 @@ module Decidim
     def resolve(name, context, start_at = nil, end_at = nil)
       stat = @stats.detect { |s| s[:name] == name }
       return stat[:block].call(context, start_at, end_at) if stat.present?
+
       raise StandardError, "Stats '#{name}' is not registered."
     end
 

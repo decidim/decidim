@@ -71,6 +71,7 @@ module TranslationHelpers
   #          :with - A String value that will be entered in the form field. (required)
   def fill_in_editor(locator, params = {})
     raise ArgumentError if params[:with].blank?
+
     page.execute_script <<-SCRIPT
       $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "#{params[:with]}";
       $('##{locator}').val("#{params[:with]}")

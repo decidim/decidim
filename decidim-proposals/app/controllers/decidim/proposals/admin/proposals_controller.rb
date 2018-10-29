@@ -100,6 +100,7 @@ module Decidim
 
         def update_proposals_category_response_successful(response)
           return if response[:successful].blank?
+
           I18n.t(
             "proposals.update_category.success",
             category: response[:category_name],
@@ -110,6 +111,7 @@ module Decidim
 
         def update_proposals_category_response_errored(response)
           return if response[:errored].blank?
+
           I18n.t(
             "proposals.update_category.invalid",
             category: response[:category_name],

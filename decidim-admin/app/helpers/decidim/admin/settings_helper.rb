@@ -34,6 +34,7 @@ module Decidim
 
       def form_method_for_attribute(attribute)
         return :editor if attribute.type.to_sym == :text && attribute.editor?
+
         TYPES[attribute.type.to_sym]
       end
     end

@@ -10,6 +10,7 @@ module Decidim
     class IrreversibleActionModalCell < Decidim::ViewModel
       def show
         return unless action.presence
+
         render :show
       end
 

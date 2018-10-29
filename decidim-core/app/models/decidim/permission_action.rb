@@ -23,6 +23,7 @@ module Decidim
 
     def allow!
       raise PermissionCannotBeDisallowedError, "Allowing a previously disallowed action is not permitted: #{inspect}" if @state == :disallowed
+
       @state = :allowed
     end
 
@@ -32,6 +33,7 @@ module Decidim
 
     def allowed?
       raise PermissionNotSetError, "Permission hasn't been allowed or disallowed yet: #{inspect}" if @state.blank?
+
       @state == :allowed
     end
 

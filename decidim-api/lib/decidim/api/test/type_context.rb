@@ -36,6 +36,7 @@ shared_context "with a graphql type" do
     )
 
     raise Exception, result["errors"].map { |e| e["message"] }.join(", ") if result["errors"]
+
     result["data"]
   end
 end

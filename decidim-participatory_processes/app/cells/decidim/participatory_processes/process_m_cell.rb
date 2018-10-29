@@ -25,6 +25,7 @@ module Decidim
 
       def state_classes
         return unless model.past?
+
         ["alert"]
       end
 

@@ -468,6 +468,7 @@ module Decidim
     # Returns a klass object.
     def find_validator(attribute, klass)
       return unless object.respond_to?(:_validators)
+
       object._validators[attribute].find { |validator| validator.class == klass }
     end
 
@@ -576,12 +577,14 @@ module Decidim
     def file_is_image?(file)
       return unless file && file.respond_to?(:url)
       return file.content_type.start_with? "image" if file.content_type.present?
+
       Mime::Type.lookup_by_extension(File.extname(file.url)[1..-1]).to_s.start_with? "image" if file.url.present?
     end
 
     # Private: Returns whether the file exists or not.
     def file_is_present?(file)
       return unless file && file.respond_to?(:url)
+
       file.present?
     end
 

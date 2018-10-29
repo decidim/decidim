@@ -41,6 +41,7 @@ module Decidim
     def label
       return if [false, "false"].include? context[:label]
       return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
+
       context[:label]
     end
 
@@ -82,6 +83,7 @@ module Decidim
     def card_classes
       classes = [base_card_class]
       return classes unless has_state?
+
       classes.concat(state_classes).join(" ")
     end
 

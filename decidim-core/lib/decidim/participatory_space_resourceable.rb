@@ -51,6 +51,7 @@ module Decidim
       def participatory_space_sibling_scope(participatory_space_name)
         manifest = Decidim.find_participatory_space_manifest(participatory_space_name)
         return self.class.none unless manifest
+
         scope = manifest.participatory_spaces.call(organization)
 
         scope

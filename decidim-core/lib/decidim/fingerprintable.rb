@@ -28,6 +28,7 @@ module Decidim
           @fingerprint_options[:block] = block
         else
           raise "You must provide a set of fields to generate the fingerprint." unless fields
+
           @fingerprint_options[:fields] = fields
         end
       end

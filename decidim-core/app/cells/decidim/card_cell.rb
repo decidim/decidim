@@ -31,11 +31,13 @@ module Decidim
 
     def title
       return if model.respond_to? :title
+
       model.name
     end
 
     def body
       return if model.respond_to? :body
+
       model.about
     end
   end

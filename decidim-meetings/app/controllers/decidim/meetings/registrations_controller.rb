@@ -61,6 +61,7 @@ module Decidim
       def redirect_after_path
         referer = request.headers["Referer"]
         return redirect_to(meeting_path(meeting)) if referer =~ /invitation_token/
+
         redirect_back fallback_location: meeting_path(meeting)
       end
     end

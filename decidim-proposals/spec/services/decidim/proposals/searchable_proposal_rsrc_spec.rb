@@ -38,7 +38,7 @@ module Decidim
 
           context "when it IS published" do
             before do
-              proposal.update published_at: DateTime.current
+              proposal.update published_at: Time.current
             end
 
             it "inserts a SearchableResource after Proposal is published" do
@@ -97,8 +97,8 @@ module Decidim
         end
 
         before do
-          proposal.update(published_at: DateTime.current)
-          proposal2.update(published_at: DateTime.current)
+          proposal.update(published_at: Time.current)
+          proposal2.update(published_at: Time.current)
         end
 
         it "returns Proposal results" do

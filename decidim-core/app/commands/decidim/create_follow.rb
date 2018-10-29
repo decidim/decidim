@@ -40,6 +40,7 @@ module Decidim
 
     def increment_score
       return unless form.followable.is_a? Decidim::User
+
       Decidim::Gamification.increment_score(form.followable, :followers)
     end
   end

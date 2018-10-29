@@ -60,6 +60,7 @@ module Decidim
                       permission_action.action == :read
 
         return user_manager_permissions if user_manager?
+
         toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
       end
 
@@ -70,6 +71,7 @@ module Decidim
 
       def static_page_action?
         return unless permission_action.subject == :static_page
+
         static_page = context.fetch(:static_page, nil)
 
         case permission_action.action
@@ -108,6 +110,7 @@ module Decidim
 
       def user_action?
         return unless [:user, :impersonatable_user].include?(permission_action.subject)
+
         subject_user = context.fetch(:user, nil)
 
         case permission_action.action

@@ -61,6 +61,7 @@ module Decidim
 
       def root_commentable(commentable)
         return commentable.root_commentable if commentable.is_a? Decidim::Comments::Comment
+
         commentable
       end
     end

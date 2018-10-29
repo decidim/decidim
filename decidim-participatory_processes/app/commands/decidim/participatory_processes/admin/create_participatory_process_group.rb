@@ -21,6 +21,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           group = create_participatory_process_group
 
           if group.persisted?

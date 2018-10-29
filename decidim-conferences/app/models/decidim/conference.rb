@@ -73,6 +73,7 @@ module Decidim
 
     def has_available_slots?
       return true if available_slots.zero?
+
       available_slots > conference_registrations.count
     end
 

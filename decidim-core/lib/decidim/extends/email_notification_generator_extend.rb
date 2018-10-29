@@ -5,6 +5,7 @@ module EmailNotificationGeneratorExtend
     recipient = Decidim::User.find_by(id: recipient_id)
     return unless recipient
     return unless recipient.email_on_notification?
+
     if @extra[:new_content]
       Decidim::NotificationMailer
         .new_content_received(

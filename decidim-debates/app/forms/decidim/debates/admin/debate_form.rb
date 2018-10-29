@@ -25,6 +25,7 @@ module Decidim
 
         def category
           return unless current_component
+
           @category ||= current_component.categories.find_by(id: decidim_category_id)
         end
       end

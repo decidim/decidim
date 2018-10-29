@@ -24,6 +24,7 @@ module Decidim
     # Private: check if the process and the user have the same organization
     def user_and_conference_same_organization
       return if !conference || !user
+
       errors.add(:conference, :invalid) unless user.organization == conference.organization
     end
   end

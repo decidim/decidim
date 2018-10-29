@@ -20,6 +20,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           initiative_type = create_initiative_type
 
           if initiative_type.persisted?

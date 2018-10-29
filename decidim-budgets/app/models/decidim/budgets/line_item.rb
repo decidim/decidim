@@ -13,6 +13,7 @@ module Decidim
 
       def same_component
         return unless order && project
+
         errors.add(:order, :invalid) unless order.component == project.component
       end
     end

@@ -55,6 +55,7 @@ module Decidim
       return unless from_context
       return unless proposals_controller? || collaborative_drafts_controller?
       return unless show_action?
+
       true
     end
 
@@ -70,6 +71,7 @@ module Decidim
 
     def commentable?
       return unless posts_controller?
+
       true
     end
 
@@ -80,6 +82,7 @@ module Decidim
     def actionable?
       return false if options[:has_actions] == false
       return true if user_author? && posts_controller?
+
       true if withdrawable? || flagable?
     end
 

@@ -12,6 +12,7 @@ module Decidim
           # Returns an HTML-safe String.
           def present
             return if value.blank?
+
             h.t(value, scope: "decidim.admin.models.assembly_member.positions", default: value)
           end
         end

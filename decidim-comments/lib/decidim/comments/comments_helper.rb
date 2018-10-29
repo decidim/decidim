@@ -9,6 +9,7 @@ module Decidim
       # resource - A commentable resource
       def comments_for(resource)
         return unless resource.commentable?
+
         content_for :expanded do
           inline_comments_for(resource)
         end
@@ -21,6 +22,7 @@ module Decidim
       # Returns a div which contain a RectComponent
       def inline_comments_for(resource)
         return unless resource.commentable?
+
         commentable_type = resource.commentable_type
         commentable_id = resource.id.to_s
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"

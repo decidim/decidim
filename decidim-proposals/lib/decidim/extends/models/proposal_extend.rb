@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This module is use to add customs methods to the original "proposal.rb"
-require 'decidim/has_class_extends'
+require "decidim/has_class_extends"
 
 module ProposalExtend
   include Decidim::HasClassExtends

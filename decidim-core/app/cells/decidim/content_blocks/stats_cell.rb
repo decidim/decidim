@@ -7,6 +7,7 @@ module Decidim
 
       def show
         return unless current_organization.show_statistics?
+
         render
       end
 

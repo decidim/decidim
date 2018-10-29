@@ -25,6 +25,7 @@ module Decidim
 
     def same_organization
       return if organization == user&.organization
+
       errors.add(:organization, :invalid)
     end
   end

@@ -21,6 +21,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid, @order) unless checkout!
+
         broadcast(:ok, @order)
       end
 

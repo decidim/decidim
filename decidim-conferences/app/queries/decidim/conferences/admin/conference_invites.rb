@@ -36,6 +36,7 @@ module Decidim
 
         def filter_by_search(conference_invites)
           return conference_invites if @query.blank?
+
           conference_invites.joins(:user).where(
             User.arel_table[:name].lower.matches("%#{@query}%").or(User.arel_table[:email].lower.matches("%#{@query}%"))
           )

@@ -62,12 +62,14 @@ module Decidim
       # Caches the path for the given resource when it's a Decidim::Component.
       def resource_path
         return super unless resource.is_a?(Decidim::Component)
+
         @resource_path ||= main_component_path(resource)
       end
 
       # Caches the URL for the given resource when it's a Decidim::Component.
       def resource_url
         return super unless resource.is_a?(Decidim::Component)
+
         @resource_url ||= main_component_url(resource)
       end
 
