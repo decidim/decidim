@@ -498,31 +498,31 @@ sv:
         invite_user: Bjud in en användare
       invite:
         error: Det uppstod ett fel med att bjuda in den här användaren
-        success: Användaren bjöds in framgångsrikt
+        success: Användaren bjöds in
       reject:
-        error: Det uppstod ett fel vid avvisande av denna inbjudan
-        success: Inbjudan avvisades framgångsrikt
+        error: Det uppstod ett fel vid avvisandet av denna inbjudan
+        success: Inbjudan avvisades
       reject_invitation: Avvisa
     group_members:
       accept:
         error: Det gick inte att acceptera den här anslutningsförfrågan
-        success: Gå med förfrågan accepteras framgångsrikt
+        success: Gå med förfrågan accepterades
       actions:
         are_you_sure: Är du säker?
-        promote_to_admin: Gör administratör
+        promote_to_admin: Gör till administratör
         remove_from_group: Ta bort användaren
       index:
         current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
         manage_members: Hantera medlemmar
       promote:
-        error: Det uppstod ett fel för att marknadsföra den här användaren
-        success: Användaren främjas framgångsrikt
+        error: Det uppstod ett fel i befordrandet av den här användaren
+        success: Användaren befodrades
       reject:
-        error: Ett fel uppstod vid avvisande av denna anmälningsförfrågan
-        success: Gå med förfrågan avvisas framgångsrikt
+        error: Ett fel uppstod vid avvisandet av denna anmälningsförfrågan
+        success: Gå med förfrågan avvisades
       remove:
         error: Det gick inte att ta bort den här användaren från gruppen
-        success: Användaren togs bort från gruppen framgångsrikt
+        success: Användaren togs bort från gruppen
     groups:
       actions:
         are_you_sure: Är du säker?
