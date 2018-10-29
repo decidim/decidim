@@ -745,13 +745,13 @@ sv:
         conversations: Samtal
         followers: Anhängare
         following: Följer
-        groups: grupper
-        members: medlemmar
+        groups: Grupper
+        members: Medlemmar
         notifications: Notiser
       sidebar:
         badges:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
-          title: Emblem
+          title: Märken
       user:
         create_user_group: Skapa grupp
         edit_profile: Redigera profil
@@ -836,7 +836,7 @@ sv:
       send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress inom några minuter.
     failure:
       already_authenticated: Du är redan inloggad.
-      inactive: Ditt konto är inte aktiverat ännu.
+      inactive: Ditt konto är inte aktiverat än.
       invalid: Ogiltigt %{authentication_keys} eller lösenord.
       invited: Du har en väntande inbjudan, acceptera den för att slutföra skapa ditt konto.
       last_attempt: Du har ytterligare ett försök innan ditt konto är låst.
@@ -963,10 +963,10 @@ sv:
         forgot_your_password: Glömt ditt lösenord?
         sign_in: Logga in
         sign_in_with_provider: Logga in med %{provider}
-        sign_up: Bli Medlem
+        sign_up: Registrera dig
       minimum_password_length:
-        one: "(%{count} tecken minimum)"
-        other: "(Minst%{count} tecken)"
+        one: "(%{count} minimiantal tecken)"
+        other: "(%{count} minimiantal tecken)"
     unlocks:
       new:
         resend_unlock_instructions: Skicka om upplåsningsinstruktionerna igen
