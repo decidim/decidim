@@ -985,7 +985,7 @@ sv:
       expired: har gått ut, vänligen be om en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
       long_words: innehåller ord som är för långa (över 35 tecken)
-      must_start_with_caps: måste börja med en bokstav
+      must_start_with_caps: måste börja med en versal
       nesting_too_deep: kan inte vara inuti en underkategori
       not_found: hittades inte
       not_locked: låstes inte
