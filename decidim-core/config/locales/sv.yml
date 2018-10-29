@@ -537,7 +537,7 @@ sv:
         success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
       leave:
         error: Det har varit ett problem att lämna gruppen
-        success: Gruppen gick framgångsrikt.
+        success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
         accept_request: Acceptera
