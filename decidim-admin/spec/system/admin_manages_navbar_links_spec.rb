@@ -93,7 +93,7 @@ describe "Navbar Links", type: :system do
 
       it "can delete them" do
         within find("#navbar_link_#{navbar_link.id}", text: translated(navbar_link.title)) do
-          accept_confirm { click_link "Destroy" }
+          accept_confirm { click_link "Delete" }
         end
         expect(page).to have_admin_callout("successfully")
         within ".card-section" do
