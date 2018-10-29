@@ -9,6 +9,7 @@
   </div>
   <div class="card-section">
     <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true, label: t("models.components.title", scope: "decidim.surveys.admin") %>
       <%= form.translated :text_field, :title, label: t("models.components.title", scope: "decidim.surveys.admin"), autofocus: true %>
     </div>
     <div class="row column">
