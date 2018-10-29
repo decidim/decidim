@@ -305,6 +305,8 @@ de:
           filter: Filter
           filter_by: Filtern nach
           unfold: Entfalten
+        index:
+          view_meeting: Besprechung anzeigen
         meeting_minutes:
           meeting_minutes: Sitzungsprotokolle
           related_information: Zugehörige Informationen
