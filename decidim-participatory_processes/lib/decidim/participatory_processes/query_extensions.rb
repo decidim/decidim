@@ -3,9 +3,9 @@
 module Decidim
   module ParticipatoryProcesses
     # This module's job is to extend the API with custom fields related to
-    # decidim-comments.
+    # decidim-participatory_processes.
     module QueryExtensions
-      # Public: Extends a type with `decidim-comments`'s fields.
+      # Public: Extends a type with `decidim-participatory_processes`'s fields.
       #
       # type - A GraphQL::BaseType to extend.
       #
