@@ -20,10 +20,10 @@ pt-BR:
       decidim/demoted_membership: Não é mais um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
       decidim/gamification/level_up_event: Você subiu de nível
-      decidim/join_request_accepted_event: Pedido de adesão aceite
-      decidim/join_request_rejected_event: Pedido de adesão rejeitado
+      decidim/join_request_accepted_event: Solicitação de junção aceita
+      decidim/join_request_rejected_event: Solicitação de junção aceita
       decidim/profile_updated_event: Perfil atualizado
-      decidim/promote_to_admin: Promovido para o administrador do grupo
+      decidim/promote_to_admin: Promovido a administrador de grupo
       decidim/removed_from_group: Removido do grupo
   activerecord:
     attributes:
@@ -104,7 +104,7 @@ pt-BR:
       organization:
         update: "%{user_name} atualizou as configurações da organização"
       participatory_space_private_user:
-        create: "%{user_name} convidados %{resource_name} para ser um usuário privado"
+        create: "%{user_name} Convidado %{resource_name} ser um usuário privado"
         delete: "%{user_name} removeu o usuário %{resource_name} como usuário particular"
       scope:
         create: "%{user_name} criou o âmbito %{resource_name}"
@@ -187,13 +187,13 @@ pt-BR:
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid_field: "%{field} valor %{value} não é válido."
-          ok: OK
+          ok: Ok
           title: Não autorizado
         unconfirmed:
           confirmation_instructions: 'Se você não recebeu as instruções de confirmação, pode solicitá-las novamente:'
-          explanation_html: Para realizar esta ação você precisa estar autorizado, antes de fazer isso você precisa confirmar seu email <strong>%{email}</strong>.
-          request_confirmation_instructions: Solicitar instruções de confirmação
-          title: confirme seu email
+          explanation_html: A fim de executar esta ação que você precisa ser autorizado, antes de fazer isso você precisa confirmar o seu e-mail <strong>%{email}</strong>.
+          request_confirmation_instructions: Reenviar instruções de confirmação
+          title: Confirme seu e-mail
     collapsible_list:
       hidden_elements_count:
         one: e mais 1
@@ -230,8 +230,8 @@ pt-BR:
         html_content: Conteúdo HTML
         name: Bloco HTML
       last_activity:
-        name: Ultima atividade
-        title: Ultima atividade
+        name: Última atividade
+        title: Última atividade
         view_all: Ver tudo
       metrics:
         name: Métricas da organização
@@ -355,24 +355,24 @@ pt-BR:
           email_subject: Você não é mais um administrador do grupo %{user_group_name}!
           notification_title: Você não é mais um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidou você para participar.
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
           email_outro: Você recebeu esta notificação porque foi convidado para um grupo. Por favor, verifique a aba Grupos no seu perfil para aprová-lo.
           email_subject: Você foi convidado para participar do grupo %{user_group_name}!
-          notification_title: Você foi convidado a participar do grupo <a href="%{resource_path}">%{user_group_name}</a> . Verifique os <a href="%{groups_profile_tab_path}">Grupos página</a> no seu perfil para aprová-lo!
+          notification_title: Você foi convidado a participar do grupo <a href="%{resource_path}">%{user_group_name}</a>. Verifique os <a href="%{groups_profile_tab_path}">Grupos página</a> no seu perfil para aprová-lo!
         join_request_accepted:
           email_intro: Parabéns! Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> aceitou sua solicitação para participar.
           email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
           email_subject: Você foi aceito no grupo %{user_group_name}!
           notification_title: Você foi aceito no grupo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Alguém pediu para participar do grupo %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_url}">os membros do grupo página</a>.
+          email_intro: Alguém pediu para participar do grupo %{user_group_name}. Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_url}">os membros do grupo página</a>.
           email_outro: Você recebeu esta notificação porque pode gerenciar o grupo %{user_group_name}.
           email_subject: Alguém pediu para entrar no grupo %{user_group_name}!
-          notification_title: Alguém pediu para participar do grupo %{user_group_name} . Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_path}">os membros do grupo página</a>.
+          notification_title: Alguém pediu para participar do grupo %{user_group_name}. Você pode aceitar ou rejeitá-la a partir de <a href="%{resource_path}">os membros do grupo página</a>.
         join_request_rejected:
           email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> rejeitou o seu pedido para se juntar a ele.
           email_outro: Você recebeu esta notificação porque sua solicitação de associação foi atualizada.
-          email_subject: Sua solicitação para participar do grupo %{user_group_name} foi rejeitada.
+          email_subject: Sua solicitação para participar do grupo %{user_group_name} foi rejeitada!
           notification_title: Sua solicitação para participar do grupo <a href="%{resource_path}">%{user_group_name}</a> foi rejeitada.
         promoted_to_admin:
           email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deu a você direitos de administrador para esse grupo.
@@ -380,8 +380,8 @@ pt-BR:
           email_subject: Você é agora um administrador do grupo %{user_group_name}!
           notification_title: Você é agora um administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu você dele.
-          email_outro: Você recebeu esta notificação porque era um membro desse grupo.
+          email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
+          email_outro: Você recebeu esta notificação porque é um membro desse grupo.
           email_subject: Você foi removido do grupo %{user_group_name}!
           notification_title: Você foi removido do grupo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
@@ -435,22 +435,22 @@ pt-BR:
         error: Há um erro neste campo.
       remove_this_file: Remover este ficheiro
     gamification:
-      all_badges_link: Veja todos os crachás disponíveis.
+      all_badges_link: Veja todos os emblemas disponíveis.
       badges:
         continuity:
           conditions:
             - Vem aqui com frequência
           description: Esse selo é concedido quando você visita a plataforma regularmente. Nós gostamos de ter você por aqui!
-          description_another: Este usuário conectou por %{score} dias consecutivos em algum momento.
+          description_another: Este usuário se conectou por %{score} dias consecutivos em algum momento.
           description_own: Você se conectou por %{score} dias consecutivos em algum momento.
-          name: Continuidade
-          next_level_in: Ligue por %{score} dias consecutivos para chegar ao próximo nível!
+          name: Continue
+          next_level_in: Conecte-se para %{score} dias consecutivos para chegar ao próximo nível!
           unearned_another: Este usuário não fez login por mais de um dia consecutivo.
           unearned_own: Você não se conectou por mais de um dia consecutivo.
         followers:
           conditions:
             - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
-          description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, tecer sua web para se comunicar com outras pessoas na plataforma.
+          description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, teça sua web para se comunicar com outras pessoas na plataforma.
           description_another: Esse usuário possui %{score} seguidores.
           description_own: "%{score} usuários estão seguindo você."
           name: Seguidores
@@ -458,15 +458,15 @@ pt-BR:
           unearned_another: Este usuário ainda não possui seguidores.
           unearned_own: Você ainda não tem seguidores.
         index:
-          badge_title: "%{name} crachá"
-          how: Como você pode ganhar?
+          badge_title: "%{name} selo"
+          how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
         invitations:
           conditions:
             - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
             - Personalize, se quiser, a mensagem que você está enviando
-            - Você vai subir de nível enviando convites e registrando-os.
+            - Você vai subir de nível enviando convites e recebendo-os registrados.
           description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
           description_another: Este usuário convidou %{score} usuários.
           description_own: Você convidou %{score} usuários.
@@ -480,10 +480,10 @@ pt-BR:
     group_admins:
       actions:
         are_you_sure: Você tem certeza? Isso não removerá o usuário do grupo.
-        demote_admin: Remover admin
+        demote_admin: Remover Administrador
       demote:
         error: Ocorreu um erro ao remover este usuário da lista de administradores
-        success: Usuário removido do administrador com sucesso
+        success: Usuário removido com sucesso da organização
       index:
         current_admins: 'Administradores atuais:'
         manage_admins: Gerenciar administradores
@@ -494,10 +494,10 @@ pt-BR:
       accept_invitation: Aceitar
       accept_or_reject_group_invitations: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
       index:
-        invite: Convite
-        invite_user: Convidar um usuário
+        invite: Convidar
+        invite_user: Convidar usuário
       invite:
-        error: Houve um erro ao convidar este usuário
+        error: Ocorreu um erro ao convidar esse usuário
         success: Usuário convidado com sucesso
       reject:
         error: Houve um erro ao rejeitar este convite
@@ -506,10 +506,10 @@ pt-BR:
     group_members:
       accept:
         error: Ocorreu um erro ao aceitar este pedido de adesão
-        success: Pedido de adesão aceite com sucesso
+        success: Pedido de adesão aceita com sucesso
       actions:
         are_you_sure: Você tem certeza?
-        promote_to_admin: Faça admin
+        promote_to_admin: Tornar administrador
         remove_from_group: Remover usuário
       index:
         current_members_without_admins: 'Membros atuais (sem administradores):'
@@ -534,21 +534,21 @@ pt-BR:
         update_user_group: Atualizar grupo
       join:
         error: Houve um problema ao ingressar no grupo
-        success: Juntar pedido criado com sucesso. Um administrador analisará sua solicitação antes de aceitá-lo para o grupo.
+        success: Solicitação de junção criada com êxito. Um administrador irá rever o seu pedido antes de aceitá-lo para o grupo.
       leave:
         error: Houve um problema ao sair do grupo
-        success: Grupo saiu com sucesso.
+        success: Saiu do grupo com sucesso.
       members:
-        accept_or_reject_join_requests: 'Os seguintes usuários se inscreveram para participar desse grupo. Aceite ou rejeite seus pedidos:'
+        accept_or_reject_join_requests: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
         accept_request: Aceitar
         reject_request: Rejeitar
       new:
-        create_user_group: Criar grupo
+        create_user_group: Criar Grupo
         new_user_group: Novo grupo
       no_user_groups: Não pertence a nenhum grupo ainda.
       roles:
         admin: Administrador
-        creator: O Criador
+        creator: Autor
         member: Membro
       update:
         error: Houve um problema ao atualizar o grupo
@@ -567,10 +567,10 @@ pt-BR:
         visit_your_profile: Visite seu perfil
     last_activities:
       activities:
-        no_activities_warning: Nenhuma atividade
+        no_activities_warning: Sem atividades
       all: Todos os tipos de atividade
       index:
-        last_activity: Ultima atividade
+        last_activity: Última atividade
         resource_type: Tipo
     log:
       base_presenter:
@@ -628,8 +628,8 @@ pt-BR:
           error: Mensagem não enviada. Tente mais tarde
     metrics:
       users:
-        object: Comercial
-        title: Comercial
+        object: usuários
+        title: Usuários
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
@@ -738,7 +738,7 @@ pt-BR:
       deleted: Usuário excluído
       view: Vista
     profiles:
-      default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi confirmado para corresponder ao seu nome real
+      default_officialization_text_for_user_groups: Este grupo de usuários é verificado publicamente, seu nome foi verificado para corresponder com seu nome real
       default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
         badges: Distintivos
@@ -753,12 +753,12 @@ pt-BR:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
-        create_user_group: Criar grupo
+        create_user_group: Criar Grupo
         edit_profile: Editar perfil
         edit_user_group: Editar perfil do grupo
         invite_user: Convidar Usuário
         join_user_group: Solicitar para participar do grupo
-        leave_user_group: Deixar o grupo
+        leave_user_group: Sair do grupo
         manage_user_group_admins: Gerenciar administradores
         manage_user_group_users: Gerenciar membros
     reported_mailer:

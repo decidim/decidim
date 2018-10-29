@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assembléias Relacionadas
+        assemblies_ids: Assembleias Relacionadas
         banner_image: Imagem de banner
         consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
@@ -10,7 +10,7 @@ pt-BR:
         copy_features: Copiar recursos
         decidim_scope_id: Escopo
         description: Descrição
-        hashtag: Hashtag
+        hashtag: Palavras-chave
         hero_image: Imagem inicial
         participatory_processes_ids: Processos participativos relacionados
         promoted: Promovido
@@ -123,20 +123,20 @@ pt-BR:
       media_links:
         create:
           error: Ocorreu um erro ao criar um novo link de mídia.
-          success: Media Link criado com sucesso.
+          success: Link de mídia criado com êxito.
         destroy:
-          success: O Media Link foi excluído com sucesso.
+          success: Recurso excluído com sucesso.
         edit:
-          title: Atualize o link da mídia.
+          title: Atualize o link de mídia.
           update: Atualizar
         index:
           media_links_title: Links de Mídia
         new:
-          create: Crio
-          title: Link de Mídia
+          create: Criar
+          title: Links de Mídia
         update:
           error: Houve um erro ao atualizar este link de mídia.
-          success: Media Link atualizado com sucesso.
+          success: Link de mídia atualizado com êxito.
       menu:
         conferences: Conferências
         conferences_submenu:
@@ -149,7 +149,7 @@ pt-BR:
           conference_invites: Conferência Convida
           conference_registrations: Registros de conferência
           conference_speakers: Alto-falantes da conferência
-          info: Info
+          info: Informações
           media_links: Links de Mídia
           moderations: Moderações
           partners: Parceiros
@@ -179,30 +179,30 @@ pt-BR:
         media_link:
           fields:
             date: Encontro
-            link: Ligação
+            link: Link
             title: Título
-          name: Link de Mídia
+          name: Links de Mídia
         partner:
           fields:
-            link: Ligação
+            link: Link
             logo: Logotipo
             name: Nome
             partner_type: Tipo
           name: Parceiro
           types:
             collaborator: Colaborador
-            main_promotor: Principal promotor
+            main_promotor: Principais promotores
       partners:
         create:
           error: Ocorreu um erro ao adicionar um parceiro para esta conferência.
           success: Parceiro adicionado com sucesso a esta conferência.
         destroy:
-          success: Parceiro removido com sucesso desta conferência.
+          success: Alto-falante excluído com sucesso para esta conferência.
         edit:
           title: Atualizar parceiro.
           update: Atualizar
         new:
-          create: Crio
+          create: Criar
           title: Novo parceiro
         update:
           error: Ocorreu um erro ao atualizar um parceiro para esta conferência.
@@ -211,16 +211,16 @@ pt-BR:
         conferences: Conferências
     admin_log:
       conference:
-        create: "%{user_name} criou a %{resource_name} conferência"
-        publish: "%{user_name} publicou a %{resource_name} conferência"
-        unpublish: "%{user_name} não publicada a %{resource_name} conferência"
-        update: "%{user_name} atualizou a %{resource_name} conferência"
+        create: "%{user_name} criou a conferência %{resource_name}"
+        publish: "%{user_name} publicou a conferencia%{resource_name}"
+        unpublish: "%{user_name} despublicou a conferencia%{resource_name}"
+        update: "%{user_name} Atualizou a conferência %{resource_name}"
       conference_speaker:
         create: "%{user_name} criou o %{resource_name} alto-falante na conferência de %{space_name}"
         delete: "%{user_name} removeu o %{resource_name} alto-falante da conferência de %{space_name}"
         update: "%{user_name} atualizou o %{resource_name} alto-falante na conferência de %{space_name}"
       conference_user_role:
-        create: "%{user_name} convidados %{resource_name} para a conferência %{space_name}"
+        create: "%{user_name} convidou %{resource_name} para o conferencia %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
         update: "%{user_name} mudou o papel de %{resource_name} na conferência de %{space_name}"
     conference_program:
@@ -299,7 +299,7 @@ pt-BR:
         program_meeting:
           content: Conteúdo
           location: Localização
-          speakers: caixas de som
+          speakers: Alto-falantes
           streaming: Transmissão
         show:
           day: Dia
@@ -341,7 +341,7 @@ pt-BR:
           login_as: Você está logado como %{name} <%{email}>
           make_conference_registration: 'Faça seu cadastro na conferência:'
           new_user: Novo usuário?
-          register: registo
+          register: Registrar-se
           sign_in: Entre para se registrar nesta conferência
           sign_up: Registre-se gratuitamente em decidim para registrar
       content_blocks:
@@ -379,7 +379,7 @@ pt-BR:
       photo:
         show:
           close_modal: Fechar modal
-          photo: foto
+          photo: Foto
       photos_list:
         show:
           related_photos: Fotos
@@ -387,7 +387,7 @@ pt-BR:
         details: Detalhes
         introduction: Introdução
         objectives: Objetivos
-        related_assemblies: Assembléias Relacionadas
+        related_assemblies: Assembleias Relacionadas
         related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
       statistics:
@@ -456,9 +456,9 @@ pt-BR:
           more_info: Mais informações
           take_part: Participar
       conferences_nav:
-        conference_menu_item: Em formação
+        conference_menu_item: Informação
         conference_partners_menu_item: Parceiros
-        conference_speaker_menu_item: caixas de som
-        media: meios de comunicação
-        unfold: Desdobrar
-        venues: Venues
+        conference_speaker_menu_item: Alto-falantes
+        media: Mídia
+        unfold: Exibir
+        venues: Locais
