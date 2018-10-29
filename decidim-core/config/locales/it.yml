@@ -648,6 +648,11 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban

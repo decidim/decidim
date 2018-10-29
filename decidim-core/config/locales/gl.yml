@@ -648,6 +648,11 @@ gl:
         see_more: Ver máis
   locale:
     name: Galego
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicioso
     douban: Douban

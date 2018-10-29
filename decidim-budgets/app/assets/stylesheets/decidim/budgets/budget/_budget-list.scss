@@ -2,6 +2,8 @@
   @include breakpoint(smallmedium down){
     font-size: $global-font-size;
   }
+
+  word-break: break-word;
 }
 
 .budget-list__data{

@@ -650,6 +650,11 @@ ca:
         see_more: Veure més
   locale:
     name: Català
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban
