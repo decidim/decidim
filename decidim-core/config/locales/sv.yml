@@ -480,7 +480,7 @@ sv:
     group_admins:
       actions:
         are_you_sure: Är du säker? Detta tar inte bort användaren från gruppen.
-        demote_admin: Ta bort admin
+        demote_admin: Ta bort administratör
       demote:
         error: Det gick inte att ta bort den här användaren från administratörslistan
         success: Användaren har tagits bort från admin framgångsrikt
@@ -490,9 +490,9 @@ sv:
     group_invites:
       accept:
         error: Det gick inte att acceptera den här inbjudan
-        success: Inbjudan accepterades framgångsrikt
+        success: Inbjudan accepterades
       accept_invitation: Acceptera
-      accept_or_reject_group_invitations: 'Följande grupper har uppmanat dig att gå med i dem. Godkänn eller avslå deras förfrågningar:'
+      accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avslå deras förfrågningar:'
       index:
         invite: Inbjudan
         invite_user: Bjud in en användare
