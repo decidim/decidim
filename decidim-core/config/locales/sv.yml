@@ -942,19 +942,19 @@ sv:
         update: Uppdatering
         we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta dina ändringar
       new:
-        sign_up: Bli Medlem
-      signed_up: Välkommen! Du har anmält dig framgångsrikt.
-      signed_up_but_inactive: Du har anmält dig framgångsrikt. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
-      signed_up_but_locked: Du har anmält dig framgångsrikt. Vi kunde dock inte logga in eftersom ditt konto är låst.
-      signed_up_but_unconfirmed: Ett meddelande med en bekräftelse länk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
+        sign_up: Registrera dig
+      signed_up: Välkommen! Din registrering lyckades.
+      signed_up_but_inactive: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
+      signed_up_but_locked: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto är låst.
+      signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
       update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
       updated: Ditt konto har uppdaterats framgångsrikt.
     sessions:
       already_signed_out: Utloggad framgångsrikt.
       new:
         sign_in: Logga in
-      signed_in: Inloggad med framgång.
-      signed_out: Utloggad framgångsrikt.
+      signed_in: Inloggningen lyckades.
+      signed_out: Utloggningen lyckades.
     shared:
       links:
         back: Tillbaka
