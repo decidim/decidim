@@ -105,6 +105,7 @@ ignore_unused:
   - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'
+  - carrierwave.errors.*
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
