@@ -103,6 +103,9 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
         site: Local na rede Internet
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -651,3 +654,7 @@ pt:
           title: Configurações
         users:
           title: Utilizadores
+  time:
+    formats:
+      datepicker: "%m/%d/%Y"
+      timepicker: "%m/%d/%Y %H:%M"
