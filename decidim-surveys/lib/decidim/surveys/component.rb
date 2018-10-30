@@ -23,8 +23,10 @@ Decidim.register_component(:surveys) do |component|
   end
 
   component.on(:copy) do |context|
-    Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
-      on(:invalid) { raise "Can't create survey" }
+    survey_from_old_component = Decidim::Surveys::Survey
+                                .find_by(decidim_component_id: context[:old_component].id)
+    Decidim::Surveys::Admin::CopySurvey.call(context[:new_component], survey_from_old_component) do
+      on(:invalid) { raise "Can't duplicate survey" }
     end
   end
 
