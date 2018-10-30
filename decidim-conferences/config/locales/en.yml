@@ -202,21 +202,6 @@ en:
             title: Title
             weight: Weight
           name: Registration type
-      registration_types:
-        create:
-          error: There was an error adding a registration type for this conference.
-          success: Registration type added successfully to this conference.
-        destroy:
-          success: Registration type removed successfully from this conference.
-        edit:
-          title: Update registration type.
-          update: Update
-        new:
-          create: Create
-          title: New registration type
-        update:
-          error: There was an error updated a registration type for this conference.
-          success: Registration type updated successfully for this conference.
       partners:
         create:
           error: There was an error adding a partner for this conference.
@@ -232,6 +217,28 @@ en:
         update:
           error: There was an error updated a partner for this conference.
           success: Partner updated successfully for this conference.
+      registration_type_publications:
+        create:
+          error: There was an error publishing this registration type.
+          success: Registration type published successfully.
+        destroy:
+          error: There was an error unpublishing this registration type.
+          success: Registration type unpublished successfully.
+      registration_types:
+        create:
+          error: There was an error adding a registration type for this conference.
+          success: Registration type added successfully to this conference.
+        destroy:
+          success: Registration type removed successfully from this conference.
+        edit:
+          title: Update registration type.
+          update: Update
+        new:
+          create: Create
+          title: New registration type
+        update:
+          error: There was an error updated a registration type for this conference.
+          success: Registration type updated successfully for this conference.
       titles:
         conferences: Conferences
     admin_log:
@@ -249,15 +256,15 @@ en:
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
       conferences:
+        partner:
+          create: "%{user_name} created %{resource_name} to the %{space_name} conference"
+          delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+          update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
         registration_type:
           create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
           publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
           unpublish: "%{user_name} unpublished the %{resource_name} registration type in the %{space_name} conference"
           update: "%{user_name} updated the %{resource_name} registration type in the %{space_name} conference"
-        partner:
-          create: "%{user_name} created %{resource_name} to the %{space_name} conference"
-          delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
-          update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
     conference_program:
       index:
         title: Program
@@ -321,10 +328,6 @@ en:
           index:
             title: Partners
         registration_types:
-          conference_meetings:
-            close: Close
-            current_selection: Current selection
-            select: Select
           form:
             select_conference_meetings: Select conference meetings
           index:
@@ -337,10 +340,6 @@ en:
           going: Going
           join: Join Conference
           no_slots_available: No slots available
-          remaining_slots:
-            one: 1 slot remaining
-            other: "%{count} slots remaining"
-            zero: No slots remaining
       conference_program:
         program_meeting:
           content: Content
@@ -416,12 +415,6 @@ en:
             email: Email
             name: Name
             registration_type: Registration type
-      registration_types:
-        index:
-          choose_an_option: "Choose your registration option:"
-          login_as: You are login as %{name} <%{email}>
-          register: Register
-          title: Registration types
       pages:
         home:
           highlighted_conferences:
@@ -434,6 +427,12 @@ en:
       photos_list:
         show:
           related_photos: Photos
+      registration_types:
+        index:
+          choose_an_option: 'Choose your registration option:'
+          login_as: You are login as %{name} <%{email}>
+          register: Register
+          title: Registration types
       shared:
         conference_user_login:
           already_account: Do you already have an account in decidim?
