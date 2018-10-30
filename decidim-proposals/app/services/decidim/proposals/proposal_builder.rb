@@ -46,6 +46,7 @@ module Decidim
           "decidim_component_id",
           "reference",
           "proposal_votes_count",
+          "proposal_endorsements_count",
           "proposal_notes_count"
         ).merge(
           "category" => original_proposal.category
