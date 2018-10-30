@@ -87,7 +87,7 @@ module Decidim
       #
       # Returns nothing.
       def update_votes_count
-        update!(proposal_votes_count: votes.count)
+        update_columns(proposal_votes_count: votes.count)
       end
 
       # Public: Check if the user has voted the proposal.

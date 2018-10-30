@@ -13,7 +13,7 @@ module Decidim
         let(:target_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:params) do
           {
-            target_component_id: target_component.try(:id),
+            target_component_id: [target_component.try(:id).to_s],
             proposal_ids: proposals.map(&:id)
           }
         end
@@ -45,6 +45,26 @@ module Decidim
           let(:target_component) { create(:proposal_component) }
 
           it { is_expected.to be_invalid }
+        end
+
+        context "when merging to the same component" do
+          let(:target_component) { component }
+
+          context "when a proposal has a vote" do
+            before do
+              create(:proposal_vote, proposal: proposals.sample)
+            end
+
+            it { is_expected.to be_invalid }
+          end
+
+          context "when a proposal has an endorsement" do
+            before do
+              create(:proposal_endorsement, proposal: proposals.sample)
+            end
+
+            it { is_expected.to be_invalid }
+          end
         end
       end
     end
