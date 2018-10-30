@@ -5,7 +5,7 @@ module Decidim
     module Admin
       class CopySurvey < Rectify::Command
         # Initializes a CopySurvey Command.
-        def initialize(component, origin)
+        def initialize(component, origin = nil)
           @component = component
           @origin = origin
         end
@@ -16,8 +16,11 @@ module Decidim
         def call
           Survey.transaction do
             @survey = Survey.new(component: @component)
-            copy_survey_questions unless @origin.questions.empty?
-            update_survey
+            if @origin.nil?
+               copy_survey_questions unless @origin.questions.empty?
+               update_survey
+            end
+            @survey.save!
           end
 
           broadcast(:ok)
