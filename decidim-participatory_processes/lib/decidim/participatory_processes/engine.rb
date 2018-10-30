@@ -86,17 +86,6 @@ module Decidim
             settings.attribute :weight, type: :integer, default: 2
           end
         end
-
-        # TODO: Create manager to activate this metric
-        # Decidim.metrics_registry.register(:participatory_processes_participants) do |metric_registry|
-        #   metric_registry.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesParticipantsMetricManage"
-        #
-        #   metric_registry.settings do |settings|
-        #     settings.attribute :highlighted, type: :boolean, default: true
-        #     settings.attribute :scopes, type: :array, default: %w{ participatory_process }
-        #     settings.attribute :weight, type: :integer, default: 1
-        #   end
-        # end
       end
     end
   end
