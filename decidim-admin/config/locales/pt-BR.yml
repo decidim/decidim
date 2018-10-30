@@ -657,4 +657,4 @@ pt-BR:
   time:
     formats:
       datepicker: "%m/%d/%Y"
-      timepicker: "%m/%d/%Y %H:%M"
+      timepicker: "%d/%m/%Y %H:%M"
