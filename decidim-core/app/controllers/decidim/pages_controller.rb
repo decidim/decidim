@@ -8,7 +8,6 @@ module Decidim
     helper_method :page, :pages
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
-    skip_before_action :store_current_location
 
     before_action :set_default_request_format
 
