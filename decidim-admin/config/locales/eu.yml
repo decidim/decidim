@@ -507,6 +507,7 @@ eu:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
           success: Partaidetza espazioa erabiltzaile pribatuaren sarbidea behar bezala sortu da.
         destroy:
+          error: Errore bat gertatu da erabiltzaile pribatu bat ezabatzen parte hartzaileentzako.
           success: Partekatze espazioa erabiltzaileen sarbide pribatuan arrakastaz suntsitu da.
         index:
           title: Partaidetza espazioa erabiltzaile pribatua

@@ -507,6 +507,7 @@ pl:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.
           success: Prywatny dostęp użytkowników prywatnych do przestrzeni utworzonej pomyślnie.
         destroy:
+          error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej partycji uczestniczącej.
           success: Dostęp prywatny użytkownika do przestrzeni dyskowej został pomyślnie zniszczony.
         index:
           title: Prywatny użytkownik przestrzeni prywatnej
