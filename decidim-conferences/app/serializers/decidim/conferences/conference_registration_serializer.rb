@@ -10,7 +10,8 @@ module Decidim
           user: {
             name: resource.user.name,
             email: resource.user.email
-          }
+          },
+          registration_type: resource.registration_type.title
         }
       end
     end

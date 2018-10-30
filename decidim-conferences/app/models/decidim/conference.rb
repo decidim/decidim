@@ -79,6 +79,10 @@ module Decidim
       conference_registrations.where(user: user).any?
     end
 
+    def has_registration_for_user_and_registration_type?(user, registration_type)
+      conference_registrations.where(user: user, registration_type: registration_type).any?
+    end
+
     def has_available_slots?
       return true if available_slots.zero?
       available_slots > conference_registrations.count

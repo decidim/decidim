@@ -198,6 +198,7 @@ en:
           fields:
             conference_meetings: Conference meetings
             price: Price
+            registrations_count: Registrations count
             title: Title
             weight: Weight
           name: Registration type
@@ -247,6 +248,16 @@ en:
         create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
+      conferences:
+        registration_type:
+          create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
+          publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
+          unpublish: "%{user_name} unpublished the %{resource_name} registration type in the %{space_name} conference"
+          update: "%{user_name} updated the %{resource_name} registration type in the %{space_name} conference"
+        partner:
+          create: "%{user_name} created %{resource_name} to the %{space_name} conference"
+          delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+          update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
     conference_program:
       index:
         title: Program
@@ -404,6 +415,7 @@ en:
           fields:
             email: Email
             name: Name
+            registration_type: Registration type
       registration_types:
         index:
           choose_an_option: "Choose your registration option:"

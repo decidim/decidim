@@ -18,7 +18,7 @@ module Decidim
       private
 
       def registration_types
-        @registration_types ||= current_participatory_space.registration_types
+        @registration_types ||= current_participatory_space.registration_types.published
       end
 
       alias collection registration_types

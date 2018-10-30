@@ -22,6 +22,7 @@
           <tr>
             <th><%= t("models.conference_registration.fields.name", scope: "decidim.conferences") %></th>
             <th><%= t("models.conference_registration.fields.email", scope: "decidim.conferences") %></th>
+            <th><%= t("models.conference_registration.fields.registration_type", scope: "decidim.conferences") %></th>
           </tr>
         </thead>
         <tbody>
@@ -32,6 +33,9 @@
               </td>
               <td>
                 <%= registration.user.email %>
+              </td>
+              <td>
+                <%= translated_attribute(registration.registration_type.title) %>
               </td>
             </tr>
           <% end %>

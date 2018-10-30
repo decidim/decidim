@@ -17,6 +17,7 @@
             <th><%= t("models.registration_type.fields.price", scope: "decidim.admin") %></th>
             <th><%= t("models.registration_type.fields.weight", scope: "decidim.admin") %></th>
             <th><%= t("models.registration_type.fields.conference_meetings", scope: "decidim.admin") %></th>
+            <th><%= t("models.registration_type.fields.registrations_count", scope: "decidim.admin") %></th>
             <th class="actions"></th>
           </tr>
         </thead>
@@ -35,8 +36,11 @@
               <td>
                 <%= registration_type.conference_meeting_registration_types.count %>
               </td>
+              <td>
+                <%= registration_type.conference_registrations.count %>
+              </td>
               <td class="table-list__actions">
-                <% if allowed_to? :update, :registration_type, registration_type: registration_type %>
+                <% if allowed_to?(:update, :registration_type, registration_type: registration_type) && !registration_type.conference_registrations.any? %>
                   <%= icon_link_to "pencil", edit_conference_registration_type_path(current_conference, registration_type), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
                 <% end %>
 
@@ -48,7 +52,7 @@
                   <% end %>
                 <% end %>
 
-                <% if allowed_to? :destroy, :registration_type, registration_type: registration_type %>
+                <% if allowed_to?(:destroy, :registration_type, registration_type: registration_type) && !registration_type.conference_registrations.any? %>
                   <%= icon_link_to "circle-x", conference_registration_type_path(current_conference, registration_type), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>

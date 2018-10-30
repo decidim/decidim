@@ -27,7 +27,7 @@ module Decidim
                                                    &.map do |meeting|
                                                      OpenStruct.new(
                                                        title: present(meeting).title,
-                                                       value: meeting.id,
+                                                       value: meeting.id
                                                      )
                                                    end
         end

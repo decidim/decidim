@@ -12,14 +12,14 @@ module Decidim
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
       #    RegistrationTypePresenter.new(action_log, view_helpers).present
-      class PartnerPresenter < Decidim::Log::BasePresenter
+      class RegistrationTypePresenter < Decidim::Log::BasePresenter
         private
 
         def diff_fields_mapping
           {
             title: :i18n,
             description: :i18n,
-            price: :integer,
+            price: :integer
           }
         end
 

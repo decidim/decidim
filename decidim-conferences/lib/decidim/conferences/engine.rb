@@ -25,13 +25,20 @@ module Decidim
           resources :conference_speakers, only: :index, path: "speakers"
           resources :conference_program, only: :show, path: "program"
           resource :conference_widget, only: :show, path: "embed"
-          resource :conference_registration, only: [:create, :destroy] do
-            collection do
-              get :create
-              get :decline_invitation
+          # resource :conference_registration, only: [:create, :destroy] do
+          #   collection do
+          #     get :create
+          #     get :decline_invitation
+          #   end
+          # end
+          resources :registration_types, only: :index, path: "registration" do
+            resource :conference_registration, only: [:create, :destroy] do
+              collection do
+                get :create
+                get :decline_invitation
+              end
             end
           end
-          resources :registration_types, only: :index, path: "registration"
           resources :media, only: :index
         end
         scope "/conferences/:conference_slug/f/:component_id" do

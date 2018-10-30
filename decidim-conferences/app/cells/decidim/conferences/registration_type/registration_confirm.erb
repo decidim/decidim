@@ -1,4 +1,4 @@
-<div class="reveal" data-reveal id="conference-registration-confirm-<%= conference.id %>">
+<div class="reveal" data-reveal id="conference-registration-confirm-<%= model.id %>">
   <div class="row">
     <div class="columns medium-10 medium-offset-1 help-text">
       <%= decidim_sanitize translated_attribute(conference.registration_terms) %>
@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="columns medium-8 medium-offset-2">
-      <%= button_to t("confirm", scope: "decidim.conferences.conference.registration_confirm"), conference_conference_registration_path(conference), class: "button expanded", data: { disable: true } %>
+      <%= button_to t("confirm", scope: "decidim.conferences.conference.registration_confirm"), conference_registration_type_conference_registration_path(conference, model), class: "button expanded", data: { disable: true } %>
     </div>
   </div>
   <div class="text-center">

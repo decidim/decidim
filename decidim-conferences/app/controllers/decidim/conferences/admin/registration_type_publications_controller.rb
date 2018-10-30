@@ -79,7 +79,6 @@ module Decidim
         def collection
           @collection ||= Decidim::Conferences::RegistrationType.where(conference: current_conference)
         end
-
       end
     end
   end
