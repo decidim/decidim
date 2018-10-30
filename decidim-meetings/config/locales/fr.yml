@@ -358,6 +358,8 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
+      meetings_map:
+        view_meeting: Voir la réunion
       models:
         invite:
           fields:

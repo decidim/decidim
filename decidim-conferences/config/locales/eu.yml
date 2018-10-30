@@ -2,7 +2,9 @@ eu:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Lotutako Batzarrak
         banner_image: Banner irudia
+        consultations_ids: Lotutako kontsultak
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_features: Kopiatu ezaugarriak
@@ -10,6 +12,7 @@ eu:
         description: deskribapena
         hashtag: hashtag
         hero_image: Hasiera irudia
+        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         promoted: sustatuta
         published_at: Argitaratu at
         scope_id: esparrua
@@ -117,6 +120,23 @@ eu:
         create:
           error: Akats bat gertatu da hitzaldi hau bikoizteko.
           success: Konferentzia bikoiztu egin da.
+      media_links:
+        create:
+          error: Errore bat gertatu da komunikazio-esteka berri bat sortzean.
+          success: Media Link sortu da.
+        destroy:
+          success: Media Link ezabatu da.
+        edit:
+          title: Eguneratu multimedia esteka.
+          update: eguneratzearen
+        index:
+          media_links_title: Media Links
+        new:
+          create: Sortu
+          title: Media Link
+        update:
+          error: Errore bat gertatu da komunikazio-esteka hau eguneratzean.
+          success: Media Link eguneratu behar bezala.
       menu:
         conferences: Jardunaldiak
         conferences_submenu:
@@ -130,6 +150,7 @@ eu:
           conference_registrations: Kongresuaren erregistroak
           conference_speakers: Hitzaldi hiztunak
           info: info
+          media_links: Media Links
           moderations: moderazioa
           partners: Bazkideak
       models:
@@ -155,6 +176,12 @@ eu:
             admin: Administrator
             collaborator: Kolaboratzaile
             moderator: Moderatzaile
+        media_link:
+          fields:
+            date: data
+            link: Link
+            title: Izenburua
+          name: Media Link
         partner:
           fields:
             link: Link
@@ -349,10 +376,20 @@ eu:
           highlighted_conferences:
             active_conferences: Jardunaldi aktiboak
             see_all_conferences: Ikusi hitzaldi guztiak
+      photo:
+        show:
+          close_modal: Itxi modal
+          photo: photo
+      photos_list:
+        show:
+          related_photos: Argazkiak
       show:
         details: Xehetasunak
         introduction: Sarrera
         objectives: Helburuak
+        related_assemblies: Lotutako Batzarrak
+        related_consultations: Lotutako kontsultak
+        related_participatory_processes: Parte hartze prozesu erlazionatuak
       statistics:
         answers_count: Erantzunak
         comments_count: Oharrak
@@ -391,6 +428,10 @@ eu:
       value_types:
         conference_presenter:
           not_found: 'Konferentzia ez da aurkitu datu-basean (ID: %{id})'
+    media:
+      index:
+        description: Kongresu honi buruzko estekak
+        title: Media eta estekak
     menu:
       conferences: Jardunaldiak
   devise:
@@ -418,5 +459,6 @@ eu:
         conference_menu_item: informazioa
         conference_partners_menu_item: Bazkideak
         conference_speaker_menu_item: Hizlariak
+        media: Media
         unfold: Zabaldu
         venues: Egoitzak

@@ -312,7 +312,12 @@ nl:
             actions: acties
             cancel: Annuleer
             change_category: Categorie wijzigen
+            merge: Voeg in een nieuwe
+            merge_button: samensmelten
+            select_component: Selecteer een component
             selected: Geselecteerd
+            split: Voorstellen splitsen
+            split_button: spleet
             title: Voorstellen
             update: Bijwerken
           new:
@@ -332,6 +337,14 @@ nl:
             no_components: Er zijn geen andere onderdelen van het voorstel in deze burgerinspraak om in te voeren.
             select_component: Selecteer een onderdeel
             select_states: Controleer de status van de voorstellen om te importeren
+        proposals_merges:
+          create:
+            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
+            success: De voorstellen succesvol samengevoegd tot een nieuwe.
+        proposals_splits:
+          create:
+            invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
+            success: De voorstellen succesvol gesplitst in nieuwe.
         shared:
           info_proposal:
             body: Tekstgedeelte

@@ -2,7 +2,9 @@ fr:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Assemblées connexes
         banner_image: Image de bannière
+        consultations_ids: Consultations connexes
         copy_categories: Copier des catégories
         copy_components: Copier des composants
         copy_features: Fonctions de copie
@@ -10,6 +12,7 @@ fr:
         description: La description
         hashtag: Hashtag
         hero_image: Image de la maison
+        participatory_processes_ids: Processus participatifs associés
         promoted: Promu
         published_at: Publié à
         scope_id: Portée
@@ -117,6 +120,23 @@ fr:
         create:
           error: Une erreur s'est produite lors de la duplication de cette conférence.
           success: Conférence dupliquée avec succès.
+      media_links:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau lien multimédia.
+          success: Media Link créé avec succès.
+        destroy:
+          success: Media Link supprimé avec succès.
+        edit:
+          title: Mettre à jour le lien avec le média.
+          update: Mettre à jour
+        index:
+          media_links_title: Liens médias
+        new:
+          create: Créer
+          title: Lien média
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce lien multimédia.
+          success: Media Link mis à jour avec succès.
       menu:
         conferences: Conférences
         conferences_submenu:
@@ -130,6 +150,7 @@ fr:
           conference_registrations: Inscriptions à la conférence
           conference_speakers: Conférenciers
           info: Info
+          media_links: Liens médias
           moderations: Modération
           partners: Les partenaires
       models:
@@ -155,6 +176,12 @@ fr:
             admin: Administrateur
             collaborator: Collaborateur
             moderator: Modérateur
+        media_link:
+          fields:
+            date: Rendez-vous amoureux
+            link: Lien
+            title: Titre
+          name: Lien média
         partner:
           fields:
             link: Lien
@@ -349,10 +376,20 @@ fr:
           highlighted_conferences:
             active_conferences: Conférences actives
             see_all_conferences: Voir toutes les conférences
+      photo:
+        show:
+          close_modal: Fermer modal
+          photo: Photo
+      photos_list:
+        show:
+          related_photos: Photos
       show:
         details: Détails
         introduction: introduction
         objectives: Objectifs
+        related_assemblies: Assemblées connexes
+        related_consultations: Consultations connexes
+        related_participatory_processes: Processus participatifs associés
       statistics:
         answers_count: Réponses
         comments_count: commentaires
@@ -391,6 +428,10 @@ fr:
       value_types:
         conference_presenter:
           not_found: 'La conférence n''a pas été trouvée sur la base de données (ID: %{id})'
+    media:
+      index:
+        description: Liens sur cette conférence
+        title: Médias et liens
     menu:
       conferences: Conférences
   devise:
@@ -418,5 +459,6 @@ fr:
         conference_menu_item: Information
         conference_partners_menu_item: Les partenaires
         conference_speaker_menu_item: Haut-parleurs
+        media: Médias
         unfold: Se dérouler
         venues: Lieux

@@ -358,6 +358,8 @@ gl:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Ver
+      meetings_map:
+        view_meeting: Ver reunión
       models:
         invite:
           fields:

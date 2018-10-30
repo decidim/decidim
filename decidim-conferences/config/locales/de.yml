@@ -2,7 +2,9 @@ de:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Ähnliche Assemblies
         banner_image: Bannerbild
+        consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
         copy_features: Funktionen kopieren
@@ -10,6 +12,7 @@ de:
         description: Beschreibung
         hashtag: Hashtag
         hero_image: Hauptbild
+        participatory_processes_ids: Related Partizipative Prozesse
         promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
@@ -117,6 +120,23 @@ de:
         create:
           error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich dupliziert.
+      media_links:
+        create:
+          error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
+          success: Medienlink erfolgreich erstellt
+        destroy:
+          success: Medienlink wurde erfolgreich gelöscht.
+        edit:
+          title: Medienlink aktualisieren
+          update: Aktualisieren
+        index:
+          media_links_title: Medienlinks
+        new:
+          create: Erstellen
+          title: Medienlink
+        update:
+          error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
+          success: Media Link wurde erfolgreich aktualisiert.
       menu:
         conferences: Konferenzen
         conferences_submenu:
@@ -130,6 +150,7 @@ de:
           conference_registrations: Konferenzanmeldungen
           conference_speakers: Konferenzsprecher
           info: Info
+          media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
       models:
@@ -155,6 +176,12 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
+        media_link:
+          fields:
+            date: Datum
+            link: Verknüpfung
+            title: Titel
+          name: Medienlink
         partner:
           fields:
             link: Verknüpfung
@@ -349,10 +376,20 @@ de:
           highlighted_conferences:
             active_conferences: Aktive Konferenzen
             see_all_conferences: Alle Konferenzen anzeigen
+      photo:
+        show:
+          close_modal: Modal schließen
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: Fotos
       show:
         details: Einzelheiten
         introduction: Einführung
         objectives: Ziele
+        related_assemblies: Ähnliche Assemblies
+        related_consultations: Verwandte Konsultationen
+        related_participatory_processes: In Verbindung stehende partizipative Prozesse
       statistics:
         answers_count: Antworten
         comments_count: Bemerkungen
@@ -391,6 +428,10 @@ de:
       value_types:
         conference_presenter:
           not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id})'
+    media:
+      index:
+        description: Links zu dieser Konferenz
+        title: Medien und Links
     menu:
       conferences: Konferenzen
   devise:
@@ -418,5 +459,6 @@ de:
         conference_menu_item: Information
         conference_partners_menu_item: Partner
         conference_speaker_menu_item: Lautsprecher
+        media: Medien
         unfold: Entfalten
         venues: Veranstaltungsorte

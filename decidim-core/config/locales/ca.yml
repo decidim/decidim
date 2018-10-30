@@ -17,14 +17,14 @@ ca:
     models:
       decidim/attachment_created_event: Adjunt
       decidim/component_published_event: Component actiu
-      decidim/demoted_membership: Ja no és un administrador d'organització
+      decidim/demoted_membership: Ja no és un administrador de grup
       decidim/gamification/badge_earned_event: Insígnia obtinguda
       decidim/gamification/level_up_event: Has pujat de nivell
       decidim/join_request_accepted_event: Sol·licitud d'unió acceptada
       decidim/join_request_rejected_event: S'ha rebutjat la sol·licitud d'unió
       decidim/profile_updated_event: Perfil actualitzat
-      decidim/promote_to_admin: Promocionat a l'administrador de l'organització
-      decidim/removed_from_group: S'ha eliminat de l'organització
+      decidim/promote_to_admin: S'ha promocionat l'administrador del grup
+      decidim/removed_from_group: S'ha eliminat del grup
   activerecord:
     attributes:
       decidim/user:
@@ -50,6 +50,7 @@ ca:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
@@ -349,40 +350,40 @@ ca:
           notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
-          email_intro: Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els drets d'administrador d'aquesta organització.
-          email_outro: Heu rebut aquesta notificació perquè sou membre d'aquesta organització.
-          email_subject: Ja no ets un administrador de l'organització %{user_group_name}.
-          notification_title: Ja no ets administrador de l'organització <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els drets d'administrador d'aquest grup.
+          email_outro: Heu rebut aquesta notificació perquè sou membre d'aquest grup.
+          email_subject: Ja no ets administrador del grup %{user_group_name}.
+          notification_title: Ja no ets administrador del grup <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> ha convidat a unir-s'hi.
-          email_outro: Heu rebut aquesta notificació perquè heu estat convidat a una organització. Si us plau, comproveu la pestanya Organitzacions del vostre perfil per aprovar-lo.
-          email_subject: Has estat convidat a formar part de l'organització %{user_group_name}.
-          notification_title: Has estat convidat a unir-te a l'organització <a href="%{resource_path}">%{user_group_name}</a> . Consulteu les <a href="%{groups_profile_tab_path}">organitzacions de la pàgina</a> al vostre perfil per aprovar-lo.
+          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha convidat a unir-s'hi.
+          email_outro: Heu rebut aquesta notificació perquè heu estat convidat a un grup. Comproveu la pestanya Grups del vostre perfil per aprovar-lo.
+          email_subject: Has estat convidat a formar part del grup %{user_group_name}.
+          notification_title: Has estat convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> . Comproveu els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el seu perfil que l'aprovi!
         join_request_accepted:
-          email_intro: Felicitacions Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la vostra sol·licitud per unir-s'hi.
+          email_intro: Felicitacions Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la vostra sol·licitud per unir-s'hi.
           email_outro: Heu rebut aquesta notificació perquè s'ha actualitzat la vostra sol·licitud d'unió.
-          email_subject: Has estat acceptat a l'organització %{user_group_name}.
-          notification_title: Heu estat acceptat a l'organització <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Heu acceptat al grup %{user_group_name}.
+          notification_title: Has estat acceptat al grup <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Algú ha sol·licitat unir-se a l'organització %{user_group_name} . Pot acceptar o rebutjar des <a href="%{resource_url}">els membres de l'organització la pàgina</a>.
-          email_outro: Heu rebut aquesta notificació perquè podeu gestionar l'organització %{user_group_name}.
-          email_subject: Algú ha sol·licitat unir-se a l'organització %{user_group_name}.
-          notification_title: Algú ha sol·licitat unir-se a l'organització %{user_group_name} . Pot acceptar o rebutjar des <a href="%{resource_path}">els membres de l'organització la pàgina</a>.
+          email_intro: Algú ha sol·licitat unir-se al grup %{user_group_name} . Pot acceptar o rebutjar des <a href="%{resource_url}">els membres del grup de la pàgina</a>.
+          email_outro: Heu rebut aquesta notificació perquè podeu gestionar el grup %{user_group_name}.
+          email_subject: Algú ha sol·licitat unir-te al grup %{user_group_name}.
+          notification_title: Algú ha sol·licitat unir-se al grup %{user_group_name} . Pot acceptar o rebutjar des <a href="%{resource_path}">els membres del grup de la pàgina</a>.
         join_request_rejected:
-          email_intro: Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> rebutjar la vostra sol·licitud per unir-s'hi.
+          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> va rebutjar la vostra sol·licitud per unir-s'hi.
           email_outro: Heu rebut aquesta notificació perquè s'ha actualitzat la vostra sol·licitud d'unió.
-          email_subject: La teva sol·licitud per unir-te a l'organització %{user_group_name} ha estat rebutjada!
-          notification_title: S'ha rebutjat la vostra sol·licitud per unir-se a l'organització <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: La teva sol·licitud per unir-te al grup %{user_group_name} ha estat rebutjada!
+          notification_title: La teva sol·licitud d'unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
         promoted_to_admin:
-          email_intro: Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> ha donat drets d'administrador a aquesta organització.
-          email_outro: Heu rebut aquesta notificació perquè sou membre d'aquesta organització.
-          email_subject: Ara ets administrador de l'organització %{user_group_name}.
-          notification_title: Ara ets administrador de l'organització <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha donat drets d'administrador a aquest grup.
+          email_outro: Heu rebut aquesta notificació perquè sou membre d'aquest grup.
+          email_subject: Ara ets administrador del grup %{user_group_name}.
+          notification_title: Ara ets administrador del grup <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Un administrador de l'organització <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat.
-          email_outro: Heu rebut aquesta notificació perquè era membre d'aquesta organització.
-          email_subject: Heu eliminat de l'organització %{user_group_name}.
-          notification_title: Heu eliminat de l'organització <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat.
+          email_outro: Heu rebut aquesta notificació perquè sou membre d'aquest grup.
+          email_subject: Heu eliminat del grup %{user_group_name}.
+          notification_title: S'ha eliminat del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -478,7 +479,7 @@ ca:
       reached_top: Has arribat al nivell superior d'aquesta insígnia.
     group_admins:
       actions:
-        are_you_sure: Estàs segur? Això no eliminarà l'usuari de l'organització.
+        are_you_sure: Estàs segur? Això no eliminarà l'usuari del grup.
         demote_admin: Elimina l'administrador
       demote:
         error: S'ha produït un error en eliminar aquest usuari de la llista d'administradors
@@ -491,7 +492,7 @@ ca:
         error: S'ha produït un error en acceptar aquesta invitació
         success: S'ha acceptat la invitació amb èxit
       accept_invitation: Accepta
-      accept_or_reject_group_invitations: 'Les següents organitzacions us han convidat a unir-vos a ells. Accepteu o rebutgeu les vostres sol·licituds:'
+      accept_or_reject_group_invitations: 'Els grups següents us han convidat a unir-vos a ells. Accepteu o rebutgeu les vostres sol·licituds:'
       index:
         invite: Convidar
         invite_user: Convida un usuari
@@ -526,32 +527,32 @@ ca:
       actions:
         are_you_sure: Estàs segur?
       create:
-        error: S'ha produït un problema en crear l'organització
-        success: L'organització s'ha creat correctament
+        error: S'ha produït un problema en crear el grup
+        success: S'ha creat el grup amb èxit
       edit:
-        edit_user_group: Edita l'organització
-        update_user_group: Actualitza l'organització
+        edit_user_group: Edita el grup
+        update_user_group: Grup d'actualització
       join:
-        error: Hi ha hagut un problema en unir-se a l'organització
-        success: La sol·licitud d'unió s'ha creat correctament. Un administrador revisarà la vostra sol·licitud abans d'acceptar-lo a l'organització.
+        error: Hi ha hagut un problema en unir-se al grup
+        success: La sol·licitud d'unió s'ha creat correctament. Un administrador revisarà la vostra sol·licitud abans d'acceptar-lo al grup.
       leave:
-        error: S'ha produït un problema en abandonar l'organització
-        success: L'organització s'ha deixat correctament.
+        error: Hi ha hagut un problema per deixar el grup
+        success: El grup s'ha deixat correctament.
       members:
         accept_or_reject_join_requests: 'Els usuaris següents han sol·licitat unir-se a aquest grup. Accepteu o rebutgeu les vostres sol·licituds:'
         accept_request: Accepta
         reject_request: Rebutjar
       new:
-        create_user_group: Crea una organització
-        new_user_group: Nova organització
-      no_user_groups: Encara no pertanys a cap organització.
+        create_user_group: Crea un grup
+        new_user_group: Nou grup
+      no_user_groups: Encara no pertany a cap grup.
       roles:
         admin: Administrador
         creator: Creador
         member: Membre
       update:
-        error: S'ha produït un problema en actualitzar l'organització
-        success: L'organització s'ha actualitzat correctament
+        error: S'ha produït un problema en actualitzar el grup
+        success: S'ha actualitzat el grup amb èxit
     invitations:
       create:
         error: Hi ha hagut alguns problemes mentre es convidava els teus amics
@@ -744,7 +745,7 @@ ca:
         conversations: Converses
         followers: Seguidors
         following: Segueix
-        groups: Organitzacions
+        groups: Grups
         members: Membres
         notifications: Notificacions
       sidebar:
@@ -752,12 +753,12 @@ ca:
           info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
           title: Distintius
       user:
-        create_user_group: Crea una organització
+        create_user_group: Crea un grup
         edit_profile: Edita el perfil
-        edit_user_group: Edita el perfil d'organització
+        edit_user_group: Edita el perfil del grup
         invite_user: Convida l'usuari
-        join_user_group: Sol·licitud per unir-se a l'organització
-        leave_user_group: Deixeu l'organització
+        join_user_group: Sol·licitud per unir-se al grup
+        leave_user_group: Marxar del grup
         manage_user_group_admins: Administra els administradors
         manage_user_group_users: Gestiona els membres
     reported_mailer:
@@ -1035,7 +1036,7 @@ ca:
         my_data: Les meves dades
         notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
-        user_groups: Organitzacions
+        user_groups: Grups
       widget:
         see_more: Veure més
   locale:

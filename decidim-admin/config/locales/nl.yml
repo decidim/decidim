@@ -507,6 +507,7 @@ nl:
           error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
           success: De toegang van de privégebruiker voor de burgerinspraak is succesvol aangemaakt.
         destroy:
+          error: Er is een fout opgetreden bij het verwijderen van een privégebruiker voor deze deelruimte.
           success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
           title: Privégebruiker van de burgerinspraak

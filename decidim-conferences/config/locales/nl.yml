@@ -2,7 +2,9 @@ nl:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Gerelateerde assemblies
         banner_image: Banner afbeelding
+        consultations_ids: Gerelateerde consultaties
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
@@ -10,6 +12,7 @@ nl:
         description: Beschrijving
         hashtag: Hashtag
         hero_image: Home afbeelding
+        participatory_processes_ids: Verwante participatieve processen
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         scope_id: strekking
@@ -117,6 +120,23 @@ nl:
         create:
           error: Er is een fout opgetreden bij het dupliceren van deze conferentie.
           success: Conferentie succesvol gedupliceerd.
+      media_links:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe mediakoppeling.
+          success: Media Link is met succes gemaakt.
+        destroy:
+          success: Media Link is succesvol verwijderd.
+        edit:
+          title: Mediakoppeling bijwerken.
+          update: Bijwerken
+        index:
+          media_links_title: Media links
+        new:
+          create: creëren
+          title: Media Link
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze mediakoppeling.
+          success: Media Link is succesvol bijgewerkt.
       menu:
         conferences: conferenties
         conferences_submenu:
@@ -130,6 +150,7 @@ nl:
           conference_registrations: Conferentie-registraties
           conference_speakers: Sprekers van de conferentie
           info: info
+          media_links: Media links
           moderations: matigingen
           partners: partners
       models:
@@ -155,6 +176,12 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+        media_link:
+          fields:
+            date: Datum
+            link: Link
+            title: Titel
+          name: Media Link
         partner:
           fields:
             link: Link
@@ -349,10 +376,20 @@ nl:
           highlighted_conferences:
             active_conferences: Actieve conferenties
             see_all_conferences: Bekijk alle conferenties
+      photo:
+        show:
+          close_modal: Modal sluiten
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: foto's
       show:
         details: Details
         introduction: Invoering
         objectives: Doelen
+        related_assemblies: Gerelateerde assemblies
+        related_consultations: Gerelateerde consultaties
+        related_participatory_processes: Verwante participatieprocessen
       statistics:
         answers_count: antwoorden
         comments_count: Comments
@@ -391,6 +428,10 @@ nl:
       value_types:
         conference_presenter:
           not_found: 'De conferentie is niet gevonden in de database (ID: %{id})'
+    media:
+      index:
+        description: Links over deze conferentie
+        title: Media en links
     menu:
       conferences: conferenties
   devise:
@@ -418,5 +459,6 @@ nl:
         conference_menu_item: Informatie
         conference_partners_menu_item: partners
         conference_speaker_menu_item: sprekers
+        media: Media
         unfold: Ontvouwen
         venues: locaties

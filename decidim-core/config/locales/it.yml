@@ -17,14 +17,14 @@ it:
     models:
       decidim/attachment_created_event: attaccamento
       decidim/component_published_event: Componente attivo
-      decidim/demoted_membership: Non è più un amministratore dell'organizzazione
+      decidim/demoted_membership: Non è più un amministratore di gruppo
       decidim/gamification/badge_earned_event: Badge guadagnato
       decidim/gamification/level_up_event: Ti sei alzato di livello
       decidim/join_request_accepted_event: Richiesta di adesione accettata
       decidim/join_request_rejected_event: Richiesta di partecipazione rifiutata
       decidim/profile_updated_event: profilo aggiornato
-      decidim/promote_to_admin: Promosso all'organizzazione admin
-      decidim/removed_from_group: Rimosso dall'organizzazione
+      decidim/promote_to_admin: Promosso per l'amministratore di gruppo
+      decidim/removed_from_group: Rimosso dal gruppo
   activerecord:
     attributes:
       decidim/user:
@@ -50,6 +50,7 @@ it:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
@@ -349,40 +350,40 @@ it:
           notification_title: Ottimo lavoro! Hai raggiunto il livello %{current_level} sul badge <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
-          email_intro: Un amministratore dell'organizzazione <a href="%{resource_url}">%{user_group_name}</a> ha rimosso i diritti di amministratore per tale organizzazione.
-          email_outro: Hai ricevuto questa notifica perché sei un membro di tale organizzazione.
-          email_subject: Non sei più un amministratore dell'organizzazione %{user_group_name}!
-          notification_title: Non sei più un amministratore dell'organizzazione <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha rimosso i diritti di amministratore per quel gruppo.
+          email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
+          email_subject: Non sei più un amministratore del gruppo %{user_group_name}!
+          notification_title: Non sei più un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Un amministratore dell'organizzazione <a href="%{resource_url}">%{user_group_name}</a> ti ha invitato a parteciparvi.
-          email_outro: Hai ricevuto questa notifica perché sei stato invitato a un'organizzazione. Controlla la scheda Organizzazioni nel tuo profilo per approvarla.
-          email_subject: Sei stato invitato a far parte dell'organizzazione %{user_group_name}!
-          notification_title: Sei stato invitato a far parte dell'organizzazione <a href="%{resource_path}">%{user_group_name}</a> . Controllare le <a href="%{groups_profile_tab_path}">organizzazioni pagina</a> nel tuo profilo per approvarlo!
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha invitato a parteciparvi.
+          email_outro: Hai ricevuto questa notifica perché sei stato invitato a un gruppo. Controlla la scheda Gruppi nel tuo profilo per approvarla.
+          email_subject: Sei stato invitato a far parte del gruppo %{user_group_name}!
+          notification_title: Sei stato invitato a far parte del gruppo <a href="%{resource_path}">%{user_group_name}</a> . Controlla la pagina <a href="%{groups_profile_tab_path}">Gruppi</a> nel tuo profilo per approvarla!
         join_request_accepted:
-          email_intro: Congratulazioni! Un amministratore dell'organizzazione <a href="%{resource_url}">%{user_group_name}</a> ha accettato la tua richiesta di adesione.
+          email_intro: Congratulazioni! Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha accettato la tua richiesta di adesione.
           email_outro: Hai ricevuto questa notifica perché la tua richiesta di partecipazione è stata aggiornata.
-          email_subject: Sei stato accettato dall'organizzazione %{user_group_name}!
-          notification_title: Sei stato accettato dall'organizzazione <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Sei stato accettato nel gruppo %{user_group_name}!
+          notification_title: Sei stato accettato nel gruppo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Qualcuno ha richiesto di aderire all'organizzazione %{user_group_name} . È possibile accettare o rifiutare da <a href="%{resource_url}">membri dell'organizzazione pagina</a>.
-          email_outro: Hai ricevuto questa notifica perché puoi gestire l'organizzazione %{user_group_name}.
-          email_subject: Qualcuno ha richiesto di aderire all'organizzazione %{user_group_name}!
-          notification_title: Qualcuno ha richiesto di aderire all'organizzazione %{user_group_name} . È possibile accettare o rifiutare da <a href="%{resource_path}">membri dell'organizzazione pagina</a>.
+          email_intro: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name} . Puoi accettarlo o rifiutarlo dalla <a href="%{resource_url}">pagina dei membri del gruppo</a>.
+          email_outro: Hai ricevuto questa notifica perché puoi gestire il gruppo %{user_group_name}.
+          email_subject: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name}!
+          notification_title: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name} . Puoi accettarlo o rifiutarlo dalla <a href="%{resource_path}">pagina dei membri del gruppo</a>.
         join_request_rejected:
-          email_intro: Un amministratore dell'organizzazione <a href="%{resource_url}">%{user_group_name}</a> respinto la tua richiesta di adesione.
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha respinto la tua richiesta di adesione.
           email_outro: Hai ricevuto questa notifica perché la tua richiesta di partecipazione è stata aggiornata.
-          email_subject: La tua richiesta di aderire all'organizzazione %{user_group_name} è stata respinta!
-          notification_title: La tua richiesta di aderire all'organizzazione <a href="%{resource_path}">%{user_group_name}</a> è stata respinta.
+          email_subject: La tua richiesta di aderire al gruppo %{user_group_name} è stata respinta!
+          notification_title: La tua richiesta di aderire al gruppo <a href="%{resource_path}">%{user_group_name}</a> è stata respinta.
         promoted_to_admin:
-          email_intro: Un amministratore dell'organizzazione <a href="%{resource_url}">%{user_group_name}</a> ti ha concesso i diritti di amministratore per tale organizzazione.
-          email_outro: Hai ricevuto questa notifica perché sei un membro di tale organizzazione.
-          email_subject: Ora sei un amministratore dell'organizzazione %{user_group_name}!
-          notification_title: Ora sei un amministratore dell'organizzazione <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha concesso i diritti di amministratore per quel gruppo.
+          email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
+          email_subject: Ora sei un amministratore del gruppo %{user_group_name}!
+          notification_title: Ora sei un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Un amministratore dell'organizzazione <a href="%{resource_url}">%{user_group_name}</a> ti ha rimosso da esso.
-          email_outro: Hai ricevuto questa notifica perché eri un membro di tale organizzazione.
-          email_subject: Sei stato rimosso dall'organizzazione %{user_group_name}!
-          notification_title: Sei stato rimosso dall'organizzazione <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha rimosso da esso.
+          email_outro: Hai ricevuto questa notifica perché eri un membro di quel gruppo.
+          email_subject: Sei stato rimosso dal gruppo %{user_group_name}!
+          notification_title: Sei stato rimosso dal gruppo <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -478,10 +479,10 @@ it:
       reached_top: Hai raggiunto il livello più alto per questo badge.
     group_admins:
       actions:
-        are_you_sure: Sei sicuro? Questo non rimuoverà l'utente dall'organizzazione.
+        are_you_sure: Sei sicuro? Questo non rimuoverà l'utente dal gruppo.
         demote_admin: Rimuovi l'amministratore
       demote:
-        error: Si è verificato un errore durante la rimozione di questo utente dalla lista degli amministratori
+        error: Si è verificato un errore durante la rimozione di questo utente dall'elenco degli amministratori
         success: Utente rimosso correttamente dall'amministratore
       index:
         current_admins: 'Amministratori attuali:'
@@ -491,7 +492,7 @@ it:
         error: Si è verificato un errore durante l'accettazione di questo invito
         success: Invito accettato con successo
       accept_invitation: Accettare
-      accept_or_reject_group_invitations: 'Le seguenti organizzazioni ti hanno invitato a unirti a loro. Accetta o rifiuta le loro richieste:'
+      accept_or_reject_group_invitations: 'I seguenti gruppi ti hanno invitato a unirti a loro. Accetta o rifiuta le loro richieste:'
       index:
         invite: Invitare
         invite_user: Invita un utente
@@ -526,32 +527,32 @@ it:
       actions:
         are_you_sure: Sei sicuro?
       create:
-        error: Si è verificato un problema durante la creazione dell'organizzazione
-        success: Organizzazione creata con successo
+        error: Si è verificato un problema durante la creazione del gruppo
+        success: Gruppo creato con successo
       edit:
-        edit_user_group: Modifica organizzazione
-        update_user_group: Aggiorna organizzazione
+        edit_user_group: Modifica gruppo
+        update_user_group: Gruppo di aggiornamento
       join:
-        error: C'è stato un problema ad entrare nell'organizzazione
-        success: Richiesta di unione creata con successo. Un amministratore esaminerà la tua richiesta prima di accettarti per l'organizzazione.
+        error: C'è stato un problema ad entrare nel gruppo
+        success: Richiesta di unione creata con successo. Un amministratore esaminerà la tua richiesta prima di accettarti nel gruppo.
       leave:
-        error: C'è stato un problema a lasciare l'organizzazione
-        success: Organizzazione lasciata con successo.
+        error: C'è stato un problema a lasciare il gruppo
+        success: Gruppo lasciato con successo.
       members:
         accept_or_reject_join_requests: 'I seguenti utenti hanno chiesto di unirsi a questo gruppo. Accetta o rifiuta le loro richieste:'
         accept_request: Accettare
         reject_request: Rifiutare
       new:
-        create_user_group: Crea organizzazione
-        new_user_group: Nuova organizzazione
-      no_user_groups: Non appartiene ancora a nessuna organizzazione.
+        create_user_group: Creare un gruppo
+        new_user_group: Nuovo gruppo
+      no_user_groups: Non appartiene ancora a nessun gruppo.
       roles:
         admin: Amministratore
         creator: Creatore
         member: Membro
       update:
-        error: Si è verificato un problema durante l'aggiornamento dell'organizzazione
-        success: Organizzazione aggiornata con successo
+        error: Si è verificato un problema durante l'aggiornamento del gruppo
+        success: Gruppo aggiornato con successo
     invitations:
       create:
         error: Ci sono stati alcuni problemi durante l'invito ai tuoi amici
@@ -744,7 +745,7 @@ it:
         conversations: conversazioni
         followers: Seguaci
         following: segue
-        groups: organizzazioni
+        groups: gruppi
         members: Utenti
         notifications: notifiche
       sidebar:
@@ -752,12 +753,12 @@ it:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
           title: badge
       user:
-        create_user_group: Crea organizzazione
+        create_user_group: Creare un gruppo
         edit_profile: Modifica Profilo
-        edit_user_group: Modifica il profilo dell'organizzazione
+        edit_user_group: Modifica il profilo del gruppo
         invite_user: Invita utente
-        join_user_group: Richiesta di partecipazione all'organizzazione
-        leave_user_group: Lascia l'organizzazione
+        join_user_group: Richiesta di iscrizione al gruppo
+        leave_user_group: Lascia il gruppo
         manage_user_group_admins: Gestisci amministratori
         manage_user_group_users: Gestisci i membri
     reported_mailer:
@@ -1035,7 +1036,7 @@ it:
         my_data: I miei dati
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
-        user_groups: Organizzazioni
+        user_groups: gruppi
       widget:
         see_more: vedi di più
   locale:

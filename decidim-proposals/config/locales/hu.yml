@@ -312,7 +312,12 @@ hu:
             actions: Műveletek
             cancel: Mégse
             change_category: Kategória módosítása
+            merge: Egyesítsünk egy újat
+            merge_button: Összeolvad
+            select_component: Válasszon egy összetevőt
             selected: kiválasztva
+            split: Split javaslatok
+            split_button: Hasított
             title: Javaslatok
             update: Frissítés
           new:
@@ -332,6 +337,14 @@ hu:
             no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
             select_component: Válassz ki egy elemet
             select_states: Ellenőrizd az importálandó javaslatok állapotát
+        proposals_merges:
+          create:
+            invalid: Hiba történt a kiválasztott javaslatok egyesítésével.
+            success: A javaslatokat sikeresen ötvözték.
+        proposals_splits:
+          create:
+            invalid: Hiba történt a kiválasztott javaslatok megosztása során.
+            success: A javaslatokat sikeresen megosztották újakra.
         shared:
           info_proposal:
             body: Szöveg

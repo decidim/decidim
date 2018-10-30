@@ -358,6 +358,8 @@ pt:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Visão
+      meetings_map:
+        view_meeting: Ver reunião
       models:
         invite:
           fields:

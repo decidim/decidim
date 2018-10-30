@@ -358,6 +358,8 @@ hu:
             one: 1 hely maradt
             other: "%{count} hely maradt"
           view: Nézet
+      meetings_map:
+        view_meeting: Találkozó megtekintése
       models:
         invite:
           fields:

@@ -368,6 +368,8 @@ pl:
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count}"
           view: Widok
+      meetings_map:
+        view_meeting: Zobacz spotkanie
       models:
         invite:
           fields:
