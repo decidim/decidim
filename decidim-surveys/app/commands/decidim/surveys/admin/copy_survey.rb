@@ -17,8 +17,8 @@ module Decidim
           Survey.transaction do
             @survey = Survey.new(component: @component)
             if @origin.nil?
-               copy_survey_questions unless @origin.questions.empty?
-               update_survey
+              copy_survey_questions unless @origin.questions.empty?
+              update_survey
             end
             @survey.save!
           end

@@ -32,9 +32,11 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
 
   context "when copying component" do
     let(:survey) { create :survey, component: component }
+
     before do
       create :survey_answer, survey: survey
     end
+
     it "does not raise any error" do
       expect { subject.manifest.run_hooks(:copy, survey: survey, old_component: component, new_component: new_component) }.not_to raise_error
     end
