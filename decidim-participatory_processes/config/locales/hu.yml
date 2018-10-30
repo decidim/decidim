@@ -257,6 +257,10 @@ hu:
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> lépés időpontjai frissítve ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     menu:
       processes: Folyamatok
+    metrics:
+      participatory_processes:
+        object: részvételi folyamatok
+        title: Részvételi folyamatok
     participatory_process_groups:
       show:
         group_participatory_processes:

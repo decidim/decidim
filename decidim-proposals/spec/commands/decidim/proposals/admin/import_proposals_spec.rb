@@ -20,6 +20,7 @@ module Decidim
               origin_component: proposal.component,
               current_component: current_component,
               states: states,
+              current_user: create(:user),
               valid?: valid
             )
           end

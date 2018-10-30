@@ -20,6 +20,12 @@ And then execute:
 bundle
 ```
 
+## Global Search
+
+This module includes the following models to Decidim's Global Search:
+
+- `Meetings`
+
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).

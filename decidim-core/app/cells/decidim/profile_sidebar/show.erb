@@ -114,6 +114,9 @@
       <div class="text-center">
         <%= link_to t("decidim.profiles.user.manage_user_group_admins"), group_manage_admins_path(profile_holder.nickname) %>
       </div>
+      <div class="text-center">
+        <%= link_to t("decidim.profiles.user.invite_user"), group_invites_path(profile_holder.nickname) %>
+      </div>
     <% end %>
 
     <% if can_join_user_group? %>
@@ -121,6 +124,16 @@
         <%= link_to decidim.group_join_requests_path(model.nickname), method: :post, class: "button light expanded" do %>
           <span>
             <%= t("decidim.profiles.user.join_user_group") %>
+          </span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if can_leave_group? %>
+      <div class="text-center">
+        <%= link_to decidim.leave_group_path(model.nickname), method: :delete, data: { confirm: t("decidim.groups.actions.are_you_sure") }, class: "button light expanded" do %>
+          <span>
+            <%= t("decidim.profiles.user.leave_user_group") %>
           </span>
         <% end %>
       </div>
