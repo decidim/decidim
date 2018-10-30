@@ -36,7 +36,7 @@ pt-BR:
         participatory_process_ids: Processos relacionados
       participatory_process_step:
         cta_path: Caminho de chamada para ação
-        cta_text: Texto de call to action
+        cta_text: Texto de chamada para ação
         description: Descrição
         end_date: Data final
         short_description: Pequena descrição

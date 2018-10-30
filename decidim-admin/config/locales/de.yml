@@ -506,6 +506,7 @@ de:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff erfolgreich erstellt.
         destroy:
+          error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
         index:
           title: Participatory Space privater Benutzer

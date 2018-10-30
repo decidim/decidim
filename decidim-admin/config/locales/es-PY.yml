@@ -507,6 +507,7 @@ es-PY:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
           success: El acceso a usuarios privados de espacio participativo creado con éxito.
         destroy:
+          error: Se produjo un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
           title: Usuario privado de espacio participativo.
