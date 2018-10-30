@@ -25,7 +25,7 @@ module Decidim
           create_registration
           create_meetings_registrations
           accept_invitation
-          send_email_confirmation
+          send_email_pending_validation
           send_notification
         end
         broadcast(:ok)
@@ -56,8 +56,8 @@ module Decidim
         conference.registrations_enabled? && conference.has_available_slots?
       end
 
-      def send_email_confirmation
-        Decidim::Conferences::ConferenceRegistrationMailer.confirmation(user, conference).deliver_later
+      def send_email_pending_validation
+        Decidim::Conferences::ConferenceRegistrationMailer.pending_validation(user, conference, registration_type).deliver_later
       end
 
       def participatory_space_admins

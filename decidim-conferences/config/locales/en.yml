@@ -49,6 +49,7 @@ en:
   decidim:
     admin:
       actions:
+        confirm: Confirm
         new_conference: New Conference
       conference_copies:
         new:
@@ -62,6 +63,10 @@ en:
         destroy:
           error: There was an error unpublishing this conference.
           success: Conference unpublished successfully.
+      conference_registration:
+        confirm:
+          error: There was an error when confirm this conference registration.
+          success: Conference registration confirmed successfully.
       conference_speakers:
         create:
           error: There was an error adding a speaker for this conference.
@@ -256,6 +261,8 @@ en:
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
       conferences:
+        conference_registration:
+          confirm: "%{user_name} confirmed a conference registration in %{resource_name} conference"
         partner:
           create: "%{user_name} created %{resource_name} to the %{space_name} conference"
           delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
@@ -352,7 +359,12 @@ en:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
-          details: You will find the conference's details in the attachment.
+          details_1: "You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:"
+          details_2: You will find the conference's details in the attachment.
+        pending_validation:
+          confirmation_pending: You will receive the confirmation shortly
+          pending_html: Your registration for the conference <a href="%{url}">%{title}</a> is pending to be confirmed.
+          details: "You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:"
       conference_registrations:
         create:
           invalid: There's been a problem joining this conference.
@@ -396,6 +408,8 @@ en:
         conference_registration_mailer:
           confirmation:
             subject: Your conference's registration has been confirmed
+          pending_validation:
+            subject: Your conference's registration is pending to be confirmed
         invite_join_conference_mailer:
           invite:
             subject: Invitation to join a conference
@@ -404,6 +418,7 @@ en:
           fields:
             email: Email
             name: Name
+            registration_type: Registration type
             sent_at: Sent at
             status: Status
           status:
@@ -415,6 +430,10 @@ en:
             email: Email
             name: Name
             registration_type: Registration type
+            state: State
+            states:
+              confirmed: Confirmed
+              pending: Pending
       pages:
         home:
           highlighted_conferences:

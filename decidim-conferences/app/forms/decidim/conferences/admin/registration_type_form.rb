@@ -14,7 +14,7 @@ module Decidim
         translatable_attribute :description, String
 
         attribute :weight, Integer
-        attribute :price, Integer
+        attribute :price, Decimal
         attribute :conference_meeting_ids, Array[Integer]
 
         validates :title, :description, :price, :weight, presence: true

@@ -40,6 +40,7 @@ module Decidim
         user_can_read_current_conference?
         user_can_read_conference_registrations?
         user_can_export_conference_registrations?
+        user_can_confirm_conference_registration?
         user_can_create_conference?
         user_can_destroy_conference?
 
@@ -216,6 +217,13 @@ module Decidim
       def user_can_export_conference_registrations?
         return unless permission_action.action == :export_conference_registrations &&
                       permission_action.subject == :conference
+
+        toggle_allow(user.admin?)
+      end
+
+      def user_can_confirm_conference_registration?
+        return unless permission_action.action == :confirm &&
+                      permission_action.subject == :conference_registration
 
         toggle_allow(user.admin?)
       end

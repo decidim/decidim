@@ -28,6 +28,9 @@ module Decidim
           end
           resources :conference_invites, only: [:index, :new, :create]
           resources :conference_registrations, only: :index do
+            member do
+              post :confirm
+            end
             collection do
               get :export
             end
