@@ -201,6 +201,25 @@ describe "Authentication", type: :system do
     end
   end
 
+  context "when confirming the account" do
+    let!(:user) { create(:user) }
+
+    before do
+      perform_enqueued_jobs { user.confirm }
+      switch_to_host(user.organization.host)
+      login_as user, scope: :user
+      visit decidim.root_path
+    end
+
+    it "sends a welcome notification" do
+      find("a.topbar__notifications").click
+
+      within "#notifications" do
+        expect(page).to have_content("Welcome")
+      end
+    end
+  end
+
   describe "Resend confirmation instructions" do
     let(:user) do
       perform_enqueued_jobs { create(:user, organization: organization) }

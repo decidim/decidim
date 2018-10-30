@@ -5,6 +5,7 @@ module Decidim
   # installation we can find many organizations and each of them can start
   # their own participatory processes.
   class Organization < ApplicationRecord
+    include TranslationsHelper
     include Decidim::Traceable
     include Decidim::Loggable
 
@@ -54,6 +55,20 @@ module Decidim
 
     def published_components
       @published_components ||= Component.where(participatory_space: public_participatory_spaces).published
+    end
+
+    def customize_welcome_notification
+      self[:welcome_notification_subject].present? || self[:welcome_notification_body].present?
+    end
+
+    def welcome_notification_subject
+      self[:welcome_notification_subject] ||
+        multi_translation("decidim.welcome_notification.default_subject", available_locales)
+    end
+
+    def welcome_notification_body
+      self[:welcome_notification_body] ||
+        multi_translation("decidim.welcome_notification.default_body", available_locales)
     end
   end
 end

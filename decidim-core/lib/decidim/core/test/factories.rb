@@ -85,6 +85,7 @@ FactoryBot.define do
     enable_omnipresent_banner { false }
     tos_version { Time.current }
     badges_enabled { true }
+    send_welcome_notification { true }
 
     trait :with_tos do
       after(:create) do |organization|

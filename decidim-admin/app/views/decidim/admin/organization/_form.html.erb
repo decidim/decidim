@@ -43,3 +43,19 @@
     <%= form.check_box :badges_enabled %>
   </div>
 </div>
+
+<div class="row" id="welcome-notification-details">
+  <div class="columns xlarge-6">
+    <%= form.check_box :send_welcome_notification %>
+    <div class="send-welcome-notification-details">
+      <%= form.check_box :customize_welcome_notification %>
+
+      <div class="customize-welcome-notification-details">
+        <%= form.translated :text_field, :welcome_notification_subject %>
+        <%= form.translated :editor, :welcome_notification_body %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/admin/welcome_notification.js" %>
