@@ -507,6 +507,7 @@ fi:
           error: Yksityisen käyttäjän lisäämisessä tähän osallistumistilaan tapahtui virhe.
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
         destroy:
+          error: Tapahtuma-alueen yksityisen käyttäjän poistaminen tapahtui virheestä.
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
         index:
           title: Osallistumistilan yksityinen käyttäjä

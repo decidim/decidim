@@ -507,6 +507,7 @@ pt-BR:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
           success: Espaço participativo acesso de usuário privado criado com sucesso.
         destroy:
+          error: Houve um erro ao excluir um usuário particular desse espaço participativo.
           success: Espaço participativo acesso de usuário privado excluído com sucesso.
         index:
           title: Espaço participativo usuário particular

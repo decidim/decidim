@@ -268,7 +268,7 @@ sv:
           newsletter_title: Kontakttillstånd
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
-          sign_up: Registrera
+          sign_up: Registrera dig
           sign_up_as:
             legend: Registrera dig som
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
@@ -745,13 +745,13 @@ sv:
         conversations: Samtal
         followers: Anhängare
         following: Följer
-        groups: grupper
-        members: medlemmar
+        groups: Grupper
+        members: Medlemmar
         notifications: Notiser
       sidebar:
         badges:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
-          title: Emblem
+          title: Märken
       user:
         create_user_group: Skapa grupp
         edit_profile: Redigera profil
@@ -836,7 +836,7 @@ sv:
       send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress inom några minuter.
     failure:
       already_authenticated: Du är redan inloggad.
-      inactive: Ditt konto är inte aktiverat ännu.
+      inactive: Ditt konto är inte aktiverat än.
       invalid: Ogiltigt %{authentication_keys} eller lösenord.
       invited: Du har en väntande inbjudan, acceptera den för att slutföra skapa ditt konto.
       last_attempt: Du har ytterligare ett försök innan ditt konto är låst.
@@ -942,19 +942,19 @@ sv:
         update: Uppdatering
         we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta dina ändringar
       new:
-        sign_up: Bli Medlem
-      signed_up: Välkommen! Du har anmält dig framgångsrikt.
-      signed_up_but_inactive: Du har anmält dig framgångsrikt. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
-      signed_up_but_locked: Du har anmält dig framgångsrikt. Vi kunde dock inte logga in eftersom ditt konto är låst.
-      signed_up_but_unconfirmed: Ett meddelande med en bekräftelse länk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
+        sign_up: Registrera dig
+      signed_up: Välkommen! Din registrering lyckades.
+      signed_up_but_inactive: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
+      signed_up_but_locked: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto är låst.
+      signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
       update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
       updated: Ditt konto har uppdaterats framgångsrikt.
     sessions:
-      already_signed_out: Utloggad framgångsrikt.
+      already_signed_out: Utloggningen lyckades.
       new:
         sign_in: Logga in
-      signed_in: Inloggad med framgång.
-      signed_out: Utloggad framgångsrikt.
+      signed_in: Inloggningen lyckades.
+      signed_out: Utloggningen lyckades.
     shared:
       links:
         back: Tillbaka
@@ -963,10 +963,10 @@ sv:
         forgot_your_password: Glömt ditt lösenord?
         sign_in: Logga in
         sign_in_with_provider: Logga in med %{provider}
-        sign_up: Bli Medlem
+        sign_up: Registrera dig
       minimum_password_length:
-        one: "(%{count} tecken minimum)"
-        other: "(Minst%{count} tecken)"
+        one: "(%{count} minimiantal tecken)"
+        other: "(%{count} minimiantal tecken)"
     unlocks:
       new:
         resend_unlock_instructions: Skicka om upplåsningsinstruktionerna igen
@@ -985,13 +985,13 @@ sv:
       expired: har gått ut, vänligen be om en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
       long_words: innehåller ord som är för långa (över 35 tecken)
-      must_start_with_caps: måste börja med en bokstav
+      must_start_with_caps: måste börja med en versal
       nesting_too_deep: kan inte vara inuti en underkategori
       not_found: hittades inte
-      not_locked: var inte låst
+      not_locked: låstes inte
       not_saved:
-        one: '1 fel förbjudet att detta %{resource} sparas:'
-        other: "%{count} fel förbjudna att denna %{resource} sparas:"
+        one: '1 fel hindrade detta %{resource} från att sparas:'
+        other: "%{count} fel hindrade detta %{resource} från att sparas:"
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex.! och?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
       too_short: är för kort (under 15 tecken)
@@ -1036,7 +1036,7 @@ sv:
         my_data: Mitt data
         notifications_settings: Notisinställningar
         title: Användarinställningar
-        user_groups: grupper
+        user_groups: Grupper
       widget:
         see_more: Se mer
   locale:

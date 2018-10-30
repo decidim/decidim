@@ -507,6 +507,7 @@ sv:
           error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
           success: Deltagande utrymme privat användaråtkomst skapades framgångsrikt.
         destroy:
+          error: Det gick inte att ta bort en privat användare för det här deltagande rummet.
           success: Deltagande utrymme privat användaråtkomst förstörs framgångsrikt.
         index:
           title: Deltagande utrymme privat användare
