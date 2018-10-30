@@ -14,9 +14,9 @@ sv:
         password_confirmation: Bekräfta ditt lösenord
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
-        user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisationsnamn
-        user_group_phone: Organisationstelefon
+        user_group_document_number: Organisationens dokumentnummer
+        user_group_name: Organisationens namn
+        user_group_phone: Organisationens telefonnummer
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
@@ -32,9 +32,9 @@ sv:
         password: Lösenord
         password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
-        user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisationsnamn
-        user_group_phone: Organisationstelefon
+        user_group_document_number: Organisationens dokumentnummer
+        user_group_name: Organisationens namn
+        user_group_phone: Organisationens telefonnummer
     models:
       decidim/user:
         one: Användare
@@ -163,27 +163,27 @@ sv:
       show:
         expired:
           authorize: Återauktorisera med "%{authorization}"
-          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
+          explanation: Ditt auktorisering har löpt ut. För att kunna utföra den här åtgärden måste du bli återauktoriserad med "%{authorization}".
           title: Auktoriseringen har löpt ut
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att återauktorisera eftersom vi saknar följande data:'
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du återauktorisera dig eftersom vi saknar följande data:'
           invalid_field: "%{field}"
-          reauthorize: Omauktorisera
-          title: Vänligen omauktorisera
+          reauthorize: Återauktorisera
+          title: Vänligen återauktorisera
         missing:
-          authorize: Godkänn med "%{authorization}"
-          explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
-          title: Godkännande krävs
+          authorize: Auktorisera med "%{authorization}"
+          explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
+          title: Auktorisering krävs
         pending:
-          explanation: För att kunna utföra denna åtgärd måste du auktoriseras med "%{authorization}", men din auktorisering är fortfarande på gång
-          resume: Kolla din "%{authorization}" auktoriseringsprocess
-          title: Godkännandet är fortfarande på gång
+          explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering är fortfarande på gång
+          resume: Kolla hur din "%{authorization}" auktorisering avancerar
+          title: Auktoriseringen är fortfarande på gång
         unauthorized:
           explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
-          invalid_field: "%{field} värde %{value} är inte giltigt."
-          ok: Okej
-          title: Inte behörig
+          invalid_field: "%{field} värdet %{value} är inte giltigt."
+          ok: OK
+          title: Ej auktoriserad
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -247,11 +247,11 @@ sv:
           newsletter_title: Kontakttillstånd
           nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
-          sign_up: Registrera
+          sign_up: Registrera dig
           sign_up_as:
             legend: Registrera dig som
             user: Privatperson
-            user_group: Organisation/Kollektiv
+            user_group: Organisation/sammanslutning
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du till %{link}.
@@ -348,7 +348,7 @@ sv:
       linked_classes:
         all: Alla
         collaborative_draft: Samarbetsförslag
-        dummy_resource: Dummy resurser
+        dummy_resource: Dummyresurser
         meeting: Möten
         project: Projekt
         proposal: Förslag
@@ -384,7 +384,7 @@ sv:
         invitations:
           description_another: Den här användaren har bjudit in %{score} användare.
           description_own: Du har bjudit in %{score} användare.
-          explanation: Användare får detta emblem genom att bjuda in andra användare.
+          explanation: Användare får detta märke genom att bjuda in andra användare.
           name: Inbjudningar
           next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
           unearned_another: Den här användaren har inte bjudit in någon användare än.
@@ -509,14 +509,14 @@ sv:
           proposals: Förslag
           proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och bestäm.
-          footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
-          register: Registrera
+          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
+          footer_sub_hero_headline: Välkommen till %{organization} deltagarplattformen.
+          register: Registrera dig
         hero:
           participate: Delta
           welcome: Välkommen till %{organization}!
         statistics:
-          answers_count: Avslutade Undersökningar
+          answers_count: Genomförda Undersökningar
           assemblies_count: Församlingar
           comments_count: Kommentarer
           debates_count: Debatter
@@ -534,7 +534,7 @@ sv:
           users_count: Deltagare
           votes_count: Röster
         sub_hero:
-          register: Registrera
+          register: Registrera dig
       index:
         title: Mer information
       terms_and_conditions:

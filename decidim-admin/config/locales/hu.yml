@@ -8,7 +8,7 @@ hu:
       area_type:
         name: Név
         organization: Szervezet
-        plural: Többes szám
+        plural: Plurális
       attachment:
         attachment_collection_id: Mappa
         description: Leírás
@@ -76,7 +76,7 @@ hu:
       scope_type:
         name: Név
         organization: Szervezet
-        plural: Többes szám
+        plural: Plurális
       static_page:
         changed_notably: Észrevehető változások történtek.
         content: Tartalom
@@ -322,7 +322,7 @@ hu:
         area_type:
           fields:
             name: Név
-            plural: Többes szám
+            plural: Plurális
         attachment:
           fields:
             collection: Mappa
@@ -363,7 +363,7 @@ hu:
         scope_type:
           fields:
             name: Név
-            plural: Többes szám
+            plural: Plurális
         static_page:
           fields:
             created_at: 'Létrehozva:'

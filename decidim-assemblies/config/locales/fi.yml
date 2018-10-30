@@ -150,7 +150,7 @@ fi:
           error: Ryhmän käyttäjän päivityksessä tapahtui virhe.
           success: Ryhmän käyttäjä päivitetty onnistuneesti.
       menu:
-        assemblies: Kehitysryhmät
+        assemblies: Ryhmät
         assemblies_submenu:
           assembly_admins: Ryhmän käyttäjät
           assembly_members: Jäsenet
@@ -194,7 +194,7 @@ fi:
             collaborator: Osallistumiskäyttäjä
             moderator: Moderoija
       titles:
-        assemblies: Kehitysryhmät
+        assemblies: Ryhmät
     admin_log:
       assembly:
         create: "%{user_name} loi %{resource_name} ryhmän"
@@ -257,12 +257,12 @@ fi:
         others: Muut
         public: Julkinen
       index:
-        title: Kehitysryhmät
+        title: Ryhmät
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiiviset kehitysryhmät
-            see_all_assemblies: Näytä kaikki kehitysryhmät
+            active_assemblies: Aktiiviset ryhmät
+            see_all_assemblies: Näytä kaikki ryhmät
         user_profile:
           member_of:
             member_of: Jäsen ryhmässä
@@ -295,7 +295,7 @@ fi:
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
-        assemblies_count: Kehitysryhmät
+        assemblies_count: Ryhmät
         comments_count: Kommentit
         debates_count: Keskustelut
         endorsements_count: Suositukset
@@ -319,7 +319,7 @@ fi:
         assembly_presenter:
           not_found: 'Ryhmää ei löytynyt tietokannasta (ID: %{id})'
     menu:
-      assemblies: Kehitysryhmät
+      assemblies: Ryhmät
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä
@@ -329,7 +329,7 @@ fi:
         assembly:
           take_part: Osallistu
         index:
-          promoted_assemblies: Korostetut kehitysryhmät
+          promoted_assemblies: Korostetut ryhmät
         order_by_assemblies:
           assemblies:
             one: "%{count} ryhmä"

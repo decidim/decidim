@@ -43,7 +43,7 @@ pt-BR:
         enable_omnipresent_banner: Mostrar bandeira omnipresente
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
-        github_handler: GitHub handler
+        github_handler: Manipulador GitHub
         header_snippets: Snippets de cabeçalho
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
         highlighted_content_banner_action_title: Título do botão Ação
@@ -52,7 +52,7 @@ pt-BR:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Descrição curta
         highlighted_content_banner_title: Título
-        instagram_handler: Instagram handler
+        instagram_handler: Manipulador de Instagram
         logo: Logotipo
         name: Nome
         official_img_footer: Símbolo oficial do rodapé
@@ -103,6 +103,9 @@ pt-BR:
         organization_url: URL da organização
         redirect_uri: Redirecionar URI
         site: Site
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -651,3 +654,7 @@ pt-BR:
           title: Configurações
         users:
           title: Usuários
+  time:
+    formats:
+      datepicker: "%m/%d/%Y"
+      timepicker: "%d/%m/%Y %H:%M"

@@ -521,7 +521,7 @@ fi:
           comments_count: Kommenttia
           debates_count: Keskustelua
           endorsements_count: Suosituksia
-          headline: Tämänhetkinen tila organisaatiolle %{organization}
+          headline: '%{organization} numeroina'
           meetings_count: Tapahtumat
           orders_count: Ääntä
           pages_count: Sivua
@@ -566,7 +566,7 @@ fi:
         badges: Kunniamerkit
         conversations: Keskustelut
         followers: Seuraajat
-        following: Seuraa
+        following: Seurattavat
         notifications: Ilmoitukset
       user:
         edit_profile: Muokkaa profiilia
