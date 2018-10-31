@@ -560,7 +560,6 @@ pt-BR:
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Criar
           title: Nova página
         update:
           error: Ocorreu um erro ao atualizar esta página.
