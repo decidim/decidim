@@ -153,13 +153,14 @@ en:
           components: Components
           conference_admins: Conference users
           conference_invites: Invites
-          conference_registrations: Registrations
           conference_speakers: Speakers
           info: Info
           media_links: Media Links
           moderations: Moderations
           partners: Partners
           registration_types: Registration Types
+          registrations: Registrations
+          user_registrations: User Registrations
       models:
         conference:
           fields:

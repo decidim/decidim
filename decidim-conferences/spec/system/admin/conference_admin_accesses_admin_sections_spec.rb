@@ -21,8 +21,9 @@ describe "Conference admin accesses admin sections", type: :system do
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Folders")
       expect(page).to have_content("Files")
-      expect(page).to have_content("Conference speakers")
-      expect(page).to have_content("Conference admins")
+      expect(page).to have_content("Speakers")
+      expect(page).to have_content("Registrations")
+      expect(page).to have_content("Conference users")
       expect(page).to have_content("Moderations")
     end
   end

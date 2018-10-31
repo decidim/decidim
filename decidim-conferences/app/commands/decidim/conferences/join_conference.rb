@@ -40,12 +40,12 @@ module Decidim
       end
 
       def create_registration
-        Decidim::Conferences::ConferenceRegistration.create!(conference: conference, user: user, registration_type: registration_type)
+        Decidim::Conferences::ConferenceRegistration.create!(conference: conference, user: user, registration_type: @registration_type)
       end
 
       def create_meetings_registrations
         published_meeting_components = Decidim::Component.where(participatory_space: conference).where(manifest_name: "meetings").published
-        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: registration_type.conference_meetings.pluck(:id))
+        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id))
 
         meetings.each do |meeting|
           Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
@@ -57,7 +57,7 @@ module Decidim
       end
 
       def send_email_pending_validation
-        Decidim::Conferences::ConferenceRegistrationMailer.pending_validation(user, conference, registration_type).deliver_later
+        Decidim::Conferences::ConferenceRegistrationMailer.pending_validation(user, conference, @registration_type).deliver_later
       end
 
       def participatory_space_admins

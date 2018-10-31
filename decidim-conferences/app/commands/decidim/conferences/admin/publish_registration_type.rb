@@ -18,7 +18,11 @@ module Decidim
         #
         # Broadcasts :ok if published, :invalid otherwise.
         def call
-          publish_registration_type
+          return broadcast(:invalid) if registration_type.nil? || registration_type.published?
+
+          Decidim.traceability.perform_action!(:publish, registration_type, current_user) do
+            registration_type.publish!
+          end
 
           broadcast(:ok)
         end
@@ -26,18 +30,6 @@ module Decidim
         private
 
         attr_reader :registration_type, :current_user
-
-        def publish_registration_type
-          Decidim.traceability.perform_action!(
-            :publish,
-            registration_type,
-            current_user,
-            visibility: "all"
-          ) do
-            registration_type.publish!
-            registration_type
-          end
-        end
       end
     end
   end

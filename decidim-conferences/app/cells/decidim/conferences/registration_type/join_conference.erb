@@ -9,14 +9,6 @@
         <%= icon("check", class: "icon--small") %>
         <%= t("going", scope: "decidim.conferences.conference.show") %>
       <% end %>
-      <%#= button_to conference_conference_registration_path(conference),
-          method: :delete,
-          class: "#{button_classes} secondary light",
-          style: "margin-bottom: 0;",
-          data: { disable: true } do %>
-        <%#= icon("check", class: "icon--small") %>
-        <%#= t("going", scope: "decidim.conferences.conference.show") %>
-      <%# end %>
     <% end %>
   <% else %>
     <%= render :registration_confirm %>
@@ -29,4 +21,4 @@
           data: { open: current_user.present? ? "conference-registration-confirm-#{model.id}" : "loginModal" } %>
     <% end %>
   <% end %>
-<% end %>
+<% end %>  
