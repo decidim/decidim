@@ -1,0 +1,79 @@
+hu:
+  activemodel:
+    attributes:
+      answer:
+        body: Válasz
+      question:
+        max_choices: Maximális választási lehetőségek száma
+        question_type: típus
+      questionnaire_question:
+        mandatory: Kötelező
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: nem teljesek
+              too_many: túl sok
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Leírás
+            tos: Szolgáltatás feltételei
+        questionnaires:
+          answer_option:
+            answer_option: Válasz opció
+            free_text: Ingyenes szöveg
+            remove: eltávolít
+            statement: Nyilatkozat
+          edit:
+            save: Mentés
+            title: Cím
+          form:
+            add_question: Kérdés hozzáadása
+            already_answered_warning: Néhány felhasználó már válaszolt a kérdőívre, így nem változtathatja meg kérdéseit.
+          question:
+            add_answer_option: Válasz opció hozzáadása
+            any: Bármilyen
+            description: Leírás
+            down: Le
+            question: Kérdés
+            remove: eltávolít
+            statement: Nyilatkozat
+            up: Fel
+          update:
+            invalid: Hiba történt a kérdőív mentésekor.
+            success: A kérdőíveket sikeresen elmentették.
+      errors:
+        answer:
+          body: A test nem lehet üres
+      question_types:
+        long_answer: Hosszú válasz
+        multiple_option: Több lehetőség
+        short_answer: Rövid válasz
+        single_option: Egy lehetőség
+        sorting: Válogató
+      questionnaires:
+        answer:
+          invalid: Hiba történt a kérdőív megválaszolásakor.
+          success: A kérdőív sikeresen válaszolt.
+        question:
+          max_choices: 'Max választás: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Jelentkezzen be fiókjához</a> vagy <a href="%{sign_up_link}">feliratkozáshoz</a> a kérdőív megválaszolásához.
+            title: Válaszoljon a kérdőívre
+          are_you_sure: Ez a művelet nem vonható vissza, és nem tudja szerkeszteni a válaszokat. biztos vagy ebben?
+          questionnaire_answered:
+            body: Ön már válaszolta ezt a kérdőívet.
+            title: Már válaszolt
+          questionnaire_closed:
+            body: A kérdőív zárva van, és nem lehet megválaszolni.
+            title: A kérdőív lezárult
+          questionnaire_for_private_users:
+            body: A kérdőív csak magán felhasználók számára áll rendelkezésre
+            title: A kérdőív lezárult
+          submit: beküldése
+          tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeit
