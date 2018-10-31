@@ -130,7 +130,7 @@ fi:
       collection:
         documents:
           one: Asiakirja
-          other: Asiakirjat
+          other: Asiakirjaa
       documents:
         related_documents: Liittyvät dokumentit
       photos:
@@ -148,7 +148,7 @@ fi:
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
-          document_number: Asiakirjan numero
+          document_number: Yhteisötunnus (Y-tunnus)
           postal_code: Postinumero
         name: Esimerkkivarmennus
       dummy_authorization_workflow:
