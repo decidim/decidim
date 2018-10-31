@@ -397,7 +397,6 @@ uk:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
       home: Головна
-      more_information: Додаткові відомості
     messaging:
       conversation_mailer:
         new_conversation:
@@ -505,8 +504,6 @@ uk:
           votes_count: Голосів
         sub_hero:
           register: Зареєструватися
-      index:
-        title: Додаткові відомості
       terms_and_conditions:
         accept:
           error: Під час прийняття умов участі виникла помилка.
