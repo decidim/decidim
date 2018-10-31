@@ -597,7 +597,6 @@ sv:
       no_members: Denna användargrupp har inga medlemmar.
     menu:
       home: Hem
-      more_information: Mer information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -712,8 +711,6 @@ sv:
           votes_count: Röster
         sub_hero:
           register: Registrera dig
-      index:
-        title: Mer information
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.
