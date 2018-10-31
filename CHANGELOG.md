@@ -43,6 +43,7 @@ end
 **Added**:
 
 **Changed**:
+- **decidim-core**: Improve static pages layout and make them groupable by topic. [\#4338](https://github.com/decidim/decidim/pull/4338)
 
 **Fixed**:
 

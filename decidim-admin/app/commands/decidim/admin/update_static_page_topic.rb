@@ -2,14 +2,14 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic when updating a static page.
-    class UpdateStaticPage < Rectify::Command
+    # A command with all the business logic when updating a static page topic.
+    class UpdateStaticPageTopic < Rectify::Command
       # Public: Initializes the command.
       #
-      # page - The StaticPage to update
+      # page - The StaticPageTopic to update
       # form - A form object with the params.
-      def initialize(page, form)
-        @page = page
+      def initialize(topic, form)
+        @topic = topic
         @form = form
       end
 
@@ -22,8 +22,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        update_page
-        update_organization_tos_version if form.changed_notably
+        update_topic
         broadcast(:ok)
       end
 
@@ -31,9 +30,9 @@ module Decidim
 
       attr_reader :form
 
-      def update_page
+      def update_topic
         Decidim.traceability.update!(
-          @page,
+          @topic,
           form.current_user,
           attributes
         )
@@ -42,16 +41,8 @@ module Decidim
       def attributes
         {
           title: form.title,
-          slug: form.slug,
-          show_in_footer: form.show_in_footer,
-          weight: form.weight,
-          topic: form.topic,
-          content: form.content
+          description: form.description
         }
-      end
-
-      def update_organization_tos_version
-        UpdateOrganizationTosVersion.call(@form.organization, @page, @form)
       end
     end
   end

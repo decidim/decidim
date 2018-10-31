@@ -135,7 +135,7 @@ module Decidim
                     position: 1,
                     active: :exclusive
 
-          menu.item I18n.t("menu.more_information", scope: "decidim"),
+          menu.item I18n.t("menu.help", scope: "decidim"),
                     decidim.pages_path,
                     position: 7,
                     active: :inclusive
