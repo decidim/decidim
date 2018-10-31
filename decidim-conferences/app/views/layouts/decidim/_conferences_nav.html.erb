@@ -1,4 +1,4 @@
-<% if current_participatory_space.components.any? || current_participatory_space.speakers.any? || current_participatory_space.partners.any? %>
+<% if current_participatory_space.components.any? || current_participatory_space.speakers.any? || current_participatory_space.partners.any? || current_participatory_space.attachments.any? || current_participatory_space.media_links.any? %>
   <section class="extended process-nav">
     <div class="row column">
       <div class="row column">
@@ -74,6 +74,13 @@
                   </li>
                 <% end %>
               <% end %>
+
+              <li class="<%= "is-active" if is_active_link?(decidim_conferences.conference_media_path(current_participatory_space), :inclusive) %>">
+                <%= active_link_to decidim_conferences.conference_media_path(current_participatory_space), active: :inclusive, class: "process-nav__link", class_active: "is-active" do %>
+                  <%= external_icon "decidim/conferences/conference.svg" %>
+                  <%= t ".media" %>
+                <% end %>
+              </li>
             </ul>
           </div>
         </div>

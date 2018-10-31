@@ -75,8 +75,10 @@ eu:
             collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geokodifikazioa gaituta dago
+            minimum_votes_per_user: Erabiltzaile bakoitzeko gutxieneko botoiak
             new_proposal_help_text: Proposamen berriaren laguntza testu
             official_proposals_enabled: Proposamen ofizialak gaituta
+            participatory_texts_enabled: Parte hartzaileen testuak gaituta
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_length: Proposamen maximoa gorputzaren luzera
@@ -221,10 +223,10 @@ eu:
           unearned_own: Oraindik ez duzu proposamenik sortu.
     metrics:
       accepted_proposals:
-        object: proposamen
+        object: proposamenak
         title: Onartutako proposamenak
       proposals:
-        object: proposamen
+        object: proposamenak
         title: proposamenak
       votes:
         object: boto
@@ -243,6 +245,7 @@ eu:
         edit_proposal: Editatu proposamena
         import: Inportatu beste osagai batetik
         new: Proposamen berria
+        participatory_texts: Testu partehartzaileak
         private_notes: Ohar pribatuak
         title: Ekintzak
       admin:
@@ -254,6 +257,28 @@ eu:
         models:
           proposal:
             name: Proposamena
+        participatory_texts:
+          bulk-actions:
+            import_doc: Inportatu dokumentua
+          import:
+            invalid: Inprimakia baliogabea da!
+            success: Zorionak, ondorengo atalak inportatutako dokumentutik aztertu dira, proposamen bihurtu dira. Orain argitalpenaren aurretik behar duzun guztia berrikusi eta egokitu dezakezu.
+          index:
+            info_1: Ondorengo atalak inportatutako dokumentutik aztertu dira, proposamen bihurtu dira. Orain argitalpenaren aurretik behar duzun guztia berrikusi eta egokitu dezakezu.
+            publish_document: Argitaratu dokumentua
+            title: PREVIEW PARTICIPATORIO TEXT
+          new_import:
+            bottom_hint: "(Dokumentuko atalen aurrebista eta ordenazioa ahal izango duzu)"
+            document_legend: 'Gehitu dokumentua baino 2MB baino txikiagoa, atal bakoitza 3 maila sakonera proposamenetan aztertu arte. Formatu onartzen dira: Markdown'
+            title: ADD DOCUMENT
+            upload_document: Kargatu dokumentua
+          publish:
+            invalid: Ezin izan dira proposamenik argitaratu
+            success: Proposamen guztiak argitaratu dira
+          sections:
+            article: "<em>artikuluaren</em>"
+            section: "<em>Artikulua:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Azpiatala:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Onartuta
@@ -287,7 +312,12 @@ eu:
             actions: Ekintzak
             cancel: Utzi
             change_category: Aldatu kategoria
+            merge: Bateratu berri bat sartu
+            merge_button: Batu
+            select_component: Hautatu osagaia
             selected: hautatutako
+            split: Proposamen banatuak
+            split_button: Split
             title: Proposamenak
             update: eguneratzearen
           new:
@@ -307,6 +337,14 @@ eu:
             no_components: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
             select_component: Hautatu osagaia
             select_states: Egiaztatu inportatzeko proposamenen egoera
+        proposals_merges:
+          create:
+            invalid: Errore bat gertatu da hautatutako proposamenekin bat egitea.
+            success: Proposamen berri batean sartu dira ondo.
+        proposals_splits:
+          create:
+            invalid: Errore bat gertatu da hautatutako proposamenen banaketa.
+            success: Proposamen berrietara egokitu dira.
         shared:
           info_proposal:
             body: Gorputzeko
@@ -596,6 +634,10 @@ eu:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
+          minimum_votes_per_user:
+            description: Gutxienez 3 boto eman behar dituzu proposamen desberdinen artean.
+            given_enough_votes: Onartutako euskarri guztiak eman dituzu.
+            supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:

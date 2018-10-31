@@ -257,6 +257,10 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> urratsean datak <a href="%{participatory_space_url}">%{participatory_space_title}</a> eguneratu dira.
     menu:
       processes: Prozesuak
+    metrics:
+      participatory_processes:
+        object: prozesu parte-hartzaileak
+        title: Parte hartze prozesuak
     participatory_process_groups:
       show:
         group_participatory_processes:

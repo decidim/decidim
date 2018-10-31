@@ -17,9 +17,14 @@ eu:
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai aktiboa
+      decidim/demoted_membership: Ez da talde admin gehiago
       decidim/gamification/badge_earned_event: Badge irabazi
       decidim/gamification/level_up_event: Berdindu duzu
+      decidim/join_request_accepted_event: Erregistratu eskaera onartua
+      decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
       decidim/profile_updated_event: Profila eguneratu da
+      decidim/promote_to_admin: Talde kudeatzaileari sustatua
+      decidim/removed_from_group: Taldea kendu da
   activerecord:
     attributes:
       decidim/user:
@@ -45,6 +50,8 @@ eu:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -96,6 +103,9 @@ eu:
         update: "%{user_name} %{resource_name} OAuth aplikazioa eguneratu du"
       organization:
         update: "%{user_name} Eguneratu antolazioaren ezarpenak"
+      participatory_space_private_user:
+        create: "%{user_name} gonbidatu %{resource_name} erabiltzaileari pribatua izateko"
+        delete: "%{user_name} erabiltzaileari erabiltzaile pribatu gisa kendu %{resource_name}"
       scope:
         create: "%{user_name} %{resource_name} esparrua sortu zen"
         create_with_parent: "%{user_name} %{resource_name} eremua %{parent_scope} esparru barruan sortu zen"
@@ -338,6 +348,42 @@ eu:
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
           email_subject: Nik iritsi zara mailan %{current_level} on the %{badge_name} plaka!
           notification_title: Lan handia! Maila %{current_level} lortu duzu <a href="%{resource_path}">%{badge_name} badge</a>!
+      groups:
+        demoted_membership:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak taldeko administratzaile eskubideak kendu ditu.
+          email_outro: Jakinarazpen hau jaso duzu taldeko kide zarelako.
+          email_subject: Ez duzu jada %{user_group_name} taldearen adminik!
+          notification_title: Jada ez zara <a href="%{resource_path}">%{user_group_name}</a> taldearen admin.
+        invited_to_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak gonbidatu zaitu.
+          email_outro: Jakinarazpen hau jaso duzu talde honetara gonbidatuta zaudelako. Egiaztatu Taldeak fitxan zure profilean onartzeko.
+          email_subject: '%{user_group_name} taldean sartzeko gonbidatu zaituzte!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean sartzera gonbidatu zaituzte. Begiratu <a href="%{groups_profile_tab_path}">Taldeak orrialdeko</a> zure profilean onartzeko!
+        join_request_accepted:
+          email_intro: Zorionak! <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak zure eskaera onartu du.
+          email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
+          email_subject: '%{user_group_name} taldean onartu duzu!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean onartu zaituzte.
+        join_request_created:
+          email_intro: Norbaitek %{user_group_name} taldean parte hartzeko eskatu du. <a href="%{resource_url}">taldeko kideen</a>orrialdea onartu edo ukatu dezakezu.
+          email_outro: Jakinarazpen hau jaso duzu talde %{user_group_name} kudeatu ahal izateko.
+          email_subject: Norbaitek %{user_group_name} taldean parte hartzeko eskatu du!
+          notification_title: Norbaitek %{user_group_name} taldean parte hartzeko eskatu du. <a href="%{resource_path}">taldeko kideen</a>orrialdea onartu edo ukatu dezakezu.
+        join_request_rejected:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak zure eskaera ukatu egin du.
+          email_outro: Jakinarazpen hau jaso duzu zure eskaera bateratu delako.
+          email_subject: '%{user_group_name} taldera sartzeko eskaera baztertu egin da!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldera sartzeko eskaera baztertu egin da.
+        promoted_to_admin:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak talde horren administrazio-eskubideak eman dizkizu.
+          email_outro: Jakinarazpen hau jaso duzu taldeko kide zarelako.
+          email_subject: Orain %{user_group_name} taldearen administraria zara!
+          notification_title: Orain <a href="%{resource_path}">%{user_group_name}</a> taldearen administratzailea zara.
+        removed_from_group:
+          email_intro: Taldeak <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak kendu egin zaitu.
+          email_outro: Jakinarazpen hori jaso duzu talde horretako kide zarelako.
+          email_subject: '%{user_group_name} taldetik kendu duzu!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik kendu zaituzte.
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -431,14 +477,82 @@ eu:
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
+    group_admins:
+      actions:
+        are_you_sure: Ziur zaude? Honek ez du erabiltzailea taldetik kenduko.
+        demote_admin: Kendu kudeatzailea
+      demote:
+        error: Errore bat gertatu da erabiltzaile hau administratzaileen zerrendatik ezabatzean
+        success: Erabiltzailea administratzaileari behar bezala kendu zaio
+      index:
+        current_admins: 'Uneko administratzaileak:'
+        manage_admins: Kudeatu kudeatzaileak
+    group_invites:
+      accept:
+        error: Errore bat gertatu da gonbidapen hau onartzea
+        success: Gonbidapena arrakastaz onartu da
+      accept_invitation: Onartu
+      accept_or_reject_group_invitations: 'Talde hauek gonbidatu zaituzte. Eskaerak onartu edo ukatu:'
+      index:
+        invite: gonbidatu
+        invite_user: Erabiltzaile bat gonbidatu
+      invite:
+        error: Errore bat gertatu da erabiltzaile hau gonbidatuz
+        success: Erabiltzailea behar bezala gonbidatu da
+      reject:
+        error: Errore bat gertatu da gonbidapen hau uztea
+        success: Gonbidapena ongi baztertu da
+      reject_invitation: Ukatu
+    group_members:
+      accept:
+        error: Errore bat gertatu da eskaera bat onartzeko
+        success: Erregistratu eskaera arrakastaz onartu da
+      actions:
+        are_you_sure: Ziur zaude?
+        promote_to_admin: Egin admin
+        remove_from_group: Kendu erabiltzailea
+      index:
+        current_members_without_admins: 'Uneko kideak (administratzaile gabe):'
+        manage_members: Kudeatu kideak
+      promote:
+        error: Errore bat gertatu da erabiltzaile hau sustatzeko
+        success: Erabiltzailea arrakastaz sustatu da
+      reject:
+        error: Errore bat gertatu da eskaera bateratua ukatuz
+        success: Erregistratu eskaera ongi baztertu da
+      remove:
+        error: Errore bat gertatu da talde honetatik erabiltzaile hau kenduta
+        success: Taldeak arrakastaz ezabatu du erabiltzailea
     groups:
+      actions:
+        are_you_sure: Ziur zaude?
       create:
-        error: Antolakuntza sortzerakoan arazo bat izan da
-        success: Antolakuntza behar bezala sortu da
+        error: Arazo bat izan da taldea sortzean
+        success: Taldeak arrakastaz sortu du
+      edit:
+        edit_user_group: Editatu taldea
+        update_user_group: Eguneratu taldea
+      join:
+        error: Taldean sartzeko arazorik izan da
+        success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
+      leave:
+        error: Arazo bat izan da taldean utzita
+        success: Taldeak arrakastaz utzi du.
+      members:
+        accept_or_reject_join_requests: 'Hurrengo talde honetako erabiltzaileei aplikatu zaie. Eskaerak onartu edo ukatu:'
+        accept_request: Onartu
+        reject_request: Ukatu
       new:
-        create_user_group: Sortu erakundea
-        new_user_group: Antolakuntza berria
-      no_user_groups: Ez dago inongo erakunderik.
+        create_user_group: Sortu taldea
+        new_user_group: Talde berria
+      no_user_groups: Oraindik ez da talde batekoa.
+      roles:
+        admin: Administrator
+        creator: Sortzailea
+        member: kidea
+      update:
+        error: Arazo bat izan da taldea eguneratzean
+        success: Taldeak behar bezala eguneratu du
     invitations:
       create:
         error: Arazo batzuk egon dira zure lagunak gonbidatuz
@@ -631,7 +745,7 @@ eu:
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
-        groups: Erakundeak
+        groups: Taldeak
         members: Bazkideek
         notifications: jakinarazpenak
       sidebar:
@@ -639,8 +753,14 @@ eu:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
           title: Badges
       user:
-        create_user_group: Sortu erakundea
+        create_user_group: Sortu taldea
         edit_profile: Editatu profila
+        edit_user_group: Editatu taldearen profila
+        invite_user: Gonbidatu erabiltzailea
+        join_user_group: Talde batzeko eskaera
+        leave_user_group: Utzi taldea
+        manage_user_group_admins: Kudeatu kudeatzaileak
+        manage_user_group_users: Kudeatu kideak
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -916,7 +1036,7 @@ eu:
         my_data: Nire datuak
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
-        user_groups: Erakundeak
+        user_groups: Taldeak
       widget:
         see_more: Ikusi gehiago
   locale:

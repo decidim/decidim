@@ -18,11 +18,11 @@ shared_examples "when managing proposals category as an admin" do
 
     context "when selecting proposals" do
       before do
-        page.find("#proposals_recategorize.js-check-all").set(true)
+        page.find("#proposals_bulk.js-check-all").set(true)
       end
 
       it "shows the number of selected proposals" do
-        expect(page).to have_css("span#js-recategorize-proposals-count", count: 1)
+        expect(page).to have_css("span#js-selected-proposals-count", count: 1)
       end
 
       it "shows the bulk actions button" do

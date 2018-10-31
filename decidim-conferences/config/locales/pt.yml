@@ -2,7 +2,9 @@ pt:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Assembléias Relacionadas
         banner_image: Imagem de banner
+        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_features: Copiar recursos
@@ -10,6 +12,7 @@ pt:
         description: Descrição
         hashtag: Hashtag
         hero_image: Imagem inicial
+        participatory_processes_ids: Processos participativos relacionados
         promoted: Promovido
         published_at: Publicado em
         scope_id: Escopo
@@ -117,6 +120,23 @@ pt:
         create:
           error: Houve um erro ao duplicar esta conferência.
           success: Conferência duplicada com sucesso.
+      media_links:
+        create:
+          error: Ocorreu um erro ao criar um novo link de mídia.
+          success: Media Link criado com sucesso.
+        destroy:
+          success: O Media Link foi excluído com sucesso.
+        edit:
+          title: Atualize o link da mídia.
+          update: Atualizar
+        index:
+          media_links_title: Links de Mídia
+        new:
+          create: Crio
+          title: Link de Mídia
+        update:
+          error: Houve um erro ao atualizar este link de mídia.
+          success: Media Link atualizado com sucesso.
       menu:
         conferences: Conferências
         conferences_submenu:
@@ -130,7 +150,9 @@ pt:
           conference_registrations: Registros de conferência
           conference_speakers: Alto-falantes da conferência
           info: Info
+          media_links: Links de Mídia
           moderations: Moderações
+          partners: Parceiros
       models:
         conference:
           fields:
@@ -154,6 +176,37 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Encontro
+            link: Ligação
+            title: Título
+          name: Link de Mídia
+        partner:
+          fields:
+            link: Ligação
+            logo: Logotipo
+            name: Nome
+            partner_type: Tipo
+          name: Parceiro
+          types:
+            collaborator: Colaborador
+            main_promotor: Principal promotor
+      partners:
+        create:
+          error: Ocorreu um erro ao adicionar um parceiro para esta conferência.
+          success: Parceiro adicionado com sucesso a esta conferência.
+        destroy:
+          success: Parceiro removido com sucesso desta conferência.
+        edit:
+          title: Atualizar parceiro.
+          update: Atualizar
+        new:
+          create: Crio
+          title: Novo parceiro
+        update:
+          error: Ocorreu um erro ao atualizar um parceiro para esta conferência.
+          success: Parceiro atualizado com sucesso para esta conferência.
       titles:
         conferences: Conferências
     admin_log:
@@ -170,6 +223,9 @@ pt:
         create: "%{user_name} convidados %{resource_name} para a conferência %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
         update: "%{user_name} mudou o papel de %{resource_name} na conferência de %{space_name}"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: caixas de som
@@ -225,6 +281,9 @@ pt:
             decline: Recusar convite '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
             join: Participe da conferência '%{conference_title}'
+        partners:
+          index:
+            title: Parceiros
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -236,6 +295,15 @@ pt:
           remaining_slots:
             one: 1 slot restante
             other: "%{count} slots restantes"
+      conference_program:
+        program_meeting:
+          content: Conteúdo
+          location: Localização
+          speakers: caixas de som
+          streaming: Transmissão
+        show:
+          day: Dia
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Sua inscrição para a conferência <a href="%{url}">%{title}</a> foi confirmada.
@@ -265,6 +333,9 @@ pt:
         index:
           speakers: caixas de som
       conferences:
+        partners:
+          collaborators: Colaboradores
+          main_promotors: Principais promotores
         show:
           already_account: Você já tem uma conta na decidim?
           login_as: Você está logado como %{name} <%{email}>
@@ -305,10 +376,20 @@ pt:
           highlighted_conferences:
             active_conferences: Conferências ativas
             see_all_conferences: Veja todas as conferências
+      photo:
+        show:
+          close_modal: Fechar modal
+          photo: foto
+      photos_list:
+        show:
+          related_photos: Fotos
       show:
         details: Detalhes
         introduction: Introdução
         objectives: Objetivos
+        related_assemblies: Assembléias Relacionadas
+        related_consultations: Consultas Relacionadas
+        related_participatory_processes: Processos participativos relacionados
       statistics:
         answers_count: Respostas
         comments_count: Comentários
@@ -347,6 +428,10 @@ pt:
       value_types:
         conference_presenter:
           not_found: 'A conferência não foi encontrada no banco de dados (ID: %{id})'
+    media:
+      index:
+        description: Links sobre esta conferência
+        title: Mídia e Links
     menu:
       conferences: Conferências
   devise:
@@ -372,6 +457,8 @@ pt:
           take_part: Participar
       conferences_nav:
         conference_menu_item: Em formação
+        conference_partners_menu_item: Parceiros
         conference_speaker_menu_item: caixas de som
+        media: meios de comunicação
         unfold: Desdobrar
         venues: Venues

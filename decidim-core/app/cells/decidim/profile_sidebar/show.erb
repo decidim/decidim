@@ -114,6 +114,9 @@
       <div class="text-center">
         <%= link_to t("decidim.profiles.user.manage_user_group_admins"), group_manage_admins_path(profile_holder.nickname) %>
       </div>
+      <div class="text-center">
+        <%= link_to t("decidim.profiles.user.invite_user"), group_invites_path(profile_holder.nickname) %>
+      </div>
     <% end %>
 
     <% if can_join_user_group? %>

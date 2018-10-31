@@ -16,7 +16,7 @@ describe Decidim::Surveys::Admin::Permissions do
 
   context "when scope is not admin" do
     let(:action) do
-      { scope: :foo, action: :vote, subject: :survey }
+      { scope: :foo, action: :vote, subject: :questionnaire }
     end
 
     it_behaves_like "permission is not set"
@@ -32,7 +32,7 @@ describe Decidim::Surveys::Admin::Permissions do
 
   context "when action is a random one" do
     let(:action) do
-      { scope: :admin, action: :foo, subject: :survey }
+      { scope: :admin, action: :foo, subject: :questionnaire }
     end
 
     it_behaves_like "permission is not set"
@@ -40,7 +40,7 @@ describe Decidim::Surveys::Admin::Permissions do
 
   context "when exporting answers for a survey" do
     let(:action) do
-      { scope: :admin, action: :export_answers, subject: :survey }
+      { scope: :admin, action: :export_answers, subject: :questionnaire }
     end
 
     it { is_expected.to eq true }
@@ -48,7 +48,7 @@ describe Decidim::Surveys::Admin::Permissions do
 
   context "when updating a survey" do
     let(:action) do
-      { scope: :admin, action: :update, subject: :survey }
+      { scope: :admin, action: :update, subject: :questionnaire }
     end
 
     it { is_expected.to eq true }

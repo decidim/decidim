@@ -18,6 +18,7 @@ Decidim::Admin::Engine.routes.draw do
     end
 
     resources :static_pages
+    resources :static_page_topics, except: [:index]
     resources :scope_types, except: [:show]
     resources :scopes, except: [:show] do
       resources :scopes, except: [:show]

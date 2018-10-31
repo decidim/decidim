@@ -5,7 +5,6 @@ require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
-require "decidim/conferences/test/factories"
 require "decidim/comments/test/factories"
 
 def generate_localized_title
@@ -245,6 +244,20 @@ FactoryBot.define do
     trait :tos do
       slug { "terms-and-conditions" }
     end
+
+    trait :with_topic do
+      after(:create) do |static_page|
+        topic = create(:static_page_topic, organization: static_page.organization)
+        static_page.topic = topic
+        static_page.save
+      end
+    end
+  end
+
+  factory :static_page_topic, class: "Decidim::StaticPageTopic" do
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    organization
   end
 
   factory :attachment_collection, class: "Decidim::AttachmentCollection" do

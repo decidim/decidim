@@ -358,6 +358,8 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
+      meetings_map:
+        view_meeting: Voir la réunion
       models:
         invite:
           fields:
@@ -395,6 +397,10 @@ fr:
       types:
         private_meeting: Rencontre privée
         transparent: Visible par les non-membres
+    metrics:
+      meetings:
+        object: des réunions
+        title: Des réunions
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

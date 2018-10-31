@@ -146,7 +146,7 @@ describe "Profile", type: :system do
       end
 
       it "lists the user groups" do
-        click_link "Organizations"
+        click_link "Groups"
 
         expect(page).to have_content(accepted_user_group.name)
         expect(page).to have_no_content(pending_user_group.name)

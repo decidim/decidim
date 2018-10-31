@@ -507,6 +507,7 @@ it:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio partecipativo creato con successo.
         destroy:
+          error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
         index:
           title: Utente privato dello spazio partecipativo
