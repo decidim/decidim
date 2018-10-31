@@ -597,7 +597,6 @@ es-PY:
       no_members: Este grupo de usuarios aún no tiene ningún miembro.
     menu:
       home: Inicio
-      more_information: Más información
     messaging:
       conversation_mailer:
         new_conversation:
@@ -712,8 +711,6 @@ es-PY:
           votes_count: Votos
         sub_hero:
           register: Regístrate
-      index:
-        title: Más información
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
