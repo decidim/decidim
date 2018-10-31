@@ -597,7 +597,6 @@ fr:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
       home: Accueil
-      more_information: Plus d'information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -712,8 +711,6 @@ fr:
           votes_count: Votes
         sub_hero:
           register: S'inscrire
-      index:
-        title: Plus d'informations
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
