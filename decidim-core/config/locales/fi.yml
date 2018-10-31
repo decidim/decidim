@@ -597,7 +597,6 @@ fi:
       no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
       home: Etusivu
-      more_information: Lisätietoja
     messaging:
       conversation_mailer:
         new_conversation:
@@ -712,8 +711,6 @@ fi:
           votes_count: Ääntä
         sub_hero:
           register: Rekisteröidy
-      index:
-        title: Lisätietoa
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
