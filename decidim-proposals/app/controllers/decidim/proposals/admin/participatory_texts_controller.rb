@@ -16,7 +16,7 @@ module Decidim
 
         def new_import
           enforce_permission_to :import, :participatory_texts
-          participatory_text= Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
+          participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
           @import = form(Admin::ImportParticipatoryTextForm).from_model(participatory_text)
         end
 

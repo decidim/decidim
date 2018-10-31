@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "doc2text"
 require "tempfile"
 
@@ -18,8 +19,8 @@ module Decidim
       end
 
       def to_md
-        doc_file= doc_to_tmp_file
-        md_file= transform_to_md_file(doc_file)
+        doc_file = doc_to_tmp_file
+        md_file = transform_to_md_file(doc_file)
         md_file.read
       end
 
@@ -30,21 +31,21 @@ module Decidim
       #-----------------------------------------------------
 
       def doc_to_tmp_file
-        file = Tempfile.new('doc-to-markdown-odt')
+        file = Tempfile.new("doc-to-markdown-odt")
         file.write(@doc)
         file
       end
+
       # def transform_to_md_file(doc_file)
       #   md_file= Tempfile.new
       #   Doc2Text::Markdown::OdtParser(md_file)
       #   md_file
       # end
       def transform_to_md_file(doc_file)
-        md_file= Tempfile.new
+        md_file = Tempfile.new
         Doc2Text::XmlBasedDocument::Odt::Document.parse_and_save doc_file, md_file
         md_file
       end
-
     end
   end
 end

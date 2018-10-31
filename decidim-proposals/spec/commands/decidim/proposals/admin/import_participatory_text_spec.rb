@@ -28,12 +28,10 @@ module Decidim
           end
           let(:command) { described_class.new(form) }
 
-
           shared_examples "import participatory_text succeeds" do
             it "broadcasts ok and creates the proposals" do
               sections = 2
               sub_sections = 5
-              num_proposals = sections + sub_sections + articles
               expect { command.call }.to(
                 broadcast(:ok) &&
                 change { ParticipatoryText.where(component: current_component).count }.by(1) &&
@@ -43,7 +41,6 @@ module Decidim
               )
             end
           end
-
 
           describe "when the form is not valid" do
             let(:valid) { false }
