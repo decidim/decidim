@@ -16,7 +16,7 @@ module Decidim
 
       helper ParticipatoryProcessHelper
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :filter
       helper_method :process_count_by_filter
 
       def index
@@ -74,6 +74,10 @@ module Decidim
 
       def stats
         @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
+      end
+
+      def metrics
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
       end
 
       def filter

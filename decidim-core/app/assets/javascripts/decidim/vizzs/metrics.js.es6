@@ -6,7 +6,7 @@ $(() => {
     return {query: `{ ${metricsQuery} }`};
   }
 
-  const fetch = (metrics) => $.post("api", query(metrics))
+  const fetch = (metrics) => $.post("/api", query(metrics))
 
   const metrics = {};
 

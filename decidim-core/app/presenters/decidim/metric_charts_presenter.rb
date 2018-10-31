@@ -3,11 +3,19 @@
 module Decidim
   # A presenter to render metrics in pages
   class MetricChartsPresenter < Rectify::Presenter
-    attribute :organization, Decidim::Organization
-
     # Public: Render a collection of primary metrics.
     def highlighted
-      highlighted_metrics = Decidim.metrics_registry.highlighted
+      render_highlighted(Decidim.metrics_registry.highlighted)
+    end
+
+    # Public: Render a collection of metrics that are not primary.
+    def not_highlighted
+      render_not_highlighted(Decidim.metrics_registry.not_highlighted)
+    end
+
+    private
+
+    def render_highlighted(highlighted_metrics)
       safe_join(
         highlighted_metrics.map do |metric|
           render_metrics_data(metric.metric_name, klass: "column medium-4")
@@ -15,9 +23,7 @@ module Decidim
       )
     end
 
-    # Public: Render a collection of metrics that are not primary.
-    def not_highlighted
-      not_highlighted_metrics = Decidim.metrics_registry.not_highlighted
+    def render_not_highlighted(not_highlighted_metrics)
       safe_join(
         not_highlighted_metrics.in_groups_of(2).map do |metrics_group|
           content_tag :div, class: "column medium-4" do
@@ -31,8 +37,6 @@ module Decidim
         end
       )
     end
-
-    private
 
     def render_metrics_data(metric_name, opts = {})
       content_tag :div, class: opts[:klass].presence || "column medium-6" do
