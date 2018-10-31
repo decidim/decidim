@@ -21,17 +21,28 @@ module Decidim::Comments
       it "renders the card" do
         html = cell("decidim/comments/comment_activity", action_log).call
         expect(html).to have_css(".card__content")
-        expect(html).to have_content("New comment at #{comment.commentable.title}")
+        expect(html).to have_content("New comment at #{comment.root_commentable.title}")
         expect(html).to have_content(comment.body)
       end
 
       context "when the commentable is missing" do
         before do
-          comment.commentable.delete
+          comment.root_commentable.delete
         end
 
         it "does not render" do
           expect(described_class.new(action_log)).not_to be_renderable
+        end
+      end
+
+      context "when the commentable is a comment" do
+        let!(:comment) { create(:comment, :comment_on_comment) }
+
+        it "renders the card" do
+          html = cell("decidim/comments/comment_activity", action_log).call
+          expect(html).to have_css(".card__content")
+          expect(html).to have_content("New comment at #{comment.root_commentable.title}")
+          expect(html).to have_content(comment.body)
         end
       end
     end

@@ -8,6 +8,19 @@ FactoryBot.define do
     commentable { build(:dummy_resource) }
     root_commentable { commentable }
     body { Faker::Lorem.paragraph }
+
+    trait :comment_on_comment do
+      author { build(:user, organization: root_commentable.organization) }
+      commentable do
+        build(
+          :comment,
+          author: author,
+          root_commentable: root_commentable,
+          commentable: root_commentable
+        )
+      end
+      root_commentable { build(:dummy_resource) }
+    end
   end
 
   factory :comment_vote, class: "Decidim::Comments::CommentVote" do
