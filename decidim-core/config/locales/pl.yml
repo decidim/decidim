@@ -607,7 +607,6 @@ pl:
       no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
       home: Ekran startowy
-      more_information: Więcej informacji
     messaging:
       conversation_mailer:
         new_conversation:
@@ -722,8 +721,6 @@ pl:
           votes_count: Głosowania
         sub_hero:
           register: Zarejestrować
-      index:
-        title: Więcej informacji
       terms_and_conditions:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
