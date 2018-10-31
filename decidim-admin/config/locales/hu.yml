@@ -509,7 +509,7 @@ hu:
           error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
           success: Privát felhasználó részvételi helyhez való hozzáférése biztosítva.
         destroy:
-          error: Hiba történt egy privát felhasználó törlésével a részvételi hely számára.
+          error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
           title: Részvételi tér privát felhasználója
@@ -582,7 +582,7 @@ hu:
           create: Oldal létrehozása
           title: Új oldal
         topic:
-          destroy: Távolítsa el a témát
+          destroy: Téma eltávolítása
           edit: Téma szerkesztése
           empty: Ebben a témában nincs oldal
           without_topic: Téma nélküli oldalak
