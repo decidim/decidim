@@ -579,7 +579,13 @@ pl:
         index:
           last_notable_change: Ostatnia godna uwagi zmiana
         new:
+          create: Stwórz stronę
           title: Nowa strona
+        topic:
+          destroy: Usuń temat
+          edit: Edytuj temat
+          empty: W tym temacie nie ma strony
+          without_topic: Strony bez tematu
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana
