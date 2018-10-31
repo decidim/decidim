@@ -596,7 +596,7 @@ pt-BR:
     members:
       no_members: Este grupo de usuários ainda não possui nenhum membro.
     menu:
-      help: Socorro
+      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -713,7 +713,7 @@ pt-BR:
         sub_hero:
           register: Registrar-se
       index:
-        read_more: Consulte Mais informação
+        read_more: Ler Mais
         standalone_pages: Páginas
         subheading: Navegue pelas páginas de ajuda de %{name}
         title: Socorro
