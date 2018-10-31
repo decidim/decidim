@@ -36,7 +36,7 @@ describe "Conference registrations", type: :system do
 
   before do
     switch_to_host(organization.host)
-    
+
     conference.update!(
       registrations_enabled: registrations_enabled,
       available_slots: available_slots,
