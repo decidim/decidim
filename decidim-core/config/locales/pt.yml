@@ -596,6 +596,7 @@ pt:
     members:
       no_members: Este grupo de usuários ainda não possui nenhum membro.
     menu:
+      help: Socorro
       home: Inicio
     messaging:
       conversation_mailer:
@@ -711,6 +712,12 @@ pt:
           votes_count: Votos
         sub_hero:
           register: registo
+      index:
+        read_more: Consulte Mais informação
+        standalone_pages: Páginas
+        subheading: Navegue pelas páginas de ajuda de %{name}
+        title: Socorro
+        topics: Tópicos
       terms_and_conditions:
         accept:
           error: Houve um erro ao aceitar os termos e condições.
