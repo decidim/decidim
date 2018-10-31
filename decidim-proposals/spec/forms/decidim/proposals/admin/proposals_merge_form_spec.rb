@@ -49,6 +49,13 @@ module Decidim
 
         context "when merging to the same component" do
           let(:target_component) { component }
+          let(:proposals) { create_list(:proposal, 3, :official, component: component) }
+
+          context "when the proposal is not official" do
+            let(:proposals) { create_list(:proposal, 3, component: component) }
+
+            it { is_expected.to be_invalid }
+          end
 
           context "when a proposal has a vote" do
             before do
