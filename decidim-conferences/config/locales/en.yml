@@ -359,12 +359,12 @@ en:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
-          details_1: "You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:"
+          details_1: 'You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:'
           details_2: You will find the conference's details in the attachment.
         pending_validation:
           confirmation_pending: You will receive the confirmation shortly
+          details: 'You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:'
           pending_html: Your registration for the conference <a href="%{url}">%{title}</a> is pending to be confirmed.
-          details: "You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:"
       conference_registrations:
         create:
           invalid: There's been a problem joining this conference.

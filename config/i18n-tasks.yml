@@ -172,6 +172,7 @@ ignore_unused:
   - decidim.conferences.conference_speaker.*
   - decidim.conferences.statistics.*
   - decidim.conferences.show.*
+  - decidim.conferences.models.conference_registration.fields.states.*
   - decidim.proposals.admin.participatory_texts.sections.*
   - decidim.gamification.badges.*
   - decidim.surveys.surveys.answer.*
