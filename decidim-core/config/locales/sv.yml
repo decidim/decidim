@@ -596,6 +596,7 @@ sv:
     members:
       no_members: Denna användargrupp har inga medlemmar.
     menu:
+      help: Hjälp
       home: Hem
     messaging:
       conversation_mailer:
@@ -711,6 +712,12 @@ sv:
           votes_count: Röster
         sub_hero:
           register: Registrera dig
+      index:
+        read_more: Läs mer
+        standalone_pages: sidor
+        subheading: Navigera genom hjälpsidorna till %{name}
+        title: Hjälp
+        topics: ämnen
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.
