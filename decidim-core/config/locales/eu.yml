@@ -597,7 +597,6 @@ eu:
       no_members: Erabiltzaile talde honek ez du kideik oraindik.
     menu:
       home: Hasiera
-      more_information: Argibide gehiago
     messaging:
       conversation_mailer:
         new_conversation:
@@ -712,8 +711,6 @@ eu:
           votes_count: Euskarriak
         sub_hero:
           register: Erregistroa
-      index:
-        title: Argibide gehiago
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
