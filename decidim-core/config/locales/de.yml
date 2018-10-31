@@ -596,8 +596,8 @@ de:
     members:
       no_members: Diese Benutzergruppe hat noch kein Mitglied.
     menu:
+      help: Hilfe
       home: Start
-      more_information: Weitere Informationen
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +713,11 @@ de:
         sub_hero:
           register: Registrieren
       index:
-        title: Mehr Informationen
+        read_more: Weiterlesen
+        standalone_pages: Seiten
+        subheading: Navigieren Sie durch die Hilfeseiten von %{name}
+        title: Hilfe
+        topics: Themen
       terms_and_conditions:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
