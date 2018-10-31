@@ -596,6 +596,7 @@ es:
     members:
       no_members: Este grupo de usuarios aún no tiene ningún miembro.
     menu:
+      help: Ayuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -711,6 +712,12 @@ es:
           votes_count: Apoyos
         sub_hero:
           register: Regístrate
+      index:
+        read_more: Lee mas
+        standalone_pages: Páginas
+        subheading: Navega por las páginas de ayuda de %{name}
+        title: Ayuda
+        topics: Los temas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
