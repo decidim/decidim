@@ -82,8 +82,10 @@ hu:
         changed_notably: Észrevehető változások történtek.
         content: Tartalom
         organization: Szervezet
+        show_in_footer: Mutassa a láblécben
         slug: URL slug
         title: Cím
+        weight: Súly
     errors:
       models:
         oauth_application:
@@ -545,6 +547,21 @@ hu:
         update:
           error: Hiba történt a hatáskör frissítése során.
           success: Hatáskör frissítése sikeres
+      static_page_topics:
+        create:
+          error: Hiba történt egy új téma létrehozásakor.
+          success: Téma létrehozva sikeresen.
+        destroy:
+          success: A téma sikeresen megsemmisült
+        edit:
+          title: Téma szerkesztése
+          update: Téma frissítése
+        new:
+          create: Téma létrehozása
+          title: Új téma
+        update:
+          error: Hiba történt a téma frissítésekor.
+          success: Téma frissítve sikeresen
       static_pages:
         actions:
           view: Nyilvános oldal megtekintése
@@ -557,11 +574,18 @@ hu:
           changed_notably_help: Ha be van jelölve, a felhasználók értesítést kapnak az új feltételekről.
           title: Oldal szerkesztése
           update: Frissítés
+        form:
+          none: Egyik sem
         index:
           last_notable_change: Utolsó jelentős változás
         new:
-          create: Létrehozás
+          create: Oldal létrehozása
           title: Új oldal
+        topic:
+          destroy: Távolítsa el a témát
+          edit: Téma szerkesztése
+          empty: Ebben a témában nincs oldal
+          without_topic: Téma nélküli oldalak
         update:
           error: Hiba történt az oldal frissítése során.
           success: Oldal frissítése sikeres
