@@ -596,6 +596,7 @@ fi:
     members:
       no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
+      help: auta
       home: Etusivu
     messaging:
       conversation_mailer:
@@ -711,6 +712,12 @@ fi:
           votes_count: Ääntä
         sub_hero:
           register: Rekisteröidy
+      index:
+        read_more: Lue lisää
+        standalone_pages: sivut
+        subheading: Selaa %{name}ohjesivujen kautta
+        title: auta
+        topics: aiheista
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
