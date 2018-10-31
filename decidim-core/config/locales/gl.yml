@@ -596,8 +596,8 @@ gl:
     members:
       no_members: Este grupo de usuarios aínda non ten ningún membro.
     menu:
+      help: Axuda
       home: Inicio
-      more_information: Máis información
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +713,11 @@ gl:
         sub_hero:
           register: Rexistrarse
       index:
-        title: Máis información
+        read_more: Le máis
+        standalone_pages: Páxinas
+        subheading: Navega polas páxinas de axuda de %{name}
+        title: Axuda
+        topics: Temas
       terms_and_conditions:
         accept:
           error: Produciuse un erro ao aceptar os termos e condicións.
