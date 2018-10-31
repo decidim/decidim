@@ -15,10 +15,6 @@ module Decidim
         root to: "surveys#show"
       end
 
-      initializer "decidim_surveys.assets" do |app|
-        app.config.assets.precompile += %w(decidim_surveys_manifest.js)
-      end
-
       initializer "decidim_changes" do
         Decidim::SettingsChange.subscribe "surveys" do |changes|
           Decidim::Surveys::SettingsChangeJob.perform_later(
