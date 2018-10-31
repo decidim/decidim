@@ -44,6 +44,7 @@ This module includes the following models to Decidim's Global Search:
 - `Proposals`
 
 ## Participatory Texts
+
 Participatory texts persist each section of the document in a Proposal.
 
 When importing participatory texts all formats are first transformed into Markdown and is the markdown that is parsed and processed to generate the corresponding Proposals.
