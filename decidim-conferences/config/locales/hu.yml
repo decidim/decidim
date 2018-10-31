@@ -2,7 +2,9 @@ hu:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Kapcsolódó szerelvények
         banner_image: Banner kép
+        consultations_ids: Kapcsolódó konzultációk
         copy_categories: Másolási kategóriák
         copy_components: Másoljon komponenseket
         copy_features: Másolási funkciók
@@ -10,6 +12,7 @@ hu:
         description: Leírás
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
+        participatory_processes_ids: Kapcsolódó Résztvevő folyamatok
         promoted: promotált
         published_at: Megjelent a
         scope_id: terület
@@ -117,6 +120,23 @@ hu:
         create:
           error: Hiba történt a konferencia másolása során.
           success: A konferencia sikeresen megismétlődött.
+      media_links:
+        create:
+          error: Hiba történt új média link létrehozása közben.
+          success: A Media Link sikeresen létrejött.
+        destroy:
+          success: A Media Link sikeresen törölve.
+        edit:
+          title: A média link frissítése.
+          update: frissítés
+        index:
+          media_links_title: Média linkek
+        new:
+          create: teremt
+          title: Media Link
+        update:
+          error: Hiba történt a média link frissítésekor.
+          success: A Media Link sikeresen frissült.
       menu:
         conferences: Konferenciák
         conferences_submenu:
@@ -130,7 +150,9 @@ hu:
           conference_registrations: Konferencia regisztrációk
           conference_speakers: Konferencia hangszórók
           info: Info
+          media_links: Média linkek
           moderations: moderálások
+          partners: Partners
       models:
         conference:
           fields:
@@ -154,6 +176,37 @@ hu:
             admin: Adminisztrátor
             collaborator: Együttműködő
             moderator: moderátor
+        media_link:
+          fields:
+            date: Dátum
+            link: Link
+            title: Cím
+          name: Media Link
+        partner:
+          fields:
+            link: Link
+            logo: logo
+            name: Név
+            partner_type: típus
+          name: Partner
+          types:
+            collaborator: Együttműködő
+            main_promotor: Fő promoter
+      partners:
+        create:
+          error: Hiba történt a konferencia partnerének hozzáadása esetén.
+          success: Partner sikeresen csatlakozott ehhez a konferenciához.
+        destroy:
+          success: A partner sikeresen eltávolította ezt a konferenciát.
+        edit:
+          title: Partner frissítése.
+          update: frissítés
+        new:
+          create: teremt
+          title: Új partner
+        update:
+          error: Hiba történt a konferencia partnerének frissítéséhez.
+          success: Partner sikeresen frissült a konferencia számára.
       titles:
         conferences: Konferenciák
     admin_log:
@@ -170,6 +223,9 @@ hu:
         create: "%{user_name} meghívott %{resource_name} a %{space_name} konferenciára"
         delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
         update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} konferencián"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Hangszórók
@@ -225,6 +281,9 @@ hu:
             decline: A "%{conference_title}" meghívása
             invited_you_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
             join: Csatlakozzon a "%{conference_title}"
+        partners:
+          index:
+            title: Partners
       conference:
         registration_confirm:
           cancel: Megszünteti
@@ -236,6 +295,15 @@ hu:
           remaining_slots:
             one: 1 hely marad
             other: "%{count} hely marad"
+      conference_program:
+        program_meeting:
+          content: Tartalom
+          location: Elhelyezkedés
+          speakers: Hangszórók
+          streaming: folyó
+        show:
+          day: Nap
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
@@ -265,6 +333,9 @@ hu:
         index:
           speakers: Hangszórók
       conferences:
+        partners:
+          collaborators: Az együttműködők
+          main_promotors: Fő promóterek
         show:
           already_account: Van már fiókja decidimben?
           login_as: A bejelentkezés %{name} <%{email}>
@@ -305,10 +376,20 @@ hu:
           highlighted_conferences:
             active_conferences: Aktív konferenciák
             see_all_conferences: Lásd az összes konferenciát
+      photo:
+        show:
+          close_modal: Közeli modal
+          photo: Fénykép
+      photos_list:
+        show:
+          related_photos: fotók
       show:
         details: Részletek
         introduction: Bevezetés
         objectives: célok
+        related_assemblies: Kapcsolódó szerelvények
+        related_consultations: Kapcsolódó konzultációk
+        related_participatory_processes: Kapcsolódó részvételi folyamatok
       statistics:
         answers_count: válaszok
         comments_count: Hozzászólások
@@ -347,6 +428,10 @@ hu:
       value_types:
         conference_presenter:
           not_found: 'A konferencia nem található az adatbázisban (ID: %{id})'
+    media:
+      index:
+        description: Linkek erről a konferenciáról
+        title: Média és linkek
     menu:
       conferences: Konferenciák
   devise:
@@ -372,6 +457,8 @@ hu:
           take_part: Részt vesz
       conferences_nav:
         conference_menu_item: Információ
+        conference_partners_menu_item: Partners
         conference_speaker_menu_item: Hangszórók
+        media: Média
         unfold: kibontakozik
         venues: helyszínek

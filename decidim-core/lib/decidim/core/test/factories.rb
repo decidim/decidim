@@ -5,7 +5,6 @@ require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
-require "decidim/conferences/test/factories"
 require "decidim/comments/test/factories"
 
 def generate_localized_title
@@ -31,6 +30,10 @@ FactoryBot.define do
 
   sequence(:email) do |n|
     "user#{n}@example.org"
+  end
+
+  sequence(:user_group_email) do |n|
+    "usergroup#{n}@example.org"
   end
 
   sequence(:slug) do |n|
@@ -142,14 +145,6 @@ FactoryBot.define do
     end
   end
 
-  factory :navbar_link, class: "Decidim::NavbarLink" do
-    organization
-    title { Decidim::Faker::Localized.word }
-    link { Faker::Internet.url }
-    target { ["blank", ""].sample }
-    weight { (1..10).to_a.sample }
-  end
-
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
     user
     privatable_to { create :participatory_process, organization: user.organization }
@@ -169,6 +164,7 @@ FactoryBot.define do
     end
 
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
+    email { generate(:user_group_email) }
     nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     organization

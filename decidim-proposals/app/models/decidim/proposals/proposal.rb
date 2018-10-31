@@ -20,13 +20,21 @@ module Decidim
       include Decidim::Fingerprintable
       include Decidim::DataPortability
       include Decidim::Hashtaggable
+      include Decidim::Proposals::ParticipatoryTextSection
 
       fingerprint fields: [:title, :body]
 
       component_manifest_name "proposals"
 
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
-      has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
+
+      has_many :votes,
+               -> { final },
+               foreign_key: "decidim_proposal_id",
+               class_name: "Decidim::Proposals::ProposalVote",
+               dependent: :destroy,
+               counter_cache: "proposal_votes_count"
+
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
       validates :title, :body, presence: true
@@ -39,7 +47,10 @@ module Decidim
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
+
+      acts_as_list scope: :decidim_component_id
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -62,19 +73,28 @@ module Decidim
         Decidim::Proposals::AdminLog::ProposalPresenter
       end
 
-      # Returns a collection scoped by user.
+      # Returns a collection scoped by an author.
       # Overrides this method in DataPortability to support Coauthorable.
-      def self.user_collection(user)
+      def self.user_collection(author)
+        return unless author.is_a?(Decidim::User)
+
         joins(:coauthorships)
           .where("decidim_coauthorships.coauthorable_type = ?", name)
-          .where("decidim_coauthorships.decidim_author_id = ?", user.id)
+          .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
+      end
+
+      # Public: Updates the vote count of this proposal.
+      #
+      # Returns nothing.
+      def update_votes_count
+        update!(proposal_votes_count: votes.count)
       end
 
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
       def voted_by?(user)
-        votes.where(author: user).any?
+        ProposalVote.where(proposal: self, author: user).any?
       end
 
       # Public: Check if the user has endorsed the proposal.
@@ -134,7 +154,7 @@ module Decidim
 
       # Public: Whether the proposal is official or not.
       def official?
-        authors.empty?
+        authors.first.is_a?(Decidim::Organization)
       end
 
       # Public: The maximum amount of votes allowed for this proposal.
@@ -168,7 +188,6 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         return true if draft?
-
         authored_by?(user) && !answered? && within_edit_time_limit? && !copied_from_other_component?
       end
 
@@ -213,7 +232,6 @@ module Decidim
       # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
         return true if draft?
-
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
       end

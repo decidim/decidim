@@ -50,6 +50,7 @@ module Decidim
             banner_image: @assembly.banner_image,
             promoted: @assembly.promoted,
             scope: @assembly.scope,
+            parent: @assembly.parent,
             developer_group: @assembly.developer_group,
             local_area: @assembly.local_area,
             target: @assembly.target,

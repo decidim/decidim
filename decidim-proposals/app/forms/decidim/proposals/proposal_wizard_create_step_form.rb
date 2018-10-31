@@ -28,7 +28,6 @@ module Decidim
 
       def proposal_length
         return unless body.presence
-
         length = current_component.settings.proposal_length
         errors.add(:body, :too_long, count: length) if body.length > length
       end

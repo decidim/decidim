@@ -325,6 +325,10 @@ it:
           not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: assemblee
+    metrics:
+      assemblies:
+        object: assiemi
+        title: assemblee
   errors:
     messages:
       cannot_be_blank: non può essere vuoto

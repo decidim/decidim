@@ -31,12 +31,19 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Debates::Engine.root}/app/views") # for partials
       end
 
+      initializer "decidim_debates.assets" do |app|
+        app.config.assets.precompile += %w(decidim_debates_manifest.js)
+      end
+
       initializer "decidim.debates.commented_debates_badge" do
         Decidim::Gamification.register_badge(:commented_debates) do |badge|
           badge.levels = [1, 5, 10, 30, 50]
+
+          badge.valid_for = [:user, :user_group]
+
           badge.reset = lambda do |user|
             debates = Decidim::Comments::Comment.where(
-              decidim_author_id: user.id,
+              author: user,
               decidim_root_commentable_type: "Decidim::Debates::Debate"\
             )
             debates.pluck(:decidim_root_commentable_id).uniq.count
@@ -47,15 +54,23 @@ module Decidim
           comment = Decidim::Comments::Comment.find(data[:comment_id])
           next unless comment.decidim_root_commentable_type == "Decidim::Debates::Debate"
 
-          author = comment.author
+          if comment.user_group.present?
+            comments = Decidim::Comments::Comment.where(
+              decidim_root_commentable_id: comment.decidim_root_commentable_id,
+              decidim_root_commentable_type: comment.decidim_root_commentable_type,
+              user_group: comment.user_group
+            )
 
-          comments = Decidim::Comments::Comment.where(
-            decidim_root_commentable_id: comment.decidim_root_commentable_id,
-            decidim_root_commentable_type: comment.decidim_root_commentable_type,
-            author: author
-          )
+            Decidim::Gamification.increment_score(comment.user_group, :commented_debates) if comments.count == 1
+          elsif comment.author.present?
+            comments = Decidim::Comments::Comment.where(
+              decidim_root_commentable_id: comment.decidim_root_commentable_id,
+              decidim_root_commentable_type: comment.decidim_root_commentable_type,
+              author: comment.author
+            )
 
-          Decidim::Gamification.increment_score(author, :commented_debates) if comments.count == 1
+            Decidim::Gamification.increment_score(comment.author, :commented_debates) if comments.count == 1
+          end
         end
       end
     end

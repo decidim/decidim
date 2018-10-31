@@ -19,7 +19,6 @@ module Decidim
         attribute :personal_url, String
         attribute :avatar
         attribute :remove_avatar
-        attribute :personal_url
         attribute :user_id, Integer
         attribute :existing_user, Boolean, default: false
         attribute :conference_meeting_ids, Array[Integer]
@@ -51,7 +50,6 @@ module Decidim
         def conference_meetings
           meeting_components = current_participatory_space.components.where(manifest_name: "meetings")
           return unless meeting_components || conference_meeting_ids.delete("").present?
-
           @conference_meetings ||= Decidim::ConferenceMeeting.where(component: meeting_components).where(id: conference_meeting_ids)
         end
 

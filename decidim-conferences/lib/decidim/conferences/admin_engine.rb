@@ -18,6 +18,8 @@ module Decidim
           resource :publish, controller: "conference_publications", only: [:create, :destroy]
           resources :copies, controller: "conference_copies", only: [:new, :create]
           resources :speakers, controller: "conference_speakers"
+          resources :partners, controller: "partners", except: [:show]
+          resources :media_links, controller: "media_links"
           resources :conference_invites, only: [:index, :new, :create]
           resources :conference_registrations, only: :index do
             collection do

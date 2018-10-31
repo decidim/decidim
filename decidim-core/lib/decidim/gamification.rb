@@ -14,6 +14,7 @@ module Decidim
     #
     # Returns a `BadgeStatus` instance.
     def self.status_for(user, badge_name)
+      return unless user.is_a?(Decidim::UserBaseEntity)
       BadgeStatus.new(user, find_badge(badge_name))
     end
 
@@ -25,6 +26,8 @@ module Decidim
     #
     # Returns nothing.
     def self.increment_score(user, badge_name, amount = 1)
+      return unless amount.positive?
+      return unless user.is_a?(Decidim::UserBaseEntity)
       BadgeScorer.new(user, find_badge(badge_name)).increment(amount)
     end
 
@@ -36,6 +39,8 @@ module Decidim
     #
     # Returns nothing.
     def self.decrement_score(user, badge_name, amount = 1)
+      return unless amount.positive?
+      return unless user.is_a?(Decidim::UserBaseEntity)
       BadgeScorer.new(user, find_badge(badge_name)).decrement(amount)
     end
 
@@ -47,6 +52,7 @@ module Decidim
     #
     # Returns nothing.
     def self.set_score(user, badge_name, score)
+      return unless user.is_a?(Decidim::UserBaseEntity)
       BadgeScorer.new(user, find_badge(badge_name)).set(score)
     end
 
@@ -91,14 +97,14 @@ module Decidim
     #
     # Returns nothing.
     def self.reset_badges(users = nil)
-      users ||= User.all
+      return reset_badges(User.all) && reset_badges(UserGroup.all) unless users
 
       badges.each do |badge|
         Rails.logger.info "Resetting #{badge.name}..."
 
         if badge.reset
           users.find_each do |user|
-            set_score(user, badge.name, badge.reset.call(user))
+            set_score(user, badge.name, badge.reset.call(user)) if badge.valid_for?(user)
           end
         else
           Rails.logger.info "Badge can't be reset since it doesn't have a reset method."

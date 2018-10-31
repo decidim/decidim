@@ -257,6 +257,10 @@ nl:
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     menu:
       processes: Thema's
+    metrics:
+      participatory_processes:
+        object: participatieve processen
+        title: Participatieve processen
     participatory_process_groups:
       show:
         group_participatory_processes:

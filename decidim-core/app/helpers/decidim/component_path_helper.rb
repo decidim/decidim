@@ -32,5 +32,15 @@ module Decidim
       current_params = try(:params) || {}
       EngineRouter.admin_proxy(component).root_path(locale: current_params[:locale])
     end
+
+    # Returns whether the component can be managed or not by checking if it has
+    # an admin engine.
+    #
+    # component - the Component we want to find if it's manageable or not.
+    #
+    # Returns a boolean matching the question.
+    def can_be_managed?(component)
+      component.manifest.admin_engine.present?
+    end
   end
 end

@@ -84,7 +84,6 @@ module Decidim
         return "active" if process_count_by_filter["active"].positive?
         return "upcoming" if process_count_by_filter["upcoming"].positive?
         return "past" if process_count_by_filter["past"].positive?
-
         "active"
       end
 

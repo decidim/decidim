@@ -8,7 +8,6 @@ module Decidim
 
       def show
         return if Decidim.geocoder.blank?
-
         render
       end
 

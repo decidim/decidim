@@ -5,6 +5,8 @@ module Decidim
     # This class is responsible to figure out the status of a user regarding
     # a certain badge.
     class BadgeStatus
+      attr_reader :badge
+
       # Public: Initializes the `BadgeStatus`.
       #
       # user  - The user of whom to check the status.
@@ -27,7 +29,6 @@ module Decidim
       # Returns an Integer with the remaining score.
       def next_level_in
         return nil if level >= @badge.levels.count
-
         @badge.levels[level] - score
       end
 

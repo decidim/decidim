@@ -543,6 +543,7 @@ en:
           error: There was an error adding a private user for this participatory space.
           success: Participatory space private user access created successfully.
         destroy:
+          error: There was an error deleting a private user for this participatory space.
           success: Participatory space private user access destroyed successfully.
         index:
           title: Participatory space private user

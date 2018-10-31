@@ -92,6 +92,10 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je bent getagd in %{resource_title}.
           email_subject: Je bent getagd in %{resource_title}
           notification_title: Je bent getagd in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        object: opmerkingen
+        title: Comments
   errors:
     messages:
       cannot_have_comments: Kan geen reacties hebben

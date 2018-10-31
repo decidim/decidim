@@ -29,26 +29,6 @@ Decidim.register_component(:debates) do |component|
     Decidim::Debates::Debate.where(component: components).count
   end
 
-  component.exports :debates do |exports|
-    exports.collection do |component_instance|
-      Decidim::Debates::Debate
-        .where(component: component_instance)
-        .includes(:category, component: { participatory_space: :organization })
-    end
-
-    exports.serializer Decidim::Debates::DebateSerializer
-  end
-
-  component.exports :comments do |exports|
-    exports.collection do |component_instance|
-      Decidim::Comments::Export.comments_for_resource(
-        Decidim::Debates::Debate, component_instance
-      )
-    end
-
-    exports.serializer Decidim::Comments::CommentSerializer
-  end
-
   component.register_resource(:debate) do |resource|
     resource.model_class_name = "Decidim::Debates::Debate"
     resource.card = "decidim/debates/debate"
@@ -90,7 +70,8 @@ Decidim.register_component(:debates) do |component|
           Decidim::Faker::Localized.paragraph(3)
         end,
         start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours
+        end_time: 3.weeks.from_now + 4.hours,
+        author: component.organization
       }
 
       debate = Decidim.traceability.create!(

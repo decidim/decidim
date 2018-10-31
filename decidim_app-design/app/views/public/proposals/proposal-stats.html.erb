@@ -12,8 +12,20 @@
     <h2 class="section-heading">Esta propuesta en números</h2>
   </div>
   <div class="row columns">
-    <h3 class="heading3">Participantes</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
+    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, percent: true, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+  </div>
+  <div class="row columns">
+    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, percent: true, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+  </div>
+  <div class="row columns">
+    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+  </div>
+  <div class="row columns">
+    <%= partial "linechart", ratio: "16:9", metric: "linechart-0", title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
   </div>
 </main>
 

@@ -21,8 +21,7 @@ module Decidim
             invalid?: invalid,
             title: { en: title },
             body: { en: body },
-            current_component: current_component,
-            decidim_author_id: current_user.id
+            current_component: current_component
           )
         end
 
@@ -53,7 +52,7 @@ module Decidim
 
           it "sets the author" do
             subject.call
-            expect(post.decidim_author_id).to eq current_user.id
+            expect(post.author).to eq current_user
           end
 
           it "sets the component" do

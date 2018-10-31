@@ -103,6 +103,7 @@ describe "Profile", type: :system do
       context "when badges are enabled" do
         before do
           user.organization.update(badges_enabled: true)
+          Decidim::Gamification.set_score(user, :test, 10)
           visit decidim.profile_path(user.nickname)
         end
 
@@ -112,7 +113,7 @@ describe "Profile", type: :system do
 
         it "shows a badges section on the sidebar" do
           within ".profile--sidebar" do
-            expect(page).to have_content("Badges")
+            expect(page).to have_css(".badge-container img[title^='Tests']")
           end
         end
       end
@@ -136,16 +137,19 @@ describe "Profile", type: :system do
     end
 
     context "when belonging to user groups" do
-      let!(:user_group) { create :user_group, users: [user], organization: user.organization }
+      let!(:accepted_user_group) { create :user_group, users: [user], organization: user.organization }
+      let!(:pending_user_group) { create :user_group, users: [], organization: user.organization }
+      let!(:pending_membership) { create :user_group_membership, user_group: pending_user_group, user: user, role: "requested" }
 
       before do
         visit decidim.profile_path(user.nickname)
       end
 
       it "lists the user groups" do
-        click_link "Organizations"
+        click_link "Groups"
 
-        expect(page).to have_content(user_group.name)
+        expect(page).to have_content(accepted_user_group.name)
+        expect(page).to have_no_content(pending_user_group.name)
       end
     end
   end

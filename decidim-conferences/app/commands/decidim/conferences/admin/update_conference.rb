@@ -23,8 +23,10 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
-
           update_conference
+          link_participatory_processes
+          link_assemblies
+          link_consultations
 
           if @conference.valid?
             broadcast(:ok, @conference)
@@ -127,6 +129,31 @@ module Decidim
           Decidim::Conferences::UpcomingConferenceNotificationJob
             .set(wait_until: (@conference.start_date - 2.days).to_s)
             .perform_later(@conference.id, checksum)
+        end
+
+        def participatory_processes
+          @participatory_processes ||= @conference.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
+        end
+
+        def link_participatory_processes
+          @conference.link_participatory_spaces_resources(participatory_processes, "included_participatory_processes")
+        end
+
+        def assemblies
+          @assemblies ||= @conference.participatory_space_sibling_scope(:assemblies).where(id: @form.assemblies_ids)
+        end
+
+        def link_assemblies
+          @conference.link_participatory_spaces_resources(assemblies, "included_assemblies")
+        end
+
+        def consultations
+          @consultations ||= @conference.participatory_space_sibling_scope(:consultations)
+                                        .where(id: @form.consultations_ids)
+        end
+
+        def link_consultations
+          @conference.link_participatory_spaces_resources(consultations, "included_consultations")
         end
       end
     end

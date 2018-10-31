@@ -4,10 +4,10 @@ module Decidim
   module Comments
     # A cell to display when a comment has been created.
     class CommentActivityCell < ActivityCell
-      delegate :commentable, to: :comment
+      delegate :root_commentable, to: :comment
 
       def renderable?
-        comment.present? && commentable.present?
+        comment.present? && root_commentable.present?
       end
 
       def resource_link_text
@@ -15,15 +15,15 @@ module Decidim
       end
 
       def resource_link_path
-        resource_locator(commentable).path(url_params)
+        resource_locator(root_commentable).path(url_params)
       end
 
       def title
         I18n.t(
           "decidim.comments.last_activity.new_comment_at_html",
           link: link_to(
-            translated_attribute(commentable.title),
-            resource_locator(commentable).path
+            translated_attribute(root_commentable.title),
+            resource_locator(root_commentable).path
           )
         )
       end

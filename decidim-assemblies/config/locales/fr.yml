@@ -328,6 +328,10 @@ fr:
           not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
+    metrics:
+      assemblies:
+        object: assemblées
+        title: Assemblages
   errors:
     messages:
       cannot_be_blank: ne peut être vide

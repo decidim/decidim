@@ -18,7 +18,7 @@ describe "User group verification status on account page", type: :system do
     it "the user can check its status on his account page" do
       visit decidim.own_user_groups_path
 
-      click_link "Organizations"
+      click_link "Groups"
 
       expect(page).to have_content(user_group.name)
       expect(page).to have_content("Pending")
@@ -37,7 +37,7 @@ describe "User group verification status on account page", type: :system do
     it "the user can check its status on his account page" do
       visit decidim.own_user_groups_path
 
-      click_link "Organizations"
+      click_link "Groups"
 
       expect(page).to have_content(user_group.name)
       expect(page).to have_content("Rejected")
@@ -50,7 +50,7 @@ describe "User group verification status on account page", type: :system do
     it "the user can check its status on his account page" do
       visit decidim.own_user_groups_path
 
-      click_link "Organizations"
+      click_link "Groups"
 
       expect(page).to have_content(user_group.name)
       expect(page).to have_content("Verified")

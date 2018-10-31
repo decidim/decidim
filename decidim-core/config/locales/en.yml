@@ -18,9 +18,14 @@ en:
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
+      decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
       decidim/gamification/level_up_event: You've leveled up
+      decidim/join_request_accepted_event: Join request accepted
+      decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
+      decidim/promote_to_admin: Promoted to group admin
+      decidim/removed_from_group: Removed from group
   activerecord:
     attributes:
       decidim/user:
@@ -42,11 +47,12 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
-      file_too_big: The file is too big
       image_too_big: The image is too big
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -98,6 +104,9 @@ en:
         update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
         update: "%{user_name} updated the organization settings"
+      participatory_space_private_user:
+        create: "%{user_name} invited %{resource_name} to be a private user"
+        delete: "%{user_name} removed the user %{resource_name} as a private user"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
         create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
@@ -344,13 +353,44 @@ en:
           email_outro: You have received this notification because you made activity on our website.
           email_subject: You've reached level %{current_level} on the %{badge_name} badge!
           notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+      groups:
+        demoted_membership:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are no longer an admin of the %{user_group_name} group!
+          notification_title: You are no longer an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
+        invited_to_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has invited you to join it.
+          email_outro: You have received this notification because you have been invited to an group. Please check the Groups tab in your profile to approve it.
+          email_subject: You have been invited to join the %{user_group_name} group!
+          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> group. Check the <a href="%{groups_profile_tab_path}">Groups page</a> in your profile to approve it!
+        join_request_accepted:
+          email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has accepted your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: You have been accepted to the %{user_group_name} group!
+          notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> group.
+        join_request_created:
+          email_intro: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_url}">the group members page</a>.
+          email_outro: You have received this notification because you can manage the %{user_group_name} group.
+          email_subject: Someone requested to join the %{user_group_name} group!
+          notification_title: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_path}">the group members page</a>.
+        join_request_rejected:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group rejected your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: Your request to join the %{user_group_name} group has been rejected!
+          notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> group has been rejected.
+        promoted_to_admin:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has given you admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are now an admin of the %{user_group_name} group!
+          notification_title: You are now an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
+        removed_from_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed you from it.
+          email_outro: You have received this notification because you were a member of that group.
+          email_subject: You have been removed from the %{user_group_name} group!
+          notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -442,14 +482,82 @@ en:
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+    group_admins:
+      actions:
+        are_you_sure: Are you sure? This won't remove the user from the group.
+        demote_admin: Remove admin
+      demote:
+        error: There was an error removing this user from the admins list
+        success: User removed from admin successfully
+      index:
+        current_admins: 'Current admins:'
+        manage_admins: Manage admins
+    group_invites:
+      accept:
+        error: There was an error accepting this invitation
+        success: Invitation accepted successfully
+      accept_invitation: Accept
+      accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
+      index:
+        invite: Invite
+        invite_user: Invite a user
+      invite:
+        error: There was an error inviting this user
+        success: User invited successfully
+      reject:
+        error: There was an error rejecting this invitation
+        success: Invitation rejected successfully
+      reject_invitation: Reject
+    group_members:
+      accept:
+        error: There was an error accepting this join request
+        success: Join request accepted successfully
+      actions:
+        are_you_sure: Are you sure?
+        promote_to_admin: Make admin
+        remove_from_group: Remove user
+      index:
+        current_members_without_admins: 'Current members (without admins):'
+        manage_members: Manage members
+      promote:
+        error: There was an error promoting this user
+        success: User promoted successfully
+      reject:
+        error: There was an error rejecting this join request
+        success: Join request rejected successfully
+      remove:
+        error: There was an error removing this user from the group
+        success: User removed from the group successfully
     groups:
+      actions:
+        are_you_sure: Are you sure?
       create:
-        error: There has been a problem creating the organization
-        success: Organization created successfully
+        error: There has been a problem creating the group
+        success: Group created successfully
+      edit:
+        edit_user_group: Edit group
+        update_user_group: Update group
+      join:
+        error: There has been a problem joining the group
+        success: Join request created successfully. An admin will review your request before accepting you to the group.
+      leave:
+        error: There has been a problem leaving the group
+        success: Group left successfully.
+      members:
+        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
+        accept_request: Accept
+        reject_request: Reject
       new:
-        create_user_group: Create organization
-        new_user_group: New organization
-      no_user_groups: Doesn't belong to any organization yet.
+        create_user_group: Create group
+        new_user_group: New group
+      no_user_groups: Doesn't belong to any group yet.
+      roles:
+        admin: Administrator
+        creator: Creator
+        member: Member
+      update:
+        error: There has been a problem updating the group
+        success: Group updated successfully
     invitations:
       create:
         error: There were some problems while inviting your friends
@@ -635,7 +743,6 @@ en:
       deleted: Deleted user
       view: View
     profiles:
-      default_officialization_text: Default officialization text
       default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
@@ -643,7 +750,7 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
-        groups: Organizations
+        groups: Groups
         members: Members
         notifications: Notifications
       sidebar:
@@ -651,8 +758,14 @@ en:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
-        create_user_group: Create organization
+        create_user_group: Create group
         edit_profile: Edit profile
+        edit_user_group: Edit group profile
+        invite_user: Invite user
+        join_user_group: Request to join group
+        leave_user_group: Leave group
+        manage_user_group_admins: Manage admins
+        manage_user_group_users: Manage members
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -928,7 +1041,7 @@ en:
         my_data: My data
         notifications_settings: Notifications settings
         title: User settings
-        user_groups: Organizations
+        user_groups: Groups
       widget:
         see_more: See more
   locale:

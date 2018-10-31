@@ -32,6 +32,19 @@ module Decidim
           # Every user allowed by the space can import proposals from another_component
           allow! if permission_action.subject == :proposals && permission_action.action == :import
 
+          # Every user allowed by the space can merge proposals to another component
+          allow! if permission_action.subject == :proposals && permission_action.action == :merge
+
+          # Every user allowed by the space can split proposals to another component
+          allow! if permission_action.subject == :proposals && permission_action.action == :split
+
+          if permission_action.subject == :participatory_texts && participatory_texts_are_enabled?
+            # Every user allowed by the space can import participatory texts to proposals
+            allow! if permission_action.action == :import
+            # Every user allowed by the space can publish participatory texts to proposals
+            allow! if permission_action.action == :publish
+          end
+
           permission_action
         end
 
@@ -48,8 +61,7 @@ module Decidim
 
         def admin_edition_is_available?
           return unless proposal
-
-          admin_creation_is_enabled? && proposal.official? && proposal.within_edit_time_limit?
+          proposal.official? && proposal.votes.empty?
         end
 
         def admin_proposal_answering_is_enabled?
@@ -59,6 +71,10 @@ module Decidim
 
         def create_permission_action?
           permission_action.action == :create
+        end
+
+        def participatory_texts_are_enabled?
+          component_settings.participatory_texts_enabled?
         end
       end
     end

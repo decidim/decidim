@@ -19,6 +19,7 @@ module Decidim
       notification_action?
       conversation_action?
       user_group_action?
+      user_group_invitations_action?
 
       permission_action
     end
@@ -28,13 +29,11 @@ module Decidim
     def read_public_pages_action?
       return unless permission_action.subject == :public_page &&
                     permission_action.action == :read
-
       allow!
     end
 
     def locales_action?
       return unless permission_action.subject == :locales
-
       allow!
     end
 
@@ -45,25 +44,21 @@ module Decidim
       return allow! if component.published?
       return allow! if user_can_admin_component?
       return allow! if user_can_admin_component_via_space?
-
       disallow!
     end
 
     def search_scope_action?
       return unless permission_action.subject == :scope
-
       toggle_allow([:search, :pick].include?(permission_action.action))
     end
 
     def manage_self_user_action?
       return unless permission_action.subject == :user
-
       toggle_allow(context.fetch(:current_user, nil) == user)
     end
 
     def authorization_action?
       return unless permission_action.subject == :authorization
-
       authorization = context.fetch(:authorization, nil)
 
       case permission_action.action
@@ -100,7 +95,21 @@ module Decidim
 
     def user_group_action?
       return unless permission_action.subject == :user_group
-      return allow! if [:create].include?(permission_action.action)
+      return allow! if [:join, :create].include?(permission_action.action)
+
+      user_group = context.fetch(:user_group)
+
+      if permission_action.action == :leave
+        user_can_leave_group = Decidim::UserGroupMembership.where(user: user, user_group: user_group).where.not(role: :creator).any?
+        return toggle_allow(user_can_leave_group)
+      end
+
+      user_manages_group = Decidim::UserGroups::ManageableUserGroups.for(user).include?(user_group)
+      toggle_allow(user_manages_group) if permission_action.action == :manage
+    end
+
+    def user_group_invitations_action?
+      allow! if permission_action.subject == :user_group_invitations
     end
 
     def user_can_admin_component?

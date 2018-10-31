@@ -283,6 +283,14 @@ describe "Participatory Processes", type: :system do
           expect(page).to have_no_content("#")
         end
       end
+
+      context "and the process doesn't have hashtag" do
+        let(:hashtag) { false }
+
+        it "the stats for those components are not visible" do
+          expect(page).to have_no_content("#")
+        end
+      end
     end
   end
 end

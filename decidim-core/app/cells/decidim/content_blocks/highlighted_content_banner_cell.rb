@@ -7,7 +7,6 @@ module Decidim
 
       def show
         return unless current_organization.highlighted_content_banner_enabled
-
         render
       end
 

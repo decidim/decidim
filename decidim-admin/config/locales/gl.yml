@@ -543,6 +543,7 @@ gl:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
           success: O acceso ao usuario privado do espazo participativo creouse con éxito.
         destroy:
+          error: Produciuse un erro ao eliminar un usuario privado deste espazo participativo.
           success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
         index:
           title: Espazo participativo usuario privado

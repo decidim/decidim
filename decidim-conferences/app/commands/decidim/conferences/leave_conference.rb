@@ -21,7 +21,6 @@ module Decidim
         @conference.with_lock do
           return broadcast(:invalid) unless registration
           return broadcast(:invalid) unless meetings_registrations
-
           destroy_registration
           destroy_meeting_registration
         end

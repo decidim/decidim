@@ -258,6 +258,10 @@ es:
           notification_title: Se han actualizado las fechas de la fase <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Procesos
+    metrics:
+      participatory_processes:
+        object: procesos participativos
+        title: Procesos participativos
     participatory_process_groups:
       show:
         group_participatory_processes:

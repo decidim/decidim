@@ -91,7 +91,6 @@ module Decidim
 
         def invitation_instructions
           return "invite_admin" if form.role == "admin"
-
           "invite_collaborator"
         end
 

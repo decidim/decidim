@@ -1,11 +1,10 @@
----
 fr:
   activemodel:
     attributes:
       result:
         decidim_accountability_status_id: Statut
         decidim_category_id: Catégorie
-        decidim_scope_id: Secteur
+        decidim_scope_id: Périmètre d'application
         description: Description
         end_date: Date de fin
         progress: Avancement
@@ -144,7 +143,7 @@ fr:
             other: "%{count} réalisations"
         filters:
           all: Tous
-          scopes: Secteur
+          scopes: Périmètre d'application
         home:
           categories_label: Catégories
           subcategories_label: Sous-catégories
@@ -202,6 +201,10 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Une mise à jour de %{proposal_title}
           notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans la réalisation <a href="%{resource_path}">%{resource_title}</a>.
+    metrics:
+      results:
+        object: résultats
+        title: Résultats
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

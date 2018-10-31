@@ -14,7 +14,6 @@ module Decidim
         def present
           return unless value
           return h.translated_attribute(conference.title) if conference
-
           I18n.t("not_found", id: value, scope: "decidim.log.value_types.conference_presenter")
         end
 

@@ -70,6 +70,16 @@ module Decidim
           command.call
         end.to change(UserGroupMembership, :count).by(-1)
       end
+
+      it "deletes the follows" do
+        other_user = create(:user)
+        create(:follow, followable: user, user: other_user)
+        create(:follow, followable: other_user, user: user)
+
+        expect do
+          command.call
+        end.to change(Follow, :count).by(-2)
+      end
     end
   end
 end

@@ -49,7 +49,7 @@ RSpec.configure do |config|
   end
 
   config.around :each, :slow do |example|
-    max_wait_time_for_slow_specs = 7
+    max_wait_time_for_slow_specs = 12
 
     using_wait_time(max_wait_time_for_slow_specs) do
       example.run

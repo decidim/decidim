@@ -30,12 +30,14 @@ module Decidim
 
         def author_presenter
           return unless author
-
           @author_presenter ||= Decidim::UserPresenter.new(author)
         end
 
         def author
-          resource.creator_author if resource.respond_to?(:creator_author)
+          return unless resource.respond_to?(:creator_author)
+          return unless resource.creator_author.is_a?(Decidim::UserBaseEntity)
+
+          resource.creator_author
         end
       end
     end

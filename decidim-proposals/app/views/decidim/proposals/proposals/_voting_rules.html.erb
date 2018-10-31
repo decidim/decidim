@@ -1,6 +1,6 @@
-<% if votes_enabled? && (vote_limit_enabled? || threshold_per_proposal_enabled? || proposal_limit_enabled? || can_accumulate_supports_beyond_threshold?) %>
-  <div class="row column">
-    <div class="callout secondary voting-rules">
+<% if show_voting_rules? %>
+  <div class="row column voting-rules">
+    <div class="callout secondary">
       <div class="row">
         <div class="columns medium-8 large-9">
           <h3 class="heading3"><%= t(".title") %></h3>
@@ -20,6 +20,17 @@
             <% if can_accumulate_supports_beyond_threshold? %>
               <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
             <% end %>
+
+            <% if minimum_votes_per_user_enabled? %>
+              <li>
+                <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
+                <% if votes_given >= minimum_votes_per_user %>
+                  <%= t(".minimum_votes_per_user.given_enough_votes") %>
+                <% else %>
+                  <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
+                <% end %>
+              </li>
+            <% end %>
           </ul>
         </div>
         <% if current_user_can_vote? %>
@@ -27,7 +38,7 @@
             <div class="card card--nomargin text-center remaining-votes-counter">
               <div class="card__content">
                 <span class="definition-data__title"><%= t(".vote_limit.left", limit: component_settings.vote_limit) %></span>
-                <%= render partial: "remaining_votes_count" %>
+                <%= render partial: "decidim/proposals/proposals/remaining_votes_count" %>
                 <span class="extra__suport-text"><%= t(".vote_limit.votes") %></span>
               </div>
             </div>

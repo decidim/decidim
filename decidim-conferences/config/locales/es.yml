@@ -1,9 +1,10 @@
----
 es:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Asambleas relacionadas
         banner_image: Imagen de banner
+        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
         copy_features: Copiar funciones
@@ -11,6 +12,7 @@ es:
         description: Descripción
         hashtag: Hashtag
         hero_image: Imagen de inicio
+        participatory_processes_ids: Procesos participativos relacionados
         promoted: Promovido
         published_at: Publicado en
         scope_id: Alcance
@@ -118,6 +120,23 @@ es:
         create:
           error: Hubo un error al duplicar esta conferencia.
           success: Conferencia duplicada con éxito.
+      media_links:
+        create:
+          error: Se ha producido un error al crear un nuevo enlace de medios.
+          success: Enlace de medios creado con éxito.
+        destroy:
+          success: Enlace de medios eliminado con éxito.
+        edit:
+          title: Actualizar enlace de medios.
+          update: Actualizar
+        index:
+          media_links_title: Enlaces de medios
+        new:
+          create: Crear
+          title: Enlace de medios
+        update:
+          error: Hubo un error al actualizar este enlace de medios.
+          success: Enlace de medios actualizado con éxito.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -131,7 +150,9 @@ es:
           conference_registrations: Registros de conferencia
           conference_speakers: Conferenciantes
           info: Información
+          media_links: Enlaces de medios
           moderations: Moderaciones
+          partners: Fogonadura
       models:
         conference:
           fields:
@@ -155,6 +176,37 @@ es:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Fecha
+            link: Enlazar
+            title: Título
+          name: Enlace de medios
+        partner:
+          fields:
+            link: Enlazar
+            logo: Logo
+            name: Nombre
+            partner_type: Tipo
+          name: Compañero
+          types:
+            collaborator: Colaborador
+            main_promotor: Promotor principal
+      partners:
+        create:
+          error: Hubo un error al agregar un socio para esta conferencia.
+          success: Socio agregado exitosamente a esta conferencia.
+        destroy:
+          success: Socio eliminado con éxito de esta conferencia.
+        edit:
+          title: Actualizacion de socio.
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo compañero
+        update:
+          error: Hubo un error actualizado de un socio para esta conferencia.
+          success: Socio actualizado exitosamente para esta conferencia.
       titles:
         conferences: Conferencias
     admin_log:
@@ -171,6 +223,9 @@ es:
         create: "%{user_name} invitados %{resource_name} a la %{space_name} conferencia"
         delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
         update: "%{user_name} cambió el rol de %{resource_name} en la %{space_name} conferencia"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Altavoces
@@ -226,6 +281,9 @@ es:
             decline: Rechazar invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} ha invitado a unirse a una conferencia en %{application}. Puede rechazarlo o aceptarlo a través de los enlaces a continuación."
             join: Únete a la conferencia '%{conference_title}'
+        partners:
+          index:
+            title: Fogonadura
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -237,6 +295,15 @@ es:
           remaining_slots:
             one: 1 ranura restante
             other: "%{count} ranuras restantes"
+      conference_program:
+        program_meeting:
+          content: Contenido
+          location: Ubicación
+          speakers: Ponentes
+          streaming: Transmisión
+        show:
+          day: Día
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Su registro para la conferencia <a href="%{url}">%{title}</a> ha sido confirmado.
@@ -266,11 +333,14 @@ es:
         index:
           speakers: Altavoces
       conferences:
+        partners:
+          collaborators: Colaboradores
+          main_promotors: Promotores principales
         show:
-          already_account: "¿Ya tienes una cuenta en decidim?"
+          already_account: '¿Ya tienes una cuenta en decidim?'
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Haga su inscripción en la conferencia:'
-          new_user: "¿Nuevo usuario?"
+          new_user: '¿Nuevo usuario?'
           register: Registro
           sign_in: Inicie sesión para registrarse en esta conferencia
           sign_up: Regístrese gratis en decidim para registrarse
@@ -306,10 +376,20 @@ es:
           highlighted_conferences:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas las conferencias
+      photo:
+        show:
+          close_modal: Cerrar modal
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: Las fotos
       show:
         details: Detalles
         introduction: Introducción
         objectives: Objetivos
+        related_assemblies: Asambleas relacionadas
+        related_consultations: Consultas Relacionadas
+        related_participatory_processes: Procesos participativos relacionados
       statistics:
         answers_count: Respuestas
         comments_count: Comentarios
@@ -348,6 +428,10 @@ es:
       value_types:
         conference_presenter:
           not_found: 'La conferencia no se encontró en la base de datos (ID: %{id})'
+    media:
+      index:
+        description: Enlaces sobre esta conferencia
+        title: Medios y enlaces
     menu:
       conferences: Conferencias
   devise:
@@ -373,6 +457,8 @@ es:
           take_part: Participar
       conferences_nav:
         conference_menu_item: Información
+        conference_partners_menu_item: Fogonadura
         conference_speaker_menu_item: Altavoces
+        media: Medios de comunicación
         unfold: Desplegar
         venues: Sedes

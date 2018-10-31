@@ -4,9 +4,8 @@ module Decidim
   module Proposals
     module Metrics
       class VotesMetricManage < Decidim::MetricManage
-        def initialize(day_string, organization)
-          super(day_string, organization)
-          @metric_name = "votes"
+        def metric_name
+          "votes"
         end
 
         def save
@@ -15,7 +14,6 @@ module Decidim
           @registry = []
           cumulative.each do |key, cumulative_value|
             next if cumulative_value.zero?
-
             quantity_value = quantity[key] || 0
             category_id, space_type, space_id, proposal_id = key
             record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
@@ -43,7 +41,10 @@ module Decidim
                                                    .left_outer_joins(proposal: :category)
                                                    .where(proposal: proposals)
           @query = @query.where("decidim_proposals_proposal_votes.created_at <= ?", end_time)
-          @query = @query.group("decidim_categorizations.id", :participatory_space_type, :participatory_space_id, :decidim_proposal_id)
+          @query = @query.group("decidim_categorizations.id",
+                                :participatory_space_type,
+                                :participatory_space_id,
+                                :decidim_proposal_id)
           @query
         end
 

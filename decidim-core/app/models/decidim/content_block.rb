@@ -66,7 +66,6 @@ module Decidim
     # block manifest.
     def images_container
       return @images_container if @images_container
-
       manifest = self.manifest
 
       @images_container = Class.new do

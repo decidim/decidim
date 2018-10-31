@@ -331,6 +331,10 @@ pl:
           not_found: 'Zestaw nie został znaleziony w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
+    metrics:
+      assemblies:
+        object: zespoły
+        title: Złożenia
   errors:
     messages:
       cannot_be_blank: nie może być puste

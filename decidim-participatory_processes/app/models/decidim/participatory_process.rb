@@ -72,7 +72,6 @@ module Decidim
 
     def past?
       return false if end_date.blank?
-
       end_date < Date.current
     end
 
@@ -91,7 +90,6 @@ module Decidim
     def can_participate?(user)
       return true unless private_space?
       return true if private_space? && users.include?(user)
-
       false
     end
 

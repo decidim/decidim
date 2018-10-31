@@ -325,6 +325,10 @@ eu:
           not_found: 'Ez da muntaia aurkitu datu-basean (ID: %{id})'
     menu:
       assemblies: Biltzarrak
+    metrics:
+      assemblies:
+        object: batzarrak
+        title: Batzar
   errors:
     messages:
       cannot_be_blank: ezin da hutsik egon

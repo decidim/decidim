@@ -26,7 +26,6 @@ module Decidim
 
       def button_classes
         return "button expanded button--sc" if big_button?
-
         "button card__button button--sc small"
       end
 
@@ -36,7 +35,6 @@ module Decidim
 
       def i18n_join_text
         return I18n.t("join", scope: "decidim.conferences.conference.show") if model.has_available_slots?
-
         I18n.t("no_slots_available", scope: "decidim.conferences.conference.show")
       end
     end

@@ -35,7 +35,10 @@ module Decidim
         end
 
         def author
-          resource.author if resource.respond_to?(:author)
+          return unless resource.respond_to?(:author)
+          return unless resource.author.is_a?(Decidim::UserBaseEntity)
+
+          resource.author
         end
       end
     end

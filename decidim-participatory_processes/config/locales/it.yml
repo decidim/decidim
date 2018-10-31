@@ -257,6 +257,10 @@ it:
           notification_title: Le date per il passaggio <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> sono state aggiornate.
     menu:
       processes: Processi
+    metrics:
+      participatory_processes:
+        object: processi partecipativi
+        title: Processi partecipativi
     participatory_process_groups:
       show:
         group_participatory_processes:

@@ -17,9 +17,14 @@ sv:
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
+      decidim/demoted_membership: Inte längre en gruppadministratör
       decidim/gamification/badge_earned_event: Emblem intjänad
       decidim/gamification/level_up_event: Du har gått upp i nivå
+      decidim/join_request_accepted_event: Gå med förfrågan accepterad
+      decidim/join_request_rejected_event: Gå med förfrågan avvisad
       decidim/profile_updated_event: Profil uppdaterad
+      decidim/promote_to_admin: Befordrad till gruppadministratör
+      decidim/removed_from_group: Avlägsnad från gruppen
   activerecord:
     attributes:
       decidim/user:
@@ -45,6 +50,8 @@ sv:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
@@ -96,6 +103,9 @@ sv:
         update: "%{user_name} uppdaterade OAuth-applikationen %{resource_name}"
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
+      participatory_space_private_user:
+        create: "%{user_name} bjöd in %{resource_name} att vara en privat användare"
+        delete: "%{user_name} avlägsnade användaren %{resource_name} som privat användare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
         create_with_parent: "%{user_name} skapade området %{resource_name} inom ramen för %{parent_scope}"
@@ -158,32 +168,32 @@ sv:
       show:
         expired:
           authorize: Återauktorisera med "%{authorization}"
-          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
+          explanation: Ditt auktorisering har löpt ut. För att kunna utföra den här åtgärden måste du bli återauktoriserad med "%{authorization}".
           title: Auktoriseringen har löpt ut
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att återauktorisera eftersom vi saknar följande data:'
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du återauktorisera dig eftersom vi saknar följande data:'
           invalid_field: "%{field}"
-          reauthorize: Omauktorisera
-          title: Vänligen omauktorisera
+          reauthorize: Återauktorisera
+          title: Vänligen återauktorisera
         missing:
-          authorize: Godkänn med "%{authorization}"
-          explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
-          title: Godkännande krävs
+          authorize: Auktorisera med "%{authorization}"
+          explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
+          title: Auktorisering krävs
         pending:
-          explanation: För att kunna utföra denna åtgärd måste du auktoriseras med "%{authorization}", men din auktorisering är fortfarande på gång
-          resume: Kolla din "%{authorization}" auktoriseringsprocess
-          title: Godkännandet är fortfarande på gång
+          explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering är fortfarande på gång
+          resume: Kolla hur din "%{authorization}" auktorisering avancerar
+          title: Auktoriseringen är fortfarande på gång
         unauthorized:
           explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
-          invalid_field: "%{field} värde %{value} är inte giltigt."
-          ok: Okej
-          title: Inte behörig
+          invalid_field: "%{field} värdet %{value} är inte giltigt."
+          ok: OK
+          title: Ej auktoriserad
         unconfirmed:
-          confirmation_instructions: 'Om du inte har fått bekräftelsesinstruktionerna kan du begära dem igen:'
-          explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad innan du gör det måste du bekräfta ditt mail <strong>%{email}</strong>.
+          confirmation_instructions: 'Om du inte har fått bekräftelseanvisningar kan du begära dem igen:'
+          explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad, innan du gör det måste du bekräfta din e-postadress <strong>%{email}</strong>.
           request_confirmation_instructions: Begär bekräftelseanvisningar
-          title: bekräfta din email
+          title: Bekräfta din e-postadress
     collapsible_list:
       hidden_elements_count:
         one: och 1 mer
@@ -220,8 +230,8 @@ sv:
         html_content: HTML-innehåll
         name: HTML-block
       last_activity:
-        name: Sista aktiviteten
-        title: Sista aktiviteten
+        name: Senaste aktiviteten
+        title: Senaste aktiviteten
         view_all: Visa alla
       metrics:
         name: Organisationsstatistik
@@ -338,6 +348,42 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du hade aktivitet på vår hemsida.
           email_subject: Du har nått nivån %{current_level} på %{badge_name} emblemet!
           notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} emblemet</a>!
+      groups:
+        demoted_membership:
+          email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dina administratörsrättigheter för den gruppen.
+          email_outro: Du har fått den här notisen eftersom du är medlem i den gruppen.
+          email_subject: Du är inte längre en administratör för %{user_group_name} gruppen!
+          notification_title: Du är inte längre en administratör för <a href="%{resource_path}">%{user_group_name}</a> gruppen.
+        invited_to_group:
+          email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har bjudit in dig att gå med i den.
+          email_outro: Du har fått den här notisen eftersom du har blivit inbjuden till en grupp. Kontrollera fliken Grupper i din profil för att godkänna den.
+          email_subject: Du har blivit inbjuden att gå med i %{user_group_name} gruppen!
+          notification_title: Du har blivit inbjuden att gå med i gruppen <a href="%{resource_path}">%{user_group_name}</a> . Kolla <a href="%{groups_profile_tab_path}">Gruppsidor</a> i din profil för att godkänna det!
+        join_request_accepted:
+          email_intro: Grattis! En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har accepterat din förfrågan om att gå med i den.
+          email_outro: Du har fått den här notisen eftersom din förfrågan att gå med har uppdaterats.
+          email_subject: Du har blivit accepterad till gruppen %{user_group_name}!
+          notification_title: Du har blivit accepterad till gruppen <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Någon bad om att få gå med i gruppen %{user_group_name}. Du kan acceptera eller avvisa det från <a href="%{resource_url}">sidan gruppmedlemmar</a>.
+          email_outro: Du har fått den här notisen eftersom du kan hantera gruppen %{user_group_name}.
+          email_subject: Någon bad om att få gå med i gruppen %{user_group_name}!
+          notification_title: Någon bad om att få gå med i gruppen %{user_group_name}. Du kan acceptera eller avvisa det från <a href="%{resource_path}">sidan gruppmedlemmar</a>.
+        join_request_rejected:
+          email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> avvisade din förfrågan om att gå med i den.
+          email_outro: Du har fått den här notisen eftersom din förfrågan att gå med har uppdaterats.
+          email_subject: Din förfrågan om att gå med i gruppen %{user_group_name} har avvisats!
+          notification_title: Din förfrågan om att gå med i gruppen <a href="%{resource_path}">%{user_group_name}</a> har avvisats.
+        promoted_to_admin:
+          email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har gett dig administratörsrättigheter till den gruppen.
+          email_outro: Du har fått den här notisen eftersom du är medlem i den gruppen.
+          email_subject: Du är nu en administratör för gruppen %{user_group_name}!
+          notification_title: Du är nu en administratör för gruppen<a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dig från den.
+          email_outro: Du har fått den här notisen eftersom du var medlem i den gruppen.
+          email_subject: Du har tagits bort från gruppen %{user_group_name}!
+          notification_title: Du har tagits bort från gruppen <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -357,7 +403,7 @@ sv:
       linked_classes:
         all: Alla
         collaborative_draft: Samarbetsförslag
-        dummy_resource: Dummy resurser
+        dummy_resource: Dummyresurser
         meeting: Möten
         project: Projekt
         proposal: Förslag
@@ -395,31 +441,31 @@ sv:
           conditions:
             - Kommer hit ofta
           description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
-          description_another: Den här användaren har anslutit sig i %{score} varandra följande dagar vid någon tidpunkt.
-          description_own: Du har anslutit i %{score} dagar i följd vid någon tidpunkt.
+          description_another: Den här användaren har anslutit sig under %{score} på varandra följande dagar vid någon tidpunkt.
+          description_own: Du har anslutit dig under %{score} på varandra följande dagar vid någon tidpunkt.
           name: Kontinuitet
-          next_level_in: Anslut i %{score} dagar i följd för att komma till nästa nivå!
-          unearned_another: Den här användaren har inte loggat in mer än en på varandra följande dag.
-          unearned_own: Du har inte anslutit i mer än en på varandra följande dag.
+          next_level_in: Anslut under %{score} på varandra följande dagar för att komma till nästa nivå!
+          unearned_another: Den här användaren har inte loggat in under på varandra följade dagar.
+          unearned_own: Du har inte anslutit dig under på varandra följande dagar.
         followers:
           conditions:
             - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
-          description: Detta märke beviljas när du når ett visst antal anhängare. %{organization_name} är ett socialt och politiskt nätverk, väv din webb för att kommunicera med andra personer på plattformen.
+          description: Detta märke beviljas när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, väv ditt nät för att kommunicera med andra personer på plattformen.
           description_another: Den här användaren har %{score} följare.
           description_own: "%{score} användare följer dig."
-          name: anhängare
+          name: Följare
           next_level_in: Få %{score} fler användare att följa dig för att nå nästa nivå!
-          unearned_another: Den här användaren har inga anhängare än.
-          unearned_own: Du har inga anhängare än.
+          unearned_another: Den här användaren har inga följare än.
+          unearned_own: Du har inga följare än.
         index:
           badge_title: "%{name} märke"
           how: Hur kan du tjäna det
-          page_description: Badges är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika märken. Här är listan med märken och några sätt du kan tjäna dem.
-          title: Emblem
+          page_description: Märken är erkännanden för deltagaråtgärder och framsteg på plattformen. När du börjar upptäcka, delta och samverka på plattformen, tjänar du olika märken. Här är listan på märken och några sätt som du kan tjäna dem på.
+          title: Märken
         invitations:
           conditions:
             - Använd länken "bjud in vänner" på din användarsida för att bjuda in dina vänner
-            - Anpassa, om du vill, det meddelande du skickar
+            - Anpassa, om du vill, meddelandet du håller på att skicka
             - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
           description: Detta märke beviljas när du har bjudit in några personer och de har spenderat lite tid att registrera sig i %{organization_name} och bli deltagare. Tack för att göra %{organization_name} känt för andra och hjälpa till att utvidga community!
           description_another: Den här användaren har bjudit in %{score} användare.
@@ -431,14 +477,82 @@ sv:
       description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
       level: Nivå %{level}
       reached_top: Du har nått den översta nivån för detta emblem.
+    group_admins:
+      actions:
+        are_you_sure: Är du säker? Detta tar inte bort användaren från gruppen.
+        demote_admin: Ta bort administratör
+      demote:
+        error: Det gick inte att ta bort den här användaren från administratörslistan
+        success: Användaren har tagits bort från admin framgångsrikt
+      index:
+        current_admins: 'Nuvarande administratörer:'
+        manage_admins: Hantera administratörer
+    group_invites:
+      accept:
+        error: Det gick inte att acceptera den här inbjudan
+        success: Inbjudan accepterades
+      accept_invitation: Acceptera
+      accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avslå deras förfrågningar:'
+      index:
+        invite: Inbjudan
+        invite_user: Bjud in en användare
+      invite:
+        error: Det uppstod ett fel med att bjuda in den här användaren
+        success: Användaren bjöds in
+      reject:
+        error: Det uppstod ett fel vid avvisandet av denna inbjudan
+        success: Inbjudan avvisades
+      reject_invitation: Avvisa
+    group_members:
+      accept:
+        error: Det gick inte att acceptera den här anslutningsförfrågan
+        success: Gå med förfrågan accepterades
+      actions:
+        are_you_sure: Är du säker?
+        promote_to_admin: Gör till administratör
+        remove_from_group: Ta bort användaren
+      index:
+        current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
+        manage_members: Hantera medlemmar
+      promote:
+        error: Det uppstod ett fel i befordrandet av den här användaren
+        success: Användaren befodrades
+      reject:
+        error: Ett fel uppstod vid avvisandet av denna anmälningsförfrågan
+        success: Gå med förfrågan avvisades
+      remove:
+        error: Det gick inte att ta bort den här användaren från gruppen
+        success: Användaren togs bort från gruppen
     groups:
+      actions:
+        are_you_sure: Är du säker?
       create:
-        error: Det har varit ett problem att skapa organisationen
-        success: Organisationen skapades framgångsrikt
+        error: Det har uppstått ett problem med att skapa gruppen
+        success: Grupp skapades
+      edit:
+        edit_user_group: Redigera grupp
+        update_user_group: Uppdatera grupp
+      join:
+        error: Det har uppstått ett problem med att gå med i gruppen
+        success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
+      leave:
+        error: Det har uppstått ett problem med att lämna gruppen
+        success: Du har lämnat gruppen.
+      members:
+        accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
+        accept_request: Acceptera
+        reject_request: Avvisa
       new:
-        create_user_group: Skapa organisation
-        new_user_group: Ny organisation
-      no_user_groups: Tillhör inte någon organisation än.
+        create_user_group: Skapa grupp
+        new_user_group: Ny grupp
+      no_user_groups: Tillhör inte någon grupp än.
+      roles:
+        admin: Administratör
+        creator: Skapare
+        member: Medlem
+      update:
+        error: Det har förekommit ett problem med att uppdatera gruppen
+        success: Gruppen uppdaterades
     invitations:
       create:
         error: Det blev några problem när du bjöd in dina vänner
@@ -456,7 +570,7 @@ sv:
         no_activities_warning: Ingen aktivitet
       all: Alla aktivitetstyper
       index:
-        last_activity: Sista aktiviteten
+        last_activity: Senaste aktiviteten
         resource_type: Typ
     log:
       base_presenter:
@@ -480,7 +594,7 @@ sv:
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
     members:
-      no_members: Dessa användargrupper har ingen medlem än.
+      no_members: Denna användargrupp har inga medlemmar.
     menu:
       home: Hem
       more_information: Mer information
@@ -569,19 +683,19 @@ sv:
           proposals: Förslag
           proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och bestäm.
-          footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
-          register: Registrera
+          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
+          footer_sub_hero_headline: Välkommen till %{organization} deltagarplattformen.
+          register: Registrera dig
         hero:
           participate: Delta
           welcome: Välkommen till %{organization}!
         metrics:
           headline: Deltagande i siffror
         statistics:
-          answers_count: Avslutade Undersökningar
+          answers_count: Genomförda Undersökningar
           assemblies_count: Församlingar
           comments_count: Kommentarer
-          conferences_count: konferenser
+          conferences_count: Konferenser
           debates_count: Debatter
           endorsements_count: Påskrifter
           headline: Aktuellt läge för %{organization}
@@ -597,7 +711,7 @@ sv:
           users_count: Deltagare
           votes_count: Röster
         sub_hero:
-          register: Registrera
+          register: Registrera dig
       index:
         title: Mer information
       terms_and_conditions:
@@ -631,16 +745,22 @@ sv:
         conversations: Samtal
         followers: Anhängare
         following: Följer
-        groups: organisationer
-        members: medlemmar
+        groups: Grupper
+        members: Medlemmar
         notifications: Notiser
       sidebar:
         badges:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
-          title: Emblem
+          title: Märken
       user:
-        create_user_group: Skapa organisation
+        create_user_group: Skapa grupp
         edit_profile: Redigera profil
+        edit_user_group: Redigera grupprofil
+        invite_user: Bjud in användare
+        join_user_group: Begär att gå med i gruppen
+        leave_user_group: Lämna gruppen
+        manage_user_group_admins: Hantera administratörer
+        manage_user_group_users: Hantera medlemmar
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -716,7 +836,7 @@ sv:
       send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress inom några minuter.
     failure:
       already_authenticated: Du är redan inloggad.
-      inactive: Ditt konto är inte aktiverat ännu.
+      inactive: Ditt konto är inte aktiverat än.
       invalid: Ogiltigt %{authentication_keys} eller lösenord.
       invited: Du har en väntande inbjudan, acceptera den för att slutföra skapa ditt konto.
       last_attempt: Du har ytterligare ett försök innan ditt konto är låst.
@@ -743,11 +863,11 @@ sv:
       confirmation_instructions:
         action: Bekräfta mitt konto
         greeting: Välkommen %{recipient}!
-        instruction: 'Du kan bekräfta ditt konto email via länken nedan:'
+        instruction: 'Du kan bekräfta e-postadressen för ditt konto via länken nedan:'
         subject: Bekräftelsesanvisningar
       email_changed:
         greeting: Hej %{recipient}!
-        message: Vi kontaktar dig för att meddela dig att ditt e-postmeddelande ändras till %{email}.
+        message: Vi kontaktar dig för att meddela dig att din e-post ändras till %{email}.
         subject: E-post ändrad
       invitation_instructions:
         accept: Acceptera inbjudan
@@ -791,8 +911,8 @@ sv:
         action: Lås upp mitt konto
         greeting: Hej %{recipient}!
         instruction: 'Klicka på länken nedan för att låsa upp ditt konto:'
-        message: Ditt konto har blivit låsat på grund av ett stort antal misslyckade inloggningsförsök.
-        subject: Lås upp instruktioner
+        message: Ditt konto har blivit låst på grund av ett stort antal misslyckade inloggningsförsök.
+        subject: Instruktioner för upplåsning
     omniauth_callbacks:
       failure: Kunde inte autentisera dig från %{kind} eftersom "%{reason}".
       success: Succesfullt autentiserad från %{kind} konto.
@@ -822,19 +942,19 @@ sv:
         update: Uppdatering
         we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta dina ändringar
       new:
-        sign_up: Bli Medlem
-      signed_up: Välkommen! Du har anmält dig framgångsrikt.
-      signed_up_but_inactive: Du har anmält dig framgångsrikt. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
-      signed_up_but_locked: Du har anmält dig framgångsrikt. Vi kunde dock inte logga in eftersom ditt konto är låst.
-      signed_up_but_unconfirmed: Ett meddelande med en bekräftelse länk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
+        sign_up: Registrera dig
+      signed_up: Välkommen! Din registrering lyckades.
+      signed_up_but_inactive: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
+      signed_up_but_locked: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto är låst.
+      signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
       update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
       updated: Ditt konto har uppdaterats framgångsrikt.
     sessions:
-      already_signed_out: Utloggad framgångsrikt.
+      already_signed_out: Utloggningen lyckades.
       new:
         sign_in: Logga in
-      signed_in: Inloggad med framgång.
-      signed_out: Utloggad framgångsrikt.
+      signed_in: Inloggningen lyckades.
+      signed_out: Utloggningen lyckades.
     shared:
       links:
         back: Tillbaka
@@ -843,10 +963,10 @@ sv:
         forgot_your_password: Glömt ditt lösenord?
         sign_in: Logga in
         sign_in_with_provider: Logga in med %{provider}
-        sign_up: Bli Medlem
+        sign_up: Registrera dig
       minimum_password_length:
-        one: "(%{count} tecken minimum)"
-        other: "(Minst%{count} tecken)"
+        one: "(%{count} minimiantal tecken)"
+        other: "(%{count} minimiantal tecken)"
     unlocks:
       new:
         resend_unlock_instructions: Skicka om upplåsningsinstruktionerna igen
@@ -865,13 +985,13 @@ sv:
       expired: har gått ut, vänligen be om en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
       long_words: innehåller ord som är för långa (över 35 tecken)
-      must_start_with_caps: måste börja med en bokstav
+      must_start_with_caps: måste börja med en versal
       nesting_too_deep: kan inte vara inuti en underkategori
       not_found: hittades inte
-      not_locked: var inte låst
+      not_locked: låstes inte
       not_saved:
-        one: '1 fel förbjudet att detta %{resource} sparas:'
-        other: "%{count} fel förbjudna att denna %{resource} sparas:"
+        one: '1 fel hindrade detta %{resource} från att sparas:'
+        other: "%{count} fel hindrade detta %{resource} från att sparas:"
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex.! och?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
       too_short: är för kort (under 15 tecken)
@@ -916,7 +1036,7 @@ sv:
         my_data: Mitt data
         notifications_settings: Notisinställningar
         title: Användarinställningar
-        user_groups: Organisationer
+        user_groups: Grupper
       widget:
         see_more: Se mer
   locale:

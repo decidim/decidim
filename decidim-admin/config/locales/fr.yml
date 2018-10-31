@@ -543,6 +543,7 @@ fr:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
         destroy:
+          error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         index:
           title: Utilisateur privé de l'espace participatif

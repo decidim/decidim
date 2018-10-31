@@ -54,7 +54,6 @@ module Decidim
 
     def hidden_elements_count
       return 0 unless collapsible?
-
       list.size - size
     end
 

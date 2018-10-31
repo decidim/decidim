@@ -358,6 +358,8 @@ sv:
             one: 1 plats kvar
             other: "%{count} platser kvar"
           view: Visa
+      meetings_map:
+        view_meeting: Visa möte
       models:
         invite:
           fields:
@@ -395,6 +397,10 @@ sv:
       types:
         private_meeting: Privat möte
         transparent: Transparent
+    metrics:
+      meetings:
+        object: möten
+        title: möten
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

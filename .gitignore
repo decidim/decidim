@@ -20,3 +20,4 @@ schema.json
 .yardoc
 .rspec-failures
 yarn-error.log
+.rbenv-vars

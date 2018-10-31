@@ -92,6 +92,10 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu duzulako.
           email_subject: "%{resource_title} aipatu zaituzte"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
+    metrics:
+      comments:
+        object: iruzkinak
+        title: Oharrak
   errors:
     messages:
       cannot_have_comments: ezin zaio iruzkinik egin

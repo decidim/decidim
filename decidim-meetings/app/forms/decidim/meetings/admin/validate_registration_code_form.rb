@@ -22,7 +22,6 @@ module Decidim
 
         def registration_exists
           return unless registration.nil?
-
           errors.add(
             :code,
             I18n.t("registrations.validate_registration_code.invalid", scope: "decidim.meetings.admin")

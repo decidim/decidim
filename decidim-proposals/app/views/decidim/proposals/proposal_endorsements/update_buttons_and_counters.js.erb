@@ -1,4 +1,4 @@
-<% if current_user.user_groups.empty? %>
+<% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.empty? %>
 update_main_page_button();
 <% end %>
 update_identities_rows();

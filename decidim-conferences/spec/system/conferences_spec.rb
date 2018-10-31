@@ -139,10 +139,6 @@ describe "Conferences", type: :system do
       end
     end
 
-    it_behaves_like "has attachments" do
-      let(:attached_to) { conference }
-    end
-
     context "when the conference has some components" do
       it "shows the components" do
         within ".process-nav" do

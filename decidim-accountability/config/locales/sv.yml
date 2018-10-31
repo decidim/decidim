@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     attributes:
@@ -51,7 +50,7 @@ sv:
             name: Tidslinje inmatning
         results:
           create:
-            invalid: Det här har uppstått ett problem
+            invalid: Det har uppstått ett problem med att skapa det här resultatet
             success: Resultat har skapats framgångsrikt
           destroy:
             success: Resultatet har tagits bort
@@ -70,14 +69,14 @@ sv:
             current_selection: Aktuellt urval
             select: Välj
           update:
-            invalid: Det har blivit ett problem med att uppdatera resultatet
+            invalid: Det har uppstått ett problem med att uppdatera det här resultatet
             success: Resultatet uppdaterades framgångsrikt
         shared:
           subnav:
             statuses: Statusar
         statuses:
           create:
-            invalid: Det har blivit ett problem med att skapa denna status
+            invalid: Det har uppstått ett problem med att skapa denna status
             success: Status skapad
           destroy:
             success: Statusen har tagits bort
@@ -90,12 +89,12 @@ sv:
             create: Skapa status
             title: Ny status
           update:
-            invalid: Det blivit ett problem med att uppdatera denna status
+            invalid: Det uppstått ett problem med att uppdatera denna status
             success: Status uppdaterad
         timeline_entries:
           create:
             invalid: Det har uppstått ett problem med att skapa den här inmatningen
-            success: Inmatningen skapades med framgång
+            success: Inmatningen skapades
           destroy:
             success: Inmatningen har tagits bort
           edit:
@@ -118,7 +117,7 @@ sv:
           parent_presenter:
             not_found: 'Den överordnade hittades inte i databasen (ID: %{id})'
       last_activity:
-        new_result_at_html: "<span>Nytt resultat vid %{link}</span>"
+        new_result_at_html: "<span>Nytt resultat på%{link}</span>"
       models:
         result:
           fields:
@@ -149,7 +148,7 @@ sv:
           categories_label: Kategorier
           subcategories_label: Underkategorier
         home_header:
-          global_status: Global exekveringsstatus
+          global_status: Global utförandestatus
         nav_breadcrumb:
           global: Globalt utförande
         search:
@@ -202,6 +201,10 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: En uppdatering till %{proposal_title}
           notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i resultat <a href="%{resource_path}">%{resource_title}</a>.
+    metrics:
+      results:
+        object: resultat
+        title: Resultat
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

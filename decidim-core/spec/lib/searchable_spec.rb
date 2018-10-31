@@ -15,17 +15,19 @@ module Decidim
       let(:component_2) { create(:component, organization: organization_2) }
 
       let!(:dummy_resource_1) do
-        Decidim::DummyResources::DummyResource.create(
+        Decidim::DummyResources::DummyResource.create!(
           id: COMMON_ID,
           component: component_1,
-          published_at: Time.current
+          published_at: Time.current,
+          author: organization_1
         )
       end
       let!(:dummy_resource_2) do
-        Decidim::DummyResources::DummyResource.create(
+        Decidim::DummyResources::DummyResource.create!(
           id: COMMON_ID + 1,
           component: component_2,
-          published_at: Time.current
+          published_at: Time.current,
+          author: organization_2
         )
       end
       let!(:user_1) { create(:user, id: COMMON_ID, organization: organization_1) }

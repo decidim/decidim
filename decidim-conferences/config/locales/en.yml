@@ -3,7 +3,9 @@ en:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Related Assemblies
         banner_image: Banner image
+        consultations_ids: Related Consultations
         copy_categories: Copy categories
         copy_components: Copy components
         copy_features: Copy features
@@ -11,6 +13,7 @@ en:
         description: Description
         hashtag: Hashtag
         hero_image: Home image
+        participatory_processes_ids: Related Participatory processes
         promoted: Promoted
         published_at: Published at
         scope_id: Scope
@@ -118,6 +121,23 @@ en:
         create:
           error: There was an error when duplicating this conference.
           success: Conference duplicated successfully.
+      media_links:
+        create:
+          error: There was an error creating a new media link.
+          success: Media Link created successfully.
+        destroy:
+          success: Media Link deleted successfully.
+        edit:
+          title: Update media link.
+          update: Update
+        index:
+          media_links_title: Media Links
+        new:
+          create: Create
+          title: Media Link
+        update:
+          error: There was an error when updating this media link.
+          success: Media Link updated successfully.
       menu:
         conferences: Conferences
         conferences_submenu:
@@ -131,7 +151,9 @@ en:
           conference_registrations: Conference Registrations
           conference_speakers: Conference speakers
           info: Info
+          media_links: Media Links
           moderations: Moderations
+          partners: Partners
       models:
         conference:
           fields:
@@ -155,6 +177,37 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
+        media_link:
+          fields:
+            date: Date
+            link: Link
+            title: Title
+          name: Media Link
+        partner:
+          fields:
+            link: Link
+            logo: Logo
+            name: Name
+            partner_type: Type
+          name: Partner
+          types:
+            collaborator: Collaborator
+            main_promotor: Main promotor
+      partners:
+        create:
+          error: There was an error adding a partner for this conference.
+          success: Partner added successfully to this conference.
+        destroy:
+          success: Partner removed successfully from this conference.
+        edit:
+          title: Update partner.
+          update: Update
+        new:
+          create: Create
+          title: New partner
+        update:
+          error: There was an error updated a partner for this conference.
+          success: Partner updated successfully for this conference.
       titles:
         conferences: Conferences
     admin_log:
@@ -171,6 +224,9 @@ en:
         create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Speakers
@@ -227,6 +283,9 @@ en:
             decline: Decline invitation '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
             join: Join conference '%{conference_title}'
+        partners:
+          index:
+            title: Partners
       conference:
         registration_confirm:
           cancel: Cancel
@@ -239,6 +298,15 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+      conference_program:
+        program_meeting:
+          content: Content
+          location: Location
+          speakers: Speakers
+          streaming: Streaming
+        show:
+          day: Day
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
@@ -268,6 +336,9 @@ en:
         index:
           speakers: Speakers
       conferences:
+        partners:
+          collaborators: Collaborators
+          main_promotors: Main promotors
         show:
           already_account: Do you already have an account in decidim?
           login_as: You are login as %{name} <%{email}>
@@ -308,10 +379,20 @@ en:
           highlighted_conferences:
             active_conferences: Active conferences
             see_all_conferences: See all conferences
+      photo:
+        show:
+          close_modal: Close modal
+          photo: Photo
+      photos_list:
+        show:
+          related_photos: Photos
       show:
         details: Details
         introduction: Introduction
         objectives: Objectives
+        related_assemblies: Related Assemblies
+        related_consultations: Related Consultations
+        related_participatory_processes: Related Participatory Processes
       statistics:
         answers_count: Answers
         comments_count: Comments
@@ -350,6 +431,10 @@ en:
       value_types:
         conference_presenter:
           not_found: 'The conference was not found on the database (ID: %{id})'
+    media:
+      index:
+        description: Links about this conference
+        title: Media and Links
     menu:
       conferences: Conferences
   devise:
@@ -375,6 +460,8 @@ en:
           take_part: Take part
       conferences_nav:
         conference_menu_item: Information
+        conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
+        media: Media
         unfold: Unfold
         venues: Venues

@@ -326,6 +326,10 @@ es:
           not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
+    metrics:
+      assemblies:
+        object: asambleas
+        title: Asambleas
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco

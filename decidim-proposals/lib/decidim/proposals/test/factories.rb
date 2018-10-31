@@ -28,20 +28,7 @@ FactoryBot.define do
     trait :with_votes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => {
-            votes_enabled:         true,
-            votes_weight_enabled: false
-          }
-        }
-      end
-    end
-    trait :with_votes_by_weight_enabled do
-      step_settings do
-        {
-          participatory_space.active_step.id => {
-            votes_enabled:         false,
-            votes_weight_enabled: true
-          }
+          participatory_space.active_step.id => { votes_enabled: true }
         }
       end
     end
@@ -49,10 +36,7 @@ FactoryBot.define do
     trait :with_votes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => {
-            votes_enabled:         false,
-            votes_weight_enabled: false
-          }
+          participatory_space.active_step.id => { votes_enabled: false }
         }
       end
     end
@@ -116,9 +100,8 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         true,
-            votes_weight_enabled: false,
-            votes_blocked:         true
+            votes_enabled: true,
+            votes_blocked: true
           }
         }
       end
@@ -175,6 +158,25 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_minimum_votes_per_user do
+      transient do
+        minimum_votes_per_user { 3 }
+      end
+
+      settings do
+        {
+          minimum_votes_per_user: minimum_votes_per_user
+        }
+      end
+    end
+    trait :with_participatory_texts_enabled do
+      settings do
+        {
+          participatory_texts_enabled: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
@@ -195,7 +197,7 @@ FactoryBot.define do
         users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
-          Decidim::Coauthorship.create(author: user, user_group: user_group, coauthorable: proposal)
+          proposal.coauthorships.build(author: user, user_group: user_group)
         end
       end
     end
@@ -204,9 +206,14 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
+    trait :unpublished do
+      published_at { nil }
+    end
+
     trait :official do
       after :build do |proposal|
         proposal.coauthorships.clear
+        proposal.coauthorships.build(author: proposal.organization)
       end
     end
 
@@ -240,8 +247,8 @@ FactoryBot.define do
     end
 
     trait :hidden do
-      moderation do
-        create(:moderation, hidden_at: Time.current)
+      after :create do |proposal|
+        create(:moderation, hidden_at: Time.current, reportable: proposal)
       end
     end
 
@@ -298,7 +305,7 @@ FactoryBot.define do
         users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
-          Decidim::Coauthorship.create(author: user, user_group: user_group, coauthorable: collaborative_draft)
+          collaborative_draft.coauthorships.build(author: user, user_group: user_group)
         end
       end
     end

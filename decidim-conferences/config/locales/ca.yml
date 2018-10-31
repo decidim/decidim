@@ -1,9 +1,10 @@
----
 ca:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Muntats relacionats
         banner_image: Imatge del bàner
+        consultations_ids: Consultes relacionades
         copy_categories: Copiar categories
         copy_components: Copiar components
         copy_features: Funcions de còpia
@@ -11,6 +12,7 @@ ca:
         description: Descripció
         hashtag: Etiqueta
         hero_image: Imatge inicial
+        participatory_processes_ids: Processos participatius relacionats
         promoted: Promocionat
         published_at: Publicat a
         scope_id: Abast
@@ -118,6 +120,23 @@ ca:
         create:
           error: S'ha produït un error en duplicar aquesta conferència.
           success: La conferència s'ha duplicat correctament.
+      media_links:
+        create:
+          error: S'ha produït un error en crear un nou enllaç multimèdia.
+          success: Media Link s'ha creat correctament.
+        destroy:
+          success: S'ha eliminat correctament l'enllaç de mitjans.
+        edit:
+          title: Actualitza l'enllaç de mitjans.
+          update: Actualització
+        index:
+          media_links_title: Mitjans de comunicació
+        new:
+          create: Crear
+          title: Enllaç per mitjans de comunicació
+        update:
+          error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
+          success: Media Link s'ha actualitzat correctament.
       menu:
         conferences: Conferències
         conferences_submenu:
@@ -131,7 +150,9 @@ ca:
           conference_registrations: Registre de conferències
           conference_speakers: Conferenciants de conferències
           info: Info
+          media_links: Mitjans de comunicació
           moderations: Moderacions
+          partners: Socis
       models:
         conference:
           fields:
@@ -155,6 +176,37 @@ ca:
             admin: Administrador
             collaborator: Col·laborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Data
+            link: Enllaç
+            title: Títol
+          name: Enllaç per mitjans de comunicació
+        partner:
+          fields:
+            link: Enllaç
+            logo: Logotip
+            name: Nom
+            partner_type: Escriviu
+          name: Soci
+          types:
+            collaborator: Col·laborador
+            main_promotor: Promotor principal
+      partners:
+        create:
+          error: S'ha produït un error en afegir un soci per a aquesta conferència.
+          success: El soci s'ha afegit amb èxit a aquesta conferència.
+        destroy:
+          success: El partner s'ha eliminat amb èxit d'aquesta conferència.
+        edit:
+          title: Actualitza partner.
+          update: Actualització
+        new:
+          create: Crear
+          title: Nou soci
+        update:
+          error: S'ha produït un error en actualitzar un soci per a aquesta conferència.
+          success: Partner s'ha actualitzat amb èxit per a aquesta conferència.
       titles:
         conferences: Conferències
     admin_log:
@@ -171,6 +223,9 @@ ca:
         create: "%{user_name} convidats %{resource_name} a la %{space_name} conferències"
         delete: "%{user_name} eliminar l'usuari %{resource_name} de la %{space_name} conferència"
         update: "%{user_name} canviar el paper d' %{resource_name} a la %{space_name} conferència"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Ponents
@@ -226,6 +281,9 @@ ca:
             decline: Rebutja la invitació '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l' %{application}. Podeu rebuig o acceptar-lo a través dels enllaços a continuació."
             join: Uneix-te a la conferència '%{conference_title}'
+        partners:
+          index:
+            title: Socis
       conference:
         registration_confirm:
           cancel: Cancel · lar
@@ -237,6 +295,15 @@ ca:
           remaining_slots:
             one: 1 espai disponible
             other: "%{count} places restants restants"
+      conference_program:
+        program_meeting:
+          content: Contingut
+          location: Ubicació
+          speakers: Ponents
+          streaming: Streaming
+        show:
+          day: Dia
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: S'ha confirmat el registre de la conferència <a href="%{url}">%{title}</a>.
@@ -266,6 +333,9 @@ ca:
         index:
           speakers: Ponents
       conferences:
+        partners:
+          collaborators: Col·laboradors
+          main_promotors: Principals promotors
         show:
           already_account: Ja tens un compte per decidir?
           login_as: Esteu connectant com %{name} <%{email}>
@@ -306,10 +376,20 @@ ca:
           highlighted_conferences:
             active_conferences: Conferències actives
             see_all_conferences: Veure totes les conferències
+      photo:
+        show:
+          close_modal: Tanca el modal
+          photo: foto
+      photos_list:
+        show:
+          related_photos: Fotografies
       show:
         details: Detalls
         introduction: Introducció
         objectives: Objectius
+        related_assemblies: Muntats relacionats
+        related_consultations: Consultes relacionades
+        related_participatory_processes: Processos participatius relacionats
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
@@ -348,6 +428,10 @@ ca:
       value_types:
         conference_presenter:
           not_found: 'La conferència no es va trobar a la base de dades (ID: %{id})'
+    media:
+      index:
+        description: Enllaços sobre aquesta conferència
+        title: Mitjans i enllaços
     menu:
       conferences: Conferències
   devise:
@@ -373,6 +457,8 @@ ca:
           take_part: Formar part
       conferences_nav:
         conference_menu_item: Informació
+        conference_partners_menu_item: Socis
         conference_speaker_menu_item: Ponents
+        media: Mitjans de comunicació
         unfold: Desplegar
         venues: Llocs

@@ -25,9 +25,10 @@ module Decidim
     #
     # Returns nothing. Raises an error if there's already a metric
     # registered with that metric name.
-    def register(metric_name, manager_class, highlighted = NOT_HIGHLIGHTED)
+    def register(metric_name, manager_class, highlighted = NOT_HIGHLIGHTED, position = nil)
       metric_name = metric_name.to_s
       metric_exists = self.for(metric_name).present?
+      position ||= all.size + 1
 
       if metric_exists
         raise(
@@ -36,7 +37,7 @@ module Decidim
         )
       end
 
-      metric_manifest = MetricManifest.new(metric_name: metric_name, manager_class: manager_class, highlighted: highlighted)
+      metric_manifest = MetricManifest.new(metric_name: metric_name, manager_class: manager_class, highlighted: highlighted, position: position)
 
       metric_manifest.validate!
 
@@ -52,11 +53,11 @@ module Decidim
     end
 
     def highlighted
-      all.find_all { |manifest| manifest.highlighted == HIGHLIGHTED }
+      all.find_all { |manifest| manifest.highlighted == HIGHLIGHTED }.sort_by(&:position)
     end
 
     def not_highlighted
-      all.find_all { |manifest| manifest.highlighted == NOT_HIGHLIGHTED }
+      all.find_all { |manifest| manifest.highlighted == NOT_HIGHLIGHTED }.sort_by(&:position)
     end
 
     class MetricAlreadyRegistered < StandardError; end

@@ -3,7 +3,7 @@
     <h2 class="card-title flex--sbc">
       <div>
         <%= t(".title") %>
-        <span id="js-recategorize-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
+        <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
       </div>
       <%= render partial: "bulk-actions" %>
     </h2>
@@ -14,7 +14,7 @@
         <thead>
           <tr>
             <th>
-              <%= check_box_tag "proposals_recategorize", "all", false, class: "js-check-all" %>
+              <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
             </th>
             <th>
               <%= sort_link(query, :id, t("models.proposal.fields.id", scope: "decidim.proposals"), default_order: :desc ) %>

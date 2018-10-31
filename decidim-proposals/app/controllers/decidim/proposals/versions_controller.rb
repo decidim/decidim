@@ -16,7 +16,6 @@ module Decidim
 
       def current_version
         return nil if params[:id].to_i < 1
-
         @current_version ||= item.versions[params[:id].to_i - 1]
       end
     end

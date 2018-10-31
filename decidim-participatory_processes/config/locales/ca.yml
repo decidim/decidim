@@ -258,6 +258,10 @@ ca:
           notification_title: Les dates de la fase <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> s'han actualitzat.
     menu:
       processes: Processos
+    metrics:
+      participatory_processes:
+        object: processos participatius
+        title: Processos participatius
     participatory_process_groups:
       show:
         group_participatory_processes:

@@ -2,7 +2,9 @@ pl:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Powiązane złożenia
         banner_image: Obraz baneru
+        consultations_ids: Powiązane konsultacje
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_features: Kopiuj funkcje
@@ -10,6 +12,7 @@ pl:
         description: Opis
         hashtag: Hashtag
         hero_image: Obraz domowy
+        participatory_processes_ids: Powiązane procesy uczestnictwa
         promoted: Lansowany
         published_at: Opublikowano na
         scope_id: Zakres
@@ -123,6 +126,23 @@ pl:
         create:
           error: Wystąpił błąd podczas duplikowania tej konferencji.
           success: Konferencja powiodła się pomyślnie.
+      media_links:
+        create:
+          error: Podczas tworzenia nowego linku do multimediów wystąpił błąd.
+          success: Utworzono link Media Link.
+        destroy:
+          success: Link do multimediów został usunięty.
+        edit:
+          title: Zaktualizuj link do multimediów.
+          update: Aktualizacja
+        index:
+          media_links_title: Media Links
+        new:
+          create: Stwórz
+          title: Link do multimediów
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego linku multimedialnego.
+          success: Link do multimediów został pomyślnie zaktualizowany.
       menu:
         conferences: Konferencje
         conferences_submenu:
@@ -136,7 +156,9 @@ pl:
           conference_registrations: Rejestracja konferencji
           conference_speakers: Głośniki konferencyjne
           info: Informacje
+          media_links: Media Links
           moderations: Moderacje
+          partners: Wzmacniacz
       models:
         conference:
           fields:
@@ -160,6 +182,37 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+        media_link:
+          fields:
+            date: Data
+            link: Połączyć
+            title: Tytuł
+          name: Link do multimediów
+        partner:
+          fields:
+            link: Połączyć
+            logo: Logo
+            name: Nazwa
+            partner_type: Rodzaj
+          name: Partner
+          types:
+            collaborator: Współpracownik
+            main_promotor: Główny promotor
+      partners:
+        create:
+          error: Wystąpił błąd podczas dodawania partnera do tej konferencji.
+          success: Partner został pomyślnie dodany do tej konferencji.
+        destroy:
+          success: Partner został pomyślnie usunięty z tej konferencji.
+        edit:
+          title: Zaktualizuj partnera.
+          update: Aktualizacja
+        new:
+          create: Stwórz
+          title: Nowy partner
+        update:
+          error: Wystąpił błąd podczas aktualizacji partnera konferencji.
+          success: Partner został pomyślnie zaktualizowany na tę konferencję.
       titles:
         conferences: Konferencje
     admin_log:
@@ -176,6 +229,9 @@ pl:
         create: "%{user_name} zaproszonych %{resource_name} na %{space_name} konferencje"
         delete: "%{user_name} usunął użytkownika %{resource_name} z %{space_name} konferencji"
         update: "%{user_name} zmieniło rolę %{resource_name} w %{space_name} konferencjach"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Głośniki
@@ -233,6 +289,9 @@ pl:
             decline: Odrzuć zaproszenie "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} zaprosiło Cię do przyłączenia się do konferencji o %{application}. Możesz go odrzucić lub zaakceptować, korzystając z poniższych linków."
             join: Dołącz do konferencji "%{conference_title}"
+        partners:
+          index:
+            title: Wzmacniacz
       conference:
         registration_confirm:
           cancel: Anuluj
@@ -246,6 +305,15 @@ pl:
             few: "Pozostało %{count} gniazd"
             many: "Pozostało %{count} gniazd"
             other: "Pozostało %{count} gniazd"
+      conference_program:
+        program_meeting:
+          content: Zawartość
+          location: Lokalizacja
+          speakers: Głośniki
+          streaming: Streaming
+        show:
+          day: Dzień
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Twoja rejestracja na konferencję <a href="%{url}">%{title}</a> została potwierdzona.
@@ -275,6 +343,9 @@ pl:
         index:
           speakers: Głośniki
       conferences:
+        partners:
+          collaborators: Współpracownicy
+          main_promotors: Główni promotorzy
         show:
           already_account: Czy masz już konto w Decidim?
           login_as: Jesteś zalogowany jako %{name} <%{email}>
@@ -315,10 +386,20 @@ pl:
           highlighted_conferences:
             active_conferences: Aktywne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
+      photo:
+        show:
+          close_modal: Zamknij modalne
+          photo: Zdjęcie
+      photos_list:
+        show:
+          related_photos: Zdjęcia
       show:
         details: Detale
         introduction: Wprowadzenie
         objectives: Cele
+        related_assemblies: Powiązane złożenia
+        related_consultations: Powiązane konsultacje
+        related_participatory_processes: Powiązane procesy uczestnictwa
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
@@ -357,6 +438,10 @@ pl:
       value_types:
         conference_presenter:
           not_found: 'Konferencji nie znaleziono w bazie danych (ID: %{id})'
+    media:
+      index:
+        description: Linki do tej konferencji
+        title: Media i linki
     menu:
       conferences: Konferencje
   devise:
@@ -384,6 +469,8 @@ pl:
           take_part: Wziąć udział
       conferences_nav:
         conference_menu_item: Informacja
+        conference_partners_menu_item: Wzmacniacz
         conference_speaker_menu_item: Głośniki
+        media: Głoska bezdźwięczna
         unfold: Rozwijać się
         venues: Miejsca spotkań

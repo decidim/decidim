@@ -18,12 +18,15 @@ module Decidim
       Decidim::DataPortabilitySerializers::DataPortabilityParticipatorySpacePrivateUserSerializer
     end
 
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ParticipatorySpacePrivateUserPresenter
+    end
+
     private
 
     # Private: check if the participatory space and the user have the same organization
     def user_and_participatory_space_same_organization
       return if !privatable_to || !user
-
       errors.add(:privatable_to, :invalid) unless user.organization == privatable_to.organization
     end
   end

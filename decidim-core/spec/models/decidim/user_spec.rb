@@ -125,77 +125,6 @@ module Decidim
                          nickname: user.nickname).save(validate: false)
           end.to raise_error(ActiveRecord::RecordNotUnique)
         end
-
-        it "can't be empty backed by an index" do
-          expect { user.save(validate: false) }.not_to raise_error
-        end
-
-        context "when managed" do
-          before do
-            user.managed = true
-          end
-
-          it "is valid" do
-            expect(user).to be_valid
-          end
-
-          it "can be saved" do
-            expect(user.save).to be true
-          end
-
-          it "can have duplicates" do
-            user.save!
-
-            expect do
-              create(:user, organization: user.organization,
-                            nickname: user.nickname,
-                            managed: true)
-            end.not_to raise_error
-          end
-        end
-
-        context "when deleted" do
-          before do
-            user.deleted_at = Time.zone.now
-          end
-
-          it "is valid" do
-            expect(user).to be_valid
-          end
-
-          it "can be saved" do
-            expect(user.save).to be true
-          end
-
-          it "can have duplicates" do
-            user.save!
-
-            expect do
-              create(:user, organization: user.organization,
-                            nickname: user.nickname,
-                            deleted_at: Time.zone.now)
-            end.not_to raise_error
-          end
-        end
-      end
-
-      context "when the nickname is not empty" do
-        before do
-          user.nickname = "a-nickname"
-        end
-
-        it "can be created" do
-          expect(user.save).to eq(true)
-        end
-
-        it "can't have duplicates even when skipping validations" do
-          user.save!
-
-          expect do
-            build(:user, organization: user.organization,
-                         nickname: user.nickname).save(validate: false)
-          end.to raise_error(ActiveRecord::RecordNotUnique)
-        end
       end
 
       context "when the file is too big" do
@@ -216,6 +145,24 @@ module Decidim
         end
 
         it { is_expected.not_to be_valid }
+      end
+
+      context "with weird characters" do
+        let(:weird_characters) do
+          %w(< > ? % & ^ * # @ ( ) [ ] = + : ; " { } \ |)
+        end
+
+        it "doesn't allow them" do
+          weird_characters.each do |character|
+            user = build(:user)
+            user.name = user.name.insert(rand(0..user.name.length), character)
+            user.nickname = user.nickname.insert(rand(0..user.nickname.length), character)
+
+            expect(user).not_to be_valid
+            expect(user.errors[:name].length).to eq(1)
+            expect(user.errors[:nickname].length).to eq(1)
+          end
+        end
       end
     end
 
