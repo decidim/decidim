@@ -82,6 +82,7 @@ sv:
         changed_notably: Det har förekommit märkbara förändringar.
         content: Innehåll
         organization: Organisation
+        show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
     errors:
@@ -560,7 +561,6 @@ sv:
         index:
           last_notable_change: Senast anmärkningsvärda förändring
         new:
-          create: Skapa
           title: Ny sida
         update:
           error: Det uppstod ett fel vid uppdateringen av den här sidan.
