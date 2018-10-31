@@ -64,6 +64,7 @@ module Decidim
 
     def permission
       return nil unless component && action
+
       @permission ||= resource&.permissions&.fetch(action, nil) || component.permissions&.fetch(action, nil)
     end
 

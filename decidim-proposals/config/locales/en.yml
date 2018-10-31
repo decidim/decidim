@@ -626,12 +626,18 @@ en:
           no_votes_remaining: No votes remaining
           vote: Vote
           votes_blocked: Voting disabled
+        vote_weight:
+          maximum_votes_reached: Maximum votes reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Votes blocked
         votes_count:
           count:
             one: VOTE
             other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
+        votes_weight:
+          count: Count
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports

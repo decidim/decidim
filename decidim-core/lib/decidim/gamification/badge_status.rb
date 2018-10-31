@@ -29,6 +29,7 @@ module Decidim
       # Returns an Integer with the remaining score.
       def next_level_in
         return nil if level >= @badge.levels.count
+
         @badge.levels[level] - score
       end
 

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -42,8 +43,8 @@ nl:
         one: Gebruikersgroep
         other: Gebruikersgroepen
   booleans:
-    'false': 'Nee'
-    'true': 'Ja'
+    'false': Nee
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: De afbeelding is te groot
@@ -386,6 +387,14 @@ nl:
           notification_title: Je bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> groep.
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        email_subject: Onderwerp e-mail
+        moderation:
+          email_intro: E-mail intro
+          email_subject: Onderwerp e-mail
+          moderation_url: Matige url
+        notification_title: Titel van de kennisgeving
+        url: Url
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
@@ -439,7 +448,7 @@ nl:
       badges:
         continuity:
           conditions:
-            - Kom hier vaker
+          - Kom hier vaker
           description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
           description_another: Deze gebruiker heeft op een gegeven moment %{score} opeenvolgende dagen verbonden.
           description_own: Je hebt op een gegeven moment %{score} opeenvolgende dagen verbonden.
@@ -449,7 +458,7 @@ nl:
           unearned_own: Je hebt niet langer dan één opeenvolgende dag verbonden.
         followers:
           conditions:
-            - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
+          - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer u een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, weven uw web om te communiceren met andere mensen op het platform.
           description_another: Deze gebruiker heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen u."
@@ -464,9 +473,9 @@ nl:
           title: badges
         invitations:
           conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas, als u wilt, het bericht aan dat u verzendt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
+          - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+          - Pas, als u wilt, het bericht aan dat u verzendt
+          - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
           description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om je in %{organization_name} te registreren en deelnemers te worden. Dank u voor u %{organization_name} bekend bij anderen en het helpen om de community uit te breiden!
           description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
           description_own: Je hebt %{score} gebruikers uitgenodigd.
@@ -738,6 +747,7 @@ nl:
       deleted: Verwijderde gebruiker
       view: Uitzicht
     profiles:
+      default_officialization_text: Standaard officialisatietekst
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:

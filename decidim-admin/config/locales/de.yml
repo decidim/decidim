@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -285,6 +286,11 @@ de:
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle
       managed_users:
+        index:
+          impersonate: Verkörperung
+          needs_authoriation_warning: Benötigt Autorisierungswarnung
+          promote: Bewerben
+          view_logs: Protokolle anzeigen
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
           success: Der verwaltete Benutzer wurde erfolgreich hochgestuft.
@@ -340,6 +346,13 @@ de:
             reason: Grund
             started_at: Fing an bei
             user: Benutzer
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Titel
+            weight: Gewicht
         newsletter:
           fields:
             created_at: Hergestellt in
@@ -394,6 +407,28 @@ de:
             does_not_belong: Gehört nicht
             offensive: Beleidigend
             spam: Spam
+      navbar_links:
+        create:
+          error: Beim Erstellen dieses Links ist ein Fehler aufgetreten.
+          success: Link erfolgreich erstellt
+        destroy:
+          success: Link erfolgreich zerstört
+        edit:
+          title: Navbar-Link bearbeiten
+          update: Update
+        form:
+          link: Link
+          new_tab: Öffnen in einer neuen Registerkarte
+          same_tab: Öffnen in der gleichen Registerkarte
+          title: Titel
+          weight: Gewicht
+        new:
+          create: Erstellen
+          title: Neuer Navbar-Link
+        no_links: Keine Verknüpfungen erstellt
+        update:
+          error: Beim Aktualisieren dieses Links ist ein Fehler aufgetreten.
+          success: Link erfolgreich aktualisiert
       newsletters:
         create:
           error: Beim Erstellen dieses Newsletters ist ein Fehler aufgetreten.
@@ -468,6 +503,7 @@ de:
         new:
           badge: Offizielles Abzeichen
           officialize: Offizialisieren
+          title: Benutzer "%{name}" offiziell eintragen
       organization:
         edit:
           title: Organisation bearbeiten
@@ -572,6 +608,8 @@ de:
         dashboard: Instrumententafel
         impersonatable_users: Impersonable Benutzer
         impersonations: Identitätswechsel
+        managed_users: Verwaltete Benutzer
+        navbar_links: Navbar-Links
         officializations: Ausschreibungen
         scope_types: Bereichstypen
         scopes: Bereiche

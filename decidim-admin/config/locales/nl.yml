@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -285,6 +286,11 @@ nl:
         logs_list:
           no_logs_yet: Er zijn nog geen logs
       managed_users:
+        index:
+          impersonate: Zich voordoen
+          needs_authoriation_warning: Behoeften authoriation waarschuwing
+          promote: Bevorderen
+          view_logs: Bekijk logboeken
         promotion:
           error: Er is een fout opgetreden bij het promoten van de beheerde gebruiker.
           success: De beheerde gebruiker is succesvol gepromoveerd.
@@ -340,6 +346,13 @@ nl:
             reason: Reden
             started_at: Gestart op
             user: Gebruiker
+        managed_user:
+          name: Naam
+        navbar_link:
+          fields:
+            link: Link
+            title: Titel
+            weight: Gewicht
         newsletter:
           fields:
             created_at: Aangemaakt op
@@ -394,6 +407,28 @@ nl:
             does_not_belong: Hoort niet
             offensive: Aanvallend
             spam: Spam
+      navbar_links:
+        create:
+          error: Er is een fout opgetreden bij het maken van deze link.
+          success: Link succesvol aangemaakt
+        destroy:
+          success: Link succesvol vernietigd
+        edit:
+          title: Navigatiebalk link bewerken
+          update: Update
+        form:
+          link: Link
+          new_tab: Openen in een nieuw tabblad
+          same_tab: Openen in hetzelfde tabblad
+          title: Titel
+          weight: Gewicht
+        new:
+          create: Creëer
+          title: Nieuwe navigatiebalk link
+        no_links: Geen links gemaakt
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze link.
+          success: Link succesvol bijgewerkt
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
@@ -459,7 +494,9 @@ nl:
           name: Naam
           nickname: Gebruikersnaam
           not_officialized: Niet gevalideerd
-          officialize: "Valideren\n"
+          officialize: 'Valideren
+
+'
           officialized: Gevalideerd
           reofficialize: Hervalideren
           search: Zoeken
@@ -573,6 +610,8 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Niet-personaliseerbare gebruikers
         impersonations: Nabootsingingen
+        managed_users: Beheerde gebruikers
+        navbar_links: Navigatiebalk links
         officializations: Bevestigen gebruikers
         scope_types: Scope types
         scopes: Scopes

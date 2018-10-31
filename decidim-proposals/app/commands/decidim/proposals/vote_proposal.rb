@@ -53,6 +53,7 @@ module Decidim
 
       def update_temporary_votes
         return unless minimum_votes_per_user? && user_votes.count >= minimum_votes_per_user
+
         user_votes.each { |vote| vote.update(temporary: false) }
       end
 

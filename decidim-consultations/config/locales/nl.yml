@@ -109,6 +109,9 @@ nl:
             created_at: Aangemaakt op
             published: Gepubliceerd
             title: Titel
+          name:
+            one: Overleg
+            other: Overleg
         question:
           fields:
             created_at: Aangemaakt op

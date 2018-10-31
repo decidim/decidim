@@ -36,6 +36,7 @@ module Decidim
     def can_edit_user_group_profile?
       return false unless current_user
       return false if model.is_a?(Decidim::User)
+
       Decidim::UserGroups::ManageableUserGroups.for(current_user).include?(model)
     end
 
@@ -53,12 +54,14 @@ module Decidim
     def can_join_user_group?
       return false unless current_user
       return false if model.is_a?(Decidim::User)
+
       Decidim::UserGroupMembership.where(user: current_user, user_group: model).empty?
     end
 
     def can_leave_group?
       return false unless current_user
       return false if model.is_a?(Decidim::User)
+
       Decidim::UserGroupMembership.where(user: current_user, user_group: model).where.not(role: :creator).any?
     end
   end

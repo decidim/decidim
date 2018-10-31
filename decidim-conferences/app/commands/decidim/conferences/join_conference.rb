@@ -20,6 +20,7 @@ module Decidim
       def call
         conference.with_lock do
           return broadcast(:invalid) unless can_join_conference?
+
           create_registration
           create_meetings_registrations
           accept_invitation
@@ -65,6 +66,7 @@ module Decidim
       def send_notification
         return send_notification_over(0.5) if occupied_slots_over?(0.5)
         return send_notification_over(0.8) if occupied_slots_over?(0.8)
+
         send_notification_over(1.0) if occupied_slots_over?(1.0)
       end
 

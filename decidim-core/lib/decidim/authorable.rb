@@ -36,16 +36,19 @@ module Decidim
 
       def verified_user_group
         return unless user_group
+
         errors.add :user_group, :invalid unless user_group.verified?
       end
 
       def user_group_membership
         return unless user_group
+
         errors.add :user_group, :invalid unless user_group.users.include? author
       end
 
       def author_belongs_to_organization
         return if !author || !organization
+
         errors.add(:author, :invalid) unless author == organization || author.respond_to?(:organization) && author.organization == organization
       end
     end

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ nl:
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
+        exports:
+          comments: commentaren
+          debates: debatten
         models:
           debate:
             name: Debat
@@ -120,8 +124,7 @@ nl:
             email_subject: Nieuw debat op %{space_title}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: |-
-              Hallo, %{author_name} %{author_nickname}, iemand die je volgt, heeft een nieuw debat aangemaakt, bekijk het en neem deel:
+            email_intro: 'Hallo, %{author_name} %{author_nickname}, iemand die je volgt, heeft een nieuw debat aangemaakt, bekijk het en neem deel:'
             email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kan deze meldingen uitschakelen door te klikken op de voorgaande link.
             email_subject: Nieuw debat door %{author_nickname}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
@@ -139,7 +142,7 @@ nl:
       badges:
         commented_debates:
           conditions:
-            - Kies een open debat om deel te nemen
+          - Kies een open debat om deel te nemen
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw opmerkingen achter te laten.
           description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           description_own: Je hebt deelgenomen aan %{score} debatten.

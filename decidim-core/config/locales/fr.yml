@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -42,8 +43,8 @@ fr:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': 'Non'
-    'true': 'Oui'
+    'false': Non
+    'true': Oui
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
@@ -334,7 +335,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
+        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -386,6 +387,14 @@ fr:
           notification_title: Vous avez été supprimé du groupe <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        email_subject: Sujet de l'e-mail
+        moderation:
+          email_intro: Introduction par courriel
+          email_subject: Sujet de l'e-mail
+          moderation_url: Url de modération
+        notification_title: Titre de la notification
+        url: Url
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -439,7 +448,7 @@ fr:
       badges:
         continuity:
           conditions:
-            - Viens ici souvent
+          - Viens ici souvent
           description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
           description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
           description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
@@ -449,7 +458,7 @@ fr:
           unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
           conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -464,9 +473,9 @@ fr:
           title: Insignes
         invitations:
           conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+          - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+          - Personnalisez, si vous le souhaitez, le message que vous envoyez
+          - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
           description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -738,6 +747,7 @@ fr:
       deleted: Utilisateur ayant supprimé son compte
       view: Voir
     profiles:
+      default_officialization_text: Texte d'officialisation par défaut
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
@@ -837,11 +847,11 @@ fr:
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
-      invalid: '%{authentication_keys} ou mot de passe invalide.'
+      invalid: "%{authentication_keys} ou mot de passe invalide."
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Ton compte est bloqué.
-      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
+      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:

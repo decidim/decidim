@@ -34,6 +34,7 @@ module Decidim
       return unless from_context
       return unless proposals_controller?
       return if index_action?
+
       from_context.withdrawable_by?(current_user)
     end
 
@@ -42,6 +43,7 @@ module Decidim
       return unless proposals_controller? || collaborative_drafts_controller?
       return if index_action?
       return if from_context.try(:official?)
+
       true
     end
   end

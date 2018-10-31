@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -95,7 +96,9 @@ nl:
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Creatie nieuw voorstel toegestaan
             endorsements_blocked: Aanbevelingen geblokkeerd
-            endorsements_enabled: "Aanbevelingen toegestaan\n"
+            endorsements_enabled: 'Aanbevelingen toegestaan
+
+'
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen ingeschakeld
@@ -190,8 +193,8 @@ nl:
       badges:
         accepted_proposals:
           conditions:
-            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
-            - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
+          - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+          - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen en deze worden geaccepteerd.
           description_another: Deze gebruiker heeft %{score} voorstellen geaccepteerd gekregen.
           description_own: Je hebt %{score} voorstellen geaccepteerd.
@@ -201,8 +204,8 @@ nl:
           unearned_own: Je hebt nog geen voorstellen geaccepteerd.
         proposal_votes:
           conditions:
-            - Blader door en besteed wat tijd aan het lezen van de voorstellen van anderen
-            - Geef steun aan de voorstellen die je leuk vindt of interessant vindt
+          - Blader door en besteed wat tijd aan het lezen van de voorstellen van anderen
+          - Geef steun aan de voorstellen die je leuk vindt of interessant vindt
           description: Deze badge wordt toegekend wanneer u de voorstellen van andere mensen steunt.
           description_another: Deze gebruiker heeft %{score} voorstellen ondersteund.
           description_own: U hebt %{score} voorstellen ondersteund.
@@ -212,8 +215,8 @@ nl:
           unearned_own: Je hebt nog geen steun gegeven aan nog geen voorstellen.
         proposals:
           conditions:
-            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
-            - Maak een nieuw voorstel
+          - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+          - Maak een nieuw voorstel
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: Deze gebruiker heeft %{score} voorstellen gemaakt.
           description_own: U hebt %{score} voorstellen gemaakt.
@@ -625,12 +628,18 @@ nl:
           no_votes_remaining: Geen stemmen over
           vote: Stem
           votes_blocked: Stemmen uitgeschakeld
+        vote_weight:
+          maximum_votes_reached: Maximaal aantal uitgebrachte stemmen
+          no_votes_remaining: Geen stemmen meer
+          votes_blocked: Stemmen geblokkeerd
         votes_count:
           count:
             one: STEM
             other: STEMMEN
           most_popular_proposal: Populairste voorstel
           need_more_votes: Meer stemmen nodig
+        votes_weight:
+          count: Tellen
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen

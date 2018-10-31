@@ -11,6 +11,7 @@ module Decidim
     def initialize(day_string, organization)
       @day = day_string.present? ? Date.parse(day_string) : Time.zone.today - 1.day
       raise ArgumentError, "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past" if @day > Time.zone.today
+
       @day ||= Time.zone.today - 1.day
       @organization = organization
       @metric_name = metric_name
@@ -28,6 +29,7 @@ module Decidim
       return @registry if @registry
 
       return if cumulative.zero?
+
       @registry = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name, organization: @organization)
       @registry.assign_attributes(cumulative: cumulative, quantity: quantity)
       @registry.save!

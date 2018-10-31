@@ -85,7 +85,7 @@ search:
 #   api_key: "AbC-dEf5"
 
 translation:
-  deepl_api_key: 8b6b45fe-99a4-4f32-180a-bfef33d566f2
+  deepl_api_key: <%= ENV["DEEPL_API_KEY"] %>
 
 # Do not consider these keys missing:
 ignore_missing:

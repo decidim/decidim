@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -144,6 +145,7 @@ de:
           notification_title: Sie können nun beginnen <a href="%{resource_path}">Vorschläge befürworten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Du kannst es über den vorherigen Link wieder rückgängig machen.
           email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
         proposal_endorsed:
@@ -153,6 +155,7 @@ de:
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>gebilligt.
         proposal_evaluating:
           email_intro: 'Der Vorschlag "%{resource_title}" wird gerade ausgewertet. Sie können auf dieser Seite nach einer Antwort suchen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Du kannst es über den vorherigen Link wieder rückgängig machen.
           email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
         proposal_mentioned:
@@ -166,10 +169,12 @@ de:
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{partizipatory_space_title}" folgen. Du kannst es über den vorherigen Link wieder rückgängig machen.
           email_subject: Neuer Vorschlag wurde zu %{participatory_space_title}hinzugefügt
           notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
         proposal_rejected:
           email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Du kannst es über den vorherigen Link wieder rückgängig machen.
           email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde abgelehnt.
         proposal_update_category:
@@ -186,8 +191,8 @@ de:
       badges:
         accepted_proposals:
           conditions:
-            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
+          - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+          - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Angeboten teilnehmen und diese angenommen werden.
           description_another: Dieser Benutzer hat %{score} Vorschläge akzeptiert.
           description_own: Sie haben %{score} Vorschläge angenommen.
@@ -197,8 +202,8 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erhalten.
         proposal_votes:
           conditions:
-            - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
-            - Unterstützen Sie die Vorschläge, die Sie mögen oder interessant finden
+          - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
+          - Unterstützen Sie die Vorschläge, die Sie mögen oder interessant finden
           description: Dieses Abzeichen wird gewährt, wenn Sie Vorschläge anderer Personen unterstützen.
           description_another: Dieser Benutzer hat %{score} Vorschläge unterstützt.
           description_own: Sie haben %{score} Vorschläge unterstützt.
@@ -208,8 +213,8 @@ de:
           unearned_own: Sie haben noch keine Vorschläge unterstützt.
         proposals:
           conditions:
-            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Erstellen Sie einen neuen Vorschlag
+          - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+          - Erstellen Sie einen neuen Vorschlag
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Vorschlägen teilnehmen.
           description_another: Dieser Benutzer hat %{score} Vorschläge erstellt.
           description_own: Sie haben %{score} Vorschläge erstellt.
@@ -351,6 +356,7 @@ de:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
           create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
+          update: "%{Benutzername} aktualisiert den %{Ressourcenname} offizieller Vorschlag zum %{Raumname} Raum"
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
       answers:
@@ -620,12 +626,18 @@ de:
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmung
           votes_blocked: Abstimmung deaktiviert
+        vote_weight:
+          maximum_votes_reached: Maximal erreichte Stimmen
+          no_votes_remaining: Keine Stimmen mehr vorhanden
+          votes_blocked: Gesperrte Abstimmungen
         votes_count:
           count:
             one: ABSTIMMUNG
             other: ABSTIMMUNGEN
           most_popular_proposal: Beliebtester Vorschlag
           need_more_votes: Brauche mehr Stimmen
+        votes_weight:
+          count: Anzahl
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln

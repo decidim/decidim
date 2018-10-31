@@ -95,6 +95,7 @@ module Decidim
         def available_slots_greater_than_or_equal_to_registrations_count
           conference = OrganizationConferences.new(current_organization).query.find_by(slug: slug)
           return true if conference.blank?
+
           errors.add(:available_slots, :invalid) if available_slots < conference.conference_registrations.count
         end
 

@@ -12,6 +12,7 @@ module Decidim
 
     def call
       return broadcast(:invalid) unless form.valid?
+
       invite_friends
       broadcast(:ok)
     end

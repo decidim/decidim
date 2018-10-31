@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -42,8 +43,8 @@ de:
         one: Benutzergruppe
         other: Benutzergruppen
   booleans:
-    'false': 'Nein'
-    'true': 'Ja'
+    'false': Nein
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: Das Bild ist zu groß
@@ -386,6 +387,14 @@ de:
           notification_title: Sie wurden aus der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
+      proposal_created:
+        email_subject: Betreff der E-Mail
+        moderation:
+          email_intro: E-Mail-Einführung
+          email_subject: Betreff der E-Mail
+          moderation_url: Moderations-URL
+        notification_title: Titel der Benachrichtigung
+        url: Url
       users:
         profile_updated:
           email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
@@ -439,7 +448,7 @@ de:
       badges:
         continuity:
           conditions:
-            - Komm oft hierher
+          - Komm oft hierher
           description: Dieses Abzeichen wird gewährt, wenn Sie die Plattform regelmäßig besuchen. Wir möchten dich hier in der Nähe haben!
           description_another: Dieser Benutzer hat sich irgendwann einmal für %{score} aufeinanderfolgende Tage verbunden.
           description_own: Sie haben an einem bestimmten Punkt für %{score} aufeinanderfolgende Tage verbunden.
@@ -449,7 +458,7 @@ de:
           unearned_own: Sie haben seit mehr als einem aufeinanderfolgenden Tag keine Verbindung hergestellt.
         followers:
           conditions:
-            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
+          - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
           description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
           description_another: Diese*r Benutzer*in hat %{score} Follower.
           description_own: "%{score} Benutzer*innen folgen dir."
@@ -464,9 +473,9 @@ de:
           title: Abzeichen
         invitations:
           conditions:
-            - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
-            - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
-            - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
+          - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
+          - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
+          - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
           description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
           description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
           description_own: Sie haben %{score} Benutzer*innen eingeladen.
@@ -738,6 +747,7 @@ de:
       deleted: Gelöschte*r Benutzer*in
       view: Anzeigen
     profiles:
+      default_officialization_text: Standardmäßiger Offizialisierungstext
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft, ihr Name wurde mit dem tatsächlichen Namen verifiziert
       default_officialization_text_for_users: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
       show:

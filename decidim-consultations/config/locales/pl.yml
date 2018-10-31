@@ -232,9 +232,9 @@ pl:
             active_consultations: Aktywne konsultacje
             see_all_consultations: Zobacz wszystkie konsultacje
             voting_ends_in:
-              one: Głosowanie kończy się na <strong>jutro</strong>
               few: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
               many: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
+              one: Głosowanie kończy się na <strong>jutro</strong>
               other: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
             voting_ends_today: Głosowanie kończy się dzisiaj <strong></strong>
       question:

@@ -33,6 +33,7 @@ module Decidim
         def voting_ends_text_for(consultation)
           remaining_days = (consultation.end_voting_date - Time.zone.today).to_i
           return I18n.t("voting_ends_today", scope: i18n_scope) if remaining_days.zero?
+
           I18n.t("voting_ends_in", scope: i18n_scope, count: remaining_days)
         end
       end

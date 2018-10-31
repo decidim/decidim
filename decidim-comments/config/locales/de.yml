@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     models:
@@ -67,6 +68,8 @@ de:
         blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
         loading: Kommentare werden geladen ...
         title: "%{count} Kommentare"
+        title_0: Es gibt noch keine Kommentare
+        title_1: "%{count} Kommentar"
     events:
       comments:
         comment_by_followed_user:

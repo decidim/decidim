@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ de:
           update:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
+        exports:
+          comments: kommentare
+          debates: debatten
         models:
           debate:
             name: Debatte
@@ -140,7 +144,7 @@ de:
       badges:
         commented_debates:
           conditions:
-            - Wählen Sie eine offene Debatte, an der Sie teilnehmen können
+          - Wählen Sie eine offene Debatte, an der Sie teilnehmen können
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an den verschiedenen Debatten teilnehmen, indem Sie Ihre Kommentare hinterlassen.
           description_another: Dieser Benutzer hat an %{score} Debatten teilgenommen.
           description_own: Sie haben an %{score} Debatten teilgenommen.

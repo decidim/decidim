@@ -12,11 +12,13 @@ module Decidim
 
       def name
         return unless model.name.presence
+
         "<div class='text-medium'> #{model.name} </div>"
       end
 
       def logo
         return unless model.logo.presence
+
         "<div class='card p-m flex--cc'> #{image_tag model.logo.medium.url} </div>"
       end
     end

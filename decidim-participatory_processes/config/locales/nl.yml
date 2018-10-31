@@ -100,6 +100,7 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
+          name: Participatieproces
         participatory_process_group:
           fields:
             name: Naam

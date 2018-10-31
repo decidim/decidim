@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -86,8 +87,8 @@ de:
       badges:
         initiatives:
           conditions:
-            - Gehe zum Teilnehmerbereich von Intiativen
-            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+          - Gehe zum Teilnehmerbereich von Intiativen
+          - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
           description_own: Du hast %{score} Initiativen veröffentlicht.
@@ -329,6 +330,7 @@ de:
         progress_report_body_for: Die Initiative %{title} hat die %{percentage}% der erforderlichen Unterstützung erreicht.
         progress_report_for: 'Resume über die Initiative: %{title}'
         promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
+        status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}>'
         status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.

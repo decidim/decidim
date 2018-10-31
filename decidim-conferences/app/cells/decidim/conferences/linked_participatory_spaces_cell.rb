@@ -21,18 +21,21 @@ module Decidim
       def conference_participatory_processes
         processes = model.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
         return unless processes.any?
+
         processes
       end
 
       def conference_assemblies
         assemblies = model.linked_participatory_space_resources(:assemblies, "included_assemblies")
         return unless assemblies.any?
+
         assemblies
       end
 
       def conference_consultations
         consultations = model.linked_participatory_space_resources(:consultations, "included_consultations")
         return unless consultations.any?
+
         consultations
       end
 

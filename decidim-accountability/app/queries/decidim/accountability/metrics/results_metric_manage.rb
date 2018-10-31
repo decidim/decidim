@@ -14,6 +14,7 @@ module Decidim
           @registry = []
           cumulative.each do |key, cumulative_value|
             next if cumulative_value.zero?
+
             quantity_value = quantity[key] || 0
             category_id, space_type, space_id, related_object_id = key
             record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,

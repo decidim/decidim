@@ -12,6 +12,7 @@ module Decidim
     def show
       return if invitations.empty?
       return unless own_profile?
+
       render :show
     end
 

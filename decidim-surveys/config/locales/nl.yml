@@ -4,6 +4,8 @@ nl:
     attributes:
       survey_answer:
         body: Antwoord
+        choices: De keuzes
+        selected_choices: De selectie
       survey_question:
         mandatory: Verplicht
         max_choices: Maximum aantal keuzes
@@ -61,6 +63,7 @@ nl:
         models:
           components:
             description: Beschrijving
+            title: Titel
             tos: Servicevoorwaarden
         surveys:
           answer_option:

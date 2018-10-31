@@ -12,6 +12,7 @@ module Decidim
 
     def show
       return unless renderable?
+
       render
     end
 
@@ -54,6 +55,7 @@ module Decidim
 
     def published?
       return true unless resource.respond_to?(:published?)
+
       resource.published?
     end
 

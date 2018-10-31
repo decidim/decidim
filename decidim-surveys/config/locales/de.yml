@@ -1,8 +1,11 @@
+---
 de:
   activemodel:
     attributes:
       survey_answer:
         body: Antworten
+        choices: Die Wahlmöglichkeiten
+        selected_choices: Die Auswahl
       survey_question:
         mandatory: Verpflichtend
         max_choices: Maximale Anzahl an Auswahlmöglichkeiten
@@ -60,6 +63,7 @@ de:
         models:
           components:
             description: Beschreibung
+            title: Titel
             tos: Nutzungsbedingungen
         surveys:
           answer_option:
