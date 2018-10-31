@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       survey_answer:
-        body: Antwoord
+        body: Antwoorden
       survey_question:
         mandatory: Verplicht
         max_choices: Maximum aantal keuzes
