@@ -1,0 +1,79 @@
+fi:
+  activemodel:
+    attributes:
+      answer:
+        body: Vastaus
+      question:
+        max_choices: Valintojen enimmäismäärä
+        question_type: Tyyppi
+      questionnaire_question:
+        mandatory: Pakollinen
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: eivät ole täydellisiä
+              too_many: ovat liian monta
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Kuvaus
+            tos: Käyttöehdot
+        questionnaires:
+          answer_option:
+            answer_option: Vastausvaihtoehto
+            free_text: Ilmainen teksti
+            remove: Poistaa
+            statement: selvitys
+          edit:
+            save: Tallentaa
+            title: otsikko
+          form:
+            add_question: Lisää kysymys
+            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet kyselyyn, joten et voi muokata kysymyksiä.
+          question:
+            add_answer_option: Lisää vastausvaihtoehto
+            any: Minkä tahansa
+            description: Kuvaus
+            down: Alas
+            question: Kysymys
+            remove: Poistaa
+            statement: selvitys
+            up: ylös
+          update:
+            invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
+            success: Kyselylomakkeet tallennettiin onnistuneesti.
+      errors:
+        answer:
+          body: Runko ei voi olla tyhjä
+      question_types:
+        long_answer: Pitkä vastaus
+        multiple_option: Useita vaihtoehtoja
+        short_answer: Lyhyt vastaus
+        single_option: Yksi vaihtoehto
+        sorting: lajittelu
+      questionnaires:
+        answer:
+          invalid: Kyselylomakkeeseen vastatessa on ollut virheitä.
+          success: Kyselyn vastaus onnistui.
+        question:
+          max_choices: 'Max valinnat: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">kirjaudu sisään</a> vastaamaan kyselyyn.
+            title: Vastaa kyselylomakkeeseen
+          are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
+          questionnaire_answered:
+            body: Olet jo vastannut tähän kyselyyn.
+            title: Olet vastannut jo
+          questionnaire_closed:
+            body: Kyselylomake on suljettu, eikä siihen voi vastata.
+            title: Kysely on suljettu
+          questionnaire_for_private_users:
+            body: Kyselylomake on saatavilla vain yksityisille käyttäjille
+            title: Kysely on suljettu
+          submit: Lähetä
+          tos_agreement: Osallistumalla hyväksyt sen käyttöehdot
