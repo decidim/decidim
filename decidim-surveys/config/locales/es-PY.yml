@@ -2,7 +2,7 @@ es-PY:
   activemodel:
     attributes:
       survey_answer:
-        body: Respuesta
+        body: Responder
       survey_question:
         mandatory: Obligatorio
         max_choices: Número máximo de opciones
