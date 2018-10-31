@@ -362,12 +362,12 @@ hu:
           email_intro: Gratulálunk! A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elfogadta a csatlakozás iránti kérelmét.
           email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
           email_subject: Elfogadták a %{user_group_name} csoportba!
-          notification_title: A <a href="%{resource_path}">%{user_group_name}</a> csoportban elfogadták.
+          notification_title: A jelentkezésedet <a href="%{resource_path}">%{user_group_name}</a> csoportban elfogadták.
         join_request_created:
-          email_intro: Valaki felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz. Akkor elfogadja vagy elutasítja azt <a href="%{resource_url}">csoport tagjai oldal</a>.
+          email_intro: Valaki felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz. Elfogadjatod vagy elutasíthatod a csoport tag oldaláról <a href="%{resource_url}"></a>.
           email_outro: Ezt az értesítést azért kapta, mert kezelheti a %{user_group_name} csoportot.
-          email_subject: Valaki kért, hogy csatlakozzon a %{user_group_name} csoporthoz!
-          notification_title: Valaki felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz. Akkor elfogadja vagy elutasítja azt <a href="%{resource_path}">csoport tagjai oldal</a>.
+          email_subject: Valaki arra kért, hogy csatlakozz a %{user_group_name} csoporthoz!
+          notification_title: Valaki felkért, hogy csatlakozzon a %{user_group_name} csoporthoz. Elfogadhatod vagy elutasíthatod a csoport tagjainak oldalán <a href="%{resource_path}"></a>.
         join_request_rejected:
           email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elutasította a csatlakozás iránti kérelmét.
           email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
