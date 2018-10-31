@@ -560,7 +560,6 @@ es:
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear
           title: Nueva página
         update:
           error: Se ha producido un error en la actualización de ésta página.
