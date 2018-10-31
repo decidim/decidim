@@ -82,8 +82,10 @@ fi:
         changed_notably: On tapahtunut huomattavia muutoksia.
         content: Sisältö
         organization: Organisaatio
+        show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
+        weight: Paino
     errors:
       models:
         oauth_application:
@@ -545,6 +547,21 @@ fi:
         update:
           error: Tämän teeman päivityksessä tapahtui virhe.
           success: Teema päivitetty onnistuneesti
+      static_page_topics:
+        create:
+          error: Uuden aiheen luomisessa tapahtui virhe.
+          success: Aihe luotiin onnistuneesti.
+        destroy:
+          success: Aihe epäonnistui
+        edit:
+          title: Muokkaa aihe
+          update: Päivitä aihe
+        new:
+          create: Luo aihe
+          title: Uusi aihe
+        update:
+          error: Tämän aiheen päivittämisessä tapahtui virhe.
+          success: Aihe päivitettiin onnistuneesti
       static_pages:
         actions:
           view: Näytä julkinen sivu
@@ -557,11 +574,18 @@ fi:
           changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään uudet käyttöehdot.
           title: Muokkaa sivua
           update: Päivitä
+        form:
+          none: Ei mitään
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:
-          create: Luo
+          create: Luo sivu
           title: Uusi sivu
+        topic:
+          destroy: Poista aihe
+          edit: Muokkaa aihe
+          empty: Tällä sivulla ei ole sivua
+          without_topic: Sivut ilman aihetta
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivu päivitetty onnistuneesti
