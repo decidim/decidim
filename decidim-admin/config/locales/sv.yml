@@ -85,6 +85,7 @@ sv:
         show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
+        weight: Vikt
     errors:
       models:
         oauth_application:
@@ -546,6 +547,21 @@ sv:
         update:
           error: Ett fel uppstod vid uppdatering av detta räckvidd.
           success: Omfattning uppdateras framgångsrikt
+      static_page_topics:
+        create:
+          error: Det uppstod ett fel vid skapandet av ett nytt ämne.
+          success: Ämne skapades framgångsrikt.
+        destroy:
+          success: Ämne framgångsrikt förstört
+        edit:
+          title: Redigera ämne
+          update: Uppdatera ämne
+        new:
+          create: Skapa ämne
+          title: Nytt ämne
+        update:
+          error: Det uppstod ett fel vid uppdateringen av det här ämnet.
+          success: Ämnet uppdaterades framgångsrikt
       static_pages:
         actions:
           view: Visa allmän sida
@@ -558,10 +574,18 @@ sv:
           changed_notably_help: Om den är markerad kommer användarna att bli underrättad om att acceptera de nya villkoren.
           title: Redigera sida
           update: Uppdatera
+        form:
+          none: Ingen
         index:
           last_notable_change: Senast anmärkningsvärda förändring
         new:
+          create: Skapa sida
           title: Ny sida
+        topic:
+          destroy: Ta bort ämne
+          edit: Redigera ämne
+          empty: Det finns ingen sida under det här ämnet
+          without_topic: Sidor utan ämne
         update:
           error: Det uppstod ett fel vid uppdateringen av den här sidan.
           success: Sidan uppdaterad framgångsrikt
