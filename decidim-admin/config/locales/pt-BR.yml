@@ -555,10 +555,10 @@ pt-BR:
           success: Tópico destruído com sucesso
         edit:
           title: Editar tópico
-          update: Atualize o tópico
+          update: Atualizar tópico
         new:
           create: Criar tópico
-          title: Novo topico
+          title: Novo tópico
         update:
           error: Houve um erro ao atualizar este tópico.
           success: Tópico atualizado com sucesso
