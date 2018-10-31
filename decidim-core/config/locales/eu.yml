@@ -596,6 +596,7 @@ eu:
     members:
       no_members: Erabiltzaile talde honek ez du kideik oraindik.
     menu:
+      help: Laguntza
       home: Hasiera
     messaging:
       conversation_mailer:
@@ -711,6 +712,12 @@ eu:
           votes_count: Euskarriak
         sub_hero:
           register: Erregistroa
+      index:
+        read_more: Irakurri gehiago
+        standalone_pages: orrialdeak
+        subheading: Laguntza orrietan nabigatzeko %{name}
+        title: Laguntza
+        topics: Gaiak
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
