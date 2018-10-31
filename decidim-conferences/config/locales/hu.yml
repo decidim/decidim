@@ -132,7 +132,7 @@ hu:
         index:
           media_links_title: Média linkek
         new:
-          create: teremt
+          create: Létrehozás
           title: Media Link
         update:
           error: Hiba történt a média link frissítésekor.
@@ -152,7 +152,7 @@ hu:
           info: Info
           media_links: Média linkek
           moderations: moderálások
-          partners: Partners
+          partners: Partnerek
       models:
         conference:
           fields:
@@ -187,7 +187,7 @@ hu:
             link: Link
             logo: logo
             name: Név
-            partner_type: típus
+            partner_type: Típus
           name: Partner
           types:
             collaborator: Együttműködő
@@ -200,9 +200,9 @@ hu:
           success: A partner sikeresen eltávolította ezt a konferenciát.
         edit:
           title: Partner frissítése.
-          update: frissítés
+          update: Frissítés
         new:
-          create: teremt
+          create: Létrehozás
           title: Új partner
         update:
           error: Hiba történt a konferencia partnerének frissítéséhez.
@@ -283,7 +283,7 @@ hu:
             join: Csatlakozzon a "%{conference_title}"
         partners:
           index:
-            title: Partners
+            title: Partnerek
       conference:
         registration_confirm:
           cancel: Megszünteti
@@ -298,7 +298,7 @@ hu:
       conference_program:
         program_meeting:
           content: Tartalom
-          location: Elhelyezkedés
+          location: Helyszín
           speakers: Hangszórók
           streaming: folyó
         show:
