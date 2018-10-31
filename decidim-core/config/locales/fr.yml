@@ -596,6 +596,7 @@ fr:
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
+      help: Aidez-moi
       home: Accueil
     messaging:
       conversation_mailer:
@@ -711,6 +712,12 @@ fr:
           votes_count: Votes
         sub_hero:
           register: S'inscrire
+      index:
+        read_more: Lire la suite
+        standalone_pages: Des pages
+        subheading: Naviguer à travers les pages d'aide de %{name}
+        title: Aidez-moi
+        topics: Les sujets
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
