@@ -334,7 +334,7 @@ hu:
           speakers: Hangszórók
       conferences:
         partners:
-          collaborators: Az együttműködők
+          collaborators: Együttműködők
           main_promotors: Fő promóterek
         show:
           already_account: Van már fiókja decidimben?
@@ -382,7 +382,7 @@ hu:
           photo: Fénykép
       photos_list:
         show:
-          related_photos: fotók
+          related_photos: Fotók
       show:
         details: Részletek
         introduction: Bevezetés
