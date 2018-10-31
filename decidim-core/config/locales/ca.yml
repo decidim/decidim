@@ -596,8 +596,8 @@ ca:
     members:
       no_members: Aquest grup d'usuaris encara no té cap membre.
     menu:
+      help: Ajuda
       home: Inici
-      more_information: Més informació
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +713,11 @@ ca:
         sub_hero:
           register: Registra't
       index:
-        title: Més informació
+        read_more: Llegeix més
+        standalone_pages: Pàgines
+        subheading: Navegueu per les pàgines d'ajuda de %{name}
+        title: Ajuda
+        topics: Temes
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
