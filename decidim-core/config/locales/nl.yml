@@ -596,8 +596,8 @@ nl:
     members:
       no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
+      help: Helpen
       home: Home
-      more_information: Meer informatie
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +713,11 @@ nl:
         sub_hero:
           register: Registreren
       index:
-        title: Meer informatie
+        read_more: Lees verder
+        standalone_pages: Pages
+        subheading: Navigeer door de helppagina's van %{name}
+        title: Helpen
+        topics: Onderwerpen
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
