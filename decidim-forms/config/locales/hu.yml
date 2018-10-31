@@ -5,7 +5,7 @@ hu:
         body: Válasz
       question:
         max_choices: Maximális választási lehetőségek száma
-        question_type: típus
+        question_type: Típus
       questionnaire_question:
         mandatory: Kötelező
     errors:
@@ -25,8 +25,8 @@ hu:
         questionnaires:
           answer_option:
             answer_option: Válasz opció
-            free_text: Ingyenes szöveg
-            remove: eltávolít
+            free_text: Szabadszöveg
+            remove: Eltávolít
             statement: Nyilatkozat
           edit:
             save: Mentés
@@ -40,40 +40,40 @@ hu:
             description: Leírás
             down: Le
             question: Kérdés
-            remove: eltávolít
+            remove: Eltávolít
             statement: Nyilatkozat
             up: Fel
           update:
             invalid: Hiba történt a kérdőív mentésekor.
-            success: A kérdőíveket sikeresen elmentették.
+            success: A kérdőíveket sikeresen elmentettük.
       errors:
         answer:
-          body: A test nem lehet üres
+          body: A szövegtörzs nem lehet üres
       question_types:
         long_answer: Hosszú válasz
-        multiple_option: Több lehetőség
+        multiple_option: Több választási lehetőség
         short_answer: Rövid válasz
-        single_option: Egy lehetőség
-        sorting: Válogató
+        single_option: Egy választási lehetőség
+        sorting: Válogatás
       questionnaires:
         answer:
           invalid: Hiba történt a kérdőív megválaszolásakor.
-          success: A kérdőív sikeresen válaszolt.
+          success: A kérdőívre sikeresen válaszoltál.
         question:
           max_choices: 'Max választás: %{n}'
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Jelentkezzen be fiókjához</a> vagy <a href="%{sign_up_link}">feliratkozáshoz</a> a kérdőív megválaszolásához.
             title: Válaszoljon a kérdőívre
-          are_you_sure: Ez a művelet nem vonható vissza, és nem tudja szerkeszteni a válaszokat. biztos vagy ebben?
+          are_you_sure: Ez a művelet nem vonható vissza, és nem tudod majd szerkeszteni a válaszokat. Biztos vagy ebben?
           questionnaire_answered:
             body: Ön már válaszolta ezt a kérdőívet.
-            title: Már válaszolt
+            title: Már megválaszolt
           questionnaire_closed:
             body: A kérdőív zárva van, és nem lehet megválaszolni.
             title: A kérdőív lezárult
           questionnaire_for_private_users:
             body: A kérdőív csak magán felhasználók számára áll rendelkezésre
             title: A kérdőív lezárult
-          submit: beküldése
-          tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeit
+          submit: Beküldés
+          tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
