@@ -82,8 +82,10 @@ es:
         changed_notably: Ha habido cambios notables.
         content: Contenido
         organization: Organización
+        show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        weight: Peso
     errors:
       models:
         oauth_application:
@@ -545,6 +547,21 @@ es:
         update:
           error: Se produjo un error en la actualización de este ámbito.
           success: Ámbito actualizado correctamente
+      static_page_topics:
+        create:
+          error: Se ha producido un error al crear un nuevo tema.
+          success: Tema creado con éxito.
+        destroy:
+          success: Tema destruido exitosamente
+        edit:
+          title: Editar tema
+          update: Tema de actualización
+        new:
+          create: Crear tema
+          title: Nuevo tema
+        update:
+          error: Hubo un error al actualizar este tema.
+          success: Tema actualizado exitosamente
       static_pages:
         actions:
           view: Ver la página pública
@@ -557,10 +574,18 @@ es:
           changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos Términos y Condiciones.
           title: Editar página
           update: Actualizar
+        form:
+          none: Ninguna
         index:
           last_notable_change: Último cambio notable
         new:
+          create: Crear página
           title: Nueva página
+        topic:
+          destroy: Eliminar tema
+          edit: Editar tema
+          empty: No hay página bajo este tema.
+          without_topic: Páginas sin tema
         update:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
