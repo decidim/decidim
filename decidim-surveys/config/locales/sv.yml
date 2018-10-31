@@ -2,7 +2,7 @@ sv:
   activemodel:
     attributes:
       survey_answer:
-        body: Svar
+        body: Svara
       survey_question:
         mandatory: Obligatorisk
         max_choices: Max antal val
