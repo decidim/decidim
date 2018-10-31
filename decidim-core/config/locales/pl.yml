@@ -606,6 +606,7 @@ pl:
     members:
       no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
+      help: Wsparcie
       home: Ekran startowy
     messaging:
       conversation_mailer:
@@ -721,6 +722,12 @@ pl:
           votes_count: Głosowania
         sub_hero:
           register: Zarejestrować
+      index:
+        read_more: Czytaj więcej
+        standalone_pages: Strony
+        subheading: Przejdź przez strony pomocy %{name}
+        title: Wsparcie
+        topics: Tematy
       terms_and_conditions:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
