@@ -560,7 +560,6 @@ eu:
         index:
           last_notable_change: Azken aldaketa nabaria
         new:
-          create: Sortu
           title: Orri berria
         update:
           error: Errorea gertatu da orri hau eguneratzean.
