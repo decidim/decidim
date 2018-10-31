@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:tramuntanal/doc2text.git
+  remote: https://github.com/tramuntanal/doc2text.git
   revision: 18ce0e7d8c0557dc885bd53856aa953e48fff2f5
   branch: feature/markdown_headers
   specs:
