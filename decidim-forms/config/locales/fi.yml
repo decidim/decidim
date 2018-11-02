@@ -13,8 +13,8 @@ fi:
         answer:
           attributes:
             choices:
-              missing: eivät ole täydellisiä
-              too_many: ovat liian monta
+              missing: ovat puutteellisia
+              too_many: liian monta
   decidim:
     forms:
       admin:
@@ -25,8 +25,8 @@ fi:
         questionnaires:
           answer_option:
             answer_option: Vastausvaihtoehto
-            free_text: Ilmainen teksti
-            remove: Poistaa
+            free_text: Vapaa teksti
+            remove: Poista
             statement: selvitys
           edit:
             save: Tallentaa
