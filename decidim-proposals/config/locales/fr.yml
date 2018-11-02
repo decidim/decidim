@@ -101,6 +101,7 @@ fr:
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
+            votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
     events:
       proposals:
         collaborative_draft_access_accepted:

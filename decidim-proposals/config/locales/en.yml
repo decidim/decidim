@@ -101,6 +101,7 @@ en:
             votes_blocked: Voting blocked
             votes_enabled: Voting enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
       proposals:
         collaborative_draft_access_accepted:

@@ -100,6 +100,7 @@ pt-BR:
             votes_blocked: Votação desativada
             votes_enabled: Votação habilitada
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
       proposals:
         collaborative_draft_access_accepted:

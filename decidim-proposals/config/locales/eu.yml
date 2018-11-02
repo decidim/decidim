@@ -100,6 +100,7 @@ eu:
             votes_blocked: Botoak blokeatuta
             votes_enabled: Botoak gaituta
             votes_hidden: Botoiak ezkutatuta (botoak gaituta badago, hau egiaztatuz boto kopurua ezkutatuko da)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
       proposals:
         collaborative_draft_access_accepted:

@@ -100,6 +100,7 @@ es-PY:
             votes_blocked: Votación bloqueada
             votes_enabled: Votación habilitada
             votes_hidden: Votos ocultos (si los votos están habilitados, marcar esto ocultará el número de votos)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
       proposals:
         collaborative_draft_access_accepted:

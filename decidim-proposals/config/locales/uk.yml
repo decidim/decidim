@@ -94,6 +94,7 @@ uk:
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування ввімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
       proposals:
         creation_enabled:

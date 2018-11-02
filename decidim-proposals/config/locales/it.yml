@@ -100,6 +100,7 @@ it:
             votes_blocked: Votazione bloccata
             votes_enabled: Voto abilitato
             votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
       proposals:
         collaborative_draft_access_accepted:
