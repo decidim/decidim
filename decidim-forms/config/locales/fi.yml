@@ -29,8 +29,8 @@ fi:
             remove: Poista
             statement: selvitys
           edit:
-            save: Tallentaa
-            title: otsikko
+            save: Tallenna
+            title: Otsikko
           form:
             add_question: Lisää kysymys
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet kyselyyn, joten et voi muokata kysymyksiä.
@@ -40,15 +40,15 @@ fi:
             description: Kuvaus
             down: Alas
             question: Kysymys
-            remove: Poistaa
+            remove: Poista
             statement: selvitys
-            up: ylös
+            up: Ylös
           update:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
             success: Kyselylomakkeet tallennettiin onnistuneesti.
       errors:
         answer:
-          body: Runko ei voi olla tyhjä
+          body: Runkoteksti ei voi olla tyhjä
       question_types:
         long_answer: Pitkä vastaus
         multiple_option: Useita vaihtoehtoja
