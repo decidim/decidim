@@ -29,6 +29,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  config.include AttachmentHelpers
+  config.include TranslationHelpers
+  config.include CapybaraHelpers
   config.include Rectify::RSpec::Helpers
   config.include ActionView::Helpers::SanitizeHelper
   config.include ERB::Util

@@ -1041,6 +1041,11 @@ fi:
         see_more: Näytä lisää
   locale:
     name: Suomi
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   password_validator:
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
     email_included_in_password: liian samankaltainen sähköpostisi kanssa

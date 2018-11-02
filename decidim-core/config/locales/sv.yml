@@ -1041,6 +1041,11 @@ sv:
         see_more: Se mer
   locale:
     name: Svenska
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   password_validator:
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för lik din e-post

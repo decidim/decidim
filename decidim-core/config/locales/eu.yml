@@ -1041,6 +1041,11 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da

@@ -1055,6 +1055,11 @@ en:
         see_more: See more
   locale:
     name: English
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   password_validator:
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email

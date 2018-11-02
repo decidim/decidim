@@ -59,7 +59,8 @@ module Decidim
             meta_scope: @participatory_process.meta_scope,
             start_date: @participatory_process.start_date,
             end_date: @participatory_process.end_date,
-            participatory_process_group: @participatory_process.participatory_process_group
+            participatory_process_group: @participatory_process.participatory_process_group,
+            private_space: @participatory_process.private_space
           )
         end
 

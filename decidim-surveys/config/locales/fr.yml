@@ -4,10 +4,11 @@ fr:
     attributes:
       survey_answer:
         body: Réponse
+        selected_choices: La réponse à la question
         choices: Les choix
         selected_choices: La selection
       survey_question:
-        mandatory: Réponse à la question obligatoire
+        mandatory: La réponse à la question est obligatoire
         max_choices: Nombre de choix maximum
         question_type: Type de question
     errors:
@@ -62,6 +63,7 @@ fr:
           survey_user_answers: Réponses des participants à l'enquête
         models:
           components:
+            title: Titre
             description: Description
             title: Titre
             tos: Conditions d'utilisation
@@ -119,3 +121,6 @@ fr:
             body: L'enquête est disponible uniquement pour les utilisateurs privés
             title: Enquête terminée
           tos_agreement: En participant à cette enquête, vous acceptez ses conditions d'utilisation
+  errors:
+    messages:
+      blank: est obligatoire

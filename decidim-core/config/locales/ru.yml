@@ -698,6 +698,11 @@ ru:
         see_more: Читать подробнее
   locale:
     name: Русский
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   password_validator:
     domain_included_in_password: слишком похож на это доменное имя
     email_included_in_password: слишком похож на ваш адрес электронной почты

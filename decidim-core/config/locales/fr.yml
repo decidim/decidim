@@ -1051,6 +1051,11 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   password_validator:
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email

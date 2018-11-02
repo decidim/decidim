@@ -1051,6 +1051,11 @@ es:
         see_more: Ver más
   locale:
     name: Castellano
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   password_validator:
     domain_included_in_password: Es muy similar a este nombre de dominio
     email_included_in_password: Es muy similar a tu correo electrónico

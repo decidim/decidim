@@ -66,6 +66,7 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.meta_scope).to eq(old_participatory_process.meta_scope)
         expect(new_participatory_process.end_date).to eq(old_participatory_process.end_date)
         expect(new_participatory_process.participatory_process_group).to eq(old_participatory_process.participatory_process_group)
+        expect(new_participatory_process.private_space).to eq(old_participatory_process.private_space)
       end
 
       it "broadcasts ok" do
