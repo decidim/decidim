@@ -38,7 +38,7 @@
                 <% end %>
               </td>
               <td>
-                <%= process.promoted? ? t("participatory_processes.index.promoted.true") : t("participatory_processes.index.promoted.false") %>
+                <%= process.promoted? ? t("participatory_processes.index.promoted", scope: "decidim.admin") : t("participatory_processes.index.not_promoted", scope: "decidim.admin") %>
               </td>
               <td>
                 <%= l process.created_at, format: :short %>

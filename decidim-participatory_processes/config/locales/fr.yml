@@ -200,8 +200,10 @@ fr:
         form:
           title: Informations générales
         index:
+          not_promoted: "Non"
           not_published: Non publiée
           private: Privée
+          promoted: "Oui"
           public: Publique
           published: Publiée
         new:

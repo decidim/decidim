@@ -201,7 +201,9 @@ en:
           title: General Information
         index:
           not_published: Not published
+          not_promoted: "No"
           private: Private
+          promoted: "Yes"
           public: Public
           published: Published
         new:
