@@ -27,7 +27,7 @@ fi:
             answer_option: Vastausvaihtoehto
             free_text: Vapaa teksti
             remove: Poista
-            statement: selvitys
+            statement: Selite
           edit:
             save: Tallenna
             title: Otsikko
@@ -41,7 +41,7 @@ fi:
             down: Alas
             question: Kysymys
             remove: Poista
-            statement: selvitys
+            statement: Selite
             up: Ylös
           update:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
@@ -54,21 +54,21 @@ fi:
         multiple_option: Useita vaihtoehtoja
         short_answer: Lyhyt vastaus
         single_option: Yksi vaihtoehto
-        sorting: lajittelu
+        sorting: Järjestäminen
       questionnaires:
         answer:
-          invalid: Kyselylomakkeeseen vastatessa on ollut virheitä.
-          success: Kyselyn vastaus onnistui.
+          invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.
+          success: Kyselyyn vastattu onnistuneesti.
         question:
-          max_choices: 'Max valinnat: %{n}'
+          max_choices: 'Valintojen maksimimäärä: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">kirjaudu sisään</a> vastaamaan kyselyyn.
-            title: Vastaa kyselylomakkeeseen
+            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
+            title: Vastaa kyselyyn
           are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
           questionnaire_answered:
             body: Olet jo vastannut tähän kyselyyn.
-            title: Olet vastannut jo
+            title: Olet jo vastannut
           questionnaire_closed:
             body: Kyselylomake on suljettu, eikä siihen voi vastata.
             title: Kysely on suljettu
@@ -76,4 +76,4 @@ fi:
             body: Kyselylomake on saatavilla vain yksityisille käyttäjille
             title: Kysely on suljettu
           submit: Lähetä
-          tos_agreement: Osallistumalla hyväksyt sen käyttöehdot
+          tos_agreement: Osallistumalla hyväksyt käyttöehdot
