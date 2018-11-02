@@ -124,7 +124,7 @@ fi:
           notification_title: Sinut on <strong>hyväksytty osallistujaksi </strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_intro: Sinua ei ole hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet pyytänyt pääsyä yhteistyökumppaniksi kohtaan <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet pyytänyt pääsyä osallistujaksi yhteistyöehdotukseen <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Sinua ei ole hyväksytty osallistujaksi yhteistyöluonnokseen %{resource_title}.
           notification_title: Sinua <strong>ei ole hyväksytty osallistujaksi</strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
@@ -442,7 +442,7 @@ fi:
             title: Yhteistyöpyynnöt
           rejected_request:
             error: Ei voitu hylätä osallistujaa, yritä myöhemmin uudelleen.
-            success: "@%{user} on hylätty yhteistyökumppanina onnistuneesti"
+            success: "@%{user} on hylätty osallistujana onnistuneesti"
         show:
           back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
