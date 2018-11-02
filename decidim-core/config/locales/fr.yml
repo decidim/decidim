@@ -654,11 +654,6 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban
