@@ -509,7 +509,7 @@ fi:
           error: Yksityisen käyttäjän lisäämisessä tähän osallistumistilaan tapahtui virhe.
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
         destroy:
-          error: Tapahtuma-alueen yksityisen käyttäjän poistaminen tapahtui virheestä.
+          error: Tapahtui virhe poistettaessa osallistumistilan yksityistä käyttäjää.
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
         index:
           title: Osallistumistilan yksityinen käyttäjä
@@ -552,9 +552,9 @@ fi:
           error: Uuden aiheen luomisessa tapahtui virhe.
           success: Aihe luotiin onnistuneesti.
         destroy:
-          success: Aihe epäonnistui
+          success: Aihe tuhottu onnistuneesti
         edit:
-          title: Muokkaa aihe
+          title: Muokkaa aihetta
           update: Päivitä aihe
         new:
           create: Luo aihe
@@ -583,8 +583,8 @@ fi:
           title: Uusi sivu
         topic:
           destroy: Poista aihe
-          edit: Muokkaa aihe
-          empty: Tällä sivulla ei ole sivua
+          edit: Muokkaa aihetta
+          empty: Tämän aiheen alla ei ole sivuja
           without_topic: Sivut ilman aihetta
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
