@@ -1054,7 +1054,7 @@ fi:
     password_not_allowed: ei ole sallittu
     password_too_common: liian yleinen
     password_too_long: liian pitkä
-    password_too_short: liian lyhyt
+    password_too_short: liian lyhyt (alle 10 merkkiä)
   social_share_button:
     delicious: Delicious
     douban: Douban
