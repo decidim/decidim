@@ -21,6 +21,12 @@ module Decidim
             flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
             render template: "decidim/forms/questionnaires/show"
           end
+
+          on(:invalid_form) do
+            # i18n-tasks-use t("decidim.forms.questionnaires.answer.invalid")
+            flash.now[:alert] = I18n.t("answer.invalid", scope: i18n_flashes_scope)
+            render template: "decidim/forms/questionnaires/show"
+          end
         end
       end
 
@@ -73,7 +79,7 @@ module Decidim
       end
 
       def allow_answers?
-        meeting.registrations_enabled? && meeting.registration_form_enabled?
+        meeting.registrations_enabled? && meeting.registration_form_enabled? && meeting.has_available_slots?
       end
 
       def after_answer_path

@@ -35,7 +35,7 @@ module Decidim
                 on(:ok) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.success")
                   flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
-                  redirect_to parent_path
+                  redirect_to after_update_url
                 end
 
                 on(:invalid) do

@@ -4,15 +4,17 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe JoinMeeting do
-    subject { described_class.new(meeting, user) }
+    subject { described_class.new(meeting, user, registration_form) }
 
     let(:registrations_enabled) { true }
+    let(:registration_form) { nil }
     let(:available_slots) { 10 }
     let(:organization) { create :organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:process_admin) { create :process_admin, participatory_process: participatory_process }
     let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
-    let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots }
+    let(:questionnaire) { nil }
+    let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots, questionnaire: questionnaire }
     let(:user) { create :user, :confirmed, organization: organization }
 
     context "when everything is ok" do
@@ -189,6 +191,50 @@ module Decidim::Meetings
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+    end
+
+    context "when there are a registration form" do
+      let!(:questionnaire) { create(:questionnaire) }
+      let!(:question) { create(:question, questionnaire: questionnaire, position: 0) }
+      let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots, questionnaire: questionnaire }
+
+      let(:valid) { true }
+      let(:registration_form) do
+        double(
+          valid?: valid,
+          invalid?: !valid,
+          tos_agreement: true,
+          answers: [
+            double(
+              question: question,
+              body: "My answer response",
+              selected_choices: []
+            )
+          ]
+        )
+      end
+
+      context "and the registration form is invalid" do
+        let(:valid) { false }
+
+        it "broadcast invalid_form" do
+          expect { subject.call }.to broadcast(:invalid_form)
+        end
+      end
+
+      context "and everything is ok" do
+        it "broadcasts ok" do
+          expect { subject.call }.to broadcast(:ok)
+        end
+
+        it "saves the answers" do
+          expect { subject.call }.to change(Decidim::Forms::Answer, :count).by(1)
+
+          answer = Decidim::Forms::Answer.last
+          expect(answer.user).to eq(user)
+          expect(answer.body).to eq("My answer response")
+        end
       end
     end
   end

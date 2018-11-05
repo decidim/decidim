@@ -24,7 +24,7 @@ module Decidim
           return broadcast(:invalid) unless can_join_meeting?
 
           if registration_form
-            return broadcast(:invalid) unless registration_form.valid?
+            return broadcast(:invalid_form) unless registration_form.valid?
             save_registration_form
           end
 
@@ -46,7 +46,7 @@ module Decidim
       end
 
       def save_registration_form
-        Decidim::Forms::AnswerQuestionnaire.call(registration_form, current_user, meeting.questionnaire)
+        Decidim::Forms::AnswerQuestionnaire.call(registration_form, user, meeting.questionnaire)
       end
 
       def create_registration

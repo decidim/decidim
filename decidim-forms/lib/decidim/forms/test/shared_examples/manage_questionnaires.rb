@@ -33,9 +33,11 @@ shared_examples_for "manage questionnaires" do
   end
 
   context "when the questionnaire is not already answered" do
-    it "adds a few questions to the questionnaire" do
+    before do
       visit questionnaire_edit_path
+    end
 
+    it "adds a few questions to the questionnaire" do
       questions_body = ["This is the first question", "This is the second question"]
 
       within "form.edit_questionnaire" do
@@ -61,8 +63,6 @@ shared_examples_for "manage questionnaires" do
     end
 
     it "adds a question with a rich text description" do
-      visit questionnaire_edit_path
-
       within "form.edit_questionnaire" do
         click_button "Add question"
 
@@ -91,8 +91,6 @@ shared_examples_for "manage questionnaires" do
     end
 
     it "adds a question with answer options" do
-      visit questionnaire_edit_path
-
       question_body = "This is the first question"
       answer_options_body = ["This is the first option", "This is the second option"]
 

@@ -37,6 +37,8 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_content("successfully")
       end
 
+      visit questionnaire_public_path
+
       expect(page).to have_content("You have already answered this questionnaire.")
       expect(page).to have_no_i18n_content(question.body)
     end
@@ -357,6 +359,8 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("successfully")
         end
 
+        visit questionnaire_public_path
+
         expect(page).to have_content("You have already answered this questionnaire.")
         expect(page).to have_no_i18n_content(question.body)
       end
@@ -383,6 +387,8 @@ shared_examples_for "has questionnaire" do
         within ".success.flash" do
           expect(page).to have_content("successfully")
         end
+
+        visit questionnaire_public_path
 
         expect(page).to have_content("You have already answered this questionnaire.")
         expect(page).to have_no_i18n_content(question.body)
@@ -438,6 +444,8 @@ shared_examples_for "has questionnaire" do
         within ".success.flash" do
           expect(page).to have_content("successfully")
         end
+
+        visit questionnaire_public_path
 
         expect(page).to have_content("You have already answered this questionnaire.")
         expect(page).to have_no_i18n_content(question.body)

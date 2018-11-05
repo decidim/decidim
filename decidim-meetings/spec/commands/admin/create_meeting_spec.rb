@@ -107,6 +107,11 @@ module Decidim::Meetings
         expect(meeting.services).to eq(services)
       end
 
+      it "sets the questionnaire for registrations" do
+        subject.call
+        expect(meeting.questionnaire).to be_a(Decidim::Forms::Questionnaire)
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
