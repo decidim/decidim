@@ -1054,7 +1054,7 @@ sv:
     password_not_allowed: är ej tillåtet
     password_too_common: är för vanligt
     password_too_long: är för lång
-    password_too_short: är för kort
+    password_too_short: är för kort (minimum är 10 tecken)
   social_share_button:
     delicious: Delicious
     douban: Douban
