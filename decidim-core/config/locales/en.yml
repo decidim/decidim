@@ -723,6 +723,9 @@ en:
         subheading: Navigate through the help pages of %{name}
         title: Help
         topics: Topics
+      participatory_space:
+        metrics:
+          headline: Participation in figures
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
