@@ -596,7 +596,7 @@ fi:
     members:
       no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
-      help: auta
+      help: Tietoa
       home: Etusivu
     messaging:
       conversation_mailer:
@@ -714,10 +714,10 @@ fi:
           register: Rekisteröidy
       index:
         read_more: Lue lisää
-        standalone_pages: sivut
-        subheading: Selaa %{name}ohjesivujen kautta
-        title: auta
-        topics: aiheista
+        standalone_pages: Sivut
+        subheading: Selaa palvelun %{name} tietosivuja
+        title: Tietoa
+        topics: Aiheet
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
