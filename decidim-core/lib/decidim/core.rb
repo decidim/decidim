@@ -220,6 +220,14 @@ module Decidim
     2.days
   end
 
+  # Users registration mode. Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
+  #  enabled: Users registration and sign in are enabled (default value).
+  #  existing: Users can't be registered in the system. Only existing users can sign in.
+  #  disable: Users can't register or sign in.
+  config_accessor :users_registration_mode do
+    :enabled
+  end
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
@@ -228,6 +236,14 @@ module Decidim
 
   # Exposes a configuration option: an object to deliver SMS codes to users.
   config_accessor :sms_gateway_service
+
+  def self.sign_up_enabled?
+    users_registration_mode == :enabled
+  end
+
+  def self.sign_in_enabled?
+    users_registration_mode != :disabled
+  end
 
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
