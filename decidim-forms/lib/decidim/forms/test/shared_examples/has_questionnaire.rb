@@ -5,7 +5,7 @@ require "spec_helper"
 shared_examples_for "has questionnaire" do
   context "when the user is not logged in" do
     it "does not allow answering the questionnaire" do
-      visit_component
+      visit questionnaire_public_path
 
       expect(page).to have_i18n_content(questionnaire.title, upcase: true)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -22,7 +22,7 @@ shared_examples_for "has questionnaire" do
     end
 
     it "allows answering the questionnaire" do
-      visit_component
+      visit questionnaire_public_path
 
       expect(page).to have_i18n_content(questionnaire.title, upcase: true)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -65,7 +65,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "does not leak defaults from other answers" do
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_no_selector("input[type=radio]:checked")
       end
@@ -84,7 +84,7 @@ shared_examples_for "has questionnaire" do
       let!(:other_question) { create(:question, questionnaire: questionnaire, position: 1) }
 
       before do
-        visit_component
+        visit questionnaire_public_path
       end
 
       it_behaves_like "a correctly ordered questionnaire"
@@ -94,7 +94,7 @@ shared_examples_for "has questionnaire" do
       let!(:other_question) { create(:question, questionnaire: questionnaire, position: 1) }
 
       before do
-        visit_component
+        visit questionnaire_public_path
         accept_confirm { click_button "Submit" }
       end
 
@@ -113,7 +113,7 @@ shared_examples_for "has questionnaire" do
       end
 
       before do
-        visit_component
+        visit questionnaire_public_path
 
         check "questionnaire_tos_agreement"
       end
@@ -165,7 +165,7 @@ shared_examples_for "has questionnaire" do
       end
 
       before do
-        visit_component
+        visit questionnaire_public_path
 
         check "questionnaire_tos_agreement"
 
@@ -185,7 +185,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) { create(:question, questionnaire: questionnaire, position: 0, description: "<b>This question is important</b>") }
 
       it "properly interprets HTML descriptions" do
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_selector("b", text: "This question is important")
       end
@@ -222,7 +222,7 @@ shared_examples_for "has questionnaire" do
       end
 
       before do
-        visit_component
+        visit questionnaire_public_path
       end
 
       context "when question is single_option type" do
@@ -322,7 +322,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) { create(:question, questionnaire: questionnaire, question_type: "long_answer") }
 
       it "renders the answer as a textarea" do
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_selector("textarea#questionnaire_answers_0")
       end
@@ -332,7 +332,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) { create(:question, questionnaire: questionnaire, question_type: "short_answer") }
 
       it "renders the answer as a text field" do
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_selector("input[type=text]#questionnaire_answers_0")
       end
@@ -343,7 +343,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) { create(:question, questionnaire: questionnaire, question_type: "single_option", answer_options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 2)
 
@@ -367,7 +367,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) { create(:question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 3)
 
@@ -391,7 +391,7 @@ shared_examples_for "has questionnaire" do
       it "respects the max number of choices" do
         question.update!(max_choices: 2)
 
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_content("Max choices: 2")
 
@@ -424,7 +424,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) { create(:question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
 
       it "renders the question answers as a collection of radio buttons" do
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 2)
 
@@ -461,7 +461,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "renders the question answers as a collection of check boxes sortable on click" do
-        visit_component
+        visit questionnaire_public_path
 
         expect(page).to have_selector(".sortable-check-box-collection input[type=checkbox]", count: 5)
 
@@ -477,7 +477,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "properly saves valid sortings" do
-        visit_component
+        visit questionnaire_public_path
 
         check "No"
         check "nos"
@@ -499,7 +499,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "displays errors on incomplete sortings" do
-        visit_component
+        visit questionnaire_public_path
 
         check "No"
 

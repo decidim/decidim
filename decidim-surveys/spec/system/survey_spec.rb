@@ -51,5 +51,9 @@ describe "Answer a survey", type: :system do
     end
 
     it_behaves_like "has questionnaire"
+
+    def questionnaire_public_path
+      main_component_path(component)
+    end
   end
 end

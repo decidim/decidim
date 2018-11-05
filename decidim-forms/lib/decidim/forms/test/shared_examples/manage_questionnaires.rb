@@ -12,7 +12,7 @@ shared_examples_for "manage questionnaires" do
   end
 
   it "updates the questionnaire" do
-    visit_component_admin
+    visit questionnaire_edit_path
 
     new_description = {
       en: "<p>New description</p>",
@@ -27,14 +27,14 @@ shared_examples_for "manage questionnaires" do
 
     expect(page).to have_admin_callout("successfully")
 
-    visit_component
+    visit questionnaire_public_path
 
     expect(page).to have_content("New description")
   end
 
   context "when the questionnaire is not already answered" do
     it "adds a few questions to the questionnaire" do
-      visit_component_admin
+      visit questionnaire_edit_path
 
       questions_body = ["This is the first question", "This is the second question"]
 
@@ -54,14 +54,14 @@ shared_examples_for "manage questionnaires" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_component_admin
+      visit questionnaire_edit_path
 
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the second question']")
     end
 
     it "adds a question with a rich text description" do
-      visit_component_admin
+      visit questionnaire_edit_path
 
       within "form.edit_questionnaire" do
         click_button "Add question"
@@ -85,13 +85,13 @@ shared_examples_for "manage questionnaires" do
         }
       )
 
-      visit_component
+      visit questionnaire_public_path
 
       expect(page).to have_selector("strong", text: "Superkalifragilistic description")
     end
 
     it "adds a question with answer options" do
-      visit_component_admin
+      visit questionnaire_edit_path
 
       question_body = "This is the first question"
       answer_options_body = ["This is the first option", "This is the second option"]
@@ -118,7 +118,7 @@ shared_examples_for "manage questionnaires" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_component_admin
+      visit questionnaire_edit_path
 
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the first option']")
@@ -247,7 +247,7 @@ shared_examples_for "manage questionnaires" do
 
     context "when adding a multiple option question" do
       before do
-        visit_component_admin
+        visit questionnaire_edit_path
 
         within "form.edit_questionnaire" do
           click_button "Add question"
@@ -308,7 +308,7 @@ shared_examples_for "manage questionnaires" do
       let!(:question) { create(:question, questionnaire: questionnaire, body: body) }
 
       before do
-        visit_component_admin
+        visit questionnaire_edit_path
       end
 
       it "modifies the question when the information is valid" do
@@ -324,7 +324,7 @@ shared_examples_for "manage questionnaires" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit_component_admin
+        visit questionnaire_edit_path
 
         expect(page).to have_selector("input[value='Modified question']")
         expect(page).to have_no_selector("input[value='This is the first question']")
@@ -385,7 +385,7 @@ shared_examples_for "manage questionnaires" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit_component_admin
+        visit questionnaire_edit_path
 
         within "form.edit_questionnaire" do
           expect(page).to have_selector(".questionnaire-question", count: 0)
@@ -426,7 +426,7 @@ shared_examples_for "manage questionnaires" do
       end
 
       before do
-        visit_component_admin
+        visit questionnaire_edit_path
       end
 
       it "allows deleting answer options" do
@@ -436,7 +436,7 @@ shared_examples_for "manage questionnaires" do
 
         click_button "Save"
 
-        visit_component_admin
+        visit questionnaire_edit_path
 
         expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
       end
@@ -458,7 +458,7 @@ shared_examples_for "manage questionnaires" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit_component_admin
+        visit questionnaire_edit_path
 
         within "form.edit_questionnaire" do
           expect(page).to have_selector(".questionnaire-question", count: 0)
@@ -484,7 +484,7 @@ shared_examples_for "manage questionnaires" do
       end
 
       before do
-        visit_component_admin
+        visit questionnaire_edit_path
       end
 
       shared_examples_for "switching questions order" do
@@ -593,7 +593,7 @@ shared_examples_for "manage questionnaires" do
     let!(:answer) { create(:answer, questionnaire: questionnaire, question: question) }
 
     it "cannot modify questionnaire questions" do
-      visit_component_admin
+      visit questionnaire_edit_path
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
