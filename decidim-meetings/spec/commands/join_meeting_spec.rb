@@ -196,7 +196,7 @@ module Decidim::Meetings
 
     context "when there are a registration form" do
       let!(:questionnaire) { create(:questionnaire) }
-      let!(:question) { create(:question, questionnaire: questionnaire, position: 0) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
       let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots, questionnaire: questionnaire }
 
       let(:valid) { true }

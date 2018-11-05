@@ -7,7 +7,7 @@ describe "Meeting registrations", type: :system do
   let(:manifest_name) { "meetings" }
 
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:question) { create(:question, questionnaire: questionnaire, position: 0) }
+  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
   let!(:meeting) { create :meeting, component: component, questionnaire: questionnaire }
   let!(:user) { create :user, :confirmed, organization: organization }
 

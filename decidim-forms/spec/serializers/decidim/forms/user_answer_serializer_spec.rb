@@ -12,14 +12,14 @@ module Decidim
       let!(:questionable) { create(:dummy_resource) }
       let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable) }
       let!(:user) { create(:user, organization: questionable.organization) }
-      let!(:questions) { create_list :question, 3, questionnaire: questionnaire }
+      let!(:questions) { create_list :questionnaire_question, 3, questionnaire: questionnaire }
       let!(:answers) do
         questions.map do |question|
           create :answer, questionnaire: questionnaire, question: question, user: user
         end
       end
 
-      let!(:multichoice_question) { create :question, questionnaire: questionnaire, question_type: "multiple_option" }
+      let!(:multichoice_question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option" }
       let!(:multichoice_answer_options) { create_list :answer_option, 2, question: multichoice_question }
       let!(:multichoice_answer) do
         create :answer, questionnaire: questionnaire, question: multichoice_question, user: user, body: nil
@@ -30,7 +30,7 @@ module Decidim
         end
       end
 
-      let!(:singlechoice_question) { create :question, questionnaire: questionnaire, question_type: "single_option" }
+      let!(:singlechoice_question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "single_option" }
       let!(:singlechoice_answer_options) { create_list :answer_option, 2, question: multichoice_question }
       let!(:singlechoice_answer) do
         create :answer, questionnaire: questionnaire, question: singlechoice_question, user: user, body: nil

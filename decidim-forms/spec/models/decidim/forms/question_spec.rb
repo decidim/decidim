@@ -9,7 +9,7 @@ module Decidim
 
       let(:questionnaire) { create(:questionnaire) }
       let(:question_type) { "short_answer" }
-      let(:question) { build(:question, questionnaire: questionnaire, question_type: question_type) }
+      let(:question) { build(:questionnaire_question, questionnaire: questionnaire, question_type: question_type) }
 
       it { is_expected.to be_valid }
 

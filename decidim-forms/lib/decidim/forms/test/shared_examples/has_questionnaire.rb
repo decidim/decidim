@@ -46,7 +46,7 @@ shared_examples_for "has questionnaire" do
     context "when the questionnaire has already been answered by someone else" do
       let!(:question) do
         create(
-          :question,
+          :questionnaire_question,
           questionnaire: questionnaire,
           question_type: "single_option",
           position: 0,
@@ -83,7 +83,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "and submitting a fresh form" do
-      let!(:other_question) { create(:question, questionnaire: questionnaire, position: 1) }
+      let!(:other_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 1) }
 
       before do
         visit questionnaire_public_path
@@ -93,7 +93,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "and rendering a form after errors" do
-      let!(:other_question) { create(:question, questionnaire: questionnaire, position: 1) }
+      let!(:other_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 1) }
 
       before do
         visit questionnaire_public_path
@@ -106,7 +106,7 @@ shared_examples_for "has questionnaire" do
     shared_context "when a non multiple choice question is mandatory" do
       let!(:question) do
         create(
-          :question,
+          :questionnaire_question,
           questionnaire: questionnaire,
           question_type: "short_answer",
           position: 0,
@@ -154,7 +154,7 @@ shared_examples_for "has questionnaire" do
     describe "leaving a blank multiple choice question" do
       let!(:question) do
         create(
-          :question,
+          :questionnaire_question,
           questionnaire: questionnaire,
           question_type: "single_option",
           position: 0,
@@ -184,7 +184,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "when a question has a rich text description" do
-      let!(:question) { create(:question, questionnaire: questionnaire, position: 0, description: "<b>This question is important</b>") }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0, description: "<b>This question is important</b>") }
 
       it "properly interprets HTML descriptions" do
         visit questionnaire_public_path
@@ -198,7 +198,7 @@ shared_examples_for "has questionnaire" do
 
       let!(:question) do
         create(
-          :question,
+          :questionnaire_question,
           questionnaire: questionnaire,
           question_type: question_type,
           answer_options: [
@@ -211,7 +211,7 @@ shared_examples_for "has questionnaire" do
 
       let!(:other_question) do
         create(
-          :question,
+          :questionnaire_question,
           questionnaire: questionnaire,
           question_type: "multiple_option",
           max_choices: 2,
@@ -321,7 +321,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "when question type is long answer" do
-      let!(:question) { create(:question, questionnaire: questionnaire, question_type: "long_answer") }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer") }
 
       it "renders the answer as a textarea" do
         visit questionnaire_public_path
@@ -331,7 +331,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "when question type is short answer" do
-      let!(:question) { create(:question, questionnaire: questionnaire, question_type: "short_answer") }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer") }
 
       it "renders the answer as a text field" do
         visit questionnaire_public_path
@@ -342,7 +342,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is single option" do
       let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:question, questionnaire: questionnaire, question_type: "single_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", answer_options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -368,7 +368,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is multiple option" do
       let(:answer_options) { Array.new(3) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -427,7 +427,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is multiple option" do
       let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
 
       it "renders the question answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -455,7 +455,7 @@ shared_examples_for "has questionnaire" do
     context "when question type is sorting" do
       let!(:question) do
         create(
-          :question,
+          :questionnaire_question,
           questionnaire: questionnaire,
           question_type: "sorting",
           answer_options: [

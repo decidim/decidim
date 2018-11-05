@@ -303,7 +303,7 @@ shared_examples_for "manage questionnaires" do
     end
 
     context "when a questionnaire has an existing question" do
-      let!(:question) { create(:question, questionnaire: questionnaire, body: body) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body) }
 
       before do
         visit questionnaire_edit_path
@@ -410,7 +410,7 @@ shared_examples_for "manage questionnaires" do
     context "when a questionnaire has an existing question with answer options" do
       let!(:question) do
         create(
-          :question,
+          :questionnaire_question,
           questionnaire: questionnaire,
           body: body,
           question_type: "single_option",
@@ -466,11 +466,11 @@ shared_examples_for "manage questionnaires" do
 
     context "when a questionnaire has multiple existing questions" do
       let!(:question_1) do
-        create(:question, questionnaire: questionnaire, body: first_body, position: 0)
+        create(:questionnaire_question, questionnaire: questionnaire, body: first_body, position: 0)
       end
 
       let!(:question_2) do
-        create(:question, questionnaire: questionnaire, body: second_body, position: 1)
+        create(:questionnaire_question, questionnaire: questionnaire, body: second_body, position: 1)
       end
 
       let(:first_body) do
@@ -587,7 +587,7 @@ shared_examples_for "manage questionnaires" do
   end
 
   context "when the questionnaire is already answered" do
-    let!(:question) { create(:question, questionnaire: questionnaire, body: body, question_type: "multiple_option") }
+    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body, question_type: "multiple_option") }
     let!(:answer) { create(:answer, questionnaire: questionnaire, question: question) }
 
     it "cannot modify questionnaire questions" do
