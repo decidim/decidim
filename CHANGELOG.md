@@ -35,6 +35,7 @@ end
 **Added**:
 
 - **decidim-forms**: Create a new gem to hold reusable surveys logic [\#3877](https://github.com/decidim/decidim/pull/3877)
+- **decidim-meetings**: Allow admins to create registration forms to be answered by the user when joining a meeting [\#4419](https://github.com/decidim/decidim/pull/4419)
 
 **Changed**:
 
