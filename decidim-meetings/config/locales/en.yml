@@ -23,9 +23,9 @@ en:
         location_hints: Location hints
         organizer_id: Organizer
         private_meeting: Private meeting
+        registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
-        registration_form_enabled: Registration form enabled
         start_time: Start Time
         title: Title
         transparent: Transparent
