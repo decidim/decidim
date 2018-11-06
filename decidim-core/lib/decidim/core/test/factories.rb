@@ -226,7 +226,7 @@ FactoryBot.define do
     slug { generate(:slug) }
     title { generate_localized_title }
     content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    organization
+    organization { build(:organization) }
 
     trait :default do
       slug { (Decidim::StaticPage::DEFAULT_PAGES - ["terms-and-conditions"]).sample }
