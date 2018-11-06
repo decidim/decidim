@@ -23,7 +23,6 @@ module Decidim
           end
 
           on(:invalid_form) do
-            # i18n-tasks-use t("decidim.forms.questionnaires.answer.invalid")
             flash.now[:alert] = I18n.t("answer.invalid", scope: i18n_flashes_scope)
             render template: "decidim/forms/questionnaires/show"
           end

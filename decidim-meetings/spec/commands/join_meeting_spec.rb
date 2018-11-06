@@ -201,7 +201,8 @@ module Decidim::Meetings
 
       let(:valid) { true }
       let(:registration_form) do
-        double(
+        instance_double(
+          Decidim::Forms::QuestionnaireForm,
           valid?: valid,
           invalid?: !valid,
           tos_agreement: true,
