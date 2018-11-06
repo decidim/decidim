@@ -57,6 +57,8 @@ end
 
 **Removed**:
 
+- **decidim-core**: Remove invite friends by email. [\#4430](https://github.com/decidim/decidim/pull/4430)
+
 ## Previous versions
 
 Please check [0.15-stable](https://github.com/decidim/decidim/blob/0.15-stable/CHANGELOG.md) for previous changes.
