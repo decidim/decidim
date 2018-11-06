@@ -54,6 +54,8 @@ end
 - **decidim-meetings**: Fix order of upcoming meetings [\#4398](https://github.com/decidim/decidim/pull/4398)
 - **decidim-core**: Ignore deleted users follows [\#4401](https://github.com/decidim/decidim/pull/4401)
 - **decidim-comments**: Fix comment activity cell when commentable is a comment [\#4413](https://github.com/decidim/decidim/pull/4413)
+- **decidim-proposals**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
+- **decidim-meetings**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
 
 **Removed**:
 
