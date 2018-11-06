@@ -26,7 +26,7 @@ module Decidim
                        .not_hidden
                        .includes(:category, :scope)
                        .order(position: :asc)
-          render "decidim/proposals/proposals/participatory_texts/participatory_text_index"
+          render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @proposals = search
                        .results

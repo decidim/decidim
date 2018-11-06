@@ -40,7 +40,7 @@ module Decidim
           it "sorts proposals by position" do
             get :index
             expect(response).to have_http_status(:ok)
-            expect(subject).to render_template(:participatory_text_index)
+            expect(subject).to render_template(:participatory_text)
             expect(assigns(:proposals).order_values.first.expr.name).to eq(:position)
           end
         end
