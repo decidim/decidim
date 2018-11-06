@@ -106,6 +106,8 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 
 **Removed**:
 
+- **decidim-core**: Remove invite friends by email. [\#4434](https://github.com/decidim/decidim/pull/4434)
+
 ## Previous versions
 
 Please check [0.14-stable](https://github.com/decidim/decidim/blob/0.14-stable/CHANGELOG.md) for previous changes.
