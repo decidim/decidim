@@ -496,10 +496,11 @@ en:
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
       participatory_text_proposal:
-        comment: Comment
-        comments: Comments
-        endorse: Endorse
-        endorsements: Endorsements
+        buttons:
+          comment: Comment
+          comments: Comments
+          endorse: Endorse
+          endorsements: Endorsements
       proposal_endorsements:
         create:
           error: There's been errors when endorsing the proposal.
