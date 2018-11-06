@@ -8,6 +8,10 @@ module Decidim
 
       before_action :check_sign_in_enabled, only: :create
 
+      def create
+        super
+      end
+
       def after_sign_in_path_for(user)
         if first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
           decidim_verifications.first_login_authorizations_path
