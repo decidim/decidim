@@ -6,6 +6,11 @@ module Decidim
     class MetricResolver
       attr_reader :name
 
+      #
+      # - name: name identifier of metric
+      # - organization: Decidim::Organization scoping
+      # - filters: hash of attr - value to filter results
+      #
       def initialize(name, organization, filters = {})
         @name = name
         @organization = organization
@@ -39,8 +44,10 @@ module Decidim
                    .where(metric_type: name, organization: organization)
       end
 
+      # Only key name attributes in Decidim::Metric will be applied
       def filter
         @filters.each do |key, value|
+          next unless Decidim::Metric.column_names.include? key
           @records = @records.where("#{key}": value)
         end
       end

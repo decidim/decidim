@@ -1,32 +1,34 @@
+/* eslint-disable no-console */
 /* global areachart */
 
 $(() => {
+
+  const metricsContainer = {};
+  const metricsParams = {};
+
   const query = () => {
-    let metricsQuery = `metrics(names: [${metrics_params.names}], space_type: "${metrics_params.space_type}", space_id: ${metrics_params.space_id}) { name history { key value } }`;
+    let metricsQuery = `metrics(names: [${metricsParams.names}], space_type: "${metricsParams.spaceType}", space_id: ${metricsParams.spaceId}) { name history { key value } }`;
     return {query: `{ ${metricsQuery} }`};
   }
 
   const parameterize = (metrics) => {
-    metrics_params.names = metrics.join(" ");
-    metrics_params.space_type = $("#metrics #metrics-space_type").val() || null;
-    metrics_params.space_id = $("#metrics #metrics-space_id").val() || null;
+    metricsParams.names = metrics.join(" ");
+    metricsParams.spaceType = $("#metrics #metrics-space_type").val() || null;
+    metricsParams.spaceId = $("#metrics #metrics-space_id").val() || null;
   }
 
-  const fetch = (metrics) => $.post("/api", query(metrics))
-
-  const metrics = {};
-  const metrics_params = {}
+  const fetch = (metrics) => $.post("/api", query(metrics));
 
   $(".metric-chart:visible").each((index, container) => {
-    metrics[$(container).data("metric")] = container;
+    metricsContainer[$(container).data("metric")] = container;
   });
 
-  if (!$.isEmptyObject(metrics)) {
-    parameterize(Object.keys(metrics))
+  if (!$.isEmptyObject(metricsContainer)) {
+    parameterize(Object.keys(metricsContainer))
     fetch().then((response) => {
-      if(response.data) {
+      if (response.data) {
         $.each(response.data.metrics, (_index, metricData) => {
-          let container = metrics[metricData.name];
+          let container = metricsContainer[metricData.name];
           if (metricData.history.length === 0) {
             $(container).remove();
             return;
@@ -45,9 +47,11 @@ $(() => {
         $.each(response.errors, (_index, error) => {
           console.log(error.message);
         });
+        $("#metrics").remove();
       }
     }).fail((err) => {
-      console.log("Something wrong happened when fetching metrics: " + err.statusText);
+      console.log(`Something wrong happened when fetching metrics: ${err.statusText}`);
+      $("#metrics").remove();
     });
   }
 });
