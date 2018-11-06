@@ -31,7 +31,7 @@ module Decidim
       #-----------------------------------------------------
 
       def doc_to_tmp_file
-        file = Tempfile.new("doc-to-markdown-odt", :encoding => 'ascii-8bit')
+        file = Tempfile.new("doc-to-markdown-odt", encoding: "ascii-8bit")
         file.write(@doc)
         file
       end
