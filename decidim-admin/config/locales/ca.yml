@@ -561,7 +561,7 @@ ca:
         index:
           last_notable_change: Últims canvis notables
         new:
-          create: Crea
+          create: Crear
           title: Nova pàgina
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
