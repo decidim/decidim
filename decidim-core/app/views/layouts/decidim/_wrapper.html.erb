@@ -73,7 +73,9 @@ end
             <% else %>
               <div class="topbar__user show-for-medium" data-set="nav-login-holder">
                 <div class="topbar__user__login js-append">
-                  <%= link_to t("layouts.decidim.header.sign_up"), decidim.new_user_registration_path, class: "sign-up-link" %>
+                  <% if Decidim.sign_up_enabled? %>
+                    <%= link_to t("layouts.decidim.header.sign_up"), decidim.new_user_registration_path, class: "sign-up-link" %>
+                  <% end %>
                   <%= link_to t("layouts.decidim.header.sign_in"), decidim.new_user_session_path, class: "sign-in-link" %>
                 </div>
               </div>
