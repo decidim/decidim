@@ -82,8 +82,10 @@ eu:
         changed_notably: Aldaketa nabarmenak izan dira.
         content: Edukia
         organization: Erakundea
+        show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
+        weight: pisu
     errors:
       models:
         oauth_application:
@@ -545,6 +547,21 @@ eu:
         update:
           error: Errorea gertatu da esparru hau eguneratzean.
           success: Esparrua zuzen eguneratu da
+      static_page_topics:
+        create:
+          error: Errore bat gertatu da gai berri bat sortzean.
+          success: Gaia arrakastaz sortu da.
+        destroy:
+          success: Gaia arrakastaz suntsitu da
+        edit:
+          title: Editatu gaia
+          update: Eguneratu gaia
+        new:
+          create: Sortu gaia
+          title: Gai berria
+        update:
+          error: Gai hau eguneratzean errorea gertatu da.
+          success: Gaia ondo eguneratu da
       static_pages:
         actions:
           view: Ikusi orri publikoa
@@ -557,11 +574,18 @@ eu:
           changed_notably_help: Egiaztatuta badago, erabiltzaileei jakinaraziko zaie baldintza eta baldintza berriak onartzeko.
           title: Editatu orria
           update: Eguneratu
+        form:
+          none: Bat ere ez
         index:
           last_notable_change: Azken aldaketa nabaria
         new:
-          create: Sortu
+          create: Sortu orrialdea
           title: Orri berria
+        topic:
+          destroy: Kendu gaia
+          edit: Editatu gaia
+          empty: Ez dago orrialde honen azpian
+          without_topic: Gai gabeko orriak
         update:
           error: Errorea gertatu da orri hau eguneratzean.
           success: Orria zuzen eguneratu da.

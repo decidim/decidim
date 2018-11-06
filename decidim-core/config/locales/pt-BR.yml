@@ -596,8 +596,8 @@ pt-BR:
     members:
       no_members: Este grupo de usuários ainda não possui nenhum membro.
     menu:
+      help: Ajuda
       home: Inicio
-      more_information: Mais informação
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +713,11 @@ pt-BR:
         sub_hero:
           register: Registrar-se
       index:
-        title: Mais informações
+        read_more: Ler Mais
+        standalone_pages: Páginas
+        subheading: Navegue pelas páginas de ajuda de %{name}
+        title: Ajuda
+        topics: Tópicos
       terms_and_conditions:
         accept:
           error: Houve um erro ao aceitar os termos e condições.

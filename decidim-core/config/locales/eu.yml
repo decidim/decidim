@@ -596,8 +596,8 @@ eu:
     members:
       no_members: Erabiltzaile talde honek ez du kideik oraindik.
     menu:
+      help: Laguntza
       home: Hasiera
-      more_information: Argibide gehiago
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +713,11 @@ eu:
         sub_hero:
           register: Erregistroa
       index:
-        title: Argibide gehiago
+        read_more: Irakurri gehiago
+        standalone_pages: orrialdeak
+        subheading: Laguntza orrietan nabigatzeko %{name}
+        title: Laguntza
+        topics: Gaiak
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.

@@ -596,8 +596,8 @@ es-PY:
     members:
       no_members: Este grupo de usuarios aún no tiene ningún miembro.
     menu:
+      help: Ayuda
       home: Inicio
-      more_information: Más información
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +713,11 @@ es-PY:
         sub_hero:
           register: Regístrate
       index:
-        title: Más información
+        read_more: Lee mas
+        standalone_pages: Páginas
+        subheading: Navega por las páginas de ayuda de %{name}
+        title: Ayuda
+        topics: Los temas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.

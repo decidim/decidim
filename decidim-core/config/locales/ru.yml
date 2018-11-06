@@ -396,7 +396,6 @@ ru:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
-      more_information: Дополнительные сведения
     messaging:
       conversation_mailer:
         new_conversation:
@@ -504,8 +503,6 @@ ru:
           votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться
-      index:
-        title: Дополнительные сведения
       terms_and_conditions:
         accept:
           error: При принятии условий участия произошла ошибка.

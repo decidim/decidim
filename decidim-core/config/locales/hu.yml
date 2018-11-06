@@ -362,24 +362,24 @@ hu:
           email_intro: Gratulálunk! A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elfogadta a csatlakozás iránti kérelmét.
           email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
           email_subject: Elfogadták a %{user_group_name} csoportba!
-          notification_title: A <a href="%{resource_path}">%{user_group_name}</a> csoportban elfogadták.
+          notification_title: A jelentkezésedet <a href="%{resource_path}">%{user_group_name}</a> csoportban elfogadták.
         join_request_created:
-          email_intro: Valaki felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz. Akkor elfogadja vagy elutasítja azt <a href="%{resource_url}">csoport tagjai oldal</a>.
+          email_intro: Valaki felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz. Elfogadjatod vagy elutasíthatod a csoport tag oldaláról <a href="%{resource_url}"></a>.
           email_outro: Ezt az értesítést azért kapta, mert kezelheti a %{user_group_name} csoportot.
-          email_subject: Valaki kért, hogy csatlakozzon a %{user_group_name} csoporthoz!
-          notification_title: Valaki felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz. Akkor elfogadja vagy elutasítja azt <a href="%{resource_path}">csoport tagjai oldal</a>.
+          email_subject: Valaki arra kért, hogy csatlakozz a %{user_group_name} csoporthoz!
+          notification_title: Valaki felkért, hogy csatlakozzon a %{user_group_name} csoporthoz. Elfogadhatod vagy elutasíthatod a csoport tagjainak oldalán <a href="%{resource_path}"></a>.
         join_request_rejected:
           email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elutasította a csatlakozás iránti kérelmét.
           email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
           email_subject: A %{user_group_name} csoporthoz való csatlakozás iránti kérelmét elutasították!
           notification_title: A <a href="%{resource_path}">%{user_group_name}</a> csoporthoz való csatlakozás iránti kérelmét elutasították.
         promoted_to_admin:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora adminisztrátori jogokat adott a csoportnak.
-          email_outro: Ezt az értesítést azért kapta meg, mert Ön tagja a csoportnak.
-          email_subject: Most a %{user_group_name} csoport adminisztrátora van!
-          notification_title: Most a <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora.
+          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora adminisztrátori jogokat adott számodra.
+          email_outro: Ezt az értesítést azért kaptad meg, mert tagja vagy a csoportnak.
+          email_subject: Most a %{user_group_name} csoport adminisztrátora lettél!
+          notification_title: Most már a <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora vagy.
         removed_from_group:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolította belőle.
+          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolított a csoportóból.
           email_outro: Ezt az értesítést azért kapta meg, mert tagja volt ebbe a csoportba.
           email_subject: Ön eltávolításra került a %{user_group_name} csoportból!
           notification_title: Ön eltávolításra került a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
@@ -478,7 +478,7 @@ hu:
       reached_top: Elérted a jelvény legmagasabb szintjét.
     group_admins:
       actions:
-        are_you_sure: biztos vagy ebben? Ez nem fogja eltávolítani a felhasználót a csoportból.
+        are_you_sure: Biztos vagy ebben? Ez nem fogja eltávolítani a felhasználót a csoportból.
         demote_admin: Admin eltávolítása
       demote:
         error: Hiba történt a felhasználó eltávolításakor az adminisztrátorok listáján
@@ -530,13 +530,13 @@ hu:
         success: A csoport sikeresen létrehozva
       edit:
         edit_user_group: Csoport szerkesztése
-        update_user_group: Frissítési csoport
+        update_user_group: Csoport frissítése
       join:
         error: Hiba történt a csoporthoz való csatlakozáskor
-        success: A csatlakozási kérelem sikeresen létrehozva. A rendszergazda felülvizsgálja a kérelmet, mielőtt elfogadja a csoportot.
+        success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmedet, mielőtt elfogadja a csatlakozásodat.
       leave:
-        error: Hiba történt a csoport elhagyása után
-        success: A csoport sikeresen befejeződött.
+        error: Hiba történt a csoport elhagyása kapcsán
+        success: A csoportot sikeresen elhagytad.
       members:
         accept_or_reject_join_requests: 'A következő felhasználók bejelentették, hogy csatlakozzanak ehhez a csoporthoz. A kérelmek elfogadása vagy elutasítása:'
         accept_request: Elfogad
@@ -595,8 +595,8 @@ hu:
     members:
       no_members: Ennek a felhasználói csoportnak még nincs tagja.
     menu:
+      help: Segítség
       home: Kezdőlap
-      more_information: További információk
     messaging:
       conversation_mailer:
         new_conversation:
@@ -712,7 +712,11 @@ hu:
         sub_hero:
           register: Regisztráció
       index:
-        title: További információk
+        read_more: Olvass tovább
+        standalone_pages: Oldalak
+        subheading: Navigáljon a %{name} súgó oldalán
+        title: Segítség
+        topics: Témakörök
       terms_and_conditions:
         accept:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
@@ -744,7 +748,7 @@ hu:
         conversations: Beszélgetések
         followers: Követők
         following: Követés
-        groups: csoportok
+        groups: Csoportok
         members: Belépés
         notifications: Értesítések
       sidebar:
@@ -756,7 +760,7 @@ hu:
         edit_profile: Profil szerkesztése
         edit_user_group: Csoportprofil szerkesztése
         invite_user: Felhasználó meghívása
-        join_user_group: Kérjen csatlakozni a csoporthoz
+        join_user_group: Csatlakozás kérése a csoporthoz
         leave_user_group: Kilépés a csoportból
         manage_user_group_admins: Adminisztrátorok kezelése
         manage_user_group_users: Tagok kezelése
@@ -1035,7 +1039,7 @@ hu:
         my_data: Adataim
         notifications_settings: Értesítési beállítások
         title: Felhasználói beállítások
-        user_groups: csoportok
+        user_groups: Csoportok
       widget:
         see_more: Tovább
   locale:
