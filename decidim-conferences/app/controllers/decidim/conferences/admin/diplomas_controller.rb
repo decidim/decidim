@@ -33,6 +33,10 @@ module Decidim
           end
         end
 
+        def send_diplomas
+          raise
+        end
+
         private
 
         def diploma_params
