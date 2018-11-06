@@ -20,6 +20,25 @@ module Decidim
       def not_highlighted
         render_not_highlighted(Decidim.metrics_registry.filtered(highlight: false, scope: "participatory_process"))
       end
+
+      def big_stats
+        # Participants
+      end
+
+      def medium_stats
+        # Proposals
+        # Supports
+        # Endorsements
+        # Followers
+      end
+
+      def small_stats
+        # Accepted proposals
+        # Comments
+        # Meetings
+        # Debates
+        # Answers to surveys
+      end
     end
   end
 end

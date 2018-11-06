@@ -62,15 +62,15 @@ module Decidim
 
     def filtered(highlight: nil, scope: nil, sort: nil)
       result = all
-      unless highlight.nil?
+      if highlight.present?
         result = if highlight
                    highlighted(result)
                  else
                    not_highlighted(result)
                  end
       end
-      result = scoped(scope, result) unless scope.nil?
-      result = sorted(result) unless sort.nil?
+      result = scoped(scope, result) if scope.present?
+      result = sorted(result) if sort.present?
       result
     end
 

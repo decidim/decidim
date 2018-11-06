@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: :show
+      participatory_space_layout only: [:show, :statistics]
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
@@ -27,6 +27,10 @@ module Decidim
       end
 
       def show
+        check_current_user_can_visit_space
+      end
+
+      def statistics
         check_current_user_can_visit_space
       end
 
