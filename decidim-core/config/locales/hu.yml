@@ -552,18 +552,6 @@ hu:
       update:
         error: Probléma történt a csoport frissítésével
         success: A csoport sikeresen frissült
-    invitations:
-      create:
-        error: Problémák adódtak a barátok meghívása közben
-        error_empty_form: Adj meg néhány email címet
-        success: Elküldtük a meghívókat a barátaidnak!
-      index:
-        customize_message: Meghívó üzenet testreszabása
-        friend_email: 'Barát #%{index} email'
-        invitations_subtitle: Szólj barátaidnak az oldal létezéséről
-        invitations_title: Szerinted többet kelleni hallani a %{organization_name} szervezetről?
-        invite: Meghívás
-        visit_your_profile: Profil oldalad
     last_activities:
       activities:
         no_activities_warning: Nincs aktivitás
@@ -881,7 +869,6 @@ hu:
           Ha nem akarod elfogadni a meghívást, hagyd figyelmen kívül ezt az e-mailt.<br />
           A fiók addig nem jön létre, amíg meg nem nyitod a fenti linket és állítasz be jelszót.
         invited_you_as_admin: "%{invited_by} meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
-        invited_you_as_friend: "%{invited_by} meghívott ide: %{application}."
         invited_you_as_private_user: "%{invited_by} meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
         someone_invited_you: 'Valaki meghívott, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_admin: 'Valaki meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
@@ -891,10 +878,6 @@ hu:
         subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
       invite_collaborator:
         subject: 'Meghívás együttműködésre ebben: %{organization}'
-      invite_friend:
-        accept_invitation: 'A meghívást az alábbi linken keresztül fogadhatja el:'
-        friend_custom_text: 'Ezt az üzenetet hagyták neked:'
-        subject: 'Meghívást kaptál ide: %{organization}'
       invite_private_user:
         subject: Meghívtak egy privát részvételi folyamatban részvételre (%{organization})
       organization_admin_invitation_instructions:
@@ -1027,7 +1010,6 @@ hu:
       user_menu:
         admin_dashboard: Admin vezérlőpult
         conversations: Beszélgetések
-        invite_friends: Barátok meghívása
         notifications: Értesítések
         profile: Fiókom
         public_profile: Nyilvános profilom
