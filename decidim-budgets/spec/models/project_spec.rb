@@ -34,15 +34,35 @@ module Decidim::Budgets
     end
 
     describe "#orders_count" do
-      let(:project) { create :project, budget: 75_000_000 }
-      let(:order) { create :order, component: project.component }
-      let(:unfinished_order) { create :order, component: project.component }
-      let!(:line_item) { create :line_item, project: project, order: order }
-      let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
+      context "when total budget is activated" do
+        let(:project) { create :project, budget: 75_000_000 }
+        let(:order) { create :order, component: project.component }
+        let(:unfinished_order) { create :order, component: project.component }
+        let!(:line_item) { create :line_item, project: project, order: order }
+        let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
 
-      it "return number of finished orders for this project" do
-        order.reload.update!(checked_out_at: Time.current)
-        expect(project.confirmed_orders_count).to eq(1)
+        it "return number of finished orders for this project" do
+          order.reload.update!(checked_out_at: Time.current)
+          expect(project.confirmed_orders_count).to eq(1)
+        end
+      end
+      context "when total projects is activated" do
+        let(:component) do
+          create(
+            :budget_component,
+            :with_vote_per_project
+          )
+        end
+        let(:project) { create :project, component: component }
+        let(:order) { create :order, component: project.component }
+        let(:unfinished_order) { create :order, component: project.component }
+        let!(:line_item) { create :line_item, project: project, order: order }
+        let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
+
+        it "return number of finished orders for this project" do
+          order.reload.update!(checked_out_at: Time.current)
+          expect(project.confirmed_orders_count).to eq(1)
+        end
       end
     end
 
