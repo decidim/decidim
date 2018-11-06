@@ -5,9 +5,7 @@ module Decidim
     # This cell renders the Small (:s) meeting card
     # for an given instance of a Meeting
     class MeetingSCell < MeetingMCell
-      def title
-        translated_attribute model.title
-      end
+      delegate :title, to: :presenter
 
       def meeting_path
         resource_locator(model).path
@@ -23,6 +21,10 @@ module Decidim
 
       def participatory_space_path
         resource_locator(model.component.participatory_space).path
+      end
+
+      def presenter
+        @presenter ||= Decidim::Meetings::MeetingPresenter.new(model)
       end
     end
   end
