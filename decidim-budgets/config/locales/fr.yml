@@ -10,6 +10,13 @@ fr:
         proposal_ids: Propositions liées
         title: Titre
   activerecord:
+    errors:
+      messages:
+        equal_to: must be equal to %{count}
+      models:
+        decidim/budgets/project:
+          one: Project
+          other: Projects
     models:
       decidim/budgets/project:
         one: Projet
@@ -54,36 +61,45 @@ fr:
       admin_log:
         project:
           create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
-          delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace %{space_name}"
-          update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace
+            %{space_name}"
+          update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace
+            %{space_name}"
       models:
         project:
           fields:
-            title: Titre
             map: Carte
+            title: Titre
       projects:
         budget_confirm:
-          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, si vous changez d'avis, vous devrez tout annuler et recommencer de zéro.
+          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre
+            vote, si vous changez d'avis, vous devrez tout annuler et recommencer
+            de zéro.
           cancel: Annuler
           confirm: Confirmer
           description: Voici les projets que vous avez choisis pour le budget.
           title: Confirmez votre vote
-        limit_excess:
-          close: Fermer
-          description_per_budget: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
-          description_per_project: Vous avez atteint le nombre maximum de projets autorisés pour ce budget. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné.
-          ok: D'accord
-          title_per_budget: Budget maximum dépassé
-          title_per_project: Nombre de projets maximum atteints
+        budget_excess:
+          close: Закрити
+          description: Додавання цього проекту перевищить максимальний бюджет, і тому
+            його не можна зараз додати. За бажанням ви можете видалити якийсь з тих
+            проектів, що ви раніше вибрали для додавання, або проголосувати згідно
+            ваших уподобань.
+          ok: Гаразд
+          title: Перевищено граничний бюджет
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
           assigned: 'Affecté à :'
           cancel_order: supprimer votre vote et recommencer
           checked_out:
-            description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
+            description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis,
+              vous pouvez %{cancel_link}.
             title: Vote du budget terminé
-          description_per_budget: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
-          description_per_project: A quels projets pensez-vous que nous devrions allouer un budget ? Choisissez %{minimum_project} projets et validez votre vote.
+          description_per_budget: A quels projets pensez-vous que nous devrions allouer
+            un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez
+            et votez selon vos préférences pour définir le budget.
+          description_per_project: A quels projets pensez-vous que nous devrions allouer
+            un budget ? Choisissez %{minimum_project} projets et validez votre vote.
           title: Vous décidez du budget
         count:
           projects_count:
@@ -100,6 +116,17 @@ fr:
           unfold: Voir la suite
         index:
           view_project: Voir le projet
+        limit_excess:
+          close: Fermer
+          description_per_budget: Ce projet dépasse le budget maximum et ne peut pas
+            être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que
+            vous avez déjà sélectionné ou voter selon vos préférences.
+          description_per_project: Vous avez atteint le nombre maximum de projets
+            autorisés pour ce budget. Si vous le souhaitez, vous pouvez supprimer
+            un projet que vous avez déjà sélectionné.
+          ok: D'accord
+          title_per_budget: Budget maximum dépassé
+          title_per_project: Nombre de projets maximum atteints
         order_progress:
           vote: Voter
         order_selected_projects:
@@ -122,9 +149,9 @@ fr:
         project:
           add: Ajouter
           count:
-            zero: "%{count} vote"
             one: "%{count} vote"
             other: "%{count} votes"
+            zero: "%{count} vote"
           remove: Supprimer
           view: Voir
         project_budget_button:
@@ -142,13 +169,13 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            geocoding_enabled: Géocodage activé
             projects_per_page: Projets par page
+            total_budget: Budget total
+            total_projects: Nombre de projets total
             vote_per_budget: Activer le vote selon un budget (par défaut)
             vote_per_project: Activer le vote par nombre de projets
-            total_projects: Nombre de projets total
-            total_budget: Budget total
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
-            geocoding_enabled: Géocodage activé
           step:
             announcement: Message d'annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -163,7 +190,7 @@ fr:
         success: Votre vote a été annulé avec succès
     resource_links:
       included_proposals:
-        project_proposal: 'Propositions inspirant le projet'
+        project_proposal: Propositions inspirant le projet
   index:
     confirmed_orders_count: Nombre de votes
   total_budget: Budget total

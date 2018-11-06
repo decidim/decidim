@@ -19,6 +19,7 @@ module Decidim
       validates :total_budget, numericality: { greater_than_or_equal_to: :minimum_budget }, if: :checked_out_and_not_project?
       validates :total_budget, numericality: { less_than_or_equal_to: :maximum_budget }, unless: :per_project
       validates :total_projects, numericality: { less_than_or_equal_to: :number_of_projects }, if: :per_project
+      validates :total_projects, numericality: { equal_to: :number_of_projects }, if: :checked_out_and_per_project?
 
       scope :finished, -> { where.not(checked_out_at: nil) }
       scope :pending, -> { where(checked_out_at: nil) }
@@ -47,6 +48,11 @@ module Decidim
       # Public: Returns true if the order has been checked out and is budget type
       def checked_out_and_not_project?
         checked_out? && !per_project
+      end
+
+      # Public: Returns true if the order has been checked out and is project type
+      def checked_out_and_per_project?
+        checked_out? && per_project
       end
 
       def per_project
