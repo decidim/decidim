@@ -34,7 +34,22 @@ module Decidim
         end
 
         def send_diplomas
-          raise
+          enforce_permission_to :send_diplomas, :conference, conference: current_conference
+          
+          SendConferenceDiplomas.call(conference, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("send_diploma.success", scope: "decidim.conferences.admin")
+              render action: "edit"
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("send_diploma.error", scope: "decidim.conferences.admin")
+              render action: "edit"
+            end
+            # on(:ok) do |export_data|
+            #   send_data export_data.read, type: "text/#{export_data.extension}", filename: export_data.filename("registrations")
+            # end
+          end
         end
 
         private
