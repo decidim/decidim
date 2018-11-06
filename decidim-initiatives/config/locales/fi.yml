@@ -87,7 +87,7 @@ fi:
         initiatives:
           description_another: Tämä käyttäjä on julkaissut %{score} aloitetta.
           description_own: Olet julkaissut %{score} aloitetta.
-          explanation: Käyttäjät saavat tämän kunniamerkin saamalla aloitteita julkaistua.
+          explanation: Käyttäjät saavat tämän kunniamerkin saamalla aloitteita julkaistuiksi.
           name: Julkaistut aloitteet
           next_level_in: Julkaise %{score} uutta aloitetta saavuttaaksesi seuraavan tason!
           unearned_another: Tämä käyttäjä ei ole vielä julkaissut yhtään aloitetta.
