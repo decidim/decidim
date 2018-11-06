@@ -14,7 +14,7 @@ fi:
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
-        user_group_document_number: Organisaation asiakirjanumero
+        user_group_document_number: Organisaatiotunnus (esim. Y-tunnus)
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
     models:
@@ -32,7 +32,7 @@ fi:
         password: Salasana
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
-        user_group_document_number: Organisaation asiakirjanumero
+        user_group_document_number: Organisaatiotunnus (esim. Y-tunnus)
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
     models:
@@ -125,7 +125,7 @@ fi:
       collection:
         documents:
           one: Asiakirja
-          other: Asiakirjat
+          other: Asiakirjaa
       documents:
         related_documents: Liittyvät dokumentit
       photos:
@@ -143,7 +143,7 @@ fi:
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
-          document_number: Asiakirjan numero
+          document_number: Organisaatiotunnus (esim. Y-tunnus)
           postal_code: Postinumero
         name: Esimerkkivarmennus
       dummy_authorization_workflow:
@@ -687,7 +687,7 @@ fi:
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
       too_many_marks: sisältää liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: käyttää liikaa isoja kirjaimia
-      too_short: liian lyhyt
+      too_short: liian lyhyt (alle 10 merkkiä)
   forms:
     required: Vaadittu
   invisible_captcha:
@@ -743,7 +743,7 @@ fi:
     password_not_allowed: ei ole sallittu
     password_too_common: liian yleinen
     password_too_long: liian pitkä
-    password_too_short: liian lyhyt
+    password_too_short: liian lyhyt (alle 10 merkkiä)
   social_share_button:
     delicious: Delicious
     douban: Douban
