@@ -1,3 +1,15 @@
-<a href="user-profile" class="author__name">
+<% tooltip = true unless local_assigns.has_key?(:tooltip) %>
+<a href="javascript:void(0);" class="author__name"
+  <% if tooltip %>
+    data-tooltip
+    data-position="top"
+    data-alignment="center"
+    data-disable-hover="false"
+    tabindex="1"
+    data-allow-html="true"
+    data-template-classes="light"
+    data-tip-text='<%= partial "author_data--minicard" %>'
+  <% end %>
+    >
   <%= Faker::Name.name %>
 </a>

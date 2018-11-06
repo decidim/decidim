@@ -1,0 +1,8 @@
+<div class="card__content">
+  <div class="card__header collapse">
+    <%= partial "author_data", { big: true, nick: true, tooltip: false } %>
+  </div>
+  <div class="card__text card--picture-offset">
+    <%= link_to "view full profile", page_path("profile/user-profile-public") %>
+  </div>
+</div>
