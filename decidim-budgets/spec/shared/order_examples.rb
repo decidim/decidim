@@ -26,8 +26,8 @@ shared_examples "order" do |options|
       expect(new_order).to be_invalid
     end
 
-    context "when total budgets is activated" do
-      if options == :total_budgets
+    if options == :total_budget
+      context "when total budgets is activated" do
         it "can't exceed a maximum order value" do
           project1 = create(:project, component: subject.component, budget: 100)
           project2 = create(:project, component: subject.component, budget: 20)
@@ -58,8 +58,8 @@ shared_examples "order" do |options|
       end
     end
 
-    context "when total project is activated" do
-      if options == :total_projects
+    if options == :total_projects
+      context "when total project is activated" do
         let(:total_projects_component) { create(:budget_component, :with_vote_per_project) }
         let(:order) { create :order, component: total_projects_component }
 
@@ -121,7 +121,7 @@ shared_examples "order" do |options|
     end
   end
 
-  if options == :total_budgets
+  if options == :total_budget
     describe "#total_budget" do
       let(:total_budget_component) { create :order, component: create(:budget_component) }
 
