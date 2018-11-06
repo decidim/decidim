@@ -153,6 +153,7 @@ en:
           conference_admins: Conference users
           conference_invites: Invites
           conference_speakers: Speakers
+          diploma: Diploma
           info: Info
           media_links: Media Links
           moderations: Moderations
@@ -329,6 +330,10 @@ en:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        diplomas:
+          edit:
+            save: Save
+            title: Diploma      
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'

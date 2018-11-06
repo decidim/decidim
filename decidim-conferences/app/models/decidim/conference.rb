@@ -55,6 +55,8 @@ module Decidim
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::HomepageImageUploader
+    mount_uploader :main_logo, Decidim::ImageUploader
+    mount_uploader :signature, Decidim::ImageUploader
 
     # Scope to return only the promoted conferences.
     #

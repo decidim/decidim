@@ -1,0 +1,16 @@
+<%= decidim_form_for(@form, url: conference_diploma_path, html: { class: "form edit_conference_diploma" })  do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("diplomas.edit.title", scope: "decidim.conferences.admin") } %>
+
+   <div class="button--double form-general-submit">
+    <%= f.submit t(".save") %>
+
+    <% if allowed_to? :send_diplomas, :conference, conference: current_participatory_space %>
+      <%# if current_conference.published? %>
+        <%#= link_to t("actions.unpublish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :delete, class: "button muted" %>
+      <%# else %>
+        <%#= link_to t("actions.publish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :post, class: "button hollow" %>
+      <%# end %>
+      GÑAÑAÑAÑÑA
+    <% end %>
+  </div>
+<% end %>
