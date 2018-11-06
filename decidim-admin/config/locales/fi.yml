@@ -48,7 +48,7 @@ fi:
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
         highlighted_content_banner_action_title: Toimintapainikkeen otsikko
         highlighted_content_banner_action_url: Toimintapainikkeen URL-osoite
-        highlighted_content_banner_enabled: Näytä korostettu sisältöbanneri
+        highlighted_content_banner_enabled: Näytä tärkeä sisältöbanneri
         highlighted_content_banner_image: Kuva
         highlighted_content_banner_short_description: Lyhyt kuvaus
         highlighted_content_banner_title: Otsikko
@@ -494,7 +494,7 @@ fi:
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           homepage_appearance_title: Muokkaa kotisivun ulkoasua
-          homepage_highlighted_content_banner_title: Korostettu sisältöbanneri
+          homepage_highlighted_content_banner_title: Tärkeä sisältöbanneri
           layout_appearance_title: Muokkaa sivupohjan ulkoasua
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
       organization_homepage:
