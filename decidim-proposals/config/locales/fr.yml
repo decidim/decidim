@@ -8,6 +8,7 @@ fr:
         body: Corps du texte
         category_id: Catégorie
         has_address: Renseigner une adresse
+        address: Adresse
         scope_id: Secteur
         state: État
         title: Titre
