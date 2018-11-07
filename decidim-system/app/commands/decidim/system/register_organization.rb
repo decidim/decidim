@@ -51,7 +51,8 @@ module Decidim
           available_locales: form.available_locales,
           available_authorizations: form.clean_available_authorizations,
           badges_enabled: true,
-          default_locale: form.default_locale
+          default_locale: form.default_locale,
+          send_welcome_notification: true
         )
       end
 

@@ -172,6 +172,17 @@ module Decidim
       super
     end
 
+    def after_confirmation
+      return unless organization.send_welcome_notification?
+
+      Decidim::EventsManager.publish(
+        event: "decidim.events.core.welcome_notification",
+        event_class: WelcomeNotificationEvent,
+        resource: self,
+        recipient_ids: [id]
+      )
+    end
+
     private
 
     # Changes default Devise behaviour to use ActiveJob to send async emails.

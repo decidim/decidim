@@ -84,6 +84,7 @@ FactoryBot.define do
     highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
     badges_enabled { true }
+    send_welcome_notification { true }
 
     after(:create) do |organization|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
