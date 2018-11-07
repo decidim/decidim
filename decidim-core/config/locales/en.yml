@@ -714,7 +714,6 @@ en:
       participatory_space:
         metrics:
           headline: Participation in figures
-          link: "Show all statistics"
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
