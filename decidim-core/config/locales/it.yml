@@ -163,6 +163,9 @@ it:
           foo: foo
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
+      sms:
+        explanation: Invia il tuo numero di cellulare in modo che possiamo controllare la tua identità.
+        name: Codice via SMS
       started_at: Iniziato a %{timestamp}
     authorization_modals:
       show:
