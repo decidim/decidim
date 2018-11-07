@@ -163,6 +163,9 @@ sv:
           foo: foo
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
+      sms:
+        explanation: Skicka ditt mobilnummer så att vi kan kontrollera din identitet.
+        name: Kod via SMS
       started_at: Börjat vid %{timestamp}
     authorization_modals:
       show:
