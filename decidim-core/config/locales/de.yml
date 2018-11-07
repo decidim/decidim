@@ -553,18 +553,6 @@ de:
       update:
         error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten
         success: Gruppe wurde erfolgreich aktualisiert
-    invitations:
-      create:
-        error: Es gab einige Probleme beim Einladen deiner Freunde
-        error_empty_form: Bitte geben Sie einige E-Mail-Adressen ein
-        success: Wir haben die Einladungen an Ihre Freunde geschickt!
-      index:
-        customize_message: Passen Sie die Einladungsnachricht an
-        friend_email: 'Freund #%{index} E-Mail'
-        invitations_subtitle: Erzählen Sie Ihre Freunden von dieser Website
-        invitations_title: Denkst du, mehr Stimmen sollten in %{organization_name}?
-        invite: Einladen
-        visit_your_profile: Zu Ihrem Profil
     last_activities:
       activities:
         no_activities_warning: Keine Aktivität
@@ -878,7 +866,6 @@ de:
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
           Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        invited_you_as_friend: "%{invited_by} hat dich zu %{application}eingeladen."
         invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
         someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
@@ -888,10 +875,6 @@ de:
         subject: Du wurdest eingeladen, %{organization}zu verwalten
       invite_collaborator:
         subject: Du wurdest eingeladen, an %{organization}
-      invite_friend:
-        accept_invitation: 'Sie können die Einladung über den folgenden Link annehmen:'
-        friend_custom_text: 'Sie haben diese Nachricht für dich hinterlassen:'
-        subject: Du wurdest zu %{organization}eingeladen
       invite_private_user:
         subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization}eingeladen
       organization_admin_invitation_instructions:
@@ -1024,7 +1007,6 @@ de:
       user_menu:
         admin_dashboard: Admin-Dashboard
         conversations: Gespräche
-        invite_friends: Freunde einladen
         notifications: Benachrichtigungen
         profile: Mein Konto
         public_profile: Mein öffentliches Profil
