@@ -35,6 +35,7 @@ end
 **Added**:
 
 - **decidim-forms**: Create a new gem to hold reusable surveys logic [\#3877](https://github.com/decidim/decidim/pull/3877)
+- **decidim-proposals**: Split & merge proposals to the same component [\#4415](https://github.com/decidim/decidim/pull/4415)
 
 **Changed**:
 
@@ -55,8 +56,12 @@ end
 - **decidim-comments**: Fix comment activity cell when commentable is a comment [\#4413](https://github.com/decidim/decidim/pull/4413)
 - **decidim-core**: Corrected users metric calculations with scoping [\#4416](https://github.com/decidim/decidim/pull/4416)
 - **decidim-comments**: Corrected comments metric calculations in loop [\#4416](https://github.com/decidim/decidim/pull/4416)
+- **decidim-proposals**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
+- **decidim-meetings**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
 
 **Removed**:
+
+- **decidim-core**: Remove invite friends by email. [\#4430](https://github.com/decidim/decidim/pull/4430)
 
 ## Previous versions
 
