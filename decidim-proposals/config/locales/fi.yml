@@ -111,7 +111,7 @@ fi:
           email_intro: 'Käyttäjän %{requester_name} osallistuminen kohteeseen <a href="%{resource_path}">%{resource_title} </a>on estetty.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistuja kohteessa <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hylätty, jotta hän voi osallistua %{resource_title} yhteistyöhankkeeseen."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hylätty pääsyksesi avustajaksi</strong> <a href="%{resource_path}">%{resource_title}</a> yhteisestä ehdotuksesta.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>avustajaoikeudet on hylätty</strong> yhteistyöluonnoksesta <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} pyysi pääsyä osallistujaksi. Voit <strong>hyväksyä tai hylätä pyynnön</strong> yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a> sivulta.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet yhteistyökumppani kohteessa <a href="%{resource_path}">%{resource_title}</a>.
@@ -124,8 +124,8 @@ fi:
           notification_title: Sinut on <strong>hyväksytty osallistujaksi </strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_intro: Sinua ei ole hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet pyytänyt pääsyä yhteistyökumppaniksi kohtaan <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Sinua ei ole hyväksytty osallistujaksi kohtaan %{resource_title}.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet pyytänyt pääsyä osallistujaksi yhteistyöehdotukseen <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Sinua ei ole hyväksytty osallistujaksi yhteistyöluonnokseen %{resource_title}.
           notification_title: Sinua <strong>ei ole hyväksytty osallistujaksi</strong> yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on perunut yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
@@ -143,7 +143,7 @@ fi:
           email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
-          email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
+          email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
           email_subject: Seuraamasi ehdotus on hyväksytty
           notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
@@ -194,7 +194,7 @@ fi:
             - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
-          description_own: Sinulla sait %{score} ehdotusta hyväksyksi.
+          description_own: Olet saanut %{score} ehdotusta hyväksyksi.
           name: Hyväksytyt ehdotukset
           next_level_in: Saa vielä %{score} ehdotusta hyväksytyksi noustaksesi seuraavalle tasolle!
           unearned_another: Tämä käyttäjä ei ole saanut vielä ehdotuksia hyväksytyksi.
@@ -224,7 +224,7 @@ fi:
     metrics:
       accepted_proposals:
         object: ehdotukset
-        title: Hyväksyttyjä ehdotuksia
+        title: Hyväksytyt ehdotukset
       proposals:
         object: ehdotukset
         title: Ehdotuksia
@@ -441,8 +441,8 @@ fi:
             reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
-            error: Ei voitu hylätä yhteistyökumppanina, yritä myöhemmin uudelleen.
-            success: "@%{user} on hylätty yhteistyökumppanina onnistuneesti"
+            error: Ei voitu hylätä osallistujaa, yritä myöhemmin uudelleen.
+            success: "@%{user} on hylätty osallistujana onnistuneesti"
         show:
           back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
