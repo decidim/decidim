@@ -10,14 +10,14 @@ module Decidim
       let(:organization1) { create(:organization) }
       let(:organization2) { create(:organization) }
 
-      it "creates all the default pages for an organization" do
-        expect do
-          described_class.new(organization1).call
-        end.to change { organization1.static_pages.count }.by(Decidim::StaticPage::DEFAULT_PAGES.length)
+      before do
+        described_class.new(organization1).call
+        described_class.new(organization2).call
+      end
 
-        expect do
-          described_class.new(organization2).call
-        end.to change { organization2.static_pages.count }.by(Decidim::StaticPage::DEFAULT_PAGES.length)
+      it "creates all the default pages for an organization alt" do
+        expect(organization1.static_pages.count).to eq(Decidim::StaticPage::DEFAULT_PAGES.length)
+        expect(organization2.static_pages.count).to eq(Decidim::StaticPage::DEFAULT_PAGES.length)
       end
 
       it "sets the content with each locale" do
