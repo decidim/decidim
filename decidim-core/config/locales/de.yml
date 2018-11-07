@@ -163,6 +163,9 @@ de:
           foo: Foo
         name: Foo Berechtigung
       granted_at: Zugelassen am %{timestamp}
+      sms:
+        explanation: Geben Sie Ihre Handynummer ein, damit wir Ihre Identität überprüfen können.
+        name: Code per SMS
       started_at: Begann am %{timestamp}
     authorization_modals:
       show:
