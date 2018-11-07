@@ -584,7 +584,7 @@ es-PY:
         topic:
           destroy: Eliminar tema
           edit: Editar tema
-          empty: No hay página bajo este tema.
+          empty: No hay ninguna página para este tema
           without_topic: Páginas sin tema
         update:
           error: Se ha producido un error en la actualización de ésta página.
