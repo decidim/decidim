@@ -70,17 +70,14 @@ gl:
             title: Título
       projects:
         budget_confirm:
-          are_you_sure: Estás de acordo? Unha vez confirmado o teu voto non podes
-            cambialo.
+          are_you_sure: Estás de acordo? Unha vez confirmado o teu voto non podes cambialo.
           cancel: Cancelar
           confirm: Confirmar
           description: Estes son os proxectos que escolleu para formar parte do orzamento.
           title: Confirmar voto
         budget_excess:
           close: Pechar
-          description: Este proxecto supera o orzamento máximo e non se pode engadir.
-            Se o desexa, pode eliminar un proxecto que xa seleccionou para engadir
-            ou facer o seu voto coas súas preferencias.
+          description: Este proxecto supera o orzamento máximo e non se pode engadir. Se o desexa, pode eliminar un proxecto que xa seleccionou para engadir ou facer o seu voto coas súas preferencias.
           ok: Ok
           title: O orzamento máximo excedeu
         budget_summary:
@@ -90,12 +87,8 @@ gl:
           checked_out:
             description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
-          description_per_budget: What projects do you think we should allocate budget
-            for? Assign at least %{minimum_budget} to the projects you want and vote
-            with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate
-            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
-            all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Vostede decide o orzamento
         count:
           projects_count:
@@ -114,12 +107,8 @@ gl:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can
-            not be added. If you want, you can delete a project you have already selected
-            to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects
-            allowed for this budget. If you wish, you can delete a project that you
-            have already selected.
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached

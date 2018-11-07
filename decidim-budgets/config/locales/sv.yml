@@ -60,12 +60,9 @@ sv:
             success: Projektet har blivit uppdaterat
       admin_log:
         project:
-          create: "%{user_name} skapade projektet %{resource_name} i %{space_name}
-            -utrymmet"
-          delete: "%{user_name} raderade projektet %{resource_name} i %{space_name}
-            -utrymmet"
-          update: "%{user_name} uppdaterade projektet %{resource_name} i %{space_name}
-            -utrymmet"
+          create: "%{user_name} skapade projektet %{resource_name} i %{space_name} -utrymmet"
+          delete: "%{user_name} raderade projektet %{resource_name} i %{space_name} -utrymmet"
+          update: "%{user_name} uppdaterade projektet %{resource_name} i %{space_name} -utrymmet"
       models:
         project:
           fields:
@@ -73,17 +70,14 @@ sv:
             title: Titel
       projects:
         budget_confirm:
-          are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra
-            den.
+          are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra den.
           cancel: Avbryt
           confirm: Bekräfta
           description: Det här är de projekt du valt att vara en del av budgeten.
           title: Bekräfta omröstning
         budget_excess:
           close: Stäng
-          description: Detta projekt överstiger den maximala budgeten och kan inte
-            läggas till. Om du vill kan du ta bort ett projekt som du redan har valt
-            för att lägga till eller göra din röst med dina önskemål.
+          description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har valt för att lägga till eller göra din röst med dina önskemål.
           ok: OK
           title: Maximal budget överskridits
         budget_summary:
@@ -91,15 +85,10 @@ sv:
           assigned: 'Tilldelat:'
           cancel_order: ta bort din röst och börja om
           checked_out:
-            description: Du har redan röstat för budgeten. Om du har ändrat dig kan
-              du %{cancel_link}.
+            description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
             title: Budgetröstning slutförd
-          description_per_budget: What projects do you think we should allocate budget
-            for? Assign at least %{minimum_budget} to the projects you want and vote
-            with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate
-            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
-            all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Du bestämmer budgeten
         count:
           projects_count:
@@ -118,12 +107,8 @@ sv:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can
-            not be added. If you want, you can delete a project you have already selected
-            to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects
-            allowed for this budget. If you wish, you can delete a project that you
-            have already selected.
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached

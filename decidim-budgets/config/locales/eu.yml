@@ -60,12 +60,9 @@ eu:
             success: Proiektua zuzen eguneratu da
       admin_log:
         project:
-          create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan
-            sortu zen"
-          delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan
-            ezabatu da"
-          update: "%{user_name} %{resource_name} proiektuaren %{space_name} espazio
-            eguneratu du"
+          create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
+          delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan ezabatu da"
+          update: "%{user_name} %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
       models:
         project:
           fields:
@@ -73,17 +70,14 @@ eu:
             title: Titulua
       projects:
         budget_confirm:
-          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu
-            aldatu.
+          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu aldatu.
           cancel: Utzi
           confirm: Baieztatu
           description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
           title: Baieztatu botoa
         budget_excess:
           close: Itxi
-          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin
-            da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu
-            edo botoa eman zure lehenespenekin bat.
+          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
           ok: Ados
           title: Aurrekontua gainditu da
         budget_summary:
@@ -91,15 +85,10 @@ eu:
           assigned: 'Esleituta:'
           cancel_order: ezabatu ezazu botoa eta hasi berriro
           checked_out:
-            description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu,
-              ezeztatu hemen: %{cancel_link}.'
+            description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
             title: Botoa zuzen bidali da
-          description_per_budget: What projects do you think we should allocate budget
-            for? Assign at least %{minimum_budget} to the projects you want and vote
-            with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate
-            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
-            all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Zure esku dago aurrekontua erabakitzea
         count:
           projects_count:
@@ -118,12 +107,8 @@ eu:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can
-            not be added. If you want, you can delete a project you have already selected
-            to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects
-            allowed for this budget. If you wish, you can delete a project that you
-            have already selected.
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached

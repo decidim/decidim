@@ -72,18 +72,14 @@ ru:
             title: Название
       projects:
         budget_confirm:
-          are_you_sure: Вы согласны? Подтвердив свой голос, вы не сможете потом его
-            изменить.
+          are_you_sure: Вы согласны? Подтвердив свой голос, вы не сможете потом его изменить.
           cancel: Отменить
           confirm: Подтвердить
           description: Вот те проекты, которые вы выбрали для включения в бюджет.
           title: Подтвердить голос
         budget_excess:
           close: Закрыть
-          description: Добавление этого проекта превысит предельный бюджет, и поэтому
-            его сейчас нельзя добавить. Если хотите, вы можете удалить один из проектов,
-            который вы ранее выбрали для добавления, или проголосовать за то распределение
-            средств, которое вы уже сделали.
+          description: Добавление этого проекта превысит предельный бюджет, и поэтому его сейчас нельзя добавить. Если хотите, вы можете удалить один из проектов, который вы ранее выбрали для добавления, или проголосовать за то распределение средств, которое вы уже сделали.
           ok: Хорошо
           title: Превышен предельный бюджет
         budget_summary:
@@ -91,15 +87,10 @@ ru:
           assigned: 'Выделено:'
           cancel_order: удалить свой голос и начать все сначала
           checked_out:
-            description: Вы уже голосовали за бюджет. Если вы передумали, вы можете
-              %{cancel_link}.
+            description: Вы уже голосовали за бюджет. Если вы передумали, вы можете %{cancel_link}.
             title: Голосование по бюджету завершено
-          description_per_budget: What projects do you think we should allocate budget
-            for? Assign at least %{minimum_budget} to the projects you want and vote
-            with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate
-            a budget? Choose %{minimum_project} projects and validate your vote. Attention,
-            all votes are irrevocable.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Вы определяете бюджет
         count:
           projects_count:
@@ -120,12 +111,8 @@ ru:
           view_project: View project
         limit_excess:
           close: Close
-          description_per_budget: This project exceeds the maximum budget and can
-            not be added. If you want, you can delete a project you have already selected
-            to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects
-            allowed for this budget. If you wish, you can delete a project that you
-            have already selected.
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
           ok: OK
           title_per_budget: Maximum budget exceeded
           title_per_project: Maximum number of projects reached
