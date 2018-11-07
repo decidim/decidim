@@ -553,18 +553,6 @@ it:
       update:
         error: Si è verificato un problema durante l'aggiornamento del gruppo
         success: Gruppo aggiornato con successo
-    invitations:
-      create:
-        error: Ci sono stati alcuni problemi durante l'invito ai tuoi amici
-        error_empty_form: Si prega di inserire alcuni indirizzi e-mail
-        success: Abbiamo inviato gli inviti ai tuoi amici!
-      index:
-        customize_message: Personalizza il messaggio di invito
-        friend_email: 'Email amico numero%{index}'
-        invitations_subtitle: Fai sapere ai tuoi amici di questo sito
-        invitations_title: Pensi che più voci dovrebbero essere ascoltate in %{organization_name}?
-        invite: Invitare
-        visit_your_profile: Visita il tuo profilo
     last_activities:
       activities:
         no_activities_warning: Nessuna attività
@@ -596,8 +584,8 @@ it:
     members:
       no_members: Questo gruppo di utenti non ha ancora nessun membro.
     menu:
+      help: Aiuto
       home: Home
-      more_information: Ulteriori informazioni
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +701,11 @@ it:
         sub_hero:
           register: Registrati
       index:
-        title: Informazione
+        read_more: Leggi di più
+        standalone_pages: pagine
+        subheading: Navigare attraverso le pagine di aiuto di %{name}
+        title: Aiuto
+        topics: Temi
       terms_and_conditions:
         accept:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
@@ -878,7 +870,6 @@ it:
           Se non desideri accettare l'invito, ignora questa email.<br />
           Il tuo account non verrà creato fino a quando non accedi al link qui sopra e imposti il ​​tuo nickname e password.
         invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante."
-        invited_you_as_friend: "%{invited_by} ha invitato a %{application}."
         invited_you_as_private_user: "%{invited_by} ti ha invitato come utente privato di %{application}. Puoi accettarlo tramite il link sottostante."
         someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
         someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
@@ -888,10 +879,6 @@ it:
         subject: Sei stato invitato per la gestione della sezione relativa all'organizzazione %{organization}
       invite_collaborator:
         subject: Sei stato invitato a collaborare nella %{organization}
-      invite_friend:
-        accept_invitation: 'Puoi accettare l''invito tramite il link sottostante:'
-        friend_custom_text: 'Hanno lasciato questo messaggio per te:'
-        subject: Sei stato invitato a %{organization}
       invite_private_user:
         subject: Sei stato invitato a un processo partecipativo privato su %{organization}
       organization_admin_invitation_instructions:
@@ -1024,7 +1011,6 @@ it:
       user_menu:
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
         conversations: conversazioni
-        invite_friends: Invita gli amici
         notifications: Notifiche
         profile: Il mio account
         public_profile: Il mio profilo pubblico
