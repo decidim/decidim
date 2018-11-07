@@ -163,6 +163,9 @@ ca:
           foo: Foo
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
+      sms:
+        explanation: Envieu el número de telèfon mòbil per poder comprovar la vostra identitat.
+        name: Codi per SMS
       started_at: Iniciat el %{timestamp}
     authorization_modals:
       show:
