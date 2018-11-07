@@ -163,6 +163,9 @@ hu:
           foo: Foo
         name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
+      sms:
+        explanation: Küldje el mobiltelefonszámát, hogy ellenőrizhessük személyazonosságát.
+        name: Kód SMS szerint
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       show:
