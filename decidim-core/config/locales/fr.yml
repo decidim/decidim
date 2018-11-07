@@ -163,6 +163,9 @@ fr:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
+      sms:
+        explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
+        name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
       show:
