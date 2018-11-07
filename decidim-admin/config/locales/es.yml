@@ -509,7 +509,7 @@ es:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
           success: El acceso a usuarios privados de espacio participativo creado con éxito.
         destroy:
-          error: Se produjo un error al eliminar un usuario privado para este espacio participativo.
+          error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
           title: Usuario privado de espacio participativo.
@@ -550,18 +550,18 @@ es:
       static_page_topics:
         create:
           error: Se ha producido un error al crear un nuevo tema.
-          success: Tema creado con éxito.
+          success: Tema creado correctamente.
         destroy:
-          success: Tema destruido exitosamente
+          success: Tema eliminado correctamente
         edit:
           title: Editar tema
-          update: Tema de actualización
+          update: Actualizar tema
         new:
           create: Crear tema
           title: Nuevo tema
         update:
-          error: Hubo un error al actualizar este tema.
-          success: Tema actualizado exitosamente
+          error: Se ha producido un error al actualizar este tema.
+          success: Tema actualizado correctamente
       static_pages:
         actions:
           view: Ver la página pública
