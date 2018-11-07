@@ -360,23 +360,23 @@ es:
         invited_to_group:
           email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha invitado a unirte a él.
           email_outro: Has recibido esta notificación porque te han invitado a un grupo. Por favor, revisa la pestaña Grupos en tu perfil para aceptar la invitación.
-          email_subject: '¡Has sido invitado a unirte al grupo %{user_group_name}!'
-          notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . ¡Revisa la página</a> <a href="%{groups_profile_tab_path}">grupos en tu perfil para aprobarlo!
+          email_subject: Te han invitado a unirte al grupo %{user_group_name}
+          notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación.
         join_request_accepted:
-          email_intro: '¡Felicidades! Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha aceptado su solicitud para unirse a él.'
+          email_intro: '¡Felicidades! Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha aceptado tu solicitud para unirte a él.'
           email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
-          email_subject: '¡Has sido aceptado en el grupo %{user_group_name}!'
-          notification_title: Has sido aceptado en el grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido aceptada
+          notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido aceptada.
         join_request_created:
           email_intro: Alguien pidió unirse al grupo %{user_group_name}. Puedes aceptarlo o rechazarlo desde <a href="%{resource_url}">miembros del grupo en la página</a>.
-          email_outro: Ha recibido esta notificación porque puede administrar el grupo %{user_group_name}.
-          email_subject: Alguien pidió unirse al grupo %{user_group_name}!
-          notification_title: Alguien pidió unirse al grupo %{user_group_name} . Puedes aceptarlo o rechazarlo desde <a href="%{resource_path}">miembros del grupo en la página</a>.
+          email_outro: Has recibido esta notificación porque eres administrador/a del grupo %{user_group_name}.
+          email_subject: Alguien ha solicitado unirse al grupo %{user_group_name}
+          notification_title: Alguien ha solicitado unirse al grupo %{user_group_name}. Puedes aceptar o rechazar la solicitud desde <a href="%{resource_path}">la página de miembros del grupo</a>.
         join_request_rejected:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> rechazó su solicitud para unirse a él.
+          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha rechazado tu solicitud para unirte a él.
           email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
-          email_subject: Su solicitud para unirse al grupo %{user_group_name} ha sido rechazada!
-          notification_title: Su solicitud para unirse al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
+          email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido rechazada
+          notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
         promoted_to_admin:
           email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha otorgado derechos de administrador a ese grupo.
           email_outro: Has recibido esta notificación porque eres miembro de ese grupo.
