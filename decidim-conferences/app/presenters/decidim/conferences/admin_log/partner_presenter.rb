@@ -21,7 +21,7 @@ module Decidim
             partner_type: :string,
             link: :string,
             weight: :integer,
-            log: :string
+            logo: :string
           }
         end
 

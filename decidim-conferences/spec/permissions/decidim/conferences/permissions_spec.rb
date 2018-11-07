@@ -310,6 +310,8 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference
       it_behaves_like "allows any action on subject", :conference_speaker
+      it_behaves_like "allows any action on subject", :partner
+      it_behaves_like "allows any action on subject", :registration_type
       it_behaves_like "allows any action on subject", :conference_user_role
     end
 
@@ -348,6 +350,7 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "allows any action on subject", :conference
       it_behaves_like "allows any action on subject", :conference_speaker
       it_behaves_like "allows any action on subject", :partner
+      it_behaves_like "allows any action on subject", :registration_type
       it_behaves_like "allows any action on subject", :conference_user_role
     end
   end
