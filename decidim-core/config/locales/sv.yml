@@ -402,7 +402,7 @@ sv:
         friend_email: 'Vän #%{index} e-post'
         invitations_subtitle: Låt dina vänner veta om den här webbplatsen
         invitations_title: Tycker du att fler röster ska höras i %{organization_name}?
-        invite: Bjud in
+        invite: Inbjudan
         visit_your_profile: Besök din profil
     log:
       base_presenter:
@@ -687,7 +687,7 @@ sv:
       nesting_too_deep: kan inte vara inuti en underkategori
       too_many_marks: använder för många märken
       too_much_caps: använder för många versaler
-      too_short: är för kort
+      too_short: är för kort (minimum är 10 tecken)
   forms:
     required: Krävs
   invisible_captcha:
@@ -743,7 +743,7 @@ sv:
     password_not_allowed: är ej tillåtet
     password_too_common: är för vanligt
     password_too_long: är för lång
-    password_too_short: är för kort
+    password_too_short: är för kort (minimum är 10 tecken)
   social_share_button:
     delicious: Delicious
     douban: Douban
