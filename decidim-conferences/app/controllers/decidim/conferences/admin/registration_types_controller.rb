@@ -31,7 +31,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("registration_types.create.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("registration_types.create.error", scope: "decidim.admin")
               render :new
             end
           end

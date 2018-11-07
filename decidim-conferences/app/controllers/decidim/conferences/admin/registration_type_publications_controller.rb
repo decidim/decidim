@@ -18,7 +18,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("registration_type_publications.create.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("registration_type_publications.create.error", scope: "decidim.admin")
             end
 
             redirect_back(fallback_location: conference_registration_types_path(current_conference))
@@ -35,7 +35,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("registration_type_publications.destroy.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("registration_type_publications.destroy.error", scope: "decidim.admin")
             end
 
             redirect_back(fallback_location: conference_registration_types_path(current_conference))

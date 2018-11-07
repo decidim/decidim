@@ -37,7 +37,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("conference_registration.confirm.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("conference_registration.confirm.error", scope: "decidim.admin")
             end
 
             redirect_back(fallback_location: conference_conference_registrations_path)
