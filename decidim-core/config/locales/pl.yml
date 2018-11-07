@@ -171,6 +171,9 @@ pl:
           foo: Foo
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
+      sms:
+        explanation: Prześlij swój numer telefonu komórkowego, abyśmy mogli sprawdzić Twoją tożsamość.
+        name: Kod przez SMS
       started_at: Rozpoczęty pod adresem %{timestamp}
     authorization_modals:
       show:
