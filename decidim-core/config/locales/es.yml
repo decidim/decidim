@@ -104,8 +104,8 @@ es:
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
-        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
-        delete: "%{user_name} eliminado el usuario %{resource_name} como un usuario privado"
+        create: "%{user_name} ha invitado a %{resource_name} a ser un usuario privado"
+        delete: "%{user_name} ha eliminado el usuario %{resource_name} como usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
         create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
@@ -350,7 +350,7 @@ es:
           notification_title: '¡Gran trabajo! ¡Has conseguido el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
       groups:
         demoted_membership:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado sus derechos de administrador para ese grupo.
+          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
           email_outro: Has recibido esta notificación porque eres miembro de ese grupo.
           email_subject: '¡Ya no eres un administrador del grupo %{user_group_name}!'
           notification_title: Ya no eres administrador del grupo <a href="%{resource_path}">%{user_group_name}</a>.
