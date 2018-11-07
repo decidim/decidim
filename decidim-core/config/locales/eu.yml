@@ -163,6 +163,9 @@ eu:
           foo: foo
         name: foo baimena
       granted_at: Onartua %{timestamp}
+      sms:
+        explanation: Bidali zure telefono mugikorraren zenbakia zure identitatea egiaztatzeko.
+        name: Kodea SMS bidez
       started_at: Hasi zen %{timestamp}
     authorization_modals:
       show:
