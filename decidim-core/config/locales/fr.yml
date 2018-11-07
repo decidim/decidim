@@ -163,6 +163,9 @@ fr:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
+      sms:
+        explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
+        name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
       show:
@@ -819,6 +822,9 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    welcome_notification:
+      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization_name}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées et conservez un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_subject: Merci d'avoir rejoint {{organization}}!
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.

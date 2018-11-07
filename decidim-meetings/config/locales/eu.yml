@@ -297,6 +297,10 @@ eu:
         minutes:
           create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
           update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+      calendar_modal:
+        calendar_url: Egutegiaren URLa
+        close_window: Itxi leihoa
+        export_calendar: Esportatu egutegia
       conference_venues: Hitzaldi aretoak
       content_blocks:
         upcoming_events:

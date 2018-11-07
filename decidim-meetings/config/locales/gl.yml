@@ -297,6 +297,10 @@ gl:
         minutes:
           create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
           update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
+      calendar_modal:
+        calendar_url: URL do calendario
+        close_window: Pechar ventá
+        export_calendar: Calendario de exportación
       conference_venues: Lugares de conferencias
       content_blocks:
         upcoming_events:

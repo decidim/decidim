@@ -297,6 +297,10 @@ es-PY:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      calendar_modal:
+        calendar_url: URL del calendario
+        close_window: Cerrar ventana
+        export_calendar: Calendario de exportación
       conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_events:
