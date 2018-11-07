@@ -163,6 +163,9 @@ fi:
           foo: Foo
         name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
+      sms:
+        explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
+        name: Koodi tekstiviestinä
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       show:
