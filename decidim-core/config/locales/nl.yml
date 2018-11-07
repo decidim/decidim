@@ -163,6 +163,9 @@ nl:
           foo: Foo
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
+      sms:
+        explanation: Dien uw mobiele nummer in, zodat wij uw identiteit kunnen controleren.
+        name: Code per sms
       started_at: Gestart om %{timestamp}
     authorization_modals:
       show:
