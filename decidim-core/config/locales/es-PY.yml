@@ -164,7 +164,7 @@ es-PY:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       sms:
-        explanation: Envíe su número de teléfono móvil para que podamos verificar su identidad.
+        explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
         name: Código por SMS
       started_at: Comenzó el %{timestamp}
     authorization_modals:
