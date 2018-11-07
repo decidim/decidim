@@ -380,7 +380,6 @@ uk:
         friend_email: 'Друг #%{index} Електронна пошта'
         invitations_subtitle: Нехай ваші друзі дізнаються про цей сайт
         invitations_title: Як ви гадаєте, чи більше голосів мають бути почутими в %{organization_name}?
-        invite: Запросити
         visit_your_profile: Відвідайте свій профіль
     log:
       base_presenter:

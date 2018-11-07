@@ -379,7 +379,6 @@ ru:
         friend_email: 'Друг #%{index} email'
         invitations_subtitle: Пусть ваши друзья узнают об этом сайте
         invitations_title: Как вы думаете, больше голосов должно быть услышано в %{organization_name}?
-        invite: Пригласить
         visit_your_profile: Посетите свой профиль
     log:
       base_presenter:
