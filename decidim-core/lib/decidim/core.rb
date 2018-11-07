@@ -226,6 +226,9 @@ module Decidim
   # environments, but in different folders.
   config_accessor :base_uploads_path
 
+  # Exposes a configuration option: an object to deliver SMS codes to users.
+  config_accessor :sms_gateway_service
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
