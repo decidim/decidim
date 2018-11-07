@@ -402,7 +402,7 @@ pt-BR:
         friend_email: 'E-mail do amigo nº%{index}'
         invitations_subtitle: Deixe seus amigos saberem sobre este site
         invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
-        invite: Convite
+        invite: Convidar
         visit_your_profile: Visite seu perfil
     log:
       base_presenter:
