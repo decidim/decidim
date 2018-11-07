@@ -164,7 +164,7 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       sms:
-        explanation: Envíe su número de teléfono móvil para que podamos verificar su identidad.
+        explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
         name: Código por SMS
       started_at: Comenzó el %{timestamp}
     authorization_modals:
@@ -378,9 +378,9 @@ es:
           email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido rechazada
           notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
         promoted_to_admin:
-          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha otorgado derechos de administrador a ese grupo.
+          email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> te ha otorgado permisos de administración para ese grupo.
           email_outro: Has recibido esta notificación porque eres miembro de ese grupo.
-          email_subject: '¡Ahora eres un administrador del grupo %{user_group_name}!'
+          email_subject: '¡Ahora eres administrador/a del grupo %{user_group_name}!'
           notification_title: Ahora eres un administrador del grupo <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
           email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado de él.
