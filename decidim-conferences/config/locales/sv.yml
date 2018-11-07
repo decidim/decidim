@@ -389,6 +389,8 @@ sv:
         index:
           speakers: högtalare
       conferences:
+        conferences_sidebar:
+          register: Registrera
         partners:
           collaborators: medarbetare
           main_promotors: Huvudpromotorer
@@ -405,6 +407,8 @@ sv:
         conference_registration_mailer:
           confirmation:
             subject: Din konferenss registrering har bekräftats
+          pending_validation:
+            subject: Din konferensens registrering väntar på att bekräftas
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
@@ -413,6 +417,7 @@ sv:
           fields:
             email: E-post
             name: namn
+            registration_type: Registreringstyp
             sent_at: Skickat på
             status: Status
           status:
@@ -423,6 +428,11 @@ sv:
           fields:
             email: E-post
             name: namn
+            registration_type: Registreringstyp
+            state: stat
+            states:
+              confirmed: bekräftat
+              pending: Avvaktan
       pages:
         home:
           highlighted_conferences:
@@ -435,6 +445,12 @@ sv:
       photos_list:
         show:
           related_photos: foton
+      registration_types:
+        index:
+          choose_an_option: 'Välj ditt registreringsalternativ:'
+          login_as: Du är inloggad som %{name} <%{email}>
+          register: Registrera
+          title: Registreringstyper
       shared:
         conference_user_login:
           already_account: Har du redan ett konto i decidim?
@@ -498,6 +514,8 @@ sv:
         subject: Inbjudan att delta i en konferens
   layouts:
     decidim:
+      conference_hero:
+        register: Registrera
       conference_widgets:
         show:
           take_part: Ta del
