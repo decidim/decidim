@@ -48,6 +48,7 @@ es:
   decidim:
     admin:
       actions:
+        confirm: Confirmar
         new_conference: Nueva conferencia
       conference_copies:
         new:
@@ -61,6 +62,10 @@ es:
         destroy:
           error: Hubo un error al anular la publicación de esta conferencia.
           success: Conferencia no publicada con éxito.
+      conference_registration:
+        confirm:
+          error: Hubo un error al confirmar la inscripción de esta conferencia.
+          success: Registro de conferencia confirmado con éxito.
       conference_speakers:
         create:
           error: Hubo un error al agregar un orador para esta conferencia.
@@ -145,14 +150,16 @@ es:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
-          conference_admins: Administradores de conferencia
-          conference_invites: Invitaciones a conferencias
-          conference_registrations: Registros de conferencia
-          conference_speakers: Conferenciantes
+          conference_admins: Usuarios de la conferencia
+          conference_invites: Invita
+          conference_speakers: Ponentes
           info: Información
           media_links: Enlaces de medios
           moderations: Moderaciones
           partners: Fogonadura
+          registration_types: Tipos de registro
+          registrations: Inscripciones
+          user_registrations: Registros de usuario
       models:
         conference:
           fields:
@@ -292,9 +299,6 @@ es:
           going: Yendo
           join: Únete a la Conferencia
           no_slots_available: No hay espacios disponibles
-          remaining_slots:
-            one: 1 ranura restante
-            other: "%{count} ranuras restantes"
       conference_program:
         program_meeting:
           content: Contenido
@@ -307,7 +311,7 @@ es:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Su registro para la conferencia <a href="%{url}">%{title}</a> ha sido confirmado.
-          details: Encontrará los detalles de la conferencia en el archivo adjunto.
+          details_2: Encontrará los detalles de la conferencia en el archivo adjunto.
       conference_registrations:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
@@ -337,13 +341,9 @@ es:
           collaborators: Colaboradores
           main_promotors: Promotores principales
         show:
-          already_account: '¿Ya tienes una cuenta en decidim?'
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Haga su inscripción en la conferencia:'
-          new_user: '¿Nuevo usuario?'
           register: Registro
-          sign_in: Inicie sesión para registrarse en esta conferencia
-          sign_up: Regístrese gratis en decidim para registrarse
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
@@ -383,6 +383,12 @@ es:
       photos_list:
         show:
           related_photos: Las fotos
+      shared:
+        conference_user_login:
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          new_user: '¿Nuevo usuario?'
+          sign_in: Inicie sesión para registrarse en esta conferencia
+          sign_up: Regístrese gratis en decidim para registrarse
       show:
         details: Detalles
         introduction: Introducción
