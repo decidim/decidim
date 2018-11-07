@@ -48,6 +48,7 @@ pt-BR:
   decidim:
     admin:
       actions:
+        confirm: confirme
         new_conference: Nova conferência
       conference_copies:
         new:
@@ -145,10 +146,6 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          conference_admins: Administradores da conferência
-          conference_invites: Conferência Convida
-          conference_registrations: Registros de conferência
-          conference_speakers: Alto-falantes da conferência
           info: Informações
           media_links: Links de Mídia
           moderations: Moderações
@@ -292,9 +289,6 @@ pt-BR:
           going: Indo
           join: Junte-se à conferência
           no_slots_available: Não há slots disponíveis
-          remaining_slots:
-            one: 1 slot restante
-            other: "%{count} slots restantes"
       conference_program:
         program_meeting:
           content: Conteúdo
@@ -307,7 +301,7 @@ pt-BR:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Sua inscrição para a conferência <a href="%{url}">%{title}</a> foi confirmada.
-          details: Você encontrará os detalhes da conferência no anexo.
+          details_2: Você encontrará os detalhes da conferência no anexo.
       conference_registrations:
         create:
           invalid: Houve um problema em participar desta conferência.
@@ -337,13 +331,9 @@ pt-BR:
           collaborators: Colaboradores
           main_promotors: Principais promotores
         show:
-          already_account: Você já tem uma conta na decidim?
           login_as: Você está logado como %{name} <%{email}>
           make_conference_registration: 'Faça seu cadastro na conferência:'
-          new_user: Novo usuário?
           register: Registrar-se
-          sign_in: Entre para se registrar nesta conferência
-          sign_up: Registre-se gratuitamente em decidim para registrar
       content_blocks:
         highlighted_conferences:
           name: Conferências destacadas
@@ -383,6 +373,12 @@ pt-BR:
       photos_list:
         show:
           related_photos: Fotos
+      shared:
+        conference_user_login:
+          already_account: Você já tem uma conta na decidim?
+          new_user: Novo usuário?
+          sign_in: Entre para se registrar nesta conferência
+          sign_up: Registre-se gratuitamente em decidim para registrar
       show:
         details: Detalhes
         introduction: Introdução
