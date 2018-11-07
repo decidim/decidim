@@ -92,8 +92,8 @@ shared_examples "order" do |options|
         end
 
         it "can exceed a maximum order value" do
-          project1 = create(:project, component: subject.component, budget: 99999)
-          project2 = create(:project, component: subject.component, budget: 99999)
+          project1 = create(:project, component: subject.component, budget: 99_999)
+          project2 = create(:project, component: subject.component, budget: 99_999)
 
           subject.projects << project1
           subject.projects << project2
