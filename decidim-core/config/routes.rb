@@ -37,7 +37,6 @@ Decidim::Core::Engine.routes.draw do
       member do
         get :delete
       end
-      resources :invitations, only: [:index, :create]
     end
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     resources :notifications, only: [:index, :destroy] do
