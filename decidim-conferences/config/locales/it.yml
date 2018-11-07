@@ -48,6 +48,7 @@ it:
   decidim:
     admin:
       actions:
+        confirm: Confermare
         new_conference: Nuova conferenza
       conference_copies:
         new:
@@ -61,6 +62,10 @@ it:
         destroy:
           error: Si è verificato un errore durante la pubblicazione di questa conferenza.
           success: Conferenza non pubblicata con successo.
+      conference_registration:
+        confirm:
+          error: Si è verificato un errore durante la conferma di questa registrazione alla conferenza.
+          success: Registrazione della conferenza confermata con successo.
       conference_speakers:
         create:
           error: Si è verificato un errore durante l'aggiunta di un altoparlante per questa conferenza.
@@ -145,14 +150,16 @@ it:
           attachments: allegati
           categories: categorie
           components: componenti
-          conference_admins: Amministratori della conferenza
-          conference_invites: Inviti alla conferenza
-          conference_registrations: Registrazioni della conferenza
-          conference_speakers: Oratori della conferenza
+          conference_admins: Utenti della conferenza
+          conference_invites: Inviti
+          conference_speakers: Altoparlanti
           info: Informazioni
           media_links: Link multimediali
           moderations: Moderations
           partners: Partner
+          registration_types: Tipi di registrazione
+          registrations: iscrizioni
+          user_registrations: Registrazioni utente
       models:
         conference:
           fields:
@@ -192,6 +199,14 @@ it:
           types:
             collaborator: Collaboratore
             main_promotor: Promotore principale
+        registration_type:
+          fields:
+            conference_meetings: Riunioni della conferenza
+            price: Prezzo
+            registrations_count: Conta le registrazioni
+            title: Titolo
+            weight: Peso
+          name: Tipo di registrazione
       partners:
         create:
           error: Si è verificato un errore durante l'aggiunta di un partner per questa conferenza.
@@ -207,6 +222,25 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di un partner per questa conferenza.
           success: Partner aggiornato correttamente per questa conferenza.
+      registration_type_publications:
+        create:
+          error: Si è verificato un errore durante la pubblicazione di questo tipo di registrazione.
+          success: Tipo di registrazione pubblicato con successo.
+        destroy:
+          error: Si è verificato un errore durante la pubblicazione di questo tipo di registrazione.
+          success: Tipo di registrazione non pubblicato correttamente.
+      registration_types:
+        create:
+          error: Si è verificato un errore durante l'aggiunta di un tipo di registrazione per questa conferenza.
+          success: Tipo di registrazione aggiunto correttamente a questa conferenza.
+        destroy:
+          success: Tipo di registrazione rimosso con successo da questa conferenza.
+        edit:
+          title: Aggiorna il tipo di registrazione.
+          update: Aggiornare
+        new:
+          create: Creare
+          title: Nuovo tipo di registrazione
       titles:
         conferences: conferenze
     admin_log:
@@ -292,9 +326,6 @@ it:
           going: Andando
           join: Partecipa alla conferenza
           no_slots_available: Non ci sono slot disponibili
-          remaining_slots:
-            one: 1 slot rimanente
-            other: "%{count} slot rimanenti"
       conference_program:
         program_meeting:
           content: Soddisfare
@@ -307,7 +338,7 @@ it:
       conference_registration_mailer:
         confirmation:
           confirmed_html: La tua registrazione per la conferenza <a href="%{url}">%{title}</a> è stata confermata.
-          details: Troverete i dettagli della conferenza nell'allegato.
+          details_2: Troverete i dettagli della conferenza nell'allegato.
       conference_registrations:
         create:
           invalid: C'è stato un problema nel partecipare a questa conferenza.
@@ -337,13 +368,9 @@ it:
           collaborators: collaboratori
           main_promotors: Principali promotori
         show:
-          already_account: Hai già un account in decidim?
           login_as: Stai eseguendo l'accesso come %{name} <%{email}>
           make_conference_registration: 'Fai la tua registrazione alla conferenza:'
-          new_user: Nuovo utente?
           register: Registrare
-          sign_in: Accedi per registrarti a questa conferenza
-          sign_up: Registrati gratuitamente in decidim per registrarti
       content_blocks:
         highlighted_conferences:
           name: Conferenze evidenziate
@@ -383,6 +410,12 @@ it:
       photos_list:
         show:
           related_photos: Fotografie
+      shared:
+        conference_user_login:
+          already_account: Hai già un account in decidim?
+          new_user: Nuovo utente?
+          sign_in: Accedi per registrarti a questa conferenza
+          sign_up: Registrati gratuitamente in decidim per registrarti
       show:
         details: Dettagli
         introduction: introduzione
