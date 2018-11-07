@@ -11,7 +11,7 @@ gem "decidim-initiatives", path: "."
 
 gem "bootsnap", "~> 1.3"
 
-gem "doc2text", git: "https://github.com/tramuntanal/doc2text.git", branch: "feature/markdown_headers"
+gem "doc2text", git: "https://github.com/bostko/doc2text.git"
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
