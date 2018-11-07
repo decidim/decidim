@@ -164,6 +164,9 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
+      sms:
+        explanation: Submit your mobile phone number so we can check your identity.
+        name: Code by SMS
       started_at: Started at %{timestamp}
     authorization_modals:
       show:
