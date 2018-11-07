@@ -54,6 +54,7 @@ pl:
   decidim:
     admin:
       actions:
+        confirm: Potwierdzać
         new_conference: Nowa konferencja
       conference_copies:
         new:
@@ -67,6 +68,10 @@ pl:
         destroy:
           error: Wystąpił błąd podczas anulowania tej konferencji.
           success: Konferencja nie została pomyślnie opublikowana.
+      conference_registration:
+        confirm:
+          error: Wystąpił błąd podczas potwierdzania rejestracji konferencji.
+          success: Rejestracja konferencji została pomyślnie potwierdzona.
       conference_speakers:
         create:
           error: Wystąpił błąd podczas dodawania głośnika do tej konferencji.
@@ -151,14 +156,16 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: składniki
-          conference_admins: Administratorzy konferencji
-          conference_invites: Zaproszenia konferencyjne
-          conference_registrations: Rejestracja konferencji
-          conference_speakers: Głośniki konferencyjne
+          conference_admins: Użytkownicy konferencji
+          conference_invites: Zaprasza
+          conference_speakers: Głośniki
           info: Informacje
           media_links: Media Links
           moderations: Moderacje
           partners: Wzmacniacz
+          registration_types: Rodzaje rejestracji
+          registrations: Rejestracje
+          user_registrations: Rejestracja użytkowników
       models:
         conference:
           fields:
@@ -198,6 +205,14 @@ pl:
           types:
             collaborator: Współpracownik
             main_promotor: Główny promotor
+        registration_type:
+          fields:
+            conference_meetings: Spotkania konferencyjne
+            price: Cena £
+            registrations_count: Rejestracje się liczą
+            title: Tytuł
+            weight: Waga
+          name: Typ rejestracji
       partners:
         create:
           error: Wystąpił błąd podczas dodawania partnera do tej konferencji.
@@ -213,6 +228,13 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizacji partnera konferencji.
           success: Partner został pomyślnie zaktualizowany na tę konferencję.
+      registration_type_publications:
+        create:
+          error: Wystąpił błąd podczas publikowania tego typu rejestracji.
+          success: Typ rejestracji został pomyślnie opublikowany.
+        destroy:
+          error: Wystąpił błąd powodujący cofnięcie publikacji tego typu rejestracji.
+          success: Typ rejestracji nie został pomyślnie opublikowany.
       titles:
         conferences: Konferencje
     admin_log:
@@ -300,11 +322,6 @@ pl:
           going: Chodzenie
           join: Dołącz do konferencji
           no_slots_available: Brak dostępnych miejsc
-          remaining_slots:
-            one: Pozostało 1 miejsce
-            few: "Pozostało %{count} gniazd"
-            many: "Pozostało %{count} gniazd"
-            other: "Pozostało %{count} gniazd"
       conference_program:
         program_meeting:
           content: Zawartość
@@ -317,7 +334,7 @@ pl:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Twoja rejestracja na konferencję <a href="%{url}">%{title}</a> została potwierdzona.
-          details: Szczegóły konferencji znajdują się w załączniku.
+          details_2: Szczegóły konferencji znajdują się w załączniku.
       conference_registrations:
         create:
           invalid: Podczas dołączania do tej konferencji wystąpił problem.
@@ -347,13 +364,9 @@ pl:
           collaborators: Współpracownicy
           main_promotors: Główni promotorzy
         show:
-          already_account: Czy masz już konto w Decidim?
           login_as: Jesteś zalogowany jako %{name} <%{email}>
           make_conference_registration: 'Dokonaj rejestracji na konferencji:'
-          new_user: Nowy użytkownik?
           register: Zarejestrować
-          sign_in: Zaloguj się, aby zarejestrować się na tej konferencji
-          sign_up: Zarejestruj się za darmo w decidimie, aby się zarejestrować
       content_blocks:
         highlighted_conferences:
           name: Wyróżnione konferencje
@@ -393,6 +406,12 @@ pl:
       photos_list:
         show:
           related_photos: Zdjęcia
+      shared:
+        conference_user_login:
+          already_account: Czy masz już konto w Decidim?
+          new_user: Nowy użytkownik?
+          sign_in: Zaloguj się, aby zarejestrować się na tej konferencji
+          sign_up: Zarejestruj się za darmo w decidimie, aby się zarejestrować
       show:
         details: Detale
         introduction: Wprowadzenie
