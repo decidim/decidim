@@ -553,18 +553,6 @@ eu:
       update:
         error: Arazo bat izan da taldea eguneratzean
         success: Taldeak behar bezala eguneratu du
-    invitations:
-      create:
-        error: Arazo batzuk egon dira zure lagunak gonbidatuz
-        error_empty_form: Sartu helbide elektroniko batzuk
-        success: Gonbidatu ditugu zure lagunei!
-      index:
-        customize_message: Pertsonalizatu gonbidapen mezua
-        friend_email: 'Lagunaren #%{index} posta elektronikoa'
-        invitations_subtitle: Eman zure lagunek gune honi buruz
-        invitations_title: Uste duzu gehiago ahotsak behar entzun %{organization_name}?
-        invite: gonbidatu
-        visit_your_profile: Bisitatu zure profila
     last_activities:
       activities:
         no_activities_warning: Jarduera ez
@@ -596,8 +584,8 @@ eu:
     members:
       no_members: Erabiltzaile talde honek ez du kideik oraindik.
     menu:
+      help: Laguntza
       home: Hasiera
-      more_information: Argibide gehiago
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +701,11 @@ eu:
         sub_hero:
           register: Erregistroa
       index:
-        title: Argibide gehiago
+        read_more: Irakurri gehiago
+        standalone_pages: orrialdeak
+        subheading: Laguntza orrietan nabigatzeko %{name}
+        title: Laguntza
+        topics: Gaiak
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
@@ -878,7 +870,6 @@ eu:
           Gonbidapena onartu nahi ez baduzu, ez ikusi mezu hau.<br />
           Zure kontua ez da sortu goiko estekan sartzeko eta zure ezizena eta pasahitza ezartzeko.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
-        invited_you_as_friend: "%{invited_by} gonbidatu nahi duzun %{application}."
         invited_you_as_private_user: "%{invited_by} erabiltzaile gonbidatu zaitu %{application}erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
@@ -888,10 +879,6 @@ eu:
         subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
-      invite_friend:
-        accept_invitation: 'Gonbidapena onartu dezakezu beheko estekan:'
-        friend_custom_text: 'Mezu hau utzi duzu zuretzat:'
-        subject: '%{organization}gonbidatu zaituzte'
       invite_private_user:
         subject: Parte hartzaile prozesu pribatu batera gonbidatu zaituzte %{organization} helbidean
       organization_admin_invitation_instructions:
@@ -1024,7 +1011,6 @@ eu:
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
-        invite_friends: Lagunak gonbidatu
         notifications: jakinarazpenak
         profile: Nire kontua
         public_profile: Nire profil publikoa

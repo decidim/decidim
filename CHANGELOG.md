@@ -39,6 +39,12 @@ end
 **Changed**:
 
 - **decidim-surveys**: Extract surveys logic to decidim-forms [\#3877](https://github.com/decidim/decidim/pull/3877)
+
+**Added**:
+
+- **decidim-proposals**: Split & merge proposals to the same component [\#4415](https://github.com/decidim/decidim/pull/4415)
+
+**Changed**:
 - **decidim-core**: Improve static pages layout and make them groupable by topic. [\#4338](https://github.com/decidim/decidim/pull/4338)
 
 **Fixed**:
@@ -49,8 +55,12 @@ end
 - **decidim-core**: Ignore deleted users follows [\#4401](https://github.com/decidim/decidim/pull/4401)
 - **decidim-comments**: Fix comment activity cell when commentable is a comment [\#4413](https://github.com/decidim/decidim/pull/4413)
 - **decidim-core**: Set `organization.tos_version` when creating `terms-and-conditions` DefaultPage [#3911](https://github.com/decidim/decidim/pull/3911)
+- **decidim-proposals**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
+- **decidim-meetings**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
 
 **Removed**:
+
+- **decidim-core**: Remove invite friends by email. [\#4430](https://github.com/decidim/decidim/pull/4430)
 
 ## Previous versions
 
