@@ -163,6 +163,9 @@ gl:
           foo: Foo
         name: Autorización de Foo
       granted_at: Concedido en %{timestamp}
+      sms:
+        explanation: Envía o teu número de teléfono móbil para que poidamos consultar a túa identidade.
+        name: Código por SMS
       started_at: Comezou en %{timestamp}
     authorization_modals:
       show:
