@@ -13,7 +13,8 @@ module Decidim::Admin
             name: "My super organization",
             reference_prefix: "MSO",
             default_locale: "en",
-            badges_enabled: true
+            badges_enabled: true,
+            send_welcome_notification: false
           }
         }
       end

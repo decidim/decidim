@@ -84,6 +84,7 @@ PATH
       kaminari (~> 1.0)
       loofah (~> 2.0, >= 2.2.1)
       mini_magick (~> 4.8)
+      mustache (~> 1.1.0)
       nobspw (~> 0.4.0)
       omniauth (~> 1.6)
       omniauth-facebook (~> 4.0)
@@ -464,6 +465,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    mustache (1.1.0)
     nio4r (2.3.1)
     nobspw (0.4.0)
     nokogiri (1.8.4)
@@ -518,7 +520,7 @@ GEM
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.5)
-    rack-attack (5.4.1)
+    rack-attack (5.4.2)
       rack (>= 1.0, < 3)
     rack-cors (1.0.2)
     rack-test (1.1.0)
@@ -545,7 +547,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails-i18n (5.1.1)
+    rails-i18n (5.1.2)
       i18n (>= 0.7, < 2)
       railties (>= 5.0, < 6)
     railties (5.2.1)
@@ -571,7 +573,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.4.0)
-    redis (4.0.2)
+    redis (4.0.3)
     regexp_parser (1.2.0)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -733,4 +735,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.17.0.pre.2
+   1.17.1

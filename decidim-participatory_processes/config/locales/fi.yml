@@ -308,8 +308,8 @@ fi:
         filters:
           counters:
             active:
-              one: 1 käytössä oleva prosessi
-              other: "%{count} käytössä olevaa prosessia"
+              one: 1 aktiivinen prosessi
+              other: "%{count} aktiivista prosessia"
             all:
               one: 1 prosessi
               other: "%{count} prosessia"
@@ -321,8 +321,8 @@ fi:
               other: "%{count} tulevaa prosessia"
           explanations:
             no_active: Ei aktiivisia prosesseja
-            no_active_nor_upcoming: Ei käytössä olevia tai tulevia prosesseja
-            no_active_nor_upcoming_callout: Käytössä olevia tai tulevia prosesseja ei ole tiedossa. Tässä on luettelo menneistä prosesseista.
+            no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
+            no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
           names:
             active: Aktiiviset
             all: Kaikki

@@ -19,6 +19,7 @@ module Decidim
               ProposalsImportForm,
               origin_component: proposal.component,
               current_component: current_component,
+              current_organization: current_component.organization,
               states: states,
               current_user: create(:user),
               valid?: valid
@@ -87,7 +88,7 @@ module Decidim
               new_proposal = Proposal.where(component: current_component).last
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
-              expect(new_proposal.creator_author).to eq(proposal.creator_author)
+              expect(new_proposal.creator_author).to eq(current_component.organization)
               expect(new_proposal.category).to eq(proposal.category)
 
               expect(new_proposal.state).to be_nil

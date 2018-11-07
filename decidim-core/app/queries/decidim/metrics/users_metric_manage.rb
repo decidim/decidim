@@ -13,7 +13,7 @@ module Decidim
       def query
         return @query if @query
 
-        @query = Decidim::User
+        @query = Decidim::User.where(organization: @organization)
         @query = @query.where("confirmed_at <= ?", end_time).not_managed.confirmed
         @query
       end

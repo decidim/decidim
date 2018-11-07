@@ -130,7 +130,7 @@ fi:
       collection:
         documents:
           one: Asiakirja
-          other: Asiakirjat
+          other: Asiakirjaa
       documents:
         related_documents: Liittyvät dokumentit
       photos:
@@ -148,7 +148,7 @@ fi:
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
-          document_number: Asiakirjan numero
+          document_number: Organisaatiotunnus (esim. Y-tunnus)
           postal_code: Postinumero
         name: Esimerkkivarmennus
       dummy_authorization_workflow:
@@ -553,18 +553,6 @@ fi:
       update:
         error: Ryhmää päivitettäessä esiintyi ongelma
         success: Ryhmä päivitettiin onnistuneesti
-    invitations:
-      create:
-        error: Kutsuttaessa ystäviäsi tapahtui virheitä
-        error_empty_form: Syötä sähköpostiosoitteita
-        success: Olemme lähettäneet kutsut ystävillesi!
-      index:
-        customize_message: Muokkaa kutsuviestiä
-        friend_email: 'Ystävän #%{index} sähköposti'
-        invitations_subtitle: Kerro ystävillesi tästä sivustosta
-        invitations_title: Pitäisikö sinun mielestäsi %{organization_name} -organisaatiossa kuulla enemmän ääniä?
-        invite: Kutsu
-        visit_your_profile: Siirry profiiliisi
     last_activities:
       activities:
         no_activities_warning: Ei toimintaa
@@ -596,8 +584,8 @@ fi:
     members:
       no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
+      help: Tietoa
       home: Etusivu
-      more_information: Lisätietoja
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +701,11 @@ fi:
         sub_hero:
           register: Rekisteröidy
       index:
-        title: Lisätietoa
+        read_more: Lue lisää
+        standalone_pages: Sivut
+        subheading: Selaa palvelun %{name} tietosivuja
+        title: Tietoa
+        topics: Aiheet
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
@@ -878,7 +870,6 @@ fi:
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomioimatta.<br />
           Sinulle ei luoda tiliä ennen kuin seuraat yllä olevaa linkkiä ja asetat käyttäjänimen sekä salasanan.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-        invited_you_as_friend: "%{invited_by} on kutsunut sinut %{application} -nimiseen palveluun."
         invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
@@ -888,10 +879,6 @@ fi:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
-      invite_friend:
-        accept_invitation: 'Voit hyväksyä kutsun seuraavan linkin kautta:'
-        friend_custom_text: 'Sinulle lähetettiin seuraavan viesti kutsun yhteydessä:'
-        subject: Sinut on kutsuttu organisaatioon %{organization}
       invite_private_user:
         subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin organisaatiossa %{organization}
       organization_admin_invitation_instructions:
@@ -1024,7 +1011,6 @@ fi:
       user_menu:
         admin_dashboard: Hallintapaneeli
         conversations: Keskustelut
-        invite_friends: Kutsu ystäviä
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -1050,7 +1036,7 @@ fi:
     password_not_allowed: ei ole sallittu
     password_too_common: liian yleinen
     password_too_long: liian pitkä
-    password_too_short: liian lyhyt
+    password_too_short: liian lyhyt (alle 10 merkkiä)
   social_share_button:
     delicious: Delicious
     douban: Douban
