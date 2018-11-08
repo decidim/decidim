@@ -82,8 +82,10 @@ pl:
         changed_notably: Nastąpiły zauważalne zmiany.
         content: Zadowolony
         organization: Organizacja
+        show_in_footer: Pokaż w stopce
         slug: Ślimak URL
         title: Tytuł
+        weight: Waga
     errors:
       models:
         oauth_application:
@@ -507,6 +509,7 @@ pl:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.
           success: Prywatny dostęp użytkowników prywatnych do przestrzeni utworzonej pomyślnie.
         destroy:
+          error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej partycji uczestniczącej.
           success: Dostęp prywatny użytkownika do przestrzeni dyskowej został pomyślnie zniszczony.
         index:
           title: Prywatny użytkownik przestrzeni prywatnej
@@ -544,6 +547,21 @@ pl:
         update:
           error: Podczas aktualizowania tego zakresu wystąpił błąd.
           success: Zakres został zaktualizowany
+      static_page_topics:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego tematu.
+          success: Temat został utworzony pomyślnie.
+        destroy:
+          success: Temat został pomyślnie zniszczony
+        edit:
+          title: Edytuj temat
+          update: Zaktualizuj temat
+        new:
+          create: Utwórz temat
+          title: Nowy temat
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego tematu.
+          success: Temat zaktualizowany pomyślnie
       static_pages:
         actions:
           view: Wyświetl stronę publiczną
@@ -556,11 +574,18 @@ pl:
           changed_notably_help: Jeśli ta opcja jest zaznaczona, użytkownicy zostaną powiadomieni o zaakceptowaniu nowych warunków.
           title: Edytuj stronę
           update: Aktualizacja
+        form:
+          none: Żaden
         index:
           last_notable_change: Ostatnia godna uwagi zmiana
         new:
-          create: Stwórz
+          create: Stwórz stronę
           title: Nowa strona
+        topic:
+          destroy: Usuń temat
+          edit: Edytuj temat
+          empty: W tym temacie nie ma strony
+          without_topic: Strony bez tematu
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana

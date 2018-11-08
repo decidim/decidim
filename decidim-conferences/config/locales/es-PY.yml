@@ -2,7 +2,9 @@ es-PY:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Asambleas relacionadas
         banner_image: Imagen de banner
+        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
         copy_features: Copiar funciones
@@ -10,6 +12,7 @@ es-PY:
         description: Descripción
         hashtag: Hashtag
         hero_image: Imagen de inicio
+        participatory_processes_ids: Procesos participativos relacionados
         promoted: Promovido
         published_at: Publicado en
         scope_id: Alcance
@@ -45,6 +48,7 @@ es-PY:
   decidim:
     admin:
       actions:
+        confirm: Confirmar
         new_conference: Nueva conferencia
       conference_copies:
         new:
@@ -58,6 +62,10 @@ es-PY:
         destroy:
           error: Hubo un error al anular la publicación de esta conferencia.
           success: Conferencia no publicada con éxito.
+      conference_registration:
+        confirm:
+          error: Hubo un error al confirmar la inscripción de esta conferencia.
+          success: Registro de conferencia confirmado con éxito.
       conference_speakers:
         create:
           error: Hubo un error al agregar un orador para esta conferencia.
@@ -117,6 +125,23 @@ es-PY:
         create:
           error: Hubo un error al duplicar esta conferencia.
           success: Conferencia duplicada con éxito.
+      media_links:
+        create:
+          error: Se ha producido un error al crear un nuevo enlace de medios.
+          success: Enlace de medios creado con éxito.
+        destroy:
+          success: Enlace de medios eliminado con éxito.
+        edit:
+          title: Actualizar enlace de medios.
+          update: Actualizar
+        index:
+          media_links_title: Enlaces de medios
+        new:
+          create: Crear
+          title: Enlace de medios
+        update:
+          error: Hubo un error al actualizar este enlace de medios.
+          success: Enlace de medios actualizado con éxito.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -125,12 +150,16 @@ es-PY:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
-          conference_admins: Administradores de conferencia
-          conference_invites: Invitaciones a conferencias
-          conference_registrations: Registros de conferencia
-          conference_speakers: Conferenciantes
+          conference_admins: Usuarios de la conferencia
+          conference_invites: Invita
+          conference_speakers: Ponentes
           info: Información
+          media_links: Enlaces de medios
           moderations: Moderaciones
+          partners: Fogonadura
+          registration_types: Tipos de registro
+          registrations: Inscripciones
+          user_registrations: Registros de usuario
       models:
         conference:
           fields:
@@ -154,6 +183,67 @@ es-PY:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Fecha
+            link: Enlazar
+            title: Título
+          name: Enlace de medios
+        partner:
+          fields:
+            link: Enlazar
+            logo: Logo
+            name: Nombre
+            partner_type: Tipo
+          name: Compañero
+          types:
+            collaborator: Colaborador
+            main_promotor: Promotor principal
+        registration_type:
+          fields:
+            conference_meetings: Reuniones de conferencia
+            price: Precio
+            registrations_count: Las inscripciones cuentan
+            title: Título
+            weight: Peso
+          name: Tipo de registro
+      partners:
+        create:
+          error: Hubo un error al agregar un socio para esta conferencia.
+          success: Socio agregado exitosamente a esta conferencia.
+        destroy:
+          success: Socio eliminado con éxito de esta conferencia.
+        edit:
+          title: Actualizacion de socio.
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo compañero
+        update:
+          error: Hubo un error actualizado de un socio para esta conferencia.
+          success: Socio actualizado exitosamente para esta conferencia.
+      registration_type_publications:
+        create:
+          error: Se ha producido un error al publicar este tipo de registro.
+          success: Tipo de registro publicado con éxito.
+        destroy:
+          error: Se ha producido un error al publicar este tipo de registro.
+          success: Tipo de registro no publicado con éxito.
+      registration_types:
+        create:
+          error: Se produjo un error al agregar un tipo de registro para esta conferencia.
+          success: Tipo de registro agregado exitosamente a esta conferencia.
+        destroy:
+          success: Tipo de registro eliminado exitosamente de esta conferencia.
+        edit:
+          title: Actualizar el tipo de registro.
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo tipo de registro
+        update:
+          error: Hubo un error al actualizar un tipo de registro para esta conferencia.
+          success: Tipo de registro actualizado exitosamente para esta conferencia.
       titles:
         conferences: Conferencias
     admin_log:
@@ -170,6 +260,21 @@ es-PY:
         create: "%{user_name} invitados %{resource_name} a la %{space_name} conferencia"
         delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
         update: "%{user_name} cambió el rol de %{resource_name} en la %{space_name} conferencia"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} confirmó un registro de conferencia en %{resource_name} conferencia"
+        partner:
+          create: "%{user_name} creado %{resource_name} a la %{space_name} conferencia"
+          delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
+          update: "%{user_name} actualizado %{resource_name} en la %{space_name} conferencia"
+        registration_type:
+          create: "%{user_name} creó el %{resource_name} tipo de registro en la %{space_name} conferencia"
+          publish: "%{user_name} publicado el %{resource_name} tipo de inscripción en la %{space_name} conferencia."
+          unpublish: "%{user_name} no publicado el %{resource_name} tipo de registro en la %{space_name} conferencia"
+          update: "%{user_name} actualizado el %{resource_name} tipo de registro en la %{space_name} conferencia"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Altavoces
@@ -225,6 +330,14 @@ es-PY:
             decline: Rechazar invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} ha invitado a unirse a una conferencia en %{application}. Puede rechazarlo o aceptarlo a través de los enlaces a continuación."
             join: Únete a la conferencia '%{conference_title}'
+        partners:
+          index:
+            title: Fogonadura
+        registration_types:
+          form:
+            select_conference_meetings: Seleccionar reuniones de conferencia
+          index:
+            title: Tipos de registro
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -233,13 +346,24 @@ es-PY:
           going: Yendo
           join: Únete a la Conferencia
           no_slots_available: No hay espacios disponibles
-          remaining_slots:
-            one: 1 ranura restante
-            other: "%{count} ranuras restantes"
+      conference_program:
+        program_meeting:
+          content: Contenido
+          location: Ubicación
+          speakers: Ponentes
+          streaming: Transmisión
+        show:
+          day: Día
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Su registro para la conferencia <a href="%{url}">%{title}</a> ha sido confirmado.
-          details: Encontrará los detalles de la conferencia en el archivo adjunto.
+          details_1: 'Estás registrado en la conferencia con %{registration_type} tipo. Tiene un costo de %{price} y puedes asistir a los siguientes eventos:'
+          details_2: Encontrará los detalles de la conferencia en el archivo adjunto.
+        pending_validation:
+          confirmation_pending: Recibirás la confirmación en breve.
+          details: 'Se ha registrado en el tipo %{registration_type} con un costo de %{price} y puede asistir a los siguientes eventos:'
+          pending_html: Su inscripción para la conferencia <a href="%{url}">%{title}</a> está pendiente de confirmación.
       conference_registrations:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
@@ -265,14 +389,15 @@ es-PY:
         index:
           speakers: Altavoces
       conferences:
+        conferences_sidebar:
+          register: Registro
+        partners:
+          collaborators: Colaboradores
+          main_promotors: Promotores principales
         show:
-          already_account: '¿Ya tienes una cuenta en decidim?'
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Haga su inscripción en la conferencia:'
-          new_user: '¿Nuevo usuario?'
           register: Registro
-          sign_in: Inicie sesión para registrarse en esta conferencia
-          sign_up: Regístrese gratis en decidim para registrarse
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
@@ -282,6 +407,8 @@ es-PY:
         conference_registration_mailer:
           confirmation:
             subject: El registro de su conferencia ha sido confirmado
+          pending_validation:
+            subject: La inscripción de su conferencia está pendiente de confirmación.
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
@@ -290,6 +417,7 @@ es-PY:
           fields:
             email: Email
             name: Nombre
+            registration_type: Tipo de registro
             sent_at: Enviado a
             status: Estado
           status:
@@ -300,15 +428,42 @@ es-PY:
           fields:
             email: Email
             name: Nombre
+            registration_type: Tipo de registro
+            state: Estado
+            states:
+              confirmed: Confirmado
+              pending: Pendiente
       pages:
         home:
           highlighted_conferences:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas las conferencias
+      photo:
+        show:
+          close_modal: Cerrar modal
+          photo: Foto
+      photos_list:
+        show:
+          related_photos: Las fotos
+      registration_types:
+        index:
+          choose_an_option: 'Elija su opción de registro:'
+          login_as: Has iniciado sesión como %{name} <%{email}>
+          register: Registro
+          title: Tipos de registro
+      shared:
+        conference_user_login:
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          new_user: '¿Nuevo usuario?'
+          sign_in: Inicie sesión para registrarse en esta conferencia
+          sign_up: Regístrese gratis en decidim para registrarse
       show:
         details: Detalles
         introduction: Introducción
         objectives: Objetivos
+        related_assemblies: Asambleas relacionadas
+        related_consultations: Consultas Relacionadas
+        related_participatory_processes: Procesos participativos relacionados
       statistics:
         answers_count: Respuestas
         comments_count: Comentarios
@@ -347,6 +502,10 @@ es-PY:
       value_types:
         conference_presenter:
           not_found: 'La conferencia no se encontró en la base de datos (ID: %{id})'
+    media:
+      index:
+        description: Enlaces sobre esta conferencia
+        title: Medios y enlaces
     menu:
       conferences: Conferencias
   devise:
@@ -355,6 +514,8 @@ es-PY:
         subject: Invitación para unirse a una conferencia
   layouts:
     decidim:
+      conference_hero:
+        register: Registro
       conference_widgets:
         show:
           take_part: Participar
@@ -372,6 +533,8 @@ es-PY:
           take_part: Participar
       conferences_nav:
         conference_menu_item: Información
+        conference_partners_menu_item: Fogonadura
         conference_speaker_menu_item: Altavoces
+        media: Medios de comunicación
         unfold: Desplegar
         venues: Sedes

@@ -37,7 +37,6 @@ Decidim::Core::Engine.routes.draw do
       member do
         get :delete
       end
-      resources :invitations, only: [:index, :create]
     end
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     resources :notifications, only: [:index, :destroy] do
@@ -61,7 +60,21 @@ Decidim::Core::Engine.routes.draw do
 
     resources :groups, except: [:destroy, :index, :show] do
       resources :join_requests, only: [:create, :update, :destroy], controller: "user_group_join_requests"
-      resources :users, only: [:index], controller: "group_members", as: "manage_users"
+      resources :invites, only: [:index, :create, :update, :destroy], controller: "group_invites"
+      resources :users, only: [:index, :destroy], controller: "group_members", as: "manage_users" do
+        member do
+          post :promote
+        end
+      end
+      resources :admins, only: [:index], controller: "group_admins", as: "manage_admins" do
+        member do
+          post :demote
+        end
+      end
+
+      member do
+        delete :leave
+      end
     end
   end
 
@@ -110,5 +123,5 @@ Decidim::Core::Engine.routes.draw do
     get "/me" => "doorkeeper/credentials#me"
   end
 
-  root to: "pages#show", id: "home"
+  root to: "homepage#show"
 end

@@ -22,11 +22,14 @@ module Decidim
             collection do
               get :create
               get :decline_invitation
+              get :join, action: :show
+              post :answer
             end
           end
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
+        resource :calendar, only: [:show], format: :text
       end
 
       initializer "decidim_meetings.view_hooks" do
@@ -130,6 +133,10 @@ module Decidim
           Decidim::MetricRegistry::NOT_HIGHLIGHTED,
           5
         )
+      end
+
+      initializer "decidim_meetings.assets" do |app|
+        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
       end
     end
   end

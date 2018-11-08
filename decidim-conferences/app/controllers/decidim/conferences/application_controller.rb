@@ -5,6 +5,7 @@ module Decidim
     # The main admin application controller for conferences
     class ApplicationController < Decidim::ApplicationController
       helper Decidim::ApplicationHelper
+      helper Decidim::ResourceHelper
       include NeedsPermission
 
       private

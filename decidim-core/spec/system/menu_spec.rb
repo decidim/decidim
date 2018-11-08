@@ -23,7 +23,7 @@ describe "Menu", type: :system do
         have_selector("li", count: 3) &
         have_link("Home", href: "/") &
         have_link("Initiatives", href: "/initiatives") &
-        have_link("More information", href: "/pages")
+        have_link("Help", href: "/pages")
     end
   end
 
@@ -35,11 +35,11 @@ describe "Menu", type: :system do
 
   context "when clicking on a menu entry" do
     before do
-      click_link "More information"
+      click_link "Help"
     end
 
     it "switches the active option" do
-      expect(page).to have_selected_option("More information")
+      expect(page).to have_selected_option("Help")
     end
 
     context "and clicking on a subpage of that entry" do
@@ -52,7 +52,7 @@ describe "Menu", type: :system do
       end
 
       it "preserves the active option" do
-        expect(page).to have_selected_option("More information")
+        expect(page).to have_selected_option("Help")
       end
     end
   end

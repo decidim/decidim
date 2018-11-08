@@ -81,24 +81,15 @@ describe Decidim::Proposals::Admin::Permissions do
 
     context "when the proposal is official" do
       let(:proposal) { create :proposal, :official, component: current_component }
-      let(:within_edit_time_limit?) { true }
-
-      before do
-        allow(proposal).to receive(:within_edit_time_limit?).and_return(within_edit_time_limit?)
-      end
 
       context "when everything is OK" do
         it { is_expected.to eq true }
       end
 
-      context "when creation is disabled" do
-        let(:creation_enabled?) { false }
-
-        it_behaves_like "permission is not set"
-      end
-
-      context "when outside the edit time limit" do
-        let(:within_edit_time_limit?) { false }
+      context "when it has some votes" do
+        before do
+          create :proposal_vote, proposal: proposal
+        end
 
         it_behaves_like "permission is not set"
       end

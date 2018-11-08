@@ -140,22 +140,42 @@ module Decidim
         Decidim::Gamification.register_badge(:proposals) do |badge|
           badge.levels = [1, 5, 10, 30, 60]
 
-          badge.reset = lambda { |user|
-            Decidim::Coauthorship.where(
-              coauthorable_type: "Decidim::Proposals::Proposal",
-              author: user
-            ).count
+          badge.valid_for = [:user, :user_group]
+
+          badge.reset = lambda { |model|
+            if model.is_a?(User)
+              Decidim::Coauthorship.where(
+                coauthorable_type: "Decidim::Proposals::Proposal",
+                author: model,
+                user_group: nil
+              ).count
+            elsif model.is_a?(UserGroup)
+              Decidim::Coauthorship.where(
+                coauthorable_type: "Decidim::Proposals::Proposal",
+                user_group: model
+              ).count
+            end
           }
         end
 
         Decidim::Gamification.register_badge(:accepted_proposals) do |badge|
           badge.levels = [1, 5, 15, 30, 50]
 
-          badge.reset = lambda { |user|
-            proposal_ids = Decidim::Coauthorship.where(
-              coauthorable_type: "Decidim::Proposals::Proposal",
-              author: user
-            ).select(:coauthorable_id)
+          badge.valid_for = [:user, :user_group]
+
+          badge.reset = lambda { |model|
+            proposal_ids = if model.is_a?(User)
+                             Decidim::Coauthorship.where(
+                               coauthorable_type: "Decidim::Proposals::Proposal",
+                               author: model,
+                               user_group: nil
+                             ).select(:coauthorable_id)
+                           elsif model.is_a?(UserGroup)
+                             Decidim::Coauthorship.where(
+                               coauthorable_type: "Decidim::Proposals::Proposal",
+                               user_group: model
+                             ).select(:coauthorable_id)
+                           end
 
             Decidim::Proposals::Proposal.where(id: proposal_ids).accepted.count
           }

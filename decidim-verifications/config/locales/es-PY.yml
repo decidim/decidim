@@ -133,6 +133,20 @@ es-PY:
           update:
             error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos
             success: Felicidades. Has sido verificado correctamente
+      sms:
+        authorizations:
+          create:
+            error: Hubo un problema con su solicitud
+            success: '¡Gracias! Hemos enviado un SMS a su teléfono.'
+          edit:
+            send: Confirmar
+            title: Introduzca el código de verificación que recibió
+          new:
+            send: Mandame un SMS
+            title: Solicite su código de verificación
+          update:
+            error: Su código de verificación no coincide con el nuestro. Por favor, vuelva a comprobar los SMS que le enviamos.
+            success: Felicidades. Has sido verificado con éxito.
   errors:
     messages:
       uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y/o números

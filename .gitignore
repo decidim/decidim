@@ -19,3 +19,4 @@ webpack.report.html
 schema.json
 .yardoc
 .rspec-failures
+.rbenv-vars

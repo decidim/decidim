@@ -43,6 +43,7 @@ module Decidim
           allow! if permission_action.subject == :officialization
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
+          allow! if permission_action.subject == :static_page_topic
         end
 
         permission_action

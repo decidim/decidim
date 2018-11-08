@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Authentication", type: :system do
-  let(:organization) { create(:organization, :with_tos) }
+  let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
 
   before do
@@ -198,6 +198,25 @@ describe "Authentication", type: :system do
 
       expect(page).to have_content("successfully confirmed")
       expect(last_user).to be_confirmed
+    end
+  end
+
+  context "when confirming the account" do
+    let!(:user) { create(:user) }
+
+    before do
+      perform_enqueued_jobs { user.confirm }
+      switch_to_host(user.organization.host)
+      login_as user, scope: :user
+      visit decidim.root_path
+    end
+
+    it "sends a welcome notification" do
+      find("a.topbar__notifications").click
+
+      within "#notifications" do
+        expect(page).to have_content("Welcome")
+      end
     end
   end
 

@@ -73,20 +73,24 @@ module Decidim
         Decidim::Proposals::AdminLog::ProposalPresenter
       end
 
-      # Returns a collection scoped by user.
+      # Returns a collection scoped by an author.
       # Overrides this method in DataPortability to support Coauthorable.
-      def self.user_collection(user)
+      def self.user_collection(author)
+        return unless author.is_a?(Decidim::User)
+
         joins(:coauthorships)
           .where("decidim_coauthorships.coauthorable_type = ?", name)
-          .where("decidim_coauthorships.decidim_author_id = ?", user.id)
+          .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
       end
 
       # Public: Updates the vote count of this proposal.
       #
       # Returns nothing.
+      # rubocop:disable Rails/SkipsModelValidations
       def update_votes_count
-        update!(proposal_votes_count: votes.count)
+        update_columns(proposal_votes_count: votes.count)
       end
+      # rubocop:enable Rails/SkipsModelValidations
 
       # Public: Check if the user has voted the proposal.
       #
@@ -152,7 +156,7 @@ module Decidim
 
       # Public: Whether the proposal is official or not.
       def official?
-        authors.empty?
+        authors.first.is_a?(Decidim::Organization)
       end
 
       # Public: The maximum amount of votes allowed for this proposal.

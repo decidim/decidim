@@ -117,6 +117,14 @@ module Decidim
           it "filters by initiative type" do
             expect(subject).to match_array [initiative]
           end
+
+          context "with multiple types" do
+            let(:type) { [initiative.type.id, initiative2.type.id] }
+
+            it "filters by initiative type" do
+              expect(subject).to match_array [initiative, initiative2]
+            end
+          end
         end
       end
     end

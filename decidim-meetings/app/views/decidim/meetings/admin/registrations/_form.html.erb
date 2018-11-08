@@ -13,12 +13,17 @@
           </ul>
         </div>
       <% end %>
+      <%= link_to t(".registration_form"), edit_meeting_registrations_form_path(meeting_id: meeting.id), class: "button tiny button--title" %>
     </h2>
   </div>
 
   <div class="card-section">
     <div class="row column">
       <%= form.check_box :registrations_enabled %>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :registration_form_enabled %>
     </div>
 
     <div class="row column">

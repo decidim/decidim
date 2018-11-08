@@ -2,7 +2,9 @@ fi:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Liittyvät ryhmät
         banner_image: Bannerikuva
+        consultations_ids: Liittyvät kuulemiset
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_features: Kopioi ominaisuudet
@@ -10,6 +12,7 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
+        participatory_processes_ids: Liittyvät osallistumisprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -45,6 +48,7 @@ fi:
   decidim:
     admin:
       actions:
+        confirm: Vahvistaa
         new_conference: Uusi konferenssi
       conference_copies:
         new:
@@ -58,6 +62,10 @@ fi:
         destroy:
           error: Tämän konferenssin julkaisun perumisessa tapahtui virhe.
           success: Konferenssin julkaisu peruutettu onnistuneesti.
+      conference_registration:
+        confirm:
+          error: Tapahtui virhe, kun vahvistat tämän konferenssin rekisteröinnin.
+          success: Konferenssin rekisteröinti onnistui.
       conference_speakers:
         create:
           error: Puhujan lisääminen tähän konferenssiin ei onnistunut.
@@ -117,6 +125,23 @@ fi:
         create:
           error: Virhe kopioitaessa konferenssia.
           success: Konferenssi kopioitu onnistuneesti.
+      media_links:
+        create:
+          error: Luotaessa uutta medialinkkiä tapahtui virhe.
+          success: Medialinkki luotu onnistuneesti.
+        destroy:
+          success: Medialinkki poistettiin onnistuneesti.
+        edit:
+          title: Päivitä medialinkki.
+          update: Päivitä
+        index:
+          media_links_title: Medialinkit
+        new:
+          create: Luo
+          title: Medialinkki
+        update:
+          error: Medialinkin päivittämisessä esiintyi virhe.
+          success: Medialinkki päivitettiin onnistuneesti.
       menu:
         conferences: Konferenssit
         conferences_submenu:
@@ -125,12 +150,16 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          conference_admins: Konferenssin ylläpitäjät
-          conference_invites: Konferenssin kutsut
-          conference_registrations: Konferenssin ilmoittautumiset
-          conference_speakers: Konferenssin puhujat
+          conference_admins: Konferenssin käyttäjät
+          conference_invites: kutsut
+          conference_speakers: kaiuttimet
           info: Tiedot
+          media_links: Medialinkit
           moderations: Moderoinnit
+          partners: Yhteistyökumppanit
+          registration_types: Rekisteröintityypit
+          registrations: rekisteröinnit
+          user_registrations: Käyttäjien rekisteröinnit
       models:
         conference:
           fields:
@@ -152,24 +181,100 @@ fi:
           name: Konferenssin käyttäjä
           roles:
             admin: Hallinnointikäyttäjä
-            collaborator: Osallistumiskäyttäjä
+            collaborator: Työryhmän jäsen
             moderator: Moderoija
+        media_link:
+          fields:
+            date: Päivämäärä
+            link: Linkki
+            title: Otsikko
+          name: Medialinkki
+        partner:
+          fields:
+            link: Linkki
+            logo: Logo
+            name: Nimi
+            partner_type: Tyyppi
+          name: Yhteistyökumppani
+          types:
+            collaborator: Työryhmän jäsen
+            main_promotor: Pääpromoottori
+        registration_type:
+          fields:
+            conference_meetings: Konferenssitapaamiset
+            price: Hinta
+            registrations_count: Ilmoittautumiset lasketaan
+            title: otsikko
+            weight: Paino
+          name: Rekisteröintityyppi
+      partners:
+        create:
+          error: Tapahtui virhe lisätessä yhteistyökumppania tähän konferenssiin.
+          success: Yhteistyökumppani lisätty onnistuneesti tähän konferenssiin.
+        destroy:
+          success: Yhteistyökumppani poistettu onnistuneesti tästä konferenssista.
+        edit:
+          title: Päivitä yhteistyökumppani.
+          update: Päivitä
+        new:
+          create: Luo
+          title: Uusi yhteistyökumppani
+        update:
+          error: Tapahtui virhe päivitettäessä tämän konferenssin yhteistyökumppania.
+          success: Konferenssin yhteistyökumppani päivitettiin onnistuneesti.
+      registration_type_publications:
+        create:
+          error: Tämä rekisteröintityyppi julkaistiin virheellä.
+          success: Rekisteröity tyyppi julkaistiin onnistuneesti.
+        destroy:
+          error: Tämä rekisteröintityyppi julkaistiin virheellisesti.
+          success: Ilmoittamistyyppi julkaisemattomasti onnistuneesti.
+      registration_types:
+        create:
+          error: Virhe lisäsi tämän kokouksen rekisteröintityyppiä.
+          success: Rekisteröintityyppi lisättiin onnistuneesti tähän konferenssiin.
+        destroy:
+          success: Ilmoittautumistyyppi poistettiin onnistuneesti tästä konferenssista.
+        edit:
+          title: Päivitä rekisteröintityyppi.
+          update: Päivittää
+        new:
+          create: Luoda
+          title: Uusi rekisteröintityyppi
+        update:
+          error: Virhettä päivitettiin tämän kokouksen rekisteröintityyppi.
+          success: Rekisteröintityyppi päivitettiin onnistuneesti tähän konferenssiin.
       titles:
         conferences: Konferenssit
     admin_log:
       conference:
-        create: "%{user_name} loi %{resource_name} konferenssin"
-        publish: "%{user_name} julkaisi %{resource_name} konferenssin"
-        unpublish: "%{user_name} julkaisematon %{resource_name} konferenssi"
-        update: "%{user_name} päivitti %{resource_name} konferenssin"
+        create: "%{user_name} loi konferenssin %{resource_name}"
+        publish: "%{user_name} julkaisi konferenssin %{resource_name}"
+        unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
+        update: "%{user_name} päivitti konferenssia %{resource_name}"
       conference_speaker:
-        create: "%{user_name} loi %{resource_name} kaiutin %{space_name} konferenssissa"
-        delete: "%{user_name} poisti %{resource_name} kaiutin %{space_name} konferenssista"
-        update: "%{user_name} päivitti %{resource_name} puhujan %{space_name} konferenssissa"
+        create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
+        delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
+        update: "%{user_name} päivitti puhujan %{resource_name} konferenssissa %{space_name}"
       conference_user_role:
-        create: "%{user_name} kutsui %{resource_name} on %{space_name} konferenssiin"
-        delete: "%{user_name} poistaa käyttäjän %{resource_name} %{space_name} konferenssista"
-        update: "%{user_name} muuttunut rooli %{resource_name} on %{space_name} konferenssiin"
+        create: "%{user_name} kutsui %{resource_name} konferenssiin %{space_name}"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
+        update: "%{user_name} muutti %{resource_name} roolia konferenssissa %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} vahvisti konferenssin rekisteröinnin %{resource_name} konferenssissa"
+        partner:
+          create: "%{user_name} luonut %{resource_name} konferenssiin %{space_name}"
+          delete: "%{user_name} poistaa käyttäjän %{resource_name} %{space_name} konferenssista"
+          update: "%{user_name} päivitti %{resource_name} konferenssiin %{space_name}"
+        registration_type:
+          create: "%{user_name} loi %{resource_name} rekisteröintityypin %{space_name} konferenssiin"
+          publish: "%{user_name} julkaisi %{resource_name} rekisteröintityyppiä %{space_name} konferenssissa"
+          unpublish: "%{user_name} julkaisematon %{resource_name} rekisteröintityyppi %{space_name} konferenssissa"
+          update: "%{user_name} päivitti %{resource_name} rekisteröintityyppiä %{space_name} konferenssiin"
+    conference_program:
+      index:
+        title: Ohjelma
     conference_speakers:
       index:
         title: Puhujat
@@ -225,6 +330,14 @@ fi:
             decline: Hylkää kutsu "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
             join: Liity konferenssiin '%{conference_title}'
+        partners:
+          index:
+            title: Yhteistyökumppanit
+        registration_types:
+          form:
+            select_conference_meetings: Valitse neuvottelukokoukset
+          index:
+            title: Rekisteröintityypit
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -233,13 +346,24 @@ fi:
           going: Osallistumassa
           join: Liity konferenssiin
           no_slots_available: Ei paikkoja vapaana
-          remaining_slots:
-            one: 1 paikka jäljellä
-            other: "%{count} paikkaa jäljellä"
+      conference_program:
+        program_meeting:
+          content: Sisältö
+          location: Sijainti
+          speakers: Puhujat
+          streaming: Suoratoisto
+        show:
+          day: Päivä
+          program: Ohjelma
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> on vahvistettu.
-          details: Konferenssin tiedot löytyvät liitetiedostosta.
+          details_1: 'Olet rekisteröitynyt neuvotteluun %{registration_type} tyypillä. Se maksaa %{price} ja voit osallistua seuraaviin tapahtumiin:'
+          details_2: Konferenssin tiedot löytyvät liitetiedostosta.
+        pending_validation:
+          confirmation_pending: Saat vahvistuksen pian
+          details: 'Olet rekisteröitynyt %{registration_type} tyyppiin, jonka hinta on %{price} ja voit osallistua seuraaviin tapahtumiin:'
+          pending_html: Ilmoittautumislomake <a href="%{url}">%{title}</a> on odottava vahvistettavaksi.
       conference_registrations:
         create:
           invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
@@ -252,10 +376,10 @@ fi:
           success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
         go_to_twitter: Siirry Twitteriin
-        more_info: Lisätietoja
+        more_info: lisätietoja
         personal_website: Henkilökohtainen verkkosivusto
         show:
-          more_info: Lisätietoja
+          more_info: lisätietoja
       conference_speaker_cell:
         personal_url:
           personal_website: Henkilökohtainen verkkosivusto
@@ -265,23 +389,26 @@ fi:
         index:
           speakers: Puhujat
       conferences:
-        show:
-          already_account: Onko sinulla jo tili decidimissa?
-          login_as: Olet kirjautunut sisään %{name} <%{email}>
-          make_conference_registration: 'Tee rekisteröintisi konferenssiin:'
-          new_user: Uusi käyttäjä?
+        conferences_sidebar:
           register: Rekisteröidy
-          sign_in: Kirjaudu sisään rekisteröidyksi tässä kokouksessa
-          sign_up: Rekisteröidy ilmaiseksi decidim rekisteröityä
+        partners:
+          collaborators: yhteistyökumppanit
+          main_promotors: Pääpromoottorit
+        show:
+          login_as: Olet kirjautunut sisään %{name} <%{email}>
+          make_conference_registration: 'Ilmoittaudu konferenssiin:'
+          register: Rekisteröidy
       content_blocks:
         highlighted_conferences:
-          name: Korostetut konferenssit
+          name: Tärkeimmät konferenssit
       index:
         title: Konferenssit
       mailer:
         conference_registration_mailer:
           confirmation:
             subject: Konferenssin ilmoittautuminen on vahvistettu
+          pending_validation:
+            subject: Konferenssin rekisteröinti on odottava vahvistettavaksi
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
@@ -290,6 +417,7 @@ fi:
           fields:
             email: Sähköposti
             name: Nimi
+            registration_type: Rekisteröintityyppi
             sent_at: Lähetyksen ajankohta
             status: Tila
           status:
@@ -300,15 +428,42 @@ fi:
           fields:
             email: Sähköposti
             name: Nimi
+            registration_type: Rekisteröintityyppi
+            state: Osavaltio
+            states:
+              confirmed: Vahvistettu
+              pending: odotettaessa
       pages:
         home:
           highlighted_conferences:
             active_conferences: Aktiiviset konferenssit
             see_all_conferences: Katso kaikki konferenssit
+      photo:
+        show:
+          close_modal: Sulje ikkuna
+          photo: Kuva
+      photos_list:
+        show:
+          related_photos: Kuvat
+      registration_types:
+        index:
+          choose_an_option: 'Valitse rekisteröintivaihtoehto:'
+          login_as: Olet kirjautunut sisään %{name} <%{email}>
+          register: Rekisteröidy
+          title: Rekisteröintityypit
+      shared:
+        conference_user_login:
+          already_account: Onko sinulla jo käyttäjätili?
+          new_user: Uusi käyttäjä?
+          sign_in: Kirjaudu sisään ilmoittautuaksesi tähän konferenssiin
+          sign_up: Rekisteröidy maksutta ilmoittautuaksesi
       show:
-        details: Yksityiskohdat
-        introduction: esittely
+        details: Tarkemmat tiedot
+        introduction: Esittely
         objectives: Tavoitteet
+        related_assemblies: Liittyvät ryhmät
+        related_consultations: Liittyvät kuulemiset
+        related_participatory_processes: Liittyvät osallistumisprosessit
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
@@ -339,7 +494,7 @@ fi:
           email_subject: '"%{resource_title}" -konferenssia päivitettiin'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssia päivitettiin.
         registrations_enabled:
-          email_intro: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu. Voit ilmoittautua konferenssiin sen sivulla:'
+          email_intro: 'Konferenssin "%{resource_title}" ilmoittautumiset on avattu. Voit ilmoittautua konferenssiin sen sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" -konferenssia. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '"%{resource_title}" -konferenssin ilmoittautumiset on avattu.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssin ilmoittautumiset on avattu.
@@ -347,6 +502,10 @@ fi:
       value_types:
         conference_presenter:
           not_found: 'Konferenssia ei löytynyt tietokannasta (ID: %{id})'
+    media:
+      index:
+        description: Tähän konferenssiin liittyvät linkit
+        title: Media ja linkit
     menu:
       conferences: Konferenssit
   devise:
@@ -355,6 +514,8 @@ fi:
         subject: Kutsu konferenssiin
   layouts:
     decidim:
+      conference_hero:
+        register: Rekisteröidy
       conference_widgets:
         show:
           take_part: Osallistu
@@ -372,6 +533,8 @@ fi:
           take_part: Osallistu
       conferences_nav:
         conference_menu_item: Tiedot
-        conference_speaker_menu_item: kaiuttimet
-        unfold: avautua
-        venues: tapahtumapaikat
+        conference_partners_menu_item: Yhteistyökumppanit
+        conference_speaker_menu_item: Puhujat
+        media: Media
+        unfold: Avaa
+        venues: Tapahtumapaikat

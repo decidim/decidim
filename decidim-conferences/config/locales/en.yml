@@ -3,7 +3,9 @@ en:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Related Assemblies
         banner_image: Banner image
+        consultations_ids: Related Consultations
         copy_categories: Copy categories
         copy_components: Copy components
         copy_features: Copy features
@@ -11,6 +13,7 @@ en:
         description: Description
         hashtag: Hashtag
         hero_image: Home image
+        participatory_processes_ids: Related Participatory processes
         promoted: Promoted
         published_at: Published at
         scope_id: Scope
@@ -46,6 +49,7 @@ en:
   decidim:
     admin:
       actions:
+        confirm: Confirm
         new_conference: New Conference
       conference_copies:
         new:
@@ -59,6 +63,10 @@ en:
         destroy:
           error: There was an error unpublishing this conference.
           success: Conference unpublished successfully.
+      conference_registration:
+        confirm:
+          error: There was an error when confirm this conference registration.
+          success: Conference registration confirmed successfully.
       conference_speakers:
         create:
           error: There was an error adding a speaker for this conference.
@@ -118,6 +126,23 @@ en:
         create:
           error: There was an error when duplicating this conference.
           success: Conference duplicated successfully.
+      media_links:
+        create:
+          error: There was an error creating a new media link.
+          success: Media Link created successfully.
+        destroy:
+          success: Media Link deleted successfully.
+        edit:
+          title: Update media link.
+          update: Update
+        index:
+          media_links_title: Media Links
+        new:
+          create: Create
+          title: Media Link
+        update:
+          error: There was an error when updating this media link.
+          success: Media Link updated successfully.
       menu:
         conferences: Conferences
         conferences_submenu:
@@ -126,13 +151,16 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          conference_admins: Conference admins
-          conference_invites: Conference Invites
-          conference_registrations: Conference Registrations
-          conference_speakers: Conference speakers
+          conference_admins: Conference users
+          conference_invites: Invites
+          conference_speakers: Speakers
           info: Info
+          media_links: Media Links
           moderations: Moderations
           partners: Partners
+          registration_types: Registration Types
+          registrations: Registrations
+          user_registrations: User Registrations
       models:
         conference:
           fields:
@@ -156,6 +184,12 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
+        media_link:
+          fields:
+            date: Date
+            link: Link
+            title: Title
+          name: Media Link
         partner:
           fields:
             link: Link
@@ -166,6 +200,14 @@ en:
           types:
             collaborator: Collaborator
             main_promotor: Main promotor
+        registration_type:
+          fields:
+            conference_meetings: Conference meetings
+            price: Price
+            registrations_count: Registrations count
+            title: Title
+            weight: Weight
+          name: Registration type
       partners:
         create:
           error: There was an error adding a partner for this conference.
@@ -181,6 +223,28 @@ en:
         update:
           error: There was an error updated a partner for this conference.
           success: Partner updated successfully for this conference.
+      registration_type_publications:
+        create:
+          error: There was an error publishing this registration type.
+          success: Registration type published successfully.
+        destroy:
+          error: There was an error unpublishing this registration type.
+          success: Registration type unpublished successfully.
+      registration_types:
+        create:
+          error: There was an error adding a registration type for this conference.
+          success: Registration type added successfully to this conference.
+        destroy:
+          success: Registration type removed successfully from this conference.
+        edit:
+          title: Update registration type.
+          update: Update
+        new:
+          create: Create
+          title: New registration type
+        update:
+          error: There was an error updated a registration type for this conference.
+          success: Registration type updated successfully for this conference.
       titles:
         conferences: Conferences
     admin_log:
@@ -197,6 +261,18 @@ en:
         create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
         update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} confirmed a conference registration in %{resource_name} conference"
+        partner:
+          create: "%{user_name} created %{resource_name} to the %{space_name} conference"
+          delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+          update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
+        registration_type:
+          create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
+          publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
+          unpublish: "%{user_name} unpublished the %{resource_name} registration type in the %{space_name} conference"
+          update: "%{user_name} updated the %{resource_name} registration type in the %{space_name} conference"
     conference_program:
       index:
         title: Program
@@ -259,6 +335,11 @@ en:
         partners:
           index:
             title: Partners
+        registration_types:
+          form:
+            select_conference_meetings: Select conference meetings
+          index:
+            title: Registration types
       conference:
         registration_confirm:
           cancel: Cancel
@@ -267,10 +348,6 @@ en:
           going: Going
           join: Join Conference
           no_slots_available: No slots available
-          remaining_slots:
-            one: 1 slot remaining
-            other: "%{count} slots remaining"
-            zero: No slots remaining
       conference_program:
         program_meeting:
           content: Content
@@ -283,7 +360,12 @@ en:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
-          details: You will find the conference's details in the attachment.
+          details_1: 'You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:'
+          details_2: You will find the conference's details in the attachment.
+        pending_validation:
+          confirmation_pending: You will receive the confirmation shortly
+          details: 'You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:'
+          pending_html: Your registration for the conference <a href="%{url}">%{title}</a> is pending to be confirmed.
       conference_registrations:
         create:
           invalid: There's been a problem joining this conference.
@@ -309,17 +391,15 @@ en:
         index:
           speakers: Speakers
       conferences:
+        conferences_sidebar:
+          register: Register
         partners:
           collaborators: Collaborators
           main_promotors: Main promotors
         show:
-          already_account: Do you already have an account in decidim?
           login_as: You are login as %{name} <%{email}>
           make_conference_registration: 'Make your registration in the conference:'
-          new_user: New user?
           register: Register
-          sign_in: Login to register at this conference
-          sign_up: Register for free in decidim to register
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences
@@ -329,6 +409,8 @@ en:
         conference_registration_mailer:
           confirmation:
             subject: Your conference's registration has been confirmed
+          pending_validation:
+            subject: Your conference's registration is pending to be confirmed
         invite_join_conference_mailer:
           invite:
             subject: Invitation to join a conference
@@ -337,6 +419,7 @@ en:
           fields:
             email: Email
             name: Name
+            registration_type: Registration type
             sent_at: Sent at
             status: Status
           status:
@@ -347,15 +430,42 @@ en:
           fields:
             email: Email
             name: Name
+            registration_type: Registration type
+            state: State
+            states:
+              confirmed: Confirmed
+              pending: Pending
       pages:
         home:
           highlighted_conferences:
             active_conferences: Active conferences
             see_all_conferences: See all conferences
+      photo:
+        show:
+          close_modal: Close modal
+          photo: Photo
+      photos_list:
+        show:
+          related_photos: Photos
+      registration_types:
+        index:
+          choose_an_option: 'Choose your registration option:'
+          login_as: You are login as %{name} <%{email}>
+          register: Register
+          title: Registration types
+      shared:
+        conference_user_login:
+          already_account: Do you already have an account in decidim?
+          new_user: New user?
+          sign_in: Login to register at this conference
+          sign_up: Register for free in decidim to register
       show:
         details: Details
         introduction: Introduction
         objectives: Objectives
+        related_assemblies: Related Assemblies
+        related_consultations: Related Consultations
+        related_participatory_processes: Related Participatory Processes
       statistics:
         answers_count: Answers
         comments_count: Comments
@@ -394,6 +504,10 @@ en:
       value_types:
         conference_presenter:
           not_found: 'The conference was not found on the database (ID: %{id})'
+    media:
+      index:
+        description: Links about this conference
+        title: Media and Links
     menu:
       conferences: Conferences
   devise:
@@ -402,6 +516,8 @@ en:
         subject: Invitation to join a conference
   layouts:
     decidim:
+      conference_hero:
+        register: Register
       conference_widgets:
         show:
           take_part: Take part
@@ -421,5 +537,6 @@ en:
         conference_menu_item: Information
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
+        media: Media
         unfold: Unfold
         venues: Venues
