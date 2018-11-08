@@ -255,29 +255,29 @@ es:
       conference_speaker:
         create: "%{user_name} ha creado el ponente %{resource_name} en la conferencia %{space_name}"
         delete: "%{user_name} ha eliminado al ponente %{resource_name} de la conferencia %{space_name}"
-        update: "%{user_name} actualizado el %{resource_name} altavoz en la conferencia %{space_name}"
+        update: "%{user_name} ha actualizado el ponente %{resource_name} en la conferencia %{space_name}"
       conference_user_role:
-        create: "%{user_name} invitados %{resource_name} a la %{space_name} conferencia"
-        delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
-        update: "%{user_name} cambió el rol de %{resource_name} en la %{space_name} conferencia"
+        create: "%{user_name} ha invitado %{resource_name} a la conferencia %{space_name}"
+        delete: "%{user_name} ha eliminado al usuario %{resource_name} de la conferencia %{space_name}"
+        update: "%{user_name} ha cambiado el rol de %{resource_name} en la conferencia %{space_name}"
       conferences:
         conference_registration:
-          confirm: "%{user_name} confirmó un registro de conferencia en %{resource_name} conferencia"
+          confirm: "%{user_name} ha confirmado su inscripción a la conferencia %{resource_name}"
         partner:
-          create: "%{user_name} creado %{resource_name} a la %{space_name} conferencia"
-          delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
-          update: "%{user_name} actualizado %{resource_name} en la %{space_name} conferencia"
+          create: "%{user_name} ha creado %{resource_name} en la conferencia %{space_name}"
+          delete: "%{user_name} ha eliminado al usuario %{resource_name} de la conferencia %{space_name}"
+          update: "%{user_name} ha actualizado %{resource_name} en la conferencia %{space_name}"
         registration_type:
-          create: "%{user_name} creó el %{resource_name} tipo de registro en la %{space_name} conferencia"
-          publish: "%{user_name} publicado el %{resource_name} tipo de inscripción en la %{space_name} conferencia."
-          unpublish: "%{user_name} no publicado el %{resource_name} tipo de registro en la %{space_name} conferencia"
-          update: "%{user_name} actualizado el %{resource_name} tipo de registro en la %{space_name} conferencia"
+          create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
     conference_program:
       index:
         title: Programa
     conference_speakers:
       index:
-        title: Altavoces
+        title: Ponentes
     conferences:
       admin:
         conference_copies:
@@ -288,9 +288,9 @@ es:
             error: Ha habido un problema al invitar al usuario a unirse a la conferencia.
             success: Usuario invitado con éxito a unirse a la conferencia.
           form:
-            attendee_type: Tipo de Asistente
+            attendee_type: Tipo de asistente
             existing_user: Usuario existente
-            invite_explanation: El usuario será invitado a unirse a la conferencia y a la organización también.
+            invite_explanation: El usuario será invitado a unirse a la conferencia y también a la organización.
             non_user: Usuario no existente
             select_user: Seleccionar usuario
           index:
