@@ -7,7 +7,7 @@ module Decidim
       def create
         enforce_permission_to :join, :conference, conference: conference
 
-        JoinConference.call(conference, current_user) do
+        JoinConference.call(conference, registration_type, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("conference_registrations.create.success", scope: "decidim.conferences")
             redirect_after_path
@@ -23,7 +23,7 @@ module Decidim
       def destroy
         enforce_permission_to :leave, :conference, conference: conference
 
-        LeaveConference.call(conference, current_user) do
+        LeaveConference.call(conference, registration_type, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("conference_registrations.destroy.success", scope: "decidim.conferences")
             redirect_after_path
@@ -56,6 +56,10 @@ module Decidim
 
       def conference
         @conference ||= Conference.find_by(slug: params[:conference_slug])
+      end
+
+      def registration_type
+        conference.registration_types.find_by(id: params[:registration_type_id])
       end
 
       def redirect_after_path

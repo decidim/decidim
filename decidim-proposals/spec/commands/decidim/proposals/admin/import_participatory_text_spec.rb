@@ -21,6 +21,7 @@ module Decidim
               title: {},
               description: {},
               document_text: document_file,
+              current_user: create(:user),
               valid?: valid
             )
           end

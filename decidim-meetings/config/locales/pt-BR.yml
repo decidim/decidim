@@ -126,8 +126,8 @@ pt-BR:
       badges:
         attended_meetings:
           conditions:
-            - Registre-se nas reuniões que deseja participar
-          description: Este crachá é concedido quando você participa de várias reuniões presenciais.
+            - Registre-se nas reuniões que você deseja participar
+          description: Este selo é concedido quando você participa de várias reuniões presenciais.
           description_another: Este usuário assistiu a %{score} reuniões.
           description_own: Você participou de %{score} reuniões.
           name: Participou de reuniões
@@ -297,6 +297,10 @@ pt-BR:
         minutes:
           create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
+      calendar_modal:
+        calendar_url: URL do calendário
+        close_window: Janela fechada
+        export_calendar: Calendário de exportação
       conference_venues: Locais de conferência
       content_blocks:
         upcoming_events:
@@ -358,6 +362,8 @@ pt-BR:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Visualizar
+      meetings_map:
+        view_meeting: Ver reunião
       models:
         invite:
           fields:
@@ -395,6 +401,10 @@ pt-BR:
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+    metrics:
+      meetings:
+        object: reuniões
+        title: Reuniões
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

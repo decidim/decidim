@@ -40,12 +40,11 @@ module Decidim
         attr_reader :form, :proposal, :attachment
 
         def create_proposal
-          @proposal = Decidim.traceability.perform_action!(:create, Proposal, form.current_user, visibility: "all") do
-            proposal = Proposal.new(attributes)
-            proposal.add_coauthor(form.current_organization)
-            proposal.save!
-            proposal
-          end
+          @proposal = Decidim::Proposals::ProposalBuilder.create(
+            attributes: attributes,
+            author: form.current_organization,
+            action_user: form.current_user
+          )
         end
 
         def attributes

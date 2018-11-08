@@ -23,6 +23,15 @@ input{
   line-height: 1.1;
 }
 
+.subheading1{
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0 auto;
+  max-width: 600px;
+  padding-bottom: 2rem;
+  margin-top: -3rem;
+}
+
 .heading2{
   @include heading(h2);
 }

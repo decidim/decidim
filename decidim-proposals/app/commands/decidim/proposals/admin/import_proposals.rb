@@ -33,28 +33,14 @@ module Decidim
           proposals.map do |original_proposal|
             next if proposal_already_copied?(original_proposal, target_component)
 
-            origin_attributes = original_proposal.attributes.except(
-              "id",
-              "created_at",
-              "updated_at",
-              "state",
-              "answer",
-              "answered_at",
-              "decidim_component_id",
-              "reference",
-              "proposal_votes_count",
-              "proposal_notes_count"
+            Decidim::Proposals::ProposalBuilder.copy(
+              original_proposal,
+              author: form.current_organization,
+              action_user: form.current_user,
+              extra_attributes: {
+                "component" => target_component
+              }
             )
-
-            proposal = Decidim::Proposals::Proposal.new(origin_attributes)
-            proposal.category = original_proposal.category
-            proposal.component = target_component
-            original_proposal.coauthorships.each do |coauthorship|
-              proposal.coauthorships.build(author: coauthorship.author, user_group: coauthorship.user_group)
-            end
-            proposal.save!
-
-            proposal.link_resources([original_proposal], "copied_from_component")
           end.compact
         end
 

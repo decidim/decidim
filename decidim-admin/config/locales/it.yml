@@ -82,8 +82,10 @@ it:
         changed_notably: Ci sono stati cambiamenti evidenti.
         content: Contenuto
         organization: Organizzazione
+        show_in_footer: Mostra nel piè di pagina
         slug: URL slug
         title: Titolo
+        weight: Peso
     errors:
       models:
         oauth_application:
@@ -507,6 +509,7 @@ it:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio partecipativo creato con successo.
         destroy:
+          error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
         index:
           title: Utente privato dello spazio partecipativo
@@ -544,6 +547,21 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo àmbito.
           success: OK, l'àmbito è stato aggiornato.
+      static_page_topics:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo argomento.
+          success: Argomento creato con successo.
+        destroy:
+          success: Argomento distrutto con successo
+        edit:
+          title: Modifica argomento
+          update: Aggiorna argomento
+        new:
+          create: Crea argomento
+          title: Nuovo argomento
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo argomento.
+          success: Argomento aggiornato correttamente
       static_pages:
         actions:
           view: Visualizza la pagina pubblica
@@ -556,11 +574,18 @@ it:
           changed_notably_help: Se selezionato, gli utenti saranno avvisati di accettare i nuovi termini e condizioni.
           title: Modifica la pagina
           update: Aggiorna
+        form:
+          none: Nessuna
         index:
           last_notable_change: Ultimo cambiamento notevole
         new:
-          create: Creare
+          create: Crea pagina
           title: Nuova pagina
+        topic:
+          destroy: Rimuovi argomento
+          edit: Modifica argomento
+          empty: Non c'è pagina sotto questo argomento
+          without_topic: Pagine senza argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
           success: OK, la pagina è stata aggiornata.

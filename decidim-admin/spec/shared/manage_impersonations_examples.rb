@@ -3,7 +3,7 @@
 shared_examples "manage impersonations examples" do
   include ActiveSupport::Testing::TimeHelpers
 
-  let(:organization) { create(:organization, :with_tos, available_authorizations: available_authorizations) }
+  let(:organization) { create(:organization, available_authorizations: available_authorizations) }
   let(:available_authorizations) { ["dummy_authorization_handler"] }
   let(:document_number) { "123456789X" }
 

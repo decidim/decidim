@@ -325,6 +325,10 @@ nl:
           not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Events
+    metrics:
+      assemblies:
+        object: assemblages
+        title: Assemblies
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn

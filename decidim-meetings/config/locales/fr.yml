@@ -297,6 +297,10 @@ fr:
         minutes:
           create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+      calendar_modal:
+        calendar_url: URL du calendrier
+        close_window: Fermer la fenêtre
+        export_calendar: Calendrier d'exportation
       conference_venues: Salles de conférence
       content_blocks:
         upcoming_events:
@@ -358,6 +362,8 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
+      meetings_map:
+        view_meeting: Voir la réunion
       models:
         invite:
           fields:
@@ -395,6 +401,10 @@ fr:
       types:
         private_meeting: Rencontre privée
         transparent: Visible par les non-membres
+    metrics:
+      meetings:
+        object: des réunions
+        title: Des réunions
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

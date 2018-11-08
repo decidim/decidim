@@ -41,7 +41,7 @@ module Decidim
       # resource - the resource that received the event
       # user - the User that receives the event
       # extra - a Hash with extra information of the event.
-      def initialize(resource:, event_name:, user:, extra:)
+      def initialize(resource:, event_name:, user:, extra: {})
         @event_name = event_name
         @resource = resource
         @user = user

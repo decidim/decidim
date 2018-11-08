@@ -75,8 +75,10 @@ hu:
             collaborative_drafts_enabled: Közös vázlatok engedélyezve
             comments_enabled: Megjegyzések engedélyezve
             geocoding_enabled: Geokódolás engedélyezve
+            minimum_votes_per_user: Minimális szavazatok felhasználónként
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
+            participatory_texts_enabled: Engedélyezett részvételi szövegek
             proposal_answering_enabled: Javaslat válasz engedélyezve
             proposal_edit_before_minutes: A javaslatokat a szerzők az ülés lezárásáig szerkeszthetik
             proposal_length: Javaslat szöveg maximális hossza
@@ -221,10 +223,10 @@ hu:
           unearned_own: Még nem hoztál létre javaslatokat.
     metrics:
       accepted_proposals:
-        object: javaslat
+        object: javaslatok
         title: Elfogadott javaslatok
       proposals:
-        object: javaslat
+        object: javaslatok
         title: javaslatok
       votes:
         object: szavazat
@@ -243,6 +245,7 @@ hu:
         edit_proposal: Javaslat szerkesztése
         import: Importálás egy másik elemből
         new: Új javaslat
+        participatory_texts: Részvételi szövegek
         private_notes: Privát jegyzet
         title: Műveletek
       admin:
@@ -254,6 +257,28 @@ hu:
         models:
           proposal:
             name: Javaslat
+        participatory_texts:
+          bulk-actions:
+            import_doc: Dokumentum importálása
+          import:
+            invalid: Az űrlap érvénytelen!
+            success: Gratulálunk, az alábbi szakaszokat elemeztük az importált dokumentumból, és átkerültek javaslatokká. Mostantól megtekintheti és módosíthatja, amire szüksége van a közzététel előtt.
+          index:
+            info_1: Az importált dokumentumból az alábbi részek kerültek feldolgozásra, amelyek javaslatokká lettek alakítva. Mostantól megtekintheted és módosíthatod, amire szükséged van a közzététel előtt.
+            publish_document: Dokumentum közzététele
+            title: RÉSZTVEVŐ SZÖVEG előnézete
+          new_import:
+            bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
+            document_legend: 'Adj hozzá egy dokumentumot, amely kisebb, mint 2 MB -minden egyes szakasz 3 szint mélységig javaslattá lesz alakítva. A támogatott formátum a szöveghez: Markdown'
+            title: DOKUMENTUM hozzáadása
+            upload_document: Dokumentum feltöltése
+          publish:
+            invalid: Nem sikerült közzé tenni a javaslatokat
+            success: Minden pályázat megjelent
+          sections:
+            article: "<em>Cikk</em>"
+            section: "<em>szakasz:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Alszakasz:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Elfogadva
@@ -287,7 +312,12 @@ hu:
             actions: Műveletek
             cancel: Mégse
             change_category: Kategória módosítása
+            merge: Összeolvasztás egy újba
+            merge_button: Összeolvasztás
+            select_component: Összetevő választása
             selected: kiválasztva
+            split: Javaslatok szétválasztása
+            split_button: Szétválasztás
             title: Javaslatok
             update: Frissítés
           new:
@@ -307,6 +337,14 @@ hu:
             no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
             select_component: Válassz ki egy elemet
             select_states: Ellenőrizd az importálandó javaslatok állapotát
+        proposals_merges:
+          create:
+            invalid: Hiba történt a kiválasztott javaslatok egyesítésével.
+            success: A javaslatokat sikeresen egy újba egyesítettük.
+        proposals_splits:
+          create:
+            invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
+            success: A javaslatokat sikeresen újakra osztottuk.
         shared:
           info_proposal:
             body: Szöveg
@@ -596,6 +634,10 @@ hu:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
+          minimum_votes_per_user:
+            description: A különböző javaslatok között legalább 3 szavazatot kell elosztanod.
+            given_enough_votes: Elég támogatást kapott a javaslatod.
+            supports_remaining: Meg kell szavaznod %{remaining_votes} további javaslatot hogy a szavazataid figyelembe vételre kerüljenek.
           proposal_limit:
             description: Legfeljebb %{limit} javaslatot készíthetsz.
           threshold_per_proposal:

@@ -82,8 +82,10 @@ fr:
         changed_notably: Il y a eu des changements notables.
         content: Contenu
         organization: Organisation
+        show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
+        weight: Poids
     errors:
       models:
         oauth_application:
@@ -507,6 +509,7 @@ fr:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
         destroy:
+          error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         index:
           title: Utilisateur privé de l'espace participatif
@@ -544,6 +547,21 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
           success: Périmètre d'application mis à jour avec succès
+      static_page_topics:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau sujet.
+          success: Sujet créé avec succès.
+        destroy:
+          success: Sujet détruit avec succès
+        edit:
+          title: Modifier le sujet
+          update: Mettre à jour le sujet
+        new:
+          create: Créer un sujet
+          title: Nouveau sujet
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce sujet.
+          success: Sujet mis à jour avec succès
       static_pages:
         actions:
           view: Voir la page publique
@@ -556,11 +574,18 @@ fr:
           changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
           title: Modifier la page
           update: Mettre à jour
+        form:
+          none: Aucun
         index:
           last_notable_change: Dernier changement notable
         new:
-          create: Créer
+          create: Créer une page
           title: Nouvelle page
+        topic:
+          destroy: Supprimer le sujet
+          edit: Modifier le sujet
+          empty: Il n'y a pas de page sous ce sujet
+          without_topic: Pages sans sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès

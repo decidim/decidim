@@ -68,6 +68,15 @@ module Decidim
             organization = Organization.last
             expect(Decidim::ContentBlock.where(organization: organization)).to be_any
           end
+
+          it "sets the organizations TOS version" do
+            command.call
+            organization = Organization.last
+            tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
+
+            expect(organization.tos_version).not_to be_nil
+            expect(organization.tos_version).to eq(tos_page.updated_at)
+          end
         end
 
         context "when the form is invalid" do

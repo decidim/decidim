@@ -18,7 +18,7 @@ module Decidim
                                .includes(component: :participatory_space)
                                .where(component: meeting_components)
                                .where("end_time >= ?", Time.current)
-                               .order(start_time: :desc)
+                               .order(start_time: :asc)
                                .limit(limit)
         end
 

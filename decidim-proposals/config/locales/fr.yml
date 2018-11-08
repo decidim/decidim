@@ -75,8 +75,10 @@ fr:
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
+            minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
+            participatory_texts_enabled: Textes participatifs activés
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_length: Nombre maximum de caractères du corps de la proposition
@@ -221,10 +223,10 @@ fr:
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
     metrics:
       accepted_proposals:
-        object: proposition
+        object: les propositions
         title: Propositions Acceptées
       proposals:
-        object: proposition
+        object: les propositions
         title: Les propositions
       votes:
         object: votes
@@ -243,6 +245,7 @@ fr:
         edit_proposal: Modifier la proposition
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
+        participatory_texts: Textes participatifs
         private_notes: Notes privées
         title: Actions
       admin:
@@ -254,6 +257,28 @@ fr:
         models:
           proposal:
             name: Proposition
+        participatory_texts:
+          bulk-actions:
+            import_doc: Document d'importation
+          import:
+            invalid: Le formulaire est invalide!
+            success: Félicitations, les sections suivantes ont été analysées à partir du document importé, elles ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
+          index:
+            info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
+            publish_document: Publier le document
+            title: APERÇU DU TEXTE PARTICIPATIF
+          new_import:
+            bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
+            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée dans Propositions. Les formats supportés sont: Markdown'
+            title: AJOUTER UN DOCUMENT
+            upload_document: Télécharger le document
+          publish:
+            invalid: Impossible de publier des propositions
+            success: Toutes les propositions ont été publiées
+          sections:
+            article: "<em>article</em>"
+            section: "<em>Section:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Sous-section:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Retenue
@@ -287,7 +312,12 @@ fr:
             actions: Actions
             cancel: Annuler
             change_category: Changer de catégorie
+            merge: Fusionner dans un nouveau
+            merge_button: Fusionner
+            select_component: Sélectionnez un composant
             selected: choisi
+            split: Propositions fractionnées
+            split_button: Divisé
             title: Propositions
             update: Mettre à jour
           new:
@@ -307,6 +337,14 @@ fr:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
+        proposals_merges:
+          create:
+            invalid: Une erreur s'est produite lors de la fusion des propositions sélectionnées.
+            success: A fusionné avec succès les propositions dans un nouveau.
+        proposals_splits:
+          create:
+            invalid: Une erreur s'est produite lors de la division des propositions sélectionnées.
+            success: Divisé avec succès les propositions en nouvelles.
         shared:
           info_proposal:
             body: Corps du texte
@@ -596,6 +634,10 @@ fr:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition doit rassembler plus de %{limit} votes
+          minimum_votes_per_user:
+            description: Vous devez répartir un minimum de 3 voix entre différentes propositions.
+            given_enough_votes: Vous avez donné suffisamment de soutien.
+            supports_remaining: Vous devez voter %{remaining_votes} proposition supplémentaire pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:

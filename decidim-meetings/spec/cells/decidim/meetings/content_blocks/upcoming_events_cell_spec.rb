@@ -30,9 +30,19 @@ module Decidim
             let!(:past_meeting) do
               create(:meeting, start_time: 1.week.ago, component: meeting.component)
             end
+            let!(:second_meeting) do
+              create(:meeting, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component)
+            end
 
             it { is_expected.not_to include(past_meeting) }
             it { is_expected.to include(meeting) }
+            it { is_expected.to include(second_meeting) }
+
+            it "orders them correctly" do
+              expect(subject.length).to eq(2)
+              expect(subject.first).to eq(meeting)
+              expect(subject.last).to eq(second_meeting)
+            end
           end
         end
 

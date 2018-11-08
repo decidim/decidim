@@ -325,6 +325,10 @@ hu:
           not_found: 'A gyűlés nem található az adatbázisban (ID: %{id})'
     menu:
       assemblies: Gyűlések
+    metrics:
+      assemblies:
+        object: szerelvények
+        title: szerelvények
   errors:
     messages:
       cannot_be_blank: nem lehet üres

@@ -82,8 +82,10 @@ ca:
         changed_notably: S'han produït canvis notables.
         content: Contingut
         organization: Organització
+        show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        weight: Pes
     errors:
       models:
         oauth_application:
@@ -507,6 +509,7 @@ ca:
           error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
           success: L'accés per usuari privat de l'espai de participació s'ha creat correctament.
         destroy:
+          error: S'ha produït un error en suprimir un usuari privat d'aquest espai participatiu.
           success: L'accés per usuari privat de l'espai de participació s'ha eliminat correctament.
         index:
           title: Usuari privat de l'espai participatiu
@@ -544,6 +547,21 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquest àmbit.
           success: Àmbit actualitzat correctament
+      static_page_topics:
+        create:
+          error: S'ha produït un error en crear un tema nou.
+          success: S'ha creat el tema amb èxit.
+        destroy:
+          success: S'ha destruït el tema amb èxit
+        edit:
+          title: Edita el tema
+          update: Actualitza el tema
+        new:
+          create: Crea un tema
+          title: Nou tema
+        update:
+          error: S'ha produït un error en actualitzar aquest tema.
+          success: S'ha actualitzat el tema amb èxit
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
@@ -556,11 +574,18 @@ ca:
           changed_notably_help: Si està marcada, els usuaris seran notificats per acceptar els nous termes i condicions.
           title: Editar pàgina
           update: Actualitzar
+        form:
+          none: Cap
         index:
           last_notable_change: Últims canvis notables
         new:
-          create: Crea
+          create: Crea una pàgina
           title: Nova pàgina
+        topic:
+          destroy: Elimina el tema
+          edit: Edita el tema
+          empty: No hi ha cap pàgina sota aquest tema
+          without_topic: Pàgines sense tema
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
           success: La pàgina s'ha actualitzat correctament.

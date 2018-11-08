@@ -133,6 +133,20 @@ ca:
           update:
             error: El teu codi de verificació no coincideix amb el nostre. Si us plau, revisa la carta que t'hem enviat
             success: Felicitats. T'has verificat correctament
+      sms:
+        authorizations:
+          create:
+            error: S'ha produït un problema amb la vostra sol·licitud
+            success: Gràcies Hem enviat un SMS al vostre telèfon.
+          edit:
+            send: Confirma
+            title: Introduïu el codi de verificació que heu rebut
+          new:
+            send: Envia'm un SMS
+            title: Sol·liciteu el vostre codi de verificació
+          update:
+            error: El codi de verificació no coincideix amb el nostre. Si us plau, reviseu els SMS que us enviem.
+            success: Felicitacions S'ha verificat correctament.
   errors:
     messages:
       uppercase_only_letters_numbers: ha d'estar en majúscules i contenir lletres i/o nombres

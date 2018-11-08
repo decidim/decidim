@@ -75,8 +75,10 @@ de:
             collaborative_drafts_enabled: Collaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
             geocoding_enabled: Geocodierung aktiviert
+            minimum_votes_per_user: Mindeststimmen pro Nutzer
             new_proposal_help_text: Neuer Vorschlagstext
             official_proposals_enabled: Offizielle Vorschläge aktiviert
+            participatory_texts_enabled: Partizipative Texte aktiviert
             proposal_answering_enabled: Angebotsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren bearbeitet werden, bevor diese vielen Minuten verstreichen
             proposal_length: Maximale Länge des Vorschlagskörpers
@@ -217,10 +219,10 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erstellt.
     metrics:
       accepted_proposals:
-        object: Vorschlag
+        object: Vorschläge
         title: Akzeptierte Vorschläge
       proposals:
-        object: Vorschlag
+        object: Vorschläge
         title: Vorschläge
       votes:
         object: Stimmen
@@ -239,6 +241,7 @@ de:
         edit_proposal: Angebot bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
+        participatory_texts: Partizipative Texte
         private_notes: Private Notizen
         title: Aktionen
       admin:
@@ -250,6 +253,28 @@ de:
         models:
           proposal:
             name: Vorschlag
+        participatory_texts:
+          bulk-actions:
+            import_doc: Dokument importieren
+          import:
+            invalid: Das Formular ist ungültig!
+            success: Herzlichen Glückwunsch, die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
+          index:
+            info_1: Die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
+            publish_document: Dokument veröffentlichen
+            title: VORSCHAU TEILNEHMERTEXT
+          new_import:
+            bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
+            document_legend: 'Fügen Sie ein Dokument mit weniger als 2 MB hinzu, wobei jeder Abschnitt bis zu 3 Ebenen tief in Vorschläge zerlegt wird. Unterstützte Formate sind: Markdown'
+            title: DOKUMENT HINZUFÜGEN
+            upload_document: Dokument hochladen
+          publish:
+            invalid: Vorschläge konnten nicht veröffentlicht werden
+            success: Alle Vorschläge wurden veröffentlicht
+          sections:
+            article: "<em>Artikel</em>"
+            section: "<em>Abschnitt:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Unterabschnitt:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Akzeptiert
@@ -283,7 +308,12 @@ de:
             actions: Aktionen
             cancel: Stornieren
             change_category: Kategorie ändern
+            merge: Verschmelze zu einem neuen
+            merge_button: Verschmelzen
+            select_component: Wählen Sie eine Komponente aus
             selected: ausgewählt
+            split: Split-Vorschläge
+            split_button: Teilt
             title: Vorschläge
             update: Aktualisieren
           new:
@@ -303,6 +333,14 @@ de:
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
             select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
+        proposals_merges:
+          create:
+            invalid: Beim Zusammenführen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
+            success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
+        proposals_splits:
+          create:
+            invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
+            success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         shared:
           info_proposal:
             body: Karosserie
@@ -591,6 +629,10 @@ de:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
+          minimum_votes_per_user:
+            description: Sie müssen mindestens 3 Stimmen unter verschiedenen Vorschlägen verteilen.
+            given_enough_votes: Du hast genug Unterstützung gegeben.
+            supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.
           threshold_per_proposal:

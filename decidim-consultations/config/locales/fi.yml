@@ -190,7 +190,7 @@ fi:
           recent: Viimeisin ensin
       content_blocks:
         highlighted_consultations:
-          name: Korostetut kuulemiset
+          name: Tärkeimmät kuulemiset
       count:
         title:
           one: "%{count} kuuleminen"

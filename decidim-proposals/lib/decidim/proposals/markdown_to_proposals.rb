@@ -13,9 +13,10 @@ module Decidim
     #
     class MarkdownToProposals < ::Redcarpet::Render::Base
       # Public: Initializes the serializer with a proposal.
-      def initialize(component)
+      def initialize(component, current_user)
         super()
         @component = component
+        @current_user = current_user
         @last_position = 0
         @num_sections = 0
       end
@@ -67,14 +68,18 @@ module Decidim
       private
 
       def create_proposal(title, body, participatory_text_level)
-        proposal = Decidim::Proposals::Proposal.new(
+        attributes = {
           component: @component,
           title: title,
           body: body,
           participatory_text_level: participatory_text_level
+        }
+
+        proposal = Decidim::Proposals::ProposalBuilder.create(
+          attributes: attributes,
+          author: @component.organization,
+          action_user: @current_user
         )
-        proposal.add_coauthor(@component.organization)
-        proposal.save!
 
         @last_position = proposal.position
 

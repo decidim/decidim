@@ -257,6 +257,10 @@ pt:
           notification_title: As datas para o <a href="%{resource_path}">%{resource_title}</a> passo em <a href="%{participatory_space_url}">%{participatory_space_title}</a> foram atualizadas.
     menu:
       processes: Processos
+    metrics:
+      participatory_processes:
+        object: processos participativos
+        title: Processos participativos
     participatory_process_groups:
       show:
         group_participatory_processes:

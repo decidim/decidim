@@ -2,7 +2,9 @@ eu:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Lotutako Batzarrak
         banner_image: Banner irudia
+        consultations_ids: Lotutako kontsultak
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_features: Kopiatu ezaugarriak
@@ -10,6 +12,7 @@ eu:
         description: deskribapena
         hashtag: hashtag
         hero_image: Hasiera irudia
+        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         promoted: sustatuta
         published_at: Argitaratu at
         scope_id: esparrua
@@ -45,6 +48,7 @@ eu:
   decidim:
     admin:
       actions:
+        confirm: Berretsi
         new_conference: Konferentzia berria
       conference_copies:
         new:
@@ -58,6 +62,10 @@ eu:
         destroy:
           error: Errore bat gertatu da hitzaldi hau argitaratzea.
           success: Kongresua argitaratu egin da.
+      conference_registration:
+        confirm:
+          error: Errore bat gertatu da konferentzia erregistroan baieztatzeko.
+          success: Biltzarraren erregistroa ongi onartu da.
       conference_speakers:
         create:
           error: Errore bat gertatu da konferentzia honetarako bozgorailua gehitzean.
@@ -117,6 +125,23 @@ eu:
         create:
           error: Akats bat gertatu da hitzaldi hau bikoizteko.
           success: Konferentzia bikoiztu egin da.
+      media_links:
+        create:
+          error: Errore bat gertatu da komunikazio-esteka berri bat sortzean.
+          success: Media Link sortu da.
+        destroy:
+          success: Media Link ezabatu da.
+        edit:
+          title: Eguneratu multimedia esteka.
+          update: eguneratzearen
+        index:
+          media_links_title: Media Links
+        new:
+          create: Sortu
+          title: Media Link
+        update:
+          error: Errore bat gertatu da komunikazio-esteka hau eguneratzean.
+          success: Media Link eguneratu behar bezala.
       menu:
         conferences: Jardunaldiak
         conferences_submenu:
@@ -125,12 +150,16 @@ eu:
           attachments: eranskinak
           categories: Kategoriak
           components: Osagaiak
-          conference_admins: Konferentzia-kudeatzaileak
-          conference_invites: Konferentzia gonbidatuak
-          conference_registrations: Kongresuaren erregistroak
-          conference_speakers: Hitzaldi hiztunak
+          conference_admins: Konferentzia erabiltzaileak
+          conference_invites: Gonbidapenak
+          conference_speakers: Hizlariak
           info: info
+          media_links: Media Links
           moderations: moderazioa
+          partners: Bazkideak
+          registration_types: Izen-emate motak
+          registrations: Izen-emateak
+          user_registrations: Erabiltzaileen erregistroak
       models:
         conference:
           fields:
@@ -154,6 +183,67 @@ eu:
             admin: Administrator
             collaborator: Kolaboratzaile
             moderator: Moderatzaile
+        media_link:
+          fields:
+            date: data
+            link: Link
+            title: Izenburua
+          name: Media Link
+        partner:
+          fields:
+            link: Link
+            logo: Logotipo
+            name: izena
+            partner_type: Mota
+          name: Partner
+          types:
+            collaborator: Kolaboratzaile
+            main_promotor: Garapen nagusia
+        registration_type:
+          fields:
+            conference_meetings: Bilera bilerak
+            price: Prezioa
+            registrations_count: Erregistroak zenbatzea
+            title: Izenburua
+            weight: pisu
+          name: Izen-emate mota
+      partners:
+        create:
+          error: Errore bat gertatu da bilera honetan bazkide bat gehitzea.
+          success: Bazkidea arrakastaz gehitu da konferentzia honetara.
+        destroy:
+          success: Bazkidea kongresu honetatik atera da.
+        edit:
+          title: Eguneratu bazkide.
+          update: eguneratzearen
+        new:
+          create: Sortu
+          title: Bazkide berria
+        update:
+          error: Errore bat gertatu da biltzarrerako bazkide bat eguneratzea.
+          success: Bazkidea eguneratu da konferentzia honetarako.
+      registration_type_publications:
+        create:
+          error: Errore bat gertatu da izen-emate mota hau argitaratzean.
+          success: Izen-emate mota ondo argitaratu da.
+        destroy:
+          error: Errore bat gertatu da izen-emate mota hau argitaratzea.
+          success: Izen ematea ezin da argitaratu.
+      registration_types:
+        create:
+          error: Errore bat gertatu da hitzaldi honetarako inskripzio mota bat gehitzea.
+          success: Erregistro motak arrakastaz gehitu du konferentzia honetara.
+        destroy:
+          success: Izen-emate mota kongresu honetatik atera da.
+        edit:
+          title: Eguneratu erregistro mota.
+          update: eguneratzearen
+        new:
+          create: Sortu
+          title: Izena emateko mota berria
+        update:
+          error: Errore bat gertatu da hitzaldi honetarako izena emateko mota.
+          success: Izen-emate mota arrakastaz eguneratu da konferentzia honetarako.
       titles:
         conferences: Jardunaldiak
     admin_log:
@@ -170,6 +260,21 @@ eu:
         create: "%{user_name} gonbidatu %{resource_name} %{space_name} konferentzia"
         delete: "%{user_name} kendu erabiltzaileak %{resource_name} tik %{space_name} konferentzia"
         update: "%{user_name} %{resource_name} rola aldatu zen %{space_name} hitzaldian"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} Kongresuko matrikula bat baieztatu da %{resource_name} Kongresuan"
+        partner:
+          create: "%{user_name} sortu %{resource_name} %{space_name} konferentzia"
+          delete: "%{user_name} kendu erabiltzaileak %{resource_name} tik %{space_name} konferentzia"
+          update: "%{user_name} eguneratzen %{resource_name} parte %{space_name} konferentzia"
+        registration_type:
+          create: "%{user_name} sortutako %{resource_name} matrikula mota %{space_name} konferentzia"
+          publish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} biltzarrean"
+          unpublish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} hitzaldian argitaratu gabe"
+          update: "%{user_name} eguneratu zen %{resource_name} izen-emate mota %{space_name} hitzaldian"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: Hizlariak
@@ -225,6 +330,14 @@ eu:
             decline: Baztertu gonbidapena '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} gonbidatu zaitu hitzaldi batean %{application}. Beheko esteken bidez baztertu edo onartu dezakezu."
             join: Parte hartu '%{conference_title}' konferentzia
+        partners:
+          index:
+            title: Bazkideak
+        registration_types:
+          form:
+            select_conference_meetings: Aukeratu konferentzia bilerak
+          index:
+            title: Izen-emate motak
       conference:
         registration_confirm:
           cancel: Utzi
@@ -233,13 +346,24 @@ eu:
           going: joatean
           join: Parte hartu Kongresua
           no_slots_available: Ez dago slotarik erabilgarri
-          remaining_slots:
-            one: 1 zutoina geratzen da
-            other: "%{count} slot geratzen dira"
+      conference_program:
+        program_meeting:
+          content: Edukia
+          location: Kokalekua
+          speakers: Hizlariak
+          streaming: Streaming
+        show:
+          day: eguna
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Zure hitzaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
-          details: Biltzarraren xehetasunak eranskinean aurkituko dituzu.
+          details_1: '%{registration_type} motako hitzaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:'
+          details_2: Biltzarraren xehetasunak eranskinean aurkituko dituzu.
+        pending_validation:
+          confirmation_pending: Berrespena jasoko duzu laster
+          details: 'To You erregistratu %{registration_type} motako kostua batekin %{price} eta ondorengo gertaerak joateko daiteke:'
+          pending_html: Zure hitzaldirako izena emateko <a href="%{url}">%{title}</a> zain dago berresteko.
       conference_registrations:
         create:
           invalid: Arazo bat izan da konferentzia honetan.
@@ -265,14 +389,15 @@ eu:
         index:
           speakers: Hizlariak
       conferences:
+        conferences_sidebar:
+          register: Eman izena
+        partners:
+          collaborators: Laguntzaileak
+          main_promotors: Garapen nagusiak
         show:
-          already_account: Dagoeneko kontu bat duzu erabakitzeko?
           login_as: '%{name} <%{email}> saioan zaude'
           make_conference_registration: 'Egin zure izen ematea hitzaldian:'
-          new_user: Erabiltzaile berria?
           register: Eman izena
-          sign_in: Saio honetan izena emateko saioa
-          sign_up: Erregistratu dohainik erregistroan erabakitzeko
       content_blocks:
         highlighted_conferences:
           name: Nabarmendutako konferentziak
@@ -282,6 +407,8 @@ eu:
         conference_registration_mailer:
           confirmation:
             subject: Zure hitzaldiko erregistroa baieztatu da
+          pending_validation:
+            subject: Zure hitzaldiko erregistroa baieztatu behar da
         invite_join_conference_mailer:
           invite:
             subject: Hitzaldi baterako gonbidapena
@@ -290,6 +417,7 @@ eu:
           fields:
             email: Emaila
             name: izena
+            registration_type: Izen-emate mota
             sent_at: Bidalitakoan
             status: Egoera
           status:
@@ -300,15 +428,42 @@ eu:
           fields:
             email: Emaila
             name: izena
+            registration_type: Izen-emate mota
+            state: Estatu
+            states:
+              confirmed: baieztatu
+              pending: Zain
       pages:
         home:
           highlighted_conferences:
             active_conferences: Jardunaldi aktiboak
             see_all_conferences: Ikusi hitzaldi guztiak
+      photo:
+        show:
+          close_modal: Itxi modal
+          photo: photo
+      photos_list:
+        show:
+          related_photos: Argazkiak
+      registration_types:
+        index:
+          choose_an_option: 'Aukeratu zure erregistro-aukera:'
+          login_as: '%{name} <%{email}> saioan zaude'
+          register: Eman izena
+          title: Izen-emate motak
+      shared:
+        conference_user_login:
+          already_account: Dagoeneko kontu bat duzu erabakitzeko?
+          new_user: Erabiltzaile berria?
+          sign_in: Saio honetan izena emateko saioa
+          sign_up: Erregistratu dohainik erregistroan erabakitzeko
       show:
         details: Xehetasunak
         introduction: Sarrera
         objectives: Helburuak
+        related_assemblies: Lotutako Batzarrak
+        related_consultations: Lotutako kontsultak
+        related_participatory_processes: Parte hartze prozesu erlazionatuak
       statistics:
         answers_count: Erantzunak
         comments_count: Oharrak
@@ -347,6 +502,10 @@ eu:
       value_types:
         conference_presenter:
           not_found: 'Konferentzia ez da aurkitu datu-basean (ID: %{id})'
+    media:
+      index:
+        description: Kongresu honi buruzko estekak
+        title: Media eta estekak
     menu:
       conferences: Jardunaldiak
   devise:
@@ -355,6 +514,8 @@ eu:
         subject: Hitzaldi baterako gonbidapena
   layouts:
     decidim:
+      conference_hero:
+        register: Eman izena
       conference_widgets:
         show:
           take_part: Parte hartu
@@ -372,6 +533,8 @@ eu:
           take_part: Parte hartu
       conferences_nav:
         conference_menu_item: informazioa
+        conference_partners_menu_item: Bazkideak
         conference_speaker_menu_item: Hizlariak
+        media: Media
         unfold: Zabaldu
         venues: Egoitzak
