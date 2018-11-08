@@ -22,6 +22,7 @@ pt:
         location_hints: Dicas de localização
         organizer_id: Organizador
         private_meeting: Reunião privada
+        registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de registro
         registrations_enabled: Registos habilitados
         start_time: Hora de início
@@ -269,6 +270,7 @@ pt:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            registration_form: Formulário de registro
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} registos.
