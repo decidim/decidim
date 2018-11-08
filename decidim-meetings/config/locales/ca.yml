@@ -22,7 +22,7 @@ ca:
         location_hints: Detalls d'ubicació
         organizer_id: Organitzador
         private_meeting: Trobada privada
-        registration_form_enabled: S'ha activat el formulari de registre
+        registration_form_enabled: S'han habilitat les inscripcions
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
@@ -129,9 +129,9 @@ ca:
           conditions:
             - Inscriu-te a les reunions que vulguis assistir
           description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
-          description_another: Aquest usuari ha assistit a %{score} reunions.
-          description_own: Has assistit a %{score} reunions.
-          name: Reunions assistides
+          description_another: Aquest usuari ha assistit a %{score} trobades.
+          description_own: Has assistit a %{score} trobades.
+          name: Torbades a les que has assistit
           next_level_in: Assisteix a més de %{score} reunions per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha assistit a cap reunió.
           unearned_own: Encara no has assistit a cap reunió.
@@ -306,21 +306,21 @@ ca:
       conference_venues: Llocs de conferències
       content_blocks:
         upcoming_events:
-          name: Pròxims esdeveniments
-          upcoming_events: Propers reunions
-          view_all_events: Veure tot
+          name: Propers esdeveniments
+          upcoming_events: Properes reunions
+          view_all_events: Veure-ho tot
       directory:
         meetings:
           index:
-            all: Tots
+            all: Totes
             date: Data
-            meetings: Reunions
-            past: Passat
-            search: Cerca
+            meetings: Trobades
+            past: Passades
+            search: Cercar
             space_type: Espai participatiu
-            upcoming: Proper
+            upcoming: Properes
       last_activity:
-        new_meeting_at_html: "<span>Nova reunió a l' %{link}</span>"
+        new_meeting_at_html: "<span>Nova trobada a %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -405,8 +405,8 @@ ca:
         transparent: Transparent
     metrics:
       meetings:
-        object: reunions
-        title: Reunions
+        object: trobades
+        title: Trobades
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
