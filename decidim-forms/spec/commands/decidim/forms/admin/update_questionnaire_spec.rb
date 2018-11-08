@@ -166,7 +166,7 @@ module Decidim
         end
 
         describe "when the questionnaire has an existing question" do
-          let!(:question) { create(:question, questionnaire: questionnaire) }
+          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
 
           context "and the question should be removed" do
             let(:form_params) do

@@ -23,6 +23,7 @@ en:
         location_hints: Location hints
         organizer_id: Organizer
         private_meeting: Private meeting
+        registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
@@ -270,6 +271,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
+            registration_form: Registration form
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.

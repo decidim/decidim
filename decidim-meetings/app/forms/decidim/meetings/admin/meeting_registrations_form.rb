@@ -10,6 +10,7 @@ module Decidim
         mimic :meeting
 
         attribute :registrations_enabled, Boolean
+        attribute :registration_form_enabled, Boolean
         attribute :available_slots, Integer
         attribute :reserved_slots, Integer
         translatable_attribute :registration_terms, String

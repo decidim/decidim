@@ -155,6 +155,7 @@ PATH
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
       decidim-core (= 0.16.0.dev)
+      decidim-forms (= 0.16.0.dev)
       httparty (~> 0.16.0)
       icalendar (~> 2.4)
       jquery-tmpl-rails (~> 1.1)
