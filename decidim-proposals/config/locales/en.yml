@@ -610,6 +610,7 @@ en:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:
+          back_to: Back to
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
           hidden_endorsers_count:
