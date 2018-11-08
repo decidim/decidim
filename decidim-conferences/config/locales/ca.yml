@@ -13,12 +13,12 @@ ca:
         hashtag: Etiqueta
         hero_image: Imatge inicial
         participatory_processes_ids: Processos participatius relacionats
-        promoted: Promocionat
+        promoted: Destacada
         published_at: Publicat a
-        scope_id: Abast
+        scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
-        short_description: Descripció breu
-        show_statistics: Mostra estadístiques
+        short_description: Breu descripció
+        show_statistics: Mostrar estadístiques
         slogan: Eslògan
         slug: URL slug
         title: Títol
@@ -27,7 +27,7 @@ ca:
       conference_user_role:
         email: Correu electrònic
         name: Nom
-        role: Paper
+        role: Rol
     errors:
       models:
         conference_registration_invite:
@@ -40,19 +40,19 @@ ca:
         one: Conferència
         other: Conferències
       decidim/conference_speaker:
-        one: Conferenciant de conferències
-        other: Conferenciants de conferències
+        one: Ponent de la conferència
+        other: Ponents de la conferència
       decidim/conference_user_role:
-        one: Funció d'usuari de la conferència
-        other: Funcions d'usuari de la conferència
+        one: Rol d'usuari de la conferència
+        other: Rols d'usuari de la conferència
   decidim:
     admin:
       actions:
-        confirm: Confirma
+        confirm: Confirmar
         new_conference: Nova conferència
       conference_copies:
         new:
-          copy: Copia
+          copy: Copiar
           select: Selecciona quines dades vols duplicar
           title: Conferència duplicada
       conference_publications:
