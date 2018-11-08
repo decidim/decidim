@@ -40,7 +40,7 @@ es:
             description: Descripción
             down: Abajo
             question: Pregunta
-            remove: retirar
+            remove: Borrar
             statement: Declaración
             up: Arriba
           update:
@@ -48,7 +48,7 @@ es:
             success: Cuestionarios guardados con éxito.
       errors:
         answer:
-          body: El cuerpo no puede estar en blanco
+          body: El campo no puede estar en blanco
       question_types:
         long_answer: Respuesta larga
         multiple_option: Opción múltiple
