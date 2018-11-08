@@ -364,17 +364,17 @@ ca:
           notification_title: Has estat convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a>. Comprova els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el teu perfil per a aprovar-ho!
         join_request_accepted:
           email_intro: Felicitats! Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
-          email_outro: Heu rebut aquesta notificació perquè s'ha actualitzat la vostra sol·licitud d'unió.
-          email_subject: Heu acceptat al grup %{user_group_name}.
+          email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
+          email_subject: Has estat acceptat al grup %{user_group_name}!
           notification_title: Has estat acceptat al grup <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Algú ha sol·licitat unir-se al grup %{user_group_name} . Pot acceptar o rebutjar des <a href="%{resource_url}">els membres del grup de la pàgina</a>.
-          email_outro: Heu rebut aquesta notificació perquè podeu gestionar el grup %{user_group_name}.
-          email_subject: Algú ha sol·licitat unir-te al grup %{user_group_name}.
-          notification_title: Algú ha sol·licitat unir-se al grup %{user_group_name} . Pot acceptar o rebutjar des <a href="%{resource_path}">els membres del grup de la pàgina</a>.
+          email_intro: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar-la o rebutjar-la des de <a href="%{resource_url}"> la pàgina de membres</a>.
+          email_outro: Has rebut aquesta notificació perquè pots gestionar el grup %{user_group_name}.
+          email_subject: Algú ha sol·licitat unir-se al grup %{user_group_name}!
+          notification_title: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar o rebutjar des <a href="%{resource_path}">els membres del grup de la pàgina</a>.
         join_request_rejected:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> va rebutjar la vostra sol·licitud per unir-s'hi.
-          email_outro: Heu rebut aquesta notificació perquè s'ha actualitzat la vostra sol·licitud d'unió.
+          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha rebutjat la teva sol·licitud per unir-te.
+          email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
           email_subject: La teva sol·licitud per unir-te al grup %{user_group_name} ha estat rebutjada!
           notification_title: La teva sol·licitud d'unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
         promoted_to_admin:
