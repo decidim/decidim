@@ -127,20 +127,20 @@ es:
           success: Conferencia duplicada con éxito.
       media_links:
         create:
-          error: Se ha producido un error al crear un nuevo enlace de medios.
-          success: Enlace de medios creado con éxito.
+          error: Se ha producido un error al crear un nuevo enlace multimedia.
+          success: Enlace de multimedia creado con éxito.
         destroy:
-          success: Enlace de medios eliminado con éxito.
+          success: Enlace de multimedia eliminado con éxito.
         edit:
-          title: Actualizar enlace de medios.
+          title: Actualizar enlace multimedia.
           update: Actualizar
         index:
-          media_links_title: Enlaces de medios
+          media_links_title: Enlaces multimedia
         new:
           create: Crear
-          title: Enlace de medios
+          title: Enlace multimedia
         update:
-          error: Hubo un error al actualizar este enlace de medios.
+          error: Hubo un error al actualizar este enlace multimedia.
           success: Enlace de medios actualizado con éxito.
       menu:
         conferences: Conferencias
@@ -228,13 +228,13 @@ es:
           success: Tipo de registro publicado con éxito.
         destroy:
           error: Se ha producido un error al publicar este tipo de registro.
-          success: Tipo de registro no publicado con éxito.
+          success: Tipo de registro despublicado con éxito.
       registration_types:
         create:
           error: Se produjo un error al agregar un tipo de registro para esta conferencia.
-          success: Tipo de registro agregado exitosamente a esta conferencia.
+          success: Tipo de registro agregado con éxtio a esta conferencia.
         destroy:
-          success: Tipo de registro eliminado exitosamente de esta conferencia.
+          success: Tipo de registro eliminado con éxito de esta conferencia.
         edit:
           title: Actualizar el tipo de registro.
           update: Actualizar
@@ -243,18 +243,18 @@ es:
           title: Nuevo tipo de registro
         update:
           error: Hubo un error al actualizar un tipo de registro para esta conferencia.
-          success: Tipo de registro actualizado exitosamente para esta conferencia.
+          success: Tipo de registro actualizado con éxito para esta conferencia.
       titles:
         conferences: Conferencias
     admin_log:
       conference:
-        create: "%{user_name} creó la %{resource_name} conferencia"
-        publish: "%{user_name} publicado la %{resource_name} conferencia"
-        unpublish: "%{user_name} inédito la %{resource_name} conferencia."
-        update: "%{user_name} actualizado la %{resource_name} conferencia"
+        create: "%{user_name} creó la conferencia %{resource_name}"
+        publish: "%{user_name} ha publicado la conferencia %{resource_name}"
+        unpublish: "%{user_name} ha despublicado la conferencia %{resource_name}"
+        update: "%{user_name} ha actualizado la conferencia %{resource_name}"
       conference_speaker:
-        create: "%{user_name} creó el altavoz de %{resource_name} en la conferencia %{space_name}"
-        delete: "%{user_name} quitó el %{resource_name} altavoz de la conferencia %{space_name}"
+        create: "%{user_name} ha creado el ponente %{resource_name} en la conferencia %{space_name}"
+        delete: "%{user_name} ha eliminado al ponente %{resource_name} de la conferencia %{space_name}"
         update: "%{user_name} actualizado el %{resource_name} altavoz en la conferencia %{space_name}"
       conference_user_role:
         create: "%{user_name} invitados %{resource_name} a la %{space_name} conferencia"
