@@ -68,20 +68,20 @@ ca:
           success: El registre de la conferència s'ha confirmat amb èxit.
       conference_speakers:
         create:
-          error: S'ha produït un error en afegir un parlant per a aquesta conferència.
+          error: S'ha produït un error en afegir un ponent per a aquesta conferència.
           success: Ponent creat amb èxit per a aquesta conferència.
         destroy:
-          success: El parlant s'ha eliminat correctament per a aquesta conferència.
+          success: El ponent s'ha eliminat correctament per a aquesta conferència.
         edit:
-          title: Actualitza l'altaveu de la conferència.
-          update: Actualització
+          title: Actualitza el ponent de la conferència.
+          update: Actualitzar
         index:
-          conference_speakers_title: Conferenciants de conferències
+          conference_speakers_title: Ponents de les conferències
         new:
           create: Crear
-          title: Nou conferenciant de conferències.
+          title: Nou ponent de la conferència.
         update:
-          error: S'ha produït un error en actualitzar el parlant d'aquesta conferència.
+          error: S'ha produït un error en actualitzar el ponent d'aquesta conferència.
           success: Ponent actualitzat amb èxit per a aquesta conferència.
       conference_user_roles:
         create:
@@ -91,7 +91,7 @@ ca:
           success: L'usuari s'ha eliminat correctament d'aquesta conferència.
         edit:
           title: Actualitza l'usuari de la conferència.
-          update: Actualització
+          update: Actualitzar
         index:
           conference_admins_title: usuaris de conferències
         new:
@@ -250,26 +250,26 @@ ca:
       conference:
         create: "%{user_name} crear la %{resource_name} conferència"
         publish: "%{user_name} publicar la %{resource_name} conferència"
-        unpublish: "%{user_name} no publicada la %{resource_name} conferència"
-        update: "%{user_name} actualitzem la %{resource_name} conferència"
+        unpublish: "%{user_name} no publicada la conferència %{resource_name}"
+        update: "%{user_name} actualitzem la conferència %{resource_name}"
       conference_speaker:
-        create: "%{user_name} va crear el %{resource_name} de altaveus al %{space_name} conferència"
-        delete: "%{user_name} treure el %{resource_name} parlant de la %{space_name} conferències"
-        update: "%{user_name} va actualitzar el %{resource_name} d'altaveus al %{space_name} conferència"
+        create: "%{user_name} va crear el ponent %{resource_name} a la conferència %{space_name}"
+        delete: "%{user_name} treure el ponent %{resource_name} de la conferència %{space_name}"
+        update: "%{user_name} va actualitzar el ponent %{resource_name} a la conferència %{space_name}"
       conference_user_role:
-        create: "%{user_name} convidats %{resource_name} a la %{space_name} conferències"
-        delete: "%{user_name} eliminar l'usuari %{resource_name} de la %{space_name} conferència"
-        update: "%{user_name} canviar el paper d' %{resource_name} a la %{space_name} conferència"
+        create: "%{user_name} ha estat convidat com a %{resource_name} per la conferència %{space_name}"
+        delete: "%{user_name} ha eliminat l'usuari %{resource_name} de la conferència %{space_name}"
+        update: "%{user_name} ha canviat el rol d' %{resource_name} a la conferència %{space_name}"
       conferences:
         conference_registration:
-          confirm: "%{user_name} confirmar un registre de la conferència en %{resource_name} conferència"
+          confirm: "%{user_name} ha confirmat un registre per a la conferència %{resource_name}"
         partner:
-          create: "%{user_name} crear %{resource_name} a la %{space_name} conferències"
-          delete: "%{user_name} eliminar l'usuari %{resource_name} de la %{space_name} conferència"
-          update: "%{user_name} actualitzat %{resource_name} a la %{space_name} conferències"
+          create: "%{user_name} ha creat %{resource_name} a la conferència %{space_name}"
+          delete: "%{user_name} ha eliminat l'usuari %{resource_name} de la conferència %{space_name}"
+          update: "%{user_name} ha actualitzat %{resource_name} a la conferència %{space_name}"
         registration_type:
-          create: "%{user_name} crear el tipus d'inscripció %{resource_name} a la %{space_name} conferències"
-          publish: "%{user_name} publicar el tipus de registre %{resource_name} a la %{space_name} conferències"
+          create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} per a la conferència %{space_name}"
+          publish: "%{user_name} ha publicat el tipus de registre %{resource_name} per a la conferència %{space_name}"
           unpublish: "%{user_name} no publicat el tipus d'inscripció %{resource_name} a la %{space_name} conferència"
           update: "%{user_name} actualitzat el tipus de registre %{resource_name} a la %{space_name} conferències"
     conference_program:
