@@ -88,7 +88,7 @@ ca:
           conditions:
             - Anar a Inciatives
             - Segueix els passos per crear una nova iniciativa
-          description: Aquesta distinció es concedeix quan es llancen noves iniciatives, s'uneixen amb altres per dur-les a terme.
+          description: Aquest distintiu es concedeix quan es llancen noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquest usuari ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
