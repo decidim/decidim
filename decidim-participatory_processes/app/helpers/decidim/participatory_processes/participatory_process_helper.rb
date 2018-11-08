@@ -14,6 +14,14 @@ module Decidim
         dates = [participatory_process_step.start_date, participatory_process_step.end_date]
         dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
       end
+
+      def action_btn(process, locale)
+        if process.active_step&.action_btn_text
+          translated_attribute(process.active_step.action_btn_text)
+        else
+          locale
+        end
+      end
     end
   end
 end
