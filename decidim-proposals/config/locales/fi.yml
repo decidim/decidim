@@ -17,7 +17,7 @@ fi:
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
         state: Tila
-        title: Otsikko
+        title: Ehdotuksen nimi
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
