@@ -64,15 +64,6 @@ Decidim.configure do |config|
   # end
   #
   # config.sms_gateway_service = "MySMSGatewayService"
-
-  # Users registration mode
-  # Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
-  #
-  #  - enabled: Users registration and sign in are enabled (default value).
-  #  - existing: Users can't be registered in the system. Only existing users can sign in.
-  #  - disable: Users can't register or sign in.
-  #
-  config.users_registration_mode = :enabled
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
