@@ -268,8 +268,8 @@ ca:
             publish_document: Publicar el document
             title: TEXT PARTICIPATIU DE PREVIEW
           new_import:
-            bottom_hint: "(Podreu previsualitzar i ordenar les seccions del document)"
-            document_legend: 'Afegiu un document de menys de 2 MB, cadascuna de les seccions fins que s''analitzin 3 nivells en Propostes. Els formats suportats són: Markdown'
+            bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
+            document_legend: 'Afegeix un document de menys de 2MB, cadascuna de les seccions fins que s''analitzin 3 nivells en Propostes. Els formats suportats són: Markdown'
             title: AGREGAR DOCUMENT
             upload_document: Penja el document
           publish:
@@ -312,9 +312,9 @@ ca:
             actions: Accions
             cancel: Cancel·lar
             change_category: Canvia la categoria
-            merge: Uniu-vos a un de nou
+            merge: Uneix-te a un de nou
             merge_button: Fusionar
-            select_component: Seleccioneu un component
+            select_component: Selecciona un component
             selected: seleccionat
             split: Dividir propostes
             split_button: Split
@@ -340,11 +340,11 @@ ca:
         proposals_merges:
           create:
             invalid: S'ha produït un error en combinar les propostes seleccionades.
-            success: Va combinar amb èxit les propostes en una nova.
+            success: S'han combinat amb èxit les propostes en una nova.
         proposals_splits:
           create:
             invalid: S'ha produït un error en dividir les propostes seleccionades.
-            success: S'han acabat amb èxit les propostes en noves.
+            success: S'ha dividit amb èxit les propostes en unes noves.
         shared:
           info_proposal:
             body: Cos
@@ -355,7 +355,7 @@ ca:
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la proposta %{resource_name} sobre l'espai %{space_name} com a proposta oficial"
-          update: "%{user_name} actualitzar la %{resource_name} proposta oficial sobre l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat la proposta oficial %{resource_name} sobre l'espai %{space_name}"
         proposal_note:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
       answers:
@@ -599,7 +599,7 @@ ca:
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Llista d'adhesions
+          endorsements_list: Llistat d'adhesions
           hidden_endorsers_count:
             one: i 1 persona més
             other: i %{count} persones més
@@ -635,9 +635,9 @@ ca:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
-            description: Heu de distribuir un mínim de 3 vots entre diferents propostes.
+            description: Has de distribuir un mínim de 3 suports entre diferents propostes.
             given_enough_votes: Has donat suficients suports.
-            supports_remaining: Heu de votar %{remaining_votes} més propostes per tenir en compte els vostres vots.
+            supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per tenir en compte els teus suports.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
