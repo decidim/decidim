@@ -453,10 +453,10 @@ ca:
           title: Tipus de registre
       shared:
         conference_user_login:
-          already_account: Ja tens un compte per decidir?
+          already_account: Ja tens un compte a Decidim?
           new_user: Nou usuari?
-          sign_in: Inicieu sessió per registrar-se en aquesta conferència
-          sign_up: Registreu-vos de forma gratuïta per decidir registrar-vos
+          sign_in: Inicia sessió per registrar-te en aquesta conferència
+          sign_up: Registra't de forma gratuïta per inscriure't
       show:
         details: Detalls
         introduction: Introducció
