@@ -537,18 +537,18 @@ ca:
         update_user_group: Grup d'actualització
       join:
         error: Hi ha hagut un problema en unir-se al grup
-        success: La sol·licitud d'unió s'ha creat correctament. Un administrador revisarà la vostra sol·licitud abans d'acceptar-lo al grup.
+        success: La sol·licitud per a formar-ne part s'ha creat correctament. Un administrador revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
-        error: Hi ha hagut un problema per deixar el grup
-        success: El grup s'ha deixat correctament.
+        error: Hi ha hagut un problema per abandonar el grup
+        success: El grup s'ha abandonat correctament.
       members:
-        accept_or_reject_join_requests: 'Els usuaris següents han sol·licitat unir-se a aquest grup. Accepteu o rebutgeu les vostres sol·licituds:'
+        accept_or_reject_join_requests: 'Els usuaris següents han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
         accept_request: Accepta
-        reject_request: Rebutjar
+        reject_request: Rebutja
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
-      no_user_groups: Encara no pertany a cap grup.
+      no_user_groups: Encara no pertanys a cap grup.
       roles:
         admin: Administrador
         creator: Creador
@@ -704,9 +704,9 @@ ca:
         sub_hero:
           register: Registra't
       index:
-        read_more: Llegeix més
+        read_more: Llegir més
         standalone_pages: Pàgines
-        subheading: Navegueu per les pàgines d'ajuda de %{name}
+        subheading: Navega per les pàgines d'ajuda de %{name}
         title: Ajuda
         topics: Temes
       terms_and_conditions:
@@ -823,7 +823,7 @@ ca:
       version_author:
         deleted: Usuari eliminat
     welcome_notification:
-      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvingut!</p><ul><li>Si voleu tenir una idea ràpida del que podeu fer aquí, consulteu la secció de <a href="{{help_url}}">Ajuda</a> .</li><li>Una vegada que l'heu llegit, obtindreu la vostra primera distinció. Aquí teniu una llista de <a href="{{badges_url}}">de totes les xapes</a> que podeu obtenir a mesura que participa en {{organization_name}}</li><li>Finalment, però no menys important, uniu-vos a altres persones, compartiu amb ells l'experiència de participar i participar en {{organization}}. Feu propostes, comentaris, debat, pensi en com contribuir al bé comú, proporcioneu arguments per convèncer, escoltar i llegir per estar convençuts, expressar les vostres idees de manera concreta i directa, respondre amb paciència i decisió, defensar les vostres idees i mantenir-les una ment oberta per col·laborar i unir-se a les idees d'altres persones.</li></ul>
+      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvinguda!</p><ul><li>Si vols tenir una idea ràpida del que pots fer aquí, consulteu la secció de <a href="{{help_url}}">Ajuda</a>.</li><li>Una vegada que l'haguis llegit, obtindràs la teva primera distinció. Aquí teniu una llista de <a href="{{badges_url}}">de tots els distintius</a> que pots obtenir a mesura que participis a {{organization_name}}</li>.<li>Finalment, però no menys important, uneix-te a altres persones, comparteix amb ells l'experiència de participar i participar en {{organization}}. Fes propostes, comentaris, debat, pensa en com contribuir al bé comú, proporciona arguments per convèncer, escoltar i llegeix per estar convençut, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i conserva la ment oberta per col·laborar i unir-tee a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
   devise:
     confirmations:
@@ -898,7 +898,7 @@ ca:
         greeting: Hola %{recipient}!
         instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, i ho pots fer a través de l'enllaç següent.
         instruction_2: Si no ho has sol·licitat, ignora aquest correu electrònic.
-        instruction_3: La vostra contrasenya no canviarà fins que accediu a l'enllaç de dalt i creeu-ne un de nou.
+        instruction_3: La teva contrasenya no canviarà fins que accedeixis a l'enllaç de dalt i en creis una de nova.
         subject: Instruccions de regeneració de contrasenya
       unlock_instructions:
         action: Desbloqueja el meu compte
