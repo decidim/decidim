@@ -128,7 +128,7 @@ describe "Initiative", type: :system do
         end
 
         it "Create view is shown" do
-          expect(page).to have_content("CREATE")
+          expect(page).to have_content("Create")
         end
 
         it "Offers contextual help" do
