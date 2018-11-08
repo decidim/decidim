@@ -190,8 +190,8 @@ es:
       badges:
         accepted_proposals:
           conditions:
-            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
-            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptados.
+            - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
+            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
           description: Este distintivo se otorga cuando usted participa activamente con nuevas propuestas y se aceptan.
           description_another: '%{score} propuestas de este usuario han sido aceptadas.'
           description_own: '%{score} de tus propuestas han sido aceptadas.'
