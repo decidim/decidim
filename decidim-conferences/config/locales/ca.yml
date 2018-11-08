@@ -461,7 +461,7 @@ ca:
         details: Detalls
         introduction: Introducció
         objectives: Objectius
-        related_assemblies: Muntats relacionats
+        related_assemblies: Assemblees relacionades
         related_consultations: Consultes relacionades
         related_participatory_processes: Processos participatius relacionats
       statistics:
@@ -469,9 +469,9 @@ ca:
         comments_count: Comentaris
         conference_count: Conferències
         debates_count: Debats
-        endorsements_count: Aprovacions
+        endorsements_count: Adhesions
         headline: Activitat
-        meetings_count: Reunions
+        meetings_count: Trobades
         orders_count: Vots
         pages_count: Pàgines
         posts_count: Publicacions
@@ -484,17 +484,17 @@ ca:
     events:
       conferences:
         conference_registrations_over_percentage:
-          email_intro: Les places tragamonedas "%{resource_title}" ocupen més de l' %{percentage}%.
-          email_outro: Heu rebut aquesta notificació perquè sou administrador de l'espai participatiu de la conferència.
-          email_subject: Les ranures ocupades per la conferència "%{resource_title}" superen l' %{percentage}%
-          notification_title: Les places tragamonedas de <a href="%{resource_path}">%{resource_title}</a> ocupen més del %{percentage}%.
+          email_intro: Les places ocupades per a la conferència "%{resource_title}" ocupen més del %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè ets administrador de la conferència.
+          email_subject: Les places ocupades per a la conferència "%{resource_title}" superen el %{percentage}%
+          notification_title: Les places ocupades per a la conferència <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         conference_updated:
-          email_intro: 'S''ha actualitzat la conferència "%{resource_title}". Podeu llegir la nova versió des de la seva pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_intro: 'S''ha actualitzat la conferència "%{resource_title}". Pots llegir la nova versió des de la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la conferència "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: S'ha actualitzat la conferència "%{resource_title}"
           notification_title: S'ha actualitzat la conferència <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
-          email_intro: 'La conferència "%{resource_title}" ha permès registres. Podeu registrar-vos a la vostra pàgina:'
+          email_intro: 'S''han habilitat les inscripcions per a la conferència "%{resource_title}". Ja pots registrar-te a la pàgina:'
           email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
           email_subject: La conferència "%{resource_title}" ha permès registres.
           notification_title: La conferència <a href="%{resource_path}">%{resource_title}</a> ha permès registres.
