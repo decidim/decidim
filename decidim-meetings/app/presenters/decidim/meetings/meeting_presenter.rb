@@ -37,7 +37,7 @@ module Decidim
         renderer.render.html_safe
       end
 
-      # Used for presenter Meeting As Proposal Author
+      # Next methods are used for present a Meeting As Proposal Author
       def name
         title
       end
