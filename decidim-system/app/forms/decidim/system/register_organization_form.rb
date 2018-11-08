@@ -14,11 +14,13 @@ module Decidim
       attribute :available_locales, Array
       attribute :default_locale, String
       attribute :reference_prefix
+      attribute :users_registration_mode, String
 
-      validates :organization_admin_email, :organization_admin_name, :name, :host, :reference_prefix, presence: true
+      validates :organization_admin_email, :organization_admin_name, :name, :host, :reference_prefix, :users_registration_mode, presence: true
       validates :available_locales, presence: true
       validates :default_locale, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
+      validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
     end
   end
 end
