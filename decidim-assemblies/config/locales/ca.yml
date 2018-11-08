@@ -262,7 +262,7 @@ ca:
       index:
         title: Assemblees
       last_activity:
-        new_assembly: Nou muntatge
+        new_assembly: Nova assemblea
       pages:
         home:
           highlighted_assemblies:
@@ -327,7 +327,7 @@ ca:
       assemblies: Assemblees
     metrics:
       assemblies:
-        object: muntatges
+        object: assemblees
         title: Assemblees
   errors:
     messages:
