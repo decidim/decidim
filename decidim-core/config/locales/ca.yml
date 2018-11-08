@@ -23,7 +23,7 @@ ca:
       decidim/join_request_accepted_event: Sol·licitud d'unió acceptada
       decidim/join_request_rejected_event: S'ha rebutjat la sol·licitud d'unió
       decidim/profile_updated_event: Perfil actualitzat
-      decidim/promote_to_admin: S'ha promocionat l'administrador del grup
+      decidim/promote_to_admin: Promocionat a administrador del grup
       decidim/removed_from_group: S'ha eliminat del grup
   activerecord:
     attributes:
