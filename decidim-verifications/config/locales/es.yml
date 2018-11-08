@@ -136,16 +136,16 @@ es:
       sms:
         authorizations:
           create:
-            error: Hubo un problema con su solicitud
-            success: '¡Gracias! Hemos enviado un SMS a su teléfono.'
+            error: Hubo un problema con tu solicitud
+            success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
           edit:
             send: Confirmar
-            title: Introduzca el código de verificación que recibió
+            title: Introduce el código de verificación que has recibido
           new:
-            send: Mandame un SMS
-            title: Solicite su código de verificación
+            send: Mándame un SMS
+            title: Solicita tu código de verificación
           update:
-            error: Su código de verificación no coincide con el nuestro. Por favor, vuelva a comprobar los SMS que le enviamos.
+            error: Tu código de verificación no coincide con el nuestro. Por favor, vuelve a comprobar los SMS que te enviamos.
             success: Felicidades. Has sido verificado con éxito.
   errors:
     messages:
