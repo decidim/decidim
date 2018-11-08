@@ -190,9 +190,7 @@ describe "Authentication", type: :system do
     end
 
     context "when sign up is disabled" do
-      before do
-        allow(Decidim).to receive(:users_registration_mode).and_return(:existing)
-      end
+      let(:organization) { create(:organization, users_registration_mode: :existing) }
 
       it "redirects to the sign in when accessing the sign up page" do
         visit decidim.new_user_registration_path
@@ -360,9 +358,7 @@ describe "Authentication", type: :system do
       end
 
       context "when sign up is disabled" do
-        before do
-          allow(Decidim).to receive(:users_registration_mode).and_return(:existing)
-        end
+        let(:organization) { create(:organization, users_registration_mode: :existing) }
 
         it "doesn't allow the user to sign up" do
           find(".sign-in-link").click
@@ -371,9 +367,7 @@ describe "Authentication", type: :system do
       end
 
       context "when sign in is disabled" do
-        before do
-          allow(Decidim).to receive(:users_registration_mode).and_return(:disabled)
-        end
+        let(:organization) { create(:organization, users_registration_mode: :disabled) }
 
         it "doesn't allow the user to sign up" do
           find(".sign-in-link").click
