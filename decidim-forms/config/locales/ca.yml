@@ -5,7 +5,7 @@ ca:
         body: Resposta
       question:
         max_choices: Nombre màxim d'opcions
-        question_type: Escriviu
+        question_type: Escriu
       questionnaire_question:
         mandatory: Obligatori
     errors:
@@ -13,38 +13,38 @@ ca:
         answer:
           attributes:
             choices:
-              missing: no estan complets
-              too_many: són massa
+              missing: no estan complerts
+              too_many: n'hi ha massa
   decidim:
     forms:
       admin:
         models:
           components:
             description: Descripció
-            tos: Termes del servei
+            tos: Termes i condicions d'ús
         questionnaires:
           answer_option:
             answer_option: Opció de resposta
-            free_text: Text gratuït
+            free_text: Text lliure
             remove: Elimina
             statement: Declaració
           edit:
-            save: Desa
+            save: Desar
             title: Títol
           form:
-            add_question: Afegiu una pregunta
-            already_answered_warning: El qüestionari ja ha contestat alguns usuaris perquè no puguis modificar les seves preguntes.
+            add_question: Afegeix una pregunta
+            already_answered_warning: No pots modificar les pregunte d'aquest qüestionari perquè ja ha estat contestat per alguns usuaris.
           question:
             add_answer_option: Afegeix una opció de resposta
             any: Cap
             description: Descripció
-            down: Avall
+            down: Baixar
             question: Pregunta
-            remove: Elimina
+            remove: Eliminar
             statement: Declaració
             up: Pujar
           update:
-            invalid: Hi ha hagut errors en desar el qüestionari.
+            invalid: S'han produït alguns errors en desar el qüestionari.
             success: Els qüestionaris s'han desat correctament.
       errors:
         answer:
