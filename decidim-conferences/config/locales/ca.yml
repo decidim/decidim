@@ -495,13 +495,13 @@ ca:
           notification_title: S'ha actualitzat la conferència <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
           email_intro: 'S''han habilitat les inscripcions per a la conferència "%{resource_title}". Ja pots registrar-te a la pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: La conferència "%{resource_title}" ha permès registres.
-          notification_title: La conferència <a href="%{resource_path}">%{resource_title}</a> ha permès registres.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la conferència "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
+          email_subject: S'han activat les inscripcions per a la conferència "%{resource_title}".
+          notification_title: S'han activat les inscripcions per a la conferència <a href="%{resource_path}">%{resource_title}</a>.
     log:
       value_types:
         conference_presenter:
-          not_found: 'La conferència no es va trobar a la base de dades (ID: %{id})'
+          not_found: 'La conferència no s''ha trobar a la base de dades (ID: %{id})'
     media:
       index:
         description: Enllaços sobre aquesta conferència
@@ -511,17 +511,17 @@ ca:
   devise:
     mailer:
       join_conference:
-        subject: Invitació per participar en una conferència
+        subject: Invitació a participar en una conferència
   layouts:
     decidim:
       conference_hero:
         register: Registre
       conference_widgets:
         show:
-          take_part: Formar part
+          take_part: Forma'n part
       conferences:
         conference:
-          take_part: Formar part
+          take_part: Forma'n part
         index:
           promoted_conferences: Conferències promocionades
         order_by_conferences:
