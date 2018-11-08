@@ -349,8 +349,6 @@ en:
         promoted_assembly:
           more_info: More info
           take_part: Take part
-      assembly_header:
-        unfold: Unfold
       assembly_navigation:
         assembly_member_menu_item: Members
         assembly_menu_item: The assembly
