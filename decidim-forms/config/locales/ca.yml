@@ -48,32 +48,32 @@ ca:
             success: Els qüestionaris s'han desat correctament.
       errors:
         answer:
-          body: El cos no pot estar en blanc
+          body: El camp no pot estar en blanc
       question_types:
         long_answer: Resposta llarga
-        multiple_option: Múltiple opció
+        multiple_option: Opció múltiple
         short_answer: Resposta curta
         single_option: Opció única
-        sorting: Classificació
+        sorting: Ordenació
       questionnaires:
         answer:
-          invalid: Hi ha hagut errors en respondre el qüestionari.
-          success: El qüestionari va respondre amb èxit.
+          invalid: S'han produït errors en respondre el qüestionari.
+          success: El qüestionari ha estat respost amb èxit.
         question:
           max_choices: 'Opcions màximes: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Inicieu sessió amb el compte</a> o <a href="%{sign_up_link}">inscrigui</a> per respondre el qüestionari.
-            title: Responeu el qüestionari
-          are_you_sure: Aquesta acció no es pot desfer i no podreu editar les vostres respostes. Estàs segur?
+            anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el qüestionari.
+            title: Respon el qüestionari
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segur?
           questionnaire_answered:
-            body: Ja heu respost a aquest qüestionari.
-            title: Ja he respost
+            body: Ja has respost a aquest qüestionari.
+            title: Ja has respost
           questionnaire_closed:
-            body: El qüestionari es tanca i no es pot respondre.
+            body: El qüestionari està tancat i no es pot respondre.
             title: S'ha tancat el qüestionari
           questionnaire_for_private_users:
             body: El qüestionari només està disponible per a usuaris privats
             title: S'ha tancat el qüestionari
-          submit: Presentar
-          tos_agreement: En participar, accepteu les Condicions del servei
+          submit: Enviar respostes
+          tos_agreement: En participar, acceptes els Termes i condicions d'ús
