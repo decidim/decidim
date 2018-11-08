@@ -47,7 +47,7 @@ module Decidim
       protected
 
       def check_sign_up_enabled
-        redirect_to new_user_session_path unless Decidim.sign_up_enabled?
+        redirect_to new_user_session_path unless current_organization.sign_up_enabled?
       end
 
       def configure_permitted_parameters

@@ -6,7 +6,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <% if Decidim.sign_in_enabled? %>
+  <% if current_organization.sign_in_enabled? %>
     <div class="row">
       <div class="columns medium-8 medium-centered">
           <%= decidim_form_for(Decidim::User.new, as: :user, url: session_path(:user), html: { class: "register-form new_user" }) do |f| %>
@@ -22,7 +22,7 @@
               <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
             </div>
           <% end %>
-          <% if Decidim.sign_up_enabled? %>
+          <% if current_organization.sign_up_enabled? %>
             <p class="text-center">
               <%= link_to t(".sign_up"), decidim.new_user_registration_path, class: "sign-up-link" %>
             </p>

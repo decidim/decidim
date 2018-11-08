@@ -19,7 +19,7 @@ module Decidim
         decidim_participatory_processes.participatory_processes_path
       elsif current_user
         decidim.account_path
-      elsif Decidim.sign_up_enabled?
+      elsif current_organization.sign_up_enabled?
         decidim.new_user_registration_path
       else
         decidim.new_user_session_path

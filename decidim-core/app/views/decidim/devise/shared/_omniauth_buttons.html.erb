@@ -1,7 +1,7 @@
 <% if Devise.mappings[:user].omniauthable? && any_social_provider_enabled? %>
   <div class="row">
     <div class="columns large-4 mediumlarge-6 medium-8 medium-centered">
-      <%- if Decidim.sign_in_enabled? %>
+      <%- if current_organization.sign_in_enabled? %>
         <span class="register__separator">
           <span class="register__separator__text"><%= t(".or") %></span>
         </span>
