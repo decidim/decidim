@@ -21,6 +21,7 @@
   height: 100%;
   max-width: rem-calc(1920);
   margin: 0 auto;
+  background-color: lighten($dark-gray, 30);
 
   // decorators
   @include breakpoint(small){
@@ -49,6 +50,7 @@
     position: absolute;
     z-index: -1;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba($black, .6);
