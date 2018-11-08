@@ -6,12 +6,12 @@
 <%=
   extended_navigation_bar(([
     {
-      name: t('.conference_menu_item'),
+      name: t(".conference_menu_item"),
       url: decidim_conferences.conference_path(current_participatory_space),
       active: is_active_link?(decidim_conferences.conference_path(current_participatory_space), :exclusive)
     },
     current_participatory_space.speakers.any? ? {
-      name: t('.conference_speaker_menu_item'),
+      name: t(".conference_speaker_menu_item"),
       url: decidim_conferences.conference_conference_speakers_path(current_participatory_space),
       active: is_active_link?(decidim_conferences.conference_conference_speakers_path(current_participatory_space), :inclusive)
     } : nil
@@ -23,11 +23,11 @@
     }
   end + [
     current_participatory_space.partners.any? ? {
-      name: t('.conference_partners_menu_item'),
+      name: t(".conference_partners_menu_item"),
       url: decidim_conferences.conference_path(current_participatory_space, anchor: "conference-partners"),
     } : nil,
     meeting_components.any? ? {
-      name: t('.venues'),
+      name: t(".venues"),
       url: decidim_conferences.conference_path(current_participatory_space, anchor: "venues")
     } : nil,
   ] + components.map do |component|
