@@ -2,12 +2,12 @@ fi:
   activemodel:
     attributes:
       collaborative_draft:
-        body: Leipäteksti
+        body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
         state: Tila
-        title: Otsikko
+        title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
       proposal:
         answer: Vastaus
