@@ -11,7 +11,7 @@
         length = Random.rand(2..20)
         current = Random.rand(1..length)
         length.times do |i| %>
-      <li class="<%= 'phase-item--past' if ((i + 1) <= current) %><%= ' phase-item--current' if ((i + 1) == current) %>"><span></span></li>
+        <li class="<%= "phase-item--past" if ((i + 1) <= current) %><%= " phase-item--current" if ((i + 1) == current) %>"><span></span></li>
       <% end %>
     </ol>
     <span class="phase-current">Fase <%= current %> de <%= length %></span>
