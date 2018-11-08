@@ -360,7 +360,7 @@ ca:
         invited_to_group:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha convidat a unir-te.
           email_outro: Has rebut aquesta notificació perquè has estat convidat a formar part d'un grup. Comprova la pestanya Grups del teu perfil per aprovar-lo.
-          email_subject: Has estat convidat a formar part del grup %{user_group_name}.
+          email_subject: Has estat convidat a formar part del grup %{user_group_name}!
           notification_title: Has estat convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a>. Comprova els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el teu perfil per a aprovar-ho!
         join_request_accepted:
           email_intro: Felicitats! Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
@@ -378,15 +378,15 @@ ca:
           email_subject: La teva sol·licitud per unir-te al grup %{user_group_name} ha estat rebutjada!
           notification_title: La teva sol·licitud d'unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
         promoted_to_admin:
-          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> ha donat drets d'administrador a aquest grup.
-          email_outro: Heu rebut aquesta notificació perquè sou membre d'aquest grup.
-          email_subject: Ara ets administrador del grup %{user_group_name}.
+          email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha donat drets d'administrador per a aquest grup.
+          email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
+          email_subject: Ara ets administrador del grup %{user_group_name}!
           notification_title: Ara ets administrador del grup <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
           email_intro: Un administrador del grup <a href="%{resource_url}">%{user_group_name}</a> t'ha eliminat.
-          email_outro: Heu rebut aquesta notificació perquè sou membre d'aquest grup.
-          email_subject: Heu eliminat del grup %{user_group_name}.
-          notification_title: S'ha eliminat del grup <a href="%{resource_path}">%{user_group_name}</a>.
+          email_outro: Has rebut aquesta notificació perquè ets membre d'aquest grup.
+          email_subject: Has estat eliminat del grup %{user_group_name}!
+          notification_title: T'han eliminat del grup <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -485,22 +485,22 @@ ca:
         are_you_sure: Estàs segur? Això no eliminarà l'usuari del grup.
         demote_admin: Elimina l'administrador
       demote:
-        error: S'ha produït un error en eliminar aquest usuari de la llista d'administradors
+        error: S'ha produït un error a l'eliminar aquest usuari de la llista d'administradors
         success: S'ha eliminat l'usuari de l'administrador amb èxit
       index:
         current_admins: 'Administradors actuals:'
-        manage_admins: Administra els administradors
+        manage_admins: Gestiona els administradors
     group_invites:
       accept:
         error: S'ha produït un error en acceptar aquesta invitació
         success: S'ha acceptat la invitació amb èxit
       accept_invitation: Accepta
-      accept_or_reject_group_invitations: 'Els grups següents us han convidat a unir-vos a ells. Accepteu o rebutgeu les vostres sol·licituds:'
+      accept_or_reject_group_invitations: 'Els grups següents t''han convidat a unir-te a ells. Accepta o rebutja les seves sol·licituds:'
       index:
         invite: Convidar
-        invite_user: Convida un usuari
+        invite_user: Convidar a un usuari
       invite:
-        error: S'ha produït un error en invitar aquest usuari
+        error: S'ha produït un error al convidar aquest usuari
         success: L'usuari s'ha convidat amb èxit
       reject:
         error: S'ha produït un error en rebutjar aquesta invitació
@@ -512,7 +512,7 @@ ca:
         success: La sol·licitud d'unió s'ha acceptat amb èxit
       actions:
         are_you_sure: Estàs segur?
-        promote_to_admin: Fer admin
+        promote_to_admin: Fer administrador
         remove_from_group: Elimina l'usuari
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
@@ -521,7 +521,7 @@ ca:
         error: S'ha produït un error en promoure aquest usuari
         success: L'usuari s'ha promocionat correctament
       reject:
-        error: S'ha produït un error en rebutjar aquesta sol · licitud d'unió
+        error: S'ha produït un error en rebutjar aquesta sol·licitud d'unió
         success: La sol·licitud d'unió s'ha rebutjat amb èxit
       remove:
         error: S'ha produït un error en eliminar aquest usuari del grup
