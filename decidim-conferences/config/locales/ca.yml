@@ -270,8 +270,8 @@ ca:
         registration_type:
           create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} per a la conferència %{space_name}"
           publish: "%{user_name} ha publicat el tipus de registre %{resource_name} per a la conferència %{space_name}"
-          unpublish: "%{user_name} no publicat el tipus d'inscripció %{resource_name} a la %{space_name} conferència"
-          update: "%{user_name} actualitzat el tipus de registre %{resource_name} a la %{space_name} conferències"
+          unpublish: "%{user_name} no publicat el tipus d'inscripció %{resource_name} a la conferència %{space_name}"
+          update: "%{user_name} ha actualitzat el tipus de registre %{resource_name} a la conferència %{space_name}"
     conference_program:
       index:
         title: Programa
@@ -290,7 +290,7 @@ ca:
           form:
             attendee_type: Tipus d'assistent
             existing_user: Usuari existent
-            invite_explanation: L'usuari també serà convidat a participar a la conferència ia l'organització.
+            invite_explanation: L'usuari també serà convidat a participar a la conferència i a l'organització.
             non_user: Usuari no existent
             select_user: Seleccioneu l'usuari
           index:
@@ -302,9 +302,9 @@ ca:
             filter_by: Filtra per
             invite_attendee: Convida l'assistent
             invites: Convida
-            search: Cerca
+            search: Cercar
           new:
-            explanation: L'usuari serà convidat a participar en una conferència. Si el correu electrònic no està registrat, també se us convidarà a l'organització.
+            explanation: L'usuari serà convidat a participar en una conferència. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
             invite: Convidar
             new_invite: Convida l'usuari
         conference_registrations:
@@ -317,18 +317,18 @@ ca:
             select_user: Seleccioneu l'usuari
             user_type: Tipus d'usuari
           index:
-            search: Cerca
+            search: Cercar
         conferences:
           form:
-            available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
+            available_slots_help: Deixa-ho a 0 si hi ha places il·limitades disponibles.
             registrations_count:
-              one: S'ha registrat 1 registre.
-              other: S'han registrat %{count} registres.
+              one: Hi ha 1 inscripció.
+              other: Hi ha %{count} inscripcions.
             slug_help: 'Les barraques d''URL s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         invite_join_conference_mailer:
           invite:
             decline: Rebutja la invitació '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l' %{application}. Podeu rebuig o acceptar-lo a través dels enllaços a continuació."
+            invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l'%{application}. Pots rebutjar-la o acceptar-la a través dels enllaços a continuació."
             join: Uneix-te a la conferència '%{conference_title}'
         partners:
           index:
@@ -441,14 +441,14 @@ ca:
       photo:
         show:
           close_modal: Tanca el modal
-          photo: foto
+          photo: Foto
       photos_list:
         show:
           related_photos: Fotografies
       registration_types:
         index:
           choose_an_option: 'Trieu l''opció de registre:'
-          login_as: Esteu connectant com %{name} <%{email}>
+          login_as: Estàs entrant com %{name} <%{email}>
           register: Registre
           title: Tipus de registre
       shared:
