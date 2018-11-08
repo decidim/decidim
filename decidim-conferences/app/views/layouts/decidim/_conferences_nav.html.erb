@@ -37,10 +37,10 @@
       active: is_active_link?(main_component_path(component), :inclusive)
     }
   end + [
-    {
+    current_participatory_space.attachments.any? || current_participatory_space.media_links.any? ? {
       name: t(".media"),
       url: decidim_conferences.conference_media_path(current_participatory_space),
       active: is_active_link?(decidim_conferences.conference_media_path(current_participatory_space), :inclusive)
-    }
+    } : nil
   ]).compact)
 %>
