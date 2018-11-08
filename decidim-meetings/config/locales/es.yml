@@ -312,10 +312,10 @@ es:
       directory:
         meetings:
           index:
-            all: Todas
+            all: Todos
             date: Fecha
-            meetings: Reuniones
-            past: Pasado
+            meetings: Encuentros
+            past: Pasados
             search: Buscar
             space_type: Espacio participativo
             upcoming: Próximo
