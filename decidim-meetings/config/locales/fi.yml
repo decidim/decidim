@@ -22,6 +22,7 @@ fi:
         location_hints: Paikan tarkemmat tiedot
         organizer_id: Järjestäjä
         private_meeting: Yksityinen tapahtuma
+        registration_form_enabled: Ilmoittautumislomake on käytössä
         registration_terms: Ilmoittautumisehdot
         registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
@@ -269,6 +270,7 @@ fi:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
+            registration_form: Ilmoittautumislomake
             registrations_count:
               one: 1 ilmoittautuminen.
               other: '%{count} ilmoittautumista.'
