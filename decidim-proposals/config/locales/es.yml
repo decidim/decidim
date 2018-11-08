@@ -635,9 +635,9 @@ es:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
-            description: Debes distribuir un mínimo de 3 votos entre las diferentes propuestas.
+            description: Debes distribuir un mínimo de 3 apoyos entre las diferentes propuestas.
             given_enough_votes: Has dado suficientes apoyos.
-            supports_remaining: Tienes que votar %{remaining_votes} propuestas más para que tus votos sean tomados en cuenta.
+            supports_remaining: Tienes que apoyar %{remaining_votes} propuestas más para que tus apoyos se tengan en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
@@ -686,5 +686,5 @@ es:
       included_projects:
         project_result: 'Resultados que aparecen en este proyecto:'
       included_proposals:
-        proposal_project: 'Propuesta formulada en estos proyectos:'
-        proposal_result: 'Propuesta formulada en estos resultados:'
+        proposal_project: 'Propuesta vinculada a estos proyectos:'
+        proposal_result: 'Propuesta vinculada a estos resultados:'
