@@ -22,6 +22,7 @@ ca:
         location_hints: Detalls d'ubicació
         organizer_id: Organitzador
         private_meeting: Trobada privada
+        registration_form_enabled: S'ha activat el formulari de registre
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
@@ -269,6 +270,7 @@ ca:
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
             invites: Invitacions
+            registration_form: Formulari d'inscripció
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
