@@ -107,7 +107,7 @@ ca:
         destroy:
           success: La conferència s'ha suprimit correctament.
         edit:
-          update: Actualització
+          update: Actualitzar
         exports:
           registrations: Inscripcions
         form:
@@ -128,33 +128,33 @@ ca:
       media_links:
         create:
           error: S'ha produït un error en crear un nou enllaç multimèdia.
-          success: Media Link s'ha creat correctament.
+          success: Enllaç multimèdia creat correctament.
         destroy:
-          success: S'ha eliminat correctament l'enllaç de mitjans.
+          success: S'ha eliminat correctament l'enllaç de multimèdia.
         edit:
-          title: Actualitza l'enllaç de mitjans.
-          update: Actualització
+          title: Actualitza l'enllaç multimèdia.
+          update: Actualitzar
         index:
-          media_links_title: Mitjans de comunicació
+          media_links_title: Enllaços multimèdia
         new:
           create: Crear
-          title: Enllaç per mitjans de comunicació
+          title: Enllaç multimèdia
         update:
           error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
-          success: Media Link s'ha actualitzat correctament.
+          success: Enllaç multimèdia actualitzat correctament.
       menu:
         conferences: Conferències
         conferences_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Fitxers adjunts
-          categories: Categories
+          categories: Categoríes
           components: Components
           conference_admins: Usuaris de la conferència
           conference_invites: Convida
           conference_speakers: Ponents
           info: Info
-          media_links: Mitjans de comunicació
+          media_links: Enllaços multimedia
           moderations: Moderacions
           partners: Socis
           registration_types: Tipus de registre
@@ -164,20 +164,20 @@ ca:
         conference:
           fields:
             created_at: Creat a
-            promoted: Promocionat
-            published: Publicat
+            promoted: Destacada
+            published: Publicada
             title: Títol
         conference_speaker:
           fields:
             affiliation: Afiliació
             full_name: Nom complet
             position: Posició
-          name: Conferència de conferències
+          name: Ponents de la conferència
         conference_user_role:
           fields:
             email: Correu electrònic
             name: Nom
-            role: Paper
+            role: Rol
           name: Usuari de la conferència
           roles:
             admin: Administrador
@@ -194,16 +194,16 @@ ca:
             link: Enllaç
             logo: Logotip
             name: Nom
-            partner_type: Escriviu
+            partner_type: Escriu
           name: Soci
           types:
             collaborator: Col·laborador
             main_promotor: Promotor principal
         registration_type:
           fields:
-            conference_meetings: Reunions de la conferència
+            conference_meetings: Trobades de la conferència
             price: Preu
-            registrations_count: Les comptes de registres
+            registrations_count: Contador d'inscripcions
             title: Títol
             weight: Pes
           name: Tipus de registre
@@ -215,7 +215,7 @@ ca:
           success: El partner s'ha eliminat amb èxit d'aquesta conferència.
         edit:
           title: Actualitza partner.
-          update: Actualització
+          update: Actualitzar
         new:
           create: Crear
           title: Nou soci
@@ -236,8 +236,8 @@ ca:
         destroy:
           success: El tipus d'inscripció s'ha eliminat correctament d'aquesta conferència.
         edit:
-          title: Actualitza el tipus de registre.
-          update: Actualització
+          title: Actualitzar el tipus de registre.
+          update: Actualitzar
         new:
           create: Crear
           title: Nou tipus de registre
@@ -248,8 +248,8 @@ ca:
         conferences: Conferències
     admin_log:
       conference:
-        create: "%{user_name} crear la %{resource_name} conferència"
-        publish: "%{user_name} publicar la %{resource_name} conferència"
+        create: "%{user_name} ha creat la conferènica %{resource_name}"
+        publish: "%{user_name} ha publicat la conferència %{resource_name}"
         unpublish: "%{user_name} no publicada la conferència %{resource_name}"
         update: "%{user_name} actualitzem la conferència %{resource_name}"
       conference_speaker:
@@ -393,9 +393,9 @@ ca:
           register: Registre
         partners:
           collaborators: Col·laboradors
-          main_promotors: Principals promotors
+          main_promotors: Promotors principals
         show:
-          login_as: Esteu connectant com %{name} <%{email}>
+          login_as: Estàs entrant com %{name} <%{email}>
           make_conference_registration: 'Fes la teva inscripció a la conferència:'
           register: Registre
       content_blocks:
@@ -406,12 +406,12 @@ ca:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: S'ha confirmat la inscripció de la vostra conferència
+            subject: S'ha confirmat la teva inscripció a la conferència
           pending_validation:
-            subject: La inscripció de la vostra conferència està pendent de ser confirmada
+            subject: La teva inscripció a la conferència està pendent de confirmació
         invite_join_conference_mailer:
           invite:
-            subject: Invitació per participar en una conferència
+            subject: Invitació per participar a una conferència
       models:
         conference_invite:
           fields:
