@@ -6,8 +6,8 @@
 ) %>
 
 <%= render "layouts/decidim/application" do %>
+  <%= render partial: "layouts/decidim/process_header" %>
   <div class="wrapper">
-    <%= render partial: "layouts/decidim/process_header" %>
     <%= yield %>
   </div>
   <% if content_for? :expanded %>
