@@ -2,16 +2,16 @@ ca:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Muntats relacionats
-        banner_image: Imatge del bàner
+        assemblies_ids: Assemblees relacionades
+        banner_image: Imatge de banner
         consultations_ids: Consultes relacionades
         copy_categories: Copiar categories
         copy_components: Copiar components
-        copy_features: Funcions de còpia
-        decidim_scope_id: Abast
+        copy_features: Copiar funcionalitats
+        decidim_scope_id: Àmbit
         description: Descripció
         hashtag: Etiqueta
-        hero_image: Imatge inicial
+        hero_image: Imatge d'inici
         participatory_processes_ids: Processos participatius relacionats
         promoted: Destacada
         published_at: Publicat a
@@ -188,7 +188,7 @@ ca:
             date: Data
             link: Enllaç
             title: Títol
-          name: Enllaç per mitjans de comunicació
+          name: Enllaç multimedia
         partner:
           fields:
             link: Enllaç
@@ -535,6 +535,6 @@ ca:
         conference_menu_item: Informació
         conference_partners_menu_item: Socis
         conference_speaker_menu_item: Ponents
-        media: Mitjans de comunicació
+        media: Mèdia
         unfold: Desplegar
         venues: Llocs
