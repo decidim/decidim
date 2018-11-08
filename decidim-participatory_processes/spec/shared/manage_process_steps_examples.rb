@@ -35,6 +35,14 @@ shared_examples "manage process steps examples" do
       ca: "Descripció més llarga"
     )
 
+    fill_in_i18n(
+      :participatory_process_step_action_btn_text,
+      "#participatory_process_step-action_btn_text-tabs",
+      en: "SEE",
+      es: "VEO",
+      ca: "VEURE"
+    )
+
     page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click
     page.execute_script("$('#date_field_participatory_process_step_end_date').focus()")
@@ -67,6 +75,14 @@ shared_examples "manage process steps examples" do
         en: "My new title",
         es: "Mi nuevo título",
         ca: "El meu nou títol"
+      )
+
+      fill_in_i18n(
+        :participatory_process_step_action_btn_text,
+        "#participatory_process_step-action_btn_text-tabs",
+        en: "My new button",
+        es: "Mi nuevo impulso",
+        ca: "El meu nou botó"
       )
 
       find("*[type=submit]").click
