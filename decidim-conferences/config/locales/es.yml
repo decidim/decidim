@@ -60,37 +60,37 @@ es:
           error: Hubo un error al publicar esta conferencia.
           success: Conferencia publicada con éxito.
         destroy:
-          error: Hubo un error al anular la publicación de esta conferencia.
-          success: Conferencia no publicada con éxito.
+          error: Hubo un error al despublicar de esta conferencia.
+          success: Conferencia despublicada con éxito.
       conference_registration:
         confirm:
-          error: Hubo un error al confirmar la inscripción de esta conferencia.
-          success: Registro de conferencia confirmado con éxito.
+          error: Hubo un error al confirmar la inscripción a esta conferencia.
+          success: Inscripción a la conferencia confirmada con éxito.
       conference_speakers:
         create:
-          error: Hubo un error al agregar un orador para esta conferencia.
-          success: Altavoz creado con éxito para esta conferencia.
+          error: Hubo un error al agregar un ponente en esta conferencia.
+          success: Ponente creado con éxito en esta conferencia.
         destroy:
-          success: Altavoz eliminado con éxito para esta conferencia.
+          success: Ponente eliminado con éxito en esta conferencia.
         edit:
-          title: Actualizar conferenciante.
+          title: Actualizar ponente en esta conferencia.
           update: Actualizar
         index:
-          conference_speakers_title: Conferenciantes
+          conference_speakers_title: Ponentes
         new:
           create: Crear
-          title: Nuevo conferenciante.
+          title: Nuevo ponente.
         update:
-          error: Hubo un error al actualizar el altavoz de esta conferencia.
-          success: Altavoz actualizado con éxito para esta conferencia.
+          error: Hubo un error al actualizar el ponente en esta conferencia.
+          success: Ponente actualizado con éxito en esta conferencia.
       conference_user_roles:
         create:
-          error: Hubo un error al agregar un usuario para esta conferencia.
-          success: Usuario agregado con éxito a esta conferencia.
+          error: Hubo un error al agregar un usuario a esta conferencia.
+          success: Usuario añadido con éxito a esta conferencia.
         destroy:
           success: Usuario eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizar el usuario de la conferencia.
+          title: Actualizar usuario de la conferencia.
           update: Actualizar
         index:
           conference_admins_title: usuarios de la conferencia
@@ -98,8 +98,8 @@ es:
           create: Crear
           title: Nuevo usuario de la conferencia.
         update:
-          error: Hubo un error al actualizar un usuario para esta conferencia.
-          success: Usuario actualizado con éxito para esta conferencia.
+          error: Hubo un error al actualizar un usuario de esta conferencia.
+          success: Actualizado con éxito el usuario para esta conferencia.
       conferences:
         create:
           error: Hubo un error al crear una nueva conferencia.
@@ -109,7 +109,7 @@ es:
         edit:
           update: Actualizar
         exports:
-          registrations: Registros
+          registrations: Inscripciones
         form:
           title: Información general
         index:
@@ -120,7 +120,7 @@ es:
           title: Conferencia
         update:
           error: Hubo un error al actualizar esta conferencia.
-          success: Conferencia actualizada con éxito
+          success: Conferencia actualizada con éxito.
       conferences_copies:
         create:
           error: Hubo un error al duplicar esta conferencia.
