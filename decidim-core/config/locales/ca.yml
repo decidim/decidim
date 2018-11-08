@@ -533,8 +533,8 @@ ca:
         error: S'ha produït un problema en crear el grup
         success: S'ha creat el grup amb èxit
       edit:
-        edit_user_group: Edita el grup
-        update_user_group: Grup d'actualització
+        edit_user_group: Editar el grup
+        update_user_group: Actualitzar el grup
       join:
         error: Hi ha hagut un problema en unir-se al grup
         success: La sol·licitud per a formar-ne part s'ha creat correctament. Un administrador revisarà la teva sol·licitud abans d'acceptar-te al grup.
