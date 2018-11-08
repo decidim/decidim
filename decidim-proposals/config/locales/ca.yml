@@ -190,9 +190,9 @@ ca:
       badges:
         accepted_proposals:
           conditions:
-            - Trieu l'espai de participació del vostre interès amb l'enviament de propostes activades
+            - Tria l'espai de participació del teu interès amb la creació de propostes activada
             - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
-          description: Aquesta distinció es concedeix quan participes activament amb noves propostes i s'accepten.
+          description: Aquest distintiu es concedeix quan participes activament amb noves propostes i s'accepten.
           description_another: Aquest usuari ha aconseguit tenir %{score} propostes acceptades.
           description_own: Has aconseguit que s'acceptin %{score} de les teves propostes.
           name: Propostes acceptades
@@ -201,9 +201,9 @@ ca:
           unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
           conditions:
-            - Navegueu i passeu-vos un temps llegint les propostes d'altres persones
-            - Doneu suport a les propostes que desitgeu o trobeu interessants
-          description: Aquesta distinció es concedeix quan admet propostes d'altres persones.
+            - Navega i passa un temps llegint les propostes d'altres persones
+            - Dóna suport a les propostes que desitgis o troba'n d'interessants
+          description: Aquest distintiu es concedeix quan dones suport a propostes d'altres persones.
           description_another: Aquest usuari ha donat suport a %{score} propostes.
           description_own: Has donat suport a %{score} propostes.
           name: Suports a propostes
@@ -212,9 +212,9 @@ ca:
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
-            - Trieu l'espai de participació del vostre interès amb l'enviament de propostes activades
+            - Tria un espai de participació del teu interès amb la creació de propostes activada
             - Crea una proposta nova
-          description: Aquesta distinció es concedeix quan participes activament amb noves propostes.
+          description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
           description_another: Aquest usuari ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
           name: Propostes
@@ -242,7 +242,7 @@ ca:
     proposals:
       actions:
         answer: Respondre
-        edit_proposal: Edició de la proposta
+        edit_proposal: Edita la proposta
         import: Importa des d'un altre component
         new: Nova proposta
         participatory_texts: Textos participatius
@@ -259,14 +259,14 @@ ca:
             name: Proposta
         participatory_texts:
           bulk-actions:
-            import_doc: Importa el document
+            import_doc: Importar document
           import:
-            invalid: El formulari no és vàlid.
-            success: Enhorabona, les seccions següents s'han analitzat del document importat, s'han convertit en propostes. Ara podeu revisar i ajustar el que necessiteu abans de publicar-lo.
+            invalid: El formulari no és vàlid!
+            success: Enhorabona, les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
           index:
-            info_1: Les seccions següents s'han analitzat del document importat, s'han convertit en propostes. Ara podeu revisar i ajustar el que necessiteu abans de publicar-lo.
+            info_1: Les seccions següents s'han analitzat del document importat, i s'han convertit en propostes. Ara pots revisar-les i ajustar el que necessitis abans de publicar.
             publish_document: Publicar el document
-            title: TEXT PARTICIPATIU DE PREVIEW
+            title: PREVISUALITZAR EL TEXT PARTICIPATIU
           new_import:
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
             document_legend: 'Afegeix un document de menys de 2MB, cadascuna de les seccions fins que s''analitzin 3 nivells en Propostes. Els formats suportats són: Markdown'
