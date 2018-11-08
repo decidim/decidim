@@ -4,30 +4,30 @@ es:
       conference:
         assemblies_ids: Asambleas relacionadas
         banner_image: Imagen de banner
-        consultations_ids: Consultas Relacionadas
+        consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
-        copy_features: Copiar funciones
-        decidim_scope_id: Alcance
+        copy_features: Copiar funcionalidades
+        decidim_scope_id: Ámbito
         description: Descripción
-        hashtag: Hashtag
-        hero_image: Imagen de inicio
+        hashtag: Etiqueta
+        hero_image: Imagen de portada
         participatory_processes_ids: Procesos participativos relacionados
-        promoted: Promovido
-        published_at: Publicado en
-        scope_id: Alcance
+        promoted: Destacada
+        published_at: Publicada en
+        scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Breve descripción
         show_statistics: Mostrar estadísticas
         slogan: Eslogan
-        slug: URL slug
+        slug: URL amigable
         title: Título
       conference_speaker:
         full_name: Nombre completo
       conference_user_role:
-        email: Email
+        email: Correo electrónico
         name: Nombre
-        role: Papel
+        role: Rol
     errors:
       models:
         conference_registration_invite:
@@ -40,11 +40,11 @@ es:
         one: Conferencia
         other: Conferencias
       decidim/conference_speaker:
-        one: Conferenciante
-        other: Conferenciantes
+        one: Ponente
+        other: Ponentes
       decidim/conference_user_role:
-        one: Papel de usuario de conferencia
-        other: Roles de usuario de conferencia
+        one: Rol de usuario de la conferencia
+        other: Roles de usuario de la conferencia
   decidim:
     admin:
       actions:
@@ -52,8 +52,8 @@ es:
         new_conference: Nueva conferencia
       conference_copies:
         new:
-          copy: Dupdo
-          select: Seleccione qué datos quiere duplicar
+          copy: Copiar
+          select: Selecciona qué datos quieres duplicar
           title: Conferencia duplicada
       conference_publications:
         create:
@@ -141,7 +141,7 @@ es:
           title: Enlace multimedia
         update:
           error: Hubo un error al actualizar este enlace multimedia.
-          success: Enlace de medios actualizado con éxito.
+          success: Enlace multimedia actualizado con éxito.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -154,30 +154,30 @@ es:
           conference_invites: Invita
           conference_speakers: Ponentes
           info: Información
-          media_links: Enlaces de medios
+          media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Fogonadura
-          registration_types: Tipos de registro
+          registration_types: Tipos de inscripción
           registrations: Inscripciones
-          user_registrations: Registros de usuario
+          user_registrations: Inscripciones de usuario
       models:
         conference:
           fields:
-            created_at: Creado en
-            promoted: Promovido
-            published: Publicado
+            created_at: Creada en
+            promoted: Destacada
+            published: Publicada
             title: Título
         conference_speaker:
           fields:
             affiliation: Afiliación
             full_name: Nombre completo
-            position: Posición
-          name: Conferenciante
+            position: Cargo
+          name: Ponente
         conference_user_role:
           fields:
-            email: Email
+            email: Correo electrònico
             name: Nombre
-            role: Papel
+            role: Rol
           name: Usuario de conferencia
           roles:
             admin: Administrador
@@ -186,12 +186,12 @@ es:
         media_link:
           fields:
             date: Fecha
-            link: Enlazar
+            link: Enlace
             title: Título
-          name: Enlace de medios
+          name: Enlace multimedia
         partner:
           fields:
-            link: Enlazar
+            link: Enlace
             logo: Logo
             name: Nombre
             partner_type: Tipo
