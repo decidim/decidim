@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "proposals wizards" do |with_address|
+shared_examples "proposals wizards" do |options|
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -19,7 +19,7 @@ shared_examples "proposals wizards" do |with_address|
            participatory_space: participatory_process)
   end
 
-  if with_address
+  if options == :with_address
     let(:proposal_address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
@@ -152,7 +152,7 @@ shared_examples "proposals wizards" do |with_address|
         Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft) + "/preview"
       end
 
-      if with_address
+      if options == :with_address
         let!(:proposal_draft) do
           create(:proposal, :draft, author: user, component: component, title: proposal_title, body: proposal_body, address: proposal_address)
         end
@@ -172,7 +172,7 @@ shared_examples "proposals wizards" do |with_address|
 
       it "shows a preview" do
         expect(page).to have_css(".card.card--proposal", count: 1)
-        if with_address
+        if options == :with_address
           expect(page).to have_content("Your address has not been geocoded, preview is unavailable.")
           expect(page).to have_content("Address : #{proposal_address}")
         end
