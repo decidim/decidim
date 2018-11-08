@@ -542,20 +542,20 @@ es:
         error: Ha habido un problema al dejar el grupo
         success: Has dejado el grupo correctamente.
       members:
-        accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
+        accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
         accept_request: Aceptar
         reject_request: Rechazar
       new:
-        create_user_group: Crea un grupo
+        create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
-      no_user_groups: Aún no pertenece a ningún grupo.
+      no_user_groups: Aún no perteneces a ningún grupo.
       roles:
         admin: Administrador
         creator: Creador
         member: Miembro
       update:
-        error: Ha habido un problema al actualizar el grupo.
-        success: Grupo actualizado exitosamente
+        error: Ha habido un problema al actualizar el grupo
+        success: Grupo actualizado con éxito
     last_activities:
       activities:
         no_activities_warning: Ninguna actividad
@@ -704,11 +704,11 @@ es:
         sub_hero:
           register: Regístrate
       index:
-        read_more: Lee mas
+        read_more: Leer más
         standalone_pages: Páginas
-        subheading: Navega por las páginas de ayuda de %{name}
+        subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
-        topics: Los temas
+        topics: Temas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
@@ -740,7 +740,7 @@ es:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
-        groups: Los grupos
+        groups: Grupos
         members: Miembros
         notifications: Notificaciones
       sidebar:
@@ -748,14 +748,14 @@ es:
           info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
           title: Distintivos
       user:
-        create_user_group: Crea un grupo
+        create_user_group: Crear un grupo
         edit_profile: Editar perfil
-        edit_user_group: Editar perfil de grupo
+        edit_user_group: Editar el perfil del grupo
         invite_user: Invitar al usuario
-        join_user_group: Solicitud para unirse al grupo
-        leave_user_group: Dejar grupo
-        manage_user_group_admins: Administrar administradores
-        manage_user_group_users: Administrar miembros
+        join_user_group: Solicitar unirse al grupo
+        leave_user_group: Dejar el grupo
+        manage_user_group_admins: Gestionar los administradores
+        manage_user_group_users: Gestionar los miembros
     reported_mailer:
       hide:
         hello: Hola %{name},
