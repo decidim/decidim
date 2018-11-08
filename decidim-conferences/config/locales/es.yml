@@ -363,7 +363,7 @@ es:
         pending_validation:
           confirmation_pending: Recibirás la confirmación en breve
           details: 'Tu inscripción a la conferencia es de tipo %{registration_type} con un coste de %{price} y puede asistir a los siguientes eventos:'
-          pending_html: Su inscripción para la conferencia <a href="%{url}">%{title}</a> está pendiente de confirmación.
+          pending_html: Tu inscripción a la conferencia <a href="%{url}">%{title}</a> está pendiente de confirmación.
       conference_registrations:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
@@ -387,16 +387,16 @@ es:
           go_to_twitter: Ir a twitter
       conference_speakers:
         index:
-          speakers: Altavoces
+          speakers: Ponentes
       conferences:
         conferences_sidebar:
-          register: Registro
+          register: Inscripción
         partners:
           collaborators: Colaboradores
           main_promotors: Promotores principales
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
-          make_conference_registration: 'Haga su inscripción en la conferencia:'
+          make_conference_registration: 'Inscribirte a la conferencia:'
           register: Registro
       content_blocks:
         highlighted_conferences:
@@ -406,18 +406,18 @@ es:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: El registro de su conferencia ha sido confirmado
+            subject: Tu inscripción a la conferencia ha sido confirmada
           pending_validation:
-            subject: La inscripción de su conferencia está pendiente de confirmación.
+            subject: Tu inscripción a la conferencia está pendiente de confirmación
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
       models:
         conference_invite:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
-            registration_type: Tipo de registro
+            registration_type: Tipo de inscripción
             sent_at: Enviado a
             status: Estado
           status:
@@ -469,9 +469,9 @@ es:
         comments_count: Comentarios
         conference_count: Conferencias
         debates_count: Debates
-        endorsements_count: Endosos
+        endorsements_count: Adhesiones
         headline: Actividad
-        meetings_count: Reuniones
+        meetings_count: Encuentros
         orders_count: Votos
         pages_count: Páginas
         posts_count: Publicaciones
@@ -484,28 +484,28 @@ es:
     events:
       conferences:
         conference_registrations_over_percentage:
-          email_intro: Las ranuras ocupadas por la conferencia "%{resource_title}" superan el %{percentage}%.
-          email_outro: Recibió esta notificación porque usted es administrador del espacio participativo de la conferencia.
-          email_subject: Las ranuras ocupadas de la conferencia "%{resource_title}" son más del %{percentage}%
-          notification_title: Las ranuras ocupadas con la conferencia <a href="%{resource_path}">%{resource_title}</a> son más del %{percentage}%.
+          email_intro: Las plazas ocupadas para la conferencia "%{resource_title}" superan el %{percentage}%.
+          email_outro: Recibes esta notificación porque eres administrador del espacio participativo de la conferencia.
+          email_subject: Las plazas ocupadas para la conferencia "%{resource_title}" son más del %{percentage}%
+          notification_title: Las plazas ocupadas para la conferencia <a href="%{resource_path}">%{resource_title}</a> son más del %{percentage}%.
         conference_updated:
           email_intro: 'La conferencia "%{resource_title}" fue actualizada. Puedes leer la nueva versión desde su página:'
-          email_outro: Recibió esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_outro: Recibes esta notificación porque sigues la conferencia "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
           email_subject: La conferencia "%{resource_title}" fue actualizada
           notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> fue actualizada.
         registrations_enabled:
           email_intro: 'La conferencia "%{resource_title}" ha habilitado los registros. Puedes registrarte en su página:'
           email_outro: Recibió esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: La conferencia "%{resource_title}" ha habilitado los registros.
-          notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> ha permitido registros.
+          email_subject: Se han habilitado las inscripciones a la conferencia "%{resource_title}".
+          notification_title: Se han habilitado las inscripciones a la conferencia <a href="%{resource_path}">%{resource_title}</a>.
     log:
       value_types:
         conference_presenter:
-          not_found: 'La conferencia no se encontró en la base de datos (ID: %{id})'
+          not_found: 'La conferencia no se encontra en la base de datos (ID: %{id})'
     media:
       index:
         description: Enlaces sobre esta conferencia
-        title: Medios y enlaces
+        title: Multimedia y enlaces
     menu:
       conferences: Conferencias
   devise:
@@ -515,7 +515,7 @@ es:
   layouts:
     decidim:
       conference_hero:
-        register: Registro
+        register: Inscripción
       conference_widgets:
         show:
           take_part: Participar
@@ -523,7 +523,7 @@ es:
         conference:
           take_part: Participar
         index:
-          promoted_conferences: Conferencias promovidas
+          promoted_conferences: Conferencias destacadas
         order_by_conferences:
           conferences:
             one: "%{count} conferencia"
