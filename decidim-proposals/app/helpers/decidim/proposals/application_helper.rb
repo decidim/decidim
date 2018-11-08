@@ -97,7 +97,7 @@ module Decidim
           render partial: "decidim/shared/follow_button.html", locals: { followable: model }
         else
           content_tag(:p, class: "mt-s mb-none") do
-            if current_user.organization.sign_up_enabled?
+            if current_organization.sign_up_enabled?
               t("decidim.proposals.proposals.show.sign_in_or_up",
                 in: link_to(t("decidim.proposals.proposals.show.sign_in"), decidim.new_user_session_path),
                 up: link_to(t("decidim.proposals.proposals.show.sign_up"), decidim.new_user_registration_path)).html_safe
