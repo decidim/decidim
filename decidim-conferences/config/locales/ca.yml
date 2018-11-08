@@ -327,7 +327,7 @@ ca:
             slug_help: 'Les barraques d''URL s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         invite_join_conference_mailer:
           invite:
-            decline: Rebutja la invitació '%{conference_title}'
+            decline: Rebutjar la invitació '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l'%{application}. Pots rebutjar-la o acceptar-la a través dels enllaços a continuació."
             join: Uneix-te a la conferència '%{conference_title}'
         partners:
@@ -335,17 +335,17 @@ ca:
             title: Socis
         registration_types:
           form:
-            select_conference_meetings: Seleccioneu reunions de conferències
+            select_conference_meetings: Seleccioneu trobades de la conferència
           index:
             title: Tipus de registre
       conference:
         registration_confirm:
-          cancel: Cancel · lar
-          confirm: Confirma
+          cancel: Cancel·lar
+          confirm: Confirmar
         show:
-          going: Anant
-          join: Participa en la conferència
-          no_slots_available: No hi ha ranures disponibles
+          going: Assistiré
+          join: Participa a la conferència
+          no_slots_available: No hi ha places disponibles
       conference_program:
         program_meeting:
           content: Contingut
@@ -357,23 +357,23 @@ ca:
           program: Programa
       conference_registration_mailer:
         confirmation:
-          confirmed_html: S'ha confirmat el registre de la conferència <a href="%{url}">%{title}</a>.
-          details_1: 'Estàs registrat a la conferència amb %{registration_type} tipus. Té un cost d'' %{price} i pot assistir als següents esdeveniments:'
+          confirmed_html: S'ha confirmat la teva inscripció a la conferència <a href="%{url}">%{title}</a>.
+          details_1: 'T''has inscrit a la conferència amb %{registration_type} tipus. Té un cost de %{price} i pots assistir als següents esdeveniments:'
           details_2: Trobareu les dades de la conferència al fitxer adjunt.
         pending_validation:
-          confirmation_pending: Rebreu la confirmació en breu
-          details: 'Has registrat a %{registration_type} tipus amb un cost de %{price} i pots assistir als següents esdeveniments:'
-          pending_html: El registre de la conferència <a href="%{url}">%{title}</a> està pendent de ser confirmat.
+          confirmation_pending: Rebràs la confirmació en breu
+          details: 'T''has inscrit a %{registration_type} tipus amb un cost de %{price} i pots assistir als següents esdeveniments:'
+          pending_html: La teva inscripció a la conferència <a href="%{url}">%{title}</a> està pendent de ser confirmada.
       conference_registrations:
         create:
-          invalid: Hi ha hagut un problema en unir-se a aquesta conferència.
-          success: Has entrat a la conferència amb èxit.
+          invalid: Hi ha hagut un problema en inscriure't a aquesta conferència.
+          success: T'has inscrit a la conferència amb èxit.
         decline_invitation:
-          invalid: Hi ha hagut un problema en disminuir la invitació.
+          invalid: Hi ha hagut un problema al rebutjar la invitació.
           success: Has rebutjat la invitació amb èxit.
         destroy:
-          invalid: Hi ha hagut un problema en deixar aquesta conferència.
-          success: Heu deixat la conferència amb èxit.
+          invalid: Hi ha hagut un problema en abandonar aquesta conferència.
+          success: Heu abandonat la conferència amb èxit.
       conference_speaker:
         go_to_twitter: Anar a Twitter
         more_info: més informació
@@ -518,15 +518,15 @@ ca:
         register: Registre
       conference_widgets:
         show:
-          take_part: Forma'n part
+          take_part: Formar part
       conferences:
         conference:
-          take_part: Forma'n part
+          take_part: Formar part
         index:
-          promoted_conferences: Conferències promocionades
+          promoted_conferences: Conferències destacades
         order_by_conferences:
           conferences:
-            one: "%{count} conferències"
+            one: "%{count} conferència"
             other: "%{count} conferències"
         promoted_conference:
           more_info: Més informació
