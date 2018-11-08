@@ -363,7 +363,6 @@ en:
         show_similar_initiatives: Compare
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Unfold
       initiatives:
         initiative:
           check: Check it out
