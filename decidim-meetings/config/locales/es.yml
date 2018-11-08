@@ -22,7 +22,7 @@ es:
         location_hints: Pistas de ubicación
         organizer_id: Organizador
         private_meeting: Encuentro privado
-        registration_form_enabled: Formulario de registro habilitado
+        registration_form_enabled: Formulario de inscripción habilitado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
@@ -127,14 +127,14 @@ es:
       badges:
         attended_meetings:
           conditions:
-            - Regístrate en las reuniones a las que quieres asistir.
-          description: Este distintivo se otorga cuando asiste a varias reuniones cara a cara.
+            - Regístrate en los encuentros a los que quieres asistir
+          description: Este distintivo se otorga cuando asistas a varias reuniones presenciales.
           description_another: Este usuario asistió a %{score} encuentros.
-          description_own: Usted ha asistido a %{score} reuniones.
-          name: Reuniones asistidas
-          next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha asistido a ninguna reunión.
-          unearned_own: No has asistido a ninguna reunión todavía.
+          description_own: Has asistido a %{score} encuentros.
+          name: Encuentros a los que has asistido
+          next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha asistido a ningún encunetro.
+          unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
       actions:
         agenda: Orden del día
@@ -302,12 +302,12 @@ es:
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
-        export_calendar: Calendario de exportación
+        export_calendar: Exportar calendario
       conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_events:
-          name: Próximos Eventos
-          upcoming_events: Próximas reuniones
+          name: Próximos encuentros
+          upcoming_events: Próximos encuentros
           view_all_events: Ver todo
       directory:
         meetings:
