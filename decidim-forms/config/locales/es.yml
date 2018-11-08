@@ -21,19 +21,19 @@ es:
         models:
           components:
             description: Descripción
-            tos: Términos de servicio
+            tos: Términos y condiciones de uso
         questionnaires:
           answer_option:
             answer_option: Opción de respuesta
             free_text: Texto libre
-            remove: retirar
+            remove: Retirar
             statement: Declaración
           edit:
-            save: Salvar
+            save: Guardar
             title: Título
           form:
             add_question: Añadir pregunta
-            already_answered_warning: Algunos usuarios ya respondieron el cuestionario, por lo que no puede modificar sus preguntas.
+            already_answered_warning: Algunos usuarios ya han respondido al cuestionario, por lo que no puedes modificar las preguntas.
           question:
             add_answer_option: Añadir opción de respuesta
             any: Alguna
@@ -54,26 +54,26 @@ es:
         multiple_option: Opción múltiple
         short_answer: Respuesta corta
         single_option: Opción única
-        sorting: Clasificación
+        sorting: Ordenación
       questionnaires:
         answer:
-          invalid: Ha habido errores al responder el cuestionario.
-          success: El cuestionario respondió con éxito.
+          invalid: Ha habido errores al responder al cuestionario.
+          success: Has respondido al cuestionario con éxito.
         question:
           max_choices: 'Opciones máximas: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Inicie sesión con su cuenta</a> o <a href="%{sign_up_link}">regístrese</a> para responder el cuestionario.
-            title: Responde el cuestionario
-          are_you_sure: Esta acción no se puede deshacer y no podrá editar sus respuestas. ¿Estás seguro?
+            anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrese</a> para responder al cuestionario.
+            title: Responde al cuestionario
+          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás seguro?
           questionnaire_answered:
             body: Ya has respondido este cuestionario.
-            title: Ya respondido
+            title: Ya has respondido
           questionnaire_closed:
-            body: El cuestionario está cerrado y no puede ser respondido.
+            body: El cuestionario está cerrado y ya no puedes responder.
             title: Cuestionario cerrado
           questionnaire_for_private_users:
-            body: El cuestionario está disponible solo para usuarios privados.
+            body: El cuestionario está disponible solo para usuarios privados
             title: Cuestionario cerrado
           submit: Enviar
-          tos_agreement: Al participar aceptas sus Términos de Servicio.
+          tos_agreement: Al responder aceptas los Términos y condiciones de uso
