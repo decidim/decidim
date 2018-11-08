@@ -201,27 +201,27 @@ es:
             main_promotor: Promotor principal
         registration_type:
           fields:
-            conference_meetings: Reuniones de conferencia
+            conference_meetings: Encuentros de la conferencia
             price: Precio
-            registrations_count: Las inscripciones cuentan
+            registrations_count: Número de inscripciones
             title: Título
             weight: Peso
-          name: Tipo de registro
+          name: Tipo de inscripción
       partners:
         create:
-          error: Hubo un error al agregar un socio para esta conferencia.
-          success: Socio agregado exitosamente a esta conferencia.
+          error: Hubo un error al añadir un socio a esta conferencia.
+          success: Se ha añadido con éxito un socio a esta conferencia.
         destroy:
           success: Socio eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizacion de socio.
+          title: Actualizar socio.
           update: Actualizar
         new:
           create: Crear
           title: Nuevo compañero
         update:
-          error: Hubo un error actualizado de un socio para esta conferencia.
-          success: Socio actualizado exitosamente para esta conferencia.
+          error: Hubo un error al actualizar un socio de esta conferencia.
+          success: Socio actualizado con éxito en esta conferencia.
       registration_type_publications:
         create:
           error: Se ha producido un error al publicar este tipo de registro.
@@ -282,7 +282,7 @@ es:
       admin:
         conference_copies:
           form:
-            slug_help: 'Las barras URL se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         conference_invites:
           create:
             error: Ha habido un problema al invitar al usuario a unirse a la conferencia.
@@ -295,21 +295,21 @@ es:
             select_user: Seleccionar usuario
           index:
             filter:
-              accepted: Aceptado
+              accepted: Aceptada
               all: Todas
-              rejected: Rechazado
-              sent: Expedido
-            filter_by: Filtrado por
+              rejected: Rechazada
+              sent: Enviada
+            filter_by: Filtrar por
             invite_attendee: Invitar a un asistente
             invites: Invitaciones
             search: Buscar
           new:
-            explanation: El usuario será invitado a unirse a una conferencia. Si el correo electrónico no está registrado, serán invitados a la organización también.
-            invite: Invitación
-            new_invite: Invitar usuario
+            explanation: El usuario será invitado a unirse a una conferencia. Si el correo electrónico no está registrado, también será invitado a la organización.
+            invite: Invitar
+            new_invite: Invitar a un usuario
         conference_registrations:
           index:
-            registrations: Registros
+            registrations: Inscripciones
         conference_speakers:
           form:
             existing_user: Usuario existente
@@ -320,10 +320,10 @@ es:
             search: Buscar
         conferences:
           form:
-            available_slots_help: Déjalo en 0 si tienes ranuras ilimitadas disponibles.
+            available_slots_help: Déjalo en 0 si tienes plazas ilimitadas disponibles.
             registrations_count:
-              one: Ha habido 1 registro.
-              other: Ha habido %{count} registros.
+              one: Ha habido 1 inscripción.
+              other: Ha habido %{count} inscripciones.
             slug_help: 'Las barras URL se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         invite_join_conference_mailer:
           invite:
