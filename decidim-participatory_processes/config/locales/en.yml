@@ -203,6 +203,9 @@ en:
         index:
           not_published: Not published
           private: Private
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Public
           published: Published
         new:

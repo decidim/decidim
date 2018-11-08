@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -15,15 +14,15 @@ fi:
         hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
-        meta_scope: Kontekstin metadata
+        meta_scope: Teeman metadata
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Osallistumisprosessin konteksti
         participatory_structure: Osallistumisprosessin rakenne
         private_space: Espace privé
         promoted: Korostettu
         published_at: Julkaistu
-        scope_id: Konteksti
-        scopes_enabled: Kontekstit käytössä
+        scope_id: Teema
+        scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         slug: URL-tunniste
@@ -98,6 +97,7 @@ fi:
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
+          name: Osallistumisprosessi
         participatory_process_group:
           fields:
             name: Nimi
@@ -244,15 +244,15 @@ fi:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'Vaihe %{resource_title} on nyt käytössä tilassa %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
-          email_subject: Päivitys tilaan %{participatory_space_title}
+          email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Päivitys kohteeseen %{participatory_space_title}
           notification_title: Vaihe %{resource_title} on nyt käytössä kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Vaiheen %{resource_title} päivämäärät kohteessa %{participatory_space_title} on päivitetty. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat tilaa %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
-          email_subject: Päivitys tilaan %{participatory_space_title}
-          notification_title: Päivämäärät vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päivitetty.
+          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_subject: Päivitys kohteeseen %{participatory_space_title}
+          notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Prosessit
     participatory_process_groups:
@@ -297,7 +297,7 @@ fi:
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
-        scope: Konteksti
+        scope: Teema
         start_date: Aloitusaika
         target: Kuka osallistuu
         unspecified: Ei määritelty

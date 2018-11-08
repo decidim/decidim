@@ -10,11 +10,11 @@ module Decidim
       attribute :body, String
       attribute :choices, Array[SurveyAnswerChoiceForm]
 
-      validates :body, presence: true, if: :mandatory_body?
-      validates :selected_choices, presence: true, if: :mandatory_choices?
-
       validate :max_choices, if: -> { question.max_choices }
       validate :all_choices, if: :sortable_question_validatable?
+
+      validates :selected_choices, presence: true, if: :mandatory_choices?
+      validates :body, presence: true, if: :mandatory_body?
 
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
@@ -51,6 +51,7 @@ module Decidim
 
       def sortable_question_validatable?
         return false unless question.question_type == "sorting"
+
         mandatory_choices? || !selected_choices.empty?
       end
 

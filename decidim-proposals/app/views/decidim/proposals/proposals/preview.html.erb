@@ -4,7 +4,7 @@
   <div class="columns large-6">
     <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
     <div class="card">
-      <div class="p-l">
+      <div class="card__content">
         <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
 
         <% if component_settings.geocoding_enabled? %>
@@ -42,6 +42,8 @@
             </div>
           <% end %>
         <% end %>
+      <div class="card__content">
+        <%= render partial: "proposal_preview", locals: {proposal: @proposal} %>
         <div class="row column flex-center">
           <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
 
