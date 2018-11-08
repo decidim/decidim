@@ -1,0 +1,50 @@
+<div class="row expanded">
+  <div class="process-nav">
+    <div class="row">
+      <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
+        <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
+        <% default_item = active_item || items.first %>
+        <div class="process-nav__link">
+          <%= default_item[:name] %>
+        </div>
+      </button>
+      <div class="row column process-nav__content" id="process-nav-content" data-toggler=".is-active">
+        <ul>
+          <% items.each_with_index do |item, index| %>
+            <li class="<%= "is-active" if item[:active] %> <%= "hide-for-medium" if index > max_items %>">
+              <%= link_to item[:url], class: "process-nav__link #{item[:active] ? 'active' : nil}" do %>
+                <%= item[:name] %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+
+        <% if extra_items.any? %>
+          <button class="button tiny process-nav__more show-for-medium" data-toggle="process-nav__hide-content">
+            <%= t ".more" %> <i></i><i></i><i></i>
+          </button>
+          <div class="dropdown-pane process-nav__hidden-content" id="process-nav__hide-content"
+              data-dropdown
+              data-hover="true"
+              data-hover-pane="true"
+              data-v-offset="-25"
+              data-position="bottom"
+              data-alignment="right">
+            <div class="process-nav__hidden-content__more">
+              <%= t ".more" %> <i></i><i></i><i></i>
+            </div>
+            <ul>
+              <% extra_items.each do |item| %>
+                <li class="<%= "is-active" if item[:active] %>">
+                  <%= link_to item[:url], class: "process-nav__link #{item[:active] ? 'active' : nil}" do %>
+                    <%= item[:name] %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

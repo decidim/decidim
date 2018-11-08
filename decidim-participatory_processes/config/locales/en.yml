@@ -380,9 +380,7 @@ en:
           more_info: More info
           take_part: Take part
       process_navigation:
-        more: More
         process_menu_item: The process
-        unfold: Unfold
       process_header_steps:
         step: Step %{current} of %{total}
         view_steps: View steps

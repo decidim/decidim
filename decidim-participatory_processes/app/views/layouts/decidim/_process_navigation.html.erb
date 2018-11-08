@@ -1,68 +1,19 @@
-<% if participatory_space.components.any? %>
-  <%
-    max_components = 5
-    components = participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
-    more_components = components[(max_components+1)..-1]
-  %>
-  <div class="row expanded">
-    <div class="process-nav">
-      <div class="row">
-        <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
-          <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
-            <div class="process-nav__link">
-            <% if self.try(:current_component) %>
-                <%= component_icon(current_component) %>
-                <%= translated_attribute(current_component.name) %>
-            <% else %>
-                <%= icon "process" %>
-                <%= t ".process_menu_item" %>
-            <% end %>
-            </div>
-        </button>
-        <div class="row column process-nav__content" id="process-nav-content" data-toggler=".is-active">
-          <ul>
-            <li class="<%= "is-active" if is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive) %>">
-              <%= active_link_to decidim_participatory_processes.participatory_process_path(participatory_space), active: :exclusive, class: "process-nav__link", class_active: "is-active" do %>
-                <%= t ".process_menu_item" %>
-              <% end %>
-            </li>
+<%
+  components = participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
+%>
 
-            <% components.each_with_index do |component, index| %>
-              <li class="<%= "is-active" if is_active_link?(main_component_path(component), :inclusive) %> <%= "hide-for-medium" if index > max_components %>">
-                <%= active_link_to main_component_path(component), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
-                  <%= translated_attribute(component.name) %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-
-          <% if more_components.any? %>
-            <button class="button tiny process-nav__more show-for-medium" data-toggle="process-nav__hide-content">
-              <%= t ".more" %> <i></i><i></i><i></i>
-            </button>
-            <div class="dropdown-pane process-nav__hidden-content" id="process-nav__hide-content"
-                data-dropdown
-                data-hover="true"
-                data-hover-pane="true"
-                data-v-offset="-25"
-                data-position="bottom"
-                data-alignment="right">
-              <div class="process-nav__hidden-content__more">
-                <%= t ".more" %> <i></i><i></i><i></i>
-              </div>
-              <ul>
-                <% more_components.each do |component| %>
-                  <li class="<%= "is-active" if is_active_link?(main_component_path(component), :inclusive) %>">
-                    <%= active_link_to main_component_path(component), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
-                      <%= translated_attribute(component.name) %>
-                    <% end %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-</div>
-<% end %>
+<%=
+  extended_navigation_bar([
+    {
+      name: t('.process_menu_item'),
+      url: decidim_participatory_processes.participatory_process_path(participatory_space),
+      active: is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive)
+    }
+  ] + components.map do |component|
+    {
+      name: translated_attribute(component.name),
+      url: main_component_path(component),
+      active: is_active_link?(main_component_path(component), :inclusive)
+    }
+  end)
+%>
