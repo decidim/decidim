@@ -421,17 +421,17 @@ es:
             sent_at: Enviado a
             status: Estado
           status:
-            accepted: Aceptado (%{at})
-            rejected: Rechazado (%{at})
-            sent: Expedido
+            accepted: Aceptada (%{at})
+            rejected: Rechazada (%{at})
+            sent: Enviada
         conference_registration:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
-            registration_type: Tipo de registro
+            registration_type: Tipo de inscripción
             state: Estado
             states:
-              confirmed: Confirmado
+              confirmed: Confirmada
               pending: Pendiente
       pages:
         home:
@@ -494,8 +494,8 @@ es:
           email_subject: La conferencia "%{resource_title}" fue actualizada
           notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> fue actualizada.
         registrations_enabled:
-          email_intro: 'La conferencia "%{resource_title}" ha habilitado los registros. Puedes registrarte en su página:'
-          email_outro: Recibió esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_intro: 'La conferencia "%{resource_title}" ha habilitado las inscripciones. Puedes registrarte en su página:'
+          email_outro: Recibes esta notificación porque sigues la conferencia "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
           email_subject: Se han habilitado las inscripciones a la conferencia "%{resource_title}".
           notification_title: Se han habilitado las inscripciones a la conferencia <a href="%{resource_path}">%{resource_title}</a>.
     log:
@@ -534,7 +534,7 @@ es:
       conferences_nav:
         conference_menu_item: Información
         conference_partners_menu_item: Fogonadura
-        conference_speaker_menu_item: Altavoces
-        media: Medios de comunicación
+        conference_speaker_menu_item: Ponentes
+        media: Multimedia
         unfold: Desplegar
         venues: Sedes
