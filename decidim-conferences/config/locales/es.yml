@@ -454,9 +454,9 @@ es:
       shared:
         conference_user_login:
           already_account: '¿Ya tienes una cuenta en decidim?'
-          new_user: '¿Nuevo usuario?'
-          sign_in: Inicie sesión para registrarse en esta conferencia
-          sign_up: Regístrese gratis en decidim para registrarse
+          new_user: '¿Eres nuevo?'
+          sign_in: Inicie sesión para inscribirte en esta conferencia
+          sign_up: Regístrate gratis para inscribirte
       show:
         details: Detalles
         introduction: Introducción
