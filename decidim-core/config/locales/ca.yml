@@ -798,6 +798,9 @@ ca:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina
         embed_link: Incrustar
+      extended_navigation_bar:
+        more: Més
+        unfold: Desplegar
       flag_modal:
         already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
         close: Tancar
