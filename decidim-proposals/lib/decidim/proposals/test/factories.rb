@@ -324,4 +324,10 @@ FactoryBot.define do
       state { "withdrawn" }
     end
   end
+
+  # always require a :proposal_component as :component param
+  factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
+    title { Faker::Hacker.say_something_smart }
+    description { Faker::Lorem.sentences(3).join("\n") }
+  end
 end
