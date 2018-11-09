@@ -220,7 +220,7 @@ ca:
             active_consultations: Consultes actives
             see_all_consultations: Veure totes les consultes
             voting_ends_in:
-              one: La votació finalitza el <strong>demà</strong>
+              one: La votació finalitza <strong>demà</strong>
               other: La votació finalitza en <strong>%{count} dies</strong>
             voting_ends_today: La votació acaba <strong>avui</strong>
       question:

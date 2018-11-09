@@ -22,6 +22,7 @@ sv:
         location_hints: Platstips
         organizer_id: Arrangör
         private_meeting: Privat möte
+        registration_form_enabled: Registreringsformulär aktiverat
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
@@ -269,6 +270,7 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
+            registration_form: Anmälningsblankett
             registrations_count:
               one: Det har gjorts 1 registrering.
               other: Det har gjorts %{count} registreringar.

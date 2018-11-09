@@ -22,6 +22,7 @@ eu:
         location_hints: Kokapen-argibideak
         organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
+        registration_form_enabled: Izena emateko inprimakia gaituta
         registration_terms: Izen-emateak
         registrations_enabled: Erregistroak gaituta
         start_time: Hasiera-ordua
@@ -269,6 +270,7 @@ eu:
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
+            registration_form: Izena emateko inprimakia
             registrations_count:
               one: Izen-emate bat egin da.
               other: '%{count} izen-emate egin dira.'

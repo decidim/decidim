@@ -22,6 +22,7 @@ fr:
         location_hints: Données de localisation
         organizer_id: Organisateur
         private_meeting: Rencontre privée
+        registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions ouvertes
         start_time: Heure de début
@@ -269,6 +270,7 @@ fr:
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
             invites: Invitations
+            registration_form: Formulaire d'inscription
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
