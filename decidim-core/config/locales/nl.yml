@@ -798,6 +798,9 @@ nl:
         close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
         embed_link: Insluiten
+      extended_navigation_bar:
+        more: Meer
+        unfold: Ontvouwen
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
