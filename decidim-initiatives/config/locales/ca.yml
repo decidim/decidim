@@ -360,9 +360,10 @@ ca:
         promotal_committee: Comitè promotor
         select_initiative_type: Tria
         show_similar_initiatives: Compara
+        step: Pas %{current} de %{total}
+        title: Crea una nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Desplegar
       initiatives:
         initiative:
           check: Comprova-ho
