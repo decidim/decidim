@@ -8,6 +8,7 @@ describe "Admin manages projects", type: :system do
 
   include_context "when managing a component as an admin"
 
-  it_behaves_like "manage projects"
+  it_behaves_like "manage projects", :total_budget
+  it_behaves_like "manage projects", :total_projects
   it_behaves_like "manage announcements"
 end
