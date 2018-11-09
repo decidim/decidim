@@ -10,7 +10,8 @@ module Decidim
         # Public: A formatted collection of Meetings to be used
         # in forms.
         def meetings_as_authors_selected
-          @meetings_as_authors_selected ||= @proposal.authors.pluck(:id) if @proposal.present?
+          return unless @proposal.present? && @proposal.official_meeting?
+          @meetings_as_authors_selected ||= @proposal.authors.pluck(:id)
         end
       end
     end
