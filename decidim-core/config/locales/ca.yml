@@ -20,8 +20,8 @@ ca:
       decidim/demoted_membership: Ja no ets administrador de grup
       decidim/gamification/badge_earned_event: Insígnia obtinguda
       decidim/gamification/level_up_event: Has pujat de nivell
-      decidim/join_request_accepted_event: Sol·licitud d'unió acceptada
-      decidim/join_request_rejected_event: S'ha rebutjat la sol·licitud d'unió
+      decidim/join_request_accepted_event: Sol·licitud d'incorporació acceptada
+      decidim/join_request_rejected_event: S'ha rebutjat la sol·licitud d'incorporació
       decidim/profile_updated_event: Perfil actualitzat
       decidim/promote_to_admin: Promocionat a administrador del grup
       decidim/removed_from_group: S'ha eliminat del grup
@@ -508,8 +508,8 @@ ca:
       reject_invitation: Rebutjar
     group_members:
       accept:
-        error: S'ha produït un error en acceptar aquesta sol·licitud d'unió
-        success: La sol·licitud d'unió s'ha acceptat amb èxit
+        error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació
+        success: La sol·licitud d'incorporació s'ha acceptat correctament
       actions:
         are_you_sure: Estàs segur?
         promote_to_admin: Fer administrador
@@ -521,8 +521,8 @@ ca:
         error: S'ha produït un error en promoure aquest usuari
         success: L'usuari s'ha promocionat correctament
       reject:
-        error: S'ha produït un error en rebutjar aquesta sol·licitud d'unió
-        success: La sol·licitud d'unió s'ha rebutjat amb èxit
+        error: S'ha produït un error en rebutjar aquesta sol·licitud d'incorporació
+        success: La sol·licitud d'incorporació s'ha rebutjat correctament
       remove:
         error: S'ha produït un error en eliminar aquest usuari del grup
         success: L'usuari s'ha eliminat correctament del grup
