@@ -82,6 +82,9 @@ pl:
         other: Zbierz role użytkowników
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.

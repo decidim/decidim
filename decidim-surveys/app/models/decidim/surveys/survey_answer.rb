@@ -8,7 +8,7 @@ module Decidim
       belongs_to :survey, class_name: "Survey", foreign_key: "decidim_survey_id"
       belongs_to :question, class_name: "SurveyQuestion", foreign_key: "decidim_survey_question_id"
 
-      has_many :choices,
+      has_many :choices, -> { order("position ASC") },
                class_name: "SurveyAnswerChoice",
                foreign_key: "decidim_survey_answer_id",
                dependent: :destroy,
@@ -24,6 +24,7 @@ module Decidim
 
       def user_survey_same_organization
         return if user&.organization == survey&.organization
+
         errors.add(:user, :invalid)
       end
 

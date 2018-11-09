@@ -92,6 +92,10 @@ nl:
     events:
       proposal_created:
         email_subject: Nieuw voorstel van %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: Er is een nieuw voorstel van %{author_name} in <a href="%{resource_path}"> %{resource_title}</a>.
         url: 'Commentaar"s url : %{bron_url}'
       proposals:
@@ -290,8 +294,13 @@ nl:
           proposals_count:
             one: 1 voorstel
             other: "%{count} voorstellen"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Terug
+          not_geocoded: Not geocoded
           select_a_category: Selecteer een categorie
           send: Verzenden
           title: Bewerk voorstel
@@ -342,13 +351,18 @@ nl:
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Meest recent
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Pas het voorstel aan
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Je kan dit voorstel bewerken in de eerste %{count} minuut nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
             other: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
           publish: Publiceer
           title: Publiceer je voorstel
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
@@ -435,3 +449,5 @@ nl:
       included_proposals:
         proposal_project: 'Voorstel in deze projecten:'
         proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
+    scopes:
+      global: Global scope

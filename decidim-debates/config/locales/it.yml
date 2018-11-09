@@ -60,13 +60,18 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
             success: Dibattito aggiornato con successo.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Discussione
       admin_log:
         debate:
-          create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio %{space_name}"
-          update: "%{user_name} ha aggiornato il dibattito %{resource_name} sullo spazio %{space_name}"
+          create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio
+            %{space_name}"
+          update: "%{user_name} ha aggiornato il dibattito %{resource_name} sullo
+            spazio %{space_name}"
       debates:
         count:
           debates_count:
@@ -112,22 +117,38 @@ it:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Salve, è stato creato un nuovo dibattito sullo spazio partecipativo %{space_title}, verificarlo e contribuire:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo lo spazio partecipativo %{space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+            email_intro: 'Salve, è stato creato un nuovo dibattito sullo spazio partecipativo
+              %{space_title}, verificarlo e contribuire:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo lo spazio
+              partecipativo %{space_title}. È possibile interrompere la ricezione
+              di notifiche seguendo il collegamento precedente.
             email_subject: Nuovo dibattito su %{space_title}
-            notification_title: Il dibattito <a href="%{resource_path}">%{resource_title}</a> è stato creato su <a href="%{space_path}">%{space_title}</a>.
+            notification_title: Il dibattito <a href="%{resource_path}">%{resource_title}</a>
+              è stato creato su <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Ciao, %{author_name} %{author_nickname}, chi stai seguendo, ha creato un nuovo dibattito, dai un''occhiata e dai:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+            email_intro: 'Ciao, %{author_name} %{author_nickname}, chi stai seguendo,
+              ha creato un nuovo dibattito, dai un''occhiata e dai:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}.
+              È possibile interrompere la ricezione di notifiche seguendo il collegamento
+              precedente.
             email_subject: Nuovo dibattito di %{author_nickname}
-            notification_title: Il dibattito <a href="%{resource_path}">%{resource_title}</a> è stato creato da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            notification_title: Il dibattito <a href="%{resource_path}">%{resource_title}</a>
+              è stato creato da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         creation_disabled:
-          email_intro: 'La creazione del dibattito non è più attiva in %{participatory_space_title}. Puoi ancora partecipare ai dibattiti aperti da questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_intro: 'La creazione del dibattito non è più attiva in %{participatory_space_title}.
+            Puoi ancora partecipare ai dibattiti aperti da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}.
+            È possibile interrompere la ricezione di notifiche seguendo il collegamento
+            precedente.
           email_subject: Creazione del dibattito disabilitata in %{participatory_space_title}
-          notification_title: La creazione del dibattito è ora disabilitata in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: La creazione del dibattito è ora disabilitata in <a
+            href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Ora puoi iniziare nuovi dibattiti su %{participatory_space_title}! Inizia a partecipare a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_intro: 'Ora puoi iniziare nuovi dibattiti su %{participatory_space_title}!
+            Inizia a partecipare a questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}.
+            È possibile interrompere la ricezione di notifiche seguendo il collegamento
+            precedente.
           email_subject: Discussioni ora disponibili in %{participatory_space_title}
-          notification_title: Ora puoi iniziare <a href="%{resource_path}">nuovi dibattiti</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ora puoi iniziare <a href="%{resource_path}">nuovi dibattiti</a>
+            in <a href="%{participatory_space_url}">%{participatory_space_title}</a>

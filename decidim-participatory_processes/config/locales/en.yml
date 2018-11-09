@@ -19,6 +19,7 @@ en:
         participatory_process_group_id: Processes group
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        private_space: Espace privé
         promoted: Promoted
         published_at: Published at
         scope_id: Scope
@@ -36,6 +37,7 @@ en:
         name: Name
         participatory_process_ids: Related processes
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Description
         end_date: End date
         short_description: Short description
@@ -151,6 +153,7 @@ en:
           success: Participatory process step activated successfully.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: There was an error creating a new participatory process step.
           success: Participatory process step created successfully.
         default_title: Introduction
@@ -202,6 +205,9 @@ en:
         index:
           not_published: Not published
           private: Private
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Public
           published: Published
         new:

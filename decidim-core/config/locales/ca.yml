@@ -272,11 +272,6 @@ ca:
           notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
@@ -486,7 +481,6 @@ ca:
         error: S'ha produït un error en denunciar. Torna-ho a intentar.
         success: La denúncia s'ha creat amb èxit i serà revisada per un administrador.
     scopes:
-      global: Àmbit global
       picker:
         cancel: Cancel·lar
         choose: Selecciona
@@ -650,6 +644,11 @@ ca:
         see_more: Veure més
   locale:
     name: Català
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban

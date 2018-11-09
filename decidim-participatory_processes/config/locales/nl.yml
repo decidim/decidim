@@ -19,6 +19,7 @@ nl:
         participatory_process_group_id: Groep thema's
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
+        private_space: Espace privé
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Scope
@@ -69,6 +70,8 @@ nl:
         duplicate: Dupliceren
         edit: Bewerken
         new: Nieuw
+        participatory_process:
+          new: new participatory process
         preview: Voorbeeld
         publish: Publiceren
         resend_invitation: Uitnodiging verzenden

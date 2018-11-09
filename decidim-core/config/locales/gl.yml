@@ -272,11 +272,6 @@ gl:
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
@@ -486,7 +481,6 @@ gl:
         error: Produciuse un erro ao crear o informe. Por favor, proba de novo.
         success: O informe foi creado con éxito e será revisado por un administrador.
     scopes:
-      global: Alcance global
       picker:
         cancel: Cancelar
         choose: Seleccionar
@@ -648,6 +642,11 @@ gl:
         see_more: Ver máis
   locale:
     name: Galego
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicioso
     douban: Douban

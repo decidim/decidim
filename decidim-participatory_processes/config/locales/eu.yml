@@ -19,6 +19,7 @@ eu:
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Partehartze esparrua
         participatory_structure: Partehartze egitura
+        private_space: Espace privé
         promoted: Nabarmendua
         published_at: Argitaratu at
         scope_id: Esparrua
@@ -69,6 +70,8 @@ eu:
         duplicate: Kopiatu
         edit: Editatu
         new: Berria
+        participatory_process:
+          new: new participatory process
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita

@@ -90,6 +90,10 @@ eu:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -288,8 +292,13 @@ eu:
           proposals_count:
             one: 1 proposamen
             other: "%{count} proposamen"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Back
+          not_geocoded: Not geocoded
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Editatu proposamena
@@ -340,13 +349,18 @@ eu:
           most_voted: Bozkatuenak
           random: Ausazkoa eran
           recent: Berrienak
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Aldatu proposamena
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Proposamen hau argitaratu ondoren, lehenengo proposamena editatu ahal izango duzu. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
             other: Proposamen hau editatu ahal izango duzu lehenengo %{count} Proposamenaren ondoren argitaratutako minutuak. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
           publish: Argitaratu
           title: Argitaratu zure proposamena
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
@@ -433,3 +447,5 @@ eu:
       included_proposals:
         proposal_project: 'Proiektu hauetatik sortutako proposamena:'
         proposal_result: 'Emaitza hauetatik sortutako proposamena:'
+    scopes:
+      global: Global scope

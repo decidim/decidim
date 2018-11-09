@@ -19,6 +19,7 @@ es-PY:
         participatory_process_group_id: Grupo de procesos
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
+        private_space: Espace privé
         promoted: Destacado
         published_at: Publicado en
         scope_id: Ámbito
@@ -69,6 +70,8 @@ es-PY:
         duplicate: Duplicar
         edit: Editar
         new: Nuevo/a
+        participatory_process:
+          new: new participatory process
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación

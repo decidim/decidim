@@ -13,7 +13,7 @@ describe "Menu", type: :system do
 
   it "renders the the navbar link in menu main menu" do
     within ".main-nav" do
-      expect(page).to have_link(navbar_link.title, href: navbar_link.link)
+      expect(page).to have_link(translated(navbar_link.title, locale: :en), href: navbar_link.link)
     end
   end
 end

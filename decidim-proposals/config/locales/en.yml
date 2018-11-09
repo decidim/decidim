@@ -90,6 +90,10 @@ en:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -288,8 +292,13 @@ en:
           proposals_count:
             one: 1 proposal
             other: "%{count} proposals"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Back
+          not_geocoded: Not geocoded
           select_a_category: Please select a category
           send: Send
           title: Edit proposal
@@ -340,13 +349,18 @@ en:
           most_voted: Most voted
           random: Random
           recent: Recent
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Modify the proposal
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
           title: Publish your proposal
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
@@ -433,3 +447,5 @@ en:
       included_proposals:
         proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Proposal appearing in these results:'
+    scopes:
+      global: Global scope

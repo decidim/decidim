@@ -19,6 +19,7 @@ gl:
         participatory_process_group_id: Grupo de procesos
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
+        private_space: Espace privé
         promoted: Promocionado
         published_at: Publicado en
         scope_id: Alcance
@@ -69,6 +70,8 @@ gl:
         duplicate: Duplicar
         edit: Editar
         new: Novo
+        participatory_process:
+          new: new participatory process
         preview: Vista previa
         publish: Publicar
         resend_invitation: Reenvio a invitación

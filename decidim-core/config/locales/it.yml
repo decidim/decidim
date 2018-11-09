@@ -272,11 +272,6 @@ it:
           notification_title: Il componente %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: La pagina <a href="%{resource_url}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
@@ -486,7 +481,6 @@ it:
         error: Si è verificato un un errore. Ti preghiamo di riprovare.
         success: Il report è stato creato e sarà rivisto da un amministratore.
     scopes:
-      global: Ambito globale
       picker:
         cancel: Annulla
         choose: Selezionare
@@ -648,6 +642,11 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban

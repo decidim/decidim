@@ -17,7 +17,6 @@ module Decidim
       let(:link) { "https://decidim.org/" }
       let(:weight) { (1..5).to_a.sample }
       let(:organization) { create(:organization) }
-      let(:organization_id) { organization.id }
       let(:target) { ["blank", ""].sample }
 
       let(:attributes) do
@@ -25,8 +24,7 @@ module Decidim
           "title" => title,
           "link" => link,
           "target" => target,
-          "weight" => weight,
-          "organization_id" => organization_id
+          "weight" => weight
 
         }
       end
@@ -54,12 +52,6 @@ module Decidim
 
       context "when weight is missing" do
         let(:weight) { nil }
-
-        it { is_expected.to be_invalid }
-      end
-
-      context "when organization id is missing" do
-        let(:organization_id) { nil }
 
         it { is_expected.to be_invalid }
       end

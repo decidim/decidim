@@ -272,11 +272,6 @@ nl:
           notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
@@ -486,7 +481,6 @@ nl:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
     scopes:
-      global: Globale scope
       picker:
         cancel: Annuleer
         choose: Selecteer
@@ -648,6 +642,11 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Heerlijk
     douban: Douban

@@ -16,10 +16,27 @@ module Decidim::ParticipatoryProcesses
         description: { en: "description" },
         start_date: Time.current,
         end_date: Time.current + 1.week,
+        action_btn_text: { en: "see" },
         invalid?: invalid
       )
     end
     let(:invalid) { false }
+
+    context "when action btn text is not present" do
+      let(:action_btn_text) { nil }
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+    end
+
+    context "when action btn text is present" do
+      let(:action_btn_text) { "SEE" }
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+    end
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -41,7 +58,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :participatory_process, :active))
+          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :action_btn_text, :participatory_process, :active))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

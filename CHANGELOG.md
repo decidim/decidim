@@ -17,6 +17,10 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 - **decidim-budgets**: Re-introduce vote on budget by number of project.[\#247](https://github.com/OpenSourcePolitics/decidim/pull/247)
 - **decidim-debates**: Allow debates to be reported [\#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
+- **decidim-proposals**: Allow proposals location to be changed on a map [\#296](https://github.com/OpenSourcePolitics/decidim/pull/296)
+- **decidim-participatory_processes**: Ability to order processes in the back-office [#189](https://github.com/OpenSourcePolitics/decidim/pull/189)
+- **decidim-debates**: add export feature to debates [#270](https://github.com/OpenSourcePolitics/decidim/pull/270)
+- **decidim-debates**: Allow debates to be reported [#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
 - **decidim-core**: Banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
 - **decidim-core**: Avater uploader has been changed in [\#147](https://github.com/OpenSourcePolitics/decidim/pull/147)
 - **decidim-core**: Now have a quality setting which can be used by adding `process quality:%%` where %% is  your desired percentage of quality
@@ -29,10 +33,17 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 **Changed**:
 
 - **decidim-proposals**: Remove caps first validator. Format title and body without any intervention from the user [\#259](https://github.com/OpenSourcePolitics/decidim/pull/259)
- - **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#228](https://github.com/OpenSourcePolitics/decidim/pull/228)
+- **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#228](https://github.com/OpenSourcePolitics/decidim/pull/228)
+- **decidim-participatory_processes**: Add customised action button text regarding to the steps [\#257](https://github.com/OpenSourcePolitics/decidim/issues/257)
+
 
 **Fixed**:
 
+- **decidim-proposals**: Fix responsive car preview for proposals[\#325](https://github.com/OpenSourcePolitics/decidim/pull/325)
+- **decidim-budgets**: Add hyphens to budget card. [\#305](https://github.com/OpenSourcePolitics/decidim/pull/305)
+- **decidim-admin**: Fix issue when updating a navbar link. [\#310](https://github.com/OpenSourcePolitics/decidim/pull/310)
+- **decidim-surveys**: Fix validation issue on survey sortable question [\#314](https://github.com/OpenSourcePolitics/decidim/pull/314)
+- **decidim-surveys**: Fix issue when copying. [\#308](https://github.com/decidim/decidim/pull/308)
 - **decidim-admin**: Add email validation to ManagedUserPromotionForm. [\#295](https://github.com/OpenSourcePolitics/decidim/pull/295)
 - **decidim-budgets**: Fix display of budgets when votes count is activated. [\#268](https://github.com/OpenSourcePolitics/decidim/pull/268)
 - **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)

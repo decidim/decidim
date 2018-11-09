@@ -20,7 +20,7 @@ module Decidim::Admin
         link: link,
         weight: weight,
         target: target,
-        organization_id: organization.id
+        organization: organization
       )
     end
     let(:invalid) { false }

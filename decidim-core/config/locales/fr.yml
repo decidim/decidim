@@ -278,11 +278,6 @@ fr:
           notification_title: Le %{titre_de_ressource}. est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Intro de l'email
-          email_subject: Sujet de l'email
-          moderation_url: Url de moderation
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -492,7 +487,6 @@ fr:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     scopes:
-      global: Portée générale
       picker:
         cancel: Annuler
         choose: Sélectionner

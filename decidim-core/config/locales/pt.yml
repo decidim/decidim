@@ -272,11 +272,6 @@ pt:
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
@@ -486,7 +481,6 @@ pt:
         error: Ocorreu um erro ao criar o relatório. Por favor, tente novamente.
         success: O relatório foi criado com sucesso e será revisto por um administrador.
     scopes:
-      global: Âmbito global
       picker:
         cancel: Cancelar
         choose: Selecione
@@ -648,6 +642,11 @@ pt:
         see_more: Ver mais
   locale:
     name: Português
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Delicioso
     douban: Douban
