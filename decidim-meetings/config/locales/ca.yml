@@ -303,7 +303,7 @@ ca:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
         export_calendar: Exportar el calendari
-      conference_venues: Llocs de conferències
+      conference_venues: Seus de les jornades
       content_blocks:
         upcoming_events:
           name: Propers esdeveniments
