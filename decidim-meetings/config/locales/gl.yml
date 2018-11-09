@@ -22,6 +22,7 @@ gl:
         location_hints: Consellos de localización
         organizer_id: Organizador
         private_meeting: Encontro privado
+        registration_form_enabled: Formulario de rexistro habilitado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
         start_time: Hora de inicio
@@ -269,6 +270,7 @@ gl:
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
+            registration_form: Formulario de inscrición
             registrations_count:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.

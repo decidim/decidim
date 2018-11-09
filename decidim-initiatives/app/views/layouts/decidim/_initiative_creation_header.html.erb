@@ -1,35 +1,37 @@
-<div class="process-header row column">
-  <div class="row column process-header__main">
-    <div class="initiative-creation-header__container row">
-      <div class="columns mediumlarge-3">
+<div class="process-header">
+  <div class="process-header__inner">
+    <div class="row column process-header__main">
+    </div>
+    <div class="process-header__container initiative-creation-header__container row collapse column">
+      <div class="columns mediumlarge-8 process-header__info">
         <% if content_for? :back_link %>
-            <%= content_for :back_link %>
+          <%= content_for :back_link %>
         <% end %>
 
-        <h2 class="section-heading"><%= t(".#{step}") %></h2>
+        <h1 class="text-highlight heading2"><%= t(".title") %></h1>
       </div>
-      <div class="columns mediumlarge-6">
-        <div class="initiative-creation-header__phase">
+      <div class="columns mediumlarge-4">
+        <div class="process-header__phase initiative-creation-header__phase">
           <div class="process-header__progress show-for-medium">
             <ol>
               <% wizard_steps.each do |wizard_step| %>
                 <% unless future_step? wizard_step %>
                   <li class="phase-item--past">
                     <span></span>
-                    <div class="caption"><%= t ".#{wizard_step}" %></div>
                   </li>
                 <% else %>
                   <li>
                     <span></span>
-                    <div class="caption"><%= t ".#{wizard_step}" %></div>
                   </li>
                 <% end %>
               <% end %>
+              <% step_index = wizard_steps.index(step) %>
             </ol>
+            <span class="phase-current"><%= t(".step", current: (step_index + 1), total: wizard_steps.length) %></span>
+            <span class="phase-title"><%= t(".#{step}") %></span>
           </div>
         </div>
       </div>
-      <div class="columns mediumlarge-3"></div>
     </div>
   </div>
 </div>

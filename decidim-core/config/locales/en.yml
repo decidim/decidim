@@ -803,6 +803,9 @@ en:
         close_window: Close window
         embed: Please paste this code in your page
         embed_link: Embed
+      extended_navigation_bar:
+        more: More
+        unfold: Unfold
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close

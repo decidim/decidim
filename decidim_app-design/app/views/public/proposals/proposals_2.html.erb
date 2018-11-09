@@ -6,44 +6,45 @@
 
 <%= partial "template_top" %>
 
-<main class="wrapper">
+<main>
   <%= partial "process_header" %>
-  <div class="row column">
-    <div class="callout secondary">
-      <div class="row">
-        <div class="columns medium-8 large-9">
-          <h3 class="heading3">Tienes 10 votos para repartir</h3>
-          <p>En este proceso solo se pueden repartir 10 votos porque lorem ipsum
-          dolor sit amet , consectetur adipiscing elit. Praesent ullamcorper
-            ipsum malesuada tempor ultrices. Duis eu scelerisque enim. Mauris
-            varius risus id tellus imperdiet porttitor.</p>
-        </div>
-        <div class="columns medium-4 large-3">
-          <div class="card card--nomargin text-center">
-            <div class="card__content">
-              <span class="definition-data__title">Te quedan</span>
-              <span class="extra__suport-number">10</span>
-              <span class="extra__suport-text">Votos</span>
+  <div class="wrapper">
+    <div class="row column">
+      <div class="callout secondary">
+        <div class="row">
+          <div class="columns medium-8 large-9">
+            <h3 class="heading3">Tienes 10 votos para repartir</h3>
+            <p>En este proceso solo se pueden repartir 10 votos porque lorem ipsum
+              dolor sit amet , consectetur adipiscing elit. Praesent ullamcorper
+              ipsum malesuada tempor ultrices. Duis eu scelerisque enim. Mauris
+              varius risus id tellus imperdiet porttitor.</p>
+            </div>
+            <div class="columns medium-4 large-3">
+              <div class="card card--nomargin text-center">
+                <div class="card__content">
+                  <span class="definition-data__title">Te quedan</span>
+                  <span class="extra__suport-number">10</span>
+                  <span class="extra__suport-text">Votos</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    <div class="row columns">
+      <h2 class="section-heading">168 propuestas abiertas</h2>
     </div>
-  </div>
-  <div class="row columns">
-    <h2 class="section-heading">168 propuestas abiertas</h2>
-  </div>
-  <div class="row">
-    <div class="columns mediumlarge-4 large-3">
-      <%= partial "filters_small_view" %>
-      <div class="card card--secondary show-for-mediumlarge">
-        <%= partial "filters" %>
+    <div class="row">
+      <div class="columns mediumlarge-4 large-3">
+        <%= partial "filters_small_view" %>
+        <div class="card card--secondary show-for-mediumlarge">
+          <%= partial "filters" %>
+        </div>
       </div>
-    </div>
-    <div class="columns mediumlarge-8 large-9">
-      <%= partial "order_by" %>
-      <div class="row small-up-1 medium-up-2 card-grid">
-        <% 5.times do %>
+      <div class="columns mediumlarge-8 large-9">
+        <%= partial "order_by" %>
+        <div class="row small-up-1 medium-up-2 card-grid">
+          <% 5.times do %>
           <div class="column">
             <article class="card card--proposal success">
               <div class="card__top">
@@ -104,7 +105,8 @@
               </div>
             </article>
           </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

@@ -49,7 +49,7 @@ ca:
         create:
           error: S'ha produït un error en crear l'autorització.
           success: Has estat autoritzat amb èxit.
-          unconfirmed: Cal que confirmeu el vostre correu electrònic per poder autoritzar-vos.
+          unconfirmed: Cal que confirmis el teu correu electrònic per a poder autoritzar-te.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiqueu contra un altre exemple de controlador d'autorització
@@ -136,17 +136,17 @@ ca:
       sms:
         authorizations:
           create:
-            error: S'ha produït un problema amb la vostra sol·licitud
-            success: Gràcies Hem enviat un SMS al vostre telèfon.
+            error: S'ha produït un problema amb la teva sol·licitud
+            success: Gràcies! Hem enviat un SMS al teu telèfon.
           edit:
-            send: Confirma
-            title: Introduïu el codi de verificació que heu rebut
+            send: Confirmar
+            title: Introdueix el codi de verificació que has rebut
           new:
             send: Envia'm un SMS
-            title: Sol·liciteu el vostre codi de verificació
+            title: Sol·licita el teu codi de verificació
           update:
-            error: El codi de verificació no coincideix amb el nostre. Si us plau, reviseu els SMS que us enviem.
-            success: Felicitacions S'ha verificat correctament.
+            error: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, revisa el SMS que t'hem enviat.
+            success: Felicitats. T'has verificat correctament.
   errors:
     messages:
       uppercase_only_letters_numbers: ha d'estar en majúscules i contenir lletres i/o nombres

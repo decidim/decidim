@@ -1,0 +1,40 @@
+<% large = Faker::Boolean.boolean %>
+<div class="floating-helper" id="floating-helper-tip" data-toggler=".hide">
+  <div class="floating-helper__layout">
+    <div class="floating-helper__trigger" data-toggle="floating-helper-block floating-helper-tip">
+      <div class="floating-helper__text">
+        Ayuda
+      </div>
+      <div class="floating-helper__icon">
+        <%= icon "question-mark", class: "icon--small" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="floating-helper-block" class="floating-helper__wrapper row column hide" data-toggler=".hide">
+  <div class="floating-helper__content">
+    <div class="floating-helper__content-inner">
+      <div class="floating-helper__icon-big show-for-medium">
+        <%= icon "question-mark", class: "icon--large" %>
+      </div>
+      <div class="mb-s">
+        <p>A través de les Sessions Informatives organitzades als 6 Centres Cívics de la ciutat s’explicarà el procés en general, els moments de participació de la ciutadania i d’altres aspectes clau per a una correcta participació</p>
+        <% if large %>
+        <ul>
+          <li>A través de les Sessions Informatives organitzades als 6 Centres Cívics de la ciutat s’explicarà el procés en general, els moments de participació de la ciutadania i d’altres aspectes clau per a una correcta participació</li>
+          <li>A través de les Sessions Informatives organitzades als 6 Centres Cívics de la ciutat s’explicarà el procés en general, els moments de participació de la ciutadania i d’altres aspectes clau per a una correcta participació</li>
+          <li>A través de les Sessions Informatives organitzades als 6 Centres Cívics de la ciutat s’explicarà el procés en general, els moments de participació de la ciutadania i d’altres aspectes clau per a una correcta participació</li>
+        </ul>
+        <% end %>
+      </div>
+      <% if large %>
+      <div class="floating-helper__bottom">
+        <a href="#" class="floating-helper__link">Piú informazione</a>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="floating-helper__content-close" data-toggle="floating-helper-block floating-helper-tip">
+    <%= icon "x", class: "icon--small" %>
+  </div>
+</div>
