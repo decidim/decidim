@@ -108,77 +108,36 @@ shared_examples "manage projects" do |options|
   end
 
   context "when creating a new project" do
-    if options == :total_budget
-      context "when voting by budget" do
-        it "creates a new project", :slow do
-          find(".card-title a.button").click
+    it "creates a new project", :slow do
+      find(".card-title a.button").click
 
-          within ".new_project" do
-            fill_in_i18n(
-              :project_title,
-              "#project-title-tabs",
-              en: "My project",
-              es: "Mi proyecto",
-              ca: "El meu projecte"
-            )
-            fill_in_i18n_editor(
-              :project_description,
-              "#project-description-tabs",
-              en: "A longer description",
-              es: "Descripción más larga",
-              ca: "Descripció més llarga"
-            )
-            fill_in :project_budget, with: 22_000_000
+      within ".new_project" do
+        fill_in_i18n(
+          :project_title,
+          "#project-title-tabs",
+          en: "My project",
+          es: "Mi proyecto",
+          ca: "El meu projecte"
+        )
+        fill_in_i18n_editor(
+          :project_description,
+          "#project-description-tabs",
+          en: "A longer description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+        fill_in :project_budget, with: 22_000_000
 
-            scope_pick select_data_picker(:project_decidim_scope_id), scope
-            select translated(category.name), from: :project_decidim_category_id
+        scope_pick select_data_picker(:project_decidim_scope_id), scope
+        select translated(category.name), from: :project_decidim_category_id
 
-            find("*[type=submit]").click
-          end
-
-          expect(page).to have_admin_callout("successfully")
-
-          within "table" do
-            expect(page).to have_content("My project")
-          end
-        end
+        find("*[type=submit]").click
       end
-    end
 
-    if options == :total_projects
-      context "when voting by projects" do
-        it "creates a new project", :slow do
-          find(".card-title a.button").click
+      expect(page).to have_admin_callout("successfully")
 
-          within ".new_project" do
-            fill_in_i18n(
-              :project_title,
-              "#project-title-tabs",
-              en: "My project",
-              es: "Mi proyecto",
-              ca: "El meu projecte"
-            )
-            fill_in_i18n_editor(
-              :project_description,
-              "#project-description-tabs",
-              en: "A longer description",
-              es: "Descripción más larga",
-              ca: "Descripció més llarga"
-            )
-            fill_in :project_budget, with: 22_000_000
-
-            scope_pick select_data_picker(:project_decidim_scope_id), scope
-            select translated(category.name), from: :project_decidim_category_id
-
-            find("*[type=submit]").click
-          end
-
-          expect(page).to have_admin_callout("successfully")
-
-          within "table" do
-            expect(page).to have_content("My project")
-          end
-        end
+      within "table" do
+        expect(page).to have_content("My project")
       end
     end
   end
