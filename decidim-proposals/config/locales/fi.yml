@@ -2,12 +2,12 @@ fi:
   activemodel:
     attributes:
       collaborative_draft:
-        body: Leipäteksti
+        body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
         state: Tila
-        title: Otsikko
+        title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
       proposal:
         answer: Vastaus
@@ -17,7 +17,7 @@ fi:
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
         state: Tila
-        title: Otsikko
+        title: Ehdotuksen nimi
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
@@ -439,7 +439,7 @@ fi:
             published_at: Julkaistu
             scope: Teema
             state: Tila
-            title: Otsikko
+            title: Kuvan tai liitteen otsikko
             votes: Äänet
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
