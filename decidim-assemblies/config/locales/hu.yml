@@ -75,6 +75,9 @@ hu:
         other: Gyűlés felhasználóinak szerepe
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: Hiba történt az új gyűlés létrehozása során.

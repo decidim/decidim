@@ -282,11 +282,6 @@ pl:
           notification_title: Komponent %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: Zmieniono <a href="%{resource_url}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
@@ -496,7 +491,6 @@ pl:
         error: Wystąpił błąd podczas tworzenia raportu. Proszę spróbować ponownie.
         success: Raport został utworzony z powodzeniem i zostanie poddany przeglądowi przez administratora.
     scopes:
-      global: Zakres globalny
       picker:
         cancel: Anuluj
         choose: Wybierz

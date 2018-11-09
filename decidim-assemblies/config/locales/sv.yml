@@ -76,6 +76,9 @@ sv:
         other: Mötesanvändarroller
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: Det uppstod ett fel när ett nytt möte skulle skapas.

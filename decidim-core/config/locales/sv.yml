@@ -272,11 +272,6 @@ sv:
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
@@ -486,7 +481,6 @@ sv:
         error: Ett fel uppstod när rapporten skapades. Vänligen försök igen.
         success: Rapporten har skapats framgångsrikt och den kommer att granskas av en administratör.
     scopes:
-      global: Global omfattning
       picker:
         cancel: Avbryt
         choose: Välj

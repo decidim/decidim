@@ -90,6 +90,10 @@ ca:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -288,8 +292,13 @@ ca:
           proposals_count:
             one: 1 proposta
             other: "%{count} propostes"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Enrere
+          not_geocoded: Not geocoded
           select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Editar proposta
@@ -340,13 +349,18 @@ ca:
           most_voted: Ha rebut més suports
           random: Aleatori
           recent: Recent
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Modifica la proposta
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Podràs editar aquesta proposta durant el primer minut després de publicar la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
@@ -433,3 +447,5 @@ ca:
       included_proposals:
         proposal_project: 'Proposta formulada en aquests projectes:'
         proposal_result: 'La proposta apareix en aquests resultats:'
+    scopes:
+      global: Global scope

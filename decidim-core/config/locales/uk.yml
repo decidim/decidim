@@ -282,11 +282,6 @@ uk:
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: З <a href="%{resource_path}">%{resource_title}</a> відбулася подія.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: Сторінка <a href="%{resource_url}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
@@ -496,7 +491,6 @@ uk:
         error: Під час створення скарги сталася помилка. Будь ласка, спробуйте зробити це знову.
         success: Скарга була успішно створена, і вона буде розглянута адміністратором.
     scopes:
-      global: Всеохопний обсяг
       picker:
         cancel: Скасувати
         choose: Оберіть

@@ -93,7 +93,16 @@ uk:
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування увімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
@@ -292,8 +301,13 @@ uk:
             few: "%{count} пропозиції"
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Повернутись
+          not_geocoded: Not geocoded
           select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
           title: Редагувати пропозицію
@@ -346,8 +360,12 @@ uk:
           most_voted: Отримали найбільше голосів
           random: Довільно
           recent: Нещодавні
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Внести зміни в пропозицію
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Ви зможете редагувати цю пропозицію протягом першої хвилини після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
             few: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
@@ -355,6 +373,7 @@ uk:
             other: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
           publish: Оприлюднити
           title: Оприлюднити свою пропозицію
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Внесено: %{date}'
           view_proposal: Переглянути пропозицію
@@ -386,6 +405,12 @@ uk:
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати
           votes_blocked: Голосування вимкнене
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: ГОЛОС
@@ -394,6 +419,12 @@ uk:
             other: ГОЛОСІВ
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати понад %{limit} людей
@@ -433,3 +464,5 @@ uk:
       included_proposals:
         proposal_project: 'Пропозиція згадується в таких проектах:'
         proposal_result: 'Пропозиція є в таких підсумках:'
+    scopes:
+      global: Global scope

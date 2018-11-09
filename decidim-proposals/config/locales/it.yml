@@ -90,6 +90,10 @@ it:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -288,8 +292,13 @@ it:
           proposals_count:
             one: 1 proposta
             other: "%{count} proposte"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Indietro
+          not_geocoded: Not geocoded
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta
@@ -340,13 +349,18 @@ it:
           most_voted: Più votate
           random: A caso
           recent: le più recenti
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Modifica la proposta
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
             other: Sarai in grado di modificare questa proposta durante il primo %{count} pochi minuti dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
           publish: Pubblicare
           title: Pubblica la tua proposta
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
@@ -433,3 +447,5 @@ it:
       included_proposals:
         proposal_project: 'Le proposte compaiono nei seguenti progetti:'
         proposal_result: 'Le proposte compaiono nei seguenti risultati:'
+    scopes:
+      global: Global scope

@@ -76,6 +76,9 @@ fi:
         other: Kehitysryhmän käyttäjäroolit
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: Virhe luotaessa uutta kehitysryhmää.

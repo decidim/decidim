@@ -19,6 +19,7 @@ it:
         participatory_process_group_id: Gruppo di processi
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
+        private_space: Espace privé
         promoted: Promossa
         published_at: Pubblicato a
         scope_id: Objetivos
@@ -69,6 +70,8 @@ it:
         duplicate: Duplica
         edit: Modifica
         new: Nuovo
+        participatory_process:
+          new: new participatory process
         preview: Anteprima
         publish: Pubblica
         resend_invitation: Manda di nuovo l'invito

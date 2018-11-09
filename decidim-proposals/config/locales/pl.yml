@@ -98,6 +98,10 @@ pl:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -298,8 +302,13 @@ pl:
             many: "%{count} propozycje"
             one: 1 propozycja
             other: "%{count} propozycje"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Plecy
+          not_geocoded: Not geocoded
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Edytuj propozycję
@@ -352,8 +361,12 @@ pl:
           most_voted: Większość głosów
           random: Losowy
           recent: Niedawny
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Zmodyfikuj propozycję
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
@@ -361,6 +374,7 @@ pl:
             other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
@@ -451,3 +465,5 @@ pl:
       included_proposals:
         proposal_project: 'Propozycja występująca w tych projektach:'
         proposal_result: 'Propozycja pojawiająca się w tych wynikach:'
+    scopes:
+      global: Global scope

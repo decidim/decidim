@@ -282,11 +282,6 @@ ru:
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
-      proposal_created:
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
       users:
         profile_updated:
           email_intro: Страница <a href="%{resource_url}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
@@ -496,7 +491,6 @@ ru:
         error: При попытке создать жалобу произошла ошибка. Повторите, пожалуйста, попытку.
         success: Жалоба была успешно создана, и она будет рассмотрена администратором.
     scopes:
-      global: Всеобщий охват
       picker:
         cancel: Отменить
         choose: Выбрать

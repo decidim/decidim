@@ -90,6 +90,10 @@ es-PY:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -288,8 +292,13 @@ es-PY:
           proposals_count:
             one: 1 propuesta
             other: "%{count} propuestas"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Volver
+          not_geocoded: Not geocoded
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
@@ -340,13 +349,18 @@ es-PY:
           most_voted: Más votado
           random: Aleatorio
           recent: Reciente
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Modificar la propuesta
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la misma. Una vez que pase este tiempo, ya no podrás editarla.
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver propuesta
@@ -433,3 +447,5 @@ es-PY:
       included_proposals:
         proposal_project: 'Propuesta formulada en estos proyectos:'
         proposal_result: 'Propuesta formulada en estos resultados:'
+    scopes:
+      global: Global scope

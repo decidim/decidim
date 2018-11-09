@@ -90,6 +90,10 @@ pt:
     events:
       proposal_created:
         email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
         notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
         url: 'Comment''s url : %{resource_url}'
       proposals:
@@ -288,8 +292,13 @@ pt:
           proposals_count:
             one: 1 proposta
             other: "%{count} propostas"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Voltar
+          not_geocoded: Not geocoded
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -340,13 +349,18 @@ pt:
           most_voted: Mais votados
           random: Aleatória
           recent: Recente
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Modificar a proposta
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Você poderá editar esta proposta durante o primeiro minuto após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
             other: Você poderá editar esta proposta durante o primeiro %{count} minutos após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
           publish: Publicar
           title: Publique sua proposta
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
@@ -433,3 +447,5 @@ pt:
       included_proposals:
         proposal_project: 'Proposta que aparece nesses projetos:'
         proposal_result: 'Proposta que aparece nesses resultados:'
+    scopes:
+      global: Global scope

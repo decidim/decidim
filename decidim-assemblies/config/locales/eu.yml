@@ -76,6 +76,9 @@ eu:
         other: Batzar erabiltzailearen rolak
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.

@@ -15,6 +15,7 @@ nl:
         description: Beschrijving
         file: Bestand
         title: Titel
+        weight: Rang d'affichage
       attachment_collection:
         description: Beschrijving
         name: Naam

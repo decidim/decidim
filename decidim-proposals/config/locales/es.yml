@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -282,8 +283,13 @@ es:
           proposals_count:
             one: 1 propuesta
             other: "%{count} propuestas"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Atrás
+          not_geocoded: Not geocoded
           select_a_category: Por favor, selecciona una categoría
           send: Enviar
           title: Editar propuesta
@@ -334,13 +340,18 @@ es:
           most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Modificar la propuesta
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la misma. Una vez que pase este tiempo, ya no podrás editarla.
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
@@ -415,3 +426,5 @@ es:
       included_proposals:
         proposal_project: 'Propuesta formulada en estos proyectos:'
         proposal_result: 'Propuesta formulada en estos resultados:'
+    scopes:
+      global: Global scope

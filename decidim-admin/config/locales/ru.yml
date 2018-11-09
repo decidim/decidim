@@ -15,6 +15,7 @@ ru:
         description: Описание
         file: Прикрепленный файл
         title: Название
+        weight: Rang d'affichage
       attachment_collection:
         description: Описание
         name: Название
