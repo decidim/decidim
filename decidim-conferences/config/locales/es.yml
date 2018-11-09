@@ -156,7 +156,7 @@ es:
           info: Información
           media_links: Enlaces multimedia
           moderations: Moderaciones
-          partners: Fogonadura
+          partners: Colaboradores
           registration_types: Tipos de inscripción
           registrations: Inscripciones
           user_registrations: Inscripciones de usuario
@@ -195,7 +195,7 @@ es:
             logo: Logo
             name: Nombre
             partner_type: Tipo
-          name: Compañero
+          name: Colaborador
           types:
             collaborator: Colaborador
             main_promotor: Promotor principal
@@ -209,19 +209,19 @@ es:
           name: Tipo de inscripción
       partners:
         create:
-          error: Hubo un error al añadir un socio a esta conferencia.
-          success: Se ha añadido con éxito un socio a esta conferencia.
+          error: Se ha producido un error al añadir un colaborador a esta jornada.
+          success: Se ha añadido correctamente un colaborador a esta jornada.
         destroy:
-          success: Socio eliminado con éxito de esta conferencia.
+          success: Colaborador eliminado correctamente de esta jornada.
         edit:
-          title: Actualizar socio.
+          title: Actualizar colaborador.
           update: Actualizar
         new:
           create: Crear
-          title: Nuevo compañero
+          title: Nuevo colaborador
         update:
-          error: Hubo un error al actualizar un socio de esta conferencia.
-          success: Socio actualizado con éxito en esta conferencia.
+          error: Se ha producido un error al actualizar un colaborador de esta jornada.
+          success: Colaborador actualizado correctamente en esta jornada.
       registration_type_publications:
         create:
           error: Se ha producido un error al publicar este tipo de registro.
@@ -332,7 +332,7 @@ es:
             join: Únete a la conferencia '%{conference_title}'
         partners:
           index:
-            title: Fogonadura
+            title: Colaboradores
         registration_types:
           form:
             select_conference_meetings: Seleccionar los encuentros de la conferencia
@@ -397,7 +397,7 @@ es:
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Inscribirte a la conferencia:'
-          register: Registro
+          register: Inscripciones
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
@@ -533,7 +533,7 @@ es:
           take_part: Participar
       conferences_nav:
         conference_menu_item: Información
-        conference_partners_menu_item: Fogonadura
+        conference_partners_menu_item: Colaboradores
         conference_speaker_menu_item: Ponentes
         media: Multimedia
         venues: Sedes
