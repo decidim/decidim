@@ -156,7 +156,7 @@ ca:
           info: Info
           media_links: Enllaços multimedia
           moderations: Moderacions
-          partners: Socis
+          partners: Col·laboradors
           registration_types: Tipus de registre
           registrations: Inscripcions
           user_registrations: Registre d'usuaris
@@ -195,7 +195,7 @@ ca:
             logo: Logotip
             name: Nom
             partner_type: Escriu
-          name: Soci
+          name: Col·laborador
           types:
             collaborator: Col·laborador
             main_promotor: Promotor principal
@@ -209,19 +209,19 @@ ca:
           name: Tipus de registre
       partners:
         create:
-          error: S'ha produït un error en afegir un soci per a aquesta conferència.
-          success: El soci s'ha afegit amb èxit a aquesta conferència.
+          error: S'ha produït un error en afegir un col·laborador a aquesta jornada.
+          success: El col·laborador s'ha afegit correctament a aquesta jornada.
         destroy:
-          success: El partner s'ha eliminat amb èxit d'aquesta conferència.
+          success: Col·laborador eliminat correctament d'aquesta jornada.
         edit:
-          title: Actualitza partner.
+          title: Actualitzar col·laborador.
           update: Actualitzar
         new:
           create: Crear
-          title: Nou soci
+          title: Nou col·laborador
         update:
-          error: S'ha produït un error en actualitzar un soci per a aquesta conferència.
-          success: Partner s'ha actualitzat amb èxit per a aquesta conferència.
+          error: S'ha produït un error en actualitzar un col·laborador per a aquesta jornada.
+          success: Col·laborador actualitzat correctament per a aquesta jornada.
       registration_type_publications:
         create:
           error: S'ha produït un error en publicar aquest tipus de registre.
@@ -332,7 +332,7 @@ ca:
             join: Uneix-te a la conferència '%{conference_title}'
         partners:
           index:
-            title: Socis
+            title: Col·laboradors
         registration_types:
           form:
             select_conference_meetings: Seleccioneu trobades de la conferència
@@ -533,7 +533,7 @@ ca:
           take_part: Formar part
       conferences_nav:
         conference_menu_item: Informació
-        conference_partners_menu_item: Socis
+        conference_partners_menu_item: Col·laboradors
         conference_speaker_menu_item: Ponents
         media: Mèdia
         venues: Llocs de realització
