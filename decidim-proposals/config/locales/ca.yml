@@ -535,7 +535,7 @@ ca:
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_list: Llista d'adhesions
+          endorsements_list: Llistat d'adhesions
           hidden_endorsers_count:
             one: i 1 persona més
             other: i %{count} persones més
