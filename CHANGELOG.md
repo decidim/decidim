@@ -15,7 +15,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Added**:
 
-- **decidim-budgets**: Re-introduce vote on budget by number of project.[\#247](https://github.com/OpenSourcePolitics/decidim/pull/247)
+- **decidim-budgets**: Re-introduce vote on budget by number of project.[\#330](https://github.com/OpenSourcePolitics/decidim/pull/330)
 - **decidim-debates**: Allow debates to be reported [\#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
 - **decidim-proposals**: Allow proposals location to be changed on a map [\#296](https://github.com/OpenSourcePolitics/decidim/pull/296)
 - **decidim-participatory_processes**: Ability to order processes in the back-office [#189](https://github.com/OpenSourcePolitics/decidim/pull/189)
