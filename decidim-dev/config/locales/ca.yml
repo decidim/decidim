@@ -25,7 +25,7 @@ ca:
     pages:
       home:
         statistics:
-          bar: Bar
+          bar: Barra
           dummies_count_high: Fals alt
           dummies_count_medium: Fals mitjà
           foo: Foo

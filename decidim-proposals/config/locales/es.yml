@@ -618,5 +618,5 @@ es:
       included_projects:
         project_result: 'Resultados que aparecen en este proyecto:'
       included_proposals:
-        proposal_project: 'Propuesta formulada en estos proyectos:'
-        proposal_result: 'Propuesta formulada en estos resultados:'
+        proposal_project: 'Propuesta vinculada a estos proyectos:'
+        proposal_result: 'Propuesta vinculada a estos resultados:'

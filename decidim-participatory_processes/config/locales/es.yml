@@ -309,10 +309,10 @@ es:
             no_active_nor_upcoming: Sin procesos activos ni futuros
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           names:
-            active: Activa
+            active: Activar
             all: Todos
-            past: Pasadas
-            upcoming: Próximas
+            past: Pasados
+            upcoming: Próximos
           see: Ver
         index:
           loading: Cargando resultados...
