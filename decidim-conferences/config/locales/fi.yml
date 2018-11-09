@@ -243,7 +243,7 @@ fi:
           title: Uusi ilmoittautumistyyppi
         update:
           error: Tapahtui virhe päivitettäessä tämän konferenssin ilmoittautumistyyppiä.
-          success: Rekisteröintityyppi päivitettiin onnistuneesti tähän konferenssiin.
+          success: Konferenssin ilmoittautumistyyppi päivitettiin onnistuneesti.
       titles:
         conferences: Konferenssit
     admin_log:
@@ -262,13 +262,13 @@ fi:
         update: "%{user_name} muutti %{resource_name} roolia konferenssissa %{space_name}"
       conferences:
         conference_registration:
-          confirm: "%{user_name} vahvisti konferenssin rekisteröinnin %{resource_name} konferenssissa"
+          confirm: "%{user_name} vahvisti konferenssin %{resource_name} ilmoittautumisen"
         partner:
-          create: "%{user_name} luonut %{resource_name} konferenssiin %{space_name}"
-          delete: "%{user_name} poistaa käyttäjän %{resource_name} %{space_name} konferenssista"
+          create: "%{user_name} loi %{resource_name} konferenssiin %{space_name}"
+          delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
           update: "%{user_name} päivitti %{resource_name} konferenssiin %{space_name}"
         registration_type:
-          create: "%{user_name} loi %{resource_name} rekisteröintityypin %{space_name} konferenssiin"
+          create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
           publish: "%{user_name} julkaisi %{resource_name} rekisteröintityyppiä %{space_name} konferenssissa"
           unpublish: "%{user_name} julkaisematon %{resource_name} rekisteröintityyppi %{space_name} konferenssissa"
           update: "%{user_name} päivitti %{resource_name} rekisteröintityyppiä %{space_name} konferenssiin"
