@@ -40,7 +40,7 @@ module Decidim
             orientation: "Landscape"
           )
 
-          attachments["conference-#{@user.nickname}-diploma.pdf"] = diploma
+          attachments["conference-#{@user.nickname.parameterize}-diploma.pdf"] = diploma
         end
       end
     end

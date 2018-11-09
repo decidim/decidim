@@ -252,8 +252,10 @@ en:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
         publish: "%{user_name} published the %{resource_name} conference"
+        send_conference_diplomas: "%{user_name} send diplomas to the %{resource_name} conference users"
         unpublish: "%{user_name} unpublished the %{resource_name} conference"
         update: "%{user_name} updated the %{resource_name} conference"
+        update_diploma: "%{user_name} updated the diploma configuration %{resource_name} conference"
       conference_speaker:
         create: "%{user_name} created the %{resource_name} speaker in the %{space_name} conference"
         delete: "%{user_name} removed the %{resource_name} speaker from the %{space_name} conference"
