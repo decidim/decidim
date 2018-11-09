@@ -800,7 +800,7 @@ fi:
         embed_link: Upota
       extended_navigation_bar:
         more: Lisää
-        unfold: avautua
+        unfold: Avaa
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
@@ -827,7 +827,7 @@ fi:
         deleted: Käyttäjä poistettu
     welcome_notification:
       default_body: <p>Hi {{name}}, kiitos liittymisestä {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä täällä, tutustu <a href="{{help_url}}">ohjetta</a> .</li><li>Kun olet lukenut sen, saat ensimmäisen merkkisi. Tässä on <a href="{{badges_url}}">lista kaikista tunnisteista</a> joita voit osallistua osallistumiseen. {{organization_name}}</li><li>Viimeksi mutta ei vähäisimpänä, liittykää toisiin ihmisiin, jaa heidän kanssaan kokemuksen osallistumisesta ja osallistumisesta {{organization}}. Tee ehdotuksia, kommentteja, keskustele, mieti, miten edistää yhteistä hyvää, anna argumentteja vakuuttaa, kuunnella ja lukea vakuuttuneiksi, ilmaista ideoita konkreettisella ja suoralla tavalla, vastata kärsivällisesti ja päättäväisesti, puolustaa ajatuksiasi ja pitää avoin mieli tehdä yhteistyötä ja liittyä muiden ihmisten ideoihin.</li></ul>
-      default_subject: Kiitos liittymisestä {{organization}}!
+      default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
   devise:
     confirmations:
       confirmed: Sähköpostiosoitteesi on vahvistettu.
