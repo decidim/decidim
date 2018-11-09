@@ -99,7 +99,7 @@ describe "Initiative", type: :system do
         end
 
         it "Similar initiatives view is shown" do
-          expect(page).to have_content("COMPARE")
+          expect(page).to have_content("Compare")
         end
 
         it "Offers contextual help" do
@@ -128,7 +128,7 @@ describe "Initiative", type: :system do
         end
 
         it "Create view is shown" do
-          expect(page).to have_content("CREATE")
+          expect(page).to have_content("Create")
         end
 
         it "Offers contextual help" do
@@ -162,7 +162,7 @@ describe "Initiative", type: :system do
         end
 
         it "shows the promoter committee" do
-          expect(page).to have_content("PROMOTER COMMITTEE")
+          expect(page).to have_content("Promoter committee")
         end
 
         it "Offers contextual help" do
@@ -198,7 +198,7 @@ describe "Initiative", type: :system do
         end
 
         it "finish view is shown" do
-          expect(page).to have_content("FINISH")
+          expect(page).to have_content("Finish")
         end
 
         it "Offers contextual help" do

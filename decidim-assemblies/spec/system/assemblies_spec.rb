@@ -145,7 +145,7 @@ describe "Assemblies", type: :system do
     it_behaves_like "editable content for admins"
 
     it "shows the details of the given assembly" do
-      within "div.wrapper" do
+      within "main" do
         expect(page).to have_content(translated(assembly.title, locale: :en))
         expect(page).to have_content(translated(assembly.subtitle, locale: :en))
         expect(page).to have_content(translated(assembly.description, locale: :en))
