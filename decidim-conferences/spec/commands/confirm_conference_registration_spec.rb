@@ -13,7 +13,7 @@ module Decidim::Conferences
     let!(:current_user) { create :conference_admin, conference: conference }
     let!(:registration_type) { create :registration_type, conference: conference }
     let(:user) { create :user, :confirmed, organization: organization }
-    let!(:conference_registration) { create :conference_registration, :un_confirmed, conference: conference, registration_type: registration_type, user: user }
+    let!(:conference_registration) { create :conference_registration, :unconfirmed, conference: conference, registration_type: registration_type, user: user }
 
     context "when everything is ok" do
       it "broadcasts ok" do
