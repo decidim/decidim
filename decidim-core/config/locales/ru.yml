@@ -361,18 +361,6 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
-    invitations:
-      create:
-        error: При попытке пригласить ваших друзей произошли ошибки
-        error_empty_form: Пожалуйста, введите несколько адресов электронной почты
-        success: Мы отправили приглашения вашим друзьям!
-      index:
-        customize_message: Настроить текст приглашения
-        friend_email: 'Друг #%{index} email'
-        invitations_subtitle: Пусть ваши друзья узнают об этом сайте
-        invitations_title: Как вы думаете, больше голосов должно быть услышано в %{organization_name}?
-        invite: Пригласить
-        visit_your_profile: Посетите свой профиль
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -396,7 +384,6 @@ ru:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
-      more_information: Дополнительные сведения
     messaging:
       conversation_mailer:
         new_conversation:
@@ -504,8 +491,6 @@ ru:
           votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться
-      index:
-        title: Дополнительные сведения
       terms_and_conditions:
         accept:
           error: При принятии условий участия произошла ошибка.
@@ -620,7 +605,6 @@ ru:
         ignore: |-
           Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой псевдоним и пароль.
         invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это приглашение по ссылке ниже."
-        invited_you_as_friend: "%{invited_by} пригласил вас в %{application}."
         invited_you_as_private_user: "%{invited_by} пригласил вас в качестве частного участника %{application}. Вы можете принять это приглашение по ссылке ниже."
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
@@ -629,10 +613,6 @@ ru:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
         subject: Вы пригласили к сотрудничеству в %{organization}
-      invite_friend:
-        accept_invitation: 'Вы можете принять приглашение по ссылке ниже:'
-        friend_custom_text: 'Вам передали такое сообщение:'
-        subject: Вас пригласили в %{organization}
       invite_private_user:
         subject: Вас пригласили в частное движение соучастия от %{organization}
       organization_admin_invitation_instructions:
@@ -682,7 +662,6 @@ ru:
       user_menu:
         admin_dashboard: Панель управления администратора
         conversations: Беседы
-        invite_friends: Пригласить друзей
         notifications: Уведомления
         profile: Моя учетная запись
         public_profile: Мой общедоступный профиль

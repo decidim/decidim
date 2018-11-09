@@ -297,6 +297,10 @@ fi:
         minutes:
           create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
           update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
+      calendar_modal:
+        calendar_url: Kalenteri-URL
+        close_window: Sulje ikkuna
+        export_calendar: Vie kalenteri
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_events:

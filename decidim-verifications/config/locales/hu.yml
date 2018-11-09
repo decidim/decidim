@@ -133,6 +133,20 @@ hu:
           update:
             error: Az ellenőrző kód nem egyezik a miénkkel. Kérlek, nézd át mégegyszer az elküldött levelet
             success: Gratulálunk. Az ellenőrzésed sikeres volt
+      sms:
+        authorizations:
+          create:
+            error: Probléma volt a kéréssel
+            success: Kösz! SMS-t küldtünk telefonjára.
+          edit:
+            send: megerősít
+            title: Vigye be a kapott ellenőrző kódot
+          new:
+            send: Küldj nekem egy SMS-t
+            title: Kérjen ellenőrző kódot
+          update:
+            error: Az ellenőrző kód nem egyezik a miénk. Kérjük, ellenőrizze az SMS-t, amit elküldtek.
+            success: Gratulálunk. Sikeresen ellenőrizte.
   errors:
     messages:
       uppercase_only_letters_numbers: kizárólag nagybetűt és/vagy számokat használhatsz

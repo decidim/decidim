@@ -32,21 +32,34 @@ module Decidim
         def split_proposals
           transaction do
             form.proposals.flat_map do |original_proposal|
+              # If copying to the same component we only need one copy
+              # but linking to the original proposal links, not the
+              # original proposal.
               create_proposal(original_proposal)
-              create_proposal(original_proposal)
+              create_proposal(original_proposal) unless form.same_component?
             end
           end
         end
 
         def create_proposal(original_proposal)
-          Decidim::Proposals::ProposalBuilder.copy(
+          split_proposal = Decidim::Proposals::ProposalBuilder.copy(
             original_proposal,
             author: form.current_organization,
             action_user: form.current_user,
             extra_attributes: {
               component: form.target_component
-            }
+            },
+            skip_link: true
           )
+
+          proposals_to_link = links_for(original_proposal)
+          split_proposal.link_resources(proposals_to_link, "copied_from_component")
+        end
+
+        def links_for(proposal)
+          return proposal unless form.same_component?
+
+          proposal.linked_resources(:proposals, "copied_from_component")
         end
       end
     end

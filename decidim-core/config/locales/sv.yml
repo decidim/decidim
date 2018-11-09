@@ -163,6 +163,9 @@ sv:
           foo: foo
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
+      sms:
+        explanation: Skicka ditt mobilnummer så att vi kan kontrollera din identitet.
+        name: Kod via SMS
       started_at: Börjat vid %{timestamp}
     authorization_modals:
       show:
@@ -553,18 +556,6 @@ sv:
       update:
         error: Det har förekommit ett problem med att uppdatera gruppen
         success: Gruppen uppdaterades
-    invitations:
-      create:
-        error: Det blev några problem när du bjöd in dina vänner
-        error_empty_form: Vänligen ange några e-postadresser
-        success: Vi har skickat inbjudningarna till dina vänner!
-      index:
-        customize_message: Anpassa inbjudningsmeddelandet
-        friend_email: 'Vän #%{index} e-post'
-        invitations_subtitle: Låt dina vänner veta om den här webbplatsen
-        invitations_title: Tycker du att fler röster ska höras i %{organization_name}?
-        invite: Bjud in
-        visit_your_profile: Besök din profil
     last_activities:
       activities:
         no_activities_warning: Ingen aktivitet
@@ -596,8 +587,8 @@ sv:
     members:
       no_members: Denna användargrupp har inga medlemmar.
     menu:
+      help: Hjälp
       home: Hem
-      more_information: Mer information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +704,11 @@ sv:
         sub_hero:
           register: Registrera dig
       index:
-        title: Mer information
+        read_more: Läs mer
+        standalone_pages: sidor
+        subheading: Navigera genom hjälpsidorna till %{name}
+        title: Hjälp
+        topics: ämnen
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.
@@ -827,6 +822,9 @@ sv:
         share_link: Dela länk
       version_author:
         deleted: Raderad användare
+    welcome_notification:
+      default_body: <p>Hej {{name}}tack för att du gick med {{organization}} och välkommen!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">Help</a> sektionen.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få när du deltar i {{organization_name}}</li><li>Sist men inte minst, gå med andra, dela med dig erfarenheten av att vara förlovad och delta i {{organization}}. Gör förslag, kommentarer, debatt, fundera över hur man bidrar till det gemensamma bästa, ge argument för att övertyga, lyssna och läsa för att vara övertygad, uttrycka dina idéer på ett konkret och direkt sätt, svara med tålamod och beslut, försvara dina idéer och behåll ett öppet sinne för att samarbeta och gå med andra människors idéer.</li></ul>
+      default_subject: Tack för att du gick med {{organization}}!
   devise:
     confirmations:
       confirmed: Din e-postadress har bekräftats.
@@ -878,7 +876,6 @@ sv:
           Om du inte vill acceptera inbjudan, ignorerar du detta e-postmeddelande.<br />
           Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt smeknamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
-        invited_you_as_friend: "%{invited_by} har bjudit in dig till %{application}."
         invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
@@ -888,10 +885,6 @@ sv:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
-      invite_friend:
-        accept_invitation: 'Du kan acceptera inbjudan via länken nedan:'
-        friend_custom_text: 'De lämnade det här meddelandet för dig:'
-        subject: Du har blivit inbjuden till %{organization}
       invite_private_user:
         subject: Du har blivit inbjuden till en privat deltagandeprocess på %{organization}
       organization_admin_invitation_instructions:
@@ -1024,7 +1017,6 @@ sv:
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
-        invite_friends: Bjud in vänner
         notifications: Notiser
         profile: Mitt konto
         public_profile: Min offentliga profil
@@ -1050,7 +1042,7 @@ sv:
     password_not_allowed: är ej tillåtet
     password_too_common: är för vanligt
     password_too_long: är för lång
-    password_too_short: är för kort
+    password_too_short: är för kort (minimum är 10 tecken)
   social_share_button:
     delicious: Delicious
     douban: Douban

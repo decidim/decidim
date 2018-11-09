@@ -11,7 +11,7 @@ module Decidim
       let(:user) { create(:user, organization: organization) }
       let(:participatory_process) { create(:participatory_process, organization: organization) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-      let(:question) { create(:question, questionnaire: questionnaire) }
+      let(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
       let(:answer) { create(:answer, questionnaire: questionnaire, question: question, user: user) }
 
       it { is_expected.to be_valid }
@@ -43,13 +43,13 @@ module Decidim
 
       context "when question doesn't belong to the questionnaire" do
         it "is not valid" do
-          subject.question = create(:question)
+          subject.question = create(:questionnaire_question)
           expect(subject).not_to be_valid
         end
       end
 
       context "when question is mandatory" do
-        let(:question) { create(:question, questionnaire: questionnaire, mandatory: true) }
+        let(:question) { create(:questionnaire_question, questionnaire: questionnaire, mandatory: true) }
 
         it "is not valid with an empty body" do
           subject.body = ""

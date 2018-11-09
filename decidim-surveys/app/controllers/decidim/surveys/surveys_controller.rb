@@ -6,6 +6,8 @@ module Decidim
     class SurveysController < Decidim::Surveys::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
 
+      delegate :allow_answers?, to: :current_settings
+
       def questionnaire_for
         survey
       end

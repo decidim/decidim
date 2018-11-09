@@ -297,6 +297,10 @@ nl:
         minutes:
           create: "%{user_name} heeft de minuten van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
           update: "%{user_name} heeft de notulen van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
+      calendar_modal:
+        calendar_url: Agenda-URL
+        close_window: Venster sluiten
+        export_calendar: Kalender exporteren
       conference_venues: Conferentie locaties
       content_blocks:
         upcoming_events:

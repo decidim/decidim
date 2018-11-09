@@ -297,6 +297,10 @@ it:
         minutes:
           create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
+      calendar_modal:
+        calendar_url: URL del calendario
+        close_window: Chiudi la finestra
+        export_calendar: Esporta il calendario
       conference_venues: Sale per conferenze
       content_blocks:
         upcoming_events:

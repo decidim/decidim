@@ -49,7 +49,7 @@ fi:
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
         highlighted_content_banner_action_title: Toimintapainikkeen otsikko
         highlighted_content_banner_action_url: Toimintapainikkeen URL-osoite
-        highlighted_content_banner_enabled: Näytä korostettu sisältöbanneri
+        highlighted_content_banner_enabled: Näytä tärkeä sisältöbanneri
         highlighted_content_banner_image: Kuva
         highlighted_content_banner_short_description: Lyhyt kuvaus
         highlighted_content_banner_title: Otsikko
@@ -82,8 +82,10 @@ fi:
         changed_notably: On tapahtunut huomattavia muutoksia.
         content: Sisältö
         organization: Organisaatio
+        show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
+        weight: Paino
     errors:
       models:
         oauth_application:
@@ -492,7 +494,7 @@ fi:
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           homepage_appearance_title: Muokkaa kotisivun ulkoasua
-          homepage_highlighted_content_banner_title: Korostettu sisältöbanneri
+          homepage_highlighted_content_banner_title: Tärkeä sisältöbanneri
           layout_appearance_title: Muokkaa sivupohjan ulkoasua
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
       organization_homepage:
@@ -507,7 +509,7 @@ fi:
           error: Yksityisen käyttäjän lisäämisessä tähän osallistumistilaan tapahtui virhe.
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
         destroy:
-          error: Tapahtuma-alueen yksityisen käyttäjän poistaminen tapahtui virheestä.
+          error: Tapahtui virhe poistettaessa osallistumistilan yksityistä käyttäjää.
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
         index:
           title: Osallistumistilan yksityinen käyttäjä
@@ -545,6 +547,21 @@ fi:
         update:
           error: Tämän teeman päivityksessä tapahtui virhe.
           success: Teema päivitetty onnistuneesti
+      static_page_topics:
+        create:
+          error: Uuden aiheen luomisessa tapahtui virhe.
+          success: Aihe luotiin onnistuneesti.
+        destroy:
+          success: Aihe tuhottu onnistuneesti
+        edit:
+          title: Muokkaa aihetta
+          update: Päivitä aihe
+        new:
+          create: Luo aihe
+          title: Uusi aihe
+        update:
+          error: Tämän aiheen päivittämisessä tapahtui virhe.
+          success: Aihe päivitettiin onnistuneesti
       static_pages:
         actions:
           view: Näytä julkinen sivu
@@ -557,11 +574,18 @@ fi:
           changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään uudet käyttöehdot.
           title: Muokkaa sivua
           update: Päivitä
+        form:
+          none: Ei mitään
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:
-          create: Luo
+          create: Luo sivu
           title: Uusi sivu
+        topic:
+          destroy: Poista aihe
+          edit: Muokkaa aihetta
+          empty: Tämän aiheen alla ei ole sivuja
+          without_topic: Sivut ilman aihetta
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivu päivitetty onnistuneesti

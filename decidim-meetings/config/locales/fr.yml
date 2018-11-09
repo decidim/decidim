@@ -297,6 +297,10 @@ fr:
         minutes:
           create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+      calendar_modal:
+        calendar_url: URL du calendrier
+        close_window: Fermer la fenêtre
+        export_calendar: Calendrier d'exportation
       conference_venues: Salles de conférence
       content_blocks:
         upcoming_events:

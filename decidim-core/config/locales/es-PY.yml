@@ -163,6 +163,9 @@ es-PY:
           foo: Foo
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
+      sms:
+        explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
+        name: Código por SMS
       started_at: Comenzó el %{timestamp}
     authorization_modals:
       show:
@@ -553,18 +556,6 @@ es-PY:
       update:
         error: Ha habido un problema al actualizar el grupo.
         success: Grupo actualizado exitosamente
-    invitations:
-      create:
-        error: Hubo algunos problemas al invitar a tus amigos
-        error_empty_form: Por favor introduce algunas direcciones de correo electrónico.
-        success: '¡Hemos enviado las invitaciones a tus amigos!'
-      index:
-        customize_message: Personaliza el mensaje de invitación
-        friend_email: 'Correo del amigo #%{index}'
-        invitations_subtitle: Haz saber a tus amigos sobre este sitio.
-        invitations_title: '¿Crees que se deberían escuchar más voces en %{organization_name}?'
-        invite: Invitación
-        visit_your_profile: Visita tu perfil
     last_activities:
       activities:
         no_activities_warning: Ninguna actividad
@@ -596,8 +587,8 @@ es-PY:
     members:
       no_members: Este grupo de usuarios aún no tiene ningún miembro.
     menu:
+      help: Ayuda
       home: Inicio
-      more_information: Más información
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +704,11 @@ es-PY:
         sub_hero:
           register: Regístrate
       index:
-        title: Más información
+        read_more: Lee mas
+        standalone_pages: Páginas
+        subheading: Navega por las páginas de ayuda de %{name}
+        title: Ayuda
+        topics: Los temas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
@@ -827,6 +822,9 @@ es-PY:
         share_link: Compartir enlace
       version_author:
         deleted: Usuario eliminado
+    welcome_notification:
+      default_body: <p>Hola {{name}}, gracias por unirte {{organization}} y bienvenido!</p><ul><li>Si desea obtener una idea rápida de lo que puede hacer aquí, consulte la sección <a href="{{help_url}}">Ayuda</a> .</li><li>Una vez que lo hayas leído, obtendrás tu primera placa. Aquí está un <a href="{{badges_url}}">lista de todas las insignias</a> se puede obtener a medida que participen en el {{organization_name}}</li><li>Por último, pero no menos importante, se une a otras personas, compartir con ellos la experiencia de ser ocupados y participando en {{organization}}. Haga propuestas, comentarios, debate, piense en cómo contribuir al bien común, proporcione argumentos para convencer, escuche y lea para convencerse, exprese sus ideas de manera concreta y directa, responda con paciencia y decisión, defienda sus ideas y mantenga Una mente abierta para colaborar y unirse a las ideas de otras personas.</li></ul>
+      default_subject: Gracias por unirse a {{organization}}!
   devise:
     confirmations:
       confirmed: Su dirección de correo electrónico ha sido confirmada con éxito.
@@ -878,7 +876,6 @@ es-PY:
           Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br />
           Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuario/a y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
-        invited_you_as_friend: "%{invited_by} te ha invitado a %{application}."
         invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
@@ -888,10 +885,6 @@ es-PY:
         subject: Has sido invitado para gestionar %{organization}
       invite_collaborator:
         subject: Has sido invitado a colaborar en %{organization}
-      invite_friend:
-        accept_invitation: 'Puedes aceptar la invitación a través del siguiente enlace:'
-        friend_custom_text: 'Dejaron este mensaje para ti:'
-        subject: Has sido invitado a %{organization}
       invite_private_user:
         subject: Has sido invitado a un proceso privado de participación en %{organization}
       organization_admin_invitation_instructions:
@@ -1024,7 +1017,6 @@ es-PY:
       user_menu:
         admin_dashboard: Tablero de administración
         conversations: Conversaciones
-        invite_friends: Invitar a amigos
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público

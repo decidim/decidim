@@ -297,6 +297,10 @@ sv:
         minutes:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
+      calendar_modal:
+        calendar_url: Kalenderadress
+        close_window: Stäng fönstret
+        export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
         upcoming_events:

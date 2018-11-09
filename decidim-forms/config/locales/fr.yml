@@ -1,0 +1,79 @@
+fr:
+  activemodel:
+    attributes:
+      answer:
+        body: Répondre
+      question:
+        max_choices: Nombre maximum de choix
+        question_type: Type
+      questionnaire_question:
+        mandatory: Obligatoire
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: ne sont pas complets
+              too_many: sont trop nombreux
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: La description
+            tos: Conditions d'utilisation
+        questionnaires:
+          answer_option:
+            answer_option: Option de réponse
+            free_text: Texte libre
+            remove: Retirer
+            statement: Déclaration
+          edit:
+            save: sauvegarder
+            title: Titre
+          form:
+            add_question: Ajouter une question
+            already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
+          question:
+            add_answer_option: Ajouter une option de réponse
+            any: Tout
+            description: La description
+            down: Vers le bas
+            question: Question
+            remove: Retirer
+            statement: Déclaration
+            up: Up
+          update:
+            invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
+            success: Questionnaires sauvegardés avec succès.
+      errors:
+        answer:
+          body: Le corps ne peut pas être vide
+      question_types:
+        long_answer: Longue réponse
+        multiple_option: Option multiple
+        short_answer: Réponse courte
+        single_option: Option unique
+        sorting: Tri
+      questionnaires:
+        answer:
+          invalid: Il y a eu des erreurs en répondant au questionnaire.
+          success: Questionnaire répondu avec succès.
+        question:
+          max_choices: 'Choix maximum: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous</a> pour répondre au questionnaire.
+            title: Répondez au questionnaire
+          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
+          questionnaire_answered:
+            body: Vous avez déjà répondu à ce questionnaire.
+            title: Déjà répondu
+          questionnaire_closed:
+            body: Le questionnaire est fermé et vous ne pouvez pas y répondre.
+            title: Questionnaire fermé
+          questionnaire_for_private_users:
+            body: Le questionnaire est disponible uniquement pour les utilisateurs privés
+            title: Questionnaire fermé
+          submit: Soumettre
+          tos_agreement: En participant, vous acceptez ses conditions d'utilisation

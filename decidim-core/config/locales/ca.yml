@@ -163,6 +163,9 @@ ca:
           foo: Foo
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
+      sms:
+        explanation: Envieu el número de telèfon mòbil per poder comprovar la vostra identitat.
+        name: Codi per SMS
       started_at: Iniciat el %{timestamp}
     authorization_modals:
       show:
@@ -553,18 +556,6 @@ ca:
       update:
         error: S'ha produït un problema en actualitzar el grup
         success: S'ha actualitzat el grup amb èxit
-    invitations:
-      create:
-        error: Hi ha hagut alguns problemes mentre es convidava els teus amics
-        error_empty_form: Introdueix algunes adreces de correu electrònic
-        success: Hem enviat les invitacions als teus amics!
-      index:
-        customize_message: Personalitza el missatge d'invitació
-        friend_email: 'Correu electrònic de l''amic #%{index}'
-        invitations_subtitle: Fes saber als teus amics sobre aquest lloc web
-        invitations_title: Creus que cal escoltar més veus en %{organization_name}?
-        invite: Convidar
-        visit_your_profile: Visiteu el teu perfil
     last_activities:
       activities:
         no_activities_warning: Sense activitat
@@ -596,8 +587,8 @@ ca:
     members:
       no_members: Aquest grup d'usuaris encara no té cap membre.
     menu:
+      help: Ajuda
       home: Inici
-      more_information: Més informació
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +704,11 @@ ca:
         sub_hero:
           register: Registra't
       index:
-        title: Més informació
+        read_more: Llegeix més
+        standalone_pages: Pàgines
+        subheading: Navegueu per les pàgines d'ajuda de %{name}
+        title: Ajuda
+        topics: Temes
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
@@ -827,6 +822,9 @@ ca:
         share_link: Comparteix l'enllaç
       version_author:
         deleted: Usuari eliminat
+    welcome_notification:
+      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvingut!</p><ul><li>Si voleu tenir una idea ràpida del que podeu fer aquí, consulteu la secció de <a href="{{help_url}}">Ajuda</a> .</li><li>Una vegada que l'heu llegit, obtindreu la vostra primera distinció. Aquí teniu una llista de <a href="{{badges_url}}">de totes les xapes</a> que podeu obtenir a mesura que participa en {{organization_name}}</li><li>Finalment, però no menys important, uniu-vos a altres persones, compartiu amb ells l'experiència de participar i participar en {{organization}}. Feu propostes, comentaris, debat, pensi en com contribuir al bé comú, proporcioneu arguments per convèncer, escoltar i llegir per estar convençuts, expressar les vostres idees de manera concreta i directa, respondre amb paciència i decisió, defensar les vostres idees i mantenir-les una ment oberta per col·laborar i unir-se a les idees d'altres persones.</li></ul>
+      default_subject: Gràcies per unir-te a {{organization}}!
   devise:
     confirmations:
       confirmed: La teva adreça de correu electrònic s'ha confirmat correctament.
@@ -878,7 +876,6 @@ ca:
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu nom d'usuari/a i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
-        invited_you_as_friend: "%{invited_by} t'ha convidat a %{application}."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
@@ -888,10 +885,6 @@ ca:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
         subject: Has estat convidat a col·laborar a %{organization}
-      invite_friend:
-        accept_invitation: 'Pots acceptar la invitació a través del següent enllaç:'
-        friend_custom_text: 'T''han deixat aquest missatge:'
-        subject: Has estat convidat a %{organization}
       invite_private_user:
         subject: Has estat convidat a un procés participatiu privat a %{organization}
       organization_admin_invitation_instructions:
@@ -1024,7 +1017,6 @@ ca:
       user_menu:
         admin_dashboard: Tauler d'administració
         conversations: Converses
-        invite_friends: Convidar amics
         notifications: Notificacions
         profile: El meu compte
         public_profile: El meu perfil públic

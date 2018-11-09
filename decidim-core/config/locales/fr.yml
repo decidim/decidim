@@ -163,6 +163,9 @@ fr:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
+      sms:
+        explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
+        name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
       show:
@@ -553,18 +556,6 @@ fr:
       update:
         error: Un problème est survenu lors de la mise à jour du groupe.
         success: Groupe mis à jour avec succès
-    invitations:
-      create:
-        error: Il y a eu un problème en invitant vos amis
-        error_empty_form: Veuillez saisir au moins une adresse email
-        success: Nous avons envoyé les invitations à vos amis !
-      index:
-        customize_message: Personnalisez le message d'invitation
-        friend_email: 'Adresse email #%{index} de votre ami'
-        invitations_subtitle: Faites connaître ce site à vos amis
-        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
-        invite: Inviter
-        visit_your_profile: Consultez votre profil
     last_activities:
       activities:
         no_activities_warning: Aucune activité
@@ -596,8 +587,8 @@ fr:
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
+      help: Aidez-moi
       home: Accueil
-      more_information: Plus d'information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +704,11 @@ fr:
         sub_hero:
           register: S'inscrire
       index:
-        title: Plus d'informations
+        read_more: Lire la suite
+        standalone_pages: Des pages
+        subheading: Naviguer à travers les pages d'aide de %{name}
+        title: Aidez-moi
+        topics: Les sujets
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
@@ -827,6 +822,9 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    welcome_notification:
+      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization_name}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées et conservez un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_subject: Merci d'avoir rejoint {{organization}}!
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.
@@ -878,7 +876,6 @@ fr:
           Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
           Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
-        invited_you_as_friend: "%{invited_by} vous a invité à %{application}."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
@@ -888,10 +885,6 @@ fr:
         subject: Vous avez été invité à gérer %{organization}
       invite_collaborator:
         subject: Vous avez été invité à collaborer sur %{organization}
-      invite_friend:
-        accept_invitation: 'Vous pouvez accepter l''invitation via le lien ci-dessous :'
-        friend_custom_text: 'Ils ont laissé ce message pour vous :'
-        subject: Vous avez été invité à %{organization}
       invite_private_user:
         subject: Vous avez été invité à une assemblée privée sur %{organization}
       organization_admin_invitation_instructions:
@@ -1024,7 +1017,6 @@ fr:
       user_menu:
         admin_dashboard: Tableau de bord des administrateurs
         conversations: Conversations
-        invite_friends: Inviter des amis
         notifications: Notifications
         profile: Mon compte
         public_profile: Mon profil public

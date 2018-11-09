@@ -297,6 +297,10 @@ hu:
         minutes:
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} találkozó jegyzőkönyvét itt: %{space_name}"
+      calendar_modal:
+        calendar_url: Naptár URL
+        close_window: Zárja be az ablakot
+        export_calendar: Export naptár
       conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_events:

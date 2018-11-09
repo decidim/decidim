@@ -305,6 +305,10 @@ pl:
         minutes:
           create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+      calendar_modal:
+        calendar_url: URL kalendarza
+        close_window: Zamknij okno
+        export_calendar: Eksportuj kalendarz
       conference_venues: Sale konferencyjne
       content_blocks:
         upcoming_events:

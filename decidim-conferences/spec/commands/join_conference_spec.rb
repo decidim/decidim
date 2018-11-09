@@ -4,13 +4,14 @@ require "spec_helper"
 
 module Decidim::Conferences
   describe JoinConference do
-    subject { described_class.new(conference, user) }
+    subject { described_class.new(conference, registration_type, user) }
 
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
     let(:organization) { create :organization }
     let!(:conference) { create :conference, organization: organization, registrations_enabled: registrations_enabled, available_slots: available_slots }
     let!(:conference_admin) { create :conference_admin, conference: conference }
+    let!(:registration_type) { create :registration_type, conference: conference }
     let(:user) { create :user, :confirmed, organization: organization }
     let(:participatory_space_admins) { conference.admins }
 
@@ -26,17 +27,13 @@ module Decidim::Conferences
         expect(last_registration.conference).to eq(conference)
       end
 
-      it "sends an email confirming the registration" do
+      it "sends an email with the pending validation" do
         perform_enqueued_jobs { subject.call }
 
         email = last_email
 
-        expect(email.subject).to include("confirmed")
-
-        attachment = email.attachments.first
-        expect(attachment.read.length).to be_positive
-        expect(attachment.mime_type).to eq("text/calendar")
-        expect(attachment.filename).to match(/conference-calendar-info.ics/)
+        expect(email.subject).to include("pending")
+        expect(email.body.encoded).to include(translated(registration_type.title))
       end
 
       context "and exists and invite for the user" do

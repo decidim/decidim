@@ -82,8 +82,10 @@ de:
         changed_notably: Es gab bemerkenswerte Änderungen.
         content: Inhalt
         organization: Organisation
+        show_in_footer: In der Fußzeile anzeigen
         slug: URL-Block
         title: Titel
+        weight: Gewicht
     errors:
       models:
         oauth_application:
@@ -544,6 +546,21 @@ de:
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich aktualisiert
+      static_page_topics:
+        create:
+          error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
+          success: Thema erfolgreich erstellt.
+        destroy:
+          success: Thema erfolgreich zerstört
+        edit:
+          title: Thema bearbeiten
+          update: Thema aktualisieren
+        new:
+          create: Thema erstellen
+          title: Neues Thema
+        update:
+          error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
+          success: Thema erfolgreich aktualisiert
       static_pages:
         actions:
           view: Öffentliche Seite anzeigen
@@ -556,11 +573,18 @@ de:
           changed_notably_help: Wenn diese Option aktiviert ist, werden Benutzer benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
           title: Seite bearbeiten
           update: Aktualisieren
+        form:
+          none: Keiner
         index:
           last_notable_change: Letzte bemerkenswerte Änderung
         new:
-          create: Erstellen
+          create: Seite erstellen
           title: Neue Seite
+        topic:
+          destroy: Thema entfernen
+          edit: Thema bearbeiten
+          empty: Es gibt keine Seite zu diesem Thema
+          without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert
