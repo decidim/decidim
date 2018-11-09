@@ -9,8 +9,8 @@ module Decidim
       module ProposalsHelper
         # Public: A formatted collection of Meetings to be used
         # in forms.
-        def meetings_selected
-          @meetings_selected ||= @proposal.authors.pluck(:id) if @proposal.present?
+        def meetings_as_authors_selected
+          @meetings_as_authors_selected ||= @proposal.authors.pluck(:id) if @proposal.present?
         end
       end
     end
