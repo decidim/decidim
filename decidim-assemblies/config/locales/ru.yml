@@ -343,10 +343,8 @@ ru:
         promoted_assembly:
           more_info: Дополнительные сведения
           take_part: Принять участие
-      assembly_header:
-        assembly_member_menu_item: Члены президиума
+      assembly_navigation:
         assembly_menu_item: Собрание
-        unfold: Развернуть
       assembly_widgets:
         show:
           take_part: Принять участие

@@ -48,7 +48,7 @@ fi:
   decidim:
     admin:
       actions:
-        confirm: Vahvistaa
+        confirm: Vahvista
         new_conference: Uusi konferenssi
       conference_copies:
         new:
@@ -64,8 +64,8 @@ fi:
           success: Konferenssin julkaisu peruutettu onnistuneesti.
       conference_registration:
         confirm:
-          error: Tapahtui virhe, kun vahvistat tämän konferenssin rekisteröinnin.
-          success: Konferenssin rekisteröinti onnistui.
+          error: Tapahtui virhe vahvistettaessa tämän konferenssin ilmoittautumista.
+          success: Konferenssi-ilmoittautumisen vahvistaminen onnistui.
       conference_speakers:
         create:
           error: Puhujan lisääminen tähän konferenssiin ei onnistunut.
@@ -151,15 +151,15 @@ fi:
           categories: Aihepiirit
           components: Komponentit
           conference_admins: Konferenssin käyttäjät
-          conference_invites: kutsut
-          conference_speakers: kaiuttimet
+          conference_invites: Kutsut
+          conference_speakers: Puhujat
           info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
-          registration_types: Rekisteröintityypit
-          registrations: rekisteröinnit
-          user_registrations: Käyttäjien rekisteröinnit
+          registration_types: Ilmoittautumistyypit
+          registrations: Ilmoittautumiset
+          user_registrations: Käyttäjien ilmoittautumiset
       models:
         conference:
           fields:
@@ -201,12 +201,12 @@ fi:
             main_promotor: Pääpromoottori
         registration_type:
           fields:
-            conference_meetings: Konferenssitapaamiset
+            conference_meetings: Konferenssin tapaamiset
             price: Hinta
-            registrations_count: Ilmoittautumiset lasketaan
-            title: otsikko
-            weight: Paino
-          name: Rekisteröintityyppi
+            registrations_count: Ilmoittautuneiden määrä
+            title: Otsikko
+            weight: Painoarvo
+          name: Ilmoittautumistyypit
       partners:
         create:
           error: Tapahtui virhe lisätessä yhteistyökumppania tähän konferenssiin.
@@ -224,26 +224,26 @@ fi:
           success: Konferenssin yhteistyökumppani päivitettiin onnistuneesti.
       registration_type_publications:
         create:
-          error: Tämä rekisteröintityyppi julkaistiin virheellä.
-          success: Rekisteröity tyyppi julkaistiin onnistuneesti.
+          error: Tapahtui virhe julkaistaessa tätä ilmoittautumistyyppiä.
+          success: Ilmoittautumistyyppi julkaistiin onnistuneesti.
         destroy:
-          error: Tämä rekisteröintityyppi julkaistiin virheellisesti.
-          success: Ilmoittamistyyppi julkaisemattomasti onnistuneesti.
+          error: Tapahtui virhe julkaistaessa tätä ilmoittautumistyyppiä.
+          success: Ilmoittamistyypin julkaisu lopetettiin onnistuneesti.
       registration_types:
         create:
-          error: Virhe lisäsi tämän kokouksen rekisteröintityyppiä.
-          success: Rekisteröintityyppi lisättiin onnistuneesti tähän konferenssiin.
+          error: Tapahtui virhe lisätessä ilmoittautumistyyppiä tälle konferenssille.
+          success: Ilmoittautumistyyppi lisättiin onnistuneesti tähän konferenssiin.
         destroy:
           success: Ilmoittautumistyyppi poistettiin onnistuneesti tästä konferenssista.
         edit:
-          title: Päivitä rekisteröintityyppi.
-          update: Päivittää
+          title: Päivitä ilmoittautumistyyppi.
+          update: Päivitä
         new:
-          create: Luoda
-          title: Uusi rekisteröintityyppi
+          create: Luo
+          title: Uusi ilmoittautumistyyppi
         update:
-          error: Virhettä päivitettiin tämän kokouksen rekisteröintityyppi.
-          success: Rekisteröintityyppi päivitettiin onnistuneesti tähän konferenssiin.
+          error: Tapahtui virhe päivitettäessä tämän konferenssin ilmoittautumistyyppiä.
+          success: Konferenssin ilmoittautumistyyppi päivitettiin onnistuneesti.
       titles:
         conferences: Konferenssit
     admin_log:
@@ -262,13 +262,13 @@ fi:
         update: "%{user_name} muutti %{resource_name} roolia konferenssissa %{space_name}"
       conferences:
         conference_registration:
-          confirm: "%{user_name} vahvisti konferenssin rekisteröinnin %{resource_name} konferenssissa"
+          confirm: "%{user_name} vahvisti konferenssin %{resource_name} ilmoittautumisen"
         partner:
-          create: "%{user_name} luonut %{resource_name} konferenssiin %{space_name}"
-          delete: "%{user_name} poistaa käyttäjän %{resource_name} %{space_name} konferenssista"
+          create: "%{user_name} loi %{resource_name} konferenssiin %{space_name}"
+          delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
           update: "%{user_name} päivitti %{resource_name} konferenssiin %{space_name}"
         registration_type:
-          create: "%{user_name} loi %{resource_name} rekisteröintityypin %{space_name} konferenssiin"
+          create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
           publish: "%{user_name} julkaisi %{resource_name} rekisteröintityyppiä %{space_name} konferenssissa"
           unpublish: "%{user_name} julkaisematon %{resource_name} rekisteröintityyppi %{space_name} konferenssissa"
           update: "%{user_name} päivitti %{resource_name} rekisteröintityyppiä %{space_name} konferenssiin"
@@ -536,5 +536,4 @@ fi:
         conference_partners_menu_item: Yhteistyökumppanit
         conference_speaker_menu_item: Puhujat
         media: Media
-        unfold: Avaa
         venues: Tapahtumapaikat

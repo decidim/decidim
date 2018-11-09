@@ -808,6 +808,9 @@ pl:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
         embed_link: Osadzać
+      extended_navigation_bar:
+        more: Więcej
+        unfold: Rozwijać się
       flag_modal:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Blisko

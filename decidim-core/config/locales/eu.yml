@@ -798,6 +798,9 @@ eu:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
         embed_link: Kapsulatu
+      extended_navigation_bar:
+        more: gehiago
+        unfold: Zabaldu
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi

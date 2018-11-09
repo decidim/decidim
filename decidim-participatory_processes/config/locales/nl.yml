@@ -378,9 +378,8 @@ nl:
           active_step: 'Huidige stap:'
           more_info: Meer informatie
           take_part: Deelnemen
-      process_header:
-        process_menu_item: Het thema
-        unfold: Uitvouwen
       process_header_steps:
         step: Stap %{current} van %{total}
         view_steps: Bekijk stappen
+      process_navigation:
+        process_menu_item: Het thema

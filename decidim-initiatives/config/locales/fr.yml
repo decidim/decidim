@@ -360,9 +360,10 @@ fr:
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionner
         show_similar_initiatives: Comparer
+        step: Étape %{current} de %{total}
+        title: Créer une nouvelle initiative
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Voir la suite
       initiatives:
         initiative:
           check: Découvrez l'initiative

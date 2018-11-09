@@ -798,6 +798,9 @@ it:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina
         embed_link: Incorpora
+      extended_navigation_bar:
+        more: Di Più
+        unfold: spiegare
       flag_modal:
         already_reported: Questo contenuto è già stato riportato e sarà revisionato da un amministratore.
         close: Chiudi

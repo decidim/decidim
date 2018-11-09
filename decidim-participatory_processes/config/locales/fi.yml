@@ -378,9 +378,8 @@ fi:
           active_step: 'Aktiivinen vaihe:'
           more_info: Lisätietoja
           take_part: Osallistu
-      process_header:
-        process_menu_item: Prosessi
-        unfold: Avaa
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Näytä vaiheet
+      process_navigation:
+        process_menu_item: Prosessi
