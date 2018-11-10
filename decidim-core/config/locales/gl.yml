@@ -798,6 +798,9 @@ gl:
         close_window: Pechar ventá
         embed: Pega este código na túa páxina
         embed_link: Inserir
+      extended_navigation_bar:
+        more: Máis
+        unfold: Despregar
       flag_modal:
         already_reported: Este contido xa se informou e será revisado por un administrador.
         close: Pechar

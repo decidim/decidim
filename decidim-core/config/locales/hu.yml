@@ -797,6 +797,9 @@ hu:
         close_window: Ablak bezárása
         embed: Illeszd be ezt a kódot az oldaladba
         embed_link: Beágyaz
+      extended_navigation_bar:
+        more: Több
+        unfold: kibontakozik
       flag_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         close: Bezárás

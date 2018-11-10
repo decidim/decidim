@@ -798,6 +798,9 @@ sv:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
         embed_link: Bädda in
+      extended_navigation_bar:
+        more: Mer
+        unfold: Veckla ut
       flag_modal:
         already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
         close: Stäng

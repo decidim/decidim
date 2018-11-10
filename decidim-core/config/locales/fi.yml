@@ -798,6 +798,9 @@ fi:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
         embed_link: Upota
+      extended_navigation_bar:
+        more: Lisää
+        unfold: Avaa
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
@@ -823,8 +826,8 @@ fi:
       version_author:
         deleted: Käyttäjä poistettu
     welcome_notification:
-      default_body: <p>Hi {{name}}, kiitos liittymisestä {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä täällä, tutustu <a href="{{help_url}}">ohjetta</a> .</li><li>Kun olet lukenut sen, saat ensimmäisen merkkisi. Tässä on <a href="{{badges_url}}">lista kaikista tunnisteista</a> joita voit osallistua osallistumiseen. {{organization_name}}</li><li>Viimeksi mutta ei vähäisimpänä, liittykää toisiin ihmisiin, jaa heidän kanssaan kokemuksen osallistumisesta ja osallistumisesta {{organization}}. Tee ehdotuksia, kommentteja, keskustele, mieti, miten edistää yhteistä hyvää, anna argumentteja vakuuttaa, kuunnella ja lukea vakuuttuneiksi, ilmaista ideoita konkreettisella ja suoralla tavalla, vastata kärsivällisesti ja päättäväisesti, puolustaa ajatuksiasi ja pitää avoin mieli tehdä yhteistyötä ja liittyä muiden ihmisten ideoihin.</li></ul>
-      default_subject: Kiitos liittymisestä {{organization}}!
+      default_body: <p>Hei {{name}}, kiitos liittymisestäsi palveluun {{organization}}! Tervetuloa mukaan!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä täällä, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, jotka voit saada osallistumalla aktiivisesti palvelussa {{organization_name}}</li><li>Viimeisimpänä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa ja jaa heidän kanssaan kokemuksiasi osallistumisesta palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, argumentoi vakuuttaaksesi muut, kuuntele ja lue ennen kuin muodostat mielipiteen, ilmaise ideasi konkreettisella ja suoralla tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, pidä avoin mieli yhteistyölle ja liity mukaan muiden ihmisten ideoihin.</li></ul>
+      default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
   devise:
     confirmations:
       confirmed: Sähköpostiosoitteesi on vahvistettu.

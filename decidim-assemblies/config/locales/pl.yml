@@ -356,10 +356,9 @@ pl:
         promoted_assembly:
           more_info: Więcej informacji
           take_part: Wziąć udział
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Członkowie
         assembly_menu_item: Zgromadzenie
-        unfold: Rozwiń
       assembly_widgets:
         show:
           take_part: Wziąć udział

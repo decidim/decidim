@@ -303,7 +303,7 @@ es:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
         export_calendar: Exportar calendario
-      conference_venues: Lugares de conferencia
+      conference_venues: Sedes de las jornadas
       content_blocks:
         upcoming_events:
           name: Próximos encuentros

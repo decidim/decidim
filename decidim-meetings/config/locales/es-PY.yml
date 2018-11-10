@@ -22,7 +22,7 @@ es-PY:
         location_hints: Pistas de ubicación
         organizer_id: Organizador
         private_meeting: Encuentro privado
-        registration_form_enabled: Formulario de registro habilitado
+        registration_form_enabled: Formulario de inscripción habilitado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
@@ -302,7 +302,7 @@ es-PY:
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
-        export_calendar: Calendario de exportación
+        export_calendar: Exportar calendario
       conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_events:
