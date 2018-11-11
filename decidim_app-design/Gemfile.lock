@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/bostko/doc2text.git
-  revision: 937eb55a7767e3daf3e7e091eee2e788718f8132
+  revision: 6e88ce1e068f80e3cf7dcbeca4f22d55576b12d7
+  branch: 0.4-stable
   specs:
     doc2text (0.3.3)
       nokogiri (~> 1.6, >= 1.6.3)
@@ -480,7 +481,7 @@ GEM
     mustache (1.1.0)
     nio4r (2.3.1)
     nobspw (0.4.0)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     oauth (0.5.4)
     oauth2 (1.4.1)

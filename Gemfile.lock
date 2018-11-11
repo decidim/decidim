@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/bostko/doc2text.git
-  revision: 937eb55a7767e3daf3e7e091eee2e788718f8132
+  revision: 6e88ce1e068f80e3cf7dcbeca4f22d55576b12d7
+  branch: 0.4-stable
   specs:
     doc2text (0.3.3)
       nokogiri (~> 1.6, >= 1.6.3)
