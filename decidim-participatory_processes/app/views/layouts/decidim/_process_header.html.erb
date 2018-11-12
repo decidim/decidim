@@ -1,8 +1,10 @@
-<div class="process-header row column">
-  <div class="row column process-header__main"
-       style="background-image:url(<%= current_participatory_space.banner_image.url %>);">
-    <div class="process-header__container row">
-      <div class="columns mediumlarge-9 process-header__info">
+<div class="process-header">
+  <div class="process-header__inner">
+    <div class="row column process-header__main"
+        style="background-image:url(<%= current_participatory_space.banner_image.url %>);">
+    </div>
+    <div class="process-header__container row collapse column">
+      <div class="columns mediumlarge-8 process-header__info">
         <div>
           <h1 class="text-highlight heading2">
             <%= translated_attribute(current_participatory_space.title) %>
@@ -22,6 +24,7 @@
       <%= render partial: "layouts/decidim/process_header_steps", locals: { participatory_process: current_participatory_space } %>
     </div>
   </div>
+<<<<<<< HEAD
   <% if current_participatory_space.components.any? %>
     <div class="row column">
       <div class="process-nav">
@@ -63,4 +66,7 @@
       </div>
     </div>
   <% end %>
+=======
+  <%= render partial: "layouts/decidim/process_navigation", locals: { participatory_space: current_participatory_space } %>
+>>>>>>> feat/4354-stats-for-processes
 </div>

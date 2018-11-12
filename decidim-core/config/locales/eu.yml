@@ -163,6 +163,9 @@ eu:
           foo: foo
         name: foo baimena
       granted_at: Onartua %{timestamp}
+      sms:
+        explanation: Bidali zure telefono mugikorraren zenbakia zure identitatea egiaztatzeko.
+        name: Kodea SMS bidez
       started_at: Hasi zen %{timestamp}
     authorization_modals:
       show:
@@ -795,6 +798,9 @@ eu:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
         embed_link: Kapsulatu
+      extended_navigation_bar:
+        more: gehiago
+        unfold: Zabaldu
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
@@ -819,6 +825,9 @@ eu:
         share_link: Partekatu esteka
       version_author:
         deleted: Erabiltzailea ezabatua
+    welcome_notification:
+      default_body: <p>Hi {{name}}, eskerrak emateko {{organization}} eta ongi etorria!</p><ul><li>Hemen zer egin dezakezuen ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen txapela jasoko duzu. Hemen da <a href="{{badges_url}}">txapak guztiak zerrenda</a> parte bezala zuk ere lor dezakezu {{organization_name}}</li><li>Azkenik, beste pertsona batu, share haiekin ari arduratzen eta parte hartzen duten esperientzia {{organization}}. Egin proposamenak, iruzkinak, eztabaidak, ohiko onura nola laguntzen jakitea, konbentzitu, entzun eta irakurri argudioak ematea, zure ideiak modu zehatz eta zehatz batean adieraztea, pazientzia eta erabakia erantzutea, zure ideiak defendatzea eta mantentzea adimen irekia, beste pertsonen ideiak lankidetzan aritzeko.</li></ul>
+      default_subject: Eskerrik asko sartzeko {{organization}}!
   devise:
     confirmations:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.

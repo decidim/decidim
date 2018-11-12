@@ -22,7 +22,7 @@ describe "Answer a survey", type: :system do
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
   let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
-  let!(:question) { create(:question, questionnaire: questionnaire, position: 0) }
+  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
 
   include_context "with a component"
 
@@ -51,5 +51,9 @@ describe "Answer a survey", type: :system do
     end
 
     it_behaves_like "has questionnaire"
+
+    def questionnaire_public_path
+      main_component_path(component)
+    end
   end
 end

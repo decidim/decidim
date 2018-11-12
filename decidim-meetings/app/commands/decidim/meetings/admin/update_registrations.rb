@@ -33,6 +33,7 @@ module Decidim
 
         def update_meeting_registrations
           meeting.registrations_enabled = form.registrations_enabled
+          meeting.registration_form_enabled = form.registration_form_enabled
 
           if form.registrations_enabled
             meeting.available_slots = form.available_slots

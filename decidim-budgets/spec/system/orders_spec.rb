@@ -6,6 +6,7 @@ describe "Orders", type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
+  let(:organization) { create :organization }
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:project) { projects.first }
 

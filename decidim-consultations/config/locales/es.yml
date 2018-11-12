@@ -220,8 +220,8 @@ es:
             active_consultations: Consultas activas
             see_all_consultations: Ver todas las consultas
             voting_ends_in:
-              one: La votación termina <strong>mañana</strong>
-              other: La votación termina en <strong>%{count} días</strong>
+              one: La votación finaliza <strong>mañana</strong>
+              other: La votación finaliza en <strong>%{count} días</strong>
             voting_ends_today: La votación finaliza hoy <strong></strong>
       question:
         take_part: Participar

@@ -54,6 +54,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :users_registration_mode %>
+    <%= f.collection_radio_buttons :users_registration_mode,
+                                   Decidim::Organization.users_registration_modes,
+                                   :first,
+                                   ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } %>
+  </div>
+
+  <div class="field">
     <%= f.label :available_authorizations %>
     <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
   </div>

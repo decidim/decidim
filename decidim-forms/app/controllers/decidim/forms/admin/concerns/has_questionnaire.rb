@@ -15,7 +15,7 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :question_types
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :question_types, :update_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -35,7 +35,7 @@ module Decidim
                 on(:ok) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.success")
                   flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
-                  redirect_to parent_path
+                  redirect_to after_update_url
                 end
 
                 on(:invalid) do
@@ -50,6 +50,18 @@ module Decidim
             # return the object that will hold the questionnaire.
             def questionnaire_for
               raise "#{self.class.name} is expected to implement #questionnaire_for"
+            end
+
+            # You can implement this method in your controller to change the URL
+            # where the questionnaire will be submitted.
+            def update_url
+              url_for(questionnaire.questionnaire_for)
+            end
+
+            # You can implement this method in your controller to change the URL
+            # where the user will be redirected after updating the questionnaire
+            def after_update_url
+              url_for(questionnaire.questionnaire_for)
             end
 
             private

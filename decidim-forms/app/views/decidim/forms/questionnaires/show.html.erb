@@ -18,7 +18,7 @@
   <div class="columns large-6 medium-centered">
     <div class="card">
       <div class="card__content">
-        <% if current_settings.allow_answers? %>
+        <% if allow_answers? %>
           <% if current_user %>
             <% if questionnaire.answered_by?(current_user) %>
               <div class="section">
@@ -38,7 +38,7 @@
                   </div>
                 <% end %>
 
-                <%= decidim_form_for(@form, url: url_for([questionnaire_for, action: :answer]), method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
+                <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
                       <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>
