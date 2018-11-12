@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+#bfrozen_string_literal: true
 
 require "spec_helper"
 
@@ -48,7 +48,7 @@ module Decidim
       context "with an empty phone" do
         let(:phone) { "" }
 
-        it { is_expected.not_to be_valid }
+        it { is_expected.to be_valid }
       end
     end
 
@@ -56,7 +56,7 @@ module Decidim
       context "with an empty document_number" do
         let(:document_number) { "" }
 
-        it { is_expected.not_to be_valid }
+        it { is_expected.to be_valid }
       end
 
       context "when it's already in use in the same organization" do
