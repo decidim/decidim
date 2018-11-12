@@ -283,6 +283,8 @@ pt:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
+          sign_in_disabled: Você pode acessar com uma conta externa
+          sign_up_disabled: Inscrever-se está desabilitado, você pode usar um usuário existente para acessar
       shared:
         newsletter_modal:
           buttons:
