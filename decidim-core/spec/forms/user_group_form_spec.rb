@@ -1,4 +1,6 @@
-#bfrozen_string_literal: true
+# frozen_string_literal: true
+
+# bfrozen_string_literal: true
 
 require "spec_helper"
 
