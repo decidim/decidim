@@ -163,6 +163,9 @@ pt:
           foo: Foo
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
+      sms:
+        explanation: Envie seu número de celular para que possamos verificar sua identidade.
+        name: Código por SMS
       started_at: Iniciado em %{timestamp}
     authorization_modals:
       show:
@@ -795,6 +798,9 @@ pt:
         close_window: Fechar janela
         embed: Cole este código na sua página
         embed_link: Embutir
+      extended_navigation_bar:
+        more: Mais
+        unfold: Desdobrar
       flag_modal:
         already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
         close: Fechar
@@ -819,6 +825,9 @@ pt:
         share_link: Partilhar link
       version_author:
         deleted: Usuário deletado
+    welcome_notification:
+      default_body: <p>Olá {{name}}, obrigado por se juntar a {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma idéia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de ler, você receberá seu primeiro crachá. Aqui está uma <a href="{{badges_url}}">lista de todos os crachás</a> você pode começar como você participar de {{organization_name}}</li><li>Por último, mas não menos importante, se juntar a outras pessoas, compartilhar com eles a experiência de ser envolvido e participando de {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse suas idéias de maneira concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
+      default_subject: Obrigado por se juntar a {{organization}}!
   devise:
     confirmations:
       confirmed: Seu endereço de e-mail foi confirmado com sucesso.

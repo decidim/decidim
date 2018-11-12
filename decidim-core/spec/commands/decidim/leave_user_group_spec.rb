@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe LeaveUserGroup do
       describe "call" do
-        let(:organization) { create(:organization, :with_tos) }
+        let(:organization) { create(:organization) }
         let(:membership) { create :user_group_membership, role: :admin }
         let(:user) { membership.user }
         let(:user_group) { membership.user_group }

@@ -164,6 +164,9 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
+      sms:
+        explanation: Submit your mobile phone number so we can check your identity.
+        name: Code by SMS
       started_at: Started at %{timestamp}
     authorization_modals:
       show:
@@ -281,6 +284,8 @@ en:
         new:
           are_you_new?: New to the platform?
           register: Create an account
+          sign_in_disabled: You can access with an external account
+          sign_up_disabled: Sign up is disabled, you can use an existing user to access
       shared:
         newsletter_modal:
           buttons:
@@ -803,6 +808,9 @@ en:
         close_window: Close window
         embed: Please paste this code in your page
         embed_link: Embed
+      extended_navigation_bar:
+        more: More
+        unfold: Unfold
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
@@ -827,6 +835,9 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    welcome_notification:
+      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization_name}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
+      default_subject: Thanks for joining {{organization}}!
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.

@@ -10,7 +10,7 @@ module Decidim
       end
 
       let!(:questionnaire) { create(:questionnaire) }
-      let!(:question) { create(:question, questionnaire: questionnaire) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
 
       it "builds empty answers for each question" do
         expect(subject.answers.length).to eq(1)

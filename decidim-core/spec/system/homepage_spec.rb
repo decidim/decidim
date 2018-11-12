@@ -75,10 +75,6 @@ describe "Homepage", type: :system do
         let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
         let(:organization) { create(:organization, cta_button_text: cta_button_text) }
 
-        before do
-          create :static_page, slug: "terms-and-conditions", organization: organization
-        end
-
         it "uses the custom values for the CTA button text" do
           within ".hero" do
             expect(page).to have_selector("a.hero-cta", text: "SIGN UP")

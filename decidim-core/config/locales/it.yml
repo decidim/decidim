@@ -163,6 +163,9 @@ it:
           foo: foo
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
+      sms:
+        explanation: Invia il tuo numero di cellulare in modo che possiamo controllare la tua identità.
+        name: Codice via SMS
       started_at: Iniziato a %{timestamp}
     authorization_modals:
       show:
@@ -795,6 +798,9 @@ it:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina
         embed_link: Incorpora
+      extended_navigation_bar:
+        more: Di Più
+        unfold: spiegare
       flag_modal:
         already_reported: Questo contenuto è già stato riportato e sarà revisionato da un amministratore.
         close: Chiudi
@@ -819,6 +825,9 @@ it:
         share_link: Condividi link
       version_author:
         deleted: Utente eliminato
+    welcome_notification:
+      default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenuto!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a> .</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> è possibile ottenere, come si partecipa a {{organization_name}}</li><li>Da ultimo, ma non meno importante, uniscono altre persone, condividere con loro l'esperienza di essere impegnati e partecipano a {{organization}}. Fare proposte, commenti, dibattiti, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere convinti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta per collaborare e unire le idee degli altri.</li></ul>
+      default_subject: Grazie per esserti iscritto a {{organization}}!
   devise:
     confirmations:
       confirmed: Il tuo indirizzo email è stato confermato con successo.

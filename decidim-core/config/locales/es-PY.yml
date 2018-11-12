@@ -163,6 +163,9 @@ es-PY:
           foo: Foo
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
+      sms:
+        explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
+        name: Código por SMS
       started_at: Comenzó el %{timestamp}
     authorization_modals:
       show:
@@ -701,11 +704,11 @@ es-PY:
         sub_hero:
           register: Regístrate
       index:
-        read_more: Lee mas
+        read_more: Leer más
         standalone_pages: Páginas
-        subheading: Navega por las páginas de ayuda de %{name}
+        subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
-        topics: Los temas
+        topics: Temas
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
@@ -795,6 +798,9 @@ es-PY:
         close_window: Cerrar ventana
         embed: Por favor, pega este código en tu página
         embed_link: Incrustar
+      extended_navigation_bar:
+        more: Más
+        unfold: Desplegar
       flag_modal:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
@@ -819,6 +825,9 @@ es-PY:
         share_link: Compartir enlace
       version_author:
         deleted: Usuario eliminado
+    welcome_notification:
+      default_body: <p>Hola {{name}}, gracias por unirte a {{organization}} y bienvenido!</p><ul><li>Si deseas obtener una idea rápida de lo que puedes hacer aquí, consulta la sección <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez que lo hayas leído, obtendrás tu primer distintivo. Aquí está un <a href="{{badges_url}}">lista de todos los distintivos</a> que puedes obtener a medida que participes en el {{organization_name}}</li>.<li>Por último, pero no menos importante, únete a otras personas, comparte con ellos la experiencia de participar y participa en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir al bien común, proporciona argumentos para convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y mantén la mente abierta para colaborar y unirte a las ideas de otras personas.</li></ul>
+      default_subject: Gracias por unirte a {{organization}}!
   devise:
     confirmations:
       confirmed: Su dirección de correo electrónico ha sido confirmada con éxito.

@@ -163,6 +163,9 @@ gl:
           foo: Foo
         name: Autorización de Foo
       granted_at: Concedido en %{timestamp}
+      sms:
+        explanation: Envía o teu número de teléfono móbil para que poidamos consultar a túa identidade.
+        name: Código por SMS
       started_at: Comezou en %{timestamp}
     authorization_modals:
       show:
@@ -795,6 +798,9 @@ gl:
         close_window: Pechar ventá
         embed: Pega este código na túa páxina
         embed_link: Inserir
+      extended_navigation_bar:
+        more: Máis
+        unfold: Despregar
       flag_modal:
         already_reported: Este contido xa se informou e será revisado por un administrador.
         close: Pechar
@@ -819,6 +825,9 @@ gl:
         share_link: Compartir a ligazón
       version_author:
         deleted: Usuario eliminado
+    welcome_notification:
+      default_body: <p>Hola {{name}}, grazas por unirte a {{organization}} e benvido!</p><ul><li>Se queres ter unha idea rápida do que podes facer aquí, consulta a sección de <a href="{{help_url}}">Axuda</a> .</li><li>Unha vez que o liches, obterás a túa primeira insignia. Aquí tes unha lista de <a href="{{badges_url}}">de todas as insignias</a> que podes obter a medida que participas en {{organization_name}}</li><li>último pero non menos importante, únete a outras persoas, comparte con eles a experiencia de participar e participar do {{organization}}. Facer propostas, comentarios, debater, pensar como contribuír ao ben común, proporcionar argumentos para convencer, escoitar e ler para convencerse, expresar as túas ideas dun xeito concreto e directo, responder con paciencia e decisión, defender as túas ideas e manter unha mente aberta para colaborar e unirse ás ideas doutras persoas.</li></ul>
+      default_subject: Grazas por unirte a {{organization}}!
   devise:
     confirmations:
       confirmed: O seu enderezo de correo electrónico confirmouse con éxito.

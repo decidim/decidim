@@ -13,8 +13,8 @@ module Decidim
       it { is_expected.to be_valid }
 
       it "has an association of questions" do
-        subject.questions << create(:question)
-        subject.questions << create(:question)
+        subject.questions << create(:questionnaire_question)
+        subject.questions << create(:questionnaire_question)
         expect(subject.questions.count).to eq(2)
       end
 
@@ -43,7 +43,7 @@ module Decidim
 
       describe "#answered_by?" do
         let!(:user) { create(:user, organization: questionnaire.questionnaire_for.component.participatory_space.organization) }
-        let!(:question) { create(:question, questionnaire: questionnaire) }
+        let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
 
         it "returns false if the given user has not answered the questionnaire" do
           expect(questionnaire).not_to be_answered_by(user)

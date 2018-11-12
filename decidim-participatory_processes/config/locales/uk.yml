@@ -379,9 +379,8 @@ uk:
           active_step: 'Поточний крок:'
           more_info: Додаткові відомості
           take_part: Взяти участь
-      process_header:
-        process_menu_item: Рух
-        unfold: Розгорнути
       process_header_steps:
         step: '%{current}-й крок з %{total} кроків'
         view_steps: Переглянути кроки
+      process_navigation:
+        process_menu_item: Рух

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Admin
   describe CreateStaticPage do
     describe "call" do
-      let(:organization) { create(:organization, :with_tos) }
+      let(:organization) { create(:organization) }
       let(:user) { create :user, :admin, :confirmed, organization: organization }
       let(:form) do
         StaticPageForm

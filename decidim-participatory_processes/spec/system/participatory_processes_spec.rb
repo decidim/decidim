@@ -220,7 +220,7 @@ describe "Participatory Processes", type: :system do
     it_behaves_like "editable content for admins"
 
     it "shows the details of the given process" do
-      within "div.wrapper" do
+      within "main" do
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
         expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
         expect(page).to have_content(translated(participatory_process.description, locale: :en))

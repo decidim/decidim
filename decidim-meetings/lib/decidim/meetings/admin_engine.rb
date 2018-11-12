@@ -16,6 +16,7 @@ module Decidim
           resources :meeting_closes, only: [:edit, :update]
           resource :registrations, only: [:edit, :update] do
             resources :invites, only: [:index, :create]
+            resource :form, only: [:edit, :update], controller: "registration_form"
             collection do
               get :export
               post :validate_registration_code
