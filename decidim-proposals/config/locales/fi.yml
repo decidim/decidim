@@ -307,7 +307,9 @@ fi:
             update: Päivitä
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
+            created_in_meeting: Tämä ehdotus tulee kokoukselta
             select_a_category: Valitse aihepiiri
+            select_a_meeting: Valitse kokous
           index:
             actions: Toiminnot
             cancel: Peruuta
