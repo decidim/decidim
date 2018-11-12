@@ -542,6 +542,13 @@ en:
       edit:
         edit_user_group: Edit group
         update_user_group: Update group
+      form:
+        document_number_help: Do not use dashes nor spaces
+        email_help: Email of your organization, association, collective, group, etc.
+        fill_in_for_verification: "Fill in these fields if you want your group to be verified:"
+        name_help: Name of your organization, association, collective, group, etc.
+        nickname_help: Username of your organization, association, collective, group, etc. Do not use spaces nor accents.
+        phone_help: Do not use dashes nor spaces
       join:
         error: There has been a problem joining the group
         success: Join request created successfully. An admin will review your request before accepting you to the group.
@@ -555,6 +562,7 @@ en:
       new:
         create_user_group: Create group
         new_user_group: New group
+        subtitle: Create a group and invite other users to join to participate in a collective level.
       no_user_groups: Doesn't belong to any group yet.
       roles:
         admin: Administrator
