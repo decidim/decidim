@@ -63,6 +63,8 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar essa organização.
           success: Organização atualizada com sucesso.
+        users_registration_mode:
+          disabled: O acesso só pode ser feito com contas externas
       shared:
         notices:
           no_organization_warning_html: Você deve criar uma organização para começar. Certifique-se de ler %{guide} antes de prosseguir.
