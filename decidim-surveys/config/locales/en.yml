@@ -119,4 +119,4 @@ en:
           tos_agreement: By participating in this survey you accept its Terms of Service
   errors:
     messages:
-      blank: est obligatoire
+      blank: can't be blank

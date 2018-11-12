@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       proposal:
-        address: Adresse
+        address: Address
         answer: Answer
         answered_at: Answered at
         body: Body
