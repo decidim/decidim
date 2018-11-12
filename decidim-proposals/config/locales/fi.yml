@@ -439,7 +439,7 @@ fi:
             published_at: Julkaistu
             scope: Teema
             state: Tila
-            title: Kuvan tai liitteen otsikko
+            title: Otsikko
             votes: Äänet
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
