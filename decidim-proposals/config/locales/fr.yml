@@ -6,7 +6,7 @@ fr:
         address: Adresse (n'oubliez pas de préciser la ville)
         answer: Répondre
         answered_at: Répondu à
-        body: Corps du texte
+        body: Description
         category_id: Catégorie
         has_address: Renseigner une adresse
         address: Adresse
