@@ -73,6 +73,12 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_debates.register_metrics" do
+        Decidim.metrics_operation.register(:participants, :debates) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Debates::Metrics::DebatesMetricMeasure"
+        end
+      end
     end
   end
 end

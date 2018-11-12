@@ -220,6 +220,10 @@ module Decidim
             settings.attribute :weight, type: :integer, default: 3
           end
         end
+
+        Decidim.metrics_operation.register(:participants, :proposals) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalsMetricMeasure"
+        end
       end
     end
   end
