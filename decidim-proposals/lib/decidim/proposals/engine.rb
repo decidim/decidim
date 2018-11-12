@@ -66,7 +66,9 @@ module Decidim
           proposals = Decidim::Proposals::Proposal.published.not_hidden.except_withdrawn
                                                   .where(component: published_components)
                                                   .order_randomly(rand * 2 - 1)
-                                                  .limit(Decidim::Proposals.config.participatory_space_highlighted_proposals_limit)
+
+          proposals_to_render = proposals.limit(Decidim::Proposals.config.participatory_space_highlighted_proposals_limit)
+          proposals_count = proposals.count
 
           next unless proposals.any?
 
@@ -74,7 +76,8 @@ module Decidim
           view_context.render(
             partial: "decidim/participatory_spaces/highlighted_proposals",
             locals: {
-              proposals: proposals
+              proposals: proposals_to_render,
+              proposals_count: proposals_count
             }
           )
         end
