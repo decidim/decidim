@@ -537,6 +537,13 @@ sv:
       edit:
         edit_user_group: Redigera grupp
         update_user_group: Uppdatera grupp
+      form:
+        document_number_help: Använd inte bindestreck eller mellanslag
+        email_help: E-post till din organisation, förening, kollektiv, grupp, etc.
+        fill_in_for_verification: 'Fyll i dessa fält om du vill att din grupp ska verifieras:'
+        name_help: Namn på din organisation, förening, kollektiv, grupp, etc.
+        nickname_help: Användarnamn till din organisation, förening, kollektiva, grupp etc. Använd inte mellanslag eller accenter.
+        phone_help: Använd inte bindestreck eller mellanslag
       join:
         error: Det har uppstått ett problem med att gå med i gruppen
         success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
@@ -550,6 +557,7 @@ sv:
       new:
         create_user_group: Skapa grupp
         new_user_group: Ny grupp
+        subtitle: Skapa en grupp och bjud in andra användare att gå med för att delta i en kollektiv nivå.
       no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
