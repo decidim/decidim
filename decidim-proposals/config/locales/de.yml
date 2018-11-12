@@ -303,7 +303,9 @@ de:
             update: Aktualisieren
           form:
             attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+            created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
             select_a_category: Wählen Sie eine Kategorie
+            select_a_meeting: Wählen Sie eine Besprechung aus
           index:
             actions: Aktionen
             cancel: Stornieren
