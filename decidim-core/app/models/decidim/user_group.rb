@@ -10,11 +10,9 @@ module Decidim
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
 
     validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
-    validates :document_number, presence: true
-    validates :phone, presence: true
 
     validate :correct_state
-    validate :unique_document_number
+    validate :unique_document_number, if: :has_document_number?
 
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
@@ -95,6 +93,10 @@ module Decidim
                     .any?
 
       errors.add(:document_number, :taken) if is_repeated
+    end
+
+    def has_document_number?
+      document_number.present?
     end
   end
 end
