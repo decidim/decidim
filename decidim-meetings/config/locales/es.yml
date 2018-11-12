@@ -126,14 +126,14 @@ es:
       badges:
         attended_meetings:
           conditions:
-            - Regístrate en las reuniones a las que quieres asistir.
-          description: Este distintivo se otorga cuando asiste a varias reuniones cara a cara.
+            - Regístrate en los encuentros a los que quieres asistir
+          description: Este distintivo se otorga cuando asistas a varias reuniones presenciales.
           description_another: Este usuario asistió a %{score} encuentros.
-          description_own: Usted ha asistido a %{score} reuniones.
-          name: Reuniones asistidas
-          next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha asistido a ninguna reunión.
-          unearned_own: No has asistido a ninguna reunión todavía.
+          description_own: Has asistido a %{score} encuentros.
+          name: Encuentros a los que has asistido
+          next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha asistido a ningún encunetro.
+          unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
       actions:
         agenda: Orden del día
@@ -300,21 +300,21 @@ es:
       conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_events:
-          name: Próximos Eventos
-          upcoming_events: Próximas reuniones
+          name: Próximos encuentros
+          upcoming_events: Próximos encuentros
           view_all_events: Ver todo
       directory:
         meetings:
           index:
-            all: Todas
+            all: Todos
             date: Fecha
-            meetings: Reuniones
-            past: Pasado
+            meetings: Encuentros
+            past: Pasados
             search: Buscar
             space_type: Espacio participativo
             upcoming: Próximo
       last_activity:
-        new_meeting_at_html: "<span>Nueva reunión en %{link}</span>"
+        new_meeting_at_html: "<span>Nuevo encuentro en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -399,8 +399,8 @@ es:
         transparent: Transparente
     metrics:
       meetings:
-        object: reuniones
-        title: Reuniones
+        object: encuentros
+        title: Encuentros
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

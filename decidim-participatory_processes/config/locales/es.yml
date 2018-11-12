@@ -35,8 +35,8 @@ es:
         name: Nombre
         participatory_process_ids: Procesos relacionados
       participatory_process_step:
-        cta_path: Ruta de llamada a la acción
-        cta_text: Texto de llamada a la acción
+        cta_path: Ruta del botón de acción
+        cta_text: Texto del botón de acción
         description: Descripción
         end_date: Fecha de finalización
         short_description: Descripción breve
@@ -324,10 +324,10 @@ es:
             no_active_nor_upcoming: Sin procesos activos ni futuros
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           names:
-            active: Activa
+            active: Activar
             all: Todos
-            past: Pasadas
-            upcoming: Próximas
+            past: Pasados
+            upcoming: Próximos
           see: Ver
         index:
           loading: Cargando resultados...

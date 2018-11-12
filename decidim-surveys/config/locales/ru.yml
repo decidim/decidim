@@ -2,7 +2,7 @@ ru:
   activemodel:
     attributes:
       survey_answer:
-        body: Ответить
+        body: Ответ
       survey_question:
         mandatory: Обязательно
         max_choices: Максимальное количество вариантов
