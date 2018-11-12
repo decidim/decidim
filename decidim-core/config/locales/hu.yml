@@ -536,6 +536,13 @@ hu:
       edit:
         edit_user_group: Csoport szerkesztése
         update_user_group: Csoport frissítése
+      form:
+        document_number_help: Ne használjon kötőjeleket és tereket
+        email_help: A szervezet, az egyesület, a kollektív, a csoport stb. E-mailje.
+        fill_in_for_verification: 'Töltse ki ezeket a mezőket, ha azt szeretné, hogy csoportja ellenőrizhető legyen:'
+        name_help: A szervezet, az egyesület, a kollektív, a csoport stb. Neve.
+        nickname_help: A szervezet, az egyesület, a kollektív, a csoport stb. Felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
+        phone_help: Ne használjon kötőjeleket és tereket
       join:
         error: Hiba történt a csoporthoz való csatlakozáskor
         success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmedet, mielőtt elfogadja a csatlakozásodat.
@@ -549,6 +556,7 @@ hu:
       new:
         create_user_group: Csoport létrehozása
         new_user_group: Új csoport
+        subtitle: Hozzon létre egy csoportot, és hívja meg a többi felhasználót, hogy vegyen részt kollektív szinten.
       no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
