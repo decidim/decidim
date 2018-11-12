@@ -490,6 +490,8 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Er is een fout opgetreden bij het maken van deze toepassing.

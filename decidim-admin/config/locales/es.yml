@@ -490,6 +490,8 @@ es:
         update:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Se ha producido un error al crear esta aplicación.

@@ -116,6 +116,9 @@ pl:
             created_at: Utworzono w
             published: Opublikowany
             title: Tytuł
+          name:
+            one: Konzultáció
+            other: Konzultációk
         question:
           fields:
             created_at: Utworzono w

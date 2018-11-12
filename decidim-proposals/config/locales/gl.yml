@@ -3,6 +3,7 @@ gl:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Resposta
         answered_at: Respondeu en
         body: Corpo

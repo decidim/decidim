@@ -4,6 +4,8 @@ ca:
     attributes:
       survey_answer:
         body: Resposta
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Obligatori
         max_choices: Nombre màxim d'opcions
@@ -115,3 +117,6 @@ ca:
             body: L'enquesta només està disponible per a usuaris privats
             title: Enquesta tancada
           tos_agreement: En participar en aquesta enquesta acceptes els Termes de Servei
+  errors:
+    messages:
+      blank: est obligatoire

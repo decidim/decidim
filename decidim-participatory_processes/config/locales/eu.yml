@@ -37,6 +37,7 @@ eu:
         name: Izena
         participatory_process_ids: Elkarrekin lotutako prozesuak
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Deskribapena
         end_date: Bukaera-data
         short_description: Deskribapen laburra
@@ -98,6 +99,7 @@ eu:
             promoted: Nabarmendua
             published: Argitaratua
             title: Titulua
+          name: Deltagande process
         participatory_process_group:
           fields:
             name: Izena
@@ -152,6 +154,7 @@ eu:
           success: Prozesu partizipatiboaren fasea zuzen aktibatu da.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Errorea gertatu da prozesu partizipatiboaren fase berri bat sortzean.
           success: Prozesu partizipatiboaren fasea zuzen sortu da.
         default_title: Sarrera
@@ -203,6 +206,9 @@ eu:
         index:
           not_published: Argitaratu gabe
           private: Pribatua
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Publiko
           published: Argitaratua
         new:

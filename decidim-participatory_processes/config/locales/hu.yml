@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -18,6 +19,7 @@ hu:
         participatory_process_group_id: Folyamat csoport
         participatory_scope: Részvétel hatásköre
         participatory_structure: Részvételi struktúra
+        private_space: Espace privé
         promoted: Támogatott
         published_at: Közzétéve
         scope_id: Hatáskör
@@ -35,6 +37,7 @@ hu:
         name: Név
         participatory_process_ids: Kapcsolódó folyamatok
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Leírás
         end_date: Befejezés dátuma
         short_description: Rövid leírás
@@ -68,6 +71,8 @@ hu:
         duplicate: Duplikálás
         edit: Szerkesztés
         new: Új
+        participatory_process:
+          new: new participatory process
         preview: Előnézet
         publish: Közzétesz
         resend_invitation: Meghívó újraküldése
@@ -149,6 +154,7 @@ hu:
           success: Részvételi folyamat lépés aktiválása sikeres.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Hiba történt egy új részvételi folyamat lépés létrehozásakor.
           success: Részvételi folyamat lépés létrehozása sikeres.
         default_title: Bevezetés
@@ -200,6 +206,9 @@ hu:
         index:
           not_published: Nincs közzétéve
           private: Privát
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Nyilvános
           published: Közzétéve
         new:
@@ -254,7 +263,7 @@ hu:
       processes: Folyamatok
     participatory_process_groups:
       show:
-        group_participatory_processes: '%{group} folyamatai'
+        group_participatory_processes: "%{group} folyamatai"
         title: Részvételi folyamat csoportok
     participatory_process_steps:
       index:
@@ -342,5 +351,5 @@ hu:
         process_menu_item: A folyamat
         unfold: Kibont
       process_header_steps:
-        step: '%{current}. lépés ennyiből: %{total}'
+        step: "%{current}. lépés ennyiből: %{total}"
         view_steps: Lépések megtekintése

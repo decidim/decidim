@@ -37,6 +37,7 @@ es-PY:
         name: Nombre
         participatory_process_ids: Procesos relacionados
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Descripción
         end_date: Fecha de finalización
         short_description: Descripción breve
@@ -98,6 +99,7 @@ es-PY:
             promoted: Destacado
             published: Publicada
             title: Título
+          name: Deltagande process
         participatory_process_group:
           fields:
             name: Nombre
@@ -152,6 +154,7 @@ es-PY:
           success: La fase de proceso participativo se ha activado correctamente.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Se ha producido un error al crear una nueva fase de proceso participativo.
           success: La fase de proceso participativo se ha creado correctamente.
         default_title: Introducción
@@ -203,6 +206,9 @@ es-PY:
         index:
           not_published: No publicado
           private: Privado
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Público
           published: Publicada
         new:

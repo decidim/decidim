@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -75,6 +76,9 @@ de:
         other: Zusammenbau von Benutzerrollen
   decidim:
     admin:
+      actions:
+        assembly:
+          new: New assembly
       assemblies:
         create:
           error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.

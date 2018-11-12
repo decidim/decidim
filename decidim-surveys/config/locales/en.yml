@@ -4,6 +4,8 @@ en:
     attributes:
       survey_answer:
         body: Answer
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Mandatory
         max_choices: Maximum number of choices
@@ -115,3 +117,6 @@ en:
             body: The survey is available only for private users
             title: Survey closed
           tos_agreement: By participating in this survey you accept its Terms of Service
+  errors:
+    messages:
+      blank: est obligatoire

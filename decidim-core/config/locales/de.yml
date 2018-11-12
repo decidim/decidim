@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ de:
         one: Benutzergruppe
         other: Benutzergruppen
   booleans:
-    'false': 'Nein'
-    'true': 'Ja'
+    'false': Nein
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: Das Bild ist zu groß
@@ -256,7 +257,19 @@ de:
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können es von dieser Seite sehen:'
+        email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
         email_subject: Ein Update auf %{resource_title}
+      feature_published_event:
+        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+        email_subject: An update to %{participatory_space_title}
+        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -630,6 +643,11 @@ de:
         see_more: Mehr sehen
   locale:
     name: Englisch
+  participatory_processes:
+    index:
+      promoted:
+        'false': 'False'
+        'true': 'True'
   social_share_button:
     delicious: Köstlich
     douban: Douban
@@ -654,6 +672,7 @@ de:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"

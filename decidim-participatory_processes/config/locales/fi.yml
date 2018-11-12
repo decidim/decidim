@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -36,6 +37,7 @@ fi:
         name: Nimi
         participatory_process_ids: Liittyvät prosessit
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Kuvaus
         end_date: Päättymisaika
         short_description: Lyhyt kuvaus
@@ -152,6 +154,7 @@ fi:
           success: Osallistumisprosessin vaihe aktivoitu onnistuneesti.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Uuden osallistumisprosessin vaiheen luonnissa tapahtui virhe.
           success: Osallistumisprosessin vaihe luotu onnistuneesti.
         default_title: Johdanto
@@ -203,6 +206,9 @@ fi:
         index:
           not_published: Ei julkaistu
           private: Yksityinen
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Julkinen
           published: Julkaistu
         new:

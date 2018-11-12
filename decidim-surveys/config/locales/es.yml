@@ -4,6 +4,8 @@ es:
     attributes:
       survey_answer:
         body: Respuesta
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Obligatorio
         max_choices: Número máximo de opciones
@@ -115,3 +117,6 @@ es:
             body: La encuesta está disponible solo para usuarios privados
             title: Encuesta cerrada
           tos_agreement: Al participar en esta encuesta, aceptas sus términos de servicio
+  errors:
+    messages:
+      blank: est obligatoire

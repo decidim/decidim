@@ -4,6 +4,8 @@ uk:
     attributes:
       survey_answer:
         body: Відповісти
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Обов’язкове поле
         max_choices: Гранична кількість варіантів
@@ -65,6 +67,7 @@ uk:
         models:
           components:
             description: Опис
+            title: Title
             tos: Умови участі
         surveys:
           answer_option:
@@ -118,3 +121,6 @@ uk:
             body: Це опитування доступне лише для приватних учасників
             title: Опитування завершене
           tos_agreement: Беручи участь у цьому опитуванні, ви приймаєте його умови використання
+  errors:
+    messages:
+      blank: est obligatoire

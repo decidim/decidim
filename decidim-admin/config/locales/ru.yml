@@ -490,6 +490,8 @@ ru:
         update:
           error: При попытке обновить эту рассылку новостей произошла ошибка.
           success: Рассылка новостей успешно обновлена. Пожалуйста, просмотрите её перед отправкой.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: При попытке создать это приложения произошла ошибка.

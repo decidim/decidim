@@ -490,6 +490,8 @@ uk:
         update:
           error: При спробі оновити це розсилання новин сталася помилка.
           success: Випуск новин успішно оновлено. Будь ласка, перегляньте його перед відправленням.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: При спробі створити цей додаток сталася помилка.

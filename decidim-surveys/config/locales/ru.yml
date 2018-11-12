@@ -4,6 +4,8 @@ ru:
     attributes:
       survey_answer:
         body: Ответить
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Обязательно
         max_choices: Максимальное количество вариантов
@@ -65,6 +67,7 @@ ru:
         models:
           components:
             description: Описание
+            title: Title
             tos: Условия участия
         surveys:
           answer_option:
@@ -118,3 +121,6 @@ ru:
             body: Опрос доступен только для частных участников
             title: Опрос окончен
           tos_agreement: Участвуя в этом опросе, вы принимаете его "Условия использования"
+  errors:
+    messages:
+      blank: est obligatoire

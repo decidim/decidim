@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -53,6 +54,8 @@ fi:
   decidim:
     admin:
       actions:
+        consultation:
+          new: New consultation
         publish_results: Julkaise tulokset
         unpublish_results: Peru tulosten julkistus
       consultation_publications:

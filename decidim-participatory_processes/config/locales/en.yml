@@ -99,6 +99,7 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
+          name: Deltagande process
         participatory_process_group:
           fields:
             name: Name

@@ -116,6 +116,9 @@ uk:
             created_at: 'Створено:'
             published: Оприлюднено
             title: Назва
+          name:
+            one: Konzultáció
+            other: Konzultációk
         question:
           fields:
             created_at: 'Створено:'

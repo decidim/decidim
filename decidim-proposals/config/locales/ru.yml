@@ -3,6 +3,7 @@ ru:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Ответить
         answered_at: 'Получен ответ:'
         body: Основной текст

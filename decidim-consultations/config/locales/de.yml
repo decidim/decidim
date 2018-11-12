@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -53,6 +54,8 @@ de:
   decidim:
     admin:
       actions:
+        consultation:
+          new: New consultation
         publish_results: Veröffentlichen Sie die Ergebnisse
         unpublish_results: Veröffentlichen Sie die Ergebnisse
       consultation_publications:

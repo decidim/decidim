@@ -37,6 +37,7 @@ nl:
         name: Naam
         participatory_process_ids: Verwante thema's
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Beschrijving
         end_date: Einddatum
         short_description: Korte beschrijving
@@ -98,6 +99,7 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
+          name: Deltagande process
         participatory_process_group:
           fields:
             name: Naam
@@ -152,6 +154,7 @@ nl:
           success: Participatief processtap is succesvol geactiveerd.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Er is een fout opgetreden bij het maken van een nieuw participatief processtap.
           success: Participatief processtap is succesvol gecreëerd.
         default_title: Introductie
@@ -203,6 +206,9 @@ nl:
         index:
           not_published: Niet gepubliceerd
           private: Privé
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Openbaar
           published: Gepubliceerd
         new:

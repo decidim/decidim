@@ -3,13 +3,12 @@ fr:
   activemodel:
     attributes:
       proposal:
-        address: Adresse (n'oubliez pas de préciser la ville)
+        address: Adresse
         answer: Répondre
         answered_at: Répondu à
         body: Description
         category_id: Catégorie
         has_address: Renseigner une adresse
-        address: Adresse
         scope_id: Secteur
         state: État
         title: Titre

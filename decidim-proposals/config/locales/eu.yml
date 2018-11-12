@@ -3,6 +3,7 @@ eu:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Erantzuna
         answered_at: Erantzuna at
         body: Testua

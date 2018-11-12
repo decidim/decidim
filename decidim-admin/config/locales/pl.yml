@@ -490,6 +490,8 @@ pl:
         update:
           error: Podczas aktualizowania tego biuletynu wystąpił błąd.
           success: Biuletyn został zaktualizowany. Przeczytaj ją przed wysłaniem.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Wystąpił błąd podczas tworzenia tej aplikacji.

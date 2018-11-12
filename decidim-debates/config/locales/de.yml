@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -59,6 +60,9 @@ de:
           update:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debatte

@@ -490,6 +490,8 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Produciuse un erro ao crear esta aplicación.

@@ -490,6 +490,8 @@ sv:
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Det har uppstått ett fel vid skapandet av den här applikationen.

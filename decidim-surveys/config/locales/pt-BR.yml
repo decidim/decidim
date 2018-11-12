@@ -4,6 +4,8 @@ pt-BR:
     attributes:
       survey_answer:
         body: Resposta
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Obrigatório
         max_choices: Número máximo de escolhas
@@ -61,6 +63,7 @@ pt-BR:
         models:
           components:
             description: Descrição
+            title: Title
             tos: Termos de serviço
         surveys:
           answer_option:
@@ -114,3 +117,6 @@ pt-BR:
             body: A pesquisa está disponível apenas para usuários particulares
             title: Inquérito encerrado
           tos_agreement: Ao participar desta pesquisa você aceita seus Termos de Serviço
+  errors:
+    messages:
+      blank: est obligatoire

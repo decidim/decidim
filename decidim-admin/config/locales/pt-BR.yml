@@ -490,6 +490,8 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Houve um erro ao criar este aplicativo.

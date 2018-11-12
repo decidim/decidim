@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -24,16 +25,16 @@ sv:
       admin:
         id_documents:
           help:
-            - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
-            - Du fyller i informationen som finns i den uppladdade bilden.
-            - Informationen ska matcha vad användaren fyllt i.
-            - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
+          - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
+          - Du fyller i informationen som finns i den uppladdade bilden.
+          - Informationen ska matcha vad användaren fyllt i.
+          - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
         postal_letter:
           help:
-            - Användare begär en verifieringskod som ska skickas till deras adress.
-            - Du skickar brevet till deras adress med verifieringskoden.
-            - Du markerar brevet som skickat.
-            - När du markerar brevet som skickat kommer användaren att kunna införa koden och bli verifierad.
+          - Användare begär en verifieringskod som ska skickas till deras adress.
+          - Du skickar brevet till deras adress med verifieringskoden.
+          - Du markerar brevet som skickat.
+          - När du markerar brevet som skickat kommer användaren att kunna införa koden och bli verifierad.
       direct: Direkt
       help: Hjälp
       id_documents:

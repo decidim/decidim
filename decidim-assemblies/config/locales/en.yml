@@ -171,6 +171,7 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
+          name: Möte
         assembly_member:
           fields:
             ceased_date: Ceased date

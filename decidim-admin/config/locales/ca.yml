@@ -490,6 +490,8 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
+      oauth_application:
+        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: S'ha produït un error en crear aquesta aplicació.

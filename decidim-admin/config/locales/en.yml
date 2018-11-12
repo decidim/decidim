@@ -490,6 +490,8 @@ en:
         update:
           error: There's been an error updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: There's been an error creating this application.

@@ -108,6 +108,9 @@ gl:
             created_at: Creado en
             published: Publicado
             title: Título
+          name:
+            one: Konzultáció
+            other: Konzultációk
         question:
           fields:
             created_at: Creado en

@@ -1,8 +1,11 @@
+---
 fi:
   activemodel:
     attributes:
       survey_answer:
         body: Vastaa
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Pakollinen
         max_choices: Valintojen enimmäismäärä
@@ -60,6 +63,7 @@ fi:
         models:
           components:
             description: Kuvaus
+            title: Title
             tos: Käyttöehdot
         surveys:
           answer_option:
@@ -113,3 +117,6 @@ fi:
             body: Kyselyyn osallistuminen on sallittu vain yksityisille käyttäjille
             title: Kysely on suljettu
           tos_agreement: Osallistumalla tähän kyselyyn hyväksyt sen käyttöehdot
+  errors:
+    messages:
+      blank: est obligatoire

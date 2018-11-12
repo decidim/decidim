@@ -108,6 +108,9 @@ eu:
             created_at: Sortutako at
             published: Argitaratutako
             title: Izenburua
+          name:
+            one: Konzultáció
+            other: Konzultációk
         question:
           fields:
             created_at: Sortutako at

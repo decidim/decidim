@@ -37,6 +37,7 @@ ca:
         name: Nom
         participatory_process_ids: Processos relacionats
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Descripció
         end_date: Data de finalització
         short_description: Descripció breu
@@ -98,6 +99,7 @@ ca:
             promoted: Destacat
             published: Publicat
             title: Títol
+          name: Deltagande process
         participatory_process_group:
           fields:
             name: Nom
@@ -152,6 +154,7 @@ ca:
           success: La fase de procés participatiu s'ha activat correctament.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: S'ha produït un error en crear una nova fase de procés participatiu.
           success: La fase de procés participatiu s'ha creat correctament.
         default_title: Introducció
@@ -203,6 +206,9 @@ ca:
         index:
           not_published: No publicada
           private: Privat
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Públic
           published: Publicat
         new:

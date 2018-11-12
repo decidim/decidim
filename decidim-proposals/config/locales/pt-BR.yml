@@ -3,6 +3,7 @@ pt-BR:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Responda
         answered_at: Respondido em
         body: Corpo
