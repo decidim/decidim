@@ -63,6 +63,10 @@ fi:
         update:
           error: Organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.
+        users_registration_mode:
+          disabled: Vain pääsy voidaan tehdä ulkoisilla tileillä
+          enabled: Salli käyttäjien rekisteröityä ja kirjautua sisään
+          existing: Älä anna käyttäjien rekisteröityä, vaan sallia nykyisten käyttäjien kirjautumisen
       shared:
         notices:
           no_organization_warning_html: Sinun on luotava organisaatio päästäksesi alkuun. Muista lukea %{guide} ennen jatkamista.
