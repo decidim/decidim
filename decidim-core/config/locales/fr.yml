@@ -283,6 +283,8 @@ fr:
         new:
           are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
+          sign_in_disabled: Vous pouvez accéder avec un compte externe
+          sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
       shared:
         newsletter_modal:
           buttons:
