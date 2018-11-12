@@ -21,6 +21,8 @@
         <% end %>
       </div>
     </div>
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+
     <% if current_organization.sign_in_enabled? %>
       <div class="row">
         <div class="columns large-6 medium-centered">
@@ -52,6 +54,5 @@
         </div>
       </div>
     <% end %>
-    <%= render "decidim/devise/shared/omniauth_buttons" %>
   </div>
 </main>
