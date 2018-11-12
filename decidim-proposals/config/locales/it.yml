@@ -611,6 +611,7 @@ it:
           report: Report
           sign_in: registrati
           sign_in_or_up: "%{in} o %{up} per partecipare"
+          sign_in_to_participate: "%{in} per partecipare"
           sign_up: Iscriviti
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?
