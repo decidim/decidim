@@ -611,6 +611,7 @@ hu:
           report: Jelentés
           sign_in: Bejelentkezés
           sign_in_or_up: "%{in} vagy %{up} a részvételhez"
+          sign_in_to_participate: "%{in} részvételre"
           sign_up: regisztrálj
           withdraw_btn_hint: Ha meggondoltad magad, az első támogatás megszerzéséig bármikor visszavonhatod a javaslatod. A javaslat nem törlődik automatikusan, hanem a visszavont javaslatok listájára kerül.
           withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?
