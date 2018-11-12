@@ -611,6 +611,7 @@ nl:
           report: Rapporteren
           sign_in: Log in
           sign_in_or_up: "%{in} of %{up} om deel te nemen"
+          sign_in_to_participate: "%{in} om deel te nemen"
           sign_up: registreren
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Ben je zeker dat je dit voorstel wilt intrekken?
