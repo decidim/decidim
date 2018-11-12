@@ -307,7 +307,9 @@ eu:
             update: eguneratzearen
           form:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
+            created_in_meeting: Proposamen hau bilera batetik dator
             select_a_category: Aukeratu kategoria bat
+            select_a_meeting: Aukeratu bilera bat
           index:
             actions: Ekintzak
             cancel: Utzi
