@@ -5,13 +5,13 @@ module Decidim
     # Metric manager for Participant's registries
     class ParticipantsMetricManage < Decidim::MetricManage
       # Searches for Participants in the following actions
-      #  [X] Create a proposal (Proposals)
-      #  [X] Give support to a proposal (Proposals)
-      #  [X] Endorse (Proposals)
-      #  [X] Create a debate (Debates)
-      #  [X] Answer a survey (Surveys)
-      #  [ ] Leave a comment (Comments)
-      #  [X] Vote a participatory budgeting project (Budgets)
+      #  Create a proposal (Proposals)
+      #  Give support to a proposal (Proposals)
+      #  Endorse (Proposals)
+      #  Create a debate (Debates)
+      #  Answer a survey (Surveys)
+      #  Vote a participatory budgeting project (Budgets)
+      #  Leave a comment (Comments)
 
       AVAILABLE_COMPONENTS = %w(proposals debates surveys budgets).freeze
 
@@ -25,7 +25,7 @@ module Decidim
         query.each do |key, results|
           cumulative_value = results[:cumulative_users].count
           next if cumulative_value.zero?
-          quantity_value = results[:quantity_users] || 0
+          quantity_value = results[:quantity_users].count || 0
           space_type, space_id = key
           record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
                                                          participatory_space_type: space_type, participatory_space_id: space_id,
@@ -33,7 +33,7 @@ module Decidim
           record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
           @registry << record
         end
-        # @registry.each(&:save!)
+        @registry.each(&:save!)
         @registry
       end
 
@@ -50,22 +50,13 @@ module Decidim
           grouped_participants[key] = { cumulative_users: [], quantity_users: [] }
           components = retrieve_components(participatory_space)
           components.each do |component|
-            # puts "---------- (#{component.id}) #{component.manifest_name}"
             component_participants = send(:"retrieve_participants_for_#{component.manifest_name}", component)
             grouped_participants[key].merge!(component_participants) { |_key, g_p, c_p| g_p | c_p }
           end
-          #   related_object = comment.root_commentable
-          #   return grouped_comments unless related_object
-          #
-          #   group_key = generate_group_key(related_object)
-          #   grouped_comments[group_key] ||= { cumulative: 0, quantity: 0 }
-          #   grouped_comments[group_key][:cumulative] += 1
-          #   grouped_comments[group_key][:quantity] += 1 if comment.created_at >= start_time
-          #
-          #   grouped_comments
+          comments_participants = retrieve_participants_for_comments(participatory_space)
+          grouped_participants[key].merge!(comments_participants) { |_key, g_p, c_p| g_p | c_p }
           grouped_participants
         end
-
         @query
       end
 
@@ -123,6 +114,7 @@ module Decidim
                                           .where("decidim_debates_debates.created_at <= ?", end_time)
                                           .where(decidim_author_type: Decidim::UserBaseEntity.name)
                                           .where.not(author: nil)
+
         {
           cumulative_users: debates.pluck(:decidim_author_id),
           quantity_users: debates.where("decidim_debates_debates.created_at >= ?", start_time).pluck(:decidim_author_id)
@@ -144,10 +136,6 @@ module Decidim
         }
       end
 
-      def retrieve_participants_for_comments(_component)
-        raise "retrieve_participants_for_comments"
-      end
-
       def retrieve_participants_for_budgets(component)
         budgets = Decidim::Budgets::Order.where(component: component).joins(:component)
                                          .finished
@@ -158,7 +146,39 @@ module Decidim
           quantity_users: budgets.where("decidim_budgets_orders.checked_out_at >= ?", start_time).pluck(:decidim_user_id)
         }
       end
-      # Decidim::Metrics::ParticipantsMetricManage.new("2018-01-01", Decidim::Organization.first).save
+
+      def retrieve_participants_for_comments(participatory_space)
+        # This is bad!!! We don't know if Comments module is actual loaded
+        # return {} unless Object.const_defined?('Decidim::Comments::Comment')
+
+        cumulative_users = []
+        quantity_users = []
+
+        retrieve_comments_for_organization.each do |comment|
+          related_object = comment.root_commentable
+          next unless related_object
+          next unless check_participatory_space(participatory_space, related_object)
+          cumulative_users << comment.decidim_author_id
+          quantity_users << comment.decidim_author_id if comment.created_at >= start_time
+        end
+        {
+          cumulative_users: cumulative_users.uniq,
+          quantity_users: quantity_users.uniq
+        }
+      end
+
+      def check_participatory_space(participatory_space, related_object)
+        return related_object.participatory_space == participatory_space if related_object.respond_to?(:participatory_space)
+        return related_object == participatory_space if related_object.is_a?(Decidim::Participable)
+        false
+      end
+
+      def retrieve_comments_for_organization
+        user_ids = Decidim::User.select(:id).where(organization: @organization).collect(&:id)
+        Decidim::Comments::Comment.includes(:root_commentable).not_hidden
+                                  .where("decidim_comments_comments.created_at <= ?", end_time)
+                                  .where("decidim_comments_comments.decidim_author_id IN (?)", user_ids)
+      end
     end
   end
 end
