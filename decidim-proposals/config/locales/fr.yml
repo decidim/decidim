@@ -611,6 +611,7 @@ fr:
           report: Signaler
           sign_in: Se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
+          sign_in_to_participate: "%{in} pour participer"
           sign_up: S'inscrire
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
