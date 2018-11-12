@@ -283,6 +283,8 @@ ca:
         new:
           are_you_new?: Ets nou a la plataforma?
           register: Crea't un compte
+          sign_in_disabled: Podeu accedir amb un compte extern
+          sign_up_disabled: La inscripció està deshabilitada, podeu accedir a un usuari existent
       shared:
         newsletter_modal:
           buttons:
