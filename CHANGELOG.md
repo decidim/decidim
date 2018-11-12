@@ -36,6 +36,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Fixed**:
 
+- **decidim-core**: Fix newsletter notification modal [\#342](https://github.com/OpenSourcePolitics/decidim/pull/342) 
 - **decidim-proposals**: Fix responsive car preview for proposals[\#325](https://github.com/OpenSourcePolitics/decidim/pull/325)
 - **decidim-budgets**: Add hyphens to budget card. [\#305](https://github.com/OpenSourcePolitics/decidim/pull/305)
 - **decidim-admin**: Fix issue when updating a navbar link. [\#310](https://github.com/OpenSourcePolitics/decidim/pull/310)
