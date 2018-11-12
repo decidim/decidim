@@ -545,7 +545,7 @@ en:
       form:
         document_number_help: Do not use dashes nor spaces
         email_help: Email of your organization, association, collective, group, etc.
-        fill_in_for_verification: "Fill in these fields if you want your group to be verified:"
+        fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
         name_help: Name of your organization, association, collective, group, etc.
         nickname_help: Username of your organization, association, collective, group, etc. Do not use spaces nor accents.
         phone_help: Do not use dashes nor spaces
