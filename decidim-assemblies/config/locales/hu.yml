@@ -171,7 +171,6 @@ hu:
             promoted: Kiemelt
             published: Közzétéve
             title: Cím
-          name: Gyűlés
         assembly_member:
           fields:
             ceased_date: Megszűnés dátuma

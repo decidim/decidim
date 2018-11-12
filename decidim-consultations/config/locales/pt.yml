@@ -108,9 +108,6 @@ pt:
             created_at: Criado em
             published: Publicados
             title: Título
-          name:
-            one: Konzultáció
-            other: Konzultációk
         question:
           fields:
             created_at: Criado em

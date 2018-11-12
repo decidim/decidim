@@ -108,9 +108,6 @@ sv:
             created_at: Skapad vid
             published: Publicerad
             title: Titel
-          name:
-            one: Konzultáció
-            other: Konzultációk
         question:
           fields:
             created_at: Skapad vid

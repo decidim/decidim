@@ -171,7 +171,6 @@ sv:
             promoted: Markerad
             published: Publicerad
             title: Titel
-          name: Möte
         assembly_member:
           fields:
             ceased_date: Upphört datum

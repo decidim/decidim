@@ -99,7 +99,6 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Deltagande process
         participatory_process_group:
           fields:
             name: Naam

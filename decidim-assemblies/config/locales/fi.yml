@@ -171,7 +171,6 @@ fi:
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
-          name: Möte
         assembly_member:
           fields:
             ceased_date: Päättymispäivä

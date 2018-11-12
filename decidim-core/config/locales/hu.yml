@@ -643,11 +643,6 @@ hu:
         see_more: Tovább
   locale:
     name: English
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban

@@ -99,7 +99,6 @@ ca:
             promoted: Destacat
             published: Publicat
             title: Títol
-          name: Deltagande process
         participatory_process_group:
           fields:
             name: Nom

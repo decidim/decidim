@@ -116,9 +116,6 @@ ru:
             created_at: 'Создано:'
             published: Обнародовано
             title: Заголовок
-          name:
-            one: Konzultáció
-            other: Konzultációk
         question:
           fields:
             created_at: 'Создано:'

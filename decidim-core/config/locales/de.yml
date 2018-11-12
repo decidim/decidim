@@ -643,11 +643,6 @@ de:
         see_more: Mehr sehen
   locale:
     name: Englisch
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   social_share_button:
     delicious: Köstlich
     douban: Douban

@@ -171,7 +171,6 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
-          name: Möte
         assembly_member:
           fields:
             ceased_date: Data di fine

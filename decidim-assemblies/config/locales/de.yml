@@ -171,7 +171,6 @@ de:
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
-          name: Versammlung
         assembly_member:
           fields:
             ceased_date: Aufgegebenes Datum

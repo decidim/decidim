@@ -396,7 +396,6 @@ ca:
           fields:
             created_at: Creat el
             name: Nom
-          name: Aplicació OAuth
         participatory_space_private_user:
           name: Usuari privat de l'espai de participació
         scope:
@@ -421,7 +420,6 @@ ca:
             roles:
               admin: Administrador
               user_manager: Administrador d'usuaris
-          name: Usuari
         user_group:
           fields:
             actions: Accions
@@ -642,6 +640,8 @@ ca:
         static_pages: Pàgines
         user_groups: Grups d'usuaris
         users: Usuaris
+      user:
+        new: New
       user_group:
         reject:
           invalid: Hi va hagut un error en rebutjar aquest grup d'usuaris.

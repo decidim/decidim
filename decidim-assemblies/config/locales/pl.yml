@@ -177,7 +177,6 @@ pl:
             promoted: Podświetlony
             published: Opublikowany
             title: Tytuł
-          name: Möte
         assembly_member:
           fields:
             ceased_date: Przerywana data

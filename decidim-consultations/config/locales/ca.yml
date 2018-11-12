@@ -108,9 +108,6 @@ ca:
             created_at: Creat el
             published: Publicat
             title: Títol
-          name:
-            one: Konzultáció
-            other: Konzultációk
         question:
           fields:
             created_at: Creat el

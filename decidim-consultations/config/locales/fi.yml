@@ -108,9 +108,6 @@ fi:
             created_at: Luontiaika
             published: Julkaistu
             title: Otsikko
-          name:
-            one: Kuuleminen
-            other: Kuulemiset
         question:
           fields:
             created_at: Luontiaika

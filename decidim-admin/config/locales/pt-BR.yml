@@ -396,7 +396,6 @@ pt-BR:
           fields:
             created_at: Criado em
             name: Nome
-          name: Aplicação OAuth
         participatory_space_private_user:
           name: Espaço participativo usuário particular
         scope:
@@ -421,7 +420,6 @@ pt-BR:
             roles:
               admin: Admin
               user_manager: Gerente de usuário
-          name: Usuário
         user_group:
           fields:
             actions: Ações
@@ -642,6 +640,8 @@ pt-BR:
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Usuários
+      user:
+        new: New
       user_group:
         reject:
           invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.

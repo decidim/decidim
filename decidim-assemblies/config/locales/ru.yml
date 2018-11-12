@@ -177,7 +177,6 @@ ru:
             promoted: Рекомендуемые
             published: Обнародовано
             title: Название
-          name: Möte
         assembly_member:
           fields:
             ceased_date: Дата прекращения полномочий

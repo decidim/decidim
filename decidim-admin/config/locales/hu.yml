@@ -396,7 +396,6 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             name: Név
-          name: OAuth alkalmazás
         participatory_space_private_user:
           name: Részvételi tér privát felhasználó
         scope:
@@ -421,7 +420,6 @@ hu:
             roles:
               admin: Admin
               user_manager: Felhasználói menedzser
-          name: Felhasználó
         user_group:
           fields:
             actions: Műveletek
@@ -642,6 +640,8 @@ hu:
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
         users: Felhasználók
+      user:
+        new: New
       user_group:
         reject:
           invalid: Hiba történt a felhasználói csoport elutasításakor.

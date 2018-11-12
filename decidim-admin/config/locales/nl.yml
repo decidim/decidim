@@ -396,7 +396,6 @@ nl:
           fields:
             created_at: Aangemaakt op
             name: Naam
-          name: OAuth-toepassing
         participatory_space_private_user:
           name: Gebruiker van de burgerinspraak
         scope:
@@ -421,7 +420,6 @@ nl:
             roles:
               admin: Beheerder
               user_manager: Gebruikersbeheerder
-          name: Gebruiker
         user_group:
           fields:
             actions: acties
@@ -644,6 +642,8 @@ nl:
         static_pages: Pagina's
         user_groups: Gebruikersgroepen
         users: Gebruikers
+      user:
+        new: New
       user_group:
         reject:
           invalid: Er is een fout opgetreden bij het weigeren van deze gebruikersgroep.

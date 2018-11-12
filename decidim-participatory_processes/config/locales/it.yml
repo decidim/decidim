@@ -99,7 +99,6 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
-          name: Deltagande process
         participatory_process_group:
           fields:
             name: Nome
