@@ -18,7 +18,8 @@ module Decidim
             {
               name: "Gotham City",
               host: "decide.gotham.gov",
-              secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov"
+              secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov",
+              users_registration_mode: "existing"
             }
           end
 
@@ -33,6 +34,7 @@ module Decidim
             expect(organization.name).to eq("Gotham City")
             expect(organization.host).to eq("decide.gotham.gov")
             expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
+            expect(organization.users_registration_mode).to eq("existing")
           end
         end
 
