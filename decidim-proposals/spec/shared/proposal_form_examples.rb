@@ -20,6 +20,7 @@ shared_examples "a proposal form" do |options|
   let(:has_address) { false }
   let(:address) { nil }
   let(:attachment_params) { nil }
+  let(:meeting_as_author) { false }
   let(:params) do
     {
       title: title,
@@ -29,6 +30,7 @@ shared_examples "a proposal form" do |options|
       scope_id: scope_id,
       address: address,
       has_address: has_address,
+      meeting_as_author: meeting_as_author,
       attachment: attachment_params
     }
   end
@@ -216,6 +218,73 @@ shared_examples "a proposal form" do |options|
         expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
         expect(subject.errors.keys).to match_array([:title, :attachment])
       end
+    end
+  end
+end
+
+shared_examples "a proposal form with meeting as author" do |_options|
+  subject { form }
+
+  let(:organization) { create(:organization, available_locales: [:en]) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:component) { create(:proposal_component, participatory_space: participatory_space) }
+  let(:title) { "More sidewalks and less roads!" }
+  let(:body) { "Everything would be better" }
+  let(:created_in_meeting) { true }
+  let(:meeting_component) { create(:meeting_component, participatory_space: participatory_space) }
+  let(:author) { create(:meeting, component: meeting_component) }
+  let!(:meeting_as_author) { author }
+
+  let(:params) do
+    {
+      title: title,
+      body: body,
+      created_in_meeting: created_in_meeting,
+      author: meeting_as_author,
+      meeting_id: author.id
+    }
+  end
+
+  let(:form) do
+    described_class.from_params(params).with_context(
+      current_component: component,
+      current_organization: component.organization,
+      current_participatory_space: participatory_space
+    )
+  end
+
+  context "when everything is OK" do
+    it { is_expected.to be_valid }
+  end
+
+  context "when there's no title" do
+    let(:title) { nil }
+
+    it { is_expected.to be_invalid }
+  end
+
+  context "when the title is too long" do
+    let(:body) { "A" * 200 }
+
+    it { is_expected.to be_invalid }
+  end
+
+  context "when the body is not etiquette-compliant" do
+    let(:body) { "A" }
+
+    it { is_expected.to be_invalid }
+  end
+
+  context "when there's no body" do
+    let(:body) { nil }
+
+    it { is_expected.to be_invalid }
+  end
+
+  context "when proposals comes from a meeting" do
+    it "validates the meeting as author" do
+      expect(subject).to be_valid
+      expect(subject.author).to eq(author)
     end
   end
 end
