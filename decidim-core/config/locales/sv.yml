@@ -283,6 +283,8 @@ sv:
         new:
           are_you_new?: Ny på plattformen?
           register: Skapa ett konto
+          sign_in_disabled: Du kan få tillgång till ett externt konto
+          sign_up_disabled: Anmälan är inaktiverad, du kan använda en befintlig användare för att komma åt
       shared:
         newsletter_modal:
           buttons:
