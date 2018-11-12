@@ -10,7 +10,7 @@ module Decidim
         def valid?
           super && @resource.is_a?(Decidim::Component)
         end
-        
+
         def calculate
           debates = Decidim::Debates::Debate.where(component: @resource).joins(:component)
                                             .where("decidim_debates_debates.created_at <= ?", end_time)
