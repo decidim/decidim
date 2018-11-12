@@ -633,6 +633,7 @@ pl:
           report: Raport
           sign_in: Zaloguj
           sign_in_or_up: "%{in} lub %{up} do wzięcia udziału"
+          sign_in_to_participate: "%{in} do wzięcia udziału"
           sign_up: Zapisz się
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
           withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?

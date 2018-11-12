@@ -283,6 +283,8 @@ nl:
         new:
           are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
+          sign_in_disabled: U hebt toegang met een extern account
+          sign_up_disabled: Aanmelden is uitgeschakeld, u kunt een bestaande gebruiker gebruiken om toegang te krijgen
       shared:
         newsletter_modal:
           buttons:

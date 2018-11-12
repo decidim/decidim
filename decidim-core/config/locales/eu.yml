@@ -283,6 +283,8 @@ eu:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
+          sign_in_disabled: Kanpoko kontu batekin sar zaitezke
+          sign_up_disabled: Erregistratu ezgaituta dago, lehendik dagoen erabiltzaile bat erabil dezakezu sartzeko
       shared:
         newsletter_modal:
           buttons:

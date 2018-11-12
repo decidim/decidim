@@ -283,6 +283,8 @@ de:
         new:
           are_you_new?: Neu auf der Plattform?
           register: Konto erstellen
+          sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen
+          sign_up_disabled: Die Anmeldung ist deaktiviert. Sie können einen vorhandenen Benutzer für den Zugriff verwenden
       shared:
         newsletter_modal:
           buttons:

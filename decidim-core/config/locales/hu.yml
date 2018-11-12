@@ -283,6 +283,8 @@ hu:
         new:
           are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
+          sign_in_disabled: Külső fiókkal érhető el
+          sign_up_disabled: A bejelentkezés le van tiltva, a meglévő felhasználó hozzáférhet
       shared:
         newsletter_modal:
           buttons:

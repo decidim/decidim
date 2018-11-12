@@ -283,6 +283,8 @@ gl:
         new:
           are_you_new?: Novo para a plataforma?
           register: Crear unha conta
+          sign_in_disabled: Pode acceder cunha conta externa
+          sign_up_disabled: A inscrición está desactivada, pode utilizar un usuario existente para acceder
       shared:
         newsletter_modal:
           buttons:
