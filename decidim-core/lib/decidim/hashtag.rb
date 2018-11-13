@@ -9,7 +9,5 @@ module Decidim
 
     validates :name, presence: true
     validates :name, uniqueness: { scope: [:decidim_organization_id] }
-
-    HASHTAG_REGEX = /(^|\s)#([a-zA-Z0-9]\w*)/i
   end
 end

@@ -10,6 +10,8 @@ module Decidim
     #
     # @see BaseParser Examples of how to use a content parser
     class HashtagParser < BaseParser
+      HASHTAG_REGEX = /\B#([[:alnum:]](?:[[:alnum:]]|_)*)\b/i
+
       Metadata = Struct.new(:hashtags)
 
       # Replaces found hashtags matching a name of an existing
