@@ -366,6 +366,19 @@ fi:
         not_answered: Vastaamaton
         rejected: Hylätty
         withdrawn: Peruutettu
+      application_helper:
+        filter_origin_values:
+          all: Kaikki
+          citizens: Kansalaiset
+          meetings: kokoukset
+          official: Virallinen
+          user_groups: Käyttäjäryhmät
+        filter_state_values:
+          accepted: Hyväksytyt
+          all: Kaikki
+          evaluating: arviointiin
+          except_rejected: Kaikki paitsi hylätyt
+          rejected: hylätty
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ fi:
         endorsements_card_row:
           comments: Kommentit
         filters:
-          accepted: Hyväksytty
           activity: Aktiivisuus
-          all: Kaikki
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
-          citizens: Kansalaiset
-          evaluating: Arvioitavana
-          except_rejected: Kaikki paitsi hylätyt
-          official: Virallinen
           origin: Alkuperä
-          rejected: Hylätty
           related_to: Liittyy aiheeseen
           search: Haku
           state: Tila
