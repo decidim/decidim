@@ -133,28 +133,28 @@ module Decidim
 
       def filter_origin_values
         base = if component_settings.official_proposals_enabled
-                [
-                  ["all", t(".all")],
-                  ["official", t(".official")]
-                ]
-              else
-                [ ["all", t(".all")] ]
-              end
+                 [
+                   ["all", t("decidim.proposals.application_helper.filter_origin_values.all")],
+                   ["official", t("decidim.proposals.application_helper.filter_origin_values.official")]
+                 ]
+               else
+                 [["all", t("decidim.proposals.application_helper.filter_origin_values.all")]]
+               end
 
         base + [
-          ["citizens", t(".citizens")],
-          ["user_group", t(".user_groups")],
-          ["meeting", t(".meetings")]
+          ["citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens")],
+          ["user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")],
+          ["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]
         ]
       end
 
       def filter_state_values
         [
-          ["except_rejected", t(".except_rejected")],
-          ["accepted", t(".accepted")],
-          ["evaluating", t(".evaluating")],
-          ["rejected", t(".rejected")],
-          ["all", t(".all")]
+          ["except_rejected", t("decidim.proposals.application_helper.filter_state_values.except_rejected")],
+          ["accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")],
+          ["evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")],
+          ["rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")],
+          ["all", t("decidim.proposals.application_helper.filter_state_values.all")]
         ]
       end
     end

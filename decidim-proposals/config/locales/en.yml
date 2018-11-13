@@ -367,6 +367,19 @@ en:
         not_answered: Not answered
         rejected: Rejected
         withdrawn: Withdrawn
+      application_helper:
+        filter_origin_values:
+          all: All
+          citizens: Citizens
+          meetings: Meetings
+          official: Official
+          user_groups: User groups
+        filter_state_values:
+          accepted: Accepted
+          all: All
+          evaluating: Evaluating
+          except_rejected: All except rejected
+          rejected: Rejected
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -553,22 +566,13 @@ en:
         endorsements_card_row:
           comments: Comments
         filters:
-          accepted: Accepted
           activity: Activity
-          all: All
           category: Category
           category_prompt: Select a category
-          citizens: Citizens
-          evaluating: Evaluating
-          except_rejected: All except rejected
-          meetings: Meetings
-          official: Official
           origin: Origin
-          rejected: Rejected
           related_to: Related to
           search: Search
           state: State
-          user_groups: User groups
           voted: Voted
         filters_small_view:
           close_modal: Close modal
