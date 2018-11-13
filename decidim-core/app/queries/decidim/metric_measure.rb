@@ -11,7 +11,7 @@ module Decidim
     end
 
     def initialize(day, resource)
-      @day = day.presence || Time.zone.today - 1.day
+      @day = day.try(:to_date) || Time.zone.today - 1.day
       raise ArgumentError, "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past" if @day > Time.zone.today
       @day ||= Time.zone.today - 1.day
       @resource = resource
