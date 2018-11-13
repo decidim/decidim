@@ -6,7 +6,7 @@ module Decidim::Accountability
   describe Admin::UpdateResult do
     subject { described_class.new(form, result) }
 
-    let(:result) { create :result }
+    let(:result) { create :result, progress: 10 }
     let(:organization) { result.component.organization }
     let(:user) { create :user, organization: organization }
     let(:scope) { create :scope, organization: organization }
@@ -143,6 +143,52 @@ module Decidim::Accountability
       it "sets the weight" do
         subject.call
         expect(result.weight).to eq weight
+      end
+
+      it "notifies the linked proposals followers" do
+        follower = create(:user, organization: organization)
+        create(:follow, followable: proposals.first, user: follower)
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.result_progress_updated",
+            event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
+            resource: result,
+            recipient_ids: match_array([proposals.first.creator_author.id, follower.id]),
+            extra: {
+              progress: progress,
+              proposal_id: proposals.first.id
+            }
+          )
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.result_progress_updated",
+            event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
+            resource: result,
+            recipient_ids: [proposals.second.creator_author.id],
+            extra: {
+              progress: progress,
+              proposal_id: proposals.second.id
+            }
+          )
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.result_progress_updated",
+            event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
+            resource: result,
+            recipient_ids: [proposals.third.creator_author.id],
+            extra: {
+              progress: progress,
+              proposal_id: proposals.third.id
+            }
+          )
+
+        subject.call
       end
     end
   end
