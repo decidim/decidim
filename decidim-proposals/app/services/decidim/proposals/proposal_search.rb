@@ -22,10 +22,28 @@ module Decidim
 
       # Handle the origin filter
       def search_origin
-        if origin == "official"
-          query.where.not(coauthorships_count: 0).joins(:coauthorships).where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-        elsif origin == "citizens"
-          query.where.not(coauthorships_count: 0).joins(:coauthorships).where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+        case origin
+        when "official"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+        when "citizens"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+        when "user_group"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
+            .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
+        when "meeting"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
         else # Assume 'all'
           query
         end
