@@ -29,6 +29,10 @@
 
 // Extend Foundation defaults
 .tooltip{
+  &.expanded{
+    max-width: 100%;
+  }
+
   &.light{
     background-color: $body-background;
     color: $body-font-color;
