@@ -561,12 +561,14 @@ en:
           citizens: Citizens
           evaluating: Evaluating
           except_rejected: All except rejected
+          meetings: Meetings
           official: Official
           origin: Origin
           rejected: Rejected
           related_to: Related to
           search: Search
           state: State
+          user_groups: User groups
           voted: Voted
         filters_small_view:
           close_modal: Close modal

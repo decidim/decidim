@@ -130,6 +130,33 @@ module Decidim
         return true if can_accumulate_supports_beyond_threshold?
         return true if minimum_votes_per_user_enabled?
       end
+
+      def filter_origin_values
+        base = if component_settings.official_proposals_enabled
+                [
+                  ["all", t(".all")],
+                  ["official", t(".official")]
+                ]
+              else
+                [ ["all", t(".all")] ]
+              end
+
+        base + [
+          ["citizens", t(".citizens")],
+          ["user_group", t(".user_groups")],
+          ["meeting", t(".meetings")]
+        ]
+      end
+
+      def filter_state_values
+        [
+          ["except_rejected", t(".except_rejected")],
+          ["accepted", t(".accepted")],
+          ["evaluating", t(".evaluating")],
+          ["rejected", t(".rejected")],
+          ["all", t(".all")]
+        ]
+      end
     end
   end
 end
