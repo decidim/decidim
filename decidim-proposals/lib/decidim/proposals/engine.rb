@@ -220,6 +220,16 @@ module Decidim
             settings.attribute :weight, type: :integer, default: 3
           end
         end
+
+        Decidim.metrics_registry.register(:endorsements) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Proposals::Metrics::EndorsementsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(participatory_process)
+            settings.attribute :weight, type: :integer, default: 4
+          end
+        end
       end
     end
   end
