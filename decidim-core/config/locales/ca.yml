@@ -283,6 +283,8 @@ ca:
         new:
           are_you_new?: Ets nou a la plataforma?
           register: Crea't un compte
+          sign_in_disabled: Podeu accedir amb un compte extern
+          sign_up_disabled: La inscripció està deshabilitada, podeu accedir a un usuari existent
       shared:
         newsletter_modal:
           buttons:
@@ -535,6 +537,13 @@ ca:
       edit:
         edit_user_group: Editar el grup
         update_user_group: Actualitzar el grup
+      form:
+        document_number_help: No utilitzeu taques ni espais
+        email_help: Correu electrònic de la vostra organització, associació, col·lectiu, grup, etc.
+        fill_in_for_verification: 'Ompliu aquests camps si voleu verificar el vostre grup:'
+        name_help: Nom de la vostra organització, associació, col·lectiu, grup, etc.
+        nickname_help: Nom d'usuari de la vostra organització, associació, col·lectiu, grup, etc. No utilitzeu espais ni accents.
+        phone_help: No utilitzeu taques ni espais
       join:
         error: Hi ha hagut un problema en unir-se al grup
         success: La sol·licitud per a formar-ne part s'ha creat correctament. Un administrador revisarà la teva sol·licitud abans d'acceptar-te al grup.
@@ -548,6 +557,7 @@ ca:
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
+        subtitle: Creeu un grup i convideu a altres usuaris a unir-se per participar a nivell col·lectiu.
       no_user_groups: Encara no pertanys a cap grup.
       roles:
         admin: Administrador

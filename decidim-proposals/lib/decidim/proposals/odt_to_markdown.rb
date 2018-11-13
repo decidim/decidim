@@ -38,7 +38,7 @@ module Decidim
 
       def transform_to_md_file(doc_file)
         md_file = Tempfile.new
-        Doc2Text::XmlBasedDocument::Odt::Document.parse_and_save doc_file, md_file
+        Doc2Text::Odt::Document.parse_and_save doc_file, md_file
         md_file
       end
     end

@@ -293,6 +293,8 @@ pl:
         new:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
+          sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego
+          sign_up_disabled: Zarejestruj się jest wyłączone, możesz użyć istniejącego użytkownika, aby uzyskać dostęp
       shared:
         newsletter_modal:
           buttons:
@@ -545,6 +547,13 @@ pl:
       edit:
         edit_user_group: Edytuj grupę
         update_user_group: Zaktualizuj grupę
+      form:
+        document_number_help: Nie używaj myślników ani spacji
+        email_help: E-mail do Twojej organizacji, stowarzyszenia, grupy, grupy itp.
+        fill_in_for_verification: 'Wypełnij te pola, jeśli chcesz zweryfikować swoją grupę:'
+        name_help: Nazwa organizacji, stowarzyszenia, grupy, grupy itp.
+        nickname_help: Nazwa użytkownika Twojej organizacji, stowarzyszenia, grupy, grupy itp. Nie używaj spacji ani akcentów.
+        phone_help: Nie używaj myślników ani spacji
       join:
         error: Podczas dołączania do grupy wystąpił problem
         success: Żądanie dołączenia zostało pomyślnie utworzone. Administrator sprawdzi Twoją prośbę przed zaakceptowaniem Cię do grupy.
@@ -558,6 +567,7 @@ pl:
       new:
         create_user_group: Stworzyć grupę
         new_user_group: Nowa grupa
+        subtitle: Utwórz grupę i zaproś innych użytkowników do przyłączenia się, aby uczestniczyć w zbiorowym poziomie.
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator

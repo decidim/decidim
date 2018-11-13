@@ -283,6 +283,8 @@ fi:
         new:
           are_you_new?: Uusi käyttäjä?
           register: Rekisteröidy
+          sign_in_disabled: Voit käyttää ulkoista tiliä
+          sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit käyttää olemassa olevaa käyttäjää
       shared:
         newsletter_modal:
           buttons:
@@ -535,6 +537,13 @@ fi:
       edit:
         edit_user_group: Muokkaa ryhmää
         update_user_group: Päivitä ryhmä
+      form:
+        document_number_help: Älä käytä viivoja tai välilyöntejä
+        email_help: Organisaation, yhdistyksen, ryhmän, ryhmän jne. Sähköposti.
+        fill_in_for_verification: 'Täytä nämä kentät, jos haluat ryhmän vahvistamisen:'
+        name_help: Organisaation nimi, yhdistys, ryhmä, ryhmä jne.
+        nickname_help: Organisaation, yhdistämisen, ryhmän, ryhmän jne. Käyttäjänimi. Älä käytä välilyöntejä tai aksentteja.
+        phone_help: Älä käytä viivoja tai välilyöntejä
       join:
         error: Ryhmään liityttäessä esiintyi ongelma
         success: Liittymispyyntö luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
@@ -548,6 +557,7 @@ fi:
       new:
         create_user_group: Luo ryhmä
         new_user_group: Uusi ryhmä
+        subtitle: Luo ryhmä ja pyydä muita käyttäjiä liittymään kollektiiviseen tasoon.
       no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä

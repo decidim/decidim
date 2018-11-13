@@ -472,7 +472,7 @@ GEM
     mustache (1.1.0)
     nio4r (2.3.1)
     nobspw (0.4.0)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     oauth (0.5.4)
     oauth2 (1.4.1)

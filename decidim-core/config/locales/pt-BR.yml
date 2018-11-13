@@ -283,6 +283,8 @@ pt-BR:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
+          sign_in_disabled: Você pode acessar com uma conta externa
+          sign_up_disabled: Inscrever-se está desabilitado, você pode usar um usuário existente para acessar
       shared:
         newsletter_modal:
           buttons:
@@ -535,6 +537,13 @@ pt-BR:
       edit:
         edit_user_group: Editar grupo
         update_user_group: Atualizar grupo
+      form:
+        document_number_help: Não use traços nem espaços
+        email_help: E-mail da sua organização, associação, coletivo, grupo etc.
+        fill_in_for_verification: 'Preencha estes campos se quiser que seu grupo seja verificado:'
+        name_help: Nome da sua organização, associação, coletivo, grupo etc.
+        nickname_help: Nome de usuário da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
+        phone_help: Não use traços nem espaços
       join:
         error: Houve um problema ao ingressar no grupo
         success: Solicitação de junção criada com êxito. Um administrador irá rever o seu pedido antes de aceitá-lo para o grupo.
@@ -548,6 +557,7 @@ pt-BR:
       new:
         create_user_group: Criar Grupo
         new_user_group: Novo grupo
+        subtitle: Crie um grupo e convide outros usuários a participar para participar de um nível coletivo.
       no_user_groups: Não pertence a nenhum grupo ainda.
       roles:
         admin: Administrador
