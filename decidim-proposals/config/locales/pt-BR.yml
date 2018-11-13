@@ -376,7 +376,9 @@ pt-BR:
         filter_state_values:
           accepted: Aceitaram
           all: Todos
+          evaluating: Avaliando
           except_rejected: Todos exceto rejeitados
+          rejected: Rejeitado
       collaborative_drafts:
         collaborative_draft:
           publish:
