@@ -28,7 +28,11 @@ module Decidim
     end
 
     def participatory_space_floating_help
-      floating_help { translated_attribute(help_section.content) } if help_section.content.present?
+      return if help_section.blank?
+
+      content_tag "div", class: "row collapse" do
+        floating_help { translated_attribute(help_section).html_safe }
+      end
     end
   end
 end

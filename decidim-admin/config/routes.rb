@@ -65,7 +65,7 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
-    resource :help_sections
+    resource :help_sections, only: [:edit, :update]
 
     resources :oauth_applications
 

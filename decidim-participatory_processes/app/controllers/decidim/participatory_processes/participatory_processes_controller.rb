@@ -45,10 +45,6 @@ module Decidim
         ).first!
       end
 
-      def current_participatory_space_manifest
-        Decidim.participatory_space_manifests.find { |manifest| manifest.name == :participatory_processes }
-      end
-
       def published_processes
         @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user)
       end

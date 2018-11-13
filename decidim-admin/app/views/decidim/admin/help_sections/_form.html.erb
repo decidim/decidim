@@ -1,0 +1,21 @@
+<%= decidim_form_for(form, url: help_sections_path, method: :put) do |f| %>
+  <% f.object.sections.each do |section| %>
+    <%= f.fields_for "sections[]", section do |section_form| %>
+      <div class="card" id="area-types">
+        <div class="card-divider">
+          <h2 class="card-title">
+            <%= translated_attribute section.name %>
+          </h2>
+        </div>
+        <div class="card-section">
+          <%= section_form.hidden_field :id %>
+          <%= section_form.translated :editor, :content, tabs_id: "sections_#{section_form.object.id}_content" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".save") %>
+  </div>
+<% end %>

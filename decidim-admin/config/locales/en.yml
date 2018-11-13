@@ -251,6 +251,9 @@ en:
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
+      help_sections:
+        form:
+          save: Save
       impersonatable_users:
         index:
           filter:
