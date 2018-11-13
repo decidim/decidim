@@ -1,10 +1,11 @@
 <% tooltip = true unless local_assigns.has_key?(:tooltip) %>
-<a href="javascript:void(0);" class="author__name"
+<a href="javascript:void(0);" class="author__name show-for-medium"
   <% if tooltip %>
     data-tooltip
     data-position="top"
+    data-show-on="medium"
     data-alignment="center"
-    data-disable-hover="false"
+    data-click-open="false"
     tabindex="1"
     data-allow-html="true"
     data-template-classes="light expanded"
@@ -12,3 +13,5 @@
   <% end %>>
   <%= Faker::Name.name %>
 </a>
+<%# On mobile, disable tooltip, touch event redirects to profile %>
+<%= link_to Faker::Name.name, page_path("profile/user-profile-public"), class: "card__link author__name hide-for-medium" %>
