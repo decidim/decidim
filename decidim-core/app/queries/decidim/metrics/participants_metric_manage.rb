@@ -57,7 +57,6 @@ module Decidim
           # Special case for comments ONLY
           operation_manifest = Decidim.metrics_operation.for(:participants, :comments)
           next grouped_participants unless operation_manifest
-          # raise "HEY COMMENTS: #{operation_manifest.as_json}"
           comments_participants = operation_manifest.calculate(@day, participatory_space)
           grouped_participants[key].merge!(comments_participants || {}) { |_key, g_p, c_p| g_p | c_p }
           grouped_participants
