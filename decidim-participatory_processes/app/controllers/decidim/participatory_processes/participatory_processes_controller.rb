@@ -6,6 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
+
       participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
@@ -42,6 +43,10 @@ module Decidim
         @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
           organization_participatory_processes.where(id: params["slug"])
         ).first!
+      end
+
+      def current_participatory_space_manifest
+        Decidim.participatory_space_manifests.find { |manifest| manifest.name == :participatory_processes }
       end
 
       def published_processes

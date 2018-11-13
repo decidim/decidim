@@ -54,6 +54,7 @@
   border-top: 5px solid $secondary;
   margin-bottom: $global-margin * 3;
   padding: $global-padding * 2;
+  width: 100%;
 
   @include breakpoint(medium){
     padding: $global-padding * 3 $global-padding * 2 $global-padding * 2;

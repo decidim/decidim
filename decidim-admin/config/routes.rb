@@ -65,6 +65,8 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
+    resource :help_sections
+
     resources :oauth_applications
 
     root to: "dashboard#show"

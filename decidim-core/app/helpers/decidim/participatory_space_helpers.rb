@@ -26,5 +26,9 @@ module Decidim
 
       @participatory_space_helpers = klass.new(self)
     end
+
+    def participatory_space_floating_help
+      floating_help { translated_attribute(help_section.content) } if help_section.content.present?
+    end
   end
 end
