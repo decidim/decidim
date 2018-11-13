@@ -16,8 +16,6 @@ module Decidim
     validates :name, presence: true
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
     validates :nickname, presence: true
-    validates :document_number, presence: true
-    validates :phone, presence: true
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
@@ -30,6 +28,7 @@ module Decidim
     private
 
     def unique_document_number
+      return if document_number.blank?
       errors.add :document_number, :taken if UserGroup
                                              .with_document_number(
                                                context.current_organization,

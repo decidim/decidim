@@ -8,7 +8,14 @@
   </div>
 <% end %>
 
-<%= render partial: "decidim/shared/results_per_page" %>
+<div class="row medium-up-2">
+  <div class="column">
+    <%= render partial: "decidim/shared/results_per_page" %>
+  </div>
+  <div class="column">
+    <%= render partial: "decidim/meetings/calendar_modal", locals: { path: calendar_url } %>
+  </div>
+</div>
 
 <div class="row small-up-1 medium-up-2 card-grid">
   <% meetings.each do |meeting| %>

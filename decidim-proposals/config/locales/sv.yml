@@ -307,7 +307,9 @@ sv:
             update: Uppdatera
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
+            created_in_meeting: Detta förslag kommer från ett möte
             select_a_category: Välj en kategori
+            select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
             cancel: Avbryt
@@ -611,6 +613,7 @@ sv:
           report: Rapportera
           sign_in: Logga in
           sign_in_or_up: "%{in} eller %{up} för att delta"
+          sign_in_to_participate: "%{in} att delta"
           sign_up: registrera
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?

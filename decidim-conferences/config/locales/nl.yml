@@ -48,6 +48,7 @@ nl:
   decidim:
     admin:
       actions:
+        confirm: Bevestigen
         new_conference: Nieuwe conferentie
       conference_copies:
         new:
@@ -61,6 +62,10 @@ nl:
         destroy:
           error: Er is een fout opgetreden bij het niet-publiceren van deze conferentie.
           success: Conferentie ongepubliceerd succesvol.
+      conference_registration:
+        confirm:
+          error: Er is een fout opgetreden bij het bevestigen van deze conferentieregistratie.
+          success: Conferentieregistratie succesvol bevestigd.
       conference_speakers:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een spreker voor deze conferentie.
@@ -145,14 +150,16 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Components
-          conference_admins: Conferentiebeheerders
-          conference_invites: Conference Invites
-          conference_registrations: Conferentie-registraties
-          conference_speakers: Sprekers van de conferentie
+          conference_admins: Conferentie gebruikers
+          conference_invites: Uitnodigingen
+          conference_speakers: sprekers
           info: info
           media_links: Media links
           moderations: matigingen
           partners: partners
+          registration_types: Registratie Types
+          registrations: registraties
+          user_registrations: Gebruikersregistraties
       models:
         conference:
           fields:
@@ -192,6 +199,14 @@ nl:
           types:
             collaborator: Medewerker
             main_promotor: Hoofdpromotor
+        registration_type:
+          fields:
+            conference_meetings: Conferentie vergaderingen
+            price: Prijs
+            registrations_count: Registraties tellen mee
+            title: Titel
+            weight: Gewicht
+          name: Registratie type
       partners:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een partner voor deze conferentie.
@@ -207,6 +222,28 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van een partner voor deze conferentie.
           success: Partner is succesvol geüpdatet voor deze conferentie.
+      registration_type_publications:
+        create:
+          error: Er is een fout opgetreden bij het publiceren van dit registratietype.
+          success: Registratietype met succes gepubliceerd.
+        destroy:
+          error: Er is een fout opgetreden bij het on-publiceren van dit registratietype.
+          success: Registratietype ongepubliceerd succesvol.
+      registration_types:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een registratietype voor deze conferentie.
+          success: Registratietype is toegevoegd aan deze conferentie.
+        destroy:
+          success: Registratietype is met succes van deze conferentie verwijderd.
+        edit:
+          title: Update registratietype.
+          update: Bijwerken
+        new:
+          create: creëren
+          title: Nieuw registratietype
+        update:
+          error: Er is een fout opgetreden bij het updaten van een registratietype voor deze conferentie.
+          success: Registratietype is succesvol bijgewerkt voor deze conferentie.
       titles:
         conferences: conferenties
     admin_log:
@@ -223,6 +260,18 @@ nl:
         create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie uitgenodigd"
         delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
         update: "%{user_name} veranderde de rol van %{resource_name} in de %{space_name} conferentie"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} bevestigde een conferentie-registratie in %{resource_name} conferentie"
+        partner:
+          create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie"
+          delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
+          update: "%{user_name} bijgewerkt %{resource_name} in de %{space_name} conferentie"
+        registration_type:
+          create: "%{user_name} heeft het %{resource_name} registratietype gemaakt in de %{space_name} conferentie"
+          publish: "%{user_name} heeft het %{resource_name} registratietype gepubliceerd in de %{space_name} conferentie"
+          unpublish: "%{user_name} ongepubliceerd het %{resource_name} registratietype in de %{space_name} conferentie"
+          update: "%{user_name} heeft het %{resource_name} registratietype bijgewerkt in de %{space_name} conferentie"
     conference_program:
       index:
         title: Programma
@@ -284,6 +333,11 @@ nl:
         partners:
           index:
             title: partners
+        registration_types:
+          form:
+            select_conference_meetings: Selecteer conferentievergaderingen
+          index:
+            title: Registratie soorten
       conference:
         registration_confirm:
           cancel: Annuleer
@@ -292,9 +346,6 @@ nl:
           going: gaand
           join: Doe mee met Conference
           no_slots_available: Geen slots beschikbaar
-          remaining_slots:
-            one: 1 slot over
-            other: "%{count} slots over"
       conference_program:
         program_meeting:
           content: Inhoud
@@ -307,7 +358,12 @@ nl:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is bevestigd.
-          details: U vindt de details van de conferentie in de bijlage.
+          details_1: 'U bent bij de conferentie geregistreerd met het type %{registration_type} . Het kost %{price} en je kunt deelnemen aan de volgende evenementen:'
+          details_2: U vindt de details van de conferentie in de bijlage.
+        pending_validation:
+          confirmation_pending: U ontvangt de bevestiging binnenkort
+          details: 'Je hebt je geregistreerd voor het %{registration_type} type met een prijs van %{price} en je kunt deelnemen aan de volgende evenementen:'
+          pending_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is in afwachting van bevestiging.
       conference_registrations:
         create:
           invalid: Er is een probleem opgetreden bij deze conferentie.
@@ -333,17 +389,15 @@ nl:
         index:
           speakers: sprekers
       conferences:
+        conferences_sidebar:
+          register: Registreren
         partners:
           collaborators: medewerkers
           main_promotors: Hoofdpromotoren
         show:
-          already_account: Heb je al een account bij decidim?
           login_as: U bent ingelogd als %{name} <%{email}>
           make_conference_registration: 'Maak uw registratie in de conferentie:'
-          new_user: Nieuwe gebruiker?
           register: Registreren
-          sign_in: Log in om u te registreren op deze conferentie
-          sign_up: Registreer je gratis in decidim om je te registreren
       content_blocks:
         highlighted_conferences:
           name: Gemarkeerde conferenties
@@ -353,6 +407,8 @@ nl:
         conference_registration_mailer:
           confirmation:
             subject: De registratie van uw conferentie is bevestigd
+          pending_validation:
+            subject: De registratie van uw conferentie is in afwachting van bevestiging
         invite_join_conference_mailer:
           invite:
             subject: Uitnodiging om deel te nemen aan een conferentie
@@ -361,6 +417,7 @@ nl:
           fields:
             email: E-mail
             name: Naam
+            registration_type: Registratie type
             sent_at: Verzonden op
             status: staat
           status:
@@ -371,6 +428,11 @@ nl:
           fields:
             email: E-mail
             name: Naam
+            registration_type: Registratie type
+            state: Staat
+            states:
+              confirmed: bevestigd
+              pending: In afwachting
       pages:
         home:
           highlighted_conferences:
@@ -383,6 +445,18 @@ nl:
       photos_list:
         show:
           related_photos: foto's
+      registration_types:
+        index:
+          choose_an_option: 'Kies uw registratieoptie:'
+          login_as: U bent ingelogd als %{name} <%{email}>
+          register: Registreren
+          title: Registratie soorten
+      shared:
+        conference_user_login:
+          already_account: Heb je al een account bij decidim?
+          new_user: Nieuwe gebruiker?
+          sign_in: Log in om u te registreren op deze conferentie
+          sign_up: Registreer je gratis in decidim om je te registreren
       show:
         details: Details
         introduction: Invoering
@@ -440,6 +514,8 @@ nl:
         subject: Uitnodiging om deel te nemen aan een conferentie
   layouts:
     decidim:
+      conference_hero:
+        register: Registreren
       conference_widgets:
         show:
           take_part: Deelnemen
@@ -460,5 +536,4 @@ nl:
         conference_partners_menu_item: partners
         conference_speaker_menu_item: sprekers
         media: Media
-        unfold: Ontvouwen
         venues: locaties

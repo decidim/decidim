@@ -1,6 +1,6 @@
 <%= render "layouts/decidim/application" do %>
+  <%= render partial: "layouts/decidim/initiative_creation_header" %>
   <div class="wrapper">
-    <%= render partial: "layouts/decidim/initiative_creation_header" %>
     <%= yield %>
   </div>
   <%= javascript_include_tag "decidim/initiatives/application" %>

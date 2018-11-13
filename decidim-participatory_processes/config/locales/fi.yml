@@ -96,7 +96,7 @@ fi:
           fields:
             created_at: Luonnin ajankohta
             private: Yksityinen
-            promoted: Korostettu
+            promoted: Tärkeää
             published: Julkaistu
             title: Otsikko
           name: Osallistumisprosessi
@@ -370,7 +370,7 @@ fi:
           take_part: Osallistu
       participatory_processes:
         index:
-          promoted_processes: Korostetut prosessit
+          promoted_processes: Tärkeät prosessit
         participatory_process:
           active_step: 'Aktiivinen vaihe:'
           take_part: Osallistu
@@ -378,9 +378,8 @@ fi:
           active_step: 'Aktiivinen vaihe:'
           more_info: Lisätietoja
           take_part: Osallistu
-      process_header:
-        process_menu_item: Prosessi
-        unfold: Avaa
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Näytä vaiheet
+      process_navigation:
+        process_menu_item: Prosessi

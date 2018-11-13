@@ -10,13 +10,28 @@ module Decidim
 
       helper Decidim::ResourceHelper
       helper Decidim::TranslationsHelper
+      helper Decidim::ApplicationHelper
 
-      def confirmation(user, conference)
+      def pending_validation(user, conference, registration_type)
         with_user(user) do
           @user = user
           @conference = conference
           @organization = @conference.organization
           @locator = Decidim::ResourceLocatorPresenter.new(@conference)
+          @registration_type = registration_type
+
+          subject = I18n.t("pending_validation.subject", scope: "decidim.conferences.mailer.conference_registration_mailer")
+          mail(to: user.email, subject: subject)
+        end
+      end
+
+      def confirmation(user, conference, registration_type)
+        with_user(user) do
+          @user = user
+          @conference = conference
+          @organization = @conference.organization
+          @locator = Decidim::ResourceLocatorPresenter.new(@conference)
+          @registration_type = registration_type
 
           add_calendar_attachment
 

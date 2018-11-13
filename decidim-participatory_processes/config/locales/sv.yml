@@ -378,9 +378,8 @@ sv:
           active_step: 'Nuvarande steg:'
           more_info: Mer information
           take_part: Delta
-      process_header:
-        process_menu_item: Processen
-        unfold: Veckla ut
       process_header_steps:
         step: Steg %{current} av %{total}
         view_steps: Visa steg
+      process_navigation:
+        process_menu_item: Processen

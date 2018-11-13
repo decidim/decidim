@@ -307,7 +307,9 @@ gl:
             update: Actualización
           form:
             attachment_legend: "(Opcional) Engada un anexo"
+            created_in_meeting: Esta proposta provén dunha reunión
             select_a_category: Selecciona unha categoría
+            select_a_meeting: Seleccione unha reunión
           index:
             actions: Accións
             cancel: Cancelar
@@ -611,6 +613,7 @@ gl:
           report: Informe
           sign_in: Rexístrate
           sign_in_or_up: "%{in} ou %{up} para participar"
+          sign_in_to_participate: "%{in} para participar"
           sign_up: Rexistrarse
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'

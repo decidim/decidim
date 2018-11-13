@@ -107,6 +107,17 @@ Decidim.register_component(:meetings) do |component|
         visibility: "all"
       )
 
+      Decidim::Forms::Questionnaire.create!(
+        title: Decidim::Faker::Localized.paragraph,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end,
+        questionnaire_for: meeting
+      )
+
       2.times do |n|
         email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
         name = "#{Faker::Name.name} #{meeting.id} #{n}"

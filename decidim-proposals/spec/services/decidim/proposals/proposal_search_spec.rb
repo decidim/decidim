@@ -79,10 +79,12 @@ module Decidim
 
           context "when filtering citizen proposals" do
             let(:origin) { "citizens" }
+            let(:another_user) { create(:user, organization: component.organization) }
 
             it "returns only citizen proposals" do
               create_list(:proposal, 3, :official, component: component)
               citizen_proposals = create_list(:proposal, 2, component: component)
+              proposal.add_coauthor(another_user)
               citizen_proposals << proposal
 
               expect(subject.size).to eq(3)

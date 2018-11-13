@@ -360,9 +360,10 @@ pt:
         promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
         show_similar_initiatives: Comparar
+        step: Etapa %{current} de %{total}
+        title: Criar nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Desdobrar
       initiatives:
         initiative:
           check: Confira

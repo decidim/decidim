@@ -359,9 +359,10 @@ de:
         promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
         show_similar_initiatives: Vergleichen
+        step: Schritt %{current} von %{total}
+        title: Neue Initiative schaffen
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Entfalten
       initiatives:
         initiative:
           check: Hör zu

@@ -19,7 +19,7 @@ module Decidim
 
       let!(:question) do
         create(
-          :question,
+          :questionnaire_question,
           questionnaire: questionnaire,
           mandatory: mandatory,
           question_type: question_type,

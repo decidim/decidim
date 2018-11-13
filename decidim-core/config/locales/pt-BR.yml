@@ -163,6 +163,9 @@ pt-BR:
           foo: Foo
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
+      sms:
+        explanation: Envie seu número de celular para que possamos verificar sua identidade.
+        name: Código por SMS
       started_at: Iniciado em %{timestamp}
     authorization_modals:
       show:
@@ -280,6 +283,8 @@ pt-BR:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
+          sign_in_disabled: Você pode acessar com uma conta externa
+          sign_up_disabled: Inscrever-se está desabilitado, você pode usar um usuário existente para acessar
       shared:
         newsletter_modal:
           buttons:
@@ -532,6 +537,13 @@ pt-BR:
       edit:
         edit_user_group: Editar grupo
         update_user_group: Atualizar grupo
+      form:
+        document_number_help: Não use traços nem espaços
+        email_help: E-mail da sua organização, associação, coletivo, grupo etc.
+        fill_in_for_verification: 'Preencha estes campos se quiser que seu grupo seja verificado:'
+        name_help: Nome da sua organização, associação, coletivo, grupo etc.
+        nickname_help: Nome de usuário da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
+        phone_help: Não use traços nem espaços
       join:
         error: Houve um problema ao ingressar no grupo
         success: Solicitação de junção criada com êxito. Um administrador irá rever o seu pedido antes de aceitá-lo para o grupo.
@@ -545,6 +557,7 @@ pt-BR:
       new:
         create_user_group: Criar Grupo
         new_user_group: Novo grupo
+        subtitle: Crie um grupo e convide outros usuários a participar para participar de um nível coletivo.
       no_user_groups: Não pertence a nenhum grupo ainda.
       roles:
         admin: Administrador
@@ -553,18 +566,6 @@ pt-BR:
       update:
         error: Houve um problema ao atualizar o grupo
         success: Grupo atualizado com sucesso
-    invitations:
-      create:
-        error: Houve alguns problemas ao convidar seus amigos
-        error_empty_form: Por favor insira alguns endereços de email
-        success: Nós enviamos os convites para seus amigos!
-      index:
-        customize_message: Personalizar a mensagem de convite
-        friend_email: 'E-mail do amigo nº%{index}'
-        invitations_subtitle: Deixe seus amigos saberem sobre este site
-        invitations_title: Você acha que mais vozes deveriam ser ouvidas em %{organization_name}?
-        invite: Convite
-        visit_your_profile: Visite seu perfil
     last_activities:
       activities:
         no_activities_warning: Sem atividades
@@ -807,6 +808,9 @@ pt-BR:
         close_window: Fechar janela
         embed: Cole este código na sua página
         embed_link: Embutir
+      extended_navigation_bar:
+        more: Mais
+        unfold: Desdobrar
       flag_modal:
         already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
         close: Fechar
@@ -831,6 +835,9 @@ pt-BR:
         share_link: Partilhar link
       version_author:
         deleted: Usuário excluído
+    welcome_notification:
+      default_body: <p>Olá {{name}}, obrigado por se juntar a {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma idéia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de ler, você receberá seu primeiro crachá. Aqui está uma <a href="{{badges_url}}">lista de todos os crachás</a> você pode começar como você participar de {{organization_name}}</li><li>Por último, mas não menos importante, se juntar a outras pessoas, compartilhar com eles a experiência de ser envolvido e participando de {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse suas idéias de maneira concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
+      default_subject: Obrigado por se juntar a {{organization}}!
   devise:
     confirmations:
       confirmed: Seu endereço de e-mail foi confirmado com sucesso.
@@ -882,7 +889,6 @@ pt-BR:
           Se você não quiser aceitar o convite, ignore este e-mail.<br />
           Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
-        invited_you_as_friend: "%{invited_by} convidou você para %{application}."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
@@ -892,10 +898,6 @@ pt-BR:
         subject: Você foi convidado a gerenciar %{organization}
       invite_collaborator:
         subject: Você foi convidado a colaborar em %{organization}
-      invite_friend:
-        accept_invitation: 'Você pode aceitar o convite através do link abaixo:'
-        friend_custom_text: 'Eles deixaram esta mensagem para você:'
-        subject: Você foi convidado para %{organization}
       invite_private_user:
         subject: Você foi convidado para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
@@ -1028,7 +1030,6 @@ pt-BR:
       user_menu:
         admin_dashboard: Painel de administração
         conversations: Conversas
-        invite_friends: Convide amigos
         notifications: Notificações
         profile: Minha conta
         public_profile: Meu perfil público

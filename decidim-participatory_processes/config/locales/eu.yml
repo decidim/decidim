@@ -378,9 +378,8 @@ eu:
           active_step: 'Oraingo fasea:'
           more_info: Informazio gehiago
           take_part: Parte hartu
-      process_header:
-        process_menu_item: Prozesua
-        unfold: Zabaldu
       process_header_steps:
         step: '%{total} fasetatik %{current}.a'
         view_steps: Ikusi faseak
+      process_navigation:
+        process_menu_item: Prozesua

@@ -14,6 +14,10 @@ module Decidim
             name: resource.user.name,
             email: resource.user.email
           },
+          registration_type: {
+            title: resource.registration_type.title,
+            price: resource.registration_type.price
+          },
           conference: {
             title: resource.conference.title,
             reference: resource.conference.reference,

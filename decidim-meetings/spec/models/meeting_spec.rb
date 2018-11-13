@@ -28,6 +28,11 @@ module Decidim::Meetings
       expect(subject.invites.size).to eq(2)
     end
 
+    it "has an association with one questionnaire" do
+      subject.questionnaire = build_stubbed(:questionnaire)
+      expect(subject.questionnaire).to be_present
+    end
+
     context "without a title" do
       let(:meeting) { build :meeting, title: nil }
 
