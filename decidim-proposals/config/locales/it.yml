@@ -366,6 +366,19 @@ it:
         not_answered: Non risposto
         rejected: Rifiutata
         withdrawn: Ritirato
+      application_helper:
+        filter_origin_values:
+          all: Tutti
+          citizens: Cittadini
+          meetings: incontri
+          official: Ufficiale
+          user_groups: Gruppi di utenti
+        filter_state_values:
+          accepted: Accettato
+          all: Tutti
+          evaluating: Valutare
+          except_rejected: Tutto tranne rifiutato
+          rejected: Respinto
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ it:
         endorsements_card_row:
           comments: Commenti
         filters:
-          accepted: Accettata
           activity: Attività
-          all: Tutto
           category: Categoria
           category_prompt: Scegli una categoria
-          citizens: Cittadini
-          evaluating: Valutando
-          except_rejected: Tutto tranne rifiutato
-          official: Ufficiale
           origin: Origine
-          rejected: Rifiutata
           related_to: Associata a
           search: Cerca
           state: Stato
