@@ -67,6 +67,7 @@ end
 - **decidim-core**: Set `organization.tos_version` when creating `terms-and-conditions` DefaultPage [#3911](https://github.com/decidim/decidim/pull/3911)
 - **decidim-proposals**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
 - **decidim-meetings**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
+- **decidim-proposals**: Ensure proposals search returns unique results [\#4460](https://github.com/decidim/decidim/pull/4460)
 
 **Removed**:
 

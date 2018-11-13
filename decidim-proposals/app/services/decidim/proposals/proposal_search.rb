@@ -21,7 +21,6 @@ module Decidim
       end
 
       # Handle the origin filter
-      # The 'official' proposals doesn't have an author id
       def search_origin
         if origin == "official"
           query.where.not(coauthorships_count: 0).joins(:coauthorships).where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
@@ -84,6 +83,18 @@ module Decidim
              .where(decidim_resource_links: { from_type: related_to.camelcase })
 
         query.where(id: from).or(query.where(id: to))
+      end
+
+      # We overwrite the `results` method to ensure we only return unique
+      # results. We can't use `#uniq` because it returns an Array and we're
+      # adding scopes in the controller, and `#distinct` doesn't work here
+      # because in the later scopes we're ordering by `RANDOM()` in a DB level,
+      # and `SELECT DISTINCT` doesn't work with `RANDOM()` sorting, so we need
+      # to perform two queries.
+      #
+      # The correct behaviour is backed by tests.
+      def results
+        Proposal.where(id: super.pluck(:id))
       end
     end
   end
