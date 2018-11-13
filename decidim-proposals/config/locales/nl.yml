@@ -366,6 +366,19 @@ nl:
         not_answered: Nog niet beantwoord
         rejected: Geweigerd
         withdrawn: Ingetrokken
+      application_helper:
+        filter_origin_values:
+          all: Allemaal
+          citizens: Burgers
+          meetings: vergaderingen
+          official: Officieel
+          user_groups: Gebruikersgroepen
+        filter_state_values:
+          accepted: Aanvaard
+          all: Allemaal
+          evaluating: Evalueren
+          except_rejected: Alles behalve afgewezen
+          rejected: Verworpen
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ nl:
         endorsements_card_row:
           comments: Comments
         filters:
-          accepted: Aanvaard
           activity: Activiteit
-          all: Alle
           category: Categorie
           category_prompt: Kies een categorie
-          citizens: Burgers
-          evaluating: Aan het beoordelen
-          except_rejected: Alles behalve afgewezen
-          official: Officieel
           origin: Oorsprong
-          rejected: Geweigerd
           related_to: Gerelateerd aan
           search: Zoeken
           state: Status
