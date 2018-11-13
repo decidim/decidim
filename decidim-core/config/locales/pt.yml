@@ -537,6 +537,13 @@ pt:
       edit:
         edit_user_group: Editar grupo
         update_user_group: Atualizar grupo
+      form:
+        document_number_help: Não use traços nem espaços
+        email_help: E-mail da sua organização, associação, coletivo, grupo etc.
+        fill_in_for_verification: 'Preencha estes campos se quiser que seu grupo seja verificado:'
+        name_help: Nome da sua organização, associação, coletivo, grupo etc.
+        nickname_help: Nome de usuário da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
+        phone_help: Não use traços nem espaços
       join:
         error: Houve um problema ao ingressar no grupo
         success: Juntar pedido criado com sucesso. Um administrador analisará sua solicitação antes de aceitá-lo para o grupo.
@@ -550,6 +557,7 @@ pt:
       new:
         create_user_group: Criar grupo
         new_user_group: Novo grupo
+        subtitle: Crie um grupo e convide outros usuários a participar para participar de um nível coletivo.
       no_user_groups: Não pertence a nenhum grupo ainda.
       roles:
         admin: Administrador

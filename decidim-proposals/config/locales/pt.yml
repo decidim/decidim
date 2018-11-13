@@ -307,7 +307,9 @@ pt:
             update: Atualizar
           form:
             attachment_legend: "(Opcional) Adicionar um anexo"
+            created_in_meeting: Esta proposta vem de uma reunião
             select_a_category: Selecione uma categoria
+            select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
             cancel: Cancelar

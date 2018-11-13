@@ -537,6 +537,13 @@ gl:
       edit:
         edit_user_group: Editar grupo
         update_user_group: Grupo de actualización
+      form:
+        document_number_help: Non empregue guións nin espazos
+        email_help: Correo electrónico da súa organización, asociación, colectivo, grupo, etc.
+        fill_in_for_verification: 'Encha estes campos se quere verificar o teu grupo:'
+        name_help: Nome da súa organización, asociación, colectivo, grupo, etc.
+        nickname_help: Nome de usuario da túa organización, asociación, colectivo, grupo, etc. Non uses espazos nin acentos.
+        phone_help: Non empregue guións nin espazos
       join:
         error: Produciuse un problema ao unirse ao grupo
         success: A solicitude de unirse creouse con éxito. Un administrador revisará a túa solicitude antes de aceptarche no grupo.
@@ -550,6 +557,7 @@ gl:
       new:
         create_user_group: Crear grupo
         new_user_group: Novo grupo
+        subtitle: Crea un grupo e invita a outros usuarios a participar para participar a nivel colectivo.
       no_user_groups: Aínda non pertence a ningún grupo.
       roles:
         admin: Administrador

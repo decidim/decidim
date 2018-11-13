@@ -537,6 +537,13 @@ eu:
       edit:
         edit_user_group: Editatu taldea
         update_user_group: Eguneratu taldea
+      form:
+        document_number_help: Ez erabili marratuak eta ez espazioak
+        email_help: Zure erakundearen, elkarte, talde, taldeen eta abarren posta elektronikoa.
+        fill_in_for_verification: 'Eremu hauek bete behar dituzu zure taldea egiaztatu nahi baduzu:'
+        name_help: Zure erakundearen izena, elkartea, kolektiboa, taldea, eta abar.
+        nickname_help: Zure erakundearen izena, elkartea, taldea, taldea ... Ez erabili espazioak eta azentuak.
+        phone_help: Ez erabili marratuak eta ez espazioak
       join:
         error: Taldean sartzeko arazorik izan da
         success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
@@ -550,6 +557,7 @@ eu:
       new:
         create_user_group: Sortu taldea
         new_user_group: Talde berria
+        subtitle: Sortu talde bat eta gonbidatu beste erabiltzaileei talde kolektiboan parte hartzeko.
       no_user_groups: Oraindik ez da talde batekoa.
       roles:
         admin: Administrator

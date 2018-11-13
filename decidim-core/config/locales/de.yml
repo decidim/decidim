@@ -537,6 +537,13 @@ de:
       edit:
         edit_user_group: Gruppe bearbeiten
         update_user_group: Gruppe aktualisieren
+      form:
+        document_number_help: Verwenden Sie keine Bindestriche oder Leerzeichen
+        email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
+        fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
+        name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
+        nickname_help: Benutzername Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
+        phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen
       join:
         error: Es ist ein Problem aufgetreten, der Gruppe beizutreten
         success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Gruppe akzeptiert.
@@ -550,6 +557,7 @@ de:
       new:
         create_user_group: Gruppe erstellen
         new_user_group: Neue Gruppe
+        subtitle: Erstellen Sie eine Gruppe und laden Sie andere Benutzer ein, an einer kollektiven Ebene teilzunehmen.
       no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator

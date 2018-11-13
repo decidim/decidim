@@ -307,7 +307,9 @@ hu:
             update: frissítés
           form:
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
+            created_in_meeting: Ez a javaslat egy találkozóból származik
             select_a_category: Válassz kategóriát
+            select_a_meeting: Válasszon egy találkozót
           index:
             actions: Műveletek
             cancel: Mégse

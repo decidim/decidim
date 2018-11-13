@@ -317,7 +317,9 @@ pl:
             update: Aktualizacja
           form:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+            created_in_meeting: Ta propozycja pochodzi ze spotkania
             select_a_category: Wybierz kategorię
+            select_a_meeting: Wybierz spotkanie
           index:
             actions: działania
             cancel: Anuluj
