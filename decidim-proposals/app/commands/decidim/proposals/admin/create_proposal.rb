@@ -42,7 +42,7 @@ module Decidim
         def create_proposal
           @proposal = Decidim::Proposals::ProposalBuilder.create(
             attributes: attributes,
-            author: form.current_organization,
+            author: form.author,
             action_user: form.current_user
           )
         end
@@ -60,6 +60,7 @@ module Decidim
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,
+            created_in_meeting: form.created_in_meeting,
             published_at: Time.current
           }
         end

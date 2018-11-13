@@ -379,9 +379,8 @@ en:
           active_step: 'Current step:'
           more_info: More info
           take_part: Take part
-      process_header:
-        process_menu_item: The process
-        unfold: Unfold
       process_header_steps:
         step: Step %{current} of %{total}
         view_steps: View steps
+      process_navigation:
+        process_menu_item: The process

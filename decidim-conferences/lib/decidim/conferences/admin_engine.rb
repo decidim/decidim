@@ -20,8 +20,17 @@ module Decidim
           resources :speakers, controller: "conference_speakers"
           resources :partners, controller: "partners", except: [:show]
           resources :media_links, controller: "media_links"
+          resources :registration_types, controller: "registration_types" do
+            resource :publish, controller: "registration_type_publications", only: [:create, :destroy]
+            collection do
+              get :conference_meetings
+            end
+          end
           resources :conference_invites, only: [:index, :new, :create]
           resources :conference_registrations, only: :index do
+            member do
+              post :confirm
+            end
             collection do
               get :export
             end

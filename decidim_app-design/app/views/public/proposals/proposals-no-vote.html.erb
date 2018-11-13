@@ -6,93 +6,94 @@
 
 <%= partial "template_top" %>
 
-<main class="wrapper">
+<main>
   <%= partial "process_header" %>
-  <div class="row columns">
-    <div class="title-action">
-      <h2 class="title-action__title section-heading">168 propuestas abiertas</h2>
-      <%= link_to page_path("new-proposal"), class: "title-action__action button small hollow" do %>
+  <div class="wrapper">
+    <div class="row columns">
+      <div class="title-action">
+        <h2 class="title-action__title section-heading">168 propuestas abiertas</h2>
+        <%= link_to page_path("new-proposal"), class: "title-action__action button small hollow" do %>
         Añadir propuesta
         <%= icon "plus" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="columns mediumlarge-4 large-3">
-      <%= partial "filters_small_view" %>
-      <div class="card card--secondary show-for-mediumlarge">
-        <%= partial "filters" %>
-      </div>
-    </div>
-    <div class="columns mediumlarge-8 large-9">
-      <%= partial "order_by" %>
-      <div class="row small-up-1 medium-up-2 card-grid">
-        <% 3.times do %>
-        <div class="column">
-          <article class="card card--proposal success">
-            <div class="card__top">
-              <div class="card__content text-small">
-                <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
-              </div>
-            </div>
-            <div class="card__content">
-              <div class="card__header">
-                <%= link_to page_path("proposals/proposal-view"), class: "card__link" do %>
-                  <h5 class="card__title">
-                    <%= Faker::StarWars.quote[0..75] %>
-                  </h5>
-                <% end %>
-                <div class="card__author">
-                  <%= partial "author_data" %>
-                </div>
-              </div>
-              <div class="card__text">
-                <div class="card__text--paragraph">
-                  <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
-                </div>
-                <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
-              </div>
-            </div>
-            <div class="card__status">
-              <ul class="card-data">
-                <li class="card-data__item">
-                  <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
-                </li>
-                <li class="card-data__item">
-                  <a href="">
-                    <%= icon "check", class: "icon--small" %>&nbsp;Following
-                  </a>
-                </li>
-                <li class="card-data__item">
-                  <a href="">
-                    <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                    <%= Faker::Number.between(0, 100) %>
-                  </a>
-                </li>
-                <li class="card-data__item">
-                  <a href="" title="Comentarios">
-                    <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                    <%= Faker::Number.between(0, 100) %>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="card__footer">
-              <div class="card__support">
-                <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
-
-                <button class="card__button button button--sc small">
-                  Apoyar
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
         <% end %>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="columns mediumlarge-4 large-3">
+        <%= partial "filters_small_view" %>
+        <div class="card card--secondary show-for-mediumlarge">
+          <%= partial "filters" %>
+        </div>
+      </div>
+      <div class="columns mediumlarge-8 large-9">
+        <%= partial "order_by" %>
+        <div class="row small-up-1 medium-up-2 card-grid">
+          <% 3.times do %>
+          <div class="column">
+            <article class="card card--proposal success">
+              <div class="card__top">
+                <div class="card__content text-small">
+                  <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+                </div>
+              </div>
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("proposals/proposal-view"), class: "card__link" do %>
+                  <h5 class="card__title">
+                    <%= Faker::StarWars.quote[0..75] %>
+                  </h5>
+                  <% end %>
+                  <div class="card__author">
+                    <%= partial "author_data" %>
+                  </div>
+                </div>
+                <div class="card__text">
+                  <div class="card__text--paragraph">
+                    <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
+                  </div>
+                  <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+                </div>
+              </div>
+              <div class="card__status">
+                <ul class="card-data">
+                  <li class="card-data__item">
+                    <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+                  </li>
+                  <li class="card-data__item">
+                    <a href="">
+                      <%= icon "check", class: "icon--small" %>&nbsp;Following
+                    </a>
+                  </li>
+                  <li class="card-data__item">
+                    <a href="">
+                      <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+                      <%= Faker::Number.between(0, 100) %>
+                    </a>
+                  </li>
+                  <li class="card-data__item">
+                    <a href="" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      <%= Faker::Number.between(0, 100) %>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card__footer">
+                <div class="card__support">
+                  <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
 
+                  <button class="card__button button button--sc small">
+                    Apoyar
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
 <%= partial "template_bottom" %>

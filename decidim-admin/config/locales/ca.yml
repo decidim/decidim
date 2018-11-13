@@ -584,7 +584,7 @@ ca:
         topic:
           destroy: Elimina el tema
           edit: Edita el tema
-          empty: No hi ha cap pàgina sota aquest tema
+          empty: No hi ha cap pàgina sobre aquest tema
           without_topic: Pàgines sense tema
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.

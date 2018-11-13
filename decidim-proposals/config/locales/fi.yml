@@ -2,12 +2,12 @@ fi:
   activemodel:
     attributes:
       collaborative_draft:
-        body: Leipäteksti
+        body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
         state: Tila
-        title: Otsikko
+        title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
       proposal:
         answer: Vastaus
@@ -17,7 +17,7 @@ fi:
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
         state: Tila
-        title: Otsikko
+        title: Ehdotuksen nimi
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
@@ -307,7 +307,9 @@ fi:
             update: Päivitä
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
+            created_in_meeting: Tämä ehdotus tulee kokoukselta
             select_a_category: Valitse aihepiiri
+            select_a_meeting: Valitse kokous
           index:
             actions: Toiminnot
             cancel: Peruuta
@@ -611,6 +613,7 @@ fi:
           report: Ilmoita
           sign_in: Kirjaudu sisään
           sign_in_or_up: "%{in} tai %{up} osallistuaksesi"
+          sign_in_to_participate: "%{in} osallistua"
           sign_up: rekisteröidy
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?

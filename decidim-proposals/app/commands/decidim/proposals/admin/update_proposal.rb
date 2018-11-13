@@ -35,6 +35,7 @@ module Decidim
 
           transaction do
             update_proposal
+            update_proposal_author
             create_attachment if process_attachments?
           end
 
@@ -58,8 +59,16 @@ module Decidim
             scope: form.scope,
             address: form.address,
             latitude: form.latitude,
-            longitude: form.longitude
+            longitude: form.longitude,
+            created_in_meeting: form.created_in_meeting
           )
+        end
+
+        def update_proposal_author
+          proposal.coauthorships.clear
+          proposal.add_coauthor(form.author)
+          proposal.save!
+          proposal
         end
       end
     end

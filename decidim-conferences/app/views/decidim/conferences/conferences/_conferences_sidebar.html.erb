@@ -1,7 +1,11 @@
 <section class="section">
   <div class="extra join-conference">
     <div class="">
-      <%= cell "decidim/conferences/join_conference_button", current_participatory_space, big_button: true, show_remaining_slots: true, allowed: allowed_to?(:join, :conference, conference: current_participatory_space) %>
+      <% if current_participatory_space.registrations_enabled? %>
+        <%= link_to decidim_conferences.conference_registration_types_path(current_participatory_space) do %>
+          <button type="button" class="button button--sc light expanded"><%= t(".register") %></button>
+        <% end %>
+      <% end %>
       <%= render partial: "decidim/shared/follow_button", locals: { followable: current_participatory_space } %>
     </div>
   </div>

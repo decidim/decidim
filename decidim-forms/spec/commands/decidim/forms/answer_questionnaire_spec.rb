@@ -9,9 +9,9 @@ module Decidim
       let(:current_user) { create(:user, organization: current_organization) }
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-      let(:question_1) { create(:question, questionnaire: questionnaire) }
-      let(:question_2) { create(:question, questionnaire: questionnaire) }
-      let(:question_3) { create(:question, questionnaire: questionnaire) }
+      let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let(:question_2) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let(:question_3) { create(:questionnaire_question, questionnaire: questionnaire) }
       let(:answer_options) { create_list(:answer_option, 5, question: question_2) }
       let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
       let(:form_params) do

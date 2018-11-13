@@ -1,11 +1,9 @@
-/* Variables */
-
-/* Navigation */
+$nav-border-width: 3px;
 
 .process-nav{
   background-color: $white;
-  border: $border;
   padding: .75rem $container-padding-y;
+  box-shadow: inset 0 (-1 * $nav-border-width) 0 0 $medium-gray;
 
   ul{
     margin: 0;
@@ -17,7 +15,7 @@
   }
 
   @include breakpoint(medium){
-    padding: .25rem;
+    padding: 0;
 
     ul{
       overflow-x: auto;
@@ -27,6 +25,7 @@
       align-items: center;
       flex-wrap: wrap;
       justify-content: space-between;
+      flex-grow: 1;
     }
 
     ul::-webkit-scrollbar{
@@ -41,7 +40,7 @@
 
     li{
       display: inline-block;
-      margin: .5rem .75rem;
+      padding: .5rem .75rem .75rem + rem-calc($nav-border-width - 1px);
     }
 
     .about-link{
@@ -65,7 +64,7 @@
   top: .55rem;
 }
 
-.js .process-nav__content{
+.process-nav__content{
   @include breakpoint(smallmedium down){
     display: none;
   }
@@ -73,6 +72,10 @@
   &.is-active{
     display: block;
   }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .process-nav__content li{
@@ -81,16 +84,65 @@
   }
 
   &.is-active{
+    box-shadow: inset 0 (-1 * ($nav-border-width + 1px)) 0 0 $primary;
+
     @include breakpoint(smallmedium down){
       display: none;
     }
   }
 }
 
-.process-nav__link{
-  color: $muted;
+.process-nav__more{
+  margin: 0;
+  color: $primary;
+  background-color: rgba($primary, .1);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: $global-weight-bold;
+  font-size: rem-calc(14);
+
+  i{
+    @include square(5px);
+
+    border-radius: 100%;
+    background-color: $primary;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: .1rem;
+
+    &:not(:last-child){
+      margin-right: .1rem;
+    }
+  }
+}
+
+.process-nav__hidden-content{
+  background-color: $white;
+  box-shadow: 0 0 4px 0 rgba($black, .08);
+  padding: 0;
+
+  ul{
+    padding: $global-padding / 2 0;
+  }
+
+  li{
+    width: 100%;
+    padding: $global-padding / 2 $global-padding;
+  }
+}
+
+.process-nav__hidden-content__more{
+  @extend .process-nav__more;
+
+  background-color: transparent;
+  text-align: right;
+  border-bottom: $border;
+  padding: $global-padding / 2 $global-padding;
+}
+
+.process-nav__link{
+  color: $primary;
+  text-transform: uppercase;
+  font-weight: $global-weight-bold;
   display: flex;
   align-items: center;
 
@@ -113,7 +165,6 @@
 }
 
 @include breakpoint(medium){
-  .process-nav__link:hover,
   .process-nav__link.is-active{
     color: $primary;
 

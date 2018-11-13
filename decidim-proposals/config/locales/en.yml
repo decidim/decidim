@@ -308,7 +308,9 @@ en:
             update: Update
           form:
             attachment_legend: "(Optional) Add an attachment"
+            created_in_meeting: This proposal comes from a meeting
             select_a_category: Select a category
+            select_a_meeting: Select a meeting
           index:
             actions: Actions
             cancel: Cancel
@@ -612,6 +614,7 @@ en:
           report: Report
           sign_in: Sign in
           sign_in_or_up: "%{in} or %{up} to participate"
+          sign_in_to_participate: "%{in} to participate"
           sign_up: sign up
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure to withdraw this proposal?

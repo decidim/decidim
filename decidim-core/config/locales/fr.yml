@@ -163,6 +163,9 @@ fr:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
+      sms:
+        explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
+        name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
       show:
@@ -280,6 +283,8 @@ fr:
         new:
           are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
+          sign_in_disabled: Vous pouvez accéder avec un compte externe
+          sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
       shared:
         newsletter_modal:
           buttons:
@@ -532,6 +537,13 @@ fr:
       edit:
         edit_user_group: Editer le groupe
         update_user_group: Groupe de mise à jour
+      form:
+        document_number_help: Ne pas utiliser de tirets ni d'espaces
+        email_help: Email de votre organisation, association, collectif, groupe, etc.
+        fill_in_for_verification: 'Remplissez ces champs si vous souhaitez que votre groupe soit vérifié:'
+        name_help: Nom de votre organisation, association, collectif, groupe, etc.
+        nickname_help: Nom d'utilisateur de votre organisation, association, collectif, groupe, etc. N'utilisez pas d'espaces ni d'accents.
+        phone_help: Ne pas utiliser de tirets ni d'espaces
       join:
         error: Il y a eu un problème pour rejoindre le groupe
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
@@ -545,6 +557,7 @@ fr:
       new:
         create_user_group: Créer un groupe
         new_user_group: Nouveau groupe
+        subtitle: Créez un groupe et invitez d'autres utilisateurs à se joindre pour participer à un niveau collectif.
       no_user_groups: N'appartient à aucun groupe pour l'instant.
       roles:
         admin: Administrateur
@@ -795,6 +808,9 @@ fr:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page
         embed_link: Intégrer
+      extended_navigation_bar:
+        more: Plus
+        unfold: Se dérouler
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -819,6 +835,9 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    welcome_notification:
+      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization_name}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées et conservez un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_subject: Merci d'avoir rejoint {{organization}}!
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.

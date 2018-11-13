@@ -317,7 +317,9 @@ pl:
             update: Aktualizacja
           form:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+            created_in_meeting: Ta propozycja pochodzi ze spotkania
             select_a_category: Wybierz kategorię
+            select_a_meeting: Wybierz spotkanie
           index:
             actions: działania
             cancel: Anuluj
@@ -633,6 +635,7 @@ pl:
           report: Raport
           sign_in: Zaloguj
           sign_in_or_up: "%{in} lub %{up} do wzięcia udziału"
+          sign_in_to_participate: "%{in} do wzięcia udziału"
           sign_up: Zapisz się
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
           withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?

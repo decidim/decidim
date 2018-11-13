@@ -307,7 +307,9 @@ fr:
             update: Mettre à jour
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+            created_in_meeting: Cette proposition provient d'une réunion
             select_a_category: Sélectionner une catégorie
+            select_a_meeting: Sélectionnez une réunion
           index:
             actions: Actions
             cancel: Annuler
@@ -611,6 +613,7 @@ fr:
           report: Signaler
           sign_in: Se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
+          sign_in_to_participate: "%{in} pour participer"
           sign_up: S'inscrire
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?

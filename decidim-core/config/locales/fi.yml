@@ -163,6 +163,9 @@ fi:
           foo: Foo
         name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
+      sms:
+        explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
+        name: Koodi tekstiviestinä
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       show:
@@ -280,6 +283,8 @@ fi:
         new:
           are_you_new?: Uusi käyttäjä?
           register: Rekisteröidy
+          sign_in_disabled: Voit käyttää ulkoista tiliä
+          sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit käyttää olemassa olevaa käyttäjää
       shared:
         newsletter_modal:
           buttons:
@@ -532,6 +537,13 @@ fi:
       edit:
         edit_user_group: Muokkaa ryhmää
         update_user_group: Päivitä ryhmä
+      form:
+        document_number_help: Älä käytä viivoja tai välilyöntejä
+        email_help: Organisaation, yhdistyksen, ryhmän, ryhmän jne. Sähköposti.
+        fill_in_for_verification: 'Täytä nämä kentät, jos haluat ryhmän vahvistamisen:'
+        name_help: Organisaation nimi, yhdistys, ryhmä, ryhmä jne.
+        nickname_help: Organisaation, yhdistämisen, ryhmän, ryhmän jne. Käyttäjänimi. Älä käytä välilyöntejä tai aksentteja.
+        phone_help: Älä käytä viivoja tai välilyöntejä
       join:
         error: Ryhmään liityttäessä esiintyi ongelma
         success: Liittymispyyntö luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
@@ -545,6 +557,7 @@ fi:
       new:
         create_user_group: Luo ryhmä
         new_user_group: Uusi ryhmä
+        subtitle: Luo ryhmä ja pyydä muita käyttäjiä liittymään kollektiiviseen tasoon.
       no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
@@ -795,6 +808,9 @@ fi:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
         embed_link: Upota
+      extended_navigation_bar:
+        more: Lisää
+        unfold: Avaa
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
@@ -819,6 +835,9 @@ fi:
         share_link: Jaa linkki
       version_author:
         deleted: Käyttäjä poistettu
+    welcome_notification:
+      default_body: <p>Hei {{name}}, kiitos liittymisestäsi palveluun {{organization}}! Tervetuloa mukaan!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä täällä, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, jotka voit saada osallistumalla aktiivisesti palvelussa {{organization_name}}</li><li>Viimeisimpänä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa ja jaa heidän kanssaan kokemuksiasi osallistumisesta palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, argumentoi vakuuttaaksesi muut, kuuntele ja lue ennen kuin muodostat mielipiteen, ilmaise ideasi konkreettisella ja suoralla tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, pidä avoin mieli yhteistyölle ja liity mukaan muiden ihmisten ideoihin.</li></ul>
+      default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
   devise:
     confirmations:
       confirmed: Sähköpostiosoitteesi on vahvistettu.

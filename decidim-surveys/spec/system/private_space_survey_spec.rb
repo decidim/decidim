@@ -29,7 +29,7 @@ describe "Private Space Answer a survey", type: :system do
 
   let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
   let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
-  let!(:question) { create(:question, questionnaire: questionnaire, position: 0) }
+  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
 
   let!(:participatory_space) { participatory_space_private }
 

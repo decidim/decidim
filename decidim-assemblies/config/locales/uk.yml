@@ -343,10 +343,8 @@ uk:
         promoted_assembly:
           more_info: Додаткові відомості
           take_part: Взяти участь
-      assembly_header:
-        assembly_member_menu_item: Члени президії
+      assembly_navigation:
         assembly_menu_item: Збори
-        unfold: Розгорнути
       assembly_widgets:
         show:
           take_part: Взяти участь

@@ -394,9 +394,8 @@ pl:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
           take_part: Wziąć udział
-      process_header:
-        process_menu_item: Proces
-        unfold: Rozwiń
       process_header_steps:
         step: Krok %{current} z %{total}
         view_steps: Wyświetl kroki
+      process_navigation:
+        process_menu_item: Proces

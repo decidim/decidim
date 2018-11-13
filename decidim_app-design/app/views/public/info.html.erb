@@ -6,9 +6,11 @@
 
 <%= partial "template_top" %>
 
-<main class="wrapper">
-  <%= partial "process_header_home" %>
-  <div class="row column">
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <%= partial "floating-helper" %>
+    <div class="row column">
     <div class="row">
       <div class="columns medium-7 mediumlarge-8">
         <div class="section">
@@ -147,6 +149,7 @@
         <%= partial "process_home_stats" %>
       </div>
     </div>
+  </div>
   </div>
 </main>
 

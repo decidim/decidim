@@ -22,6 +22,7 @@ pt:
         location_hints: Dicas de localização
         organizer_id: Organizador
         private_meeting: Reunião privada
+        registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de registro
         registrations_enabled: Registos habilitados
         start_time: Hora de início
@@ -269,6 +270,7 @@ pt:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            registration_form: Formulário de registro
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} registos.
@@ -297,6 +299,10 @@ pt:
         minutes:
           create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
+      calendar_modal:
+        calendar_url: URL do calendário
+        close_window: Janela fechada
+        export_calendar: Calendário de exportação
       conference_venues: Locais de conferência
       content_blocks:
         upcoming_events:
