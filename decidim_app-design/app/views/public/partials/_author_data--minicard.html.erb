@@ -5,4 +5,13 @@
   <div class="card__text card--picture-offset">
     <%= link_to "view full profile", page_path("profile/user-profile-public") %>
   </div>
+  <div>
+    <% following = Faker::Boolean.boolean %>
+    <button class="button secondary hollow expanded button--icon button--sc<%= " success" if following %>">
+      <%= icon "bell" %>
+      <span><%= following ? "Siguiendo" : "Seguir" %></span>
+    </button>
+    <div><%= Faker::Number.between(1, 100) %> Followers</div>
+    <div><%= Faker::Number.between(1, 100) %> Following</div>
+  </div>
 </div>
