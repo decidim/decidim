@@ -820,6 +820,8 @@ ca:
         report: Denuncia
         spam: Conté "clickbait", publicitat o estafes.
         title: Denuncia un problema
+      floating_help:
+        help: Ajuda
       follow_button:
         sign_in_before_follow: Inicia sessió abans de realitzar aquesta acció
       login_modal:
