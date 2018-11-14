@@ -366,6 +366,19 @@ eu:
         not_answered: Erantzun gabe
         rejected: Ukatua
         withdrawn: kendu
+      application_helper:
+        filter_origin_values:
+          all: guztiak
+          citizens: Hiritarrak
+          meetings: Bilerak
+          official: Ofiziala
+          user_groups: Erabiltzaile taldeak
+        filter_state_values:
+          accepted: Onartu
+          all: guztiak
+          evaluating: ebaluatzea
+          except_rejected: Guztiak baztertuak izan ezik
+          rejected: Baztertuta
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ eu:
         endorsements_card_row:
           comments: Oharrak
         filters:
-          accepted: Onartuta
           activity: Jarduera
-          all: Guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
-          citizens: Hiritarrak
-          evaluating: Ebaluatzen
-          except_rejected: Guztiak baztertuak izan ezik
-          official: Ofiziala
           origin: Jatorria
-          rejected: Ukatua
           related_to: Honekin lotuta
           search: Bilatu
           state: Egoera

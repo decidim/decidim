@@ -362,6 +362,19 @@ de:
         not_answered: Nicht beantwortet
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
+      application_helper:
+        filter_origin_values:
+          all: Alles
+          citizens: Bürger
+          meetings: Meetings
+          official: Offiziell
+          user_groups: Benutzergruppen
+        filter_state_values:
+          accepted: Akzeptiert
+          all: Alles
+          evaluating: Auswerten
+          except_rejected: Alle außer abgelehnt
+          rejected: Abgelehnt
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -548,17 +561,10 @@ de:
         endorsements_card_row:
           comments: Bemerkungen
         filters:
-          accepted: Akzeptiert
           activity: Aktivität
-          all: Alle
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
-          citizens: Bürger
-          evaluating: Bewertung
-          except_rejected: Alle außer abgelehnt
-          official: Offiziell
           origin: Ursprung
-          rejected: Abgelehnt
           related_to: Bezüglich
           search: Suche
           state: Zustand

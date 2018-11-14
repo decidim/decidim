@@ -366,6 +366,19 @@ sv:
         not_answered: Inte besvarad
         rejected: Avvisade
         withdrawn: Tillbakadragen
+      application_helper:
+        filter_origin_values:
+          all: Allt
+          citizens: Medborgare
+          meetings: möten
+          official: Officiell
+          user_groups: Användargrupper
+        filter_state_values:
+          accepted: Accepterad
+          all: Allt
+          evaluating: utvärdera
+          except_rejected: Alla förutom avvisade
+          rejected: avvisade
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ sv:
         endorsements_card_row:
           comments: Kommentarer
         filters:
-          accepted: Accepterad
           activity: Aktivitet
-          all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: Medborgare
-          evaluating: Utvärderas
-          except_rejected: Alla förutom avvisade
-          official: Officiell
           origin: Ursprung
-          rejected: Avvisade
           related_to: Relaterad till
           search: Sök
           state: Status

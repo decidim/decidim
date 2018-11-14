@@ -366,6 +366,19 @@ es:
         not_answered: No contestada
         rejected: Rechazada
         withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          all: Todos
+          citizens: Ciudadanía
+          meetings: Reuniones
+          official: Oficial
+          user_groups: Grupos de Usuarios
+        filter_state_values:
+          accepted: Aceptado
+          all: Todos
+          evaluating: Evaluando
+          except_rejected: Todas excepto las rechazadas
+          rejected: Rechazado
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ es:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          accepted: Aceptadas
           activity: Actividad
-          all: Todas
           category: Categoría
           category_prompt: Selecciona una categoría
-          citizens: Ciudadanía
-          evaluating: En evaluación
-          except_rejected: Todas excepto las rechazadas
-          official: Oficial
           origin: Origen
-          rejected: Rechazadas
           related_to: Relacionadas con
           search: Buscar
           state: Estado
