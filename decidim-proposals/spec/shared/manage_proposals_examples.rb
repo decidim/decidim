@@ -386,6 +386,19 @@ shared_examples "manage proposals" do
         end
       end
     end
+
+    context "when the proposal is an emendation" do
+      let!(:amendable) { create(:proposal, component: current_component) }
+      let!(:emendation) { create(:proposal, component: current_component) }
+      let!(:amendment) { create :amendment, amender: emendation.creator_author, amendable: amendable, emendation: emendation, state: "evaluating" }
+
+      it "cannot answer a proposal" do
+        visit_component_admin
+        within find("tr", text: I18n.t("decidim/amendment", scope: "activerecord.models", count: 1)) do
+          expect(page).to have_no_link("Answer")
+        end
+      end
+    end
   end
 
   context "when the proposal_answering component setting is disabled" do
