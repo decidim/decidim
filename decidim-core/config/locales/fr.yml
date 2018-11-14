@@ -212,7 +212,7 @@ fr:
       shared:
         newsletter_modal:
           buttons:
-            check: Je m'inscris !
+            check: Oui, je souhaite m'inscrire à la newsletter
             uncheck: Non merci, je me tiendrais informé autrement
           notice: Êtes-vous sûr de ne pas vouloir recevoir de newsletter ? Elle vous permet de suivre tous les évènements importants (lancement de nouvelles concertations, annonces des résultats).
           title: La newsletter
