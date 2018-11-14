@@ -77,7 +77,8 @@ module Decidim
     end
 
     def help_section
-      @help_section ||= Decidim::ContextualHelpRepository.new(current_organization).find(
+      @help_section ||= Decidim::ContextualHelpSection.find_content(
+        current_organization,
         current_participatory_space_manifest.name
       )
     end

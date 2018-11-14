@@ -2,8 +2,8 @@
 
 module Decidim
   module Admin
-    # A form object used to configure a content block from the admin panel.
-    #
+    # This form contains the presentational and validation logic to update
+    # ContextualHelpSections in batch from the admin panel.
     class HelpSectionsForm < Decidim::Form
       attribute :sections, Array[HelpSectionForm]
     end

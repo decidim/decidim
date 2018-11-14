@@ -2,7 +2,8 @@
 
 shared_examples "shows contextual help" do
   before do
-    Decidim::ContextualHelpRepository.new(organization).set(
+    Decidim::ContextualHelpSection.set_content(
+      organization,
       manifest_name,
       en: "<p>Some relevant help</p>"
     )

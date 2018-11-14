@@ -2,6 +2,8 @@
 
 module Decidim
   module Admin
+    # This form contains the presentational and validation logic to update
+    # ContextualHelpSections from the admin panel.
     class HelpSectionForm < Decidim::Form
       include TranslatableAttributes
       include TranslationsHelper

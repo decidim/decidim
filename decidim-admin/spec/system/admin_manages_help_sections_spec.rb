@@ -28,7 +28,7 @@ describe "Admin manages help sections", type: :system do
         expect(page).to have_content("Well hello!")
       end
 
-      help_content = Decidim::ContextualHelpRepository.new(organization).find(:participatory_processes)
+      help_content = Decidim::ContextualHelpSection.find_content(organization, :participatory_processes)
       expect(help_content).to include("en" => "<p>Well hello!</p>")
     end
   end

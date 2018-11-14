@@ -86,7 +86,8 @@ module Decidim
       manifest.seed!
 
       Organization.all.each do |organization|
-        ContextualHelpRepository.new(organization).set(
+        ContextualHelpSection.set_content(
+          organization,
           manifest.name,
           Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.sentence(15)

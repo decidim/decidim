@@ -15,7 +15,7 @@ module Decidim
 
         ActiveRecord::Base.transaction do
           @form.sections.each do |section|
-            ContextualHelpRepository.new(@organization).set(section.id, section.content)
+            ContextualHelpSection.set_content(@organization, section.id, section.content)
           end
         end
 
