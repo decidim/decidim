@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Assemblies", type: :system do
   let(:organization) { create(:organization) }
@@ -75,6 +76,11 @@ describe "Assemblies", type: :system do
     end
 
     it_behaves_like "editable content for admins"
+
+    it_behaves_like "shows contextual help" do
+      let(:index_path) { decidim_assemblies.assemblies_path }
+      let(:manifest_name) { :assemblies }
+    end
 
     context "and accessing from the homepage" do
       it "the menu link is shown" do

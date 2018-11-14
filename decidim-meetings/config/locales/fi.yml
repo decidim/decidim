@@ -300,9 +300,9 @@ fi:
           create: "%{user_name} loi tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
           update: "%{user_name} päivitti tapahtumapöytäkirjan %{resource_name} tilassa %{space_name}"
       calendar_modal:
-        calendar_url: Kalenteri-URL
+        calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
-        export_calendar: Vie kalenteri
+        export_calendar: Vie kalenterin tiedot
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_events:
