@@ -514,6 +514,7 @@ FactoryBot.define do
         organization: amendable.try(:organization) || build(:organization)
       )
     end
+    state { "evaluating" }
     amendable { build(:dummy_resource) }
     emendation { build(:dummy_resource) }
   end

@@ -158,6 +158,9 @@ en:
             This emendation for the %{amendable_type} %{amendable_link}
             was rejected on <strong>%{announcement_date}</strong>.<br>
             You can %{publish_as_button}.
+          withdrawn: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            has been withdrawn by the author.
       new:
         back: Back
         heading: Create your amendment

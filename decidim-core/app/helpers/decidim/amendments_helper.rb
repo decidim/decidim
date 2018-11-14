@@ -69,8 +69,8 @@ module Decidim
     #
     # Returns true or false
     def allowed_to_react_to_emendation?(emendation_form)
-      if current_user.active_role.present?
-        return true if current_user.active_role.include?("admin")
+      if current_user && current_user.active_role.present?
+        return true if current_user.active_role.include?("admin")      
       end
 
       emendation_form.amendable.authored_by?(current_user)
