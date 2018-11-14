@@ -283,7 +283,7 @@ fi:
         new:
           are_you_new?: Uusi käyttäjä?
           register: Rekisteröidy
-          sign_in_disabled: Voit käyttää ulkoista tiliä
+          sign_in_disabled: Voit kirjautua ulkoisella tilillä
           sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit käyttää olemassa olevaa käyttäjää
       shared:
         newsletter_modal:
