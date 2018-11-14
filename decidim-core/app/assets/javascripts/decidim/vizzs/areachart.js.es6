@@ -1,5 +1,5 @@
 /* global d3 */
-/* eslint-disable id-length, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
+/* eslint-disable id-length, no-undefined, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 
@@ -33,9 +33,9 @@ const areachart = (opts = {}) => {
   let objectName = opts.objectName || ""
   let container = d3.select(opts.container)
   let showAxis = opts.axis || false
-  let ratio = opts.ratio || (4 / 3)
-  let showTooltip = opts.tip !== "false"
-  let cumulative = opts.cumulative || false
+  let ratio = opts.ratio.split(":").reduce((a, b) => a / b) || (4 / 3)
+  let showTooltip = Object.is(opts.tip, undefined) ? true : opts.tip
+  let cumulative = opts.agg || false
 
   if (cumulative) {
     data = aggregate(data)
