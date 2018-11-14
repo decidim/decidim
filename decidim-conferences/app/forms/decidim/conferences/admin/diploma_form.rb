@@ -3,8 +3,8 @@
 module Decidim
   module Conferences
     module Admin
-      # A form object used to create conferences from the admin
-      # dashboard.
+      # A form object used to update conference diploma configuration
+      # from the admin dashboard
       #
       class DiplomaForm < Form
         mimic :conference

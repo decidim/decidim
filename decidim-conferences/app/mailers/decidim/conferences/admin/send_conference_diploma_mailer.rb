@@ -3,8 +3,8 @@
 module Decidim
   module Conferences
     module Admin
-      # A custom mailer for sending an invitation to join a conference to
-      # an existing user.
+      # A custom mailer for sending the diploma of the conference to
+      # a registered user who attends to the conference.
       class SendConferenceDiplomaMailer < Decidim::ApplicationMailer
         include Decidim::TranslationsHelper
         include Decidim::SanitizeHelper
@@ -12,7 +12,7 @@ module Decidim
         helper Decidim::ResourceHelper
         helper Decidim::TranslationsHelper
 
-        # Send an email to an user with the diploma of confference attendance attached.
+        # Send an email to an user with the diploma of conference attendance attached.
         #
         # user - The user being invited
         # conference - The conference being joined.

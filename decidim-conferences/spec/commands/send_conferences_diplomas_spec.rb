@@ -11,29 +11,6 @@ module Decidim::Conferences
 
       let!(:conference_registration) { create :conference_registration, conference: my_conference, user: user_not_admin }
 
-      # let(:params) do
-      #   {
-      #     conference: {
-      #       id: my_conference.id,
-      #       main_logo: Decidim::Dev.test_file("avatar.jpg", "image/jpeg"),
-      #       signature: Decidim::Dev.test_file("avatar.jpg", "image/jpeg"),
-      #       sign_date: 5.days.from_now,
-      #       signature_name: "Signature name",
-      #       errors: my_conference.errors
-      #     }
-      #   }
-      # end
-      # let(:context) do
-      #   {
-      #     current_organization: my_conference.organization,
-      #     current_user: user,
-      #     conference_id: my_conference.id
-      #   }
-      # end
-      # let(:form) do
-      #   Admin::DiplomaForm.from_params(params).with_context(context)
-      # end
-
       let(:command) { described_class.new(my_conference, user) }
 
       describe "when the diploma already sent" do
@@ -63,7 +40,7 @@ module Decidim::Conferences
 
           email = last_email
 
-          expect(email.subject).to include("diploma has been send")
+          expect(email.subject).to include("diploma has been sent")
 
           attachment = email.attachments.first
           expect(attachment.read.length).to be_positive

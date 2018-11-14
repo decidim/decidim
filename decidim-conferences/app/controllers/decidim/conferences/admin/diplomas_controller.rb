@@ -7,8 +7,6 @@ module Decidim
       class DiplomasController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
 
-        # helper_method :current_conference, :current_participatory_space
-
         def edit
           enforce_permission_to :update, :conference, conference: current_conference
 

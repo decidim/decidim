@@ -434,7 +434,7 @@ en:
             subject: Invitation to join a conference
         send_conference_diploma_mailer:
           diploma:
-            subject: Your conference's diploma has been send
+            subject: Your conference's diploma has been sent
       models:
         conference_invite:
           fields:

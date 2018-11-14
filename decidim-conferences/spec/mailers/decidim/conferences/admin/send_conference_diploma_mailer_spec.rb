@@ -14,7 +14,7 @@ module Decidim::Conferences
     let(:mail) { described_class.diploma(conference, user) }
 
     describe "diploma" do
-      let(:subject) { "Your conference's diploma has been send" }
+      let(:subject) { "Your conference's diploma has been sent" }
       let(:body) { "in the attachment" }
 
       it "expect subject and body" do
