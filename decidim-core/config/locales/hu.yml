@@ -819,6 +819,8 @@ hu:
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
         title: Hibabejelentés
+      floating_help:
+        help: Segítség
       follow_button:
         sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
