@@ -820,6 +820,8 @@ de:
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
+      floating_help:
+        help: Hilfe
       follow_button:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
