@@ -820,6 +820,8 @@ pt:
         report: Denunciar
         spam: Contém clickbait, publicidade, fraudes ou script bots.
         title: Reportar um problema
+      floating_help:
+        help: Socorro
       follow_button:
         sign_in_before_follow: Faça login antes de executar esta ação
       login_modal:
