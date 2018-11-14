@@ -101,7 +101,7 @@
         <% end %>
       </div>
     <% elsif logged_in? %>
-      <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
+      <%= cell "decidim/follow_button", profile_holder, inline: false %>
     <% end %>
 
     <% if can_edit_user_group_profile? %>
