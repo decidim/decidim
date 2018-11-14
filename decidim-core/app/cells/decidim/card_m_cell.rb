@@ -35,18 +35,14 @@ module Decidim
     end
 
     def has_label?
-      return true if model.respond_to?('emendation?') && model.emendation?
+      return true if model.respond_to?("emendation?") && model.emendation?
       context[:label].presence
     end
 
     def label
       return if [false, "false"].include? context[:label]
-
-      if model.respond_to?('emendation?') && model.emendation?
-        return @label ||= t("decidim/amendment", scope: "activerecord.models", count: 1)
-      else
-        return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
-      end
+      return @label ||= t("decidim/amendment", scope: "activerecord.models", count: 1) if model.respond_to?("emendation?") && model.emendation?
+      return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
 
       context[:label]
     end

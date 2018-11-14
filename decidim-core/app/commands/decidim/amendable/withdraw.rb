@@ -4,7 +4,7 @@ module Decidim
   module Amendable
     # A command with all the business logic when a user starts amending a resource.
     class Withdraw < Rectify::Command
-       # Public: Initializes the command.
+      # Public: Initializes the command.
       #
       # emendation     - The resource to withdraw.
       # current_user - The current user.
@@ -37,7 +37,9 @@ module Decidim
       end
 
       def change_emendation_state_to_withdrawn
+        # rubocop:disable Rails/SkipsModelValidations
         @emendation.update_attribute :state, "withdrawn"
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end
