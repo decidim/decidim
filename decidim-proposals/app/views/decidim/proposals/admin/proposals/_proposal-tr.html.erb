@@ -61,9 +61,9 @@
     <% end %>
 
     <% if allowed_to? :create, :proposal_answer and !proposal.emendation? %>
-      <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: " icon--small"%>
+      <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: " icon--small" %>
     <% else %>
-      <%= icon "comment-square", scope: "decidim.proposals.admin", class: "action-icon action-icon--disabled"%>
+      <%= icon "comment-square", scope: "decidim.proposals.admin", class: "action-icon action-icon--disabled" %>
     <% end %>
 
     <%= resource_permissions_link(proposal) %>
