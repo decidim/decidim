@@ -307,9 +307,9 @@ fi:
             update: Päivitä
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
-            created_in_meeting: Tämä ehdotus tulee kokoukselta
+            created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             select_a_category: Valitse aihepiiri
-            select_a_meeting: Valitse kokous
+            select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
             cancel: Peruuta
@@ -370,15 +370,15 @@ fi:
         filter_origin_values:
           all: Kaikki
           citizens: Kansalaiset
-          meetings: kokoukset
+          meetings: Tapaamiset
           official: Virallinen
           user_groups: Käyttäjäryhmät
         filter_state_values:
           accepted: Hyväksytyt
           all: Kaikki
-          evaluating: arviointiin
+          evaluating: Arvioitavana
           except_rejected: Kaikki paitsi hylätyt
-          rejected: hylätty
+          rejected: Hylätty
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -619,7 +619,7 @@ fi:
           report: Ilmoita
           sign_in: Kirjaudu sisään
           sign_in_or_up: "%{in} tai %{up} osallistuaksesi"
-          sign_in_to_participate: "%{in} osallistua"
+          sign_in_to_participate: "%{in} osallistuaksesi"
           sign_up: rekisteröidy
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
