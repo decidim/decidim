@@ -4,7 +4,6 @@ require "rails"
 require "active_support/all"
 
 require "decidim/core"
-require "decidim/participatory_processes/query_extensions"
 
 module Decidim
   module ParticipatoryProcesses
@@ -37,12 +36,6 @@ module Decidim
               mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
             end
           end
-        end
-      end
-
-      initializer "decidim_participatory_processes.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
         end
       end
 
