@@ -37,6 +37,7 @@ describe "Amend Proposal", type: :system do
       it "renders a link to Ammend it" do
         expect(page).to have_link("Amend Proposal")
       end
+
       context "when the user is not logged in and clicks" do
         it "is shown the login modal" do
           within ".card__amend-button", match: :first do
@@ -59,7 +60,7 @@ describe "Amend Proposal", type: :system do
             click_link "Amend Proposal"
           end
 
-          expect(page).to have_css(".edit_amend", visible: true)
+          expect(page).to have_css(".new_amend", visible: true)
           expect(page).to have_content("CREATE YOUR AMENDMENT")
         end
       end
@@ -71,26 +72,26 @@ describe "Amend Proposal", type: :system do
         end
 
         it "is shown the amend title field" do
-          expect(page).to have_css("#amend_title", visible: true)
+          expect(page).to have_css(".field", text: "Title", visible: true)
         end
         it "is shown the amend body field" do
-          expect(page).to have_css("#amend_body", visible: true)
+          expect(page).to have_css(".field", text: "Body", visible: true)
         end
-        it "is shown the Create amend as field" do
-          expect(page).to have_css("#amend_user_group_id", visible: true)
+        it "is shown the amend user group as field" do
+          expect(page).to have_css(".field", text: "User group", visible: true)
         end
         it "is shown the submit button" do
           expect(page).to have_button("Send emendation")
         end
       end
 
-      context "and the emendation is sent" do
+      context "and the amend form is filled" do
         before do
           login_as user, scope: :user
           visit decidim.new_amend_path(amendable_gid: proposal.to_sgid.to_s)
-          within ".edit_amend" do
-            fill_in :amend_title, with: "More sidewalks and less roads"
-            fill_in :amend_body, with: "Cities need more people, not more cars"
+          within ".new_amend" do
+            fill_in "amend[emendation_fields][title]", with: "More sidewalks and less roads"
+            fill_in "amend[emendation_fields][body]", with: "Cities need more people, not more cars"
             select user_group.name, from: :amend_user_group_id
           end
           click_button "Send emendation"
@@ -98,6 +99,14 @@ describe "Amend Proposal", type: :system do
 
         it "is shown the Success Callout" do
           expect(page).to have_css(".callout.success", text: "The amendment has been created successfully")
+        end
+
+        it "is shown the emendation in the amendments list" do
+          emendation = Decidim::Proposals::Proposal.last
+
+          expect(page).to have_content(emendation.title)
+          expect(page).to have_content(emendation.body)
+          expect(page).to have_css(".card__text--status", text: emendation.state.upcase)
         end
       end
     end
