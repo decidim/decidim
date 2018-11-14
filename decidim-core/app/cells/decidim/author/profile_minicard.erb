@@ -1,0 +1,26 @@
+<div class="p-xs flex--sbc">
+  <div class="mr-s">
+    <div class="card__header collapse">
+      <%= cell("decidim/user_profile", model.__getobj__).user_data %>
+    </div>
+    <div class="card__text card--picture-offset">
+      <%= link_to "view full profile", profile_path %>
+    </div>
+  </div>
+  <div class="ml-s">
+    <button class="button small secondary hollow button--icon button--sc">
+      <%= icon "bell" %>
+      <span>Seguir</span>
+    </button>
+    <div>
+      <%= link_to "#", class: "card__link" do %>
+        <strong>20</strong> Followers
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "#", class: "card__link" do %>
+        <strong>20</strong> Following
+      <% end %>
+    </div>
+  </div>
+</div>

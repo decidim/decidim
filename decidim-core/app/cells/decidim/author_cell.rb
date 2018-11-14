@@ -10,6 +10,7 @@ module Decidim
     include ::Devise::Controllers::Helpers
     include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper
+    include ERB::Util
 
     property :profile_path
     property :can_be_contacted?
@@ -89,6 +90,10 @@ module Decidim
 
     def profile_path?
       profile_path.present?
+    end
+
+    def has_tooltip?
+      profile_path?
     end
   end
 end
