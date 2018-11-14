@@ -250,6 +250,11 @@ fi:
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
+      help_sections:
+        error: Ohjetohtojen päivittämisessä tapahtui virhe
+        form:
+          save: Tallentaa
+        success: Ohjeosat päivittyvät onnistuneesti
       impersonatable_users:
         index:
           filter:
@@ -303,6 +308,7 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
+        help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Käyttäjänä esiintymiset
         newsletters: Uutiskirjeet
