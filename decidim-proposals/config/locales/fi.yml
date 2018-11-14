@@ -12,7 +12,7 @@ fi:
       proposal:
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        body: Leipäteksti
+        body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
