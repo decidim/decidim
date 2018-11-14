@@ -6,7 +6,8 @@ edit_link(
 )
 %>
 <% provide :meta_title, t("consultations.index.title", scope: "decidim") %>
-<main class="wrapper">
+
+<%= participatory_space_wrapper do %>
   <%= participatory_space_floating_help %>
 
   <div class="row columns">
@@ -30,7 +31,7 @@ edit_link(
       <%= render partial: "consultations" %>
     </div>
   </div>
-</main>
+<% end %>
 
 <%= javascript_include_tag "decidim/filters" %>
 <%= javascript_include_tag "decidim/orders" %>
