@@ -42,10 +42,9 @@
                   <h5 class="card__title">
                     <%= Faker::StarWars.quote[0..75] %>
                   </h5>
-                  <% end %>
-                  <div class="card__author">
-                    <%= partial "author_data" %>
-                  </div>
+                <% end %>
+                <div class="card__author">
+                  <%= partial "author_data", { nick: false } %>
                 </div>
                 <div class="card__text">
                   <div class="card__text--paragraph">

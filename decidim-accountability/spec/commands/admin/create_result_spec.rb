@@ -130,7 +130,7 @@ module Decidim::Accountability
         expect(linked_meetings).to eq [meeting]
       end
 
-      it "notifies the process followers" do
+      it "notifies the linked proposals followers" do
         follower = create(:user, organization: organization)
         create(:follow, followable: proposals.first, user: follower)
 
