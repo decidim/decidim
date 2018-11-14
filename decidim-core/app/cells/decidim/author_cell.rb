@@ -14,6 +14,7 @@ module Decidim
 
     property :profile_path
     property :can_be_contacted?
+    property :has_tooltip?
 
     delegate :current_user, to: :controller, prefix: false
 
@@ -90,10 +91,6 @@ module Decidim
 
     def profile_path?
       profile_path.present?
-    end
-
-    def has_tooltip?
-      profile_path?
     end
   end
 end

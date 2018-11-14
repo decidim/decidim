@@ -60,5 +60,9 @@ module Decidim
     def can_follow?
       true
     end
+
+    def has_tooltip?
+      true
+    end
   end
 end
