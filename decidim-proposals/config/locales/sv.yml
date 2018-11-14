@@ -552,7 +552,7 @@ sv:
         filters:
           accepted: Accepterad
           activity: Aktivitet
-          all: Alla
+          all: Allt
           category: Kategori
           category_prompt: Välj en kategori
           citizens: Medborgare
@@ -560,7 +560,7 @@ sv:
           except_rejected: Alla förutom avvisade
           official: Officiell
           origin: Ursprung
-          rejected: Avvisade
+          rejected: Avslaget
           related_to: Relaterad till
           search: Sök
           state: Status

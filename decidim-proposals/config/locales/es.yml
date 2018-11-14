@@ -550,7 +550,7 @@ es:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          accepted: Aceptadas
+          accepted: Aceptada
           activity: Actividad
           all: Todas
           category: Categoría
@@ -560,7 +560,7 @@ es:
           except_rejected: Todas excepto las rechazadas
           official: Oficial
           origin: Origen
-          rejected: Rechazadas
+          rejected: Rechazada
           related_to: Relacionadas con
           search: Buscar
           state: Estado
