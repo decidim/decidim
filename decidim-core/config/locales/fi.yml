@@ -820,6 +820,8 @@ fi:
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita ongelmasta
+      floating_help:
+        help: auta
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
