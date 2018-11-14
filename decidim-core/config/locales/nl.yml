@@ -820,6 +820,8 @@ nl:
         report: Rapporteren
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
+      floating_help:
+        help: Helpen
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
