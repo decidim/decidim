@@ -64,19 +64,6 @@ module Decidim
         end
       end
 
-      def emendation_attributes
-        fields = {}
-
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form[:emendation_fields][:title], current_organization: form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form[:emendation_fields][:body], current_organization: form.current_organization).rewrite
-
-        fields[:title] = parsed_title
-        fields[:body] = parsed_body
-        fields[:component] = form.amendable.component
-        fields[:published_at] = Time.current if form.emendation_type == "Decidim::Proposals::Proposal"
-        fields
-      end
-
       def create_amendment!
         @amendment = Decidim::Amendment.create!(
           amender: form.current_user,
