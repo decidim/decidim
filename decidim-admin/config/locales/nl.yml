@@ -250,6 +250,11 @@ nl:
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
+      help_sections:
+        error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
+        form:
+          save: Opslaan
+        success: Help-secties met succes bijgewerkt
       impersonatable_users:
         index:
           filter:
@@ -303,6 +308,7 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
+        help_sections: Help secties
         homepage: Startpagina
         impersonations: Zich voordoen als
         newsletters: Nieuwsbrieven
