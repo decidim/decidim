@@ -159,6 +159,11 @@ module Decidim
         authors.first.is_a?(Decidim::Organization)
       end
 
+      # Public: Whether the proposal is created in a meeting or not.
+      def official_meeting?
+        authors.first.class.name == "Decidim::Meetings::Meeting"
+      end
+
       # Public: The maximum amount of votes allowed for this proposal.
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.

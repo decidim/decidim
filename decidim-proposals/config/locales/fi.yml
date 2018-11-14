@@ -307,7 +307,9 @@ fi:
             update: Päivitä
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
+            created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             select_a_category: Valitse aihepiiri
+            select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
             cancel: Peruuta
@@ -364,6 +366,19 @@ fi:
         not_answered: Vastaamaton
         rejected: Hylätty
         withdrawn: Peruutettu
+      application_helper:
+        filter_origin_values:
+          all: Kaikki
+          citizens: Kansalaiset
+          meetings: Tapaamiset
+          official: Virallinen
+          user_groups: Käyttäjäryhmät
+        filter_state_values:
+          accepted: Hyväksytyt
+          all: Kaikki
+          evaluating: Arvioitavana
+          except_rejected: Kaikki paitsi hylätyt
+          rejected: Hylätty
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -503,7 +518,7 @@ fi:
             published_at: Julkaistu
             scope: Teema
             state: Tila
-            title: Kuvan tai liitteen otsikko
+            title: Otsikko
             votes: Äänet
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
@@ -550,17 +565,10 @@ fi:
         endorsements_card_row:
           comments: Kommentit
         filters:
-          accepted: Hyväksytty
           activity: Aktiivisuus
-          all: Kaikki
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
-          citizens: Kansalaiset
-          evaluating: Arvioitavana
-          except_rejected: Kaikki paitsi hylätyt
-          official: Virallinen
           origin: Alkuperä
-          rejected: Hylätty
           related_to: Liittyy aiheeseen
           search: Haku
           state: Tila
@@ -611,6 +619,7 @@ fi:
           report: Ilmoita
           sign_in: Kirjaudu sisään
           sign_in_or_up: "%{in} tai %{up} osallistuaksesi"
+          sign_in_to_participate: "%{in} osallistuaksesi"
           sign_up: rekisteröidy
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?

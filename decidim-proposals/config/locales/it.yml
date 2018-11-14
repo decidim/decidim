@@ -307,7 +307,9 @@ it:
             update: Aggiornare
           form:
             attachment_legend: "(Opzionale) Aggiungere un allegato"
+            created_in_meeting: Questa proposta proviene da una riunione
             select_a_category: Scegli una categoria
+            select_a_meeting: Seleziona una riunione
           index:
             actions: Azioni
             cancel: Annulla
@@ -364,6 +366,19 @@ it:
         not_answered: Non risposto
         rejected: Rifiutata
         withdrawn: Ritirato
+      application_helper:
+        filter_origin_values:
+          all: Tutti
+          citizens: Cittadini
+          meetings: incontri
+          official: Ufficiale
+          user_groups: Gruppi di utenti
+        filter_state_values:
+          accepted: Accettato
+          all: Tutti
+          evaluating: Valutare
+          except_rejected: Tutto tranne rifiutato
+          rejected: Respinto
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -550,17 +565,10 @@ it:
         endorsements_card_row:
           comments: Commenti
         filters:
-          accepted: Accettata
           activity: Attività
-          all: Tutto
           category: Categoria
           category_prompt: Scegli una categoria
-          citizens: Cittadini
-          evaluating: Valutando
-          except_rejected: Tutto tranne rifiutato
-          official: Ufficiale
           origin: Origine
-          rejected: Rifiutata
           related_to: Associata a
           search: Cerca
           state: Stato
@@ -611,6 +619,7 @@ it:
           report: Report
           sign_in: registrati
           sign_in_or_up: "%{in} o %{up} per partecipare"
+          sign_in_to_participate: "%{in} per partecipare"
           sign_up: Iscriviti
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?

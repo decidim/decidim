@@ -307,7 +307,9 @@ es-PY:
             update: Actualizar
           form:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
+            created_in_meeting: Esta propuesta viene de una reunión.
             select_a_category: Seleccione una categoría
+            select_a_meeting: Seleccione una reunion
           index:
             actions: Acciones
             cancel: Cancelar
@@ -364,6 +366,19 @@ es-PY:
         not_answered: No contestada
         rejected: Rechazada
         withdrawn: Retirado
+      application_helper:
+        filter_origin_values:
+          all: Todos
+          citizens: Ciudadanía
+          meetings: Reuniones
+          official: Oficial
+          user_groups: Grupos de Usuarios
+        filter_state_values:
+          accepted: Aceptado
+          all: Todos
+          evaluating: Evaluando
+          except_rejected: Todos excepto rechazados
+          rejected: Rechazado
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -550,17 +565,10 @@ es-PY:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          accepted: Aceptadas
           activity: Actividad
-          all: Todas
           category: Categoría
           category_prompt: Selecciona una categoría
-          citizens: Ciudadanía
-          evaluating: En evaluación
-          except_rejected: Todos excepto rechazados
-          official: Oficial
           origin: Origen
-          rejected: Rechazadas
           related_to: Relacionado con
           search: Buscar
           state: Estado
@@ -611,6 +619,7 @@ es-PY:
           report: Denunciar
           sign_in: Registrarse
           sign_in_or_up: "%{in} o %{up} para participar"
+          sign_in_to_participate: "%{in} para participar"
           sign_up: Regístrate
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'

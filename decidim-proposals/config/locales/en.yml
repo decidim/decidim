@@ -308,7 +308,9 @@ en:
             update: Update
           form:
             attachment_legend: "(Optional) Add an attachment"
+            created_in_meeting: This proposal comes from a meeting
             select_a_category: Select a category
+            select_a_meeting: Select a meeting
           index:
             actions: Actions
             cancel: Cancel
@@ -365,6 +367,19 @@ en:
         not_answered: Not answered
         rejected: Rejected
         withdrawn: Withdrawn
+      application_helper:
+        filter_origin_values:
+          all: All
+          citizens: Citizens
+          meetings: Meetings
+          official: Official
+          user_groups: User groups
+        filter_state_values:
+          accepted: Accepted
+          all: All
+          evaluating: Evaluating
+          except_rejected: All except rejected
+          rejected: Rejected
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -557,17 +572,10 @@ en:
         endorsements_card_row:
           comments: Comments
         filters:
-          accepted: Accepted
           activity: Activity
-          all: All
           category: Category
           category_prompt: Select a category
-          citizens: Citizens
-          evaluating: Evaluating
-          except_rejected: All except rejected
-          official: Official
           origin: Origin
-          rejected: Rejected
           related_to: Related to
           search: Search
           state: State
@@ -624,6 +632,7 @@ en:
           report: Report
           sign_in: Sign in
           sign_in_or_up: "%{in} or %{up} to participate"
+          sign_in_to_participate: "%{in} to participate"
           sign_up: sign up
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure to withdraw this proposal?

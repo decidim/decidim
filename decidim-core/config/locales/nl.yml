@@ -283,6 +283,8 @@ nl:
         new:
           are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
+          sign_in_disabled: U hebt toegang met een extern account
+          sign_up_disabled: Aanmelden is uitgeschakeld, u kunt een bestaande gebruiker gebruiken om toegang te krijgen
       shared:
         newsletter_modal:
           buttons:
@@ -535,6 +537,13 @@ nl:
       edit:
         edit_user_group: Groep bewerken
         update_user_group: Groep bijwerken
+      form:
+        document_number_help: Gebruik geen streepjes of spaties
+        email_help: E-mail van uw organisatie, vereniging, collectief, groep, etc.
+        fill_in_for_verification: 'Vul deze velden in als u wilt dat uw groep wordt geverifieerd:'
+        name_help: Naam van uw organisatie, vereniging, collectief, groep, etc.
+        nickname_help: Gebruikersnaam van uw organisatie, vereniging, collectief, groep, etc. Gebruik geen spaties of accenten.
+        phone_help: Gebruik geen streepjes of spaties
       join:
         error: Er is een probleem opgetreden bij de groep
         success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u akkoord gaat met de groep.
@@ -548,6 +557,7 @@ nl:
       new:
         create_user_group: Maak een groep
         new_user_group: Nieuwe groep
+        subtitle: Maak een groep en nodig andere gebruikers uit om deel te nemen aan een collectief niveau.
       no_user_groups: Behoort nog niet tot een groep.
       roles:
         admin: Beheerder

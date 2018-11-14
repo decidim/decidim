@@ -307,7 +307,9 @@ sv:
             update: Uppdatera
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
+            created_in_meeting: Detta förslag kommer från ett möte
             select_a_category: Välj en kategori
+            select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
             cancel: Avbryt
@@ -364,6 +366,19 @@ sv:
         not_answered: Inte besvarad
         rejected: Avvisade
         withdrawn: Tillbakadragen
+      application_helper:
+        filter_origin_values:
+          all: Allt
+          citizens: Medborgare
+          meetings: möten
+          official: Officiell
+          user_groups: Användargrupper
+        filter_state_values:
+          accepted: Accepterad
+          all: Allt
+          evaluating: utvärdera
+          except_rejected: Alla förutom avvisade
+          rejected: avvisade
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -550,17 +565,10 @@ sv:
         endorsements_card_row:
           comments: Kommentarer
         filters:
-          accepted: Accepterad
           activity: Aktivitet
-          all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: Medborgare
-          evaluating: Utvärderas
-          except_rejected: Alla förutom avvisade
-          official: Officiell
           origin: Ursprung
-          rejected: Avvisade
           related_to: Relaterad till
           search: Sök
           state: Status
@@ -611,6 +619,7 @@ sv:
           report: Rapportera
           sign_in: Logga in
           sign_in_or_up: "%{in} eller %{up} för att delta"
+          sign_in_to_participate: "%{in} att delta"
           sign_up: registrera
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?

@@ -307,7 +307,9 @@ ca:
             update: Actualització
           form:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+            created_in_meeting: Aquesta proposta prové d'una reunió
             select_a_category: Selecciona una categoria
+            select_a_meeting: Seleccioneu una reunió
           index:
             actions: Accions
             cancel: Cancel·lar
@@ -364,6 +366,19 @@ ca:
         not_answered: No resposta
         rejected: Rebutjada
         withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          all: Tots
+          citizens: Ciutadania
+          meetings: Reunions
+          official: Oficial
+          user_groups: Grups d'usuaris
+        filter_state_values:
+          accepted: Acceptat
+          all: Tots
+          evaluating: Avaluació
+          except_rejected: Totes menys rebutjades
+          rejected: Rebutjat
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -550,17 +565,10 @@ ca:
         endorsements_card_row:
           comments: Comentaris
         filters:
-          accepted: Acceptades
           activity: Activitat
-          all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
-          citizens: Ciutadania
-          evaluating: En avaluació
-          except_rejected: Totes menys rebutjades
-          official: Oficial
           origin: Origen
-          rejected: Rebutjades
           related_to: Relacionat amb
           search: Cerca
           state: Estat
@@ -611,6 +619,7 @@ ca:
           report: Informe
           sign_in: Inicia sessió
           sign_in_or_up: "%{in} o %{up} per participar"
+          sign_in_to_participate: "%{in} per participar"
           sign_up: Registra't
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?

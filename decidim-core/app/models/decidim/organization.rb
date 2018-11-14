@@ -22,6 +22,12 @@ module Decidim
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
     has_many :hashtags, foreign_key: "decidim_organization_id", class_name: "Decidim::Hashtag", dependent: :destroy
 
+    # Users registration mode. Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
+    #  enabled: Users registration and sign in are enabled (default value).
+    #  existing: Users can't be registered in the system. Only existing users can sign in.
+    #  disable: Users can't register or sign in.
+    enum users_registration_mode: [:enabled, :existing, :disabled], _prefix: true
+
     validates :name, :host, uniqueness: true
     validates :reference_prefix, presence: true
     validates :default_locale, inclusion: { in: :available_locales }
@@ -69,6 +75,14 @@ module Decidim
     def welcome_notification_body
       self[:welcome_notification_body] ||
         multi_translation("decidim.welcome_notification.default_body", available_locales)
+    end
+
+    def sign_up_enabled?
+      users_registration_mode_enabled?
+    end
+
+    def sign_in_enabled?
+      !users_registration_mode_disabled?
     end
   end
 end

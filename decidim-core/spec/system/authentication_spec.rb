@@ -188,6 +188,20 @@ describe "Authentication", type: :system do
         expect_user_logged
       end
     end
+
+    context "when sign up is disabled" do
+      let(:organization) { create(:organization, users_registration_mode: :existing) }
+
+      it "redirects to the sign in when accessing the sign up page" do
+        visit decidim.new_user_registration_path
+        expect(page).not_to have_content("Sign Up")
+      end
+
+      it "don't allow the user to sign up" do
+        find(".sign-in-link").click
+        expect(page).not_to have_content("Create an account")
+      end
+    end
   end
 
   describe "Confirm email" do
@@ -341,6 +355,39 @@ describe "Authentication", type: :system do
 
         expect(page).to have_content("Successfully")
         expect(page).to have_content(user.name)
+      end
+
+      context "when sign up is disabled" do
+        let(:organization) { create(:organization, users_registration_mode: :existing) }
+
+        it "doesn't allow the user to sign up" do
+          find(".sign-in-link").click
+          expect(page).not_to have_content("Sign Up")
+        end
+      end
+
+      context "when sign in is disabled" do
+        let(:organization) { create(:organization, users_registration_mode: :disabled) }
+
+        it "doesn't allow the user to sign up" do
+          find(".sign-in-link").click
+          expect(page).not_to have_content("Sign Up")
+        end
+
+        it "doesn't allow the user to sign in as a regular user, only through external accounts" do
+          find(".sign-in-link").click
+          expect(page).not_to have_content("Email")
+          expect(page).to have_css(".button--facebook")
+        end
+
+        it "authenticates an existing User" do
+          find(".sign-in-link").click
+
+          click_link "Sign in with Facebook"
+
+          expect(page).to have_content("Successfully")
+          expect(page).to have_content(user.name)
+        end
       end
     end
   end

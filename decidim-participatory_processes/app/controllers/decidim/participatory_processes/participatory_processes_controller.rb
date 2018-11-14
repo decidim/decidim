@@ -6,6 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
+
       participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper

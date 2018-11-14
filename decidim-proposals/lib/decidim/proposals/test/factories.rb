@@ -2,6 +2,7 @@
 
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
+require "decidim/meetings/test/factories"
 
 FactoryBot.define do
   factory :proposal_component, parent: :component do
@@ -215,6 +216,14 @@ FactoryBot.define do
       after :build do |proposal|
         proposal.coauthorships.clear
         proposal.coauthorships.build(author: proposal.organization)
+      end
+    end
+
+    trait :official_meeting do
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        component = create(:meeting_component, participatory_space: proposal.component.participatory_space)
+        proposal.coauthorships.build(author: build(:meeting, component: component))
       end
     end
 

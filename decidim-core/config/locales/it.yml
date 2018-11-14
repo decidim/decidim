@@ -283,6 +283,8 @@ it:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
+          sign_in_disabled: È possibile accedere con un account esterno
+          sign_up_disabled: La registrazione è disabilitata, puoi accedere a un utente esistente
       shared:
         newsletter_modal:
           buttons:
@@ -535,6 +537,13 @@ it:
       edit:
         edit_user_group: Modifica gruppo
         update_user_group: Gruppo di aggiornamento
+      form:
+        document_number_help: Non utilizzare trattini o spazi
+        email_help: Email della tua organizzazione, associazione, collettivo, gruppo, ecc.
+        fill_in_for_verification: 'Compila questi campi se vuoi che il tuo gruppo sia verificato:'
+        name_help: Nome della tua organizzazione, associazione, collettivo, gruppo, ecc.
+        nickname_help: Nome utente della propria organizzazione, associazione, collettivo, gruppo, ecc. Non utilizzare spazi né accenti.
+        phone_help: Non utilizzare trattini o spazi
       join:
         error: C'è stato un problema ad entrare nel gruppo
         success: Richiesta di unione creata con successo. Un amministratore esaminerà la tua richiesta prima di accettarti nel gruppo.
@@ -548,6 +557,7 @@ it:
       new:
         create_user_group: Creare un gruppo
         new_user_group: Nuovo gruppo
+        subtitle: Crea un gruppo e invita altri utenti a partecipare per partecipare a un livello collettivo.
       no_user_groups: Non appartiene ancora a nessun gruppo.
       roles:
         admin: Amministratore
