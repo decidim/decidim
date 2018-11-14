@@ -34,5 +34,12 @@ module Decidim
         floating_help { translated_attribute(help_section).html_safe }
       end
     end
+
+    def participatory_space_wrapper(&block)
+      content_tag :main, class: "wrapper" do
+        concat(participatory_space_floating_help)
+        concat(capture(&block))
+      end
+    end
   end
 end
