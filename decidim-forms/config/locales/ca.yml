@@ -1,0 +1,79 @@
+ca:
+  activemodel:
+    attributes:
+      answer:
+        body: Resposta
+      question:
+        max_choices: Nombre màxim d'opcions
+        question_type: Escriu
+      questionnaire_question:
+        mandatory: Obligatori
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: no estan complerts
+              too_many: n'hi ha massa
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Descripció
+            tos: Termes i condicions d'ús
+        questionnaires:
+          answer_option:
+            answer_option: Opció de resposta
+            free_text: Text lliure
+            remove: Elimina
+            statement: Declaració
+          edit:
+            save: Desar
+            title: Títol
+          form:
+            add_question: Afegeix una pregunta
+            already_answered_warning: No pots modificar les pregunte d'aquest qüestionari perquè ja ha estat contestat per alguns usuaris.
+          question:
+            add_answer_option: Afegeix una opció de resposta
+            any: Cap
+            description: Descripció
+            down: Baixar
+            question: Pregunta
+            remove: Eliminar
+            statement: Declaració
+            up: Pujar
+          update:
+            invalid: S'han produït alguns errors en desar el qüestionari.
+            success: Els qüestionaris s'han desat correctament.
+      errors:
+        answer:
+          body: El camp no pot estar en blanc
+      question_types:
+        long_answer: Resposta llarga
+        multiple_option: Opció múltiple
+        short_answer: Resposta curta
+        single_option: Opció única
+        sorting: Ordenació
+      questionnaires:
+        answer:
+          invalid: S'han produït errors en respondre el qüestionari.
+          success: El qüestionari ha estat respost amb èxit.
+        question:
+          max_choices: 'Opcions màximes: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el qüestionari.
+            title: Respon el qüestionari
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segur?
+          questionnaire_answered:
+            body: Ja has respost a aquest qüestionari.
+            title: Ja has respost
+          questionnaire_closed:
+            body: El qüestionari està tancat i no es pot respondre.
+            title: S'ha tancat el qüestionari
+          questionnaire_for_private_users:
+            body: El qüestionari només està disponible per a usuaris privats
+            title: S'ha tancat el qüestionari
+          submit: Enviar respostes
+          tos_agreement: En participar, acceptes els Termes i condicions d'ús

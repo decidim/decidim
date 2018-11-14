@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UpdateStaticPage do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:page) { create(:static_page, organization: organization, slug: "terms-and-conditions") }
+      let(:page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
       let(:user) { create :user, :admin, :confirmed, organization: organization }
       let(:form) do
         StaticPageForm.from_params(

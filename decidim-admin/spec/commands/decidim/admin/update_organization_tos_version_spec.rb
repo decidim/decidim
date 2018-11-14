@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Admin
   describe UpdateOrganizationTosVersion do
     describe "call" do
-      let(:organization) { create(:organization, :with_tos) }
+      let(:organization) { create(:organization) }
       let(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
       let(:other_page) { create(:static_page, slug: "other-page", organization: organization) }
       let(:user) { create(:user, organization: organization) }

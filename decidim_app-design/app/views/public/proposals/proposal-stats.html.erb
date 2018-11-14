@@ -6,26 +6,28 @@
 
 <%= partial "template_top" %>
 
-<main class="wrapper">
-  <%= partial "process_header_home" %>
-  <div class="row columns">
-    <h2 class="section-heading">Esta propuesta en números</h2>
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row columns">
+      <h2 class="section-heading">Esta propuesta en números</h2>
+    </div>
+    <div class="row columns">
+      <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, percent: true, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+      <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+    </div>
+    <div class="row columns">
+      <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, percent: true, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+      <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+    </div>
+    <div class="row columns">
+      <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+      <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
+    </div>
+    <div class="row columns">
+      <%= partial "linechart", ratio: "16:9", metric: "linechart-0", title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+      <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
   </div>
-  <div class="row columns">
-    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, percent: true, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
-    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
-  </div>
-  <div class="row columns">
-    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, percent: true, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
-    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
-  </div>
-  <div class="row columns">
-    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
-    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
-  </div>
-  <div class="row columns">
-    <%= partial "linechart", ratio: "16:9", metric: "linechart-0", title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
-    <p class="pull-right"><a href="#"><small class="text-small"><u>Descargar datos (csv)</u></small></a></p>
   </div>
 </main>
 

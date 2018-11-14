@@ -6,21 +6,22 @@
 
 <%= partial "template_top" %>
 
-<main class="wrapper">
+<main>
   <%= partial "process_header" %>
-  <div class="row columns">
-    <h2 class="section-heading">Resultados</h2>
-  </div>
-  <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-    <% 3.times do %>
+  <div class="wrapper">
+    <div class="row columns">
+      <h2 class="section-heading">Resultados</h2>
+    </div>
+    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+      <% 3.times do %>
       <div class="column">
         <article class="card card--result">
           <div class="card__content">
             <div class="card__header">
               <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                <h5 class="card__title">
-                  <%= Faker::StarWars.quote[0..75] %>
-                </h5>
+              <h5 class="card__title">
+                <%= Faker::StarWars.quote[0..75] %>
+              </h5>
               <% end %>
             </div>
             <div class="card__text">
@@ -86,9 +87,9 @@
           <div class="card__content">
             <div class="card__header">
               <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                <h5 class="card__title">
-                  <%= Faker::StarWars.quote[0..75] %>
-                </h5>
+              <h5 class="card__title">
+                <%= Faker::StarWars.quote[0..75] %>
+              </h5>
               <% end %>
             </div>
             <div class="card__text">
@@ -132,7 +133,8 @@
           </div>
         </article>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </main>
 

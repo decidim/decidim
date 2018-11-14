@@ -163,6 +163,9 @@ nl:
           foo: Foo
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
+      sms:
+        explanation: Dien uw mobiele nummer in, zodat wij uw identiteit kunnen controleren.
+        name: Code per sms
       started_at: Gestart om %{timestamp}
     authorization_modals:
       show:
@@ -553,18 +556,6 @@ nl:
       update:
         error: Er is een probleem opgetreden bij het bijwerken van de groep
         success: Groep succesvol geüpdatet
-    invitations:
-      create:
-        error: Er waren enkele problemen terwijl je je vrienden uitnodigde
-        error_empty_form: Voer alstublieft enkele e-mailadressen in
-        success: We hebben de uitnodigingen naar je vrienden gestuurd!
-      index:
-        customize_message: Pas het uitnodigingsbericht aan
-        friend_email: 'Vriend #%{index} email'
-        invitations_subtitle: Laat je vrienden op de hoogte van deze site
-        invitations_title: Denk je dat meer stemmen gehoord moeten worden in %{organization_name}?
-        invite: Nodig uit
-        visit_your_profile: Ga naar je profiel
     last_activities:
       activities:
         no_activities_warning: Geen activiteit
@@ -596,8 +587,8 @@ nl:
     members:
       no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
+      help: Helpen
       home: Home
-      more_information: Meer informatie
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +704,11 @@ nl:
         sub_hero:
           register: Registreren
       index:
-        title: Meer informatie
+        read_more: Lees verder
+        standalone_pages: Pages
+        subheading: Navigeer door de helppagina's van %{name}
+        title: Helpen
+        topics: Onderwerpen
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
@@ -803,6 +798,9 @@ nl:
         close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
         embed_link: Insluiten
+      extended_navigation_bar:
+        more: Meer
+        unfold: Ontvouwen
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
@@ -827,6 +825,9 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
+    welcome_notification:
+      default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization_name}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
+      default_subject: Bedankt dat je lid bent geworden van {{organization}}!
   devise:
     confirmations:
       confirmed: Uw e-mailadres is succesvol bevestigd.
@@ -878,7 +879,6 @@ nl:
           Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
           Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_friend: "%{invited_by} heeft je uitgenodigd voor %{application}."
         invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
@@ -888,10 +888,6 @@ nl:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
-      invite_friend:
-        accept_invitation: 'U kunt de uitnodiging accepteren via de onderstaande link:'
-        friend_custom_text: 'Ze hebben dit bericht voor je achtergelaten:'
-        subject: Je bent uitgenodigd voor %{organization}
       invite_private_user:
         subject: Je bent uitgenodigd voor een privé burgerinspraak thema op %{organization}
       organization_admin_invitation_instructions:
@@ -1024,7 +1020,6 @@ nl:
       user_menu:
         admin_dashboard: Beheer dashboard
         conversations: conversaties
-        invite_friends: Nodig vrienden uit
         notifications: Meldingen
         profile: Mijn account
         public_profile: Mijn openbaar profiel

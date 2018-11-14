@@ -1,0 +1,79 @@
+sv:
+  activemodel:
+    attributes:
+      answer:
+        body: Svar
+      question:
+        max_choices: Max antal val
+        question_type: Typ
+      questionnaire_question:
+        mandatory: Obligatorisk
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: är inte fullständiga
+              too_many: är för många
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Beskrivning
+            tos: Användarvillkor
+        questionnaires:
+          answer_option:
+            answer_option: Svaralternativ
+            free_text: Fri text
+            remove: Ta bort
+            statement: Påstående
+          edit:
+            save: Spara
+            title: Titel
+          form:
+            add_question: Lägg till fråga
+            already_answered_warning: Frågeformuläret är redan besvarat av vissa användare så att du inte kan ändra sina frågor.
+          question:
+            add_answer_option: Lägg till svaralternativ
+            any: Några
+            description: Beskrivning
+            down: Ner
+            question: Fråga
+            remove: Ta bort
+            statement: Påstående
+            up: Upp
+          update:
+            invalid: Det har varit fel när du sparat frågeformuläret.
+            success: Frågeformulär sparades framgångsrikt.
+      errors:
+        answer:
+          body: Kroppen kan inte vara tomt
+      question_types:
+        long_answer: Långt svar
+        multiple_option: Flera alternativ
+        short_answer: Kort svar
+        single_option: Enkelt alternativ
+        sorting: Sortering
+      questionnaires:
+        answer:
+          invalid: Det har varit fel när du besvarade frågeformuläret.
+          success: Frågeformuläret besvarades med framgång.
+        question:
+          max_choices: 'Max val: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> att svara på frågeformuläret.
+            title: Besvara frågeformuläret
+          are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
+          questionnaire_answered:
+            body: Du har redan besvarat det här frågeformuläret.
+            title: Redan svarat
+          questionnaire_closed:
+            body: Frågeformuläret är stängt och kan inte besvaras.
+            title: Frågeformuläret stängt
+          questionnaire_for_private_users:
+            body: Frågeformuläret är endast tillgängligt för privata användare
+            title: Frågeformuläret stängt
+          submit: Lämna
+          tos_agreement: Genom att acceptera accepterar du användarvillkoren

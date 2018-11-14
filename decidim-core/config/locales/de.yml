@@ -163,6 +163,9 @@ de:
           foo: Foo
         name: Foo Berechtigung
       granted_at: Zugelassen am %{timestamp}
+      sms:
+        explanation: Geben Sie Ihre Handynummer ein, damit wir Ihre Identität überprüfen können.
+        name: Code per SMS
       started_at: Begann am %{timestamp}
     authorization_modals:
       show:
@@ -553,18 +556,6 @@ de:
       update:
         error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten
         success: Gruppe wurde erfolgreich aktualisiert
-    invitations:
-      create:
-        error: Es gab einige Probleme beim Einladen deiner Freunde
-        error_empty_form: Bitte geben Sie einige E-Mail-Adressen ein
-        success: Wir haben die Einladungen an Ihre Freunde geschickt!
-      index:
-        customize_message: Passen Sie die Einladungsnachricht an
-        friend_email: 'Freund #%{index} E-Mail'
-        invitations_subtitle: Erzählen Sie Ihre Freunden von dieser Website
-        invitations_title: Denkst du, mehr Stimmen sollten in %{organization_name}?
-        invite: Einladen
-        visit_your_profile: Zu Ihrem Profil
     last_activities:
       activities:
         no_activities_warning: Keine Aktivität
@@ -596,8 +587,8 @@ de:
     members:
       no_members: Diese Benutzergruppe hat noch kein Mitglied.
     menu:
+      help: Hilfe
       home: Start
-      more_information: Weitere Informationen
     messaging:
       conversation_mailer:
         new_conversation:
@@ -713,7 +704,11 @@ de:
         sub_hero:
           register: Registrieren
       index:
-        title: Mehr Informationen
+        read_more: Weiterlesen
+        standalone_pages: Seiten
+        subheading: Navigieren Sie durch die Hilfeseiten von %{name}
+        title: Hilfe
+        topics: Themen
       terms_and_conditions:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
@@ -803,6 +798,9 @@ de:
         close_window: Fenster schließen
         embed: Bitte fügen Sie diesen Code in Ihre Seite ein
         embed_link: Einbetten
+      extended_navigation_bar:
+        more: Mehr
+        unfold: Entfalten
       flag_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
@@ -827,6 +825,9 @@ de:
         share_link: Einen Link teilen
       version_author:
         deleted: Gelöschter Benutzer
+    welcome_notification:
+      default_body: <p>Hallo {{name}}, Dank für die Verbindung {{organization}} und willkommen!</p><ul><li>Wenn Sie sich schnell ein Bild machen möchten, was Sie hier tun können, sehen Sie sich den Abschnitt <a href="{{help_url}}">Hilfe</a> .</li><li>Sobald Sie es gelesen haben, erhalten Sie Ihr erstes Abzeichen. Hier ist eine <a href="{{badges_url}}">Liste aller Abzeichen</a> Sie erhalten können, wenn Sie an {{organization_name}}</li><li>teilnehmen. Schließen Sie sich anderen Personen an, und teilen Sie mit ihnen die Erfahrung, an {{organization}}teilzunehmen. Machen Sie Vorschläge, kommentieren Sie, diskutieren Sie, wie Sie einen Beitrag zum Gemeinwohl leisten können, geben Sie Argumente an, die überzeugen, zuhören und lesen, um überzeugt zu sein, drücken Sie Ihre Ideen konkret und direkt aus, reagieren Sie mit Geduld und Entscheidung, verteidigen Sie Ihre Ideen und halten Sie sie Offenheit, um zusammenzuarbeiten und sich den Ideen anderer anzuschließen.</li></ul>
+      default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
   devise:
     confirmations:
       confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
@@ -878,7 +879,6 @@ de:
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
           Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        invited_you_as_friend: "%{invited_by} hat dich zu %{application}eingeladen."
         invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
         someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
@@ -888,10 +888,6 @@ de:
         subject: Du wurdest eingeladen, %{organization}zu verwalten
       invite_collaborator:
         subject: Du wurdest eingeladen, an %{organization}
-      invite_friend:
-        accept_invitation: 'Sie können die Einladung über den folgenden Link annehmen:'
-        friend_custom_text: 'Sie haben diese Nachricht für dich hinterlassen:'
-        subject: Du wurdest zu %{organization}eingeladen
       invite_private_user:
         subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization}eingeladen
       organization_admin_invitation_instructions:
@@ -1024,7 +1020,6 @@ de:
       user_menu:
         admin_dashboard: Admin-Dashboard
         conversations: Gespräche
-        invite_friends: Freunde einladen
         notifications: Benachrichtigungen
         profile: Mein Konto
         public_profile: Mein öffentliches Profil

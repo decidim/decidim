@@ -15,9 +15,6 @@
   </div>
 
   <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/recategorize" %>
-
-  <% if current_component.siblings.any? %>
-    <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/merge" %>
-    <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/split" %>
-  <% end %>
+  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/merge" %>
+  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/split" %>
 </div>

@@ -22,11 +22,14 @@ module Decidim
             collection do
               get :create
               get :decline_invitation
+              get :join, action: :show
+              post :answer
             end
           end
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
+        resource :calendar, only: [:show], format: :text
       end
 
       initializer "decidim_meetings.view_hooks" do

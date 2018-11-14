@@ -19,6 +19,7 @@ module Decidim
           public_list_speakers_action?
           public_list_program_action?
           public_list_media_links_action?
+          public_list_registration_types_action?
           public_report_content_action?
 
           can_join_conference?
@@ -39,6 +40,7 @@ module Decidim
         user_can_read_current_conference?
         user_can_read_conference_registrations?
         user_can_export_conference_registrations?
+        user_can_confirm_conference_registration?
         user_can_create_conference?
         user_can_destroy_conference?
 
@@ -146,6 +148,13 @@ module Decidim
         allow!
       end
 
+      def public_list_registration_types_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :registration_types
+
+        allow!
+      end
+
       def public_report_content_action?
         return unless permission_action.action == :create &&
                       permission_action.subject == :moderation
@@ -212,6 +221,13 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
+      def user_can_confirm_conference_registration?
+        return unless permission_action.action == :confirm &&
+                      permission_action.subject == :conference_registration
+
+        toggle_allow(user.admin?)
+      end
+
       # Everyone can read the conference list
       def user_can_read_conference_list?
         return unless read_conference_list_permission_action?
@@ -262,6 +278,7 @@ module Decidim
           :conference_speaker,
           :partner,
           :media_link,
+          :registration_type,
           :conference_invite
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -283,6 +300,7 @@ module Decidim
           :media_link,
           :conference_invite,
           :partner,
+          :registration_type,
           :read_conference_registrations,
           :export_conference_registrations
         ].include?(permission_action.subject)

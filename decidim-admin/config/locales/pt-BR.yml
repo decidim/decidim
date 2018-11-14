@@ -82,8 +82,10 @@ pt-BR:
         changed_notably: Houve mudanças notáveis.
         content: Conteúdo
         organization: Organização
+        show_in_footer: Mostrar no rodapé
         slug: Texto curto de URL
         title: Título
+        weight: Peso
     errors:
       models:
         oauth_application:
@@ -507,6 +509,7 @@ pt-BR:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
           success: Espaço participativo acesso de usuário privado criado com sucesso.
         destroy:
+          error: Houve um erro ao excluir um usuário particular desse espaço participativo.
           success: Espaço participativo acesso de usuário privado excluído com sucesso.
         index:
           title: Espaço participativo usuário particular
@@ -544,6 +547,21 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar este âmbito.
           success: Âmbito atualizado com sucesso
+      static_page_topics:
+        create:
+          error: Ocorreu um erro ao criar um novo tópico.
+          success: Tópico criado com sucesso.
+        destroy:
+          success: Tópico destruído com sucesso
+        edit:
+          title: Editar tópico
+          update: Atualizar tópico
+        new:
+          create: Criar tópico
+          title: Novo tópico
+        update:
+          error: Houve um erro ao atualizar este tópico.
+          success: Tópico atualizado com sucesso
       static_pages:
         actions:
           view: Ver página pública
@@ -556,11 +574,18 @@ pt-BR:
           changed_notably_help: Se marcado, os usuários serão notificados para aceitar os novos termos e condições.
           title: Editar página
           update: Atualizar
+        form:
+          none: Nenhum
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Criar
+          create: Criar página
           title: Nova página
+        topic:
+          destroy: Remover tópico
+          edit: Editar tópico
+          empty: Não há página sob este tópico
+          without_topic: Páginas sem tópico
         update:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso

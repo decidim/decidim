@@ -75,10 +75,6 @@ describe "Homepage", type: :system do
         let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
         let(:organization) { create(:organization, cta_button_text: cta_button_text) }
 
-        before do
-          create :static_page, slug: "terms-and-conditions", organization: organization
-        end
-
         it "uses the custom values for the CTA button text" do
           within ".hero" do
             expect(page).to have_selector("a.hero-cta", text: "SIGN UP")
@@ -143,7 +139,9 @@ describe "Homepage", type: :system do
     end
 
     context "when there are static pages" do
-      let!(:static_pages) { create_list(:static_page, 3, organization: organization) }
+      let!(:static_page_1) { create(:static_page, organization: organization, show_in_footer: true) }
+      let!(:static_page_2) { create(:static_page, organization: organization, show_in_footer: true) }
+      let!(:static_page_3) { create(:static_page, organization: organization, show_in_footer: false) }
 
       before do
         visit current_path
@@ -151,17 +149,17 @@ describe "Homepage", type: :system do
 
       it "includes links to them" do
         within ".main-footer" do
-          expect(page).to have_css("ul.footer-nav li a", count: 3)
-          static_pages.each do |static_page|
+          [static_page_1, static_page_2].each do |static_page|
             expect(page).to have_content(static_page.title["en"])
           end
+
+          expect(page).to have_no_content(static_page_3.title["en"])
         end
 
-        static_page = static_pages.first
-        click_link static_page.title["en"]
-        expect(page).to have_i18n_content(static_page.title)
+        click_link static_page_1.title["en"]
+        expect(page).to have_i18n_content(static_page_1.title)
 
-        expect(page).to have_i18n_content(static_page.content)
+        expect(page).to have_i18n_content(static_page_1.content)
       end
 
       it "includes the footer sub_hero with the current organization name" do

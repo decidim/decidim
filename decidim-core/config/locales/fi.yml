@@ -130,7 +130,7 @@ fi:
       collection:
         documents:
           one: Asiakirja
-          other: Asiakirjat
+          other: Asiakirjaa
       documents:
         related_documents: Liittyvät dokumentit
       photos:
@@ -148,7 +148,7 @@ fi:
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
-          document_number: Asiakirjan numero
+          document_number: Organisaatiotunnus (esim. Y-tunnus)
           postal_code: Postinumero
         name: Esimerkkivarmennus
       dummy_authorization_workflow:
@@ -163,6 +163,9 @@ fi:
           foo: Foo
         name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
+      sms:
+        explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
+        name: Koodi tekstiviestinä
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       show:
@@ -553,18 +556,6 @@ fi:
       update:
         error: Ryhmää päivitettäessä esiintyi ongelma
         success: Ryhmä päivitettiin onnistuneesti
-    invitations:
-      create:
-        error: Kutsuttaessa ystäviäsi tapahtui virheitä
-        error_empty_form: Syötä sähköpostiosoitteita
-        success: Olemme lähettäneet kutsut ystävillesi!
-      index:
-        customize_message: Muokkaa kutsuviestiä
-        friend_email: 'Ystävän #%{index} sähköposti'
-        invitations_subtitle: Kerro ystävillesi tästä sivustosta
-        invitations_title: Pitäisikö sinun mielestäsi %{organization_name} -organisaatiossa kuulla enemmän ääniä?
-        invite: Kutsu
-        visit_your_profile: Siirry profiiliisi
     last_activities:
       activities:
         no_activities_warning: Ei toimintaa
@@ -596,8 +587,8 @@ fi:
     members:
       no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
+      help: Tietoa
       home: Etusivu
-      more_information: Lisätietoja
     messaging:
       conversation_mailer:
         new_conversation:
@@ -698,7 +689,7 @@ fi:
           conferences_count: Konferenssit
           debates_count: Keskustelua
           endorsements_count: Suosituksia
-          headline: Tämänhetkinen tila organisaatiolle %{organization}
+          headline: '%{organization} numeroina'
           meetings_count: Tapahtumat
           orders_count: Ääntä
           pages_count: Sivua
@@ -713,7 +704,11 @@ fi:
         sub_hero:
           register: Rekisteröidy
       index:
-        title: Lisätietoa
+        read_more: Lue lisää
+        standalone_pages: Sivut
+        subheading: Selaa palvelun %{name} tietosivuja
+        title: Tietoa
+        topics: Aiheet
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
@@ -744,7 +739,7 @@ fi:
         badges: Kunniamerkit
         conversations: Keskustelut
         followers: Seuraajat
-        following: Seuraa
+        following: Seurattavat
         groups: Ryhmät
         members: Jäsenet
         notifications: Ilmoitukset
@@ -803,6 +798,9 @@ fi:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
         embed_link: Upota
+      extended_navigation_bar:
+        more: Lisää
+        unfold: Avaa
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
@@ -827,6 +825,9 @@ fi:
         share_link: Jaa linkki
       version_author:
         deleted: Käyttäjä poistettu
+    welcome_notification:
+      default_body: <p>Hei {{name}}, kiitos liittymisestäsi palveluun {{organization}}! Tervetuloa mukaan!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä täällä, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, jotka voit saada osallistumalla aktiivisesti palvelussa {{organization_name}}</li><li>Viimeisimpänä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa ja jaa heidän kanssaan kokemuksiasi osallistumisesta palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, argumentoi vakuuttaaksesi muut, kuuntele ja lue ennen kuin muodostat mielipiteen, ilmaise ideasi konkreettisella ja suoralla tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, pidä avoin mieli yhteistyölle ja liity mukaan muiden ihmisten ideoihin.</li></ul>
+      default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
   devise:
     confirmations:
       confirmed: Sähköpostiosoitteesi on vahvistettu.
@@ -878,7 +879,6 @@ fi:
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomioimatta.<br />
           Sinulle ei luoda tiliä ennen kuin seuraat yllä olevaa linkkiä ja asetat käyttäjänimen sekä salasanan.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-        invited_you_as_friend: "%{invited_by} on kutsunut sinut %{application} -nimiseen palveluun."
         invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
@@ -888,10 +888,6 @@ fi:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
-      invite_friend:
-        accept_invitation: 'Voit hyväksyä kutsun seuraavan linkin kautta:'
-        friend_custom_text: 'Sinulle lähetettiin seuraavan viesti kutsun yhteydessä:'
-        subject: Sinut on kutsuttu organisaatioon %{organization}
       invite_private_user:
         subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin organisaatiossa %{organization}
       organization_admin_invitation_instructions:
@@ -1024,7 +1020,6 @@ fi:
       user_menu:
         admin_dashboard: Hallintapaneeli
         conversations: Keskustelut
-        invite_friends: Kutsu ystäviä
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -1050,7 +1045,7 @@ fi:
     password_not_allowed: ei ole sallittu
     password_too_common: liian yleinen
     password_too_long: liian pitkä
-    password_too_short: liian lyhyt
+    password_too_short: liian lyhyt (alle 10 merkkiä)
   social_share_button:
     delicious: Delicious
     douban: Douban

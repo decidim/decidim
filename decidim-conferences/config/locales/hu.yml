@@ -48,6 +48,7 @@ hu:
   decidim:
     admin:
       actions:
+        confirm: megerősít
         new_conference: Új konferencia
       conference_copies:
         new:
@@ -61,6 +62,10 @@ hu:
         destroy:
           error: Hiba történt a konferencia közzétételének közzétételénél.
           success: A konferencia sikeresen közzétett.
+      conference_registration:
+        confirm:
+          error: Hiba történt a konferencia regisztráció során.
+          success: A konferencia regisztráció sikeresen megtörtént.
       conference_speakers:
         create:
           error: Hiba történt a konferencia hangszórójának hozzáadásával.
@@ -132,7 +137,7 @@ hu:
         index:
           media_links_title: Média linkek
         new:
-          create: teremt
+          create: Létrehozás
           title: Media Link
         update:
           error: Hiba történt a média link frissítésekor.
@@ -145,14 +150,16 @@ hu:
           attachments: Mellékletek
           categories: Kategóriák
           components: Alkatrészek
-          conference_admins: Konferencia adminisztrátorok
-          conference_invites: Konferenciahívások
-          conference_registrations: Konferencia regisztrációk
-          conference_speakers: Konferencia hangszórók
+          conference_admins: Konferencia felhasználók
+          conference_invites: Meghívottak
+          conference_speakers: Hangszórók
           info: Info
           media_links: Média linkek
           moderations: moderálások
-          partners: Partners
+          partners: Partnerek
+          registration_types: Regisztrációs típusok
+          registrations: regisztrációk
+          user_registrations: Felhasználói regisztrálások
       models:
         conference:
           fields:
@@ -187,11 +194,19 @@ hu:
             link: Link
             logo: logo
             name: Név
-            partner_type: típus
+            partner_type: Típus
           name: Partner
           types:
             collaborator: Együttműködő
             main_promotor: Fő promoter
+        registration_type:
+          fields:
+            conference_meetings: Konferencia-találkozók
+            price: Ár
+            registrations_count: A regisztrációk számítanak
+            title: Cím
+            weight: Súly
+          name: Regisztrációs típus
       partners:
         create:
           error: Hiba történt a konferencia partnerének hozzáadása esetén.
@@ -200,13 +215,35 @@ hu:
           success: A partner sikeresen eltávolította ezt a konferenciát.
         edit:
           title: Partner frissítése.
-          update: frissítés
+          update: Frissítés
         new:
-          create: teremt
+          create: Létrehozás
           title: Új partner
         update:
           error: Hiba történt a konferencia partnerének frissítéséhez.
           success: Partner sikeresen frissült a konferencia számára.
+      registration_type_publications:
+        create:
+          error: Hiba történt a regisztrációs típus közzétételében.
+          success: A regisztrációs típus sikeresen közzétett.
+        destroy:
+          error: Hiba történt a regisztrációs típus közzétételének közzétételénél.
+          success: A regisztrációs típus sikeresen be nem jelentett.
+      registration_types:
+        create:
+          error: Hiba történt a konferencia regisztrációs típusa hozzáadásával.
+          success: A regisztrációs típus sikeresen hozzá lett adva a konferenciához.
+        destroy:
+          success: A regisztrációs típus sikeresen el lett távolítva ebből a konferenciából.
+        edit:
+          title: A regisztrációs típus frissítése.
+          update: frissítés
+        new:
+          create: teremt
+          title: Új regisztrációs típus
+        update:
+          error: Hiba történt a konferencia regisztrációs típusának frissítéséhez.
+          success: A regisztrációs típus sikeresen frissült a konferencia számára.
       titles:
         conferences: Konferenciák
     admin_log:
@@ -223,6 +260,18 @@ hu:
         create: "%{user_name} meghívott %{resource_name} a %{space_name} konferenciára"
         delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
         update: "%{user_name} megváltoztatta az %{resource_name} szerepét a %{space_name} konferencián"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} megerősítette konferencia regisztrációját %{resource_name} konferencián"
+        partner:
+          create: "%{user_name} létre %{resource_name} a %{space_name} konferencia"
+          delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
+          update: "%{user_name} frissített %{resource_name} a %{space_name} konferencián"
+        registration_type:
+          create: "%{user_name} létrehozta az %{resource_name} regisztrációs típust a %{space_name} konferencián"
+          publish: "%{user_name} közzétette az %{resource_name} regisztrációs típust a %{space_name} konferencián"
+          unpublish: "%{user_name} az %{resource_name} regisztrációs típus közzétételének meg nem jelentése a %{space_name} konferencián"
+          update: "%{user_name} frissítette az %{resource_name} regisztrációs típust a %{space_name} konferencián"
     conference_program:
       index:
         title: Program
@@ -283,7 +332,12 @@ hu:
             join: Csatlakozzon a "%{conference_title}"
         partners:
           index:
-            title: Partners
+            title: Partnerek
+        registration_types:
+          form:
+            select_conference_meetings: Válasszon konferencia-találkozókat
+          index:
+            title: Regisztrációs típusok
       conference:
         registration_confirm:
           cancel: Megszünteti
@@ -292,22 +346,24 @@ hu:
           going: Haladó
           join: Csatlakozzon a konferenciához
           no_slots_available: Nincs szabad hely
-          remaining_slots:
-            one: 1 hely marad
-            other: "%{count} hely marad"
       conference_program:
         program_meeting:
           content: Tartalom
-          location: Elhelyezkedés
+          location: Helyszín
           speakers: Hangszórók
-          streaming: folyó
+          streaming: Élő közvetítés
         show:
           day: Nap
           program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
-          details: A konferencia részleteit megtalálja a mellékletben.
+          details_1: 'Regisztrálva van a konferencia %{registration_type} típusára. Az ára %{price} és a következő eseményeken vehet részt:'
+          details_2: A konferencia részleteit megtalálja a mellékletben.
+        pending_validation:
+          confirmation_pending: Rövidesen megkapja a visszaigazolást
+          details: 'Ön már regisztrált %{registration_type} típusú melyek költsége %{price} és részt vehet a következő eseményekre:'
+          pending_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja függőben van.
       conference_registrations:
         create:
           invalid: Probléma merült fel a konferencián.
@@ -333,17 +389,15 @@ hu:
         index:
           speakers: Hangszórók
       conferences:
+        conferences_sidebar:
+          register: Regisztráció
         partners:
-          collaborators: Az együttműködők
+          collaborators: Együttműködők
           main_promotors: Fő promóterek
         show:
-          already_account: Van már fiókja decidimben?
           login_as: A bejelentkezés %{name} <%{email}>
           make_conference_registration: 'Regisztráljon a konferencián:'
-          new_user: Új felhasználó?
           register: Regisztráció
-          sign_in: Jelentkezzen be ezen a konferencián
-          sign_up: Regisztrálj ingyen decidim regisztrációhoz
       content_blocks:
         highlighted_conferences:
           name: Kiemelt konferenciák
@@ -353,6 +407,8 @@ hu:
         conference_registration_mailer:
           confirmation:
             subject: A konferencia regisztrációja megerősítést nyert
+          pending_validation:
+            subject: A konferencia regisztrációja függőben van, hogy megerősítést nyerjen
         invite_join_conference_mailer:
           invite:
             subject: Meghívás egy konferenciára való belépéshez
@@ -361,6 +417,7 @@ hu:
           fields:
             email: Email
             name: Név
+            registration_type: Regisztrációs típus
             sent_at: Elküldve
             status: Állapot
           status:
@@ -371,6 +428,11 @@ hu:
           fields:
             email: Email
             name: Név
+            registration_type: Regisztrációs típus
+            state: Állapot
+            states:
+              confirmed: Megerősített
+              pending: Függőben levő
       pages:
         home:
           highlighted_conferences:
@@ -382,7 +444,19 @@ hu:
           photo: Fénykép
       photos_list:
         show:
-          related_photos: fotók
+          related_photos: Fotók
+      registration_types:
+        index:
+          choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
+          login_as: A bejelentkezés %{name} <%{email}>
+          register: Regisztráció
+          title: Regisztrációs típusok
+      shared:
+        conference_user_login:
+          already_account: Van már fiókja decidimben?
+          new_user: Új felhasználó?
+          sign_in: Jelentkezzen be ezen a konferencián
+          sign_up: Regisztrálj ingyen decidim regisztrációhoz
       show:
         details: Részletek
         introduction: Bevezetés
@@ -440,6 +514,8 @@ hu:
         subject: Meghívás egy konferenciára való belépéshez
   layouts:
     decidim:
+      conference_hero:
+        register: Regisztráció
       conference_widgets:
         show:
           take_part: Részt vesz
@@ -457,8 +533,7 @@ hu:
           take_part: Részt vesz
       conferences_nav:
         conference_menu_item: Információ
-        conference_partners_menu_item: Partners
+        conference_partners_menu_item: Partnerek
         conference_speaker_menu_item: Hangszórók
         media: Média
-        unfold: kibontakozik
         venues: helyszínek

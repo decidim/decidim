@@ -190,9 +190,9 @@ es:
       badges:
         accepted_proposals:
           conditions:
-            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
-            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptados.
-          description: Este distintivo se otorga cuando usted participa activamente con nuevas propuestas y se aceptan.
+            - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
+            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
+          description: Este distintivo se otorga cuando participes activamente con nuevas propuestas y estas sean aceptadas.
           description_another: '%{score} propuestas de este usuario han sido aceptadas.'
           description_own: '%{score} de tus propuestas han sido aceptadas.'
           name: Propuestas aceptadas
@@ -201,9 +201,9 @@ es:
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
-            - Navega y pasa un tiempo leyendo las propuestas de otras personas.
-            - Da soporte a las propuestas que te gusten o encuentres interesantes.
-          description: Este distintivo se otorga cuando apoyas las propuestas de otras personas.
+            - Navega y dedica un tiempo leyendo las propuestas de otras personas
+            - Da apoyo a las propuestas con las que estés de acuerdo o encuentres interesantes
+          description: Este distintivo se otorga cuando apoyas propuestas de otras personas.
           description_another: Este usuario ha dado soporte a %{score} propuestas.
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
@@ -212,7 +212,7 @@ es:
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
-            - Elija el espacio de participación de su interés con la presentación de propuestas habilitada.
+            - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
             - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
           description_another: Este usuario ha creado %{score} propuestas.
@@ -261,20 +261,20 @@ es:
           bulk-actions:
             import_doc: Importar documento
           import:
-            invalid: El formulario no es válido!
-            success: Enhorabuena, las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
+            invalid: '¡El formulario no es válido!'
+            success: Enhorabuena, los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
           index:
-            info_1: Las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
+            info_1: Los párrafos y secciones del documento importado se han convertido correctamente en propuestas. Ahora puedes revisarlas y ajustar las que necesites antes de publicar.
             publish_document: Publicar documento
-            title: PREVIO TEXTO PARTICIPATIVO
+            title: PREVISUALIZAR TEXTO PARTICIPATIVO
           new_import:
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
-            document_legend: 'Agregue un documento de menos de 2 MB, cada sección hasta 3 niveles de profundidad se analizarán en Propuestas. Los formatos admitidos son: Markdown.'
+            document_legend: 'Añade un documento de menos de 2MB, cada sección hasta 3 niveles de profundidad se convertirá en una propuesta. Los formatos admitidos son: Markdown'
             title: AÑADIR DOCUMENTO
             upload_document: Subir documento
           publish:
-            invalid: No se pudieron publicar propuestas.
-            success: Todas las propuestas han sido publicadas.
+            invalid: No se pudieron publicar las propuestas
+            success: Todas las propuestas han sido publicadas
           sections:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -312,12 +312,12 @@ es:
             actions: Acciones
             cancel: Cancelar
             change_category: Cambiar categoría
-            merge: Sumérgete en uno nuevo
-            merge_button: Unir
-            select_component: Seleccione un componente
+            merge: Fusionar en una nueva
+            merge_button: Fusionar
+            select_component: Selecciona un componente
             selected: seleccionado
             split: Propuestas divididas
-            split_button: División
+            split_button: Dividir
             title: Propuestas
             update: Actualizar
           new:
@@ -340,11 +340,11 @@ es:
         proposals_merges:
           create:
             invalid: Se produjo un error al fusionar las propuestas seleccionadas.
-            success: Fusionó con éxito las propuestas en una nueva.
+            success: Las propuestas se fusionaron en una nueva con éxito.
         proposals_splits:
           create:
             invalid: Hubo un error dividiendo las propuestas seleccionadas.
-            success: Dividió con éxito las propuestas en otras nuevas.
+            success: Las propuestas se han dividido en otras nuevas con éxito.
         shared:
           info_proposal:
             body: Cuerpo
@@ -355,7 +355,7 @@ es:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
-          update: "%{user_name} actualizó la %{resource_name} propuesta oficial en el espacio %{space_name}"
+          update: "%{user_name} ha actualizado la propuesta oficial %{resource_name} en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
       answers:
@@ -635,9 +635,9 @@ es:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
-            description: Debes distribuir un mínimo de 3 votos entre las diferentes propuestas.
+            description: Debes distribuir un mínimo de 3 apoyos entre las diferentes propuestas.
             given_enough_votes: Has dado suficientes apoyos.
-            supports_remaining: Tienes que votar %{remaining_votes} propuestas más para que tus votos sean tomados en cuenta.
+            supports_remaining: Tienes que apoyar %{remaining_votes} propuestas más para que tus apoyos se tengan en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
@@ -686,5 +686,5 @@ es:
       included_projects:
         project_result: 'Resultados que aparecen en este proyecto:'
       included_proposals:
-        proposal_project: 'Propuesta formulada en estos proyectos:'
-        proposal_result: 'Propuesta formulada en estos resultados:'
+        proposal_project: 'Propuesta vinculada a estos proyectos:'
+        proposal_result: 'Propuesta vinculada a estos resultados:'

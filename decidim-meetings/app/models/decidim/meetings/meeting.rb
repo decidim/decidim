@@ -18,6 +18,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Hashtaggable
+      include Decidim::Forms::HasQuestionnaire
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
