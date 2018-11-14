@@ -27,17 +27,33 @@ module Decidim
     def create
       @form = form(Decidim::Amendable::CreateForm).from_params(params)
       enforce_permission_to :create, :amend
+      return unless validate(@form)
 
       Decidim::Amendable::Create.call(@form) do
         on(:ok) do
           flash[:notice] = t("created.success", scope: "decidim.amendments")
+          redirect_to Decidim::ResourceLocatorPresenter.new(@amendable).path
         end
 
         on(:invalid) do
           flash[:alert] = t("created.error", scope: "decidim.amendments")
+          render :new
+        end
+      end
+    end
+
+    def validate(form)
+      Decidim::Amendable::Validate.call(form) do
+        on(:ok) do
+          true
         end
 
-        redirect_to Decidim::ResourceLocatorPresenter.new(@amendable).path
+        on(:invalid) do
+          flash[:alert] = t("created.error", scope: "decidim.amendments")
+          params[:amend][:emendation_fields] = params[:amend][:emendation_fields]
+          redirect_to new_amend_path(amendable_gid: @form.amendable_gid)
+          return false
+        end
       end
     end
 

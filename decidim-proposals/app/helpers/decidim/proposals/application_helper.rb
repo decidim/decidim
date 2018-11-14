@@ -37,6 +37,8 @@ module Decidim
           "text-alert"
         when "evaluating"
           "text-info"
+        when "withdrawn"
+          "text-alert"
         else
           "text-warning"
         end

@@ -26,7 +26,6 @@ module Decidim
           create_emendation!
           create_amendment!
 
-
           # The proposal authors and followers are notified that an amendment has been created.
           notify_amendable_authors_and_followers
         end
@@ -37,11 +36,25 @@ module Decidim
 
       attr_reader :form
 
+      def emendation_attributes
+        fields = {}
+
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form[:emendation_fields][:title], current_organization: form.current_organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form[:emendation_fields][:body], current_organization: form.current_organization).rewrite
+
+        fields[:title] = parsed_title
+        fields[:body] = parsed_body
+        fields[:component] = @amendable.component
+        fields[:published_at] = Time.current if form.emendation_type == "Decidim::Proposals::Proposal"
+        fields
+      end
+
       def create_emendation!
         @emendation = Decidim.traceability.perform_action!(
           :create,
           form.amendable_type.constantize,
-          form.current_user
+          form.current_user,
+          visibility: Decidim::ActionLog.find_by(resource_id: @amendable.id).visibility
         ) do
           emendation = form.amendable_type.constantize.new(emendation_attributes)
           emendation.add_coauthor(form.current_user, user_group: form.user_group) if emendation.is_a?(Decidim::Coauthorable)
@@ -52,7 +65,7 @@ module Decidim
       end
 
       def emendation_attributes
-        fields = form[:emendation_fields].as_json
+        fields = {}
 
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form[:emendation_fields][:title], current_organization: form.current_organization).rewrite
         parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form[:emendation_fields][:body], current_organization: form.current_organization).rewrite
@@ -67,7 +80,7 @@ module Decidim
       def create_amendment!
         @amendment = Decidim::Amendment.create!(
           amender: form.current_user,
-          amendable: form.amendable,
+          amendable: @amendable,
           emendation: @emendation,
           state: "evaluating"
         )
