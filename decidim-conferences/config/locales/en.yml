@@ -356,7 +356,7 @@ en:
           diploma_user:
             attendance_verified_by: Attendance verified by
             certificate_of_attendance: Certificate of Attendance
-            certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - {end}</strong>
+            certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
         send_diploma:
           error: There's been a problem while sending the conference diplomas.
           success: Conference Diplomas sent correctly
