@@ -370,15 +370,15 @@ fi:
         filter_origin_values:
           all: Kaikki
           citizens: Kansalaiset
-          meetings: kokoukset
+          meetings: Tapaamiset
           official: Virallinen
           user_groups: Käyttäjäryhmät
         filter_state_values:
           accepted: Hyväksytyt
           all: Kaikki
-          evaluating: arviointiin
+          evaluating: Arvioitavana
           except_rejected: Kaikki paitsi hylätyt
-          rejected: hylätty
+          rejected: Hylätty
       collaborative_drafts:
         collaborative_draft:
           publish:
