@@ -10,7 +10,11 @@ module Decidim
 
       helper_method :sections
 
-      def edit
+      before_action do
+        enforce_permission_to :update, :help_sections
+      end
+
+      def show
         @form = form(HelpSectionsForm).from_model(
           OpenStruct.new(sections: sections)
         )
@@ -24,7 +28,7 @@ module Decidim
         UpdateHelpSections.call(@form, current_organization) do
           on(:ok) do
             flash[:notice] = t("help_sections.success", scope: "decidim.admin")
-            redirect_to action: :edit
+            redirect_to action: :show
           end
 
           on(:invalid) do
