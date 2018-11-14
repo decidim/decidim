@@ -830,6 +830,8 @@ pl:
         report: Raport
         spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
         title: Zgłoś problem
+      floating_help:
+        help: Wsparcie
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
