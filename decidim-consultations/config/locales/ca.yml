@@ -38,7 +38,7 @@ ca:
           not_found: La resposta no s'ha trobat.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Consulta
         other: Consultes
       decidim/consultations/question:
