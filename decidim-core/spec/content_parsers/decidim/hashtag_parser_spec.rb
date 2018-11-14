@@ -51,8 +51,9 @@ module Decidim
       it_behaves_like "find and stores the hashtags references"
     end
 
-    context "when content contains the same hash twice" do
-      let(:content) { "This text contains a hashtag present on DB twice: ##{hashtag.name} and ##{hashtag.name}" }
+    context "when content contains the same new hashtag twice" do
+      let(:hashtag) { Decidim::Hashtag.find_by(organization: organization, name: name) }
+      let(:content) { "This text contains a hashtag present on DB twice: ##{name} and ##{name}" }
       let(:parsed_content) { "This text contains a hashtag present on DB twice: #{hashtag.to_global_id} and #{hashtag.to_global_id}" }
 
       it_behaves_like "find and stores the hashtags references"
