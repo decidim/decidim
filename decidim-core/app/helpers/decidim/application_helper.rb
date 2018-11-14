@@ -50,5 +50,19 @@ module Decidim
 
       content_for(:edit_link, link)
     end
+
+    # Public: Overwrites the `cell` helper method to automatically set some
+    # common context.
+    #
+    # name - the name of the cell to render
+    # model - the cell model
+    # options - a Hash with options
+    #
+    # Renders the cell contents.
+    def cell(name, model, options = {}, &block)
+      options = { context: { current_user: current_user } }.deep_merge(options)
+
+      super(name, model, options, &block)
+    end
   end
 end
