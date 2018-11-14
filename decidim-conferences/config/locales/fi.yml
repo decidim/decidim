@@ -337,7 +337,7 @@ fi:
           form:
             select_conference_meetings: Valitse neuvottelukokoukset
           index:
-            title: Rekisteröintityypit
+            title: Ilmoittautumistyypit
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -390,7 +390,7 @@ fi:
           speakers: Puhujat
       conferences:
         conferences_sidebar:
-          register: Rekisteröidy
+          register: Ilmoittaudu
         partners:
           collaborators: yhteistyökumppanit
           main_promotors: Pääpromoottorit
@@ -408,7 +408,7 @@ fi:
           confirmation:
             subject: Konferenssin ilmoittautuminen on vahvistettu
           pending_validation:
-            subject: Konferenssin rekisteröinti on odottava vahvistettavaksi
+            subject: Konferenssin ilmoittautuminen odottaa vahvistusta
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
@@ -417,7 +417,7 @@ fi:
           fields:
             email: Sähköposti
             name: Nimi
-            registration_type: Rekisteröintityyppi
+            registration_type: Ilmoittautumistyyppi
             sent_at: Lähetyksen ajankohta
             status: Tila
           status:
@@ -428,11 +428,11 @@ fi:
           fields:
             email: Sähköposti
             name: Nimi
-            registration_type: Rekisteröintityyppi
-            state: Osavaltio
+            registration_type: Ilmoittautumistyyppi
+            state: Tila
             states:
               confirmed: Vahvistettu
-              pending: odotettaessa
+              pending: Odottaa
       pages:
         home:
           highlighted_conferences:
@@ -447,10 +447,10 @@ fi:
           related_photos: Kuvat
       registration_types:
         index:
-          choose_an_option: 'Valitse rekisteröintivaihtoehto:'
-          login_as: Olet kirjautunut sisään %{name} <%{email}>
-          register: Rekisteröidy
-          title: Rekisteröintityypit
+          choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
+          login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
+          register: Ilmoittaudu
+          title: Ilmoittautumistyypit
       shared:
         conference_user_login:
           already_account: Onko sinulla jo käyttäjätili?
@@ -515,7 +515,7 @@ fi:
   layouts:
     decidim:
       conference_hero:
-        register: Rekisteröidy
+        register: Ilmoittaudu
       conference_widgets:
         show:
           take_part: Osallistu
