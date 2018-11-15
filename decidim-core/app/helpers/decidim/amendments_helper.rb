@@ -72,7 +72,8 @@ module Decidim
       if current_user && current_user.active_role.present?
         return true if current_user.active_role.include?("admin")
       end
-      current_user == emendation_form.amendable.creator
+
+      emendation_form.amendable.authored_by?(current_user)
     end
 
     def user_group_select_field(form, name)
