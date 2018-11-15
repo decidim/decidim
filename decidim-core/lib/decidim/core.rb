@@ -233,6 +233,9 @@ module Decidim
     2.days
   end
 
+  # Exposes a configuration option: an object to configure Etherpad
+  config_accessor :etherpad
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
