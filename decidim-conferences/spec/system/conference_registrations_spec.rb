@@ -50,7 +50,7 @@ describe "Conference registrations", type: :system do
     it "the registration button is not visible" do
       visit_conference
 
-      within ".extra.join-conference" do
+      within ".hero__container" do
         expect(page).not_to have_button("REGISTER")
       end
     end
