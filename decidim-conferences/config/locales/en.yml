@@ -273,6 +273,10 @@ en:
           publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
           unpublish: "%{user_name} unpublished the %{resource_name} registration type in the %{space_name} conference"
           update: "%{user_name} updated the %{resource_name} registration type in the %{space_name} conference"
+      media_link:
+        create: "%{user_name} created the %{resource_name} media link in the %{space_name} conference"
+        delete: "%{user_name} removed the %{resource_name} media link from the %{space_name} conference"
+        update: "%{user_name} updated the %{resource_name} media link in the %{space_name} conference"
     conference_program:
       index:
         title: Program
