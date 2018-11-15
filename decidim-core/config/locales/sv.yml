@@ -753,6 +753,7 @@ sv:
         groups: Grupper
         members: Medlemmar
         notifications: Notiser
+        view_full_profile: Visa hela profilen
       sidebar:
         badges:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
