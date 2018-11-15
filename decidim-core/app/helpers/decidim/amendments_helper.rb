@@ -24,7 +24,7 @@ module Decidim
         t("section_heading", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
       end
 
-      content += if amendable.emendations.positive?
+      content += if amendable.emendations.count.positive?
                    cell(
                      "decidim/collapsible_list",
                      amendable.emendations,
@@ -73,7 +73,7 @@ module Decidim
         return true if current_user.active_role.include?("admin")
       end
 
-      emendation_form.amendable.authored_by?(current_user)
+      current_user == emendation_form.amendable.creator 
     end
 
     def user_group_select_field(form, name)
