@@ -237,8 +237,7 @@ ca:
           proposals: Propostes
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propostes
-        see_all_proposals: Veure totes les propostes
+        see_all: Veure tots (%{count})
     proposals:
       actions:
         answer: Respondre
