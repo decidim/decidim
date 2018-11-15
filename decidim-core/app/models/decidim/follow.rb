@@ -26,9 +26,8 @@ module Decidim
     private
 
     def increase_following_counters
-      user.following_count += 1
-      user.following_users_count += 1 if decidim_followable_type == "Decidim::UserBaseEntity"
-      user.save
+      user.increment!(:following_count)
+      user.increment!(:following_users_count) if decidim_followable_type == "Decidim::UserBaseEntity"
     end
 
     def increase_followers_counter
