@@ -237,8 +237,7 @@ hu:
           proposals: Javaslatok
     participatory_spaces:
       highlighted_proposals:
-        proposals: Javaslatok
-        see_all_proposals: Összes javaslat
+        see_all: Összes (%{count})
     proposals:
       actions:
         answer: Válasz
