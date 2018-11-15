@@ -761,6 +761,7 @@ en:
         groups: Groups
         members: Members
         notifications: Notifications
+        view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
@@ -828,6 +829,8 @@ en:
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report a problem
+      floating_help:
+        help: Help
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
       login_modal:

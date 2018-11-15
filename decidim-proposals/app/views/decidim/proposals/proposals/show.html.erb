@@ -7,7 +7,7 @@
 <%= render partial: "voting_rules" %>
 <div class="row column view-header">
   <h2 class="heading2"><%= present(@proposal).html_title %></h2>
-  <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3) %>
+  <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
@@ -71,7 +71,7 @@
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
-    <%= cell "decidim/proposals/endorsers_list", @proposal %>
+    <%= cell "decidim/proposals/endorsers_list", @proposal, context: { current_user: current_user } %>
   </div>
 </div>
 <%= attachments_for @proposal %>

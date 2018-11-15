@@ -401,7 +401,7 @@ describe "Proposals", type: :system do
           visit_component
 
           within "form.new_filter" do
-            expect(page).to have_no_content(/Origin/i)
+            expect(page).to have_no_content(/Official/i)
           end
         end
       end

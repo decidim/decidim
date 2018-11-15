@@ -251,6 +251,11 @@ en:
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
+      help_sections:
+        error: There's been an error updating the help sections
+        form:
+          save: Save
+        success: Help sections updated successfully
       impersonatable_users:
         index:
           filter:
@@ -304,6 +309,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
         newsletters: Newsletters

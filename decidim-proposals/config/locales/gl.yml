@@ -366,6 +366,19 @@ gl:
         not_answered: Non respondeu
         rejected: Rexeitado
         withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          all: Todo
+          citizens: Cidadáns
+          meetings: Reunións
+          official: Oficial
+          user_groups: Grupos de usuarios
+        filter_state_values:
+          accepted: Aceptada
+          all: Todo
+          evaluating: Avaliación
+          except_rejected: Todos excepto rexeitados
+          rejected: Rexeitado
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ gl:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          accepted: Aceptada
           activity: Actividade
-          all: Todo
           category: Categoría
           category_prompt: Selecciona unha categoría
-          citizens: Cidadáns
-          evaluating: Avaliación
-          except_rejected: Todos excepto rexeitados
-          official: Oficial
           origin: Orixe
-          rejected: Rexeitado
           related_to: Relacionado con
           search: Busca
           state: Estado

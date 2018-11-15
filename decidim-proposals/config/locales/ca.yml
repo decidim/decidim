@@ -366,6 +366,19 @@ ca:
         not_answered: No resposta
         rejected: Rebutjada
         withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          all: Tots
+          citizens: Ciutadania
+          meetings: Reunions
+          official: Oficial
+          user_groups: Grups d'usuaris
+        filter_state_values:
+          accepted: Acceptat
+          all: Tots
+          evaluating: Avaluació
+          except_rejected: Totes menys rebutjades
+          rejected: Rebutjat
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ ca:
         endorsements_card_row:
           comments: Comentaris
         filters:
-          accepted: Acceptades
           activity: Activitat
-          all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
-          citizens: Ciutadania
-          evaluating: En avaluació
-          except_rejected: Totes menys rebutjades
-          official: Oficial
           origin: Origen
-          rejected: Rebutjades
           related_to: Relacionat amb
           search: Cerca
           state: Estat

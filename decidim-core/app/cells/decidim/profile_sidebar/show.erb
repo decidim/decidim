@@ -38,7 +38,7 @@
         <div class="ml-s">
           <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.following") %>
-            <h1 class="heading1"><%= profile_user.following_count %></h1>
+            <h1 class="heading1"><%= profile_user.following_users_count %></h1>
           <% end %>
         </div>
       <% else %>
@@ -101,7 +101,7 @@
         <% end %>
       </div>
     <% elsif logged_in? %>
-      <%= cell "decidim/follow_button", profile_holder, inline: false, context: { current_user: current_user } %>
+      <%= cell "decidim/follow_button", profile_holder, inline: false %>
     <% end %>
 
     <% if can_edit_user_group_profile? %>

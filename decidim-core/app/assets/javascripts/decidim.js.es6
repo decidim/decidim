@@ -19,6 +19,7 @@
 // = require decidim/input_hashtags
 // = require decidim/ajax_modals
 // = require decidim/conferences
+// = require decidim/tooltip_keep_on_hover
 // = require_tree ./decidim/vizzs
 
 /* globals svg4everybody */

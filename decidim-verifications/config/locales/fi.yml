@@ -139,14 +139,14 @@ fi:
             error: Pyynnössäsi oli ongelma
             success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
           edit:
-            send: Vahvistaa
-            title: Esittele vastaanottamasi vahvistuskoodi
+            send: Vahvista
+            title: Kirjoita vastaanottamasi vahvistuskoodi
           new:
             send: Lähetä minulle tekstiviesti
             title: Pyydä vahvistuskoodia
           update:
-            error: Vahvistuskoodi ei vastaa meidän. Tarkista kaksinkertainen tekstiviesti, jonka lähetimme.
-            success: Onnittelut. Olet varmistunut.
+            error: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
+            success: Onnittelut. Käyttäjätilisi on onnistuneesti vahvistettu.
   errors:
     messages:
       uppercase_only_letters_numbers: sisällössä on sallttu ainoastaan isot kirjaimet ja numerot
