@@ -753,6 +753,7 @@ eu:
         groups: Taldeak
         members: Bazkideek
         notifications: jakinarazpenak
+        view_full_profile: Ikusi profil osoa
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
