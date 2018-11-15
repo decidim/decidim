@@ -19,8 +19,10 @@ module Decidim
       context "when having resources with the term 'Great' in their content" do
         let!(:results) do
           now = Time.current
-          [create(:searchable_resource, organization: organization, content_a: "Great proposal of mine", datetime: now + 1.second),
-           create(:searchable_resource, organization: organization, content_a: "The great-est place of the world", datetime: now)]
+          [
+            create(:searchable_resource, organization: organization, content_a: "Great proposal of mine", datetime: now + 1.second),
+            create(:searchable_resource, organization: organization, content_a: "The greatest place of the world", datetime: now)
+          ]
         end
 
         before do
@@ -30,7 +32,7 @@ module Decidim
         it "returns results with 'Great' in their content" do
           get :index, params: { term: "Great" }
 
-          expect(assigns(:results)).to eq(results)
+          expect(assigns(:results)).to match_array(results)
         end
       end
     end
