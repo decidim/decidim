@@ -753,6 +753,7 @@ gl:
         groups: Grupos
         members: Membros
         notifications: Notificacións
+        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
