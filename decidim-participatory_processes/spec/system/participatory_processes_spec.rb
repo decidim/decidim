@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes", type: :system do
   let(:organization) { create(:organization) }
@@ -74,6 +75,11 @@ describe "Participatory Processes", type: :system do
 
     before do
       visit decidim_participatory_processes.participatory_processes_path
+    end
+
+    it_behaves_like "shows contextual help" do
+      let(:index_path) { decidim_participatory_processes.participatory_processes_path }
+      let(:manifest_name) { :participatory_processes }
     end
 
     it_behaves_like "editable content for admins"

@@ -3,6 +3,10 @@
 module Decidim
   # This cell renders the profile of the given user.
   class UserProfileCell < Decidim::CardMCell
+    def user_data
+      render
+    end
+
     def user
       model
     end

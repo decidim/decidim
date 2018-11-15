@@ -25,12 +25,11 @@ module Decidim
     included do
       include Decidim::NeedsOrganization
 
-      helper ParticipatorySpaceHelpers, IconHelper
+      helper ParticipatorySpaceHelpers, IconHelper, ContextualHelpHelper
       helper_method :current_participatory_space
       helper_method :current_participatory_space_manifest
       helper_method :current_participatory_space_context
-
-      delegate :manifest, to: :current_participatory_space, prefix: true
+      helper_method :help_section
     end
 
     private
@@ -41,6 +40,17 @@ module Decidim
 
     def current_participatory_space
       raise NotImplementedError
+    end
+
+    def current_participatory_space_manifest
+      return current_participatory_space.manifest if current_participatory_space
+
+      manifest = Decidim.find_participatory_space_manifest(
+        self.class.name.demodulize.underscore.gsub("_controller", "")
+      )
+
+      raise NotImplementedError unless manifest
+      manifest
     end
 
     def authorize_participatory_space
@@ -64,6 +74,13 @@ module Decidim
       return if current_user_can_visit_space?
       flash[:alert] = I18n.t("participatory_space_private_users.not_allowed", scope: "decidim")
       redirect_to action: "index"
+    end
+
+    def help_section
+      @help_section ||= Decidim::ContextualHelpSection.find_content(
+        current_organization,
+        current_participatory_space_manifest.name
+      )
     end
   end
 end

@@ -366,6 +366,19 @@ hu:
         not_answered: Nem megválaszolt
         rejected: Elutasítva
         withdrawn: Visszavonva
+      application_helper:
+        filter_origin_values:
+          all: Minden
+          citizens: Állampolgárok
+          meetings: találkozók
+          official: Hivatalos
+          user_groups: Felhasználói csoportok
+        filter_state_values:
+          accepted: Elfogadott
+          all: Minden
+          evaluating: Értékelő
+          except_rejected: Összes elutasítva
+          rejected: Elutasítva
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -552,17 +565,10 @@ hu:
         endorsements_card_row:
           comments: Hozzászólások
         filters:
-          accepted: Elfogadva
           activity: Tevékenység
-          all: Összes
           category: Kategória
           category_prompt: Válassz kategóriát
-          citizens: Állampolgárok
-          evaluating: Értékelés
-          except_rejected: Összes elutasítva
-          official: Hivatalos
           origin: Kiindulópont
-          rejected: Elutasítva
           related_to: Kapcsolódó
           search: Keresés
           state: Állapot
