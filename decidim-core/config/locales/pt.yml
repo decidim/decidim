@@ -753,6 +753,7 @@ pt:
         groups: Grupos
         members: Membros
         notifications: Notificações
+        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
