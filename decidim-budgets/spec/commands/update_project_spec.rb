@@ -22,6 +22,9 @@ module Decidim::Budgets
         component: proposal_component
       )
     end
+    let(:address) { "address" }
+    let(:latitude) { 40.1234 }
+    let(:longitude) { 2.1234 }
     let(:form) do
       double(
         invalid?: invalid,
@@ -29,6 +32,9 @@ module Decidim::Budgets
         title: { en: "title" },
         description: { en: "description" },
         budget: 10_000_000,
+        address: address,
+        latitude: latitude,
+        longitude: longitude,
         proposal_ids: proposals.map(&:id),
         scope: scope,
         category: category
@@ -63,7 +69,20 @@ module Decidim::Budgets
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(project, current_user, hash_including(:scope, :category, :title, :description, :budget))
+          .with(
+            project,
+            current_user,
+            hash_including(
+              :scope,
+              :category,
+              :title,
+              :description,
+              :address,
+              :latitude,
+              :longitude,
+              :budget
+            )
+          )
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

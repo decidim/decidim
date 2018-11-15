@@ -5,6 +5,7 @@
 
 **Upgrade notes**:
 
+- **decidim-budgets**: Re-introduce vote on budget by number of project. This feature has not been fully tested. See [\#265](https://github.com/OpenSourcePolitics/decidim/pull/265)
 - **Banner uploader**: banner uploader has been changed in [\#150](https://github.com/OpenSourcePolitics/decidim/pull/150)
 you should update existing image if you don't want to reupload them.
 use the following command in your rails console : `Decidim::ParticipatoryProcess.find_each { |process| process.banner_image.recreate_versions! if process.banner_image? }`
@@ -14,6 +15,8 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Added**:
 
+- **decidim-budgets**: Re-introduce vote on budget by number of project.[\#330](https://github.com/OpenSourcePolitics/decidim/pull/330)
+- **decidim-debates**: Allow debates to be reported [\#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
 - **decidim-proposals**: Allow proposals location to be changed on a map [\#296](https://github.com/OpenSourcePolitics/decidim/pull/296)
 - **decidim-participatory_processes**: Ability to order processes in the back-office [#189](https://github.com/OpenSourcePolitics/decidim/pull/189)
 - **decidim-debates**: add export feature to debates [#270](https://github.com/OpenSourcePolitics/decidim/pull/270)
