@@ -752,6 +752,7 @@ hu:
         groups: Csoportok
         members: Belépés
         notifications: Értesítések
+        view_full_profile: Teljes profil megtekintése
       sidebar:
         badges:
           info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
