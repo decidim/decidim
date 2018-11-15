@@ -251,10 +251,10 @@ fi:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       help_sections:
-        error: Ohjetohtojen päivittämisessä tapahtui virhe
+        error: Ohjeosioiden päivittämisessä tapahtui virhe
         form:
-          save: Tallentaa
-        success: Ohjeosat päivittyvät onnistuneesti
+          save: Tallenna
+        success: Ohjeosiot päivitetty onnistuneesti
       impersonatable_users:
         index:
           filter:
