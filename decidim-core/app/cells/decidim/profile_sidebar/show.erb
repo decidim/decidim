@@ -38,7 +38,7 @@
         <div class="ml-s">
           <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.following") %>
-            <h1 class="heading1"><%= profile_user.following_count %></h1>
+            <h1 class="heading1"><%= profile_user.following_users_count %></h1>
           <% end %>
         </div>
       <% else %>
