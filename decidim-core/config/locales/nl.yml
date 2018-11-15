@@ -753,6 +753,7 @@ nl:
         groups: groepen
         members: leden
         notifications: meldingen
+        view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
