@@ -753,6 +753,7 @@ ca:
         groups: Grups
         members: Membres
         notifications: Notificacions
+        view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
           info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
