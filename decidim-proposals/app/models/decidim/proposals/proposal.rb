@@ -96,7 +96,7 @@ module Decidim
       # Returns nothing.
       # rubocop:disable Rails/SkipsModelValidations
       def update_votes_count
-        update_columns(proposal_votes_count: votes.count)
+        Proposal.update_counters(id, proposal_votes_count: 1)
       end
       # rubocop:enable Rails/SkipsModelValidations
 
