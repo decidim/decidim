@@ -331,7 +331,7 @@ en:
           invite:
             decline: Decline invitation '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
-            join: Join conference '%{conference_title}'
+            registration: Registration '%{conference_title}'
         partners:
           index:
             title: Partners
@@ -346,8 +346,8 @@ en:
           confirm: Confirm
         show:
           going: Going
-          join: Join Conference
           no_slots_available: No slots available
+          registration: Registration
       conference_program:
         program_meeting:
           content: Content
@@ -392,10 +392,10 @@ en:
           speakers: Speakers
       conferences:
         partners:
-          collaborators: Collaborators
-          main_promotors: Main promotors
+          collaborators: Partners
+          main_promotors: Organizers
         show:
-          login_as: You are login as %{name} <%{email}>
+          login_as: You are logged in as %{name} <%{email}>
           make_conference_registration: 'Make your registration in the conference:'
           register: Register
       content_blocks:
@@ -448,15 +448,15 @@ en:
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'
-          login_as: You are login as %{name} <%{email}>
+          login_as: You are logged in as %{name} <%{email}>
           register: Register
           title: Registration types
       shared:
         conference_user_login:
           already_account: Do you already have an account in decidim?
           new_user: New user?
-          sign_in: Login to register at this conference
-          sign_up: Register for free in decidim to register
+          sign_in: Login to register for the conference
+          sign_up: Create an account in decidim to register for the conference
       show:
         details: Details
         introduction: Introduction
