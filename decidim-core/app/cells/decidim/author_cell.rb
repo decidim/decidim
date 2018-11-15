@@ -92,5 +92,9 @@ module Decidim
     def profile_path?
       profile_path.present?
     end
+
+    def raw_model
+      model.try(:__getobj__) || model
+    end
   end
 end

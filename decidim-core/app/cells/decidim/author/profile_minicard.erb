@@ -1,23 +1,25 @@
 <div class="p-xs flex--sbc">
   <div class="mr-s">
     <div class="card__header collapse">
-      <%= cell("decidim/user_profile", model.__getobj__).user_data %>
+      <%= cell("decidim/user_profile", raw_model).user_data %>
     </div>
     <div class="card__text card--picture-offset">
-      <%= link_to "view full profile", profile_path %>
+      <%= link_to t("decidim.profiles.show.view_full_profile"), profile_path %>
     </div>
   </div>
   <div class="ml-s">
-    <%= cell "decidim/follow_button", model %>
+    <%= cell "decidim/follow_button", raw_model %>
     <div>
-      <%= link_to "#", class: "card__link" do %>
-        <strong>20</strong> Followers
+      <%= link_to decidim.profile_followers_path(raw_model.nickname), class: "card__link" do %>
+        <strong><%= model.followers_count %></strong> <%= t("decidim.profiles.show.followers") %>
       <% end %>
     </div>
-    <div>
-      <%= link_to "#", class: "card__link" do %>
-        <strong>20</strong> Following
-      <% end %>
-    </div>
+    <% if model.can_follow? %>
+      <div>
+        <%= link_to decidim.profile_following_path(raw_model.nickname), class: "card__link" do %>
+          <strong><%= model.following_count %></strong> <%= t("decidim.profiles.show.following") %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
