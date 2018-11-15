@@ -237,8 +237,7 @@ eu:
           proposals: proposamenak
     participatory_spaces:
       highlighted_proposals:
-        proposals: proposamenak
-        see_all_proposals: Ikusi proposamen guztiak
+        see_all: Ikusi dena (%{count})
     proposals:
       actions:
         answer: Erantzuna
