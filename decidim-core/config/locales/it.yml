@@ -753,6 +753,7 @@ it:
         groups: gruppi
         members: Utenti
         notifications: notifiche
+        view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
