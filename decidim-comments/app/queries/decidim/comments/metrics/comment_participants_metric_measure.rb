@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     module Metrics
-      class CommentsMetricMeasure < Decidim::MetricMeasure
+      class CommentParticipantsMetricMeasure < Decidim::MetricMeasure
         # Searches for Participants in the following actions
         #  Leave a comment (Comments)
 
