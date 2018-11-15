@@ -83,6 +83,24 @@ $filters-padding-y: 1rem;
   .button{
     margin-bottom: 0;
   }
+
+  .section-title{
+    text-transform: uppercase;
+    color: $primary;
+    text-decoration: underline;
+    margin-right: $global-margin;
+  }
+
+  &.no-results{
+    .section-title{
+      color: $muted;
+      text-decoration: none;
+    }
+
+    svg{
+      opacity: .1;
+    }
+  }
 }
 
 .filters__info__title{

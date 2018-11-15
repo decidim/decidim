@@ -1,7 +1,5 @@
 <%
 @title = "Search results -- Decidim Barcelona"
-
-
 %>
 
 <%= partial "template_top" %>
@@ -25,8 +23,8 @@
     <div class="row">
       <div class="columns mediumlarge-4 large-3">
         <%= partial "filters_small_view" %>
-        <div class="card card--secondary show-for-mediumlarge">
-          <%= partial "filters" %>
+        <div class="show-for-mediumlarge">
+          <%= partial "filters_general" %>
         </div>
       </div>
       <div class="columns mediumlarge-8 large-9">
@@ -98,8 +96,9 @@
           <% end %>
         </div>
         <div class="row collapse">
-          <button class="button secondary light pull-right">View all initiatives (<%= Faker::Number.between(0, 100) %>)</button>
+          <%= link_to "View all initiatives (" + Faker::Number.between(0, 100).to_s + ")", page_path("initiatives/initiatives"), class: "button secondary light pull-right" %>
         </div>
+
         <hr class="reset mb-m mt-sm">
         <h2 class="section-heading">Proposals&nbsp;<span class="muted"><%= Faker::Number.between(0, 100) %> results</span></h2>
         <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
@@ -166,6 +165,7 @@
           </div>
           <% end %>
         </div>
+
         <hr class="reset mb-m mt-sm">
         <h2 class="section-heading">Users&nbsp;<span class="muted"><%= Faker::Number.between(0, 100) %> results</span></h2>
         <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">

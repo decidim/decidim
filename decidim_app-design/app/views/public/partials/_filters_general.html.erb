@@ -1,0 +1,21 @@
+<%
+  @sections = [
+    "Proposals", "Meetings", "Members", "Processes", "Assemblies", "Initiatives"
+  ]
+%>
+<label class="text-medium mb-s">Jump to:</label>
+<div class="card card--secondary">
+  <div class="filters">
+    <% @sections.each do |i| %>
+    <% noresults = Faker::Boolean.boolean %>
+    <div class="filters__section<%= " no-results" if noresults %>">
+      <%= link_to page_path("home"), class: "flex--sbc" do %>
+      <div>
+        <strong class="section-title"><%= i %></strong><span class="muted">&nbsp;<%= noresults ? 0 : Faker::Number.between(0, 100) %></span>
+      </div>
+      <%= icon "cog" %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
