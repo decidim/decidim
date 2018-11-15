@@ -237,8 +237,7 @@ pt-BR:
           proposals: Propostas
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propostas
-        see_all_proposals: Veja todas as propostas
+        see_all: Ver todos (%{count})
     proposals:
       actions:
         answer: Responda
