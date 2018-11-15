@@ -214,7 +214,7 @@ fr:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
             uncheck: Non merci, je m'informerai autrement
-          notice: La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?.
+          notice: La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
           title: La newsletter
         omniauth_buttons:
           or: Ou
