@@ -237,8 +237,7 @@ es-PY:
           proposals: Propuestas
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propuestas
-        see_all_proposals: Ver todas las propuestas
+        see_all: Ver todo (%{count})
     proposals:
       actions:
         answer: Respuesta
