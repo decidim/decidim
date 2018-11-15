@@ -753,6 +753,7 @@ fr:
         groups: Groupes
         members: Membres
         notifications: Notifications
+        view_full_profile: Voir le profil complet
       sidebar:
         badges:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
