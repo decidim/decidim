@@ -68,6 +68,8 @@ module Decidim
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
   autoload :Hashtaggable, "decidim/hashtaggable"
+  autoload :Paddable, "decidim/paddable"
+
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!

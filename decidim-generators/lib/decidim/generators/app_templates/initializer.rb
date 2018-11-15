@@ -73,7 +73,7 @@ Decidim.configure do |config|
   # config.etherpad = {
   #   server: Rails.application.secrets.etherpad[:server],
   #   api_key: Rails.application.secrets.etherpad[:api_key],
-  #   api_version: Rails.application.api_versions.etherpad[:api_version]
+  #   api_version: Rails.application.secrets.etherpad[:api_version]
   # }
 end
 
