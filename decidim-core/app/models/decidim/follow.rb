@@ -26,28 +26,25 @@ module Decidim
     private
 
     def increase_following_counters
-      user.increment!(:following_count)
       user.increment!(:following_users_count) if decidim_followable_type == "Decidim::UserBaseEntity"
+      user.increment!(:following_count)
     end
 
     def increase_followers_counter
       return unless followable.is_a?(Decidim::UserBaseEntity)
-      followable.followers_count += 1
-      followable.save
+      followable.increment!(:followers_count)
     end
 
     def decrease_following_counters
       return unless user
-      user.following_count -= 1
-      user.following_users_count -= 1 if decidim_followable_type == "Decidim::UserBaseEntity"
-      user.save
+      user.decrement!(:following_users_count) if decidim_followable_type == "Decidim::UserBaseEntity"
+      user.decrement!(:following_count)
     end
 
     def decrease_followers_counter
       return unless followable.is_a?(Decidim::UserBaseEntity)
       return unless user
-      followable.followers_count -= 1
-      followable.save
+      followable.decrement!(:followers_count)
     end
   end
 end
