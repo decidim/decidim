@@ -238,8 +238,7 @@ en:
           proposals: Proposals
     participatory_spaces:
       highlighted_proposals:
-        proposals: Proposals
-        see_all_proposals: See all proposals
+        see_all: See all (%{count})
     proposals:
       actions:
         answer: Answer
