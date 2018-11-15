@@ -16,7 +16,6 @@ describe "User manages group invitations", type: :system do
     it "allows accepting the invitation" do
       within ".list-invitation" do
         expect(page).to have_content(membership.user_group.name)
-        expect(page).to have_content(membership.user_group.nickname)
       end
 
       click_link "Accept"
@@ -24,13 +23,11 @@ describe "User manages group invitations", type: :system do
       expect(page).to have_content("Invitation accepted successfully")
 
       expect(page).to have_content(membership.user_group.name)
-      expect(page).to have_content(membership.user_group.nickname)
     end
 
     it "allows rejecting the invitation" do
       within ".list-invitation" do
         expect(page).to have_content(membership.user_group.name)
-        expect(page).to have_content(membership.user_group.nickname)
       end
 
       click_link "Reject"
@@ -38,7 +35,6 @@ describe "User manages group invitations", type: :system do
       expect(page).to have_content("Invitation rejected successfully")
 
       expect(page).not_to have_content(membership.user_group.name)
-      expect(page).not_to have_content(membership.user_group.nickname)
     end
   end
 end

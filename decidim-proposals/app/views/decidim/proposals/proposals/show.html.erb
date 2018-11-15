@@ -15,7 +15,7 @@
 <div class="row column view-header">
   <h2 class="heading2"><%= present(@proposal).html_title %></h2>
   <% unless component_settings.participatory_texts_enabled? %>
-    <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3) %>
+    <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
   <% end %>
 </div>
 <div class="row">
@@ -82,7 +82,7 @@
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
-    <%= cell "decidim/proposals/endorsers_list", @proposal %>
+    <%= cell "decidim/proposals/endorsers_list", @proposal, context: { current_user: current_user } %>
   </div>
 </div>
 <%= attachments_for @proposal %>
