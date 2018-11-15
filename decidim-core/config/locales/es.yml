@@ -753,6 +753,7 @@ es:
         groups: Grupos
         members: Miembros
         notifications: Notificaciones
+        view_full_profile: Ver todo el perfil
       sidebar:
         badges:
           info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
