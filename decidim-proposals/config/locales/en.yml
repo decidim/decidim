@@ -238,7 +238,6 @@ en:
           proposals: Proposals
     participatory_spaces:
       highlighted_proposals:
-        proposals: Proposals
         see_all: See all (%{count})
     proposals:
       actions:
