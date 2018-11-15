@@ -758,6 +758,7 @@ en:
         groups: Groups
         members: Members
         notifications: Notifications
+        view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
