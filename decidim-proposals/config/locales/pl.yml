@@ -247,8 +247,7 @@ pl:
           proposals: Propozycje
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propozycje
-        see_all_proposals: Zobacz wszystkie propozycje
+        see_all: Zobacz wszystko (%{count})
     proposals:
       actions:
         answer: Odpowiedź
