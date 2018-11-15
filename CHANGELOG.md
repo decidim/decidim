@@ -58,6 +58,9 @@ end
 - **decidim-core**: Improve user groups form [\#4458](https://github.com/decidim/decidim/pull/4458)
 - **decidim-surveys**: Extract surveys logic to decidim-forms [\#3877](https://github.com/decidim/decidim/pull/3877)
 - **decidim-core**: Move Omniauth login buttons to before the signup/sign in forms to improve usability [\#4457](https://github.com/decidim/decidim/pull/4457)
+- **decidim-accountability**: Show one highlighted resources block per component in process page [\#4456](https://github.com/decidim/decidim/pull/4456)
+- **decidim-meetings**: Show one highlighted resources block per component in process page [\#4456](https://github.com/decidim/decidim/pull/4456)
+- **decidim-proposals**: Show one highlighted resources block per component in process page [\#4456](https://github.com/decidim/decidim/pull/4456)
 
 **Fixed**:
 
