@@ -303,7 +303,9 @@ de:
             update: Aktualisieren
           form:
             attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+            created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
             select_a_category: Wählen Sie eine Kategorie
+            select_a_meeting: Wählen Sie eine Besprechung aus
           index:
             actions: Aktionen
             cancel: Stornieren
@@ -351,6 +353,7 @@ de:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
           create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
+          update: "%{user_name} aktualisiert den %{resource_name} offiziellen Vorschlag für die %{space_name} Flächen"
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
       answers:
@@ -359,6 +362,19 @@ de:
         not_answered: Nicht beantwortet
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
+      application_helper:
+        filter_origin_values:
+          all: Alles
+          citizens: Bürger
+          meetings: Meetings
+          official: Offiziell
+          user_groups: Benutzergruppen
+        filter_state_values:
+          accepted: Akzeptiert
+          all: Alles
+          evaluating: Auswerten
+          except_rejected: Alle außer abgelehnt
+          rejected: Abgelehnt
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -545,17 +561,10 @@ de:
         endorsements_card_row:
           comments: Bemerkungen
         filters:
-          accepted: Akzeptiert
           activity: Aktivität
-          all: Alle
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
-          citizens: Bürger
-          evaluating: Bewertung
-          except_rejected: Alle außer abgelehnt
-          official: Offiziell
           origin: Ursprung
-          rejected: Abgelehnt
           related_to: Bezüglich
           search: Suche
           state: Zustand
@@ -606,6 +615,7 @@ de:
           report: Bericht
           sign_in: Anmelden
           sign_in_or_up: "%{in} oder %{up} um teilzunehmen"
+          sign_in_to_participate: "%{in} um teilzunehmen"
           sign_up: Anmelden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?

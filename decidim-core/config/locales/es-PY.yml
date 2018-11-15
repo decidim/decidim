@@ -283,6 +283,8 @@ es-PY:
         new:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
+          sign_in_disabled: Puedes acceder con una cuenta externa.
+          sign_up_disabled: El registro está deshabilitado, puede usar un usuario existente para acceder
       shared:
         newsletter_modal:
           buttons:
@@ -535,6 +537,13 @@ es-PY:
       edit:
         edit_user_group: Editar grupo
         update_user_group: Grupo de actualización
+      form:
+        document_number_help: No utilice guiones ni espacios.
+        email_help: Correo electrónico de su organización, asociación, colectivo, grupo, etc.
+        fill_in_for_verification: 'Rellene estos campos si desea que se verifique su grupo:'
+        name_help: Nombre de su organización, asociación, colectivo, grupo, etc.
+        nickname_help: Nombre de usuario de su organización, asociación, colectivo, grupo, etc. No use espacios ni acentos.
+        phone_help: No utilice guiones ni espacios.
       join:
         error: Ha habido un problema al unirse al grupo.
         success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en el grupo.
@@ -548,6 +557,7 @@ es-PY:
       new:
         create_user_group: Crea un grupo
         new_user_group: Nuevo grupo
+        subtitle: Cree un grupo e invite a otros usuarios a unirse para participar en un nivel colectivo.
       no_user_groups: Aún no pertenece a ningún grupo.
       roles:
         admin: Administrador

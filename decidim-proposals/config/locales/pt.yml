@@ -307,7 +307,9 @@ pt:
             update: Atualizar
           form:
             attachment_legend: "(Opcional) Adicionar um anexo"
+            created_in_meeting: Esta proposta vem de uma reunião
             select_a_category: Selecione uma categoria
+            select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
             cancel: Cancelar
@@ -364,6 +366,19 @@ pt:
         not_answered: Não respondido
         rejected: Rejeitado
         withdrawn: Retirado
+      application_helper:
+        filter_origin_values:
+          all: Todos
+          citizens: Cidadãos
+          meetings: Reuniões
+          official: Oficial
+          user_groups: Grupos de usuários
+        filter_state_values:
+          accepted: Aceitaram
+          all: Todos
+          evaluating: Avaliando
+          except_rejected: Todos exceto rejeitados
+          rejected: Rejeitado
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -550,17 +565,10 @@ pt:
         endorsements_card_row:
           comments: Comentários
         filters:
-          accepted: Aceitaram
           activity: Atividade
-          all: Todos
           category: Categoria
           category_prompt: Selecione uma categoria
-          citizens: Cidadãos
-          evaluating: Avaliando
-          except_rejected: Todos exceto rejeitados
-          official: Oficial
           origin: Origem
-          rejected: Rejeitado
           related_to: Relacionado a
           search: Pesquisa
           state: Estado
@@ -611,6 +619,7 @@ pt:
           report: Relatório
           sign_in: assinar em
           sign_in_or_up: "%{in} ou %{up} para participar"
+          sign_in_to_participate: "%{in} para participar"
           sign_up: inscrever-se
           withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
           withdraw_confirmation: Tem certeza de retirar essa proposta?

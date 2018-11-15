@@ -29,7 +29,7 @@ module Decidim
           content_tag :div, class: "column medium-4" do
             safe_join(
               metrics_group.map do |metric|
-                return "" if metric.blank?
+                next "" if metric.blank?
                 render_metrics_data(metric.metric_name, klass: "column medium-6", graph_klass: "small")
               end
             )

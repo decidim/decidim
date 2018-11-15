@@ -307,7 +307,9 @@ fr:
             update: Mettre à jour
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+            created_in_meeting: Cette proposition provient d'une réunion
             select_a_category: Sélectionner une catégorie
+            select_a_meeting: Sélectionnez une réunion
           index:
             actions: Actions
             cancel: Annuler
@@ -364,6 +366,19 @@ fr:
         not_answered: En attente de réponse
         rejected: Non retenue
         withdrawn: Retirée
+      application_helper:
+        filter_origin_values:
+          all: Tout
+          citizens: Propositions citoyennes
+          meetings: Des réunions
+          official: Propositions officielles
+          user_groups: Groupes d'utilisateurs
+        filter_state_values:
+          accepted: Accepté
+          all: Tout
+          evaluating: Évaluer
+          except_rejected: Toutes sauf les propositions non retenues
+          rejected: Rejeté
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -550,17 +565,10 @@ fr:
         endorsements_card_row:
           comments: Commentaires
         filters:
-          accepted: Retenues
           activity: Activité
-          all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizens: Propositions citoyennes
-          evaluating: En cours d'évaluation
-          except_rejected: Toutes sauf les propositions non retenues
-          official: Propositions officielles
           origin: Auteurs
-          rejected: Non retenues
           related_to: Liées à
           search: Rechercher
           state: État
@@ -611,6 +619,7 @@ fr:
           report: Signaler
           sign_in: Se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
+          sign_in_to_participate: "%{in} pour participer"
           sign_up: S'inscrire
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
