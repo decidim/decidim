@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -23,6 +24,7 @@ de:
         private_meeting: Privates Treffen
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
+        reserved_slots: Places réservées
         start_time: Startzeit
         title: Titel
         transparent: Transparent
@@ -38,6 +40,10 @@ de:
             base:
               too_many_minutes: Die Dauer der Elemente überschreitet die Besprechungsdauer um %{count} Minuten
               too_many_minutes_child: Die Dauer der Item-Childs überschreitet den Tagesordnungspunkt "%{parent_title}" Elternzeit um %{count} Minute
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
       decidim/meetings/create_meeting_event: Treffen
@@ -88,6 +94,7 @@ de:
           notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
         meeting_created:
           email_intro: Das Meeting "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: Neues Meeting wurde zu %{participatory_space_title}hinzugefügt
           notification_title: Das Meeting <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
         meeting_registrations_over_percentage:
@@ -237,6 +244,10 @@ de:
             invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
             success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
       admin_log:
+        invite:
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
+          deleted: "%{user_name} uninvited %{expectation_name} to join %{resource_name} space meeting %{space_name}"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
         meeting:
           close: "%{user_name} schloss das %{resource_name} Treffen auf dem %{space_name} Platz"
           create: "%{user_name} erstellt das %{resource_name} Treffen auf dem %{space_name} Platz"

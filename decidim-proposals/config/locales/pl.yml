@@ -3,6 +3,7 @@ pl:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Odpowiedź
         answered_at: Odpowiedziałem na
         body: Ciało

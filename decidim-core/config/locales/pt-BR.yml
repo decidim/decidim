@@ -642,11 +642,6 @@ pt-BR:
         see_more: Ver mais
   locale:
     name: Português
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   social_share_button:
     delicious: Delicioso
     douban: Douban

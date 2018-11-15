@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -18,6 +19,7 @@ sv:
         participatory_process_group_id: Processgrupp
         participatory_scope: Deltagandeomfattning
         participatory_structure: Deltagande struktur
+        private_space: Espace privé
         promoted: Främjad
         published_at: Publicerad vid
         scope_id: Omfattning
@@ -35,6 +37,7 @@ sv:
         name: Namn
         participatory_process_ids: Relaterade processer
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
@@ -68,6 +71,8 @@ sv:
         duplicate: Duplicera
         edit: Redigera
         new: Ny
+        participatory_process:
+          new: new participatory process
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
@@ -94,7 +99,6 @@ sv:
             promoted: Markerad
             published: Publicerad
             title: Titel
-          name: Deltagande process
         participatory_process_group:
           fields:
             name: Namn
@@ -149,6 +153,7 @@ sv:
           success: Steget i deltagandeprocessen aktiverades framgångsrikt.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Det uppstod ett fel vid skapandet av ett nytt steg i deltagandeprocess.
           success: Steget i deltagandeprocessen skapades framgångsrikt.
         default_title: Introduktion
@@ -200,6 +205,9 @@ sv:
         index:
           not_published: Ej publicerad
           private: Privat
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Offentlig
           published: Publicerad
         new:

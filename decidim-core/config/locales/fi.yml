@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -41,8 +42,8 @@ fi:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
   booleans:
-    'false': 'Ei'
-    'true': 'Kyllä'
+    'false': Ei
+    'true': Kyllä
   carrierwave:
     errors:
       image_too_big: Kuva on liian suuri
@@ -249,7 +250,7 @@ fi:
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
+          email_intro: "%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:"
           email_outro: Saat tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä mainitun linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: '%{resource_title} -komponentti on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>'
@@ -258,6 +259,17 @@ fi:
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
+      feature_published_event:
+        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+        email_subject: An update to %{participatory_space_title}
+        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -512,7 +524,7 @@ fi:
           title: Valtuutus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: Kentän %{field} arvo %{value} ei ole kelvollinen.
           ok: Ok
           title: Ei varmennettu
       embed_modal:
@@ -631,11 +643,6 @@ fi:
         see_more: Näytä lisää
   locale:
     name: Suomi
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -660,6 +667,7 @@ fi:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%B %d. %Y"
       decidim_short: "%d.%m.%Y %H:%M"

@@ -1,7 +1,9 @@
+---
 hu:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Válasz
         answered_at: 'Megválaszolva:'
         body: Szöveg
@@ -85,7 +87,16 @@ hu:
             votes_blocked: Szavazások letiltva
             votes_enabled: Szavazások engedélyezve
             votes_hidden: Szavazatok elrejtése (ha a szavazás engedélyezett, ez elrejti a szavazatok számát)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Mostantól új javaslatokat készíthetsz itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
@@ -119,7 +130,7 @@ hu:
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, aki követ téged, új javaslatot tett közzé. Nézd meg és tegyél hozzá te is valamit:"
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: '%{author_nickname} új javaslata'
+          email_subject: "%{author_nickname} új javaslata"
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat közzétéve általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         proposal_published_for_space:
           email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
@@ -282,8 +293,13 @@ hu:
           proposals_count:
             one: 1 javaslat
             other: "%{count} javaslat"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Vissza
+          not_geocoded: Not geocoded
           select_a_category: Válassz kategóriát
           send: Küldés
           title: Javaslat szerkesztése
@@ -334,13 +350,18 @@ hu:
           most_voted: Legtöbb szavazattal
           random: Véletlenszerű
           recent: Legutóbbi
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Javaslat módosítása
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Ezt a javaslatot a közzétételt követő első percben azonnal szerkesztheted. Miután azonban ez az ablak bezárult, többé nem fogod tudni szerkeszteni a javaslatot.
             other: Ezt a javaslatot a közzétételt követő %{count}. percben már szerkesztheted. Miután azonban ez az ablak bezárult, többé nem fogod tudni szerkeszteni a javaslatot.
           publish: Közzétesz
           title: Javaslatod közzététele
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Létrehozás: %{date}'
           view_proposal: Javaslat megtekintése
@@ -370,12 +391,24 @@ hu:
           no_votes_remaining: Nincs több szavazat
           vote: Szavazás
           votes_blocked: Szavazás letiltva
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: SZAVAZAT
             other: SZAVAZATOK
           most_popular_proposal: Legnépszerűbb javaslat
           need_more_votes: Több szavazat kell
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
@@ -397,7 +430,7 @@ hu:
           step_2: Összehasonlítás
           step_3: Befejez
           step_4: Javaslatod közzététele
-          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+          step_of: "%{current_step_num}. lépés ennyiből: %{total_steps}"
       publish:
         error: Hiba történt a javaslat közzététele során.
         success: Javaslat közzététele sikeres.

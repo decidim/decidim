@@ -642,11 +642,6 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-  participatory_processes:
-    index:
-      promoted:
-        'false': 'False'
-        'true': 'True'
   social_share_button:
     delicious: Delicious
     douban: Douban

@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t ".title" %>
       <% if allowed_to?(:create, :oauth_application) %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.oauth_application.name", scope: "decidim.admin").downcase), ["new", "oauth_application"], class: "button tiny button--title new" %>
+        <%= link_to t("oauth_application.new", scope: "decidim.admin"), ["new", "oauth_application"], class: "button tiny button--title new" %>
       <% end %>
     </h2>
   </div>

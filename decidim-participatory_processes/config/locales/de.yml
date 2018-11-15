@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -18,6 +19,7 @@ de:
         participatory_process_group_id: Prozessgruppe
         participatory_scope: Partizipativer Bereich
         participatory_structure: Partizipative Struktur
+        private_space: Espace privé
         promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
@@ -35,6 +37,7 @@ de:
         name: Name
         participatory_process_ids: Ähnliche Prozesse
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Beschreibung
         end_date: Endtermin
         short_description: Kurze Beschreibung
@@ -68,6 +71,8 @@ de:
         duplicate: Duplikat
         edit: Bearbeiten
         new: Neu
+        participatory_process:
+          new: new participatory process
         preview: Vorschau
         publish: Veröffentlichen
         resend_invitation: Einladung erneut versenden
@@ -94,7 +99,6 @@ de:
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
-          name: Partizipationsprozess
         participatory_process_group:
           fields:
             name: Name
@@ -149,6 +153,7 @@ de:
           success: Partizipativer Prozessschritt erfolgreich aktiviert
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Beim Erstellen eines neuen partizipativen Prozessschritts ist ein Fehler aufgetreten.
           success: Partizipativer Prozessschritt erfolgreich erstellt
         default_title: Einführung
@@ -200,6 +205,9 @@ de:
         index:
           not_published: Nicht veröffentlicht
           private: Privatgelände
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Öffentlichkeit
           published: Veröffentlicht
         new:

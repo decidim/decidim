@@ -37,6 +37,7 @@ gl:
         name: Nome
         participatory_process_ids: Procesos relacionados
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Descrición
         end_date: Data de finalización
         short_description: Descrición curta
@@ -152,6 +153,7 @@ gl:
           success: O paso do proceso participativo activouse con éxito.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Produciuse un erro ao crear un novo paso de proceso participativo.
           success: Paso de proceso participativo creouse con éxito.
         default_title: Introdución
@@ -203,6 +205,9 @@ gl:
         index:
           not_published: Non publicado
           private: Privado
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Público
           published: Publicado
         new:

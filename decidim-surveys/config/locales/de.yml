@@ -1,8 +1,11 @@
+---
 de:
   activemodel:
     attributes:
       survey_answer:
         body: Antworten
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Verpflichtend
         max_choices: Maximale Anzahl an Auswahlmöglichkeiten
@@ -60,6 +63,7 @@ de:
         models:
           components:
             description: Beschreibung
+            title: Title
             tos: Nutzungsbedingungen
         surveys:
           answer_option:
@@ -113,3 +117,6 @@ de:
             body: Die Umfrage ist nur für private Benutzer verfügbar
             title: Umfrage geschlossen
           tos_agreement: Mit der Teilnahme an dieser Umfrage akzeptieren Sie die Nutzungsbedingungen
+  errors:
+    messages:
+      blank: est obligatoire

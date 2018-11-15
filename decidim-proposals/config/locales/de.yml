@@ -1,7 +1,9 @@
+---
 de:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Antworten
         answered_at: Beantwortet bei
         body: Karosserie
@@ -85,7 +87,16 @@ de:
             votes_blocked: Stimmen blockiert
             votes_enabled: Stimmen aktiviert
             votes_hidden: Abstimmungen ausgeblendet (wenn Abstimmungen aktiviert sind, wird dies die Anzahl der Abstimmungen verbergen)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title}erstellen! Starten Sie die Teilnahme an dieser Seite:'
@@ -99,6 +110,7 @@ de:
           notification_title: Sie können nun beginnen <a href="%{resource_path}">Vorschläge befürworten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
           email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
         proposal_endorsed:
@@ -108,6 +120,7 @@ de:
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>gebilligt.
         proposal_evaluating:
           email_intro: 'Der Vorschlag "%{resource_title}" wird gerade ausgewertet. Sie können auf dieser Seite nach einer Antwort suchen:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
           email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
         proposal_mentioned:
@@ -121,10 +134,12 @@ de:
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: Neuer Vorschlag wurde zu %{participatory_space_title}hinzugefügt
           notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
         proposal_rejected:
           email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
           email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde abgelehnt.
         proposal_update_category:
@@ -278,8 +293,13 @@ de:
           proposals_count:
             one: 1 Vorschlag
             other: "%{count} Vorschläge"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Zurück
+          not_geocoded: Not geocoded
           select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
           title: Angebot bearbeiten
@@ -330,13 +350,18 @@ de:
           most_voted: Die meisten haben gewählt
           random: Zufällig
           recent: Kürzlich
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Ändern Sie den Vorschlag
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Sie können diesen Vorschlag in der ersten Minute nach der Veröffentlichung des Vorschlags bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
             other: Sie können dieses Angebot in den ersten %{count} Minuten nach der Veröffentlichung des Angebots bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
           publish: Veröffentlichen
           title: Veröffentlichen Sie Ihren Vorschlag
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Erstellung: %{date}'
           view_proposal: Angebot anzeigen
@@ -366,12 +391,24 @@ de:
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmung
           votes_blocked: Abstimmung deaktiviert
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: ABSTIMMUNG
             other: ABSTIMMUNGEN
           most_popular_proposal: Beliebtester Vorschlag
           need_more_votes: Brauche mehr Stimmen
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln

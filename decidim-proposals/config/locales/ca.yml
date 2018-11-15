@@ -3,6 +3,7 @@ ca:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Resposta
         answered_at: Respost el
         body: Cos

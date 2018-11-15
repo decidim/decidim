@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -196,6 +197,7 @@ de:
       accountability:
         proposal_linked:
           email_intro: 'Der Vorschlag "%{proposal_title}" wurde in ein Ergebnis aufgenommen. Sie können es von dieser Seite sehen:'
+          email_outro: You have received this notification because you are following "%{proposal_title}". You can stop receiving notifications following the previous link.
           email_subject: Ein Update auf %{proposal_title}
           notification_title: Der Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> wurde in das Ergebnis <a href="%{resource_path}">%{resource_title}</a>.
     participatory_processes:

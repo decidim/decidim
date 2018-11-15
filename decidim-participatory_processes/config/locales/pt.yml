@@ -37,6 +37,7 @@ pt:
         name: Nome
         participatory_process_ids: Processos relacionados
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Descrição
         end_date: Data final
         short_description: Pequena descrição
@@ -152,6 +153,7 @@ pt:
           success: Etapa de processo participativo ativada com sucesso.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Ocorreu um erro ao criar uma nova etapa de processo participativo.
           success: Passo do processo participativo criado com sucesso.
         default_title: Introdução
@@ -203,6 +205,9 @@ pt:
         index:
           not_published: Não publicado
           private: Privado
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Público
           published: Publicados
         new:

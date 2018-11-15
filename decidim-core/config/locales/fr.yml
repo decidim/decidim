@@ -345,7 +345,7 @@ fr:
       expired_session: La session de représentation d'identité a expiré.
     menu:
       home: Accueil
-      more_information: Plus d'information
+      more_information: Plus d'informations
     messaging:
       conversation_mailer:
         new_conversation:

@@ -3,13 +3,12 @@ fr:
   activemodel:
     attributes:
       proposal:
-        address: Adresse (n'oubliez pas de préciser la ville)
+        address: Adresse
         answer: Répondre
         answered_at: Répondu à
-        body: Corps du texte
+        body: Description
         category_id: Catégorie
         has_address: Renseigner une adresse
-        address: Adresse
         scope_id: Secteur
         state: État
         title: Titre
@@ -355,7 +354,7 @@ fr:
         placeholder:
           address: 32 rue des cascades 75020 Paris
         preview:
-          address: 'Address : %{address}'
+          address: 'Adresse : %{address}'
           modify: Modifier la proposition
           not_geocoded: Votre adresse n'a pas été géocodée, l'aperçu n'est pas disponible.
           proposal_edit_before_minutes:

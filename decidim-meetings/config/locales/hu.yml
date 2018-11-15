@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -23,6 +24,7 @@ hu:
         private_meeting: Privát találkozó
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Regisztráció engedélyezve
+        reserved_slots: Places réservées
         start_time: Kezdő időpont
         title: Cím
         transparent: Átlátszó
@@ -38,6 +40,10 @@ hu:
             base:
               too_many_minutes: A tételek időtartama meghaladja az ülés időtartamát (%{count} perc)
               too_many_minutes_child: Az altételek időtartama meghaladja a "%{parent_title}" napirendi pont időtartamát (%{count} perc)
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
     models:
       decidim/meetings/close_meeting_event: Találkozó lezárva
       decidim/meetings/create_meeting_event: Találkozó
@@ -231,13 +237,17 @@ hu:
             invite_user: Felhasználó meghívása
             registrations_count:
               one: 1 regisztráció.
-              other: '%{count} regisztráció.'
+              other: "%{count} regisztráció."
             reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
           update:
             invalid: Probléma történt a regisztrációs beállítások mentésekor.
             success: Találkozó nyilvántartási beállításainak mentése sikeres.
       admin_log:
+        invite:
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
+          deleted: "%{user_name} uninvited %{expectation_name} to join %{resource_name} space meeting %{space_name}"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} space meeting %{space_name}"
         meeting:
           close: "%{user_name} lezárta a(z) %{resource_name} találkozót itt: %{space_name}"
           create: "%{user_name} létrehozta a(z) %{resource_name} találkozót itt: %{space_name}"

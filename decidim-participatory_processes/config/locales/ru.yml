@@ -37,6 +37,7 @@ ru:
         name: Имя
         participatory_process_ids: Подобные движения
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Описание
         end_date: Дата окончания
         short_description: Краткое описание
@@ -158,6 +159,7 @@ ru:
           success: Шаг движения соучастия успешно начат.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: При попытке создать новый шаг движения соучастия произошла ошибка.
           success: Шаг движения соучастия успешно создан.
         default_title: Введение
@@ -209,6 +211,9 @@ ru:
         index:
           not_published: Не обнародовано
           private: Частное
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Обнародованные
           published: Обнародовано
         new:

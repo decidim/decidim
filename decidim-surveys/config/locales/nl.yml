@@ -4,6 +4,8 @@ nl:
     attributes:
       survey_answer:
         body: Antwoord
+        choices: Les choix
+        selected_choices: La réponse à la question
       survey_question:
         mandatory: Verplicht
         max_choices: Maximum aantal keuzes
@@ -61,6 +63,7 @@ nl:
         models:
           components:
             description: Beschrijving
+            title: Title
             tos: Servicevoorwaarden
         surveys:
           answer_option:
@@ -114,3 +117,6 @@ nl:
             body: De enquête is alleen beschikbaar voor privé-gebruikers
             title: Enquête gesloten
           tos_agreement: Door deel te nemen aan dit onderzoek accepteert u de gebruiksvoorwaarden
+  errors:
+    messages:
+      blank: est obligatoire

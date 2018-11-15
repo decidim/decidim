@@ -3,6 +3,7 @@ nl:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Antwoord
         answered_at: Beantwoord op
         body: Body

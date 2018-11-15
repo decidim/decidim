@@ -37,6 +37,7 @@ pl:
         name: Nazwa
         participatory_process_ids: Powiązane procesy
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Opis
         end_date: Data zakończenia
         short_description: Krótki opis
@@ -158,6 +159,7 @@ pl:
           success: Uruchomiony został proces uczestnictwa.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: Wystąpił błąd podczas tworzenia nowego etapu procesu partycypacyjnego.
           success: Utworzono pomyślnie etap procesu uczestnictwa.
         default_title: Wprowadzenie
@@ -209,6 +211,9 @@ pl:
         index:
           not_published: Nie opublikowane
           private: Prywatny
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Publiczny
           published: Opublikowany
         new:

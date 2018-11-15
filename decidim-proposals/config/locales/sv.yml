@@ -1,7 +1,9 @@
+---
 sv:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Svara
         answered_at: Besvarad vid
         body: Innehåll
@@ -85,7 +87,16 @@ sv:
             votes_blocked: Röster blockerade
             votes_enabled: Röster aktiverade
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: New proposal from %{author_name}
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'Comment''s url : %{resource_url}'
       proposals:
         creation_enabled:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
@@ -282,8 +293,13 @@ sv:
           proposals_count:
             one: 1 förslag
             other: "%{count} förslag"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address
           back: Tillbaka
+          not_geocoded: Not geocoded
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
@@ -334,13 +350,18 @@ sv:
           most_voted: Mest röstade
           random: Slumpmässig
           recent: Senaste
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          address: 'Address : %{address}'
           modify: Ändra förslaget
+          not_geocoded: Your address has not been geocoded, preview is unavailable.
           proposal_edit_before_minutes:
             one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera förslaget.
             other: Du kommer att kunna redigera detta förslag under de första %{count} minuter efter att förslaget har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
@@ -370,12 +391,24 @@ sv:
           no_votes_remaining: Inga röster kvar
           vote: Rösta
           votes_blocked: Röstning inaktiverad
+        vote_weight:
+          maximum_votes_reached: Vote limit reached
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
+          no_votes_remaining: No votes remaining
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: RÖST
             other: RÖSTER
           most_popular_proposal: Mest populära förslaget
           need_more_votes: Behöver fler röster
+        votes_weight:
+          count:
+            one: VOTE
+            other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd
@@ -415,3 +448,5 @@ sv:
       included_proposals:
         proposal_project: 'Förslag som framgår i dessa projekt:'
         proposal_result: 'Förslag som visas i dessa resultat:'
+    scopes:
+      global: Global scope

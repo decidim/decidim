@@ -37,6 +37,7 @@ uk:
         name: Ім'я
         participatory_process_ids: Супутні рухи
       participatory_process_step:
+        action_btn_text: Action bouton text
         description: Опис
         end_date: Дата закінчення
         short_description: Стислий опис
@@ -158,6 +159,7 @@ uk:
           success: Крок руху співучасті успішно започато.
       participatory_process_steps:
         create:
+          action_btn_text_help: By default, the action button text is "Take part"
           error: При спробі створити новий крок руху співучасті сталася помилка.
           success: Крок руху співучасті успішно створено.
         default_title: Вступ
@@ -209,6 +211,9 @@ uk:
         index:
           not_published: Не оприлюднено
           private: Приватний
+          promoted:
+            'false': 'Yes'
+            'true': 'No'
           public: Оприлюдені
           published: Оприлюднено
         new:

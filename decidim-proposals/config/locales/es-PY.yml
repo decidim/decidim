@@ -3,6 +3,7 @@ es-PY:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Respuesta
         answered_at: Respondido
         body: Cuerpo

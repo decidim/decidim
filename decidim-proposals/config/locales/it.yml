@@ -3,6 +3,7 @@ it:
   activemodel:
     attributes:
       proposal:
+        address: Adresse
         answer: Risposta
         answered_at: Risposto a
         body: Corpo del testo

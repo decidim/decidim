@@ -92,7 +92,7 @@ fr:
           filter_by: Filtrer par
           unfold: Voir la suite
         order_progress:
-          vote: Voter
+          vote: Confirmer votre vote
         order_selected_projects:
           remove: Supprimer
           selected_projects:
