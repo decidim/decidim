@@ -237,8 +237,7 @@ sv:
           proposals: Förslag
     participatory_spaces:
       highlighted_proposals:
-        proposals: Förslag
-        see_all_proposals: Se alla förslag
+        see_all: Se alla (%{count})
     proposals:
       actions:
         answer: Svara
