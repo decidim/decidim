@@ -39,8 +39,8 @@ fi:
   activerecord:
     models:
       decidim/consultation:
-        one: kuuleminen
-        other: kuulemiset
+        one: Kuuleminen
+        other: Kuulemiset
       decidim/consultations/question:
         one: Kysymys
         other: Kysymykset
