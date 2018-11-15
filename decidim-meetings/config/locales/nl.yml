@@ -415,7 +415,7 @@ nl:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vorige events
-        see_all_meetings: Bekijk alle events
+        see_all: Alles zien (%{count})
         upcoming_meetings: Toekomstige events
       upcoming_meeting_for_card:
         upcoming_meeting: Aankomende vergadering
