@@ -145,6 +145,10 @@ $map: map-merge($foundation-palette, (muted: $muted));
   .text-#{$key}{
     color: $value;
   }
+
+  .bg-#{$key}{
+    background-color: lighten($value, 30);
+  }
 }
 
 .text-large{

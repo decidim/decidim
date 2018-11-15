@@ -9,7 +9,7 @@
     <% @sections.each do |i| %>
     <% noresults = Faker::Boolean.boolean %>
     <div class="filters__section<%= " no-results" if noresults %>">
-      <%= link_to page_path("home"), class: "flex--sbc" do %>
+      <%= link_to page_path(i.downcase + "/" + i.downcase), class: "flex--sbc" do %>
       <div>
         <strong class="section-title"><%= i %></strong><span class="muted">&nbsp;<%= noresults ? 0 : Faker::Number.between(0, 100) %></span>
       </div>

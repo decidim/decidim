@@ -193,3 +193,29 @@
 </main>
 
 <%= partial "template_bottom" %>
+
+<%# Only for demo purposes %>
+<script type="module">
+  $("#input-search").on("input", function (event) {
+    const pattern = event.target.value
+    const $contents = $("article.card")
+
+    // Remove previous
+    $contents.find("span.bg-warning").contents().unwrap()
+
+    if (pattern.length > 2) {
+      $contents.each((id, container) => {
+        const text = container.innerText
+        const indexText = text.toLowerCase().indexOf(pattern.toLowerCase())
+
+        // Search only in text
+        if (indexText !== -1) {
+          const content = container.innerHTML
+          const index = content.toLowerCase().indexOf(pattern.toLowerCase())
+
+          container.innerHTML = `${content.substring(0, index)}<span class='bg-warning'>${content.substring(index, index + pattern.length)}</span>${content.substring(index + pattern.length)}`
+        }
+      })
+    }
+  })
+</script>
