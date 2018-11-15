@@ -3,7 +3,7 @@
 module Decidim
   module Debates
     module Metrics
-      class DebatesMetricMeasure < Decidim::MetricMeasure
+      class DebateParticipantsMetricMeasure < Decidim::MetricMeasure
         # Searches for Participants in the following actions
         #  Create a debate (Debates)
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::Metrics::ProposalsMetricMeasure do
+describe Decidim::Proposals::Metrics::ProposalParticipantsMetricMeasure do
   let(:day) { Time.zone.today - 1.day }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }

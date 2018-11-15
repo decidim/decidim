@@ -3,7 +3,7 @@
 module Decidim
   module Surveys
     module Metrics
-      class SurveysMetricMeasure < Decidim::MetricMeasure
+      class SurveyParticipantsMetricMeasure < Decidim::MetricMeasure
         # Searches for Participants in the following actions
         #  Answer a survey (Surveys)
 

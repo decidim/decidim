@@ -86,6 +86,10 @@ module Decidim
             settings.attribute :weight, type: :integer, default: 2
           end
         end
+
+        Decidim.metrics_operation.register(:followers, :participatory_process) do |metric_operation|
+          metric_operation.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessFollowersMetricMeasure"
+        end
       end
     end
   end

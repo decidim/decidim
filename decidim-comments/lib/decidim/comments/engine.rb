@@ -55,7 +55,7 @@ module Decidim
         end
 
         Decidim.metrics_operation.register(:participants, :comments) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Comments::Metrics::CommentsMetricMeasure"
+          metric_operation.manager_class = "Decidim::Comments::Metrics::CommentParticipantsMetricMeasure"
         end
       end
     end

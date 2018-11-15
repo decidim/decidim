@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     module Metrics
-      class ProposalsMetricMeasure < Decidim::MetricMeasure
+      class ProposalParticipantsMetricMeasure < Decidim::MetricMeasure
         # Searches for Participants in the following actions
         #  Create a proposal (Proposals)
         #  Give support to a proposal (Proposals)

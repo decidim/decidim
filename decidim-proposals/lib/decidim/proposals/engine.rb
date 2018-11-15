@@ -222,7 +222,10 @@ module Decidim
         end
 
         Decidim.metrics_operation.register(:participants, :proposals) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalsMetricMeasure"
+          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalParticipantsMetricMeasure"
+        end
+        Decidim.metrics_operation.register(:followers, :proposals) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalFollowersMetricMeasure"
         end
       end
     end

@@ -136,6 +136,10 @@ module Decidim
             settings.attribute :weight, type: :integer, default: 5
           end
         end
+
+        Decidim.metrics_operation.register(:followers, :meetings) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Meetings::Metrics::MeetingFollowersMetricMeasure"
+        end
       end
 
       initializer "decidim_meetings.assets" do |app|

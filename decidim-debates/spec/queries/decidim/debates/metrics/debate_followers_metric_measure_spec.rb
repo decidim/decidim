@@ -2,21 +2,16 @@
 
 require "spec_helper"
 
-describe Decidim::Debates::Metrics::DebatesMetricMeasure do
+describe Decidim::Debates::Metrics::DebateFollowersMetricMeasure do
   let(:day) { Time.zone.today - 1.day }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-
-  # Create a debate (Debates)
   let(:debates_component) { create(:debates_component, :published, participatory_space: participatory_space) }
-  let(:debates) { create_list(:debate, 5, :with_author, component: debates_component, created_at: day) }
-  # TOTAL Participants for Debates: 5
-  let(:all) { debates }
+  let(:debate) { create(:debate, :with_author, component: debates_component, created_at: day) }
+  let!(:follows) { create_list(:follow, 5, followable: debate, created_at: day) }
 
   context "when executing class" do
-    before { all }
-
     it "fails to create object with an invalid resource" do
       manager = described_class.for(day, not_valid_resource)
 

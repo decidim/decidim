@@ -34,7 +34,11 @@ module Decidim
 
       initializer "decidim_budgets.register_metrics" do
         Decidim.metrics_operation.register(:participants, :budgets) do |metric_operation|
-          metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetsMetricMeasure"
+          metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetParticipantsMetricMeasure"
+        end
+
+        Decidim.metrics_operation.register(:followers, :budgets) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
         end
       end
     end
