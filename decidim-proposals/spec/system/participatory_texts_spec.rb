@@ -23,10 +23,10 @@ describe "Proposals", type: :system do
       expect(component.settings.participatory_texts_enabled?).to be true
       visit_component
       count = proposals.count
-      expect(page).to have_css(".section", count: count)
-      should_have_proposal("#proposals div.section:first-child", proposals.first)
-      should_have_proposal("#proposals div.section:nth-child(2)", proposals[1])
-      should_have_proposal("#proposals div.section:last-child", proposals.last)
+      expect(page).to have_css(".hover-section", count: count)
+      should_have_proposal("#proposals div.hover-section:first-child", proposals.first)
+      should_have_proposal("#proposals div.hover-section:nth-child(2)", proposals[1])
+      should_have_proposal("#proposals div.hover-section:last-child", proposals.last)
     end
   end
 
