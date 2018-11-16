@@ -250,6 +250,11 @@ it:
       exports:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
+      help_sections:
+        error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
+        form:
+          save: Salvare
+        success: Aiuto sezioni aggiornate con successo
       impersonatable_users:
         index:
           filter:
@@ -303,6 +308,7 @@ it:
         areas: le zone
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
+        help_sections: Aiuto sezioni
         homepage: Homepage
         impersonations: impersonations
         newsletters: Newsletters
