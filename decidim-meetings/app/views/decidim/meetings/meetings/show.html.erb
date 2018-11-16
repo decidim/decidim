@@ -18,7 +18,7 @@ edit_link(
 <div class="row column view-header">
   <h2 class="heading2"><%= present(meeting).html_title %></h2>
   <% if meeting.organizer.present? %>
-    <%= render partial: "decidim/shared/author_reference", locals: { author: present(meeting.organizer) } %>
+    <%= cell "decidim/author", present(meeting.organizer) %>
   <% end %>
 </div>
 <div class="row">
