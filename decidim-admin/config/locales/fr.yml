@@ -250,6 +250,11 @@ fr:
       exports:
         export_as: "%{name} en format %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+      help_sections:
+        error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
+        form:
+          save: sauvegarder
+        success: Les sections d'aide ont été mises à jour avec succès
       impersonatable_users:
         index:
           filter:
@@ -303,6 +308,7 @@ fr:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
+        help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
