@@ -644,7 +644,7 @@ en:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports
           minimum_votes_per_user:
-            description: You must distribute a minimum of 3 votes among different proposals.
+            description: You must distribute a minimum of %{votes} votes among different proposals.
             given_enough_votes: You've given enough supports.
             supports_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
           proposal_limit:
