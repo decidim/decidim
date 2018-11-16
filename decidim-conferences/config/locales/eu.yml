@@ -389,8 +389,6 @@ eu:
         index:
           speakers: Hizlariak
       conferences:
-        conferences_sidebar:
-          register: Eman izena
         partners:
           collaborators: Laguntzaileak
           main_promotors: Garapen nagusiak
