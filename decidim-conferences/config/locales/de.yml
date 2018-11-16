@@ -389,8 +389,6 @@ de:
         index:
           speakers: Lautsprecher
       conferences:
-        conferences_sidebar:
-          register: Registrieren
         partners:
           collaborators: Mitarbeiter
           main_promotors: Hauptförderer
