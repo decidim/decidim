@@ -237,8 +237,7 @@ es:
           proposals: Propuestas
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propuestas
-        see_all_proposals: Ver todas las propuestas
+        see_all: Ver todo (%{count})
     proposals:
       actions:
         answer: Respuesta
@@ -522,6 +521,12 @@ es:
             votes: Apoyos
       new:
         limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
+      participatory_text_proposal:
+        buttons:
+          comment: Comentario
+          comments: Comentarios
+          endorse: Endosar
+          endorsements: Endosos
       proposal_endorsements:
         create:
           error: Ha habido errores al adherirse a la propuesta.
@@ -595,6 +600,11 @@ es:
           most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
+        participatory_texts:
+          index:
+            document_index: Índice de documentos
+          view_index:
+            see_index: Ver índice
         preview:
           modify: Modificar la propuesta
           proposal_edit_before_minutes:
@@ -606,6 +616,7 @@ es:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         show:
+          back_to: De regreso
           edit_proposal: Editar propuesta
           endorsements_list: Lista de adhesiones
           hidden_endorsers_count:
@@ -644,7 +655,7 @@ es:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
-            description: Debes distribuir un mínimo de 3 apoyos entre las diferentes propuestas.
+            description: Debes distribuir un mínimo de %{votes} votos entre las diferentes propuestas.
             given_enough_votes: Has dado suficientes apoyos.
             supports_remaining: Tienes que apoyar %{remaining_votes} propuestas más para que tus apoyos se tengan en cuenta.
           proposal_limit:
