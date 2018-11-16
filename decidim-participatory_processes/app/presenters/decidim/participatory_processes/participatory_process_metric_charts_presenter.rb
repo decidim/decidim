@@ -30,7 +30,7 @@ module Decidim
       def medium_stats
         safe_join(
           # %i{proposals supports endorsements followers}.map do |metric|
-          %i{proposals accepted_proposals votes meetings}.map do |metric_key| # Temporal use of metrics to show charts
+          [:proposals, :accepted_proposals, :votes, :meetings].map do |metric_key| # Temporal use of metrics to show charts
             render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name, klass: "column medium-6")
           end
         )
@@ -39,7 +39,7 @@ module Decidim
       def small_stats
         safe_join(
           # %i{accepted_proposals comments meetings debates survey_answers}.map do |metric_key|
-          %i{participatory_processes assemblies comments results}.map do |metric_key| # Temporal use of metrics to show charts
+          [:participatory_processes, :assemblies, :comments, :results].map do |metric_key| # Temporal use of metrics to show charts
             render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name, klass: "column medium-4")
           end
         )
