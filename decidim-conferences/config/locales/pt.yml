@@ -389,8 +389,6 @@ pt:
         index:
           speakers: caixas de som
       conferences:
-        conferences_sidebar:
-          register: registo
         partners:
           collaborators: Colaboradores
           main_promotors: Principais promotores
