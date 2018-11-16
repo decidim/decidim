@@ -52,8 +52,9 @@ module Decidim
       metrics_manifests << metric_manifest
     end
 
-    def for(metric_name)
-      all.find { |manifest| manifest.metric_name == metric_name }
+    def for(metric_name, list = nil)
+      list ||= all
+      list.find { |manifest| manifest.metric_name == metric_name.to_s }
     end
 
     def all
