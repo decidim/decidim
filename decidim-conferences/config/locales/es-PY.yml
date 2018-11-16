@@ -389,8 +389,6 @@ es-PY:
         index:
           speakers: Altavoces
       conferences:
-        conferences_sidebar:
-          register: Inscripción
         partners:
           collaborators: Colaboradores
           main_promotors: Promotores principales
