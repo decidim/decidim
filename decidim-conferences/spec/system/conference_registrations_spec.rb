@@ -132,7 +132,7 @@ describe "Conference registrations", type: :system do
       expect(page).to have_content("successfully")
 
       within ".wrapper" do
-        expect(page).to have_css(".button", text: "R", count: registration_types_count)
+        expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
       end
     end
   end
