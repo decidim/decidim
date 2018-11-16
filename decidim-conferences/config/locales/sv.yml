@@ -389,8 +389,6 @@ sv:
         index:
           speakers: högtalare
       conferences:
-        conferences_sidebar:
-          register: Registrera
         partners:
           collaborators: medarbetare
           main_promotors: Huvudpromotorer
