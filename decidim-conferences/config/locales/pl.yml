@@ -397,8 +397,6 @@ pl:
         index:
           speakers: Głośniki
       conferences:
-        conferences_sidebar:
-          register: Zarejestrować
         partners:
           collaborators: Współpracownicy
           main_promotors: Główni promotorzy
