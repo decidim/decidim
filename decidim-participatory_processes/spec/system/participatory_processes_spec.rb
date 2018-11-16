@@ -109,7 +109,7 @@ describe "Participatory Processes", type: :system do
     it "lists the active processes" do
       within "#processes-grid" do
         within "#processes-grid h2" do
-          expect(page).to have_content("3")
+          expect(page).to have_content("3 ACTIVE PROCESSES")
         end
 
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
@@ -134,7 +134,7 @@ describe "Participatory Processes", type: :system do
       context "and choosing 'active' processes" do
         it "lists the active processes" do
           within "#processes-grid h2" do
-            expect(page).to have_content("2")
+            expect(page).to have_content("3 ACTIVE PROCESSES")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
@@ -183,7 +183,7 @@ describe "Participatory Processes", type: :system do
 
         it "lists all processes" do
           within "#processes-grid h2" do
-            expect(page).to have_content("4")
+            expect(page).to have_content("5 PROCESSES")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
