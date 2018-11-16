@@ -389,8 +389,6 @@ hu:
         index:
           speakers: Hangszórók
       conferences:
-        conferences_sidebar:
-          register: Regisztráció
         partners:
           collaborators: Együttműködők
           main_promotors: Fő promóterek
