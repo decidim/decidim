@@ -389,8 +389,6 @@ nl:
         index:
           speakers: sprekers
       conferences:
-        conferences_sidebar:
-          register: Registreren
         partners:
           collaborators: medewerkers
           main_promotors: Hoofdpromotoren
