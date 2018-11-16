@@ -12,7 +12,6 @@ module Decidim
       include Messaging::ConversationHelper
 
       delegate :current_organization, to: :controller
-      delegate :user_signed_in?, to: :parent_controller
 
       def show
         render
