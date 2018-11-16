@@ -389,8 +389,6 @@ gl:
         index:
           speakers: Ponentes
       conferences:
-        conferences_sidebar:
-          register: Rexistrarse
         partners:
           collaborators: Colaboradores
           main_promotors: Principais promotores
