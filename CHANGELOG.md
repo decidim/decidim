@@ -82,6 +82,7 @@ end
 - **decidim-meetings**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
 - **decidim-proposals**: Ensure proposals search returns unique results [\#4460](https://github.com/decidim/decidim/pull/4460)
 - **decidim-participatory_processes**: Don't filter highlighted processes by state [\#4502](https://github.com/decidim/decidim/pull/4502)
+- **decidim-participatory_processes**: Don't show grouped processes in the process list[\#4503](https://github.com/decidim/decidim/pull/4503)
 
 **Removed**:
 
