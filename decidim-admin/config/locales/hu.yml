@@ -250,6 +250,11 @@ hu:
       exports:
         export_as: "%{name} mint %{export_format}"
         notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
+      help_sections:
+        error: Hiba történt a súgóelemek frissítésében
+        form:
+          save: Mentés
+        success: A súgóelemek sikeresen frissültek
       impersonatable_users:
         index:
           filter:
@@ -303,6 +308,7 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
+        help_sections: Segítségrészek
         homepage: Homepage
         impersonations: Felhatalmazások
         newsletters: Hírlevelek
