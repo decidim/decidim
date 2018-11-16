@@ -368,12 +368,15 @@ it:
       application_helper:
         filter_origin_values:
           all: Tutti
+          citizens: Cittadini
           meetings: incontri
+          official: Ufficiale
           user_groups: Gruppi di utenti
         filter_state_values:
           accepted: Accettato
           all: Tutti
           evaluating: Valutare
+          except_rejected: Tutto tranne rifiutato
           rejected: Respinto
       collaborative_drafts:
         collaborative_draft:
