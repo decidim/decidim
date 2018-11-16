@@ -389,8 +389,6 @@ fi:
         index:
           speakers: Puhujat
       conferences:
-        conferences_sidebar:
-          register: Ilmoittaudu
         partners:
           collaborators: yhteistyökumppanit
           main_promotors: Pääpromoottorit
