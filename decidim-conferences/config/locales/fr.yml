@@ -389,8 +389,6 @@ fr:
         index:
           speakers: Haut-parleurs
       conferences:
-        conferences_sidebar:
-          register: registre
         partners:
           collaborators: Collaborateurs
           main_promotors: Principaux promoteurs
