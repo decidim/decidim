@@ -62,7 +62,7 @@ module Decidim
       end
 
       def promoted_participatory_processes
-        @promoted_participatory_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= filtered_participatory_processes("all") | PromotedParticipatoryProcesses.new
       end
 
       def filtered_participatory_process_groups(filter_name = filter)

@@ -5,23 +5,27 @@
 let DATACHARTS = {}
 $(() => {
   const chart = () => {
-    return $(".areachart:visible").each((id, container) => {
-      const mockData = () => {
-        let arr = []
+    // Generate fake data
+    const mockData = () => {
+      let arr = []
 
-        for (let index = 0; index < 20; index += 1) {
-          arr.push({
-            "key": new Date(2015 + index, 1, 1),
-            "value": Math.floor(Math.random() * (500 - 200 + 1)) + 200
-          })
-        }
-
-        return arr
+      for (let index = 0; index < 100; index += 1) {
+        arr.push({
+          "key": new Date(2015, 1, index + 15),
+          "value": Math.floor(Math.random() * (500 - 200 + 1)) + 200
+        })
       }
 
+      return arr
+    }
+
+    return $(".areachart:visible").each((id, container) => {
+      const $container = $(`#${container.id}`)
+
       areachart({
-        container: `#${container.id}`,
-        data: mockData()
+        container: $container.selector,
+        data: mockData(),
+        ...$container.data()
       });
     })
   }
