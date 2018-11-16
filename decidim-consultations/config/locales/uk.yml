@@ -38,11 +38,6 @@ uk:
           not_found: Відповідь не знайдено.
   activerecord:
     models:
-      decidim/consultations:
-        one: Консультація
-        few: Консультації
-        many: Консультацій
-        other: Консультацій
       decidim/consultations/question:
         one: Питання
         few: Питання
