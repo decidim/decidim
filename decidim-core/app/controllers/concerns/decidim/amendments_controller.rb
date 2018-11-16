@@ -41,7 +41,7 @@ module Decidim
         end
       end
     end
-    
+
     private
 
     def reject; end
@@ -61,7 +61,7 @@ module Decidim
     def emendation
       @emendation ||= present(Decidim::Amendment.find(params[:id]).emendation)
     end
-    
+
     def validate(form)
       Decidim::Amendable::Validate.call(form) do
         on(:ok) do
