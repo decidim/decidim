@@ -389,8 +389,6 @@ it:
         index:
           speakers: Altoparlanti
       conferences:
-        conferences_sidebar:
-          register: Registrare
         partners:
           collaborators: collaboratori
           main_promotors: Principali promotori
