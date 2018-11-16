@@ -389,8 +389,6 @@ ca:
         index:
           speakers: Ponents
       conferences:
-        conferences_sidebar:
-          register: Registre
         partners:
           collaborators: Col·laboradors
           main_promotors: Promotors principals
