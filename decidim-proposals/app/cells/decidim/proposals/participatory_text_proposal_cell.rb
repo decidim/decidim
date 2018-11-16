@@ -4,29 +4,45 @@ require "cell/partial"
 
 module Decidim
   module Proposals
-    # This cell renders the collaborative_draft card for an instance of a CollaborativeDraft
+    # This cell renders the participatory text proposal card for an instance of a Proposal
     # the default size is the Medium Card (:m)
-    class CollaborativeDraftCell < Decidim::ViewModel
-      include CollaborativeDraftCellsHelper
+    class ParticipatoryTextProposalCell < Decidim::ViewModel
+      include ProposalCellsHelper
       include Cell::ViewModel::Partial
       include Messaging::ConversationHelper
 
+      delegate :current_organization, to: :controller
+
       def show
-        cell card_size, model, @options
+        render
       end
 
       private
+
+      def title
+        case model.participatory_text_level
+        when "section"
+          "<h5><strong class='text-uppercase'>#{present(model).title}</strong></h5>"
+        else
+          "<h6><strong>#{present(model).title}</strong></h6>"
+        end
+      end
+
+      def body
+        return unless model.participatory_text_level == "article"
+        present(model).body
+      end
 
       def current_user
         context[:current_user]
       end
 
-      def card_size
-        "decidim/proposals/collaborative_draft_m"
-      end
-
       def resource_path
         resource_locator(model).path
+      end
+
+      def resource_comments_path
+        "#{resource_locator(model).path}/#comments"
       end
 
       def current_participatory_space

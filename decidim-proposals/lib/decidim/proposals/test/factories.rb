@@ -171,6 +171,7 @@ FactoryBot.define do
         }
       end
     end
+
     trait :with_participatory_texts_enabled do
       settings do
         {
@@ -331,5 +332,11 @@ FactoryBot.define do
     trait :withdrawn do
       state { "withdrawn" }
     end
+  end
+
+  factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
+    title { Faker::Hacker.say_something_smart }
+    description { Faker::Lorem.sentences(3).join("\n") }
+    component { create(:proposal_component) }
   end
 end

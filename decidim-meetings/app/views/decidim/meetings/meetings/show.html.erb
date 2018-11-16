@@ -33,7 +33,7 @@ edit_link(
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting } %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
       </div>
       <% if meeting.closed? %>
         <div class="card card--secondary extra definition-data">
