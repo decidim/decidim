@@ -391,8 +391,6 @@ en:
         index:
           speakers: Speakers
       conferences:
-        conferences_sidebar:
-          register: Register
         partners:
           collaborators: Collaborators
           main_promotors: Main promotors
