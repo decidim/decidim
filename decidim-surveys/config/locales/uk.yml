@@ -3,7 +3,7 @@ uk:
   activemodel:
     attributes:
       survey_answer:
-        body: Відповісти
+        body: Відповідь
       survey_question:
         mandatory: Обов’язкове поле
         max_choices: Гранична кількість варіантів

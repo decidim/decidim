@@ -40,8 +40,8 @@ nl:
   activerecord:
     models:
       decidim/consultations:
-        one: Overleg
-        other: overleg
+        one: Burgerinspraak
+        other: Burgerinspraken
       decidim/consultations/question:
         one: Vraag
         other: vragen

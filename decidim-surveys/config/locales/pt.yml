@@ -3,7 +3,7 @@ pt:
   activemodel:
     attributes:
       survey_answer:
-        body: Resposta
+        body: Responda
       survey_question:
         mandatory: Obrigatório
         max_choices: Número máximo de escolhas

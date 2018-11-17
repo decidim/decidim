@@ -312,7 +312,6 @@ uk:
         filters:
           accepted: Прийнято
           activity: Діяльність
-          all: Усі
           category: Категорія
           category_prompt: Оберіть категорію
           citizens: Громадяни

@@ -552,9 +552,9 @@ fr:
         endorsements_card_row:
           comments: Commentaires
         filters:
-          accepted: Retenues
+          accepted: Retenue
           activity: Activité
-          all: Toutes
+          all: Tout
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           citizens: Propositions citoyennes
@@ -562,7 +562,7 @@ fr:
           except_rejected: Toutes sauf les propositions non retenues
           official: Propositions officielles
           origin: Auteurs
-          rejected: Non retenues
+          rejected: Non retenue
           related_to: Liées à
           search: Rechercher
           state: État

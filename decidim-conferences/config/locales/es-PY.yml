@@ -10,7 +10,7 @@ es-PY:
         copy_features: Copiar funciones
         decidim_scope_id: Alcance
         description: Descripción
-        hashtag: Hashtag
+        hashtag: Etiqueta
         hero_image: Imagen de inicio
         participatory_processes_ids: Procesos participativos relacionados
         promoted: Promovido
@@ -20,12 +20,12 @@ es-PY:
         short_description: Breve descripción
         show_statistics: Mostrar estadísticas
         slogan: Eslogan
-        slug: URL slug
+        slug: URL amigable
         title: Título
       conference_speaker:
         full_name: Nombre completo
       conference_user_role:
-        email: Email
+        email: Correo electrónico
         name: Nombre
         role: Papel
     errors:
@@ -168,7 +168,7 @@ es-PY:
           name: Conferenciante
         conference_user_role:
           fields:
-            email: Email
+            email: Correo electrònico
             name: Nombre
             role: Papel
           name: Usuario de conferencia
@@ -359,7 +359,7 @@ es-PY:
       models:
         conference_invite:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
             sent_at: Enviado a
             status: Estado
@@ -369,7 +369,7 @@ es-PY:
             sent: Expedido
         conference_registration:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
       pages:
         home:

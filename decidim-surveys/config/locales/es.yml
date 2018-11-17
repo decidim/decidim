@@ -3,7 +3,7 @@ es:
   activemodel:
     attributes:
       survey_answer:
-        body: Respuesta
+        body: Responder
         choices: Las opciones
         selected_choices: La selección
       survey_question:

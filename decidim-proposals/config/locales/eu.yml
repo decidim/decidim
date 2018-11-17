@@ -553,7 +553,7 @@ eu:
         filters:
           accepted: Onartuta
           activity: Jarduera
-          all: Guztiak
+          all: guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           citizens: Hiritarrak

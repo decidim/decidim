@@ -3,7 +3,7 @@ nl:
   activemodel:
     attributes:
       survey_answer:
-        body: Antwoord
+        body: Antwoorden
         choices: De keuzes
         selected_choices: De selectie
       survey_question:

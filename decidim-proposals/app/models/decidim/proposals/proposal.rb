@@ -86,9 +86,11 @@ module Decidim
       # Public: Updates the vote count of this proposal.
       #
       # Returns nothing.
+      # rubocop:disable Rails/SkipsModelValidations
       def update_votes_count
-        update!(proposal_votes_count: votes.count)
+        update_columns(proposal_votes_count: votes.count)
       end
+      # rubocop:enable Rails/SkipsModelValidations
 
       # Public: Check if the user has voted the proposal.
       #

@@ -555,7 +555,7 @@ uk:
         index:
           last_notable_change: Остання помітна зміна
         new:
-          create: Створити
+          create: Додати
           title: Створити сторінку
         update:
           error: При спробі оновити цю сторінку сталася помилка.
