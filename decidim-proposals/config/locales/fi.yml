@@ -525,8 +525,8 @@ fi:
         buttons:
           comment: Kommentti
           comments: Kommentit
-          endorse: hyväksyä
-          endorsements: merkintöjen
+          endorse: Suosittele
+          endorsements: Suositukset
       proposal_endorsements:
         create:
           error: Ehdotuksen suosittelemisessa on esiintynyt virheitä.
@@ -604,7 +604,7 @@ fi:
           index:
             document_index: Asiakirjan hakemisto
           view_index:
-            see_index: Katso indeksi
+            see_index: Näytä hakemisto
         preview:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
@@ -655,7 +655,7 @@ fi:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
           minimum_votes_per_user:
-            description: Sinun on jaettava vähintään %{votes} ääntä eri ehdotusten kesken.
+            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille.
             given_enough_votes: Olet tukenut tarpeeksi monta ehdotusta.
             supports_remaining: Sinun on äänestettävä %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
           proposal_limit:
