@@ -753,7 +753,7 @@ fi:
         groups: Ryhmät
         members: Jäsenet
         notifications: Ilmoitukset
-        view_full_profile: Katso koko profiili
+        view_full_profile: Näytä koko profiili
       sidebar:
         badges:
           info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
