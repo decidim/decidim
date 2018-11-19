@@ -272,6 +272,10 @@ fi:
           publish: "%{user_name} julkaisi ilmoittautumistyypin %{resource_name} konferenssissa %{space_name}"
           unpublish: "%{user_name} lopetti ilmoittautumistyypin %{resource_name} julkaisun konferenssissa %{space_name}"
           update: "%{user_name} päivitti ilmoittautumistyyppiä %{resource_name} konferenssissa %{space_name}"
+      media_link:
+        create: "%{user_name} loi %{resource_name} median linkin %{space_name} konferenssissa"
+        delete: "%{user_name} poisti %{resource_name} median linkin %{space_name} konferenssista"
+        update: "%{user_name} päivitti %{resource_name} median linkin %{space_name} konferenssiin"
     conference_program:
       index:
         title: Ohjelma
@@ -329,7 +333,7 @@ fi:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
-            join: Liity konferenssiin '%{conference_title}'
+            registration: Rekisteröinti "%{conference_title}"
         partners:
           index:
             title: Yhteistyökumppanit
@@ -344,8 +348,8 @@ fi:
           confirm: Vahvista
         show:
           going: Osallistumassa
-          join: Liity konferenssiin
           no_slots_available: Ei paikkoja vapaana
+          registration: Rekisteröinti
       conference_program:
         program_meeting:
           content: Sisältö
@@ -390,8 +394,8 @@ fi:
           speakers: Puhujat
       conferences:
         partners:
-          collaborators: yhteistyökumppanit
-          main_promotors: Pääpromoottorit
+          collaborators: kumppanit
+          main_promotors: järjestäjät
         show:
           login_as: Olet kirjautunut sisään %{name} <%{email}>
           make_conference_registration: 'Ilmoittaudu konferenssiin:'
@@ -446,15 +450,15 @@ fi:
       registration_types:
         index:
           choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
-          login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
+          login_as: Olet kirjautunut sisään %{name} <%{email}>
           register: Ilmoittaudu
           title: Ilmoittautumistyypit
       shared:
         conference_user_login:
           already_account: Onko sinulla jo käyttäjätili?
           new_user: Uusi käyttäjä?
-          sign_in: Kirjaudu sisään ilmoittautuaksesi tähän konferenssiin
-          sign_up: Rekisteröidy maksutta ilmoittautuaksesi
+          sign_in: Kirjaudu sisään rekisteröityäksesi konferenssiin
+          sign_up: Luo tili decidim-tilassa rekisteröidäksesi konferenssin
       show:
         details: Tarkemmat tiedot
         introduction: Esittely
