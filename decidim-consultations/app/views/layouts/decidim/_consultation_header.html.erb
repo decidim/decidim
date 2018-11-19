@@ -1,3 +1,5 @@
+<%= participatory_space_floating_help %>
+
 <div class="consultations-header consultations-home-banner row column">
   <div class="row column consultations-header__main"
        style="background-image:url(<%= current_consultation.banner_image.url %>);">
@@ -10,6 +12,7 @@
           <p class="text-highlight"><%= translated_attribute current_consultation.subtitle %></p>
         </div>
       </div>
+
       <%= render partial: "layouts/decidim/consultation_voting_data", locals: { consultation: current_consultation } %>
     </div>
   </div>
