@@ -217,8 +217,7 @@ nl:
           results: resultaten
     participatory_spaces:
       highlighted_results:
-        results: resultaten
-        see_all_results: Bekijk alle resultaten
+        see_all: Alles zien (%{count})
     resource_links:
       included_projects:
         result_project: Projecten opgenomen in dit resultaat

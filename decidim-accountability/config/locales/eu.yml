@@ -217,8 +217,7 @@ eu:
           results: Emaitzak
     participatory_spaces:
       highlighted_results:
-        results: Emaitzak
-        see_all_results: Ikusi emaitza guztiak
+        see_all: Ikusi dena (%{count})
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak

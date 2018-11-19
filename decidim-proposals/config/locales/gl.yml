@@ -237,8 +237,7 @@ gl:
           proposals: Propostas
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propostas
-        see_all_proposals: Ver todas as propostas
+        see_all: Ver todos (%{count})
     proposals:
       actions:
         answer: Resposta
@@ -522,6 +521,12 @@ gl:
             votes: Votos
       new:
         limit_reached: Non podes crear novas propostas xa que superaches o límite.
+      participatory_text_proposal:
+        buttons:
+          comment: Comentario
+          comments: Comentarios
+          endorse: Endosar
+          endorsements: Aprobacións
       proposal_endorsements:
         create:
           error: Houbo erros ao aprobar a proposta.
@@ -595,6 +600,11 @@ gl:
           most_voted: A maioría votada
           random: Aleatorio
           recent: Recentes
+        participatory_texts:
+          index:
+            document_index: Índice do documento
+          view_index:
+            see_index: Ver índice
         preview:
           modify: Modificar a proposta
           proposal_edit_before_minutes:
@@ -606,6 +616,7 @@ gl:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
         show:
+          back_to: Voltar
           edit_proposal: Editar proposta
           endorsements_list: Lista de avales
           hidden_endorsers_count:
@@ -644,7 +655,7 @@ gl:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular máis de %{limit} apoios
           minimum_votes_per_user:
-            description: Debes distribuír un mínimo de 3 votos entre diferentes propostas.
+            description: Debes distribuír un mínimo de %{votes} votos entre diferentes propostas.
             given_enough_votes: Dicho soporte.
             supports_remaining: Tes que votar máis %{remaining_votes} propostas para que os teus votos sexan tidos en conta.
           proposal_limit:

@@ -753,6 +753,7 @@ eu:
         groups: Taldeak
         members: Bazkideek
         notifications: jakinarazpenak
+        view_full_profile: Ikusi profil osoa
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
@@ -820,6 +821,8 @@ eu:
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu arazo bat
+      floating_help:
+        help: Laguntza
       follow_button:
         sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
