@@ -35,4 +35,10 @@ describe Decidim::Proposals::RejectedProposalEvent do
         .to include("The <a href=\"#{resource_path}\">#{resource.title}</a> proposal has been rejected")
     end
   end
+
+  describe "resource_text" do
+    it "shows the proposal answer" do
+      expect(subject.resource_text).to eq translated(resource.answer)
+    end
+  end
 end
