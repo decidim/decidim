@@ -272,6 +272,10 @@ nl:
           publish: "%{user_name} heeft het %{resource_name} registratietype gepubliceerd in de %{space_name} conferentie"
           unpublish: "%{user_name} ongepubliceerd het %{resource_name} registratietype in de %{space_name} conferentie"
           update: "%{user_name} heeft het %{resource_name} registratietype bijgewerkt in de %{space_name} conferentie"
+      media_link:
+        create: "%{user_name} heeft de %{resource_name} mediakoppeling in de %{space_name} conferentie gemaakt"
+        delete: "%{user_name} verwijderde de %{resource_name} mediakoppeling van de %{space_name} conferentie"
+        update: "%{user_name} heeft de %{resource_name} mediakoppeling in de %{space_name} conferentie bijgewerkt"
     conference_program:
       index:
         title: Programma
@@ -329,7 +333,7 @@ nl:
           invite:
             decline: Uitnodiging '%{conference_title}' weigeren
             invited_you_to_join_a_conference: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een conferentie op %{application}. U kunt het weigeren of accepteren via de onderstaande links."
-            join: Deelnemen aan conferentie '%{conference_title}'
+            registration: Registratie voor '%{conference_title}'
         partners:
           index:
             title: partners
@@ -344,8 +348,8 @@ nl:
           confirm: Bevestigen
         show:
           going: gaand
-          join: Doe mee met Conference
           no_slots_available: Geen slots beschikbaar
+          registration: registratie
       conference_program:
         program_meeting:
           content: Inhoud
@@ -390,8 +394,8 @@ nl:
           speakers: sprekers
       conferences:
         partners:
-          collaborators: medewerkers
-          main_promotors: Hoofdpromotoren
+          collaborators: partners
+          main_promotors: organisatoren
         show:
           login_as: U bent ingelogd als %{name} <%{email}>
           make_conference_registration: 'Maak uw registratie in de conferentie:'
@@ -453,8 +457,8 @@ nl:
         conference_user_login:
           already_account: Heb je al een account bij decidim?
           new_user: Nieuwe gebruiker?
-          sign_in: Log in om u te registreren op deze conferentie
-          sign_up: Registreer je gratis in decidim om je te registreren
+          sign_in: Meld u aan om u te registreren voor de conferentie
+          sign_up: Maak een account aan in decidim om u te registreren voor de conferentie
       show:
         details: Details
         introduction: Invoering
