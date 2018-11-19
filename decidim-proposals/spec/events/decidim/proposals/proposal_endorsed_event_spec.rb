@@ -53,4 +53,10 @@ describe Decidim::Proposals::ProposalEndorsedEvent do
         .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} #{author_presenter.nickname}</a>.")
     end
   end
+
+  describe "resource_text" do
+    it "shows the proposal body" do
+      expect(subject.resource_text).to eq resource.body
+    end
+  end
 end
