@@ -272,6 +272,10 @@ es-PY:
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+      media_link:
+        create: "%{user_name} creó el enlace %{resource_name} media en la conferencia %{space_name}"
+        delete: "%{user_name} eliminó el %{resource_name} enlace de medios de la conferencia %{space_name}"
+        update: "%{user_name} actualizado el enlace de %{resource_name} media en la conferencia %{space_name}"
     conference_program:
       index:
         title: Programa
@@ -329,7 +333,7 @@ es-PY:
           invite:
             decline: Rechazar invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} ha invitado a unirse a una conferencia en %{application}. Puede rechazarlo o aceptarlo a través de los enlaces a continuación."
-            join: Únete a la conferencia '%{conference_title}'
+            registration: Registro para '%{conference_title}'
         partners:
           index:
             title: Fogonadura
@@ -344,8 +348,8 @@ es-PY:
           confirm: Confirmar
         show:
           going: Yendo
-          join: Únete a la Conferencia
           no_slots_available: No hay espacios disponibles
+          registration: Registro
       conference_program:
         program_meeting:
           content: Contenido
@@ -389,11 +393,9 @@ es-PY:
         index:
           speakers: Altavoces
       conferences:
-        conferences_sidebar:
-          register: Inscripción
         partners:
-          collaborators: Colaboradores
-          main_promotors: Promotores principales
+          collaborators: Fogonadura
+          main_promotors: Organizadores
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Haga su inscripción en la conferencia:'
@@ -455,8 +457,8 @@ es-PY:
         conference_user_login:
           already_account: '¿Ya tienes una cuenta en decidim?'
           new_user: '¿Nuevo usuario?'
-          sign_in: Inicie sesión para registrarse en esta conferencia
-          sign_up: Regístrese gratis en decidim para registrarse
+          sign_in: Inicie sesión para registrarse para la conferencia
+          sign_up: Crear una cuenta en decidim para registrarse para la conferencia
       show:
         details: Detalles
         introduction: Introducción

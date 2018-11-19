@@ -38,11 +38,6 @@ ru:
           not_found: Ответ не найден.
   activerecord:
     models:
-      decidim/consultations:
-        one: Консультация
-        few: Консультации
-        many: Консультаций
-        other: Консультаций
       decidim/consultations/question:
         one: Вопрос
         few: Вопроса

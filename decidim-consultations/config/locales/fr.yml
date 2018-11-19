@@ -38,9 +38,9 @@ fr:
           not_found: Réponse introuvable.
   activerecord:
     models:
-      decidim/consultations:
-        one: Votation
-        other: Votations
+      decidim/consultation:
+        one: Consultation
+        other: Consultations
       decidim/consultations/question:
         one: Question
         other: Questions

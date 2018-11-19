@@ -753,6 +753,7 @@ sv:
         groups: Grupper
         members: Medlemmar
         notifications: Notiser
+        view_full_profile: Visa hela profilen
       sidebar:
         badges:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
@@ -820,6 +821,8 @@ sv:
         report: Rapportera
         spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
         title: Rapportera ett problem
+      floating_help:
+        help: Hjälp
       follow_button:
         sign_in_before_follow: Vänligen logga in innan du utför den här åtgärden
       login_modal:

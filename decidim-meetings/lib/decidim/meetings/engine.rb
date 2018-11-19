@@ -34,18 +34,7 @@ module Decidim
 
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          meetings = Decidim::Meetings::Meeting.where(component: published_components)
-
-          next unless meetings.any?
-
-          view_context.render(
-            partial: "decidim/participatory_spaces/highlighted_meetings",
-            locals: {
-              past_meetings: meetings.past.order(end_time: :desc, start_time: :desc).limit(3),
-              upcoming_meetings: meetings.upcoming.order(:start_time, :end_time).limit(3)
-            }
-          )
+          view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
         end
 
         if defined? Decidim::ParticipatoryProcesses

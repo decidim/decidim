@@ -272,6 +272,10 @@ fr:
           publish: "%{user_name} publié le %{resource_name} type d'inscription dans la %{space_name} conférence"
           unpublish: "%{user_name} non publié le type d'inscription %{resource_name} dans la conférence %{space_name}"
           update: "%{user_name} mis à jour le type d'inscription %{resource_name} dans la conférence %{space_name}"
+      media_link:
+        create: "%{user_name} créé le %{resource_name} lien média dans la %{space_name} conférence"
+        delete: "%{user_name} supprimé le %{resource_name} lien multimédia de la %{space_name} conférence"
+        update: "%{user_name} mis à jour le %{resource_name} lien de média dans la %{space_name} conférence"
     conference_program:
       index:
         title: Programme
@@ -329,7 +333,7 @@ fr:
           invite:
             decline: Refuser l'invitation '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} a invité à participer à une conférence à %{application}. Vous pouvez refuser ou l'accepter via les liens ci-dessous."
-            join: Rejoindre la conférence '%{conference_title}'
+            registration: Inscription pour '%{conference_title}'
         partners:
           index:
             title: Les partenaires
@@ -344,8 +348,8 @@ fr:
           confirm: Confirmer
         show:
           going: Aller
-          join: Rejoindre la conférence
           no_slots_available: Aucun emplacement disponible
+          registration: enregistrement
       conference_program:
         program_meeting:
           content: Contenu
@@ -389,11 +393,9 @@ fr:
         index:
           speakers: Haut-parleurs
       conferences:
-        conferences_sidebar:
-          register: registre
         partners:
-          collaborators: Collaborateurs
-          main_promotors: Principaux promoteurs
+          collaborators: Les partenaires
+          main_promotors: Les organisateurs
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
           make_conference_registration: 'Faites votre inscription à la conférence:'
@@ -455,8 +457,8 @@ fr:
         conference_user_login:
           already_account: Avez-vous déjà un compte dans decidim?
           new_user: Nouvel utilisateur?
-          sign_in: Connectez-vous pour vous inscrire à cette conférence
-          sign_up: Inscrivez-vous gratuitement dans decidim pour vous inscrire
+          sign_in: Connectez-vous pour vous inscrire à la conférence
+          sign_up: Créez un compte dans decidim pour vous inscrire à la conférence
       show:
         details: Détails
         introduction: introduction

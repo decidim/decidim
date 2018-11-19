@@ -752,6 +752,7 @@ hu:
         groups: Csoportok
         members: Belépés
         notifications: Értesítések
+        view_full_profile: Teljes profil megtekintése
       sidebar:
         badges:
           info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
@@ -819,6 +820,8 @@ hu:
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
         title: Hibabejelentés
+      floating_help:
+        help: Segítség
       follow_button:
         sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:

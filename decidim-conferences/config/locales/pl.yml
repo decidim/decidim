@@ -278,6 +278,10 @@ pl:
           publish: "%{user_name} opublikowało %{resource_name} typ rejestracji w %{space_name} konferencjach"
           unpublish: "%{user_name} nie opublikował %{resource_name} rodzaju rejestracji w %{space_name} konferencjach"
           update: "%{user_name} zaktualizował %{resource_name} typ rejestracji w %{space_name} konferencjach"
+      media_link:
+        create: "%{user_name} utworzyło %{resource_name} link medialny w %{space_name} konferencjach"
+        delete: "%{user_name} usunęło %{resource_name} link medialny z %{space_name} konferencji"
+        update: "%{user_name} zaktualizował %{resource_name} link do mediów w %{space_name} konferencjach"
     conference_program:
       index:
         title: Program
@@ -337,7 +341,7 @@ pl:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} zaprosiło Cię do przyłączenia się do konferencji o %{application}. Możesz go odrzucić lub zaakceptować, korzystając z poniższych linków."
-            join: Dołącz do konferencji "%{conference_title}"
+            registration: Rejestracja dla "%{conference_title}"
         partners:
           index:
             title: Wzmacniacz
@@ -352,8 +356,8 @@ pl:
           confirm: Potwierdzać
         show:
           going: Chodzenie
-          join: Dołącz do konferencji
           no_slots_available: Brak dostępnych miejsc
+          registration: Rejestracja
       conference_program:
         program_meeting:
           content: Zawartość
@@ -397,11 +401,9 @@ pl:
         index:
           speakers: Głośniki
       conferences:
-        conferences_sidebar:
-          register: Zarejestrować
         partners:
-          collaborators: Współpracownicy
-          main_promotors: Główni promotorzy
+          collaborators: Wzmacniacz
+          main_promotors: Organizatorzy
         show:
           login_as: Jesteś zalogowany jako %{name} <%{email}>
           make_conference_registration: 'Dokonaj rejestracji na konferencji:'
@@ -463,8 +465,8 @@ pl:
         conference_user_login:
           already_account: Czy masz już konto w Decidim?
           new_user: Nowy użytkownik?
-          sign_in: Zaloguj się, aby zarejestrować się na tej konferencji
-          sign_up: Zarejestruj się za darmo w decidimie, aby się zarejestrować
+          sign_in: Zaloguj się, aby zarejestrować się na konferencję
+          sign_up: Utwórz konto w decidimie, aby zarejestrować się na konferencję
       show:
         details: Detale
         introduction: Wprowadzenie
