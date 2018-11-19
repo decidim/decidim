@@ -8,13 +8,14 @@ describe Decidim::Debates::Metrics::DebatesMetricManage do
   let(:component) { create(:debates_component, :published, participatory_space: participatory_space) }
   let(:day) { Time.zone.today - 1.day }
   let!(:debates) { create_list(:debate, 5, start_time: day, component: component) }
+  let!(:old_debates) { create_list(:debate, 5, start_time: day - 1.week, component: component) }
 
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
 
       expect(registry.collect(&:day)).to eq([day])
-      expect(registry.collect(&:cumulative)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([10])
       expect(registry.collect(&:quantity)).to eq([5])
     end
 
@@ -30,7 +31,7 @@ describe Decidim::Debates::Metrics::DebatesMetricManage do
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)
-      expect(registry.collect(&:cumulative)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([10])
       expect(registry.collect(&:quantity)).to eq([5])
     end
   end
