@@ -3,9 +3,8 @@
 module Decidim
   module Metrics
     # Metric manager for Followers's registries
+    # Searches for unique Followers for registered MetricOperations
     class FollowersMetricManage < Decidim::MetricManage
-      # Searches for unique Followers for registered MetricOperations
-
       def metric_name
         "followers"
       end
@@ -24,7 +23,7 @@ module Decidim
           record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
           @registry << record
         end
-        # @registry.each(&:save!)
+        @registry.each(&:save!)
         @registry
       end
 
@@ -41,33 +40,24 @@ module Decidim
           grouped_participants[key] = { cumulative_users: [], quantity_users: [] }
           if (operation_manifest = Decidim.metrics_operation.for(:followers, participatory_space.manifest.name))
             space_participants = operation_manifest.calculate(@day, participatory_space)
-            grouped_participants[key].merge!(space_participants || {}) { |_key, g_p, c_p| g_p | c_p }
+            grouped_participants[key].merge!(space_participants || {}) do |_key, grouped_users, space_users|
+              grouped_users | space_users
+            end
           end
+
           components = retrieve_components(participatory_space)
           components.each do |component|
             operation_manifest = Decidim.metrics_operation.for(:followers, component.manifest_name)
             next grouped_participants unless operation_manifest
             component_participants = operation_manifest.calculate(@day, component)
-            grouped_participants[key].merge!(component_participants || {}) { |_key, g_p, c_p| g_p | c_p }
+            grouped_participants[key].merge!(component_participants || {}) do |_key, grouped_users, component_users|
+              grouped_users | component_users
+            end
           end
 
           grouped_participants
         end
         @query
-      end
-
-      # Search for all Participatory Space manifests and then all records available
-      # Limited to ParticipatoryProcesses only
-      def retrieve_participatory_spaces
-        Decidim.participatory_space_manifests.map do |space_manifest|
-          next unless space_manifest.name == :participatory_processes # Temporal limitation
-          space_manifest.participatory_spaces.call(@organization)
-        end.flatten.compact
-      end
-
-      # Search for all components published, within a fixed list of available
-      def retrieve_components(participatory_space)
-        participatory_space.components.published
       end
     end
   end

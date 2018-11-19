@@ -3,10 +3,9 @@
 module Decidim
   module Debates
     module Metrics
+      # Searches for Participants in the following actions
+      #  - Create a debate (Debates)
       class DebateParticipantsMetricMeasure < Decidim::MetricMeasure
-        # Searches for Participants in the following actions
-        #  Create a debate (Debates)
-
         def valid?
           super && @resource.is_a?(Decidim::Component)
         end

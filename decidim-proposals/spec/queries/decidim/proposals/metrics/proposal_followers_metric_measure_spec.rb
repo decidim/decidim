@@ -13,24 +13,25 @@ describe Decidim::Proposals::Metrics::ProposalFollowersMetricMeasure do
   let!(:follows) do
     create_list(:follow, 10, followable: proposal, created_at: day)
     create_list(:follow, 10, followable: draft, created_at: day)
+    create_list(:follow, 10, followable: proposal, created_at: day - 1.week)
   end
 
   context "when executing class" do
     it "fails to create object with an invalid resource" do
-      manager = described_class.for(day, not_valid_resource)
+      manager = described_class.new(day, not_valid_resource)
 
       expect(manager).not_to be_valid
     end
 
     it "calculates" do
-      result = described_class.for(day, proposals_component).calculate
+      result = described_class.new(day, proposals_component).calculate
 
-      expect(result[:cumulative_users].count).to eq(20)
+      expect(result[:cumulative_users].count).to eq(30)
       expect(result[:quantity_users].count).to eq(20)
     end
 
     it "does not found any result for past days" do
-      result = described_class.for(day - 1.month, proposals_component).calculate
+      result = described_class.new(day - 1.month, proposals_component).calculate
 
       expect(result[:cumulative_users].count).to eq(0)
       expect(result[:quantity_users].count).to eq(0)

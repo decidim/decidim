@@ -3,10 +3,9 @@
 module Decidim
   module Meetings
     module Metrics
+      # Searches for unique Users following the next objects
+      #  - Meetings
       class MeetingFollowersMetricMeasure < Decidim::MetricMeasure
-        # Searches for unique Users following the next objects
-        #  - Meetings
-
         def valid?
           super && @resource.is_a?(Decidim::Component)
         end

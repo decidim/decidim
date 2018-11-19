@@ -3,10 +3,9 @@
 module Decidim
   module Debates
     module Metrics
+      # Searches for unique Users following the next objects
+      #  - Debates
       class DebateFollowersMetricMeasure < Decidim::MetricMeasure
-        # Searches for unique Users following the next objects
-        #  - Debates
-
         def valid?
           super && @resource.is_a?(Decidim::Component)
         end

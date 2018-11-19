@@ -3,16 +3,15 @@
 module Decidim
   module Budgets
     module Metrics
+      # Searches for unique Users following the next objects
+      #  - Budgets
       class BudgetFollowersMetricMeasure < Decidim::MetricMeasure
-        # Searches for unique Users following the next objects
-        #  - Budgets
-
         def valid?
           super && @resource.is_a?(Decidim::Component)
         end
 
         def calculate
-          budgets = Decidim::Budgets::Project.where(component: @resource).joins(:component)
+          budgets = Decidim::Budgets::Project.where(component: @resource)
 
           budgets_followers = Decidim::Follow.where(followable: budgets).joins(:user)
                                              .where("decidim_follows.created_at <= ?", end_time)

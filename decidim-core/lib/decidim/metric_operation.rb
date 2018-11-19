@@ -16,7 +16,7 @@ module Decidim
 
       if metric_exists
         raise(
-          MetricAlreadyRegistered,
+          MetricOperationAlreadyRegistered,
           "There's a metric already registered with the name `:#{metric_name}`, must be unique"
         )
       end
@@ -48,7 +48,7 @@ module Decidim
       metrics_manifests
     end
 
-    class MetricAlreadyRegistered < StandardError; end
+    class MetricOperationAlreadyRegistered < StandardError; end
 
     private
 

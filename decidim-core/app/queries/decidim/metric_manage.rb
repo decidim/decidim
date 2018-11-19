@@ -55,5 +55,19 @@ module Decidim
     def quantity
       @quantity ||= cumulative
     end
+
+    # Search for all Participatory Space manifests and then all records available
+    # Limited to ParticipatoryProcesses only
+    def retrieve_participatory_spaces
+      Decidim.participatory_space_manifests.map do |space_manifest|
+        next unless space_manifest.name == :participatory_processes # Temporal limitation
+        space_manifest.participatory_spaces.call(@organization)
+      end.flatten.compact
+    end
+
+    # Search for all components published, within a fixed list of available
+    def retrieve_components(participatory_space)
+      participatory_space.components.published
+    end
   end
 end

@@ -3,13 +3,8 @@
 module Decidim
   module Metrics
     # Metric manager for Participant's registries
+    # Searches for Participants for registered MetricOperations
     class ParticipantsMetricManage < Decidim::MetricManage
-      # Searches for Participants for registered MetricOperations
-      #
-      # !! Comments is an special case because it does not depend
-      #    in Participatory Space's Components, but in all possible
-      #    Components available
-
       # This list limits the number of components involved in this Metric
       AVAILABLE_COMPONENTS = %w(proposals debates surveys budgets).freeze
 
@@ -51,31 +46,26 @@ module Decidim
             operation_manifest = Decidim.metrics_operation.for(:participants, component.manifest_name)
             next grouped_participants unless operation_manifest
             component_participants = operation_manifest.calculate(@day, component)
-            grouped_participants[key].merge!(component_participants || {}) { |_key, g_p, c_p| g_p | c_p }
+            grouped_participants[key].merge!(component_participants || {}) do |_key, grouped_users, component_users|
+              grouped_users | component_users
+            end
           end
 
           # Special case for comments ONLY
           operation_manifest = Decidim.metrics_operation.for(:participants, :comments)
           next grouped_participants unless operation_manifest
           comments_participants = operation_manifest.calculate(@day, participatory_space)
-          grouped_participants[key].merge!(comments_participants || {}) { |_key, g_p, c_p| g_p | c_p }
+          grouped_participants[key].merge!(comments_participants || {}) do |_key, grouped_users, comment_users|
+            grouped_users | comment_users
+          end
           grouped_participants
         end
         @query
       end
 
-      # Search for all Participatory Space manifests and then all records available
-      # Limited to ParticipatoryProcesses only
-      def retrieve_participatory_spaces
-        Decidim.participatory_space_manifests.map do |space_manifest|
-          next unless space_manifest.name == :participatory_processes # Temporal limitation
-          space_manifest.participatory_spaces.call(@organization)
-        end.flatten.compact
-      end
-
       # Search for all components published, within a fixed list of available
       def retrieve_components(participatory_space)
-        participatory_space.components.published.where(manifest_name: AVAILABLE_COMPONENTS)
+        super.where(manifest_name: AVAILABLE_COMPONENTS)
       end
     end
   end

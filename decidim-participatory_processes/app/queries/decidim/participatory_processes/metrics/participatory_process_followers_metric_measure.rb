@@ -3,10 +3,9 @@
 module Decidim
   module ParticipatoryProcesses
     module Metrics
+      # Searches for unique Users following the next objects
+      #  - ParticipatoryProcesses
       class ParticipatoryProcessFollowersMetricMeasure < Decidim::MetricMeasure
-        # Searches for unique Users following the next objects
-        #  - ParticipatoryProcesses
-
         def valid?
           super && @resource.is_a?(Decidim::Participable)
         end

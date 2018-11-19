@@ -6,6 +6,9 @@ describe Decidim::Metrics::ParticipantsMetricManage do
   let(:day) { Time.zone.today - 1.day }
   let(:organization) { create(:organization) }
   let!(:participatory_space) { create(:participatory_process, organization: organization) }
+  let(:component) { create(:proposal_component, participatory_space: participatory_space) }
+  let(:proposal) { create(:proposal, published_at: day, component: component) }
+  let(:old_proposal) { create(:proposal, published_at: day - 1.week, component: component) }
   let(:key) { [participatory_space.class.name, participatory_space.id] }
   let(:query) do
     q = {}
@@ -25,7 +28,19 @@ describe Decidim::Metrics::ParticipantsMetricManage do
       end
     end
 
-    context "with data" do
+    context "with participants data" do
+      before { proposal && old_proposal }
+
+      it "return filled records" do
+        records = generate_metric_registry
+
+        expect(records.count).to eq(1)
+        expect(records.sum(&:cumulative)).to eq(2)
+        expect(records.sum(&:quantity)).to eq(1)
+      end
+    end
+
+    context "with generated data" do
       before do
         # rubocop:disable RSpec/AnyInstance
         allow_any_instance_of(described_class).to receive(:query).and_return(query)

@@ -3,10 +3,9 @@
 module Decidim
   module Comments
     module Metrics
+      # Searches for Participants in the following actions
+      #  - Leave a comment (Comments)
       class CommentParticipantsMetricMeasure < Decidim::MetricMeasure
-        # Searches for Participants in the following actions
-        #  Leave a comment (Comments)
-
         def valid?
           super && @resource.is_a?(Decidim::Participable)
         end

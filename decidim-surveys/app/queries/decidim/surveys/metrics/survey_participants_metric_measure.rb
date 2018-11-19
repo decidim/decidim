@@ -3,10 +3,9 @@
 module Decidim
   module Surveys
     module Metrics
+      # Searches for Participants in the following actions
+      #  - Answer a survey (Surveys)
       class SurveyParticipantsMetricMeasure < Decidim::MetricMeasure
-        # Searches for Participants in the following actions
-        #  Answer a survey (Surveys)
-
         def valid?
           super && @resource.is_a?(Decidim::Component)
         end

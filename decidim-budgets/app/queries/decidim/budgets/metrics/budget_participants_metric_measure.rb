@@ -3,10 +3,9 @@
 module Decidim
   module Budgets
     module Metrics
+      # Searches for Participants in the following actions
+      #  - Vote a participatory budgeting project (Budgets)
       class BudgetParticipantsMetricMeasure < Decidim::MetricMeasure
-        # Searches for Participants in the following actions
-        #  Vote a participatory budgeting project (Budgets)
-
         def valid?
           super && @resource.is_a?(Decidim::Component)
         end
