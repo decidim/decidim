@@ -8,7 +8,7 @@ edit_link(
 )
 %>
 
-<main class="wrapper">
+<%= participatory_space_wrapper do %>
   <% if promoted_assemblies.any? %>
     <section id="highlighted-assemblies" class="row section">
       <h1 class="section-heading"><%= t("assemblies.index.promoted_assemblies", scope: "layouts.decidim") %></h1>
@@ -31,4 +31,4 @@ edit_link(
       </article>
     </div>
   </section>
-</main>
+<% end %>

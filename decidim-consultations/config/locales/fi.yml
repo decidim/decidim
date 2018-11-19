@@ -38,7 +38,7 @@ fi:
           not_found: Vastausta ei löytynyt.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Kuuleminen
         other: Kuulemiset
       decidim/consultations/question:

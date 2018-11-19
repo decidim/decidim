@@ -8,6 +8,8 @@ Decidim.register_component(:pages) do |component|
   component.icon = "decidim/pages/icon.svg"
   component.permissions_class_name = "Decidim::Pages::Permissions"
 
+  component.query_type = "Decidim::Pages::PagesType"
+
   component.on(:create) do |instance|
     Decidim::Pages::CreatePage.call(instance) do
       on(:invalid) { raise "Can't create page" }

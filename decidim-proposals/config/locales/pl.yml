@@ -247,8 +247,7 @@ pl:
           proposals: Propozycje
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propozycje
-        see_all_proposals: Zobacz wszystkie propozycje
+        see_all: Zobacz wszystko (%{count})
     proposals:
       actions:
         answer: Odpowiedź
@@ -376,6 +375,19 @@ pl:
         not_answered: Bez odpowiedzi
         rejected: Odrzucone
         withdrawn: Wycofane
+      application_helper:
+        filter_origin_values:
+          all: Wszystko
+          citizens: Obywatele
+          meetings: Spotkania
+          official: Urzędnik
+          user_groups: Grupy użytkowników
+        filter_state_values:
+          accepted: Przyjęty
+          all: Wszystko
+          evaluating: Ewaluacja
+          except_rejected: Wszystkie oprócz odrzuconych
+          rejected: Odrzucono
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -523,6 +535,12 @@ pl:
             votes: Głosowania
       new:
         limit_reached: Nie możesz tworzyć nowych propozycji, ponieważ przekroczyłeś limit.
+      participatory_text_proposal:
+        buttons:
+          comment: Komentarz
+          comments: Komentarze
+          endorse: Podpisać się
+          endorsements: Adnotacje
       proposal_endorsements:
         create:
           error: Podczas zatwierdzania propozycji wystąpiły błędy.
@@ -568,17 +586,10 @@ pl:
         endorsements_card_row:
           comments: Komentarze
         filters:
-          accepted: Przyjęty
           activity: Czynność
-          all: Wszystko
           category: Kategoria
           category_prompt: Wybierz kategorię
-          citizens: Obywatele
-          evaluating: Ocena
-          except_rejected: Wszystkie oprócz odrzuconych
-          official: Urzędnik
           origin: Pochodzenie
-          rejected: Odrzucone
           related_to: Związany z
           search: Szukanie
           state: Stan
@@ -607,6 +618,11 @@ pl:
           most_voted: Większość głosów
           random: Losowy
           recent: Niedawny
+        participatory_texts:
+          index:
+            document_index: Indeks dokumentów
+          view_index:
+            see_index: Zobacz indeks
         preview:
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
@@ -620,6 +636,7 @@ pl:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
         show:
+          back_to: Wrócić do
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
           hidden_endorsers_count:
@@ -662,7 +679,7 @@ pl:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż %{limit} podpory
           minimum_votes_per_user:
-            description: Musisz rozdzielić co najmniej 3 głosy spośród różnych propozycji.
+            description: Musisz rozdzielić co najmniej %{votes} głosów spośród różnych propozycji.
             given_enough_votes: Dałeś dość wsparcia.
             supports_remaining: Musisz głosować %{remaining_votes} dodatkowych propozycji, aby wziąć pod uwagę twoje głosy.
           proposal_limit:

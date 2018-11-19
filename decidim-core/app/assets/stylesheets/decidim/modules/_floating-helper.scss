@@ -1,7 +1,6 @@
 .floating-helper{
   position: absolute;
   width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
 }
@@ -54,6 +53,7 @@
   border-top: 5px solid $secondary;
   margin-bottom: $global-margin * 3;
   padding: $global-padding * 2;
+  width: 100%;
 
   @include breakpoint(medium){
     padding: $global-padding * 3 $global-padding * 2 $global-padding * 2;

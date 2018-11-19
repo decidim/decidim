@@ -82,7 +82,20 @@ module Decidim
       railtie.load_seed
     end
 
-    participatory_space_manifests.each(&:seed!)
+    participatory_space_manifests.each do |manifest|
+      manifest.seed!
+
+      Organization.all.each do |organization|
+        ContextualHelpSection.set_content(
+          organization,
+          manifest.name,
+          Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.sentence(15)
+          end
+        )
+      end
+    end
+
     Gamification.badges.each do |badge|
       puts "Setting random values for the \"#{badge.name}\" badge..."
       User.all.find_each do |user|
