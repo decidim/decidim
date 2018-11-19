@@ -631,7 +631,7 @@ de:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
           minimum_votes_per_user:
-            description: Sie müssen mindestens 3 Stimmen unter verschiedenen Vorschlägen verteilen.
+            description: Sie müssen mindestens %{votes} Stimmen auf verschiedene Vorschläge verteilen.
             given_enough_votes: Du hast genug Unterstützung gegeben.
             supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:
