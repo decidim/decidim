@@ -397,6 +397,7 @@ es:
           collaborators: Fogonadura
           main_promotors: Organizadores
         show:
+          login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Inscribirte a la conferencia:'
           register: Inscripciones
       content_blocks:
@@ -449,12 +450,15 @@ es:
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
+          login_as: Has iniciado sesión como %{name} <%{email}>
           register: Inscribirse
           title: Tipos de inscripción
       shared:
         conference_user_login:
           already_account: '¿Ya tienes una cuenta en decidim?'
           new_user: '¿Eres nuevo?'
+          sign_in: Inicie sesión para registrarse para la conferencia
+          sign_up: Crear una cuenta en decidim para registrarse para la conferencia
       show:
         details: Detalles
         introduction: Introducción
