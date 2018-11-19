@@ -12,7 +12,7 @@ module Decidim
     delegate :url_helpers, to: "Decidim::Core::Engine.routes"
 
     def resource
-      @user
+      nil
     end
 
     def subject
@@ -36,17 +36,19 @@ module Decidim
     def email_outro; end
 
     def notification_title
-      subject
+      ("<p><strong>#{subject}</strong></p>" + body).html_safe
     end
 
     private
 
     def interpolate(template)
-      Mustache.render(template.to_s,
-                      organization: organization.name,
-                      name: user.name,
-                      help_url: url_helpers.pages_url(host: organization.host),
-                      badges_url: url_helpers.gamification_badges_url(host: organization.host))
+      Mustache.render(
+        template.to_s,
+        organization: organization.name,
+        name: user.name,
+        help_url: url_helpers.pages_url(host: organization.host),
+        badges_url: url_helpers.gamification_badges_url(host: organization.host)
+      ).html_safe
     end
   end
 end
