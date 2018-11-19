@@ -250,6 +250,11 @@ it:
       exports:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
+      help_sections:
+        error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
+        form:
+          save: Salvare
+        success: Aiuto sezioni aggiornate con successo
       impersonatable_users:
         index:
           filter:
@@ -303,11 +308,12 @@ it:
         areas: le zone
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
+        help_sections: Aiuto sezioni
         homepage: Homepage
         impersonations: impersonations
         newsletters: Newsletters
         oauth_applications: Applicazioni OAuth
-        officializations: Officializations
+        participants: I partecipanti
         scope_types: Tipi di ambito
         scopes: Visibilità/ambito (Scopes)
         settings: Impostazioni
@@ -597,7 +603,7 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Utenti impersonabili
         impersonations: impersonations
-        officializations: Officializations
+        participants: I partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine

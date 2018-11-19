@@ -415,7 +415,7 @@ eu:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken bilerak
-        see_all_meetings: Ikusi bilera guztiak
+        see_all: Ikusi dena (%{count})
         upcoming_meetings: Hurrengo topaketak
       upcoming_meeting_for_card:
         upcoming_meeting: Hurrengo bilera

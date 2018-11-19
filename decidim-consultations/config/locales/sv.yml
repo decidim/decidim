@@ -38,7 +38,7 @@ sv:
           not_found: Svar ej hittat.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Samråd
         other: samråd
       decidim/consultations/question:

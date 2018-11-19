@@ -217,8 +217,7 @@ fi:
           results: Tulokset
     participatory_spaces:
       highlighted_results:
-        results: Tulokset
-        see_all_results: Katso kaikki tulokset
+        see_all: Näytä kaikki (%{count})
     resource_links:
       included_projects:
         result_project: Tähän tulokseen liittyvät hankkeet
