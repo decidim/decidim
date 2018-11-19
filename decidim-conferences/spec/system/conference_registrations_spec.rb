@@ -81,7 +81,7 @@ describe "Conference registrations", type: :system do
           visit_conference_registration_types
 
           within ".wrapper" do
-            first(:button, "Join Conference").click
+            first(:button, "Registration").click
           end
 
           expect(page).to have_css("#loginModal", visible: true)
@@ -98,7 +98,7 @@ describe "Conference registrations", type: :system do
         visit_conference_registration_types
 
         within "#registration-type-#{registration_type.id}" do
-          click_button "Join Conference"
+          click_button "Registration"
         end
 
         within "#conference-registration-confirm-#{registration_type.id}" do
@@ -110,7 +110,7 @@ describe "Conference registrations", type: :system do
 
         within ".wrapper" do
           expect(page).to have_css(".button", text: "GOING")
-          expect(page).to have_css("button[disabled]", text: "JOIN CONFERENCE", count: 4)
+          expect(page).to have_css("button[disabled]", text: "REGISTRATION", count: 4)
         end
       end
     end
@@ -132,7 +132,7 @@ describe "Conference registrations", type: :system do
       expect(page).to have_content("successfully")
 
       within ".wrapper" do
-        expect(page).to have_css(".button", text: "JOIN CONFERENCE", count: registration_types_count)
+        expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
       end
     end
   end

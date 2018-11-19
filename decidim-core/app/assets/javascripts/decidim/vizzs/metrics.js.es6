@@ -22,7 +22,7 @@ $(() => {
   $(".metric-chart:visible").each((index, container) => {
     metricsContainer[$(container).data("metric")] = container;
   });
-
+  
   if (!$.isEmptyObject(metricsContainer)) {
     parameterize(Object.keys(metricsContainer))
     fetch().then((response) => {
@@ -39,7 +39,8 @@ $(() => {
             container: `#${container.id}`,
             data: metricData.history,
             title: info.title,
-            objectName: info.object
+            objectName: info.object,
+            ...$(container).data()
           });
         });
       } else if (response.errors) {

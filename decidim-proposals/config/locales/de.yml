@@ -231,10 +231,6 @@ de:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Vorschläge
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Vorschläge
-        see_all_proposals: Sehen Sie sich alle Vorschläge an
     proposals:
       actions:
         answer: Antworten
@@ -518,6 +514,12 @@ de:
             votes: Stimmen
       new:
         limit_reached: Sie können keine neuen Angebote erstellen, da Sie das Limit überschritten haben.
+      participatory_text_proposal:
+        buttons:
+          comment: Kommentar
+          comments: Bemerkungen
+          endorse: Befürworten
+          endorsements: Vermerke
       proposal_endorsements:
         create:
           error: Bei der Bestätigung des Vorschlags sind Fehler aufgetreten.
@@ -591,6 +593,11 @@ de:
           most_voted: Die meisten haben gewählt
           random: Zufällig
           recent: Kürzlich
+        participatory_texts:
+          index:
+            document_index: Dokumentenindex
+          view_index:
+            see_index: Siehe Index
         preview:
           modify: Ändern Sie den Vorschlag
           proposal_edit_before_minutes:
@@ -602,6 +609,7 @@ de:
           creation_date: 'Erstellung: %{date}'
           view_proposal: Angebot anzeigen
         show:
+          back_to: Zurück zu
           edit_proposal: Angebot bearbeiten
           endorsements_list: Liste der Empfehlungen
           hidden_endorsers_count:
@@ -640,7 +648,7 @@ de:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
           minimum_votes_per_user:
-            description: Sie müssen mindestens 3 Stimmen unter verschiedenen Vorschlägen verteilen.
+            description: Sie müssen mindestens %{votes} Stimmen auf verschiedene Vorschläge verteilen.
             given_enough_votes: Du hast genug Unterstützung gegeben.
             supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:

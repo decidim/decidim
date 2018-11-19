@@ -38,7 +38,7 @@ eu:
           not_found: Erantzuna ez da aurkitu.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Consulta
         other: kontsultak
       decidim/consultations/question:

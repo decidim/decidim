@@ -36,8 +36,8 @@ describe "Conference partners", type: :system do
       visit decidim_conferences.conference_path(conference)
 
       within "#conference-partners" do
-        expect(page).to have_content("MAIN PROMOTORS")
-        expect(page).to have_content("COLLABORATORS")
+        expect(page).to have_content("ORGANIZERS")
+        expect(page).to have_content("PARTNERS")
         expect(page).to have_selector("#conference-partners .partner-box", count: 4)
 
         partners.each do |partner|

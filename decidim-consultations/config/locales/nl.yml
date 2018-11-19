@@ -38,7 +38,7 @@ nl:
           not_found: Reactie niet gevonden.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Overleg
         other: overleg
       decidim/consultations/question:

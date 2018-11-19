@@ -250,6 +250,11 @@ ca:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
+      help_sections:
+        error: S'ha produït un error en actualitzar les seccions d'ajuda
+        form:
+          save: Desa
+        success: Les seccions d'ajuda s'han actualitzat correctament
       impersonatable_users:
         index:
           filter:
@@ -303,6 +308,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
+        help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
         newsletters: Butlletins

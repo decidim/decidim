@@ -272,6 +272,10 @@ hu:
           publish: "%{user_name} közzétette az %{resource_name} regisztrációs típust a %{space_name} konferencián"
           unpublish: "%{user_name} az %{resource_name} regisztrációs típus közzétételének meg nem jelentése a %{space_name} konferencián"
           update: "%{user_name} frissítette az %{resource_name} regisztrációs típust a %{space_name} konferencián"
+      media_link:
+        create: "%{user_name} létrehozta az %{resource_name} média linket a %{space_name} konferencián"
+        delete: "%{user_name} eltávolította az %{resource_name} média linket a %{space_name} konferenciából"
+        update: "%{user_name} frissítette az %{resource_name} médiakapcsolatot a %{space_name} konferencián"
     conference_program:
       index:
         title: Program
@@ -329,7 +333,7 @@ hu:
           invite:
             decline: A "%{conference_title}" meghívása
             invited_you_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
-            join: Csatlakozzon a "%{conference_title}"
+            registration: Regisztráció a '%{conference_title}'
         partners:
           index:
             title: Partnerek
@@ -344,8 +348,8 @@ hu:
           confirm: megerősít
         show:
           going: Haladó
-          join: Csatlakozzon a konferenciához
           no_slots_available: Nincs szabad hely
+          registration: Bejegyzés
       conference_program:
         program_meeting:
           content: Tartalom
@@ -389,13 +393,11 @@ hu:
         index:
           speakers: Hangszórók
       conferences:
-        conferences_sidebar:
-          register: Regisztráció
         partners:
-          collaborators: Együttműködők
-          main_promotors: Fő promóterek
+          collaborators: partnerek
+          main_promotors: szervezők
         show:
-          login_as: A bejelentkezés %{name} <%{email}>
+          login_as: '%{name} <%{email}> -ként jelentkezett be'
           make_conference_registration: 'Regisztráljon a konferencián:'
           register: Regisztráció
       content_blocks:
@@ -448,15 +450,15 @@ hu:
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
-          login_as: A bejelentkezés %{name} <%{email}>
+          login_as: '%{name} <%{email}> -ként jelentkezett be'
           register: Regisztráció
           title: Regisztrációs típusok
       shared:
         conference_user_login:
           already_account: Van már fiókja decidimben?
           new_user: Új felhasználó?
-          sign_in: Jelentkezzen be ezen a konferencián
-          sign_up: Regisztrálj ingyen decidim regisztrációhoz
+          sign_in: Jelentkezzen be a konferencia regisztrálásához
+          sign_up: Hozzon létre egy fiókot decidimben, hogy regisztráljon a konferenciára
       show:
         details: Részletek
         introduction: Bevezetés

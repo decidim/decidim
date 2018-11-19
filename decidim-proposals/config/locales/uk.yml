@@ -154,10 +154,6 @@ uk:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Пропозиції
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Пропозиції
-        see_all_proposals: Переглянути всі пропозиції
     proposals:
       actions:
         answer: Відповісти
