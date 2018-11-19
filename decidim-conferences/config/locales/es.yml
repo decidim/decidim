@@ -272,6 +272,10 @@ es:
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+      media_link:
+        create: "%{user_name} creó el enlace %{resource_name} media en la conferencia %{space_name}"
+        delete: "%{user_name} eliminó el %{resource_name} enlace de medios de la conferencia %{space_name}"
+        update: "%{user_name} actualizado el enlace de %{resource_name} media en la conferencia %{space_name}"
     conference_program:
       index:
         title: Programa
@@ -329,7 +333,7 @@ es:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinarla o aceptarla a través de los siguientes enlaces."
-            join: Únete a la conferencia '%{conference_title}'
+            registration: Registro para '%{conference_title}'
         partners:
           index:
             title: Colaboradores
@@ -344,8 +348,8 @@ es:
           confirm: Confirmar
         show:
           going: Asistiré
-          join: Únete a la conferencia
           no_slots_available: No hay plazas disponibles
+          registration: Registro
       conference_program:
         program_meeting:
           content: Contenido
@@ -390,10 +394,9 @@ es:
           speakers: Ponentes
       conferences:
         partners:
-          collaborators: Colaboradores
-          main_promotors: Promotores principales
+          collaborators: Fogonadura
+          main_promotors: Organizadores
         show:
-          login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: 'Inscribirte a la conferencia:'
           register: Inscripciones
       content_blocks:
@@ -446,15 +449,12 @@ es:
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
-          login_as: Has iniciado sesión como %{name} <%{email}>
           register: Inscribirse
           title: Tipos de inscripción
       shared:
         conference_user_login:
           already_account: '¿Ya tienes una cuenta en decidim?'
           new_user: '¿Eres nuevo?'
-          sign_in: Inicie sesión para inscribirte en esta conferencia
-          sign_up: Regístrate gratis para inscribirte
       show:
         details: Detalles
         introduction: Introducción
