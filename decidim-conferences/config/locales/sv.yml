@@ -272,6 +272,10 @@ sv:
           publish: "%{user_name} publicerade %{resource_name} registreringstyp i %{space_name} konferensen"
           unpublish: "%{user_name} opublicerade %{resource_name} registreringstyp i %{space_name} konferensen"
           update: "%{user_name} uppdaterade %{resource_name} registreringstyp i %{space_name} konferensen"
+      media_link:
+        create: "%{user_name} skapade %{resource_name} media länk i %{space_name} konferensen"
+        delete: "%{user_name} bort %{resource_name} media länk från %{space_name} konferensen"
+        update: "%{user_name} uppdaterade %{resource_name} media länk på %{space_name} konferensen"
     conference_program:
       index:
         title: Program
@@ -329,7 +333,7 @@ sv:
           invite:
             decline: Avvisa inbjudan '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller acceptera det genom länkarna nedan."
-            join: Gå med i konferens '%{conference_title}'
+            registration: Registrering för '%{conference_title}'
         partners:
           index:
             title: partners
@@ -344,8 +348,8 @@ sv:
           confirm: Bekräfta
         show:
           going: Gående
-          join: Gå med i konferens
           no_slots_available: Inga slots tillgängliga
+          registration: Registrering
       conference_program:
         program_meeting:
           content: Innehåll
@@ -390,8 +394,8 @@ sv:
           speakers: högtalare
       conferences:
         partners:
-          collaborators: medarbetare
-          main_promotors: Huvudpromotorer
+          collaborators: partners
+          main_promotors: arrangörer
         show:
           login_as: Du är inloggad som %{name} <%{email}>
           make_conference_registration: 'Gör din registrering på konferensen:'
@@ -453,8 +457,8 @@ sv:
         conference_user_login:
           already_account: Har du redan ett konto i decidim?
           new_user: Ny användare?
-          sign_in: Logga in för att registrera dig på denna konferens
-          sign_up: Registrera dig gratis i decidim för att registrera dig
+          sign_in: Logga in för att registrera dig för konferensen
+          sign_up: Skapa ett konto i decidim för att registrera dig för konferensen
       show:
         details: detaljer
         introduction: Introduktion
