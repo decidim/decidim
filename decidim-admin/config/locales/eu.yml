@@ -313,7 +313,6 @@ eu:
         impersonations: impersonations
         newsletters: Buletinak
         oauth_applications: OAuth aplikazioak
-        officializations: Officializations
         scope_types: Esparru motak
         scopes: Esparruak
         settings: Ezarpenak
@@ -603,7 +602,6 @@ eu:
         dashboard: Kontrol-panela
         impersonatable_users: Erabiltzaile ustekabekoak
         impersonations: Ordezteak
-        officializations: Officializations
         scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Orriak

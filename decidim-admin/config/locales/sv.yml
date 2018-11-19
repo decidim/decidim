@@ -313,7 +313,7 @@ sv:
         impersonations: impersonations
         newsletters: Nyhetsbrev
         oauth_applications: OAuth applikationer
-        officializations: Officializations
+        participants: Deltagarna
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: inställningar
@@ -603,7 +603,7 @@ sv:
         dashboard: Kontrollpanel
         impersonatable_users: Impersonatable användare
         impersonations: impersonations
-        officializations: Officializations
+        participants: Deltagarna
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
