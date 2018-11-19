@@ -115,6 +115,15 @@ module Decidim
             on(:invalid) { raise("Should not happen") }
           end
         end
+
+        it "allows searching by prefix characters" do
+          Decidim::Search.call("wait", organization, resource_type: proposal.class.name) do
+            on(:ok) do |results|
+              expect(results.count).to eq 1
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
       end
     end
 

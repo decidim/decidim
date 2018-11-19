@@ -34,7 +34,7 @@ edit_link(
             <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
           </div>
         <% end %>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: debate } %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: debate, large: false } %>
       </div>
     </div>
     <%= resource_reference(debate) %>

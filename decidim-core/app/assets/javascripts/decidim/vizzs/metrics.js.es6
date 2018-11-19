@@ -39,7 +39,9 @@ $(() => {
             container: `#${container.id}`,
             data: metricData.history,
             title: info.title,
-            objectName: info.object
+            objectName: info.object,
+            ratio: "", // Temporal hack to not explode
+            ...$(container).data()
           });
         });
       } else if (response.errors) {

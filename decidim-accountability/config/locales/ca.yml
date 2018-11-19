@@ -217,8 +217,7 @@ ca:
           results: Resultats
     participatory_spaces:
       highlighted_results:
-        results: Resultats
-        see_all_results: Veure tots els resultats
+        see_all: Veure tots (%{count})
     resource_links:
       included_projects:
         result_project: Projectes inclosos en aquest resultat

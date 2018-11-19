@@ -237,8 +237,7 @@ nl:
           proposals: Voorstellen
     participatory_spaces:
       highlighted_proposals:
-        proposals: Voorstellen
-        see_all_proposals: Bekijk alle voorstellen
+        see_all: Alles zien (%{count})
     proposals:
       actions:
         answer: Antwoord
@@ -522,6 +521,12 @@ nl:
             votes: Stemmen
       new:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
+      participatory_text_proposal:
+        buttons:
+          comment: Commentaar
+          comments: Comments
+          endorse: Onderschrijven
+          endorsements: Endorsements
       proposal_endorsements:
         create:
           error: Er zijn fouten opgetreden tijdens het aanbevelen van het voorstel.
@@ -595,6 +600,11 @@ nl:
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Meest recent
+        participatory_texts:
+          index:
+            document_index: Documentindex
+          view_index:
+            see_index: Zie index
         preview:
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
@@ -606,6 +616,7 @@ nl:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
         show:
+          back_to: Terug naar
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
           hidden_endorsers_count:
@@ -644,7 +655,7 @@ nl:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
           minimum_votes_per_user:
-            description: U moet minimaal 3 stemmen verdelen over verschillende voorstellen.
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
             given_enough_votes: Je hebt voldoende steun gegeven.
             supports_remaining: U moet nog %{remaining_votes} voorstellen stemmen om rekening te houden met uw stemmen.
           proposal_limit:

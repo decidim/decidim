@@ -753,6 +753,7 @@ gl:
         groups: Grupos
         members: Membros
         notifications: Notificacións
+        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
@@ -820,6 +821,8 @@ gl:
         report: Informe
         spam: Contén clic, publicidade, fraudes ou bots de script.
         title: Informar dun problema
+      floating_help:
+        help: Axuda
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
