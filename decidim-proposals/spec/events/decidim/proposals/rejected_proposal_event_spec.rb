@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Proposals::RejectedProposalEvent do
-  let(:resource) { create :proposal }
+  let(:resource) { create :proposal, :with_answer }
   let(:event_name) { "decidim.events.proposals.proposal_rejected" }
 
   include_context "when a simple event"

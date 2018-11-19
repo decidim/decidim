@@ -40,7 +40,7 @@ describe Decidim::Proposals::ProposalEndorsedEvent do
     it "is generated correctly" do
       expect(subject.email_intro)
         .to eq("#{author.name} #{author_presenter.nickname}, who you are following," \
-         " has just endorsed a proposal that may be interesting to you, check it out and contribute:")
+         " has just endorsed the \"#{resource.title}\" proposal and we think it may be interesting to you. Check it out and contribute:")
     end
   end
 

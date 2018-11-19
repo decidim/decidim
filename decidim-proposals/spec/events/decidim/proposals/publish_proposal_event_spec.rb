@@ -19,14 +19,14 @@ module Decidim
 
       describe "email_subject" do
         it "is generated correctly" do
-          expect(subject.email_subject).to eq("New proposal by @#{author.nickname}")
+          expect(subject.email_subject).to eq("New proposal \"#{resource.title}\" by @#{author.nickname}")
         end
       end
 
       describe "email_intro" do
         it "is generated correctly" do
           expect(subject.email_intro)
-            .to eq("#{author.name} @#{author.nickname}, who you are following, has published a new proposal, check it out and contribute:")
+            .to eq("#{author.name} @#{author.nickname}, who you are following, has published a new proposal called \"#{resource.title}\". Check it out and contribute:")
         end
       end
 
@@ -56,7 +56,7 @@ module Decidim
 
         describe "email_subject" do
           it "is generated correctly" do
-            expect(subject.email_subject).to eq("New proposal added to #{participatory_space_title}")
+            expect(subject.email_subject).to eq("New proposal \"#{resource.title}\" added to #{participatory_space_title}")
           end
         end
 
