@@ -269,9 +269,13 @@ fi:
           update: "%{user_name} päivitti %{resource_name} konferenssiin %{space_name}"
         registration_type:
           create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
-          publish: "%{user_name} julkaisi %{resource_name} rekisteröintityyppiä %{space_name} konferenssissa"
-          unpublish: "%{user_name} julkaisematon %{resource_name} rekisteröintityyppi %{space_name} konferenssissa"
-          update: "%{user_name} päivitti %{resource_name} rekisteröintityyppiä %{space_name} konferenssiin"
+          publish: "%{user_name} julkaisi ilmoittautumistyypin %{resource_name} konferenssissa %{space_name}"
+          unpublish: "%{user_name} lopetti ilmoittautumistyypin %{resource_name} julkaisun konferenssissa %{space_name}"
+          update: "%{user_name} päivitti ilmoittautumistyyppiä %{resource_name} konferenssissa %{space_name}"
+      media_link:
+        create: "%{user_name} loi %{resource_name} median linkin %{space_name} konferenssissa"
+        delete: "%{user_name} poisti %{resource_name} median linkin %{space_name} konferenssista"
+        update: "%{user_name} päivitti %{resource_name} median linkin %{space_name} konferenssiin"
     conference_program:
       index:
         title: Ohjelma
@@ -329,23 +333,23 @@ fi:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
-            join: Liity konferenssiin '%{conference_title}'
+            registration: Rekisteröinti "%{conference_title}"
         partners:
           index:
             title: Yhteistyökumppanit
         registration_types:
           form:
-            select_conference_meetings: Valitse neuvottelukokoukset
+            select_conference_meetings: Valitse konferenssin tapaamiset
           index:
-            title: Rekisteröintityypit
+            title: Ilmoittautumistyypit
       conference:
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
         show:
           going: Osallistumassa
-          join: Liity konferenssiin
           no_slots_available: Ei paikkoja vapaana
+          registration: Rekisteröinti
       conference_program:
         program_meeting:
           content: Sisältö
@@ -358,12 +362,12 @@ fi:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> on vahvistettu.
-          details_1: 'Olet rekisteröitynyt neuvotteluun %{registration_type} tyypillä. Se maksaa %{price} ja voit osallistua seuraaviin tapahtumiin:'
+          details_1: 'Olet ilmoittautunut konferenssiin ilmoittautumistyypillä %{registration_type}. Hinta on %{price} ja voit osallistua seuraaviin tapahtumiin:'
           details_2: Konferenssin tiedot löytyvät liitetiedostosta.
         pending_validation:
           confirmation_pending: Saat vahvistuksen pian
-          details: 'Olet rekisteröitynyt %{registration_type} tyyppiin, jonka hinta on %{price} ja voit osallistua seuraaviin tapahtumiin:'
-          pending_html: Ilmoittautumislomake <a href="%{url}">%{title}</a> on odottava vahvistettavaksi.
+          details: 'Olet ilmoittautunut tyypillä %{registration_type}, jonka hinta on %{price}. Voit osallistua seuraaviin tapahtumiin:'
+          pending_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> odottaa vahvistusta.
       conference_registrations:
         create:
           invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
@@ -389,11 +393,9 @@ fi:
         index:
           speakers: Puhujat
       conferences:
-        conferences_sidebar:
-          register: Rekisteröidy
         partners:
-          collaborators: yhteistyökumppanit
-          main_promotors: Pääpromoottorit
+          collaborators: kumppanit
+          main_promotors: järjestäjät
         show:
           login_as: Olet kirjautunut sisään %{name} <%{email}>
           make_conference_registration: 'Ilmoittaudu konferenssiin:'
@@ -408,7 +410,7 @@ fi:
           confirmation:
             subject: Konferenssin ilmoittautuminen on vahvistettu
           pending_validation:
-            subject: Konferenssin rekisteröinti on odottava vahvistettavaksi
+            subject: Konferenssin ilmoittautuminen odottaa vahvistusta
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
@@ -417,7 +419,7 @@ fi:
           fields:
             email: Sähköposti
             name: Nimi
-            registration_type: Rekisteröintityyppi
+            registration_type: Ilmoittautumistyyppi
             sent_at: Lähetyksen ajankohta
             status: Tila
           status:
@@ -428,11 +430,11 @@ fi:
           fields:
             email: Sähköposti
             name: Nimi
-            registration_type: Rekisteröintityyppi
-            state: Osavaltio
+            registration_type: Ilmoittautumistyyppi
+            state: Tila
             states:
               confirmed: Vahvistettu
-              pending: odotettaessa
+              pending: Odottaa
       pages:
         home:
           highlighted_conferences:
@@ -447,16 +449,16 @@ fi:
           related_photos: Kuvat
       registration_types:
         index:
-          choose_an_option: 'Valitse rekisteröintivaihtoehto:'
+          choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
           login_as: Olet kirjautunut sisään %{name} <%{email}>
-          register: Rekisteröidy
-          title: Rekisteröintityypit
+          register: Ilmoittaudu
+          title: Ilmoittautumistyypit
       shared:
         conference_user_login:
           already_account: Onko sinulla jo käyttäjätili?
           new_user: Uusi käyttäjä?
-          sign_in: Kirjaudu sisään ilmoittautuaksesi tähän konferenssiin
-          sign_up: Rekisteröidy maksutta ilmoittautuaksesi
+          sign_in: Kirjaudu sisään rekisteröityäksesi konferenssiin
+          sign_up: Luo tili decidim-tilassa rekisteröidäksesi konferenssin
       show:
         details: Tarkemmat tiedot
         introduction: Esittely
@@ -515,7 +517,7 @@ fi:
   layouts:
     decidim:
       conference_hero:
-        register: Rekisteröidy
+        register: Ilmoittaudu
       conference_widgets:
         show:
           take_part: Osallistu

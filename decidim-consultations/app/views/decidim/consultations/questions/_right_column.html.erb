@@ -10,7 +10,7 @@
   <% if user_signed_in? %>
     <div class="card extra">
       <div class="card__content">
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: question } %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: question, large: false  } %>
       </div>
     </div>
   <% end %>

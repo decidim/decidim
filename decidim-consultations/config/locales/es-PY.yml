@@ -38,7 +38,7 @@ es-PY:
           not_found: Respuesta no encontrada
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Consulta
         other: Consultas
       decidim/consultations/question:

@@ -237,8 +237,7 @@ sv:
           proposals: Förslag
     participatory_spaces:
       highlighted_proposals:
-        proposals: Förslag
-        see_all_proposals: Se alla förslag
+        see_all: Se alla (%{count})
     proposals:
       actions:
         answer: Svara
@@ -366,6 +365,19 @@ sv:
         not_answered: Inte besvarad
         rejected: Avvisade
         withdrawn: Tillbakadragen
+      application_helper:
+        filter_origin_values:
+          all: Allt
+          citizens: Medborgare
+          meetings: möten
+          official: Officiell
+          user_groups: Användargrupper
+        filter_state_values:
+          accepted: Accepterad
+          all: Allt
+          evaluating: utvärdera
+          except_rejected: Alla förutom avvisade
+          rejected: avvisade
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -509,6 +521,12 @@ sv:
             votes: Röster
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
+      participatory_text_proposal:
+        buttons:
+          comment: Kommentar
+          comments: kommentarer
+          endorse: Stödja
+          endorsements: påskrifter
       proposal_endorsements:
         create:
           error: Det har blivit fel när man godkände förslaget.
@@ -552,17 +570,10 @@ sv:
         endorsements_card_row:
           comments: Kommentarer
         filters:
-          accepted: Accepterad
           activity: Aktivitet
-          all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: Medborgare
-          evaluating: Utvärderas
-          except_rejected: Alla förutom avvisade
-          official: Officiell
           origin: Ursprung
-          rejected: Avvisade
           related_to: Relaterad till
           search: Sök
           state: Status
@@ -589,6 +600,11 @@ sv:
           most_voted: Mest röstade
           random: Slumpmässig
           recent: Senaste
+        participatory_texts:
+          index:
+            document_index: Dokumentindex
+          view_index:
+            see_index: Se index
         preview:
           modify: Ändra förslaget
           proposal_edit_before_minutes:
@@ -600,6 +616,7 @@ sv:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
         show:
+          back_to: Tillbaka till
           edit_proposal: Redigera förslag
           endorsements_list: Förteckning över Stöd
           hidden_endorsers_count:
@@ -638,7 +655,7 @@ sv:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd
           minimum_votes_per_user:
-            description: Du måste distribuera minst 3 röster bland olika förslag.
+            description: Du måste distribuera minst %{votes} röster mellan olika förslag.
             given_enough_votes: Du har gett tillräckligt med stöd.
             supports_remaining: Du måste rösta %{remaining_votes} ytterligare förslag för att dina röster ska beaktas.
           proposal_limit:

@@ -26,6 +26,7 @@ module Decidim
             link_proposals
             link_meetings
             link_projects
+            send_notifications if should_notify_followers?
           end
 
           broadcast(:ok)
@@ -81,6 +82,27 @@ module Decidim
 
         def link_meetings
           result.link_resources(meetings, "meetings_through_proposals")
+        end
+
+        def send_notifications
+          result.linked_resources(:proposals, "included_proposals").each do |proposal|
+            recipient_ids = proposal.follower_ids
+
+            Decidim::EventsManager.publish(
+              event: "decidim.events.accountability.result_progress_updated",
+              event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
+              resource: result,
+              recipient_ids: recipient_ids,
+              extra: {
+                progress: result.progress,
+                proposal_id: proposal.id
+              }
+            )
+          end
+        end
+
+        def should_notify_followers?
+          result.previous_changes["progress"].present?
         end
       end
     end

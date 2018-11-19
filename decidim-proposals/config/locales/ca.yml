@@ -237,8 +237,7 @@ ca:
           proposals: Propostes
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propostes
-        see_all_proposals: Veure totes les propostes
+        see_all: Veure tots (%{count})
     proposals:
       actions:
         answer: Respondre
@@ -366,6 +365,19 @@ ca:
         not_answered: No resposta
         rejected: Rebutjada
         withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          all: Tots
+          citizens: Ciutadania
+          meetings: Reunions
+          official: Oficial
+          user_groups: Grups d'usuaris
+        filter_state_values:
+          accepted: Acceptat
+          all: Tots
+          evaluating: Avaluació
+          except_rejected: Totes menys rebutjades
+          rejected: Rebutjat
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -509,6 +521,12 @@ ca:
             votes: Suports
       new:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
+      participatory_text_proposal:
+        buttons:
+          comment: Comentari
+          comments: Comentaris
+          endorse: Endossar
+          endorsements: Aprovacions
       proposal_endorsements:
         create:
           error: Hi ha hagut errors en adherir-te a la proposta.
@@ -552,17 +570,10 @@ ca:
         endorsements_card_row:
           comments: Comentaris
         filters:
-          accepted: Acceptades
           activity: Activitat
-          all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
-          citizens: Ciutadania
-          evaluating: En avaluació
-          except_rejected: Totes menys rebutjades
-          official: Oficial
           origin: Origen
-          rejected: Rebutjades
           related_to: Relacionat amb
           search: Cerca
           state: Estat
@@ -589,6 +600,11 @@ ca:
           most_voted: Ha rebut més suports
           random: Aleatori
           recent: Recent
+        participatory_texts:
+          index:
+            document_index: Índex del document
+          view_index:
+            see_index: Veure índex
         preview:
           modify: Modifica la proposta
           proposal_edit_before_minutes:
@@ -600,6 +616,7 @@ ca:
           creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
         show:
+          back_to: Tornar
           edit_proposal: Editar proposta
           endorsements_list: Llistat d'adhesions
           hidden_endorsers_count:
@@ -638,7 +655,7 @@ ca:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
-            description: Has de distribuir un mínim de 3 suports entre diferents propostes.
+            description: Heu de distribuir un mínim de %{votes} vots entre diferents propostes.
             given_enough_votes: Has donat suficients suports.
             supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per tenir en compte els teus suports.
           proposal_limit:

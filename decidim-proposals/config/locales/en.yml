@@ -238,8 +238,7 @@ en:
           proposals: Proposals
     participatory_spaces:
       highlighted_proposals:
-        proposals: Proposals
-        see_all_proposals: See all proposals
+        see_all: See all (%{count})
     proposals:
       actions:
         answer: Answer
@@ -367,6 +366,19 @@ en:
         not_answered: Not answered
         rejected: Rejected
         withdrawn: Withdrawn
+      application_helper:
+        filter_origin_values:
+          all: All
+          citizens: Citizens
+          meetings: Meetings
+          official: Official
+          user_groups: User groups
+        filter_state_values:
+          accepted: Accepted
+          all: All
+          evaluating: Evaluating
+          except_rejected: All except rejected
+          rejected: Rejected
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -510,6 +522,12 @@ en:
             votes: Votes
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
+      participatory_text_proposal:
+        buttons:
+          comment: Comment
+          comments: Comments
+          endorse: Endorse
+          endorsements: Endorsements
       proposal_endorsements:
         create:
           error: There's been errors when endorsing the proposal.
@@ -553,17 +571,10 @@ en:
         endorsements_card_row:
           comments: Comments
         filters:
-          accepted: Accepted
           activity: Activity
-          all: All
           category: Category
           category_prompt: Select a category
-          citizens: Citizens
-          evaluating: Evaluating
-          except_rejected: All except rejected
-          official: Official
           origin: Origin
-          rejected: Rejected
           related_to: Related to
           search: Search
           state: State
@@ -590,6 +601,11 @@ en:
           most_voted: Most voted
           random: Random
           recent: Recent
+        participatory_texts:
+          index:
+            document_index: Document index
+          view_index:
+            see_index: See index
         preview:
           modify: Modify the proposal
           proposal_edit_before_minutes:
@@ -601,6 +617,7 @@ en:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:
+          back_to: Back to
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
           hidden_endorsers_count:
@@ -639,7 +656,7 @@ en:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports
           minimum_votes_per_user:
-            description: You must distribute a minimum of 3 votes among different proposals.
+            description: You must distribute a minimum of %{votes} votes among different proposals.
             given_enough_votes: You've given enough supports.
             supports_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
           proposal_limit:

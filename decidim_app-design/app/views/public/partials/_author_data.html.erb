@@ -1,25 +1,23 @@
 <% extra ||= false %>
 <% nick = true unless local_assigns.has_key?(:nick) %>
-<% small ||= false %>
+<% tooltip = true unless local_assigns.has_key?(:tooltip) %>
 <% big ||= false %>
 <% verified = Faker::Boolean.boolean unless local_assigns.has_key?(:verified) %>
-<div class="author-data<%= " author-data--small" if small %><%= " author-data--big" if big %>">
+<div class="author-data<%= " author-data--big" if big %>">
 
   <div class="author-data__main">
     <% if big %>
       <div class="author author--flex">
-        <a href="user-profile" class="author__avatar<%= " author-data--small" if small %>">
-          <%= image_tag "demo-avatar.jpg" %>
-        </a>
+        <%= partial "author_data--avatar" %>
         <div>
           <div class="author__name--container">
-            <a href="user-profile" class="author__name">
-              <%= Faker::Name.name %>
-            </a>
+            <%= partial "author_data--name", { tooltip: tooltip } %>
+
             <% if verified %>
               <%= icon "verified-badge", class: "author__verified" %>
             <% end %>
           </div>
+
           <% if nick %>
             <a href="user-profile" class="author__nickname">
               @<%= Faker::Twitter.screen_name %>
@@ -29,20 +27,18 @@
       </div>
     <% else %>
       <div class="author author--inline">
-      <a href="user-profile" class="author__avatar<%= " author-data--small" if small %>">
-        <%= image_tag "demo-avatar.jpg" %>
-      </a>
-      <a href="user-profile" class="author__name">
-        <%= Faker::Name.name %>
-      </a>
-      <% if nick %>
-        <a href="user-profile" class="author__nickname">
-          @<%= Faker::Twitter.screen_name %>
-        </a>
-      <% end %>
-      <% if verified %>
-        <%= icon "verified-badge", class: "author__verified" %>
-      <% end %>
+        <%= partial "author_data--avatar" %>
+        <%= partial "author_data--name", { tooltip: tooltip } %>
+
+        <% if nick %>
+          <a href="user-profile" class="author__nickname">
+            @<%= Faker::Twitter.screen_name %>
+          </a>
+        <% end %>
+
+        <% if verified %>
+          <%= icon "verified-badge", class: "author__verified" %>
+        <% end %>
     </div>
     <% end %>
   </div>
