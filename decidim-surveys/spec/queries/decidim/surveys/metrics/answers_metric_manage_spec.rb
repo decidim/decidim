@@ -10,12 +10,14 @@ describe Decidim::Surveys::Metrics::AnswersMetricManage do
   let(:survey) { create(:survey, component: surveys_component) }
   let(:questionnaire) { create(:questionnaire, questionnaire_for: survey) }
   let!(:answers) { create_list(:answer, 5, questionnaire: questionnaire, created_at: day) }
+  let!(:old_answers) { create_list(:answer, 5, questionnaire: questionnaire, created_at: day - 1.week) }
 
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
+
       expect(registry.collect(&:day)).to eq([day])
-      expect(registry.collect(&:cumulative)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([10])
       expect(registry.collect(&:quantity)).to eq([5])
     end
 
@@ -31,7 +33,7 @@ describe Decidim::Surveys::Metrics::AnswersMetricManage do
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)
-      expect(registry.collect(&:cumulative)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([10])
       expect(registry.collect(&:quantity)).to eq([5])
     end
   end

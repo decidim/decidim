@@ -34,10 +34,8 @@ module Decidim
           return @query if @query
 
           @query = retrieve_surveys.each_with_object({}) do |survey, grouped_answers|
-            questionnaires = Decidim::Forms::Questionnaire.includes(:questionnaire_for)
-                                                          .where(questionnaire_for: survey)
             answers = Decidim::Forms::Answer.joins(:questionnaire)
-                                            .where(questionnaire: questionnaires)
+                                            .where(questionnaire: retrieve_questionnaires(survey))
                                             .where("decidim_forms_answers.created_at <= ?", end_time)
             next grouped_answers unless answers
 
@@ -55,6 +53,11 @@ module Decidim
           end
           components = Decidim::Component.where(participatory_space: spaces).published
           Decidim::Surveys::Survey.where(component: components)
+        end
+
+        def retrieve_questionnaires(survey)
+          Decidim::Forms::Questionnaire.includes(:questionnaire_for)
+                                       .where(questionnaire_for: survey)
         end
 
         def generate_group_key(survey)
