@@ -272,6 +272,10 @@ eu:
           publish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} biltzarrean"
           unpublish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} hitzaldian argitaratu gabe"
           update: "%{user_name} eguneratu zen %{resource_name} izen-emate mota %{space_name} hitzaldian"
+      media_link:
+        create: "%{user_name} sortutako %{resource_name} media lotura honetan %{space_name} konferentzia"
+        delete: "%{user_name} kendu du %{resource_name} -tik media link %{space_name} konferentzia"
+        update: "%{user_name} eguneratu %{resource_name} komunikabideen arteko %{space_name} esteka"
     conference_program:
       index:
         title: Programa
@@ -329,7 +333,7 @@ eu:
           invite:
             decline: Baztertu gonbidapena '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} gonbidatu zaitu hitzaldi batean %{application}. Beheko esteken bidez baztertu edo onartu dezakezu."
-            join: Parte hartu '%{conference_title}' konferentzia
+            registration: '''%{conference_title}'' izen-ematea'
         partners:
           index:
             title: Bazkideak
@@ -344,8 +348,8 @@ eu:
           confirm: Berretsi
         show:
           going: joatean
-          join: Parte hartu Kongresua
           no_slots_available: Ez dago slotarik erabilgarri
+          registration: Izen-ematea
       conference_program:
         program_meeting:
           content: Edukia
@@ -390,10 +394,10 @@ eu:
           speakers: Hizlariak
       conferences:
         partners:
-          collaborators: Laguntzaileak
-          main_promotors: Garapen nagusiak
+          collaborators: Bazkideak
+          main_promotors: Antolatzaileak
         show:
-          login_as: '%{name} <%{email}> saioan zaude'
+          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
           make_conference_registration: 'Egin zure izen ematea hitzaldian:'
           register: Eman izena
       content_blocks:
@@ -446,15 +450,15 @@ eu:
       registration_types:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
-          login_as: '%{name} <%{email}> saioan zaude'
+          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
           register: Eman izena
           title: Izen-emate motak
       shared:
         conference_user_login:
           already_account: Dagoeneko kontu bat duzu erabakitzeko?
           new_user: Erabiltzaile berria?
-          sign_in: Saio honetan izena emateko saioa
-          sign_up: Erregistratu dohainik erregistroan erabakitzeko
+          sign_in: Saioa hasteko erregistratzeko saioa
+          sign_up: Sortu kontua erabakitzeko biltzea erregistratzeko
       show:
         details: Xehetasunak
         introduction: Sarrera
