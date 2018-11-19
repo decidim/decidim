@@ -272,6 +272,10 @@ pt:
           publish: "%{user_name} publicou o tipo de registro %{resource_name} na conferência %{space_name}"
           unpublish: "%{user_name} não publicado o tipo de registro %{resource_name} na conferência %{space_name}"
           update: "%{user_name} atualizou o tipo de registro %{resource_name} na conferência %{space_name}"
+      media_link:
+        create: "%{user_name} criou o link de mídia %{resource_name} na conferência de %{space_name}"
+        delete: "%{user_name} removeu o link de mídia %{resource_name} da conferência de %{space_name}"
+        update: "%{user_name} atualizou a %{resource_name} link de mídia no %{space_name} conferência"
     conference_program:
       index:
         title: Programa
@@ -329,7 +333,7 @@ pt:
           invite:
             decline: Recusar convite '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
-            join: Participe da conferência '%{conference_title}'
+            registration: Registro para '%{conference_title}'
         partners:
           index:
             title: Parceiros
@@ -344,8 +348,8 @@ pt:
           confirm: confirme
         show:
           going: Indo
-          join: Junte-se à conferência
           no_slots_available: Não há slots disponíveis
+          registration: Cadastro
       conference_program:
         program_meeting:
           content: Conteúdo
@@ -390,8 +394,8 @@ pt:
           speakers: caixas de som
       conferences:
         partners:
-          collaborators: Colaboradores
-          main_promotors: Principais promotores
+          collaborators: Parceiros
+          main_promotors: Organizadores
         show:
           login_as: Você está logado como %{name} <%{email}>
           make_conference_registration: 'Faça seu cadastro na conferência:'
@@ -453,8 +457,8 @@ pt:
         conference_user_login:
           already_account: Você já tem uma conta na decidim?
           new_user: Novo usuário?
-          sign_in: Entre para se registrar nesta conferência
-          sign_up: Registre-se gratuitamente em decidim para registrar
+          sign_in: Entre para se inscrever na conferência
+          sign_up: Crie uma conta no decidim para se inscrever na conferência
       show:
         details: Detalhes
         introduction: Introdução
