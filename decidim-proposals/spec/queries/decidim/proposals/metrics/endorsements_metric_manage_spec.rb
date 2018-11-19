@@ -9,13 +9,14 @@ describe Decidim::Proposals::Metrics::EndorsementsMetricManage do
   let(:proposal) { create(:proposal, component: component) }
   let(:day) { Time.zone.today - 1.day }
   let!(:endorsements) { create_list(:proposal_endorsement, 5, proposal: proposal, created_at: day) }
+  let!(:old_endorsements) { create_list(:proposal_endorsement, 5, proposal: proposal, created_at: day - 1.week) }
 
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
 
       expect(registry.collect(&:day)).to eq([day])
-      expect(registry.collect(&:cumulative)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([10])
       expect(registry.collect(&:quantity)).to eq([5])
     end
 
@@ -31,7 +32,7 @@ describe Decidim::Proposals::Metrics::EndorsementsMetricManage do
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)
-      expect(registry.collect(&:cumulative)).to eq([5])
+      expect(registry.collect(&:cumulative)).to eq([10])
       expect(registry.collect(&:quantity)).to eq([5])
     end
   end
