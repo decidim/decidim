@@ -315,7 +315,7 @@ fi:
               other: "%{count} prosessia"
             past:
               one: 1 aikaisempi prosessi
-              other: "%{count} menneitä prosesseja"
+              other: "%{count} aikaisempaa prosesseja"
             upcoming:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
