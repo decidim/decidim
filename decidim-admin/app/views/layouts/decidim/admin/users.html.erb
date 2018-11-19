@@ -16,7 +16,7 @@
       <% end %>
       <% if allowed_to? :index, :officialization %>
         <li <% if is_active_link?(decidim_admin.officializations_path) %> class="is-active" <% end %>>
-          <%= link_to t("menu.officializations", scope: "decidim.admin"), decidim_admin.officializations_path %>
+          <%= link_to t("menu.participants", scope: "decidim.admin"), decidim_admin.officializations_path %>
         </li>
       <% end %>
       <% if allowed_to? :index, :impersonatable_user %>
