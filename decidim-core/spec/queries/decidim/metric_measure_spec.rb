@@ -10,7 +10,7 @@ describe Decidim::MetricMeasure do
 
   context "when executing a metric management" do
     it "creates a MetricManageObject" do
-      manager = described_class.for(nil, resource)
+      manager = described_class.new(nil, resource)
 
       expect(manager).to be_valid
     end
