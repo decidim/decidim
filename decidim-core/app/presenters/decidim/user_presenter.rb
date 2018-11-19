@@ -40,14 +40,6 @@ module Decidim
       link_to nickname, profile_path, class: "user-mention"
     end
 
-    def followers_count
-      __getobj__.followers.count
-    end
-
-    def following_count
-      __getobj__.following_users.count
-    end
-
     def can_be_contacted?
       true
     end
@@ -58,6 +50,10 @@ module Decidim
     end
 
     def can_follow?
+      true
+    end
+
+    def has_tooltip?
       true
     end
   end

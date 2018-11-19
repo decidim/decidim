@@ -35,11 +35,14 @@ $(() => {
           }
           let info = $(container).data("info");
 
+          // Ratio is hardcoded temporally
           areachart({
             container: `#${container.id}`,
             data: metricData.history,
             title: info.title,
-            objectName: info.object
+            objectName: info.object,
+            ratio: "",
+            ...$(container).data()
           });
         });
       } else if (response.errors) {

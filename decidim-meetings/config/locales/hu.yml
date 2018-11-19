@@ -415,7 +415,7 @@ hu:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Korábbi találkozók
-        see_all_meetings: Összes találkozó
+        see_all: Összes (%{count})
         upcoming_meetings: Közelgő találkozók
       upcoming_meeting_for_card:
         upcoming_meeting: Közelgő találkozó

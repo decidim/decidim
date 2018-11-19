@@ -12,7 +12,7 @@ fi:
       proposal:
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        body: Leipäteksti
+        body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
@@ -237,8 +237,7 @@ fi:
           proposals: Ehdotukset
     participatory_spaces:
       highlighted_proposals:
-        proposals: Ehdotukset
-        see_all_proposals: Katso kaikki ehdotukset
+        see_all: Näytä kaikki (%{count})
     proposals:
       actions:
         answer: Vastaa
@@ -307,9 +306,9 @@ fi:
             update: Päivitä
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
-            created_in_meeting: Tämä ehdotus tulee kokoukselta
+            created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             select_a_category: Valitse aihepiiri
-            select_a_meeting: Valitse kokous
+            select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
             cancel: Peruuta
@@ -366,6 +365,19 @@ fi:
         not_answered: Vastaamaton
         rejected: Hylätty
         withdrawn: Peruutettu
+      application_helper:
+        filter_origin_values:
+          all: Kaikki
+          citizens: Kansalaiset
+          meetings: Tapaamiset
+          official: Virallinen
+          user_groups: Käyttäjäryhmät
+        filter_state_values:
+          accepted: Hyväksytyt
+          all: Kaikki
+          evaluating: Arvioitavana
+          except_rejected: Kaikki paitsi hylätyt
+          rejected: Hylätty
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -509,6 +521,12 @@ fi:
             votes: Äänet
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
+      participatory_text_proposal:
+        buttons:
+          comment: Kommentti
+          comments: Kommentit
+          endorse: Suosittele
+          endorsements: Suositukset
       proposal_endorsements:
         create:
           error: Ehdotuksen suosittelemisessa on esiintynyt virheitä.
@@ -552,17 +570,10 @@ fi:
         endorsements_card_row:
           comments: Kommentit
         filters:
-          accepted: Hyväksytty
           activity: Aktiivisuus
-          all: Kaikki
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
-          citizens: Kansalaiset
-          evaluating: Arvioitavana
-          except_rejected: Kaikki paitsi hylätyt
-          official: Virallinen
           origin: Alkuperä
-          rejected: Hylätty
           related_to: Liittyy aiheeseen
           search: Haku
           state: Tila
@@ -589,6 +600,11 @@ fi:
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
           recent: Viimeisimmät
+        participatory_texts:
+          index:
+            document_index: Asiakirjan hakemisto
+          view_index:
+            see_index: Näytä hakemisto
         preview:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
@@ -600,6 +616,7 @@ fi:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
         show:
+          back_to: Takaisin
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
           hidden_endorsers_count:
@@ -613,7 +630,7 @@ fi:
           report: Ilmoita
           sign_in: Kirjaudu sisään
           sign_in_or_up: "%{in} tai %{up} osallistuaksesi"
-          sign_in_to_participate: "%{in} osallistua"
+          sign_in_to_participate: "%{in} osallistuaksesi"
           sign_up: rekisteröidy
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
@@ -638,7 +655,7 @@ fi:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
           minimum_votes_per_user:
-            description: Sinun on annettava vähintään kolme ääntä eri ehdotuksille.
+            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille.
             given_enough_votes: Olet tukenut tarpeeksi monta ehdotusta.
             supports_remaining: Sinun on äänestettävä %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
           proposal_limit:

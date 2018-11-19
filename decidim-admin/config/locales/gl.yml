@@ -250,6 +250,11 @@ gl:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
+      help_sections:
+        error: Produciuse un erro ao actualizar as seccións de axuda
+        form:
+          save: Gardar
+        success: As seccións de axuda actualizáronse con éxito
       impersonatable_users:
         index:
           filter:
@@ -303,11 +308,12 @@ gl:
         areas: Campos
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
+        help_sections: Seccións de axuda
         homepage: Páxina de inicio
         impersonations: Impersonacións
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
-        officializations: Oficinas
+        participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
         settings: Configuración
@@ -597,7 +603,7 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios privilexiados
         impersonations: Impersonacións
-        officializations: Oficinas
+        participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas

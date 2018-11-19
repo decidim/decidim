@@ -753,6 +753,7 @@ pt-BR:
         groups: Grupos
         members: Membros
         notifications: Notificações
+        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
@@ -820,6 +821,8 @@ pt-BR:
         report: Denunciar
         spam: Contém clickbait, publicidade, fraudes ou script bots.
         title: Reportar um problema
+      floating_help:
+        help: Socorro
       follow_button:
         sign_in_before_follow: Faça login antes de executar esta ação
       login_modal:
