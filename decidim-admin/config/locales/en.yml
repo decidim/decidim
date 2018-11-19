@@ -89,8 +89,8 @@ en:
         weight: Weight
       static_page_topic:
         description: Description
-        title: Title
         show_in_footer: Show in the footer
+        title: Title
         weight: Weight
     errors:
       models:
