@@ -16,6 +16,10 @@ module Decidim
       def proposal
         @proposal ||= resource.linked_resources(:proposals, "included_proposals").find_by(id: extra[:proposal_id])
       end
+
+      def resource_text
+        translated_attribute(resource.description)
+      end
     end
   end
 end
