@@ -313,7 +313,7 @@ ca:
         impersonations: Impersonacions
         newsletters: Butlletins
         oauth_applications: Aplicacions OAuth
-        officializations: Oficialitzacions
+        participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         settings: Configuració
@@ -603,7 +603,7 @@ ca:
         dashboard: Tauler de control
         impersonatable_users: Usuaris impersonables
         impersonations: Suplantacions
-        officializations: Oficialitzacions
+        participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines
