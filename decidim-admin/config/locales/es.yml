@@ -313,7 +313,7 @@ es:
         impersonations: Impersonaciones
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
-        officializations: Oficializaciones
+        participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         settings: Configuración
@@ -603,7 +603,7 @@ es:
         dashboard: Panel de control
         impersonatable_users: Usuarios impersonables
         impersonations: Suplantaciones
-        officializations: Oficializaciones
+        participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
