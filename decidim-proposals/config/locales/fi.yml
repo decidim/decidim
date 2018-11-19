@@ -635,7 +635,7 @@ fi:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
           minimum_votes_per_user:
-            description: Sinun on annettava vähintään kolme ääntä eri ehdotuksille.
+            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille.
             given_enough_votes: Olet tukenut tarpeeksi monta ehdotusta.
             supports_remaining: Sinun on äänestettävä %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
           proposal_limit:
