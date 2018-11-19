@@ -72,6 +72,8 @@ describe "Participatory Processes", type: :system do
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
     let!(:past_process) { create :participatory_process, :past, organization: organization }
     let!(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
+    let!(:grouped_process) { create :participatory_process, organization: organization }
+    let!(:group) { create :participatory_process_group, participatory_processes: [grouped_process], organization: organization }
 
     before do
       visit decidim_participatory_processes.participatory_processes_path
@@ -107,16 +109,18 @@ describe "Participatory Processes", type: :system do
     it "lists the active processes" do
       within "#processes-grid" do
         within "#processes-grid h2" do
-          expect(page).to have_content("2")
+          expect(page).to have_content("3 ACTIVE PROCESSES")
         end
 
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
-        expect(page).to have_selector("article.card", count: 2)
+        expect(page).to have_content(translated(group.name, locale: :en))
+        expect(page).to have_selector("article.card", count: 3)
 
         expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
         expect(page).to have_no_content(translated(past_process.title, locale: :en))
         expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
+        expect(page).to have_no_content(translated(grouped_process.title, locale: :en))
       end
     end
 
@@ -130,7 +134,7 @@ describe "Participatory Processes", type: :system do
       context "and choosing 'active' processes" do
         it "lists the active processes" do
           within "#processes-grid h2" do
-            expect(page).to have_content("2")
+            expect(page).to have_content("3 ACTIVE PROCESSES")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
@@ -179,7 +183,7 @@ describe "Participatory Processes", type: :system do
 
         it "lists all processes" do
           within "#processes-grid h2" do
-            expect(page).to have_content("4")
+            expect(page).to have_content("5 PROCESSES")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
