@@ -16,6 +16,8 @@ de:
   decidim:
     comments:
       comments: Bemerkungen
+      last_activity:
+        new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
@@ -87,6 +89,10 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title}.
           email_subject: Du wurdest in %{resource_title}
           notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        object: Bemerkungen
+        title: Bemerkungen
   errors:
     messages:
       cannot_have_comments: kann keine Kommentare haben

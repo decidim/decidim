@@ -4,6 +4,7 @@ require "decidim/proposals/admin"
 require "decidim/proposals/engine"
 require "decidim/proposals/admin_engine"
 require "decidim/proposals/component"
+require "acts_as_list"
 
 module Decidim
   # This namespace holds the logic of the `Proposals` component. This component
@@ -12,6 +13,10 @@ module Decidim
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
     autoload :CommentableProposal, "decidim/proposals/commentable_proposal"
     autoload :CommentableCollaborativeDraft, "decidim/proposals/commentable_collaborative_draft"
+    autoload :MarkdownToProposals, "decidim/proposals/markdown_to_proposals"
+    autoload :ParticipatoryTextSection, "decidim/proposals/participatory_text_section"
+    autoload :DocToMarkdown, "decidim/proposals/doc_to_markdown"
+    autoload :OdtToMarkdown, "decidim/proposals/odt_to_markdown"
 
     include ActiveSupport::Configurable
 

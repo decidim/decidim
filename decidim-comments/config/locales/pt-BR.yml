@@ -16,6 +16,8 @@ pt-BR:
   decidim:
     comments:
       comments: Comentários
+      last_activity:
+        new_comment_at_html: "<span>Novo comentário em %{link}</span>"
       votes:
         create:
           error: Houve erros ao votar o comentário.
@@ -87,6 +89,10 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque você foi mencionado em %{resource_title}.
           email_subject: Você foi mencionado em %{resource_title}
           notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        object: comentários
+        title: Comentários
   errors:
     messages:
       cannot_have_comments: não pode ter comentários

@@ -14,15 +14,17 @@ nl:
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
-        user_group_document_number: Organisatie documentnummer
-        user_group_name: Naam van de organisatie
-        user_group_phone: Telefoon organisatie
     models:
       decidim/attachment_created_event: gehechtheid
       decidim/component_published_event: Actieve component
+      decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
       decidim/gamification/level_up_event: Je bent genivelleerd
+      decidim/join_request_accepted_event: Aanvragen geaccepteerd
+      decidim/join_request_rejected_event: Deelnemen aan verzoek afgewezen
       decidim/profile_updated_event: Profiel geüpdatet
+      decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
+      decidim/removed_from_group: Verwijderd uit de groep
   activerecord:
     attributes:
       decidim/user:
@@ -32,9 +34,6 @@ nl:
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
-        user_group_document_number: Organisatie documentnummer
-        user_group_name: Naam van de organisatie
-        user_group_phone: Telefoon organisatie
     models:
       decidim/user:
         one: Gebruiker
@@ -51,7 +50,10 @@ nl:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -101,6 +103,9 @@ nl:
         update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
         update: "%{user_name} de organisatie-instellingen bijgewerkt"
+      participatory_space_private_user:
+        create: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
+        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd als privégebruiker"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
@@ -158,6 +163,9 @@ nl:
           foo: Foo
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
+      sms:
+        explanation: Dien uw mobiele nummer in, zodat wij uw identiteit kunnen controleren.
+        name: Code per sms
       started_at: Gestart om %{timestamp}
     authorization_modals:
       show:
@@ -184,6 +192,11 @@ nl:
           invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: OK
           title: Niet geautoriseerd
+        unconfirmed:
+          confirmation_instructions: 'Als u de bevestigingsinstructies nog niet hebt ontvangen, kunt u ze opnieuw aanvragen:'
+          explanation_html: Om deze actie uit te voeren moet je geautoriseerd zijn, daarvoor moet je je e-mail bevestigen <strong>%{email}</strong>.
+          request_confirmation_instructions: Bevestigingsinstructies aanvragen
+          title: bevestig je email
     collapsible_list:
       hidden_elements_count:
         one: en nog 1
@@ -219,6 +232,10 @@ nl:
       html:
         html_content: HTML-inhoud
         name: HTML-blok
+      last_activity:
+        name: Laatste Activiteit
+        title: Laatste Activiteit
+        view_all: Bekijk alles
       metrics:
         name: Organisatie statistieken
       stats:
@@ -257,8 +274,6 @@ nl:
           sign_up: Registratie
           sign_up_as:
             legend: Aanmelden als
-            user: Individu
-            user_group: Organisatie/collectief
           subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
           terms: de bepalingen en voorwaarden van gebruik
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
@@ -268,6 +283,8 @@ nl:
         new:
           are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
+          sign_in_disabled: U hebt toegang met een extern account
+          sign_up_disabled: Aanmelden is uitgeschakeld, u kunt een bestaande gebruiker gebruiken om toegang te krijgen
       shared:
         newsletter_modal:
           buttons:
@@ -336,6 +353,42 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
           notification_title: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
+      groups:
+        demoted_membership:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw beheerdersrechten voor die groep verwijderd.
+          email_outro: U hebt deze melding ontvangen omdat u lid bent van die groep.
+          email_subject: Je bent niet langer een beheerder van de %{user_group_name} groep!
+          notification_title: U bent niet langer een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> groep.
+        invited_to_group:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je uitgenodigd om mee te doen.
+          email_outro: Je hebt deze melding ontvangen omdat je bent uitgenodigd voor een groep. Controleer het tabblad Groepen in uw profiel om het goed te keuren.
+          email_subject: Je bent uitgenodigd om deel te nemen aan de %{user_group_name} groep!
+          notification_title: U bent uitgenodigd om deel te nemen aan de <a href="%{resource_path}">%{user_group_name}</a> groep. Controleer de <a href="%{groups_profile_tab_path}">groepen pagina</a> in uw profiel om het goed te keuren!
+        join_request_accepted:
+          email_intro: Gefeliciteerd! Een beheerder van de groep <a href="%{resource_url}">%{user_group_name}</a> heeft uw verzoek om hieraan deel te nemen geaccepteerd.
+          email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
+          email_subject: Je bent toegelaten tot de %{user_group_name} groep!
+          notification_title: U bent geaccepteerd voor de <a href="%{resource_path}">%{user_group_name}</a> groep.
+        join_request_created:
+          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_url}">de groepsleden pagina</a>.
+          email_outro: U hebt deze melding ontvangen omdat u de %{user_group_name} groep kunt beheren.
+          email_subject: Iemand heeft verzocht lid te worden van de %{user_group_name} groep!
+          notification_title: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_path}">de groepsleden pagina</a>.
+        join_request_rejected:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw verzoek om hieraan deel te nemen afgewezen.
+          email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
+          email_subject: Uw aanvraag om lid te worden van de %{user_group_name} groep is afgewezen!
+          notification_title: Uw aanvraag om lid te worden van de <a href="%{resource_path}">%{user_group_name}</a> groep is afgewezen.
+        promoted_to_admin:
+          email_intro: Een beheerder van de groep <a href="%{resource_url}">%{user_group_name}</a> heeft u beheerdersrechten voor die groep verleend.
+          email_outro: U hebt deze melding ontvangen omdat u lid bent van die groep.
+          email_subject: U bent nu een beheerder van de %{user_group_name} groep!
+          notification_title: U bent nu een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> groep.
+        removed_from_group:
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je ervan verwijderd.
+          email_outro: U hebt deze melding ontvangen omdat u lid was van die groep.
+          email_subject: U bent verwijderd uit de %{user_group_name} groep!
+          notification_title: Je bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> groep.
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -429,20 +482,97 @@ nl:
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
-    groups:
-      no_user_groups: Behoort nog niet tot een gebruikersgroep.
-    invitations:
-      create:
-        error: Er waren enkele problemen terwijl je je vrienden uitnodigde
-        error_empty_form: Voer alstublieft enkele e-mailadressen in
-        success: We hebben de uitnodigingen naar je vrienden gestuurd!
+    group_admins:
+      actions:
+        are_you_sure: Weet je het zeker? Hiermee wordt de gebruiker niet uit de groep verwijderd.
+        demote_admin: Verwijder admin
+      demote:
+        error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de beheerderslijst
+        success: Gebruiker is met succes van de beheerder verwijderd
       index:
-        customize_message: Pas het uitnodigingsbericht aan
-        friend_email: 'Vriend #%{index} email'
-        invitations_subtitle: Laat je vrienden op de hoogte van deze site
-        invitations_title: Denk je dat meer stemmen gehoord moeten worden in %{organization_name}?
+        current_admins: 'Huidige beheerders:'
+        manage_admins: Beheer beheerders
+    group_invites:
+      accept:
+        error: Er is een fout opgetreden bij het accepteren van deze uitnodiging
+        success: Uitnodiging met succes geaccepteerd
+      accept_invitation: Aanvaarden
+      accept_or_reject_group_invitations: 'De volgende groepen hebben je uitgenodigd om mee te doen. Aanvaard of verwerp hun verzoeken:'
+      index:
         invite: Nodig uit
-        visit_your_profile: Ga naar je profiel
+        invite_user: Nodig een gebruiker uit
+      invite:
+        error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker
+        success: Gebruiker met succes uitgenodigd
+      reject:
+        error: Er is een fout opgetreden bij het afwijzen van deze uitnodiging
+        success: Uitnodiging met succes afgewezen
+      reject_invitation: afwijzen
+    group_members:
+      accept:
+        error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
+        success: Deelnemen aan een succesvol geaccepteerd verzoek
+      actions:
+        are_you_sure: Weet je het zeker?
+        promote_to_admin: Beheerder maken
+        remove_from_group: Gebruiker verwijderen
+      index:
+        current_members_without_admins: 'Huidige leden (zonder beheerders):'
+        manage_members: Leden beheren
+      promote:
+        error: Er is een fout opgetreden bij het promoten van deze gebruiker
+        success: Gebruiker met succes gepromoveerd
+      reject:
+        error: Er is een fout opgetreden bij het afwijzen van dit deelnameverzoek
+        success: Verzoek om samenvoeging succesvol afgewezen
+      remove:
+        error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de groep
+        success: Gebruiker met succes uit de groep verwijderd
+    groups:
+      actions:
+        are_you_sure: Weet je het zeker?
+      create:
+        error: Er is een probleem opgetreden bij het maken van de groep
+        success: Groep met succes gemaakt
+      edit:
+        edit_user_group: Groep bewerken
+        update_user_group: Groep bijwerken
+      form:
+        document_number_help: Gebruik geen streepjes of spaties
+        email_help: E-mail van uw organisatie, vereniging, collectief, groep, etc.
+        fill_in_for_verification: 'Vul deze velden in als u wilt dat uw groep wordt geverifieerd:'
+        name_help: Naam van uw organisatie, vereniging, collectief, groep, etc.
+        nickname_help: Gebruikersnaam van uw organisatie, vereniging, collectief, groep, etc. Gebruik geen spaties of accenten.
+        phone_help: Gebruik geen streepjes of spaties
+      join:
+        error: Er is een probleem opgetreden bij de groep
+        success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u akkoord gaat met de groep.
+      leave:
+        error: Er is een probleem met het verlaten van de groep
+        success: Groep met succes verlaten.
+      members:
+        accept_or_reject_join_requests: 'De volgende gebruikers hebben zich aangemeld om lid te worden van deze groep. Aanvaard of verwerp hun verzoeken:'
+        accept_request: Aanvaarden
+        reject_request: afwijzen
+      new:
+        create_user_group: Maak een groep
+        new_user_group: Nieuwe groep
+        subtitle: Maak een groep en nodig andere gebruikers uit om deel te nemen aan een collectief niveau.
+      no_user_groups: Behoort nog niet tot een groep.
+      roles:
+        admin: Beheerder
+        creator: Schepper
+        member: Lid
+      update:
+        error: Er is een probleem opgetreden bij het bijwerken van de groep
+        success: Groep succesvol geüpdatet
+    last_activities:
+      activities:
+        no_activities_warning: Geen activiteit
+      all: Alle soorten activiteiten
+      index:
+        last_activity: Laatste Activiteit
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
@@ -467,8 +597,8 @@ nl:
     members:
       no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
+      help: Helpen
       home: Home
-      more_information: Meer informatie
     messaging:
       conversation_mailer:
         new_conversation:
@@ -584,7 +714,11 @@ nl:
         sub_hero:
           register: Registreren
       index:
-        title: Meer informatie
+        read_more: Lees verder
+        standalone_pages: Pages
+        subheading: Navigeer door de helppagina's van %{name}
+        title: Helpen
+        topics: Onderwerpen
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
@@ -619,12 +753,20 @@ nl:
         groups: groepen
         members: leden
         notifications: meldingen
+        view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
           title: badges
       user:
+        create_user_group: Maak een groep
         edit_profile: Bewerk profiel
+        edit_user_group: Bewerk groepsprofiel
+        invite_user: Nodig gebruiker uit
+        join_user_group: Verzoek om lid te worden van de groep
+        leave_user_group: Verlaat groep
+        manage_user_group_admins: Beheer beheerders
+        manage_user_group_users: Leden beheren
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -667,6 +809,9 @@ nl:
         close_window: Sluit venster
         embed: Plak deze code alstublieft in uw pagina
         embed_link: Insluiten
+      extended_navigation_bar:
+        more: Meer
+        unfold: Ontvouwen
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
@@ -676,6 +821,8 @@ nl:
         report: Rapporteren
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
+      floating_help:
+        help: Helpen
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
@@ -691,6 +838,9 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
+    welcome_notification:
+      default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization_name}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
+      default_subject: Bedankt dat je lid bent geworden van {{organization}}!
   devise:
     confirmations:
       confirmed: Uw e-mailadres is succesvol bevestigd.
@@ -708,7 +858,6 @@ nl:
       not_found_in_database: Ongeldige %{authentication_keys} of wachtwoord.
       timeout: Je sessie is verlopen. Log opnieuw in om door te gaan.
       unauthenticated: U moet inloggen of aanmelden voordat u doorgaat.
-      unconfirmed: U moet uw e-mailadres bevestigen voordat u verdergaat.
     invitations:
       edit:
         header: Eindig met het maken van je account
@@ -743,7 +892,6 @@ nl:
           Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
           Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_friend: "%{invited_by} heeft je uitgenodigd voor %{application}."
         invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
@@ -753,10 +901,6 @@ nl:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
-      invite_friend:
-        accept_invitation: 'U kunt de uitnodiging accepteren via de onderstaande link:'
-        friend_custom_text: 'Ze hebben dit bericht voor je achtergelaten:'
-        subject: Je bent uitgenodigd voor %{organization}
       invite_private_user:
         subject: Je bent uitgenodigd voor een privé burgerinspraak thema op %{organization}
       organization_admin_invitation_instructions:
@@ -889,7 +1033,6 @@ nl:
       user_menu:
         admin_dashboard: Beheer dashboard
         conversations: conversaties
-        invite_friends: Nodig vrienden uit
         notifications: Meldingen
         profile: Mijn account
         public_profile: Mijn openbaar profiel
@@ -901,7 +1044,7 @@ nl:
         my_data: Mijn data
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
-        user_groups: Organisaties
+        user_groups: groepen
       widget:
         see_more: Zie meer
   locale:

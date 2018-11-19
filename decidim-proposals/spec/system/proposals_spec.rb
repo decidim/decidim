@@ -83,6 +83,16 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when it is an official meeting proposal" do
+      let!(:official_meeting_proposal) { create(:proposal, :official_meeting, component: component) }
+
+      it "shows the author as meeting" do
+        visit_component
+        click_link official_meeting_proposal.title
+        expect(page).to have_content(translated(official_meeting_proposal.authors.first.title))
+      end
+    end
+
     context "when a proposal has comments" do
       let(:proposal) { create(:proposal, component: component) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
@@ -391,7 +401,7 @@ describe "Proposals", type: :system do
           visit_component
 
           within "form.new_filter" do
-            expect(page).to have_no_content(/Origin/i)
+            expect(page).to have_no_content(/Official/i)
           end
         end
       end

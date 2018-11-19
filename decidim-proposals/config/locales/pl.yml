@@ -85,8 +85,10 @@ pl:
             collaborative_drafts_enabled: Wersje robocze z obsługą współpracy są włączone
             comments_enabled: Komentarze włączone
             geocoding_enabled: Włączono geokodowanie
+            minimum_votes_per_user: Minimalna liczba głosów na użytkownika
             new_proposal_help_text: Nowy tekst pomocy dla wniosku
             official_proposals_enabled: Oficjalne propozycje włączone
+            participatory_texts_enabled: Włączono teksty włączające
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tych wielu minut
             proposal_length: Maksymalna długość treści wniosku
@@ -231,10 +233,10 @@ pl:
           unearned_own: Nie utworzyłeś jeszcze żadnych propozycji.
     metrics:
       accepted_proposals:
-        object: wniosek
+        object: propozycje
         title: Przyjęte propozycje
       proposals:
-        object: wniosek
+        object: propozycje
         title: Propozycje
       votes:
         object: głosów
@@ -245,14 +247,14 @@ pl:
           proposals: Propozycje
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propozycje
-        see_all_proposals: Zobacz wszystkie propozycje
+        see_all: Zobacz wszystko (%{count})
     proposals:
       actions:
         answer: Odpowiedź
         edit_proposal: Edytuj propozycję
         import: Importuj z innego komponentu
         new: Nowa propozycja
+        participatory_texts: Teksty uczestniczące
         private_notes: Prywatne notatki
         title: działania
       admin:
@@ -264,6 +266,28 @@ pl:
         models:
           proposal:
             name: Wniosek
+        participatory_texts:
+          bulk-actions:
+            import_doc: Zaimportuj dokument
+          import:
+            invalid: Formularz jest nieprawidłowy!
+            success: Gratulacje, z importowanego dokumentu zostały przeanalizowane następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
+          index:
+            info_1: Z importowanego dokumentu przeanalizowano następujące sekcje, które zostały przekształcone w propozycje. Teraz możesz przejrzeć i dostosować, co potrzebujesz przed publikacją.
+            publish_document: Opublikuj dokument
+            title: PREVIEW TEKST UCZESTNIKA
+          new_import:
+            bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
+            document_legend: 'Dodaj dokument o wielkości mniejszej niż 2 MB, a każda sekcja, aż do 3 poziomów, zostanie przeanalizowana w Propozycjach. Suportowane formaty to: Markdown'
+            title: DODAJ DOKUMENT
+            upload_document: Prześlij dokument
+          publish:
+            invalid: Nie można publikować propozycji
+            success: Wszystkie wnioski zostały opublikowane
+          sections:
+            article: "<em>Artykuł</em>"
+            section: "<em>Sekcja:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Podsekcja:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Przyjęty
@@ -292,12 +316,19 @@ pl:
             update: Aktualizacja
           form:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+            created_in_meeting: Ta propozycja pochodzi ze spotkania
             select_a_category: Wybierz kategorię
+            select_a_meeting: Wybierz spotkanie
           index:
             actions: działania
             cancel: Anuluj
             change_category: Zmień kategorię
+            merge: Połącz się z nowym
+            merge_button: Łączyć
+            select_component: Wybierz składnik
             selected: wybrany
+            split: Podziel propozycje
+            split_button: Rozdzielać
             title: Propozycje
             update: Aktualizacja
           new:
@@ -317,6 +348,14 @@ pl:
             no_components: W tej przestrzeni partycypacyjnej nie ma innych elementów propozycji do importowania propozycji.
             select_component: Wybierz komponent
             select_states: Sprawdź stany propozycji do zaimportowania
+        proposals_merges:
+          create:
+            invalid: Podczas łączenia wybranych propozycji wystąpił błąd.
+            success: Pomyślnie scalono propozycje w nowe.
+        proposals_splits:
+          create:
+            invalid: Wystąpił błąd podczas podziału wybranych propozycji.
+            success: Pomyślnie podzielono propozycje na nowe.
         shared:
           info_proposal:
             body: Ciało
@@ -336,6 +375,19 @@ pl:
         not_answered: Bez odpowiedzi
         rejected: Odrzucone
         withdrawn: Wycofane
+      application_helper:
+        filter_origin_values:
+          all: Wszystko
+          citizens: Obywatele
+          meetings: Spotkania
+          official: Urzędnik
+          user_groups: Grupy użytkowników
+        filter_state_values:
+          accepted: Przyjęty
+          all: Wszystko
+          evaluating: Ewaluacja
+          except_rejected: Wszystkie oprócz odrzuconych
+          rejected: Odrzucono
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -460,6 +512,8 @@ pl:
       destroy_draft:
         error: Wystąpiły błędy podczas usuwania wersji roboczej propozycji.
         success: Projekt propozycji został pomyślnie usunięty.
+      last_activity:
+        new_proposal_at_html: "<span>Nowa propozycja na %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -481,6 +535,12 @@ pl:
             votes: Głosowania
       new:
         limit_reached: Nie możesz tworzyć nowych propozycji, ponieważ przekroczyłeś limit.
+      participatory_text_proposal:
+        buttons:
+          comment: Komentarz
+          comments: Komentarze
+          endorse: Podpisać się
+          endorsements: Adnotacje
       proposal_endorsements:
         create:
           error: Podczas zatwierdzania propozycji wystąpiły błędy.
@@ -526,17 +586,10 @@ pl:
         endorsements_card_row:
           comments: Komentarze
         filters:
-          accepted: Przyjęty
           activity: Czynność
-          all: Wszystko
           category: Kategoria
           category_prompt: Wybierz kategorię
-          citizens: Obywatele
-          evaluating: Ocena
-          except_rejected: Wszystkie oprócz odrzuconych
-          official: Urzędnik
           origin: Pochodzenie
-          rejected: Odrzucone
           related_to: Związany z
           search: Szukanie
           state: Stan
@@ -565,6 +618,11 @@ pl:
           most_voted: Większość głosów
           random: Losowy
           recent: Niedawny
+        participatory_texts:
+          index:
+            document_index: Indeks dokumentów
+          view_index:
+            see_index: Zobacz indeks
         preview:
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
@@ -578,6 +636,7 @@ pl:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
         show:
+          back_to: Wrócić do
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
           hidden_endorsers_count:
@@ -593,6 +652,7 @@ pl:
           report: Raport
           sign_in: Zaloguj
           sign_in_or_up: "%{in} lub %{up} do wzięcia udziału"
+          sign_in_to_participate: "%{in} do wzięcia udziału"
           sign_up: Zapisz się
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
           withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?
@@ -618,6 +678,10 @@ pl:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż %{limit} podpory
+          minimum_votes_per_user:
+            description: Musisz rozdzielić co najmniej %{votes} głosów spośród różnych propozycji.
+            given_enough_votes: Dałeś dość wsparcia.
+            supports_remaining: Musisz głosować %{remaining_votes} dodatkowych propozycji, aby wziąć pod uwagę twoje głosy.
           proposal_limit:
             description: Możesz utworzyć do %{limit} propozycji.
           threshold_per_proposal:

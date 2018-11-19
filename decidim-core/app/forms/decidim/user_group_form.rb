@@ -16,8 +16,6 @@ module Decidim
     validates :name, presence: true
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
     validates :nickname, presence: true
-    validates :document_number, presence: true
-    validates :phone, presence: true
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
@@ -30,37 +28,50 @@ module Decidim
     private
 
     def unique_document_number
-      errors.add :document_number, :taken if UserGroup.with_document_number(
-        context.current_organization,
-        document_number
-      ).present?
+      return if document_number.blank?
+      errors.add :document_number, :taken if UserGroup
+                                             .with_document_number(
+                                               context.current_organization,
+                                               document_number
+                                             )
+                                             .where.not(id: id)
+                                             .present?
     end
 
     def unique_email
-      return true if Decidim::UserBaseEntity.where(
-        organization: context.current_organization,
-        email: email
-      ).empty?
+      return true if Decidim::UserBaseEntity
+                     .where(
+                       organization: context.current_organization,
+                       email: email
+                     )
+                     .where.not(id: id)
+                     .empty?
 
       errors.add :email, :taken
       false
     end
 
     def unique_name
-      return true if Decidim::UserBaseEntity.where(
-        organization: context.current_organization,
-        name: name
-      ).empty?
+      return true if Decidim::UserBaseEntity
+                     .where(
+                       organization: context.current_organization,
+                       name: name
+                     )
+                     .where.not(id: id)
+                     .empty?
 
       errors.add :name, :taken
       false
     end
 
     def unique_nickname
-      return true if Decidim::UserBaseEntity.where(
-        organization: context.current_organization,
-        nickname: nickname
-      ).empty?
+      return true if Decidim::UserBaseEntity
+                     .where(
+                       organization: context.current_organization,
+                       nickname: nickname
+                     )
+                     .where.not(id: id)
+                     .empty?
 
       errors.add :nickname, :taken
       false

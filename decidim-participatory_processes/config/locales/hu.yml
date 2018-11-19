@@ -257,6 +257,10 @@ hu:
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> lépés időpontjai frissítve ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     menu:
       processes: Folyamatok
+    metrics:
+      participatory_processes:
+        object: részvételi folyamatok
+        title: Részvételi folyamatok
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -288,6 +292,8 @@ hu:
           name: Kiemelt folyamatok
       index:
         title: Részvételi folyamatok
+      last_activity:
+        new_participatory_process: Új részvételi folyamat
       pages:
         home:
           highlighted_processes:
@@ -372,9 +378,8 @@ hu:
           active_step: 'Aktuális lépés:'
           more_info: További információ
           take_part: Vegyél részt
-      process_header:
-        process_menu_item: A folyamat
-        unfold: Kibont
       process_header_steps:
         step: '%{current}. lépés ennyiből: %{total}'
         view_steps: Lépések megtekintése
+      process_navigation:
+        process_menu_item: A folyamat

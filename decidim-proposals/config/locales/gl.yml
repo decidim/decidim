@@ -75,8 +75,10 @@ gl:
             collaborative_drafts_enabled: Esquemas colaborativos habilitados
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocoding habilitado
+            minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_help_text: Nova proposta de axuda de texto
             official_proposals_enabled: Propostas oficiais habilitadas
+            participatory_texts_enabled: Permitir textos participativos
             proposal_answering_enabled: Contestando a proposta habilitada
             proposal_edit_before_minutes: As propostas poden ser editadas por autores antes de que pase moitos minutos
             proposal_length: Lonxitude máxima do corpo da proposta
@@ -221,10 +223,10 @@ gl:
           unearned_own: Aínda non creaches propostas.
     metrics:
       accepted_proposals:
-        object: proposta
+        object: propostas
         title: Propostas aceptadas
       proposals:
-        object: proposta
+        object: propostas
         title: Propostas
       votes:
         object: votos
@@ -235,14 +237,14 @@ gl:
           proposals: Propostas
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propostas
-        see_all_proposals: Ver todas as propostas
+        see_all: Ver todos (%{count})
     proposals:
       actions:
         answer: Resposta
         edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
+        participatory_texts: Textos participativos
         private_notes: Notas privadas
         title: Accións
       admin:
@@ -254,6 +256,28 @@ gl:
         models:
           proposal:
             name: Proposta
+        participatory_texts:
+          bulk-actions:
+            import_doc: Importar documento
+          import:
+            invalid: O formulario non é válido.
+            success: Parabéns, foron analizadas as seguintes seccións do documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
+          index:
+            info_1: As seguintes seccións foron analizadas dende o documento importado, convertéronse en propostas. Agora podes revisar e axustar o que necesites antes de publicar.
+            publish_document: Publicar documento
+            title: TEXTO PARTICIPARIO PREVIEW
+          new_import:
+            bottom_hint: "(Poderá ver e ordenar as seccións do documento)"
+            document_legend: 'Engada un documento inferior a 2 MB, cada sección até que se analizen 3 niveis de profundidade nas Propostas. Os formatos soportados son: Markdown'
+            title: AGREGAR DOCUMENTOS
+            upload_document: Cargar documento
+          publish:
+            invalid: Non se puideron publicar propostas
+            success: Todas as propostas foron publicadas
+          sections:
+            article: "<em>artigo</em>"
+            section: "<em>Sección:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsección:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aceptada
@@ -282,12 +306,19 @@ gl:
             update: Actualización
           form:
             attachment_legend: "(Opcional) Engada un anexo"
+            created_in_meeting: Esta proposta provén dunha reunión
             select_a_category: Selecciona unha categoría
+            select_a_meeting: Seleccione unha reunión
           index:
             actions: Accións
             cancel: Cancelar
             change_category: Cambiar categoría
+            merge: Unirse a un novo
+            merge_button: Fusionar
+            select_component: Seleccione un compoñente
             selected: seleccionado
+            split: Dividir propostas
+            split_button: Partir
             title: Propostas
             update: Actualización
           new:
@@ -307,6 +338,14 @@ gl:
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas.
             select_component: Selecciona un compoñente
             select_states: Comprobe os estados das propostas para importar
+        proposals_merges:
+          create:
+            invalid: Produciuse un erro ao fusionar as propostas seleccionadas.
+            success: Fusionou con éxito as propostas nun novo.
+        proposals_splits:
+          create:
+            invalid: Produciuse un erro dividindo as propostas seleccionadas.
+            success: Reaccionou con éxito as propostas en novas.
         shared:
           info_proposal:
             body: Corpo
@@ -326,6 +365,19 @@ gl:
         not_answered: Non respondeu
         rejected: Rexeitado
         withdrawn: Retirada
+      application_helper:
+        filter_origin_values:
+          all: Todo
+          citizens: Cidadáns
+          meetings: Reunións
+          official: Oficial
+          user_groups: Grupos de usuarios
+        filter_state_values:
+          accepted: Aceptada
+          all: Todo
+          evaluating: Avaliación
+          except_rejected: Todos excepto rexeitados
+          rejected: Rexeitado
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -446,6 +498,8 @@ gl:
       destroy_draft:
         error: Produciuse un erro ao eliminar o borrador da proposta.
         success: O borrador da proposta eliminouse con éxito.
+      last_activity:
+        new_proposal_at_html: "<span>Nova proposta en %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -467,6 +521,12 @@ gl:
             votes: Votos
       new:
         limit_reached: Non podes crear novas propostas xa que superaches o límite.
+      participatory_text_proposal:
+        buttons:
+          comment: Comentario
+          comments: Comentarios
+          endorse: Endosar
+          endorsements: Aprobacións
       proposal_endorsements:
         create:
           error: Houbo erros ao aprobar a proposta.
@@ -510,17 +570,10 @@ gl:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          accepted: Aceptada
           activity: Actividade
-          all: Todo
           category: Categoría
           category_prompt: Selecciona unha categoría
-          citizens: Cidadáns
-          evaluating: Avaliación
-          except_rejected: Todos excepto rexeitados
-          official: Oficial
           origin: Orixe
-          rejected: Rexeitado
           related_to: Relacionado con
           search: Busca
           state: Estado
@@ -547,6 +600,11 @@ gl:
           most_voted: A maioría votada
           random: Aleatorio
           recent: Recentes
+        participatory_texts:
+          index:
+            document_index: Índice do documento
+          view_index:
+            see_index: Ver índice
         preview:
           modify: Modificar a proposta
           proposal_edit_before_minutes:
@@ -558,6 +616,7 @@ gl:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
         show:
+          back_to: Voltar
           edit_proposal: Editar proposta
           endorsements_list: Lista de avales
           hidden_endorsers_count:
@@ -571,6 +630,7 @@ gl:
           report: Informe
           sign_in: Rexístrate
           sign_in_or_up: "%{in} ou %{up} para participar"
+          sign_in_to_participate: "%{in} para participar"
           sign_up: Rexistrarse
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
@@ -594,6 +654,10 @@ gl:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular máis de %{limit} apoios
+          minimum_votes_per_user:
+            description: Debes distribuír un mínimo de %{votes} votos entre diferentes propostas.
+            given_enough_votes: Dicho soporte.
+            supports_remaining: Tes que votar máis %{remaining_votes} propostas para que os teus votos sexan tidos en conta.
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
           threshold_per_proposal:

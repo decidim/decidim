@@ -257,6 +257,10 @@ gl:
           notification_title: As datas para o <a href="%{resource_path}">%{resource_title}</a> paso en <a href="%{participatory_space_url}">%{participatory_space_title}</a> foron actualizadas.
     menu:
       processes: Procesos
+    metrics:
+      participatory_processes:
+        object: procesos participativos
+        title: Procesos participativos
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -288,6 +292,8 @@ gl:
           name: Procesos destacados
       index:
         title: Procesos participativos
+      last_activity:
+        new_participatory_process: Novo proceso participativo
       pages:
         home:
           highlighted_processes:
@@ -372,9 +378,8 @@ gl:
           active_step: 'Paso actual:'
           more_info: Máis información
           take_part: Tomar parte en
-      process_header:
-        process_menu_item: O proceso
-        unfold: Despregar
       process_header_steps:
         step: Paso %{current} de %{total}
         view_steps: Ver pasos
+      process_navigation:
+        process_menu_item: O proceso

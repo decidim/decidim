@@ -43,7 +43,7 @@ module Decidim
 
       def notify_interlocutors
         conversation.interlocutors(sender).each do |recipient|
-          ConversationMailer.new_message(sender, recipient, conversation).deliver_later if conversation.unread_count(recipient) == 1
+          ConversationMailer.new_message(sender, recipient, conversation, message).deliver_later if conversation.unread_count(recipient) == 1
         end
       end
 

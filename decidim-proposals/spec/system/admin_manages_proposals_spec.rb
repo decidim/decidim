@@ -21,4 +21,6 @@ describe "Admin manages proposals", type: :system do
   it_behaves_like "when managing proposals category as an admin"
   it_behaves_like "import proposals"
   it_behaves_like "manage proposals permissions"
+  it_behaves_like "merge proposals"
+  it_behaves_like "split proposals"
 end

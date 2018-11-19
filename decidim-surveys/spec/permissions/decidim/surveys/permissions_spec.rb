@@ -24,7 +24,7 @@ describe Decidim::Surveys::Permissions do
 
   context "when scope is not public" do
     let(:action) do
-      { scope: :foo, action: :vote, subject: :survey }
+      { scope: :foo, action: :vote, subject: :questionnaire }
     end
 
     it_behaves_like "permission is not set"
@@ -40,7 +40,7 @@ describe Decidim::Surveys::Permissions do
 
   context "when action is a random one" do
     let(:action) do
-      { scope: :public, action: :foo, subject: :survey }
+      { scope: :public, action: :foo, subject: :questionnaire }
     end
 
     it_behaves_like "permission is not set"
@@ -48,7 +48,7 @@ describe Decidim::Surveys::Permissions do
 
   context "when answering a survey" do
     let(:action) do
-      { scope: :public, action: :answer, subject: :survey }
+      { scope: :public, action: :answer, subject: :questionnaire }
     end
 
     context "when user is authorized" do

@@ -2,7 +2,9 @@ pt:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Assembléias Relacionadas
         banner_image: Imagem de banner
+        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_features: Copiar recursos
@@ -10,6 +12,7 @@ pt:
         description: Descrição
         hashtag: Hashtag
         hero_image: Imagem inicial
+        participatory_processes_ids: Processos participativos relacionados
         promoted: Promovido
         published_at: Publicado em
         scope_id: Escopo
@@ -45,6 +48,7 @@ pt:
   decidim:
     admin:
       actions:
+        confirm: confirme
         new_conference: Nova conferência
       conference_copies:
         new:
@@ -58,6 +62,10 @@ pt:
         destroy:
           error: Ocorreu um erro ao cancelar a publicação desta conferência.
           success: Conferência não publicada com sucesso.
+      conference_registration:
+        confirm:
+          error: Houve um erro ao confirmar este registro da conferência.
+          success: Registro de conferência confirmado com sucesso.
       conference_speakers:
         create:
           error: Houve um erro ao adicionar um palestrante para essa conferência.
@@ -117,6 +125,23 @@ pt:
         create:
           error: Houve um erro ao duplicar esta conferência.
           success: Conferência duplicada com sucesso.
+      media_links:
+        create:
+          error: Ocorreu um erro ao criar um novo link de mídia.
+          success: Media Link criado com sucesso.
+        destroy:
+          success: O Media Link foi excluído com sucesso.
+        edit:
+          title: Atualize o link da mídia.
+          update: Atualizar
+        index:
+          media_links_title: Links de Mídia
+        new:
+          create: Crio
+          title: Link de Mídia
+        update:
+          error: Houve um erro ao atualizar este link de mídia.
+          success: Media Link atualizado com sucesso.
       menu:
         conferences: Conferências
         conferences_submenu:
@@ -125,12 +150,16 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          conference_admins: Administradores da conferência
-          conference_invites: Conferência Convida
-          conference_registrations: Registros de conferência
-          conference_speakers: Alto-falantes da conferência
+          conference_admins: Usuários da conferência
+          conference_invites: Convites
+          conference_speakers: caixas de som
           info: Info
+          media_links: Links de Mídia
           moderations: Moderações
+          partners: Parceiros
+          registration_types: Tipos de registro
+          registrations: Inscrições
+          user_registrations: Registros de usuários
       models:
         conference:
           fields:
@@ -154,8 +183,102 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        media_link:
+          fields:
+            date: Encontro
+            link: Ligação
+            title: Título
+          name: Link de Mídia
+        partner:
+          fields:
+            link: Ligação
+            logo: Logotipo
+            name: Nome
+            partner_type: Tipo
+          name: Parceiro
+          types:
+            collaborator: Colaborador
+            main_promotor: Principal promotor
+        registration_type:
+          fields:
+            conference_meetings: Reuniões da conferência
+            price: Preço
+            registrations_count: Contagem de registros
+            title: Título
+            weight: Peso
+          name: Tipo de Registro
+      partners:
+        create:
+          error: Ocorreu um erro ao adicionar um parceiro para esta conferência.
+          success: Parceiro adicionado com sucesso a esta conferência.
+        destroy:
+          success: Parceiro removido com sucesso desta conferência.
+        edit:
+          title: Atualizar parceiro.
+          update: Atualizar
+        new:
+          create: Crio
+          title: Novo parceiro
+        update:
+          error: Ocorreu um erro ao atualizar um parceiro para esta conferência.
+          success: Parceiro atualizado com sucesso para esta conferência.
+      registration_type_publications:
+        create:
+          error: Ocorreu um erro ao publicar este tipo de registro.
+          success: Tipo de registro publicado com sucesso.
+        destroy:
+          error: Ocorreu um erro ao cancelar a publicação deste tipo de registro.
+          success: Tipo de registro não publicado com sucesso.
+      registration_types:
+        create:
+          error: Houve um erro ao adicionar um tipo de registro para esta conferência.
+          success: Tipo de registro adicionado com sucesso a esta conferência.
+        destroy:
+          success: Tipo de registro removido com sucesso desta conferência.
+        edit:
+          title: Atualize o tipo de registro.
+          update: Atualizar
+        new:
+          create: Crio
+          title: Novo tipo de registro
+        update:
+          error: Ocorreu um erro ao atualizar um tipo de registro para esta conferência.
+          success: Tipo de registro atualizado com sucesso para esta conferência.
       titles:
         conferences: Conferências
+    admin_log:
+      conference:
+        create: "%{user_name} criou a %{resource_name} conferência"
+        publish: "%{user_name} publicou a %{resource_name} conferência"
+        unpublish: "%{user_name} não publicada a %{resource_name} conferência"
+        update: "%{user_name} atualizou a %{resource_name} conferência"
+      conference_speaker:
+        create: "%{user_name} criou o %{resource_name} alto-falante na conferência de %{space_name}"
+        delete: "%{user_name} removeu o %{resource_name} alto-falante da conferência de %{space_name}"
+        update: "%{user_name} atualizou o %{resource_name} alto-falante na conferência de %{space_name}"
+      conference_user_role:
+        create: "%{user_name} convidados %{resource_name} para a conferência %{space_name}"
+        delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
+        update: "%{user_name} mudou o papel de %{resource_name} na conferência de %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} confirmou o registro da conferência em %{resource_name} conferência"
+        partner:
+          create: "%{user_name} criado %{resource_name} para a conferência %{space_name}"
+          delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
+          update: "%{user_name} atualizado %{resource_name} na conferência de %{space_name}"
+        registration_type:
+          create: "%{user_name} criou o tipo de registro %{resource_name} na conferência de %{space_name}"
+          publish: "%{user_name} publicou o tipo de registro %{resource_name} na conferência %{space_name}"
+          unpublish: "%{user_name} não publicado o tipo de registro %{resource_name} na conferência %{space_name}"
+          update: "%{user_name} atualizou o tipo de registro %{resource_name} na conferência %{space_name}"
+      media_link:
+        create: "%{user_name} criou o link de mídia %{resource_name} na conferência de %{space_name}"
+        delete: "%{user_name} removeu o link de mídia %{resource_name} da conferência de %{space_name}"
+        update: "%{user_name} atualizou a %{resource_name} link de mídia no %{space_name} conferência"
+    conference_program:
+      index:
+        title: Programa
     conference_speakers:
       index:
         title: caixas de som
@@ -210,22 +333,41 @@ pt:
           invite:
             decline: Recusar convite '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
-            join: Participe da conferência '%{conference_title}'
+            registration: Registro para '%{conference_title}'
+        partners:
+          index:
+            title: Parceiros
+        registration_types:
+          form:
+            select_conference_meetings: Selecione as reuniões da conferência
+          index:
+            title: Tipos de registro
       conference:
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
         show:
           going: Indo
-          join: Junte-se à conferência
           no_slots_available: Não há slots disponíveis
-          remaining_slots:
-            one: 1 slot restante
-            other: "%{count} slots restantes"
+          registration: Cadastro
+      conference_program:
+        program_meeting:
+          content: Conteúdo
+          location: Localização
+          speakers: caixas de som
+          streaming: Transmissão
+        show:
+          day: Dia
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Sua inscrição para a conferência <a href="%{url}">%{title}</a> foi confirmada.
-          details: Você encontrará os detalhes da conferência no anexo.
+          details_1: 'Você está registrado na conferência com o tipo %{registration_type} . Tem um custo de %{price} e você pode assistir aos seguintes eventos:'
+          details_2: Você encontrará os detalhes da conferência no anexo.
+        pending_validation:
+          confirmation_pending: Você receberá a confirmação em breve
+          details: 'Você se registrou no tipo %{registration_type} com um custo de %{price} e pode participar dos seguintes eventos:'
+          pending_html: Seu registro para a conferência <a href="%{url}">%{title}</a> está pendente de ser confirmado.
       conference_registrations:
         create:
           invalid: Houve um problema em participar desta conferência.
@@ -237,15 +379,27 @@ pt:
           invalid: Houve um problema ao sair desta conferência.
           success: Você saiu da conferência com sucesso.
       conference_speaker:
+        go_to_twitter: Vá para o Twitter
+        more_info: mais informações
+        personal_website: Site pessoal
         show:
-          affiliation: Afiliação
-          personal_url: URL pessoal
-          position: Posição
-          short_bio: Perfil curto
-          twitter_handle: Twitter
+          more_info: mais informações
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Site pessoal
+        twitter_handle:
+          go_to_twitter: Vá para o Twitter
       conference_speakers:
         index:
           speakers: caixas de som
+      conferences:
+        partners:
+          collaborators: Parceiros
+          main_promotors: Organizadores
+        show:
+          login_as: Você está logado como %{name} <%{email}>
+          make_conference_registration: 'Faça seu cadastro na conferência:'
+          register: registo
       content_blocks:
         highlighted_conferences:
           name: Conferências destacadas
@@ -255,6 +409,8 @@ pt:
         conference_registration_mailer:
           confirmation:
             subject: O registro da sua conferência foi confirmado
+          pending_validation:
+            subject: O registro da sua conferência está pendente de confirmação
         invite_join_conference_mailer:
           invite:
             subject: Convite para participar de uma conferência
@@ -263,6 +419,7 @@ pt:
           fields:
             email: O email
             name: Nome
+            registration_type: Tipo de Registro
             sent_at: Enviado em
             status: Status
           status:
@@ -273,15 +430,42 @@ pt:
           fields:
             email: O email
             name: Nome
+            registration_type: Tipo de Registro
+            state: Estado
+            states:
+              confirmed: Confirmado
+              pending: Pendente
       pages:
         home:
           highlighted_conferences:
             active_conferences: Conferências ativas
             see_all_conferences: Veja todas as conferências
+      photo:
+        show:
+          close_modal: Fechar modal
+          photo: foto
+      photos_list:
+        show:
+          related_photos: Fotos
+      registration_types:
+        index:
+          choose_an_option: 'Escolha sua opção de registro:'
+          login_as: Você está logado como %{name} <%{email}>
+          register: registo
+          title: Tipos de registro
+      shared:
+        conference_user_login:
+          already_account: Você já tem uma conta na decidim?
+          new_user: Novo usuário?
+          sign_in: Entre para se inscrever na conferência
+          sign_up: Crie uma conta no decidim para se inscrever na conferência
       show:
-        end_date: Data final
+        details: Detalhes
+        introduction: Introdução
         objectives: Objetivos
-        start_date: Data de início
+        related_assemblies: Assembléias Relacionadas
+        related_consultations: Consultas Relacionadas
+        related_participatory_processes: Processos participativos relacionados
       statistics:
         answers_count: Respostas
         comments_count: Comentários
@@ -320,6 +504,10 @@ pt:
       value_types:
         conference_presenter:
           not_found: 'A conferência não foi encontrada no banco de dados (ID: %{id})'
+    media:
+      index:
+        description: Links sobre esta conferência
+        title: Mídia e Links
     menu:
       conferences: Conferências
   devise:
@@ -328,10 +516,8 @@ pt:
         subject: Convite para participar de uma conferência
   layouts:
     decidim:
-      conference_header:
-        conference_menu_item: A conferência
-        conference_speaker_menu_item: caixas de som
-        unfold: Desdobrar
+      conference_hero:
+        register: registo
       conference_widgets:
         show:
           take_part: Participar
@@ -347,3 +533,9 @@ pt:
         promoted_conference:
           more_info: Mais informações
           take_part: Participar
+      conferences_nav:
+        conference_menu_item: Em formação
+        conference_partners_menu_item: Parceiros
+        conference_speaker_menu_item: caixas de som
+        media: meios de comunicação
+        venues: Venues

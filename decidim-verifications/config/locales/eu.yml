@@ -49,6 +49,7 @@ eu:
         create:
           error: Errore bat gertatu da baimena sortzean.
           success: Ongi baimendu duzu.
+          unconfirmed: Zure posta elektronikoa baieztatzeko, baimena eman behar duzu.
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
@@ -132,6 +133,20 @@ eu:
           update:
             error: Zure egiaztapen-kodea ez dator bat gurekin. Begiratu bi aldiz bidalitako mezua
             success: Zorionak. Ongi egiaztatu duzu
+      sms:
+        authorizations:
+          create:
+            error: Arazo bat izan da eskaera zurekin
+            success: Eskerrik asko! SMS bat bidali dizugu telefonoan.
+          edit:
+            send: Berretsi
+            title: Jasotako egiaztapen-kodea sartu
+          new:
+            send: Bidal iezadazu SMS bat
+            title: Eskatu egiaztapen-kodea
+          update:
+            error: Zure egiaztapen-kodea ez dator bat gurekin. Begiratu bi aldiz bidalitako SMSa.
+            success: Zorionak. Ongi egiaztatu duzu.
   errors:
     messages:
       uppercase_only_letters_numbers: guztiak maiuskulaz eta letrak eta / edo zenbakiak bakarrik izan behar ditu

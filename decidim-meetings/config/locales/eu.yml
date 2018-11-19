@@ -22,6 +22,7 @@ eu:
         location_hints: Kokapen-argibideak
         organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
+        registration_form_enabled: Izena emateko inprimakia gaituta
         registration_terms: Izen-emateak
         registrations_enabled: Erregistroak gaituta
         start_time: Hasiera-ordua
@@ -269,6 +270,7 @@ eu:
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
+            registration_form: Izena emateko inprimakia
             registrations_count:
               one: Izen-emate bat egin da.
               other: '%{count} izen-emate egin dira.'
@@ -297,6 +299,10 @@ eu:
         minutes:
           create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
           update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+      calendar_modal:
+        calendar_url: Egutegiaren URLa
+        close_window: Itxi leihoa
+        export_calendar: Esportatu egutegia
       conference_venues: Hitzaldi aretoak
       content_blocks:
         upcoming_events:
@@ -313,6 +319,8 @@ eu:
             search: Search
             space_type: Partaidetza espazioa
             upcoming: Datozen
+      last_activity:
+        new_meeting_at_html: "<span>Bilera berria %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -356,6 +364,8 @@ eu:
             one: Izen-emate 1 erabilgarri
             other: "%{count} izen-emate erabilgarri"
           view: ikusi
+      meetings_map:
+        view_meeting: Ikusi bilera
       models:
         invite:
           fields:
@@ -393,6 +403,10 @@ eu:
       types:
         private_meeting: Bilera pribatua
         transparent: gardena
+    metrics:
+      meetings:
+        object: bilerak
+        title: Bilerak
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -401,7 +415,7 @@ eu:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken bilerak
-        see_all_meetings: Ikusi bilera guztiak
+        see_all: Ikusi dena (%{count})
         upcoming_meetings: Hurrengo topaketak
       upcoming_meeting_for_card:
         upcoming_meeting: Hurrengo bilera

@@ -22,27 +22,19 @@ module Decidim
             collection do
               get :create
               get :decline_invitation
+              get :join, action: :show
+              post :answer
             end
           end
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
+        resource :calendar, only: [:show], format: :text
       end
 
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          meetings = Decidim::Meetings::Meeting.where(component: published_components)
-
-          next unless meetings.any?
-
-          view_context.render(
-            partial: "decidim/participatory_spaces/highlighted_meetings",
-            locals: {
-              past_meetings: meetings.past.order(end_time: :desc, start_time: :desc).limit(3),
-              upcoming_meetings: meetings.upcoming.order(:start_time, :end_time).limit(3)
-            }
-          )
+          view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
         end
 
         if defined? Decidim::ParticipatoryProcesses
@@ -96,12 +88,14 @@ module Decidim
         Decidim.view_hooks.register(:conference_venues, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
           meetings = Decidim::Meetings::Meeting.where(component: published_components).group_by(&:address)
+          meetings_geocoded = Decidim::Meetings::Meeting.where(component: published_components).geocoded
           next unless meetings.any?
 
           view_context.render(
             partial: "decidim/participatory_spaces/conference_venues",
             locals: {
-              meetings: meetings
+              meetings: meetings,
+              meetings_geocoded: meetings_geocoded
             }
           )
         end
@@ -119,6 +113,19 @@ module Decidim
             Decidim::Meetings::Registration.where(user: user).count
           end
         end
+      end
+
+      initializer "decidim_meetings.register_metrics" do
+        Decidim.metrics_registry.register(
+          :meetings,
+          "Decidim::Meetings::Metrics::MeetingsMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          5
+        )
+      end
+
+      initializer "decidim_meetings.assets" do |app|
+        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
       end
     end
   end

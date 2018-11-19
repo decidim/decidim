@@ -383,7 +383,6 @@ ru:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Прошедшие встречи
-        see_all_meetings: Просмотреть все встречи
         upcoming_meetings: Предстоящие встречи
       upcoming_meeting_for_card:
         upcoming_meeting: Предстоящая встреча

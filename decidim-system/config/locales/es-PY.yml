@@ -63,6 +63,10 @@ es-PY:
         update:
           error: Se ha producido un error al actualizar esta organización.
           success: Organización actualizada correctamente.
+        users_registration_mode:
+          disabled: El acceso solo se puede hacer con cuentas externas.
+          enabled: Permitir a los usuarios registrarse e iniciar sesión
+          existing: No permita que los usuarios se registren, pero permita que los usuarios existentes inicien sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear una organización para comenzar. Asegúrate de leer %{guide} antes de continuar.

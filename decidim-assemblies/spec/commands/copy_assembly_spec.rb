@@ -104,5 +104,47 @@ module Decidim::Assemblies
         expect(last_component.step_settings.values).to eq(component.step_settings.values)
       end
     end
+
+    context "when copying a child assembly" do
+      context "when the form is not valid" do
+        let(:invalid) { true }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+      end
+
+      context "when everything is ok" do
+        let!(:assembly_parent) { create :assembly, organization: organization }
+        let!(:assembly) { create :assembly, parent: assembly_parent, organization: organization }
+
+        it "duplicates an assembly" do
+          expect { subject.call }.to change { Decidim::Assembly.count }.by(1)
+
+          old_assembly = Decidim::Assembly.find_by(id: assembly.id)
+          new_assembly = Decidim::Assembly.last
+
+          expect(new_assembly.slug).to eq("copied-slug")
+          expect(new_assembly.title["en"]).to eq("title")
+          expect(new_assembly).not_to be_published
+          expect(new_assembly.organization).to eq(old_assembly.organization)
+          expect(new_assembly.subtitle).to eq(old_assembly.subtitle)
+          expect(new_assembly.description).to eq(old_assembly.description)
+          expect(new_assembly.short_description).to eq(old_assembly.short_description)
+          expect(new_assembly.promoted).to eq(old_assembly.promoted)
+          expect(new_assembly.scope).to eq(old_assembly.scope)
+          expect(new_assembly.parent).to eq(old_assembly.parent)
+          expect(new_assembly.developer_group).to eq(old_assembly.developer_group)
+          expect(new_assembly.local_area).to eq(old_assembly.local_area)
+          expect(new_assembly.target).to eq(old_assembly.target)
+          expect(new_assembly.participatory_scope).to eq(old_assembly.participatory_scope)
+          expect(new_assembly.meta_scope).to eq(old_assembly.meta_scope)
+        end
+
+        it "broadcasts ok" do
+          expect { subject.call }.to broadcast(:ok)
+        end
+      end
+    end
   end
 end

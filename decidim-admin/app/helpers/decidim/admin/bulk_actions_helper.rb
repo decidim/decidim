@@ -3,21 +3,6 @@
 module Decidim
   module Admin
     module BulkActionsHelper
-      # Renders an actions dropdown, including an item
-      # for each bulk action.
-      #
-      # Returns a rendered dropdown.
-      def bulk_actions_dropdown
-        render partial: "decidim/admin/bulk_actions/dropdown"
-      end
-
-      # Renders a form to change the category of selected items
-      #
-      # Returns a rendered form.
-      def bulk_action_recategorize
-        render partial: "decidim/admin/bulk_actions/recategorize"
-      end
-
       def proposal_find(id)
         Decidim::Proposals::Proposal.find(id)
       end
@@ -56,6 +41,20 @@ module Decidim
 
       def bulk_disabled_categories_for(scope)
         scope.first_class.joins(:subcategories).pluck(:id)
+      end
+
+      # Public: Generates a select field with the components.
+      #
+      # siblings - A collection of components.
+      #
+      # Returns a String.
+      def bulk_components_select(siblings)
+        components = siblings.map do |component|
+          [translated_attribute(component.name, component.organization), component.id]
+        end
+
+        prompt = t("decidim.proposals.admin.proposals.index.select_component")
+        select(:target_component_id, nil, options_for_select(components, selected: []), prompt: prompt)
       end
     end
   end

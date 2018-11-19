@@ -41,6 +41,29 @@ Decidim.configure do |config|
   # take over user accounts.
   #
   config.enable_html_header_snippets = false
+
+  # SMS gateway configuration
+  #
+  # If you want to verify your users by sending a verification code via
+  # SMS you need to provide a SMS gateway service class.
+  #
+  # An example class would be something like:
+  #
+  # class MySMSGatewayService
+  #   attr_reader :mobile_phone_number, :code
+  #
+  #   def initialize(mobile_phone_number, code)
+  #     @mobile_phone_number = mobile_phone_number
+  #     @code = code
+  #   end
+  #
+  #   def deliver_code
+  #     # Actual code to deliver the code
+  #     true
+  #   end
+  # end
+  #
+  # config.sms_gateway_service = "MySMSGatewayService"
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

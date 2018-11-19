@@ -332,6 +332,8 @@ de:
         status_change_for: Die Initiative %{title} hat ihren Status geändert
         technical_validation_body_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
         technical_validation_for: Die Initiative %{title} hat ihre technische Validierung beantragt.
+      last_activity:
+        new_initiative: Neue Initiative
       pages:
         home:
           highlighted_initiatives:
@@ -357,9 +359,10 @@ de:
         promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
         show_similar_initiatives: Vergleichen
+        step: Schritt %{current} von %{total}
+        title: Neue Initiative schaffen
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Entfalten
       initiatives:
         initiative:
           check: Hör zu

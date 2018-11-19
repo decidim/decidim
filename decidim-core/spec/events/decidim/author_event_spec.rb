@@ -76,6 +76,26 @@ module Decidim
         end
       end
 
+      context "when the author is not a user" do
+        let(:user) { create(:organization) }
+
+        it "has an empty author nickname" do
+          expect(subject.author_nickname).to eq("")
+        end
+
+        it "has an empty author name" do
+          expect(subject.author_name).to eq("")
+        end
+
+        it "has an empty author path" do
+          expect(subject.author_path).to eq("")
+        end
+
+        it "has an empty author url" do
+          expect(subject.author_url).to eq("")
+        end
+      end
+
       context "when the resource doesn't have an author" do
         let(:resource) { OpenStruct.new }
 

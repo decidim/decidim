@@ -23,6 +23,7 @@ en:
         location_hints: Location hints
         organizer_id: Organizer
         private_meeting: Private meeting
+        registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
@@ -270,6 +271,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
+            registration_form: Registration form
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
@@ -299,6 +301,10 @@ en:
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+      calendar_modal:
+        calendar_url: Calendar URL
+        close_window: Close window
+        export_calendar: Export calendar
       conference_venues: Conference Venues
       content_blocks:
         upcoming_events:
@@ -400,6 +406,10 @@ en:
       types:
         private_meeting: Private meeting
         transparent: Transparent
+    metrics:
+      meetings:
+        object: meetings
+        title: Meetings
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -408,7 +418,7 @@ en:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
-        see_all_meetings: See all meetings
+        see_all: See all (%{count})
         upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
         upcoming_meeting: Upcoming meeting

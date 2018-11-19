@@ -261,6 +261,8 @@ ca:
         public: Públic
       index:
         title: Assemblees
+      last_activity:
+        new_assembly: Nova assemblea
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ ca:
           not_found: 'L''assemblea no s''ha trobada a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
+    metrics:
+      assemblies:
+        object: assemblees
+        title: Assemblees
   errors:
     messages:
       cannot_be_blank: no es pot deixar en blanc
@@ -342,10 +348,9 @@ ca:
         promoted_assembly:
           more_info: Més informació
           take_part: Participa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Membres
         assembly_menu_item: L'assemblea
-        unfold: Desplega
       assembly_widgets:
         show:
           take_part: Participa

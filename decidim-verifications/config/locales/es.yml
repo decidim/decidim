@@ -49,6 +49,7 @@ es:
         create:
           error: Hubo un error al crear la autorización.
           success: Has sido autorizado/a correctamente.
+          unconfirmed: Necesitas confirmar tu correo electrónico para autorizarte.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
@@ -132,6 +133,20 @@ es:
           update:
             error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos
             success: Felicidades. Has sido verificado correctamente
+      sms:
+        authorizations:
+          create:
+            error: Hubo un problema con tu solicitud
+            success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
+          edit:
+            send: Confirmar
+            title: Introduce el código de verificación que has recibido
+          new:
+            send: Mándame un SMS
+            title: Solicita tu código de verificación
+          update:
+            error: Tu código de verificación no coincide con el nuestro. Por favor, vuelve a comprobar los SMS que te enviamos.
+            success: Felicidades. Has sido verificado con éxito.
   errors:
     messages:
       uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y/o números

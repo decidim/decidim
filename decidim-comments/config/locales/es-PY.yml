@@ -16,6 +16,8 @@ es-PY:
   decidim:
     comments:
       comments: Comentarios
+      last_activity:
+        new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
       votes:
         create:
           error: Ha habido errores al votar el comentario.
@@ -87,6 +89,10 @@ es-PY:
           email_outro: Has recibido esta notificación porque has sido mencionado en %{resource_title}.
           email_subject: Has sido mencionado en %{resource_title}
           notification_title: Has sido mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        object: comentarios
+        title: Comentarios
   errors:
     messages:
       cannot_have_comments: no puede tener comentarios

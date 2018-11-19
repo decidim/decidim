@@ -257,6 +257,10 @@ fr:
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     menu:
       processes: Concertations
+    metrics:
+      participatory_processes:
+        object: processus participatifs
+        title: Processus participatifs
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -288,6 +292,8 @@ fr:
           name: Concertations mises en avant
       index:
         title: Concertations
+      last_activity:
+        new_participatory_process: Nouveau processus participatif
       pages:
         home:
           highlighted_processes:
@@ -372,9 +378,8 @@ fr:
           active_step: 'Étape actuelle :'
           more_info: Plus d'informations
           take_part: Participer
-      process_header:
-        process_menu_item: Présentation
-        unfold: Voir la suite
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes
+      process_navigation:
+        process_menu_item: Présentation

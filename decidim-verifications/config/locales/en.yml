@@ -50,6 +50,7 @@ en:
         create:
           error: There was an error creating the authorization.
           success: You've been successfully authorized.
+          unconfirmed: You need to confirm your email in order to authorize yourself.
         first_login:
           actions:
             another_dummy_authorization_handler: Verify against another example of authorization handler
@@ -133,6 +134,20 @@ en:
           update:
             error: Your verification code doesn't match ours. Please double-check the letter we sent to you
             success: Congratulations. You've been successfully verified
+      sms:
+        authorizations:
+          create:
+            error: There was a problem with your request
+            success: Thanks! We've sent an SMS to your phone.
+          edit:
+            send: Confirm
+            title: Introduce the verification code you received
+          new:
+            send: Send me an SMS
+            title: Request your verification code
+          update:
+            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+            success: Congratulations. You've been successfully verified.
   errors:
     messages:
       uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers

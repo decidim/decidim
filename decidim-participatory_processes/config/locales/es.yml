@@ -35,8 +35,8 @@ es:
         name: Nombre
         participatory_process_ids: Procesos relacionados
       participatory_process_step:
-        cta_path: Ruta de llamada a la acción
-        cta_text: Texto de llamada a la acción
+        cta_path: Ruta del botón de acción
+        cta_text: Texto del botón de acción
         description: Descripción
         end_date: Fecha de finalización
         short_description: Descripción breve
@@ -257,6 +257,10 @@ es:
           notification_title: Se han actualizado las fechas de la fase <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Procesos
+    metrics:
+      participatory_processes:
+        object: procesos participativos
+        title: Procesos participativos
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -288,6 +292,8 @@ es:
           name: Procesos destacados
       index:
         title: Procesos participativos
+      last_activity:
+        new_participatory_process: Nuevo proceso participativo
       pages:
         home:
           highlighted_processes:
@@ -318,10 +324,10 @@ es:
             no_active_nor_upcoming: Sin procesos activos ni futuros
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           names:
-            active: Activa
+            active: Activar
             all: Todos
-            past: Pasadas
-            upcoming: Próximas
+            past: Pasados
+            upcoming: Próximos
           see: Ver
         index:
           loading: Cargando resultados...
@@ -372,9 +378,8 @@ es:
           active_step: 'Fase actual:'
           more_info: Más información
           take_part: Participa
-      process_header:
-        process_menu_item: El proceso
-        unfold: Desplegar
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Ver las fases
+      process_navigation:
+        process_menu_item: El proceso

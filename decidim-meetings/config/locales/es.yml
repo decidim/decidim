@@ -22,6 +22,7 @@ es:
         location_hints: Pistas de ubicación
         organizer_id: Organizador
         private_meeting: Encuentro privado
+        registration_form_enabled: Formulario de inscripción habilitado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
@@ -126,14 +127,14 @@ es:
       badges:
         attended_meetings:
           conditions:
-            - Regístrate en las reuniones a las que quieres asistir.
-          description: Este distintivo se otorga cuando asiste a varias reuniones cara a cara.
+            - Regístrate en los encuentros a los que quieres asistir
+          description: Este distintivo se otorga cuando asistas a varias reuniones presenciales.
           description_another: Este usuario asistió a %{score} encuentros.
-          description_own: Usted ha asistido a %{score} reuniones.
-          name: Reuniones asistidas
-          next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha asistido a ninguna reunión.
-          unearned_own: No has asistido a ninguna reunión todavía.
+          description_own: Has asistido a %{score} encuentros.
+          name: Encuentros a los que has asistido
+          next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
+          unearned_another: Este usuario aún no ha asistido a ningún encunetro.
+          unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
       actions:
         agenda: Orden del día
@@ -269,6 +270,7 @@ es:
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
+            registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
@@ -297,22 +299,28 @@ es:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
-      conference_venues: Lugares de conferencia
+      calendar_modal:
+        calendar_url: URL del calendario
+        close_window: Cerrar ventana
+        export_calendar: Exportar calendario
+      conference_venues: Sedes de las jornadas
       content_blocks:
         upcoming_events:
-          name: Próximos Eventos
-          upcoming_events: Próximas reuniones
+          name: Próximos encuentros
+          upcoming_events: Próximos encuentros
           view_all_events: Ver todo
       directory:
         meetings:
           index:
-            all: Todas
+            all: Todos
             date: Fecha
-            meetings: Reuniones
-            past: Pasado
+            meetings: Encuentros
+            past: Pasados
             search: Buscar
             space_type: Espacio participativo
             upcoming: Próximo
+      last_activity:
+        new_meeting_at_html: "<span>Nuevo encuentro en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -395,6 +403,10 @@ es:
       types:
         private_meeting: Encuentro privado
         transparent: Transparente
+    metrics:
+      meetings:
+        object: encuentros
+        title: Encuentros
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -403,7 +415,7 @@ es:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados
-        see_all_meetings: Ver todos los encuentros
+        see_all: Ver todo (%{count})
         upcoming_meetings: Próximos encuentros
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunion

@@ -347,6 +347,8 @@ pl:
         status_change_for: Inicjatywa %{title} zmieniła swój stan
         technical_validation_body_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
         technical_validation_for: Inicjatywa %{title} zażądała technicznej weryfikacji.
+      last_activity:
+        new_initiative: Nowa inicjatywa
       pages:
         home:
           highlighted_initiatives:
@@ -372,9 +374,10 @@ pl:
         promotal_committee: Komitet promotorski
         select_initiative_type: Wybierać
         show_similar_initiatives: Porównać
+        step: Krok %{current} z %{total}
+        title: Utwórz nową inicjatywę
       initiative_header:
         initiative_menu_item: Inicjatywa
-        unfold: Rozwijać się
       initiatives:
         initiative:
           check: Sprawdź to

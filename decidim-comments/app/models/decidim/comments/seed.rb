@@ -14,11 +14,13 @@ module Decidim
       def self.comments_for(resource)
         return unless resource.accepts_new_comments?
 
+        Decidim::Comments::Comment.reset_column_information
+
         organization = resource.organization
 
         2.times do
           author = Decidim::User.where(organization: organization).all.sample
-          user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+          user_group = [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(author).verified.sample : nil
 
           params = {
             commentable: resource,

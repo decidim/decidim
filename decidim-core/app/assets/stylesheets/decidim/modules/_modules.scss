@@ -48,6 +48,7 @@
 @import "badges";
 @import "hover-section";
 @import "list-request";
+@import "floating-helper";
 
 //Process elements
 @import "process-header";
@@ -67,15 +68,11 @@
 @import "conference-programme";
 @import "conference-registration";
 @import "conference-diploma";
+@import "conference-media";
 
 //User interface
 @import "user-form";
 @import "signup";
-
-//Visualizations
-@import "areachart";
-@import "chart-tooltip";
-@import "metrics";
 
 //Additional elements
 @import "share";

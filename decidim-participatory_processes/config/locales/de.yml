@@ -257,6 +257,10 @@ de:
           notification_title: Die Daten für den <a href="%{resource_path}">%{resource_title}</a> Schritt bei <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
     menu:
       processes: Prozesse
+    metrics:
+      participatory_processes:
+        object: partizipative Prozesse
+        title: Partizipative Prozesse
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -288,6 +292,8 @@ de:
           name: Markierte Prozesse
       index:
         title: Partizipative Prozesse
+      last_activity:
+        new_participatory_process: Neuer partizipativer Prozess
       pages:
         home:
           highlighted_processes:
@@ -372,9 +378,8 @@ de:
           active_step: 'Aktueller Schritt:'
           more_info: Mehr Info
           take_part: Teilnehmen
-      process_header:
-        process_menu_item: Der Prozess
-        unfold: Entfalten
       process_header_steps:
         step: Schritt %{current} von %{total}
         view_steps: Schritte anzeigen
+      process_navigation:
+        process_menu_item: Der Prozess

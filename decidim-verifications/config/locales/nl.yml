@@ -49,6 +49,7 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van de autorisatie.
           success: U bent geautoriseerd.
+          unconfirmed: U moet uw e-mail bevestigen om uzelf te autoriseren.
         first_login:
           actions:
             another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding
@@ -132,6 +133,20 @@ nl:
           update:
             error: Uw verificatiecode komt niet overeen met de onze. Controleer alstublieft de brief die we u hebben gestuurd
             success: Hartelijk gefeliciteerd. U bent succesvol geverifieerd
+      sms:
+        authorizations:
+          create:
+            error: Er was een probleem met je verzoek
+            success: Bedankt! We hebben een sms naar je telefoon gestuurd.
+          edit:
+            send: Bevestigen
+            title: Voer de verificatiecode in die u heeft ontvangen
+          new:
+            send: Stuur me een sms
+            title: Vraag uw verificatiecode aan
+          update:
+            error: Uw verificatiecode komt niet overeen met de onze. Controleer nogmaals de sms die we u hebben gestuurd.
+            success: Gefeliciteerd. U bent succesvol geverifieerd.
   errors:
     messages:
       uppercase_only_letters_numbers: moet allemaal in hoofdletters zijn en alleen letters en / of cijfers bevatten

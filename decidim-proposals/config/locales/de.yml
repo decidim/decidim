@@ -75,8 +75,10 @@ de:
             collaborative_drafts_enabled: Collaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
             geocoding_enabled: Geocodierung aktiviert
+            minimum_votes_per_user: Mindeststimmen pro Nutzer
             new_proposal_help_text: Neuer Vorschlagstext
             official_proposals_enabled: Offizielle Vorschläge aktiviert
+            participatory_texts_enabled: Partizipative Texte aktiviert
             proposal_answering_enabled: Angebotsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren bearbeitet werden, bevor diese vielen Minuten verstreichen
             proposal_length: Maximale Länge des Vorschlagskörpers
@@ -217,10 +219,10 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erstellt.
     metrics:
       accepted_proposals:
-        object: Vorschlag
+        object: Vorschläge
         title: Akzeptierte Vorschläge
       proposals:
-        object: Vorschlag
+        object: Vorschläge
         title: Vorschläge
       votes:
         object: Stimmen
@@ -229,16 +231,13 @@ de:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Vorschläge
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Vorschläge
-        see_all_proposals: Sehen Sie sich alle Vorschläge an
     proposals:
       actions:
         answer: Antworten
         edit_proposal: Angebot bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
+        participatory_texts: Partizipative Texte
         private_notes: Private Notizen
         title: Aktionen
       admin:
@@ -250,6 +249,28 @@ de:
         models:
           proposal:
             name: Vorschlag
+        participatory_texts:
+          bulk-actions:
+            import_doc: Dokument importieren
+          import:
+            invalid: Das Formular ist ungültig!
+            success: Herzlichen Glückwunsch, die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
+          index:
+            info_1: Die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
+            publish_document: Dokument veröffentlichen
+            title: VORSCHAU TEILNEHMERTEXT
+          new_import:
+            bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
+            document_legend: 'Fügen Sie ein Dokument mit weniger als 2 MB hinzu, wobei jeder Abschnitt bis zu 3 Ebenen tief in Vorschläge zerlegt wird. Unterstützte Formate sind: Markdown'
+            title: DOKUMENT HINZUFÜGEN
+            upload_document: Dokument hochladen
+          publish:
+            invalid: Vorschläge konnten nicht veröffentlicht werden
+            success: Alle Vorschläge wurden veröffentlicht
+          sections:
+            article: "<em>Artikel</em>"
+            section: "<em>Abschnitt:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Unterabschnitt:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Akzeptiert
@@ -278,12 +299,19 @@ de:
             update: Aktualisieren
           form:
             attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+            created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
             select_a_category: Wählen Sie eine Kategorie
+            select_a_meeting: Wählen Sie eine Besprechung aus
           index:
             actions: Aktionen
             cancel: Stornieren
             change_category: Kategorie ändern
+            merge: Verschmelze zu einem neuen
+            merge_button: Verschmelzen
+            select_component: Wählen Sie eine Komponente aus
             selected: ausgewählt
+            split: Split-Vorschläge
+            split_button: Teilt
             title: Vorschläge
             update: Aktualisieren
           new:
@@ -303,6 +331,14 @@ de:
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
             select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
+        proposals_merges:
+          create:
+            invalid: Beim Zusammenführen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
+            success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
+        proposals_splits:
+          create:
+            invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
+            success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         shared:
           info_proposal:
             body: Karosserie
@@ -313,6 +349,7 @@ de:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
           create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
+          update: "%{user_name} aktualisiert den %{resource_name} offiziellen Vorschlag für die %{space_name} Flächen"
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
       answers:
@@ -321,6 +358,19 @@ de:
         not_answered: Nicht beantwortet
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
+      application_helper:
+        filter_origin_values:
+          all: Alles
+          citizens: Bürger
+          meetings: Meetings
+          official: Offiziell
+          user_groups: Benutzergruppen
+        filter_state_values:
+          accepted: Akzeptiert
+          all: Alles
+          evaluating: Auswerten
+          except_rejected: Alle außer abgelehnt
+          rejected: Abgelehnt
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -441,6 +491,8 @@ de:
       destroy_draft:
         error: Es gab Fehler beim Löschen des Angebotsentwurfs.
         success: Der Angebotsentwurf wurde erfolgreich gelöscht.
+      last_activity:
+        new_proposal_at_html: "<span>Neuer Vorschlag bei %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -462,6 +514,12 @@ de:
             votes: Stimmen
       new:
         limit_reached: Sie können keine neuen Angebote erstellen, da Sie das Limit überschritten haben.
+      participatory_text_proposal:
+        buttons:
+          comment: Kommentar
+          comments: Bemerkungen
+          endorse: Befürworten
+          endorsements: Vermerke
       proposal_endorsements:
         create:
           error: Bei der Bestätigung des Vorschlags sind Fehler aufgetreten.
@@ -505,17 +563,10 @@ de:
         endorsements_card_row:
           comments: Bemerkungen
         filters:
-          accepted: Akzeptiert
           activity: Aktivität
-          all: Alle
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
-          citizens: Bürger
-          evaluating: Bewertung
-          except_rejected: Alle außer abgelehnt
-          official: Offiziell
           origin: Ursprung
-          rejected: Abgelehnt
           related_to: Bezüglich
           search: Suche
           state: Zustand
@@ -542,6 +593,11 @@ de:
           most_voted: Die meisten haben gewählt
           random: Zufällig
           recent: Kürzlich
+        participatory_texts:
+          index:
+            document_index: Dokumentenindex
+          view_index:
+            see_index: Siehe Index
         preview:
           modify: Ändern Sie den Vorschlag
           proposal_edit_before_minutes:
@@ -553,6 +609,7 @@ de:
           creation_date: 'Erstellung: %{date}'
           view_proposal: Angebot anzeigen
         show:
+          back_to: Zurück zu
           edit_proposal: Angebot bearbeiten
           endorsements_list: Liste der Empfehlungen
           hidden_endorsers_count:
@@ -566,6 +623,7 @@ de:
           report: Bericht
           sign_in: Anmelden
           sign_in_or_up: "%{in} oder %{up} um teilzunehmen"
+          sign_in_to_participate: "%{in} um teilzunehmen"
           sign_up: Anmelden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?
@@ -589,6 +647,10 @@ de:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
+          minimum_votes_per_user:
+            description: Sie müssen mindestens %{votes} Stimmen auf verschiedene Vorschläge verteilen.
+            given_enough_votes: Du hast genug Unterstützung gegeben.
+            supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.
           threshold_per_proposal:

@@ -333,6 +333,8 @@ gl:
         status_change_for: A iniciativa %{title} cambiou o seu estado
         technical_validation_body_for: A iniciativa %{title} solicitou a súa validación técnica.
         technical_validation_for: A iniciativa %{title} solicitou a súa validación técnica.
+      last_activity:
+        new_initiative: Nova iniciativa
       pages:
         home:
           highlighted_initiatives:
@@ -358,9 +360,10 @@ gl:
         promotal_committee: Comité de promoción
         select_initiative_type: Elixe
         show_similar_initiatives: Compare
+        step: Paso %{current} de %{total}
+        title: Crea unha nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Despregar
       initiatives:
         initiative:
           check: Bótalle unha ollada

@@ -261,6 +261,8 @@ gl:
         public: Público
       index:
         title: Asembleas
+      last_activity:
+        new_assembly: Nova montaxe
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ gl:
           not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
     menu:
       assemblies: Asembleas
+    metrics:
+      assemblies:
+        object: asembleas
+        title: Asembleas
   errors:
     messages:
       cannot_be_blank: non pode estar en branco
@@ -342,10 +348,9 @@ gl:
         promoted_assembly:
           more_info: Máis información
           take_part: Tomar parte en
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Membros
         assembly_menu_item: A asemblea
-        unfold: Despregar
       assembly_widgets:
         show:
           take_part: Tomar parte en

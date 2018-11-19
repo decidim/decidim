@@ -333,6 +333,8 @@ eu:
         status_change_for: '%{title} ekimena bere egoera aldatu du'
         technical_validation_body_for: '%{title} ekimena balidazio teknikoa eskatu du.'
         technical_validation_for: '%{title} ekimena balidazio teknikoa eskatu du.'
+      last_activity:
+        new_initiative: Ekimen berria
       pages:
         home:
           highlighted_initiatives:
@@ -358,9 +360,10 @@ eu:
         promotal_committee: Sustatzaile batzordea
         select_initiative_type: Aukeratu
         show_similar_initiatives: konparatu
+        step: Step %{current} of %{total}
+        title: Sortu ekimen berria
       initiative_header:
         initiative_menu_item: Initiative
-        unfold: Zabaldu
       initiatives:
         initiative:
           check: Begiratu

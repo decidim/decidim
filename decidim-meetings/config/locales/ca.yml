@@ -22,6 +22,7 @@ ca:
         location_hints: Detalls d'ubicació
         organizer_id: Organitzador
         private_meeting: Trobada privada
+        registration_form_enabled: S'han habilitat les inscripcions
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
@@ -126,14 +127,14 @@ ca:
       badges:
         attended_meetings:
           conditions:
-            - Inscriviu-vos a les reunions que vulgueu assistir
-          description: Aquesta distinció es concedeix quan assistiu a diverses reunions presencials.
-          description_another: Aquest usuari ha assistit a %{score} reunions.
-          description_own: Has assistit a %{score} reunions.
-          name: Reunions assistides
-          next_level_in: Assistiu a més de %{score} reunions per arribar al següent nivell!
+            - Inscriu-te a les reunions que vulguis assistir
+          description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
+          description_another: Aquest usuari ha assistit a %{score} trobades.
+          description_own: Has assistit a %{score} trobades.
+          name: Torbades a les que has assistit
+          next_level_in: Assisteix a més de %{score} reunions per arribar al següent nivell!
           unearned_another: Aquest usuari encara no ha assistit a cap reunió.
-          unearned_own: Encara no heu assistit a cap reunió.
+          unearned_own: Encara no has assistit a cap reunió.
     meetings:
       actions:
         agenda: Ordre del dia
@@ -269,6 +270,7 @@ ca:
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
             invites: Invitacions
+            registration_form: Formulari d'inscripció
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
@@ -297,22 +299,28 @@ ca:
         minutes:
           create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} va ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
-      conference_venues: Llocs de conferències
+      calendar_modal:
+        calendar_url: URL del calendari
+        close_window: Tanca la finestra
+        export_calendar: Exportar el calendari
+      conference_venues: Seus de les jornades
       content_blocks:
         upcoming_events:
-          name: Pròxims esdeveniments
-          upcoming_events: Propers reunions
-          view_all_events: Veure tot
+          name: Propers esdeveniments
+          upcoming_events: Properes reunions
+          view_all_events: Veure-ho tot
       directory:
         meetings:
           index:
-            all: Tots
+            all: Totes
             date: Data
-            meetings: Reunions
-            past: Passat
-            search: Cerca
+            meetings: Trobades
+            past: Passades
+            search: Cercar
             space_type: Espai participatiu
-            upcoming: Proper
+            upcoming: Properes
+      last_activity:
+        new_meeting_at_html: "<span>Nova trobada a %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -395,6 +403,10 @@ ca:
       types:
         private_meeting: Trobada privada
         transparent: Transparent
+    metrics:
+      meetings:
+        object: trobades
+        title: Trobades
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -403,7 +415,7 @@ ca:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Trobades anteriors
-        see_all_meetings: Veure totes les trobades
+        see_all: Veure tots (%{count})
         upcoming_meetings: Properes trobades
       upcoming_meeting_for_card:
         upcoming_meeting: Propera reunió

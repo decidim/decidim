@@ -261,6 +261,8 @@ fr:
         public: Public
       index:
         title: Assemblées
+      last_activity:
+        new_assembly: Nouvelle assemblée
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ fr:
           not_found: 'L''assemblée n''a pas été trouvée sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
+    metrics:
+      assemblies:
+        object: assemblées
+        title: Assemblages
   errors:
     messages:
       cannot_be_blank: ne peut être vide
@@ -342,10 +348,9 @@ fr:
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Membres
         assembly_menu_item: L'assemblée
-        unfold: Dérouler
       assembly_widgets:
         show:
           take_part: Participer

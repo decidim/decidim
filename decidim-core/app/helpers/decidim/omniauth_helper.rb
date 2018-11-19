@@ -23,8 +23,16 @@ module Decidim
 
     # Public: icon for omniauth buttons
     def oauth_icon(provider)
-      name = provider == :developer ? "phone" : normalize_provider_name(provider)
+      info = Rails.application.secrets.dig(:omniauth, provider.to_sym)
 
+      if info
+        icon_path = info[:icon_path]
+        return external_icon(icon_path) if icon_path
+
+        name = info[:icon]
+      end
+
+      name ||= normalize_provider_name(provider)
       icon(name)
     end
   end

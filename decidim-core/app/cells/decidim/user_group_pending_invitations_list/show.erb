@@ -1,0 +1,23 @@
+<section class="section list-invitation">
+  <p><%= t("decidim.group_invites.accept_or_reject_group_invitations") %></p>
+  <% invitations.each do |invitation| %>
+    <div class="flex--sbc">
+      <%= cell "decidim/author", present(invitation.user_group) %>
+
+      <div>
+        <%= link_to(
+          t("decidim.group_invites.accept_invitation"),
+          decidim.group_invite_path(invitation.user_group.nickname, invitation.id),
+          method: :patch,
+          class: "card__button button small light success"
+        ) %>
+        <%= link_to(
+          t("decidim.group_invites.reject_invitation"),
+          decidim.group_invite_path(invitation.user_group.nickname, invitation.id),
+          method: :delete,
+          class: "card__button button small light"
+        ) %>
+      </div>
+    </div>
+  <% end %>
+</section>

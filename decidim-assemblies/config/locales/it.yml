@@ -261,6 +261,8 @@ it:
         public: Pubblico
       index:
         title: assemblee
+      last_activity:
+        new_assembly: Nuovo assemblaggio
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ it:
           not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: assemblee
+    metrics:
+      assemblies:
+        object: assiemi
+        title: assemblee
   errors:
     messages:
       cannot_be_blank: non può essere vuoto
@@ -342,10 +348,9 @@ it:
         promoted_assembly:
           more_info: Maggiori informazioni
           take_part: Partecipa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Utenti
         assembly_menu_item: L'assemblea
-        unfold: Espandi
       assembly_widgets:
         show:
           take_part: Partecipa

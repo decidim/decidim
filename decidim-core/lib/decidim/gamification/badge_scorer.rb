@@ -2,20 +2,22 @@
 
 module Decidim
   module Gamification
-    # This class is responsible of updating scores given a user and a badge. Will
+    # This class is responsible of updating scores given a model and a badge. Will
     # also trigger any side-effects such as notifications.
     class BadgeScorer
       # Public: Initializes the class.
       #
-      # user  - The user for which to update scores.
+      # model  - The model for which to update scores.
       # badge - The `Badge` to update.
       #
-      def initialize(user, badge)
-        @user = user
+      def initialize(model, badge)
+        raise "Invalid badge for this UserBase type" unless badge.valid_for?(model)
+
+        @model = model
         @badge = badge
       end
 
-      # Public: Increments the score for the user and badge.
+      # Public: Increments the score for the model and badge.
       #
       # amount - Amount to increment. Defaults to 1.
       #
@@ -25,13 +27,13 @@ module Decidim
 
         with_level_tracking do
           BadgeScore.find_or_create_by(
-            user: @user,
+            user: @model,
             badge_name: @badge.name
           ).increment(:value, amount).save!
         end
       end
 
-      # Public: Decrements the score for the user and badge.
+      # Public: Decrements the score for the model and badge.
       #
       # amount - Amount to decrement. Defaults to 1.
       #
@@ -41,7 +43,7 @@ module Decidim
 
         with_level_tracking do
           badge_score = BadgeScore.find_by(
-            user: @user,
+            user: @model,
             badge_name: @badge.name
           )
 
@@ -53,7 +55,7 @@ module Decidim
         end
       end
 
-      # Public: Sets the score for the user and badge.
+      # Public: Sets the score for the model and badge.
       #
       # score - Score to set.
       #
@@ -63,7 +65,7 @@ module Decidim
 
         with_level_tracking do
           BadgeScore.find_or_create_by(
-            user_id: @user.id,
+            user_id: @model.id,
             badge_name: @badge.name
           ).update!(value: score)
         end
@@ -75,11 +77,11 @@ module Decidim
       class InvalidAmountException < StandardError; end
 
       def with_level_tracking
-        previous_level = BadgeStatus.new(@user, @badge).level
+        previous_level = BadgeStatus.new(@model, @badge).level
 
         yield
 
-        current_status = BadgeStatus.new(@user, @badge)
+        current_status = BadgeStatus.new(@model, @badge)
         send_notification(previous_level, current_status.level)
         current_status
       end
@@ -105,8 +107,8 @@ module Decidim
         Decidim::EventsManager.publish(
           event: name,
           event_class: klass,
-          resource: @user,
-          recipient_ids: [@user.id],
+          resource: @model,
+          recipient_ids: recipients,
           extra: {
             badge_name: @badge.name.to_s,
             previous_level: previous_level,
@@ -116,7 +118,15 @@ module Decidim
       end
 
       def badges_enabled?
-        @user.organization.badges_enabled?
+        @model.organization.badges_enabled?
+      end
+
+      def recipients
+        if @model.is_a?(User)
+          [@model.id]
+        elsif @model.is_a?(UserGroup)
+          @model.users.pluck(:id)
+        end
       end
     end
   end

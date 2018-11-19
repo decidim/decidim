@@ -100,6 +100,8 @@ pt-BR:
           close_window: Fechar janela
           share: Compartilhar
           share_link: Compartilhar link
+      last_activity:
+        new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:
         debate:
           fields:
@@ -137,7 +139,7 @@ pt-BR:
         commented_debates:
           conditions:
             - Escolha um debate aberto para participar
-          description: Este crachá é concedido quando você participa ativamente dos diferentes debates deixando seus comentários.
+          description: Este emblema é concedido quando você participa ativamente nos debates diferentes deixando seus comentários.
           description_another: Este usuário participou em %{score} debates.
           description_own: Você participou de %{score} debates.
           name: Debates

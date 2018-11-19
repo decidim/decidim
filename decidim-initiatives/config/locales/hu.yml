@@ -333,6 +333,8 @@ hu:
         status_change_for: A(z) %{title} kezdeményezés állapota változott
         technical_validation_body_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
         technical_validation_for: A(z) %{title} kezdeményezés technikai érvényesítését kérted.
+      last_activity:
+        new_initiative: Új kezdeményezés
       pages:
         home:
           highlighted_initiatives:
@@ -358,9 +360,10 @@ hu:
         promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
         show_similar_initiatives: Összehasonlítás
+        step: Lépés %{current} Az %{total}
+        title: Hozzon létre új kezdeményezést
       initiative_header:
         initiative_menu_item: Kezdeményezés
-        unfold: Kibont
       initiatives:
         initiative:
           check: Nézd meg

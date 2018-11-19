@@ -75,14 +75,16 @@ pt-BR:
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             geocoding_enabled: Geocoding habilitado
+            minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
+            participatory_texts_enabled: Textos participativos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
             proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite da proposta por usuário
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
-            proposal_wizard_step_2_help_text: Assistente de propostas "Compare" passo ajuda texto
+            proposal_wizard_step_2_help_text: Assistente de proposta "Comparar" passo ajuda texto
             proposal_wizard_step_3_help_text: Texto de ajuda da etapa "Completa" do assistente de proposta
             proposal_wizard_step_4_help_text: Assistente de propostas "Publicar" passo ajuda texto
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
@@ -200,7 +202,7 @@ pt-BR:
         proposal_votes:
           conditions:
             - Navegue e passe algum tempo lendo as propostas de outras pessoas
-            - Dar apoio às propostas que você gosta ou encontrar interessante
+            - Dê apoio às propostas que você gosta ou ache interessante
           description: Este selo é concedido quando você oferece suporte a propostas de outras pessoas.
           description_another: Este usuário deu suporte a %{score} propostas.
           description_own: Você deu suporte a %{score} propostas.
@@ -211,7 +213,7 @@ pt-BR:
         proposals:
           conditions:
             - Escolha o espaço de participação de seu interesse com o envio de propostas ativadas
-            - Crie uma nova proposta
+            - Criar uma proposta
           description: Esse selo é concedido quando você participa ativamente de novas propostas.
           description_another: Este usuário criou %{score} propostas.
           description_own: Você criou %{score} propostas.
@@ -221,10 +223,10 @@ pt-BR:
           unearned_own: Você não criou nenhuma proposta ainda.
     metrics:
       accepted_proposals:
-        object: proposta
+        object: propostas
         title: Propostas aceitas
       proposals:
-        object: proposta
+        object: propostas
         title: Propostas
       votes:
         object: votos
@@ -235,14 +237,14 @@ pt-BR:
           proposals: Propostas
     participatory_spaces:
       highlighted_proposals:
-        proposals: Propostas
-        see_all_proposals: Veja todas as propostas
+        see_all: Ver todos (%{count})
     proposals:
       actions:
         answer: Responda
         edit_proposal: Editar proposta
         import: Importar de outro componente
         new: Nova proposta
+        participatory_texts: Textos participativos
         private_notes: Notas privadas
         title: Ações
       admin:
@@ -254,6 +256,28 @@ pt-BR:
         models:
           proposal:
             name: Proposta
+        participatory_texts:
+          bulk-actions:
+            import_doc: Importar documento
+          import:
+            invalid: O formato é inválido!
+            success: Parabéns, as seções a seguir foram analisadas do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
+          index:
+            info_1: As seções a seguir foram analisadas a partir do documento importado, elas foram convertidas em propostas. Agora você pode revisar e ajustar o que precisar antes de publicar.
+            publish_document: Publicar documento
+            title: Visualizar texto participativo
+          new_import:
+            bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
+            document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados ​​em Propostas. Formatos suportados são: Markdown'
+            title: ADICIONAR DOCUMENTO
+            upload_document: Carregar documento
+          publish:
+            invalid: Não foi possível publicar propostas
+            success: Todas as propostas foram publicadas
+          sections:
+            article: "<em>Artigo</em>"
+            section: "<em>Seção:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsecção:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aceitaram
@@ -282,12 +306,19 @@ pt-BR:
             update: Atualizar
           form:
             attachment_legend: "(Opcional) Adicionar um anexo"
+            created_in_meeting: Esta proposta vem de uma reunião
             select_a_category: Selecionar uma categoria
+            select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
             cancel: Cancelar
             change_category: Alterar categoria
+            merge: Junte-se a um novo
+            merge_button: Combinar
+            select_component: Selecionar componente
             selected: selecionado
+            split: Dividir propostas
+            split_button: Dividir
             title: Propostas
             update: Atualizar
           new:
@@ -307,6 +338,14 @@ pt-BR:
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas.
             select_component: Selecione um componente
             select_states: Verifique os estados das propostas para importar
+        proposals_merges:
+          create:
+            invalid: Ocorreu um erro ao mesclar as propostas selecionadas.
+            success: Fundiu com sucesso as propostas em uma nova.
+        proposals_splits:
+          create:
+            invalid: Ocorreu um erro ao dividir as propostas selecionadas.
+            success: Dividiu com sucesso as propostas em novas.
         shared:
           info_proposal:
             body: Corpo
@@ -326,6 +365,19 @@ pt-BR:
         not_answered: Não respondido
         rejected: Rejeitado
         withdrawn: Retirado
+      application_helper:
+        filter_origin_values:
+          all: Todos
+          citizens: Cidadãos
+          meetings: Reuniões
+          official: Oficial
+          user_groups: Grupos de usuários
+        filter_state_values:
+          accepted: Aceitaram
+          all: Todos
+          evaluating: Avaliando
+          except_rejected: Todos exceto rejeitados
+          rejected: Rejeitado
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -446,6 +498,8 @@ pt-BR:
       destroy_draft:
         error: Houve erros ao excluir o rascunho da proposta.
         success: O rascunho da proposta foi excluído com sucesso.
+      last_activity:
+        new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -467,6 +521,12 @@ pt-BR:
             votes: Votos
       new:
         limit_reached: Você não pode criar novas propostas desde que você excedeu o limite.
+      participatory_text_proposal:
+        buttons:
+          comment: Comente
+          comments: Comentários
+          endorse: Endossar
+          endorsements: Endossos
       proposal_endorsements:
         create:
           error: Houve erros ao endossar a proposta.
@@ -510,17 +570,10 @@ pt-BR:
         endorsements_card_row:
           comments: Comentários
         filters:
-          accepted: Aceitaram
           activity: Atividade
-          all: Tudo
           category: Categoria
           category_prompt: Selecionar uma categoria
-          citizens: Cidadãos
-          evaluating: Avaliando
-          except_rejected: Todos exceto rejeitados
-          official: Oficial
           origin: Origem
-          rejected: Rejeitado
           related_to: Relacionado a
           search: Pesquisa
           state: Estado
@@ -547,6 +600,11 @@ pt-BR:
           most_voted: Mais votados
           random: Aleatório
           recent: Recente
+        participatory_texts:
+          index:
+            document_index: Índice de documentos
+          view_index:
+            see_index: Veja o índice
         preview:
           modify: Modificar a proposta
           proposal_edit_before_minutes:
@@ -558,6 +616,7 @@ pt-BR:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
+          back_to: De volta a
           edit_proposal: Editar proposta
           endorsements_list: Lista de avais
           hidden_endorsers_count:
@@ -571,6 +630,7 @@ pt-BR:
           report: Relatório
           sign_in: assinar em
           sign_in_or_up: "%{in} ou %{up} para participar"
+          sign_in_to_participate: "%{in} para participar"
           sign_up: inscrever-se
           withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
           withdraw_confirmation: Tem certeza de retirar essa proposta?
@@ -594,6 +654,10 @@ pt-BR:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} suporta
+          minimum_votes_per_user:
+            description: Você deve distribuir um mínimo de %{votes} votos entre diferentes propostas.
+            given_enough_votes: Você deu suporte suficiente.
+            supports_remaining: Você tem que votar %{remaining_votes} mais propostas para seus votos a serem levados em conta.
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
           threshold_per_proposal:

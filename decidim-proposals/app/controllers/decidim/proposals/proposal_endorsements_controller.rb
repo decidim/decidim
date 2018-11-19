@@ -29,7 +29,7 @@ module Decidim
         enforce_permission_to :unendorse, :proposal, proposal: proposal
         @from_proposals_list = params[:from_proposals_list] == "true"
         user_group_id = params[:user_group_id]
-        user_group = current_user.user_groups.verified.find(user_group_id) if user_group_id
+        user_group = user_groups.find(user_group_id) if user_group_id
 
         UnendorseProposal.call(proposal, current_user, user_group) do
           on(:ok) do
@@ -42,11 +42,15 @@ module Decidim
       def identities
         enforce_permission_to :endorse, :proposal, proposal: proposal
 
-        @user_verified_groups = current_user.user_groups.verified
+        @user_verified_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
         render :identities, layout: false
       end
 
       private
+
+      def user_groups
+        Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
+      end
 
       def proposal
         @proposal ||= Proposal.where(component: current_component).find(params[:proposal_id])

@@ -240,7 +240,7 @@ sv:
             search: Sök
         content_blocks:
           highlighted_assemblies:
-            max_results: Maximal mängd element att visa
+            max_results: Maximalt antal element att visa
       assembly_members:
         index:
           members: Medlemmar
@@ -261,6 +261,8 @@ sv:
         public: Offentligt
       index:
         title: Möten
+      last_activity:
+        new_assembly: Ny sammankomst
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ sv:
           not_found: 'Mötet hittades inte i databasen (ID: %{id})'
     menu:
       assemblies: Möten
+    metrics:
+      assemblies:
+        object: aggregaten
+        title: Assemblies
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt
@@ -342,10 +348,9 @@ sv:
         promoted_assembly:
           more_info: Mer information
           take_part: Delta
-      assembly_header:
-        assembly_member_menu_item: Medlemmar
+      assembly_navigation:
+        assembly_member_menu_item: medlemmar
         assembly_menu_item: Mötet
-        unfold: Veckla ut
       assembly_widgets:
         show:
           take_part: Delta

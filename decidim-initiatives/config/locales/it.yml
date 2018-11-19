@@ -333,6 +333,8 @@ it:
         status_change_for: L'iniziativa %{title} ha cambiato il suo stato
         technical_validation_body_for: L'iniziativa %{title} ha richiesto la sua convalida tecnica.
         technical_validation_for: L'iniziativa %{title} ha richiesto la sua convalida tecnica.
+      last_activity:
+        new_initiative: Nuova iniziativa
       pages:
         home:
           highlighted_initiatives:
@@ -358,9 +360,10 @@ it:
         promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
         show_similar_initiatives: Confrontare
+        step: Passaggio %{current} di %{total}
+        title: Crea una nuova iniziativa
       initiative_header:
         initiative_menu_item: Iniziativa
-        unfold: spiegare
       initiatives:
         initiative:
           check: Controlla

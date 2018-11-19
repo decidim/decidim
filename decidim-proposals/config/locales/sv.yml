@@ -75,8 +75,10 @@ sv:
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geocoding aktiverad
+            minimum_votes_per_user: Minsta antal röster per användare
             new_proposal_help_text: Nytt förslag till hjälptext
             official_proposals_enabled: Officiella förslag möjliga
+            participatory_texts_enabled: Deltagande texter aktiverade
             proposal_answering_enabled: Svar tlll förslag aktiverat
             proposal_edit_before_minutes: Förslag kan redigeras av författare innan så här många minuter passerar
             proposal_length: Maximal längd på förslagets innehåll
@@ -235,14 +237,14 @@ sv:
           proposals: Förslag
     participatory_spaces:
       highlighted_proposals:
-        proposals: Förslag
-        see_all_proposals: Se alla förslag
+        see_all: Se alla (%{count})
     proposals:
       actions:
         answer: Svara
         edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
+        participatory_texts: Deltagande texter
         private_notes: Privata anteckningar
         title: Åtgärder
       admin:
@@ -254,6 +256,28 @@ sv:
         models:
           proposal:
             name: Förslag
+        participatory_texts:
+          bulk-actions:
+            import_doc: Importera dokument
+          import:
+            invalid: Blanketten är ogiltig!
+            success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
+          index:
+            info_1: Följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
+            publish_document: Publicera dokument
+            title: PREVIEW PARTICIPERY TEXT
+          new_import:
+            bottom_hint: "(Du kommer att kunna förhandsgranska och sortera dokumentavsnitt)"
+            document_legend: 'Lägg till ett dokument mindre än 2 MB, varje sektion tills 3 nivåer djup kommer att analyseras i förslag. Suported format är: Markdown'
+            title: ADD DOKUMENT
+            upload_document: Ladda upp dokument
+          publish:
+            invalid: Kunde inte publicera förslag
+            success: Alla förslag har publicerats
+          sections:
+            article: "<em>Artikel</em>"
+            section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Underavsnitt:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Accepterad
@@ -282,12 +306,19 @@ sv:
             update: Uppdatera
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
+            created_in_meeting: Detta förslag kommer från ett möte
             select_a_category: Välj en kategori
+            select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
             cancel: Avbryt
             change_category: Ändra kategori
+            merge: Sammanfoga till en ny
+            merge_button: Sammanfoga
+            select_component: Välj en komponent
             selected: vald
+            split: Delade förslag
+            split_button: Dela
             title: Förslag
             update: Uppdatera
           new:
@@ -307,6 +338,14 @@ sv:
             no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme att importera förslagen från.
             select_component: Välj en komponent
             select_states: Kontrollera tillstånden för de förslag som ska importeras
+        proposals_merges:
+          create:
+            invalid: Det fanns ett fel att slå samman de valda förslagen.
+            success: Framgångsrikt fusionerade förslagen till en ny.
+        proposals_splits:
+          create:
+            invalid: Det gick inte att splittra de valda förslagen.
+            success: Framgångsrikt splittrade förslagen till nya.
         shared:
           info_proposal:
             body: Innehåll
@@ -326,6 +365,19 @@ sv:
         not_answered: Inte besvarad
         rejected: Avvisade
         withdrawn: Tillbakadragen
+      application_helper:
+        filter_origin_values:
+          all: Allt
+          citizens: Medborgare
+          meetings: möten
+          official: Officiell
+          user_groups: Användargrupper
+        filter_state_values:
+          accepted: Accepterad
+          all: Allt
+          evaluating: utvärdera
+          except_rejected: Alla förutom avvisade
+          rejected: avvisade
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -446,6 +498,8 @@ sv:
       destroy_draft:
         error: Det har uppstått fel vid radering av förslagsutkastet.
         success: Förslagsutkastet har tagits bort.
+      last_activity:
+        new_proposal_at_html: "<span>Nytt förslag till %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -467,6 +521,12 @@ sv:
             votes: Röster
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
+      participatory_text_proposal:
+        buttons:
+          comment: Kommentar
+          comments: kommentarer
+          endorse: Stödja
+          endorsements: påskrifter
       proposal_endorsements:
         create:
           error: Det har blivit fel när man godkände förslaget.
@@ -510,17 +570,10 @@ sv:
         endorsements_card_row:
           comments: Kommentarer
         filters:
-          accepted: Accepterad
           activity: Aktivitet
-          all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: Medborgare
-          evaluating: Utvärderas
-          except_rejected: Alla förutom avvisade
-          official: Officiell
           origin: Ursprung
-          rejected: Avvisade
           related_to: Relaterad till
           search: Sök
           state: Status
@@ -547,6 +600,11 @@ sv:
           most_voted: Mest röstade
           random: Slumpmässig
           recent: Senaste
+        participatory_texts:
+          index:
+            document_index: Dokumentindex
+          view_index:
+            see_index: Se index
         preview:
           modify: Ändra förslaget
           proposal_edit_before_minutes:
@@ -558,6 +616,7 @@ sv:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
         show:
+          back_to: Tillbaka till
           edit_proposal: Redigera förslag
           endorsements_list: Förteckning över Stöd
           hidden_endorsers_count:
@@ -571,6 +630,7 @@ sv:
           report: Rapportera
           sign_in: Logga in
           sign_in_or_up: "%{in} eller %{up} för att delta"
+          sign_in_to_participate: "%{in} att delta"
           sign_up: registrera
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
@@ -594,6 +654,10 @@ sv:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd
+          minimum_votes_per_user:
+            description: Du måste distribuera minst %{votes} röster mellan olika förslag.
+            given_enough_votes: Du har gett tillräckligt med stöd.
+            supports_remaining: Du måste rösta %{remaining_votes} ytterligare förslag för att dina röster ska beaktas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
           threshold_per_proposal:

@@ -1,0 +1,6 @@
+<% if attached_to.attachments.any? %>
+  <section class="media-pictures">
+    <%= cell("decidim/conferences/photos_list", attached_to.photos) %>
+    <%= render partial: "documents", locals: { documents: attached_to.documents } %>
+  </section>
+<% end %>

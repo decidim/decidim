@@ -257,6 +257,10 @@ es-PY:
           notification_title: Se han actualizado las fechas de la fase <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Procesos
+    metrics:
+      participatory_processes:
+        object: procesos participativos
+        title: Procesos participativos
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -288,6 +292,8 @@ es-PY:
           name: Procesos destacados
       index:
         title: Procesos participativos
+      last_activity:
+        new_participatory_process: Nuevo proceso participativo
       pages:
         home:
           highlighted_processes:
@@ -372,9 +378,8 @@ es-PY:
           active_step: 'Fase actual:'
           more_info: Más información
           take_part: Participa
-      process_header:
-        process_menu_item: El proceso
-        unfold: Desplegar
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Ver las fases
+      process_navigation:
+        process_menu_item: El proceso

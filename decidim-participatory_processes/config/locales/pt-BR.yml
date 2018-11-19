@@ -36,7 +36,7 @@ pt-BR:
         participatory_process_ids: Processos relacionados
       participatory_process_step:
         cta_path: Caminho de chamada para ação
-        cta_text: Texto de call to action
+        cta_text: Texto de chamada para ação
         description: Descrição
         end_date: Data final
         short_description: Pequena descrição
@@ -257,6 +257,10 @@ pt-BR:
           notification_title: As datas para o <a href="%{resource_path}">%{resource_title}</a> passo em <a href="%{participatory_space_url}">%{participatory_space_title}</a> foram atualizadas.
     menu:
       processes: Processos
+    metrics:
+      participatory_processes:
+        object: processos participativos
+        title: Processos participativos
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -288,6 +292,8 @@ pt-BR:
           name: Processos em destaque
       index:
         title: Processos participativos
+      last_activity:
+        new_participatory_process: Novo processo participativo
       pages:
         home:
           highlighted_processes:
@@ -372,9 +378,8 @@ pt-BR:
           active_step: 'Etapa atual:'
           more_info: Mais informações
           take_part: Participar
-      process_header:
-        process_menu_item: O processo
-        unfold: Desdobrar
       process_header_steps:
         step: Passo %{current} de %{total}
         view_steps: Ver as etapas
+      process_navigation:
+        process_menu_item: O processo

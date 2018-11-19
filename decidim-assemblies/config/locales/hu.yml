@@ -261,6 +261,8 @@ hu:
         public: Nyilvános
       index:
         title: Gyűlések
+      last_activity:
+        new_assembly: Új összeszerelés
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ hu:
           not_found: 'A gyűlés nem található az adatbázisban (ID: %{id})'
     menu:
       assemblies: Gyűlések
+    metrics:
+      assemblies:
+        object: szerelvények
+        title: szerelvények
   errors:
     messages:
       cannot_be_blank: nem lehet üres
@@ -342,10 +348,9 @@ hu:
         promoted_assembly:
           more_info: További információ
           take_part: Vegyél részt
-      assembly_header:
-        assembly_member_menu_item: Tagok
+      assembly_navigation:
+        assembly_member_menu_item: Belépés
         assembly_menu_item: A gyűlés
-        unfold: Kibont
       assembly_widgets:
         show:
           take_part: Vegyél részt

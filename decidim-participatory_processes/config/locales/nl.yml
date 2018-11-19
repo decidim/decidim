@@ -257,6 +257,10 @@ nl:
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     menu:
       processes: Thema's
+    metrics:
+      participatory_processes:
+        object: participatieve processen
+        title: Participatieve processen
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -288,6 +292,8 @@ nl:
           name: Gemarkeerde processen
       index:
         title: Burgerinspraak
+      last_activity:
+        new_participatory_process: Nieuw participatief proces
       pages:
         home:
           highlighted_processes:
@@ -372,9 +378,8 @@ nl:
           active_step: 'Huidige stap:'
           more_info: Meer informatie
           take_part: Deelnemen
-      process_header:
-        process_menu_item: Het thema
-        unfold: Uitvouwen
       process_header_steps:
         step: Stap %{current} van %{total}
         view_steps: Bekijk stappen
+      process_navigation:
+        process_menu_item: Het thema

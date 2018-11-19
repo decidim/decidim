@@ -22,6 +22,7 @@ de:
         location_hints: Standorthinweise
         organizer_id: Veranstalter
         private_meeting: Privates Treffen
+        registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
         start_time: Startzeit
@@ -268,6 +269,7 @@ de:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
+            registration_form: Anmeldeformular
             registrations_count:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
@@ -296,6 +298,10 @@ de:
         minutes:
           create: "%{user_name} erstellt das Protokoll des Treffens %{resource_name} auf dem %{space_name} Feld"
           update: "%{user_name} aktualisiert das Protokoll der Sitzung %{resource_name} auf den %{space_name} Feldern"
+      calendar_modal:
+        calendar_url: Kalender-URL
+        close_window: Fenster schließen
+        export_calendar: Kalender exportieren
       conference_venues: Tagungsstätten
       content_blocks:
         upcoming_events:
@@ -312,6 +318,8 @@ de:
             search: Suche
             space_type: Partizipativer Raum
             upcoming: Bevorstehende
+      last_activity:
+        new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -355,6 +363,8 @@ de:
             one: 1 Steckplatz übrig
             other: "%{count} freie Plätze"
           view: Aussicht
+      meetings_map:
+        view_meeting: Besprechung anzeigen
       models:
         invite:
           fields:
@@ -392,6 +402,10 @@ de:
       types:
         private_meeting: Privates Treffen
         transparent: Transparent
+    metrics:
+      meetings:
+        object: Treffen
+        title: Meetings
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -400,7 +414,6 @@ de:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Treffen
-        see_all_meetings: Alle Besprechungen anzeigen
         upcoming_meetings: Bevorstehende Treffen
       upcoming_meeting_for_card:
         upcoming_meeting: Kommendes Treffen

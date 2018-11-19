@@ -6,8 +6,8 @@ es:
         description: Descripción
         offline_votes: Apoyo cara a cara
         scope_id: Alcance
-        signature_end_date: Fin del período de recolección de firmas
-        signature_start_date: Inicio del período de recolección de firmas
+        signature_end_date: Fin del período de recogida de firmas
+        signature_start_date: Inicio del período de recogida de firmas
         signature_type: Tipo de colección de firma
         signature_type_values:
           any: Mezclado
@@ -86,9 +86,9 @@ es:
       badges:
         initiatives:
           conditions:
-            - Ir al espacio de participación de Iniciativas.
+            - Ir al espacio de participación de Iniciativas
             - Sigue los pasos para crear una nueva iniciativa.
-          description: Este distintivo se otorga cuando lanza nuevas iniciativas, asociándose con otros para llevarlas a cabo.
+          description: Este distintivo se otorga cuando lanzas nuevas iniciativas, asociándote con otros para llevarlas a cabo.
           description_another: Este usuario ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
@@ -333,6 +333,8 @@ es:
         status_change_for: La iniciativa %{title} ha cambiado su estado
         technical_validation_body_for: La iniciativa %{title} ha solicitado su validación técnica.
         technical_validation_for: La iniciativa %{title} ha solicitado su validación técnica.
+      last_activity:
+        new_initiative: Nueva iniciativa
       pages:
         home:
           highlighted_initiatives:
@@ -358,9 +360,10 @@ es:
         promotal_committee: Comisión Promotora.
         select_initiative_type: Escoger
         show_similar_initiatives: Comparar
+        step: Paso %{current} de %{total}
+        title: Crear nueva iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Desplegar
       initiatives:
         initiative:
           check: Échale un vistazo

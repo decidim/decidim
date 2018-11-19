@@ -96,7 +96,7 @@ fi:
           fields:
             created_at: Luonnin ajankohta
             private: Yksityinen
-            promoted: Korostettu
+            promoted: Tärkeää
             published: Julkaistu
             title: Otsikko
           name: Osallistumisprosessi
@@ -257,6 +257,10 @@ fi:
           notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Prosessit
+    metrics:
+      participatory_processes:
+        object: osallistumisprosessit
+        title: Osallistumisprosessit
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -285,9 +289,11 @@ fi:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
       content_blocks:
         highlighted_processes:
-          name: Korostetut prosessit
+          name: Tärkeimmät prosessit
       index:
         title: Osallistumisprosessit
+      last_activity:
+        new_participatory_process: Uusi osallistumisprosessi
       pages:
         home:
           highlighted_processes:
@@ -302,21 +308,21 @@ fi:
         filters:
           counters:
             active:
-              one: 1 käytössä oleva prosessi
-              other: "%{count} käytössä olevaa prosessia"
+              one: 1 aktiivinen prosessi
+              other: "%{count} aktiivista prosessia"
             all:
               one: 1 prosessi
               other: "%{count} prosessia"
             past:
               one: 1 aikaisempi prosessi
-              other: "%{count} menneitä prosesseja"
+              other: "%{count} aikaisempaa prosesseja"
             upcoming:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
           explanations:
             no_active: Ei aktiivisia prosesseja
-            no_active_nor_upcoming: Ei käytössä olevia tai tulevia prosesseja
-            no_active_nor_upcoming_callout: Käytössä olevia tai tulevia prosesseja ei ole tiedossa. Tässä on luettelo menneistä prosesseista.
+            no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
+            no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
           names:
             active: Aktiiviset
             all: Kaikki
@@ -364,7 +370,7 @@ fi:
           take_part: Osallistu
       participatory_processes:
         index:
-          promoted_processes: Korostetut prosessit
+          promoted_processes: Tärkeät prosessit
         participatory_process:
           active_step: 'Aktiivinen vaihe:'
           take_part: Osallistu
@@ -372,9 +378,8 @@ fi:
           active_step: 'Aktiivinen vaihe:'
           more_info: Lisätietoja
           take_part: Osallistu
-      process_header:
-        process_menu_item: Prosessi
-        unfold: Avaa
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Näytä vaiheet
+      process_navigation:
+        process_menu_item: Prosessi

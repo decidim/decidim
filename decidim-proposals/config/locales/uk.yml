@@ -154,10 +154,6 @@ uk:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Пропозиції
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Пропозиції
-        see_all_proposals: Переглянути всі пропозиції
     proposals:
       actions:
         answer: Відповісти
@@ -242,6 +238,12 @@ uk:
         not_answered: Без відповідей
         rejected: Відхилено
         withdrawn: Відкликана
+      application_helper:
+        filter_origin_values:
+          citizens: Громадяни
+          official: Службове
+        filter_state_values:
+          except_rejected: Усі, окрім відхилених
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
@@ -309,17 +311,10 @@ uk:
         endorsements_card_row:
           comments: Коментарі
         filters:
-          accepted: Прийнято
           activity: Діяльність
-          all: Усі
           category: Категорія
           category_prompt: Оберіть категорію
-          citizens: Громадяни
-          evaluating: Розглядається
-          except_rejected: Усі, окрім відхилених
-          official: Службове
           origin: Джерело
-          rejected: Відхилено
           related_to: Пов'язане з
           search: Шукати
           state: Стан

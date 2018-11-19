@@ -261,6 +261,8 @@ de:
         public: Öffentlichkeit
       index:
         title: Baugruppen
+      last_activity:
+        new_assembly: Neue Montage
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ de:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Baugruppen
+    metrics:
+      assemblies:
+        object: Baugruppen
+        title: Baugruppen
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein
@@ -342,10 +348,9 @@ de:
         promoted_assembly:
           more_info: Mehr Info
           take_part: Teilnehmen
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Mitglieder
         assembly_menu_item: Die Versammlung
-        unfold: Entfalten
       assembly_widgets:
         show:
           take_part: Teilnehmen

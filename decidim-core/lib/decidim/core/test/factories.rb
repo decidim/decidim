@@ -5,7 +5,6 @@ require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
-require "decidim/conferences/test/factories"
 require "decidim/comments/test/factories"
 
 def generate_localized_title
@@ -31,6 +30,10 @@ FactoryBot.define do
 
   sequence(:email) do |n|
     "user#{n}@example.org"
+  end
+
+  sequence(:user_group_email) do |n|
+    "usergroup#{n}@example.org"
   end
 
   sequence(:slug) do |n|
@@ -75,19 +78,18 @@ FactoryBot.define do
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
     default_locale { Decidim.default_locale }
     available_locales { Decidim.available_locales }
+    users_registration_mode { :enabled }
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
     highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
-    tos_version { Time.current }
     badges_enabled { true }
+    send_welcome_notification { true }
 
-    trait :with_tos do
-      after(:create) do |organization|
-        tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
-        create(:static_page, :tos, organization: organization) if tos_page.nil?
-      end
+    after(:create) do |organization|
+      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
+      create(:static_page, :tos, organization: organization) if tos_page.nil?
     end
   end
 
@@ -103,13 +105,8 @@ FactoryBot.define do
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
     about { Faker::Lorem.paragraph(2) }
-
-    after(:create) do |user|
-      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: user.organization)
-      create(:static_page, :tos, organization: user.organization) if tos_page.nil?
-      user.accepted_tos_version = user.organization.tos_version
-      user.save
-    end
+    confirmation_sent_at { Time.current }
+    accepted_tos_version { organization.tos_version }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -160,6 +157,7 @@ FactoryBot.define do
     end
 
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
+    email { generate(:user_group_email) }
     nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     organization
@@ -230,15 +228,33 @@ FactoryBot.define do
     slug { generate(:slug) }
     title { generate_localized_title }
     content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    organization
+    organization { build(:organization) }
 
     trait :default do
-      slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
+      slug { (Decidim::StaticPage::DEFAULT_PAGES - ["terms-and-conditions"]).sample }
     end
 
     trait :tos do
       slug { "terms-and-conditions" }
+      after(:create) do |tos_page|
+        tos_page.organization.tos_version = tos_page.updated_at
+        tos_page.organization.save!
+      end
     end
+
+    trait :with_topic do
+      after(:create) do |static_page|
+        topic = create(:static_page_topic, organization: static_page.organization)
+        static_page.topic = topic
+        static_page.save
+      end
+    end
+  end
+
+  factory :static_page_topic, class: "Decidim::StaticPageTopic" do
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    organization
   end
 
   factory :attachment_collection, class: "Decidim::AttachmentCollection" do

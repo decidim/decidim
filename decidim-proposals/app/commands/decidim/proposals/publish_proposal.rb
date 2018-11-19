@@ -74,8 +74,12 @@ module Decidim
       end
 
       def increment_scores
-        @proposal.authors.each do |author|
-          Decidim::Gamification.increment_score(author, :proposals)
+        @proposal.coauthorships.find_each do |coauthorship|
+          if coauthorship.user_group
+            Decidim::Gamification.increment_score(coauthorship.user_group, :proposals)
+          else
+            Decidim::Gamification.increment_score(coauthorship.author, :proposals)
+          end
         end
       end
     end

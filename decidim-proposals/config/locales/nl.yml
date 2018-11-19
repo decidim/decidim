@@ -75,8 +75,10 @@ nl:
             collaborative_drafts_enabled: Samenwerkingsconcepten ingeschakeld
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geolocatie ingeschakeld
+            minimum_votes_per_user: Minimale stemmen per gebruiker
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
             official_proposals_enabled: Officiële voorstellen zijn ingeschakeld
+            participatory_texts_enabled: Participatieve teksten ingeschakeld
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
             proposal_length: Maximum aantal tekens voor een voorstel
@@ -221,10 +223,10 @@ nl:
           unearned_own: U hebt nog geen voorstellen gemaakt.
     metrics:
       accepted_proposals:
-        object: voorstel
+        object: voorstellen
         title: Aanvaarde voorstellen
       proposals:
-        object: voorstel
+        object: voorstellen
         title: voorstellen
       votes:
         object: stemmen
@@ -235,14 +237,14 @@ nl:
           proposals: Voorstellen
     participatory_spaces:
       highlighted_proposals:
-        proposals: Voorstellen
-        see_all_proposals: Bekijk alle voorstellen
+        see_all: Alles zien (%{count})
     proposals:
       actions:
         answer: Antwoord
         edit_proposal: Bewerk voorstel
         import: Importeren vanuit een ander onderdeel
         new: Nieuw voorstel
+        participatory_texts: Participatieve teksten
         private_notes: Privé-opmerkingen
         title: Acties
       admin:
@@ -254,6 +256,28 @@ nl:
         models:
           proposal:
             name: Voorstel
+        participatory_texts:
+          bulk-actions:
+            import_doc: Document importeren
+          import:
+            invalid: Het formulier is ongeldig!
+            success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
+          index:
+            info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
+            publish_document: Publiceer document
+            title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
+          new_import:
+            bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
+            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Voorgestelde formaten zijn: Markdown'
+            title: VOEG DOCUMENT TOE
+            upload_document: Upload document
+          publish:
+            invalid: Kan voorstellen niet publiceren
+            success: Alle voorstellen zijn gepubliceerd
+          sections:
+            article: "<em>Artikel</em>"
+            section: "<em>Sectie:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Onderafdeling:</em> %{title}"
         proposal_answers:
           edit:
             accepted: Aanvaard
@@ -282,12 +306,19 @@ nl:
             update: Bijwerken
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
+            created_in_meeting: Dit voorstel komt uit een vergadering
             select_a_category: Kies een categorie
+            select_a_meeting: Selecteer een vergadering
           index:
             actions: acties
             cancel: Annuleer
             change_category: Categorie wijzigen
+            merge: Voeg in een nieuwe
+            merge_button: samensmelten
+            select_component: Selecteer een component
             selected: Geselecteerd
+            split: Voorstellen splitsen
+            split_button: spleet
             title: Voorstellen
             update: Bijwerken
           new:
@@ -307,6 +338,14 @@ nl:
             no_components: Er zijn geen andere onderdelen van het voorstel in deze burgerinspraak om in te voeren.
             select_component: Selecteer een onderdeel
             select_states: Controleer de status van de voorstellen om te importeren
+        proposals_merges:
+          create:
+            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
+            success: De voorstellen succesvol samengevoegd tot een nieuwe.
+        proposals_splits:
+          create:
+            invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
+            success: De voorstellen succesvol gesplitst in nieuwe.
         shared:
           info_proposal:
             body: Tekstgedeelte
@@ -326,6 +365,19 @@ nl:
         not_answered: Nog niet beantwoord
         rejected: Geweigerd
         withdrawn: Ingetrokken
+      application_helper:
+        filter_origin_values:
+          all: Allemaal
+          citizens: Burgers
+          meetings: vergaderingen
+          official: Officieel
+          user_groups: Gebruikersgroepen
+        filter_state_values:
+          accepted: Aanvaard
+          all: Allemaal
+          evaluating: Evalueren
+          except_rejected: Alles behalve afgewezen
+          rejected: Verworpen
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -446,6 +498,8 @@ nl:
       destroy_draft:
         error: Er zijn fouten opgetreden bij het verwijderen van het concept.
         success: Voorstel concept is succesvol verwijderd.
+      last_activity:
+        new_proposal_at_html: "<span>Nieuw voorstel op %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -467,6 +521,12 @@ nl:
             votes: Stemmen
       new:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
+      participatory_text_proposal:
+        buttons:
+          comment: Commentaar
+          comments: Comments
+          endorse: Onderschrijven
+          endorsements: Endorsements
       proposal_endorsements:
         create:
           error: Er zijn fouten opgetreden tijdens het aanbevelen van het voorstel.
@@ -510,17 +570,10 @@ nl:
         endorsements_card_row:
           comments: Comments
         filters:
-          accepted: Aanvaard
           activity: Activiteit
-          all: Alle
           category: Categorie
           category_prompt: Kies een categorie
-          citizens: Burgers
-          evaluating: Aan het beoordelen
-          except_rejected: Alles behalve afgewezen
-          official: Officieel
           origin: Oorsprong
-          rejected: Geweigerd
           related_to: Gerelateerd aan
           search: Zoeken
           state: Status
@@ -547,6 +600,11 @@ nl:
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Meest recent
+        participatory_texts:
+          index:
+            document_index: Documentindex
+          view_index:
+            see_index: Zie index
         preview:
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
@@ -558,6 +616,7 @@ nl:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
         show:
+          back_to: Terug naar
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
           hidden_endorsers_count:
@@ -571,6 +630,7 @@ nl:
           report: Rapporteren
           sign_in: Log in
           sign_in_or_up: "%{in} of %{up} om deel te nemen"
+          sign_in_to_participate: "%{in} om deel te nemen"
           sign_up: registreren
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Ben je zeker dat je dit voorstel wilt intrekken?
@@ -594,6 +654,10 @@ nl:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
+          minimum_votes_per_user:
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
+            given_enough_votes: Je hebt voldoende steun gegeven.
+            supports_remaining: U moet nog %{remaining_votes} voorstellen stemmen om rekening te houden met uw stemmen.
           proposal_limit:
             description: Je kan maximaal %{limit} voorstellen doen.
           threshold_per_proposal:

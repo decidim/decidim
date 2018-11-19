@@ -261,6 +261,8 @@ es-PY:
         public: Público
       index:
         title: Asambleas
+      last_activity:
+        new_assembly: Nueva asamblea
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ es-PY:
           not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
+    metrics:
+      assemblies:
+        object: asambleas
+        title: Asambleas
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco
@@ -342,10 +348,9 @@ es-PY:
         promoted_assembly:
           more_info: Más información
           take_part: Participa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Miembros
         assembly_menu_item: La asamblea
-        unfold: Desplegar
       assembly_widgets:
         show:
           take_part: Participa

@@ -21,6 +21,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
+    settings.attribute :minimum_votes_per_user, type: :integer, default: 0
     settings.attribute :proposal_limit, type: :integer, default: 0
     settings.attribute :proposal_length, type: :integer, default: 500
     settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5
@@ -33,6 +34,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
+    settings.attribute :participatory_texts_enabled, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
@@ -179,12 +181,15 @@ Decidim.register_component(:proposals) do |component|
         admin_user,
         visibility: "all"
       ) do
-        Decidim::Proposals::Proposal.create!(params)
+        proposal = Decidim::Proposals::Proposal.new(params)
+        proposal.add_coauthor(participatory_space.organization)
+        proposal.save!
+        proposal
       end
 
       if n.positive?
         Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample(n).each do |author|
-          user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+          user_group = [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(author).verified.sample : nil
           proposal.add_coauthor(author, user_group: user_group)
         end
       end
@@ -269,18 +274,20 @@ Decidim.register_component(:proposals) do |component|
               end
       author = Decidim::User.where(organization: component.organization).all.sample
 
-      draft = Decidim.traceability.create!(
-        Decidim::Proposals::CollaborativeDraft,
-        author,
-        component: component,
-        category: participatory_space.categories.sample,
-        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
-        title: Faker::Lorem.sentence(2),
-        body: Faker::Lorem.paragraphs(2).join("\n"),
-        state: state,
-        published_at: Time.current
-      )
-      Decidim::Coauthorship.create(coauthorable: draft, author: author)
+      draft = Decidim.traceability.perform_action!("create", Decidim::Proposals::CollaborativeDraft, author) do
+        draft = Decidim::Proposals::CollaborativeDraft.new(
+          component: component,
+          category: participatory_space.categories.sample,
+          scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
+          title: Faker::Lorem.sentence(2),
+          body: Faker::Lorem.paragraphs(2).join("\n"),
+          state: state,
+          published_at: Time.current
+        )
+        draft.coauthorships.build(author: participatory_space.organization)
+        draft.save!
+        draft
+      end
 
       if n == 2
         author2 = Decidim::User.where(organization: component.organization).all.sample

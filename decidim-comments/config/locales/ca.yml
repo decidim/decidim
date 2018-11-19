@@ -16,6 +16,8 @@ ca:
   decidim:
     comments:
       comments: Comentaris
+      last_activity:
+        new_comment_at_html: "<span>Nou comentari a %{link}</span>"
       votes:
         create:
           error: Hi ha hagut errors en votar el comentari.
@@ -87,6 +89,10 @@ ca:
           email_outro: Has rebut aquesta notificació perquè has esmentat a %{resource_title}.
           email_subject: Has estat esmentat a %{resource_title}
           notification_title: Has estat esmentat a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        object: comentaris
+        title: Comentaris
   errors:
     messages:
       cannot_have_comments: no pot tenir comentaris

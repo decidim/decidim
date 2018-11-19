@@ -97,15 +97,35 @@ FactoryBot.define do
     short_bio { generate_localized_title }
     twitter_handle { Faker::Internet.user_name }
     personal_url { Faker::Internet.url }
+    avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
 
     trait :with_user do
       user { create(:user, organization: conference.organization) }
     end
   end
 
+  factory :registration_type, class: "Decidim::Conferences::RegistrationType" do
+    conference
+
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    published_at { Time.current }
+    price { Faker::Number.between(1, 300) }
+    weight { Faker::Number.between(1, 10) }
+
+    trait :unpublished do
+      published_at { nil }
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
+  end
+
   factory :conference_registration, class: "Decidim::Conferences::ConferenceRegistration" do
     conference
     user
+    registration_type
   end
 
   factory :conference_invite, class: "Decidim::Conferences::ConferenceInvite" do
@@ -114,6 +134,7 @@ FactoryBot.define do
     sent_at { Time.current - 1.day }
     accepted_at { nil }
     rejected_at { nil }
+    registration_type
 
     trait :accepted do
       accepted_at { Time.current }
@@ -122,5 +143,31 @@ FactoryBot.define do
     trait :rejected do
       rejected_at { Time.current }
     end
+  end
+
+  factory :partner, class: "Decidim::Conferences::Partner" do
+    conference
+
+    name { Faker::Name.name }
+    weight { Faker::Number.between(1, 10) }
+    link { Faker::Internet.url }
+    partner_type { "main_promotor" }
+    logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+
+    trait :main_promotor do
+      partner_type { "main_promotor" }
+    end
+
+    trait :collaborator do
+      partner_type { "collaborator" }
+    end
+  end
+
+  factory :media_link, class: "Decidim::Conferences::MediaLink" do
+    conference
+    title { generate_localized_title }
+    weight { Faker::Number.between(1, 10) }
+    link { Faker::Internet.url }
+    date { 1.month.ago }
   end
 end

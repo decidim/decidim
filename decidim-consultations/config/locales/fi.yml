@@ -38,7 +38,7 @@ fi:
           not_found: Vastausta ei löytynyt.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Kuuleminen
         other: Kuulemiset
       decidim/consultations/question:
@@ -190,7 +190,7 @@ fi:
           recent: Viimeisin ensin
       content_blocks:
         highlighted_consultations:
-          name: Korostetut kuulemiset
+          name: Tärkeimmät kuulemiset
       count:
         title:
           one: "%{count} kuuleminen"
@@ -211,6 +211,9 @@ fi:
         title: Kysymykset teemasta %{scope_name}
       index:
         title: Kuulemiset
+      last_activity:
+        new_consultation: Uusi kuuleminen
+        new_question_at_html: "<span>Uusi kysymys osoitteessa %{link}</span>"
       pages:
         home:
           highlighted_consultations:

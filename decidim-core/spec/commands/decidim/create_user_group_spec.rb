@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe CreateUserGroup do
       describe "call" do
-        let(:organization) { create(:organization, :with_tos) }
+        let(:organization) { create(:organization) }
         let(:user) { create :user, :confirmed, organization: organization }
 
         let(:name) { "User group name" }
@@ -61,7 +61,7 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "creates a new user" do
+          it "creates a new user group" do
             expect(UserGroup).to receive(:create!).with(
               name: form.name,
               nickname: form.nickname,

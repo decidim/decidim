@@ -9,6 +9,8 @@ module Decidim
         let(:form_klass) { ProposalForm }
         let(:component) { create(:proposal_component) }
         let(:organization) { component.organization }
+        let(:meeting_component) { create(:meeting_component, participatory_space: component.participatory_space) }
+        let(:meetings) { create_list(:meeting, 3, component: meeting_component) }
         let(:user) { create :user, :admin, :confirmed, organization: organization }
         let(:form) do
           form_klass.from_params(
@@ -25,6 +27,8 @@ module Decidim
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
         let(:attachment_params) { nil }
+        let(:created_in_meeting) { false }
+        let(:meeting_id) { nil }
 
         describe "call" do
           let(:form_params) do
@@ -34,6 +38,8 @@ module Decidim
               address: address,
               has_address: has_address,
               attachment: attachment_params,
+              created_in_meeting: created_in_meeting,
+              meeting_id: meeting_id,
               user_group_id: nil
             }
           end
@@ -69,10 +75,30 @@ module Decidim
               end.to change(Decidim::Proposals::Proposal, :count).by(1)
             end
 
+            context "when proposal comes from a meeting" do
+              let(:created_in_meeting) { true }
+              let(:meeting_id) { meetings.first.id }
+              let(:meeting_as_author) { meetings.first }
+
+              it "sets the meeting as author" do
+                command.call
+
+                expect(Decidim::Proposals::Proposal.last.authors).to include(meetings.first)
+              end
+            end
+
+            context "when proposal is official" do
+              it "sets the organization as author" do
+                command.call
+
+                expect(Decidim::Proposals::Proposal.last.authors).to include(organization)
+              end
+            end
+
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
-                .to receive(:create!)
-                .with(Decidim::Proposals::Proposal, kind_of(Decidim::User), kind_of(Hash), visibility: "all")
+                .to receive(:perform_action!)
+                .with(:create, Decidim::Proposals::Proposal, kind_of(Decidim::User), visibility: "all")
                 .and_call_original
 
               expect { command.call }.to change(Decidim::ActionLog, :count)

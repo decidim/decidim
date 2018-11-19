@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Conferences", type: :system do
   let(:organization) { create(:organization) }
@@ -73,6 +74,11 @@ describe "Conferences", type: :system do
       visit decidim_conferences.conferences_path
     end
 
+    it_behaves_like "shows contextual help" do
+      let(:index_path) { decidim_conferences.conferences_path }
+      let(:manifest_name) { :conferences }
+    end
+
     context "and accessing from the homepage" do
       it "the menu link is shown" do
         visit decidim.root_path
@@ -127,17 +133,16 @@ describe "Conferences", type: :system do
     end
 
     it "shows the details of the given conference" do
-      within "div.wrapper" do
+      within "div.hero__container" do
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(conference.slogan, locale: :en))
-        expect(page).to have_content(translated(conference.description, locale: :en))
-        expect(page).to have_content(translated(conference.short_description, locale: :en))
         expect(page).to have_content(conference.hashtag)
       end
-    end
 
-    it_behaves_like "has attachments" do
-      let(:attached_to) { conference }
+      within "div.wrapper" do
+        expect(page).to have_content(translated(conference.description, locale: :en))
+        expect(page).to have_content(translated(conference.short_description, locale: :en))
+      end
     end
 
     context "when the conference has some components" do

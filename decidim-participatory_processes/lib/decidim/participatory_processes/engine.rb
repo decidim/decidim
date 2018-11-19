@@ -70,10 +70,13 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
+      initializer "decidim_participatory_processes.register_metrics" do
+        Decidim.metrics_registry.register(
+          :participatory_processes,
+          "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage",
+          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
+          2
+        )
       end
     end
   end

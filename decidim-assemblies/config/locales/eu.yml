@@ -261,6 +261,8 @@ eu:
         public: Publiko
       index:
         title: Biltzarrak
+      last_activity:
+        new_assembly: Batzar berria
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ eu:
           not_found: 'Ez da muntaia aurkitu datu-basean (ID: %{id})'
     menu:
       assemblies: Biltzarrak
+    metrics:
+      assemblies:
+        object: batzarrak
+        title: Batzar
   errors:
     messages:
       cannot_be_blank: ezin da hutsik egon
@@ -342,10 +348,9 @@ eu:
         promoted_assembly:
           more_info: Informazio gehiago
           take_part: Parte hartu
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Bazkideek
         assembly_menu_item: Biltzarra
-        unfold: Zabaldu
       assembly_widgets:
         show:
           take_part: Parte hartu

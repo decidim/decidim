@@ -38,7 +38,7 @@ ca:
           not_found: La resposta no s'ha trobat.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Consulta
         other: Consultes
       decidim/consultations/question:
@@ -211,13 +211,16 @@ ca:
         title: Preguntes de %{scope_name}
       index:
         title: Consultes
+      last_activity:
+        new_consultation: Nova consulta
+        new_question_at_html: "<span>Nova pregunta a %{link}</span>"
       pages:
         home:
           highlighted_consultations:
             active_consultations: Consultes actives
             see_all_consultations: Veure totes les consultes
             voting_ends_in:
-              one: La votació finalitza el <strong>demà</strong>
+              one: La votació finalitza <strong>demà</strong>
               other: La votació finalitza en <strong>%{count} dies</strong>
             voting_ends_today: La votació acaba <strong>avui</strong>
       question:

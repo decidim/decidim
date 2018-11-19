@@ -109,6 +109,22 @@ describe Decidim::Conferences::Permissions do
       it { is_expected.to eq true }
     end
 
+    context "when conference program" do
+      let(:action) do
+        { scope: :public, action: :list, subject: :program }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when listing media links" do
+      let(:action) do
+        { scope: :public, action: :list, subject: :media_links }
+      end
+
+      it { is_expected.to eq true }
+    end
+
     context "when reporting a resource" do
       let(:action) do
         { scope: :public, action: :create, subject: :moderation }
@@ -294,6 +310,8 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference
       it_behaves_like "allows any action on subject", :conference_speaker
+      it_behaves_like "allows any action on subject", :partner
+      it_behaves_like "allows any action on subject", :registration_type
       it_behaves_like "allows any action on subject", :conference_user_role
     end
 
@@ -331,6 +349,8 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference
       it_behaves_like "allows any action on subject", :conference_speaker
+      it_behaves_like "allows any action on subject", :partner
+      it_behaves_like "allows any action on subject", :registration_type
       it_behaves_like "allows any action on subject", :conference_user_role
     end
   end

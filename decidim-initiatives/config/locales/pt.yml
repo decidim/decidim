@@ -333,6 +333,8 @@ pt:
         status_change_for: A iniciativa %{title} mudou seu estado
         technical_validation_body_for: A iniciativa %{title} solicitou sua validação técnica.
         technical_validation_for: A iniciativa %{title} solicitou sua validação técnica.
+      last_activity:
+        new_initiative: Nova iniciativa
       pages:
         home:
           highlighted_initiatives:
@@ -358,9 +360,10 @@ pt:
         promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
         show_similar_initiatives: Comparar
+        step: Etapa %{current} de %{total}
+        title: Criar nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Desdobrar
       initiatives:
         initiative:
           check: Confira

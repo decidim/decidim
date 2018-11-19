@@ -7,6 +7,15 @@ if !Rails.env.production? || ENV["SEED"]
 
   seeds_root = File.join(__dir__, "seeds")
 
+  # Since we usually migrate and seed in the same process, make sure
+  # that we don't have invalid or cached information after a migration.
+  decidim_tables = ActiveRecord::Base.connection.tables.select do |table|
+    table.starts_with?("decidim_")
+  end
+  decidim_tables.map do |table|
+    table.tr("_", "/").classify.safe_constantize
+  end.compact.each(&:reset_column_information)
+
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
@@ -22,6 +31,7 @@ if !Rails.env.production? || ENV["SEED"]
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix,
     available_authorizations: Decidim.authorization_workflows.map(&:name),
+    users_registration_mode: :enabled,
     tos_version: Time.current,
     badges_enabled: true
   )

@@ -49,6 +49,7 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia autoryzacji.
           success: Pomyślnie autoryzowano.
+          unconfirmed: Aby się autoryzować, musisz potwierdzić swój adres e-mail.
         first_login:
           actions:
             another_dummy_authorization_handler: Sprawdź na przykładzie innego przykładu procedury obsługi autoryzacji
@@ -134,6 +135,20 @@ pl:
           update:
             error: Twój kod weryfikacyjny nie pasuje do naszego. Proszę dokładnie sprawdzić list, który do Ciebie wysłaliśmy
             success: Gratulacje. Twoja weryfikacja została pomyślnie zakończona
+      sms:
+        authorizations:
+          create:
+            error: Był problem z Twoją prośbą
+            success: Dzięki! Wysłaliśmy SMS-a na Twój telefon.
+          edit:
+            send: Potwierdzać
+            title: Wprowadź kod weryfikacyjny, który otrzymałeś
+          new:
+            send: Wyślij mi SMS-a
+            title: Poproś o kod weryfikacyjny
+          update:
+            error: Twój kod weryfikacyjny nie pasuje do naszego. Sprawdź dokładnie SMS, który Ci wysłaliśmy.
+            success: Gratulacje. Twoja weryfikacja została pomyślnie zakończona.
   errors:
     messages:
       uppercase_only_letters_numbers: musi być wielkimi literami i zawierać wyłącznie litery i / lub cyfry

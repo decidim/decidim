@@ -100,6 +100,8 @@ es:
           close_window: Cerrar ventana
           share: Compartir
           share_link: Compartir enlace
+      last_activity:
+        new_debate_at_html: "<span>Nuevo debate en %{link}</span>"
       models:
         debate:
           fields:
@@ -136,11 +138,11 @@ es:
       badges:
         commented_debates:
           conditions:
-            - Elige un debate abierto para participar.
-          description: Este distintivo se otorga cuando usted participa activamente en los diferentes debates dejando sus comentarios.
+            - Elige un debate abierto para participar
+          description: Este distintivo se otorga cuando participes activamente en los diferentes debates dejando tus comentarios.
           description_another: Este usuario ha participado en %{score} debates.
-          description_own: Usted ha participado en %{score} debates.
+          description_own: Has participado en %{score} debates.
           name: Debates
-          next_level_in: '¡Participe en %{score} debates más para alcanzar el siguiente nivel!'
+          next_level_in: '¡Participa en %{score} debates más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha participado en ningún debate.
-          unearned_own: Has participado en cualquier debate aún.
+          unearned_own: Aún no has participado en ningún debate.

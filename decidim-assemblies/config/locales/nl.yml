@@ -261,6 +261,8 @@ nl:
         public: Openbaar
       index:
         title: Events
+      last_activity:
+        new_assembly: Nieuwe vergadering
       pages:
         home:
           highlighted_assemblies:
@@ -323,6 +325,10 @@ nl:
           not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Events
+    metrics:
+      assemblies:
+        object: assemblages
+        title: Assemblies
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn
@@ -342,10 +348,9 @@ nl:
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: leden
         assembly_menu_item: De bijeenkomst
-        unfold: Uitvouwen
       assembly_widgets:
         show:
           take_part: Deelnemen

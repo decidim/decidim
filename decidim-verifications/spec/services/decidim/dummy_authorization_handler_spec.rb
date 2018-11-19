@@ -6,7 +6,7 @@ require "decidim/dev/test/authorization_shared_examples"
 module Decidim
   describe DummyAuthorizationHandler do
     let(:handler) { described_class.new(params.merge(extra_params)) }
-    let(:params) { { user: create(:user) } }
+    let(:params) { { user: create(:user, :confirmed) } }
     let(:extra_params) { {} }
 
     it_behaves_like "an authorization handler"

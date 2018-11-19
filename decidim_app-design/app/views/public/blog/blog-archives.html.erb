@@ -7,8 +7,8 @@
 <%= partial "template_top" %>
 
 <main>
+  <%= partial "process_header" %>
   <div class="wrapper">
-    <%= partial "process_header_home" %>
     <div class="row columns">
       <div class="m-bottom">
         <%= link_to page_path("blog/blog") do %>
@@ -36,7 +36,7 @@
                     </h5>
                   <% end %>
                   <div class="card__author">
-                    <%= partial "author_data" %>
+                    <%= partial "author_data", { nick: false } %>
                   </div>
                 </div>
                 <p>

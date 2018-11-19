@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MoveOrganizationFieldsToHeroContentBlock < ActiveRecord::Migration[5.2]
-  class Organization < ApplicationRecord
+  class ::Decidim::Organization < ApplicationRecord
     self.table_name = :decidim_organizations
 
     mount_uploader :homepage_image, ::Decidim::HomepageImageUploader
@@ -9,7 +9,7 @@ class MoveOrganizationFieldsToHeroContentBlock < ActiveRecord::Migration[5.2]
 
   def change
     Decidim::ContentBlock.reset_column_information
-    Organization.find_each do |organization|
+    Decidim::Organization.find_each do |organization|
       content_block = Decidim::ContentBlock.find_by(organization: organization, scope: :homepage, manifest_name: :hero)
       settings = {}
       welcome_text = organization.welcome_text || {}

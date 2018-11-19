@@ -16,15 +16,17 @@ sv:
   decidim:
     comments:
       comments: Kommentarer
+      last_activity:
+        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       votes:
         create:
           error: Det har blivit fel när du röstar om kommentaren.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera</a> för att lägga till din kommentar.
+        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera dig</a> för att lägga till din kommentar.
         form:
           body:
-            label: Kommentar
+            label: Kommentera
             placeholder: Vad tycker du om detta?
           form_error: Texten är obligatorisk och den kan inte vara längre än %{length} tecken.
           submit: Skicka
@@ -49,7 +51,7 @@ sv:
           details: Ytterligare kommentarer
           reasons:
             does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
-            offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
+            offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera ett problem
       comment_order_selector:
@@ -87,6 +89,10 @@ sv:
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        object: kommentarer
+        title: kommentarer
   errors:
     messages:
       cannot_have_comments: kan inte ha kommentarer

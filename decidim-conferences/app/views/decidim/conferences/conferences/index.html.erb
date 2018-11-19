@@ -1,6 +1,14 @@
 <% add_decidim_meta_tags(title: t("conferences.index.title", scope: "decidim")) %>
 
-<main class="wrapper">
+<%
+edit_link(
+  decidim_admin_conferences.conferences_path,
+  :read,
+  :conference_list
+)
+%>
+
+<%= participatory_space_wrapper do %>
   <% if promoted_conferences.any? %>
     <section id="highlighted-conferences" class="row section">
       <h1 class="section-heading"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h1>
@@ -14,4 +22,4 @@
       <%= render(collection) %>
     </div>
   </section>
-</main>
+<% end %>

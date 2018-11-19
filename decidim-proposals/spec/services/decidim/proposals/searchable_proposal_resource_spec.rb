@@ -24,14 +24,7 @@ module Decidim
       context "when implementing Searchable" do
         context "when on create" do
           let(:proposal2) do
-            # by default the factory creates as published
-            create(
-              :proposal,
-              users: [],
-              component: current_component,
-              title: "Proposal without authors.",
-              body: "body of Proposal without authors"
-            )
+            create(:proposal, component: current_component)
           end
 
           it "does not index a SearchableResource after Proposal creation" do
@@ -118,6 +111,15 @@ module Decidim
           Decidim::Search.call("Ow", organization, resource_type: proposal.class.name) do
             on(:ok) do |results|
               expect(results.count).to eq 2
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+
+        it "allows searching by prefix characters" do
+          Decidim::Search.call("wait", organization, resource_type: proposal.class.name) do
+            on(:ok) do |results|
+              expect(results.count).to eq 1
             end
             on(:invalid) { raise("Should not happen") }
           end

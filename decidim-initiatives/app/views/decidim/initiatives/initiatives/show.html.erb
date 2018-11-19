@@ -42,7 +42,7 @@ edit_link(
         <% end %>
 
         <% if current_user %>
-          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_initiative } %>
+          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_initiative, large: false } %>
         <% end %>
       </div>
     </div>

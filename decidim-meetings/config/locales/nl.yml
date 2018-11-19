@@ -22,6 +22,7 @@ nl:
         location_hints: Locatie hints
         organizer_id: Organisator
         private_meeting: Privé vergadering
+        registration_form_enabled: Registratieformulier ingeschakeld
         registration_terms: Registratievoorwaarden
         registrations_enabled: Registraties geactiveerd
         start_time: Starttijd
@@ -269,6 +270,7 @@ nl:
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invites: Uitnodigingen
+            registration_form: Registratieformulier
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
@@ -297,6 +299,10 @@ nl:
         minutes:
           create: "%{user_name} heeft de minuten van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
           update: "%{user_name} heeft de notulen van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
+      calendar_modal:
+        calendar_url: Agenda-URL
+        close_window: Venster sluiten
+        export_calendar: Kalender exporteren
       conference_venues: Conferentie locaties
       content_blocks:
         upcoming_events:
@@ -313,6 +319,8 @@ nl:
             search: Zoeken
             space_type: Participatieve ruimte
             upcoming: Aankomende
+      last_activity:
+        new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -356,6 +364,8 @@ nl:
             one: 1 plaats resterend
             other: "%{count} resterende plaatsen"
           view: Uitzicht
+      meetings_map:
+        view_meeting: Bekijk vergadering
       models:
         invite:
           fields:
@@ -393,6 +403,10 @@ nl:
       types:
         private_meeting: Privé vergadering
         transparent: Transparant
+    metrics:
+      meetings:
+        object: vergaderingen
+        title: vergaderingen
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -401,7 +415,7 @@ nl:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vorige events
-        see_all_meetings: Bekijk alle events
+        see_all: Alles zien (%{count})
         upcoming_meetings: Toekomstige events
       upcoming_meeting_for_card:
         upcoming_meeting: Aankomende vergadering

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Authentication", type: :system do
-  let(:organization) { create(:organization, :with_tos) }
+  let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
 
   before do
@@ -27,7 +27,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("confirmation link")
+        expect(page).to have_content("You have signed up successfully")
       end
     end
 
@@ -47,7 +47,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_no_content("confirmation link")
+        expect(page).not_to have_content("You have signed up successfully")
       end
     end
 
@@ -122,8 +122,6 @@ describe "Authentication", type: :system do
             fill_in :user_email, with: "user@from-twitter.com"
             find("*[type=submit]").click
           end
-
-          expect(page).to have_content("confirmation link")
         end
 
         context "and a user already exists with the given email" do
@@ -190,6 +188,20 @@ describe "Authentication", type: :system do
         expect_user_logged
       end
     end
+
+    context "when sign up is disabled" do
+      let(:organization) { create(:organization, users_registration_mode: :existing) }
+
+      it "redirects to the sign in when accessing the sign up page" do
+        visit decidim.new_user_registration_path
+        expect(page).not_to have_content("Sign Up")
+      end
+
+      it "don't allow the user to sign up" do
+        find(".sign-in-link").click
+        expect(page).not_to have_content("Create an account")
+      end
+    end
   end
 
   describe "Confirm email" do
@@ -200,6 +212,25 @@ describe "Authentication", type: :system do
 
       expect(page).to have_content("successfully confirmed")
       expect(last_user).to be_confirmed
+    end
+  end
+
+  context "when confirming the account" do
+    let!(:user) { create(:user) }
+
+    before do
+      perform_enqueued_jobs { user.confirm }
+      switch_to_host(user.organization.host)
+      login_as user, scope: :user
+      visit decidim.root_path
+    end
+
+    it "sends a welcome notification" do
+      find("a.topbar__notifications").click
+
+      within "#notifications" do
+        expect(page).to have_content("Welcome")
+      end
     end
   end
 
@@ -325,6 +356,39 @@ describe "Authentication", type: :system do
         expect(page).to have_content("Successfully")
         expect(page).to have_content(user.name)
       end
+
+      context "when sign up is disabled" do
+        let(:organization) { create(:organization, users_registration_mode: :existing) }
+
+        it "doesn't allow the user to sign up" do
+          find(".sign-in-link").click
+          expect(page).not_to have_content("Sign Up")
+        end
+      end
+
+      context "when sign in is disabled" do
+        let(:organization) { create(:organization, users_registration_mode: :disabled) }
+
+        it "doesn't allow the user to sign up" do
+          find(".sign-in-link").click
+          expect(page).not_to have_content("Sign Up")
+        end
+
+        it "doesn't allow the user to sign in as a regular user, only through external accounts" do
+          find(".sign-in-link").click
+          expect(page).not_to have_content("Email")
+          expect(page).to have_css(".button--facebook")
+        end
+
+        it "authenticates an existing User" do
+          find(".sign-in-link").click
+
+          click_link "Sign in with Facebook"
+
+          expect(page).to have_content("Successfully")
+          expect(page).to have_content(user.name)
+        end
+      end
     end
   end
 
@@ -347,7 +411,7 @@ describe "Authentication", type: :system do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("confirmation link")
+          expect(page).to have_content("You have signed up successfully")
         end
       end
     end

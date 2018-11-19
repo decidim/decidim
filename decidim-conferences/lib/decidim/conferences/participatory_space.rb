@@ -133,17 +133,49 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
       5.times do
         Decidim::ConferenceSpeaker.create!(
-          user: conference.organization.users.first,
+          user: conference.organization.users.sample,
           full_name: Faker::Name.name,
           position: Decidim::Faker::Localized.word,
-          affiliation: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
+          affiliation: Decidim::Faker::Localized.paragraph(3),
           short_bio: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
           twitter_handle: Faker::Twitter.unique.screen_name,
           personal_url: Faker::Internet.url,
+          conference: conference
+        )
+      end
+
+      Decidim::Conferences::Partner::TYPES.map do |type|
+        4.times do
+          Decidim::Conferences::Partner.create!(
+            name: Faker::Name.name,
+            weight: Faker::Number.between(1, 10),
+            link: Faker::Internet.url,
+            partner_type: type,
+            logo: File.new(File.join(seeds_root, "logo.png")),
+            conference: conference
+          )
+        end
+      end
+
+      5.times do
+        Decidim::Conferences::MediaLink.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          link: Faker::Internet.url,
+          date: Date.current,
+          weight: Faker::Number.between(1, 10),
+          conference: conference
+        )
+      end
+
+      5.times do
+        Decidim::Conferences::RegistrationType.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          weight: Faker::Number.between(1, 10),
+          price: Faker::Number.between(1, 300),
+          published_at: 2.weeks.ago,
           conference: conference
         )
       end
