@@ -82,6 +82,7 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             default_registration_terms: Termos de registro padrão
+            enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
           step:
             announcement: Anúncio
