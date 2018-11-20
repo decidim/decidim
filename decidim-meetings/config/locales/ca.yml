@@ -109,9 +109,9 @@ ca:
           email_subject: La trobada "%{resource_title}" s'ha actualitzat
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
         registration_code_validated:
-          email_intro: S'ha validat el teu codi de registre "%{registration_code}".
+          email_intro: S'ha validat el vostre codi de registre "%{registration_code}" per a la reunió "%{resource_title}".
           email_outro: Has rebut aquesta notificació perquè s'ha validat el teu codi de registre per a la trobada "%{resource_title}".
-          email_subject: S'ha validat el teu codi de registre "%{registration_code}"
+          email_subject: S'ha validat el vostre codi de registre "%{registration_code}" per a la reunió "%{resource_title}"
           notification_title: S'ha validat el teu codi de registre "%{registration_code}" per a la trobada <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
           email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
