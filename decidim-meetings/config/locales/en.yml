@@ -50,17 +50,6 @@ en:
       decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
       decidim/meetings/upcoming_meeting_event: Upcoming meeting
       decidim/meetings/update_meeting_event: Meeting updated
-  activerecord:
-    models:
-      decidim/meetings/meeting:
-        one: Meeting
-        other: Meetings
-      decidim/meetings/minutes:
-        one: Minutes
-        other: Minutes
-      decidim/meetings/registration:
-        one: Registration
-        other: Registrations
   decidim:
     admin:
       meeting_copies:
@@ -269,9 +258,6 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
-            registrations_count:
-              one: There has been 1 registration.
-              other: There has been %{count} registrations.
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
           update:
@@ -354,9 +340,6 @@ en:
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations
-          remaining_slots:
-            one: 1 slot remaining
-            other: "%{count} slots remaining"
           view: View
       meetings_map:
         view_meeting: View meeting
