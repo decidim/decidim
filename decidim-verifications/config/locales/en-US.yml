@@ -1,0 +1,69 @@
+en:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Document number (with letter)
+      id_document_upload:
+        document_number: Document number (with letter)
+        user: User
+      postal_letter_address:
+        full_address: Full address
+      postal_letter_confirmation:
+        verification_code: Verification code
+      postal_letter_postage:
+        full_address: Full address
+        verification_code: Verification code
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Verifications
+    authorization_handlers:
+      help: Help
+      name: Name
+    verifications:
+      authorizations:
+        create:
+          error: There was an error creating the authorization.
+          success: You've been successfully authorized.
+        first_login:
+          title: Verify your identity
+          verify_with_these_options: 'These are the available options to verify your identity:'
+        new:
+          authorize: Send
+          authorize_with: Verify with %{authorizer}
+        skip_verification: You can skip this for now and %{link}
+        start_exploring: start exploring
+      id_documents:
+        admin:
+          confirmations:
+            new:
+              reject: Reject
+              verify: Verify
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Address
+              username: Username
+              verification_code: Verification code
+        authorizations:
+          create:
+            error: There was a problem with your request
+          edit:
+            send: Confirm
+            title: Introduce the verification code you received
+          new:
+            title: Request your verification code
+          update:
+            success: Congratulations. You've been successfully verified
+      sms:
+        authorizations:
+          create:
+            error: There was a problem with your request
+          edit:
+            send: Confirm
+            title: Introduce the verification code you received
+          new:
+            title: Request your verification code
+          update:
+            success: Congratulations. You've been successfully verified.
