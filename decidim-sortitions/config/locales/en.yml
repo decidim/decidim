@@ -11,6 +11,12 @@ en:
         witnesses: Witnesses
     models:
       decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        zero: No sortitions
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -51,6 +57,10 @@ en:
               seed: Seed
               target_items: Items to select
               title: Title
+            name:
+              zero: No sortitions
+              one: Sortition
+              other: Sortitions
         sortitions:
           confirm_destroy:
             confirm_destroy: Are you sure you want to cancel this sortition?
@@ -105,6 +115,11 @@ en:
           label: 'Order sortitions by:'
           random: Random
           recent: Recent
+        results_count:
+          count:
+            zero: no selected proposals
+            one: selected proposal
+            other: selected proposals
         show:
           algorithm: Sortition's Algorithm code
           any_category: from all categories
@@ -121,6 +136,10 @@ en:
           witnesses: Witnesses
         sortition:
           random_seed: Random seed
+          selected_proposals:
+            zero: no proposal selected
+            one: proposal selected
+            other: proposals selected
           view: View
         sortition_author:
           deleted: Deleted user
