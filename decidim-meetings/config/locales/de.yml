@@ -82,6 +82,7 @@ de:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             default_registration_terms: Standard-Registrierungsbedingungen
+            enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
           step:
             announcement: Ankündigung
