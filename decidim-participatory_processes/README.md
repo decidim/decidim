@@ -8,7 +8,7 @@ A participatory process:
 * can define helper text
 * can attach different components (such as meetings or proposals) with different configurations to each of them.
 * can have attachments
-* can be associated to custom categories, 
+* can be associated to custom categories
 * can be promoted
 * can be a private process, and only users with permissions can see the process
 * special content can be added to the process or superprocess home
@@ -28,11 +28,13 @@ This module provides:
 This is on the default Decidim installation so you shouldn't change anything to use this participatory space.
 
 ## Screenshots
+
 ![Public View](docs/screenshot01.png)
 
 ![Admin View](docs/screenshot02.png)
 
 ## Documentation
+
 Read more about this Space on [Admin Manual](https://docs.decidim.org/admin-manual/en/processess/).
 
 ## Contributing
