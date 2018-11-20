@@ -48,10 +48,7 @@ module Decidim
         end
 
         def retrieve_surveys
-          spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
-            manifest.participatory_spaces.call(@organization).public_spaces
-          end
-          components = Decidim::Component.where(participatory_space: spaces).published
+          components = Decidim::Component.where(participatory_space: retrieve_participatory_spaces).published
           Decidim::Surveys::Survey.where(component: components)
         end
 
