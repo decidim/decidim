@@ -24,6 +24,12 @@ en:
     models:
       decidim/accountability/proposal_linked_event: Proposal included in a result
       decidim/accountability/result_progress_updated_event: Result progress updated
+  activerecord:
+    models:
+      decidim/accountability/result:
+        zero: No results
+        one: Result
+        other: Results
   decidim:
     accountability:
       actions:
