@@ -82,6 +82,7 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             default_registration_terms: Termini di registrazione predefiniti
+            enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
           step:
             announcement: Annuncio
