@@ -24,11 +24,6 @@ en:
     models:
       decidim/accountability/proposal_linked_event: Proposal included in a result
       decidim/accountability/result_progress_updated_event: Result progress updated
-  activerecord:
-    models:
-      decidim/accountability/result:
-        one: Result
-        other: Results
   decidim:
     accountability:
       actions:
@@ -138,10 +133,6 @@ en:
             description: Description
             entry_date: Date
       results:
-        count:
-          results_count:
-            one: 1 result
-            other: "%{count} results"
         filters:
           all: All
           scopes: Scopes
