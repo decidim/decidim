@@ -5,6 +5,16 @@ en:
       decidim/comments/comment_created_event: Comment
       decidim/comments/reply_created_event: Comment reply
       decidim/comments/user_mentioned_event: Mention
+  activerecord:
+    models:
+      decidim/comments/comment:
+        zero: No comments
+        one: Comment
+        other: Comments
+      decidim/comments/comment_vote:
+        zero: No votes
+        one: Vote
+        other: Votes
   decidim:
     comments:
       comments: Comments
