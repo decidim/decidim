@@ -1,0 +1,86 @@
+en:
+  activemodel:
+    attributes:
+      sortition:
+        title: Title
+        witnesses: Witnesses
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
+  decidim:
+    components:
+      sortitions:
+        name: Sortitions
+        settings:
+          global:
+            comments_enabled: Comments enabled
+    events:
+      sortitions:
+        sortition_created:
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          edit: Edit
+          new: New sortition
+        models:
+          sortition:
+            fields:
+              category: Category
+              created_at: Creation date
+              reference: Reference
+              title: Title
+            name:
+              one: Sortition
+              other: Sortitions
+        sortitions:
+          edit:
+            update: Update
+          index:
+            title: Sortitions
+          new:
+            create: Create
+            title: New sortition
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposal
+            other: "%{count} proposals"
+        filters:
+          active: Active
+          all: All
+          category: Category
+          category_prompt: Select a category
+          search: Search
+          state: State
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        orders:
+          random: Random
+          recent: Recent
+        show:
+          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
+          witnesses: Witnesses
+        sortition:
+          selected_proposals:
+            one: proposal selected
+            other: proposals selected
+          view: View
+        sortition_author:
+          deleted: Deleted user
+        sortition_cancel_author:
+          deleted: Deleted user
