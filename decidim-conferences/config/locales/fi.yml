@@ -391,22 +391,22 @@ fi:
         related_consultations: Liittyvät kuulemiset
         related_participatory_processes: Liittyvät osallistumisprosessit
       statistics:
-        answers_count: Vastaukset
-        comments_count: Kommentit
-        conference_count: Konferenssit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        answers_count: Vastauksia
+        comments_count: Kommentteja
+        conference_count: Konferensseja
+        debates_count: Keskusteluita
+        endorsements_count: Suosituksia
         headline: Toiminta
-        meetings_count: Tapaamiset
-        orders_count: Äänet
-        pages_count: Sivut
-        posts_count: Viestit
-        projects_count: Suunnitelmat
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
+        meetings_count: Tapaamisia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        posts_count: Viestejä
+        projects_count: Suunnitelmia
+        proposals_count: Ehdotuksia
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
+        users_count: Osallistujia
+        votes_count: Ääniä
     events:
       conferences:
         conference_registrations_over_percentage:
