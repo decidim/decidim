@@ -1,0 +1,63 @@
+en:
+  activemodel:
+    attributes:
+      answer:
+        body: Answer
+      question:
+        max_choices: Maximum number of choices
+        question_type: Type
+      questionnaire_question:
+        mandatory: Mandatory
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: are not complete
+              too_many: are too many
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Description
+            tos: Terms of service
+        questionnaires:
+          answer_option:
+            answer_option: Answer option
+            free_text: Free text
+            remove: Remove
+            statement: Statement
+          edit:
+            save: Save
+            title: Title
+          form:
+            add_question: Add question
+          question:
+            add_answer_option: Add answer option
+            any: Any
+            description: Description
+            down: Down
+            question: Question
+            remove: Remove
+            statement: Statement
+            up: Up
+      errors:
+        answer:
+          body: Body can't be blank
+      question_types:
+        long_answer: Long answer
+        multiple_option: Multiple option
+        short_answer: Short answer
+        single_option: Single option
+        sorting: Sorting
+      questionnaires:
+        question:
+          max_choices: 'Max choices: %{n}'
+        show:
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          questionnaire_closed:
+            title: Questionnaire closed
+          questionnaire_for_private_users:
+            title: Questionnaire closed
+          submit: Submit
