@@ -32,6 +32,20 @@ en:
         address: Address
         id_document: ID document
         name: Complete name
+  activerecord:
+    models:
+      decidim/initiative:
+        zero: No initiatives
+        one: Initative
+        other: Initatives
+      decidim/initiative_comittee:
+        zero: No comittees
+        one: Comittee
+        other: Comittees
+      decidim/initiative_vote:
+        zero: No signatures
+        one: Signature
+        other: Signatures
   decidim:
     admin:
       actions:
@@ -294,6 +308,11 @@ en:
           supports_required: "%{total_supports} signatures required"
           vote: Sign
           votes_blocked: Signing disabled
+        votes_count:
+          count:
+            zero: NO SIGNATURES
+            one: SIGNATURE
+            other: SIGNATURES
       initiatives_mailer:
         creation_subject: Your citizen initiative '%{title}' has been created
         initiative_link:
