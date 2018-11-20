@@ -1,0 +1,341 @@
+en:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Related Assemblies
+        banner_image: Banner image
+        consultations_ids: Related Consultations
+        copy_categories: Copy categories
+        copy_components: Copy components
+        copy_features: Copy features
+        decidim_scope_id: Scope
+        description: Description
+        hashtag: Hashtag
+        hero_image: Home image
+        participatory_processes_ids: Related Participatory processes
+        promoted: Promoted
+        published_at: Published at
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
+        short_description: Short description
+        show_statistics: Show statistics
+        slug: URL slug
+        title: Title
+      conference_speaker:
+        full_name: Full name
+      conference_user_role:
+        email: Email
+        name: Name
+        role: Role
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
+  activerecord:
+    models:
+      decidim/conference:
+        one: Conference
+        other: Conferences
+  decidim:
+    admin:
+      actions:
+        confirm: Confirm
+      conference_copies:
+        new:
+          copy: Copy
+          select: Select which data you would like to duplicate
+      conference_speakers:
+        edit:
+          update: Update
+        index:
+          conference_speakers_title: Conference speakers
+        new:
+          create: Create
+      conference_user_roles:
+        edit:
+          update: Update
+        index:
+          conference_admins_title: conference users
+        new:
+          create: Create
+      conferences:
+        edit:
+          update: Update
+        exports:
+          registrations: Registrations
+        form:
+          title: General Information
+        index:
+          not_published: Not published
+          published: Published
+        new:
+          create: Create
+          title: Conference
+      media_links:
+        edit:
+          update: Update
+        index:
+          media_links_title: Media Links
+        new:
+          create: Create
+          title: Media Link
+      menu:
+        conferences: Conferences
+        conferences_submenu:
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: Attachments
+          categories: Categories
+          components: Components
+          conference_invites: Invites
+          conference_speakers: Speakers
+          info: Info
+          media_links: Media Links
+          moderations: Moderations
+          partners: Partners
+          registrations: Registrations
+      models:
+        conference:
+          fields:
+            created_at: Created at
+            promoted: Promoted
+            published: Published
+            title: Title
+        conference_speaker:
+          fields:
+            affiliation: Affiliation
+            full_name: Full name
+            position: Position
+        conference_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Role
+          roles:
+            admin: Administrator
+            collaborator: Collaborator
+            moderator: Moderator
+        media_link:
+          fields:
+            date: Date
+            link: Link
+            title: Title
+          name: Media Link
+        partner:
+          fields:
+            link: Link
+            logo: Logo
+            name: Name
+            partner_type: Type
+          name: Partner
+          types:
+            collaborator: Collaborator
+        registration_type:
+          fields:
+            title: Title
+            weight: Weight
+          name: Registration type
+      partners:
+        edit:
+          update: Update
+        new:
+          create: Create
+      registration_types:
+        edit:
+          update: Update
+        new:
+          create: Create
+      titles:
+        conferences: Conferences
+    admin_log:
+      conference_user_role:
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+      conferences:
+        partner:
+          delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
+    conference_program:
+      index:
+        title: Program
+    conference_speakers:
+      index:
+        title: Speakers
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        conference_invites:
+          form:
+            attendee_type: Attendee type
+            existing_user: Existing user
+            non_user: Non existing user
+            select_user: Select user
+          index:
+            filter:
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
+            invites: Invites
+            search: Search
+          new:
+            invite: Invite
+            new_invite: Invite user
+        conference_registrations:
+          index:
+            registrations: Registrations
+        conference_speakers:
+          form:
+            existing_user: Existing user
+            non_user: Non user
+            select_user: Select user
+            user_type: User type
+          index:
+            search: Search
+        conferences:
+          form:
+            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            registrations_count:
+              one: There has been 1 registration.
+              other: There has been %{count} registrations.
+            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        partners:
+          index:
+            title: Partners
+        registration_types:
+          index:
+            title: Registration types
+      conference:
+        registration_confirm:
+          cancel: Cancel
+          confirm: Confirm
+        show:
+          going: Going
+          no_slots_available: No slots available
+          registration: Registration
+      conference_program:
+        program_meeting:
+          content: Content
+          location: Location
+          speakers: Speakers
+        show:
+          program: Program
+      conference_registration_mailer:
+        confirmation:
+          details_2: You will find the conference's details in the attachment.
+      conference_registrations:
+        decline_invitation:
+          invalid: There's been a problem declining the invitation.
+          success: You have declined the invitation successfully.
+      conference_speaker:
+        go_to_twitter: Go to Twitter
+        more_info: more info
+        personal_website: Personal website
+        show:
+          more_info: more info
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Personal website
+        twitter_handle:
+          go_to_twitter: Go to Twitter
+      conference_speakers:
+        index:
+          speakers: Speakers
+      conferences:
+        partners:
+          collaborators: Partners
+        show:
+          register: Register
+      index:
+        title: Conferences
+      mailer:
+        invite_join_conference_mailer:
+          invite:
+            subject: Invitation to join a conference
+      models:
+        conference_invite:
+          fields:
+            email: Email
+            name: Name
+            registration_type: Registration type
+            sent_at: Sent at
+            status: Status
+          status:
+            accepted: Accepted (%{at})
+            rejected: Rejected (%{at})
+            sent: Sent
+        conference_registration:
+          fields:
+            email: Email
+            name: Name
+            registration_type: Registration type
+            state: State
+            states:
+              pending: Pending
+      photo:
+        show:
+          close_modal: Close modal
+      registration_types:
+        index:
+          register: Register
+          title: Registration types
+      shared:
+        conference_user_login:
+          already_account: Do you already have an account in decidim?
+          new_user: New user?
+      show:
+        introduction: Introduction
+        related_assemblies: Related Assemblies
+        related_consultations: Related Consultations
+      statistics:
+        answers_count: Answers
+        comments_count: Comments
+        conference_count: Conferences
+        debates_count: Debates
+        endorsements_count: Endorsements
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Votes
+        pages_count: Pages
+        posts_count: Posts
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Votes
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_intro: The "%{resource_title}" conference occupied slots are over %{percentage}%.
+          email_subject: The "%{resource_title}" conference occupied slots are over %{percentage}%
+        conference_updated:
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+        registrations_enabled:
+          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
+    menu:
+      conferences: Conferences
+  devise:
+    mailer:
+      join_conference:
+        subject: Invitation to join a conference
+  layouts:
+    decidim:
+      conference_hero:
+        register: Register
+      conference_widgets:
+        show:
+          take_part: Take part
+      conferences:
+        conference:
+          take_part: Take part
+        promoted_conference:
+          more_info: More info
+          take_part: Take part
+      conferences_nav:
+        conference_menu_item: Information
+        conference_partners_menu_item: Partners
+        conference_speaker_menu_item: Speakers
