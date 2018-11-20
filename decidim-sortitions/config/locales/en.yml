@@ -11,11 +11,6 @@ en:
         witnesses: Witnesses
     models:
       decidim/sortitions/create_sortition_event: Sortition
-  activerecord:
-    models:
-      decidim/sortitions/sortition:
-        one: Sortition
-        other: Sortitions
   decidim:
     components:
       sortitions:
@@ -56,9 +51,6 @@ en:
               seed: Seed
               target_items: Items to select
               title: Title
-            name:
-              one: Sortition
-              other: Sortitions
         sortitions:
           confirm_destroy:
             confirm_destroy: Are you sure you want to cancel this sortition?
@@ -94,10 +86,6 @@ en:
           delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
           update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
       sortitions:
-        count:
-          proposals_count:
-            one: 1 proposal
-            other: "%{count} proposals"
         filters:
           active: Active
           all: All
@@ -117,10 +105,6 @@ en:
           label: 'Order sortitions by:'
           random: Random
           recent: Recent
-        results_count:
-          count:
-            one: selected proposal
-            other: selected proposals
         show:
           algorithm: Sortition's Algorithm code
           any_category: from all categories
@@ -137,15 +121,8 @@ en:
           witnesses: Witnesses
         sortition:
           random_seed: Random seed
-          selected_proposals:
-            one: proposal selected
-            other: proposals selected
           view: View
         sortition_author:
           deleted: Deleted user
         sortition_cancel_author:
           deleted: Deleted user
-        sortitions_count:
-          count:
-            one: 1 sortition
-            other: "%{count} sortitions"
