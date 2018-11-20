@@ -63,17 +63,6 @@ en:
         email: Email
         name: Name
         role: Role
-  activerecord:
-    models:
-      decidim/assembly:
-        one: Assembly
-        other: Assemblies
-      decidim/assembly_member:
-        one: Assembly member
-        other: Assembly members
-      decidim/assembly_user_role:
-        one: Assembly user role
-        other: Assembly user roles
   decidim:
     admin:
       actions:
@@ -341,10 +330,6 @@ en:
           organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
           reset_chart: Reset
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} assembly"
-            other: "%{count} assemblies"
         promoted_assembly:
           more_info: More info
           take_part: Take part
