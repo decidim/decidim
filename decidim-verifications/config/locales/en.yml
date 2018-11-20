@@ -23,6 +23,12 @@ en:
         authorization_workflows: Verifications
     authorization_handlers:
       admin:
+        extra_data:
+          help:
+          - Users fill in their identity information and upload a copy of their document.
+          - You fill in the information present in the uploaded image.
+          - The information should match whatever the user filled in.
+          - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
         id_documents:
           help:
           - Users fill in their identity information and upload a copy of their document.
@@ -36,6 +42,9 @@ en:
           - You mark the letter as sent.
           - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
       direct: Direct
+      extra_data:
+        explanation: Upload your identity documents so we can check your identity
+        name: Extra data
       help: Help
       id_documents:
         explanation: Upload your identity documents so we can check your identity
@@ -56,6 +65,7 @@ en:
             another_dummy_authorization_handler: Verify against another example of authorization handler
             dummy_authorization_handler: Verify against the example authorization handler
             dummy_authorization_workflow: Verify against the example authorization workflow
+            extra_data: Get verified by adding extra data
             id_documents: Get verified by uploading your identity document
             postal_letter: Get verified by receiving a verification code through postal mail
           title: Verify your identity
@@ -69,6 +79,42 @@ en:
         extra_explanation:
           one: Participation is restricted to users with the postal code %{postal_codes}.
           other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
+      extra_data:
+        admin:
+          confirmations:
+            create:
+              error: Verification doesn't match. Try again or reject the verification so the user can amend it
+              success: User successfully verified
+            new:
+              introduce_user_data: Introduce the data in the picture
+              reject: Reject
+              verify: Verify
+          pending_authorizations:
+            index:
+              title: Pending verifications
+              verification_number: 'Verification #%{n}'
+          rejections:
+            create:
+              success: Verification rejected. User will be prompted to amend her documents
+        authorizations:
+          create:
+            error: There was a problem uploading your document
+            success: Document uploaded successfully
+          edit:
+            being_reviewed: We're reviewing your documents. You'll be verified shortly
+            rejection_clarity: Make sure the information is clearly visible in the uploaded image
+            rejection_correctness: Make sure the information entered is correct
+            rejection_notice: There was a problem with your verification. Please try again
+            send: Request verification again
+          new:
+            send: Request verification
+            title: Upload your identity document
+          update:
+            error: There was a problem reuploading your document
+            success: Document reuploaded successfully
+        dni: DNI
+        nie: NIE
+        passport: Passport
       id_documents:
         admin:
           confirmations:

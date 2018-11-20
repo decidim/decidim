@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("activemodel.attributes.id") %></th>
+          <th><%= t("activemodel.attributes.id_document_upload.verification_attachment") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @pending_authorizations.each do |authorization| %>
+            <td>
+              <%= link_to t(".verification_number", n: authorization.id),
+                          new_pending_authorization_confirmation_path(authorization.id) %>
+            </td>
+            <td>
+              <%= link_to new_pending_authorization_confirmation_path(authorization.id) do %>
+                <%= image_tag authorization.verification_attachment.url(:thumbnail), class: "thumbnail-list" %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
