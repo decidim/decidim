@@ -212,6 +212,7 @@ en:
     participatory_spaces:
       highlighted_results:
         results: Results
+        see_all_results: See all results
     resource_links:
       included_projects:
         result_project: Projects included in this result
