@@ -5,6 +5,10 @@ module Decidim
     class PublishProposalEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::CoauthorEvent
 
+      def resource_text
+        resource.body
+      end
+
       private
 
       def i18n_scope

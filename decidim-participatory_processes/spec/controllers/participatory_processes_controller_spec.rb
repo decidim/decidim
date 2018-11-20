@@ -104,7 +104,7 @@ module Decidim
           )
 
           expect(controller.helpers.collection)
-            .to match_array([*published, *organization_groups, *organization_groups.map(&:participatory_processes).flatten])
+            .to match_array([*published, *organization_groups])
         end
       end
 

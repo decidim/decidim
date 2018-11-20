@@ -313,7 +313,7 @@ de:
         impersonations: Identitätswechsel
         newsletters: Newsletter
         oauth_applications: OAuth-Anwendungen
-        officializations: Ausschreibungen
+        participants: Teilnehmer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -602,7 +602,7 @@ de:
         dashboard: Instrumententafel
         impersonatable_users: Impersonable Benutzer
         impersonations: Identitätswechsel
-        officializations: Ausschreibungen
+        participants: Teilnehmer
         scope_types: Bereichstypen
         scopes: Bereiche
         static_pages: Seiten

@@ -68,6 +68,8 @@ module Decidim
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
   autoload :Hashtaggable, "decidim/hashtaggable"
+  autoload :Paddable, "decidim/paddable"
+
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
@@ -232,6 +234,9 @@ module Decidim
   config_accessor :unconfirmed_access_for do
     2.days
   end
+
+  # Exposes a configuration option: an object to configure Etherpad
+  config_accessor :etherpad
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you

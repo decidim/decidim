@@ -313,7 +313,7 @@ gl:
         impersonations: Impersonacións
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
-        officializations: Oficinas
+        participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
         settings: Configuración
@@ -603,7 +603,7 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios privilexiados
         impersonations: Impersonacións
-        officializations: Oficinas
+        participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas

@@ -34,4 +34,10 @@ describe Decidim::Meetings::CreateMeetingEvent do
         .to eq("The meeting <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title}")
     end
   end
+
+  describe "resource_text" do
+    it "returns the meeting description" do
+      expect(subject.resource_text).to eq translated(resource.description)
+    end
+  end
 end

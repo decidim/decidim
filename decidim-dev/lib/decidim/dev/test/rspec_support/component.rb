@@ -38,6 +38,7 @@ module Decidim
 
     class DummyResource < ApplicationRecord
       include HasComponent
+      include HasReference
       include Resourceable
       include Reportable
       include Authorable
@@ -49,6 +50,7 @@ module Decidim
       include Publicable
       include Decidim::DataPortability
       include Searchable
+      include Paddable
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -103,6 +105,7 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean
+    settings.attribute :enable_pads_creation, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -152,6 +155,7 @@ RSpec.configure do |config|
           t.string :decidim_author_type, index: false
           t.references :decidim_category, index: false
           t.references :decidim_scope, index: false
+          t.string :reference
 
           t.timestamps
         end
