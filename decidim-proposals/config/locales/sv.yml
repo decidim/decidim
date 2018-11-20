@@ -148,7 +148,7 @@ sv:
           email_subject: Ett förslag som du följer är godkänt
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har godkänts.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, som du följer har just godkänt ett förslag som kan vara intressant för dig, kolla in det och bidra:"
+          email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just godkänt förslaget "%{resource_title}" och vi tycker att det kan vara intressant för dig. Kolla in det och bidra med:'
           email_outro: Du har fått den här notifikationen eftersom du följer %{endorser_nickname}. Du kan sluta ta emot meddelanden vid föregående länk.
           email_subject: "%{endorser_nickname} har godkänt ett nytt förslag"
           notification_title: '| <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
@@ -162,14 +162,14 @@ sv:
           email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
           notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, som du följer har publicerat ett nytt förslag, kolla in det och bidra:"
+          email_intro: '%{author_name} %{author_nickname}, som du följer, har publicerat ett nytt förslag som heter "%{resource_title}". Kolla in det och bidra med:'
           email_outro: Du har fått den här notifikationen eftersom du följer %{author_nickname}. Du kan sluta ta emot notifikationer från föregående länken.
-          email_subject: Nytt förslag från %{author_nickname}
+          email_subject: Nytt förslag "%{resource_title}" med %{author_nickname}
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> publicerades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta följa det från föregående länken.
-          email_subject: Nytt förslag lades till %{participatory_space_title}
+          email_subject: Nytt förslag "%{resource_title}" läggs till %{participatory_space_title}
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
