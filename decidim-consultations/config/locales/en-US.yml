@@ -1,0 +1,195 @@
+en:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banner image
+        description: Description
+        questions: Questions
+        slug: URL slug
+        start_voting_date: Voting begins
+        subtitle: Subtitle
+        title: Title
+      question:
+        banner_image: Banner image
+        decidim_scope_id: Municipal area
+        hashtag: Hashtag
+        hero_image: Home image
+        origin_scope: Scope
+        origin_title: Origin
+        participatory_scope: Participatory scope
+        promoter_group: Promoter group
+        reference: Reference
+        scope: Municipal area
+        slug: URL slug
+        subtitle: Subtitle
+        title: Title
+        what_is_decided: What is decided
+  activerecord:
+    models:
+      decidim/consultation:
+        one: Consultation
+        other: Consultations
+      decidim/consultations/question:
+        one: Question
+        other: Questions
+      decidim/consultations/response:
+        one: Response
+        other: Responses
+      decidim/consultations/vote:
+        one: Vote
+        other: Votes
+  decidim:
+    admin:
+      actions:
+        new_consultation: New consultation
+        new_question: New question
+        new_response: New response
+      consultations:
+        edit:
+          update: Update
+        form:
+          title: General information
+        index:
+          not_published: Not published
+          published: Published
+        new:
+          create: Create
+          title: New consultation
+      menu:
+        consultations: Consultations
+        consultations_submenu:
+          info: Information
+          questions: Questions
+        questions_submenu:
+          components: Components
+          consultation: Consultation
+          info: Information
+          responses: Responses
+      models:
+        consultation:
+          fields:
+            created_at: Created at
+            published: Published
+            title: Title
+          name:
+            one: Consultation
+            other: Consultations
+        question:
+          fields:
+            created_at: Created at
+            published: Published
+            title: Title
+          name:
+            one: Question
+            other: Questions
+        response:
+          fields:
+            created_at: Created at
+            title: Title
+          name:
+            one: Response
+            other: Responses
+      questions:
+        edit:
+          update: Update
+        form:
+          title: General information
+        index:
+          not_published: Not published
+          published: Published
+        new:
+          create: Create
+          title: New question
+      responses:
+        edit:
+          update: Update
+        form:
+          title: General information
+        new:
+          create: Create
+          title: New response
+      titles:
+        consultations: Consultations
+        questions: Questions
+        responses: Responses
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximum amount of elements to show
+      consultation:
+        start_voting_date: Voting begins
+        view_results: View results
+      consultation_card:
+        view_results: View results
+      consultations:
+        orders:
+          random: Random
+          recent: Most recent
+      filters:
+        active: Active
+        all: All
+        finished: Finished
+        search: Search
+        state: State
+        upcoming: Upcoming
+      filters_small_view:
+        close_modal: Close window
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
+      index:
+        title: Consultations
+      last_activity:
+        new_consultation: New consultation
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Active consultations
+            see_all_consultations: See all consultations
+      question:
+        take_part: Take part
+        view_results: View results
+      show:
+        badge_name:
+          finished: Finished
+          open: Open
+        footer_button_text:
+          debate: Debate
+          view: View
+          view_results: View results
+          vote: Vote
+        unspecified: Not specified
+    menu:
+      consultations: Consultations
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultations
+    questions:
+      results:
+        title: Results
+      show:
+        read_more: Read more
+      statistics:
+        assistants_count_title: Assistants
+        comments_count_title: Comments
+        meetings_count_title: Meetings
+        supports_count_title: Supports
+      vote_button:
+        already_voted: Already voted
+        vote: Vote
+      vote_modal_confirm:
+        confirm: Confirm
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Attachments
+          categories: Categories
+      consultation_voting_data:
+        start_voting_date: Voting begins
+      question_components:
+        unfold: Unfold
+      question_header:
+        back_to_consultation: See all consultations
