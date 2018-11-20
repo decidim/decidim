@@ -109,9 +109,9 @@ sv:
           email_subject: Mötet "%{resource_title}" uppdaterades
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
-          email_intro: Din registreringskod "%{registration_code}" har validerats.
+          email_intro: Din registreringskod "%{registration_code}" för mötet "%{resource_title}" har validerats.
           email_outro: Du har fått den här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
-          email_subject: Din registreringskod "%{registration_code}" har validerats
+          email_subject: Din registreringskod "%{registration_code}" för mötet "%{resource_title}" har validerats
           notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registrations_enabled:
           email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
