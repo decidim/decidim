@@ -24,6 +24,12 @@ module Decidim
           )
         end
       end
+
+      initializer "decidim_surveys.register_metrics" do
+        Decidim.metrics_operation.register(:participants, :surveys) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Surveys::Metrics::SurveyParticipantsMetricMeasure"
+        end
+      end
     end
   end
 end
