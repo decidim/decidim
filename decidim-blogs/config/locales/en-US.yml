@@ -1,0 +1,58 @@
+en:
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Post
+        other: Posts
+  decidim:
+    blogs:
+      actions:
+        destroy: Delete
+        edit: Edit
+        title: Actions
+      admin:
+        models:
+          components:
+            body: Body
+          post:
+            name: Post
+        posts:
+          edit:
+            save: Update
+          index:
+            title: Posts
+          new:
+            create: Create
+      models:
+        post:
+          fields:
+            author: Author
+            body: Body
+            created_at: Created at
+            title: title
+      posts:
+        show:
+          view: View
+        sidebar_blog:
+          comments: comments
+      read_more: Read more
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Announcement
+            comments_enabled: Comments enabled
+          step:
+            announcement: Announcement
+            comments_blocked: Comments blocked
+    events:
+      blogs:
+        post_created:
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+    pages:
+      home:
+        statistics:
+          posts_count: Posts
+    participatory_processes:
+      statistics:
+        posts_count: Posts
