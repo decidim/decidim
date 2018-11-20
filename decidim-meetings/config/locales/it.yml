@@ -82,6 +82,7 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             default_registration_terms: Termini di registrazione predefiniti
+            enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
           step:
             announcement: Annuncio
@@ -109,9 +110,9 @@ it:
           email_subject: La riunione "%{resource_title}" è stata aggiornata
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
         registration_code_validated:
-          email_intro: Il tuo codice di registrazione "%{registration_code}" è stato convalidato.
+          email_intro: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato.
           email_outro: Hai ricevuto questa notifica perché il codice di registrazione per la riunione "%{resource_title}" è stato convalidato.
-          email_subject: Il tuo codice di registrazione "%{registration_code}" è stato convalidato
+          email_subject: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato
           notification_title: Il tuo codice di registrazione "%{registration_code}" per la riunione <a href="%{resource_path}">%{resource_title}</a> è stato convalidato.
         registrations_enabled:
           email_intro: 'La riunione "%{resource_title}" ha abilitato le registrazioni. Puoi registrarti sulla sua pagina:'
