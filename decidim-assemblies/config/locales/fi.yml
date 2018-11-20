@@ -300,20 +300,20 @@ fi:
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
-        assemblies_count: Ryhmät
-        comments_count: Kommentit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        assemblies_count: Ryhmiä
+        comments_count: Kommentteja
+        debates_count: Keskusteluja
+        endorsements_count: Suosituksia
         headline: Tilastot
-        meetings_count: Tapaamiset
-        orders_count: Äänet
-        pages_count: Sivut
-        projects_count: Projektit
+        meetings_count: Tapaamisia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        projects_count: Projekteja
         proposals_count: Ehdotuksia
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
+        users_count: Osallistujia
+        votes_count: Ääniä
     assembly_members:
       assembly_member:
         designated_on: Nimetty
