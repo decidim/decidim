@@ -214,6 +214,7 @@ eu:
             comments_enabled: Iruzkinak gaituta
             dummy_global_attribute_1: Dummy Atributua 1
             dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Gaitu pads sortzea
             resources_permissions_enabled: Baliabideen baimenak gaituta
           step:
             comments_blocked: Iruzkinak blokeatuta
@@ -672,6 +673,10 @@ eu:
         pending: Zain
         rejected: Ukatua
         verified: Egiaztatuta
+    pad_iframe:
+      disclaimer: Kutxa honetako edukiak erregistratutako erabiltzaileek idatzita daude eta euren iritziak adierazi. %{organization} ezin da bere edukien erantzule izan.
+      explanation: Erabili pad hau bilera batean biltzen laguntzeko, minutu gutxiren buruan errazago idazteko.
+      pad: pad
     pages:
       home:
         extended:
