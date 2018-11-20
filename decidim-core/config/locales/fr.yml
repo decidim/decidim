@@ -214,6 +214,7 @@ fr:
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut factice 2
+            enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -672,6 +673,10 @@ fr:
         pending: En attente
         rejected: Non retenue
         verified: Vérifié
+    pad_iframe:
+      disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
+      explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
+      pad: Tampon
     pages:
       home:
         extended:
