@@ -31,10 +31,7 @@ module Decidim
         def query
           return @query if @query
 
-          spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
-            manifest.participatory_spaces.call(@organization).public_spaces
-          end
-          components = Decidim::Component.where(participatory_space: spaces).published
+          components = Decidim::Component.where(participatory_space: retrieve_participatory_spaces).published
           @query = Decidim::Debates::Debate.where(component: components).joins(:component)
                                            .left_outer_joins(:category)
           @query = @query.where("decidim_debates_debates.start_time <= ?", end_time)
