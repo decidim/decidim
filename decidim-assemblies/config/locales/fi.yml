@@ -308,12 +308,12 @@ fi:
         meetings_count: Tapaamisia
         orders_count: Ääniä
         pages_count: Sivuja
-        projects_count: Projekteja
+        projects_count: Suunnitelmia
         proposals_count: Ehdotuksia
         results_count: Tuloksia
         surveys_count: Kyselyitä
-        users_count: Osallistujat
-        votes_count: Äänet
+        users_count: Osallistujia
+        votes_count: Ääniä
     assembly_members:
       assembly_member:
         designated_on: Nimetty
