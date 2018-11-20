@@ -1,0 +1,216 @@
+en:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Author
+        description: Description
+        scope_id: Scope
+        signature_end_date: End of signature collection period
+        signature_start_date: Start of signature collection period
+        title: Title
+      initiative_author:
+        address: Address
+      initiatives_type:
+        banner_image: Banner image
+        description: Description
+        title: Title
+      organization_data:
+        address: Address
+  activerecord:
+    models:
+      decidim/initiative_vote:
+        one: Signature
+        other: Signatures
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: New initiative type
+      menu:
+        initiatives: Initiatives
+        initiatives_types: Initiative types
+      models:
+        initiatives:
+          fields:
+            created_at: Created at
+            state: State
+            supports_count: Supports
+            title: Initiatives
+        initiatives_type_scope:
+          fields:
+            scope: Scope
+        initiatives_types:
+          fields:
+            created_at: Created at
+            title: Initiative types
+          name: Initiative type
+      titles:
+        initiatives: Initiatives
+        initiatives_types: Initiative types
+    events:
+      initiatives:
+        initiative_extended:
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+        milestone_completed:
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+    initiatives:
+      admin:
+        committee_requests:
+          index:
+            confirm_revoke: Are you sure?
+            title: Committee members
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum amount of elements to show
+        initiatives:
+          edit:
+            confirm: Are you sure?
+            update: Update
+          form:
+            title: General information
+          index:
+            actions_title: Action
+            filter:
+              accepted: Accepted
+              all: All
+              created: Created
+              discarded: Discarded
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+            filter_by: Filter by
+            preview: Preview
+            print: Print
+            search: Search
+          show:
+            print: Print
+          update:
+            error: An error has occurred
+        initiatives_type_scopes:
+          create:
+            error: An error has occurred
+          edit:
+            back: Back
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            update: Update
+          new:
+            back: Back
+            create: Create
+          update:
+            error: An error has occurred
+        initiatives_types:
+          create:
+            error: An error has occurred
+          edit:
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            update: Update
+          form:
+            title: General information
+          new:
+            create: Create
+            title: New initiative type
+          update:
+            error: An error has occurred
+      admin_states:
+        accepted: Accepted
+        created: Created
+        discarded: Discarded
+        published: Published
+        rejected: Rejected
+        validating: Technical validation
+      committee_requests:
+        new:
+          continue: Continue
+      create_initiative:
+        fill_data:
+          back: Back
+          continue: Continue
+          initiative_type: Initiative type
+          more_information: "(More information)"
+          select_scope: Select a scope
+        finish:
+          back: Back
+          more_information: "(More information)"
+        finish_help:
+          page: page
+        previous_form:
+          back: Back
+          continue: Continue
+          more_information: "(More information)"
+        promotal_committee:
+          back: Back
+          more_information: "(More information)"
+        select_initiative_type:
+          back: Back
+          more_information: "(More information)"
+          select: Choose
+        share_committee_link:
+          continue: Continue
+        show_similar_initiatives:
+          back: Back
+          more_information: "(More information)"
+      events:
+        create_initiative_event:
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+        endorse_initiative_event:
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+      index:
+        title: Initiatives
+      initiatives:
+        author_list:
+          hidden_authors_count:
+            one: and 1 more person
+            other: and %{count} more people
+        filters:
+          any: Any
+          author: Author
+          closed: Closed
+          open: Open
+          search: Search
+          state: State
+          type: Type
+        filters_small_view:
+          close_modal: Close window
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index_header:
+          new_initiative: New initiative
+        orders:
+          random: Random
+          recent: Most recent
+        signatures_count:
+          one: " signature"
+          other: " signatures"
+        statistics:
+          assistants_count_title: Assistants
+          comments_count_title: Comments
+          meetings_count_title: Meetings
+          supports_count_title: Signatures
+      initiatives_mailer:
+        initiative_link:
+          here: here
+        technical_validation_body_for: The initiative %{title} has requested its technical validation.
+        technical_validation_for: The initiative %{title} has requested its technical validation.
+      last_activity:
+        new_initiative: New initiative
+      states:
+        accepted: Accepted
+    menu:
+      initiatives: Initiatives
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Attachments
+          committee_members: Committee members
+          components: Components
+          information: Information
+      initiative_creation_header:
+        fill_data: Create
+        select_initiative_type: Choose
+        show_similar_initiatives: Compare
+        step: Step %{current} of %{total}
+      initiative_header:
+        initiative_menu_item: Initiative
