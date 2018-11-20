@@ -145,6 +145,9 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
+          conference_admins: Conference admins
+          conference_invites: Conference Invites
+          conference_registrations: Conference Registrations
           conference_speakers: Conference speakers
           info: Info
           media_links: Media Links
@@ -277,6 +280,7 @@ en:
           invite:
             decline: Decline invitation '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
+            join: Join conference '%{conference_title}'
         partners:
           index:
             title: Partners
@@ -286,7 +290,11 @@ en:
           confirm: Confirm
         show:
           going: Going
+          join: Join Conference
           no_slots_available: No slots available
+          remaining_slots:
+            one: 1 slot remaining
+            other: "%{count} slots remaining"
       conference_program:
         program_meeting:
           content: Content
@@ -299,6 +307,7 @@ en:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
+          details: You will find the conference's details in the attachment.
       conference_registrations:
         create:
           invalid: There's been a problem joining this conference.
@@ -324,9 +333,17 @@ en:
         index:
           speakers: Speakers
       conferences:
+        partners:
+          collaborators: Collaborators
+          main_promotors: Main promotors
         show:
+          already_account: Do you already have an account in decidim?
+          login_as: You are login as %{name} <%{email}>
           make_conference_registration: 'Make your registration in the conference:'
+          new_user: New user?
           register: Register
+          sign_in: Login to register at this conference
+          sign_up: Register for free in decidim to register
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences
@@ -443,4 +460,5 @@ en:
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
         media: Media
+        unfold: Unfold
         venues: Venues
