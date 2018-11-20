@@ -313,7 +313,7 @@ fi:
         impersonations: Käyttäjänä esiintymiset
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
-        participants: osallistujien
+        participants: Osallistujat
         scope_types: Teematyypit
         scopes: Teemat
         settings: Asetukset
@@ -603,7 +603,7 @@ fi:
         dashboard: Hallintapaneeli
         impersonatable_users: Toisena käyttäjänä esitettävät käyttäjät
         impersonations: Esiintymiset käyttäjinä
-        participants: osallistujien
+        participants: Osallistujat
         scope_types: Teematyypit
         scopes: Teemat
         static_pages: Sivut
