@@ -467,13 +467,13 @@ fi:
         related_consultations: Liittyvät kuulemiset
         related_participatory_processes: Liittyvät osallistumisprosessit
       statistics:
-        answers_count: Vastaukset
-        comments_count: Kommentit
-        conference_count: Konferenssit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        answers_count: Vastauksia
+        comments_count: Kommentteja
+        conference_count: Konferensseja
+        debates_count: Keskusteluita
+        endorsements_count: Suosituksia
         headline: Toiminta
-        meetings_count: Tapaamiset
+        meetings_count: Tapaamisia
         orders_count: Äänet
         pages_count: Sivut
         posts_count: Viestit
