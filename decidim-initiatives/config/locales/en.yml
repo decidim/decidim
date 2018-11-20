@@ -32,17 +32,6 @@ en:
         address: Address
         id_document: ID document
         name: Complete name
-  activerecord:
-    models:
-      decidim/initiative:
-        one: Initative
-        other: Initatives
-      decidim/initiative_comittee:
-        one: Comittee
-        other: Comittees
-      decidim/initiative_vote:
-        one: Signature
-        other: Signatures
   decidim:
     admin:
       actions:
@@ -262,14 +251,6 @@ en:
       initiatives:
         author:
           deleted: Deleted
-        author_list:
-          hidden_authors_count:
-            one: and 1 more person
-            other: and %{count} more people
-        count:
-          title:
-            one: "%{count} initiative"
-            other: "%{count} initiatives"
         filters:
           any: Any
           author: Author
@@ -301,9 +282,6 @@ en:
           offline_method: This citizen initiative only collects face to face supports.
         signature_identities:
           select_identity: Select user identifier
-        signatures_count:
-          one: " signature"
-          other: " signatures"
         statistics:
           assistants_count_title: Assistants
           comments_count_title: Comments
@@ -316,10 +294,6 @@ en:
           supports_required: "%{total_supports} signatures required"
           vote: Sign
           votes_blocked: Signing disabled
-        votes_count:
-          count:
-            one: SIGNATURE
-            other: SIGNATURES
       initiatives_mailer:
         creation_subject: Your citizen initiative '%{title}' has been created
         initiative_link:
