@@ -15,11 +15,6 @@ en:
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates disabled
       decidim/debates/creation_enabled_event: Debates enabled
-  activerecord:
-    models:
-      decidim/debates/debate:
-        one: Debate
-        other: Debates
   decidim:
     components:
       debates:
@@ -67,10 +62,6 @@ en:
           create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
       debates:
-        count:
-          debates_count:
-            one: "%{count} debate"
-            other: "%{count} debates"
         create:
           invalid: There has been a problem while creating the debate.
           success: Debate created successfully.
