@@ -589,6 +589,7 @@ en:
       no_members: This user groups doesn't have any member yet.
     menu:
       home: Home
+      more_information: More information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -703,6 +704,8 @@ en:
           votes_count: Votes
         sub_hero:
           register: Register
+      index:
+        title: More information
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
