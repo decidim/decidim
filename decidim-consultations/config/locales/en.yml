@@ -36,20 +36,6 @@ en:
       vote:
         decidim_consultations_response_id:
           not_found: Response not found.
-  activerecord:
-    models:
-      decidim/consultations:
-        one: Consultation
-        other: Consultations
-      decidim/consultations/question:
-        one: Question
-        other: Questions
-      decidim/consultations/response:
-        one: Response
-        other: Responses
-      decidim/consultations/vote:
-        one: Vote
-        other: Votes
   decidim:
     admin:
       actions:
@@ -108,24 +94,15 @@ en:
             created_at: Created at
             published: Published
             title: Title
-          name:
-            one: Consultation
-            other: Consultations
         question:
           fields:
             created_at: Created at
             published: Published
             title: Title
-          name:
-            one: Question
-            other: Questions
         response:
           fields:
             created_at: Created at
             title: Title
-          name:
-            one: Response
-            other: Responses
       question_publications:
         create:
           error: There was an error publishing this question.
@@ -191,10 +168,6 @@ en:
       content_blocks:
         highlighted_consultations:
           name: Highlighted consultations
-      count:
-        title:
-          one: "%{count} consultation"
-          other: "%{count} consultations"
       filters:
         active: Active
         all: All
@@ -219,16 +192,10 @@ en:
           highlighted_consultations:
             active_consultations: Active consultations
             see_all_consultations: See all consultations
-            voting_ends_in:
-              one: Voting ends <strong>tomorrow</strong>
-              other: Voting ends in <strong>%{count} days</strong>
             voting_ends_today: Voting ends <strong>today</strong>
       question:
         take_part: Take part
         view_results: View results
-        votes_out_of:
-          one: vote out of
-          other: votes out of
       question_votes:
         create:
           error: There have been errors when voting the question
