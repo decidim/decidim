@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -306,7 +305,6 @@ en:
         impersonations: Impersonations
         newsletters: Newsletters
         oauth_applications: OAuth applications
-        officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -574,7 +572,6 @@ en:
         dashboard: Dashboard
         impersonatable_users: Impersonatable users
         impersonations: Impersonations
-        officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
