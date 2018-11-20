@@ -20,6 +20,10 @@ module Decidim
       def progress
         extra[:progress]
       end
+
+      def resource_text
+        translated_attribute(resource.description)
+      end
     end
   end
 end

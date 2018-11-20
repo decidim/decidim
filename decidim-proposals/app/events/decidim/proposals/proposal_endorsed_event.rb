@@ -15,6 +15,10 @@ module Decidim
         endorser.profile_path
       end
 
+      def resource_text
+        resource.body
+      end
+
       private
 
       def endorser
