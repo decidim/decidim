@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage do
   let(:organization) { create(:organization) }
-  let(:day) { Time.zone.today - 1.day }
+  let(:day) { Time.zone.yesterday }
   let!(:participatory_processes) { create_list(:participatory_process, 5, organization: organization, published_at: day) }
 
   context "when executing" do
