@@ -88,6 +88,7 @@ pl:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
             default_registration_terms: Domyślne warunki rejestracji
+            enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
           step:
             announcement: Ogłoszenie
