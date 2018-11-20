@@ -158,6 +158,9 @@ en:
         duplicate_authorization: A user is already authorized with the same data.
       expired_at: Expired at %{timestamp}
       expires_at: Expires at %{timestamp}
+      extra_data:
+        explanation: TBD
+        name: Profile extra data
       foo_authorization:
         fields:
           bar: Bar
