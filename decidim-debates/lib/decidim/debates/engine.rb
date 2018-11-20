@@ -84,7 +84,7 @@ module Decidim
             settings.attribute :weight, type: :integer, default: 3
           end
         end
-        
+
         Decidim.metrics_operation.register(:participants, :debates) do |metric_operation|
           metric_operation.manager_class = "Decidim::Debates::Metrics::DebateParticipantsMetricMeasure"
         end
