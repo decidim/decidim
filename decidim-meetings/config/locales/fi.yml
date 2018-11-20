@@ -82,6 +82,7 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             default_registration_terms: Ilmoittautumisen oletusehdot
+            enable_pads_creation: Ota käyttöön tyynyjen luominen
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle tapahtumalle
           step:
             announcement: Ilmoitus
