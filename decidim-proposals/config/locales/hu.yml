@@ -148,7 +148,7 @@ hu:
           email_subject: A követett javaslatot elfogadták
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname} (akit követsz) épp most hagyott jóvá egy olyan javaslatot, ami számodra is érdekes lehet. Nézz rá és tegyél hozzá:"
+          email_intro: '%{endorser_name} %{endorser_nickname}, akit követel, épp most fogadta el a "%{resource_title}" javaslatot, és úgy gondoljuk, hogy érdekes lehet. Nézze meg és járuljon hozzá:'
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{endorser_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{endorser_nickname} támogatta az új javaslatot"
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat jóváhagyva általa: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
@@ -162,14 +162,14 @@ hu:
           email_subject: '"%{mentioned_proposal_title}" című javaslatod említésre került'
           notification_title: '"%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_path}">egy megjegyzésben</a>.'
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, aki követ téged, új javaslatot tett közzé. Nézd meg és tegyél hozzá te is valamit:"
+          email_intro: '%{author_name} %{author_nickname}, aki követi, egy új javaslatot tett közzé a "%{resource_title}" -nek. Nézze meg és járuljon hozzá:'
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: '%{author_nickname} új javaslata'
+          email_subject: Új javaslat "%{resource_title}" szerint %{author_nickname}
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat közzétéve általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         proposal_published_for_space:
           email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
-          email_subject: 'Új javaslat hozzáadva ehhez: %{participatory_space_title}'
+          email_subject: Új javaslat "%{resource_title}" hozzáadva az %{participatory_space_title}
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}'
         proposal_rejected:
           email_intro: 'A(z) "%{resource_title}" című javaslat elutasítva. További részletek a következő oldalon:'
