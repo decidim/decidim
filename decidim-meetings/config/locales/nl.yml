@@ -109,9 +109,9 @@ nl:
           email_subject: Het event "%{resource_title}" is bijgewerkt
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
         registration_code_validated:
-          email_intro: Uw registratiecode "%{registration_code}" is gevalideerd.
+          email_intro: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" -vergadering is gevalideerd.
           email_outro: U hebt deze melding ontvangen omdat uw registratiecode voor de "%{resource_title}" -vergadering is gevalideerd.
-          email_subject: Uw registratiecode "%{registration_code}" is gevalideerd
+          email_subject: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" -vergadering is gevalideerd
           notification_title: Uw registratiecode "%{registration_code}" voor de <a href="%{resource_path}">%{resource_title}</a> vergadering is gevalideerd.
         registrations_enabled:
           email_intro: 'Het event ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
