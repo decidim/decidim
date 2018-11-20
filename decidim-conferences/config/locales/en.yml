@@ -34,6 +34,20 @@ en:
           attributes:
             email:
               already_invited: This email has already been invited
+  activerecord:
+    models:
+      decidim/conference:
+        zero: No conferences
+        one: Conference
+        other: Conferences
+      decidim/conference_speaker:
+        zero: No conference speakers
+        one: Conference speaker
+        other: Conference speakers
+      decidim/conference_user_role:
+        zero: No conference user foles
+        one: No conference user roles
+        other: Conference user roles
   decidim:
     admin:
       actions:
