@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Metrics::FollowersMetricManage do
-  let(:day) { Time.zone.today - 1.day }
+  let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let!(:participatory_space) { create(:participatory_process, organization: organization) }
   let(:component) { create(:proposal_component, participatory_space: participatory_space) }

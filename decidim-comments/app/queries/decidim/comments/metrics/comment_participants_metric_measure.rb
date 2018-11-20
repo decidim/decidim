@@ -36,10 +36,11 @@ module Decidim
         end
 
         def retrieve_comments_for_organization
-          user_ids = Decidim::User.select(:id).where(organization: @resource.organization).collect(&:id)
+          user_ids = Decidim::User.where(organization: @resource.organization).pluck(:id)
           Decidim::Comments::Comment.includes(:root_commentable).not_hidden
                                     .where("decidim_comments_comments.created_at <= ?", end_time)
                                     .where("decidim_comments_comments.decidim_author_id IN (?)", user_ids)
+                                    .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
         end
       end
     end

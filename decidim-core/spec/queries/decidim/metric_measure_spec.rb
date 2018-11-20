@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::MetricMeasure do
   let(:resource) { create(:dummy_resource) }
   let(:date) { (Time.zone.today - 1.week) }
-  let(:yesterday_date) { Time.zone.today - 1.day }
+  let(:yesterday_date) { Time.zone.yesterday }
   let(:future_date) { Time.zone.today + 1.week }
 
   context "when executing a metric management" do

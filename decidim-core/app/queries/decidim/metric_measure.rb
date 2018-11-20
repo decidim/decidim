@@ -7,9 +7,9 @@ module Decidim
   #  - resource: Object used to make measurements. Object class is dependant within each measure
   class MetricMeasure
     def initialize(day, resource)
-      @day = day.try(:to_date) || Time.zone.today - 1.day
+      @day = day.try(:to_date) || Time.zone.yesterday
       raise ArgumentError, "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past" if @day > Time.zone.today
-      @day ||= Time.zone.today - 1.day
+      @day ||= Time.zone.yesterday
       @resource = resource
     end
 
