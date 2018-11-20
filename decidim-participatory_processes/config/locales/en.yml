@@ -49,6 +49,20 @@ en:
     models:
       decidim/participatory_process_step_activated_event: Step activated
       decidim/participatory_process_step_changed_event: Step changed
+  activerecord:
+    models:
+      decidim/participatory_process:
+        zero: Participatory processes
+        one: Participatory process
+        other: Participatory processes
+      decidim/participatory_process_group:
+        zero: Participatory process groups
+        one: Participatory process group
+        other: Participatory process groups
+      decidim/participatory_process_step:
+        zero: Steps
+        one: Step
+        other: Steps
   decidim:
     admin:
       actions:
