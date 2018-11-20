@@ -1,0 +1,100 @@
+en:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Category
+        decidim_category_id: Category
+        description: Description
+        title: Title
+    models:
+      decidim/debates/create_debate_event: Debate
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Create
+        name: Debates
+        settings:
+          global:
+            announcement: Announcement
+            comments_enabled: Comments enabled
+          step:
+            announcement: Announcement
+            comments_blocked: Comments blocked
+            creation_enabled: Debate creation by users enabled
+    debates:
+      actions:
+        confirm_destroy: Are you sure?
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        title: Actions
+      admin:
+        debates:
+          create:
+            invalid: There has been a problem while creating the debate.
+            success: Debate created successfully.
+          index:
+            title: Debates
+          new:
+            title: New debate
+        models:
+          debate:
+            name: Debate
+      debates:
+        create:
+          invalid: There has been a problem while creating the debate.
+          success: Debate created successfully.
+        debate:
+          participate: Participate
+        filters:
+          all: All
+          category: Category
+          category_prompt: Select a category
+          citizens: Citizens
+          official: Official
+          origin: Origin
+          search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          new_debate: New debate
+        new:
+          back: Back
+          create: Create
+          select_a_category: Please select a category
+          title: New debate
+        share:
+          close_window: Close window
+          share: Share
+          share_link: Share link
+      models:
+        debate:
+          fields:
+            end_time: End date
+            start_time: Start date
+            title: Title
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_outro: You have received this notification because you are following the %{space_title} participatory space. You can stop receiving notifications following the previous link.
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+        creation_disabled:
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+        creation_enabled:
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+    gamification:
+      badges:
+        commented_debates:
+          name: Debates
