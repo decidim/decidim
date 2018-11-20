@@ -90,6 +90,7 @@ end
 - **decidim-participatory_processes**: Fix process steps CTA path on public area [\#4499](https://github.com/decidim/decidim/pull/4499)
 - **decidim-participatory_processes**: Don't filter highlighted processes by state [\#4502](https://github.com/decidim/decidim/pull/4502)
 - **decidim-participatory_processes**: Don't show grouped processes in the process list[\#4503](https://github.com/decidim/decidim/pull/4503)
+- **decidim-core**: Fix notification settings form [\#4528](https://github.com/decidim/decidim/pull/4528)
 
 **Removed**:
 
