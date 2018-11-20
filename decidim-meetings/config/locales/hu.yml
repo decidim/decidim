@@ -82,6 +82,7 @@ hu:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
             default_registration_terms: Alapértelmezett regisztrációs feltételek
+            enable_pads_creation: A párna létrehozásának engedélyezése
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
           step:
             announcement: Közlemény
