@@ -82,6 +82,7 @@ eu:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
             default_registration_terms: Izen-emate baldintzak lehenetsiak
+            enable_pads_creation: Gaitu pads sortzea
             resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
           step:
             announcement: Anuntzio
