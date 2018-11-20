@@ -23,6 +23,12 @@ en:
         entry_date: Date
     models:
       decidim/accountability/proposal_linked_event: Proposal included in a result
+  activerecord:
+    models:
+      decidim/accountability/result:
+        zero: No results
+        one: Result
+        other: Results
   decidim:
     accountability:
       actions:
