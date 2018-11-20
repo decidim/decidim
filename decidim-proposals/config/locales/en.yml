@@ -41,6 +41,28 @@ en:
       decidim/proposals/publish_proposal_event: Proposal published
       decidim/proposals/rejected_proposal_event: Proposal rejected
       decidim/proposals/voting_enabled_event: Proposal voting enabled
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        zero: No collaborative drafts
+        one: Collaborative draft
+        other: Collaborative drafts
+      decidim/proposals/proposal:
+        zero: No proposals
+        one: Proposal
+        other: Proposals
+      decidim/proposals/proposal_endorsement:
+        zero: No endorsements
+        one: Endorsement
+        other: Endorsements
+      decidim/proposals/proposal_note:
+        zero: No notes
+        one: Note
+        other: Notes
+      decidim/proposals/proposal_vote:
+        zero: No votes
+        one: Vote
+        other: Votes
   decidim:
     components:
       proposals:
@@ -560,6 +582,11 @@ en:
           new_proposal: New proposal
           see_all_withdrawn: See all withdrawn proposals
           view_proposal: View proposal
+        linked_proposals:
+          proposal_votes:
+            zero: no votes
+            one: vote
+            other: votes
         new:
           send: Continue
           title: Create Your Proposal
@@ -608,6 +635,10 @@ en:
           vote: Vote
           votes_blocked: Voting disabled
         votes_count:
+          count:
+            zero: VOTES
+            one: VOTE
+            other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         voting_rules:
