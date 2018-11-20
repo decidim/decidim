@@ -214,7 +214,7 @@ fi:
             comments_enabled: Kommentit käytössä
             dummy_global_attribute_1: Esimerkkitietue 1
             dummy_global_attribute_2: Esimerkkitietue 2
-            enable_pads_creation: Ota käyttöön tyynyjen luominen
+            enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
           step:
             comments_blocked: Kommentit estetty
@@ -674,9 +674,9 @@ fi:
         rejected: Hylätty
         verified: Varmennettu
     pad_iframe:
-      disclaimer: Tämän tyynyn sisällön kirjoittavat rekisteröityneet käyttäjät ja ilmaisevat mielipiteensä. %{organization} ei ole vastuussa sisällöstä.
-      explanation: Käytä tätä tyynyä yhdessä tekemään muistiinpanoja kokouksen aikana, joten on helpompi kirjoittaa minuutti jälkikäteen.
-      pad: tyyny
+      disclaimer: Tämän muistion sisällön ovat kirjoittaneet alustan rekisteröityneet käyttäjät, jotka ilmaisevat omia mielipiteitään. %{organization} ei ole vastuussa sisällöstä.
+      explanation: Käytä tätä muistiota yhdessä muiden kanssa tehdäksesi muistiinpanoja kokouksen aikana, jotta pöytäkirja olisi helpompi kirjoittaa myöhemmin.
+      pad: Muistio
     pages:
       home:
         extended:
