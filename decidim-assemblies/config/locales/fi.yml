@@ -300,18 +300,18 @@ fi:
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
-        assemblies_count: Ryhmät
-        comments_count: Kommentit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        assemblies_count: Ryhmiä
+        comments_count: Kommentteja
+        debates_count: Keskusteluja
+        endorsements_count: Suosituksia
         headline: Tilastot
-        meetings_count: Tapaamiset
-        orders_count: Äänet
-        pages_count: Sivut
-        projects_count: Projektit
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
+        meetings_count: Tapaamisia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        projects_count: Projekteja
+        proposals_count: Ehdotuksia
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
         users_count: Osallistujat
         votes_count: Äänet
     assembly_members:
