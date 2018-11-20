@@ -82,7 +82,7 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             default_registration_terms: Ilmoittautumisen oletusehdot
-            enable_pads_creation: Ota käyttöön tyynyjen luominen
+            enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle tapahtumalle
           step:
             announcement: Ilmoitus
@@ -110,9 +110,9 @@ fi:
           email_subject: Tapahtuma "%{resource_title}" päivitettiin
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
         registration_code_validated:
-          email_intro: Sinun rekisteritunnus "%{registration_code}" "%{resource_title}" -kokoukselle on vahvistettu.
+          email_intro: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska ilmoittautumiskoodisi tapahtumaan "%{resource_title}" on vahvistettu.
-          email_subject: Sinun rekisteritunnus "%{registration_code}" "%{resource_title}" -kokoukselle on vahvistettu
+          email_subject: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu
           notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
         registrations_enabled:
           email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
