@@ -38,6 +38,7 @@ require "doorkeeper-i18n"
 require "nobspw"
 require "kaminari"
 require "batch-loader"
+require "etherpad-lite"
 
 require "decidim/api"
 
