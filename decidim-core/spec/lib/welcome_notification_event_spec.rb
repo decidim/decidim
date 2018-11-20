@@ -27,8 +27,12 @@ module Decidim
     end
 
     describe "notification_title" do
-      it "delegates to subject" do
-        expect(subject.notification_title).to eq(subject.subject)
+      it "includes the subject" do
+        expect(subject.notification_title).to include(subject.subject)
+      end
+
+      it "includes the body" do
+        expect(subject.notification_title).to include(subject.body)
       end
     end
 
