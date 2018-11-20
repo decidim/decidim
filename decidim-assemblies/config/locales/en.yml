@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -351,8 +350,6 @@ en:
           take_part: Take part
       assembly_header:
         assembly_member_menu_item: Members
-        assembly_menu_item: The assembly
-        unfold: Unfold
       assembly_widgets:
         show:
           take_part: Take part
