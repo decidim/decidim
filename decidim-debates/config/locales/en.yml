@@ -15,6 +15,12 @@ en:
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates disabled
       decidim/debates/creation_enabled_event: Debates enabled
+  activerecord:
+    models:
+      decidim/debates/debate:
+        zero: No debates
+        one: Debate
+        other: Debates
   decidim:
     components:
       debates:
