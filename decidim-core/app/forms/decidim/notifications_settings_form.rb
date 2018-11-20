@@ -6,11 +6,8 @@ module Decidim
   class NotificationsSettingsForm < Form
     mimic :user
 
-    attribute :email_on_notification
-    attribute :newsletter_notifications
-
-    validates :email_on_notification, presence: true
-    validates :newsletter_notifications, presence: true
+    attribute :email_on_notification, Boolean
+    attribute :newsletter_notifications, Boolean
 
     def newsletter_notifications_at
       return nil unless newsletter_notifications
