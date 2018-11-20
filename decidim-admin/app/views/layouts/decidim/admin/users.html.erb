@@ -28,6 +28,7 @@
         <%= link_to t("menu.authorization_workflows", scope: "decidim.admin"), decidim_admin.authorization_workflows_path %>
         <ul>
           <% Decidim::Verifications.admin_workflows.each do |manifest| %>
+            <% next unless current_organization.available_authorizations.include?(manifest.name.to_s) %>
             <% workflow = Decidim::Verifications::Adapter.new(manifest) %>
 
             <li <% if is_active_link?(workflow.admin_root_path) %> class="is-active" <% end %>>
