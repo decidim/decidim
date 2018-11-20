@@ -34,17 +34,6 @@ en:
           attributes:
             email:
               already_invited: This email has already been invited
-  activerecord:
-    models:
-      decidim/conference:
-        one: Conference
-        other: Conferences
-      decidim/conference_speaker:
-        one: Conference speaker
-        other: Conference speakers
-      decidim/conference_user_role:
-        one: Conference user role
-        other: Conference user roles
   decidim:
     admin:
       actions:
@@ -272,9 +261,6 @@ en:
         conferences:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
-            registrations_count:
-              one: There has been 1 registration.
-              other: There has been %{count} registrations.
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         invite_join_conference_mailer:
           invite:
@@ -292,9 +278,6 @@ en:
           going: Going
           join: Join Conference
           no_slots_available: No slots available
-          remaining_slots:
-            one: 1 slot remaining
-            other: "%{count} slots remaining"
       conference_program:
         program_meeting:
           content: Content
@@ -448,10 +431,6 @@ en:
           take_part: Take part
         index:
           promoted_conferences: Promoted conferences
-        order_by_conferences:
-          conferences:
-            one: "%{count} conference"
-            other: "%{count} conferences"
         promoted_conference:
           more_info: More info
           take_part: Take part
