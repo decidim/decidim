@@ -1,0 +1,157 @@
+en:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        end_date: End date
+        progress: Progress
+        proposals: Included proposals
+        start_date: Start date
+        title: Title
+        updated_at: Updated at
+      status:
+        description: Description
+        key: Key
+        name: Name
+        progress: Progress
+      timeline_entry:
+        description: Description
+        entry_date: Date
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Result
+        other: Results
+  decidim:
+    accountability:
+      actions:
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        preview: Preview
+        timeline_entries: Project evolution
+        title: Actions
+      admin:
+        exports:
+          results: Results
+        models:
+          result:
+            name: Result
+          status:
+            name: Status
+        results:
+          create:
+            invalid: There's been a problem creating this result
+            success: Result successfully created
+          destroy:
+            success: Result successfully deleted
+          edit:
+            title: Edit result
+            update: Update result
+          index:
+            title: Results
+          new:
+            create: Create result
+            title: New result
+          proposals:
+            close: Close
+            select: Select
+          update:
+            invalid: There's been a problem updating this result
+            success: Result successfully updated
+        shared:
+          subnav:
+            statuses: Statuses
+        statuses:
+          index:
+            title: Statuses
+      models:
+        result:
+          fields:
+            end_date: End date
+            progress: Progress
+            start_date: Start date
+            status: Status
+            title: Title
+        status:
+          fields:
+            description: Description
+            key: Key
+            name: Name
+            progress: Progress
+        timeline_entry:
+          fields:
+            description: Description
+            entry_date: Date
+      results:
+        count:
+          results_count:
+            one: 1 result
+            other: "%{count} results"
+        filters:
+          all: All
+          scopes: Scopes
+        home:
+          categories_label: Categories
+          subcategories_label: Subcategories
+        show:
+          stats:
+            attendees: Attendees
+            comments: Comments
+            contributions: Contributions
+            meetings: Meetings
+            number_of_versions: Versions
+            proposals: Proposals
+            show_all_versions: Show all versions
+            version_author: Version author
+            version_created_at: Version created at
+            version_number: Version number
+            version_number_out_of_total: "%{current_version} out of %{total_count}"
+            votes: Supports
+        timeline:
+          title: Project evolution
+      versions:
+        index:
+          changes_at_title: Changes at "%{title}"
+          title: Versions
+        show:
+          changes_at_title: Changes at "%{title}"
+        version:
+          version_index: Version %{index}
+    components:
+      accountability:
+        name: Accountability
+        settings:
+          global:
+            categories_label: Name for "Categories"
+            comments_enabled: Comments enabled
+            display_progress_enabled: Display progress
+            heading_leaf_level_results: Name for "Projects"
+            heading_parent_level_results: Name for "Results"
+            intro: Intro
+            subcategories_label: Name for "Subcategories"
+          step:
+            comments_blocked: Comments blocked
+    events:
+      accountability:
+        proposal_linked:
+          email_subject: An update to %{proposal_title}
+    metrics:
+      results:
+        object: results
+        title: Results
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Results
+    participatory_spaces:
+      highlighted_results:
+        see_all: See all (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projects included in this result
+      included_proposals:
+        result_proposal: Proposals included in this result
