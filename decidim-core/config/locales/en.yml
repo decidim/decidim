@@ -34,6 +34,15 @@ en:
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
+    models:
+      decidim/user:
+        zero: No Users
+        one: No users
+        other: Users
+      decidim/user_group:
+        zero: No user groups
+        one: User group
+        other: User groups
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -120,10 +129,20 @@ en:
         verify: "%{user_name} verified the %{resource_name} user group"
     anonymous_user: Anonymous
     application:
+      collection:
+        documents:
+          zero: No documents
+          one: Document
+          other: Documents
       documents:
         related_documents: Related documents
       photos:
         related_photos: Related photos
+    author:
+      comments:
+        zero: no comments
+        one: comment
+        other: comments
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Get verified by introducing a passport number starting with "A"
@@ -955,6 +974,10 @@ en:
       nesting_too_deep: can't be inside of a subcategory
       not_found: not found
       not_locked: was not locked
+      not_saved:
+        zero: "%{count} errors prohibited this %{resource} from being saved:"
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)
