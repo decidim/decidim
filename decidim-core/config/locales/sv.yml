@@ -214,6 +214,7 @@ sv:
             comments_enabled: Kommentarer aktiverade
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
+            enable_pads_creation: Aktivera skapandet av pads
             resources_permissions_enabled: Resursbehörigheter aktiverade
           step:
             comments_blocked: Kommentarer blockerade
@@ -672,6 +673,10 @@ sv:
         pending: Pågående
         rejected: Avvisad
         verified: Verifierad
+    pad_iframe:
+      disclaimer: Innehållet i denna kudde är skrivet av registrerade användare och uttryckt sina åsikter. %{organization} kan inte hållas ansvarig för innehållet.
+      explanation: Använd denna kudde för att samarbeta anteckningar under mötet så det är lättare att skriva ner minuten efteråt.
+      pad: Vaddera
     pages:
       home:
         extended:
