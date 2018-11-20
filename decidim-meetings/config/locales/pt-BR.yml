@@ -109,9 +109,7 @@ pt-BR:
           email_subject: A reunião "%{resource_title}" foi atualizada
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi atualizada.
         registration_code_validated:
-          email_intro: Seu código de registro "%{registration_code}" foi confirmado.
           email_outro: Você recebeu esta notificação porque seu código de registro para a reunião "%{resource_title}" foi validado.
-          email_subject: Seu código de registro "%{registration_code}" foi confirmado
           notification_title: Seu código de registro "%{registration_code}" para a reunião <a href="%{resource_path}">%{resource_title}</a> foi validado.
         registrations_enabled:
           email_intro: 'A reunião "%{resource_title}" permitiu registos. Você pode se registrar em sua página:'
