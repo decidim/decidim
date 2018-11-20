@@ -148,7 +148,7 @@ ca:
           email_subject: Una proposta que segueixes ha estat acceptada
           notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d'adherir-se a una proposta que et pot resultar interessant, revisar-la i contribueix:"
+          email_intro: '%{endorser_name} %{endorser_nickname}, qui sigueu, acaba d''aprovar la proposta "%{resource_title}" i creiem que pot ser interessant per a vostè. Consulta i contribueix:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
           notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a la proposta <a href="%{resource_path}">%{resource_title}</a>.
@@ -162,14 +162,14 @@ ca:
           email_subject: S'ha mencionat la teva proposta "%{mentioned_proposal_title}"
           notification_title: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
         proposal_published:
-          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha publicat una nova proposta. Comprova-ho i contribueix:"
+          email_intro: '%{author_name} %{author_nickname}, a qui sigueu, ha publicat una nova proposta anomenada "%{resource_title}". Consulta i contribueix:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova proposta per %{author_nickname}
+          email_subject: Nova proposta "%{resource_title}" per %{author_nickname}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha estat publicada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'ha afegit una nova proposta a %{participatory_space_title}
+          email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
         proposal_rejected:
           email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
