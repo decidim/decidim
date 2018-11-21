@@ -1,11 +1,22 @@
-<% @results.each do |type, results| %>
+<% @sections.each_with_index do |(type, results), index| %>
   <h2 class="section-heading">
     <%= searchable_resource_human_name(type.constantize, count: 5) %>&nbsp;
     <span class="muted"><%= t(".results", count: results.count) %></span>
   </h2>
   <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
-    <% results.take(6).each do |result| %>
+    <% results.take(4).each do |result| %>
       <%= card_for result.resource, { context: { label: true, show_space: true }, show_footer_actions: false } %>
     <% end %>
   </div>
+  <% if results.count > 4 %>
+    <%= link_to(
+      t(".view_all", count: results.count),
+      "#",
+      class: "button button--sc light secondary button--right"
+    ) %>
+  <% end %>
+
+  <% if (index + 1) < @sections.count %>
+    <hr class="reset mb-m mt-sm" />
+  <% end %>
 <% end %>

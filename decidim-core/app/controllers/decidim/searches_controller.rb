@@ -15,7 +15,7 @@ module Decidim
         on(:ok) do |results|
           # results.page(params[:page]).per(params[:per_page])
           results = results.to_a
-          expose(results: results.group_by(&:resource_type), results_count: results.count)
+          expose(sections: results.group_by(&:resource_type), results_count: results.count)
         end
       end
     end
