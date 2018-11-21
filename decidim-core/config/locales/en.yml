@@ -826,6 +826,10 @@ en:
         filter: Filter
         filter_by: Filter by
         unfold: Unfold
+      results:
+        results:
+          one: "%{count} result"
+          other: "%{count} results"
     shared:
       embed_modal:
         close_window: Close window

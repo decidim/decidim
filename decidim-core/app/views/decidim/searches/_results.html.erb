@@ -1,5 +1,11 @@
-<div class="row small-up-1 medium-up-2 card-grid">
-  <% @results.each do |result| %>
-    <%= card_for result.resource, { context: { label: true, show_space: true }, show_footer_actions: false } %>
-  <% end %>
-</div>
+<% @results.each do |type, results| %>
+  <h2 class="section-heading">
+    <%= searchable_resource_human_name(type.constantize, count: 5) %>&nbsp;
+    <span class="muted"><%= t(".results", count: results.count) %></span>
+  </h2>
+  <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
+    <% results.take(6).each do |result| %>
+      <%= card_for result.resource, { context: { label: true, show_space: true }, show_footer_actions: false } %>
+    <% end %>
+  </div>
+<% end %>
