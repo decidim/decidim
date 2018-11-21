@@ -1,5 +1,34 @@
 # Change Log
 
+## [Unreleased](https://github.com/decidim/decidim/tree/0.14-stable)
+
+- **decidim-core**: Don't crash when showing the edit link for a component that does not have an admin engine [\#4534](https://github.com/decidim/decidim/pull/4534)
+
+## [0.14.4](https://github.com/decidim/decidim/tree/v0.14.4)
+
+**Fixed**:
+
+- **decidim-accountability**: Fix inclusion of ApplicationHelper in results controller. [\#4278](https://github.com/decidim/decidim/pull/4278)
+- **decidim-core**: When a Searchable accesses its indexed resources it must scope by resource_type and organization_id. [\#4320](https://github.com/decidim/decidim/pull/4320)
+- **decidim-core**: Added Hungarian datepicker js configs [\#4358](https://github.com/decidim/decidim/pull/4358)
+
+
+## [0.14.3](https://github.com/decidim/decidim/tree/v0.14.3)
+
+**Fixed**:
+
+- **decidim-core**: [Fix organization fields migration](https://github.com/decidim/decidim/commit/7afdb9c3cbab18701c01bc360fdf13c350a41528)
+
+## [0.14.2](https://github.com/decidim/decidim/tree/v0.14.2)
+
+**Fixed**:
+
+- **decidim-core**: Fix default content block creation migration [\#4084](https://github.com/decidim/decidim/pull/4084)
+- **decidim-generators**: Bootsnap warnings when generating test applications [\#4098](https://github.com/decidim/decidim/pull/4098)
+- **decidim-admin**: Don't list deleted users at officialized list. [\#4203](https://github.com/decidim/decidim/pull/4203)
+- **decidim-participayory_processes**: Copy categories and subcategories to the new process. [\#4203](https://github.com/decidim/decidim/pull/4203)
+- **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4218)
+
 ## [0.14.1](https://github.com/decidim/decidim/tree/v0.14.1)
 
 **Upgrade notes**:
@@ -146,8 +175,6 @@
 
 **Fixed**:
 
-- **decidim-core**: When a Searchable accesses its indexed resources it must scope by resource_type and organization_id. [\#4320](https://github.com/decidim/decidim/pull/4320)
-- **decidim-accountability**: Fix inclusion of ApplicationHelper in results controller. [\#4278](https://github.com/decidim/decidim/pull/4278)
 - **decidim-proposals**: Fix hashtags on title when showing proposals related. [\4107](https://github.com/decidim/decidim/pull/4107)
 - **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#4024](https://github.com/decidim/decidim/pull/4024)
 - **decidim-core**: Fix day date translation on profile notifications. [\#3994](https://github.com/decidim/decidim/pull/3994)
