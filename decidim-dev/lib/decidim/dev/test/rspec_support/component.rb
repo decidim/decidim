@@ -112,7 +112,7 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean
     settings.attribute :enable_pads_creation, type: :boolean, default: false
-    settings.attribute :amendments_enabled, type: :boolean, default: true
+    settings.attribute :amendments_enabled, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -151,6 +151,7 @@ RSpec.configure do |config|
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
           t.string :title
+          t.string :body
           t.text :address
           t.float :latitude
           t.float :longitude

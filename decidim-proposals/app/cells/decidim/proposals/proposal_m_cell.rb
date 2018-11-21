@@ -31,6 +31,7 @@ module Decidim
       end
 
       def has_link_to_resource?
+        return false if model.emendation?
         model.published?
       end
 

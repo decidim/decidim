@@ -28,7 +28,6 @@ module Decidim
       amendable(
         fields: [:title, :body],
         ignore: [:published_at, :reference, :state, :answered_at, :answer],
-        reset:  [:proposal_endorsements_count, :proposal_notes_count, :proposal_votes_count],
         form:   "Decidim::Proposals::ProposalForm"
       )
 
@@ -96,7 +95,7 @@ module Decidim
       # Returns nothing.
       # rubocop:disable Rails/SkipsModelValidations
       def update_votes_count
-        Proposal.update_counters(id, proposal_votes_count: 1)
+        update_columns(proposal_votes_count: votes.count)
       end
       # rubocop:enable Rails/SkipsModelValidations
 
