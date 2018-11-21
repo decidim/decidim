@@ -1,8 +1,6 @@
-<% unless notifications.any? %>
-  <div class="empty-notifications callout secondary">
-    <p><%= t("decidim.notifications.no_notifications") %></p>
-  </div>
-<% end %>
+<div class="empty-notifications callout secondary <%= "hide" if notifications.any? %>">
+  <p><%= t("decidim.notifications.no_notifications") %></p>
+</div>
 
 <div id="notifications">
   <div class="mb-s text-right">
