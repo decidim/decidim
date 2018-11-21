@@ -66,15 +66,12 @@ en:
   activerecord:
     models:
       decidim/assembly:
-        zero: No assemblies
         one: Assembly
         other: Assemblies
       decidim/assembly_member:
-        zero: Assembly members
         one: Assembly member
         other: Assembly members
       decidim/assembly_user_role:
-        zero: Assembly user roles
         one: Assembly user role
         other: Assembly user roles
   decidim:
@@ -346,7 +343,6 @@ en:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            zero: "%{count} assemblies"
             one: "%{count} assemblies"
             other: "%{count} assemblies"
         promoted_assembly:
