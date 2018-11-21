@@ -94,6 +94,7 @@ en:
       comments:
         object: comments
         title: Comments
+        description: ''
   errors:
     messages:
       cannot_have_comments: can't have comments

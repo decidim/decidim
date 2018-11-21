@@ -24,14 +24,23 @@ module Decidim
       def big_stats
         # metric = Decidim.metrics_registry.for(:participants)
         metric = Decidim.metrics_registry.for(:users) # Temporal use of Users metric to show chart
-        render_metrics_data(metric.metric_name, klass: "column medium-12")
+        render_metrics_data(metric.metric_name,
+                            klass: "column medium-12",
+                            ratio: "11:4",
+                            axis: true, graph_klass: "small",
+                            title: I18n.t("decidim.metrics.#{metric.metric_name}.title"),
+                            description: I18n.t("decidim.metrics.#{metric.metric_name}.description"))
       end
 
       def medium_stats
         safe_join(
           # %i{proposals supports endorsements followers}.map do |metric|
           [:proposals, :accepted_proposals, :votes, :meetings].map do |metric_key| # Temporal use of metrics to show charts
-            render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name, klass: "column medium-6")
+            render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name,
+                                klass: "column medium-6", ratio: "16:9",
+                                axis: true, graph_klass: "small",
+                                title: I18n.t("decidim.metrics.#{metric_key}.title"),
+                                description: I18n.t("decidim.metrics.#{metric.metric_name}.title"))
           end
         )
       end
@@ -40,7 +49,11 @@ module Decidim
         safe_join(
           # %i{accepted_proposals comments meetings debates survey_answers}.map do |metric_key|
           [:participatory_processes, :assemblies, :comments, :results].map do |metric_key| # Temporal use of metrics to show charts
-            render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name, klass: "column medium-4")
+            render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name,
+                                klass: "column medium-3",
+                                ratio: "16:9",
+                                margin: "margin-top: 30px",
+                                graph_klass: "small")
           end
         )
       end

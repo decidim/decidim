@@ -330,6 +330,7 @@ en:
       assemblies:
         object: assemblies
         title: Assemblies
+        description: ''
   errors:
     messages:
       cannot_be_blank: can not be blank

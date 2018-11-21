@@ -226,6 +226,7 @@ en:
       accepted_proposals:
         object: proposals
         title: Accepted Proposals
+        description: ''
       proposals:
         object: proposals
         title: Proposals

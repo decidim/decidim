@@ -40,6 +40,7 @@ $(() => {
             data: metricData.history,
             title: info.title,
             objectName: info.object,
+            ratio: "",
             ...$(container).data()
           });
         });

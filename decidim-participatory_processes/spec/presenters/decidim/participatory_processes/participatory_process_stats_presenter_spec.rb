@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim
+module Decidimz
   describe ParticipatoryProcesses::ParticipatoryProcessStatsPresenter do
     subject { described_class.new(participatory_process: process) }
 

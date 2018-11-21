@@ -262,6 +262,7 @@ en:
       participatory_processes:
         object: participatory processes
         title: Participatory processes
+        description: ''
     participatory_process_groups:
       show:
         group_participatory_processes:
