@@ -36,11 +36,9 @@ en:
         remember_me: Remember me
     models:
       decidim/user:
-        zero: No Users
         one: No users
         other: Users
       decidim/user_group:
-        zero: No user groups
         one: User group
         other: User groups
   booleans:
@@ -131,7 +129,6 @@ en:
     application:
       collection:
         documents:
-          zero: No documents
           one: Document
           other: Documents
       documents:
@@ -140,7 +137,6 @@ en:
         related_photos: Related photos
     author:
       comments:
-        zero: no comments
         one: comment
         other: comments
     authorization_handlers:
@@ -199,6 +195,9 @@ en:
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
     collapsible_list:
+      hidden_elements_count:
+        one: and %{count} more
+        other: and %{count} more
       see_less: "(see less)"
       see_more: "(see more)"
     components:
@@ -952,6 +951,9 @@ en:
         sign_in: Log in
         sign_in_with_provider: Sign in with %{provider}
         sign_up: Sign up
+      minimum_password_length:
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
@@ -975,7 +977,6 @@ en:
       not_found: not found
       not_locked: was not locked
       not_saved:
-        zero: "%{count} errors prohibited this %{resource} from being saved:"
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
