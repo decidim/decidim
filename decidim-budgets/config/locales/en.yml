@@ -11,7 +11,6 @@ en:
   activerecord:
     models:
       decidim/budgets/project:
-        zero: Projects
         one: Project
         other: Projects
   decidim:
@@ -89,7 +88,6 @@ en:
           title: You decide the budget
         count:
           projects_count:
-            zero: "%{count} projects"
             one: 1 project
             other: "%{count} projects"
         filters:
@@ -106,12 +104,14 @@ en:
         order_selected_projects:
           remove: Remove
           selected_projects:
-            zero: no projects selected
             one: project selected
             other: projects selected
           view: View
         project:
           add: Add
+          count:
+            one: 1 support
+            other: "%{count} supports"
           remove: Remove
           view: View
         project_budget_button:
