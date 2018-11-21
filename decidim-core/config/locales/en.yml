@@ -633,6 +633,9 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      participants:
+        object: participants
+        title: Participants
       users:
         object: users
         title: Users
