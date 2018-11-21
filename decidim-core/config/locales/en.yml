@@ -202,6 +202,10 @@ en:
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
     collapsible_list:
+      hidden_elements_count:
+        zero: and %{count} more
+        one: and %{count} more
+        other: and %{count} more
       see_less: "(see less)"
       see_more: "(see more)"
     components:
@@ -983,6 +987,10 @@ en:
         sign_in: Log in
         sign_in_with_provider: Sign in with %{provider}
         sign_up: Sign up
+      minimum_password_length:
+        zero: "(%{count} minimum characters)"
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
