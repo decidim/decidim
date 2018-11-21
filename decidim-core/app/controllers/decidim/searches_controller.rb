@@ -13,7 +13,8 @@ module Decidim
     def index
       Search.call(term, current_organization, filters) do
         on(:ok) do |results|
-          expose(results: results.page(params[:page]).per(params[:per_page]))
+          # results.page(params[:page]).per(params[:per_page])
+          expose(results: results.group_by(&:resource_type))
         end
       end
     end
