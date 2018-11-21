@@ -66,7 +66,6 @@ en:
         start_exploring: start exploring
       dummy_authorization:
         extra_explanation:
-          zero: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
           one: Participation is restricted to users with the postal code %{postal_codes}.
           other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
       id_documents:
