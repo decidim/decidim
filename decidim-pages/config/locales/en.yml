@@ -2,7 +2,6 @@ en:
   activerecord:
     models:
       decidim/pages/page:
-        zero: No pages
         one: Page
         other: Pages
   decidim:
