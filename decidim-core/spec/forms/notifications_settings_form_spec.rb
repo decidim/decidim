@@ -23,21 +23,5 @@ module Decidim
         expect(subject).to be_valid
       end
     end
-
-    context "with an empty email on notification" do
-      let(:email_on_notification) { "" }
-
-      it "is invalid" do
-        expect(subject).not_to be_valid
-      end
-    end
-
-    context "with an empty newsletter notifications" do
-      let(:newsletter_notifications) { "" }
-
-      it "is invalid" do
-        expect(subject).not_to be_valid
-      end
-    end
   end
 end

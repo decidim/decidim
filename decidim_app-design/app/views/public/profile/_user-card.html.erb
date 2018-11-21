@@ -5,7 +5,11 @@
       <div><strong><%= Faker::Name.name %></strong></div>
       <span class="text-small">@<%= Faker::Twitter.screen_name %></span>
     </h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus maxime voluptas autem doloribus, odit, doloremque architecto, neque corrupti delectus est eveniet. Sed voluptatem praesentium similique, explicabo eius deserunt. Accusamus, ad.</p>
+    <div class="mb-s text-compact">
+      <small>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus maxime voluptas autem doloribus, odit, doloremque architecto, neque corrupti delectus est eveniet. Sed voluptatem praesentium similique, explicabo eius deserunt. Accusamus, ad.
+      </small>
+    </div>
     <a href=""><strong><%= Faker::Internet.url %></strong></a>
   </div>
   <% if @activepage != "group" %>
@@ -25,13 +29,13 @@
       <div class="mr-s">
         <%= link_to page_path("user/user-followers") do %>
           Followers
-          <h1 class="heading1"><%= Faker::Number.number(2) %></h1>
+          <h2 class="heading2"><strong><%= Faker::Number.number(2) %></strong></h2>
         <% end %>
       </div>
       <div class="ml-s">
         <%= link_to page_path("user/user-following") do %>
           Following
-          <h1 class="heading1"><%= Faker::Number.number(2) %></h1>
+          <h2 class="heading2"><strong><%= Faker::Number.number(2) %></strong></h2>
         <% end %>
       </div>
     </div>
