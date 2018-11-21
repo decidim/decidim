@@ -5,7 +5,6 @@ en:
   activerecord:
     models:
       decidim/blogs/post:
-        zero: No post
         one: Post
         other: Posts
   decidim:
