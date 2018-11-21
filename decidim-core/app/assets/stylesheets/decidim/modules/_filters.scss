@@ -1,6 +1,4 @@
 //Variables
-
-$filters-bg: darken($light-gray, 2.5);
 $filters-border: $border;
 $filters-padding: 1rem;
 $filters-padding-x: 1rem;
@@ -90,6 +88,25 @@ $filters-padding-y: 1rem;
     text-decoration: underline;
     margin-right: $global-margin;
   }
+}
+
+.filters__section--general{
+  @extend .filters__section;
+
+  padding: 0;
+  
+  &:first-of-type,
+  &:last-of-type{
+    padding: 0;
+  }
+
+  > :first-child{
+    padding: $filters-padding-x $filters-padding-y;
+
+    &:hover{
+      background: $light-gray;
+    }
+  }
 
   &.no-results{
     .section-title{
@@ -97,8 +114,8 @@ $filters-padding-y: 1rem;
       text-decoration: none;
     }
 
-    svg{
-      opacity: .1;
+    > * {
+      opacity: .25;
     }
   }
 }

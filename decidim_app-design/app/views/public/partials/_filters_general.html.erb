@@ -8,14 +8,19 @@
   <div class="filters">
     <% @sections.each do |i| %>
     <% noresults = Faker::Boolean.boolean %>
-    <div class="filters__section<%= " no-results" if noresults %>">
+    <div class="filters__section--general<%= " no-results" if noresults %>">
       <%= link_to page_path(i.downcase + "/" + i.downcase), class: "flex--sbc" do %>
-      <div>
-        <strong class="section-title"><%= i %></strong><span class="muted">&nbsp;<%= noresults ? 0 : Faker::Number.between(0, 100) %></span>
-      </div>
-      <%= icon "cog" %>
+        <strong class="section-title"><%= i %></strong>
+        <span class="muted">&nbsp;<%= noresults ? 0 : Faker::Number.between(0, 100) %></span>
       <% end %>
     </div>
     <% end %>
+  </div>
+</div>
+<div class="card card--secondary">
+  <div class="filters">
+    <div class="filters__section">
+      <%= partial "scope" %>
+    </div>
   </div>
 </div>
