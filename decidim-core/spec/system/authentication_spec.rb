@@ -216,7 +216,7 @@ describe "Authentication", type: :system do
   end
 
   context "when confirming the account" do
-    let!(:user) { create(:user) }
+    let!(:user) { create(:user, email_on_notification: true, organization: organization) }
 
     before do
       perform_enqueued_jobs { user.confirm }
@@ -230,7 +230,10 @@ describe "Authentication", type: :system do
 
       within "#notifications" do
         expect(page).to have_content("Welcome")
+        expect(page).to have_content("thanks for joining #{organization.name}")
       end
+
+      expect(last_email_body).to include("thanks for joining #{organization.name}")
     end
   end
 

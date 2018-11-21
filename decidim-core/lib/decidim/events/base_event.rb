@@ -80,6 +80,8 @@ module Decidim
         true
       end
 
+      def resource_text; end
+
       private
 
       attr_reader :event_name, :resource, :user, :extra
