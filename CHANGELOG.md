@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased](https://github.com/decidim/decidim/tree/0.14-stable)
+
+- **decidim-core**: Don't crash when showing the edit link for a component that does not have an admin engine [\#4534](https://github.com/decidim/decidim/pull/4534)
+
 ## [0.14.4](https://github.com/decidim/decidim/tree/v0.14.4)
 
 **Fixed**:
