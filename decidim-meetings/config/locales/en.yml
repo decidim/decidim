@@ -53,15 +53,12 @@ en:
   activerecord:
     models:
       decidim/meetings/meeting:
-        zero: No meetings
         one: Meeting
         other: Meetings
       decidim/meetings/minutes:
-        zero: No minutes
         one: Minutes
         other: Minutes
       decidim/meetings/registration:
-        zero: No registrations
         one: Registration
         other: Registrations
   decidim:
@@ -272,6 +269,9 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
+            registrations_count:
+              one: There has been %{count} registrations.
+              other: There has been %{count} registrations.
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
           update:
@@ -354,6 +354,9 @@ en:
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations
+          remaining_slots:
+            one: '%{count} slot remaining'
+            other: "%{count} slot remaining"
           view: View
       meetings_map:
         view_meeting: View meeting
