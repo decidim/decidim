@@ -215,6 +215,7 @@ en:
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
           step:
             comments_blocked: Comments blocked
@@ -677,6 +678,10 @@ en:
         pending: Pending
         rejected: Rejected
         verified: Verified
+    pad_iframe:
+      disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
+      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      pad: Pad
     pages:
       home:
         extended:

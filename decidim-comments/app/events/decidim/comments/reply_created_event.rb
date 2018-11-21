@@ -15,6 +15,10 @@ module Decidim
         resource_locator.url(url_params)
       end
 
+      def resource_text
+        comment.body
+      end
+
       private
 
       def comment

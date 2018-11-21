@@ -74,6 +74,10 @@ module Decidim
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
+      def etherpad
+        template "docker-compose-etherpad.yml", "docker-compose-etherpad.yml"
+      end
+
       def cable_yml
         template "cable.yml.erb", "config/cable.yml", force: true
       end
