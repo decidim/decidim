@@ -25,7 +25,9 @@ module Decidim
           @form.current_user,
           title: @form.title,
           description: @form.description,
-          organization: @form.current_organization
+          organization: @form.current_organization,
+          show_in_footer: @form.show_in_footer,
+          weight: @form.weight
         )
         broadcast(:ok)
       end

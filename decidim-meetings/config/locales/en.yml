@@ -83,6 +83,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
+            enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
             announcement: Announcement
@@ -110,9 +111,9 @@ en:
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
         registration_code_validated:
-          email_intro: Your registration code "%{registration_code}" has been validated.
+          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
-          email_subject: Your registration code "%{registration_code}" has been validated
+          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
           notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
