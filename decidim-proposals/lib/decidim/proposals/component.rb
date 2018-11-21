@@ -194,6 +194,8 @@ Decidim.register_component(:proposals) do |component|
         end
       end
 
+      proposal.add_to_index_as_search_resource
+
       (n % 3).times do |m|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
         name = "#{Faker::Name.name} #{participatory_space.id} #{n} #{m}"
