@@ -37,15 +37,12 @@ en:
   activerecord:
     models:
       decidim/conference:
-        zero: No conferences
         one: Conference
         other: Conferences
       decidim/conference_speaker:
-        zero: No conference speakers
         one: Conference speaker
         other: Conference speakers
       decidim/conference_user_role:
-        zero: No conference user foles
         one: No conference user roles
         other: Conference user roles
   decidim:
@@ -328,6 +325,9 @@ en:
         conferences:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
+            registrations_count:
+              one: There has been 1 registration.
+              other: There has been %{count} registrations.
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         invite_join_conference_mailer:
           invite:
@@ -526,6 +526,10 @@ en:
           take_part: Take part
         index:
           promoted_conferences: Promoted conferences
+        order_by_conferences:
+          conferences:
+            one: "%{count} conference"
+            other: "%{count} conferences"
         promoted_conference:
           more_info: More info
           take_part: Take part
