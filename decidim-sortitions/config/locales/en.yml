@@ -14,7 +14,6 @@ en:
   activerecord:
     models:
       decidim/sortitions/sortition:
-        zero: No sortitions
         one: Sortition
         other: Sortitions
   decidim:
@@ -58,7 +57,6 @@ en:
               target_items: Items to select
               title: Title
             name:
-              zero: No sortitions
               one: Sortition
               other: Sortitions
         sortitions:
@@ -96,6 +94,10 @@ en:
           delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
           update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: 1 proposal
+            other: "%{count} proposals"
         filters:
           active: Active
           all: All
@@ -117,7 +119,6 @@ en:
           recent: Recent
         results_count:
           count:
-            zero: no selected proposals
             one: selected proposal
             other: selected proposals
         show:
@@ -137,7 +138,6 @@ en:
         sortition:
           random_seed: Random seed
           selected_proposals:
-            zero: no proposal selected
             one: proposal selected
             other: proposals selected
           view: View
@@ -145,3 +145,7 @@ en:
           deleted: Deleted user
         sortition_cancel_author:
           deleted: Deleted user
+        sortitions_count:
+          count:
+            one: 1 sortition
+            other: "%{count} sortitions"
