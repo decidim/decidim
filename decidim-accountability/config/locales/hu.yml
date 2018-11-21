@@ -217,8 +217,7 @@ hu:
           results: Eredmények
     participatory_spaces:
       highlighted_results:
-        results: Eredmények
-        see_all_results: Minden eredmény megtekintése
+        see_all: Összes (%{count})
     resource_links:
       included_projects:
         result_project: Ebben az eredményben szereplő projektek

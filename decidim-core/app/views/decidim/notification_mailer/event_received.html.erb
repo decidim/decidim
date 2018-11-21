@@ -2,8 +2,18 @@
 
 <p><%= @event_instance.email_intro %></p>
 
-<p>
-  <%= link_to @event_instance.resource_url, @event_instance.resource_url %>
-</p>
+<% if @event_instance.try(:resource_text).present? %>
+  <blockquote>
+    <p>
+      <%= @event_instance.resource_text.html_safe %>
+    </p>
+  </blockquote>
+<% end %>
+
+<% if @event_instance.resource_path.present? && @event_instance.resource_title.present? %>
+  <p>
+    <%= link_to @event_instance.resource_url, @event_instance.resource_url %>
+  </p>
+<% end %>
 
 <p><%= @event_instance.email_outro %></p>

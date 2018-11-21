@@ -217,8 +217,7 @@ es:
           results: Resultados
     participatory_spaces:
       highlighted_results:
-        results: Resultados
-        see_all_results: Ver todos los resultados
+        see_all: Ver todo (%{count})
     resource_links:
       included_projects:
         result_project: Proyectos incluidos en este resultado

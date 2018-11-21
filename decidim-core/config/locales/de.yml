@@ -753,6 +753,7 @@ de:
         groups: Gruppen
         members: Mitglieder
         notifications: Benachrichtigungen
+        view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
       sidebar:
         badges:
           info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
@@ -820,6 +821,8 @@ de:
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
+      floating_help:
+        help: Hilfe
       follow_button:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:

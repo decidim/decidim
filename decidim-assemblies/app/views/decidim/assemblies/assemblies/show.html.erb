@@ -14,6 +14,8 @@ edit_link(
 )
 %>
 
+<%= participatory_space_floating_help %>
+
 <% if current_participatory_space.private_space? %>
   <%= render partial: "decidim/shared/private_participatory_space", locals: { text: t("assemblies.show.private_space", scope: "decidim") } %>
 <% end %>
@@ -93,7 +95,7 @@ edit_link(
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra">
         <div class="card__content">
-          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_participatory_space } %>
+          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_participatory_space, large: false  } %>
         </div>
       </div>
       <div class="card extra definition-data">

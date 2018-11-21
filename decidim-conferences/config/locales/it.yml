@@ -272,6 +272,10 @@ it:
           publish: "%{user_name} pubblicato il %{resource_name} tipo di registrazione nella %{space_name} conferenza"
           unpublish: "%{user_name} non pubblicato il %{resource_name} tipo di registrazione nella %{space_name} conferenza"
           update: "%{user_name} aggiornato il %{resource_name} tipo di registrazione nella %{space_name} conferenza"
+      media_link:
+        create: "%{user_name} creato il collegamento %{resource_name} media nella %{space_name} conferenza"
+        delete: "%{user_name} rimosso il collegamento %{resource_name} media dalla conferenza %{space_name}"
+        update: "%{user_name} aggiornato il %{resource_name} collegamento multimediale nella %{space_name} conferenza"
     conference_program:
       index:
         title: Programma
@@ -329,7 +333,7 @@ it:
           invite:
             decline: Rifiuta l'invito '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} ha invitato a partecipare a una conferenza %{application}. Puoi rifiutarlo o accettarlo tramite i link sottostanti."
-            join: Partecipa alla conferenza '%{conference_title}'
+            registration: Registrazione per '%{conference_title}'
         partners:
           index:
             title: Partner
@@ -344,8 +348,8 @@ it:
           confirm: Confermare
         show:
           going: Andando
-          join: Partecipa alla conferenza
           no_slots_available: Non ci sono slot disponibili
+          registration: Registrazione
       conference_program:
         program_meeting:
           content: Soddisfare
@@ -389,13 +393,11 @@ it:
         index:
           speakers: Altoparlanti
       conferences:
-        conferences_sidebar:
-          register: Registrare
         partners:
-          collaborators: collaboratori
-          main_promotors: Principali promotori
+          collaborators: Partner
+          main_promotors: organizzatori
         show:
-          login_as: Stai eseguendo l'accesso come %{name} <%{email}>
+          login_as: Hai effettuato l'accesso come %{name} <%{email}>
           make_conference_registration: 'Fai la tua registrazione alla conferenza:'
           register: Registrare
       content_blocks:
@@ -448,15 +450,15 @@ it:
       registration_types:
         index:
           choose_an_option: 'Scegli la tua opzione di registrazione:'
-          login_as: Stai eseguendo l'accesso come %{name} <%{email}>
+          login_as: Hai effettuato l'accesso come %{name} <%{email}>
           register: Registrare
           title: Tipi di registrazione
       shared:
         conference_user_login:
           already_account: Hai già un account in decidim?
           new_user: Nuovo utente?
-          sign_in: Accedi per registrarti a questa conferenza
-          sign_up: Registrati gratuitamente in decidim per registrarti
+          sign_in: Accedi per registrarti alla conferenza
+          sign_up: Crea un account in decidim per registrarti alla conferenza
       show:
         details: Dettagli
         introduction: introduzione

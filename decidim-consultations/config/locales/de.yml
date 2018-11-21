@@ -38,7 +38,7 @@ de:
           not_found: Antwort nicht gefunden.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Beratung
         other: Konsultationen
       decidim/consultations/question:

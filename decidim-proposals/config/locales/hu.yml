@@ -237,8 +237,7 @@ hu:
           proposals: Javaslatok
     participatory_spaces:
       highlighted_proposals:
-        proposals: Javaslatok
-        see_all_proposals: Összes javaslat
+        see_all: Összes (%{count})
     proposals:
       actions:
         answer: Válasz
@@ -522,6 +521,12 @@ hu:
             votes: Szavazatok
       new:
         limit_reached: Nem hozhatsz létre új javaslatokat, mert túllépted a maximumot.
+      participatory_text_proposal:
+        buttons:
+          comment: Megjegyzés
+          comments: Hozzászólások
+          endorse: Támogassa
+          endorsements: Elismerések
       proposal_endorsements:
         create:
           error: Hiba történt a javaslat jóváhagyása során.
@@ -595,6 +600,11 @@ hu:
           most_voted: Legtöbb szavazattal
           random: Véletlenszerű
           recent: Legutóbbi
+        participatory_texts:
+          index:
+            document_index: Dokumentum index
+          view_index:
+            see_index: Lásd az indexet
         preview:
           modify: Javaslat módosítása
           proposal_edit_before_minutes:
@@ -606,6 +616,7 @@ hu:
           creation_date: 'Létrehozás: %{date}'
           view_proposal: Javaslat megtekintése
         show:
+          back_to: Vissza a
           edit_proposal: Javaslat szerkesztése
           endorsements_list: Jóváhagyások listája
           hidden_endorsers_count:
@@ -644,7 +655,7 @@ hu:
           can_accumulate_supports_beyond_threshold:
             description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
           minimum_votes_per_user:
-            description: A különböző javaslatok között legalább 3 szavazatot kell elosztanod.
+            description: A különböző javaslatok között legalább %{votes} szavazatot kell elosztania.
             given_enough_votes: Elég támogatást kapott a javaslatod.
             supports_remaining: Meg kell szavaznod %{remaining_votes} további javaslatot hogy a szavazataid figyelembe vételre kerüljenek.
           proposal_limit:

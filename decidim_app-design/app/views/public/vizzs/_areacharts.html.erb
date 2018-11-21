@@ -14,70 +14,73 @@
 <br />
 <div class="row column">
   <h4>Versión simple</h4>
-  <code>partial "areachart", metric: "metrica"</code>
+  <code>partial "areachart"</code>
 </div>
 <div class="row mt-s">
   <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s %>
+    <%= partial "areachart" %>
   </div>
 </div>
 <br />
 <div class="row column">
   <h4>Versión simple con título dentro</h4>
-  <code>partial "areachart", metric: "metrica", title: "Lorem"</code>
+  <code>partial "areachart", title: "Lorem ipsum"</code>
 </div>
 <div class="row mt-s">
   <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: "lorem" %>
+    <%= partial "areachart", title: "Lorem ipsum" %>
+  </div>
+  <div class="column medium-6">
+    <%= partial "areachart", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero harum natus ipsa, eum sunt fuga repudiandae necessitatibus deleniti enim atque" %>
   </div>
 </div>
 <br />
 <div class="row column">
   <h4>Versión simple con letra pequeña (poco espacio)</h4>
-  <code>partial "areachart", metric: "metrica", classes: "small"</code>
+  <code>partial "areachart", classes: "small"</code>
 </div>
 <div class="row mt-s">
   <% 4.times do %>
   <div class="column medium-3">
-    <%= partial "areachart", classes: "small", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "small", title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
 <br />
 <div class="row column">
   <h4>Versión con ejes</h4>
-  <code>partial "areachart", metric: "metrica", axis: true</code>
+  <code>partial "areachart", axis: true</code>
 </div>
 <div class="row mt-s">
   <% 2.times do %>
   <div class="column medium-6">
-    <%= partial "areachart", axis: true, metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", axis: true, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
 <br />
 <div class="row column">
   <h4>Versión con ejes y letra pequeña (axis: <code>true</code> activa la letra pequeña)</h4>
-  <code>partial "areachart", axis: true, metric: "metrica"</code>
+  <code>partial "areachart", axis: true</code>
 </div>
 <div class="row mt-s">
   <% 4.times do %>
   <div class="column medium-3">
-    <%= partial "areachart", axis: true, metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", axis: true, title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
 <br />
 <div class="row column">
   <h4>Versión sin tooltip (por defecto <code>tip: true</code>)</h4>
-  <code>partial "areachart", metric: "metrica", tip: false</code>
+  <code>partial "areachart", tip: false</code>
 </div>
 <div class="row mt-s">
   <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), tip: false %>
+    <%= partial "areachart", title: Faker::Commerce.department(1), tip: false %>
   </div>
   <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), axis: true, tip: false %>
+    <%= partial "areachart", title: Faker::Commerce.department(1), axis: true, tip: false %>
   </div>
 </div>
 <br />
@@ -87,23 +90,23 @@
     El <code>aspect ratio</code> es un string de la forma <strong>Integer</strong>:<strong>Integer</strong>. Por defecto el valor es <em>4:3</em>
   </div>
   <h4>16:9</h4>
-  <code>partial "areachart", ratio: "16:9", metric: "metrica"</code>
+  <code>partial "areachart", ratio: "16:9"</code>
 </div>
 <div class="row mt-s">
   <% 2.times do %>
   <div class="column medium-6">
-    <%= partial "areachart", ratio: "16:9", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", ratio: "16:9", title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
 <br />
 <div class="row column">
   <h4>11:4</h4>
-  <code>partial "areachart", ratio: "11:4", metric: "metrica"</code>
+  <code>partial "areachart", ratio: "11:4"</code>
 </div>
 <div class="row mt-s">
   <div class="column">
-    <%= partial "areachart", ratio: "11:4", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", ratio: "11:4", title: Faker::Commerce.department(1) %>
   </div>
 </div>
 <br />
@@ -114,7 +117,7 @@
 <div class="row">
   <% 2.times do %>
   <div class="column medium-6">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -124,7 +127,7 @@
 <div class="row">
   <% 3.times do %>
   <div class="column medium-4">
-    <%= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", title: Faker::Commerce.department(1) %>
   </div>
   <% end %>
 </div>
@@ -135,18 +138,18 @@
 </div>
 <div class="row mt-s">
   <div class="column medium-4">
-    <%= partial "areachart", classes: "secondary", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "secondary", title: Faker::Commerce.department(1) %>
   </div>
   <div class="column medium-4">
-    <%= partial "areachart", classes: "warning", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "warning", title: Faker::Commerce.department(1) %>
   </div>
   <div class="column medium-4">
-    <%= partial "areachart", classes: "success", metric: "areachart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1) %>
+    <%= partial "areachart", classes: "success", title: Faker::Commerce.department(1) %>
   </div>
 </div>
 <br />
 <div class="row column">
-  <h4>Datos sin agregar<sup>1</sup> (por defecto <code>agg: true</code>)</h4>
+  <h4>Datos sin agregar (por defecto <code>agg: true</code>)</h4>
   <code>partial "areachart", agg: false, url: "..."</code>
 </div>
 <div class="row mt-s">
@@ -156,7 +159,4 @@
   <div class="column medium-6">
     <%= partial "areachart", agg: true, metric: "areachart-0", title: Faker::Commerce.department(1) %>
   </div>
-</div>
-<div class="row column">
-  <small><sup>1</sup>&nbsp;Ambos gráficos están usando el mismo dataset <code>areachart-0</code></small>
 </div>

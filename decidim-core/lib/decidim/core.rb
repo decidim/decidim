@@ -52,6 +52,8 @@ module Decidim
   autoload :ContentBlockManifest, "decidim/content_block_manifest"
   autoload :MetricRegistry, "decidim/metric_registry"
   autoload :MetricManifest, "decidim/metric_manifest"
+  autoload :MetricOperation, "decidim/metric_operation"
+  autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :Searchable, "decidim/searchable"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
@@ -68,6 +70,8 @@ module Decidim
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
   autoload :Hashtaggable, "decidim/hashtaggable"
+  autoload :Paddable, "decidim/paddable"
+
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
@@ -232,6 +236,9 @@ module Decidim
   config_accessor :unconfirmed_access_for do
     2.days
   end
+
+  # Exposes a configuration option: an object to configure Etherpad
+  config_accessor :etherpad
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -404,8 +411,13 @@ module Decidim
     @traceability ||= Traceability.new
   end
 
-  # Public: Stores an instance of ContentBlockRegistry
+  # Public: Stores an instance of MetricRegistry
   def self.metrics_registry
     @metrics_registry ||= MetricRegistry.new
+  end
+
+  # Public: Stores an instance of MetricOperation
+  def self.metrics_operation
+    @metrics_operation ||= MetricOperation.new
   end
 end
