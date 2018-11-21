@@ -411,6 +411,11 @@ en:
           select_a_category: Please select a category
           send: Send
           title: Complete your collaborative draft
+        count:
+          drafts_count:
+            zero: "%{count} collaborative drafts"
+            one: '%{count} collaborative draft'
+            other: "%{count} collaborative draft"
         create:
           error: There's been a problem creating this collaborative drafts
           success: Collaborative draft successfully created.
@@ -463,6 +468,10 @@ en:
           edit: Edit collaborative draft
           final_proposal: final proposal
           final_proposal_help_text: This draft is finished. You can see the final finished proposal
+          hidden_authors_count:
+            zero: and %{count} more people
+            one: and %{count} more person
+            other: and %{count} more people
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
           of_versions: "(of %{number})"
           publish: Publish
@@ -548,6 +557,11 @@ en:
         complete:
           send: Send
           title: Complete your proposal
+        count:
+          proposals_count:
+            zero: "%{count} proposals"
+            one: '%{count} proposal'
+            other: "%{count} proposals"
         edit:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
