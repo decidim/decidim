@@ -26,7 +26,6 @@ en:
   activerecord:
     models:
       decidim/accountability/result:
-        zero: No results
         one: Result
         other: Results
   decidim:
@@ -138,6 +137,10 @@ en:
             description: Description
             entry_date: Date
       results:
+        count:
+          results_count:
+            one: 1 result
+            other: "%{count} results"
         filters:
           all: All
           scopes: Scopes
