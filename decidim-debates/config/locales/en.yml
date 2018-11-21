@@ -18,7 +18,6 @@ en:
   activerecord:
     models:
       decidim/debates/debate:
-        zero: No debates
         one: Debate
         other: Debates
   decidim:
@@ -68,6 +67,10 @@ en:
           create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
       debates:
+        count:
+          debates_count:
+            one: "%{count} debate"
+            other: "%{count} debates"
         create:
           invalid: There has been a problem while creating the debate.
           success: Debate created successfully.
