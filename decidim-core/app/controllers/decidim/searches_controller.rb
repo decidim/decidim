@@ -14,7 +14,8 @@ module Decidim
       Search.call(term, current_organization, filters) do
         on(:ok) do |results|
           # results.page(params[:page]).per(params[:per_page])
-          expose(results: results.group_by(&:resource_type))
+          results = results.to_a
+          expose(results: results.group_by(&:resource_type), results_count: results.count)
         end
       end
     end
