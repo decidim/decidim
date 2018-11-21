@@ -86,6 +86,27 @@ module Decidim
             expect(user.valid_password?("abcde1234")).to eq(true)
           end
 
+          it "notifies about registration with oauth data" do
+            user = create(:user, email: email, organization: organization)
+            identity = Decidim::Identity.new
+            expect(command).to receive(:create_identity).and_return(identity)
+
+            expect(ActiveSupport::Notifications)
+              .to receive(:publish)
+              .with(
+                "decidim.events.user.omniauth_registration",
+                user_id: user.id,
+                identity: identity,
+                provider: provider,
+                uid: uid,
+                email: email,
+                name: "Facebook User",
+                nickname: "facebook_user",
+                avatar_url: "http://www.example.com/foo.jpg"
+              )
+            command.call
+          end
+
           describe "user linking" do
             context "with a verified email" do
               let(:verified_email) { email }

@@ -26,7 +26,8 @@ module Decidim
 
         transaction do
           create_or_find_user
-          create_identity
+          identity = create_identity
+          trigger_omniauth_registration(identity)
         end
 
         broadcast(:ok, @user)
@@ -64,7 +65,7 @@ module Decidim
     end
 
     def create_identity
-      @user.identities.create!(
+      @identity = @user.identities.create!(
         provider: form.provider,
         uid: form.uid,
         organization: organization
@@ -90,6 +91,20 @@ module Decidim
     def signature_valid?
       signature = OmniauthRegistrationForm.create_signature(form.provider, form.uid)
       form.oauth_signature == signature
+    end
+
+    def trigger_omniauth_registration(identity)
+      ActiveSupport::Notifications.publish(
+        "decidim.events.user.omniauth_registration",
+        user_id: @user.id,
+        identity: identity,
+        provider: form.provider,
+        uid: form.uid,
+        email: form.email,
+        name: form.name,
+        nickname: form.normalized_nickname,
+        avatar_url: form.avatar_url
+      )
     end
   end
 
