@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "amendment creation" do
-  let(:organization) { component.organization }
-
-  before do
-    switch_to_host(organization.host)
-  end
-
   context "when the form is invalid" do
     let(:form_params) do
       {
