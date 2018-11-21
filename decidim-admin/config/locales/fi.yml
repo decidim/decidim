@@ -86,6 +86,11 @@ fi:
         slug: URL-tunniste
         title: Otsikko
         weight: Paino
+      static_page_topic:
+        description: Kuvaus
+        show_in_footer: Näytä alatunnisteessa
+        title: otsikko
+        weight: Paino
     errors:
       models:
         oauth_application:
