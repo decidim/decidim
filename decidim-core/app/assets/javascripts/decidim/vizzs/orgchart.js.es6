@@ -307,24 +307,18 @@
           // tick handler
           function ticked() {
             const fakeBorderWidth = attrs.fakeBorderWidth
-            const maxValueAvailable = (value) => Math.max(Math.min(calc.chartWidth - fakeBorderWidth, value), fakeBorderWidth)
+            const maxXValueAvailable = (value) => Math.max(Math.min(calc.chartWidth - fakeBorderWidth, value), fakeBorderWidth)
+            const maxYValueAvailable = (value) => Math.max(Math.min(calc.chartHeight - fakeBorderWidth, value), fakeBorderWidth)
             // set links position
             links
-              .attr("x1", (d) => maxValueAvailable(d.source.x))
-              .attr("y1", (d) => maxValueAvailable(d.source.y))
-              .attr("x2", (d) => maxValueAvailable(d.target.x))
-              .attr("y2", (d) => maxValueAvailable(d.target.y))
+              .attr("x1", (d) => maxXValueAvailable(d.source.x))
+              .attr("y1", (d) => maxYValueAvailable(d.source.y))
+              .attr("x2", (d) => maxXValueAvailable(d.target.x))
+              .attr("y2", (d) => maxYValueAvailable(d.target.y))
 
             // set nodes position
             svg.selectAll(".node")
-              .attr("transform", (d) => {
-                let bounds = {
-                  x: maxValueAvailable(d.x),
-                  y: maxValueAvailable(d.y)
-                }
-
-                return `translate(${bounds.x},${bounds.y})`
-              })
+              .attr("transform", (d) => `translate(${maxXValueAvailable(d.x)},${maxYValueAvailable(d.y)})`)
           }
 
           // handler drag start event
