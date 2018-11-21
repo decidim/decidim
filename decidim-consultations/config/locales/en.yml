@@ -39,19 +39,15 @@ en:
   activerecord:
     models:
       decidim/consultations:
-        zero: No consultations
         one: Consultation
         other: Consultations
       decidim/consultations/question:
-        zero: Questions
         one: Question
         other: Questions
       decidim/consultations/response:
-        zero: Responses
         one: Response
         other: Responses
       decidim/consultations/vote:
-        zero: No vote
         one: No votes
         other: Votes
   decidim:
@@ -113,7 +109,6 @@ en:
             published: Published
             title: Title
           name:
-            zero: No consultations
             one: Consultation
             other: Consultations
         question:
@@ -122,7 +117,6 @@ en:
             published: Published
             title: Title
           name:
-            zero: No questions
             one: Question
             other: Questions
         response:
@@ -130,7 +124,6 @@ en:
             created_at: Created at
             title: Title
           name:
-            zero: No responses
             one: Response
             other: Responses
       question_publications:
@@ -198,6 +191,10 @@ en:
       content_blocks:
         highlighted_consultations:
           name: Highlighted consultations
+      count:
+        title:
+          one: "%{count} consultation"
+          other: "%{count} consultations"
       filters:
         active: Active
         all: All
@@ -222,12 +219,14 @@ en:
           highlighted_consultations:
             active_consultations: Active consultations
             see_all_consultations: See all consultations
+            voting_ends_in:
+              one: Voting ends <strong>tomorrow</strong>
+              other: Voting ends in <strong>%{count} days</strong>
             voting_ends_today: Voting ends <strong>today</strong>
       question:
         take_part: Take part
         view_results: View results
         votes_out_of:
-          zero: votes out of
           one: vote out of
           other: votes out of
       question_votes:
