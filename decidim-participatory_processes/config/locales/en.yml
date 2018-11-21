@@ -52,15 +52,12 @@ en:
   activerecord:
     models:
       decidim/participatory_process:
-        zero: Participatory processes
         one: Participatory process
         other: Participatory processes
       decidim/participatory_process_group:
-        zero: Participatory process groups
         one: Participatory process group
         other: Participatory process groups
       decidim/participatory_process_step:
-        zero: Steps
         one: Step
         other: Steps
   decidim:
@@ -266,6 +263,9 @@ en:
         title: Participatory processes
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 processes for %{group}
+          other: "%{count} processes for %{group}"
         title: Participatory process groups
     participatory_process_steps:
       index:
@@ -306,6 +306,19 @@ en:
         none: None
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 active process
+              other: "%{count} active processes"
+            all:
+              one: 1 process
+              other: "%{count} processes"
+            past:
+              one: 1 past process
+              other: "%{count} past processes"
+            upcoming:
+              one: 1 upcoming process
+              other: "%{count} upcoming processes"
           explanations:
             no_active: No active processes
             no_active_nor_upcoming: No active nor upcoming processes
