@@ -26,8 +26,9 @@ module Decidim
     # Returns nothing.
     def call
       query = SearchableResource.where(organization: @organization, locale: I18n.locale)
-      @filters.each_pair do |attribute_name, value|
-        query = query.where(attribute_name => value) if permit_filter?(attribute_name, value)
+      query = query.where(resource_type: Decidim::Searchable.searchable_resources.keys)
+      clean_filters.each_pair do |attribute_name, value|
+        query = query.where(attribute_name => value)
       end
       @results = if term.present?
                    query.global_search(I18n.transliterate(term))
@@ -40,8 +41,10 @@ module Decidim
 
     private
 
-    def permit_filter?(attribute_name, value)
-      ACCEPTED_FILTERS.include?(attribute_name.to_sym) && value.present?
+    def clean_filters
+      @filters.select do |attribute_name, value|
+        ACCEPTED_FILTERS.include?(attribute_name.to_sym) && value.present?
+      end
     end
   end
 end

@@ -172,11 +172,11 @@ module Decidim
         let(:scope) { create(:scope, organization: current_organization) }
 
         context "with resource type" do
-          let(:resource_type) { "Decidim::Meetings::Meeting" }
+          let(:resource_type) { "Decidim::DummyResources::DummyResource" }
 
           before do
             create(:searchable_resource, organization: current_organization, resource_type: resource_type, content_a: "Where's your crown king nothing?")
-            create(:searchable_resource, organization: current_organization, resource_type: "Decidim::Proposals::Proposal", content_a: "Where's your crown king nothing?")
+            create(:searchable_resource, organization: current_organization, resource_type: "Decidim::User", content_a: "Where's your crown king nothing?")
           end
 
           context "when resource_type is setted" do
@@ -194,10 +194,17 @@ module Decidim
           end
 
           context "when resource_type is blank" do
-            it "does not apply resource_type filter" do
+            let(:fake_type) { "Decidim::DoesNot::Exist" }
+            let!(:my_resource) do
+              create(:searchable_resource, organization: current_organization, resource_type: fake_type, content_a: "Where's your crown king nothing?")
+            end
+
+            it "only returns searchable results" do
+              expect(Decidim::Searchable.searchable_resources).not_to have_key(fake_type)
               described_class.call(term, current_organization, "resource_type" => "") do
                 on(:ok) do |results|
                   expect(results).not_to be_empty
+                  expect(results).not_to include(my_resource)
                   expect(results.count).to eq 2
                 end
                 on(:invalid) { raise("Should not happen") }
