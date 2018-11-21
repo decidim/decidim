@@ -272,6 +272,10 @@ ca:
           publish: "%{user_name} ha publicat el tipus de registre %{resource_name} per a la conferència %{space_name}"
           unpublish: "%{user_name} no publicat el tipus d'inscripció %{resource_name} a la conferència %{space_name}"
           update: "%{user_name} ha actualitzat el tipus de registre %{resource_name} a la conferència %{space_name}"
+      media_link:
+        create: "%{user_name} crear l'enllaç %{resource_name} mitjans de comunicació a la %{space_name} conferències"
+        delete: "%{user_name} eliminar l'enllaç %{resource_name} de la %{space_name} conferències"
+        update: "%{user_name} actualitzar l'enllaç %{resource_name} mitjans a la %{space_name} conferència"
     conference_program:
       index:
         title: Programa
@@ -329,7 +333,7 @@ ca:
           invite:
             decline: Rebutjar la invitació '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l'%{application}. Pots rebutjar-la o acceptar-la a través dels enllaços a continuació."
-            join: Uneix-te a la conferència '%{conference_title}'
+            registration: Registre per a '%{conference_title}'
         partners:
           index:
             title: Col·laboradors
@@ -344,8 +348,8 @@ ca:
           confirm: Confirmar
         show:
           going: Assistiré
-          join: Participa a la conferència
           no_slots_available: No hi ha places disponibles
+          registration: Registre
       conference_program:
         program_meeting:
           content: Contingut
@@ -389,13 +393,11 @@ ca:
         index:
           speakers: Ponents
       conferences:
-        conferences_sidebar:
-          register: Registre
         partners:
-          collaborators: Col·laboradors
-          main_promotors: Promotors principals
+          collaborators: Socis
+          main_promotors: Organitzadors
         show:
-          login_as: Estàs entrant com %{name} <%{email}>
+          login_as: Heu iniciat la sessió com a %{name} <%{email}>
           make_conference_registration: 'Fes la teva inscripció a la conferència:'
           register: Registre
       content_blocks:
@@ -448,15 +450,15 @@ ca:
       registration_types:
         index:
           choose_an_option: 'Trieu l''opció de registre:'
-          login_as: Estàs entrant com %{name} <%{email}>
+          login_as: Heu iniciat la sessió com a %{name} <%{email}>
           register: Registre
           title: Tipus de registre
       shared:
         conference_user_login:
           already_account: Ja tens un compte a Decidim?
           new_user: Nou usuari?
-          sign_in: Inicia sessió per registrar-te en aquesta conferència
-          sign_up: Registra't de forma gratuïta per inscriure't
+          sign_in: Inicieu sessió per registrar-se a la conferència
+          sign_up: Creeu un compte per decidir registrar-se a la conferència
       show:
         details: Detalls
         introduction: Introducció

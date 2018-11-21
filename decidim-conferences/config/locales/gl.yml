@@ -272,6 +272,10 @@ gl:
           publish: "%{user_name} publicou o %{resource_name} tipo de rexistro na %{space_name} conferencia"
           unpublish: "%{user_name} inédita o %{resource_name} tipo de rexistro na %{space_name} conferencia"
           update: "%{user_name} actualizou o tipo de rexistro %{resource_name} na conferencia %{space_name}"
+      media_link:
+        create: "%{user_name} creou a ligazón de %{resource_name} medio na %{space_name} conferencia"
+        delete: "%{user_name} eliminou a ligazón de %{resource_name} medio da %{space_name} conferencia"
+        update: "%{user_name} actualizou a %{resource_name} ligazón de medios na %{space_name} conferencia"
     conference_program:
       index:
         title: Programa
@@ -329,7 +333,7 @@ gl:
           invite:
             decline: Declina a invitación '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
-            join: Únete á conferencia '%{conference_title}'
+            registration: Rexistro para '%{conference_title}'
         partners:
           index:
             title: Socios
@@ -344,8 +348,8 @@ gl:
           confirm: Confirmar
         show:
           going: Indo
-          join: Únete á conferencia
           no_slots_available: Non hai slots dispoñibles
+          registration: Rexistro
       conference_program:
         program_meeting:
           content: Contido
@@ -389,11 +393,9 @@ gl:
         index:
           speakers: Ponentes
       conferences:
-        conferences_sidebar:
-          register: Rexistrarse
         partners:
-          collaborators: Colaboradores
-          main_promotors: Principais promotores
+          collaborators: Socios
+          main_promotors: Organizadores
         show:
           login_as: Estás conectado como %{name} <%{email}>
           make_conference_registration: 'Fai a túa inscrición na conferencia:'
@@ -455,8 +457,8 @@ gl:
         conference_user_login:
           already_account: Xa tes unha conta en decidir?
           new_user: Novo usuario?
-          sign_in: Iniciar sesión para rexistrarse nesta conferencia
-          sign_up: Inscríbase de forma gratuita na decisión de rexistrarse
+          sign_in: Iniciar sesión para rexistrarse na conferencia
+          sign_up: Crea unha conta na que decidimos rexistrarte para a conferencia
       show:
         details: Detalles
         introduction: Introdución

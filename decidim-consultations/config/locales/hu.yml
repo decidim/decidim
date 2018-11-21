@@ -38,9 +38,9 @@ hu:
           not_found: Válasz nem található.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Konzultáció
-        other: Konzultációk
+        other: konzultációk
       decidim/consultations/question:
         one: Kérdés
         other: Kérdések

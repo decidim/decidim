@@ -58,11 +58,11 @@ module Decidim
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_participatory_processes(filter)
+        @participatory_processes ||= filtered_participatory_processes(filter).query.where(decidim_participatory_process_group_id: nil)
       end
 
       def promoted_participatory_processes
-        @promoted_participatory_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= filtered_participatory_processes("all") | PromotedParticipatoryProcesses.new
       end
 
       def filtered_participatory_process_groups(filter_name = filter)
@@ -92,7 +92,7 @@ module Decidim
         return @process_count_by_filter if @process_count_by_filter
 
         @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
-          processes = filtered_participatory_processes(filter_name)
+          processes = filtered_participatory_processes(filter_name).query.where(decidim_participatory_process_group_id: nil)
           groups = filtered_participatory_process_groups(filter_name)
           collection_by_filter.merge(filter_name.to_s => processes.count + groups.count)
         end

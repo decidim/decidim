@@ -753,6 +753,7 @@ fi:
         groups: Ryhmät
         members: Jäsenet
         notifications: Ilmoitukset
+        view_full_profile: Näytä koko profiili
       sidebar:
         badges:
           info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
@@ -820,6 +821,8 @@ fi:
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita ongelmasta
+      floating_help:
+        help: Ohjeet
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:

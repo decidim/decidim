@@ -753,6 +753,7 @@ it:
         groups: gruppi
         members: Utenti
         notifications: notifiche
+        view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
@@ -820,6 +821,8 @@ it:
         report: Rapporto
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
+      floating_help:
+        help: Aiuto
       follow_button:
         sign_in_before_follow: Accede prima di eseguire questa azione
       login_modal:

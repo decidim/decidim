@@ -78,6 +78,15 @@ module Decidim
         @participatory_space_url ||= ResourceLocatorPresenter.new(participatory_space).url
       end
 
+      # Caches the text to render as a quote in the email. It will appear, if
+      # present, after the `intro` section. This method is intended to be
+      # overwritten by each event class.
+      #
+      # Returns a string.
+      def resource_text
+        nil
+      end
+
       private
 
       def event_interpolations

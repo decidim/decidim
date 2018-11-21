@@ -2,11 +2,18 @@
 
 Participatory processes are the standard Decidim's participatory space.
 
-A participatory process can define its own steps, and attach different components
-(such as meetings or proposals) with different configurations to each of them.
+A participatory process:
 
-A participatory process can have attachments, be associated to custom
-categories, and are fully manageable via an administration UI.
+* can define its own steps
+* can define helper text
+* can attach different components (such as meetings or proposals) with different configurations to each of them.
+* can have attachments
+* can be associated to custom categories
+* can be promoted
+* can be a private process, and only users with permissions can see the process
+* special content can be added to the process or superprocess home
+* can show statistics on process home.
+* are fully manageable via an administration UI.
 
 ## Usage
 
@@ -14,22 +21,21 @@ This module provides:
 
 * A CRUD engine to manage participatory processes.
 
-* Public views for participatory process via a high level section in the main
-  menu.
+* Public views for participatory process via a high level section in the main menu.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+This is on the default Decidim installation so you shouldn't change anything to use this participatory space.
 
-```ruby
-gem 'decidim-participatory_processes'
-```
+## Screenshots
 
-And then execute:
+![Public View](docs/screenshot01.png)
 
-```bash
-bundle
-```
+![Admin View](docs/screenshot02.png)
+
+## Documentation
+
+Read more about this Space on [Admin Manual](https://docs.decidim.org/admin-manual/en/processess/).
 
 ## Contributing
 

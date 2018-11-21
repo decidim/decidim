@@ -87,6 +87,11 @@ en:
         slug: URL slug
         title: Title
         weight: Weight
+      static_page_topic:
+        description: Description
+        show_in_footer: Show in the footer
+        title: Title
+        weight: Weight
     errors:
       models:
         oauth_application:
@@ -314,7 +319,7 @@ en:
         impersonations: Impersonations
         newsletters: Newsletters
         oauth_applications: OAuth applications
-        officializations: Officializations
+        participants: Participants
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -604,7 +609,7 @@ en:
         dashboard: Dashboard
         impersonatable_users: Impersonatable users
         impersonations: Impersonations
-        officializations: Officializations
+        participants: Participants
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages

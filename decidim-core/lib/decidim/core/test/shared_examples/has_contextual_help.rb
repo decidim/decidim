@@ -9,8 +9,15 @@ shared_examples "shows contextual help" do
     )
   end
 
-  it "shows the contextual help on the root path" do
+  it "shows the contextual help on the root path on first visit, hides it on subsequent ones" do
     visit index_path
+
+    within ".floating-helper-container" do
+      expect(page).to have_content("Some relevant help")
+      find(".floating-helper__content-close").click
+    end
+
+    visit current_path
 
     expect(page).to have_no_content("Some relevant help")
 

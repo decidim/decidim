@@ -415,7 +415,7 @@ sv:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten
-        see_all_meetings: Se alla möten
+        see_all: Se alla (%{count})
         upcoming_meetings: Kommande möten
       upcoming_meeting_for_card:
         upcoming_meeting: Kommande möte

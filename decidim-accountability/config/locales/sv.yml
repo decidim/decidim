@@ -217,8 +217,7 @@ sv:
           results: Resultat
     participatory_spaces:
       highlighted_results:
-        results: Resultat
-        see_all_results: Se alla resultat
+        see_all: Se alla (%{count})
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat
