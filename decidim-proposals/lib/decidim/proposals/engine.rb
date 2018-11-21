@@ -206,6 +206,23 @@ module Decidim
             settings.attribute :weight, type: :integer, default: 3
           end
         end
+
+        Decidim.metrics_registry.register(:endorsements) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Proposals::Metrics::EndorsementsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(participatory_process)
+            settings.attribute :weight, type: :integer, default: 4
+          end
+        end
+
+        Decidim.metrics_operation.register(:participants, :proposals) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalParticipantsMetricMeasure"
+        end
+        Decidim.metrics_operation.register(:followers, :proposals) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Proposals::Metrics::ProposalFollowersMetricMeasure"
+        end
       end
     end
   end
