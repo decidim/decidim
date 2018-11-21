@@ -32,6 +32,20 @@ class RemoveDecidimSurveysTablesAfterMigrateToDecidimForms < ActiveRecord::Migra
 end
 ````
 
+- **Core**:
+
+Default help content will be created on new organizations. For existing organizations, though,
+you'll have to populate it yourself.
+
+Fortunately enough, this is an easy thing to do. Just open an IRB session in your environment
+and execute:
+
+```ruby
+Decidim::Organization.find_each do |organization|
+  Decidim::System::PopulateHelp.call(organization)
+end
+```
+
 **Added**:
 
 - **decidim-proposals**: Specific public view rendering of participatory texts. [\#4316](https://github.com/decidim/decidim/pull/4316)
@@ -53,6 +67,7 @@ end
 - **decidim-core**: Let users find search results by writing prefixes of a word instead of whole words [\#4492](https://github.com/decidim/decidim/pull/4492)
 - **decidim-core**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
 - **decidim-meetings**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
+- **decidim-core**: Adds default pages and contextual help when creating organizations [\#4541](https://github.com/decidim/decidim/pull/4541)
 
 **Changed**:
 

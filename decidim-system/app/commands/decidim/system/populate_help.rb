@@ -2,13 +2,11 @@
 
 module Decidim
   module System
-    # A command with all the business logic when creating a new organization in
-    # the system. It creates the organization and invites the admin to the
-    # system.
+    # A command that will create default help pages for an organization.
     class PopulateHelp < Rectify::Command
       # Public: Initializes the command.
       #
-      # form - A form object with the params.
+      # organization - An organization
       def initialize(organization)
         @organization = organization
       end
