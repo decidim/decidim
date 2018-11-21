@@ -363,7 +363,7 @@ en:
           organizations: Attending organizations
           remaining_slots:
             one: '%{count} slot remaining'
-            other: "%{count} slot remaining"
+            other: "%{count} slots remaining"
           view: View
       meetings_map:
         view_meeting: View meeting
