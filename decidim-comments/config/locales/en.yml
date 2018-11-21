@@ -8,11 +8,9 @@ en:
   activerecord:
     models:
       decidim/comments/comment:
-        zero: No comments
         one: Comment
         other: Comments
       decidim/comments/comment_vote:
-        zero: No votes
         one: Vote
         other: Votes
   decidim:
