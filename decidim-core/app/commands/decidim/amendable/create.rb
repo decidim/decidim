@@ -54,12 +54,11 @@ module Decidim
           :create,
           form.amendable_type.constantize,
           form.current_user,
-          visibility: Decidim::ActionLog.find_by(resource_id: @amendable.id).visibility
+          visibility: "public-only"
         ) do
           emendation = form.amendable_type.constantize.new(emendation_attributes)
           emendation.add_coauthor(form.current_user, user_group: form.user_group) if emendation.is_a?(Decidim::Coauthorable)
           emendation.save!
-          emendation.reset_counters
           emendation
         end
       end

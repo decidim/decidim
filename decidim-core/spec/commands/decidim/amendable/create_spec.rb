@@ -7,7 +7,7 @@ module Decidim::Amendable
     let(:resource) { create(:dummy_resource) }
     let(:amender) { create(:user, :confirmed, organization: resource.organization) }
     let!(:command) { described_class.new(form) }
-
+    
     let(:form) do
       Decidim::Amendable::CreateForm.from_params(form_params).with_context(form_context)
     end
