@@ -178,7 +178,10 @@ describe "Admin manages officializations", type: :system do
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link user.nickname
       end
-      expect(page).to have_current_path decidim.profile_following_path(user.nickname)
+
+      within ".profile--sidebar" do
+        expect(page).to have_content(user.name)
+      end
     end
   end
 end
