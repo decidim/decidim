@@ -82,6 +82,13 @@ module Decidim
         coauthorships.order(:created_at).first
       end
 
+      # Checks whether the user is the creator of the given proposal
+      #
+      # author - the author to check for authorship
+      def created_by?(author)
+        author.id == creator_author.id
+      end
+
       # Syntactic sugar to access first coauthor Author
       def creator_author
         creator.try(:author)
