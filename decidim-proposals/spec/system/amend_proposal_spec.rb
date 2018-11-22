@@ -151,7 +151,7 @@ describe "Amend Proposal", type: :system do
 
     context "when the user is the author of the rejected emendation" do
       let(:user) { emendation.creator_author }
-      let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, state: 'rejected' }
+      let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, state: "rejected" }
 
       before do
         visit_component
