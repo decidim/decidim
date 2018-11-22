@@ -408,8 +408,8 @@ fi:
           title: Viimeistele yhteistyöluonnoksesi
         count:
           drafts_count:
-            one: 1 yhteistyöluonnos
-            other: "%{count} yhteistyöluonnosta"
+            one: '%{count} yhteistyöhanketta'
+            other: "%{count} yhteistyöhanketta"
         create:
           error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
           success: Yhteistyöluonnos luotu onnistuneesti.
@@ -463,8 +463,8 @@ fi:
           final_proposal: lopullinen ehdotus
           final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
           hidden_authors_count:
-            one: ja vielä yksi henkilö
-            other: ja %{count} muuta henkilöä
+            one: ja %{count} lisää henkilö
+            other: ja %{count} muuta ihmistä
           info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitä muodostamaan ehdotuksen alla olevan kommenttikohdan avulla tai parantaa sitä suoraan pyytämällä käyttöoikeutta sen muokkaamiseksi. Kun tekijät antavat sinulle käyttöoikeuden, voit tehdä muutoksia tähän luonnokseen.
           of_versions: "( %{number}:sta)"
           publish: Julkaise
@@ -552,7 +552,7 @@ fi:
           title: Viimeistele ehdotuksesi
         count:
           proposals_count:
-            one: 1 ehdotus
+            one: '%{count} ehdotusta'
             other: "%{count} ehdotusta"
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
@@ -620,8 +620,8 @@ fi:
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
           hidden_endorsers_count:
-            one: ja vielä yksi henkilö
-            other: ja %{count} muuta henkilöä
+            one: ja %{count} muuta ihmistä
+            other: ja %{count} muuta ihmistä
           link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
           link_to_collaborative_draft_text: Katso yhteistyöluonnosta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
