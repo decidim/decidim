@@ -273,7 +273,7 @@ fi:
             invites: Kutsut
             registration_form: Ilmoittautumislomake
             registrations_count:
-              one: '%{count} rekisteröintiä.'
+              one: Rekisteröityä on %{count}.
               other: '%{count} rekisteröintiä.'
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
