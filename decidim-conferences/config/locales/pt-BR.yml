@@ -42,9 +42,6 @@ pt-BR:
       decidim/conference_speaker:
         one: Orador de conferência
         other: Alto-falantes da conferência
-      decidim/conference_user_role:
-        one: Função de usuário da conferência
-        other: Papéis do usuário da conferência
   decidim:
     admin:
       actions:
