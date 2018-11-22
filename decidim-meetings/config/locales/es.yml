@@ -272,6 +272,9 @@ es:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
             registration_form: Formulario de inscripción
+            registrations_count:
+              one: Ha habido %{count} registros.
+              other: Ha habido %{count} registros.
             reserved_slots_help: Déjalo en 0 si no tienes espacios reservados
             reserved_slots_less_than: Debe ser menor que o igual a %{count}
           update:
@@ -358,6 +361,9 @@ es:
           meeting_report: Informe del encuentro
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
+          remaining_slots:
+            one: 'Queda %{count} ranuras'
+            other: "%{count} ranuras restantes"
           view: Ver
       meetings_map:
         view_meeting: Ver encuentro
