@@ -31,8 +31,12 @@ module Decidim
       end
 
       def has_link_to_resource?
-        return false if model.emendation?
         model.published?
+      end
+
+      def has_footer?
+        return false if model.emendation?
+        true
       end
 
       def description
