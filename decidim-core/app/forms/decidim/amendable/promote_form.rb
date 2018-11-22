@@ -26,7 +26,7 @@ module Decidim
       end
 
       def user_group
-        return unless emendation_fields.user_group_id
+        return unless emendation_fields[:user_group_id]
         @user_group ||= Decidim::UserGroup.find_by(id: emendation_fields.user_group_id, organization: current_organization)
       end
     end
