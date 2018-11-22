@@ -273,7 +273,7 @@ describe "Participatory Processes", type: :system do
       context "and organization show_statistics attribute is true" do
         let(:organization) { create(:organization, show_statistics: true) }
         let(:metrics) do
-          Decidim.metrics_registry.filtered(highlight: false, scope: "participatory_process").each do |metric_registry|
+          Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
             create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
           end
         end
@@ -286,7 +286,7 @@ describe "Participatory Processes", type: :system do
         it "shows the metrics charts" do
           within "#metrics" do
             expect(page).to have_content(/Participation in figures/i)
-            Decidim.metrics_registry.filtered(highlight: false, scope: "participatory_process").each do |metric_registry|
+            Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
               expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
             end
           end
