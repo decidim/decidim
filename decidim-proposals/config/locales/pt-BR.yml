@@ -408,8 +408,8 @@ pt-BR:
           title: Complete seu rascunho colaborativo
         count:
           drafts_count:
-            one: 1 rascunho colaborativo
-            other: "%{count} rascunhos colaborativos"
+            one: '%{count} rascunho colaborativo'
+            other: "%{count} rascunho colaborativo"
         create:
           error: Houve um problema ao criar esses rascunhos colaborativos
           success: Rascunho colaborativo criado com sucesso.
@@ -463,7 +463,7 @@ pt-BR:
           final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
           hidden_authors_count:
-            one: e mais 1 pessoa
+            one: e mais %{count} pessoa
             other: e mais %{count} pessoas
           info-message: Este é um <strong>projecto colaborativo</strong> para uma proposta. Isso significa que você pode ajudar seus autores a moldar a proposta usando a seção de comentários abaixo ou melhorá-la diretamente solicitando acesso para editá-la. Depois que os autores lhe concederem acesso, você poderá fazer alterações neste rascunho.
           of_versions: "(de %{number})"
@@ -552,7 +552,7 @@ pt-BR:
           title: Complete sua proposta
         count:
           proposals_count:
-            one: 1 proposta
+            one: '%{count} proposta'
             other: "%{count} propostas"
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
@@ -620,7 +620,7 @@ pt-BR:
           edit_proposal: Editar proposta
           endorsements_list: Lista de avais
           hidden_endorsers_count:
-            one: e mais 1 pessoa
+            one: e mais %{count} pessoas
             other: e mais %{count} pessoas
           link_to_collaborative_draft_help_text: Esta proposta é o resultado de um rascunho colaborativo. Revise o histórico
           link_to_collaborative_draft_text: Veja o rascunho colaborativo

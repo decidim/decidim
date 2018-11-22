@@ -273,7 +273,7 @@ gl:
             invites: Invitacións
             registration_form: Formulario de inscrición
             registrations_count:
-              one: Houbo 1 rexistro.
+              one: Houbo %{count} rexistros.
               other: Houbo %{count} rexistros.
             reserved_slots_help: Déixao a 0 se non tes slots reservados
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
@@ -362,7 +362,7 @@ gl:
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
           remaining_slots:
-            one: 1 slot restante
+            one: '%{count} slot restante'
             other: "%{count} slots restantes"
           view: Ver
       meetings_map:

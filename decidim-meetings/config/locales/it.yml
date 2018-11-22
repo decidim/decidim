@@ -273,8 +273,8 @@ it:
             invites: Inviti
             registration_form: Formulario di registrazione
             registrations_count:
-              one: Si è registrato un'iscrizione.
-              other: Si sono registrate %{count} iscrizione.
+              one: Ci sono state %{count} registrazioni.
+              other: Ci sono state %{count} registrazioni.
             reserved_slots_help: Lasciare a 0 se non si dispone di slot riservati
             reserved_slots_less_than: Deve essere minore o uguale a %{count}
           update:
@@ -362,7 +362,7 @@ it:
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
           remaining_slots:
-            one: 1 slot restanti
+            one: '%{count} slot rimanenti'
             other: "%{count} slot rimanenti"
           view: vista
       meetings_map:

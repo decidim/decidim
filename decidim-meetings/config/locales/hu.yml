@@ -273,8 +273,8 @@ hu:
             invites: Meghívottak
             registration_form: Regisztrációs űrlap
             registrations_count:
-              one: 1 regisztráció.
-              other: '%{count} regisztráció.'
+              one: '%{count} regisztráció volt.'
+              other: '%{count} regisztráció volt.'
             reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
           update:
@@ -362,8 +362,8 @@ hu:
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
           remaining_slots:
-            one: 1 hely maradt
-            other: "%{count} hely maradt"
+            one: '%{count} hely marad'
+            other: "%{count} hely marad"
           view: Nézet
       meetings_map:
         view_meeting: Találkozó megtekintése

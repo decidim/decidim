@@ -43,8 +43,8 @@ fr:
         one: Conférencier
         other: Conférenciers
       decidim/conference_user_role:
-        one: Rôle utilisateur de la conférence
-        other: Rôles d'utilisateur de conférence
+        one: Aucun rôle d'utilisateur de conférence
+        other: Rôles d'utilisateur de la conférence
   decidim:
     admin:
       actions:

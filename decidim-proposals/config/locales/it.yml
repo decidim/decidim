@@ -408,8 +408,8 @@ it:
           title: Completa la tua bozza collaborativa
         count:
           drafts_count:
-            one: 1 progetto collaborativo
-            other: "%{count} bozze collaborative"
+            one: '%{count} bozza collaborativa'
+            other: "%{count} bozza collaborativa"
         create:
           error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
@@ -463,7 +463,7 @@ it:
           final_proposal: proposta finale
           final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
           hidden_authors_count:
-            one: e 1 altra persona
+            one: e %{count} altra persona
             other: e altre %{count} persone
           info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
           of_versions: "(di %{number})"
@@ -552,7 +552,7 @@ it:
           title: Completa la tua proposta
         count:
           proposals_count:
-            one: 1 proposta
+            one: '%{count} proposta'
             other: "%{count} proposte"
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
@@ -620,7 +620,7 @@ it:
           edit_proposal: Modifica la proposta
           endorsements_list: Elenco di approvazioni
           hidden_endorsers_count:
-            one: e 1 altra persona
+            one: e altre %{count} persone
             other: e altre %{count} persone
           link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
           link_to_collaborative_draft_text: Vedi la bozza collaborativa
