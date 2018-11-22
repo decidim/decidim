@@ -43,7 +43,7 @@ nl:
         one: Conferentie spreker
         other: Sprekers van de conferentie
       decidim/conference_user_role:
-        one: Geen gebruikersrollen voor vergaderingen
+        one: Een rol van conferentiegebruiker
         other: Gebruikersrollen van de conferentie
   decidim:
     admin:
