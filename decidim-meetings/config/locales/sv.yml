@@ -272,9 +272,6 @@ sv:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
             registration_form: Anmälningsblankett
-            registrations_count:
-              one: Det har gjorts 1 registrering.
-              other: Det har gjorts %{count} registreringar.
             reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
           update:
@@ -361,9 +358,6 @@ sv:
           meeting_report: Mötesrapport
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
-          remaining_slots:
-            one: 1 plats kvar
-            other: "%{count} platser kvar"
           view: Visa
       meetings_map:
         view_meeting: Visa möte
