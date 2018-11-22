@@ -186,13 +186,13 @@ fi:
         name: Vastuullisuus
         settings:
           global:
-            categories_label: Nimi kohteelle "Luokat"
+            categories_label: Nimi termille "Aihepiirit"
             comments_enabled: Kommentointi käytössä
             display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi kohteelle "Projektit"
-            heading_parent_level_results: Nimi kohteelle "Tulokset"
+            heading_leaf_level_results: Nimi termille "Suunnitelmat"
+            heading_parent_level_results: Nimi termille "Tulokset"
             intro: Esittelyteksti
-            subcategories_label: Nimi kohteelle "Ala-aihepiirit"
+            subcategories_label: Nimi termille "Ala-aihepiirit"
           step:
             comments_blocked: Kommentointi estetty
     events:
