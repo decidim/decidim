@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes", type: :system do
+  let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let(:base_process) do
+  let(:participatory_process) do
     create(
       :participatory_process,
       organization: organization,
@@ -14,11 +14,11 @@ describe "Participatory Processes", type: :system do
   end
 
   context "when show all the metric charts" do
-    let(:organization) { create(:organization, show_statistics: true) }
-    let!(:participatory_process) { base_process }
     let(:metrics) do
       Decidim.metrics_registry.all.each do |metric_registry|
-        create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
+        create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week,
+                        organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name,
+                        participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
       end
     end
 
@@ -46,7 +46,7 @@ describe "Participatory Processes", type: :system do
 
     def check_title_and_description(metric_name)
       find("div[id='#{metric_name}_chart']").find(:xpath, "../h3", count: 1)
-      find("div[id='#{metric_name}_chart']").find(:xpath, "//p", count: 1)
+      find("div[id='#{metric_name}_chart']").find(:xpath, "../p", count: 1)
     end
   end
 end

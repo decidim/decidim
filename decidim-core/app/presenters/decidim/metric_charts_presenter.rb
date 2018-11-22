@@ -44,7 +44,7 @@ module Decidim
       end
     end
 
-    def render_metrics_statistics(metric_name, opts = {})
+    def render_metrics_descriptive(metric_name, opts = {})
       content_tag :div, class: opts[:klass].presence || "column medium-6" do
         concat content_tag(:h3, opts[:title], class: "heading3 text-uppercase text-muted")
         concat content_tag(:p, opts[:description], class: "text-medium")
@@ -53,22 +53,22 @@ module Decidim
     end
 
     def render_metric_chart(metric_name, opts = {})
+      data = {
+        chart: "areachart",
+        metric: metric_name,
+        info: {
+          title: I18n.t("decidim.metrics.#{metric_name}.title"),
+          object: I18n.t("decidim.metrics.#{metric_name}.object")
+        }
+      }
+      data.merge!(opts[:data] || {})
+
       content_tag :div,
                   "",
                   id: "#{metric_name}_chart",
                   class: "areachart metric-chart #{opts[:graph_klass]}",
                   style: opts[:margin],
-                  data: {
-                    chart: "areachart",
-                    metric: metric_name,
-                    ratio: (opts[:ratio]).to_s,
-                    axis: opts[:axis],
-                    tip: true,
-                    info: {
-                      title: I18n.t("decidim.metrics.#{metric_name}.title"),
-                      object: I18n.t("decidim.metrics.#{metric_name}.object")
-                    }
-                  }
+                  data: data
     end
   end
 end
