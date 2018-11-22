@@ -42,6 +42,9 @@ es:
       decidim/conference_speaker:
         one: Ponente
         other: Ponentes
+      decidim/conference_user_role:
+        one: No hay roles de usuario de conferencia
+        other: Roles de usuario conferencia
   decidim:
     admin:
       actions:
