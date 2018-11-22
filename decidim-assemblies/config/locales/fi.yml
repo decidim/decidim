@@ -324,7 +324,7 @@ fi:
         assemblies:
           contextual: "<p>kokoonpano on ryhmä organisaation jäsenet, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai laajuus organisaatiossa.</p> <p>Kokoonpanot pitävät kokouksia, jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos ne ovat avoinna, on mahdollista osallistua niihin (esimerkiksi osallistua siihen, sallitaanko sen kapasiteetti, lisätään pisteitä esityslistalle tai kommentoidaan tämän elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleiskokouksesta (joka kokoontuu kerran vuodessa määritellä organisaation keskeiset toimintalinjat sekä sen toimeenpanoelimissä äänestämällä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdä ehdotuksia siitä, miten parantaa sukupuolten välisiin suhteisiin organisaatiossa) arviointikomitea (joka kokoontuu kuukausittain prosessin seurantaan) tai takaajaelin (joka kerää tapahtumia, väärinkäytöksiä tai ehdotuksia päätöksentekomenettelyjen parantamiseksi) ovat kaikki esimerkkejä kokoelmista.</p>\n"
           page: "<p>kokoonpano on ryhmä organisaation jäsenet, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai laajuus organisaatiossa.</p> <p>Kokoonpanot pitävät kokouksia, jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos ne ovat avoinna, on mahdollista osallistua niihin (esimerkiksi osallistua siihen, sallitaanko sen kapasiteetti, lisätään pisteitä esityslistalle tai kommentoidaan tämän elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleiskokouksesta (joka kokoontuu kerran vuodessa määritellä organisaation keskeiset toimintalinjat sekä sen toimeenpanoelimissä äänestämällä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdä ehdotuksia siitä, miten parantaa sukupuolten välisiin suhteisiin organisaatiossa) arviointikomitea (joka kokoontuu kuukausittain prosessin seurantaan) tai takaajaelin (joka kerää tapahtumia, väärinkäytöksiä tai ehdotuksia päätöksentekomenettelyjen parantamiseksi) ovat kaikki esimerkkejä kokoelmista.</p>\n"
-          title: Mitkä ovat kokoonpanot?
+          title: Mitä ovat ryhmät?
     log:
       value_types:
         assembly_presenter:
@@ -349,8 +349,8 @@ fi:
           reset_chart: Palauta
         order_by_assemblies:
           assemblies:
-            one: "%{count} kokoonpanoa"
-            other: "%{count} kokoonpanoa"
+            one: "%{count} ryhmä"
+            other: "%{count} ryhmää"
         promoted_assembly:
           more_info: Lisätiedot
           take_part: Osallistu
