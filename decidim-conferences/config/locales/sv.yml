@@ -42,9 +42,6 @@ sv:
       decidim/conference_speaker:
         one: Konferenshögtalare
         other: Konferenshögtalare
-      decidim/conference_user_role:
-        one: Konferens användarroll
-        other: Konference användarroller
   decidim:
     admin:
       actions:
