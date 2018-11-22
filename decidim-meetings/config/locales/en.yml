@@ -272,9 +272,6 @@ en:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
             registration_form: Registration form
-            registrations_count:
-              one: There has been %{count} registrations.
-              other: There has been %{count} registrations.
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
           update:
@@ -361,9 +358,6 @@ en:
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations
-          remaining_slots:
-            one: '%{count} slot remaining'
-            other: "%{count} slots remaining"
           view: View
       meetings_map:
         view_meeting: View meeting
