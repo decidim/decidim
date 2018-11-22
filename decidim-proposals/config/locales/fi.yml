@@ -620,7 +620,7 @@ fi:
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
           hidden_endorsers_count:
-            one: ja %{count} muuta ihmistä
+            one: ja %{count} lisää henkilö
             other: ja %{count} muuta ihmistä
           link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
           link_to_collaborative_draft_text: Katso yhteistyöluonnosta
