@@ -16,12 +16,12 @@ module Decidim
   module Searchable
     extend ActiveSupport::Concern
 
-    @searchable_resources = {}
-
     # Public: a Hash of searchable resources where keys are class names, and values
     #   are the class instance for the resources.
     def self.searchable_resources
-      @searchable_resources
+      Decidim.resource_manifests.select(&:searchable).inject({}) do |searchable_resources, manifest|
+        searchable_resources.update(manifest.model_class_name => manifest.model_class)
+      end
     end
 
     included do
@@ -131,7 +131,6 @@ module Decidim
       #
       def searchable_fields(declared_fields, conditions = {})
         @search_resource_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
-        Decidim::Searchable.searchable_resources[name] = self unless Decidim::Searchable.searchable_resources.has_key?(name)
         conditions = { index_on_create: true, index_on_update: true }.merge(conditions)
         if conditions[:index_on_create]
           after_create :try_add_to_index_as_search_resource

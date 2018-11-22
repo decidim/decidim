@@ -271,6 +271,7 @@ module Decidim
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"
+          resource.searchable = true
         end
 
         Decidim.register_resource(:user_group) do |resource|

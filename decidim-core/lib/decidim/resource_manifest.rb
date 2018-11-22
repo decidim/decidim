@@ -36,6 +36,10 @@ module Decidim
     # The main card to render an instance of the resource.
     attribute :card, String
 
+    # Set this to `true` if you want this resource to be searchable. It requires
+    # the model to include the `Decidim::Searchable` concern.
+    attribute :searchable, Boolean, default: false
+
     # Actions are used to validate permissions of a resource against particular
     # authorizations or potentially other authorization rules.
     #

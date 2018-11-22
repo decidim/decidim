@@ -322,6 +322,14 @@ module Decidim
     resource_registry.register(name, &block)
   end
 
+  # Public: Finds all registered resource manifests via the `register_component`
+  # method.
+  #
+  # Returns an Array[ResourceManifest].
+  def self.resource_manifests
+    resource_registry.manifests
+  end
+
   # Public: Finds all registered component manifest's via the `register_component`
   # method.
   #
