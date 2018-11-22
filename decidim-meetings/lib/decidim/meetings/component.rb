@@ -36,6 +36,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
+    settings.attribute :enable_pads_creation, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -105,6 +106,17 @@ Decidim.register_component(:meetings) do |component|
         admin_user,
         params,
         visibility: "all"
+      )
+
+      Decidim::Forms::Questionnaire.create!(
+        title: Decidim::Faker::Localized.paragraph,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end,
+        questionnaire_for: meeting
       )
 
       2.times do |n|

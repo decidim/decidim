@@ -17,14 +17,14 @@ fr:
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
-      decidim/demoted_membership: N'est plus un administrateur d'organisation
+      decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
       decidim/gamification/level_up_event: Vous avez progressé d'un niveau
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
       decidim/profile_updated_event: Profil mis à jour
-      decidim/promote_to_admin: Promu à l'organisation admin
-      decidim/removed_from_group: Retiré de l'organisation
+      decidim/promote_to_admin: Promu au groupe admin
+      decidim/removed_from_group: Retiré du groupe
   activerecord:
     attributes:
       decidim/user:
@@ -50,6 +50,7 @@ fr:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
@@ -162,6 +163,9 @@ fr:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
+      sms:
+        explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
+        name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
       show:
@@ -279,6 +283,8 @@ fr:
         new:
           are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
+          sign_in_disabled: Vous pouvez accéder avec un compte externe
+          sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
       shared:
         newsletter_modal:
           buttons:
@@ -349,40 +355,40 @@ fr:
           notification_title: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_path}">%{badge_name}</a> !
       groups:
         demoted_membership:
-          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur cette organisation.
-          email_outro: Vous avez reçu cette notification parce que vous êtes membre de cette organisation.
-          email_subject: Vous n'êtes plus un administrateur de l'organisation %{user_group_name}!
-          notification_title: Vous n'êtes plus un administrateur de l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur ce groupe.
+          email_outro: Vous avez reçu cette notification parce que vous êtes membre de ce groupe.
+          email_subject: Vous n'êtes plus un administrateur du groupe %{user_group_name}!
+          notification_title: Vous n'êtes plus un administrateur du groupe <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> vous a invité à le rejoindre.
-          email_outro: Vous avez reçu cette notification parce que vous avez été invité dans une organisation. Veuillez vérifier l'onglet Organisations de votre profil pour l'approuver.
-          email_subject: Vous avez été invité à rejoindre l'organisation %{user_group_name}!
-          notification_title: Vous avez été invité à rejoindre l'organisation <a href="%{resource_path}">%{user_group_name}</a> . Vérifiez les <a href="%{groups_profile_tab_path}">Page organisations</a> dans votre profil pour l' approuver!
+          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> vous a invité à le rejoindre.
+          email_outro: Vous avez reçu cette notification parce que vous avez été invité à un groupe. Veuillez vérifier l'onglet Groupes dans votre profil pour l'approuver.
+          email_subject: Vous avez été invité à rejoindre le groupe %{user_group_name}!
+          notification_title: Vous avez été invité à rejoindre le groupe <a href="%{resource_path}">%{user_group_name}</a> . Vérifiez les <a href="%{groups_profile_tab_path}">page Groupes</a> dans votre profil pour l' approuver!
         join_request_accepted:
-          email_intro: Toutes nos félicitations! Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> a accepté votre demande d'adhésion.
+          email_intro: Toutes nos félicitations! Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a accepté votre demande d’adhésion.
           email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
-          email_subject: Vous avez été accepté dans l'organisation %{user_group_name}!
-          notification_title: Vous avez été accepté dans l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Vous avez été accepté dans le groupe %{user_group_name}!
+          notification_title: Vous avez été accepté dans le groupe <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Quelqu'un a demandé à rejoindre l'organisation %{user_group_name} . Vous pouvez accepter ou rejeter de <a href="%{resource_url}">les membres de l' organisation Page</a>.
-          email_outro: Vous avez reçu cette notification car vous pouvez gérer l'organisation %{user_group_name}.
-          email_subject: Quelqu'un a demandé à rejoindre l'organisation %{user_group_name}!
-          notification_title: Quelqu'un a demandé à rejoindre l'organisation %{user_group_name} . Vous pouvez accepter ou rejeter de <a href="%{resource_path}">les membres de l' organisation Page</a>.
+          email_intro: Quelqu'un a demandé à rejoindre le groupe %{user_group_name} . Vous pouvez accepter ou rejeter de <a href="%{resource_url}">les membres du groupe la page</a>.
+          email_outro: Vous avez reçu cette notification car vous pouvez gérer le groupe %{user_group_name}.
+          email_subject: Quelqu'un a demandé à rejoindre le groupe %{user_group_name}!
+          notification_title: Quelqu'un a demandé à rejoindre le groupe %{user_group_name} . Vous pouvez accepter ou rejeter de <a href="%{resource_path}">les membres du groupe la page</a>.
         join_request_rejected:
-          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> rejeté votre demande d'adhésion.
+          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a rejeté votre demande d'adhésion.
           email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
-          email_subject: Votre demande d'adhésion à l'organisation %{user_group_name} a été rejetée!
-          notification_title: Votre demande d'adhésion à l'organisation <a href="%{resource_path}">%{user_group_name}</a> a été rejetée.
+          email_subject: Votre demande d'adhésion au groupe %{user_group_name} a été rejetée!
+          notification_title: Votre demande d'adhésion au groupe <a href="%{resource_path}">%{user_group_name}</a> a été rejetée.
         promoted_to_admin:
-          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> vous a attribué des droits d'administrateur sur cette organisation.
-          email_outro: Vous avez reçu cette notification parce que vous êtes membre de cette organisation.
-          email_subject: Vous êtes maintenant un administrateur de l'organisation %{user_group_name}!
-          notification_title: Vous êtes maintenant un administrateur de l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> vous a attribué les droits d’administrateur pour ce groupe.
+          email_outro: Vous avez reçu cette notification parce que vous êtes membre de ce groupe.
+          email_subject: Vous êtes maintenant un administrateur du groupe %{user_group_name}!
+          notification_title: Vous êtes maintenant un administrateur du groupe <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Un administrateur de l'organisation <a href="%{resource_url}">%{user_group_name}</a> vous en a retiré la liste.
-          email_outro: Vous avez reçu cette notification parce que vous étiez membre de cette organisation.
-          email_subject: Vous avez été retiré de l'organisation %{user_group_name}!
-          notification_title: Vous avez été supprimé de l'organisation <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> vous a retiré de la liste.
+          email_outro: Vous avez reçu cette notification parce que vous étiez membre de ce groupe.
+          email_subject: Vous avez été retiré du groupe %{user_group_name}!
+          notification_title: Vous avez été supprimé du groupe <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -478,10 +484,10 @@ fr:
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
     group_admins:
       actions:
-        are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur de l'organisation.
+        are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
         demote_admin: Supprimer admin
       demote:
-        error: Une erreur s'est produite lors de la suppression de cet utilisateur dans la liste des administrateurs.
+        error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
         success: Utilisateur retiré de l'administrateur avec succès
       index:
         current_admins: 'Administrateurs actuels:'
@@ -491,7 +497,7 @@ fr:
         error: Une erreur s'est produite lors de l'acceptation de cette invitation.
         success: Invitation acceptée avec succès
       accept_invitation: Acceptez
-      accept_or_reject_group_invitations: 'Les organisations suivantes vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
+      accept_or_reject_group_invitations: 'Les groupes suivants vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
       index:
         invite: Inviter
         invite_user: Inviter un utilisateur
@@ -526,44 +532,40 @@ fr:
       actions:
         are_you_sure: Êtes-vous sûr?
       create:
-        error: Il y a eu un problème pour créer l'organisation
-        success: Organisation créée avec succès
+        error: Il y a eu un problème pour créer le groupe
+        success: Groupe créé avec succès
       edit:
-        edit_user_group: Modifier l'organisation
-        update_user_group: Mettre à jour l'organisation
+        edit_user_group: Editer le groupe
+        update_user_group: Groupe de mise à jour
+      form:
+        document_number_help: Ne pas utiliser de tirets ni d'espaces
+        email_help: Email de votre organisation, association, collectif, groupe, etc.
+        fill_in_for_verification: 'Remplissez ces champs si vous souhaitez que votre groupe soit vérifié:'
+        name_help: Nom de votre organisation, association, collectif, groupe, etc.
+        nickname_help: Nom d'utilisateur de votre organisation, association, collectif, groupe, etc. N'utilisez pas d'espaces ni d'accents.
+        phone_help: Ne pas utiliser de tirets ni d'espaces
       join:
-        error: Il y a eu un problème pour rejoindre l'organisation
-        success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter dans l'organisation.
+        error: Il y a eu un problème pour rejoindre le groupe
+        success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
-        error: Il y a eu un problème pour quitter l'organisation
-        success: L'organisation a quitté avec succès.
+        error: Il y a eu un problème pour quitter le groupe
+        success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
         accept_request: Acceptez
         reject_request: Rejeter
       new:
-        create_user_group: Créer une organisation
-        new_user_group: Nouvelle organisation
-      no_user_groups: N'appartient à aucune organisation pour le moment.
+        create_user_group: Créer un groupe
+        new_user_group: Nouveau groupe
+        subtitle: Créez un groupe et invitez d'autres utilisateurs à se joindre pour participer à un niveau collectif.
+      no_user_groups: N'appartient à aucun groupe pour l'instant.
       roles:
         admin: Administrateur
         creator: Créateur
         member: Membre
       update:
-        error: Un problème est survenu lors de la mise à jour de l'organisation.
-        success: Organisation mise à jour avec succès
-    invitations:
-      create:
-        error: Il y a eu un problème en invitant vos amis
-        error_empty_form: Veuillez saisir au moins une adresse email
-        success: Nous avons envoyé les invitations à vos amis !
-      index:
-        customize_message: Personnalisez le message d'invitation
-        friend_email: 'Adresse email #%{index} de votre ami'
-        invitations_subtitle: Faites connaître ce site à vos amis
-        invitations_title: Pensez-vous que plus de voix devraient s'exprimer dans %{organization_name} ?
-        invite: Inviter
-        visit_your_profile: Consultez votre profil
+        error: Un problème est survenu lors de la mise à jour du groupe.
+        success: Groupe mis à jour avec succès
     last_activities:
       activities:
         no_activities_warning: Aucune activité
@@ -595,8 +597,8 @@ fr:
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
+      help: Aidez-moi
       home: Accueil
-      more_information: Plus d'information
     messaging:
       conversation_mailer:
         new_conversation:
@@ -712,7 +714,11 @@ fr:
         sub_hero:
           register: S'inscrire
       index:
-        title: Plus d'informations
+        read_more: Lire la suite
+        standalone_pages: Des pages
+        subheading: Naviguer à travers les pages d'aide de %{name}
+        title: Aidez-moi
+        topics: Les sujets
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
@@ -744,20 +750,21 @@ fr:
         conversations: Conversations
         followers: Abonnés
         following: Est abonné à
-        groups: Les organisations
+        groups: Groupes
         members: Membres
         notifications: Notifications
+        view_full_profile: Voir le profil complet
       sidebar:
         badges:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
-        create_user_group: Créer une organisation
+        create_user_group: Créer un groupe
         edit_profile: Mettre à jour le profil
-        edit_user_group: Modifier le profil de l'organisation
+        edit_user_group: Modifier le profil du groupe
         invite_user: Inviter un utilisateur
-        join_user_group: Demande d'adhésion à l'organisation
-        leave_user_group: Quitter l'organisation
+        join_user_group: Demande de rejoindre un groupe
+        leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
     reported_mailer:
@@ -802,6 +809,9 @@ fr:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page
         embed_link: Intégrer
+      extended_navigation_bar:
+        more: Plus
+        unfold: Se dérouler
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -811,6 +821,8 @@ fr:
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
+      floating_help:
+        help: Aidez-moi
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
@@ -826,6 +838,9 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    welcome_notification:
+      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization_name}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées et conservez un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_subject: Merci d'avoir rejoint {{organization}}!
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.
@@ -877,7 +892,6 @@ fr:
           Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
           Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
-        invited_you_as_friend: "%{invited_by} vous a invité à %{application}."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
@@ -887,10 +901,6 @@ fr:
         subject: Vous avez été invité à gérer %{organization}
       invite_collaborator:
         subject: Vous avez été invité à collaborer sur %{organization}
-      invite_friend:
-        accept_invitation: 'Vous pouvez accepter l''invitation via le lien ci-dessous :'
-        friend_custom_text: 'Ils ont laissé ce message pour vous :'
-        subject: Vous avez été invité à %{organization}
       invite_private_user:
         subject: Vous avez été invité à une assemblée privée sur %{organization}
       organization_admin_invitation_instructions:
@@ -1023,7 +1033,6 @@ fr:
       user_menu:
         admin_dashboard: Tableau de bord des administrateurs
         conversations: Conversations
-        invite_friends: Inviter des amis
         notifications: Notifications
         profile: Mon compte
         public_profile: Mon profil public
@@ -1035,7 +1044,7 @@ fr:
         my_data: Mes données
         notifications_settings: Paramètres des notifications
         title: Paramètres utilisateur
-        user_groups: Organisations
+        user_groups: Groupes
       widget:
         see_more: Voir plus
   locale:

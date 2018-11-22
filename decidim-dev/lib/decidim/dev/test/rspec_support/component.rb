@@ -38,6 +38,7 @@ module Decidim
 
     class DummyResource < ApplicationRecord
       include HasComponent
+      include HasReference
       include Resourceable
       include Reportable
       include Authorable
@@ -49,6 +50,7 @@ module Decidim
       include Publicable
       include Decidim::DataPortability
       include Searchable
+      include Paddable
       include Amendable
 
       searchable_fields(
@@ -109,7 +111,8 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean
-    settings.attribute :amendments_enabled, type: :boolean, default: true
+    settings.attribute :enable_pads_creation, type: :boolean, default: false
+    settings.attribute :amendments_enabled, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -148,6 +151,7 @@ RSpec.configure do |config|
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
           t.string :title
+          t.string :body
           t.text :address
           t.float :latitude
           t.float :longitude
@@ -159,6 +163,7 @@ RSpec.configure do |config|
           t.string :decidim_author_type, index: false
           t.references :decidim_category, index: false
           t.references :decidim_scope, index: false
+          t.string :reference
 
           t.timestamps
         end

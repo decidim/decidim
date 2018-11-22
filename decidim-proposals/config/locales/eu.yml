@@ -237,8 +237,7 @@ eu:
           proposals: proposamenak
     participatory_spaces:
       highlighted_proposals:
-        proposals: proposamenak
-        see_all_proposals: Ikusi proposamen guztiak
+        see_all: Ikusi dena (%{count})
     proposals:
       actions:
         answer: Erantzuna
@@ -307,12 +306,19 @@ eu:
             update: eguneratzearen
           form:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
+            created_in_meeting: Proposamen hau bilera batetik dator
             select_a_category: Aukeratu kategoria bat
+            select_a_meeting: Aukeratu bilera bat
           index:
             actions: Ekintzak
             cancel: Utzi
             change_category: Aldatu kategoria
+            merge: Bateratu berri bat sartu
+            merge_button: Batu
+            select_component: Hautatu osagaia
             selected: hautatutako
+            split: Proposamen banatuak
+            split_button: Split
             title: Proposamenak
             update: eguneratzearen
           new:
@@ -332,6 +338,14 @@ eu:
             no_components: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
             select_component: Hautatu osagaia
             select_states: Egiaztatu inportatzeko proposamenen egoera
+        proposals_merges:
+          create:
+            invalid: Errore bat gertatu da hautatutako proposamenekin bat egitea.
+            success: Proposamen berri batean sartu dira ondo.
+        proposals_splits:
+          create:
+            invalid: Errore bat gertatu da hautatutako proposamenen banaketa.
+            success: Proposamen berrietara egokitu dira.
         shared:
           info_proposal:
             body: Gorputzeko
@@ -351,6 +365,19 @@ eu:
         not_answered: Erantzun gabe
         rejected: Ukatua
         withdrawn: kendu
+      application_helper:
+        filter_origin_values:
+          all: guztiak
+          citizens: Hiritarrak
+          meetings: Bilerak
+          official: Ofiziala
+          user_groups: Erabiltzaile taldeak
+        filter_state_values:
+          accepted: Onartu
+          all: guztiak
+          evaluating: ebaluatzea
+          except_rejected: Guztiak baztertuak izan ezik
+          rejected: Baztertuta
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -494,6 +521,12 @@ eu:
             votes: Euskarriak
       new:
         limit_reached: Ezin duzu proposamen berririk sortu muga gainditu zenuenetik.
+      participatory_text_proposal:
+        buttons:
+          comment: Iruzkina
+          comments: Oharrak
+          endorse: gatoz
+          endorsements: Oniritziak
       proposal_endorsements:
         create:
           error: Arazoak izan dira proposamena onartzean.
@@ -537,17 +570,10 @@ eu:
         endorsements_card_row:
           comments: Oharrak
         filters:
-          accepted: Onartuta
           activity: Jarduera
-          all: Guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
-          citizens: Hiritarrak
-          evaluating: Ebaluatzen
-          except_rejected: Guztiak baztertuak izan ezik
-          official: Ofiziala
           origin: Jatorria
-          rejected: Ukatua
           related_to: Honekin lotuta
           search: Bilatu
           state: Egoera
@@ -574,6 +600,11 @@ eu:
           most_voted: Bozkatuenak
           random: Ausazkoa eran
           recent: Berrienak
+        participatory_texts:
+          index:
+            document_index: Dokumentuaren indizea
+          view_index:
+            see_index: Ikusi indizea
         preview:
           modify: Aldatu proposamena
           proposal_edit_before_minutes:
@@ -585,6 +616,7 @@ eu:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
         show:
+          back_to: Itzuli
           edit_proposal: Editatu proposamena
           endorsements_list: Onarpenen zerrenda
           hidden_endorsers_count:
@@ -598,6 +630,7 @@ eu:
           report: Salatu
           sign_in: Hasi saioa
           sign_in_or_up: "%{in} edo %{up} parte hartzeko"
+          sign_in_to_participate: "%{in} parte hartzeko"
           sign_up: Izena eman
           withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
           withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
@@ -622,7 +655,7 @@ eu:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
           minimum_votes_per_user:
-            description: Gutxienez 3 boto eman behar dituzu proposamen desberdinen artean.
+            description: Gutxienez %{votes} boto eman behar dituzu proposamen desberdinen artean.
             given_enough_votes: Onartutako euskarri guztiak eman dituzu.
             supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
           proposal_limit:

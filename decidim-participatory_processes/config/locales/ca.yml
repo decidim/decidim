@@ -35,8 +35,8 @@ ca:
         name: Nom
         participatory_process_ids: Processos relacionats
       participatory_process_step:
-        cta_path: Camí de crida a l'acció
-        cta_text: Truca al text de l'acció
+        cta_path: Ruta del botó d'acció
+        cta_text: Text del botó d'acció
         description: Descripció
         end_date: Data de finalització
         short_description: Descripció breu
@@ -281,8 +281,8 @@ ca:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Utilitzeu rutes parcials, no URL complet aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix, el botó no es mostrarà. Exemple: %{url}'
-            cta_text_help: Si no s'estableix, el botó no es mostrarà.
+            cta_path_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix cap ruta, el botó no es mostrarà. Exemple: %{url}'
+            cta_text_help: Si no s'estableix cap ruta el botó no es mostrarà.
         participatory_processes:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a l'usuari just a sota de la informació del procés.
@@ -378,9 +378,8 @@ ca:
           active_step: 'Fase actual:'
           more_info: Més informació
           take_part: Participa
-      process_header:
-        process_menu_item: El procés
-        unfold: Desplega
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Veure les fases
+      process_navigation:
+        process_menu_item: El procés

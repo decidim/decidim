@@ -51,13 +51,6 @@ module Decidim
       self.class.amendable_options[:ignore_fields]
     end
 
-    def reset_counters
-      return unless self.class.amendable_options[:reset]
-      self.class.amendable_options[:reset].each do |counter|
-        resource_manifest.model_class_name.constantize.reset_counters(id, counter)
-      end
-    end
-
     def form
       self.class.amendable_options[:form].constantize
     end
@@ -76,13 +69,18 @@ module Decidim
       component.settings.amendments_enabled
     end
 
+    def resource_state
+      attributes["state"]
+    end
+
     def emendation_state
-      # return "widthdrawn" if withdrawn? # todo
+      return resource_state if resource_state == "withdrawn"
       amendment.state if emendation?
     end
 
     def state
-      emendation_state
+      return emendation_state if emendation?
+      resource_state
     end
   end
 end

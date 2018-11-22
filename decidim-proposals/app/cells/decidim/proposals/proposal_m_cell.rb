@@ -34,6 +34,11 @@ module Decidim
         model.published?
       end
 
+      def has_footer?
+        return false if model.emendation?
+        true
+      end
+
       def description
         truncate(present(model).body, length: 100)
       end

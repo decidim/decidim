@@ -17,14 +17,14 @@ hu:
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
-      decidim/demoted_membership: Már nem szervezet admin
+      decidim/demoted_membership: Már nem egy csoport admin
       decidim/gamification/badge_earned_event: Megszerzett jelvény
       decidim/gamification/level_up_event: Szintet léptél
       decidim/join_request_accepted_event: Csatlakozási kérelem elfogadva
       decidim/join_request_rejected_event: Csatlakozási kérelem elutasítva
       decidim/profile_updated_event: Profil frissítve
-      decidim/promote_to_admin: A szervezet adminisztrátora
-      decidim/removed_from_group: Eltávolítva a szervezettől
+      decidim/promote_to_admin: A csoport adminisztrátora
+      decidim/removed_from_group: Eltávolítva a csoportból
   activerecord:
     attributes:
       decidim/user:
@@ -49,7 +49,8 @@ hu:
       image_too_big: A kép mérete túl nagy
   date:
     formats:
-      decidim_short: "%nap/%hó/%év"
+      decidim_short: "%Y.%m.%d"
+      decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
@@ -162,6 +163,9 @@ hu:
           foo: Foo
         name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
+      sms:
+        explanation: Küldje el mobiltelefonszámát, hogy ellenőrizhessük személyazonosságát.
+        name: Kód SMS szerint
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       show:
@@ -279,6 +283,8 @@ hu:
         new:
           are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
+          sign_in_disabled: Külső fiókkal érhető el
+          sign_up_disabled: A bejelentkezés le van tiltva, a meglévő felhasználó hozzáférhet
       shared:
         newsletter_modal:
           buttons:
@@ -348,40 +354,40 @@ hu:
           notification_title: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_path}">%{badge_name} jelvényhez</a>!
       groups:
         demoted_membership:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> szervezet adminisztrátora eltávolította az adminisztrátori jogokat a szervezet számára.
-          email_outro: Ezt az értesítést azért kapta meg, mert Ön tagja a szervezetnek.
-          email_subject: Ön már nem a %{user_group_name} szervezet adminisztrátora!
-          notification_title: Ön már nem a <a href="%{resource_path}">%{user_group_name}</a> szervezet adminisztrátora.
+          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolította az adminisztrátori jogokat a csoporthoz.
+          email_outro: Ezt az értesítést azért kapta meg, mert Ön tagja a csoportnak.
+          email_subject: Ön már nem a %{user_group_name} csoport adminisztrátora!
+          notification_title: Már nem a <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora.
         invited_to_group:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> szervezet adminisztrátora meghívta Önt, hogy csatlakozzon hozzá.
-          email_outro: Ezt az értesítést megkaptuk, mert meghívtak egy szervezetre. Kérjük, ellenőrizze a profil Szervezetek lapját, hogy jóváhagyja.
-          email_subject: Felkérték, hogy csatlakozzon a %{user_group_name} szervezethez!
-          notification_title: Felkérték, hogy csatlakozzon a <a href="%{resource_path}">%{user_group_name}</a> szervezethez. Ellenőrizze a <a href="%{groups_profile_tab_path}">Szervezetek</a> oldalát a profiljában, hogy jóváhagyja!
+          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora meghívta Önt, hogy csatlakozzon hozzá.
+          email_outro: Ezt az értesítést megkaptuk, mert meghívtak egy csoportba. Kérjük, ellenőrizze a profilok Csoportok lapját annak jóváhagyásához.
+          email_subject: Felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz!
+          notification_title: Felkérték, hogy csatlakozzon a <a href="%{resource_path}">%{user_group_name}</a> csoporthoz. Ellenőrizze a <a href="%{groups_profile_tab_path}">Csoportok</a> oldalát a profiljában, hogy jóváhagyja!
         join_request_accepted:
-          email_intro: Gratulálunk! A <a href="%{resource_url}">%{user_group_name}</a> szervezet adminisztrátora elfogadta a csatlakozás iránti kérelmét.
+          email_intro: Gratulálunk! A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elfogadta a csatlakozás iránti kérelmét.
           email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
-          email_subject: Elfogadták a %{user_group_name} szervezetben!
-          notification_title: Elfogadták a <a href="%{resource_path}">%{user_group_name}</a> szervezetnél.
+          email_subject: Elfogadták a %{user_group_name} csoportba!
+          notification_title: A jelentkezésedet <a href="%{resource_path}">%{user_group_name}</a> csoportban elfogadták.
         join_request_created:
-          email_intro: Valaki felkérték, hogy csatlakozzon a %{user_group_name} szervezethez. Akkor elfogadja vagy elutasítja azt <a href="%{resource_url}">a szervezet tagjai oldal</a>.
-          email_outro: Ezt az értesítést megkaptuk, mert kezelheti a %{user_group_name} szervezetet.
-          email_subject: Valaki felkérték, hogy csatlakozzon a %{user_group_name} szervezethez!
-          notification_title: Valaki felkérték, hogy csatlakozzon a %{user_group_name} szervezethez. Akkor elfogadja vagy elutasítja azt <a href="%{resource_path}">a szervezet tagjai oldal</a>.
+          email_intro: Valaki felkérték, hogy csatlakozzon a %{user_group_name} csoporthoz. Elfogadjatod vagy elutasíthatod a csoport tag oldaláról <a href="%{resource_url}"></a>.
+          email_outro: Ezt az értesítést azért kapta, mert kezelheti a %{user_group_name} csoportot.
+          email_subject: Valaki arra kért, hogy csatlakozz a %{user_group_name} csoporthoz!
+          notification_title: Valaki felkért, hogy csatlakozzon a %{user_group_name} csoporthoz. Elfogadhatod vagy elutasíthatod a csoport tagjainak oldalán <a href="%{resource_path}"></a>.
         join_request_rejected:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> szervezet adminisztrátora elutasította a csatlakozás iránti kérelmét.
+          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elutasította a csatlakozás iránti kérelmét.
           email_outro: Ezt az értesítést megkaptuk, mert a csatlakozási kérelmet frissítettük.
-          email_subject: A %{user_group_name} szervezethez való csatlakozás iránti kérelmét elutasították!
-          notification_title: A <a href="%{resource_path}">%{user_group_name}</a> szervezethez való csatlakozás iránti kérelmét elutasították.
+          email_subject: A %{user_group_name} csoporthoz való csatlakozás iránti kérelmét elutasították!
+          notification_title: A <a href="%{resource_path}">%{user_group_name}</a> csoporthoz való csatlakozás iránti kérelmét elutasították.
         promoted_to_admin:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> szervezet adminisztrátora adminisztrátori jogot adott a szervezet számára.
-          email_outro: Ezt az értesítést azért kapta meg, mert Ön tagja a szervezetnek.
-          email_subject: Most a %{user_group_name} szervezet adminisztrátora van!
-          notification_title: Most a <a href="%{resource_path}">%{user_group_name}</a> szervezet adminisztrátora van.
+          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora adminisztrátori jogokat adott számodra.
+          email_outro: Ezt az értesítést azért kaptad meg, mert tagja vagy a csoportnak.
+          email_subject: Most a %{user_group_name} csoport adminisztrátora lettél!
+          notification_title: Most már a <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora vagy.
         removed_from_group:
-          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> szervezet adminisztrátora eltávolította belőle.
-          email_outro: Ezt az értesítést megkapta, mert tagja volt e szervezetnek.
-          email_subject: Ön el lett távolítva a %{user_group_name} szervezetből!
-          notification_title: A <a href="%{resource_path}">%{user_group_name}</a> szervezetből eltávolították.
+          email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolított a csoportóból.
+          email_outro: Ezt az értesítést azért kapta meg, mert tagja volt ebbe a csoportba.
+          email_subject: Ön eltávolításra került a %{user_group_name} csoportból!
+          notification_title: Ön eltávolításra került a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -477,10 +483,10 @@ hu:
       reached_top: Elérted a jelvény legmagasabb szintjét.
     group_admins:
       actions:
-        are_you_sure: biztos vagy ebben? Ez nem fogja eltávolítani a felhasználót a szervezetből.
+        are_you_sure: Biztos vagy ebben? Ez nem fogja eltávolítani a felhasználót a csoportból.
         demote_admin: Admin eltávolítása
       demote:
-        error: Hiba történt az adminisztrátorok listájának eltávolításakor
+        error: Hiba történt a felhasználó eltávolításakor az adminisztrátorok listáján
         success: A felhasználó az admin-ból sikeresen eltávolítva
       index:
         current_admins: 'Jelenlegi adminisztrátorok:'
@@ -490,7 +496,7 @@ hu:
         error: Hiba történt a meghívás elfogadásakor
         success: A meghívó sikeresen elfogadott
       accept_invitation: Elfogad
-      accept_or_reject_group_invitations: 'A következő szervezetek meghívták Önt, hogy csatlakozzanak hozzájuk. A kérelmek elfogadása vagy elutasítása:'
+      accept_or_reject_group_invitations: 'A következő csoportok meghívták Önt, hogy csatlakozzanak hozzájuk. A kérelmek elfogadása vagy elutasítása:'
       index:
         invite: Meghívás
         invite_user: Hívja meg a felhasználót
@@ -525,44 +531,40 @@ hu:
       actions:
         are_you_sure: biztos vagy ebben?
       create:
-        error: Hiba történt a szervezet létrehozásában
-        success: A szervezet sikeresen létrejött
+        error: Hiba történt a csoport létrehozásában
+        success: A csoport sikeresen létrehozva
       edit:
-        edit_user_group: Szervezet szerkesztése
-        update_user_group: Frissítési szervezet
+        edit_user_group: Csoport szerkesztése
+        update_user_group: Csoport frissítése
+      form:
+        document_number_help: Ne használjon kötőjeleket és tereket
+        email_help: A szervezet, az egyesület, a kollektív, a csoport stb. E-mailje.
+        fill_in_for_verification: 'Töltse ki ezeket a mezőket, ha azt szeretné, hogy csoportja ellenőrizhető legyen:'
+        name_help: A szervezet, az egyesület, a kollektív, a csoport stb. Neve.
+        nickname_help: A szervezet, az egyesület, a kollektív, a csoport stb. Felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
+        phone_help: Ne használjon kötőjeleket és tereket
       join:
-        error: Probléma volt a szervezethez való csatlakozással
-        success: A csatlakozási kérelem sikeresen létrehozva. A rendszergazda felülvizsgálja a kérelmet, mielőtt elfogadja a szervezetet.
+        error: Hiba történt a csoporthoz való csatlakozáskor
+        success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmedet, mielőtt elfogadja a csatlakozásodat.
       leave:
-        error: Hiba történt a szervezet elhagyása után
-        success: A szervezet sikeresen megmaradt.
+        error: Hiba történt a csoport elhagyása kapcsán
+        success: A csoportot sikeresen elhagytad.
       members:
         accept_or_reject_join_requests: 'A következő felhasználók bejelentették, hogy csatlakozzanak ehhez a csoporthoz. A kérelmek elfogadása vagy elutasítása:'
         accept_request: Elfogad
         reject_request: Elutasít
       new:
-        create_user_group: Hozzon létre szervezetet
-        new_user_group: Új szervezet
-      no_user_groups: Még nem tartozik semmiféle szervezethez.
+        create_user_group: Csoport létrehozása
+        new_user_group: Új csoport
+        subtitle: Hozzon létre egy csoportot, és hívja meg a többi felhasználót, hogy vegyen részt kollektív szinten.
+      no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
         creator: Teremtő
         member: Tag
       update:
-        error: Probléma történt a szervezet frissítésével
-        success: A szervezet sikeresen frissült
-    invitations:
-      create:
-        error: Problémák adódtak a barátok meghívása közben
-        error_empty_form: Adj meg néhány email címet
-        success: Elküldtük a meghívókat a barátaidnak!
-      index:
-        customize_message: Meghívó üzenet testreszabása
-        friend_email: 'Barát #%{index} email'
-        invitations_subtitle: Szólj barátaidnak az oldal létezéséről
-        invitations_title: Szerinted többet kelleni hallani a %{organization_name} szervezetről?
-        invite: Meghívás
-        visit_your_profile: Profil oldalad
+        error: Probléma történt a csoport frissítésével
+        success: A csoport sikeresen frissült
     last_activities:
       activities:
         no_activities_warning: Nincs aktivitás
@@ -594,8 +596,8 @@ hu:
     members:
       no_members: Ennek a felhasználói csoportnak még nincs tagja.
     menu:
+      help: Segítség
       home: Kezdőlap
-      more_information: További információk
     messaging:
       conversation_mailer:
         new_conversation:
@@ -711,7 +713,11 @@ hu:
         sub_hero:
           register: Regisztráció
       index:
-        title: További információk
+        read_more: Olvass tovább
+        standalone_pages: Oldalak
+        subheading: Navigáljon a %{name} súgó oldalán
+        title: Segítség
+        topics: Témakörök
       terms_and_conditions:
         accept:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
@@ -743,20 +749,21 @@ hu:
         conversations: Beszélgetések
         followers: Követők
         following: Követés
-        groups: szervezetek
+        groups: Csoportok
         members: Belépés
         notifications: Értesítések
+        view_full_profile: Teljes profil megtekintése
       sidebar:
         badges:
           info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
           title: Kitűzők
       user:
-        create_user_group: Hozzon létre szervezetet
+        create_user_group: Csoport létrehozása
         edit_profile: Profil szerkesztése
-        edit_user_group: Szervezeti profil szerkesztése
+        edit_user_group: Csoportprofil szerkesztése
         invite_user: Felhasználó meghívása
-        join_user_group: A szervezethez való csatlakozás iránti kérelem
-        leave_user_group: Hagyja el a szervezetet
+        join_user_group: Csatlakozás kérése a csoporthoz
+        leave_user_group: Kilépés a csoportból
         manage_user_group_admins: Adminisztrátorok kezelése
         manage_user_group_users: Tagok kezelése
     reported_mailer:
@@ -801,6 +808,9 @@ hu:
         close_window: Ablak bezárása
         embed: Illeszd be ezt a kódot az oldaladba
         embed_link: Beágyaz
+      extended_navigation_bar:
+        more: Több
+        unfold: kibontakozik
       flag_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         close: Bezárás
@@ -810,6 +820,8 @@ hu:
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
         title: Hibabejelentés
+      floating_help:
+        help: Segítség
       follow_button:
         sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
@@ -825,6 +837,9 @@ hu:
         share_link: Hivatkozás megosztása
       version_author:
         deleted: Törölt felhasználó
+    welcome_notification:
+      default_body: <p>Hi {{name}}, köszönöm, hogy csatlakozott a {{organization}} és üdvözlöm!</p><ul><li>Ha gyorsan meg szeretné tudni, hogy mit tehet itt, nézze meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvények közül, amiket {{organization_name}}</li><li>részt veszel. Végül, de nem utolsósorban, csatlakozz más emberekkel is, ossza meg velük a {{organization}}részvétel és a részvétel tapasztalatait. Tegyen javaslatokat, megjegyzéseket, vitákat, gondoljon arra, hogyan járuljon hozzá a közös jóléthez, nyújtson érveket, hogy meggyőzze, hallgassa és olvassa el a meggyőződést, konkrét és közvetlen módon fejezze ki ötleteit, türelmesen és határozottan válaszoljon, megvédje ötleteit és tartsa meg egy nyitott elme, hogy együttműködjenek és csatlakozzanak más emberek ötleteivel.</li></ul>
+      default_subject: Köszönjük, hogy csatlakozott a {{organization}}!
   devise:
     confirmations:
       confirmed: E-mail címed sikeresen meg lett erősítve.
@@ -876,7 +891,6 @@ hu:
           Ha nem akarod elfogadni a meghívást, hagyd figyelmen kívül ezt az e-mailt.<br />
           A fiók addig nem jön létre, amíg meg nem nyitod a fenti linket és állítasz be jelszót.
         invited_you_as_admin: "%{invited_by} meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
-        invited_you_as_friend: "%{invited_by} meghívott ide: %{application}."
         invited_you_as_private_user: "%{invited_by} meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
         someone_invited_you: 'Valaki meghívott, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_admin: 'Valaki meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
@@ -886,10 +900,6 @@ hu:
         subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
       invite_collaborator:
         subject: 'Meghívás együttműködésre ebben: %{organization}'
-      invite_friend:
-        accept_invitation: 'A meghívást az alábbi linken keresztül fogadhatja el:'
-        friend_custom_text: 'Ezt az üzenetet hagyták neked:'
-        subject: 'Meghívást kaptál ide: %{organization}'
       invite_private_user:
         subject: Meghívtak egy privát részvételi folyamatban részvételre (%{organization})
       organization_admin_invitation_instructions:
@@ -1022,7 +1032,6 @@ hu:
       user_menu:
         admin_dashboard: Admin vezérlőpult
         conversations: Beszélgetések
-        invite_friends: Barátok meghívása
         notifications: Értesítések
         profile: Fiókom
         public_profile: Nyilvános profilom
@@ -1034,7 +1043,7 @@ hu:
         my_data: Adataim
         notifications_settings: Értesítési beállítások
         title: Felhasználói beállítások
-        user_groups: Szervezetek
+        user_groups: Csoportok
       widget:
         see_more: Tovább
   locale:

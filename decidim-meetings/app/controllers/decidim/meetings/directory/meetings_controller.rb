@@ -28,6 +28,10 @@ module Decidim
           @meeting_spaces = @meeting_spaces.prepend(["all", t(".all")])
         end
 
+        def calendar
+          render plain: CalendarRenderer.for(current_organization), content_type: "type/calendar"
+        end
+
         private
 
         def meetings

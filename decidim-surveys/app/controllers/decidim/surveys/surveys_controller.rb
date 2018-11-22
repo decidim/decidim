@@ -4,36 +4,22 @@ module Decidim
   module Surveys
     # Exposes the survey resource so users can view and answer them.
     class SurveysController < Decidim::Surveys::ApplicationController
-      include FormFactory
+      include Decidim::Forms::Concerns::HasQuestionnaire
 
-      helper_method :survey
+      delegate :allow_answers?, to: :current_settings
 
-      def show
-        @form = form(SurveyForm).from_model(survey)
-      end
-
-      def answer
-        enforce_permission_to :answer, :survey
-
-        @form = form(SurveyForm).from_params(params)
-
-        AnswerSurvey.call(@form, current_user, survey) do
-          on(:ok) do
-            flash[:notice] = I18n.t("surveys.answer.success", scope: "decidim.surveys")
-            redirect_to survey_path(survey)
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("surveys.answer.invalid", scope: "decidim.surveys")
-            render action: "show"
-          end
-        end
+      def questionnaire_for
+        survey
       end
 
       private
 
+      def i18n_flashes_scope
+        "decidim.surveys.surveys"
+      end
+
       def survey
-        @survey ||= Survey.includes(questions: :answer_options).find_by(component: current_component)
+        @survey ||= Survey.find_by(component: current_component)
       end
     end
   end

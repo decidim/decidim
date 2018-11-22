@@ -22,6 +22,30 @@ module Decidim
         sign_in user
       end
 
+      describe "GET index" do
+        context "when participatory texts are disabled" do
+          let(:component) { create(:proposal_component) }
+
+          it "sorts proposals by search defaults" do
+            get :index
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:index)
+            expect(assigns(:proposals).order_values).to eq(["RANDOM()"])
+          end
+        end
+
+        context "when participatory texts are enabled" do
+          let(:component) { create(:proposal_component, :with_participatory_texts_enabled) }
+
+          it "sorts proposals by position" do
+            get :index
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:participatory_text)
+            expect(assigns(:proposals).order_values.first.expr.name).to eq(:position)
+          end
+        end
+      end
+
       describe "GET new" do
         let(:component) { create(:proposal_component, :with_creation_enabled) }
 

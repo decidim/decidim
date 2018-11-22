@@ -2,6 +2,7 @@
 
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
+require "decidim/meetings/test/factories"
 
 FactoryBot.define do
   factory :proposal_component, parent: :component do
@@ -226,6 +227,14 @@ FactoryBot.define do
       end
     end
 
+    trait :official_meeting do
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        component = create(:meeting_component, participatory_space: proposal.component.participatory_space)
+        proposal.coauthorships.build(author: build(:meeting, component: component))
+      end
+    end
+
     trait :evaluating do
       state { "evaluating" }
       answered_at { Time.current }
@@ -331,5 +340,11 @@ FactoryBot.define do
     trait :withdrawn do
       state { "withdrawn" }
     end
+  end
+
+  factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
+    title { Faker::Hacker.say_something_smart }
+    description { Faker::Lorem.sentences(3).join("\n") }
+    component { create(:proposal_component) }
   end
 end

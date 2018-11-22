@@ -15,25 +15,37 @@ module Decidim
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
+
+      before_action :set_participatory_text
+
       def index
-        @proposals = search
-                     .results
-                     .published
-                     .not_hidden
-                     .includes(:category)
-                     .includes(:scope)
+        if component_settings.participatory_texts_enabled?
+          @proposals = Decidim::Proposals::Proposal
+                       .where(component: current_component)
+                       .published
+                       .not_hidden
+                       .includes(:category, :scope)
+                       .order(position: :asc)
+          render "decidim/proposals/proposals/participatory_texts/participatory_text"
+        else
+          @proposals = search
+                       .results
+                       .published
+                       .not_hidden
+                       .includes(:category)
+                       .includes(:scope)
 
-        @voted_proposals = if current_user
-                             ProposalVote.where(
-                               author: current_user,
-                               proposal: @proposals.pluck(:id)
-                             ).pluck(:decidim_proposal_id)
-                           else
-                             []
-                           end
-
-        @proposals = paginate(@proposals)
-        @proposals = reorder(@proposals)
+          @voted_proposals = if current_user
+                               ProposalVote.where(
+                                 author: current_user,
+                                 proposal: @proposals.pluck(:id)
+                               ).pluck(:decidim_proposal_id)
+                             else
+                               []
+                             end
+          @proposals = paginate(@proposals)
+          @proposals = reorder(@proposals)
+        end
       end
 
       def show
@@ -172,15 +184,27 @@ module Decidim
 
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
-
-        WithdrawProposal.call(@proposal, current_user) do
-          on(:ok) do |_proposal|
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        if @proposal.emendation?
+          Decidim::Amendable::Withdraw.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
           end
-          on(:invalid) do
-            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        else
+          WithdrawProposal.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
           end
         end
       end
@@ -233,6 +257,10 @@ module Decidim
         @form = form_proposal_model
         @form.attachment = form_attachment_model
         @form
+      end
+
+      def set_participatory_text
+        @participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
       end
     end
   end

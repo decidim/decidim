@@ -360,9 +360,10 @@ fi:
         promotal_committee: Kannatuskomitea
         select_initiative_type: Valitse
         show_similar_initiatives: Vertaile
+        step: Vaihe %{current} / %{total}
+        title: Luo uusi aloite
       initiative_header:
         initiative_menu_item: Aloite
-        unfold: Avaa
       initiatives:
         initiative:
           check: Tarkasta

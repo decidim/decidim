@@ -6,7 +6,7 @@
       <% end %>
     </div>
 
-    <%= bulk_components_select current_component.siblings %>
+    <%= bulk_components_select((current_component.siblings + [current_component])) %>
 
     <%= submit_tag(t("decidim.proposals.admin.proposals.index.merge_button"), id: "js-submit-merge-proposals", class: "button small button--simple float-left") %>
 

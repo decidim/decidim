@@ -74,6 +74,10 @@ module Decidim
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
+      def etherpad
+        template "docker-compose-etherpad.yml", "docker-compose-etherpad.yml"
+      end
+
       def cable_yml
         template "cable.yml.erb", "config/cable.yml", force: true
       end
@@ -148,14 +152,24 @@ module Decidim
         remove_file "public/500.html"
       end
 
-      def authorization_handler
+      def decidim_initializer
         copy_file "initializer.rb", "config/initializers/decidim.rb"
+      end
 
-        if options[:demo]
-          copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
-          copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
-          copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
-        end
+      def authorization_handler
+        return unless options[:demo]
+
+        copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
+        copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
+        copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
+      end
+
+      def sms_gateway
+        return unless options[:demo]
+
+        gsub_file "config/initializers/decidim.rb",
+                  /# config.sms_gateway_service = \"MySMSGatewayService\"/,
+                  "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
       end
 
       def install

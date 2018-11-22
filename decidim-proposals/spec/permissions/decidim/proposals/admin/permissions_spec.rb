@@ -86,12 +86,6 @@ describe Decidim::Proposals::Admin::Permissions do
         it { is_expected.to eq true }
       end
 
-      context "when creation is disabled" do
-        let(:creation_enabled?) { false }
-
-        it_behaves_like "permission is not set"
-      end
-
       context "when it has some votes" do
         before do
           create :proposal_vote, proposal: proposal

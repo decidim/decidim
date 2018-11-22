@@ -22,6 +22,7 @@ it:
         location_hints: Informazione sul luogo
         organizer_id: Organizzatore
         private_meeting: Incontro privato
+        registration_form_enabled: Modulo di registrazione abilitato
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
         start_time: Orario inizio
@@ -269,6 +270,7 @@ it:
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
+            registration_form: Formulario di registrazione
             registrations_count:
               one: Si è registrato un'iscrizione.
               other: Si sono registrate %{count} iscrizione.
@@ -297,6 +299,10 @@ it:
         minutes:
           create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
+      calendar_modal:
+        calendar_url: URL del calendario
+        close_window: Chiudi la finestra
+        export_calendar: Esporta il calendario
       conference_venues: Sale per conferenze
       content_blocks:
         upcoming_events:
@@ -358,6 +364,8 @@ it:
             one: 1 slot restanti
             other: "%{count} slot rimanenti"
           view: vista
+      meetings_map:
+        view_meeting: Guarda la riunione
       models:
         invite:
           fields:
@@ -407,7 +415,7 @@ it:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Incontri passati
-        see_all_meetings: Vedi tutte le riunioni
+        see_all: Vedi tutto (%{count})
         upcoming_meetings: Prossimi incontri
       upcoming_meeting_for_card:
         upcoming_meeting: Prossimo incontro

@@ -86,9 +86,9 @@ ca:
       badges:
         initiatives:
           conditions:
-            - Anar a l'espai de participació d'Intiatives
-            - Seguiu els passos per crear una nova iniciativa
-          description: Aquesta distinció es concedeix quan es llancen noves iniciatives, s'uneixen amb altres per dur-les a terme.
+            - Anar a Inciatives
+            - Segueix els passos per crear una nova iniciativa
+          description: Aquest distintiu es concedeix quan es llancen noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquest usuari ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
@@ -360,9 +360,10 @@ ca:
         promotal_committee: Comitè promotor
         select_initiative_type: Tria
         show_similar_initiatives: Compara
+        step: Pas %{current} de %{total}
+        title: Crea una nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
-        unfold: Desplegar
       initiatives:
         initiative:
           check: Comprova-ho

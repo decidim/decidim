@@ -8,9 +8,7 @@ module Decidim
     end
 
     def amend_button_for(amendable)
-      if amendable.amendable?
-        cell "decidim/amendable/amend_button_card", amendable
-      end
+      cell "decidim/amendable/amend_button_card", amendable if amendable.amendable?
     end
 
     # Renders the emendations of a amendable resource that includes the
@@ -26,17 +24,17 @@ module Decidim
         t("section_heading", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
       end
 
-      if amendable.emendations.count > 0
-        content += cell(
-          "decidim/collapsible_list",
-          amendable.emendations,
-          cell_options: { context: { current_user: current_user } },
-          list_class: "row small-up-1 medium-up-2 card-grid",
-          size: 4
-        ).to_s
-      else
-        content += t("no_amendments", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
-      end
+      content += if amendable.emendations.count.positive?
+                   cell(
+                     "decidim/collapsible_list",
+                     amendable.emendations,
+                     cell_options: { context: { current_user: current_user } },
+                     list_class: "row small-up-1 medium-up-2 card-grid",
+                     size: 4
+                   ).to_s
+                 else
+                   t("no_amendments", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
+                 end
 
       content_tag :div, content.html_safe, class: "section"
     end
@@ -71,7 +69,7 @@ module Decidim
     #
     # Returns true or false
     def allowed_to_react_to_emendation?(emendation_form)
-      if current_user.active_role.present?
+      if current_user && current_user.active_role.present?
         return true if current_user.active_role.include?("admin")
       end
 

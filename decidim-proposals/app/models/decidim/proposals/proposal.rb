@@ -28,7 +28,6 @@ module Decidim
       amendable(
         fields: [:title, :body],
         ignore: [:published_at, :reference, :state, :answered_at, :answer],
-        reset:  [:proposal_endorsements_count, :proposal_votes_count, :proposal_notes_count],
         form:   "Decidim::Proposals::ProposalForm"
       )
 
@@ -94,9 +93,11 @@ module Decidim
       # Public: Updates the vote count of this proposal.
       #
       # Returns nothing.
+      # rubocop:disable Rails/SkipsModelValidations
       def update_votes_count
-        update!(proposal_votes_count: votes.count)
+        update_columns(proposal_votes_count: votes.count)
       end
+      # rubocop:enable Rails/SkipsModelValidations
 
       # Public: Check if the user has voted the proposal.
       #
@@ -163,6 +164,11 @@ module Decidim
       # Public: Whether the proposal is official or not.
       def official?
         authors.first.is_a?(Decidim::Organization)
+      end
+
+      # Public: Whether the proposal is created in a meeting or not.
+      def official_meeting?
+        authors.first.class.name == "Decidim::Meetings::Meeting"
       end
 
       # Public: The maximum amount of votes allowed for this proposal.

@@ -133,6 +133,20 @@ fi:
           update:
             error: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan kirje, jonka olemme lähettäneet sinulle
             success: Onnittelut. Olet vahvistanut tilisi
+      sms:
+        authorizations:
+          create:
+            error: Pyynnössäsi oli ongelma
+            success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
+          edit:
+            send: Vahvista
+            title: Kirjoita vastaanottamasi vahvistuskoodi
+          new:
+            send: Lähetä minulle tekstiviesti
+            title: Pyydä vahvistuskoodia
+          update:
+            error: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
+            success: Onnittelut. Käyttäjätilisi on onnistuneesti vahvistettu.
   errors:
     messages:
       uppercase_only_letters_numbers: sisällössä on sallttu ainoastaan isot kirjaimet ja numerot

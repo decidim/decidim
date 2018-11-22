@@ -22,6 +22,7 @@ sv:
         location_hints: Platstips
         organizer_id: Arrangör
         private_meeting: Privat möte
+        registration_form_enabled: Registreringsformulär aktiverat
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
@@ -269,6 +270,7 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
+            registration_form: Anmälningsblankett
             registrations_count:
               one: Det har gjorts 1 registrering.
               other: Det har gjorts %{count} registreringar.
@@ -297,6 +299,10 @@ sv:
         minutes:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
+      calendar_modal:
+        calendar_url: Kalenderadress
+        close_window: Stäng fönstret
+        export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
         upcoming_events:
@@ -358,6 +364,8 @@ sv:
             one: 1 plats kvar
             other: "%{count} platser kvar"
           view: Visa
+      meetings_map:
+        view_meeting: Visa möte
       models:
         invite:
           fields:
@@ -407,7 +415,7 @@ sv:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten
-        see_all_meetings: Se alla möten
+        see_all: Se alla (%{count})
         upcoming_meetings: Kommande möten
       upcoming_meeting_for_card:
         upcoming_meeting: Kommande möte

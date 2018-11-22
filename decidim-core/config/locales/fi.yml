@@ -17,14 +17,14 @@ fi:
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
-      decidim/demoted_membership: Ei enää organisaation ylläpitäjä
+      decidim/demoted_membership: Ei enää ryhmän ylläpitäjä
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
       decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
       decidim/join_request_rejected_event: Liittymispyyntö on hylätty
       decidim/profile_updated_event: Profiili päivitetty
-      decidim/promote_to_admin: Nimitetty organisaation ylläpitäjäksi
-      decidim/removed_from_group: Poistettu organisaatiosta
+      decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
+      decidim/removed_from_group: Poistettu ryhmästä
   activerecord:
     attributes:
       decidim/user:
@@ -50,6 +50,7 @@ fi:
   date:
     formats:
       decidim_short: "%d.%m.%Y"
+      decidim_short_with_month_name_short: "%d. %b %Y"
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d. %b"
@@ -129,7 +130,7 @@ fi:
       collection:
         documents:
           one: Asiakirja
-          other: Asiakirjat
+          other: Asiakirjaa
       documents:
         related_documents: Liittyvät dokumentit
       photos:
@@ -147,7 +148,7 @@ fi:
       dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka pääättyy kirjaimeen "X"
         fields:
-          document_number: Asiakirjan numero
+          document_number: Organisaatiotunnus (esim. Y-tunnus)
           postal_code: Postinumero
         name: Esimerkkivarmennus
       dummy_authorization_workflow:
@@ -162,6 +163,9 @@ fi:
           foo: Foo
         name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
+      sms:
+        explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
+        name: Koodi tekstiviestinä
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       show:
@@ -279,6 +283,8 @@ fi:
         new:
           are_you_new?: Uusi käyttäjä?
           register: Rekisteröidy
+          sign_in_disabled: Voit kirjautua ulkoisella tilillä
+          sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä
       shared:
         newsletter_modal:
           buttons:
@@ -349,40 +355,40 @@ fi:
           notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
       groups:
         demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation ylläpitäjä on poistanut ylläpitäjän oikeutesi kyseiselle organisaatiolle.
-          email_outro: Saat tämän ilmoituksen, koska olet tämän organisaation jäsen.
-          email_subject: Et ole enää organisaation %{user_group_name} ylläpitäjä!
-          notification_title: Et ole enää organisaation <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut ylläpitäjän oikeutesi kyseiselle ryhmälle.
+          email_outro: Saat tämän ilmoituksen, koska olet kyseisen ryhmän jäsen.
+          email_subject: Et ole enää ryhmän %{user_group_name} ylläpitäjä!
+          notification_title: Et ole enää ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
         invited_to_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> -organisaation admin on kutsunut sinut liittymään siihen.
-          email_outro: Olet saanut tämän ilmoituksen, koska sinut on kutsuttu organisaatiolle. Tarkista profiilisi Organisaatiot-välilehti ja hyväksy se.
-          email_subject: Sinut on kutsuttu liittymään %{user_group_name} organisaatioon!
-          notification_title: Sinut on kutsuttu liittymään <a href="%{resource_path}">%{user_group_name}</a> -organisaatioon. Tarkista profiilisi <a href="%{groups_profile_tab_path}">organisaatiosi sivulla</a> hyväksyä se!
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on kutsunut sinut liittymään kyseiseen ryhmään.
+          email_outro: Saat tämän ilmoituksen, koska sinut on kutsuttu ryhmään. Tarkista profiilisi Ryhmät-välilehti ja hyväksy kutsu.
+          email_subject: Sinut on kutsuttu liittymään ryhmään %{user_group_name}!
+          notification_title: Sinut on kutsuttu liittymään ryhmään <a href="%{resource_path}">%{user_group_name}</a>. Tarkista profiilisi <a href="%{groups_profile_tab_path}">Ryhmät-sivu</a> hyväksyäksesi kutsun!
         join_request_accepted:
-          email_intro: Onnittelut! <a href="%{resource_url}">%{user_group_name}</a> -organisaation järjestelmänvalvoja on hyväksynyt liittymispyyntösi.
+          email_intro: Onnittelut! Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on hyväksynyt pyyntösi liittyä kyseiseen ryhmään.
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
-          email_subject: Sinut on hyväksytty organisaatioon %{user_group_name}!
-          notification_title: Sinut on hyväksytty organisaatioon <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Sinut on hyväksytty ryhmään %{user_group_name}!
+          notification_title: Sinut on hyväksytty ryhmään <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Joku haluaa liittyä organisaatioon %{user_group_name}. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}">organisaation jäsensivulta</a>.
-          email_outro: Saat tämän ilmoituksen, koska voit hallita organisaatiota %{user_group_name}.
-          email_subject: Joku haluaa liittyä organisaatioon %{user_group_name}!
-          notification_title: Joku haluaa liittyä organisaatioon %{user_group_name}. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_path}">organisaation jäsensivulta</a>.
+          email_intro: Joku pyysi sinua liittymään ryhmään %{user_group_name}. Voit hyväksyä tai hylätä kutsun <a href="%{resource_url}">ryhmän jäsenten sivulta</a>.
+          email_outro: Saat tämän ilmoituksen, koska voit hallita ryhmää %{user_group_name}.
+          email_subject: Joku pyysi sinua liittymään ryhmään %{user_group_name}!
+          notification_title: Joku pyysi sinua liittymään ryhmään %{user_group_name}. Voit hyväksyä tai hylätä kutsun <a href="%{resource_path}">ryhmän jäsenten sivulta</a>.
         join_request_rejected:
-          email_intro: Organisaation <a href="%{resource_url}">%{user_group_name}</a> järjestelmänvalvoja hylkäsi liittymispyynnön.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä hylkäsi pyyntösi liittyä kyseiseen ryhmään.
           email_outro: Saat tämän ilmoituksen, koska liittymispyyntöäsi on päivitetty.
-          email_subject: Liittymispyyntösi organisaatioon %{user_group_name} on hylätty!
-          notification_title: Liittymispyyntösi organisaatioon <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
+          email_subject: Pyyntösi liittyä ryhmään %{user_group_name} on hylätty!
+          notification_title: Pyyntösi liittyä ryhmään <a href="%{resource_path}">%{user_group_name}</a> on hylätty.
         promoted_to_admin:
-          email_intro: Organisaation <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on antanut sinulle ylläpitooikeudet kyseiselle organisaatiolle.
-          email_outro: Saat tämän ilmoituksen, koska olet tämän organisaation jäsen.
-          email_subject: Olet nyt organisaation %{user_group_name} ylläpitäjä!
-          notification_title: Olet nyt organisaation <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on antanut sinulle ylläpitäjän oikeudet kyseiseen ryhmään.
+          email_outro: Saat tämän ilmoituksen, koska olet kyseisen ryhmän jäsen.
+          email_subject: Olet nyt ryhmän %{user_group_name} ylläpitäjä!
+          notification_title: Olet nyt ryhmän <a href="%{resource_path}">%{user_group_name}</a> ylläpitäjä.
         removed_from_group:
-          email_intro: Organisaation <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut kyseisestä organisaatiosta.
-          email_outro: Saat tämän ilmoituksen, koska olit kyseisen organisaation jäsen.
-          email_subject: Sinut on poistettu organisaatiosta %{user_group_name}!
-          notification_title: Sinut on poistettu organisaatiosta <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut sinut kyseisestä ryhmästä.
+          email_outro: Saat tämän ilmoituksen, koska olit kyseisen ryhmän jäsen.
+          email_subject: Sinut on poistettu ryhmästä %{user_group_name}!
+          notification_title: Sinut on poistettu ryhmästä <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       users:
@@ -478,30 +484,30 @@ fi:
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
     group_admins:
       actions:
-        are_you_sure: Oletko varma? Käyttäjää ei poisteta organisaatiosta.
+        are_you_sure: Oletko varma? Tämä ei poista käyttäjää ryhmästä.
         demote_admin: Poista ylläpitäjä
       demote:
-        error: Tapahtui virhe poistettaessa tätä käyttäjää ylläpitäjien joukosta
+        error: Virhe poistettaessa tätä käyttäjää ylläpitäjistä
         success: Käyttäjä on poistettu ylläpitäjistä onnistuneesti
       index:
         current_admins: 'Nykyiset ylläpitäjät:'
         manage_admins: Hallinnoi ylläpitäjiä
     group_invites:
       accept:
-        error: Virhe hyväksyi kutsun
+        error: Hyväksyttäessä kutsua esiintyi virhe
         success: Kutsu hyväksyttiin onnistuneesti
-      accept_invitation: Hyväksyä
-      accept_or_reject_group_invitations: 'Seuraavat organisaatiot ovat kutsuneet sinut liittymään niihin. Hyväksy tai hylkää heidän pyyntönsä:'
+      accept_invitation: Hyväksy
+      accept_or_reject_group_invitations: 'Seuraavat ryhmät ovat kutsuneet sinut liittymään niihin. Hyväksy tai hylkää heidän pyyntönsä:'
       index:
-        invite: kutsu
+        invite: Kutsu
         invite_user: Kutsu käyttäjä
       invite:
-        error: Virhe kutsui tätä käyttäjiä
+        error: Tapahtui virhe kutsuttaessa tätä käyttäjää
         success: Käyttäjä on kutsuttu onnistuneesti
       reject:
-        error: Haku hylättiin
-        success: Kutsu hylättiin onnistuneesti
-      reject_invitation: Hylätä
+        error: Hylätessä tätä kutsua tapahtui virhe
+        success: Kutsu hylätty onnistuneesti
+      reject_invitation: Hylkää
     group_members:
       accept:
         error: Tapahtui virhe hyväksyttäessä liittymispyyntöä
@@ -526,44 +532,40 @@ fi:
       actions:
         are_you_sure: Oletko varma?
       create:
-        error: Organisaation luomisessa esiintyi ongelma
-        success: Organisaatio luotu onnistuneesti
+        error: Ryhmää luotaessa esiintyi ongelma
+        success: Ryhmä luotiin onnistuneesti
       edit:
-        edit_user_group: Muokkaa organisaatiota
-        update_user_group: Päivitä organisaatio
+        edit_user_group: Muokkaa ryhmää
+        update_user_group: Päivitä ryhmä
+      form:
+        document_number_help: Älä käytä viivoja tai välilyöntejä
+        email_help: Sähköpostiosoite organisaatiolle, yhdistykselle, ryhmälle, tms.
+        fill_in_for_verification: 'Täytä nämä kentät, jos haluat ryhmäsi vahvistettavan:'
+        name_help: Nimi organisaatiolle, yhdistykselle, ryhmälle, tms.
+        nickname_help: Käyttäjänimi organisaatiolle, yhdistykselle, ryhmälle, tms. Älä käytä välilyöntejä tai erikoismerkkejä.
+        phone_help: Älä käytä viivoja tai välilyöntejä
       join:
-        error: Liityttäessä organisaatioon tapahtui virhe
-        success: Liittymispyyntö on luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen kuin sinut hyväksytään organisaatioon.
+        error: Ryhmään liityttäessä esiintyi ongelma
+        success: Liittymispyyntö luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
-        error: Tapahtui virhe poistuttaessa organisaatiosta
-        success: Organisaatiosta poistuminen onnistui.
+        error: Ryhmästä poistuttaessa esiintyi ongelma
+        success: Ryhmästä poistuminen onnistui.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
         accept_request: Hyväksy
         reject_request: Hylkää
       new:
-        create_user_group: Luo organisaatio
-        new_user_group: Uusi organisaatio
-      no_user_groups: Ei kuulu vielä yhteenkään organisaatioon.
+        create_user_group: Luo ryhmä
+        new_user_group: Uusi ryhmä
+        subtitle: Luo ryhmä ja pyydä muita käyttäjiä osallistumaan yhteisöllisellä tasolla.
+      no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
         creator: Luoja
         member: Jäsen
       update:
-        error: Organisaation päivityksessä tapahtui virhe
-        success: Organisaatio päivitetty onnistuneesti
-    invitations:
-      create:
-        error: Kutsuttaessa ystäviäsi tapahtui virheitä
-        error_empty_form: Syötä sähköpostiosoitteita
-        success: Olemme lähettäneet kutsut ystävillesi!
-      index:
-        customize_message: Muokkaa kutsuviestiä
-        friend_email: 'Ystävän #%{index} sähköposti'
-        invitations_subtitle: Kerro ystävillesi tästä sivustosta
-        invitations_title: Pitäisikö sinun mielestäsi %{organization_name} -organisaatiossa kuulla enemmän ääniä?
-        invite: Kutsu
-        visit_your_profile: Siirry profiiliisi
+        error: Ryhmää päivitettäessä esiintyi ongelma
+        success: Ryhmä päivitettiin onnistuneesti
     last_activities:
       activities:
         no_activities_warning: Ei toimintaa
@@ -595,8 +597,8 @@ fi:
     members:
       no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
+      help: Tietoa
       home: Etusivu
-      more_information: Lisätietoja
     messaging:
       conversation_mailer:
         new_conversation:
@@ -697,7 +699,7 @@ fi:
           conferences_count: Konferenssit
           debates_count: Keskustelua
           endorsements_count: Suosituksia
-          headline: Tämänhetkinen tila organisaatiolle %{organization}
+          headline: '%{organization} numeroina'
           meetings_count: Tapahtumat
           orders_count: Ääntä
           pages_count: Sivua
@@ -712,7 +714,11 @@ fi:
         sub_hero:
           register: Rekisteröidy
       index:
-        title: Lisätietoa
+        read_more: Lue lisää
+        standalone_pages: Sivut
+        subheading: Selaa palvelun %{name} tietosivuja
+        title: Tietoa
+        topics: Aiheet
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
@@ -743,21 +749,22 @@ fi:
         badges: Kunniamerkit
         conversations: Keskustelut
         followers: Seuraajat
-        following: Seuraa
-        groups: Organisaatiot
+        following: Seurattavat
+        groups: Ryhmät
         members: Jäsenet
         notifications: Ilmoitukset
+        view_full_profile: Näytä koko profiili
       sidebar:
         badges:
           info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
           title: Kunniamerkit
       user:
-        create_user_group: Luo organisaatio
+        create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
-        edit_user_group: Muokkaa organisaation tietoja
+        edit_user_group: Muokkaa ryhmän profiilia
         invite_user: Kutsu käyttäjä
-        join_user_group: Liity organisaatioon
-        leave_user_group: Poistu organisaatiosta
+        join_user_group: Lähetä liittymispyyntö ryhmään
+        leave_user_group: Poistu ryhmästä
         manage_user_group_admins: Hallinnoi ylläpitäjiä
         manage_user_group_users: Hallinnoi jäseniä
     reported_mailer:
@@ -802,6 +809,9 @@ fi:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
         embed_link: Upota
+      extended_navigation_bar:
+        more: Lisää
+        unfold: Avaa
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
@@ -811,6 +821,8 @@ fi:
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita ongelmasta
+      floating_help:
+        help: Ohjeet
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
@@ -826,6 +838,9 @@ fi:
         share_link: Jaa linkki
       version_author:
         deleted: Käyttäjä poistettu
+    welcome_notification:
+      default_body: <p>Hei {{name}}, kiitos liittymisestäsi palveluun {{organization}}! Tervetuloa mukaan!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä täällä, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, jotka voit saada osallistumalla aktiivisesti palvelussa {{organization_name}}</li><li>Viimeisimpänä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa ja jaa heidän kanssaan kokemuksiasi osallistumisesta palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, argumentoi vakuuttaaksesi muut, kuuntele ja lue ennen kuin muodostat mielipiteen, ilmaise ideasi konkreettisella ja suoralla tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, pidä avoin mieli yhteistyölle ja liity mukaan muiden ihmisten ideoihin.</li></ul>
+      default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
   devise:
     confirmations:
       confirmed: Sähköpostiosoitteesi on vahvistettu.
@@ -877,7 +892,6 @@ fi:
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomioimatta.<br />
           Sinulle ei luoda tiliä ennen kuin seuraat yllä olevaa linkkiä ja asetat käyttäjänimen sekä salasanan.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-        invited_you_as_friend: "%{invited_by} on kutsunut sinut %{application} -nimiseen palveluun."
         invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
@@ -887,10 +901,6 @@ fi:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
-      invite_friend:
-        accept_invitation: 'Voit hyväksyä kutsun seuraavan linkin kautta:'
-        friend_custom_text: 'Sinulle lähetettiin seuraavan viesti kutsun yhteydessä:'
-        subject: Sinut on kutsuttu organisaatioon %{organization}
       invite_private_user:
         subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin organisaatiossa %{organization}
       organization_admin_invitation_instructions:
@@ -1023,7 +1033,6 @@ fi:
       user_menu:
         admin_dashboard: Hallintapaneeli
         conversations: Keskustelut
-        invite_friends: Kutsu ystäviä
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -1035,7 +1044,7 @@ fi:
         my_data: Omat tiedot
         notifications_settings: Ilmoitusten asetukset
         title: Käyttäjätilin asetukset
-        user_groups: Organisaatiot
+        user_groups: Ryhmät
       widget:
         see_more: Näytä lisää
   locale:
@@ -1049,7 +1058,7 @@ fi:
     password_not_allowed: ei ole sallittu
     password_too_common: liian yleinen
     password_too_long: liian pitkä
-    password_too_short: liian lyhyt
+    password_too_short: liian lyhyt (alle 10 merkkiä)
   social_share_button:
     delicious: Delicious
     douban: Douban

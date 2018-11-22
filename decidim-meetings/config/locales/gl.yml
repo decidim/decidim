@@ -22,6 +22,7 @@ gl:
         location_hints: Consellos de localización
         organizer_id: Organizador
         private_meeting: Encontro privado
+        registration_form_enabled: Formulario de rexistro habilitado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
         start_time: Hora de inicio
@@ -269,6 +270,7 @@ gl:
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
+            registration_form: Formulario de inscrición
             registrations_count:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
@@ -297,6 +299,10 @@ gl:
         minutes:
           create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
           update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
+      calendar_modal:
+        calendar_url: URL do calendario
+        close_window: Pechar ventá
+        export_calendar: Calendario de exportación
       conference_venues: Lugares de conferencias
       content_blocks:
         upcoming_events:
@@ -358,6 +364,8 @@ gl:
             one: 1 slot restante
             other: "%{count} slots restantes"
           view: Ver
+      meetings_map:
+        view_meeting: Ver reunión
       models:
         invite:
           fields:
@@ -407,7 +415,7 @@ gl:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reunións pasadas
-        see_all_meetings: Ver todas as reunións
+        see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reunións
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunión

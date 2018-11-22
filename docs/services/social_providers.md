@@ -39,3 +39,22 @@ If you want to enable sign up through social providers like Facebook you will ne
 1. Select `Web applications`. Fill in the `Authorized Javascript origins` with your url. Then fill in the `Authorized redirect URIs` with your url and append the path `/users/auth/google_oauth2/callback`.
 1. Copy the CLIENT_ID AND CLIENT_SECRET
 1. Paste credentials in `config/secrets.yml`. Ensure the `enabled` attribute is `true`.
+
+## Custom providers
+
+* You can define your own provider, to allow users from other external applications to login into Decidim.
+* The provider should implement an [OmniAuth](https://github.com/omniauth/omniauth) strategy.
+* You can use any of the [existing OnmiAuth strategies](https://github.com/omniauth/omniauth/wiki/List-of-Strategies).
+* Or you can create a new strategy, as the [Decidim OmniAuth Strategy](https://github.com/decidim/omniauth-decidim). This strategy allow users from a Decidim instance to login in other Decidim instance. For example, this strategy is used to allow [decidim.barcelona](https://decidim.barcelona) users to log into [meta.decidim.barcelona](https://meta.decidim.barcelona).
+* Once you have defined your strategy, you can configure it in the `config/secrets.yml`, as it is done for the built-in providers.
+* By default, Decidim will search in its icons library for an icon named as the provider. You can change this adding an `icon` or `icon_path` attribute to the provider configuration. The `icon` attribute sets the icon name to look for in the Decidim's icons library. The `icon_path` attribute sets the route to the image that should be used.
+* Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/assets/images` folder:
+
+```yaml
+    decidim:
+      enabled: true
+      client_id: <%= ENV["DECIDIM_CLIENT_ID"] %>
+      client_secret: <%= ENV["DECIDIM_CLIENT_SECRET"] %>
+      site_url: <%= ENV["DECIDIM_SITE_URL"] %>
+      icon_path: decidim-logo.svg
+```

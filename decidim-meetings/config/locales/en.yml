@@ -23,6 +23,7 @@ en:
         location_hints: Location hints
         organizer_id: Organizer
         private_meeting: Private meeting
+        registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
         start_time: Start Time
@@ -82,6 +83,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
+            enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
             announcement: Announcement
@@ -109,9 +111,9 @@ en:
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
         registration_code_validated:
-          email_intro: Your registration code "%{registration_code}" has been validated.
+          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
-          email_subject: Your registration code "%{registration_code}" has been validated
+          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
           notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
@@ -270,6 +272,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invites
+            registration_form: Registration form
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
@@ -299,6 +302,10 @@ en:
         minutes:
           create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
           update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+      calendar_modal:
+        calendar_url: Calendar URL
+        close_window: Close window
+        export_calendar: Export calendar
       conference_venues: Conference Venues
       content_blocks:
         upcoming_events:
@@ -412,7 +419,7 @@ en:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
-        see_all_meetings: See all meetings
+        see_all: See all (%{count})
         upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
         upcoming_meeting: Upcoming meeting

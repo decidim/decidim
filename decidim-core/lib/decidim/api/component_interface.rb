@@ -10,6 +10,10 @@ module Decidim
 
       field :name, !TranslatedFieldType, "The name of this component."
 
+      field :weight, !types.Int, "The weight of the component"
+
+      field :participatorySpace, !ParticipatorySpaceType, "The participatory space in which this component belongs to.", property: :participatory_space
+
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
   end

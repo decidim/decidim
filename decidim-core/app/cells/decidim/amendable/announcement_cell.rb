@@ -58,6 +58,8 @@ module Decidim::Amendable
         "alert"
       when "evaluating"
         "warning"
+      when "withdrawn"
+        "alert"
       else
         "muted"
       end

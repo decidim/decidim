@@ -7,7 +7,7 @@ module Decidim
     describe InitiativeVotesController, type: :controller do
       routes { Decidim::Initiatives::Engine.routes }
 
-      let(:organization) { create(:organization, :with_tos) }
+      let(:organization) { create(:organization) }
       let(:initiative) { create(:initiative, organization: organization) }
 
       before do
@@ -25,7 +25,7 @@ module Decidim
         end
 
         context "and Non authorized users" do
-          let(:user) { create(:user, :confirmed) }
+          let(:user) { create(:user, :confirmed, organization: organization) }
 
           it "raise an exception" do
             sign_in user, scope: :user

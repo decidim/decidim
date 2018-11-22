@@ -22,6 +22,7 @@ fr:
         location_hints: Données de localisation
         organizer_id: Organisateur
         private_meeting: Rencontre privée
+        registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
         registrations_enabled: Inscriptions ouvertes
         start_time: Heure de début
@@ -269,6 +270,7 @@ fr:
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
             invites: Invitations
+            registration_form: Formulaire d'inscription
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
@@ -297,6 +299,10 @@ fr:
         minutes:
           create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+      calendar_modal:
+        calendar_url: URL du calendrier
+        close_window: Fermer la fenêtre
+        export_calendar: Calendrier d'exportation
       conference_venues: Salles de conférence
       content_blocks:
         upcoming_events:
@@ -358,6 +364,8 @@ fr:
             one: Il reste 1 place
             other: "Il reste %{count} places"
           view: Voir
+      meetings_map:
+        view_meeting: Voir la réunion
       models:
         invite:
           fields:
@@ -407,7 +415,7 @@ fr:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées
-        see_all_meetings: Voir toutes les rencontres
+        see_all: Tout voir (%{count})
         upcoming_meetings: Rencontres à venir
       upcoming_meeting_for_card:
         upcoming_meeting: Prochaine rencontre

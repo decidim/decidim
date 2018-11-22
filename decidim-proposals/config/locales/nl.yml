@@ -237,8 +237,7 @@ nl:
           proposals: Voorstellen
     participatory_spaces:
       highlighted_proposals:
-        proposals: Voorstellen
-        see_all_proposals: Bekijk alle voorstellen
+        see_all: Alles zien (%{count})
     proposals:
       actions:
         answer: Antwoord
@@ -307,12 +306,19 @@ nl:
             update: Bijwerken
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
+            created_in_meeting: Dit voorstel komt uit een vergadering
             select_a_category: Kies een categorie
+            select_a_meeting: Selecteer een vergadering
           index:
             actions: acties
             cancel: Annuleer
             change_category: Categorie wijzigen
+            merge: Voeg in een nieuwe
+            merge_button: samensmelten
+            select_component: Selecteer een component
             selected: Geselecteerd
+            split: Voorstellen splitsen
+            split_button: spleet
             title: Voorstellen
             update: Bijwerken
           new:
@@ -332,6 +338,14 @@ nl:
             no_components: Er zijn geen andere onderdelen van het voorstel in deze burgerinspraak om in te voeren.
             select_component: Selecteer een onderdeel
             select_states: Controleer de status van de voorstellen om te importeren
+        proposals_merges:
+          create:
+            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
+            success: De voorstellen succesvol samengevoegd tot een nieuwe.
+        proposals_splits:
+          create:
+            invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
+            success: De voorstellen succesvol gesplitst in nieuwe.
         shared:
           info_proposal:
             body: Tekstgedeelte
@@ -351,6 +365,19 @@ nl:
         not_answered: Nog niet beantwoord
         rejected: Geweigerd
         withdrawn: Ingetrokken
+      application_helper:
+        filter_origin_values:
+          all: Allemaal
+          citizens: Burgers
+          meetings: vergaderingen
+          official: Officieel
+          user_groups: Gebruikersgroepen
+        filter_state_values:
+          accepted: Aanvaard
+          all: Allemaal
+          evaluating: Evalueren
+          except_rejected: Alles behalve afgewezen
+          rejected: Verworpen
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -494,6 +521,12 @@ nl:
             votes: Stemmen
       new:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
+      participatory_text_proposal:
+        buttons:
+          comment: Commentaar
+          comments: Comments
+          endorse: Onderschrijven
+          endorsements: Endorsements
       proposal_endorsements:
         create:
           error: Er zijn fouten opgetreden tijdens het aanbevelen van het voorstel.
@@ -537,17 +570,10 @@ nl:
         endorsements_card_row:
           comments: Comments
         filters:
-          accepted: Aanvaard
           activity: Activiteit
-          all: Alle
           category: Categorie
           category_prompt: Kies een categorie
-          citizens: Burgers
-          evaluating: Aan het beoordelen
-          except_rejected: Alles behalve afgewezen
-          official: Officieel
           origin: Oorsprong
-          rejected: Geweigerd
           related_to: Gerelateerd aan
           search: Zoeken
           state: Status
@@ -574,6 +600,11 @@ nl:
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Meest recent
+        participatory_texts:
+          index:
+            document_index: Documentindex
+          view_index:
+            see_index: Zie index
         preview:
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
@@ -585,6 +616,7 @@ nl:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
         show:
+          back_to: Terug naar
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
           hidden_endorsers_count:
@@ -598,6 +630,7 @@ nl:
           report: Rapporteren
           sign_in: Log in
           sign_in_or_up: "%{in} of %{up} om deel te nemen"
+          sign_in_to_participate: "%{in} om deel te nemen"
           sign_up: registreren
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Ben je zeker dat je dit voorstel wilt intrekken?
@@ -622,7 +655,7 @@ nl:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
           minimum_votes_per_user:
-            description: U moet minimaal 3 stemmen verdelen over verschillende voorstellen.
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
             given_enough_votes: Je hebt voldoende steun gegeven.
             supports_remaining: U moet nog %{remaining_votes} voorstellen stemmen om rekening te houden met uw stemmen.
           proposal_limit:

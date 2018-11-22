@@ -237,8 +237,7 @@ it:
           proposals: proposte
     participatory_spaces:
       highlighted_proposals:
-        proposals: proposte
-        see_all_proposals: Vedi tutte le proposte
+        see_all: Vedi tutto (%{count})
     proposals:
       actions:
         answer: Risposta
@@ -307,12 +306,19 @@ it:
             update: Aggiornare
           form:
             attachment_legend: "(Opzionale) Aggiungere un allegato"
+            created_in_meeting: Questa proposta proviene da una riunione
             select_a_category: Scegli una categoria
+            select_a_meeting: Seleziona una riunione
           index:
             actions: Azioni
             cancel: Annulla
             change_category: Cambia categoria
+            merge: Unisci a uno nuovo
+            merge_button: fondersi
+            select_component: Seleziona un componente
             selected: selezionato
+            split: Proposte divise
+            split_button: Diviso
             title: Proposte
             update: Aggiornare
           new:
@@ -332,6 +338,14 @@ it:
             no_components: Non ci sono altri componenti di proposta in questo spazio partecipativo per importare le proposte da.
             select_component: Si prega di selezionare un componente
             select_states: Controlla gli stati delle proposte da importare
+        proposals_merges:
+          create:
+            invalid: Si è verificato un errore durante l'unione delle proposte selezionate.
+            success: Fuse con successo le proposte in una nuova.
+        proposals_splits:
+          create:
+            invalid: Si è verificato un errore durante la divisione delle proposte selezionate.
+            success: Suddiviso con successo le proposte in nuove.
         shared:
           info_proposal:
             body: Corpo
@@ -351,6 +365,19 @@ it:
         not_answered: Non risposto
         rejected: Rifiutata
         withdrawn: Ritirato
+      application_helper:
+        filter_origin_values:
+          all: Tutti
+          citizens: Cittadini
+          meetings: incontri
+          official: Ufficiale
+          user_groups: Gruppi di utenti
+        filter_state_values:
+          accepted: Accettato
+          all: Tutti
+          evaluating: Valutare
+          except_rejected: Tutto tranne rifiutato
+          rejected: Respinto
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -494,6 +521,12 @@ it:
             votes: Voti
       new:
         limit_reached: Non è possibile creare nuove proposte dal momento che hai superato il limite.
+      participatory_text_proposal:
+        buttons:
+          comment: Commento
+          comments: Commenti
+          endorse: Approvare
+          endorsements: Riconoscimenti
       proposal_endorsements:
         create:
           error: Ci sono stati errori nel sostenere la proposta.
@@ -537,17 +570,10 @@ it:
         endorsements_card_row:
           comments: Commenti
         filters:
-          accepted: Accettata
           activity: Attività
-          all: Tutto
           category: Categoria
           category_prompt: Scegli una categoria
-          citizens: Cittadini
-          evaluating: Valutando
-          except_rejected: Tutto tranne rifiutato
-          official: Ufficiale
           origin: Origine
-          rejected: Rifiutata
           related_to: Associata a
           search: Cerca
           state: Stato
@@ -574,6 +600,11 @@ it:
           most_voted: Più votate
           random: A caso
           recent: le più recenti
+        participatory_texts:
+          index:
+            document_index: Indice del documento
+          view_index:
+            see_index: Vedi indice
         preview:
           modify: Modifica la proposta
           proposal_edit_before_minutes:
@@ -585,6 +616,7 @@ it:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
         show:
+          back_to: Torna a
           edit_proposal: Modifica la proposta
           endorsements_list: Elenco di approvazioni
           hidden_endorsers_count:
@@ -598,6 +630,7 @@ it:
           report: Report
           sign_in: registrati
           sign_in_or_up: "%{in} o %{up} per partecipare"
+          sign_in_to_participate: "%{in} per partecipare"
           sign_up: Iscriviti
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?
@@ -622,7 +655,7 @@ it:
           can_accumulate_supports_beyond_threshold:
             description: Ogni proposta può accumulare più di %{limit} supporti
           minimum_votes_per_user:
-            description: Devi distribuire un minimo di 3 voti tra diverse proposte.
+            description: Devi distribuire un minimo di %{votes} voti tra diverse proposte.
             given_enough_votes: Hai dato abbastanza supporti.
             supports_remaining: Devi votare %{remaining_votes} altre proposte per i tuoi voti da prendere in considerazione.
           proposal_limit:

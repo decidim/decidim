@@ -22,6 +22,7 @@ es-PY:
         location_hints: Pistas de ubicación
         organizer_id: Organizador
         private_meeting: Encuentro privado
+        registration_form_enabled: Formulario de inscripción habilitado
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
@@ -269,6 +270,7 @@ es-PY:
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
+            registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
@@ -297,6 +299,10 @@ es-PY:
         minutes:
           create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      calendar_modal:
+        calendar_url: URL del calendario
+        close_window: Cerrar ventana
+        export_calendar: Exportar calendario
       conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_events:
@@ -409,7 +415,7 @@ es-PY:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados
-        see_all_meetings: Ver todos los encuentros
+        see_all: Ver todo (%{count})
         upcoming_meetings: Próximos encuentros
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunion

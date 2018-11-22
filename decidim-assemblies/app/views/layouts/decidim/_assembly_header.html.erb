@@ -1,8 +1,10 @@
-<div class="process-header row column">
-  <div class="row column process-header__main"
-       style="background-image:url(<%= current_participatory_space.banner_image.url %>);">
-    <div class="process-header__container row">
-      <div class="columns mediumlarge-9 process-header__info">
+<div class="process-header">
+  <div class="process-header__inner">
+    <div class="row column process-header__main"
+        style="background-image:url(<%= current_participatory_space.banner_image.url %>);">
+    </div>
+    <div class="process-header__container row collapse column">
+      <div class="columns mediumlarge-8 process-header__info">
         <div>
           <h1 class="text-highlight heading2">
             <%= translated_attribute(current_participatory_space.title) %>
@@ -21,53 +23,5 @@
       </div>
     </div>
   </div>
-  <% if current_participatory_space.components.any? || current_participatory_space.members.not_ceased.any? %>
-    <div class="row column">
-      <div class="process-nav">
-        <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
-          <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
-            <div class="process-nav__link">
-            <% if self.try(:current_component) %>
-                <%= component_icon(current_component) %>
-                <%= translated_attribute(current_component.name) %>
-            <% else %>
-                <%= icon "assembly" %>
-                <%= t ".assembly_menu_item" %>
-            <% end %>
-            </div>
-        </button>
-        <div class="row column process-nav__content is-active" id="process-nav-content" data-toggler=".is-active">
-          <ul>
-            <li class="<%= "is-active" if is_active_link?(decidim_assemblies.assembly_path(current_participatory_space), :exclusive) %>">
-              <%= active_link_to decidim_assemblies.assembly_path(current_participatory_space), active: :exclusive, class: "process-nav__link", class_active: "is-active" do %>
-                <%= external_icon "decidim/assemblies/assembly.svg" %>
-                <%= t ".assembly_menu_item" %>
-              <% end %>
-            </li>
-
-            <% if current_participatory_space.members.not_ceased.any? %>
-              <li class="<%= "is-active" if is_active_link?(decidim_assemblies.assembly_assembly_members_path(current_participatory_space), :inclusive) %>">
-                <%= active_link_to decidim_assemblies.assembly_assembly_members_path(current_participatory_space), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
-                  <%= icon("members") %>
-                  <%= t ".assembly_member_menu_item" %>
-                <% end %>
-              </li>
-            <% end %>
-
-            <% current_participatory_space.components.each do |component| %>
-              <% if component.published? || component == self.try(:current_component) %>
-                <li class="<%= "is-active" if is_active_link?(main_component_path(component), :inclusive) %>">
-                  <%= active_link_to main_component_path(component), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
-                    <%= component_icon(component) %>
-
-                    <%= translated_attribute(component.name) %>
-                  <% end %>
-                </li>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render partial: "layouts/decidim/assembly_navigation", locals: { participatory_space: current_participatory_space } %>
 </div>

@@ -7,9 +7,11 @@ module Decidim
       # Initializes a JoinConference Command.
       #
       # conference - The current instance of the conference to be joined.
+      # registration_type - The registration type selected to attend the conference
       # user - The user joining the conference.
-      def initialize(conference, user)
+      def initialize(conference, registration_type, user)
         @conference = conference
+        @registration_type = registration_type
         @user = user
       end
 
@@ -23,7 +25,7 @@ module Decidim
           create_registration
           create_meetings_registrations
           accept_invitation
-          send_email_confirmation
+          send_email_pending_validation
           send_notification
         end
         broadcast(:ok)
@@ -38,12 +40,12 @@ module Decidim
       end
 
       def create_registration
-        Decidim::Conferences::ConferenceRegistration.create!(conference: conference, user: user)
+        Decidim::Conferences::ConferenceRegistration.create!(conference: conference, user: user, registration_type: @registration_type)
       end
 
       def create_meetings_registrations
         published_meeting_components = Decidim::Component.where(participatory_space: conference).where(manifest_name: "meetings").published
-        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components)
+        meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id))
 
         meetings.each do |meeting|
           Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
@@ -54,8 +56,8 @@ module Decidim
         conference.registrations_enabled? && conference.has_available_slots?
       end
 
-      def send_email_confirmation
-        Decidim::Conferences::ConferenceRegistrationMailer.confirmation(user, conference).deliver_later
+      def send_email_pending_validation
+        Decidim::Conferences::ConferenceRegistrationMailer.pending_validation(user, conference, @registration_type).deliver_later
       end
 
       def participatory_space_admins
