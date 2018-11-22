@@ -42,6 +42,9 @@ gl:
       decidim/conference_speaker:
         one: Conferenciante de conferencias
         other: Conferenciantes de conferencias
+      decidim/conference_user_role:
+        one: Non hai roles de usuarios de conferencias
+        other: Funcións do usuario da conferencia
   decidim:
     admin:
       actions:
