@@ -34,7 +34,7 @@ if !Rails.env.production? || ENV["SEED"]
     users_registration_mode: :enabled,
     tos_version: Time.current,
     badges_enabled: true,
-    send_welcome_email: true
+    send_welcome_notification: true
   )
 
   if organization.top_scopes.none?
