@@ -42,6 +42,9 @@ hu:
       decidim/conference_speaker:
         one: Konferencia hangszóró
         other: Konferencia hangszórók
+      decidim/conference_user_role:
+        one: Nincs konferenciahasználati szerep
+        other: Konferencia felhasználói szerepkörök
   decidim:
     admin:
       actions:
