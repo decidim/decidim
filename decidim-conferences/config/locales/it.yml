@@ -43,7 +43,7 @@ it:
         one: Relatore della conferenza
         other: Oratori della conferenza
       decidim/conference_user_role:
-        one: Nessun ruolo utente della conferenza
+        one: Un ruolo utente di conferenza
         other: Ruoli utente della conferenza
   decidim:
     admin:
