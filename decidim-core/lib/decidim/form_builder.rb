@@ -44,7 +44,7 @@ module Decidim
         )
       end
 
-      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+      tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
         field_label = label_i18n(name, options[:label] || label_for(name))
@@ -57,7 +57,7 @@ module Decidim
                 title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
                 element_class = nil
                 element_class = "is-tab-error" if error?(name_with_locale(name, locale))
-                tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+                tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
                 content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
               end
             end
@@ -94,7 +94,7 @@ module Decidim
     #
     # Renders form fields for each locale.
     def social_field(type, name, handlers, options = {})
-      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+      tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
         field_label = label_i18n(name, options[:label] || label_for(name))
@@ -105,7 +105,7 @@ module Decidim
             handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.t(".#{handler}", scope: "activemodel.attributes.#{object_name}")
-                tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+                tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
                 content_tag(:a, title, href: "##{tab_content_id}")
               end
             end
@@ -117,7 +117,7 @@ module Decidim
 
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
-          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+          tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
             send(type, "#{handler}_handler", options.merge(label: false))
           end
@@ -605,6 +605,10 @@ module Decidim
 
     def ruby_format_to_datepicker(ruby_date_format)
       ruby_date_format.gsub("%d", "dd").gsub("%m", "mm").gsub("%Y", "yyyy").gsub("%H", "hh").gsub("%M", "ii")
+    end
+
+    def sanitize_tabs_selector(id)
+      id.tr("[", "-").tr("]", "-")
     end
   end
 end
