@@ -17,11 +17,4 @@ shared_examples "accept amendment" do
     expect(amendable.coauthorships.count).to eq(2)
     expect(amendable.authored_by?(emendation.creator_author)).to eq(true)
   end
-
-  it "notifies the authors and followers of the amendable resource" do
-    command.call
-
-    expect(Decidim::EventsManager)
-    .to receive(:publish)
-  end
 end
