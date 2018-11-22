@@ -42,6 +42,9 @@ fi:
       decidim/conference_speaker:
         one: Konferenssin puhuja
         other: Konferenssin puhujat
+      decidim/conference_user_role:
+        one: Ei konferenssin käyttäjän rooleja
+        other: Konferenssin käyttäjäroolit
   decidim:
     admin:
       actions:
