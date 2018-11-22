@@ -9,6 +9,7 @@ en:
         about: About
         email: Your email
         name: Your name
+        nickname: Nickname
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
@@ -34,6 +35,9 @@ en:
         password_confirmation: Password confirmation
         remember_me: Remember me
     models:
+      decidim/user:
+        one: No users
+        other: Users
       decidim/user_group:
         one: User group
         other: User groups
@@ -194,6 +198,9 @@ en:
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
     collapsible_list:
+      hidden_elements_count:
+        one: and %{count} more
+        other: and %{count} more
       see_less: "(see less)"
       see_more: "(see more)"
     components:
@@ -564,6 +571,13 @@ en:
       update:
         error: There has been a problem updating the group
         success: Group updated successfully
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
+          title: What can I do in %{organization}?
+        description: Read more about %{organization}
+        title: General Help
     last_activities:
       activities:
         no_activities_warning: No activity
