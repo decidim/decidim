@@ -42,6 +42,9 @@ eu:
       decidim/conference_speaker:
         one: Hitzaldi hizlaria
         other: Hitzaldi hiztunak
+      decidim/conference_user_role:
+        one: Kongresuaren erabiltzailearen rolarik ez
+        other: Konferentzia erabiltzailearen rolak
   decidim:
     admin:
       actions:
