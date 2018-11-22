@@ -6,7 +6,7 @@ module Decidim
       mimic :dummy_resource
 
       attribute :title, String
-     
+
       validate :title, presence: true
     end
   end
