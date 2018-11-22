@@ -108,6 +108,7 @@ end
 - **decidim-participatory_processes**: Don't filter highlighted processes by state [\#4502](https://github.com/decidim/decidim/pull/4502)
 - **decidim-participatory_processes**: Don't show grouped processes in the process list[\#4503](https://github.com/decidim/decidim/pull/4503)
 - **decidim-core**: Fix notification settings form [\#4528](https://github.com/decidim/decidim/pull/4528)
+- **decidim-proposals**: Fix vote-rerendering on a proposal's page [#4557](https://github.com/decidim/decidim/pull/4557)
 
 **Removed**:
 
