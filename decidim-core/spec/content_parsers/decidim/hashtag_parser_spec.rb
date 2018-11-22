@@ -27,6 +27,12 @@ module Decidim
 
     it_behaves_like "find and stores the hashtags references"
 
+    context "when content hashtag doesn't match existing case" do
+      let(:content) { "This text contains a hashtag present on DB: ##{hashtag.name.upcase}" }
+
+      it_behaves_like "find and stores the hashtags references"
+    end
+
     context "when contents has a new hashtag" do
       let(:hashtag) { Decidim::Hashtag.find_by(organization: organization, name: name) }
       let(:content) { "This text contains a hashtag not present on DB: ##{name}" }
@@ -53,10 +59,16 @@ module Decidim
 
     context "when content contains the same new hashtag twice" do
       let(:hashtag) { Decidim::Hashtag.find_by(organization: organization, name: name) }
-      let(:content) { "This text contains a hashtag present on DB twice: ##{name} and ##{name}" }
-      let(:parsed_content) { "This text contains a hashtag present on DB twice: #{hashtag.to_global_id} and #{hashtag.to_global_id}" }
+      let(:content) { "This text contains a hashtag not present on DB twice: ##{name} and ##{name}" }
+      let(:parsed_content) { "This text contains a hashtag not present on DB twice: #{hashtag.to_global_id} and #{hashtag.to_global_id}" }
 
       it_behaves_like "find and stores the hashtags references"
+
+      context "when written with different case" do
+        let(:content) { "This text contains a hashtag not present on DB twice: ##{name.downcase} and ##{name.upcase}" }
+
+        it_behaves_like "find and stores the hashtags references"
+      end
     end
 
     context "when content contains non-hash characters next to the hashtag name" do
