@@ -25,7 +25,7 @@ module Decidim
       # @return [String] the content with the hashtags replaced by global ids
       def rewrite
         content.gsub(HASHTAG_REGEX) do |match|
-          hashtag(match[1..-1]).to_global_id.to_s
+          hashtag(match[1..-1]).to_global_id.to_s + "/" + match[1..-1]
         end
       end
 

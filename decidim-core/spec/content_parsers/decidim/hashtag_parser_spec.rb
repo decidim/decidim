@@ -11,7 +11,7 @@ module Decidim
     let(:parser) { described_class.new(content, context) }
 
     let(:content) { "This text contains a hashtag present on DB: ##{hashtag.name}" }
-    let(:parsed_content) { "This text contains a hashtag present on DB: #{hashtag.to_global_id}" }
+    let(:parsed_content) { "This text contains a hashtag present on DB: #{hashtag.to_global_id}/#{hashtag.name}" }
     let(:metadata_hashtags) { [hashtag] }
 
     shared_examples "find and stores the hashtags references" do
@@ -29,6 +29,7 @@ module Decidim
 
     context "when content hashtag doesn't match existing case" do
       let(:content) { "This text contains a hashtag present on DB: ##{hashtag.name.upcase}" }
+      let(:parsed_content) { "This text contains a hashtag present on DB: #{hashtag.to_global_id}/#{hashtag.name.upcase}" }
 
       it_behaves_like "find and stores the hashtags references"
     end
@@ -36,7 +37,7 @@ module Decidim
     context "when contents has a new hashtag" do
       let(:hashtag) { Decidim::Hashtag.find_by(organization: organization, name: name) }
       let(:content) { "This text contains a hashtag not present on DB: ##{name}" }
-      let(:parsed_content) { "This text contains a hashtag not present on DB: #{hashtag.to_global_id}" }
+      let(:parsed_content) { "This text contains a hashtag not present on DB: #{hashtag.to_global_id}/#{hashtag.name}" }
 
       it_behaves_like "find and stores the hashtags references"
     end
@@ -45,7 +46,7 @@ module Decidim
       let(:new_hashtag) { Decidim::Hashtag.find_by(organization: organization, name: "a_new_one") }
       let(:hashtag2) { create(:hashtag, organization: organization) }
       let(:content) { "This text contains multiple hashtag presents: #a_new_one, ##{hashtag.name} and ##{hashtag2.name}" }
-      let(:parsed_content) { "This text contains multiple hashtag presents: #{new_hashtag.to_global_id}, #{hashtag.to_global_id} and #{hashtag2.to_global_id}" }
+      let(:parsed_content) { "This text contains multiple hashtag presents: #{new_hashtag.to_global_id}/#{new_hashtag.name}, #{hashtag.to_global_id}/#{hashtag.name} and #{hashtag2.to_global_id}/#{hashtag2.name}" }
       let(:metadata_hashtags) { [new_hashtag, hashtag, hashtag2] }
 
       it_behaves_like "find and stores the hashtags references"
@@ -60,12 +61,13 @@ module Decidim
     context "when content contains the same new hashtag twice" do
       let(:hashtag) { Decidim::Hashtag.find_by(organization: organization, name: name) }
       let(:content) { "This text contains a hashtag not present on DB twice: ##{name} and ##{name}" }
-      let(:parsed_content) { "This text contains a hashtag not present on DB twice: #{hashtag.to_global_id} and #{hashtag.to_global_id}" }
+      let(:parsed_content) { "This text contains a hashtag not present on DB twice: #{hashtag.to_global_id}/#{hashtag.name} and #{hashtag.to_global_id}/#{hashtag.name}" }
 
       it_behaves_like "find and stores the hashtags references"
 
       context "when written with different case" do
         let(:content) { "This text contains a hashtag not present on DB twice: ##{name.downcase} and ##{name.upcase}" }
+        let(:parsed_content) { "This text contains a hashtag not present on DB twice: #{hashtag.to_global_id}/#{hashtag.name.downcase} and #{hashtag.to_global_id}/#{hashtag.name.upcase}" }
 
         it_behaves_like "find and stores the hashtags references"
       end
@@ -73,7 +75,7 @@ module Decidim
 
     context "when content contains non-hash characters next to the hashtag name" do
       let(:content) { "You can't add some characters to hashtags: ##{hashtag.name}+extra" }
-      let(:parsed_content) { "You can't add some characters to hashtags: #{hashtag.to_global_id}+extra" }
+      let(:parsed_content) { "You can't add some characters to hashtags: #{hashtag.to_global_id}/#{hashtag.name}+extra" }
 
       it_behaves_like "find and stores the hashtags references"
     end

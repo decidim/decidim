@@ -6,13 +6,36 @@ module Decidim
   describe ContentRenderers::HashtagRenderer do
     let(:hashtag) { create(:hashtag) }
     let(:renderer) { described_class.new(content) }
-    let(:presenter) { Decidim::HashtagPresenter.new(hashtag) }
+    let(:presenter) { Decidim::HashtagPresenter.new(hashtag, cased_name: name) }
+    let(:name) { hashtag.name }
+    let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}/#{name}" }
+    let(:result) { %(This text contains a valid Decidim::Hashtag Global ID: <a target="_blank" class="hashtag-mention" href="/search?term=%23#{name}">##{name}</a>) }
 
-    context "when content has a valid Decidim::Hashtag Global ID" do
+    it "renders the hashtagging" do
+      expect(renderer.render).to eq(result)
+    end
+
+    context "when cased_name is not received" do
+      let(:presenter) { Decidim::HashtagPresenter.new(hashtag) }
+
+      it "renders the hashtagging" do
+        expect(renderer.render).to eq(result)
+      end
+    end
+
+    context "when parsed hashtag doesn't include the casing part" do
       let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}" }
 
       it "renders the hashtagging" do
-        expect(renderer.render).to eq(%(This text contains a valid Decidim::Hashtag Global ID: <a target="_blank" class="hashtag-mention" href="/search?term=%23#{hashtag.name}">##{hashtag.name}</a>))
+        expect(renderer.render).to eq(result)
+      end
+    end
+
+    context "when hashtag has upper case letters" do
+      let(:name) { hashtag.name.capitalize }
+
+      it "renders the hashtagging" do
+        expect(renderer.render).to eq(result)
       end
     end
 
