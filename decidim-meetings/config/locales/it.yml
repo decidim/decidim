@@ -272,6 +272,9 @@ it:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
             registration_form: Formulario di registrazione
+            registrations_count:
+              one: Ci sono state %{count} registrazioni.
+              other: Ci sono state %{count} registrazioni.
             reserved_slots_help: Lasciare a 0 se non si dispone di slot riservati
             reserved_slots_less_than: Deve essere minore o uguale a %{count}
           update:
@@ -358,6 +361,9 @@ it:
           meeting_report: Rapporto della riunione
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
+          remaining_slots:
+            one: '%{count} slot rimanenti'
+            other: "%{count} slot rimanenti"
           view: vista
       meetings_map:
         view_meeting: Guarda la riunione
