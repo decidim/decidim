@@ -42,9 +42,6 @@ es-PY:
       decidim/conference_speaker:
         one: Conferenciante
         other: Conferenciantes
-      decidim/conference_user_role:
-        one: Papel de usuario de conferencia
-        other: Roles de usuario de conferencia
   decidim:
     admin:
       actions:
