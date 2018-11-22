@@ -273,7 +273,7 @@ sv:
             invites: Inbjudningar
             registration_form: Anmälningsblankett
             registrations_count:
-              one: Det har gjorts %{count} registreringar.
+              one: Det har varit %{count} registrering.
               other: Det har gjorts %{count} registreringar.
             reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
