@@ -9,7 +9,7 @@ es-PY:
         about: Acerca de
         email: Tu correo electrónico
         name: Tu nombre
-        nickname: Su identificador, corto y único
+        nickname: Apodo
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
@@ -36,7 +36,7 @@ es-PY:
         remember_me: Recuérdame
     models:
       decidim/user:
-        one: Usuario
+        one: No hay usuarios
         other: Usuarios
       decidim/user_group:
         one: Grupo de usuarios
@@ -199,7 +199,7 @@ es-PY:
           title: Confirma tu email
     collapsible_list:
       hidden_elements_count:
-        one: y 1 más
+        one: y %{count} más
         other: y %{count} más
       see_less: "(ver menos)"
       see_more: "(ver más)"
@@ -567,6 +567,13 @@ es-PY:
       update:
         error: Ha habido un problema al actualizar el grupo.
         success: Grupo actualizado exitosamente
+    help:
+      main_topic:
+        default_page:
+          content: "<p>En %{organization} puede participar y decidir sobre diferentes temas, a través de los espacios que ve en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada una encontrará diferentes opciones para participar: hacer propuestas, individualmente o con otras personas, participar en debates, priorizar proyectos para implementar, asistir a reuniones cara a cara y otras acciones.</p>\n"
+          title: '¿Qué puedo hacer en %{organization}?'
+        description: Leer más sobre %{organization}
+        title: Ayuda general
     last_activities:
       activities:
         no_activities_warning: Ninguna actividad

@@ -9,7 +9,7 @@ fi:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
         name: Nimesi
-        nickname: Oma yksilöllinen käyttäjätunnuksesi
+        nickname: Nimimerkki
         password: Salasana
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
@@ -36,8 +36,8 @@ fi:
         remember_me: Muista minut
     models:
       decidim/user:
-        one: Käyttäjä
-        other: Käyttäjät
+        one: Ei käyttäjiä
+        other: käyttäjät
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
@@ -199,8 +199,8 @@ fi:
           title: Vahvista sähköpostiosoitteesi
     collapsible_list:
       hidden_elements_count:
-        one: ja 1 lisää
-        other: ja %{count} lisää
+        one: ja vielä %{count}
+        other: ja vielä %{count}
       see_less: "(näytä vähemmän)"
       see_more: "(näytä enemmän)"
     components:
@@ -567,6 +567,13 @@ fi:
       update:
         error: Ryhmää päivitettäessä esiintyi ongelma
         success: Ryhmä päivitettiin onnistuneesti
+    help:
+      main_topic:
+        default_page:
+          content: "<p> %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien tilojen kautta: Prosessit, kokoonpanot, aloitteet, neuvottelut.</p> <p>Jokaisessa vaihtoehdossa voit osallistua: tehdä ehdotuksia - erikseen tai muiden ihmisten - kanssa, osallistua keskusteluihin, priorisoida toteutettavat projektit, osallistua henkilökohtaisiin tapaamisiin ja muihin toimiin.</p>\n"
+          title: Mitä voin tehdä %{organization}?
+        description: Lue lisää %{organization}
+        title: Yleisiä ohjeita
     last_activities:
       activities:
         no_activities_warning: Ei toimintaa

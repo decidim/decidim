@@ -1,17 +1,5 @@
 <div class="filters">
   <div class="filters__section">
-    <form class="filters__search">
-      <div class="input-group">
-        <input class="input-group-field" type="search" placeholder="Buscar" />
-        <div class="input-group-button">
-          <button type="submit" class="button button--muted">
-            <%= icon "magnifying-glass", aria_label: "Buscar", role: "img" %>
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="filters__section">
     <form>
       <fieldset>
         <legend>
@@ -57,26 +45,6 @@
   <div class="filters__section">
     <form>
       <fieldset>
-        <legend><h6 class="heading6">Àmbit</h6></legend>
-          <select class="select2" multiple="multiple">
-            <option value="all">Tota la ciutat</option>
-            <option value="ciutatvella">Ciutat Vella</option>
-            <option value="eixample">Eixample</option>
-            <option value="sants">Sants Montjuïc</option>
-            <option value="corts">Les Corts</option>
-            <option value="sarria">Sarrià - Sant Gervasi</option>
-            <option value="gracia">Gràcia</option>
-            <option value="horta">Horta - Guinardó</option>
-            <option value="noubarris">Nou Barris</option>
-            <option value="standreu">Sant Andreu</option>
-            <option value="stmarti">Sant Martí</option>
-          </select>
-      </fieldset>
-    </form>
-  </div>
-  <div class="filters__section">
-    <form>
-      <fieldset>
         <legend>
           <h6 class="heading6">
             Eix
@@ -101,5 +69,8 @@
         <label><input id="" type="checkbox" />Debatudes a cites presencials</label>
       </fieldset>
     </form>
+  </div>
+  <div class="filters__section">
+    <%= partial "scope" %>
   </div>
 </div>
