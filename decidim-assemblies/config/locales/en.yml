@@ -319,12 +319,6 @@ en:
         designated_on: Designated on
       index:
         title: Members
-    help:
-      participatory_spaces:
-        assemblies:
-          contextual: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
-          page: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
-          title: What are assemblies?
     log:
       value_types:
         assembly_presenter:
@@ -347,10 +341,6 @@ en:
           organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
           reset_chart: Reset
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} assemblies"
-            other: "%{count} assemblies"
         promoted_assembly:
           more_info: More info
           take_part: Take part
