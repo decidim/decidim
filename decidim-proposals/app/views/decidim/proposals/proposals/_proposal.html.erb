@@ -1,1 +1,5 @@
-<%= card_for proposal, from: proposal %>
+<% if amendments_enabled? %>
+  <%= card_for proposal, from: proposal %>
+<% else %>
+  <%= card_for proposal, from: proposal if !proposal.emendation? %>
+<% end %>
