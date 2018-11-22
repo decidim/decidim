@@ -42,9 +42,6 @@ ca:
       decidim/conference_speaker:
         one: Ponent de la conferència
         other: Ponents de la conferència
-      decidim/conference_user_role:
-        one: Rol d'usuari de la conferència
-        other: Rols d'usuari de la conferència
   decidim:
     admin:
       actions:
