@@ -1,1 +1,19 @@
-<%= t("decidim.search.results_found_for_term", count: @results_count, term: term) %>
+<div class="row">
+  <div class="columns mediumlarge-4 large-3">
+    <h2 class="section-heading">
+      <%= t("decidim.search.results_found_for_term", count: @results_count, term: term) %>
+    </h2>
+  </div>
+  <div class="columns mediumlarge-8 large-9">
+    <div>
+      <div class="input-group">
+        <input id="input-search" class="input-group-field" type="search" placeholder="Buscar" />
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: "Buscar", role: "img" %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
