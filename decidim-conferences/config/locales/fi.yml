@@ -43,7 +43,7 @@ fi:
         one: Konferenssin puhuja
         other: Konferenssin puhujat
       decidim/conference_user_role:
-        one: Ei konferenssin käyttäjän rooleja
+        one: Konferenssin käyttäjärooli
         other: Konferenssin käyttäjäroolit
   decidim:
     admin:
