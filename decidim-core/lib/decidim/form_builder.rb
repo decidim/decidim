@@ -72,9 +72,7 @@ module Decidim
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
             if options[:hashtaggable]
-              content_tag(:div, class: "hashtags__container") do
-                send(type, name_with_locale(name, locale), options.merge(label: false))
-              end
+              hashtaggable_text_field(type, name, locale, options)
             else
               send(type, name_with_locale(name, locale), options.merge(label: false))
             end
@@ -83,6 +81,23 @@ module Decidim
       end
 
       safe_join [label_tabs, tabs_content]
+    end
+
+    # Public: Generates a field for hashtaggable type.
+    # type - The form field's type, like `text_area` or `text_input`
+    # name - The name of the field
+    # handlers - The social handlers to be created
+    # options - The set of options to send to the field
+    #
+    # Renders form fields for each locale.
+    def hashtaggable_text_field(type, name, locale, options = {})
+      content_tag(:div, class: "hashtags__container") do
+        if options[:value]
+          send(type, name_with_locale(name, locale), options.merge(label: false, value: options[:value][locale]))
+        else
+          send(type, name_with_locale(name, locale), options.merge(label: false))
+        end
+      end
     end
 
     # Public: Generates an form field for each social.
