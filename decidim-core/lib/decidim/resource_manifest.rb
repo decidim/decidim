@@ -36,8 +36,6 @@ module Decidim
     # The main card to render an instance of the resource.
     attribute :card, String
 
-    validates :model_class_name, :route_name, :name, presence: true
-
     # Actions are used to validate permissions of a resource against particular
     # authorizations or potentially other authorization rules.
     #
@@ -47,6 +45,8 @@ module Decidim
     # generate a UI to handle them. There's a set of controller helpers available
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
+
+    validates :model_class_name, :route_name, :name, presence: true
 
     # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to the
     # given component. This way you can find resources from another engine without
