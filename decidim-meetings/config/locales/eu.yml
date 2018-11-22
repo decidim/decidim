@@ -272,6 +272,9 @@ eu:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
             registration_form: Izena emateko inprimakia
+            registrations_count:
+              one: Dena den, %{count} matrikulazioak.
+              other: Dena den, %{count} matrikulazioak.
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
           update:
@@ -358,6 +361,9 @@ eu:
           meeting_report: Topaketaren txostena
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
+          remaining_slots:
+            one: '%{count} slot geratzen da'
+            other: "%{count} slot geratzen dira"
           view: ikusi
       meetings_map:
         view_meeting: Ikusi bilera
