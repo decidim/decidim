@@ -30,7 +30,7 @@ module Decidim
 
       def render_without_link
         if content.is_a?(Hash)
-          content.each_with_object do |(locale, string), parsed_content|
+          content.each_with_object({}) do |(locale, string), parsed_content|
             parsed_content[locale] = replace_hashtag_gid_with_hashtag_name(string)
           end
         else
