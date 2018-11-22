@@ -42,6 +42,9 @@ de:
       decidim/conference_speaker:
         one: Konferenzsprecher
         other: Konferenzsprecher
+      decidim/conference_user_role:
+        one: Keine Konferenzbenutzerrollen
+        other: Benutzerrollen der Konferenz
   decidim:
     admin:
       actions:
