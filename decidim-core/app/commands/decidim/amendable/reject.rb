@@ -48,14 +48,14 @@ module Decidim
       end
 
       def notify_emendation_authors_and_followers
-        # # not implemented - to do!
-        # recipients = @emendation.authors + @emendation.followers
-        # Decidim::EventsManager.publish(
-        #   event: "decidim.events.amends.amendment_rejected",
-        #   event_class: Decidim::AmendmentRejectedEvent,
-        #   resource: @emendation,
-        #   recipient_ids: recipients.pluck(:id)
-        # )
+        recipients = @emendation.authors + @emendation.followers
+        recipients += @amendable.authors + @amendable.followers
+        Decidim::EventsManager.publish(
+          event: "decidim.events.amendments.amendment_rejected",
+          event_class: Decidim::Amendable::AmendmentRejectedEvent,
+          resource: @emendation,
+          recipient_ids: recipients.pluck(:id)
+        )
       end
     end
   end

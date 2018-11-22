@@ -24,7 +24,6 @@ module Decidim::Amendable
     end
 
     def reject_button
-<<<<<<< HEAD
       button_content = icon "thumb-down"
       button_content += t(:button_reject, scope: "decidim.amendments.emendation.actions")
       button_class = "button alert hollow expanded button--icon button--sc"
@@ -34,12 +33,6 @@ module Decidim::Amendable
         button_tag type: "submit", class: button_class, data: { disable: true } do
           button_content
         end
-=======
-      link_to "#reject", class: "button alert hollow expanded button--icon button--sc" do
-        content = icon "thumb-down"
-        content += t(:button_reject, scope: "decidim.amendments.emendation.actions")
-        content
->>>>>>> 8cb61da9aea2ad09b0ae7edde83cbf2f263a059d
       end
     end
 
