@@ -107,6 +107,7 @@ end
 - **decidim-participatory_processes**: Don't filter highlighted processes by state [\#4502](https://github.com/decidim/decidim/pull/4502)
 - **decidim-participatory_processes**: Don't show grouped processes in the process list[\#4503](https://github.com/decidim/decidim/pull/4503)
 - **decidim-core**: Fix notification settings form [\#4528](https://github.com/decidim/decidim/pull/4528)
+- **decidim-core**: Fix tabs with inputs with invalid characters [\#4552](https://github.com/decidim/decidim/pull/4552)
 
 **Removed**:
 
