@@ -278,11 +278,6 @@ pl:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invites: Zaprasza
             registration_form: Formularz rejestracyjny
-            registrations_count:
-              one: Została 1 rejestracja.
-              few: Rejestrowano %{count}.
-              many: Zarejestrowano %{count} rejestracji.
-              other: Rejestrowano %{count}.
             reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
           update:
@@ -369,11 +364,6 @@ pl:
           meeting_report: Notatka ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
-          remaining_slots:
-            one: Pozostało 1 gniazdo
-            few: "Pozostało %{count}"
-            many: "Pozostało %{count} gniazd"
-            other: "Pozostało %{count}"
           view: Widok
       meetings_map:
         view_meeting: Zobacz spotkanie
