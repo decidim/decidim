@@ -659,7 +659,7 @@ fi:
         hide: Piilota
         not_hidden: Näkyvillä
         title: Toiminnot
-        unreport: Poista raportointi
+        unreport: Poista ilmoitus
       admin:
         reportable:
           hide:
