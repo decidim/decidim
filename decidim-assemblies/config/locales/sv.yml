@@ -341,10 +341,6 @@ sv:
           organizational_chart: Organisationsschema
           promoted_assemblies: Markerade möten
           reset_chart: Återställ
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} möte"
-            other: "%{count} möten"
         promoted_assembly:
           more_info: Mer information
           take_part: Delta
