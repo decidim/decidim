@@ -315,7 +315,7 @@ fi:
         dashboard: Hallintapaneeli
         help_sections: Ohjeosiot
         homepage: Kotisivu
-        impersonations: Käyttäjänä esiintymiset
+        impersonations: Esiintymiset toisena käyttäjänä
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         participants: Osallistujat
@@ -606,8 +606,8 @@ fi:
         areas: Alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
-        impersonatable_users: Toisena käyttäjänä esitettävät käyttäjät
-        impersonations: Esiintymiset käyttäjinä
+        impersonatable_users: Käyttäjien puolesta tehdyt istunnot
+        impersonations: Esiintymiset toisena käyttäjänä
         participants: Osallistujat
         scope_types: Teematyypit
         scopes: Teemat
