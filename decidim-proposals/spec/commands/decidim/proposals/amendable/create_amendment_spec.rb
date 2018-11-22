@@ -11,7 +11,7 @@ module Decidim
       end
       let!(:user) { create :user, :confirmed, organization: component.organization }
       let!(:amendable) { create(:proposal, component: component) }
-      let(:command) { Decidim::Amendable::Create.new(form) }
+      let(:command) { described_class.new(form) }
 
       let(:form) do
         Decidim::Amendable::CreateForm.from_params(form_params).with_context(form_context)
