@@ -361,6 +361,9 @@ ca:
           meeting_report: Informe de la trobada
           no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
+          remaining_slots:
+            one: '%{count} espai restant'
+            other: "%{count} places restants restants"
           view: Veure
       meetings_map:
         view_meeting: Veure trobada
