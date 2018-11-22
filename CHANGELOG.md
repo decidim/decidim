@@ -108,6 +108,7 @@ Decidim::User.where(**search for old subscribed users**).update(newsletter_notif
 - **decidim-initiatives**: Fix initiative search with multiple types [\#4322](https://github.com/decidim/decidim/pull/4322)
 - **decidim-debates**: Fix debate search with categories [\4313](https://github.com/decidim/decidim/pull/4313)
 - **decidim-core**: Fix events for polymorphic authors [\#4387](https://github.com/decidim/decidim/pull/4387)
+- **decidim-proposals**: Fix vote-rerendering on a proposal's page [#4558](https://github.com/decidim/decidim/pull/4558)
 
 **Removed**:
 
