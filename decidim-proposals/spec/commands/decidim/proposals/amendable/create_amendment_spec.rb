@@ -40,7 +40,7 @@ module Decidim
         }
       end
 
-      include_examples "amendment creation"
+      include_examples "create amendment"
     end
   end
 end
