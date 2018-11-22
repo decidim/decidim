@@ -251,7 +251,7 @@ fi:
         consultations:
           contextual: "<p>Neuvottelut ovat tilaa, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation muodostaville ihmisille, soittaa kutsuun osallistua kuulemiseen, herättää kipinöitä ja järjestää keskustelu vastauksesta tai vastauksesta. Kun kuulemispäivämäärä saapuu, voit äänestää ja julkaista äänestyksen tulokset.</p> <p>Esimerkkejä: Neuvottelut voivat olla noin lähes kaikki osa, joka vaikuttaa organisaation: esimerkkejä muuttuvat nimi tai logo organisaation tarjoaa useita vaihtoehtoja, päätetään Kyllä tai Ei tulla osa laajempaa organisaatiota, validointi tai hylkääminen uuden strategisen suunnitelma tai työryhmän tulos tai määritetään, pitäisikö kantojen olla enintään 1, 2 tai 3 toimeksiantoa.</p>\n"
           page: "<p>Neuvottelut ovat tilaa, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation muodostaville ihmisille, soittaa kutsuun osallistua kuulemiseen, herättää kipinöitä ja järjestää keskustelu vastauksesta tai vastauksesta. Kun kuulemispäivämäärä saapuu, voit äänestää ja julkaista äänestyksen tulokset.</p> <p>Esimerkkejä: Neuvottelut voivat olla noin lähes kaikki osa, joka vaikuttaa organisaation: esimerkkejä muuttuvat nimi tai logo organisaation tarjoaa useita vaihtoehtoja, päätetään Kyllä tai Ei tulla osa laajempaa organisaatiota, validointi tai hylkääminen uuden strategisen suunnitelma tai työryhmän tulos tai määritetään, pitäisikö kantojen olla enintään 1, 2 tai 3 toimeksiantoa.</p>ard organisaatiossa.</p>\n"
-          title: Mitä ovat neuvottelut?
+          title: Mitä ovat kuulemiset?
     menu:
       consultations: Kuulemiset
     pages:
