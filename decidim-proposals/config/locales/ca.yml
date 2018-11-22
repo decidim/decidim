@@ -408,8 +408,8 @@ ca:
           title: Completa el teu esborrany col·laboratiu
         count:
           drafts_count:
-            one: 1 esborrany col·laboratiu
-            other: "%{count} esborranys col·laboratius"
+            one: '%{count} esborrany de col·laboració'
+            other: "%{count} esborrany de col·laboració"
         create:
           error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
           success: S'ha creat un esborrany col·laboratiu.
@@ -463,7 +463,7 @@ ca:
           final_proposal: proposta final
           final_proposal_help_text: Aquest esborrany està finalitzat. Pots veure la proposta final
           hidden_authors_count:
-            one: i 1 persona més
+            one: i %{count} persones més
             other: i %{count} persones més
           info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar els seus autors a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un cop els autors et donin accés, podràs fer canvis en aquest esborrany.
           of_versions: "(de %{number})"
@@ -552,7 +552,7 @@ ca:
           title: Completa la teva proposta
         count:
           proposals_count:
-            one: 1 proposta
+            one: '%{count} proposta'
             other: "%{count} propostes"
         edit:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
@@ -620,7 +620,7 @@ ca:
           edit_proposal: Editar proposta
           endorsements_list: Llistat d'adhesions
           hidden_endorsers_count:
-            one: i 1 persona més
+            one: i %{count} persones més
             other: i %{count} persones més
           link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
           link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu

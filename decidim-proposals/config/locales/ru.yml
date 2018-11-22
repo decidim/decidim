@@ -285,12 +285,6 @@ ru:
         complete:
           send: Отправить
           title: Завершите свое предложение
-        count:
-          proposals_count:
-            one: 1 предложение
-            few: "%{count} предложения"
-            many: "%{count} предложений"
-            other: "%{count} предложений"
         edit:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
@@ -353,11 +347,6 @@ ru:
         show:
           edit_proposal: Редактировать предложение
           endorsements_list: Список тех, кто поддержал
-          hidden_endorsers_count:
-            one: и еще 1 человек
-            few: и еще %{count} человека
-            many: и еще %{count} человек
-            other: и еще %{count} человек
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'

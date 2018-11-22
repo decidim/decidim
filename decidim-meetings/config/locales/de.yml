@@ -273,8 +273,8 @@ de:
             invites: Lädt ein
             registration_form: Anmeldeformular
             registrations_count:
-              one: Es gab 1 Registrierung.
-              other: Es gab %{count} Registrierungen.
+              one: Es wurden %{count} Anmeldungen vorgenommen.
+              other: Es wurden %{count} Anmeldungen vorgenommen.
             reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
           update:
@@ -362,8 +362,8 @@ de:
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           remaining_slots:
-            one: 1 Steckplatz übrig
-            other: "%{count} freie Plätze"
+            one: '%{count} Slot bleibt übrig'
+            other: "Noch %{count} Slots"
           view: Aussicht
       meetings_map:
         view_meeting: Besprechung anzeigen

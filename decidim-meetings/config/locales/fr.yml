@@ -273,7 +273,7 @@ fr:
             invites: Invitations
             registration_form: Formulaire d'inscription
             registrations_count:
-              one: Il y a eu 1 inscription.
+              one: Il y a eu %{count} inscriptions.
               other: Il y a eu %{count} inscriptions.
             reserved_slots_help: Laissez à 0 si vous n'avez pas de places réservées
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
@@ -362,8 +362,8 @@ fr:
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           remaining_slots:
-            one: Il reste 1 place
-            other: "Il reste %{count} places"
+            one: '%{count} emplacement disponible'
+            other: "%{count} places disponibles"
           view: Voir
       meetings_map:
         view_meeting: Voir la réunion

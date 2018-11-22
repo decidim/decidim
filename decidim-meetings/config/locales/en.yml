@@ -273,7 +273,7 @@ en:
             invites: Invites
             registration_form: Registration form
             registrations_count:
-              one: There has been %{count} registrations.
+              one: There has been %{count} registration.
               other: There has been %{count} registrations.
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}

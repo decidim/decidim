@@ -273,7 +273,7 @@ nl:
             invites: Uitnodigingen
             registration_form: Registratieformulier
             registrations_count:
-              one: Er is 1 registratie geweest.
+              one: Er zijn %{count} registraties geweest.
               other: Er zijn %{count} registraties geweest.
             reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
             reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
@@ -362,8 +362,8 @@ nl:
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           remaining_slots:
-            one: 1 plaats resterend
-            other: "%{count} resterende plaatsen"
+            one: '%{count} slot over'
+            other: "%{count} slots over"
           view: Uitzicht
       meetings_map:
         view_meeting: Bekijk vergadering

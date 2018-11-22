@@ -739,6 +739,11 @@ $datetime-bg: $primary;
   font-weight: bold;
   position: absolute;
   background-color: transparent;
+  text-shadow:
+    -1px -1px 0 $card-bg,
+    1px -1px 0 $card-bg,
+    -1px 1px 0 $card-bg,
+    1px 1px 0 $card-bg;
   margin-top: ($global-margin * .6) * -1;
   margin-left: $card-padding-small;
   z-index: 0;
