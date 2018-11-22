@@ -92,9 +92,9 @@ en:
           notification_title: You have been mentioned in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: ''
         object: comments
         title: Comments
-        description: ''
   errors:
     messages:
       cannot_have_comments: can't have comments

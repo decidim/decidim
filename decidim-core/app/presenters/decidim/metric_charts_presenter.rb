@@ -40,10 +40,14 @@ module Decidim
 
     def render_metrics_data(metric_name, opts = {})
       content_tag :div, class: opts[:klass].presence || "column medium-6" do
-        concat content_tag(:h3, opts[:title], class: "heading3 text-uppercase text-muted")
-        concat content_tag(:p, opts[:description], class: "text-medium")
+        render_join_description(opts) if opts[:axis]
         render_metric_chart(metric_name, opts)
       end
+    end
+
+    def render_join_description(opts)
+      concat content_tag(:h3, opts[:title], class: "heading3 text-uppercase text-muted")
+      concat content_tag(:p, opts[:description], class: "text-medium")
     end
 
     def render_metric_chart(metric_name, opts = {})

@@ -40,7 +40,7 @@ module Decidim
                                 klass: "column medium-6", ratio: "16:9",
                                 axis: true, graph_klass: "small",
                                 title: I18n.t("decidim.metrics.#{metric_key}.title"),
-                                description: I18n.t("decidim.metrics.#{metric.metric_name}.title"))
+                                description: I18n.t("decidim.metrics.#{metric_key}.description"))
           end
         )
       end

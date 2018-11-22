@@ -328,9 +328,9 @@ en:
       assemblies: Assemblies
     metrics:
       assemblies:
+        description: ''
         object: assemblies
         title: Assemblies
-        description: ''
   errors:
     messages:
       cannot_be_blank: can not be blank

@@ -224,13 +224,15 @@ en:
           unearned_own: You have created no proposals yet.
     metrics:
       accepted_proposals:
+        description: ''
         object: proposals
         title: Accepted Proposals
-        description: ''
       proposals:
+        description: ''
         object: proposals
         title: Proposals
       votes:
+        description: ''
         object: votes
         title: Votes
     participatory_processes:
