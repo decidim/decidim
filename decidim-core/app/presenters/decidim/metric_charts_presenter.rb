@@ -40,32 +40,35 @@ module Decidim
 
     def render_metrics_data(metric_name, opts = {})
       content_tag :div, class: opts[:klass].presence || "column medium-6" do
-        render_join_description(opts) if opts[:axis]
         render_metric_chart(metric_name, opts)
       end
     end
 
-    def render_join_description(opts)
-      concat content_tag(:h3, opts[:title], class: "heading3 text-uppercase text-muted")
-      concat content_tag(:p, opts[:description], class: "text-medium")
+    def render_metrics_statistics(metric_name, opts = {})
+      content_tag :div, class: opts[:klass].presence || "column medium-6" do
+        concat content_tag(:h3, opts[:title], class: "heading3 text-uppercase text-muted")
+        concat content_tag(:p, opts[:description], class: "text-medium")
+        concat render_metric_chart(metric_name, opts)
+      end
     end
 
     def render_metric_chart(metric_name, opts = {})
-      concat content_tag :div,
-                         "",
-                         id: "#{metric_name}_chart",
-                         class: "areachart metric-chart #{opts[:graph_klass]}",
-                         style: opts[:margin],
-                         data: {
-                           chart: "areachart",
-                           metric: metric_name,
-                           ratio: (opts[:ratio]).to_s,
-                           axis: opts[:axis],
-                           tip: true,
-                           info: {
-                             title: I18n.t("decidim.metrics.#{metric_name}.title")
-                           }
-                         }
+      content_tag :div,
+                  "",
+                  id: "#{metric_name}_chart",
+                  class: "areachart metric-chart #{opts[:graph_klass]}",
+                  style: opts[:margin],
+                  data: {
+                    chart: "areachart",
+                    metric: metric_name,
+                    ratio: (opts[:ratio]).to_s,
+                    axis: opts[:axis],
+                    tip: true,
+                    info: {
+                      title: I18n.t("decidim.metrics.#{metric_name}.title"),
+                      object: I18n.t("decidim.metrics.#{metric_name}.object")
+                    }
+                  }
     end
   end
 end

@@ -22,9 +22,9 @@ module Decidim
       end
 
       def big_stats
-        # metric = Decidim.metrics_registry.for(:participants)
+        # Remember to change :users for :participants when done
         metric = Decidim.metrics_registry.for(:users) # Temporal use of Users metric to show chart
-        render_metrics_data(metric.metric_name,
+        render_metrics_statistics(metric.metric_name,
                             klass: "column medium-12",
                             ratio: "11:4",
                             axis: true, graph_klass: "small",
@@ -34,9 +34,9 @@ module Decidim
 
       def medium_stats
         safe_join(
-          # %i{proposals supports endorsements followers}.map do |metric|
-          [:proposals, :accepted_proposals, :votes, :meetings].map do |metric_key| # Temporal use of metrics to show charts
-            render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name,
+          # Remember to add :followers metric when done
+          [:proposals, :votes, :endorsements].map do |metric_key| # Temporal use of metrics to show charts
+            render_metrics_statistics(Decidim.metrics_registry.for(metric_key).metric_name,
                                 klass: "column medium-6", ratio: "16:9",
                                 axis: true, graph_klass: "small",
                                 title: I18n.t("decidim.metrics.#{metric_key}.title"),
@@ -47,10 +47,9 @@ module Decidim
 
       def small_stats
         safe_join(
-          # %i{accepted_proposals comments meetings debates survey_answers}.map do |metric_key|
-          [:participatory_processes, :assemblies, :comments, :results].map do |metric_key| # Temporal use of metrics to show charts
+          [:accepted_proposals, :meetings, :debates, :survey_answers, :comments].map do |metric_key|
             render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name,
-                                klass: "column medium-3",
+                                klass: "column medium-2",
                                 ratio: "16:9",
                                 margin: "margin-top: 30px",
                                 graph_klass: "small")

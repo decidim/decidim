@@ -4,15 +4,11 @@ require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes", type: :system do
-  let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let(:hashtag) { true }
   let(:base_process) do
     create(
       :participatory_process,
       organization: organization,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
       show_statistics: show_statistics
     )
   end
@@ -38,12 +34,12 @@ describe "Participatory Processes", type: :system do
       expect(page).to have_css(%(##{big_stat.metric_name}_chart))
       check_title_and_description(big_stat.metric_name)
       # MEDIUM CHARTS
-      [:proposals, :accepted_proposals, :votes, :meetings].each do |metric_key| # Temporal use of metrics to show charts
+      [:proposals, :votes, :endorsements].each do |metric_key| # Temporal use of metrics to show charts
         expect(page).to have_css(%(##{Decidim.metrics_registry.for(metric_key).metric_name}_chart))
         check_title_and_description(Decidim.metrics_registry.for(metric_key).metric_name)
       end
       # LITTLE CHARTS
-      [:participatory_processes, :assemblies, :comments, :results].each do |metric_key| # Temporal use of metrics to show charts
+      [:accepted_proposals, :meetings, :debates, :survey_answers, :comments].each do |metric_key| # Temporal use of metrics to show charts
         expect(page).to have_css(%(##{Decidim.metrics_registry.for(metric_key).metric_name}_chart))
       end
     end

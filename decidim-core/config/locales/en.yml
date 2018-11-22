@@ -635,7 +635,7 @@ en:
           error: Message not sent. Try again later
     metrics:
       users:
-        description: Loren ipsum
+        description: ''
         object: users
         title: Users
     newsletter_mailer:
