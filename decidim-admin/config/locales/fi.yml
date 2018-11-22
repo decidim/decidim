@@ -89,7 +89,7 @@ fi:
       static_page_topic:
         description: Kuvaus
         show_in_footer: Näytä alatunnisteessa
-        title: otsikko
+        title: Otsikko
         weight: Paino
     errors:
       models:
@@ -228,9 +228,9 @@ fi:
           title: Muokkaa komponenttia
           update: Päivitä
         form:
-          default_step_settings: Vaiheen oletusasetukset
+          default_step_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
-          step_settings: Vaiheen asetukset
+          step_settings: Vaiheiden asetukset
         index:
           add: Lisää komponentti
           headers:
