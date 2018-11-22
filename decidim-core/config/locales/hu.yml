@@ -9,7 +9,7 @@ hu:
         about: Rólunk
         email: Email címed
         name: Neved
-        nickname: Rövid, egyedi azonosítód
+        nickname: Becenév
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
@@ -36,8 +36,8 @@ hu:
         remember_me: Emlékezz rám
     models:
       decidim/user:
-        one: Felhasználó
-        other: Felhasználók
+        one: Nincsenek felhasználók
+        other: felhasználók
       decidim/user_group:
         one: Felhasználói csoport
         other: Felhasználói csoportok
@@ -199,7 +199,7 @@ hu:
           title: Erősítsd meg az e-mail címed
     collapsible_list:
       hidden_elements_count:
-        one: és még egy
+        one: és még %{count}
         other: és még %{count}
       see_less: "(kevesebb)"
       see_more: "(tovább)"
@@ -566,6 +566,13 @@ hu:
       update:
         error: Probléma történt a csoport frissítésével
         success: A csoport sikeresen frissült
+    help:
+      main_topic:
+        default_page:
+          content: "<p>Az %{organization} részt vehet és dönthet különböző témákról a főmenüben megjelenő mezőkön keresztül: Folyamatok, összeállítások, kezdeményezések, konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyen részt vitákban, fontolja meg a végrehajtandó projekteket, vegyen részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
+          title: Mit tehetek a %{organization}?
+        description: További információ a %{organization}
+        title: Általános segítség
     last_activities:
       activities:
         no_activities_warning: Nincs aktivitás
