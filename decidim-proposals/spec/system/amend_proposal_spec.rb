@@ -8,6 +8,8 @@ describe "Amend Proposal", type: :system do
 
   let!(:proposals) { create_list(:proposal, 3, component: component) }
   let!(:proposal) { Decidim::Proposals::Proposal.find_by(component: component) }
+  let!(:emendation) { create(:proposal, component: component) }
+  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
   let!(:user) { create :user, :confirmed, organization: organization }
   let!(:user_group) { create(:user_group, :verified, organization: organization, users: [user]) }
 
@@ -107,6 +109,72 @@ describe "Amend Proposal", type: :system do
           expect(page).to have_content(emendation.title)
           expect(page).to have_content(emendation.body)
           expect(page).to have_css(".card__text--status", text: emendation.state.upcase)
+        end
+      end
+
+      context "when the user is the author of the amendable proposal" do
+        let(:user) { proposal.creator_author }
+
+        before do
+          visit_component
+          login_as user, scope: :user
+        end
+
+        context "and visits an emendation to his/her proposal" do
+          before do
+            click_link emendation.title
+          end
+
+          it "is shown the accept and reject button" do
+            expect(page).to have_css(".success", text: "ACCEPT")
+            expect(page).to have_css(".alert", text: "REJECT")
+          end
+
+          context "when the user clicks on the reject button" do
+            before do
+              within ".edit_amend" do
+                click_button "Reject"
+              end
+            end
+
+            it "is shown the Success Callout" do
+              expect(page).to have_css(".callout.success", text: "This emmendation has been rejected successfully")
+            end
+
+            it "is changed the state of the emendation" do
+              expect(page).to have_css(".alert", text: emendation.state.capitalize)
+            end
+          end
+        end
+      end
+    end
+
+    context "when the user is the author of the rejected emendation" do
+      let(:user) { emendation.creator_author }
+      let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, state: 'rejected' }
+
+      before do
+        visit_component
+        login_as user, scope: :user
+      end
+
+      context "and visits an emendation to his/her proposal" do
+        before do
+          click_link emendation.title
+        end
+
+        it "is shown the promote button" do
+          expect(page).to have_content("PROMOTE TO PROPOSAL")
+        end
+
+        context "when the user clicks on the reject button" do
+          before do
+            find("a[href='#{decidim.promote_amend_path(emendation)}']").click
+          end
+
+          it "is shown the Success Callout" do
+            expect(page).to have_content("Emendation promoted successfully")
+          end
         end
       end
     end

@@ -167,8 +167,8 @@ en:
         help_text: You are modifying the %{model_name}
         send: Send emendation
       rejected:
-        error: An error ocurred when rejecting this emmendation, please try again later
-        success: This emmendation has been rejected successfully
+        error: An error ocurred when rejecting this emendation, please try again later
+        success: The emendation has been rejected successfully
       promoted:
           success: Emendation promoted successfully
           error: There's been errors when promoting the emendation
