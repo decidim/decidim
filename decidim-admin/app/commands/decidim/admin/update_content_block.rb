@@ -43,10 +43,10 @@ module Decidim
         content_block.manifest.images.each do |image_config|
           image_name = image_config[:name]
 
-          if form.images["remove_#{image_name}".to_sym]
-            content_block.images_container.send("remove_#{image_name}=", true)
-          elsif form.images[image_name]
+          if form.images[image_name]
             content_block.images_container.send("#{image_name}=", form.images[image_name])
+          elsif form.images["remove_#{image_name}".to_sym] == "1"
+            content_block.images_container.send("remove_#{image_name}=", true)
           end
         end
       end
