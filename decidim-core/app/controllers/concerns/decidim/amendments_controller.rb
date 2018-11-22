@@ -9,17 +9,9 @@ module Decidim
     helper_method :amendable, :emendation
 
     def new
-      form_context = {
-        current_user: current_user,
-        current_participatory_space: amendable.participatory_space,
-        participatory_space: amendable.participatory_space,
-        component: amendable.component
-      }
-
-      emendation_fields_form = amendable.form.from_model(amendable).with_context(form_context)
-
       @form = Decidim::Amendable::CreateForm.from_params(
         amendable_gid: params[:amendable_gid],
+        emendation_gid: params[:emedation_gid],
         emendation_fields: emendation_fields_form
       ).with_context(form_context)
     end
@@ -54,8 +46,26 @@ module Decidim
         on(:invalid) do
           flash[:alert] = t("rejected.error", scope: "decidim.amendments")
         end
-
         redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+      end
+    end
+
+    def promote
+      @form = Decidim::Amendable::PromoteForm.from_params(
+        id: params[:id],
+        emendation_fields: emendation_fields_form
+      ).with_context(form_context)
+
+      Decidim::Amendable::Promote.call(@form) do
+        on(:ok) do |proposal|
+          flash[:notice] = I18n.t("promoted.success", scope: "decidim.amendments")
+          redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
+        end
+
+        on(:invalid) do
+          flash.now[:alert] = t("promoted.error", scope: "decidim.amendments")
+          redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+        end
       end
     end
 
@@ -65,12 +75,29 @@ module Decidim
 
     private
 
+    def emendation_fields_form
+      amendable.form.from_model(amendable).with_context(form_context)
+    end
+
+    def form_context
+      {
+        current_organization: amendable.organization,
+        current_component: amendable.component,
+        current_user: current_user,
+        current_participatory_space: amendable.participatory_space
+      }
+    end
+
     def amendable_gid
       params[:amendable_gid]
     end
 
     def amendable
-      @amendable ||= present(GlobalID::Locator.locate_signed(amendable_gid))
+      @amendable ||= if params[:amendable_gid]
+                       present(GlobalID::Locator.locate_signed(amendable_gid))
+                     else
+                       Decidim::Amendment.find_by(decidim_emendation_id: params[:id]).amendable
+                     end
     end
 
     def emendation

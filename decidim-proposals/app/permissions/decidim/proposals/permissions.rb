@@ -41,6 +41,8 @@ module Decidim
           can_unvote_proposal?
         when :report
           true
+        when :promote
+          can_promote_proposal?
         end
       end
 
@@ -110,6 +112,10 @@ module Decidim
                      voting_enabled?
 
         toggle_allow(is_allowed)
+      end
+
+      def can_promote_proposal?
+        toggle_allow(proposal.emendation? && proposal.promotable_by?(user))
       end
 
       def apply_collaborative_draft_permissions(permission_action)

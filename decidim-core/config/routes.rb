@@ -110,6 +110,7 @@ Decidim::Core::Engine.routes.draw do
     end
     member do
       patch :reject
+      post :promote
     end
   end
 

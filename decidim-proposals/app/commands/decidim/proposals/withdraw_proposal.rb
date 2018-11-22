@@ -43,8 +43,6 @@ module Decidim
           @form = form(Decidim::Amendable::RejectForm).from_params(id: emendation.amendment.id)
           result = Decidim::Amendable::Reject.call(@form)
           return result[:ok] if result[:ok]
-
-          false
         end
       end
     end

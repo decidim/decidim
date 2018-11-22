@@ -11,6 +11,10 @@ module Decidim
       cell "decidim/amendable/amend_button_card", amendable if amendable.amendable?
     end
 
+    def promote_button_for(amendable)
+      cell "decidim/amendable/promote_button_card", amendable if amendable.emendation?
+    end
+
     # Renders the emendations of a amendable resource that includes the
     # Amendable concern.
     #

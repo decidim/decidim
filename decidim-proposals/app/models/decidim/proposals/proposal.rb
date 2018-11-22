@@ -139,7 +139,7 @@ module Decidim
       #
       # Returns Boolean.
       def rejected?
-        answered? && state == "rejected"
+        answered? && state == "rejected" || state == "rejected"
       end
 
       # Public: Checks if the organization has marked the proposal as evaluating it.
@@ -202,7 +202,12 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         return true if draft?
-        authored_by?(user) && !answered? && within_edit_time_limit? && !copied_from_other_component?
+        created_by?(user) && !answered? && within_edit_time_limit? && !copied_from_other_component?
+      end
+
+      def promotable_by?(user)
+        not_likely_to_be_promoted = Proposal.where(title: title).count == 1
+        rejected? && created_by?(user) && not_likely_to_be_promoted
       end
 
       # Checks whether the user can withdraw the given proposal.
