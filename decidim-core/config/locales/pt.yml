@@ -9,7 +9,7 @@ pt:
         about: Sobre
         email: O seu email
         name: O seu nome
-        nickname: Seu identificador curto e exclusivo
+        nickname: Apelido
         password: Senha
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
@@ -36,7 +36,7 @@ pt:
         remember_me: Recorde-me
     models:
       decidim/user:
-        one: Do utilizador
+        one: Nenhum usuário
         other: Comercial
       decidim/user_group:
         one: Grupo de usuários
@@ -199,7 +199,7 @@ pt:
           title: confirme seu email
     collapsible_list:
       hidden_elements_count:
-        one: e mais 1
+        one: e mais %{count}
         other: e mais %{count}
       see_less: "(veja menos)"
       see_more: "(ver mais)"
@@ -567,6 +567,13 @@ pt:
       update:
         error: Houve um problema ao atualizar o grupo
         success: Grupo atualizado com sucesso
+    help:
+      main_topic:
+        default_page:
+          content: "<p>Em %{organization} você pode participar e decidir sobre diferentes tópicos, através dos espaços que você vê no menu superior: Processos, Assembleias, Iniciativas, Consultas.</p> <p>Dentro de cada um você encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar de debates, priorizar projetos a serem implementados, participar de reuniões presenciais e outras ações.</p>\n"
+          title: O que posso fazer em %{organization}?
+        description: Leia mais sobre %{organization}
+        title: Ajuda Geral
     last_activities:
       activities:
         no_activities_warning: Nenhuma atividade
