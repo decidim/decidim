@@ -42,6 +42,9 @@ nl:
       decidim/conference_speaker:
         one: Conferentie spreker
         other: Sprekers van de conferentie
+      decidim/conference_user_role:
+        one: Geen gebruikersrollen voor vergaderingen
+        other: Gebruikersrollen van de conferentie
   decidim:
     admin:
       actions:
