@@ -15,6 +15,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Added**:
 
+- **decidim-admin**: Add pagination to private user list. [\#345](https://github.com/OpenSourcePolitics/decidim/pull/345)
 - **decidim-budgets**: Re-introduce vote on budget by number of project.[\#330](https://github.com/OpenSourcePolitics/decidim/pull/330)
 - **decidim-debates**: Allow debates to be reported [\#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
 - **decidim-proposals**: Allow proposals location to be changed on a map [\#296](https://github.com/OpenSourcePolitics/decidim/pull/296)
