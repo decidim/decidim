@@ -8,6 +8,8 @@ module Decidim
 
       translatable_attribute :title, String
       translatable_attribute :description, String
+      attribute :show_in_footer, Boolean
+      attribute :weight, Integer
 
       mimic :static_page_topic
 

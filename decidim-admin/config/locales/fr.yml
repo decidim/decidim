@@ -313,7 +313,7 @@ fr:
         impersonations: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
-        officializations: Validation d'utilisateurs
+        participants: Participants
         scope_types: Types de périmètre d'application
         scopes: Périmètres d’application
         settings: Paramètres
@@ -603,7 +603,7 @@ fr:
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs représentés
         impersonations: Représentations d'utilisateurs
-        officializations: Validation d'utilisateurs
+        participants: Participants
         scope_types: Types de périmètre d'application
         scopes: Périmètres d'application
         static_pages: Pages

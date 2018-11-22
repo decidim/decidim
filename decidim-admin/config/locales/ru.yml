@@ -304,7 +304,6 @@ ru:
         impersonations: Выступления в роли участника
         newsletters: Рассылки новостей
         oauth_applications: Приложения OAuth
-        officializations: Предоставления служебного статуса
         scope_types: Виды охвата
         scopes: Охваты
         settings: Настройки
@@ -567,7 +566,6 @@ ru:
         dashboard: Панель управления
         impersonatable_users: Участники, в роли которых можно выступить
         impersonations: Выступления в роли участника
-        officializations: Предоставления служебного статуса
         scope_types: Виды охвата
         scopes: Охваты
         static_pages: Страницы
