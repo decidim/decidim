@@ -86,6 +86,11 @@ es-PY:
         slug: Texto corto de URL
         title: Título
         weight: Peso
+      static_page_topic:
+        description: Descripción
+        show_in_footer: Mostrar en el pie de página
+        title: Título
+        weight: Peso
     errors:
       models:
         oauth_application:

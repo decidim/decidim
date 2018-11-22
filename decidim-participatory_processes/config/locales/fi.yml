@@ -343,21 +343,21 @@ fi:
         target: Kuka osallistuu
         unspecified: Ei määritelty
       statistics:
-        answers_count: Vastaukset
-        comments_count: Kommentit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        answers_count: Vastauksia
+        comments_count: Kommentteja
+        debates_count: Keskusteluja
+        endorsements_count: Suosituksia
         headline: Tilastot
-        meetings_count: Tapahtumat
-        orders_count: Äänet
-        pages_count: Sivut
-        processes_count: Prosessit
-        projects_count: Projektit
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
+        meetings_count: Tapahtumia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        processes_count: Prosesseja
+        projects_count: Suunnitelmia
+        proposals_count: Ehdotuksia
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
+        users_count: Osallistujia
+        votes_count: Ääniä
   layouts:
     decidim:
       participatory_process_groups:

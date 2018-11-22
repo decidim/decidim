@@ -82,6 +82,7 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             default_registration_terms: Standaard registratievoorwaarden
+            enable_pads_creation: Schakel het maken van pads in
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
           step:
             announcement: Aankondiging
@@ -109,9 +110,9 @@ nl:
           email_subject: Het event "%{resource_title}" is bijgewerkt
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
         registration_code_validated:
-          email_intro: Uw registratiecode "%{registration_code}" is gevalideerd.
+          email_intro: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" -vergadering is gevalideerd.
           email_outro: U hebt deze melding ontvangen omdat uw registratiecode voor de "%{resource_title}" -vergadering is gevalideerd.
-          email_subject: Uw registratiecode "%{registration_code}" is gevalideerd
+          email_subject: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" -vergadering is gevalideerd
           notification_title: Uw registratiecode "%{registration_code}" voor de <a href="%{resource_path}">%{resource_title}</a> vergadering is gevalideerd.
         registrations_enabled:
           email_intro: 'Het event ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'

@@ -214,6 +214,7 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
+            enable_pads_creation: A párna létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
             comments_blocked: Megjegyzések letiltva
@@ -671,6 +672,10 @@ hu:
         pending: Függőben
         rejected: Elutasítva
         verified: Megerősítve
+    pad_iframe:
+      disclaimer: A pad tartalmát regisztrált felhasználók írják és véleményüket fejezik ki. %{organization} nem tehető felelőssé a tartalmáért.
+      explanation: Ezzel a párnával együttműködve jegyzeteket készíthet az értekezlet alatt, így később könnyebb leírni a percet.
+      pad: Párna
     pages:
       home:
         extended:
