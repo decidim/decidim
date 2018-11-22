@@ -15,7 +15,7 @@ module Decidim
     def initialize(term, organization, filters = {})
       @term = term
       @organization = organization
-      @filters = filters
+      @filters = filters.with_indifferent_access
     end
 
     # Executes the command. Broadcasts these events:
@@ -40,7 +40,7 @@ module Decidim
         results_count = result_ids.count
         results = []
 
-        if @filters["resource_type"].present?
+        if @filters[:resource_type].present?
           results = klass.order_by_id_list(result_ids) if @filters["resource_type"] == class_name
         else
           results = klass.order_by_id_list(result_ids.take(4))
