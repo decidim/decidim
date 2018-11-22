@@ -261,11 +261,6 @@ ru:
           form:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
-            registrations_count:
-              one: Зарегистрировался 1 человек.
-              few: Зарегистрировалось %{count} человека.
-              many: Зарегистрировалось %{count} человек.
-              other: Зарегистрировалось %{count} человек.
             reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
             reserved_slots_less_than: Должен быть меньше или равен %{count}
           update:
@@ -330,11 +325,6 @@ ru:
           meeting_report: Отчет о встрече
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
-          remaining_slots:
-            one: Осталось 1 место
-            few: "Осталось %{count} места"
-            many: "Осталось %{count} мест"
-            other: "Осталось %{count} мест"
           view: Посмотреть
       models:
         invite:
