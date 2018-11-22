@@ -106,6 +106,14 @@ module Decidim
         @search_resource_indexable_fields
       end
 
+      def order_by_id_list(id_list)
+        return ApplicationRecord.none if id_list.to_a.empty?
+
+        values_clause = id_list.each_with_index.map { |id, i| "(#{id}, #{i})" }.join(", ")
+        joins("JOIN (VALUES #{values_clause}) AS #{table_name}_id_order(id, ordering) ON #{table_name}.id = #{table_name}_id_order.id")
+          .order("#{table_name}_id_order.ordering")
+      end
+
       # Declares the searchable fields for this instance and, optionally, some conditions.
       # `declared_fields` must be a Hash that follow the following format:
       # {

@@ -40,5 +40,29 @@ module Decidim
         expect(user_1.searchable_resources.by_organization(org.id).pluck(:resource_id, :resource_type)).to eq([[COMMON_ID, "Decidim::User"]] * num_locales)
       end
     end
+
+    describe ".order_by_id_list" do
+      subject { Decidim::DummyResources::DummyResource.order_by_id_list(ids) }
+
+      context "when no ids is nil" do
+        let(:ids) { nil }
+
+        it { is_expected.to eq ApplicationRecord.none }
+      end
+
+      context "when no ids is an empty list" do
+        let(:ids) { [] }
+
+        it { is_expected.to eq ApplicationRecord.none }
+      end
+
+      context "with a list of ids" do
+        let(:resource1) { create :dummy_resource }
+        let(:resource2) { create :dummy_resource }
+        let(:ids) { [resource2.id, resource1.id] }
+
+        it { is_expected.to eq [resource2, resource1] }
+      end
+    end
   end
 end

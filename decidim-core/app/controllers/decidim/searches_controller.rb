@@ -14,8 +14,8 @@ module Decidim
       Search.call(term, current_organization, filters) do
         on(:ok) do |results|
           # results.page(params[:page]).per(params[:per_page])
-          results = results.to_a
-          expose(sections: results.group_by(&:resource_type), results_count: results.count)
+          results_count = results.sum { |results_by_type| results_by_type.last[:count] }
+          expose(sections: results, results_count: results_count)
         end
       end
     end

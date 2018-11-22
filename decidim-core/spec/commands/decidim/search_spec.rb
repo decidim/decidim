@@ -10,17 +10,34 @@ module Decidim
       context "with resources from different organizations" do
         let(:other_organization) { create(:organization) }
         let(:term) { "fire" }
+        let(:fake_type) { "Decidim::DoesNot::Exist" }
+        let!(:result) do
+          create(:searchable_resource, organization: current_organization, content_a: "Fight fire with fire")
+        end
+        let!(:non_searchable_resource) do
+          create(:searchable_resource, organization: current_organization, resource_type: fake_type, content_a: "Where's your crown king nothing?")
+        end
 
         before do
-          create(:searchable_resource, organization: current_organization, content_a: "Fight fire with fire")
           create(:searchable_resource, organization: other_organization, content_a: "Light my fire")
         end
 
         it "returns resources only from current_organization" do
           described_class.call(term, current_organization) do
-            on(:ok) do |results|
-              expect(results.count).to eq(1)
-              expect(results.first.organization).to eq(current_organization)
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              expect(results[:count]).to eq(1)
+              expect(results[:results].first).to eq(result.resource)
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+
+        it "only returns searchable results" do
+          expect(Decidim::Searchable.searchable_resources).not_to have_key(fake_type)
+          described_class.call(term, current_organization, "resource_type" => "") do
+            on(:ok) do |results_by_type|
+              expect(results_by_type).not_to have_key(fake_type)
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -40,8 +57,9 @@ module Decidim
           it "returns only results in current language" do
             I18n.with_locale(:ca) do
               described_class.call(term, current_organization) do
-                on(:ok) do |results|
-                  expect(results.pluck(:id)).to eq([lice_ca.id])
+                on(:ok) do |results_by_type|
+                  results = results_by_type["Decidim::DummyResources::DummyResource"]
+                  expect(results[:results]).to eq([lice_ca.resource])
                 end
                 on(:invalid) { raise("Should not happen") }
               end
@@ -55,8 +73,9 @@ module Decidim
 
         it "returns an empty list" do
           described_class.call(term, current_organization) do
-            on(:ok) do |results|
-              expect(results).to be_empty
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              expect(results[:results]).to be_empty
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -72,8 +91,9 @@ module Decidim
 
         it "returns some random results" do
           described_class.call(term, current_organization) do
-            on(:ok) do |results|
-              expect(results).not_to be_empty
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              expect(results[:results]).not_to be_empty
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -90,8 +110,9 @@ module Decidim
 
           it "returns all matches ignoring accents" do
             described_class.call(term, current_organization) do
-              on(:ok) do |results|
-                expect(results.count).to eq(2)
+              on(:ok) do |results_by_type|
+                results = results_by_type["Decidim::DummyResources::DummyResource"]
+                expect(results[:count]).to eq(2)
               end
               on(:invalid) { raise("Should not happen") }
             end
@@ -103,8 +124,9 @@ module Decidim
 
           it "returns all matches ignoring letter case" do
             described_class.call(term, current_organization) do
-              on(:ok) do |results|
-                expect(results.count).to eq(2)
+              on(:ok) do |results_by_type|
+                results = results_by_type["Decidim::DummyResources::DummyResource"]
+                expect(results[:count]).to eq(2)
               end
               on(:invalid) { raise("Should not happen") }
             end
@@ -123,11 +145,9 @@ module Decidim
 
           it "returns matches sorted by date descendently" do
             described_class.call(term, current_organization) do
-              on(:ok) do |results|
-                expected_list = [[searchable2.id, datetime2], [searchable1.id, datetime1]]
-                expected_list.zip(results.pluck(:id, :datetime)).each do |expected, current|
-                  expect([expected.first, expected.last.to_s(:short)]).to eq([current.first, current.last.to_s(:short)])
-                end
+              on(:ok) do |results_by_type|
+                results = results_by_type["Decidim::DummyResources::DummyResource"]
+                expect(results[:results]).to eq [searchable2.resource, searchable1.resource]
               end
               on(:invalid) { raise("Should not happen") }
             end
@@ -140,10 +160,9 @@ module Decidim
 
           it "returns matches sorted by date descendently" do
             described_class.call(term, current_organization) do
-              on(:ok) do |results|
-                [datetime1, datetime2].zip(results.pluck(:datetime)).each do |expected, current|
-                  expect(expected.to_s(:short)).to eq(current.to_s(:short))
-                end
+              on(:ok) do |results_by_type|
+                results = results_by_type["Decidim::DummyResources::DummyResource"]
+                expect(results[:results]).to eq [searchable1.resource, searchable2.resource]
               end
               on(:invalid) { raise("Should not happen") }
             end
@@ -156,10 +175,9 @@ module Decidim
 
           it "returns matches sorted by date descendently" do
             described_class.call(term, current_organization) do
-              on(:ok) do |results|
-                [datetime1, datetime2].zip(results.pluck(:datetime)).each do |expected, current|
-                  expect(expected.to_s(:short)).to eq(current.to_s(:short))
-                end
+              on(:ok) do |results_by_type|
+                results = results_by_type["Decidim::DummyResources::DummyResource"]
+                expect(results[:results]).to eq [searchable1.resource, searchable2.resource]
               end
               on(:invalid) { raise("Should not happen") }
             end
@@ -175,37 +193,38 @@ module Decidim
           let(:resource_type) { "Decidim::DummyResources::DummyResource" }
 
           before do
-            create(:searchable_resource, organization: current_organization, resource_type: resource_type, content_a: "Where's your crown king nothing?")
-            create(:searchable_resource, organization: current_organization, resource_type: "Decidim::User", content_a: "Where's your crown king nothing?")
+            create_list(:searchable_resource, 5, organization: current_organization, resource_type: resource_type, content_a: "Where's your crown king nothing?")
+            create_list(:searchable_resource, 5, organization: current_organization, resource_type: "Decidim::User", content_a: "Where's your crown king nothing?")
           end
 
           context "when resource_type is setted" do
             it "only return resources of the given type" do
               described_class.call(term, current_organization, "resource_type" => resource_type) do
-                on(:ok) do |results|
-                  expect(results).not_to be_empty
-                  expect(
-                    results.all? { |r| r.resource_type == resource_type }
-                  ).to be true
+                on(:ok) do |results_by_type|
+                  results = results_by_type["Decidim::DummyResources::DummyResource"]
+                  expect(results[:results].count).to eq 5
+                  expect(results[:count]).to eq 5
+
+                  results = results_by_type["Decidim::User"]
+                  expect(results[:results].count).to eq 0
+                  expect(results[:count]).to eq 5
                 end
-                on(:invalid) { raise("Should not happen") }
+                on(:invalid) { raise("Should not 0appen") }
               end
             end
           end
 
           context "when resource_type is blank" do
-            let(:fake_type) { "Decidim::DoesNot::Exist" }
-            let!(:my_resource) do
-              create(:searchable_resource, organization: current_organization, resource_type: fake_type, content_a: "Where's your crown king nothing?")
-            end
-
-            it "only returns searchable results" do
-              expect(Decidim::Searchable.searchable_resources).not_to have_key(fake_type)
+            it "only returns up to 4 resources of each type" do
               described_class.call(term, current_organization, "resource_type" => "") do
-                on(:ok) do |results|
-                  expect(results).not_to be_empty
-                  expect(results).not_to include(my_resource)
-                  expect(results.count).to eq 2
+                on(:ok) do |results_by_type|
+                  results = results_by_type["Decidim::DummyResources::DummyResource"]
+                  expect(results[:results].count).to eq 4
+                  expect(results[:count]).to eq 5
+
+                  results = results_by_type["Decidim::User"]
+                  expect(results[:results].count).to eq 4
+                  expect(results[:count]).to eq 5
                 end
                 on(:invalid) { raise("Should not happen") }
               end
@@ -214,19 +233,21 @@ module Decidim
         end
 
         context "with scope" do
-          before do
+          let!(:scoped_resource) do
             create(:searchable_resource, organization: current_organization, scope: scope, content_a: "Where's your crown king nothing?")
+          end
+
+          before do
             create(:searchable_resource, organization: current_organization, content_a: "Where's your crown king nothing?")
           end
 
           context "when scope is setted" do
             it "only return resources in the given scope" do
               described_class.call(term, current_organization, "decidim_scope_id" => scope.id.to_s) do
-                on(:ok) do |results|
-                  expect(results.count).to eq 1
-                  expect(
-                    results.all? { |r| r.decidim_scope_id == scope.id }
-                  ).to be true
+                on(:ok) do |results_by_type|
+                  results = results_by_type["Decidim::DummyResources::DummyResource"]
+                  expect(results[:count]).to eq 1
+                  expect(results[:results]).to eq [scoped_resource.resource]
                 end
                 on(:invalid) { raise("Should not happen") }
               end
@@ -236,9 +257,10 @@ module Decidim
           context "when scope is blank" do
             it "does not apply scope filter" do
               described_class.call(term, current_organization, "decidim_scope_id" => "") do
-                on(:ok) do |results|
-                  expect(results).not_to be_empty
-                  expect(results.count).to eq 2
+                on(:ok) do |results_by_type|
+                  results = results_by_type["Decidim::DummyResources::DummyResource"]
+                  expect(results[:results]).not_to be_empty
+                  expect(results[:count]).to eq 2
                 end
                 on(:invalid) { raise("Should not happen") }
               end
