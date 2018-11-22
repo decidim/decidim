@@ -8,7 +8,7 @@ fi:
         description: Kuvaus
         end_date: Päättymispäivä
         progress: Edistyminen
-        project_ids: Liitetyt projektit
+        project_ids: Liitetyt suunnitelmat
         proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
         title: Otsikko
@@ -220,6 +220,6 @@ fi:
         see_all: Näytä kaikki (%{count})
     resource_links:
       included_projects:
-        result_project: Tähän tulokseen liittyvät hankkeet
+        result_project: Tähän tulokseen liittyvät suunnitelmat
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
