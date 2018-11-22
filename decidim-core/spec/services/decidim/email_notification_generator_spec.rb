@@ -23,6 +23,10 @@ describe Decidim::EmailNotificationGenerator do
       end
 
       context "when the user does not want emails for notifications" do
+        before do
+          recipient.update(email_on_notification: false)
+        end
+
         it "does not schedule a job for that recipient" do
           expect(Decidim::NotificationMailer)
             .not_to receive(:event_received)
