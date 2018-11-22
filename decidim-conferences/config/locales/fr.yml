@@ -42,9 +42,6 @@ fr:
       decidim/conference_speaker:
         one: Conférencier
         other: Conférenciers
-      decidim/conference_user_role:
-        one: Rôle utilisateur de la conférence
-        other: Rôles d'utilisateur de conférence
   decidim:
     admin:
       actions:
