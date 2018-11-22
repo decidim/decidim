@@ -4,26 +4,23 @@ require "spec_helper"
 
 module Decidim
   module Amendable
-    describe Create do
+    describe Validate do
       let!(:component) do
         create(:proposal_component,
                :with_amendments_enabled)
       end
       let!(:user) { create :user, :confirmed, organization: component.organization }
       let!(:amendable) { create(:proposal, component: component) }
-      let(:command) { described_class.new(form) }
 
-      let(:form) do
+      let(:create_command) { described_class.new(create_form) }
+      let(:create_form) do
         Decidim::Amendable::CreateForm.from_params(form_params).with_context(form_context)
       end
 
-      let(:emendation_fields) do
-        {
-          title: "Emendation title",
-          body: "Emendation body"
-        }
+      let(:accept_command) { described_class.new(review_form) }
+      let(:review_form) do
+        Decidim::Amendable::CreateForm.from_params(form_params).with_context(form_context)
       end
-
       let(:form_params) do
         {
           amendable_gid: amendable.to_sgid.to_s,
@@ -40,7 +37,7 @@ module Decidim
         }
       end
 
-      include_examples "create amendment"
+      include_examples "validate amendment form"
     end
   end
 end
