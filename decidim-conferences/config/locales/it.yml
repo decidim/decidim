@@ -42,6 +42,9 @@ it:
       decidim/conference_speaker:
         one: Relatore della conferenza
         other: Oratori della conferenza
+      decidim/conference_user_role:
+        one: Nessun ruolo utente della conferenza
+        other: Ruoli utente della conferenza
   decidim:
     admin:
       actions:
