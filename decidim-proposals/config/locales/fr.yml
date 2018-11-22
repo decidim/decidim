@@ -408,8 +408,8 @@ fr:
           title: Complétez votre projet collaboratif
         count:
           drafts_count:
-            one: 1 projet collaboratif
-            other: "%{count} brouillons collaboratifs"
+            one: '%{count} projet collaboratif'
+            other: "%{count} projet collaboratif"
         create:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
           success: Projet collaboratif créé avec succès.
@@ -463,8 +463,8 @@ fr:
           final_proposal: proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
           hidden_authors_count:
-            one: et 1 personne de plus
-            other: et %{count} plus de personnes
+            one: et %{count} personne de plus
+            other: et %{count} autres personnes
           info-message: Ceci est un <strong>projet collaboratif</strong> pour une proposition. Cela signifie que vous pouvez aider leurs auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
           of_versions: "(de %{number})"
           publish: Publier
@@ -552,7 +552,7 @@ fr:
           title: Complétez votre proposition
         count:
           proposals_count:
-            one: 1 proposition
+            one: '%{count} proposition'
             other: "%{count} propositions"
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
@@ -620,7 +620,7 @@ fr:
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
           hidden_endorsers_count:
-            one: et 1 autre personne
+            one: et %{count} autres personnes
             other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
