@@ -29,6 +29,16 @@ module Decidim
       end
 
       def render_without_link
+        if content.is_a?(Hash)
+          content.each_with_object({}) do |(locale, string), parsed_content|
+            parsed_content[locale] = replace_hashtag_gid_with_hashtag_name(string)
+          end
+        else
+          replace_hashtag_gid_with_hashtag_name(content)
+        end
+      end
+
+      def replace_hashtag_gid_with_hashtag_name(content)
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           begin
             hashtag = GlobalID::Locator.locate(hashtag_gid)

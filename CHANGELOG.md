@@ -3,6 +3,7 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.15-stable)
 
 - **decidim-meetings**: Change title to description in meetings admin form. [\#4484](https://github.com/decidim/decidim/pull/4484)
+- **decidim-meetings**: Fix title and description fields in admin form. [\#4547](https://github.com/decidim/decidim/pull/4547)
 
 ## [0.15.0](https://github.com/decidim/decidim/tree/v0.15.0)
 
