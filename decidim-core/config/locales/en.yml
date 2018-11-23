@@ -640,6 +640,9 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      participants:
+        object: participants
+        title: Participants
       users:
         object: users
         title: Users
@@ -735,6 +738,9 @@ en:
         subheading: Navigate through the help pages of %{name}
         title: Help
         topics: Topics
+      participatory_space:
+        metrics:
+          headline: Participation in figures
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
