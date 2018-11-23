@@ -356,6 +356,10 @@ eu:
           diploma_user:
             attendance_verified_by: Egiaztatua egiaztatuta
             certificate_of_attendance: Asistentzia ziurtagiria
+            certificate_of_attendance_description: Hau dela ziurtatzeko <strong>%{user}</strong> parte hartu du eta parte hartu ere <strong>%{title}</strong> etan ospatuko <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Arazo bat izan da konferentzia diploma bidaltzean.
+          success: Kongresuko Diplomak behar bezala bidali dira
       conference:
         registration_confirm:
           cancel: Utzi
@@ -428,6 +432,9 @@ eu:
         invite_join_conference_mailer:
           invite:
             subject: Hitzaldi baterako gonbidapena
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Zure hitzaldiko diploma bidali da
       models:
         conference_invite:
           fields:
