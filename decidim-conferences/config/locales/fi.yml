@@ -353,6 +353,13 @@ fi:
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Löydät kokeen <a href="%{url}">%{title}</a> diplomin liitteissä.
+          diploma_user:
+            attendance_verified_by: Osallistuminen on vahvistanut
+            certificate_of_attendance: Läsnäolotodistus
+            certificate_of_attendance_description: 'Tämän on todistettava, että <strong>%{user}</strong> on osallistunut ja osallistunut <strong>%{title}</strong> pidettiin <strong>%{location}</strong> : ssä <strong>%{start} - %{end}</strong>'
+        send_diploma:
+          error: Kongressin tutkintotodistusten lähettämisessä on ollut ongelma.
+          success: Konferenssitodistukset lähetetään oikein
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -425,6 +432,9 @@ fi:
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Konferenssin tutkintotodistus on lähetetty
       models:
         conference_invite:
           fields:
