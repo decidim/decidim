@@ -338,7 +338,7 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         meeting_minutes:
-          meeting_minutes: Minuts de trobada
+          meeting_minutes: Acta de la trobada
           related_information: Informació relacionada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb el criteri de cerca o no hi ha cap trobada programada.
