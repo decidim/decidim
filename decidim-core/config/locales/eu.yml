@@ -623,13 +623,13 @@ eu:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
-          from: aurrera
-          last_message_html: Azken mezua <strong>%{time} ago</strong>
           no_conversations: Oraindik ez duzu elkarrizketarik
-        show:
-          conversation_with_html: Elkarrizketa <strong>%{name}</strong>
-          reply: Erantzun
+          title: Elkarrizketak
+        reply:
           send: Bidali
+          title: Erantzun
+        show:
+          title: Solasean %{usernames}
         start:
           send: Bidali
           title: Hasi elkarrizketa bat
@@ -765,12 +765,10 @@ eu:
       default_officialization_text_for_users: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         badges: Badges
-        conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: honako hau
         groups: Taldeak
         members: Bazkideek
-        notifications: jakinarazpenak
         view_full_profile: Ikusi profil osoa
       sidebar:
         badges:
