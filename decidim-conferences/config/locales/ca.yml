@@ -43,7 +43,7 @@ ca:
         one: Ponent de la conferència
         other: Ponents de la conferència
       decidim/conference_user_role:
-        one: Cap rol d'usuari de conferència
+        one: Un rol d'usuari de la conferència
         other: Funcions d'usuari de la conferència
   decidim:
     admin:
