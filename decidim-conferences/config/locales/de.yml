@@ -50,6 +50,7 @@ de:
       actions:
         confirm: Bestätigen
         new_conference: Neue Konferenz
+        send_diplomas: Diplome senden
       conference_copies:
         new:
           copy: Kopieren
@@ -153,6 +154,7 @@ de:
           conference_admins: Konferenzbenutzer
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
+          diploma: Diplom
           info: Info
           media_links: Medienlinks
           moderations: Moderationen
@@ -250,8 +252,10 @@ de:
       conference:
         create: "%{user_name} erstellt die %{resource_name} Konferenz"
         publish: "%{user_name} veröffentlichte die %{resource_name} Konferenz"
+        send_conference_diplomas: "%{user_name} Senden Sie Diplome an die %{resource_name} Konferenzbenutzer"
         unpublish: "%{user_name} unveröffentlichte die %{resource_name} Konferenz"
         update: "%{user_name} hat die %{resource_name} Konferenz aktualisiert"
+        update_diploma: "%{user_name} hat die Konferenz für Diplomkonfiguration %{resource_name} aktualisiert"
       conference_speaker:
         create: "%{user_name} hat den %{resource_name} Sprecher in der %{space_name} Konferenz erstellt"
         delete: "%{user_name} entfernte den %{resource_name} Sprecher von der %{space_name} Konferenz"
