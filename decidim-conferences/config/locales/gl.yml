@@ -43,8 +43,8 @@ gl:
         one: Conferenciante de conferencias
         other: Conferenciantes de conferencias
       decidim/conference_user_role:
-        one: Un rol de usuario da conferencia
-        other: Funcións do usuario da conferencia
+        one: Rol de usuario da conferencia
+        other: Rol de usuario da conferencia
   decidim:
     admin:
       actions:
