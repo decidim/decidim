@@ -633,13 +633,13 @@ pl:
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
-          from: Od
-          last_message_html: Ostatnia wiadomość <strong>%{time} temu</strong>
           no_conversations: Nie masz jeszcze żadnych rozmów
-        show:
-          conversation_with_html: Rozmowa z <strong>%{name}</strong>
-          reply: Odpowiadać
+          title: Rozmowy
+        reply:
           send: Wysłać
+          title: Odpowiadać
+        show:
+          title: Konwersacja z %{usernames}
         start:
           send: Wysłać
           title: Zacząć rozmowę
@@ -775,12 +775,10 @@ pl:
       default_officialization_text_for_users: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
       show:
         badges: Odznaki
-        conversations: Rozmowy
         followers: Obserwujący
         following: Podąża
         groups: Grupy
         members: Członkowie
-        notifications: Powiadomienia
         view_full_profile: Zobacz pełny profil
       sidebar:
         badges:
