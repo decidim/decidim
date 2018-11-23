@@ -636,6 +636,9 @@ nl:
         update:
           error: Bericht niet verzonden. Probeer het later nogmaals
     metrics:
+      participants:
+        object: deelnemers
+        title: Deelnemers
       users:
         object: gebruikers
         title: gebruikers
@@ -731,6 +734,9 @@ nl:
         subheading: Navigeer door de helppagina's van %{name}
         title: Helpen
         topics: Onderwerpen
+      participatory_space:
+        metrics:
+          headline: Deelname aan cijfers
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
