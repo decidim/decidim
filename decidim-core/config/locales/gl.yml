@@ -623,13 +623,13 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
-          from: Desde
-          last_message_html: Última mensaxe <strong>%{time} ago</strong>
           no_conversations: Aínda non tes conversas
-        show:
-          conversation_with_html: Conversa con <strong>%{name}</strong>
-          reply: Responder
+          title: Conversas
+        reply:
           send: Enviar
+          title: Responder
+        show:
+          title: Conversa con %{usernames}
         start:
           send: Enviar
           title: Comezar unha conversa
@@ -765,12 +765,10 @@ gl:
       default_officialization_text_for_users: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
         badges: Insignias
-        conversations: Conversas
         followers: Seguidores
         following: Segue
         groups: Grupos
         members: Membros
-        notifications: Notificacións
         view_full_profile: Ver o perfil completo
       sidebar:
         badges:
