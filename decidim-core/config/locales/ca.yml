@@ -623,13 +623,13 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
-          from: Des de
-          last_message_html: Últim missatge <strong>fa %{time}</strong>
           no_conversations: Encara no tens converses
-        show:
-          conversation_with_html: Conversa amb <strong>%{name}</strong>
-          reply: Respon
+          title: Converses
+        reply:
           send: Enviar
+          title: Respon
+        show:
+          title: Conversa amb %{usernames}
         start:
           send: Enviar
           title: Comença una conversa
@@ -765,12 +765,10 @@ ca:
       default_officialization_text_for_users: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
         badges: Insígnies
-        conversations: Converses
         followers: Seguidors
         following: Segueix
         groups: Grups
         members: Membres
-        notifications: Notificacions
         view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
