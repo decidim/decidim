@@ -14,9 +14,13 @@ module Decidim
       model
     end
 
+    def non_empty_sections
+      sections.select { |_name, results| results[:count].positive? }
+    end
+
     def sections_to_render
-      return sections.slice(selected_resource_type) if has_selected_resource_type?
-      sections
+      return non_empty_sections.slice(selected_resource_type) if has_selected_resource_type?
+      non_empty_sections
     end
 
     def params
