@@ -223,7 +223,7 @@ fi:
           success: Osallisuusprosessiryhmä luotu onnistuneesti.
       titles:
         participatory_process_groups: Osallisuusprosessiryhmät
-        participatory_processes: Osallistumisprosessit
+        participatory_processes: Osallisuusprosessit
       users:
         resend_invitation:
           error: Virhe lähettää kutsun.
@@ -232,17 +232,17 @@ fi:
       participatory_process:
         create: "%{user_name} loi osallisuusprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
-        unpublish: "%{user_name} muutti osallstumisprosessin %{resource_name} julkaisemattomaksi"
-        update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
+        unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
+        update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} aktivoi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
-        create: "%{user_name} loi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
-        delete: "%{user_name} poisti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
-        update: "%{user_name} päivitti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+        activate: "%{user_name} aktivoi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
+        create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
+        delete: "%{user_name} poisti vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
+        update: "%{user_name} päivitti vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} kutsui käyttäjän %{resource_name} osallistumisprosessiin %{space_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} osallistumisprosessista %{space_name}"
-        update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallistumisprosessissa %{space_name}"
+        create: "%{user_name} kutsui käyttäjän %{resource_name} osallisuusprosessiin %{space_name}"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} osallisuusprosessista %{space_name}"
+        update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallisuusprosessissa %{space_name}"
     events:
       participatory_process:
         step_activated:
@@ -258,25 +258,25 @@ fi:
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustella niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne) tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi, asetuksen tai säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
-          page: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustella niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne) tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi, asetuksen tai säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>"
+          contextual: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
+          page: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>"
           title: Mikä on osallisuusprosessi?
     menu:
       processes: Prosessit
     metrics:
       participatory_processes:
-        object: osallistumisprosessit
-        title: Osallistumisprosessit
+        object: osallisuusprosessit
+        title: Osallisuusprosessit
     participatory_process_groups:
       show:
         group_participatory_processes:
           one: 1 prosessi ryhmälle %{group}
           other: "%{count} prosessia ryhmälle %{group}"
-        title: Osallistumisprosessiryhmät
+        title: Osallisuusprosessiryhmät
     participatory_process_steps:
       index:
         process_steps: Prosessin vaiheet
-        title: Osallistumisprosessin vaiheet
+        title: Osallisuusprosessin vaiheet
     participatory_processes:
       admin:
         content_blocks:
@@ -297,9 +297,9 @@ fi:
         highlighted_processes:
           name: Tärkeimmät prosessit
       index:
-        title: Osallistumisprosessit
+        title: Osallisuusprosessit
       last_activity:
-        new_participatory_process: Uusi osallistumisprosessi
+        new_participatory_process: Uusi osallisuusprosessi
       pages:
         home:
           highlighted_processes:
