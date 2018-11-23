@@ -43,8 +43,8 @@ hu:
         one: Konferencia hangszóró
         other: Konferencia hangszórók
       decidim/conference_user_role:
-        one: A konferencia felhasználói szerepkör
-        other: Konferencia felhasználói szerepkörök
+        one: Konferencia felhasználói szerepkör
+        other: Konferencia felhasználói szerepkör
   decidim:
     admin:
       actions:
