@@ -307,5 +307,84 @@ describe Decidim::Search do
         end
       end
     end
+
+    describe "with space state" do
+      let!(:active) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where's your crown king nothing?",
+          decidim_participatory_space: create(:participatory_process, :active, organization: current_organization)
+        )
+      end
+      let!(:past) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where's your crown king nothing?",
+          decidim_participatory_space: create(:participatory_process, :past, organization: current_organization)
+        )
+      end
+      let!(:future) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where's your crown king nothing?",
+          decidim_participatory_space: create(:participatory_process, :upcoming, organization: current_organization)
+        )
+      end
+
+      describe "when selecting active spaces" do
+        it "returns data from active spaces" do
+          described_class.call(term, current_organization, "space_state" => "active") do
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              expect(results[:count]).to eq 1
+              expect(results[:results]).to eq [active.resource]
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+      end
+
+      describe "when selecting future spaces" do
+        it "returns data from future spaces" do
+          described_class.call(term, current_organization, "space_state" => "future") do
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              expect(results[:count]).to eq 1
+              expect(results[:results]).to eq [future.resource]
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+      end
+
+      describe "when selecting past spaces" do
+        it "returns data from past spaces" do
+          described_class.call(term, current_organization, "space_state" => "past") do
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              expect(results[:count]).to eq 1
+              expect(results[:results]).to eq [past.resource]
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+      end
+
+      describe "when no state is selected" do
+        it "returns data from all spaces" do
+          described_class.call(term, current_organization, "space_state" => "") do
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              expect(results[:count]).to eq 3
+              expect(results[:results]).to match_array [active.resource, past.resource, future.resource]
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+      end
+    end
   end
 end

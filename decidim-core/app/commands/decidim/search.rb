@@ -58,7 +58,7 @@ module Decidim
 
     private
 
-    attr_reader :page_params
+    attr_reader :page_params, :filters, :organization
 
     def paginate(collection)
       return collection if page_params.blank?
@@ -66,8 +66,27 @@ module Decidim
     end
 
     def clean_filters
-      @filters.select do |attribute_name, value|
+      @clean_filters ||= filters.select do |attribute_name, value|
         ACCEPTED_FILTERS.include?(attribute_name.to_sym) && value.present?
+      end.merge(decidim_participatory_space: spaces_to_filter).compact
+    end
+
+    def spaces_to_filter
+      return nil if filters[:space_state].blank?
+
+      Decidim.participatory_space_manifests.flat_map do |manifest|
+        public_spaces = manifest.participatory_spaces.call(organization).public_spaces
+        spaces = case filters[:space_state]
+                 when "active"
+                   public_spaces.active_spaces
+                 when "future"
+                   public_spaces.future_spaces
+                 when "past"
+                   public_spaces.past_spaces
+                 else
+                   public_spaces
+                 end
+        spaces.select(:id).to_a
       end
     end
   end
