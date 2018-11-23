@@ -356,6 +356,10 @@ es:
           diploma_user:
             attendance_verified_by: Asistencia verificada por
             certificate_of_attendance: Certificado de asistencia
+            certificate_of_attendance_description: Esto es para certificar que <strong>%{user}</strong> ha asistido y participado en los <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Ha habido un problema al enviar los diplomas de la conferencia.
+          success: Diplomas de Conferencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -428,6 +432,9 @@ es:
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
+        send_conference_diploma_mailer:
+          diploma:
+            subject: El diploma de su conferencia ha sido enviado.
       models:
         conference_invite:
           fields:
