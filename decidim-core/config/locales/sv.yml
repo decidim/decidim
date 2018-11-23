@@ -636,6 +636,9 @@ sv:
         update:
           error: Meddelandet har inte skickats. Försök igen senare
     metrics:
+      participants:
+        object: deltagarna
+        title: Deltagarna
       users:
         object: användare
         title: Användare
@@ -731,6 +734,9 @@ sv:
         subheading: Navigera genom hjälpsidorna till %{name}
         title: Hjälp
         topics: ämnen
+      participatory_space:
+        metrics:
+          headline: Deltagande i siffror
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.
