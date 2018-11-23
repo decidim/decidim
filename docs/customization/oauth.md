@@ -46,4 +46,5 @@ ActiveSupport::Notifications.subscribe "decidim.events.user.omniauth_registratio
   IdCatMobilVerificationJob.perform_later(data[:raw_data])
 end
 ```
+
 It is a good practice to delegate the required implementation to a Job to bring a fastest response to the user, also it will avoid that crashes in this code to propagate to the registration process.
