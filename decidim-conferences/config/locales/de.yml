@@ -43,8 +43,8 @@ de:
         one: Konferenzsprecher
         other: Konferenzsprecher
       decidim/conference_user_role:
-        one: Eine Konferenzbenutzerrolle
-        other: Benutzerrollen der Konferenz
+        one: Konferenzbenutzerrolle
+        other: Konferenzbenutzerrolle
   decidim:
     admin:
       actions:
