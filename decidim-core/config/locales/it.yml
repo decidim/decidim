@@ -608,7 +608,7 @@ it:
         show:
           conversation_with_html: Conversazione con <strong>%{name}</strong>
           reply: Rispondi
-          send: Inviare
+          send: Invia
         start:
           send: Invia
           title: Inizia una conversazione
@@ -735,7 +735,7 @@ it:
         following: segue
         groups: gruppi
         members: Utenti
-        notifications: notifiche
+        notifications: Notifiche
       sidebar:
         badges:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
