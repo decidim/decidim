@@ -860,6 +860,7 @@ en:
       version_author:
         deleted: Deleted user
     user_activity:
+      resource_type: Type
       index:
         title: Activity
     welcome_notification:
