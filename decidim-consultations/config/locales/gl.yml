@@ -48,7 +48,7 @@ gl:
         one: Resposta
         other: Respostas
       decidim/consultations/vote:
-        one: Sen votos
+        one: Vota
         other: Votos
   decidim:
     admin:
