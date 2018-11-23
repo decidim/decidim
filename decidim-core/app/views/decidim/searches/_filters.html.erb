@@ -19,19 +19,10 @@
   </div>
 </div>
 <div class="card card--secondary">
-  <div class="filters">
-    <div class="filters__section">
-      <form>
-        <fieldset>
-          <legend><h6 class="heading6">Àmbit</h6></legend>
-          <div class="data-picker picker-multiple">
-            <div class="picker-values"></div>
-            <div class="picker-prompt"><a href="">Select a scope</a></div>
-          </div>
-        </fieldset>
-      </form>
-    </div>
-  </div>
+  <%= filter_form_for filter do |form| %>
+    <%= scopes_picker_filter form, :decidim_scope_id %>
+    <%= form.hidden_field :term %>
+  <% end %>
 </div>
 <% actives = 12; pasts = 12; futures = 12; %>
 <div class="row collapse order-by">
