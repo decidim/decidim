@@ -623,13 +623,13 @@ sv:
         create:
           error: Samtalet startade inte. Försök igen senare
         index:
-          from: Från
-          last_message_html: Senast meddelande <strong>%{time} sedan</strong>
           no_conversations: Du har inga konversationer än
-        show:
-          conversation_with_html: Samtal med <strong>%{name}</strong>
-          reply: Svara
+          title: samtal
+        reply:
           send: Skicka
+          title: Svara
+        show:
+          title: Samtal med %{usernames}
         start:
           send: Skicka
           title: Starta en konversation
@@ -765,12 +765,10 @@ sv:
       default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         badges: Emblem
-        conversations: Samtal
         followers: Anhängare
         following: Följer
         groups: Grupper
         members: Medlemmar
-        notifications: Notiser
         view_full_profile: Visa hela profilen
       sidebar:
         badges:
