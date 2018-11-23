@@ -50,6 +50,7 @@ hu:
       actions:
         confirm: megerősít
         new_conference: Új konferencia
+        send_diplomas: Oklevél küldése
       conference_copies:
         new:
           copy: Másolat
@@ -153,6 +154,7 @@ hu:
           conference_admins: Konferencia felhasználók
           conference_invites: Meghívottak
           conference_speakers: Hangszórók
+          diploma: Diploma
           info: Info
           media_links: Média linkek
           moderations: moderálások
@@ -250,6 +252,7 @@ hu:
       conference:
         create: "%{user_name} létrehozta az %{resource_name} konferenciát"
         publish: "%{user_name} közzétette az %{resource_name} konferenciát"
+        send_conference_diplomas: "%{user_name} okleveleket küld az %{resource_name} konferencia-felhasználónak"
         unpublish: "%{user_name} nem publikált az %{resource_name} konferencia"
         update: "%{user_name} frissítette az %{resource_name} konferenciát"
       conference_speaker:
