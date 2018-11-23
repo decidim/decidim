@@ -36,11 +36,11 @@ module Decidim
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
 
       has_many :votes,
-        -> { final },
-        foreign_key: "decidim_proposal_id",
-        class_name: "Decidim::Proposals::ProposalVote",
-        dependent: :destroy,
-        counter_cache: "proposal_votes_count"
+               -> { final },
+               foreign_key: "decidim_proposal_id",
+               class_name: "Decidim::Proposals::ProposalVote",
+               dependent: :destroy,
+               counter_cache: "proposal_votes_count"
 
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
@@ -86,8 +86,8 @@ module Decidim
         return unless author.is_a?(Decidim::User)
 
         joins(:coauthorships)
-        .where("decidim_coauthorships.coauthorable_type = ?", name)
-        .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
+          .where("decidim_coauthorships.coauthorable_type = ?", name)
+          .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
       end
 
       # Public: Updates the vote count of this proposal.
