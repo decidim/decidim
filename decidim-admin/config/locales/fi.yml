@@ -366,7 +366,7 @@ fi:
             name: Nimi
           name: OAuth-sovellus
         participatory_space_private_user:
-          name: Osallistumistilan yksityinen käyttäjä
+          name: Osallisuustilan yksityinen käyttäjä
         scope:
           fields:
             name: Nimi
@@ -517,16 +517,16 @@ fi:
           update: Päivitä
       participatory_space_private_users:
         create:
-          error: Yksityisen käyttäjän lisäämisessä tähän osallistumistilaan tapahtui virhe.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
+          error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
+          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
         destroy:
-          error: Tapahtui virhe poistettaessa osallistumistilan yksityistä käyttäjää.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
+          error: Tapahtui virhe poistettaessa osallisuustilan yksityistä käyttäjää.
+          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
         index:
-          title: Osallistumistilan yksityinen käyttäjä
+          title: Osallisuustilan yksityinen käyttäjä
         new:
           create: Luo
-          title: Uusi osallistumistilan yksityinen käyttäjä.
+          title: Uusi osallisuustilan yksityinen käyttäjä.
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.
