@@ -636,6 +636,9 @@ gl:
         update:
           error: Mensaxe non enviada. Téntao de novo máis tarde
     metrics:
+      participants:
+        object: participantes
+        title: Participantes
       users:
         object: usuarios
         title: Usuarios
@@ -731,6 +734,9 @@ gl:
         subheading: Navega polas páxinas de axuda de %{name}
         title: Axuda
         topics: Temas
+      participatory_space:
+        metrics:
+          headline: Participación en números
       terms_and_conditions:
         accept:
           error: Produciuse un erro ao aceptar os termos e condicións.
