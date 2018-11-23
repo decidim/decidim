@@ -50,6 +50,7 @@ ca:
       actions:
         confirm: Confirmar
         new_conference: Nova conferència
+        send_diplomas: Enviar diplomes
       conference_copies:
         new:
           copy: Copiar
@@ -153,6 +154,7 @@ ca:
           conference_admins: Usuaris de la conferència
           conference_invites: Convida
           conference_speakers: Ponents
+          diploma: Diploma
           info: Info
           media_links: Enllaços multimedia
           moderations: Moderacions
@@ -250,8 +252,10 @@ ca:
       conference:
         create: "%{user_name} ha creat la conferènica %{resource_name}"
         publish: "%{user_name} ha publicat la conferència %{resource_name}"
+        send_conference_diplomas: "%{user_name} envieu els títols als %{resource_name} usuaris de la conferència"
         unpublish: "%{user_name} no publicada la conferència %{resource_name}"
         update: "%{user_name} actualitzem la conferència %{resource_name}"
+        update_diploma: "%{user_name} va actualitzar el títol de configuració %{resource_name} conferència"
       conference_speaker:
         create: "%{user_name} va crear el ponent %{resource_name} a la conferència %{space_name}"
         delete: "%{user_name} treure el ponent %{resource_name} de la conferència %{space_name}"
@@ -329,6 +333,10 @@ ca:
               one: Hi ha 1 inscripció.
               other: Hi ha %{count} inscripcions.
             slug_help: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        diplomas:
+          edit:
+            save: Desa
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Rebutjar la invitació '%{conference_title}'
@@ -342,6 +350,11 @@ ca:
             select_conference_meetings: Seleccioneu trobades de la conferència
           index:
             title: Tipus de registre
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Trobareu el diploma de la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
+          diploma_user:
+            attendance_verified_by: Assistència verificada per
       conference:
         registration_confirm:
           cancel: Cancel·lar
