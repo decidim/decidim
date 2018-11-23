@@ -46,7 +46,7 @@ module Decidim
         body = reset(:body)
         Decidim.traceability.update!(
           @proposal,
-          current_user,
+          @current_user,
           title: title,
           body: body
         )
