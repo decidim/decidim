@@ -636,6 +636,9 @@ eu:
         update:
           error: Mezua ez da bidali. Saiatu berriro geroago
     metrics:
+      participants:
+        object: Parte-hartzaile
+        title: Parte-hartzaileak
       users:
         object: erabiltzaile
         title: erabiltzaileak
@@ -731,6 +734,9 @@ eu:
         subheading: Laguntza orrietan nabigatzeko %{name}
         title: Laguntza
         topics: Gaiak
+      participatory_space:
+        metrics:
+          headline: Zifretan parte hartzea
       terms_and_conditions:
         accept:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
