@@ -636,6 +636,9 @@ es-PY:
         update:
           error: Mensaje no enviado. Inténtalo más tarde
     metrics:
+      participants:
+        object: Participantes
+        title: Participantes
       users:
         object: usuarios
         title: Usuarios
@@ -731,6 +734,9 @@ es-PY:
         subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
         topics: Temas
+      participatory_space:
+        metrics:
+          headline: Participación en cifras.
       terms_and_conditions:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones.
