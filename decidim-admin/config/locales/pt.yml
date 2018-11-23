@@ -86,6 +86,11 @@ pt:
         slug: Texto curto de URL
         title: Título
         weight: Peso
+      static_page_topic:
+        description: Descrição
+        show_in_footer: Mostrar no rodapé
+        title: Título
+        weight: Peso
     errors:
       models:
         oauth_application:

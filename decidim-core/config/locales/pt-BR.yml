@@ -9,7 +9,7 @@ pt-BR:
         about: Sobre
         email: O seu email
         name: Seu nome
-        nickname: O seu identificador curto e único
+        nickname: Apelido
         password: Senha
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
@@ -36,8 +36,8 @@ pt-BR:
         remember_me: Lembrar-me
     models:
       decidim/user:
-        one: Usuário
-        other: Usuários
+        one: Nenhum usuário
+        other: Comercial
       decidim/user_group:
         one: Grupo de usuários
         other: Grupos de usuários
@@ -199,7 +199,7 @@ pt-BR:
           title: Confirme seu e-mail
     collapsible_list:
       hidden_elements_count:
-        one: e mais 1
+        one: e mais %{count}
         other: e mais %{count}
       see_less: "(ver menos)"
       see_more: "(ver mais)"
@@ -214,6 +214,7 @@ pt-BR:
             comments_enabled: Comentários ativados
             dummy_global_attribute_1: Dummy Atributo 1
             dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
           step:
             comments_blocked: Comentários bloqueados
@@ -566,6 +567,13 @@ pt-BR:
       update:
         error: Houve um problema ao atualizar o grupo
         success: Grupo atualizado com sucesso
+    help:
+      main_topic:
+        default_page:
+          content: "<p>Em %{organization} você pode participar e decidir sobre diferentes tópicos, através dos espaços que você vê no menu superior: Processos, Assembleias, Iniciativas, Consultas.</p> <p>Dentro de cada um você encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar de debates, priorizar projetos a serem implementados, participar de reuniões presenciais e outras ações.</p>\n"
+          title: O que posso fazer em %{organization}?
+        description: Leia mais sobre %{organization}
+        title: Ajuda Geral
     last_activities:
       activities:
         no_activities_warning: Sem atividades
@@ -672,6 +680,10 @@ pt-BR:
         pending: Pendente
         rejected: Rejeitadas
         verified: Verificado
+    pad_iframe:
+      disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
+      explanation: Use esse bloco para fazer anotações de forma colaborativa durante a reunião, para que seja mais fácil escrever o minuto depois.
+      pad: Almofada
     pages:
       home:
         extended:

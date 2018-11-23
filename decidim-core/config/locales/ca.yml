@@ -9,7 +9,7 @@ ca:
         about: Quant a
         email: El teu email
         name: El teu nom
-        nickname: El teu identificador curt i únic
+        nickname: Sobrenom
         password: Contrasenya
         password_confirmation: Confirmar la contrasenya
         personal_url: URL personal
@@ -36,7 +36,7 @@ ca:
         remember_me: Recorda'm
     models:
       decidim/user:
-        one: Usuari
+        one: Sense usuaris
         other: Usuaris
       decidim/user_group:
         one: Grup d'usuaris
@@ -199,7 +199,7 @@ ca:
           title: Confirma el teu correu electrònic
     collapsible_list:
       hidden_elements_count:
-        one: i 1 més
+        one: i %{count} més
         other: i %{count} més
       see_less: "(veure menys)"
       see_more: "(veure més)"
@@ -214,6 +214,7 @@ ca:
             comments_enabled: Comentaris habilitats
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
+            enable_pads_creation: Activa la creació de pastissos
             resources_permissions_enabled: Permisos de recursos habilitats
           step:
             comments_blocked: Comentaris bloquejats
@@ -566,6 +567,13 @@ ca:
       update:
         error: S'ha produït un problema en actualitzar el grup
         success: S'ha actualitzat el grup amb èxit
+    help:
+      main_topic:
+        default_page:
+          content: "<p>En %{organization} pots participar i decidir sobre diferents temes, a través dels espais que veus al menú superior: Processos, Assemblees, Iniciatives, Consultes.</p> <p>A cadascuna d'elles trobareu diferents opcions per participar: fer propostes -de forma individual o amb altres persones-, participar en debats, prioritzar projectes per implementar, assistir a reunions presencials i altres accions.</p>\n"
+          title: Què puc fer en %{organization}?
+        description: Llegiu més sobre %{organization}
+        title: Ajuda general
     last_activities:
       activities:
         no_activities_warning: Sense activitat
@@ -672,6 +680,10 @@ ca:
         pending: Pendents
         rejected: Rebutjades
         verified: Verificada
+    pad_iframe:
+      disclaimer: Els continguts d'aquest pad són escrits per usuaris registrats i expressen les seves opinions. %{organization} no es fa responsable dels seus continguts.
+      explanation: Utilitzeu aquest coixí per prendre notes durant la reunió de manera col·laborativa, per la qual cosa és més fàcil escriure un minut després.
+      pad: Coixinet
     pages:
       home:
         extended:
