@@ -97,7 +97,7 @@ module Decidim
       ActiveSupport::Notifications.publish(
         "decidim.events.user.omniauth_registration",
         user_id: @user.id,
-        identity: identity,
+        identity_id: identity.id,
         provider: form.provider,
         uid: form.uid,
         email: form.email,

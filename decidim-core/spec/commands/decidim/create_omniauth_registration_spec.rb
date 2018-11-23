@@ -88,7 +88,7 @@ module Decidim
 
           it "notifies about registration with oauth data" do
             user = create(:user, email: email, organization: organization)
-            identity = Decidim::Identity.new
+            identity = Decidim::Identity.new(id: 1234)
             expect(command).to receive(:create_identity).and_return(identity)
 
             expect(ActiveSupport::Notifications)
@@ -96,7 +96,7 @@ module Decidim
               .with(
                 "decidim.events.user.omniauth_registration",
                 user_id: user.id,
-                identity: identity,
+                identity_id: 1234,
                 provider: provider,
                 uid: uid,
                 email: email,
