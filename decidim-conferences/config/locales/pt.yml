@@ -50,6 +50,7 @@ pt:
       actions:
         confirm: confirme
         new_conference: Nova conferência
+        send_diplomas: Envie Diplomas
       conference_copies:
         new:
           copy: cópia de
