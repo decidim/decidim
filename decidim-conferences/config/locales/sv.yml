@@ -43,8 +43,8 @@ sv:
         one: Konferenshögtalare
         other: Konferenshögtalare
       decidim/conference_user_role:
-        one: En konferens användarroll
-        other: Konference användarroller
+        one: Konferens användarroll
+        other: Konferens användarroll
   decidim:
     admin:
       actions:
