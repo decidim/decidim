@@ -216,7 +216,7 @@ eu:
           proposals: proposamenak
     participatory_spaces:
       highlighted_proposals:
-        proposals: proposamenak
+        proposals: Proposamenak
         see_all_proposals: Ikusi proposamen guztiak
     proposals:
       actions:
@@ -488,7 +488,7 @@ eu:
         filters:
           accepted: Onartuta
           activity: Jarduera
-          all: Guztiak
+          all: guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           citizens: Hiritarrak

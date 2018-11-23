@@ -216,7 +216,7 @@ it:
           proposals: proposte
     participatory_spaces:
       highlighted_proposals:
-        proposals: proposte
+        proposals: Proposte
         see_all_proposals: Vedi tutte le proposte
     proposals:
       actions:
@@ -488,11 +488,11 @@ it:
         filters:
           accepted: Accettata
           activity: Attività
-          all: Tutto
+          all: Tutti
           category: Categoria
           category_prompt: Scegli una categoria
           citizens: Cittadini
-          evaluating: Valutando
+          evaluating: Valutare
           except_rejected: Tutto tranne rifiutato
           official: Ufficiale
           origin: Origine

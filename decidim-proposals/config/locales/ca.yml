@@ -486,7 +486,7 @@ ca:
         endorsements_card_row:
           comments: Comentaris
         filters:
-          accepted: Acceptades
+          accepted: Acceptada
           activity: Activitat
           all: Tots
           category: Categoria
@@ -496,7 +496,7 @@ ca:
           except_rejected: Totes menys rebutjades
           official: Oficial
           origin: Origen
-          rejected: Rebutjades
+          rejected: Rebutjada
           related_to: Relacionat amb
           search: Cerca
           state: Estat

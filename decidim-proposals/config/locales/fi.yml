@@ -12,7 +12,7 @@ fi:
       proposal:
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        body: Leipäteksti
+        body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
@@ -439,7 +439,7 @@ fi:
             published_at: Julkaistu
             scope: Teema
             state: Tila
-            title: Kuvan tai liitteen otsikko
+            title: Otsikko
             votes: Äänet
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
