@@ -8,6 +8,8 @@ describe "Amend Proposal", type: :system do
 
   let!(:proposals) { create_list(:proposal, 3, component: component) }
   let!(:proposal) { Decidim::Proposals::Proposal.find_by(component: component) }
+  let!(:emendation) { create(:proposal, component: component) }
+  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
   let!(:user) { create :user, :confirmed, organization: organization }
   let!(:user_group) { create(:user_group, :verified, organization: organization, users: [user]) }
 
@@ -78,7 +80,7 @@ describe "Amend Proposal", type: :system do
           expect(page).to have_css(".field", text: "Body", visible: true)
         end
         it "is shown the amend user group as field" do
-          expect(page).to have_css(".field", text: "User group", visible: true)
+          expect(page).to have_css(".field", text: "Amendment author", visible: true)
         end
         it "is shown the submit button" do
           expect(page).to have_button("Send emendation")
@@ -107,6 +109,56 @@ describe "Amend Proposal", type: :system do
           expect(page).to have_content(emendation.title)
           expect(page).to have_content(emendation.body)
           expect(page).to have_css(".card__text--status", text: emendation.state.upcase)
+        end
+      end
+    end
+
+    context "when the user is the author of the amendable proposal" do
+      let(:user) { proposal.creator_author }
+
+      before do
+        visit_component
+        login_as user, scope: :user
+      end
+
+      context "and visits an emendation to his/her proposal" do
+        before do
+          click_link emendation.title
+        end
+
+        it "is shown the accept and reject button" do
+          expect(page).to have_css(".success", text: "ACCEPT")
+          expect(page).to have_css(".alert", text: "REJECT")
+        end
+
+        context "when the user clicks on the accept button" do
+          before do
+            visit decidim.review_amend_path(amendment)
+          end
+
+          it "is shown the review the amendment form" do
+            expect(page).to have_css(".edit_amend")
+            expect(page).to have_content("REVIEW THE AMENDMENT")
+            expect(page).to have_field("Title", with: emendation.title.to_s)
+            expect(page).to have_field("Body", with: emendation.body.to_s)
+            expect(page).to have_button("Accept emendation")
+          end
+
+          context "and the emendation is accepted" do
+            before do
+              within ".edit_amend" do
+                click_button "Accept emendation"
+              end
+            end
+
+            it "is shown the Success Callout" do
+              expect(page).to have_css(".callout.success", text: "This emmendation has been accepted successfully.")
+            end
+
+            it "is changed the state of the emendation" do
+              expect(page).to have_css(".success", text: emendation.state.capitalize)
+            end
+          end
         end
       end
     end
