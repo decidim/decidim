@@ -56,6 +56,7 @@ pl:
       actions:
         confirm: Potwierdzać
         new_conference: Nowa konferencja
+        send_diplomas: Wyślij dyplomy
       conference_copies:
         new:
           copy: Kopiuj
@@ -159,6 +160,7 @@ pl:
           conference_admins: Użytkownicy konferencji
           conference_invites: Zaprasza
           conference_speakers: Głośniki
+          diploma: Dyplom
           info: Informacje
           media_links: Media Links
           moderations: Moderacje
