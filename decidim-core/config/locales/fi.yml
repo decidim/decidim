@@ -636,6 +636,9 @@ fi:
         update:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     metrics:
+      participants:
+        object: osallistujaa
+        title: osallistujien
       users:
         object: käyttäjää
         title: Käyttäjiä
@@ -731,6 +734,9 @@ fi:
         subheading: Selaa palvelun %{name} tietosivuja
         title: Tietoa
         topics: Aiheet
+      participatory_space:
+        metrics:
+          headline: Osallistuminen lukuihin
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
