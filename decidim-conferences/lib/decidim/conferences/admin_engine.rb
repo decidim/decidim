@@ -37,7 +37,7 @@ module Decidim
           end
           resource :diploma, only: [:edit, :update] do
             member do
-              post :send, to: "diplomas#send_diploma"
+              post :send, to: "diplomas#send_diplomas"
             end
           end
           resources :user_roles, controller: "conference_user_roles" do

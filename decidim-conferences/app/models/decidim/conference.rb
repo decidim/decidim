@@ -55,8 +55,8 @@ module Decidim
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::HomepageImageUploader
-    mount_uploader :main_logo, Decidim::ImageUploader
-    mount_uploader :signature, Decidim::ImageUploader
+    mount_uploader :main_logo, Decidim::Conferences::DiplomaUploader
+    mount_uploader :signature, Decidim::Conferences::DiplomaUploader
 
     # Scope to return only the promoted conferences.
     #
@@ -92,6 +92,11 @@ module Decidim
 
     def remaining_slots
       available_slots - conference_registrations.count
+    end
+
+    def diploma_sent?
+      return false if diploma_sent_at.nil?
+      true
     end
   end
 end

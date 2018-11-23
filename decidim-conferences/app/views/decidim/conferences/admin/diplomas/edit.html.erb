@@ -3,9 +3,5 @@
 
    <div class="button--double form-general-submit">
     <%= f.submit t(".save") %>
-
-    <% if allowed_to?(:send_diplomas, :conference, conference: current_participatory_space ) && current_participatory_space.sign_date.present? %>
-      <%= link_to t("actions.send_diplomas", scope: "decidim.admin"), conference_send_diploma_path(current_conference), method: :post, class: "button hollow" %>
-    <% end %>
   </div>
 <% end %>

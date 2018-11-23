@@ -28,27 +28,24 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conferences.update.error", scope: "decidim.admin")
-              render :edit, layout: "decidim/admin/conference"
+              render :edit
             end
           end
         end
 
         def send_diplomas
           enforce_permission_to :send_diplomas, :conference, conference: current_conference
-          
-          SendConferenceDiplomas.call(conference, current_user) do
+
+          SendConferenceDiplomas.call(current_conference, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("send_diploma.success", scope: "decidim.conferences.admin")
-              render action: "edit"
+              redirect_to edit_conference_diploma_path(current_conference)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("send_diploma.error", scope: "decidim.conferences.admin")
-              render action: "edit"
+              flash[:alert] = I18n.t("send_diploma.error", scope: "decidim.conferences.admin")
+              redirect_to edit_conference_diploma_path(current_conference)
             end
-            # on(:ok) do |export_data|
-            #   send_data export_data.read, type: "text/#{export_data.extension}", filename: export_data.filename("registrations")
-            # end
           end
         end
 
