@@ -359,6 +359,7 @@ pt-BR:
             certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e participou nos <strong>%{title}</strong> realizados em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Houve um problema ao enviar os diplomas da conferência.
+          success: Diplomas da Conferência enviados corretamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -431,6 +432,9 @@ pt-BR:
         invite_join_conference_mailer:
           invite:
             subject: Convite para participar de uma conferência
+        send_conference_diploma_mailer:
+          diploma:
+            subject: O diploma da sua conferência foi enviado
       models:
         conference_invite:
           fields:
