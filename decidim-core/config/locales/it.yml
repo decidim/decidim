@@ -623,13 +623,13 @@ it:
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
-          from: A partire dal
-          last_message_html: Ultimo messaggio <strong>%{time} fa</strong>
           no_conversations: Non hai ancora conversazioni
-        show:
-          conversation_with_html: Conversazione con <strong>%{name}</strong>
-          reply: Rispondi
+          title: conversazioni
+        reply:
           send: Inviare
+          title: Rispondi
+        show:
+          title: Conversazione con %{usernames}
         start:
           send: Invia
           title: Inizia una conversazione
@@ -765,12 +765,10 @@ it:
       default_officialization_text_for_users: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
         badges: badge
-        conversations: conversazioni
         followers: Seguaci
         following: segue
         groups: gruppi
         members: Utenti
-        notifications: notifiche
         view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
