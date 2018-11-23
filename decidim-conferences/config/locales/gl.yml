@@ -50,6 +50,7 @@ gl:
       actions:
         confirm: Confirmar
         new_conference: Nova conferencia
+        send_diplomas: Enviar diplomas
       conference_copies:
         new:
           copy: Copiar
@@ -153,6 +154,7 @@ gl:
           conference_admins: Usuarios da conferencia
           conference_invites: Invitacións
           conference_speakers: Ponentes
+          diploma: Diploma
           info: Información
           media_links: Ligazóns multimedia
           moderations: Moderacións
@@ -250,8 +252,10 @@ gl:
       conference:
         create: "%{user_name} creou a %{resource_name} conferencia"
         publish: "%{user_name} publicou a %{resource_name} conferencia"
+        send_conference_diplomas: "%{user_name} envía diplomas aos %{resource_name} usuarios da conferencia"
         unpublish: "%{user_name} inédita a %{resource_name} conferencia"
         update: "%{user_name} actualizou a %{resource_name} conferencia"
+        update_diploma: "%{user_name} actualizou a conferencia de configuración do diploma %{resource_name}"
       conference_speaker:
         create: "%{user_name} creou o %{resource_name} altofalante na %{space_name} conferencia"
         delete: "%{user_name} eliminou o %{resource_name} altofalante da %{space_name} conferencia"
@@ -329,6 +333,10 @@ gl:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a esta conferencia. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        diplomas:
+          edit:
+            save: Gardar
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Declina a invitación '%{conference_title}'
