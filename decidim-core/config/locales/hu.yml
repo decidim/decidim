@@ -622,13 +622,13 @@ hu:
         create:
           error: A beszélgetés megakadt. Próbáld újra később
         index:
-          from: Feladó
-          last_message_html: Utolsó üzenet <strong>%{time}-ja</strong>
           no_conversations: Még nincsenek beszélgetések
+          title: beszélgetések
+        reply:
+          send: Elküld
+          title: Válasz
         show:
-          conversation_with_html: 'Beszélgetés vele: <strong>%{name}</strong>'
-          reply: Válasz
-          send: Küldés
+          title: Beszélgetés %{usernames}
         start:
           send: Küldés
           title: Beszélgetés indítása
@@ -764,12 +764,10 @@ hu:
       default_officialization_text_for_users: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
       show:
         badges: Jelvények
-        conversations: Beszélgetések
         followers: Követők
         following: Követés
         groups: Csoportok
         members: Belépés
-        notifications: Értesítések
         view_full_profile: Teljes profil megtekintése
       sidebar:
         badges:
