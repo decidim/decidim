@@ -172,7 +172,6 @@ en:
         send: Send emendation
       review:
         back: Back
-        coauthorship: Author
         heading: Review the amendment
         help_text: You are amending the %{model_name}
         send: Accept emendation
