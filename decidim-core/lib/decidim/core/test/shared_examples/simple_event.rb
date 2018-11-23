@@ -95,6 +95,12 @@ shared_examples_for "a simple event" do |skip_space_checks|
     end
   end
 
+  describe "resource_title" do
+    it "responds to the method" do
+      expect(subject).to respond_to(:resource_title)
+    end
+  end
+
   unless skip_space_checks
     describe "participatory_space_url" do
       it "is generated correctly" do

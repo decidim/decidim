@@ -62,7 +62,7 @@ module Decidim
 
     def filtered(highlight: nil, scope: nil, sort: nil)
       result = all
-      if highlight.present?
+      unless highlight.nil?
         result = if highlight
                    highlighted(result)
                  else

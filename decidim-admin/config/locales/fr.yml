@@ -86,6 +86,11 @@ fr:
         slug: Identifiant
         title: Titre
         weight: Poids
+      static_page_topic:
+        description: La description
+        show_in_footer: Montrer dans le pied de page
+        title: Titre
+        weight: Poids
     errors:
       models:
         oauth_application:

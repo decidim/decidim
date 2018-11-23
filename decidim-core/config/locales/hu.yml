@@ -9,7 +9,7 @@ hu:
         about: Rólunk
         email: Email címed
         name: Neved
-        nickname: Rövid, egyedi azonosítód
+        nickname: Becenév
         password: Jelszó
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
@@ -36,8 +36,8 @@ hu:
         remember_me: Emlékezz rám
     models:
       decidim/user:
-        one: Felhasználó
-        other: Felhasználók
+        one: Nincsenek felhasználók
+        other: felhasználók
       decidim/user_group:
         one: Felhasználói csoport
         other: Felhasználói csoportok
@@ -199,7 +199,7 @@ hu:
           title: Erősítsd meg az e-mail címed
     collapsible_list:
       hidden_elements_count:
-        one: és még egy
+        one: és még %{count}
         other: és még %{count}
       see_less: "(kevesebb)"
       see_more: "(tovább)"
@@ -214,6 +214,7 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
+            enable_pads_creation: A párna létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
             comments_blocked: Megjegyzések letiltva
@@ -565,6 +566,13 @@ hu:
       update:
         error: Probléma történt a csoport frissítésével
         success: A csoport sikeresen frissült
+    help:
+      main_topic:
+        default_page:
+          content: "<p>Az %{organization} részt vehet és dönthet különböző témákról a főmenüben megjelenő mezőkön keresztül: Folyamatok, összeállítások, kezdeményezések, konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyen részt vitákban, fontolja meg a végrehajtandó projekteket, vegyen részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
+          title: Mit tehetek a %{organization}?
+        description: További információ a %{organization}
+        title: Általános segítség
     last_activities:
       activities:
         no_activities_warning: Nincs aktivitás
@@ -671,6 +679,10 @@ hu:
         pending: Függőben
         rejected: Elutasítva
         verified: Megerősítve
+    pad_iframe:
+      disclaimer: A pad tartalmát regisztrált felhasználók írják és véleményüket fejezik ki. %{organization} nem tehető felelőssé a tartalmáért.
+      explanation: Ezzel a párnával együttműködve jegyzeteket készíthet az értekezlet alatt, így később könnyebb leírni a percet.
+      pad: Párna
     pages:
       home:
         extended:

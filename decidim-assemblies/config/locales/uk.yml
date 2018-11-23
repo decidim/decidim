@@ -334,12 +334,6 @@ uk:
           take_part: Взяти участь
         index:
           promoted_assemblies: Висвітлені збори
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} (одні) збори"
-            few: "%{count} зборів"
-            many: "%{count} зборів"
-            other: "%{count} зборів"
         promoted_assembly:
           more_info: Додаткові відомості
           take_part: Взяти участь

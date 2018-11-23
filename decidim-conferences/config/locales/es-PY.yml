@@ -43,8 +43,8 @@ es-PY:
         one: Conferenciante
         other: Conferenciantes
       decidim/conference_user_role:
-        one: Papel de usuario de conferencia
-        other: Roles de usuario de conferencia
+        one: No hay roles de usuario de conferencia
+        other: Roles de usuario conferencia
   decidim:
     admin:
       actions:

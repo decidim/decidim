@@ -1,0 +1,11 @@
+<%= partial "filters_small_view" %>
+<div class="show-for-mediumlarge">
+  <p class="text-secondary">
+    <%= link_to page_path("search") do %>
+      <%= icon "caret-left", class: "icon--small" %>&nbsp;Back to all results
+    <% end %>
+  </p>
+  <div class="card card--secondary">
+    <%= partial "filters" %>
+  </div>
+</div>

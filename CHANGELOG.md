@@ -32,10 +32,25 @@ class RemoveDecidimSurveysTablesAfterMigrateToDecidimForms < ActiveRecord::Migra
 end
 ````
 
+- **Core**:
+
+Default help content will be created on new organizations. For existing organizations, though,
+you'll have to populate it yourself.
+
+Fortunately enough, this is an easy thing to do. Just open an IRB session in your environment
+and execute:
+
+```ruby
+Decidim::Organization.find_each do |organization|
+  Decidim::System::PopulateHelp.call(organization)
+end
+```
+
 **Added**:
 
 - **decidim-proposals**: Specific public view rendering of participatory texts. [\#4316](https://github.com/decidim/decidim/pull/4316)
 - **decidim-proposals**: Admin can create proposals from the admin panel, with a meeting as an author.[\#4382](https://github.com/decidim/decidim/pull/4382)
+- **decidim-conferences**: Add diplomas functionallity in an automated way for those users that has their registration confirmed. [\#4443](https://github.com/decidim/decidim/pull/4443)
 - **decidim-proposals**: Add support to import .odt participatory text files. [\#4386](https://github.com/decidim/decidim/pull/4386)
 - **decidim-conferences**: Add conference registration types. [\#4408](https://github.com/decidim/decidim/pull/4408)
 - **decidim-core**: Added `users_registration_mode` to allow disable users registration or login [\#4428](https://github.com/decidim/decidim/pull/4428)
@@ -54,6 +69,7 @@ end
 - **decidim-core**: Let users find search results by writing prefixes of a word instead of whole words [\#4492](https://github.com/decidim/decidim/pull/4492)
 - **decidim-core**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
 - **decidim-meetings**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
+- **decidim-core**: Adds default pages and contextual help when creating organizations [\#4541](https://github.com/decidim/decidim/pull/4541)
 
 **Changed**:
 
@@ -72,6 +88,7 @@ end
 
 **Fixed**:
 
+- **decidim-meetings**: Fix title and description fields in admin form. [\#4535](https://github.com/decidim/decidim/pull/4535)
 - **decidim-meetings**: Change title to description in meetings admin form [\#4483](https://github.com/decidim/decidim/pull/4483)
 - **decidim-meetings**: Use the correct cell to render a meeting organizer [\#4501](https://github.com/decidim/decidim/pull/4501)
 - **decidim-core**: Hashtags with unicode characters are now parsed correctly [\#4473](https://github.com/decidim/decidim/pull/4473)
@@ -94,6 +111,9 @@ end
 - **decidim-participatory_processes**: Don't filter highlighted processes by state [\#4502](https://github.com/decidim/decidim/pull/4502)
 - **decidim-participatory_processes**: Don't show grouped processes in the process list[\#4503](https://github.com/decidim/decidim/pull/4503)
 - **decidim-core**: Fix notification settings form [\#4528](https://github.com/decidim/decidim/pull/4528)
+- **decidim-proposals**: Fix vote-rerendering on a proposal's page [#4557](https://github.com/decidim/decidim/pull/4557)
+- **decidim-core**: Fix tabs with inputs with invalid characters [\#4552](https://github.com/decidim/decidim/pull/4552)
+- **decidim-admin**: Fix image updating in content blocks [\#4549](https://github.com/decidim/decidim/pull/4549)
 
 **Removed**:
 

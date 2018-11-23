@@ -86,6 +86,11 @@ ca:
         slug: Nom curt d'URL
         title: Títol
         weight: Pes
+      static_page_topic:
+        description: Descripció
+        show_in_footer: Mostra al peu de pàgina
+        title: Títol
+        weight: Pes
     errors:
       models:
         oauth_application:
