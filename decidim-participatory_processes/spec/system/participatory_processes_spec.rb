@@ -291,6 +291,17 @@ describe "Participatory Processes", type: :system do
             end
           end
         end
+
+        it "check link its present" do
+          within "#metrics" do
+            expect(page).to have_link("Show all statistics")
+          end
+        end
+
+        it "click link" do
+          click_link("Show all statistics")
+          have_current_path(decidim_participatory_processes.statistics_participatory_process_path(participatory_process))
+        end
       end
 
       context "and the process stats are not enabled" do

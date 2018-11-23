@@ -640,10 +640,16 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      followers:
+        description: ''
+        object: followers
+        title: Followers
       participants:
+        description: ''
         object: participants
         title: Participants
       users:
+        description: ''
         object: users
         title: Users
     newsletter_mailer:

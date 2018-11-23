@@ -33,6 +33,7 @@ module Decidim
             settings.attribute :highlighted, type: :boolean, default: false
             settings.attribute :scopes, type: :array, default: %w(participatory_process)
             settings.attribute :weight, type: :integer, default: 5
+            settings.attribute :stat_block, type: :string, default: "small"
           end
         end
 

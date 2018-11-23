@@ -2,32 +2,6 @@
   <%= render partial: "decidim/shared/private_participatory_space", locals: { text: t("participatory_processes.show.private_space", scope: "decidim") } %>
 <% end %>
 
-<div class="row">
-
-  <%= metrics.medium_stats %>
-
-  <!-- MEDIUM -->
-  <div class="column medium-6"> <!-- number of columns variable to the importance of the row -->
-    <h3 class="heading3 text-uppercase text-muted">(MEDIUM) METRIC</h3> <!-- This thing here only need to add metric number -->
-    <p class="text-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p> <!-- Locales, maybe... -->
-    <%#= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true %> <!-- Adding metric block -->
-  </div>
-
-  <%= metrics.big_stats %>
-
-  <!-- BIG -->
-  <div class="column">
-    <h3 class="heading3 text-uppercase text-muted">(BIG) METRIC</h3>
-    <p class="text-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
-    <%#= partial "areachart", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "16:9"  %>
-  </div>
-
-  <%= metrics.small_stats %>
-
-  <!-- SMALL -->
-  <div class="column medium-4">
-    <h3 class="heading3 text-uppercase text-muted">(SMALL) METRIC</h3>
-    <p class="text-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus sed, unde molestiae, iusto blanditiis cumque, asperiores consectetur corrupti facilis adipisci modi suscipit. Ipsum ut exercitationem iste iusto cumque. Et, repudiandae.</p>
-    <%#= partial "areachart", classes: "secondary", metric: "areachart-" + SecureRandom.random_number(3).to_s, axis: true, ratio: "11:4" %>
-  </div>
-</div>
+<%= metrics.medium_stats %>
+<%= metrics.big_stats %>
+<%= metrics.small_stats %>
