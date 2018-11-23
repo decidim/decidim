@@ -22,6 +22,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", compatible_constraint
   s.add_dependency "decidim-meetings", compatible_constraint
+  s.add_dependency "wicked_pdf"
+  s.add_dependency "wkhtmltopdf-binary"
 
   s.add_development_dependency "decidim-admin", compatible_constraint
   s.add_development_dependency "decidim-dev", compatible_constraint

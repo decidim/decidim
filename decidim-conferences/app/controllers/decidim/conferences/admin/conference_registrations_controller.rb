@@ -31,7 +31,7 @@ module Decidim
         def confirm
           enforce_permission_to :confirm, :conference_registration, conference_registration: conference_registration
 
-          ConfirmConferenceRegistration.call(conference_registration) do
+          ConfirmConferenceRegistration.call(conference_registration, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_registration.confirm.success", scope: "decidim.admin")
             end
