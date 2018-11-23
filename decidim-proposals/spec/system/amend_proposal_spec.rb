@@ -121,7 +121,7 @@ describe "Amend Proposal", type: :system do
         login_as user, scope: :user
       end
 
-      context "and visits an emendation to his/her proposal" do
+      context "and visits an emendation to their proposal" do
         before do
           click_link emendation.title
         end

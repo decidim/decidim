@@ -29,8 +29,6 @@ module Decidim
           accept_amendment!
           accept_emendation!
           update_amendable!
-
-          # The amendable and emendation authors and followers are notified that the emendation has been accepted.
           notify_amendable_and_emendation_authors_and_followers
         end
 
