@@ -623,13 +623,13 @@ pt-BR:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
-          from: De
-          last_message_html: Última mensagem <strong>%{time} atrás</strong>
           no_conversations: Ainda não há conversas
+          title: Conversas
+        reply:
+          send: Mandar
+          title: Resposta
         show:
-          conversation_with_html: Conversa com <strong>%{name}</strong>
-          reply: Resposta
-          send: Enviar
+          title: Conversa com %{usernames}
         start:
           send: Enviar
           title: Comece uma conversa
@@ -765,12 +765,10 @@ pt-BR:
       default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
         badges: Distintivos
-        conversations: Conversas
         followers: Seguidores
         following: Segue
         groups: Grupos
         members: Membros
-        notifications: Notificações
         view_full_profile: Ver o perfil completo
       sidebar:
         badges:
