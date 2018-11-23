@@ -104,6 +104,7 @@ module Decidim
           when "accept"
             redirect_to review_amend_path(id: params[:id])
           end
+
           return false
         end
       end
