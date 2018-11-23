@@ -15,7 +15,7 @@ module Decidim::Meetings
     let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
     let(:questionnaire) { nil }
     let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots, questionnaire: questionnaire }
-    let(:user) { create :user, :confirmed, organization: organization }
+    let(:user) { create :user, :confirmed, organization: organization, email_on_notification: false }
 
     context "when everything is ok" do
       it "broadcasts ok" do

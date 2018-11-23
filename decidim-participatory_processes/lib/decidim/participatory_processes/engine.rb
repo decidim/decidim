@@ -71,12 +71,19 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.register_metrics" do
-        Decidim.metrics_registry.register(
-          :participatory_processes,
-          "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
-          2
-        )
+        Decidim.metrics_registry.register(:participatory_processes) do |metric_registry|
+          metric_registry.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 2
+          end
+        end
+
+        Decidim.metrics_operation.register(:followers, :participatory_process) do |metric_operation|
+          metric_operation.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessFollowersMetricMeasure"
+        end
       end
     end
   end

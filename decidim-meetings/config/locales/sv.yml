@@ -82,6 +82,7 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             default_registration_terms: Villkor för standardregistrering
+            enable_pads_creation: Aktivera skapandet av pads
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
           step:
             announcement: Meddelande
@@ -109,9 +110,9 @@ sv:
           email_subject: Mötet "%{resource_title}" uppdaterades
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
-          email_intro: Din registreringskod "%{registration_code}" har validerats.
+          email_intro: Din registreringskod "%{registration_code}" för mötet "%{resource_title}" har validerats.
           email_outro: Du har fått den här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
-          email_subject: Din registreringskod "%{registration_code}" har validerats
+          email_subject: Din registreringskod "%{registration_code}" för mötet "%{resource_title}" har validerats
           notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registrations_enabled:
           email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
@@ -272,7 +273,7 @@ sv:
             invites: Inbjudningar
             registration_form: Anmälningsblankett
             registrations_count:
-              one: Det har gjorts 1 registrering.
+              one: Det har gjorts %{count} registreringar.
               other: Det har gjorts %{count} registreringar.
             reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
@@ -361,8 +362,8 @@ sv:
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
           remaining_slots:
-            one: 1 plats kvar
-            other: "%{count} platser kvar"
+            one: '%{count} slits kvar'
+            other: "%{count} slits kvar"
           view: Visa
       meetings_map:
         view_meeting: Visa möte

@@ -29,6 +29,7 @@ module Decidim
 
       scope :open, -> { where(state: "open") }
       scope :withdrawn, -> { where(state: "withdrawn") }
+      scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where(state: "published") }
 
       # Checks whether the user can edit the given proposal.

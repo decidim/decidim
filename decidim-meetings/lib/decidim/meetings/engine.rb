@@ -105,12 +105,19 @@ module Decidim
       end
 
       initializer "decidim_meetings.register_metrics" do
-        Decidim.metrics_registry.register(
-          :meetings,
-          "Decidim::Meetings::Metrics::MeetingsMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
-          5
-        )
+        Decidim.metrics_registry.register(:meetings) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Meetings::Metrics::MeetingsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 5
+          end
+        end
+
+        Decidim.metrics_operation.register(:followers, :meetings) do |metric_operation|
+          metric_operation.manager_class = "Decidim::Meetings::Metrics::MeetingFollowersMetricMeasure"
+        end
       end
 
       initializer "decidim_meetings.assets" do |app|

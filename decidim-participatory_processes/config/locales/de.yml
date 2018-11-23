@@ -255,6 +255,12 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Ein Update auf %{participatory_space_title}
           notification_title: Die Daten für den <a href="%{resource_path}">%{resource_title}</a> Schritt bei <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations Aktivitäten (zB zuerst eine Umfrage ausfüllen, dann Vorschläge machen, so dass sie diskutiert in face-to-face oder virtuellen Sitzungen, und sie schließlich die Priorisierung) mit dem Ziel , die Definition und Treffen eine Entscheidung zu einem bestimmten Thema.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert, anschließend debattiert und schließlich eine Kandidatur ausgewählt wird), die Bürgerhaushalte (bei denen Vorschläge gemacht, wirtschaftlich bewertet und mit dem verfügbaren Geld abgestimmt werden). ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung eines öffentlichen Planes.</p>\n"
+          page: "<p>A <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations Aktivitäten (zB zuerst eine Umfrage ausfüllen, dann Vorschläge machen, so dass sie diskutiert in face-to-face oder virtuellen Sitzungen, und sie schließlich die Priorisierung) mit dem Ziel , die Definition und Treffen eine Entscheidung zu einem bestimmten Thema.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert, anschließend debattiert und schließlich eine Kandidatur ausgewählt wird), die Bürgerhaushalte (bei denen Vorschläge gemacht, wirtschaftlich bewertet und mit dem verfügbaren Geld abgestimmt werden). ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung eines öffentlichen Planes.</p>\n"
+          title: Was ist ein partizipativer Prozess?
     menu:
       processes: Prozesse
     metrics:

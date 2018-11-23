@@ -86,6 +86,11 @@ it:
         slug: URL slug
         title: Titolo
         weight: Peso
+      static_page_topic:
+        description: Descrizione
+        show_in_footer: Mostra nel piè di pagina
+        title: Titolo
+        weight: Peso
     errors:
       models:
         oauth_application:

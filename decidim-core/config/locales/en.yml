@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -10,7 +9,7 @@ en:
         about: About
         email: Your email
         name: Your name
-        nickname: Your short, unique identifier
+        nickname: Nickname
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
@@ -37,7 +36,7 @@ en:
         remember_me: Remember me
     models:
       decidim/user:
-        one: User
+        one: No users
         other: Users
       decidim/user_group:
         one: User group
@@ -200,7 +199,7 @@ en:
           title: Confirm your email
     collapsible_list:
       hidden_elements_count:
-        one: and 1 more
+        one: and %{count} more
         other: and %{count} more
       see_less: "(see less)"
       see_more: "(see more)"
@@ -450,7 +449,7 @@ en:
       badges:
         continuity:
           conditions:
-          - Come here often
+            - Come here often
           description: This badge is granted when you visit the platform in a regular way. We like having you around here!
           description_another: This user has connected for %{score} consecutive days at some point.
           description_own: You have connected for %{score} consecutive days at some point.
@@ -460,7 +459,7 @@ en:
           unearned_own: You haven't connected for more than one consecutive day.
         followers:
           conditions:
-          - Being active and following other people will surely make other people follow you.
+            - Being active and following other people will surely make other people follow you.
           description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
           description_another: This user has %{score} followers.
           description_own: "%{score} users are following you."
@@ -475,9 +474,9 @@ en:
           title: Badges
         invitations:
           conditions:
-          - Use the “invite friends” link on your user page to invite your friends
-          - Customize, if you want, the message you are sending
-          - You’ll level up by sending invitations and getting them registered.
+            - Use the “invite friends” link on your user page to invite your friends
+            - Customize, if you want, the message you are sending
+            - You’ll level up by sending invitations and getting them registered.
           description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
           description_another: This user has invited %{score} users.
           description_own: You have invited %{score} users.
@@ -572,6 +571,13 @@ en:
       update:
         error: There has been a problem updating the group
         success: Group updated successfully
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
+          title: What can I do in %{organization}?
+        description: Read more about %{organization}
+        title: General Help
     last_activities:
       activities:
         no_activities_warning: No activity
@@ -634,6 +640,9 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      participants:
+        object: participants
+        title: Participants
       users:
         object: users
         title: Users
@@ -729,6 +738,9 @@ en:
         subheading: Navigate through the help pages of %{name}
         title: Help
         topics: Topics
+      participatory_space:
+        metrics:
+          headline: Participation in figures
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
@@ -847,7 +859,7 @@ en:
       version_author:
         deleted: Deleted user
     welcome_notification:
-      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization_name}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
+      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
   devise:
     confirmations:

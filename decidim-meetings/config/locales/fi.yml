@@ -82,6 +82,7 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             default_registration_terms: Ilmoittautumisen oletusehdot
+            enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Toimintaoikeudet voidaan asettaa jokaiselle tapahtumalle
           step:
             announcement: Ilmoitus
@@ -109,9 +110,9 @@ fi:
           email_subject: Tapahtuma "%{resource_title}" päivitettiin
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> päivitettiin.
         registration_code_validated:
-          email_intro: Ilmoittautumiskoodisi "%{registration_code}" on vahvistettu.
+          email_intro: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska ilmoittautumiskoodisi tapahtumaan "%{resource_title}" on vahvistettu.
-          email_subject: Ilmoittautumiskoodisi "%{registration_code}" on vahvistettu
+          email_subject: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan "%{resource_title}" on vahvistettu
           notification_title: Ilmoittautumiskoodisi "%{registration_code}" tapahtumaan <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
         registrations_enabled:
           email_intro: 'Tapahtuma "%{resource_title}" on avannut ilmoittautumisen. Voit ilmoittautua tapahtuman sivuilla:'
@@ -272,8 +273,8 @@ fi:
             invites: Kutsut
             registration_form: Ilmoittautumislomake
             registrations_count:
-              one: 1 ilmoittautuminen.
-              other: '%{count} ilmoittautumista.'
+              one: '%{count} rekisteröintiä.'
+              other: '%{count} rekisteröintiä.'
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
           update:
@@ -361,8 +362,8 @@ fi:
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
           remaining_slots:
-            one: 1 paikka jäljellä
-            other: "%{count} paikkaa jäljellä"
+            one: 'Jäljellä oleva %{count} paikka'
+            other: "Jäljellä %{count} paikkaa"
           view: Näytä
       meetings_map:
         view_meeting: Näytä tapahtuma

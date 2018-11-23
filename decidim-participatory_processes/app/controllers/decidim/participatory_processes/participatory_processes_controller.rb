@@ -6,8 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-
-      participatory_space_layout only: :show
+      participatory_space_layout only: [:show, :statistics]
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
@@ -17,7 +16,7 @@ module Decidim
 
       helper ParticipatoryProcessHelper
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :filter
       helper_method :process_count_by_filter
 
       def index
@@ -28,6 +27,10 @@ module Decidim
       end
 
       def show
+        check_current_user_can_visit_space
+      end
+
+      def statistics
         check_current_user_can_visit_space
       end
 
@@ -75,6 +78,10 @@ module Decidim
 
       def stats
         @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
+      end
+
+      def metrics
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
       end
 
       def filter

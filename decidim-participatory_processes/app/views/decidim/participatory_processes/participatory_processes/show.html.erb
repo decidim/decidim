@@ -14,6 +14,8 @@ edit_link(
 )
 %>
 
+<%= participatory_space_floating_help %>
+
 <% if current_participatory_space.private_space? %>
   <%= render partial: "decidim/shared/private_participatory_space", locals: { text: t("participatory_processes.show.private_space", scope: "decidim") } %>
 <% end %>
@@ -104,6 +106,7 @@ edit_link(
   </div>
   <% if current_participatory_space.show_statistics? %>
     <%= render partial: "statistics" %>
+    <%= render partial: "metrics" %>
   <% end %>
 </div>
 
