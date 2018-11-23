@@ -47,7 +47,7 @@ pl:
         many: Głośniki konferencyjne
         other: Głośniki konferencyjne
       decidim/conference_user_role:
-        one: Brak ról użytkownika konferencji
+        one: Rola użytkownika konferencji
         few: Role użytkowników konferencji
         many: Role użytkowników konferencji
         other: Role użytkowników konferencji
