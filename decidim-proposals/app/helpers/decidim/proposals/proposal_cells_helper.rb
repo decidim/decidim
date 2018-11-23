@@ -21,6 +21,11 @@ module Decidim
         proposals_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
       end
 
+      def has_footer?
+        return context[:has_footer] if context[:has_footer].present?
+        proposals_controller? && index_action? && current_settings.votes_enabled? && !model.draft?
+      end
+
       def proposals_controller?
         context[:controller].class.to_s == "Decidim::Proposals::ProposalsController"
       end

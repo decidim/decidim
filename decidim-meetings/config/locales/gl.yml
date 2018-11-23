@@ -82,6 +82,7 @@ gl:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de rexistro por defecto
+            enable_pads_creation: Habilita a creación de pastillas
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
           step:
             announcement: Anuncio
@@ -109,9 +110,9 @@ gl:
           email_subject: Realizouse a reunión "%{resource_title}"
           notification_title: Reunirase a reunión <a href="%{resource_path}">%{resource_title}</a>.
         registration_code_validated:
-          email_intro: O seu código de rexistro "%{registration_code}" foi validado.
+          email_intro: O seu código de rexistro "%{registration_code}" para a reunión "%{resource_title}" foi validado.
           email_outro: Recibiches esta notificación porque o teu código de rexistro para a reunión "%{resource_title}" foi validado.
-          email_subject: O seu código de rexistro "%{registration_code}" foi validado
+          email_subject: O seu código de rexistro "%{registration_code}" para a reunión "%{resource_title}" foi validado
           notification_title: O seu código de rexistro "%{registration_code}" para a xuntanza <a href="%{resource_path}">%{resource_title}</a> validouse.
         registrations_enabled:
           email_intro: 'A xuntanza "%{resource_title}" habilitou as inscricións. Pode rexistrarse na súa páxina:'
@@ -272,7 +273,7 @@ gl:
             invites: Invitacións
             registration_form: Formulario de inscrición
             registrations_count:
-              one: Houbo 1 rexistro.
+              one: Houbo %{count} rexistros.
               other: Houbo %{count} rexistros.
             reserved_slots_help: Déixao a 0 se non tes slots reservados
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
@@ -361,7 +362,7 @@ gl:
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
           remaining_slots:
-            one: 1 slot restante
+            one: '%{count} slot restante'
             other: "%{count} slots restantes"
           view: Ver
       meetings_map:

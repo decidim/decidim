@@ -1,17 +1,9 @@
 .orgchart{
   // Colors
-  $bg-color: $white;
-  $dot-color: $medium-gray;
-
-  // Dimensions
-  $dot-size: rem-calc(2px);
-  $dot-space: rem-calc(10px);
-
-  background: linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center, linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
-  background-size: $dot-space $dot-space;
+  $bg-color: $light-gray-dark;
 
   // Other vars
-  $stroke-width: 1px;
+  $stroke-width: 3px;
   $stroke-color: $medium-gray;
 
   .as-card{

@@ -22,6 +22,9 @@
 // = require decidim/tooltip_keep_on_hover
 // = require_tree ./decidim/vizzs
 
+// = require_self
+// = require decidim/floating_help
+
 /* globals svg4everybody */
 
 window.Decidim = window.Decidim || {};

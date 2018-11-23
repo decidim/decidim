@@ -43,6 +43,7 @@ module Decidim
       return if [false, "false"].include? context[:label]
       return @label ||= t("decidim/amendment", scope: "activerecord.models", count: 1) if model.respond_to?("emendation?") && model.emendation?
       return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
+
       context[:label]
     end
 

@@ -9,7 +9,7 @@ nl:
         about: Over
         email: Je e-mailadres
         name: Uw naam
-        nickname: Jouw korte unieke ID
+        nickname: Bijnaam
         password: Wachtwoord
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
@@ -36,7 +36,7 @@ nl:
         remember_me: Blijf ingelogd
     models:
       decidim/user:
-        one: Gebruiker
+        one: Geen gebruikers
         other: gebruikers
       decidim/user_group:
         one: Gebruikersgroep
@@ -199,7 +199,7 @@ nl:
           title: bevestig je email
     collapsible_list:
       hidden_elements_count:
-        one: en nog 1
+        one: en %{count} meer
         other: en %{count} meer
       see_less: "(zie minder)"
       see_more: "(Bekijk meer)"
@@ -214,6 +214,7 @@ nl:
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
+            enable_pads_creation: Schakel het maken van pads in
             resources_permissions_enabled: Resources permissies ingeschakeld
           step:
             comments_blocked: Reacties geblokkeerd
@@ -566,6 +567,13 @@ nl:
       update:
         error: Er is een probleem opgetreden bij het bijwerken van de groep
         success: Groep succesvol geüpdatet
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} kunt u deelnemen aan en beslissen over verschillende onderwerpen, via de spaties die u ziet in het bovenste menu: Processen, Assemblies, Initiatieven, Consultaties.</p> <p>Binnen elk daarvan vindt u verschillende mogelijkheden om deel te nemen: voorstellen doen - individueel of met andere mensen -, deelnemen aan debatten, prioriteit geven aan te implementeren projecten, persoonlijke vergaderingen bijwonen en andere acties.</p>\n"
+          title: Wat kan ik doen in %{organization}?
+        description: Lees meer over %{organization}
+        title: Algemene hulp
     last_activities:
       activities:
         no_activities_warning: Geen activiteit
@@ -672,6 +680,10 @@ nl:
         pending: In behandeling
         rejected: Geweigerd
         verified: Geverifieerd
+    pad_iframe:
+      disclaimer: De inhoud van dit notitieblok is geschreven door geregistreerde gebruikers en geeft hun mening weer. %{organization} kan niet verantwoordelijk worden gehouden voor de inhoud ervan.
+      explanation: Gebruik deze pad om tijdens de vergadering gezamenlijk notities te maken, zodat u de minuut erna gemakkelijker kunt noteren.
+      pad: stootkussen
     pages:
       home:
         extended:

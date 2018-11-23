@@ -32,3 +32,4 @@ require "decidim/core/test/shared_examples/amendable/withdraw_amendment_examples
 require "decidim/core/test/shared_examples/amendable/validate_amendment_form_examples"
 require "decidim/core/test/shared_examples/amendable/reject_amendment_examples"
 require "decidim/core/test/shared_examples/amendable/promote_amendment_examples"
+require "decidim/core/test/shared_examples/amendable/accept_amendment_examples"
