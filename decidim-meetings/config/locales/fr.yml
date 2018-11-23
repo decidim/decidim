@@ -82,6 +82,7 @@ fr:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
             default_registration_terms: Conditions d'inscription par défaut
+            enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
           step:
             announcement: Annonce
@@ -109,9 +110,9 @@ fr:
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
         registration_code_validated:
-          email_intro: Votre code d'enregistrement "%{registration_code}" a été validé.
+          email_intro: Votre code d'enregistrement "%{registration_code}" pour la réunion "%{resource_title}" a été validé.
           email_outro: Vous avez reçu cette notification parce que votre code d'enregistrement pour la réunion "%{resource_title}" a été validé.
-          email_subject: Votre code d'enregistrement "%{registration_code}" a été validé
+          email_subject: Votre code d'enregistrement "%{registration_code}" pour la réunion "%{resource_title}" a été validé
           notification_title: Votre code d'enregistrement "%{registration_code}" pour la réunion <a href="%{resource_path}">%{resource_title}</a> a été validé.
         registrations_enabled:
           email_intro: 'Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes. Vous pouvez vous inscrire sur sa page :'
@@ -272,7 +273,7 @@ fr:
             invites: Invitations
             registration_form: Formulaire d'inscription
             registrations_count:
-              one: Il y a eu 1 inscription.
+              one: Il y a eu %{count} inscriptions.
               other: Il y a eu %{count} inscriptions.
             reserved_slots_help: Laissez à 0 si vous n'avez pas de places réservées
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
@@ -361,8 +362,8 @@ fr:
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           remaining_slots:
-            one: Il reste 1 place
-            other: "Il reste %{count} places"
+            one: '%{count} emplacement disponible'
+            other: "%{count} places disponibles"
           view: Voir
       meetings_map:
         view_meeting: Voir la réunion

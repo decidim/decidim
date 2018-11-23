@@ -35,6 +35,13 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :diploma do
+      main_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+      signature { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+      sign_date { 5.days.from_now }
+      signature_name { "Signature name" }
+    end
   end
 
   factory :conference_user_role, class: "Decidim::ConferenceUserRole" do
@@ -126,6 +133,15 @@ FactoryBot.define do
     conference
     user
     registration_type
+    confirmed_at { Time.current }
+
+    trait :confirmed do
+      confirmed_at { Time.current }
+    end
+
+    trait :unconfirmed do
+      confirmed_at { nil }
+    end
   end
 
   factory :conference_invite, class: "Decidim::Conferences::ConferenceInvite" do

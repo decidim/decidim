@@ -43,7 +43,7 @@ fi:
         one: Konferenssin puhuja
         other: Konferenssin puhujat
       decidim/conference_user_role:
-        one: Konferenssin käyttäjärooli
+        one: Ei konferenssin käyttäjän rooleja
         other: Konferenssin käyttäjäroolit
   decidim:
     admin:
@@ -273,9 +273,9 @@ fi:
           unpublish: "%{user_name} lopetti ilmoittautumistyypin %{resource_name} julkaisun konferenssissa %{space_name}"
           update: "%{user_name} päivitti ilmoittautumistyyppiä %{resource_name} konferenssissa %{space_name}"
       media_link:
-        create: "%{user_name} loi %{resource_name} median linkin %{space_name} konferenssissa"
-        delete: "%{user_name} poisti %{resource_name} median linkin %{space_name} konferenssista"
-        update: "%{user_name} päivitti %{resource_name} median linkin %{space_name} konferenssiin"
+        create: "%{user_name} loi medialinkin %{resource_name} konferenssissa %{space_name}"
+        delete: "%{user_name} poisti medialinkin %{resource_name} konferenssista %{space_name}"
+        update: "%{user_name} päivitti medialinkin %{resource_name} konferenssiin %{space_name}"
     conference_program:
       index:
         title: Ohjelma
@@ -333,7 +333,7 @@ fi:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
             invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
-            registration: Rekisteröinti "%{conference_title}"
+            registration: Ilmoittautuminen konferenssiin "%{conference_title}"
         partners:
           index:
             title: Yhteistyökumppanit
@@ -349,7 +349,7 @@ fi:
         show:
           going: Osallistumassa
           no_slots_available: Ei paikkoja vapaana
-          registration: Rekisteröinti
+          registration: Ilmoittautuminen
       conference_program:
         program_meeting:
           content: Sisältö
@@ -394,10 +394,10 @@ fi:
           speakers: Puhujat
       conferences:
         partners:
-          collaborators: kumppanit
-          main_promotors: järjestäjät
+          collaborators: Yhteistyökumppanit
+          main_promotors: Järjestäjät
         show:
-          login_as: Olet kirjautunut sisään %{name} <%{email}>
+          login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           make_conference_registration: 'Ilmoittaudu konferenssiin:'
           register: Rekisteröidy
       content_blocks:
@@ -450,15 +450,15 @@ fi:
       registration_types:
         index:
           choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
-          login_as: Olet kirjautunut sisään %{name} <%{email}>
+          login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           register: Ilmoittaudu
           title: Ilmoittautumistyypit
       shared:
         conference_user_login:
           already_account: Onko sinulla jo käyttäjätili?
           new_user: Uusi käyttäjä?
-          sign_in: Kirjaudu sisään rekisteröityäksesi konferenssiin
-          sign_up: Luo tili decidim-tilassa rekisteröidäksesi konferenssin
+          sign_in: Kirjaudu sisään ilmoittautuaksesi konferenssiin
+          sign_up: Luo tili palveluun ilmoittautuaksesi konferenssin
       show:
         details: Tarkemmat tiedot
         introduction: Esittely
@@ -467,22 +467,22 @@ fi:
         related_consultations: Liittyvät kuulemiset
         related_participatory_processes: Liittyvät osallistumisprosessit
       statistics:
-        answers_count: Vastaukset
-        comments_count: Kommentit
-        conference_count: Konferenssit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        answers_count: Vastauksia
+        comments_count: Kommentteja
+        conference_count: Konferensseja
+        debates_count: Keskusteluita
+        endorsements_count: Suosituksia
         headline: Toiminta
-        meetings_count: Tapaamiset
-        orders_count: Äänet
-        pages_count: Sivut
-        posts_count: Viestit
-        projects_count: Suunnitelmat
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
+        meetings_count: Tapaamisia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        posts_count: Viestejä
+        projects_count: Suunnitelmia
+        proposals_count: Ehdotuksia
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
+        users_count: Osallistujia
+        votes_count: Ääniä
     events:
       conferences:
         conference_registrations_over_percentage:

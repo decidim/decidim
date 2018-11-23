@@ -5,12 +5,12 @@ module Decidim
   class MetricChartsPresenter < Rectify::Presenter
     # Public: Render a collection of primary metrics.
     def highlighted
-      render_highlighted(Decidim.metrics_registry.highlighted)
+      render_highlighted(Decidim.metrics_registry.filtered(highlight: true, scope: "home"))
     end
 
     # Public: Render a collection of metrics that are not primary.
     def not_highlighted
-      render_not_highlighted(Decidim.metrics_registry.not_highlighted)
+      render_not_highlighted(Decidim.metrics_registry.filtered(highlight: false, scope: "home"))
     end
 
     private

@@ -86,6 +86,11 @@ sv:
         slug: URL slug
         title: Titel
         weight: Vikt
+      static_page_topic:
+        description: Beskrivning
+        show_in_footer: Visa i sidfoten
+        title: Titel
+        weight: Vikt
     errors:
       models:
         oauth_application:

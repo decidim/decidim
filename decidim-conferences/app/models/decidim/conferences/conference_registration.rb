@@ -12,6 +12,8 @@ module Decidim
 
       validates :user, uniqueness: { scope: :conference }
 
+      scope :confirmed, -> { where.not(confirmed_at: nil) }
+
       def self.user_collection(user)
         where(decidim_user_id: user.id)
       end

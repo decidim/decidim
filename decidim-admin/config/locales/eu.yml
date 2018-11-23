@@ -86,6 +86,11 @@ eu:
         slug: URL laburra
         title: Titulua
         weight: pisu
+      static_page_topic:
+        description: deskribapena
+        show_in_footer: Erakutsi orri-oinean
+        title: Izenburua
+        weight: pisu
     errors:
       models:
         oauth_application:
