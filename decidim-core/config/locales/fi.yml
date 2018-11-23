@@ -623,13 +623,13 @@ fi:
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
-          from: Lähettäjä
-          last_message_html: Viimeisin viesti <strong>%{time} sitten</strong>
           no_conversations: Sinulla ei vielä ole keskusteluja
+          title: keskustelut
+        reply:
+          send: Lähettää
+          title: Vastaa
         show:
-          conversation_with_html: Keskustelu käyttäjän <strong>%{name}</strong> kanssa
-          reply: Vastaa
-          send: Lähetä
+          title: Keskustelu %{usernames}
         start:
           send: Lähetä
           title: Aloita keskustelu
@@ -765,12 +765,10 @@ fi:
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
         badges: Kunniamerkit
-        conversations: Keskustelut
         followers: Seuraajat
         following: Seurattavat
         groups: Ryhmät
         members: Jäsenet
-        notifications: Ilmoitukset
         view_full_profile: Näytä koko profiili
       sidebar:
         badges:
