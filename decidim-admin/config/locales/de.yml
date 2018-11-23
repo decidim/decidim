@@ -86,6 +86,11 @@ de:
         slug: URL-Block
         title: Titel
         weight: Gewicht
+      static_page_topic:
+        description: Beschreibung
+        show_in_footer: In der Fußzeile anzeigen
+        title: Titel
+        weight: Gewicht
     errors:
       models:
         oauth_application:

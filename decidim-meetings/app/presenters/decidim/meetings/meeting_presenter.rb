@@ -37,6 +37,18 @@ module Decidim
         renderer.render.html_safe
       end
 
+      def title_with_locales
+        return unless meeting
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(meeting.title)
+        renderer.render_without_link
+      end
+
+      def description_with_locales
+        return unless meeting
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(meeting.description)
+        renderer.render_without_link
+      end
+
       # Next methods are used for present a Meeting As Proposal Author
       def name
         title

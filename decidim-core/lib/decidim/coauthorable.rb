@@ -86,6 +86,7 @@ module Decidim
       #
       # author - the author to check for authorship
       def created_by?(author)
+        return false if author.nil?
         author.id == creator_author.id
       end
 

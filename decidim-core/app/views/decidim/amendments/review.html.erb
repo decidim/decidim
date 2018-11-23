@@ -1,0 +1,33 @@
+<main class="wrapper">
+  <div class="row">
+    <div class="columns large-3">
+      <div class="m-bottom">
+        <%= link_to :back do %>
+          <%= icon "chevron-left", class: "icon--small" %>
+          <%= t("back", scope: "decidim.amendments.review") %>
+        <% end %>
+      </div>
+      <div class="section">
+        <p>
+          <%= t("help_text", scope: "decidim.amendments.review", model_name: emendation.amendable.model_name.human.downcase) %>
+
+          <strong>
+            <%= emendation.amendable.title %>
+          </strong>
+        </p>
+      </div>
+    </div>
+    <div class="columns large-6">
+      <h2 class="section-heading">
+        <%= t("heading", scope: "decidim.amendments.review") %>
+      </h2>
+
+      <div class="card">
+        <div class="card__content">
+          <%= render "review_form" %>
+        </div>
+      </div>
+    </div>
+    <div class="columns large-3"></div>
+  </div>
+</main>

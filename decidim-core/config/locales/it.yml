@@ -9,7 +9,7 @@ it:
         about: Di
         email: La tua email
         name: Il tuo nome
-        nickname: Il tuo identificatore breve e univoco
+        nickname: soprannome
         password: Parola d'ordine
         password_confirmation: Conferma la tua password
         personal_url: URL personale
@@ -36,7 +36,7 @@ it:
         remember_me: Ricordare password
     models:
       decidim/user:
-        one: Utente
+        one: Nessun utente
         other: utenti
       decidim/user_group:
         one: Gruppo di utenti
@@ -199,7 +199,7 @@ it:
           title: conferma la tua email
     collapsible_list:
       hidden_elements_count:
-        one: e 1 altro
+        one: e altri %{count}
         other: e altri %{count}
       see_less: "(vedi meno)"
       see_more: "(Vedi altro)"
@@ -214,6 +214,7 @@ it:
             comments_enabled: Commenti abilitati
             dummy_global_attribute_1: Attributo fittizio 1
             dummy_global_attribute_2: Attributo fittizio 2
+            enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
           step:
             comments_blocked: Commenti bloccati
@@ -566,6 +567,13 @@ it:
       update:
         error: Si è verificato un problema durante l'aggiornamento del gruppo
         success: Gruppo aggiornato con successo
+    help:
+      main_topic:
+        default_page:
+          content: "<p>In %{organization} puoi partecipare e decidere su diversi argomenti, attraverso gli spazi che vedi nel menu in alto: Processi, Assemblee, Iniziative, Consultazioni.</p> <p>All'interno di ognuna troverai diverse opzioni per partecipare: fare proposte - individualmente o con altre persone-, prendere parte ai dibattiti, dare la priorità ai progetti da attuare, partecipare alle riunioni faccia a faccia e altre azioni.</p>\n"
+          title: Cosa posso fare in %{organization}?
+        description: Maggiori informazioni su %{organization}
+        title: Aiuto generale
     last_activities:
       activities:
         no_activities_warning: Nessuna attività
@@ -672,6 +680,10 @@ it:
         pending: In sospeso
         rejected: Respinta
         verified: Verificato
+    pad_iframe:
+      disclaimer: I contenuti di questo riquadro sono scritti da utenti registrati ed esprimono le loro opinioni. %{organization} non può essere ritenuto responsabile per il suo contenuto.
+      explanation: Usa questo pad per prendere appunti in modo collaborativo durante la riunione, quindi è più facile scrivere il minuto dopo.
+      pad: tampone
     pages:
       home:
         extended:

@@ -41,7 +41,9 @@ module Decidim
       def attributes
         {
           title: form.title,
-          description: form.description
+          description: form.description,
+          show_in_footer: form.show_in_footer,
+          weight: form.weight
         }
       end
     end

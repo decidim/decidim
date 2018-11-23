@@ -8,15 +8,4 @@ shared_examples "create amendment" do
       .and change(amendable.resource_manifest.model_class_name.constantize, :count)
       .by(1)
   end
-
-  it "broadcasts ok" do
-    expect { command.call }.to broadcast(:ok)
-  end
-
-  it "notifies the authors and followers of the amendable resource" do
-    command.call
-
-    expect(Decidim::EventsManager)
-      .to receive(:publish)
-  end
 end

@@ -12,6 +12,7 @@ module Decidim
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
       include CollaborativeDraftHelper
+      include ControlVersionHelper
 
       delegate :minimum_votes_per_user, to: :component_settings
 

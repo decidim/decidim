@@ -32,6 +32,7 @@ module Decidim
           end
           resource :proposal_vote, only: [:create, :destroy]
           resource :proposal_widget, only: :show, path: "embed"
+          resources :versions, only: [:show, :index]
         end
         resources :collaborative_drafts, except: [:destroy] do
           get :compare, on: :collection

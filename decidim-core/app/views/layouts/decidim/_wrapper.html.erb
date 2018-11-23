@@ -106,7 +106,11 @@ end
           <div class="medium-8 large-6 large-offset-3 column main__footer__nav">
             <% if current_organization.static_pages.any? %>
               <ul class="footer-nav">
-                <% current_organization.static_pages.where(show_in_footer: true).sorted_by_i18n_title.each do |page| %>
+                <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
+                  <li><%= link_to translated_attribute(page_topic.title), decidim.page_path(page_topic.pages.first) %></li>
+                <% end %>
+
+                <% current_organization.static_pages.where(show_in_footer: true).each do |page| %>
                   <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
                 <% end %>
               </ul>

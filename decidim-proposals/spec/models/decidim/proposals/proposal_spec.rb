@@ -165,7 +165,7 @@ module Decidim
         end
 
         context "when user is not the author" do
-          let(:proposal) { build :proposal, component: component, updated_at: Time.current }
+          let(:proposal) { create :proposal, component: component, updated_at: Time.current }
 
           it { is_expected.not_to be_editable_by(author) }
         end

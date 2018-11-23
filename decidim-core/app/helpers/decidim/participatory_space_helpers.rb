@@ -31,7 +31,7 @@ module Decidim
       return if help_section.blank?
 
       content_tag "div", class: "row collapse" do
-        floating_help { translated_attribute(help_section).html_safe }
+        floating_help(help_id) { translated_attribute(help_section).html_safe }
       end
     end
 
