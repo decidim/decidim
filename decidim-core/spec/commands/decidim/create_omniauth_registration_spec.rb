@@ -102,7 +102,8 @@ module Decidim
                 email: email,
                 name: "Facebook User",
                 nickname: "facebook_user",
-                avatar_url: "http://www.example.com/foo.jpg"
+                avatar_url: "http://www.example.com/foo.jpg",
+                raw_data: {}
               )
             command.call
           end
