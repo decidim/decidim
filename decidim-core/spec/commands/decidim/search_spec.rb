@@ -195,6 +195,7 @@ module Decidim
           before do
             create_list(:searchable_resource, 5, organization: current_organization, resource_type: resource_type, content_a: "Where's your crown king nothing?")
 
+            # rubocop:disable FactoryBot/CreateList
             3.times do
               create(
                 :searchable_resource,
@@ -203,8 +204,9 @@ module Decidim
                 scope: nil,
                 decidim_participatory_space: nil,
                 content_a: "Where's your crown king nothing?"
-               )
+              )
             end
+            # rubocop:enable FactoryBot/CreateList
           end
 
           context "when resource_type is setted" do
@@ -224,7 +226,7 @@ module Decidim
             end
 
             it "can paginate the resources" do
-              described_class.call(term, current_organization, { "resource_type" => resource_type }, { per_page: 2 }) do
+              described_class.call(term, current_organization, { "resource_type" => resource_type }, per_page: 2) do
                 on(:ok) do |results_by_type|
                   results = results_by_type["Decidim::DummyResources::DummyResource"]
                   expect(results[:results].count).to eq 2
@@ -256,7 +258,7 @@ module Decidim
             end
 
             it "ignores pagination" do
-              described_class.call(term, current_organization, { "resource_type" => "" }, { per_page: 2 }) do
+              described_class.call(term, current_organization, { "resource_type" => "" }, per_page: 2) do
                 on(:ok) do |results_by_type|
                   results = results_by_type["Decidim::DummyResources::DummyResource"]
                   expect(results[:results].count).to eq 4

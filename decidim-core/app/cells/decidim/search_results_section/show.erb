@@ -7,7 +7,7 @@
     <%= card_for result, { context: { label: true, show_space: true }, show_footer_actions: false } %>
   <% end %>
 </div>
-<% if results_count > 4 && !is_paginated? %>
+<% if results_count > 4 && !paginated? %>
   <%= link_to(
     t("decidim.searches.results.view_all", count: results_count),
     search_path_by_type(class_name),
@@ -15,10 +15,10 @@
   ) %>
 <% end %>
 
-<% if is_paginated? %>
+<% if paginated? %>
   <%= decidim_paginate results %>
 <% end %>
 
-<% if is_last_section? %>
+<% if last_section? %>
   <hr class="reset mb-m mt-sm" />
 <% end %>

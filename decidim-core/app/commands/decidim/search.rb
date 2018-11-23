@@ -61,7 +61,7 @@ module Decidim
     attr_reader :page_params
 
     def paginate(collection)
-      return collection unless page_params.present?
+      return collection if page_params.blank?
       collection.page(page_params[:page]).per(page_params[:per_page])
     end
 

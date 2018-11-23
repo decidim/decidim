@@ -24,11 +24,11 @@ module Decidim
       @results ||= model.values.first[:results]
     end
 
-    def is_paginated?
+    def paginated?
       options[:is_paginated]
     end
 
-    def is_last_section?
+    def last_section?
       options[:is_last_section]
     end
   end
