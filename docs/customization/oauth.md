@@ -36,3 +36,14 @@ This event comes with the following payload:
 * name: User's name.
 * nickname: User's nickname after being normalized.
 * avatar_url: Avatar's url, if any.
+* raw_data: The raw hash received directly from the omniauth gem.
+
+To be notified after a registration one should subscribe to the event, in the passed block the after registration code should be implemented:
+
+```ruby
+ActiveSupport::Notifications.subscribe "decidim.events.user.omniauth_registration" do |name, started, finished, unique_id, data|
+  puts "the data: #{data.inspect}"
+  IdCatMobilVerificationJob.perform_later(data[:raw_data])
+end
+```
+It is a good practice to delegate the required implementation to a Job to bring a fastest response to the user, also it will avoid that crashes in this code to propagate to the registration process.
