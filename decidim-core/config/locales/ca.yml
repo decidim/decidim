@@ -636,6 +636,9 @@ ca:
         update:
           error: Missatge no enviat. Torna-ho a provar més tard
     metrics:
+      participants:
+        object: participants
+        title: Participants
       users:
         object: usuaris
         title: Usuaris
@@ -731,6 +734,9 @@ ca:
         subheading: Navega per les pàgines d'ajuda de %{name}
         title: Ajuda
         topics: Temes
+      participatory_space:
+        metrics:
+          headline: Participació en xifres
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
