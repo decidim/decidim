@@ -22,17 +22,17 @@ Once you've created your application you'll get the settings to setup your clien
 
 Check [omniauth-decidim](https://github.com/decidim/omniauth-decidim) in order to configure your client application.
 
-##  Performing more actions on omniauth registration
+## Performing more actions on omniauth registration
 
 Some times, there is the need to perform more actions than just ceating a user on registration, this is why `CreateOmniauthRegistration` command publishes a `"decidim.events.user.omniauth_registration` event after registration so that developers can subscribe to it and perform other actions like user verification or alike.
 
 This event comes with the following payload:
 
-- user_id: The id for the registered User.
-- identity_id: The id for the social Identity.
-- provider: The name for the social provider.
-- uid: OAuth's uid
-- email: User's email.
-- name: User's name.
-- nickname: User's nickname after being normalized.
-- avatar_url: Avatar's url, if any.
+* user_id: The id for the registered User.
+* identity_id: The id for the social Identity.
+* provider: The name for the social provider.
+* uid: OAuth's uid
+* email: User's email.
+* name: User's name.
+* nickname: User's nickname after being normalized.
+* avatar_url: Avatar's url, if any.
