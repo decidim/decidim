@@ -50,6 +50,7 @@ es:
       actions:
         confirm: Confirmar
         new_conference: Nueva conferencia
+        send_diplomas: Enviar diplomas
       conference_copies:
         new:
           copy: Copiar
@@ -153,6 +154,7 @@ es:
           conference_admins: Usuarios de la conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
+          diploma: Diploma
           info: Información
           media_links: Enlaces multimedia
           moderations: Moderaciones
@@ -250,8 +252,10 @@ es:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
+        send_conference_diplomas: "%{user_name} enviar diplomas a los %{resource_name} usuarios de la conferencia."
         unpublish: "%{user_name} ha despublicado la conferencia %{resource_name}"
         update: "%{user_name} ha actualizado la conferencia %{resource_name}"
+        update_diploma: "%{user_name} actualizó la configuración de diploma %{resource_name} conferencia"
       conference_speaker:
         create: "%{user_name} ha creado el ponente %{resource_name} en la conferencia %{space_name}"
         delete: "%{user_name} ha eliminado al ponente %{resource_name} de la conferencia %{space_name}"
@@ -329,6 +333,10 @@ es:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
             slug_help: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        diplomas:
+          edit:
+            save: Salvar
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
@@ -342,6 +350,12 @@ es:
             select_conference_meetings: Seleccionar los encuentros de la conferencia
           index:
             title: Tipos de inscripción
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Encontrará el diploma para la conferencia <a href="%{url}">%{title}</a> en los anexos.
+          diploma_user:
+            attendance_verified_by: Asistencia verificada por
+            certificate_of_attendance: Certificado de asistencia
       conference:
         registration_confirm:
           cancel: Cancelar
