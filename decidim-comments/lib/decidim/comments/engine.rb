@@ -49,8 +49,9 @@ module Decidim
 
           metric_registry.settings do |settings|
             settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
             settings.attribute :weight, type: :integer, default: 6
+            settings.attribute :stat_block, type: :string, default: "small"
           end
         end
 

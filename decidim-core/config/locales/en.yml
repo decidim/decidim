@@ -640,10 +640,16 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      followers:
+        description: ''
+        object: followers
+        title: Followers
       participants:
+        description: ''
         object: participants
         title: Participants
       users:
+        description: ''
         object: users
         title: Users
     newsletter_mailer:
@@ -741,6 +747,7 @@ en:
       participatory_space:
         metrics:
           headline: Participation in figures
+          link: Show all statistics
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.

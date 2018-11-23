@@ -265,6 +265,7 @@ en:
       processes: Processes
     metrics:
       participatory_processes:
+        description: ''
         object: participatory processes
         title: Participatory processes
     participatory_process_groups:
