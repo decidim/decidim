@@ -22,31 +22,32 @@ module Decidim
       end
 
       def big_stats
-        # Remember to change :users for :participants when done
-        metric = Decidim.metrics_registry.for(:users) # Temporal use of Users metric to show chart
-        content_tag :div, class: "row" do
-          render_metrics_descriptive(metric.metric_name,
-                                     klass: "column",
-                                     graph_klass: "small",
-                                     title: I18n.t("decidim.metrics.#{metric.metric_name}.title"),
-                                     description: I18n.t("decidim.metrics.#{metric.metric_name}.description"),
-                                     data: { ratio: "11:4", axis: true })
-        end
+        safe_join(
+          Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big", sort: true).map do |metric_manifest|
+            content_tag :div, class: "row" do
+              render_metrics_descriptive(metric_manifest.metric_name,
+                                         klass: "column",
+                                         graph_klass: "small",
+                                         title: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.title"),
+                                         description: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.description"),
+                                         data: { ratio: "11:4", axis: true })
+            end
+          end
+        )
       end
 
       def medium_stats
-        # Remember to add :followers metric when done
         safe_join(
-          [:proposals, :votes, :endorsements].in_groups_of(2).map do |metrics_group| # Temporal use of metrics to show charts
+          Decidim.metrics_registry.filtered(scope: "participatory_process", block: "medium", sort: true).in_groups_of(2).map do |metrics_group|
             content_tag :div, class: "row" do
               safe_join(
-                metrics_group.map do |metric_key|
-                  next "" if metric_key.blank?
-                  render_metrics_descriptive(Decidim.metrics_registry.for(metric_key).metric_name,
+                metrics_group.map do |metric_manifest|
+                  next "" if metric_manifest.blank?
+                  render_metrics_descriptive(metric_manifest.metric_name,
                                              klass: "column medium-6",
                                              graph_klass: "small",
-                                             title: I18n.t("decidim.metrics.#{metric_key}.title"),
-                                             description: I18n.t("decidim.metrics.#{metric_key}.description"),
+                                             title: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.title"),
+                                             description: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.description"),
                                              data: { ratio: "16:9", axis: true })
                 end
               )
@@ -57,12 +58,12 @@ module Decidim
 
       def small_stats
         safe_join(
-          [:accepted_proposals, :meetings, :debates, :survey_answers, :comments].in_groups_of(3).map do |metrics_group|
+          Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small", sort: true).in_groups_of(3).map do |metrics_group|
             content_tag :div, class: "row" do
               safe_join(
-                metrics_group.map do |metric_key|
-                  next "" if metric_key.blank?
-                  render_metrics_data(Decidim.metrics_registry.for(metric_key).metric_name,
+                metrics_group.map do |metric_manifest|
+                  next "" if metric_manifest.blank?
+                  render_metrics_data(metric_manifest.metric_name,
                                       klass: "column medium-4",
                                       ratio: "16:9",
                                       margin: "margin-top: 30px",

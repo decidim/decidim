@@ -45,8 +45,8 @@ describe "Participatory Processes", type: :system do
     end
 
     def check_title_and_description(metric_name)
-      find("div[id='#{metric_name}_chart']").find(:xpath, "../h3", count: 1)
-      find("div[id='#{metric_name}_chart']").find(:xpath, "../p", count: 1)
+      find("div[id='#{metric_name}_chart']").find(:xpath, "../h3", count: 1, visible: :all)
+      find("div[id='#{metric_name}_chart']").find(:xpath, "../p", count: 1, visible: :all)
     end
   end
 end
