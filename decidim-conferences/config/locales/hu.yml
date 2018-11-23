@@ -255,6 +255,7 @@ hu:
         send_conference_diplomas: "%{user_name} okleveleket küld az %{resource_name} konferencia-felhasználónak"
         unpublish: "%{user_name} nem publikált az %{resource_name} konferencia"
         update: "%{user_name} frissítette az %{resource_name} konferenciát"
+        update_diploma: "%{user_name} frissítette a diploma konfiguráció %{resource_name} konferenciát"
       conference_speaker:
         create: "%{user_name} létrehozta az %{resource_name} hangszórót a %{space_name} konferencián"
         delete: "%{user_name} eltávolította az %{resource_name} hangsugárzót a %{space_name} konferenciából"
@@ -332,6 +333,10 @@ hu:
               one: 1 regisztráció volt.
               other: '%{count} regisztráció volt.'
             slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
+        diplomas:
+          edit:
+            save: Mentés
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: A "%{conference_title}" meghívása
@@ -345,6 +350,16 @@ hu:
             select_conference_meetings: Válasszon konferencia-találkozókat
           index:
             title: Regisztrációs típusok
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Megtalálja a <a href="%{url}">%{title}</a> konferencia diplomáját a mellékletekhez.
+          diploma_user:
+            attendance_verified_by: Látogatás által ellenőrzött
+            certificate_of_attendance: Tanúsítvány a részvételről
+            certificate_of_attendance_description: Ez azt igazolja, hogy <strong>%{user}</strong> részt vett és részt vett a <strong>%{title}</strong> ben a <strong>%{location}</strong> , <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Probléma merült fel a konferencia diplomák küldésekor.
+          success: Konferencia diplomák helyesen elküldve
       conference:
         registration_confirm:
           cancel: Megszünteti
@@ -417,6 +432,9 @@ hu:
         invite_join_conference_mailer:
           invite:
             subject: Meghívás egy konferenciára való belépéshez
+        send_conference_diploma_mailer:
+          diploma:
+            subject: A konferencia oklevelét elküldték
       models:
         conference_invite:
           fields:
