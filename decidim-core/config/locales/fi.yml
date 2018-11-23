@@ -37,7 +37,7 @@ fi:
     models:
       decidim/user:
         one: Ei käyttäjiä
-        other: käyttäjät
+        other: Käyttäjää
       decidim/user_group:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
@@ -199,8 +199,8 @@ fi:
           title: Vahvista sähköpostiosoitteesi
     collapsible_list:
       hidden_elements_count:
-        one: ja vielä %{count}
-        other: ja vielä %{count}
+        one: ja %{count} lisää
+        other: ja %{count} lisää
       see_less: "(näytä vähemmän)"
       see_more: "(näytä enemmän)"
     components:
@@ -296,7 +296,7 @@ fi:
             <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
             Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
             Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
-            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallisuusmahdollisuuksista.<br>
             Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
@@ -337,7 +337,7 @@ fi:
           email_intro: '%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
-          notification_title: '%{resource_title} -komponentti on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: Komponentti %{resource_title} on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hei %{user_name},
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
@@ -570,9 +570,9 @@ fi:
     help:
       main_topic:
         default_page:
-          content: "<p> %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien tilojen kautta: Prosessit, kokoonpanot, aloitteet, neuvottelut.</p> <p>Jokaisessa vaihtoehdossa voit osallistua: tehdä ehdotuksia - erikseen tai muiden ihmisten - kanssa, osallistua keskusteluihin, priorisoida toteutettavat projektit, osallistua henkilökohtaisiin tapaamisiin ja muihin toimiin.</p>\n"
-          title: Mitä voin tehdä %{organization}?
-        description: Lue lisää %{organization}
+          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallisuustilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
+          title: Mitä voin tehdä palvelussa %{organization}?
+        description: Lue lisää palvelusta %{organization}
         title: Yleisiä ohjeita
     last_activities:
       activities:
@@ -697,7 +697,7 @@ fi:
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
           footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
-          footer_sub_hero_headline: Tervetuloa %{organization} -organisaation yhteisölliseen osallistumispalveluun.
+          footer_sub_hero_headline: Tervetuloa yhteisölliseen osallisuuspalveluun %{organization}.
           register: Rekisteröidy
         hero:
           participate: Osallistu
@@ -851,7 +851,7 @@ fi:
       version_author:
         deleted: Käyttäjä poistettu
     welcome_notification:
-      default_body: <p>Hei {{name}}, kiitos liittymisestäsi palveluun {{organization}}! Tervetuloa mukaan!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä täällä, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, jotka voit saada osallistumalla aktiivisesti palvelussa {{organization_name}}</li><li>Viimeisimpänä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa ja jaa heidän kanssaan kokemuksiasi osallistumisesta palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, argumentoi vakuuttaaksesi muut, kuuntele ja lue ennen kuin muodostat mielipiteen, ilmaise ideasi konkreettisella ja suoralla tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, pidä avoin mieli yhteistyölle ja liity mukaan muiden ihmisten ideoihin.</li></ul>
+      default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
   devise:
     confirmations:
@@ -914,7 +914,7 @@ fi:
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
       invite_private_user:
-        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin organisaatiossa %{organization}
+        subject: Sinut on kutsuttu yksityiseen osallisuusprosessiin organisaatiossa %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
