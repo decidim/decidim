@@ -636,6 +636,9 @@ pt:
         update:
           error: Mensagem não enviada. Tente mais tarde
     metrics:
+      participants:
+        object: participantes
+        title: Participantes
       users:
         object: Comercial
         title: Comercial
@@ -731,6 +734,9 @@ pt:
         subheading: Navegue pelas páginas de ajuda de %{name}
         title: Socorro
         topics: Tópicos
+      participatory_space:
+        metrics:
+          headline: Participação em números
       terms_and_conditions:
         accept:
           error: Houve um erro ao aceitar os termos e condições.
