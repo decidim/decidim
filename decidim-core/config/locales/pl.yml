@@ -9,7 +9,7 @@ pl:
         about: O
         email: Twój email
         name: Twoje imię
-        nickname: Twój krótki, niepowtarzalny identyfikator
+        nickname: Przezwisko
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
         personal_url: Osobisty URL
@@ -36,7 +36,7 @@ pl:
         remember_me: Zapamiętaj mnie
     models:
       decidim/user:
-        one: Użytkownik
+        one: Brak użytkowników
         few: Użytkownicy
         many: Użytkownicy
         other: Użytkownicy
@@ -207,7 +207,7 @@ pl:
           title: Potwierdź swój email
     collapsible_list:
       hidden_elements_count:
-        one: i 1 więcej
+        one: i %{count} więcej
         few: i %{count} więcej
         many: i %{count} więcej
         other: i %{count} więcej
@@ -224,6 +224,7 @@ pl:
             comments_enabled: Komentarze włączone
             dummy_global_attribute_1: Atrybut dummy 1
             dummy_global_attribute_2: Atrybut Dummy 2
+            enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Włączono uprawnienia do zasobów
           step:
             comments_blocked: Komentarze zablokowane
@@ -576,6 +577,13 @@ pl:
       update:
         error: Wystąpił problem podczas aktualizacji grupy
         success: Grupa zaktualizowana pomyślnie
+    help:
+      main_topic:
+        default_page:
+          content: "<p>W %{organization} możesz uczestniczyć i decydować o różnych tematach, poprzez przestrzenie widoczne w górnym menu: Procesy, Złożenia, Inicjatywy, Konsultacje.</p> <p>W ramach każdego z nich znajdziesz różne opcje uczestnictwa: składanie propozycji - indywidualnie lub wspólnie z innymi osobami - uczestnictwo w debatach, nadawanie priorytetów projektom do realizacji, uczestnictwo w spotkaniach twarzą w twarz i inne działania.</p>\n"
+          title: Co mogę zrobić w %{organization}?
+        description: Przeczytaj więcej o %{organization}
+        title: Ogólna pomoc
     last_activities:
       activities:
         no_activities_warning: Brak aktywności
@@ -682,6 +690,10 @@ pl:
         pending: W oczekiwaniu
         rejected: Odrzucone
         verified: Zweryfikowane
+    pad_iframe:
+      disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyrażana jest ich opinia. %{organization} nie może być pociągnięty do odpowiedzialności za jego zawartość.
+      explanation: Używaj tej podkładki do wspólnego robienia notatek podczas spotkania, więc łatwiej jest zapisać minutę później.
+      pad: Podkładka
     pages:
       home:
         extended:

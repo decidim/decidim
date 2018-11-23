@@ -1,6 +1,4 @@
 //Variables
-
-$filters-bg: darken($light-gray, 2.5);
 $filters-border: $border;
 $filters-padding: 1rem;
 $filters-padding-x: 1rem;
@@ -82,6 +80,43 @@ $filters-padding-y: 1rem;
 
   .button{
     margin-bottom: 0;
+  }
+
+  .section-title{
+    text-transform: uppercase;
+    color: $primary;
+    text-decoration: underline;
+    margin-right: $global-margin;
+  }
+}
+
+.filters__section--general{
+  @extend .filters__section;
+
+  padding: 0;
+
+  &:first-of-type,
+  &:last-of-type{
+    padding: 0;
+  }
+
+  > :first-child{
+    padding: $filters-padding-x $filters-padding-y;
+
+    &:hover{
+      background: $light-gray;
+    }
+  }
+
+  &.no-results{
+    .section-title{
+      color: $muted;
+      text-decoration: none;
+    }
+
+    > *{
+      opacity: .25;
+    }
   }
 }
 

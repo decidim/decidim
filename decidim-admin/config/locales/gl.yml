@@ -86,6 +86,11 @@ gl:
         slug: URL slug
         title: Título
         weight: Peso
+      static_page_topic:
+        description: Descrición
+        show_in_footer: Amosar no pé de páxina
+        title: Título
+        weight: Peso
     errors:
       models:
         oauth_application:

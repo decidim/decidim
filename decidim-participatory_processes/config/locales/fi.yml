@@ -255,6 +255,12 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteeseen %{participatory_space_title}
           notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>osallistuva prosessi</strong> on osallistuvien toimintojen sarja (esim. Ensin täyttää kysely, sitten tehdä ehdotuksia, keskustella heistä kasvokkain tai virtuaalisissa kokouksissa ja lopuksi priorisoida ne) tavoitteena päättää ja tehdä päätös tiettyyn aiheeseen.</p> <p>Esimerkkejä osallistavista prosesseista ovat komitean jäsenten valintamenettely (jossa ehdokkaat esitetään ensin, sitten keskustellaan ja lopulta valitaan ehdokasvaltio), osallistuvat budjetit (joissa tehdään ehdotuksia, arvostetaan taloudellisesti ja äänestetään käytettävissä olevien rahamäärien kanssa) strategisen suunnitteluprosessin, asetuksen tai normin yhteistoiminnallisesta laatimisesta, kaupunkitilan suunnittelusta tai julkisen toimintasuunnitelman laatimisesta.</p>\n"
+          page: "<p>A <strong>osallistuva prosessi</strong> on osallistuvien toimintojen sarja (esim. Ensin täyttää kysely, sitten tehdä ehdotuksia, keskustella heistä kasvokkain tai virtuaalisissa kokouksissa ja lopuksi priorisoida ne) tavoitteena päättää ja tehdä päätös tiettyyn aiheeseen.</p> <p>Esimerkkejä osallistavista prosesseista ovat komitean jäsenten valintamenettely (jossa ehdokkaat esitetään ensin, sitten keskustellaan ja lopulta valitaan ehdokasvaltio), osallistuvat budjetit (joissa tehdään ehdotuksia, arvostetaan taloudellisesti ja äänestetään käytettävissä olevien rahamäärien kanssa) strategisen suunnitteluprosessin, asetuksen tai normin yhteistoiminnallisesta laatimisesta, kaupunkitilan suunnittelusta tai julkisen toimintasuunnitelman laatimisesta.</p>\n"
+          title: Mikä on osallistuva prosessi?
     menu:
       processes: Prosessit
     metrics:
@@ -343,21 +349,21 @@ fi:
         target: Kuka osallistuu
         unspecified: Ei määritelty
       statistics:
-        answers_count: Vastaukset
-        comments_count: Kommentit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        answers_count: Vastauksia
+        comments_count: Kommentteja
+        debates_count: Keskusteluja
+        endorsements_count: Suosituksia
         headline: Tilastot
-        meetings_count: Tapahtumat
-        orders_count: Äänet
-        pages_count: Sivut
-        processes_count: Prosessit
-        projects_count: Projektit
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
+        meetings_count: Tapahtumia
+        orders_count: Ääniä
+        pages_count: Sivuja
+        processes_count: Prosesseja
+        projects_count: Suunnitelmia
+        proposals_count: Ehdotuksia
+        results_count: Tuloksia
+        surveys_count: Kyselyitä
+        users_count: Osallistujia
+        votes_count: Ääniä
   layouts:
     decidim:
       participatory_process_groups:
