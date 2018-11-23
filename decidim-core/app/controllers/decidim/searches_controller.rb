@@ -11,7 +11,7 @@ module Decidim
     helper_method :term
 
     def index
-      Search.call(term, current_organization, filters) do
+      Search.call(term, current_organization, filters, page_params) do
         on(:ok) do |results|
           # results.page(params[:page]).per(params[:per_page])
           results_count = results.sum { |results_by_type| results_by_type.last[:count] }
@@ -36,6 +36,13 @@ module Decidim
 
     def filters
       filter_params
+    end
+
+    def page_params
+      {
+        per_page: per_page,
+        page: params[:page]
+      }
     end
   end
 end

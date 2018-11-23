@@ -5,6 +5,8 @@ module Decidim
   class SearchResultsSectionCell < Decidim::ViewModel
     include Decidim::SearchesHelper
     include Decidim::CardHelper
+    include Decidim::CellsPaginateHelper
+    include Decidim::Core::Engine.routes.url_helpers
 
     def show
       render :show

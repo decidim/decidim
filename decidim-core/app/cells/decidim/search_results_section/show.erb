@@ -10,9 +10,13 @@
 <% if results_count > 4 && !is_paginated? %>
   <%= link_to(
     t("decidim.searches.results.view_all", count: results_count),
-    "#",
+    search_path_by_type(class_name),
     class: "button button--sc light secondary button--right"
   ) %>
+<% end %>
+
+<% if is_paginated? %>
+  <%= decidim_paginate results %>
 <% end %>
 
 <% if is_last_section? %>

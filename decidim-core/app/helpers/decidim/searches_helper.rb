@@ -26,7 +26,7 @@ module Decidim
       new_params = {
         utf8: params[:utf8],
         filter: {
-          term: params.dig(:filter, :term)
+          term: params[:term] || params.dig(:filter, :term)
         }
       }
       new_params[:filter][:resource_type] = type if type.present?

@@ -12,10 +12,12 @@ module Decidim
     # @param term: The term to search for.
     # @param organization: The Organization to which the results are constrained.
     # @param filters: (optional) A Hash of SearchableResource attributes to filter for.
-    def initialize(term, organization, filters = {})
+    # @param page_params: (optional) A Hash with `page` and `per_page` options to paginate.
+    def initialize(term, organization, filters = {}, page_params = {})
       @term = term
       @organization = organization
       @filters = filters.with_indifferent_access
+      @page_params = page_params
     end
 
     # Executes the command. Broadcasts these events:
@@ -25,7 +27,7 @@ module Decidim
     #
     # Returns nothing.
     def call
-      results = Decidim::Searchable.searchable_resources.inject({}) do |results_by_type, (class_name, klass)|
+      search_results = Decidim::Searchable.searchable_resources.inject({}) do |results_by_type, (class_name, klass)|
         query = SearchableResource.where(organization: @organization, locale: I18n.locale)
         query = query.where(resource_type: class_name)
 
@@ -38,10 +40,10 @@ module Decidim
 
         result_ids = query.pluck(:resource_id)
         results_count = result_ids.count
-        results = []
+        results = ApplicationRecord.none
 
         if @filters[:resource_type].present?
-          results = klass.order_by_id_list(result_ids) if @filters["resource_type"] == class_name
+          results = paginate(klass.order_by_id_list(result_ids)) if @filters["resource_type"] == class_name
         else
           results = klass.order_by_id_list(result_ids.take(4))
         end
@@ -51,10 +53,17 @@ module Decidim
                                  results: results
                                })
       end
-      broadcast(:ok, results)
+      broadcast(:ok, search_results)
     end
 
     private
+
+    attr_reader :page_params
+
+    def paginate(collection)
+      return collection unless page_params.present?
+      collection.page(page_params[:page]).per(page_params[:per_page])
+    end
 
     def clean_filters
       @filters.select do |attribute_name, value|

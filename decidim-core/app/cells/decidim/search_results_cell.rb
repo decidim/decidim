@@ -24,7 +24,7 @@ module Decidim
     end
 
     def selected_resource_type
-      params[:filter][:resource_type]
+      params.dig(:filter, :resource_type)
     end
 
     def has_selected_resource_type?

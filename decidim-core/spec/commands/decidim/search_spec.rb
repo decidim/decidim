@@ -194,7 +194,17 @@ module Decidim
 
           before do
             create_list(:searchable_resource, 5, organization: current_organization, resource_type: resource_type, content_a: "Where's your crown king nothing?")
-            create_list(:searchable_resource, 5, organization: current_organization, resource_type: "Decidim::User", content_a: "Where's your crown king nothing?")
+
+            3.times do
+              create(
+                :searchable_resource,
+                organization: current_organization,
+                resource: build(:user, organization: current_organization),
+                scope: nil,
+                decidim_participatory_space: nil,
+                content_a: "Where's your crown king nothing?"
+               )
+            end
           end
 
           context "when resource_type is setted" do
@@ -207,9 +217,24 @@ module Decidim
 
                   results = results_by_type["Decidim::User"]
                   expect(results[:results].count).to eq 0
-                  expect(results[:count]).to eq 5
+                  expect(results[:count]).to eq 3
                 end
-                on(:invalid) { raise("Should not 0appen") }
+                on(:invalid) { raise("Should not happen") }
+              end
+            end
+
+            it "can paginate the resources" do
+              described_class.call(term, current_organization, { "resource_type" => resource_type }, { per_page: 2 }) do
+                on(:ok) do |results_by_type|
+                  results = results_by_type["Decidim::DummyResources::DummyResource"]
+                  expect(results[:results].count).to eq 2
+                  expect(results[:count]).to eq 5
+
+                  results = results_by_type["Decidim::User"]
+                  expect(results[:results].count).to eq 0
+                  expect(results[:count]).to eq 3
+                end
+                on(:invalid) { raise("Should not happen") }
               end
             end
           end
@@ -223,8 +248,23 @@ module Decidim
                   expect(results[:count]).to eq 5
 
                   results = results_by_type["Decidim::User"]
+                  expect(results[:results].count).to eq 3
+                  expect(results[:count]).to eq 3
+                end
+                on(:invalid) { raise("Should not happen") }
+              end
+            end
+
+            it "ignores pagination" do
+              described_class.call(term, current_organization, { "resource_type" => "" }, { per_page: 2 }) do
+                on(:ok) do |results_by_type|
+                  results = results_by_type["Decidim::DummyResources::DummyResource"]
                   expect(results[:results].count).to eq 4
                   expect(results[:count]).to eq 5
+
+                  results = results_by_type["Decidim::User"]
+                  expect(results[:results].count).to eq 3
+                  expect(results[:count]).to eq 3
                 end
                 on(:invalid) { raise("Should not happen") }
               end
