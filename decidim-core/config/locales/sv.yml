@@ -730,7 +730,7 @@ sv:
       default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         badges: Emblem
-        conversations: Samtal
+        conversations: Konversationer
         followers: Anhängare
         following: Följer
         groups: Grupper
