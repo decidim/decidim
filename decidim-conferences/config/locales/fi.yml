@@ -44,7 +44,7 @@ fi:
         other: Konferenssin puhujat
       decidim/conference_user_role:
         one: Konferenssin käyttäjärooli
-        other: Konferenssin käyttäjäroolit
+        other: Konferenssin käyttäjärooli
   decidim:
     admin:
       actions:
