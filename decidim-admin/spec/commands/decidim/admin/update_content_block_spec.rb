@@ -21,6 +21,7 @@ module Decidim::Admin
     end
     let(:images) do
       {
+        "remove_background_image" => "0",
         "background_image" => uploaded_image
       }.with_indifferent_access
     end
@@ -88,8 +89,7 @@ module Decidim::Admin
         context "when removing the image" do
           let(:images) do
             {
-              "remove_background_image" => "1",
-              "background_image" => uploaded_image
+              "remove_background_image" => "1"
             }.with_indifferent_access
           end
 

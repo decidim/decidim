@@ -13,7 +13,8 @@
     <div class="show-for-medium" data-set="nav-search-holder">
       <div class="topbar__search js-append">
         <%= icon "magnifying-glass", aria_label: "Buscar", role: "img" %>
-        <input class="m-none" type="search" placeholder="Search" tabindex="0" />
+        <% path = page_path("search") %>
+        <input class="m-none" type="search" placeholder="Search" tabindex="0" onchange="location.href='<%= path %>';" />
       </div>
     </div>
     <div class="topbar__dropmenu language-choose">

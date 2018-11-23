@@ -33,7 +33,8 @@ if !Rails.env.production? || ENV["SEED"]
     available_authorizations: Decidim.authorization_workflows.map(&:name),
     users_registration_mode: :enabled,
     tos_version: Time.current,
-    badges_enabled: true
+    badges_enabled: true,
+    send_welcome_notification: true
   )
 
   if organization.top_scopes.none?

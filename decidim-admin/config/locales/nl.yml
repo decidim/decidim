@@ -86,6 +86,11 @@ nl:
         slug: URL slug
         title: Titel
         weight: Gewicht
+      static_page_topic:
+        description: Omschrijving
+        show_in_footer: Laat het in het voettekst zien
+        title: Titel
+        weight: Gewicht
     errors:
       models:
         oauth_application:

@@ -10,29 +10,40 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class HashtagRenderer < BaseRenderer
       # Matches a global id representing a Decidim::Hashtag
-      GLOBAL_ID_REGEX = %r{gid:\/\/[\w-]*\/Decidim::Hashtag\/(\d+)}
+      GLOBAL_ID_REGEX = %r{(gid:\/\/[\w-]*\/Decidim::Hashtag\/(?:\d+))\/?([[:alnum:]](?:[[:alnum:]]|_)*)?\b}
 
       # Replaces found Global IDs matching an existing hashtag with
       # a link to their detail page. The Global IDs representing an
       # invalid Decidim::Hashtag are replaced with an empty string.
       #
       # @return [String] the content ready to display (contains HTML)
-      def render
-        content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
-          begin
-            hashtag = GlobalID::Locator.locate(hashtag_gid)
-            Decidim::HashtagPresenter.new(hashtag).display_hashtag
-          rescue ActiveRecord::RecordNotFound => _ex
-            ""
+      def render(with_link: true)
+        if content.is_a?(Hash)
+          content.each_with_object({}) do |(locale, string), parsed_content|
+            parsed_content[locale] = replace_hashtags(string, with_link)
           end
+        else
+          replace_hashtags(content, with_link)
         end
       end
 
       def render_without_link
+        render(with_link: false)
+      end
+
+      private
+
+      def replace_hashtags(content, with_link)
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           begin
-            hashtag = GlobalID::Locator.locate(hashtag_gid)
-            Decidim::HashtagPresenter.new(hashtag).display_hashtag_name
+            gid, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
+            hashtag = GlobalID::Locator.locate(gid)
+            presenter = Decidim::HashtagPresenter.new(hashtag, cased_name: cased_name)
+            if with_link
+              presenter.display_hashtag
+            else
+              presenter.display_hashtag_name
+            end
           rescue ActiveRecord::RecordNotFound => _ex
             ""
           end

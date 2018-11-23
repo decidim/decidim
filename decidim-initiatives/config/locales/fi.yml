@@ -95,6 +95,12 @@ fi:
           next_level_in: Julkaise %{score} uutta aloitetta saavuttaaksesi seuraavan tason!
           unearned_another: Tämä käyttäjä ei ole vielä julkaissut yhtään aloitetta.
           unearned_own: Sinulla ei ole vielä julkaistuja aloitteita.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Aloite on ehdotus, jota kukaan voi edistää omasta aloitteestaan ​​(muista kanavista tai osallistumistiloista riippumatta) kokoamalla (digitaaliset) allekirjoitukset organisaatiolle tietyn toiminnan toteuttamiseksi (muutettava asetusta, käynnistämään hanke , vaihda osaston tai kadun nimi jne.).</p> <p>promoottorit aloite voi määritellä tavoitteet, kerätä tukea, keskustelua, levittää sitä ja määrittelevät kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujille tai keskusteluja avoin muille osallistujille.</p> <p>Esimerkkejä: Aloite voi kerätä allekirjoituksia koolle kuulemiseen kaikesta kansasta organisaation tai luoda tai koolle kokoonpano tai käynnistää prosessi määrärahojen lisäämistä varten tai alueen organisaation. Allekirjoitusten keräysprosessin aikana yhä useammat ihmiset voivat lisätä tätä vaatimusta ja viedä sen eteenpäin organisaatiossa.</p>\n"
+          page: "<p>Aloite on ehdotus, jota kukaan voi edistää omasta aloitteestaan ​​(muista kanavista tai osallistumistiloista riippumatta) kokoamalla (digitaaliset) allekirjoitukset organisaatiolle tietyn toiminnan toteuttamiseksi (muutettava asetusta, käynnistämään hanke , vaihda osaston tai kadun nimi jne.).</p> <p>promoottorit aloite voi määritellä tavoitteet, kerätä tukea, keskustelua, levittää sitä ja määrittelevät kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujille tai keskusteluja avoin muille osallistujille.</p> <p>Esimerkkejä: Aloite voi kerätä allekirjoituksia koolle kuulemiseen kaikesta kansasta organisaation tai luoda tai koolle kokoonpano tai käynnistää prosessi määrärahojen lisäämistä varten tai alueen organisaation. Allekirjoitusten keräysprosessin aikana yhä useammat ihmiset voivat lisätä tätä vaatimusta ja viedä sen eteenpäin organisaatiossa.</p>\n"
+          title: Mitkä ovat aloitteita?
     initiatives:
       admin:
         committee_requests:
@@ -305,10 +311,10 @@ fi:
           one: " allekirjoitus"
           other: " allekirjoitusta"
         statistics:
-          assistants_count_title: Avustajat
-          comments_count_title: Kommentit
-          meetings_count_title: Tapaamiset
-          supports_count_title: Allekirjoitukset
+          assistants_count_title: Avustajia
+          comments_count_title: Kommentteja
+          meetings_count_title: Tapaamisia
+          supports_count_title: Allekirjoituksia
         supports:
           title: Allekirjoitusten luettelo
         vote_cabin:

@@ -114,16 +114,18 @@ fr:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Bonjour, un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez :
+              Salut,
+              Un nouveau débat «%{resource_title}» a été créée sur le %{space_title} espace participatif, vérifier et contribuer:
             email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
-            email_subject: Nouveau débat sur %{space_title}
+            email_subject: Nouveau débat "%{resource_title}" sur %{space_title}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé un nouveau débat, prenez-en connaissance et contribuez :
+              Bonjour,
+              %{author_name} %{author_nickname}, qui vous suivez, a créé un nouveau débat "%{resource_title}". Découvrez-le et contribuez:
             email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
-            email_subject: Nouveau débat par %{author_nickname}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: Nouveau débat "%{resource_title}" par %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> créé le débat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'La création de débat n''est plus possible dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
