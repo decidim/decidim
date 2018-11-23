@@ -623,13 +623,13 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         index:
-          from: Von
-          last_message_html: Letzte Nachricht <strong>%{time} vor</strong>
           no_conversations: Du hast noch keine Unterhaltungen
-        show:
-          conversation_with_html: Gespräch mit <strong>%{name}</strong>
-          reply: Antworten
+          title: Gespräche
+        reply:
           send: Senden
+          title: Antworten
+        show:
+          title: Gespräch mit %{usernames}
         start:
           send: Senden
           title: Ein Gespräch beginnen
@@ -765,12 +765,10 @@ de:
       default_officialization_text_for_users: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
       show:
         badges: Abzeichen
-        conversations: Gespräche
         followers: Follower
         following: Folgt
         groups: Gruppen
         members: Mitglieder
-        notifications: Benachrichtigungen
         view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
       sidebar:
         badges:
