@@ -30,17 +30,18 @@ describe "Participatory Processes", type: :system do
 
     it "check if charts are present" do
       # BIG CHART
-      big_stat = Decidim.metrics_registry.for(:users)
-      expect(page).to have_css(%(##{big_stat.metric_name}_chart))
-      check_title_and_description(big_stat.metric_name)
+      Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big").each do |metric_manifest|
+        expect(page).to have_css(%(##{metric_manifest.metric_name}_chart))
+        check_title_and_description(metric_manifest.metric_name)
+      end
       # MEDIUM CHARTS
-      [:proposals, :votes, :endorsements].each do |metric_key| # Temporal use of metrics to show charts
-        expect(page).to have_css(%(##{Decidim.metrics_registry.for(metric_key).metric_name}_chart))
-        check_title_and_description(Decidim.metrics_registry.for(metric_key).metric_name)
+      Decidim.metrics_registry.filtered(scope: "participatory_process", block: "medium").each do |metric_manifest|
+        expect(page).to have_css(%(##{metric_manifest.metric_name}_chart))
+        check_title_and_description(metric_manifest.metric_name)
       end
       # LITTLE CHARTS
-      [:accepted_proposals, :meetings, :debates, :survey_answers, :comments].each do |metric_key| # Temporal use of metrics to show charts
-        expect(page).to have_css(%(##{Decidim.metrics_registry.for(metric_key).metric_name}_chart))
+      Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small").each do |metric_manifest|
+        expect(page).to have_css(%(##{metric_manifest.metric_name}_chart))
       end
     end
 
