@@ -44,8 +44,8 @@ fi:
         deleted_user: Poistettu käyttäjä
         reply: Vastaa
         report:
-          action: Raportoi
-          already_reported: Tämä sisältö on jo raportoitu ja ylläpitäjä tutkii sen.
+          action: Tee ilmoitus
+          already_reported: Tämä sisältö on jo ilmoitettu ja ylläpitäjä tutkii sen.
           close: Sulje
           description: Onko tämä sisältö epäasiallista?
           details: Lisätiedot
@@ -53,7 +53,7 @@ fi:
             does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-          title: Raportoi ongelmasta
+          title: Ilmoita ongelmasta
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
