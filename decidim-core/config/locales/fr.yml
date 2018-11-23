@@ -623,13 +623,13 @@ fr:
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
-          from: De
-          last_message_html: Dernier message <strong>il y a %{time}</strong>
           no_conversations: Vous n'avez encore aucune conversation
-        show:
-          conversation_with_html: Conversation avec <strong>%{name}</strong>
-          reply: Répondre
+          title: Les conversations
+        reply:
           send: Envoyer
+          title: Répondre
+        show:
+          title: Conversation avec %{usernames}
         start:
           send: Envoyer
           title: Commencer une conversation
@@ -765,12 +765,10 @@ fr:
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
         badges: Badges
-        conversations: Conversations
         followers: Abonnés
         following: Est abonné à
         groups: Groupes
         members: Membres
-        notifications: Notifications
         view_full_profile: Voir le profil complet
       sidebar:
         badges:
