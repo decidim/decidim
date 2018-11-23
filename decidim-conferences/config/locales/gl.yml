@@ -350,6 +350,16 @@ gl:
             select_conference_meetings: Seleccionar reunións de conferencias
           index:
             title: Tipos de rexistro
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Atopará o diploma da conferencia <a href="%{url}">%{title}</a> nos anexos.
+          diploma_user:
+            attendance_verified_by: Asistencia verificada por
+            certificate_of_attendance: Certificado de asistencia
+            certificate_of_attendance_description: Isto acredita que <strong>%{user}</strong> asistiu e participou no <strong>%{title}</strong> realizado no <strong>%{location}</strong> do <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Houbo un problema ao enviar os diplomas da conferencia.
+          success: Diplomas de conferencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -422,6 +432,9 @@ gl:
         invite_join_conference_mailer:
           invite:
             subject: Invitación para participar nunha conferencia
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Enviouse o diploma da súa conferencia
       models:
         conference_invite:
           fields:
