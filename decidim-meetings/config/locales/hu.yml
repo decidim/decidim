@@ -82,6 +82,7 @@ hu:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
             default_registration_terms: Alapértelmezett regisztrációs feltételek
+            enable_pads_creation: A párna létrehozásának engedélyezése
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
           step:
             announcement: Közlemény
@@ -109,9 +110,9 @@ hu:
           email_subject: A "%{resource_title}" találkozót frissítettük
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozót frissítettük.
         registration_code_validated:
-          email_intro: A(z) "%{registration_code}" regisztrációs kód hitelesítése kész.
+          email_intro: Az "%{resource_title}" találkozó "%{registration_code}" regisztrációs kódja érvényesítve lett.
           email_outro: Ezt az értesítést azért kaptad, mert a(z) "%{resource_title}" találkozó regisztrációs kódjának érvényesítése elkészült.
-          email_subject: A(z) "%{registration_code}" regisztrációs kódod hitelesítése kész
+          email_subject: Az "%{resource_title}" találkozó "%{registration_code}" regisztrációs kódja érvényesítve lett
           notification_title: A(z)z <a href="%{resource_path}">%{resource_title}</a> találkozó "%{registration_code}" regisztrációs kódjának érvényesítése kész.
         registrations_enabled:
           email_intro: 'A(z) "%{resource_title}" találkozóra mostantól regisztrálhatsz. Tedd meg bármikor ezen az oldalon:'
@@ -272,8 +273,8 @@ hu:
             invites: Meghívottak
             registration_form: Regisztrációs űrlap
             registrations_count:
-              one: 1 regisztráció.
-              other: '%{count} regisztráció.'
+              one: '%{count} regisztráció volt.'
+              other: '%{count} regisztráció volt.'
             reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
           update:
@@ -361,8 +362,8 @@ hu:
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
           remaining_slots:
-            one: 1 hely maradt
-            other: "%{count} hely maradt"
+            one: '%{count} hely marad'
+            other: "%{count} hely marad"
           view: Nézet
       meetings_map:
         view_meeting: Találkozó megtekintése

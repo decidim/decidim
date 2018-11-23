@@ -23,15 +23,8 @@ module Decidim
         return broadcast(:invalid) unless @proposal.authored_by?(@current_user)
 
         transaction do
-          Decidim.traceability.perform_action!(
-            "publish",
-            @proposal,
-            @current_user,
-            visibility: "public-only"
-          ) do
-            @proposal.update published_at: Time.current
-          end
-
+          publish_proposal
+          set_proposal_version
           increment_scores
           send_notification
           send_notification_to_participatory_space
@@ -41,6 +34,33 @@ module Decidim
       end
 
       private
+
+      def publish_proposal
+        PaperTrail.request(enabled: false) do
+          @proposal.update published_at: Time.current
+        end
+      end
+
+      def set_proposal_version
+        title = reset(:title)
+        body = reset(:body)
+        Decidim.traceability.update!(
+          @proposal,
+          current_user,
+          title: title,
+          body: body
+        )
+      end
+
+      # rubocop:disable Rails/SkipsModelValidations
+      def reset(attribute)
+        attribute_value = @proposal[attribute]
+        PaperTrail.request(enabled: false) do
+          @proposal.update_attribute attribute, ""
+        end
+        attribute_value
+      end
+      # rubocop:enable Rails/SkipsModelValidations
 
       def send_notification
         return if @proposal.coauthorships.empty?

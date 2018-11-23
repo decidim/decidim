@@ -86,6 +86,11 @@ pl:
         slug: Ślimak URL
         title: Tytuł
         weight: Waga
+      static_page_topic:
+        description: Opis
+        show_in_footer: Pokaż w stopce
+        title: Tytuł
+        weight: Waga
     errors:
       models:
         oauth_application:

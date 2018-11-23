@@ -69,9 +69,36 @@ module Decidim
       end
     end
 
-    def review; end
+    def review
+      emendation_fields_form = emendation.form.from_model(emendation)
+      params = emendation.attributes
+      params[:id] = emendation.amendment.id
 
-    def accept; end
+      @form = Decidim::Amendable::ReviewForm.from_params(
+        id: params[:id],
+        amendable_gid: amendable_gid,
+        emendation_gid: params[:emendation_gid],
+        emendation_fields: emendation_fields_form
+      )
+    end
+
+    def accept
+      @form = form(Decidim::Amendable::ReviewForm).from_params(params)
+      enforce_permission_to :accept, :amend, amend: @form.amendable
+      return unless validate(@form)
+
+      Decidim::Amendable::Accept.call(@form) do
+        on(:ok) do
+          flash[:notice] = t("accepted.success", scope: "decidim.amendments")
+        end
+
+        on(:invalid) do
+          flash[:alert] = t("accepted.error", scope: "decidim.amendments")
+        end
+
+        redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+      end
+    end
 
     private
 
@@ -113,7 +140,13 @@ module Decidim
         on(:invalid) do
           flash[:alert] = t("created.error", scope: "decidim.amendments")
           params[:amend][:emendation_fields] = params[:amend][:emendation_fields]
-          redirect_to new_amend_path(amendable_gid: @form.amendable_gid)
+          case params[:action]
+          when "create"
+            redirect_to new_amend_path(amendable_gid: @form.amendable_gid)
+          when "accept"
+            redirect_to review_amend_path(id: params[:id])
+          end
+
           return false
         end
       end

@@ -48,11 +48,6 @@ uk:
         few: Відповіді
         many: Відповідей
         other: Відповідей
-      decidim/consultations/vote:
-        one: Голос
-        few: Голоси
-        many: Голосів
-        other: Голосів
   decidim:
     admin:
       actions:

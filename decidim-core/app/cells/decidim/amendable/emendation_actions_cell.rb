@@ -16,10 +16,12 @@ module Decidim::Amendable
     end
 
     def accept_button
-      link_to "#accept", class: "button success hollow expanded button--icon button--sc" do
-        content = icon "thumb-up"
-        content += t(:button_accept, scope: "decidim.amendments.emendation.actions")
-        content
+      link_content = icon "thumb-up"
+      link_content += t(:button_accept, scope: "decidim.amendments.emendation.actions")
+      link_class = "button success hollow expanded button--icon button--sc"
+
+      link_to decidim.review_amend_path(amendment), class: link_class do
+        link_content
       end
     end
 

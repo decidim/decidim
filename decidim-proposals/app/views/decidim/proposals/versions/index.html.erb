@@ -25,7 +25,7 @@
             <span class="definition-data__title"><%= t("versions.stats.number_of_versions", scope: "decidim.proposals") %></span>
             <%= item.versions.count %>
 
-            <%= link_to t("versions.stats.back_to_collaborative_draft", scope: "decidim.proposals"), collaborative_draft_path(item), class: "button button--sc hollow secondary small expanded" %>
+            <%= link_to back_to_resource_path_text, back_to_resource_path, class: "button button--sc hollow secondary small expanded" %>
           </div>
         </div>
       </div>

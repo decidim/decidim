@@ -107,6 +107,7 @@ FactoryBot.define do
     about { Faker::Lorem.paragraph(2) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
+    email_on_notification { true }
 
     trait :confirmed do
       confirmed_at { Time.current }

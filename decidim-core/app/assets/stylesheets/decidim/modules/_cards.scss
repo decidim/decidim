@@ -752,7 +752,7 @@ $datetime-bg: $primary;
     content: " ";
     height: $border-width;
     display: inline-block;
-    background: $card-bg;
+    background-color: $body-background;
     position: absolute;
     left: 0;
     right: 0;
@@ -922,9 +922,15 @@ $datetime-bg: $primary;
 .card__top{
   @extend .card__footer;
 
+  border-top: 0;
+
   .card__content{
     line-height: $global-lineheight;
     padding: $card-padding-small / 4 $card-padding-small;
+
+    > :first-child{
+      flex-shrink: 0;
+    }
 
     @include breakpoint(medium){
       padding: $card-padding / 4 $card-padding;

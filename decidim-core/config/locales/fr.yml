@@ -9,7 +9,7 @@ fr:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Votre pseudonyme
+        nickname: Surnom
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -36,7 +36,7 @@ fr:
         remember_me: Retenir le mot de passe
     models:
       decidim/user:
-        one: Utilisateur
+        one: Aucun utilisateur
         other: Utilisateurs
       decidim/user_group:
         one: Groupe d'utilisateurs
@@ -199,8 +199,8 @@ fr:
           title: confirmez votre email
     collapsible_list:
       hidden_elements_count:
-        one: et 1 de plus
-        other: et %{count} de plus
+        one: et %{count} plus
+        other: et %{count} plus
       see_less: "(voir moins)"
       see_more: "(voir plus)"
     components:
@@ -214,6 +214,7 @@ fr:
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut factice 2
+            enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -566,6 +567,13 @@ fr:
       update:
         error: Un problème est survenu lors de la mise à jour du groupe.
         success: Groupe mis à jour avec succès
+    help:
+      main_topic:
+        default_page:
+          content: "<p>En %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
+          title: Que puis-je faire en %{organization}?
+        description: En savoir plus sur %{organization}
+        title: Aide générale
     last_activities:
       activities:
         no_activities_warning: Aucune activité
@@ -672,6 +680,10 @@ fr:
         pending: En attente
         rejected: Non retenue
         verified: Vérifié
+    pad_iframe:
+      disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
+      explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
+      pad: Tampon
     pages:
       home:
         extended:
