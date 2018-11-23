@@ -635,6 +635,9 @@ hu:
         update:
           error: Üzenet elküldése sikertelen. Próbáld újra később
     metrics:
+      participants:
+        object: résztvevők
+        title: résztvevők
       users:
         object: felhasználók
         title: felhasználók
@@ -730,6 +733,9 @@ hu:
         subheading: Navigáljon a %{name} súgó oldalán
         title: Segítség
         topics: Témakörök
+      participatory_space:
+        metrics:
+          headline: Részvétel számokban
       terms_and_conditions:
         accept:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
