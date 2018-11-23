@@ -646,6 +646,9 @@ pl:
         update:
           error: Wiadomość nie została wysłana. Spróbuj ponownie później
     metrics:
+      participants:
+        object: Uczestnicy
+        title: Uczestnicy
       users:
         object: użytkowników
         title: Użytkownicy
@@ -741,6 +744,9 @@ pl:
         subheading: Przejdź przez strony pomocy %{name}
         title: Wsparcie
         topics: Tematy
+      participatory_space:
+        metrics:
+          headline: Udział w liczbach
       terms_and_conditions:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
