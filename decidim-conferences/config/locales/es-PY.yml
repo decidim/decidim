@@ -432,6 +432,9 @@ es-PY:
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
+        send_conference_diploma_mailer:
+          diploma:
+            subject: El diploma de su conferencia ha sido enviado.
       models:
         conference_invite:
           fields:
