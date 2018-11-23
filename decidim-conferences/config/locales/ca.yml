@@ -355,6 +355,11 @@ ca:
             diploma_html: Trobareu el diploma de la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
           diploma_user:
             attendance_verified_by: Assistència verificada per
+            certificate_of_attendance: Certificat d'assistència
+            certificate_of_attendance_description: Es tracta de certificar que <strong>%{user}</strong> ha assistit i ha participat en el <strong>%{title}</strong> celebrat al <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Hi ha hagut un problema en enviar els diplomes de la conferència.
+          success: Diplomes de la conferència enviats correctament
       conference:
         registration_confirm:
           cancel: Cancel·lar
@@ -427,6 +432,9 @@ ca:
         invite_join_conference_mailer:
           invite:
             subject: Invitació per participar a una conferència
+        send_conference_diploma_mailer:
+          diploma:
+            subject: S'ha enviat el diploma de la vostra conferència
       models:
         conference_invite:
           fields:
