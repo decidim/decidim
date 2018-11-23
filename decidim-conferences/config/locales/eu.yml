@@ -43,7 +43,7 @@ eu:
         one: Hitzaldi hizlaria
         other: Hitzaldi hiztunak
       decidim/conference_user_role:
-        one: Kongresuaren erabiltzailearen rolarik ez
+        one: Kongresuaren erabiltzailearen rolak
         other: Konferentzia erabiltzailearen rolak
   decidim:
     admin:
