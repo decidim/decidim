@@ -4,8 +4,9 @@
 
 - **decidim-meetings**: Change title to description in meetings admin form. [\#4484](https://github.com/decidim/decidim/pull/4484)
 - **decidim-meetings**: Fix title and description fields in admin form. [\#4547](https://github.com/decidim/decidim/pull/4547)
-- **decidim-proposals**: Fix vote-rerendering on a proposal's page [#4558](https://github.com/decidim/decidim/pull/4558)
-
+- **decidim-proposals**: Fix vote-rerendering on a proposal's page [\#4558](https://github.com/decidim/decidim/pull/4558)
+- **decidim-admin**: Fix image updating in content blocks [\#4561](https://github.com/decidim/decidim/pull/4561)
+- **decidim-core**: Fix tabs with inputs with invalid characters [\#4561](https://github.com/decidim/decidim/pull/4561)
 
 ## [0.15.0](https://github.com/decidim/decidim/tree/v0.15.0)
 
