@@ -97,6 +97,14 @@ module Decidim
       end
     end
 
+    def self.future_spaces
+      none
+    end
+
+    def self.past_spaces
+      closed
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end

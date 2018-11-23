@@ -66,6 +66,22 @@ module Decidim
       where(promoted: true)
     end
 
+    def self.private_processes
+      where(private_space: true)
+    end
+
+    def self.active_spaces
+      active
+    end
+
+    def self.future_spaces
+      upcoming
+    end
+
+    def self.past_spaces
+      past
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
@@ -81,10 +97,6 @@ module Decidim
 
     def to_param
       slug
-    end
-
-    def self.private_processes
-      where(private_space: true)
     end
 
     def can_participate?(user)
