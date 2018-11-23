@@ -273,7 +273,7 @@ gl:
             invites: Invitacións
             registration_form: Formulario de inscrición
             registrations_count:
-              one: Houbo %{count} rexistros.
+              one: Houbo un rexistro de %{count}.
               other: Houbo %{count} rexistros.
             reserved_slots_help: Déixao a 0 se non tes slots reservados
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}

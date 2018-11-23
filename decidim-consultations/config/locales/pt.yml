@@ -48,7 +48,7 @@ pt:
         one: Resposta
         other: Respostas
       decidim/consultations/vote:
-        one: Sem votos
+        one: Voto
         other: Votos
   decidim:
     admin:
