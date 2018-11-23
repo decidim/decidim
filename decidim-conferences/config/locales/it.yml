@@ -50,6 +50,7 @@ it:
       actions:
         confirm: Confermare
         new_conference: Nuova conferenza
+        send_diplomas: Invia Diplomi
       conference_copies:
         new:
           copy: copia
@@ -153,6 +154,7 @@ it:
           conference_admins: Utenti della conferenza
           conference_invites: Inviti
           conference_speakers: Altoparlanti
+          diploma: Diploma
           info: Informazioni
           media_links: Link multimediali
           moderations: Moderations
@@ -250,6 +252,7 @@ it:
       conference:
         create: "%{user_name} creato la %{resource_name} conferenza"
         publish: "%{user_name} pubblicato la %{resource_name} conferenza"
+        send_conference_diplomas: "%{user_name} invia diplomi agli utenti della %{resource_name} conferenza"
         unpublish: "%{user_name} inedito la %{resource_name} conferenza"
         update: "%{user_name} aggiornato la %{resource_name} conferenza"
       conference_speaker:
