@@ -636,6 +636,9 @@ fr:
         update:
           error: Message non envoyé. Réessayez plus tard
     metrics:
+      participants:
+        object: les participants
+        title: Participants
       users:
         object: utilisateurs
         title: Utilisateurs
@@ -731,6 +734,9 @@ fr:
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aidez-moi
         topics: Les sujets
+      participatory_space:
+        metrics:
+          headline: Participation en chiffres
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
