@@ -12,7 +12,7 @@ fi:
         description: Kuvaus
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        participatory_processes_ids: Liittyvät osallistumisprosessit
+        participatory_processes_ids: Liittyvät osallisuusprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -43,7 +43,7 @@ fi:
         one: Konferenssin puhuja
         other: Konferenssin puhujat
       decidim/conference_user_role:
-        one: Ei konferenssin käyttäjän rooleja
+        one: Konferenssin käyttäjärooli
         other: Konferenssin käyttäjäroolit
   decidim:
     admin:
@@ -465,7 +465,7 @@ fi:
         objectives: Tavoitteet
         related_assemblies: Liittyvät ryhmät
         related_consultations: Liittyvät kuulemiset
-        related_participatory_processes: Liittyvät osallistumisprosessit
+        related_participatory_processes: Liittyvät osallisuusprosessit
       statistics:
         answers_count: Vastauksia
         comments_count: Kommentteja
@@ -487,7 +487,7 @@ fi:
       conferences:
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista.'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallistumistilan hallinnoija.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet konferenssin osallisuustilan hallinnoija.
           email_subject: '"%{resource_title}" -konferenssista on varattu yli %{percentage}% vapaista paikoista'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -konferenssista on varattu yli %{percentage}% vapaista paikoista.
         conference_updated:
