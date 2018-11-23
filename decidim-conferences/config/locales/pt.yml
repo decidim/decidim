@@ -43,7 +43,7 @@ pt:
         one: Orador de conferência
         other: Alto-falantes da conferência
       decidim/conference_user_role:
-        one: Nenhuma função de usuário da conferência
+        one: Um papel de usuário da conferência
         other: Papéis do usuário da conferência
   decidim:
     admin:
