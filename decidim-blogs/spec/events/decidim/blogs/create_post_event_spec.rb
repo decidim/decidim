@@ -35,4 +35,10 @@ describe Decidim::Blogs::CreatePostEvent do
         .to eq("The post <a href=\"#{resource_path}\">#{resource_title}</a> has been published in #{participatory_space_title}")
     end
   end
+
+  describe "resource_text" do
+    it "returns the post body" do
+      expect(subject.resource_text).to eq translated(resource.body)
+    end
+  end
 end

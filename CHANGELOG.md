@@ -52,6 +52,8 @@ end
 - **decidim-core**: Show minicard with a little bit of profile data when hovering on user and user group names [\#4472](https://github.com/decidim/decidim/pull/4472)
 - **decidim-core**: Added more metric calculations. It involves several adding in related modules: proposals, participatory_processes, debates, etc... [\#4372](https://github.com/decidim/decidim/pull/4372)
 - **decidim-core**: Let users find search results by writing prefixes of a word instead of whole words [\#4492](https://github.com/decidim/decidim/pull/4492)
+- **decidim-core**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
+- **decidim-meetings**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
 
 **Changed**:
 
@@ -87,9 +89,11 @@ end
 - **decidim-meetings**: Fix title display [\#4431](https://github.com/decidim/decidim/pull/4431)
 - **decidim-proposals**: Ensure proposals search returns unique results [\#4460](https://github.com/decidim/decidim/pull/4460)
 - **decidim-core**: Improve how to copy URLs to share [\#4507](https://github.com/decidim/decidim/pull/4507)
+- **decidim-admin**: Hide the unavailable verification methods[\#4529](https://github.com/decidim/decidim/pull/4529)
 - **decidim-participatory_processes**: Fix process steps CTA path on public area [\#4499](https://github.com/decidim/decidim/pull/4499)
 - **decidim-participatory_processes**: Don't filter highlighted processes by state [\#4502](https://github.com/decidim/decidim/pull/4502)
 - **decidim-participatory_processes**: Don't show grouped processes in the process list[\#4503](https://github.com/decidim/decidim/pull/4503)
+- **decidim-core**: Fix notification settings form [\#4528](https://github.com/decidim/decidim/pull/4528)
 
 **Removed**:
 

@@ -53,7 +53,7 @@ module Decidim
     end
 
     def for(metric_name)
-      all.find { |manifest| manifest.metric_name == metric_name }
+      all.find { |manifest| manifest.metric_name == metric_name.to_s }
     end
 
     def all

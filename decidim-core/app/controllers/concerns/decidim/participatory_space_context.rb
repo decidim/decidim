@@ -29,7 +29,7 @@ module Decidim
       helper_method :current_participatory_space
       helper_method :current_participatory_space_manifest
       helper_method :current_participatory_space_context
-      helper_method :help_section
+      helper_method :help_section, :help_id
     end
 
     private
@@ -79,8 +79,12 @@ module Decidim
     def help_section
       @help_section ||= Decidim::ContextualHelpSection.find_content(
         current_organization,
-        current_participatory_space_manifest.name
+        help_id
       )
+    end
+
+    def help_id
+      @help_id ||= current_participatory_space_manifest.name
     end
   end
 end

@@ -22,7 +22,7 @@ $(() => {
   $(".metric-chart:visible").each((index, container) => {
     metricsContainer[$(container).data("metric")] = container;
   });
-  
+
   if (!$.isEmptyObject(metricsContainer)) {
     parameterize(Object.keys(metricsContainer))
     fetch().then((response) => {
@@ -35,6 +35,7 @@ $(() => {
           }
           let info = $(container).data("info");
 
+          // Ratio is hardcoded temporally
           areachart({
             container: `#${container.id}`,
             data: metricData.history,

@@ -313,7 +313,7 @@ nl:
         impersonations: Zich voordoen als
         newsletters: Nieuwsbrieven
         oauth_applications: OAuth-toepassingen
-        officializations: Bevestigde gebruikers
+        participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -603,7 +603,7 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Niet-personaliseerbare gebruikers
         impersonations: Nabootsingingen
-        officializations: Bevestigen gebruikers
+        participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's

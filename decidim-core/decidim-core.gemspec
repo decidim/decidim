@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "doorkeeper", "~> 4.4"
   s.add_dependency "doorkeeper-i18n", "~> 4.0"
+  s.add_dependency "etherpad-lite", "~> 0.3"
   s.add_dependency "file_validators", "~> 2.1"
   s.add_dependency "foundation-rails", "~> 6.4", "< 6.5"
   s.add_dependency "foundation_rails_helper", "~> 3.0"
