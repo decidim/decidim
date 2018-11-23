@@ -623,13 +623,13 @@ nl:
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         index:
-          from: Van
-          last_message_html: Laatste bericht <strong>%{time} geleden</strong>
           no_conversations: Je hebt nog geen gesprekken
-        show:
-          conversation_with_html: Gesprek met <strong>%{name}</strong>
-          reply: Beantwoorden
+          title: conversaties
+        reply:
           send: Sturen
+          title: Beantwoorden
+        show:
+          title: Gesprek met %{usernames}
         start:
           send: Verzenden
           title: Een gesprek beginnen
@@ -765,12 +765,10 @@ nl:
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
         badges: badges
-        conversations: conversaties
         followers: Volgers
         following: volgt
         groups: groepen
         members: leden
-        notifications: meldingen
         view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
