@@ -59,6 +59,7 @@ module Decidim
         @amendable.update!(
           amendable_attributes
         )
+        # puts "#{amender.attributes}"
         @amendable.add_coauthor(amender, user_group: nil)
       end
 
