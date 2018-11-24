@@ -36,7 +36,7 @@ This event comes with the following payload:
 * name: User's name.
 * nickname: User's nickname after being normalized.
 * avatar_url: Avatar's url, if any.
-* raw_data: The raw hash received directly from the omniauth gem.
+* raw_data: The raw hash received directly from the Omniauth gem.
 
 To be notified after a registration one should subscribe to the event, in the passed block the after registration code should be implemented:
 
