@@ -64,8 +64,8 @@ module Decidim
 
       def amendable_attributes
         {
-          title: form.emendation_fields[:title],
-          body: form.emendation_fields[:body]
+          title: form.title,
+          body: form.body
         }
       end
 

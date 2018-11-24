@@ -7,27 +7,28 @@ module Decidim
       mimic :amend
 
       attribute :id, String
-      attribute :amendable_gid, String
-      attribute :emendation_gid, String
       attribute :title, String
       attribute :body, String
-      attribute :user_group_id, Integer
       attribute :emendation_fields, Object
 
-      validates :id, :amendable_gid, :emendation_gid, presence: true
+      validates :id, presence: true
+      validates :title, :body, presence: true, etiquette: true
+      validates :title, length: { maximum: 150 }
 
-      def amendable_gid
-        amendment.amendable.to_gid.to_s
+      def title
+        @title ||= emendation_fields[:title]
       end
 
-      def emendation_gid
-        amendment.emendation.to_gid.to_s
+      def body
+        @body ||= emendation_fields[:body]
       end
 
       def emendation_type
-        emendation ||= GlobalID::Locator.locate_signed emendation_gid
-        return unless emendation
         emendation.resource_manifest.model_class_name
+      end
+
+      def emendation_fields
+        @emendation_fields ||= emendation.form.from_model(emendation)
       end
     end
   end

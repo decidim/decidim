@@ -21,14 +21,14 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) if emendation_doesnt_change_amendable
 
         transaction do
           create_emendation!
           create_amendment!
-
-          # The proposal authors and followers are notified that an amendment has been created.
           notify_amendable_authors_and_followers
         end
+
         broadcast(:ok)
       end
 
@@ -36,11 +36,15 @@ module Decidim
 
       attr_reader :form
 
+      def emendation_doesnt_change_amendable
+        form.title == @amendable.title && form.body == @amendable.body
+      end
+
       def emendation_attributes
         fields = {}
 
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form[:emendation_fields][:title], current_organization: form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form[:emendation_fields][:body], current_organization: form.current_organization).rewrite
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
 
         fields[:title] = parsed_title
         fields[:body] = parsed_body
