@@ -43,13 +43,14 @@ de:
         one: Konferenzsprecher
         other: Konferenzsprecher
       decidim/conference_user_role:
-        one: Keine Konferenzbenutzerrollen
+        one: Eine Konferenzbenutzerrolle
         other: Benutzerrollen der Konferenz
   decidim:
     admin:
       actions:
         confirm: Bestätigen
         new_conference: Neue Konferenz
+        send_diplomas: Diplome senden
       conference_copies:
         new:
           copy: Kopieren
@@ -153,6 +154,7 @@ de:
           conference_admins: Konferenzbenutzer
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
+          diploma: Diplom
           info: Info
           media_links: Medienlinks
           moderations: Moderationen
@@ -250,8 +252,10 @@ de:
       conference:
         create: "%{user_name} erstellt die %{resource_name} Konferenz"
         publish: "%{user_name} veröffentlichte die %{resource_name} Konferenz"
+        send_conference_diplomas: "%{user_name} Senden Sie Diplome an die %{resource_name} Konferenzbenutzer"
         unpublish: "%{user_name} unveröffentlichte die %{resource_name} Konferenz"
         update: "%{user_name} hat die %{resource_name} Konferenz aktualisiert"
+        update_diploma: "%{user_name} hat die Konferenz für Diplomkonfiguration %{resource_name} aktualisiert"
       conference_speaker:
         create: "%{user_name} hat den %{resource_name} Sprecher in der %{space_name} Konferenz erstellt"
         delete: "%{user_name} entfernte den %{resource_name} Sprecher von der %{space_name} Konferenz"
@@ -329,6 +333,10 @@ de:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
             slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        diplomas:
+          edit:
+            save: sparen
+            title: Diplom
         invite_join_conference_mailer:
           invite:
             decline: Einladung '%{conference_title}' ablehnen
@@ -342,6 +350,16 @@ de:
             select_conference_meetings: Konferenzmeetings auswählen
           index:
             title: Registrierungsarten
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Das Diplom für die Konferenz <a href="%{url}">%{title}</a> in den Anlagen.
+          diploma_user:
+            attendance_verified_by: Anwesenheit überprüft durch
+            certificate_of_attendance: Teilnahmebestätigung
+            certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
+        send_diploma:
+          error: Beim Senden der Konferenzdiplome ist ein Problem aufgetreten.
+          success: Konferenzdiplome korrekt gesendet
       conference:
         registration_confirm:
           cancel: Stornieren
@@ -414,6 +432,9 @@ de:
         invite_join_conference_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Konferenz
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Das Diplom Ihrer Konferenz wurde gesendet
       models:
         conference_invite:
           fields:

@@ -620,7 +620,7 @@ sv:
           edit_proposal: Redigera förslag
           endorsements_list: Förteckning över Stöd
           hidden_endorsers_count:
-            one: och %{count} fler personer
+            one: och %{count} mer person
             other: och %{count} fler personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett samlat förslag. Granska historiken
           link_to_collaborative_draft_text: Se samarbetsutkastet

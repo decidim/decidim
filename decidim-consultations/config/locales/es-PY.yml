@@ -48,7 +48,7 @@ es-PY:
         one: Respuesta
         other: Respuestas
       decidim/consultations/vote:
-        one: Sin votos
+        one: Voto
         other: Votos
   decidim:
     admin:
