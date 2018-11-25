@@ -335,8 +335,8 @@ fi:
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         diplomas:
           edit:
-            save: Tallentaa
-            title: Tutkintotodistus
+            save: Tallenna
+            title: Diplomi
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
@@ -352,14 +352,14 @@ fi:
             title: Ilmoittautumistyypit
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Löydät kokeen <a href="%{url}">%{title}</a> diplomin liitteissä.
+            diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> diplomin liitteistä.
           diploma_user:
-            attendance_verified_by: Osallistuminen on vahvistanut
+            attendance_verified_by: Osallistuminen vahvistettu
             certificate_of_attendance: Läsnäolotodistus
-            certificate_of_attendance_description: 'Tämän on todistettava, että <strong>%{user}</strong> on osallistunut ja osallistunut <strong>%{title}</strong> pidettiin <strong>%{location}</strong> : ssä <strong>%{start} - %{end}</strong>'
+            certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Kongressin tutkintotodistusten lähettämisessä on ollut ongelma.
-          success: Konferenssitodistukset lähetetään oikein
+          error: Konferenssin diplomeiden lähettämisessä esiintyi ongelma.
+          success: Konferenssin diplomit on lähetetty onnistuneesti
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -434,7 +434,7 @@ fi:
             subject: Kutsu konferenssiin
         send_conference_diploma_mailer:
           diploma:
-            subject: Konferenssin tutkintotodistus on lähetetty
+            subject: Konferenssin diplomit on lähetetty
       models:
         conference_invite:
           fields:
