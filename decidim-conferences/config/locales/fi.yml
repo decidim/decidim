@@ -44,7 +44,7 @@ fi:
         other: Konferenssin puhujat
       decidim/conference_user_role:
         one: Konferenssin käyttäjärooli
-        other: Konferenssin käyttäjärooli
+        other: Konferenssin käyttäjäroolia
   decidim:
     admin:
       actions:
@@ -154,7 +154,7 @@ fi:
           conference_admins: Konferenssin käyttäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
-          diploma: Tutkintotodistus
+          diploma: Diplomi
           info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
@@ -252,10 +252,10 @@ fi:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
-        send_conference_diplomas: "%{user_name} lähettää tutkintotodistuksia %{resource_name} konferenssin käyttäjälle"
+        send_conference_diplomas: "%{user_name} lähetti diplomit konferenssin %{resource_name} käyttäjille"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
-        update_diploma: "%{user_name} päivitti tutkintotodistuksen %{resource_name} konferenssin"
+        update_diploma: "%{user_name} päivitti diplomeita konferenssille %{resource_name}"
       conference_speaker:
         create: "%{user_name} loi puhujan %{resource_name} konferenssiin %{space_name}"
         delete: "%{user_name} poisti puhujan %{resource_name} konferenssista %{space_name}"
