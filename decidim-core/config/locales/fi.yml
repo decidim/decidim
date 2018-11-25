@@ -624,12 +624,12 @@ fi:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
           no_conversations: Sinulla ei vielä ole keskusteluja
-          title: keskustelut
+          title: Keskustelut
         reply:
-          send: Lähettää
+          send: Lähetä
           title: Vastaa
         show:
-          title: Keskustelu %{usernames}
+          title: 'Keskustelu: %{usernames}'
         start:
           send: Lähetä
           title: Aloita keskustelu
@@ -638,7 +638,7 @@ fi:
     metrics:
       participants:
         object: osallistujaa
-        title: osallistujien
+        title: Osallistujaa
       users:
         object: käyttäjää
         title: Käyttäjiä
@@ -736,7 +736,7 @@ fi:
         topics: Aiheet
       participatory_space:
         metrics:
-          headline: Osallistuminen lukuihin
+          headline: Osallistuminen lukuina
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
