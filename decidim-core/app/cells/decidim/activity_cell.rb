@@ -50,6 +50,10 @@ module Decidim
       translated_attribute(resource.title)
     end
 
+    def created_at
+      I18n.l(model.created_at, format: :short)
+    end
+
     private
 
     def published?
