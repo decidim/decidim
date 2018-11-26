@@ -365,6 +365,7 @@ es-PY:
           cancel: Cancelar
           confirm: Confirmar
         show:
+          free: Gratis
           going: Yendo
           no_slots_available: No hay espacios disponibles
           registration: Registro
