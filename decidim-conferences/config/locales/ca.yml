@@ -43,8 +43,8 @@ ca:
         one: Ponent de la conferència
         other: Ponents de la conferència
       decidim/conference_user_role:
-        one: Un rol d'usuari de la conferència
-        other: Funcions d'usuari de la conferència
+        one: Funció d'usuari de la conferència
+        other: Funció d'usuari de la conferència
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ ca:
           cancel: Cancel·lar
           confirm: Confirmar
         show:
+          free: Gratuït
           going: Assistiré
           no_slots_available: No hi ha places disponibles
           registration: Registre
