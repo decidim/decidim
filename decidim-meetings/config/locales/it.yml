@@ -362,7 +362,7 @@ it:
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
           remaining_slots:
-            one: '%{count} slot rimanenti'
+            one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
           view: vista
       meetings_map:
@@ -406,6 +406,7 @@ it:
         transparent: Trasparente
     metrics:
       meetings:
+        description: Numero di riunioni create
         object: incontri
         title: incontri
     participatory_processes:
