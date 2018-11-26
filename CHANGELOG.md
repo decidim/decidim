@@ -48,6 +48,7 @@ end
 
 **Added**:
 
+- **decidim-core**: Add polymorphic Amendment feature that can be activated in the proposal component. [\#3985](https://github.com/decidim/decidim/pull/3985/)
 - **decidim-proposals**: Specific public view rendering of participatory texts. [\#4316](https://github.com/decidim/decidim/pull/4316)
 - **decidim-proposals**: Admin can create proposals from the admin panel, with a meeting as an author.[\#4382](https://github.com/decidim/decidim/pull/4382)
 - **decidim-proposals**: Add support to import .odt participatory text files. [\#4386](https://github.com/decidim/decidim/pull/4386)
