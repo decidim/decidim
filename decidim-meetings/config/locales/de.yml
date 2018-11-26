@@ -362,7 +362,7 @@ de:
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           remaining_slots:
-            one: '%{count} Slot bleibt übrig'
+            one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
           view: Aussicht
       meetings_map:
@@ -406,6 +406,7 @@ de:
         transparent: Transparent
     metrics:
       meetings:
+        description: Anzahl der erstellten Meetings
         object: Treffen
         title: Meetings
     participatory_processes:
