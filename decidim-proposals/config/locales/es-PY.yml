@@ -223,12 +223,19 @@ es-PY:
           unearned_own: Aún no has creado propuestas.
     metrics:
       accepted_proposals:
+        description: Número de propuestas aceptadas por los usuarios.
         object: propuestas
         title: Propuestas aceptadas
+      endorsements:
+        description: Número de endosos generados en las propuestas.
+        object: avales
+        title: Endosos
       proposals:
+        description: Número de propuestas generadas
         object: propuestas
         title: Propuestas
       votes:
+        description: Número de votos generados en las propuestas por los usuarios.
         object: votos
         title: Votos
     participatory_processes:
@@ -408,7 +415,7 @@ es-PY:
           title: Completa tu borrador colaborativo
         count:
           drafts_count:
-            one: '%{count} borrador colaborativo'
+            one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
           error: Ha habido un problema al crear este borradores colaborativo
@@ -552,7 +559,7 @@ es-PY:
           title: Completa tu propuesta
         count:
           proposals_count:
-            one: '%{count} propuesta'
+            one: "%{count} propuesta"
             other: "%{count} propuestas"
         edit:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
