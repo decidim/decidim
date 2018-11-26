@@ -636,10 +636,16 @@ ca:
         update:
           error: Missatge no enviat. Torna-ho a provar més tard
     metrics:
+      followers:
+        description: Nombre d'usuari que segueix a l'organització
+        object: seguidors
+        title: Seguidors
       participants:
+        description: Número d'usuari actiu a l'organització
         object: participants
         title: Participants
       users:
+        description: Nombre d'usuari a l'organització
         object: usuaris
         title: Usuaris
     newsletter_mailer:
@@ -737,6 +743,7 @@ ca:
       participatory_space:
         metrics:
           headline: Participació en xifres
+          link: Mostra totes les estadístiques
       terms_and_conditions:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions.
@@ -810,19 +817,19 @@ ca:
       results_found_for_term: '%{count} resultats de la cerca: "%{term}"'
       term_input_placeholder: Cerca
     searches:
-      filters_small_view:
-        close_modal: Tanca el modal
-        filter: Filtre
-        filter_by: Filtra per
-        unfold: Desplegar
       filters:
         back: Torna a tots els resultats
-        jump_to: "Salta a:"
+        jump_to: 'Salta a:'
         state:
           active: Actiu
           all: Tots
           future: Futur
           past: Passat
+      filters_small_view:
+        close_modal: Tanca el modal
+        filter: Filtre
+        filter_by: Filtra per
+        unfold: Desplegar
       results:
         results:
           one: "%{count} resultat"
