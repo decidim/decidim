@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :conversation
+      helper_method :username_list, :conversation
 
       def new
         enforce_permission_to :create, :conversation
@@ -30,7 +30,10 @@ module Decidim
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
-            redirect_to conversation_path(conversation)
+            render action: :create, locals: {
+              conversation: conversation,
+              form: MessageForm.new
+            }
           end
 
           on(:invalid) do
@@ -49,6 +52,8 @@ module Decidim
         enforce_permission_to :read, :conversation, conversation: conversation
 
         @conversation.mark_as_read(current_user)
+
+        @form = MessageForm.new
       end
 
       def update
@@ -71,6 +76,10 @@ module Decidim
 
       def conversation
         @conversation ||= Conversation.find(params[:id])
+      end
+
+      def username_list(users)
+        users.pluck(:name).join(", ")
       end
     end
   end

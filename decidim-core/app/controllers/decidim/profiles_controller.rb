@@ -12,9 +12,8 @@ module Decidim
     before_action :ensure_profile_holder_is_a_user, only: [:groups, :following]
 
     def show
-      return redirect_to notifications_path if current_user == profile_holder
       return redirect_to profile_members_path if profile_holder.is_a?(Decidim::UserGroup)
-      redirect_to profile_following_path
+      redirect_to(current_organization.badges_enabled ? profile_badges_path : profile_following_path)
     end
 
     def following

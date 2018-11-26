@@ -35,6 +35,11 @@ module Decidim
               get :export
             end
           end
+          resource :diploma, only: [:edit, :update] do
+            member do
+              post :send, to: "diplomas#send_diplomas"
+            end
+          end
           resources :user_roles, controller: "conference_user_roles" do
             member do
               post :resend_invitation, to: "conference_user_roles#resend_invitation"

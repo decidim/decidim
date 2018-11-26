@@ -54,7 +54,7 @@ pl:
         many: Odpowiedzi
         other: Odpowiedzi
       decidim/consultations/vote:
-        one: Brak głosów
+        one: Głosować
         few: Głosy
         many: Głosy
         other: Głosy
