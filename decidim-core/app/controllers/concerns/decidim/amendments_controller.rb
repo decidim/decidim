@@ -46,10 +46,7 @@ module Decidim
     end
 
     def promote
-      @form = Decidim::Amendable::PromoteForm.from_params(
-        id: params[:id],
-        emendation_fields: emendation_fields_form
-      ).with_context(form_context)
+      @form = Decidim::Amendable::PromoteForm.from_params(params)
 
       Decidim::Amendable::Promote.call(@form) do
         on(:ok) do |proposal|
@@ -86,19 +83,6 @@ module Decidim
     end
 
     private
-
-    def emendation_fields_form
-      amendable.form.from_model(amendable).with_context(form_context)
-    end
-
-    def form_context
-      {
-        current_organization: amendable.organization,
-        current_component: amendable.component,
-        current_user: current_user,
-        current_participatory_space: amendable.participatory_space
-      }
-    end
 
     def amendable_gid
       params[:amendable_gid]
