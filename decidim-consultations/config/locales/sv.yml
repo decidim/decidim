@@ -48,7 +48,7 @@ sv:
         one: Svar
         other: Svar
       decidim/consultations/vote:
-        one: Rösta
+        one: Inga röster
         other: röster
   decidim:
     admin:
