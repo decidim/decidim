@@ -6,8 +6,6 @@ describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:participatory_text) { create :participatory_text, component: component }
-
   def should_have_proposal(selector, proposal)
     expect(page).to have_tag(selector, text: proposal.title)
     prop_block = page.find(selector)
@@ -31,30 +29,66 @@ describe "Proposals", type: :system do
   end
 
   context "when listing proposals in a participatory process as participatory texts" do
-    let!(:proposals) { create_list(:proposal, 3, :published, component: component) }
-
-    context "when voting is enabled" do
+    context "when admin has not yet imported a participatory text" do
       let!(:component) do
         create(:proposal_component,
                :with_participatory_texts_enabled,
-               :with_votes_enabled,
                manifest: manifest,
                participatory_space: participatory_process)
       end
 
-      it_behaves_like "lists all the proposals ordered"
+      before do
+        visit_component
+      end
+
+      it "renders an empty title" do
+        within ".heading2" do
+          expect(page).to have_content("")
+        end
+      end
     end
 
-    context "when voting is disabled" do
-      let(:component) do
+    context "when admin has imported a participatory text" do
+      let!(:participatory_text) { create :participatory_text, component: component }
+      let!(:proposals) { create_list(:proposal, 3, :published, component: component) }
+      let!(:component) do
         create(:proposal_component,
-               :with_votes_disabled,
                :with_participatory_texts_enabled,
                manifest: manifest,
                participatory_space: participatory_process)
       end
 
-      it_behaves_like "lists all the proposals ordered"
+      before do
+        visit_component
+      end
+
+      it "renders the participatory text title" do
+        expect(page).to have_content(participatory_text.title)
+      end
+
+      context "when voting is enabled" do
+        let!(:component) do
+          create(:proposal_component,
+                 :with_participatory_texts_enabled,
+                 :with_votes_enabled,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it_behaves_like "lists all the proposals ordered"
+      end
+
+      context "when voting is disabled" do
+        let(:component) do
+          create(:proposal_component,
+                 :with_votes_disabled,
+                 :with_participatory_texts_enabled,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it_behaves_like "lists all the proposals ordered"
+      end
     end
   end
 end
