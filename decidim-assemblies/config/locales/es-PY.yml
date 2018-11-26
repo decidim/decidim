@@ -333,6 +333,7 @@ es-PY:
       assemblies: Asambleas
     metrics:
       assemblies:
+        description: Número de asambleas creadas
         object: asambleas
         title: Asambleas
   errors:
