@@ -7,14 +7,14 @@ module Decidim
       # Handles verification by identity document upload
       #
       class AuthorizationsController < ApplicationController
-        helper_method :authorization
+        helper_method :authorization, :verification_type, :using_offline?, :using_online?
 
         before_action :load_authorization
 
         def new
           enforce_permission_to :create, :authorization, authorization: @authorization
 
-          @form = UploadForm.new
+          @form = UploadForm.from_params(id_document_upload: { verification_type: verification_type })
         end
 
         def create
@@ -77,6 +77,18 @@ module Decidim
             user: current_user,
             name: "id_documents"
           )
+        end
+
+        def verification_type
+          params[:using]
+        end
+
+        def using_online?
+          verification_type == "online"
+        end
+
+        def using_offline?
+          verification_type == "offline"
         end
       end
     end

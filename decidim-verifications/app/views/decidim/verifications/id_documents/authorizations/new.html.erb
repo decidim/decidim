@@ -19,9 +19,13 @@
                 <%= form.text_field :document_number %>
               </div>
 
-              <div class="field">
-                <%= form.upload :verification_attachment %>
-              </div>
+              <% if using_online? %>
+                <div class="field">
+                  <%= form.upload :verification_attachment %>
+                </div>
+              <% end %>
+
+              <%= form.hidden_field :verification_type %>
 
               <div class="actions">
                 <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>

@@ -86,6 +86,11 @@ en:
             create:
               success: Verification rejected. User will be prompted to amend her documents
         authorizations:
+          choose:
+            choose_a_type: CHOOSE A TYPE PLEASE
+            offline: Offline
+            online: Online
+            title: Verify yourself using your identity document
           create:
             error: There was a problem uploading your document
             success: Document uploaded successfully
