@@ -365,6 +365,7 @@ hu:
           cancel: Megszünteti
           confirm: megerősít
         show:
+          free: Ingyenes
           going: Haladó
           no_slots_available: Nincs szabad hely
           registration: Bejegyzés
