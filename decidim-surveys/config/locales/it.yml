@@ -35,6 +35,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Una nuova indagine su %{participatory_space_title}
           notification_title: Il sondaggio <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
+    metrics:
+      survey_answers:
+        description: Numero di sondaggi rispondenti dagli utenti
+        object: risposte ai sondaggi
+        title: Risposte ai sondaggi
     surveys:
       admin:
         exports:
