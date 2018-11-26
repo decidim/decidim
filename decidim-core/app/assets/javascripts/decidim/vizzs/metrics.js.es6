@@ -21,6 +21,9 @@ $(() => {
 
   $(".metric-chart:visible").each((index, container) => {
     metricsContainer[$(container).data("metric")] = container;
+    $(container).find(".metric-downloader").on("click",() => {
+      alert("downloadme senpai")
+    })
   });
 
   if (!$.isEmptyObject(metricsContainer)) {

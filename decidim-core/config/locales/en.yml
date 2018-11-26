@@ -640,6 +640,8 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      download:
+        csv: Download data (csv)
       followers:
         description: ''
         object: followers
