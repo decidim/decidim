@@ -6,6 +6,8 @@ module Decidim
   describe Consultation do
     subject { consultation }
 
+    include_examples "resourceable"
+
     let(:consultation) { build(:consultation, slug: "my-slug") }
 
     it { is_expected.to be_valid }

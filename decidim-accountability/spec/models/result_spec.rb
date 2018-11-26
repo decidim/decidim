@@ -17,6 +17,7 @@ module Decidim
       include_examples "has scope"
       include_examples "has category"
       include_examples "has reference"
+      include_examples "resourceable"
     end
   end
 end

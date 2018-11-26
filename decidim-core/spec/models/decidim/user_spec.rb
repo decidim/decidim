@@ -6,6 +6,8 @@ module Decidim
   describe User do
     subject { user }
 
+    include_examples "resourceable"
+
     let(:organization) { create(:organization) }
     let(:user) { build(:user, organization: organization) }
 
