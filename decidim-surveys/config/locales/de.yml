@@ -35,6 +35,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
+    metrics:
+      survey_answers:
+        description: Anzahl der Umfragen, die von den Benutzern beantwortet wurden
+        object: Antworten auf Umfragen
+        title: Antworten zu Umfragen
     surveys:
       admin:
         exports:
