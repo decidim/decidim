@@ -774,7 +774,7 @@ es-PY:
       scopes: Ámbitos
     search:
       filter:
-        all: Todo
+        all: Todas
         component: Componente
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
