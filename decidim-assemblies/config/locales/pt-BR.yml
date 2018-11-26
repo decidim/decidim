@@ -333,6 +333,7 @@ pt-BR:
       assemblies: Assembleias
     metrics:
       assemblies:
+        description: Número de montagens criadas
         object: assembleias
         title: Assembleias
   errors:
