@@ -223,12 +223,19 @@ ca:
           unearned_own: Encara no has creat cap proposta.
     metrics:
       accepted_proposals:
+        description: Nombre de propostes acceptades pels usuaris
         object: propostes
         title: Propostes acceptades
+      endorsements:
+        description: Nombre d'aprovacions generades en Propostes
+        object: aprovacions
+        title: Aprovacions
       proposals:
+        description: Nombre de propostes generades
         object: propostes
         title: Propostes
       votes:
+        description: Nombre de vots generats a les propostes dels usuaris
         object: vots
         title: Vots
     participatory_processes:
@@ -408,7 +415,7 @@ ca:
           title: Completa el teu esborrany col·laboratiu
         count:
           drafts_count:
-            one: '%{count} esborrany de col·laboració'
+            one: "%{count} esborrany de col·laboració"
             other: "%{count} esborrany de col·laboració"
         create:
           error: Hi ha hagut un problema en crear aquests esborranys col·laboratius
@@ -552,7 +559,7 @@ ca:
           title: Completa la teva proposta
         count:
           proposals_count:
-            one: '%{count} proposta'
+            one: "%{count} proposta"
             other: "%{count} propostes"
         edit:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
