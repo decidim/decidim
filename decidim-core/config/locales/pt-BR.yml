@@ -636,10 +636,16 @@ pt-BR:
         update:
           error: Mensagem não enviada. Tente mais tarde
     metrics:
+      followers:
+        description: Número de usuário que segue em organização
+        object: seguidores
+        title: Seguidores
       participants:
+        description: Número de usuários ativos na organização
         object: participantes
         title: Participantes
       users:
+        description: Número de usuários na organização
         object: usuários
         title: Usuários
     newsletter_mailer:
@@ -737,6 +743,7 @@ pt-BR:
       participatory_space:
         metrics:
           headline: Participação em números
+          link: Mostrar todas as estatísticas
       terms_and_conditions:
         accept:
           error: Houve um erro ao aceitar os termos e condições.
@@ -810,19 +817,19 @@ pt-BR:
       results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
       term_input_placeholder: Pesquisa
     searches:
-      filters_small_view:
-        close_modal: Fechar modal
-        filter: Filtro
-        filter_by: Filtrar por
-        unfold: Desdobrar
       filters:
         back: De volta a todos os resultados
-        jump_to: "Pule para:"
+        jump_to: 'Pule para:'
         state:
           active: Ativo
           all: Todos
           future: Futuro
           past: Passado
+      filters_small_view:
+        close_modal: Fechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Desdobrar
       results:
         results:
           one: "%{count} resultado"
