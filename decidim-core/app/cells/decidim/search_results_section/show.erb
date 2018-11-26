@@ -7,7 +7,7 @@
     <%= card_for result, { context: { label: true, show_space: true }, show_footer_actions: false } %>
   <% end %>
 </div>
-<% if results_count > 4 && !paginated? %>
+<% if results_count > Decidim::Search::HIGHLIGHTED_RESULTS_COUNT && !paginated? %>
   <%= link_to(
     t("decidim.searches.results.view_all", count: results_count),
     search_path_by_resource_type(class_name),
