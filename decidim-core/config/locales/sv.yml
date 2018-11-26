@@ -636,10 +636,16 @@ sv:
         update:
           error: Meddelandet har inte skickats. Försök igen senare
     metrics:
+      followers:
+        description: Antal användare som följer i organisationen
+        object: följare
+        title: anhängare
       participants:
+        description: Antal aktiva användare i organisationen
         object: deltagarna
         title: Deltagarna
       users:
+        description: Antal användare i organisationen
         object: användare
         title: Användare
     newsletter_mailer:
@@ -737,6 +743,7 @@ sv:
       participatory_space:
         metrics:
           headline: Deltagande i siffror
+          link: Visa all statistik
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.
@@ -810,19 +817,19 @@ sv:
       results_found_for_term: '%{count} Resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
-      filters_small_view:
-        close_modal: Stäng modal
-        filter: Filtrera
-        filter_by: Filtrera efter
-        unfold: Veckla ut
       filters:
         back: Tillbaka till alla resultat
-        jump_to: "Hoppa till:"
+        jump_to: 'Hoppa till:'
         state:
           active: Aktiva
           all: Allt
           future: Framtida
           past: Dåtid
+      filters_small_view:
+        close_modal: Stäng modal
+        filter: Filtrera
+        filter_by: Filtrera efter
+        unfold: Veckla ut
       results:
         results:
           one: "%{count} resultat"
