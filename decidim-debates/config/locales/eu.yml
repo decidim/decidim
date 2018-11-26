@@ -148,3 +148,8 @@ eu:
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik eztabaidetan parte hartu duzu.
+    metrics:
+      debates:
+        description: Sortutako eztabaida kopurua
+        object: eztabaidak
+        title: eztabaidak
