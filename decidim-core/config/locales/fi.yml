@@ -636,10 +636,16 @@ fi:
         update:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     metrics:
+      followers:
+        description: Organisaatiossa mukana olevien käyttäjien määrä
+        object: seuraajaa
+        title: seuraajaa
       participants:
+        description: Aktiivisen käyttäjän määrä organisaatiossa
         object: osallistujaa
         title: Osallistujaa
       users:
+        description: Organisaation käyttäjien lukumäärä
         object: käyttäjää
         title: Käyttäjiä
     newsletter_mailer:
@@ -737,6 +743,7 @@ fi:
       participatory_space:
         metrics:
           headline: Osallistuminen lukuina
+          link: Näytä kaikki tilastot
       terms_and_conditions:
         accept:
           error: Ehtojen hyväksymisessä tapahtui virhe.
@@ -810,19 +817,19 @@ fi:
       results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
-      filters_small_view:
-        close_modal: Sulje ikkuna
-        filter: Suodata
-        filter_by: Suodata
-        unfold: Avaa
       filters:
         back: Takaisin kaikkiin tuloksiin
-        jump_to: "Hypätä:"
+        jump_to: 'Hypätä:'
         state:
           active: aktiivinen
           all: Kaikki
           future: tulevaisuus
           past: menneisyys
+      filters_small_view:
+        close_modal: Sulje ikkuna
+        filter: Suodata
+        filter_by: Suodata
+        unfold: Avaa
       results:
         results:
           one: "%{count} tulosta"
