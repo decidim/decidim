@@ -118,6 +118,14 @@ module Decidim
       def permissions
         resource_permission&.permissions if allow_resource_permissions?
       end
+
+      def resource_title
+        try(:title) || try(:name)
+      end
+
+      def resource_description
+        try(:description) || try(:body)
+      end
     end
 
     class_methods do
