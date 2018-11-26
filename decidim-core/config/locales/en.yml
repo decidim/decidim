@@ -3,8 +3,6 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
-      amend:
-        user_group_id: Amendment author
       report:
         details: Additional comments
       user:
@@ -166,6 +164,7 @@ en:
             This emendation for the %{amendable_type} %{amendable_link}
             has been withdrawn by the author.
       new:
+        amendment_author: Amendment author
         back: Back
         heading: Create your amendment
         help_text: You are modifying the %{model_name}
