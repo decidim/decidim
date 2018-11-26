@@ -636,10 +636,16 @@ de:
         update:
           error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     metrics:
+      followers:
+        description: Anzahl der Benutzer, die in der Organisation folgen
+        object: Anhänger
+        title: Anhänger
       participants:
+        description: Anzahl der aktiven Benutzer in der Organisation
         object: Teilnehmer
         title: Teilnehmer
       users:
+        description: Anzahl der Benutzer in der Organisation
         object: Benutzer
         title: Benutzer
     newsletter_mailer:
@@ -737,6 +743,7 @@ de:
       participatory_space:
         metrics:
           headline: Teilnahme an Zahlen
+          link: Alle Statistiken anzeigen
       terms_and_conditions:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
@@ -810,19 +817,19 @@ de:
       results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
       term_input_placeholder: Suche
     searches:
-      filters_small_view:
-        close_modal: Modal schließen
-        filter: Filter
-        filter_by: Filtern nach
-        unfold: Entfalten
       filters:
         back: Zurück zu allen Ergebnissen
-        jump_to: "Springen zu:"
+        jump_to: 'Springen zu:'
         state:
           active: Aktiv
           all: Alles
           future: Zukunft
           past: Vergangenheit
+      filters_small_view:
+        close_modal: Modal schließen
+        filter: Filter
+        filter_by: Filtern nach
+        unfold: Entfalten
       results:
         results:
           one: "%{count} Ergebnis"
