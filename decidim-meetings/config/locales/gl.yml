@@ -362,7 +362,7 @@ gl:
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
           remaining_slots:
-            one: '%{count} slot restante'
+            one: "%{count} slot restante"
             other: "%{count} slots restantes"
           view: Ver
       meetings_map:
@@ -406,6 +406,7 @@ gl:
         transparent: Transparente
     metrics:
       meetings:
+        description: Número de reunións creadas
         object: reunións
         title: Reunións
     participatory_processes:
