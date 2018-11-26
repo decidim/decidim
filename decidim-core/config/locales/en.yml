@@ -822,6 +822,8 @@ en:
         filter_by: Filter by
         unfold: Unfold
       filters:
+        back: Back to all results
+        jump_to: "Jump to:"
         state:
           active: Active
           all: All
