@@ -1,7 +1,9 @@
 <main class="wrapper">
-  <%= render partial: "count" %>
+  <div class="row" id="search-count">
+    <%= render partial: "count" %>
+  </div>
   <div class="row">
-    <div class="columns mediumlarge-4 large-3">
+    <div class="columns mediumlarge-4 large-3 search-filters">
       <%= render partial: "filters" %>
     </div>
     <div id="results" class="columns mediumlarge-8 large-9">

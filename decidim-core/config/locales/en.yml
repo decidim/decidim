@@ -821,6 +821,12 @@ en:
         filter: Filter
         filter_by: Filter by
         unfold: Unfold
+      filters:
+        state:
+          active: Active
+          all: All
+          future: Future
+          past: Past
       results:
         results:
           one: "%{count} result"

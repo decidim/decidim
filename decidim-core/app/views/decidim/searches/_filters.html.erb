@@ -11,7 +11,7 @@
     <% @sections.each do |type, results| %>
     <div class="filters__section--general<%= " no-results" if results[:count].zero? %>">
       <% if results[:count].positive? %>
-        <%= link_to search_path_by_type(type), class: "flex--sbc" do %>
+        <%= link_to search_path_by_resource_type(type), class: "flex--sbc" do %>
           <strong class="section-title"><%= searchable_resource_human_name(type) %></strong>
           <span class="muted">&nbsp;<%= results[:count] %></span>
         <% end %>
@@ -35,9 +35,10 @@
 <div class="row collapse order-by">
   <div class="text-uppercase text-right">
     <span class="order-by__tabs">
-      <%= link_to raw("<strong>pasados</strong>&nbsp;<span>(" + pasts.to_s + ")</span>"), page_path("#"), class: "order-by__tab is-active" %>
-      <%= link_to raw("<strong>siguiente</strong>&nbsp;<span>(" + futures.to_s + ")</span>"), page_path("#"), class: "order-by__tab" %>
-      <%= link_to raw("<strong>todos</strong>&nbsp;<span>(" + (actives + pasts + futures).to_s + ")</span>"), page_path("#"), class: "order-by__tab" %>
+      <%= search_path_by_state_link(:past) %>
+      <%= search_path_by_state_link(:future) %>
+      <%= search_path_by_state_link(:active) %>
+      <%= search_path_by_state_link(nil) %>
     </span>
   </div>
 </div>
