@@ -636,10 +636,16 @@ gl:
         update:
           error: Mensaxe non enviada. Téntao de novo máis tarde
     metrics:
+      followers:
+        description: Número de usuarios que seguen na organización
+        object: seguidores
+        title: Seguidores
       participants:
+        description: Número de usuario activo na organización
         object: participantes
         title: Participantes
       users:
+        description: Número de usuarios en organización
         object: usuarios
         title: Usuarios
     newsletter_mailer:
@@ -737,6 +743,7 @@ gl:
       participatory_space:
         metrics:
           headline: Participación en números
+          link: Mostrar todas as estatísticas
       terms_and_conditions:
         accept:
           error: Produciuse un erro ao aceptar os termos e condicións.
@@ -810,19 +817,19 @@ gl:
       results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
       term_input_placeholder: Busca
     searches:
-      filters_small_view:
-        close_modal: Pechar modal
-        filter: Filtro
-        filter_by: Filtrar por
-        unfold: Despregar
       filters:
         back: Volver a todos os resultados
-        jump_to: "Ir a:"
+        jump_to: 'Ir a:'
         state:
           active: Activo
           all: Todo
           future: Futuro
           past: Pasado
+      filters_small_view:
+        close_modal: Pechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Despregar
       results:
         results:
           one: "%{count} resultado"
