@@ -11,6 +11,11 @@ module Decidim
 
         before_action :load_authorization
 
+        def choose
+          return redirect_to action: :new, using: verification_type if current_organization.id_documents_methods.count == 1
+          render :choose
+        end
+
         def new
           enforce_permission_to :create, :authorization, authorization: @authorization
 
@@ -80,7 +85,7 @@ module Decidim
         end
 
         def verification_type
-          params[:using]
+          params[:using] || current_organization.id_documents_methods.first
         end
 
         def using_online?
