@@ -365,6 +365,7 @@ nl:
           cancel: Annuleer
           confirm: Bevestigen
         show:
+          free: Gratis
           going: gaand
           no_slots_available: Geen slots beschikbaar
           registration: registratie
