@@ -44,12 +44,14 @@ module Decidim
       def set_proposal_version
         title = reset(:title)
         body = reset(:body)
-        Decidim.traceability.update!(
+        Decidim.traceability.perform_action!(
+          "publish",
           @proposal,
           @current_user,
-          title: title,
-          body: body
-        )
+          visibility: "public-only"
+        ) do
+          @proposal.update title: title, body: body
+        end
       end
 
       # rubocop:disable Rails/SkipsModelValidations

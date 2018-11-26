@@ -29,8 +29,6 @@ module Decidim
           accept_amendment!
           accept_emendation!
           update_amendable!
-
-          # The amendable and emendation authors and followers are notified that the emendation has been accepted.
           notify_amendable_and_emendation_authors_and_followers
         end
 
@@ -58,10 +56,19 @@ module Decidim
       end
 
       def update_amendable!
-        @amendable.update!(
-          amendable_attributes
-        )
-        @amendable.add_coauthor(amender, user_group: nil)
+        Decidim.traceability.perform_action!(
+          :update,
+          @amendable,
+          emendation_author,
+          visibility: "public-only"
+        ) do
+          @amendable.update!(amendable_attributes)
+        end
+      end
+
+      def emendation_author
+        return @emendation.creator.user_group if @emendation.creator.user_group
+        @emendation.creator_author
       end
 
       def amendable_attributes
