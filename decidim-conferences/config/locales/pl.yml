@@ -373,6 +373,7 @@ pl:
           cancel: Anuluj
           confirm: Potwierdzać
         show:
+          free: Darmowy
           going: Chodzenie
           no_slots_available: Brak dostępnych miejsc
           registration: Rejestracja
