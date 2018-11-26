@@ -43,8 +43,8 @@ it:
         one: Relatore della conferenza
         other: Oratori della conferenza
       decidim/conference_user_role:
-        one: Un ruolo utente di conferenza
-        other: Ruoli utente della conferenza
+        one: Ruolo dell'utente della conferenza
+        other: Ruolo dell'utente della conferenza
   decidim:
     admin:
       actions:
@@ -365,6 +365,7 @@ it:
           cancel: Annulla
           confirm: Confermare
         show:
+          free: Gratuito
           going: Andando
           no_slots_available: Non ci sono slot disponibili
           registration: Registrazione
