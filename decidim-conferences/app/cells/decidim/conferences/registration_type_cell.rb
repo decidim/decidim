@@ -26,6 +26,7 @@ module Decidim
       end
 
       def price
+        return I18n.t("free", scope: "decidim.conferences.conference.show") if model.price.blank?
         number_to_currency(model.price, locale: I18n.locale, unit: Decidim.currency_unit)
       end
 
