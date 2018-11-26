@@ -860,7 +860,6 @@ en:
       version_author:
         deleted: Deleted user
     user_activity:
-      resource_type: Type
       index:
         title: Activity
         no_activities_warning: This user hasn't had any activity yet.
