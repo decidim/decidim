@@ -636,10 +636,16 @@ it:
         update:
           error: Messaggio non inviato. Riprova più tardi
     metrics:
+      followers:
+        description: Numero di utenti che segue nell'organizzazione
+        object: seguaci
+        title: Seguaci
       participants:
+        description: Numero di utente attivo nell'organizzazione
         object: partecipanti
         title: I partecipanti
       users:
+        description: Numero di utenti nell'organizzazione
         object: utenti
         title: utenti
     newsletter_mailer:
@@ -737,6 +743,7 @@ it:
       participatory_space:
         metrics:
           headline: Partecipazione in cifre
+          link: Mostra tutte le statistiche
       terms_and_conditions:
         accept:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
@@ -810,19 +817,19 @@ it:
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
     searches:
-      filters_small_view:
-        close_modal: Chiudi modale
-        filter: Filtro
-        filter_by: Filtra per
-        unfold: spiegare
       filters:
         back: Torna a tutti i risultati
-        jump_to: "Salta a:"
+        jump_to: 'Salta a:'
         state:
           active: Attivo
           all: Tutti
           future: Futuro
           past: Passato
+      filters_small_view:
+        close_modal: Chiudi modale
+        filter: Filtro
+        filter_by: Filtra per
+        unfold: spiegare
       results:
         results:
           one: "%{count} risultato"
