@@ -365,6 +365,7 @@ pt:
           cancel: Cancelar
           confirm: confirme
         show:
+          free: Livre
           going: Indo
           no_slots_available: Não há slots disponíveis
           registration: Cadastro
