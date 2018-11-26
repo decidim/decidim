@@ -223,12 +223,19 @@ hu:
           unearned_own: Még nem hoztál létre javaslatokat.
     metrics:
       accepted_proposals:
+        description: A felhasználók által elfogadott pályázatok száma
         object: javaslatok
         title: Elfogadott javaslatok
+      endorsements:
+        description: A pályázatokban keletkezett támogatások száma
+        object: kiterjesztések
+        title: Elismerések
       proposals:
+        description: A létrehozott pályázatok száma
         object: javaslatok
         title: javaslatok
       votes:
+        description: A Javaslatok által generált szavazatok száma
         object: szavazat
         title: szavazatok
     participatory_processes:
@@ -408,7 +415,7 @@ hu:
           title: Fejezd be a közös vázlatot
         count:
           drafts_count:
-            one: '%{count} együttműködési tervezet'
+            one: "%{count} együttműködési tervezet"
             other: "%{count} együttműködési tervezet"
         create:
           error: Hiba a közösen szerkesztett vázlatok létrehozásakor
@@ -552,7 +559,7 @@ hu:
           title: Fejezd be a javaslatod
         count:
           proposals_count:
-            one: '%{count} javaslat'
+            one: "%{count} javaslat"
             other: "%{count} javaslatot"
         edit:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
