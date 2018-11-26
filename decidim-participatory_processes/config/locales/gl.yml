@@ -265,6 +265,7 @@ gl:
       processes: Procesos
     metrics:
       participatory_processes:
+        description: Número de procesos participativos desta organización
         object: procesos participativos
         title: Procesos participativos
     participatory_process_groups:
