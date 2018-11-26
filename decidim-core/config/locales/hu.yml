@@ -806,19 +806,27 @@ hu:
       prompt: Válassz hatáskört
       scopes: Hatáskörök
     search:
-      filter:
-        all: Összes
-        component: Elem
       results_found_for_term: '%{count} találat erre a szóra: "%{term}"'
       term_input_placeholder: Keresés
     searches:
-      filters:
-        search: Keresés
       filters_small_view:
         close_modal: Modal bezárása
         filter: Szűrés
         filter_by: 'Szűrés ez alapján:'
         unfold: Kibont
+      filters:
+        back: Vissza az összes találathoz
+        jump_to: "Ugorj:"
+        state:
+          active: Aktív
+          all: Minden
+          future: Jövő
+          past: Múlt
+      results:
+        results:
+          one: "%{count} eredmény"
+          other: "%{count} találat"
+        view_all: Összes megtekintése (%{count})
     shared:
       embed_modal:
         close_window: Ablak bezárása
