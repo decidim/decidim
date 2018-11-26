@@ -365,6 +365,7 @@ fr:
           cancel: Annuler
           confirm: Confirmer
         show:
+          free: Libre
           going: Aller
           no_slots_available: Aucun emplacement disponible
           registration: enregistrement
