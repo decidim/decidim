@@ -333,6 +333,7 @@ gl:
       assemblies: Asembleas
     metrics:
       assemblies:
+        description: Número de asembleas creadas
         object: asembleas
         title: Asembleas
   errors:
