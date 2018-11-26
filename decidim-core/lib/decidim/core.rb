@@ -71,6 +71,7 @@ module Decidim
   autoload :Hashtag, "decidim/hashtag"
   autoload :Hashtaggable, "decidim/hashtaggable"
   autoload :Paddable, "decidim/paddable"
+  autoload :OpenDataExporter, "decidim/open_data_exporter"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
