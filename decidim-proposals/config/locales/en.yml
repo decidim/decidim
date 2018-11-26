@@ -408,7 +408,7 @@ en:
           title: Complete your collaborative draft
         count:
           drafts_count:
-            one: '%{count} collaborative draft'
+            one: "%{count} collaborative draft"
             other: "%{count} collaborative draft"
         create:
           error: There's been a problem creating this collaborative drafts
@@ -552,7 +552,7 @@ en:
           title: Complete your proposal
         count:
           proposals_count:
-            one: '%{count} proposal'
+            one: "%{count} proposal"
             other: "%{count} proposals"
         edit:
           attachment_legend: "(Optional) Add an attachment"
