@@ -333,7 +333,7 @@ en:
       assemblies: Assemblies
     metrics:
       assemblies:
-        description: ''
+        description: Number of Assemblies created
         object: assemblies
         title: Assemblies
   errors:

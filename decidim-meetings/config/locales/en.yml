@@ -362,7 +362,7 @@ en:
           no_slots_available: No slots available
           organizations: Attending organizations
           remaining_slots:
-            one: '%{count} slot remaining'
+            one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
       meetings_map:
@@ -406,7 +406,7 @@ en:
         transparent: Transparent
     metrics:
       meetings:
-        description: ''
+        description: Number of Meetings created
         object: meetings
         title: Meetings
     participatory_processes:
