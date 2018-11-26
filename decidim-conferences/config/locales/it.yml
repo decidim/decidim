@@ -365,6 +365,7 @@ it:
           cancel: Annulla
           confirm: Confermare
         show:
+          free: Gratuito
           going: Andando
           no_slots_available: Non ci sono slot disponibili
           registration: Registrazione
