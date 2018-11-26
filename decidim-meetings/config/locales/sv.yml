@@ -362,7 +362,7 @@ sv:
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
           remaining_slots:
-            one: '%{count} slits kvar'
+            one: "%{count} slits kvar"
             other: "%{count} slits kvar"
           view: Visa
       meetings_map:
@@ -406,6 +406,7 @@ sv:
         transparent: Transparent
     metrics:
       meetings:
+        description: Antal möten skapade
         object: möten
         title: möten
     participatory_processes:
