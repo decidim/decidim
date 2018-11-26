@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Last activity", type: :system do
+describe "User activity", type: :system do
   Decidim::ActivitySearch.class_eval do
     def resource_types
       %w(
