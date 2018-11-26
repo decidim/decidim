@@ -6,10 +6,10 @@ module Decidim
   describe User do
     subject { user }
 
-    include_examples "resourceable"
-
     let(:organization) { create(:organization) }
     let(:user) { build(:user, organization: organization) }
+
+    include_examples "resourceable"
 
     it { is_expected.to be_valid }
 
