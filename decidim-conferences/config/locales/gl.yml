@@ -365,6 +365,7 @@ gl:
           cancel: Cancelar
           confirm: Confirmar
         show:
+          free: Gratis
           going: Indo
           no_slots_available: Non hai slots dispoñibles
           registration: Rexistro
