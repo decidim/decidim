@@ -365,6 +365,7 @@ ca:
           cancel: Cancel·lar
           confirm: Confirmar
         show:
+          free: Gratuït
           going: Assistiré
           no_slots_available: No hi ha places disponibles
           registration: Registre
