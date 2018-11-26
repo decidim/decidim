@@ -35,6 +35,11 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{participatory_space_title} inkesta berri bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> inkesta orain irekita dago.
+    metrics:
+      survey_answers:
+        description: Erabiltzaileek emandako inkesta kopurua
+        object: inkestak erantzunak
+        title: Inkesten erantzunak
     surveys:
       admin:
         exports:
