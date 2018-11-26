@@ -339,6 +339,7 @@ pl:
       assemblies: Zespoły
     metrics:
       assemblies:
+        description: Liczba utworzonych złożeń
         object: zespoły
         title: Złożenia
   errors:
