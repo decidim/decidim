@@ -636,10 +636,16 @@ nl:
         update:
           error: Bericht niet verzonden. Probeer het later nogmaals
     metrics:
+      followers:
+        description: Aantal gebruikers dat volgt in de organisatie
+        object: volgelingen
+        title: Volgers
       participants:
+        description: Aantal actieve gebruikers in organisatie
         object: deelnemers
         title: Deelnemers
       users:
+        description: Aantal gebruikers in organisatie
         object: gebruikers
         title: gebruikers
     newsletter_mailer:
@@ -737,6 +743,7 @@ nl:
       participatory_space:
         metrics:
           headline: Deelname aan cijfers
+          link: Toon alle statistieken
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
@@ -810,19 +817,19 @@ nl:
       results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
       term_input_placeholder: Zoeken
     searches:
-      filters_small_view:
-        close_modal: Modal sluiten
-        filter: Filter
-        filter_by: Filteren op
-        unfold: Ontvouwen
       filters:
         back: Terug naar alle resultaten
-        jump_to: "Spring naar:"
+        jump_to: 'Spring naar:'
         state:
           active: Actief
           all: Allemaal
           future: Toekomst
           past: Verleden
+      filters_small_view:
+        close_modal: Modal sluiten
+        filter: Filter
+        filter_by: Filteren op
+        unfold: Ontvouwen
       results:
         results:
           one: "%{count} resultaat"
