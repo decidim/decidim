@@ -148,3 +148,8 @@ sv:
           next_level_in: Delta i %{score} fler debatter för att nå nästa nivå!
           unearned_another: Den här användaren har inte deltagit i någon debatt än.
           unearned_own: Du har inte deltagit i några debatter än.
+    metrics:
+      debates:
+        description: Antal debatter skapade
+        object: diskussioner
+        title: debatter
