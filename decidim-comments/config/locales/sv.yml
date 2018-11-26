@@ -91,6 +91,7 @@ sv:
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Antal kommentarer som genereras av användare
         object: kommentarer
         title: kommentarer
   errors:
