@@ -32,7 +32,11 @@ module Decidim
         it "returns results with 'Great' in their content" do
           get :index, params: { term: "Great" }
 
-          expect(assigns(:results)).to match_array(results)
+          expect(assigns(:sections)).to have_key("Decidim::DummyResources::DummyResource")
+          dummy_section = assigns(:sections)["Decidim::DummyResources::DummyResource"]
+          expect(dummy_section[:count]).to eq 2
+          expect(dummy_section[:results]).to match_array(results.map(&:resource))
+          expect(assigns(:results_count)).to eq 2
         end
       end
     end
@@ -44,7 +48,7 @@ module Decidim
       before { allow(Decidim::Search).to receive(:call) }
 
       it "takes the resource_type filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(resource_type: resource_type))
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(resource_type: resource_type), a_kind_of(Hash))
 
         get :index, params: { term: "Blues", "filter[resource_type]" => resource_type }
       end
@@ -57,9 +61,22 @@ module Decidim
       before { allow(Decidim::Search).to receive(:call) }
 
       it "takes the scope filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(scope_id: scope_id))
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(scope_id: scope_id), a_kind_of(Hash))
 
         get :index, params: { term: "Blues", "filter[scope_id]" => scope_id }
+      end
+    end
+
+    context "when applying space state filter" do
+      let(:search) { instance_dobule(Decidim::Search) }
+      let(:space_state) { "SpaceState" }
+
+      before { allow(Decidim::Search).to receive(:call) }
+
+      it "takes the scope filter into account" do
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(space_state: space_state), a_kind_of(Hash))
+
+        get :index, params: { term: "Blues", "filter[space_state]" => space_state }
       end
     end
   end
