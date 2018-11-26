@@ -223,12 +223,19 @@ pt-BR:
           unearned_own: Você não criou nenhuma proposta ainda.
     metrics:
       accepted_proposals:
+        description: Número de propostas aceitas pelos usuários
         object: propostas
         title: Propostas aceitas
+      endorsements:
+        description: Número de Endossos gerados nas Propostas
+        object: endossos
+        title: Endossos
       proposals:
+        description: Número de propostas geradas
         object: propostas
         title: Propostas
       votes:
+        description: Número de votos gerados em propostas por usuários
         object: votos
         title: Votos
     participatory_processes:
@@ -408,7 +415,7 @@ pt-BR:
           title: Complete seu rascunho colaborativo
         count:
           drafts_count:
-            one: '%{count} rascunho colaborativo'
+            one: "%{count} rascunho colaborativo"
             other: "%{count} rascunho colaborativo"
         create:
           error: Houve um problema ao criar esses rascunhos colaborativos
@@ -552,7 +559,7 @@ pt-BR:
           title: Complete sua proposta
         count:
           proposals_count:
-            one: '%{count} proposta'
+            one: "%{count} proposta"
             other: "%{count} propostas"
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
