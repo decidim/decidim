@@ -774,7 +774,7 @@ it:
       scopes: Scopes
     search:
       filter:
-        all: Tutti
+        all: Tutto
         component: Componente
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
