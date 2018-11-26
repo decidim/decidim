@@ -273,7 +273,7 @@ de:
             invites: Lädt ein
             registration_form: Anmeldeformular
             registrations_count:
-              one: Es wurden %{count} Anmeldungen vorgenommen.
+              one: Es wurde %{count} registriert.
               other: Es wurden %{count} Anmeldungen vorgenommen.
             reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
             reserved_slots_less_than: Muss kleiner oder gleich %{count}

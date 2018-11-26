@@ -43,13 +43,14 @@ eu:
         one: Hitzaldi hizlaria
         other: Hitzaldi hiztunak
       decidim/conference_user_role:
-        one: Kongresuaren erabiltzailearen rolarik ez
+        one: Kongresuaren erabiltzailearen rolak
         other: Konferentzia erabiltzailearen rolak
   decidim:
     admin:
       actions:
         confirm: Berretsi
         new_conference: Konferentzia berria
+        send_diplomas: Bidali diplomak
       conference_copies:
         new:
           copy: Copy
@@ -153,6 +154,7 @@ eu:
           conference_admins: Konferentzia erabiltzaileak
           conference_invites: Gonbidapenak
           conference_speakers: Hizlariak
+          diploma: Diploma
           info: info
           media_links: Media Links
           moderations: moderazioa
@@ -250,8 +252,10 @@ eu:
       conference:
         create: "%{user_name} sortutako %{resource_name} konferentzia"
         publish: "%{user_name} argitaratu %{resource_name} konferentzia"
+        send_conference_diplomas: "%{user_name} diploma bidali %{resource_name} konferentzia erabiltzaileari"
         unpublish: "%{user_name} argitaratutako %{resource_name} konferentzia"
         update: "%{user_name} eguneratu %{resource_name} konferentzia"
+        update_diploma: "%{user_name} eguneratu diploma konfigurazio %{resource_name} konferentzia"
       conference_speaker:
         create: "%{user_name} hizlari %{resource_name} sortu zen %{space_name} hitzaldian"
         delete: "%{user_name} kendu %{resource_name} hizlari batetik %{space_name} konferentzia"
@@ -329,6 +333,10 @@ eu:
               one: Izena eman da.
               other: Dena den, %{count} matrikulazioak.
             slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        diplomas:
+          edit:
+            save: Save
+            title: Diploma
         invite_join_conference_mailer:
           invite:
             decline: Baztertu gonbidapena '%{conference_title}'
@@ -342,6 +350,16 @@ eu:
             select_conference_meetings: Aukeratu konferentzia bilerak
           index:
             title: Izen-emate motak
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Biltzarraren diploma aurkituko duzu <a href="%{url}">%{title}</a> eranskinetan.
+          diploma_user:
+            attendance_verified_by: Egiaztatua egiaztatuta
+            certificate_of_attendance: Asistentzia ziurtagiria
+            certificate_of_attendance_description: Hau dela ziurtatzeko <strong>%{user}</strong> parte hartu du eta parte hartu ere <strong>%{title}</strong> etan ospatuko <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Arazo bat izan da konferentzia diploma bidaltzean.
+          success: Kongresuko Diplomak behar bezala bidali dira
       conference:
         registration_confirm:
           cancel: Utzi
@@ -414,6 +432,9 @@ eu:
         invite_join_conference_mailer:
           invite:
             subject: Hitzaldi baterako gonbidapena
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Zure hitzaldiko diploma bidali da
       models:
         conference_invite:
           fields:

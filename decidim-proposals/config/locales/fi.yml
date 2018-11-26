@@ -190,7 +190,7 @@ fi:
       badges:
         accepted_proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
+            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
             - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
@@ -212,7 +212,7 @@ fi:
           unearned_own: Et ole vielä kannattanut ehdotuksia.
         proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
+            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
             - Luo uusi ehdotus
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia.
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
@@ -335,7 +335,7 @@ fi:
             success: "%{number} ehdotusta tuotu onnistuneesti"
           new:
             create: Tuo ehdotuksia
-            no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
+            no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
         proposals_merges:
@@ -408,8 +408,8 @@ fi:
           title: Viimeistele yhteistyöluonnoksesi
         count:
           drafts_count:
-            one: '%{count} yhteistyöhanketta'
-            other: "%{count} yhteistyöhanketta"
+            one: '%{count} yhteistyöluonnos'
+            other: "%{count} yhteistyöluonnosta"
         create:
           error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
           success: Yhteistyöluonnos luotu onnistuneesti.
@@ -463,8 +463,8 @@ fi:
           final_proposal: lopullinen ehdotus
           final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
           hidden_authors_count:
-            one: ja %{count} lisää henkilö
-            other: ja %{count} muuta ihmistä
+            one: ja %{count} muu henkilö
+            other: ja %{count} muuta henkilöä
           info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitä muodostamaan ehdotuksen alla olevan kommenttikohdan avulla tai parantaa sitä suoraan pyytämällä käyttöoikeutta sen muokkaamiseksi. Kun tekijät antavat sinulle käyttöoikeuden, voit tehdä muutoksia tähän luonnokseen.
           of_versions: "( %{number}:sta)"
           publish: Julkaise
@@ -552,7 +552,7 @@ fi:
           title: Viimeistele ehdotuksesi
         count:
           proposals_count:
-            one: '%{count} ehdotusta'
+            one: '%{count} ehdotus'
             other: "%{count} ehdotusta"
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
@@ -620,8 +620,8 @@ fi:
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
           hidden_endorsers_count:
-            one: ja %{count} muuta ihmistä
-            other: ja %{count} muuta ihmistä
+            one: ja %{count} muu henkilö
+            other: ja %{count} muuta henkilöä
           link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
           link_to_collaborative_draft_text: Katso yhteistyöluonnosta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'

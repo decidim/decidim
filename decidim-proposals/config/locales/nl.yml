@@ -620,7 +620,7 @@ nl:
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
           hidden_endorsers_count:
-            one: en nog %{count} mensen
+            one: en nog %{count} persoon
             other: en nog %{count} mensen
           link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
           link_to_collaborative_draft_text: Bekijk de samenwerkende trekking
