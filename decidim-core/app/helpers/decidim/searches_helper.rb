@@ -39,7 +39,7 @@ module Decidim
     # Generates the path to the main results page (the one without any filter
     # active), only the `term` one.
     def main_search_path
-      search_path_by()
+      search_path_by
     end
 
     # Generates the path to filter by resource type, considering the other filters.
