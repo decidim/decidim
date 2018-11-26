@@ -635,10 +635,16 @@ hu:
         update:
           error: Üzenet elküldése sikertelen. Próbáld újra később
     metrics:
+      followers:
+        description: A szervezetben megjelenő felhasználók száma
+        object: követői
+        title: Követő
       participants:
+        description: Az aktív felhasználók száma a szervezetben
         object: résztvevők
         title: résztvevők
       users:
+        description: A szervezeten belüli felhasználók száma
         object: felhasználók
         title: felhasználók
     newsletter_mailer:
@@ -736,6 +742,7 @@ hu:
       participatory_space:
         metrics:
           headline: Részvétel számokban
+          link: Az összes statisztika megjelenítése
       terms_and_conditions:
         accept:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
@@ -809,19 +816,19 @@ hu:
       results_found_for_term: '%{count} találat erre a szóra: "%{term}"'
       term_input_placeholder: Keresés
     searches:
-      filters_small_view:
-        close_modal: Modal bezárása
-        filter: Szűrés
-        filter_by: 'Szűrés ez alapján:'
-        unfold: Kibont
       filters:
         back: Vissza az összes találathoz
-        jump_to: "Ugorj:"
+        jump_to: 'Ugorj:'
         state:
           active: Aktív
           all: Minden
           future: Jövő
           past: Múlt
+      filters_small_view:
+        close_modal: Modal bezárása
+        filter: Szűrés
+        filter_by: 'Szűrés ez alapján:'
+        unfold: Kibont
       results:
         results:
           one: "%{count} eredmény"
