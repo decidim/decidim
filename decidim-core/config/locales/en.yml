@@ -640,10 +640,16 @@ en:
         update:
           error: Message not sent. Try again later
     metrics:
+      followers:
+        description: Number of user that follows in organization
+        object: followers
+        title: Followers
       participants:
+        description: Number of active user in organization
         object: participants
         title: Participants
       users:
+        description: Number of user in organization
         object: users
         title: Users
     newsletter_mailer:
@@ -741,6 +747,7 @@ en:
       participatory_space:
         metrics:
           headline: Participation in figures
+          link: Show all statistics
       terms_and_conditions:
         accept:
           error: There's been an error while accepting the terms and conditions.
@@ -814,19 +821,19 @@ en:
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
-      filters_small_view:
-        close_modal: Close modal
-        filter: Filter
-        filter_by: Filter by
-        unfold: Unfold
       filters:
         back: Back to all results
-        jump_to: "Jump to:"
+        jump_to: 'Jump to:'
         state:
           active: Active
           all: All
           future: Future
           past: Past
+      filters_small_view:
+        close_modal: Close modal
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       results:
         results:
           one: "%{count} result"

@@ -223,12 +223,19 @@ en:
           unearned_own: You have created no proposals yet.
     metrics:
       accepted_proposals:
+        description: Number of Proposals accepted by users
         object: proposals
         title: Accepted Proposals
+      endorsements:
+        description: Number of Endorsements generated in Proposals
+        object: endorsements
+        title: Endorsements
       proposals:
+        description: Number of Proposals generated
         object: proposals
         title: Proposals
       votes:
+        description: Number of Votes generated in Proposals by users
         object: votes
         title: Votes
     participatory_processes:
@@ -408,7 +415,7 @@ en:
           title: Complete your collaborative draft
         count:
           drafts_count:
-            one: '%{count} collaborative draft'
+            one: "%{count} collaborative draft"
             other: "%{count} collaborative draft"
         create:
           error: There's been a problem creating this collaborative drafts
@@ -552,7 +559,7 @@ en:
           title: Complete your proposal
         count:
           proposals_count:
-            one: '%{count} proposal'
+            one: "%{count} proposal"
             other: "%{count} proposals"
         edit:
           attachment_legend: "(Optional) Add an attachment"

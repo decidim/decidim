@@ -184,6 +184,7 @@ module Decidim
             settings.attribute :highlighted, type: :boolean, default: true
             settings.attribute :scopes, type: :array, default: %w(home participatory_process)
             settings.attribute :weight, type: :integer, default: 2
+            settings.attribute :stat_block, type: :string, default: "medium"
           end
         end
 
@@ -192,8 +193,9 @@ module Decidim
 
           metric_registry.settings do |settings|
             settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :scopes, type: :array, default: %w(home participatory_process)
             settings.attribute :weight, type: :integer, default: 3
+            settings.attribute :stat_block, type: :string, default: "small"
           end
         end
 
@@ -204,6 +206,7 @@ module Decidim
             settings.attribute :highlighted, type: :boolean, default: true
             settings.attribute :scopes, type: :array, default: %w(home participatory_process)
             settings.attribute :weight, type: :integer, default: 3
+            settings.attribute :stat_block, type: :string, default: "medium"
           end
         end
 
@@ -214,6 +217,7 @@ module Decidim
             settings.attribute :highlighted, type: :boolean, default: false
             settings.attribute :scopes, type: :array, default: %w(participatory_process)
             settings.attribute :weight, type: :integer, default: 4
+            settings.attribute :stat_block, type: :string, default: "medium"
           end
         end
 
