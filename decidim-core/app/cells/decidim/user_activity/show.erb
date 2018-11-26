@@ -1,12 +1,5 @@
 <div class="user-activity">
-  <div class="row">
-    <div class="columns mediumlarge-8">
-      <h1 class="section-heading"><%= t("decidim.user_activity.index.title") %></h1>
-    </div>
-    <div class="columns mediumlarge-4">
-      <%= render partial: "decidim/shared/results_per_page", formats: [:html] %>
-    </div>
-  </div>
+  <h1 class="section-heading"><%= t("decidim.user_activity.index.title") %></h1>
 
   <div id="activities" class="columns small-12">
     <% if activities.length == 0 %>
