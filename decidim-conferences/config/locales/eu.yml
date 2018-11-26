@@ -365,6 +365,7 @@ eu:
           cancel: Utzi
           confirm: Berretsi
         show:
+          free: Free
           going: joatean
           no_slots_available: Ez dago slotarik erabilgarri
           registration: Izen-ematea
