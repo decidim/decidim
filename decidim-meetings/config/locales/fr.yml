@@ -273,7 +273,7 @@ fr:
             invites: Invitations
             registration_form: Formulaire d'inscription
             registrations_count:
-              one: Il y a eu %{count} inscriptions.
+              one: Il y a eu %{count} inscription.
               other: Il y a eu %{count} inscriptions.
             reserved_slots_help: Laissez à 0 si vous n'avez pas de places réservées
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}

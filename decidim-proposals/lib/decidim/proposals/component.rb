@@ -61,6 +61,7 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
     resource.actions = %w(endorse vote)
+    resource.searchable = true
   end
 
   component.register_resource(:collaborative_draft) do |resource|
@@ -257,6 +258,9 @@ Decidim.register_component(:proposals) do |component|
           state: "evaluating"
         )
       end
+
+      proposal.add_to_index_as_search_resource
+      emendation.add_to_index_as_search_resource
 
       (n % 3).times do |m|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"

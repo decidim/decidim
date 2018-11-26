@@ -620,7 +620,7 @@ it:
           edit_proposal: Modifica la proposta
           endorsements_list: Elenco di approvazioni
           hidden_endorsers_count:
-            one: e altre %{count} persone
+            one: e %{count} altra persona
             other: e altre %{count} persone
           link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
           link_to_collaborative_draft_text: Vedi la bozza collaborativa

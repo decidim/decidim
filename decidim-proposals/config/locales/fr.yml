@@ -620,7 +620,7 @@ fr:
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
           hidden_endorsers_count:
-            one: et %{count} autres personnes
+            one: et %{count} personne de plus
             other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif

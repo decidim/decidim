@@ -11,8 +11,6 @@ module Decidim
       let!(:amendment) { create :amendment, amendable: amendable, emendation: emendation }
       let(:command) { described_class.new(form) }
 
-      let(:form) { Decidim::Amendable::ReviewForm.from_params(form_params) }
-
       let(:emendation_fields) do
         {
           title: emendation.title,
@@ -23,11 +21,11 @@ module Decidim
       let(:form_params) do
         {
           id: amendment.id,
-          amendable_gid: amendable.to_sgid.to_s,
-          emendation_gid: emendation.to_sgid.to_s,
           emendation_fields: emendation_fields
         }
       end
+
+      let(:form) { Decidim::Amendable::ReviewForm.from_params(form_params) }
 
       include_examples "accept amendment"
     end

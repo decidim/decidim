@@ -1,0 +1,61 @@
+.conference-diploma{
+  text-align: center;
+}
+
+.conference-diploma .diploma__border{
+  margin: 4rem;
+
+  /* Border pattern */
+  -moz-border-image: image-url("decidim/pattern.png") 20 repeat;
+  -webkit-border-image: image-url("decidim/pattern.png") 20 repeat;
+  -o-border-image: image-url("decidim/pattern.png") 20 repeat;
+  border-image: image-url("decidim/pattern.png") 20 repeat;
+  border-style: solid;
+  border-width: 1rem;
+}
+
+.conference-diploma .diploma__border .diploma__content{
+  padding: 3rem;
+}
+
+.conference-diploma .diploma__attendance{
+  text-align: center;
+  font-size: rem-calc(14);
+}
+
+.conference-diploma .diploma__attendance > *{
+  display: block;
+}
+
+.conference-diploma .diploma__name{
+  margin-top: 4rem;
+  font-size: rem-calc(18);
+}
+
+.conference-diploma .diploma__name p{
+  margin-top: 1rem;
+}
+
+.conference-diploma .diploma__logo{
+  border: 1px solid #333;
+  padding: 2rem;
+}
+
+@media print{
+  @page{
+    size: A4 landscape;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .conference-diploma .diploma__border{
+    margin: 0;
+    -moz-border-image: image-url("decidim/pattern.png") 20 repeat;
+    -webkit-border-image: image-url("decidim/pattern.png") 20 repeat;
+    -o-border-image: image-url("decidim/pattern.png") 20 repeat;
+    border-image: image-url("decidim/pattern.png") 20 repeat;
+    border-style: solid;
+    border-width: 1rem;
+  }
+}

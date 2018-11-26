@@ -48,8 +48,10 @@ end
 
 **Added**:
 
+- **decidim-core**: Add polymorphic Amendment feature that can be activated in the proposal component. [\#3985](https://github.com/decidim/decidim/pull/3985/)
 - **decidim-proposals**: Specific public view rendering of participatory texts. [\#4316](https://github.com/decidim/decidim/pull/4316)
 - **decidim-proposals**: Admin can create proposals from the admin panel, with a meeting as an author.[\#4382](https://github.com/decidim/decidim/pull/4382)
+- **decidim-conferences**: Add diplomas functionallity in an automated way for those users that has their registration confirmed. [\#4443](https://github.com/decidim/decidim/pull/4443)
 - **decidim-proposals**: Add support to import .odt participatory text files. [\#4386](https://github.com/decidim/decidim/pull/4386)
 - **decidim-conferences**: Add conference registration types. [\#4408](https://github.com/decidim/decidim/pull/4408)
 - **decidim-core**: Added `users_registration_mode` to allow disable users registration or login [\#4428](https://github.com/decidim/decidim/pull/4428)
@@ -64,6 +66,7 @@ end
 - **decidim-accountability**: Notify followers of the proposals linked in a result that the result progress has been updated [\#4466](https://github.com/decidim/decidim/pull/4466)
 - **decidim-admin**: Adds the ability to specify contextual help to participatory spaces [\#4470](https://github.com/decidim/decidim/pull/4470)
 - **decidim-core**: Show minicard with a little bit of profile data when hovering on user and user group names [\#4472](https://github.com/decidim/decidim/pull/4472)
+- **decidim-core**: Added more metric calculations. It involves several adding in related modules: proposals, participatory_processes, debates, etc... [\#4372](https://github.com/decidim/decidim/pull/4372)
 - **decidim-core**: Let users find search results by writing prefixes of a word instead of whole words [\#4492](https://github.com/decidim/decidim/pull/4492)
 - **decidim-core**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
 - **decidim-meetings**: Add Etherpad integration [\#4493](https://github.com/decidim/decidim/pull/4493)
@@ -71,6 +74,7 @@ end
 
 **Changed**:
 
+- **decidim-core**: Show hashtags with original case [\#4554](https://github.com/decidim/decidim/pull/4554)
 - **decidim-conferences**: Remove right sidebar completely from the frontend [\#4480](https://github.com/decidim/decidim/pull/4480)
 - **decidim-core**: Allow to configure OmniAuth provider icons [\#4440](https://github.com/decidim/decidim/pull/4440)
 - **decidim-surveys**: Extract surveys logic to decidim-forms [\#3877](https://github.com/decidim/decidim/pull/3877)
@@ -78,13 +82,16 @@ end
 - **decidim-core**: Improve user groups form [\#4458](https://github.com/decidim/decidim/pull/4458)
 - **decidim-surveys**: Extract surveys logic to decidim-forms [\#3877](https://github.com/decidim/decidim/pull/3877)
 - **decidim-core**: Move Omniauth login buttons to before the signup/sign in forms to improve usability [\#4457](https://github.com/decidim/decidim/pull/4457)
+- **decidim-core**: Improved metrics core classes to handle ParticipatoryProcess' statistics show up [\#4372](https://github.com/decidim/decidim/pull/4372)
 - **decidim-accountability**: Show one highlighted resources block per component in process page [\#4456](https://github.com/decidim/decidim/pull/4456)
 - **decidim-meetings**: Show one highlighted resources block per component in process page [\#4456](https://github.com/decidim/decidim/pull/4456)
 - **decidim-proposals**: Show one highlighted resources block per component in process page [\#4456](https://github.com/decidim/decidim/pull/4456)
 - **decidim-admin**: Rename "Officializations" section to "Participants" [\#4510](https://github.com/decidim/decidim/pull/4510)
+- **decidim-core**: Improve search results layout. Now results appear grouped by type [\#4537](https://github.com/decidim/decidim/pull/4537)
 
 **Fixed**:
 
+- **decidim-conferences**: Make price optional, and remove weird margin top on program view [\#4564](https://github.com/decidim/decidim/pull/4564)
 - **decidim-meetings**: Fix title and description fields in admin form. [\#4535](https://github.com/decidim/decidim/pull/4535)
 - **decidim-meetings**: Change title to description in meetings admin form [\#4483](https://github.com/decidim/decidim/pull/4483)
 - **decidim-meetings**: Use the correct cell to render a meeting organizer [\#4501](https://github.com/decidim/decidim/pull/4501)

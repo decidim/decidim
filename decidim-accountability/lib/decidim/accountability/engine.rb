@@ -52,12 +52,15 @@ module Decidim
       end
 
       initializer "decidim_accountability.register_metrics" do
-        Decidim.metrics_registry.register(
-          :results,
-          "Decidim::Accountability::Metrics::ResultsMetricManage",
-          Decidim::MetricRegistry::NOT_HIGHLIGHTED,
-          4
-        )
+        Decidim.metrics_registry.register(:results) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Accountability::Metrics::ResultsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 4
+          end
+        end
       end
     end
   end

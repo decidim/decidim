@@ -115,15 +115,13 @@ describe "Amend Proposal", type: :system do
 
     context "when the user is the author of the amendable proposal" do
       let(:user) { proposal.creator_author }
-      let!(:emendation) { create(:proposal, component: component) }
-      let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
 
       before do
         visit_component
         login_as user, scope: :user
       end
 
-      context "and visits an emendation to his/her proposal" do
+      context "and visits an emendation to their proposal" do
         before do
           click_link emendation.title
         end

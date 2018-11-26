@@ -9,15 +9,26 @@ module Decidim
       attribute :amendable_gid, String
       attribute :user_group_id, Integer
       attribute :emendation_fields, Object
+      attribute :title, String
+      attribute :body, String
 
-      validates :amendable_gid, :amendable_type, :amender, presence: true
+      validates :amendable_gid, presence: true
+      validates :title, :body, presence: true, etiquette: true
+      validates :title, length: { maximum: 150 }
+
+      def title
+        @title ||= emendation_fields[:title]
+      end
+
+      def body
+        @body ||= emendation_fields[:body]
+      end
 
       def amendable
         @amendable ||= GlobalID::Locator.locate_signed amendable_gid
       end
 
       def amendable_type
-        return unless amendable
         amendable.resource_manifest.model_class_name
       end
 
@@ -32,6 +43,10 @@ module Decidim
       def user_group
         return unless user_group_id
         @user_group ||= Decidim::UserGroup.find_by(id: user_group_id, organization: current_organization)
+      end
+
+      def emendation_fields
+        @emendation_fields ||= amendable.form.from_model(amendable)
       end
     end
   end

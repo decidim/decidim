@@ -29,7 +29,9 @@ module Decidim
             subtitle: :i18n,
             title: :i18n,
             start_date: :date,
-            end_date: :date
+            end_date: :date,
+            sign_date: :date,
+            signature_name: :string
           }
         end
 
@@ -39,7 +41,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "publish", "unpublish", "update"
+          when "create", "publish", "unpublish", "update", "update_diploma"
             "decidim.admin_log.conference.#{action}"
           else
             super

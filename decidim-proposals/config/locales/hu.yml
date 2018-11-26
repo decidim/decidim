@@ -620,7 +620,7 @@ hu:
           edit_proposal: Javaslat szerkesztése
           endorsements_list: Jóváhagyások listája
           hidden_endorsers_count:
-            one: és még %{count} ember
+            one: és még %{count} személy
             other: és még %{count} ember
           link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
           link_to_collaborative_draft_text: Közös vázlat megtekintése

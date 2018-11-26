@@ -43,13 +43,14 @@ sv:
         one: Konferenshögtalare
         other: Konferenshögtalare
       decidim/conference_user_role:
-        one: Inga konferens användarroller
+        one: En konferens användarroll
         other: Konference användarroller
   decidim:
     admin:
       actions:
         confirm: Bekräfta
         new_conference: Ny konferens
+        send_diplomas: Skicka diplom
       conference_copies:
         new:
           copy: Kopiera
@@ -153,6 +154,7 @@ sv:
           conference_admins: Konferensanvändare
           conference_invites: Inbjudningskort
           conference_speakers: högtalare
+          diploma: Diplom
           info: Info
           media_links: Media Länkar
           moderations: modere
@@ -250,8 +252,10 @@ sv:
       conference:
         create: "%{user_name} skapade %{resource_name} konferens"
         publish: "%{user_name} publicerade %{resource_name} konferens"
+        send_conference_diplomas: "%{user_name} skicka examensbevis till de %{resource_name} konferensanvändarna"
         unpublish: "%{user_name} opublicerade %{resource_name} konferens"
         update: "%{user_name} uppdaterade %{resource_name} konferens"
+        update_diploma: "%{user_name} uppdaterade diplomkonfiguration %{resource_name} konferens"
       conference_speaker:
         create: "%{user_name} skapade %{resource_name} högtalare på %{space_name} konferensen"
         delete: "%{user_name} bort %{resource_name} högtalaren från %{space_name} konferens"
@@ -329,6 +333,10 @@ sv:
               one: Det har gjorts 1 registrering.
               other: Det har gjorts %{count} registreringar.
             slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på denna konferens. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+        diplomas:
+          edit:
+            save: Spara
+            title: Diplom
         invite_join_conference_mailer:
           invite:
             decline: Avvisa inbjudan '%{conference_title}'
@@ -342,6 +350,16 @@ sv:
             select_conference_meetings: Välj konferensmöten
           index:
             title: Registreringstyper
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Du kommer att hitta diplom för konferensen <a href="%{url}">%{title}</a> i bilagorna.
+          diploma_user:
+            attendance_verified_by: Närvaro verifierad av
+            certificate_of_attendance: Närvarointyg
+            certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och deltagit i <strong>%{title}</strong> hölls på <strong>%{location}</strong> på <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Det har varit ett problem när du skickade konferensdiplom.
+          success: Konferens Diplom skickas korrekt
       conference:
         registration_confirm:
           cancel: Annullera
@@ -414,6 +432,9 @@ sv:
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Din konferens diplom har skickats
       models:
         conference_invite:
           fields:
